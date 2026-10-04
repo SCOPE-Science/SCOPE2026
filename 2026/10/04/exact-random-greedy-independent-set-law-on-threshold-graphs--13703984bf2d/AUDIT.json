@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The last creation vertex gives an exact dichotomy. If isolated, it is always accepted and appends to the greedy output without changing earlier decisions. If dominating, it is universal: with probability \\(1/k\\) it is first and yields the singleton output, while otherwise the first earlier accepted vertex blocks it and the restricted earlier order is uniform, yielding \\(P_k(x)=x/k+(k-1)P_{k-1}(x)/k\\). Iterating this recursion gives the stated product probabilities, and the support sets are exactly the recursively propagated maximal independent sets. Since every dominating-created vertex has vertex \\(1\\) as a neighbor, no output with a dominating vertex exceeds the all-zero independent set; the maximum-success product follows by telescoping before the second zero and multiplying preservation factors afterward. Exact brute force over all 127 creation sequences through order seven matched every output probability and corollary across 347741 permutation checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General random-greedy MIS work covers broad graph sequences and several named families, but the inspected source does not specialize to threshold graphs.",
+        "General maximal-independent-set enumeration for split and threshold graphs determines possible supports but does not determine the random greedy measure on those supports."
+      ],
+      "reasoning": "Broader algorithmic or asymptotic results do not imply the exact finite output probabilities without using the threshold isolated/dominating recursion.",
+      "searches": [
+        "probability every maximal independent set threshold graph greedy ordering",
+        "threshold graph random greedy maximal independent set exact output probabilities",
+        "random sequential adsorption threshold graphs exact maximal independent set law"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0908.2448",
+      "arXiv:1710.08953",
+      "DOI:10.1002/rsa.21200"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1710.08953 states that all maximal independent sets of threshold graphs can be counted and enumerated; this implies the support classification but supplies no probabilities for random greedy selection.",
+        "arXiv:0908.2448 supplies the isolated/dominating sequential characterization but does not analyze random greedy maximal independent sets.",
+        "DOI:10.1002/rsa.21200 supplies the random greedy process and broad asymptotic theory but no threshold-graph specialization was located."
+      ],
+      "reasoning": "Combining the prior support enumeration with the general definition of random greedy does not by itself state the exact product weights, PGF recursion, or maximum-success product; those follow from the new explicit universal/isolated last-step analysis.",
+      "searches": [
+        "threshold graphs maximal independent sets creation sequence",
+        "threshold graph maximal independent set exact enumeration",
+        "threshold graphs random greedy independent set"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1710.08953 enumerates maximal independent sets of threshold graphs but full-text searches found no occurrences of 'random' or 'greedy'.",
+        "DOI:10.1002/rsa.21200 defines the random-order greedy MIS process and its inspected full text contains no occurrence of 'threshold' or 'cograph'."
+      ],
+      "reasoning": "The natural equivalent formulations are random greedy MIS, random sequential adsorption, and creation-sequence output probabilities. No inspected source stated the product-form law or recurrence under those formulations.",
+      "searches": [
+        "threshold graph random greedy MIS probability generating function recursion isolated dominating vertex",
+        "creation sequence threshold graph random permutation greedy independent set distribution",
+        "threshold graph random sequential adsorption maximal independent set exact law",
+        "threshold graph random greedy independent set probability generating function isolated dominating recursion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest mathematical-results database hit was 'Sharp variance of random greedy maximal independent sets on complete multipartite graphs' (2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f), which concerns a different graph class and a different statement.",
+        "No returned database entry stated a threshold-graph creation-sequence probability law, PGF recurrence, or exact greedy optimality probability."
+      ],
+      "reasoning": "The database search found a nearby stochastic invariant on complete multipartite graphs but no table or theorem covering the accepted threshold-graph formulas. Negative search evidence is not treated as proof of novelty.",
+      "searches": [
+        "threshold graph creation sequence random greedy maximal independent set exact output probabilities",
+        "threshold graph RGMIS probability maximal independent sets product formula",
+        "random sequential adsorption threshold graphs exact maximal independent set law"
+      ]
+    },
+    "rationale": "The closest prior threshold-graph paper found explicitly enumerates maximal independent sets but contains no random/greedy analysis; the closest random-greedy MIS literature inspected gives the general process and studies other graph families but not threshold graphs. The mathematical-results database likewise returned a complete-multipartite random-greedy law as the nearest stochastic analogue, not a threshold-graph theorem. The accepted claim is therefore limited to the exact random-greedy weighting, probability-generating recurrence, and maximum-success probability, not the already-known support enumeration.",
+    "residual_risks": [
+      "An exact threshold-graph random-greedy formula may exist in differently indexed random sequential adsorption, parking-process, or algorithm-analysis literature not reached by the targeted searches.",
+      "The 2017 enumeration result means the support family itself is not claimed as original; originality rests only on the exact stochastic weights, recurrence, and optimality probability.",
+      "A general recursive formula for random greedy MIS on a larger recursively defined graph class could specialize to this theorem even if threshold graphs are not named explicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRUCTURAL_INPUT_NOT_COVERING_RANDOM_GREEDY_LAW.",
+        "evidence": "The paper explicitly gives sequential isolated/dominating construction and studies random threshold graphs, but no random greedy maximal-independent-set law was located.",
+        "identifier_or_url": "arXiv:0908.2448",
+        "material_read": "Public full-text HTML introduction and threshold-graph generation sections, including the isolated/dominating sequential characterization and binary-code discussion.",
+        "method": "Public full-text inspection and targeted in-document search.",
+        "title": "Threshold graph limits and random threshold graphs",
+        "trigger": "Archive-cohort structural source for the threshold creation-sequence representation."
+      },
+      {
+        "assessment": "COVERS_SUPPORT_ENUMERATION_BUT_NOT_STOCHASTIC_WEIGHTS.",
+        "evidence": "The paper enumerates all maximal independent sets of threshold graphs, so that support classification is prior work. Its full text had no match for 'random' or 'greedy', and no random-order output probabilities were located.",
+        "identifier_or_url": "arXiv:1710.08953",
+        "material_read": "Public HTML abstract and the sections on counting/enumerating maximal independent sets in split and threshold graphs; targeted searches for 'random' and 'greedy'.",
+        "method": "Public full-text inspection and in-document search.",
+        "title": "Counting and Enumerating Independent Sets with Applications to Knapsack Problems",
+        "trigger": "Most relevant prior work on maximal independent sets of threshold graphs."
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_THRESHOLD_SPECIALIZATION.",
+        "evidence": "The source defines the same random-order greedy MIS process and studies paths, random graphs, trees, and sparse planar graphs. No threshold or cograph occurrence was found in the inspected full text.",
+        "identifier_or_url": "DOI:10.1002/rsa.21200",
+        "material_read": "Public full-text abstract and introduction defining the process and listing studied graph families; targeted searches for 'threshold' and 'cograph'.",
+        "method": "Public full-text inspection and in-document search.",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Closest broad primary literature for the random-order greedy MIS process."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "13703984-bf2d-4163-8e5a-f73b76386bb2",
+  "value": {
+    "rationale": "The claim converts a canonical structural representation of threshold graphs into the full finite law of a widely studied randomized greedy algorithm, not merely one expectation or an enumeration. It exposes the exact sampling bias among maximal independent sets, yields expectation and variance in one pass, and gives a closed probability that greedy is actually maximum. These are reusable benchmark formulas for randomized MIS analysis and for validating samplers on a graph class where every maximal independent set is already structurally understood.",
+    "status": "PASS"
+  }
+}

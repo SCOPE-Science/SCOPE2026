@@ -1,0 +1,10 @@
+# Correctness
+The proof is an exact last-vertex recursion on the threshold creation sequence. An isolated last vertex is always accepted and is independent of all previous decisions, giving \(P_k(x)=xP_{k-1}(x)\). A dominating last vertex is universal: it is first with probability \(1/k\), yielding its singleton, and otherwise the first earlier accepted vertex blocks it while the restricted earlier order remains uniform, giving \(P_k(x)=x/k+(k-1)P_{k-1}(x)/k\). Iterating those two transitions gives the product probabilities on every maximal independent set. The maximum-set probability is then a telescoping consequence of which supports have size \(|Z|\). Exhaustive exact-rational permutation checks matched the theorem for every threshold creation sequence through order seven.
+
+# Originality
+The closest support-level prior work, arXiv:1710.08953, explicitly counts and enumerates maximal independent sets of threshold graphs. That support classification is therefore treated as prior, not as a new contribution. Its inspected full text had no occurrence of “random” or “greedy”. The broad random-greedy MIS source DOI:10.1002/rsa.21200 defines the same random-order process and studies several graph families, but targeted full-text searches found neither “threshold” nor “cograph”. Targeted mathematical-results database queries likewise returned a complete-multipartite random-greedy theorem as the closest stochastic analogue, not the threshold-graph product law. Residual risk remains from differently indexed random-sequential-adsorption or recursive-graph literature.
+
+# Value
+The result gives the entire probability measure induced by random greedy on the already-understood maximal independent sets of a canonical graph class. This is stronger than an expectation formula: it yields the probability of every output, a one-pass PGF recurrence, exact moments, and a closed success probability for reaching a maximum independent set. Those formulas provide natural finite benchmarks for randomized MIS implementations and make the bias of the greedy sampler explicit.
+
+Same-model review: passed. Independent audit: not yet performed.
