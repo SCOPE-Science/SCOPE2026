@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the vertex process to an exact scalar recurrence on incomplete nondeficient parts: before a part i activates it sees k-s_i+U active neighbors, so activation is equivalent to U>=s_i, and activation contributes u_i new vertices. Sorting by s_i yields a necessary and sufficient greedy criterion. Exhaustive replay through order 8 agrees with the literal process for every minimum-size subset and with the profile-count formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dvořák–Knop–Toufar (2022) studies target set selection on dense graph classes by structural parameters, not the exact minimum-set family for uniform thresholds on complete multipartite graphs.",
+        "Adams et al. explicitly focus on exact values of the minimum number, with the complete-multipartite theorem stated only as a scalar formula."
+      ],
+      "reasoning": "No checked broader algorithmic result implies the explicit weighted parking inequalities or the binomial count of all optimal seed sets.",
+      "searches": [
+        "published-finding corpus: target set selection complete multipartite all minimum target sets",
+        "web: Target Set Selection in Dense Graph Classes complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.dam.2008.09.012",
+      "arXiv:1102.5361",
+      "doi:10.1137/20M1337624"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adams et al. Theorem 1 states only min_k(G)=max{|X|,k} for n>k and proves existence by choosing a particular union of partite sets plus at most one partial part.",
+        "The example K_{1,100,100} with k=50 has size-50 subsets that fail, so the scalar optimum does not imply that every size-50 profile is optimal."
+      ],
+      "reasoning": "The new theorem strictly refines prior scalar optimization: it decides which optimum-cardinality subsets actually convert and counts them exactly. The prior construction is one sufficient profile and is subsumed as a special case.",
+      "searches": [
+        "Adams et al. arXiv:1102.5361 full theorem section",
+        "Dreyer Roberts complete multipartite irreversible k-threshold minimum conversion number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adams et al., arXiv:1102.5361, Theorem 1 gives the minimum cardinality and one construction; the checked section does not classify all minimum sets.",
+        "Dreyer–Roberts DOI 10.1016/j.dam.2008.09.012 is the foundational irreversible k-threshold source and is cited by Adams et al. for complete-multipartite minimum values."
+      ],
+      "reasoning": "The aliases k-conversion set, irreversible conversion set, target set, perfect target set, contagious set, and dynamic monopoly were searched. The surviving claim is the all-minimum-set profile criterion and count, not the already-known minimum cardinality.",
+      "searches": [
+        "published-finding corpus: complete multipartite minimum k-conversion sets classify all minimum sets enumeration",
+        "published-finding corpus: irreversible k-threshold complete multipartite minimum seed sets count",
+        "web: target set selection complete multipartite all minimum target sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-finding corpus record was returned for the irreversible-threshold all-minimum-set classification; closest complete-multipartite hits concerned different graph parameters."
+      ],
+      "reasoning": "No exact database or enumerative table located in the checked sources contains these minimum seed profiles or their counts.",
+      "searches": [
+        "published-finding corpus: weighted parking function threshold diffusion complete multipartite",
+        "published-finding corpus: complete multipartite minimum k-conversion sets classify all minimum sets enumeration"
+      ]
+    },
+    "rationale": "The closest exact primary source proves the minimum cardinality for complete multipartite graphs and constructs one optimum, but the checked theorem section does not classify all minimum sets or enumerate them. Searches across k-conversion, irreversible conversion, target set, contagious set, and parking-profile terminology found no dominating statement.",
+    "residual_risks": [
+      "Older work may use alternative terms such as perfect target set, irreversible conversion set, contagious set, or dynamic monopoly and be weakly indexed.",
+      "The Dreyer–Roberts full publisher text was not directly available in this run; its complete-multipartite scope was verified through the later primary full text that explicitly cites it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the minimum cardinality and one construction; NOT_COVERING for the all-minimum-set weighted profile criterion and exact count.",
+        "evidence": "Theorem 1 states min_k(G)=max{|X|,k} for n>k; its proof chooses a particular seed set formed from whole parts plus at most one proper subset.",
+        "identifier_or_url": "arXiv:1102.5361",
+        "material_read": "Abstract, introduction, complete-multipartite Section 2 including Theorem 1 and proof, and references.",
+        "method": "Full text and PDF page inspection.",
+        "title": "Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products",
+        "trigger": "Same graph family and same uniform threshold process."
+      },
+      {
+        "assessment": "Foundational and prior scalar-optimization coverage; no checked evidence of all-optimum enumeration.",
+        "evidence": "Public record dated 2009-04-06; Adams et al. explicitly credit Dreyer and Roberts with exact complete-multipartite min_k values.",
+        "identifier_or_url": "doi:10.1016/j.dam.2008.09.012",
+        "material_read": "Bibliographic record, abstract, and the exact prior-coverage description quoted in Adams et al.",
+        "method": "Publisher/University bibliographic record plus cross-reference from inspected full text.",
+        "title": "Irreversible k-threshold processes: Graph-theoretical threshold models of the spread of disease and of opinion",
+        "trigger": "Foundational source cited for complete-multipartite minimum values."
+      },
+      {
+        "assessment": "Broader algorithmic context, not an implication of the present exact all-minimum-set theorem.",
+        "evidence": "The paper studies parameterized complexity by neighborhood diversity and twin cover; it does not state this complete-multipartite uniform-threshold classification.",
+        "identifier_or_url": "doi:10.1137/20M1337624",
+        "material_read": "Abstract and reference context.",
+        "method": "Open web full-text metadata/abstract.",
+        "title": "Target Set Selection in Dense Graph Classes",
+        "trigger": "Broader modern treatment of target set selection on dense graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e04cb20d-171d-4ee1-81d6-2f5057718c83",
+  "value": {
+    "rationale": "The exact optimum size was already known, but optimal interventions are not interchangeable: some optimum-cardinality seed distributions stall. The weighted parking criterion gives a complete structural description, a fast membership test after sorting part seed counts, and an exact count of all optimum seed sets. This is a natural refinement relevant to robustness and choice among minimum interventions, rather than a routine recomputation of the scalar optimum.",
+    "status": "PASS"
+  }
+}
