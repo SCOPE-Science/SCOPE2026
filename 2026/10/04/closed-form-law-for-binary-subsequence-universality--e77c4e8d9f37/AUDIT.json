@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For the fixed alphabet \\(\\{0,1\\}\\), each greedy arch is uniquely \\(a^r\\bar a\\) with \\(r\\ge1\\), while the rest is empty or unary. Unique factorization therefore gives \\(F(z,u)=(1+z)/(1-z-2uz^2)\\). Coefficient extraction proves the exact distribution; cutting after the \\(k\\)-th arch proves the cumulative count; differentiation proves the moments. The bundled verifier independently checks the defining subsequence property through length \\(10\\), complete histograms and moments through length \\(18\\), and the coefficient recurrence through length \\(80\\). Finite checks are corroboration, not the proof of the infinite statement.",
+    "risks": [
+      "Finite exhaustive checks stop at bounded lengths; the all-length claim therefore depends on the analytic unique-factorization argument and coefficient extraction, which were checked separately."
+    ],
+    "sources": [
+      "RESULT.md proof from binary arch factorization",
+      "verify.py independent direct-subsequence and arch-count implementations"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The regular-language paper counts k-universal accepted words by algorithms for general automata.",
+        "The binary Simon-congruence paper characterizes and counts congruence classes."
+      ],
+      "reasoning": "These results are broader in input model or related equivalence structure, but they do not state the fixed-length binary rational generating function, the exact universality-index distribution, or its moment identities. Their algorithmic computability does not make the displayed symbolic theorem a stated corollary without the new binary arch enumeration.",
+      "searches": [
+        "arXiv:2311.10658v1",
+        "k-Universality of Regular Languages counting universal words automata",
+        "arXiv:2306.14192v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.04629v1",
+      "arXiv:2304.04583v1",
+      "arXiv:2304.11932v1",
+      "arXiv:2306.14192v1",
+      "arXiv:2311.10658v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adamson 2023 states efficient counting and an open direction asking for a general counting formula.",
+        "The regular-language algorithms determine instances computationally but do not state the symbolic law.",
+        "The binary Simon-congruence result counts equivalence classes rather than fixed-length universal words."
+      ],
+      "reasoning": "Prior algorithms imply that each requested finite count is computable. They do not imply, as a stated theorem, the rational bivariate generating function, closed coefficient law, or exact moment identities. The present proof supplies those additional structural statements.",
+      "searches": [
+        "arXiv:2304.04583v1 Section 3 and Conclusion",
+        "arXiv:2311.10658v1 counting section",
+        "arXiv:2306.14192v1 binary case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adamson 2023 gives an \\(O(nk\\sigma)\\) counting algorithm but not the proposed binary coefficient formula.",
+        "Schnoebelen-Veron 2023 gives arch-factorization algorithms but no fixed-length binary enumeration in the inspected full text."
+      ],
+      "reasoning": "Subsequence universal, subword universal, scattered-factor universal, universality index, and arch-factorization terminology were all checked. The symbolic statement was compared rather than relying on title similarity.",
+      "searches": [
+        "subsequence universal words binary counting formula arch factorization",
+        "number of k-subsequence universal binary words fixed length",
+        "universality index binary words generating function",
+        "binary k-subsequence universal words closed formula generating function 1+z 1-z-2uz2",
+        "binary universality index exact distribution arches generating function",
+        "count binary words universality index binomial subsequence",
+        "arXiv:2304.04583v1",
+        "arXiv:2304.11932v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-value table or published-results record returned by the targeted searches matched the proposed distribution or cumulative formula."
+      ],
+      "reasoning": "The claim is an all-length formula rather than a finite table. Exact-expression searches were used only as a comparison aid; lack of a hit is not treated as proof of novelty.",
+      "searches": [
+        "binary k-subsequence universal words closed formula generating function 1+z 1-z-2uz2",
+        "count binary words universality index binomial subsequence",
+        "number of k-subsequence universal binary words fixed length"
+      ]
+    },
+    "rationale": "The closest direct literature gives dynamic-programming or automata counting algorithms and explicitly asks for a general counting formula; the inspected binary Simon-congruence work counts congruence classes rather than fixed-length words. Targeted searches under the principal aliases did not locate the displayed binary formulas. This supports originality of the closed binary distribution while leaving an explicit residual risk for unindexed or differently phrased prior work.",
+    "residual_risks": [
+      "A closed binary formula may exist in an unindexed source or under older terminology such as richness or subword universality.",
+      "The inspected algorithmic literature can generate finite instances, so the novelty is the explicit all-length symbolic law and its consequences, not computability of individual counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_FRAMEWORK_NOT_CLOSED_COUNT",
+        "evidence": "Defines universality and the arch factorization and identifies arch count with universality index; no fixed-length binary distribution formula was found in the inspected text.",
+        "identifier_or_url": "arXiv:2003.04629v1; https://arxiv.org/abs/2003.04629",
+        "material_read": "Full text, especially the universality and arch-factorization sections.",
+        "method": "Lawful open arXiv full text; definitions and arch-count characterization compared directly with the proposed claim.",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational definition of scattered-factor universality and arch factorization."
+      },
+      {
+        "assessment": "ALGORITHMIC_COUNTING_BUT_NOT_CLOSED_BINARY_FORMULA",
+        "evidence": "Gives an \\(O(nk\\sigma)\\) counting algorithm for \\(\\mathcal U(n,k,\\sigma)\\) and explicitly asks in the conclusion whether there is a general formula for counting length-n k-subsequence-universal words.",
+        "identifier_or_url": "arXiv:2304.04583v1; https://arxiv.org/abs/2304.04583",
+        "material_read": "Full text, including the counting section, Theorem 2, and conclusion.",
+        "method": "Lawful open arXiv full text; counting statement, complexity, and conclusion compared against the proposed formulas.",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Closest direct prior work on counting length-n k-subsequence-universal words."
+      },
+      {
+        "assessment": "ALGORITHMIC_ARCH_RESULTS_NOT_FIXED_LENGTH_ENUMERATION",
+        "evidence": "Develops arch-jumping, circular universality, and compressed-word algorithms; no inspected statement gives the proposed fixed-length binary count or distribution.",
+        "identifier_or_url": "arXiv:2304.11932v1; https://arxiv.org/abs/2304.11932",
+        "material_read": "Full text, including arch definitions, universality-index results, and algorithmic sections.",
+        "method": "Lawful open arXiv full text; searched and read for fixed-length enumeration, binary specialization, counting, and generating functions.",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "Same core arch-factorization object and universality index."
+      },
+      {
+        "assessment": "COUNTS_SIMON_CONGRUENCE_CLASSES_NOT_WORDS_BY_UNIVERSALITY_INDEX",
+        "evidence": "Characterizes binary Simon-congruence classes and calculates the congruence index. Its counted object is equivalence classes, not the number of length-n words with a given universality index.",
+        "identifier_or_url": "arXiv:2306.14192v1; https://arxiv.org/abs/2306.14192",
+        "material_read": "Full text, with focus on introduction, preliminaries, binary case, and stated contributions.",
+        "method": "Lawful open arXiv full text; compared the counted object and implications with fixed-length universality-index enumeration.",
+        "title": "α-β-Factorization and the Binary Case of Simon's Congruence",
+        "trigger": "Highly relevant binary treatment using arch factorization and counting language."
+      },
+      {
+        "assessment": "BROADER_COMPUTABILITY_NOT_SYMBOLIC_FORMULA",
+        "evidence": "Provides automata-based algorithms for counting k-universal accepted words and paths, but no inspected theorem states the proposed rational generating function, coefficient formula, or moments.",
+        "identifier_or_url": "arXiv:2311.10658v1; https://arxiv.org/abs/2311.10658",
+        "material_read": "Full text, including the counting algorithms and their state summaries.",
+        "method": "Lawful open arXiv full text; compared algorithmic coverage with the symbolic binary theorem.",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Broader later counting algorithms for universal words accepted by automata."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e77c4e8d-9f37-439f-86e7-9dc5b33f034f",
+  "value": {
+    "rationale": "Counting length-\\(n\\), \\(k\\)-subsequence-universal words is explicitly posed in the closest direct literature. The theorem answers the binary-alphabet slice for every length, gives the entire distribution of the universality index rather than isolated values, and derives exact mean and variance. The object and invariant are literature-motivated and the result is structural rather than an arbitrary finite computation.",
+    "risks": [
+      "The contribution is a binary-alphabet slice of the broader counting question; no comparable closed form for larger alphabets is claimed."
+    ],
+    "sources": [
+      "arXiv:2304.04583v1 conclusion asks for a general formula for counting length-n k-subsequence-universal words.",
+      "arXiv:2003.04629v1 establishes universality index as a central arch-factorization invariant."
+    ],
+    "status": "PASS"
+  }
+}
