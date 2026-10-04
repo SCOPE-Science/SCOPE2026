@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(\\alpha>0\\), every target prime exceeds \\(\\sqrt n\\) for large \\(n\\), so Legendre's formula gives exactly \\(v_p(n!)=\\lfloor n/p\\rfloor\\). The valuation cells are precisely \\(n/(j+1)<p\\le n/j\\). Intersecting each with \\(\\alpha n<p\\le\\beta n\\) yields a finite exact \\(\\vartheta\\)-difference decomposition, and \\(\\vartheta(nx)=nx+o(n)\\) at the finitely many fixed positive endpoints proves the coefficient. The aligned-window and parity consequences are algebraic simplifications of that coefficient. Finite exact-cell replay agrees in 250 cases and is corroborative rather than foundational.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma, arXiv:2609.37460v1, Theorem 1.1: fixed \\(0\\le a<b\\le1\\) power bands have uniform residue mass at the \\(n\\log n\\) scale and the paper explicitly says the error is not asserted uniform for moving endpoints.",
+        "Berend--Kolesnik, DOI 10.1016/j.jnt.2006.08.010: joint residue distribution for multiplicities of fixed primes as \\(n\\) varies.",
+        "Luca--Stănică, arXiv:math/0304272: uniform distribution for fixed primes and fixed moduli as \\(n\\) varies.",
+        "Liu--Chen, DOI 10.1017/S000497270003536X: modulo-three asymptotic with a fixed prime."
+      ],
+      "reasoning": "The recent theorem is broader in logarithmic scale but its stated error can swamp the entire \\(O(n)\\) mass of a linear window; it therefore does not imply the new constant. The older results reverse the prime/size quantifiers and do not dominate the moving-prime statement.",
+      "searches": [
+        "weighted equidistribution factorial valuations fixed power bands linear endpoint nonuniform",
+        "Weighted equidistribution of factorial prime valuations in fixed power bands",
+        "factorial valuations fixed primes jointly uniformly distributed modulo",
+        "exponents modulo 3 standard factorisation n! fixed prime"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.37460v1",
+      "doi:10.1016/j.jnt.2006.08.010",
+      "arXiv:math/0304272",
+      "doi:10.1017/S000497270003536X",
+      "OEIS:A056171",
+      "OEIS:A115627"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.37460v1 states that its \\(o(1)\\) is not asserted uniform when endpoints vary with \\(n\\).",
+        "A fixed linear interval \\(\\alpha n<p\\le\\beta n\\) corresponds to a logarithmic exponent width of order \\(1/\\log n\\), so its total weighted mass is only \\(O(n)\\).",
+        "The source theorem controls errors only as \\(o(n\\log n)\\), which does not determine an \\(n\\)-scale coefficient."
+      ],
+      "reasoning": "The new theorem is not a corollary of fixed-power equidistribution: substituting moving exponents is outside the stated fixed-parameter theorem, and even a bare \\(o(n\\log n)\\) error is too large. The exact Legendre-cell reduction supplies the missing boundary-scale information and yields nonuniform residue weights.",
+      "searches": [
+        "arXiv 2609.37460 endpoint uniformity moving endpoints linear window",
+        "Ma factorial prime valuations n^a n^b error o(log n!)",
+        "fixed alpha beta n primes v_p(n!) modulo h asymptotic weighted log p"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.37460v1 defines the same weighted observable but states only fixed-power-band asymptotics.",
+        "Targeted published-claim searches returned no factorial-valuation linear-window or harmonic-residue statement.",
+        "General web literature searches for \\(v_p(n!)\\), \\(n/(K+1)\\), parity, and \\(\\lfloor n/p\\rfloor\\) found only Legendre-formula uses and unrelated factorial statistics."
+      ],
+      "reasoning": "These queries cover the exact observable, the cell decomposition, the aligned top-window parameterization, and the parity specialization. The located sources do not state an equivalent first-order coefficient for primes proportional to \\(n\\).",
+      "searches": [
+        "factorial prime valuations linear window n/(K+1) n residue classes weighted log p floor(n/p)",
+        "boundary scale distribution v_p(n!) modulo h primes p proportional to n",
+        "factorial valuation top linear prime interval harmonic residue bias",
+        "linear prime window factorial valuation residue class theta n/j harmonic weights",
+        "fixed alpha beta n primes v_p(n!) modulo h asymptotic weighted log p",
+        "top factorial prime factors valuation parity n/3 p n harmonic bias"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A056171 records the count of primes with exponent one in \\(n!\\), namely \\(\\pi(n)-\\pi(n/2)\\), but does not give weighted residue-class laws across several valuation cells.",
+        "OEIS A115627 tabulates multiplicities in factorial factorizations but does not state the asymptotic harmonic residue coefficient.",
+        "No exact table or database entry located gives the \\(3/5\\) versus \\(2/5\\) weighted parity limit on \\(n/3<p\\le n\\)."
+      ],
+      "reasoning": "Known tables expose individual valuation layers, especially exponent one, but the claimed result is a weighted asymptotic synthesis over residue classes and arbitrary fixed linear windows; the tabulated facts do not imply its general formula.",
+      "searches": [
+        "sum over primes floor(n/p) log p residue class valuation",
+        "OEIS factorial prime exponent multiplicity unitary prime divisors n!",
+        "published claim corpus factorial valuation parity top prime window"
+      ]
+    },
+    "rationale": "The inspected motivating source treats the same weighted observable on fixed power bands but explicitly does not assert endpoint-uniformity. Its \\(o(n\\log n)\\) remainder does not resolve an \\(O(n)\\) linear-window main term. Older residue-distribution papers fix the prime index while \\(n\\) varies. Targeted statement, alias, implication, and data searches located no source giving the displayed linear-window coefficient or the persistent parity bias.",
+    "residual_risks": [
+      "The linear-window formula follows from classical Legendre and prime-number-theorem ingredients, so an equivalent elementary corollary could exist under terminology not surfaced by the targeted searches. No such source was located, and the closest recent paper explicitly leaves moving-endpoint uniformity outside its claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for fixed linear windows at first order \\(n\\); the paper treats fixed power bands at first order \\(n\\log n\\) and explicitly withholds moving-endpoint uniformity.",
+        "evidence": "Theorem 1.1 gives \\(((b-a)/h+o(1))\\log(n!)\\) for fixed \\(a,b\\), and the introduction states the error is not asserted uniform when endpoints vary with \\(n\\).",
+        "identifier_or_url": "arXiv:2609.37460v1",
+        "material_read": "arXiv metadata plus full HTML for the definitions, Theorem 1.1, explicit nonuniform-endpoint qualification, valuation-step section, and completion using Legendre and prime Mertens estimates.",
+        "method": "Lawful arXiv abstract and full-text HTML inspection.",
+        "title": "Weighted equidistribution of factorial prime valuations in fixed power bands",
+        "trigger": "Same weighted observable and immediate boundary-scale motivation."
+      },
+      {
+        "assessment": "NOT_COVERING; fixed primes \\(p_1,\\ldots,p_k\\) are followed as \\(n\\) varies, unlike a moving set of primes \\(p\\asymp n\\).",
+        "evidence": "The abstract explicitly fixes the primes and moduli and studies joint uniform distribution of their multiplicities.",
+        "identifier_or_url": "doi:10.1016/j.jnt.2006.08.010",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Publisher and university research-portal abstract inspection.",
+        "title": "Regularity of patterns in the factorization of n!",
+        "trigger": "Prior factorial-valuation residue-distribution literature cited by the same research line."
+      },
+      {
+        "assessment": "NOT_COVERING; it fixes prime indices and varies \\(n\\), and does not sum over primes in a linear window.",
+        "evidence": "The abstract states uniform distribution for fixed primes \\(p_1,\\ldots,p_k\\) and fixed moduli.",
+        "identifier_or_url": "arXiv:math/0304272",
+        "material_read": "arXiv abstract.",
+        "method": "Lawful arXiv abstract inspection.",
+        "title": "On the prime power factorization of n!",
+        "trigger": "Earlier fixed-prime equidistribution result cited by Berend--Kolesnik."
+      },
+      {
+        "assessment": "NOT_COVERING; the extract states a counting asymptotic for a fixed prime \\(p\\), not a weighted moving-prime window.",
+        "evidence": "The extract begins by fixing a prime \\(p\\) and a modulus before counting \\(e_p(n!)\\) modulo three.",
+        "identifier_or_url": "doi:10.1017/S000497270003536X",
+        "material_read": "Publisher extract and references.",
+        "method": "Cambridge Core text inspection.",
+        "title": "On the exponents modulo 3 in the standard factorisation of n!",
+        "trigger": "Potentially close residue-class statement for factorial exponents."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "21df3281-6f5e-43c4-ab08-c3981d18c823",
+  "value": {
+    "rationale": "The claim addresses the first unresolved boundary scale adjacent to a new fixed-power-band equidistribution theorem. It gives a complete explicit coefficient on every fixed linear window, not a single arbitrary numerical slice, and the \\(3/5\\) versus \\(2/5\\) parity split is a structural counterexample to naive uniform continuation. The formula also identifies the harmonic valuation-cell mechanism responsible for the transition.",
+    "status": "PASS"
+  }
+}
