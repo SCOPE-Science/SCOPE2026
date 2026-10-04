@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For step order L>=4, the +a and -a frequency characters in each squared STFT slice are distinct. Equality of measurements therefore recovers s_x=|f_x|^2+|f_{x+a}|^2 and c_x=f_x conjugate(f_{x+a}). Full support makes c_x nonzero. Quotients q_x of two solutions satisfy q_x conjugate(q_{x+a})=1, forcing constant phase and alternating moduli r,r^{-1} on each step cycle. The sum equation factors as (r^2-1)(r^2|f_x|^2-|f_{x+a}|^2)=0, giving exactly the trivial cycle phase or an alternating two-level magnitude pattern. The converse swap preserves both recovered coefficients. The finite verifier uses exact rational/Gaussian-rational arithmetic and is corroborative, not the proof of the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bojarovska--Flinth: nonvanishing-signal recovery under nonzero ambiguity samples at shifts 0 and 1.",
+        "Jaganathan--Eldar--Hassibi: almost-all uniqueness for nonvanishing signals with overlapping short windows.",
+        "Bartusel 2023: Theorem 2.2.3 requires full-measure ambiguity on the difference set; Section 4.2 complete results concern separated signals."
+      ],
+      "reasoning": "Checked whether general ambiguity-function or connectedness theorems dominate the claim. They do not: the key full-measure/nonvanishing ambiguity hypothesis fails at even step order, while the later complete short-window theorem is for separated signals. The almost-all theorem is weaker because it leaves the exceptional measure-zero set unspecified.",
+      "searches": [
+        "Gabor phase retrieval two-point window delta 0 delta a full-support signals cyclic group",
+        "phaseless STFT two-sparse window cyclic group alternating magnitudes ambiguity",
+        "finite Gabor phase retrieval short window connected support full support even cycle alternating",
+        "Bojarovska Flinth phase retrieval Gabor measurements short window cyclic",
+        "injectivity STFT phase retrieval Z_d short windows connected components full support",
+        "two-point window Gabor phase retrieval finite cyclic",
+        "full support Gabor phase retrieval cyclic",
+        "almost all non-vanishing signals phase retrievable fixed window short window STFT"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1503.05800v1",
+      "arXiv:1508.02820v1",
+      "doi:10.1007/s00041-023-10026-2",
+      "published-finding corpus semantic search using eight exact-object/alias/implication queries",
+      "Own current and prior weekly ledgers, using recoverable claims and item IDs only for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For g_a=delta_0+delta_a with even step order, the zero-shift ambiguity is proportional to 1+exp(-2 pi i a ell/N) and has a half-cycle zero.",
+        "The final theorem identifies both necessity and sufficiency of the alternating two-level obstruction and all fiber elements, which is strictly more specific than almost-all uniqueness."
+      ],
+      "reasoning": "Compared implications rather than titles. Archive criteria imply uniqueness only when their ambiguity hypotheses hold; those hypotheses fail here. Almost-all uniqueness cannot imply an exact characterization of the exceptional set. Later separated-signal theorems do not apply to full-support signals. Therefore the prior statements do not imply the final fiber theorem.",
+      "searches": [
+        "Gabor phase retrieval two-point window delta 0 delta a full-support signals cyclic group",
+        "phaseless STFT two-sparse window cyclic group alternating magnitudes ambiguity",
+        "finite Gabor phase retrieval short window connected support full support even cycle alternating",
+        "Bojarovska Flinth phase retrieval Gabor measurements short window cyclic",
+        "injectivity STFT phase retrieval Z_d short windows connected components full support",
+        "two-point window Gabor phase retrieval finite cyclic",
+        "full support Gabor phase retrieval cyclic",
+        "almost all non-vanishing signals phase retrievable fixed window short window STFT"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no Gabor phase-retrieval result among the closest hits for the exact two-point/full-support queries.",
+        "Bojarovska--Flinth Theorem 2.4 gives a sufficient nonvanishing-signal criterion, not the exceptional fiber when the criterion fails.",
+        "Bartusel 2023 defines phase retrievability by equality of STFT magnitudes up to global phase and reviews the short-window literature."
+      ],
+      "reasoning": "Searched the exact object under Gabor/STFT, two-point/delta-window, full-support/nonvanishing, alternating-magnitude, and cyclic-fiber terminology. No returned published-finding corpus finding states an equivalent phaseless fiber classification.",
+      "searches": [
+        "Gabor phase retrieval two-point window delta 0 delta a full-support signals cyclic group",
+        "phaseless STFT two-sparse window cyclic group alternating magnitudes ambiguity",
+        "finite Gabor phase retrieval short window connected support full support even cycle alternating",
+        "Bojarovska Flinth phase retrieval Gabor measurements short window cyclic",
+        "injectivity STFT phase retrieval Z_d short windows connected components full support",
+        "two-point window Gabor phase retrieval finite cyclic",
+        "full support Gabor phase retrieval cyclic",
+        "almost all non-vanishing signals phase retrievable fixed window short window STFT"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hits were unrelated cyclic or phase-locking results; none concerned finite Gabor phase retrieval.",
+        "The bundled computation checks identities through N=120 but the theorem is proved symbolically for every admissible N and a."
+      ],
+      "reasoning": "Searched published-finding corpus for exact support/fiber tables and alternating exceptional sets. No database or finite table was found that contains this all-N structural classification. The claim is not inferred from a finite census.",
+      "searches": [
+        "Gabor phase retrieval two-point window delta 0 delta a full-support signals cyclic group",
+        "phaseless STFT two-sparse window cyclic group alternating magnitudes ambiguity",
+        "finite Gabor phase retrieval short window connected support full support even cycle alternating",
+        "Bojarovska Flinth phase retrieval Gabor measurements short window cyclic",
+        "injectivity STFT phase retrieval Z_d short windows connected components full support",
+        "two-point window Gabor phase retrieval finite cyclic",
+        "full support Gabor phase retrieval cyclic",
+        "almost all non-vanishing signals phase retrievable fixed window short window STFT"
+      ]
+    },
+    "rationale": "The archive-era sufficient conditions do not settle the equal two-point even-order window because its zero-shift ambiguity has a half-cycle zero. The prior almost-all theorem allows but does not classify exceptional full-support signals. Later exact work on windows with ambiguity zeros focuses its complete short-window results on separated signal classes and records the almost-all nonvanishing result, not the exact alternating-magnitude fiber. published-finding corpus and own-ledger comparisons found no implication covering this statement.",
+    "residual_risks": [
+      "An unindexed or differently phrased derivation of the equal two-point exceptional full-support fiber may exist.",
+      "The search did not attempt an exhaustive bibliography of every engineering STFT phase-retrieval paper; the strongest identified generic and short-window results were compared directly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the nonvanishing criterion requires ambiguity samples that vanish for the equal two-point window at even step order.",
+        "evidence": "Theorem 2.4 assumes <g,g_{p,l}> is nonzero for p=0,1 and every frequency; for the present window the p=0 term has a half-cycle zero.",
+        "identifier_or_url": "arXiv:1503.05800v1",
+        "material_read": "Abstract, introduction, Theorems 2.2 and 2.4, and discussion of short windows/nonvanishing vectors in author-posted full-text extraction.",
+        "method": "Full-text semantic inspection of theorem statements and hypotheses.",
+        "title": "Phase Retrieval from Gabor Measurements",
+        "trigger": "Archive-era primary paper establishing Gabor phase-retrieval and nonvanishing-signal criteria."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes generic uniqueness but does not identify or classify the exceptional measure-zero full-support fibers.",
+        "evidence": "Theorem III.1 is an almost-all statement; it leaves exceptional signals unclassified.",
+        "identifier_or_url": "arXiv:1508.02820v1; doi:10.1109/JSTSP.2016.2549507",
+        "material_read": "Abstract and theorem-level extracted text for Theorem III.1 describing almost-all uniqueness.",
+        "method": "Primary-record and theorem-text comparison.",
+        "title": "STFT Phase Retrieval: Uniqueness Guarantees and Recovery Algorithms",
+        "trigger": "Primary source cited by later literature for almost-all uniqueness of nonvanishing signals under overlapping short windows."
+      },
+      {
+        "assessment": "NOT_COVERING: the paper records almost-all nonvanishing uniqueness and gives exact results for separated signals; it does not state the alternating two-level full-support fiber for the equal two-point even-order window.",
+        "evidence": "Section 4.2 says almost all nonvanishing signals are covered by prior work, while its complete theorem is formulated for L-separated signals; the paper explicitly studies the difficulty created by ambiguity zeros.",
+        "identifier_or_url": "doi:10.1007/s00041-023-10026-2",
+        "material_read": "HTML full text: ambiguity relation and phase-retrieval definition, Theorem 2.2.3, Section 4.2, Example 4.2.3, Theorem 4.2.8, and literature comparison around short windows.",
+        "method": "Full HTML theorem and implication comparison.",
+        "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Z_d and R^d",
+        "trigger": "Later comprehensive finite cyclic STFT phase-retrieval paper, especially windows with vanishing ambiguity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "29afd3fc-909d-495c-a8a8-13b14306b358",
+  "value": {
+    "rationale": "The theorem gives the exact exceptional set behind an existing almost-all uniqueness result for the simplest degenerate short window, precisely in the parity regime where standard ambiguity-nonvanishing criteria fail. It supplies the entire phaseless fiber and a sharp global-retrievability criterion, explaining the obstruction by an even-cycle bipartite level swap. This is a structural boundary theorem with direct relevance to uniqueness, not a routine parameter extension or finite recomputation.",
+    "status": "PASS"
+  }
+}
