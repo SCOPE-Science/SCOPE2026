@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "Exact specialization gives \\(x_{k+1}=\\tfrac12x_k-\\tfrac18x_{k-1}\\), roots \\((1\\pm i)/4\\), four-step scaling \\(-1/64\\), repeating magnitude ratios \\(3/8,1/6,1/4,1\\), and first positive gradient-restart sign at the update producing \\(x_3\\). Exact Fraction-based replay verifies these identities and signs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest published-finding corpus item 2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad concerns the onset of objective spikes in a three-dimensional exact-parameter Nesterov setting, not a scalar blind spot.",
+        "Fercoq--Qu arXiv:1609.07358 states that the original adaptive rule is heuristic and reports a case with no restart in the first 10,000 iterations, but does not give the exact scalar recurrence or permanent non-trigger proof."
+      ],
+      "reasoning": "The broader works motivate restart robustness but do not imply the exact rational-phase orbit or the detector separation proved here.",
+      "searches": [
+        "published-finding corpus: Nesterov objective monotonicity underdamped quadratic restart",
+        "Fercoq Qu 2016 adaptive restart condition did not happen 10000 iterations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1204.3982",
+      "doi:10.1007/s10208-013-9150-3",
+      "arXiv:1609.07358",
+      "published-finding corpus published-finding index via targeted semantic and exact-claim searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 source calls constant \\(\\beta\\) a crude approximation, derives complex-root periodicity, then approximates phase and says either restart rule is expected to activate after roughly \\((\\pi/2)\\sqrt{L/\\mu}\\) further iterations.",
+        "The 2016 source says the adaptive rule is heuristic and documents a greater-than-10,000-iteration non-trigger example, motivating forced restart windows."
+      ],
+      "reasoning": "The exact scalar resonance refines rather than restates those results: it disproves universal activation of the strict function detector within the source's own constant-beta model while preserving prompt activation of the gradient detector.",
+      "searches": [
+        "arXiv:1204.3982 Sections 3.2, 4.2--4.5",
+        "arXiv:1609.07358 Sections 1 and 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-finding corpus title/summary states a scalar under-damped orbit whose strict function restart never fires.",
+        "O'Donoghue--Candes arXiv:1204.3982 Sections 4.2--4.5 give the constant-beta recurrence, under-damped complex roots, approximate observable phases, and expected restart timing, but not this resonance."
+      ],
+      "reasoning": "An equivalent result would have to establish non-triggering of strict objective-increase restart for an oscillatory accelerated-gradient scalar mode, not merely nonmonotonicity or a different restart theorem.",
+      "searches": [
+        "published-finding corpus: accelerated gradient adaptive restart function scheme never triggers scalar quadratic objective monotone underdamped",
+        "published-finding corpus: O'Donoghue Candes function restart blind spot constant momentum quadratic",
+        "Web: function restart fails accelerated gradient restart objective increase"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit contained the parameter pair, the four-step scaling, or the ratio cycle \\(3/8,1/6,1/4,1\\)."
+      ],
+      "reasoning": "The claim is an exact closed-form orbit rather than a table lookup; targeted exact-parameter and semantic searches found no match.",
+      "searches": [
+        "published-finding corpus exact scalar accelerated restart resonance lambda/L 5/8 beta 1/3",
+        "published-finding corpus function versus gradient restart equivalence quadratic"
+      ]
+    },
+    "rationale": "The primary 2012 source uses this constant-momentum quadratic model but approximates phase and predicts that either adaptive rule should trigger after about a quarter period. The 2016 Fercoq--Qu paper reports nonoccurrence of an adaptive condition in an experiment but does not give this exact scalar resonance. Targeted published-finding corpus and web searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "A later or unindexed implementation note, thesis, or lecture note could contain the same rational-phase scalar resonance.",
+      "The claim is deliberately limited to the constant-momentum model and should not be read as permanent non-triggering for the varying-momentum \\(q=0\\) algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source does not state the exact no-function-restart resonance; its timing statement is explicitly heuristic/approximate in this model.",
+        "evidence": "The source fixes step \\(1/L\\), treats \\(\\beta\\) as constant, derives complex roots above the critical momentum, approximates the phase, and predicts restart under either scheme after a further quarter-period scale.",
+        "identifier_or_url": "arXiv:1204.3982",
+        "material_read": "Abstract and Sections 2, 3.2, and 4.1--4.6 in the arXiv HTML full text.",
+        "method": "Compared the exact recurrence, characteristic polynomial, high-momentum definition, observable approximations, and claimed approximate restart timing against the new scalar specialization.",
+        "title": "Adaptive Restart for Accelerated Gradient Schemes",
+        "trigger": "Primary source for the two restart rules and constant-momentum quadratic model."
+      },
+      {
+        "assessment": "It reports that an adaptive restart condition failed to occur within 10,000 iterations in one experiment but does not supply this scalar rational-phase proof.",
+        "evidence": "The paper labels the earlier adaptive rule heuristic and recommends a bounded interval with a forced restart at the upper endpoint.",
+        "identifier_or_url": "arXiv:1609.07358",
+        "material_read": "Abstract, introduction/contributions, restart remarks, and numerical-experiment discussion in arXiv HTML.",
+        "method": "Checked whether the paper derives a scalar exact non-trigger mechanism or only empirical/forced-restart results.",
+        "title": "Restarting accelerated gradient methods with a rough strong convexity estimate",
+        "trigger": "Closest archive-era follow-up on restart reliability and provable safeguards."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8ace13eb-0886-452f-b57a-0355a9e2dc4d",
+  "value": {
+    "rationale": "The counterexample isolates a practically meaningful detector failure in the simplest strongly convex quadratic setting: a genuinely under-damped oscillatory orbit can be objective-monotone under the strict test forever while the gradient detector fires after the first sign crossing. This explains why forced restart safeguards can matter and identifies strict equality handling as a structural boundary rather than a numerical detail.",
+    "status": "PASS"
+  }
+}
