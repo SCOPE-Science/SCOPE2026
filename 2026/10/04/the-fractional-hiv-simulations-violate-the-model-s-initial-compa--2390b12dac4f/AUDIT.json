@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Under the source definition, the Caputo–Fabrizio derivative of an absolutely continuous trajectory tends to zero at the initial time. Continuity therefore requires the autonomous vector field to vanish at the prescribed initial state. The source parameters give the exact nonzero residual \\( (109/1000,27/1000,-2) \\). Independently, the exact exponentially weighted-memory increment contains both an old-history term and a weighted new-interval term; the source step replacing it by an unweighted new-interval integral is algebraically false. A constant-input calculation provides an exact counterexample to that replacement. The claim is limited to the equations and regularity actually printed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diethelm–Garrappa–Giusti–Stynes (2020) explicitly discuss the zero-initial-value restriction and incompatibility of generic initial-value problems for nonsingular-kernel derivatives.",
+        "Shankar–Bora (2023) analyze compatibility and stability for Caputo–Fabrizio evolution equations and likewise require compatibility at the initial time.",
+        "Three-step Adams–Bashforth-type recurrences occur elsewhere in the fractional numerical literature; this finding therefore does not claim that the coefficient pattern itself is novel or universally invalid."
+      ],
+      "reasoning": "Broader literature dominates the general compatibility observation but does not dominate the exact source-level claim, which additionally compares mutually inconsistent formulas inside the HIV article and supplies an exact counterexample to its weighted-history subtraction.",
+      "searches": [
+        "Caputo-Fabrizio initial value problem vector field vanishes at initial point",
+        "nonsingular kernel fractional derivative initial condition compatibility",
+        "Caputo-Fabrizio autonomous system constant solution initial compatibility",
+        "three-step Adams Bashforth Caputo-Fabrizio HIV numerical method"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022265",
+      "doi:10.1515/fca-2020-0032",
+      "doi:10.1016/j.fraope.2023.100043",
+      "arxiv:2006.15237"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 compatibility critique implies that a generic autonomous Caputo–Fabrizio IVP can fail at the initial time, but it does not evaluate this HIV paper’s published data.",
+        "The exact HIV residual and the mutually different integral formulas are specific to the 2021 article.",
+        "The weighted-history difference formula shows an additional derivation failure independent of the initial-compatibility theorem."
+      ],
+      "reasoning": "A mere application of the 2020 theorem would be covered prior art. The accepted claim includes source-specific arithmetic and a separate exact algebraic obstruction in the numerical derivation, neither of which follows as a stated correction in the prior sources.",
+      "searches": [
+        "Diethelm Garrappa Giusti Stynes Caputo-Fabrizio vector field initial value",
+        "Shankar Bora Caputo-Fabrizio autonomous initial value problem compatibility",
+        "Ahmad Ullah Partohaghighi Caputo-Fabrizio HIV correction erratum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article states the autonomous HIV system, the nonsingular-kernel derivative, the fractional integral, the initial data, and the numerical recurrence examined in the claim.",
+        "Exact-title and DOI searches located the article and mirrors but no erratum or correction addressing the initial-data or history-equation inconsistencies.",
+        "General compatibility discussions in the literature do not identify the paper-specific residual or the equation-(4.3)-to-(4.6) history mismatch."
+      ],
+      "reasoning": "The searches cover the literal source identity, compatibility terminology, the numerical-equation location, and correction aliases. The general theorem is prior art, while the exact application and additional derivation defect are not covered by the located literature.",
+      "searches": [
+        "\"Oscillatory and complex behaviour of Caputo-Fabrizio fractional order HIV-1 infection model\" correction",
+        "\"10.3934/math.2022265\" initial condition Caputo-Fabrizio",
+        "\"10.3934/math.2022265\" numerical method equation 4.6",
+        "Caputo-Fabrizio HIV autonomous initial compatibility correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF was inspected at the model and Caputo–Fabrizio definitions, at equation (3.4), at equations (4.3)–(4.6), and at the simulation section.",
+        "The paper states the initial condition \\( (100,0,1) \\) for Figures 1–3 and the parameter values used in the exact residual calculation.",
+        "The displayed fractional orders for those figures include 0.85, 0.9, and 0.95, all within the compatibility-obstructed regime \\(0<\\gamma<1\\)."
+      ],
+      "reasoning": "The scientific comparison is equation-level and parameter-level from the primary full text, not inferred from an abstract or snippet.",
+      "searches": [
+        "DOI 10.3934/math.2022265 Definition 2.1 Definition 2.2 equation 3.4 equation 4.3 equation 4.6",
+        "DOI 10.3934/math.2022265 initial conditions 100 0 1 parameters 0.272 0.00136 0.00027",
+        "DOI 10.3934/math.2022265 Figures 1 2 3 gamma 0.85 0.9 0.95"
+      ]
+    },
+    "rationale": "The general compatibility defect of nonsingular-kernel fractional derivatives was published before the HIV article and is not claimed as new. Originality is restricted to the source-specific synthesis: the exact incompatibility of the paper’s stated simulation data, the extra subtraction introduced in equation (3.4), the different exponential-history equation in Section 4, and the exact history term omitted in the transition to the three-step recurrence. Searches found no published correction of these source-specific points.",
+    "residual_risks": [
+      "A non-indexed author note could acknowledge the simulation inconsistency.",
+      "The same three-step coefficient pattern appears in other fractional numerical papers; the finding does not claim universal invalidity of that formula, only failure of the derivation from this source’s own equations.",
+      "Some authors adopt modified nonsingular-kernel formulations with altered initial-condition conventions; the present claim is strictly about the definitions and equations printed in the source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PUBLISHED_FRACTIONAL_SIMULATIONS_NOT_ESTABLISHED_FOR_THE_STATED_IVP",
+        "evidence": "The published initial state has a nonzero vector-field residual; equation (3.4) inserts a subtraction absent from Definition 2.2; equation (4.3) introduces exponential weighting; and the subsequent subtraction drops the persistent-history term.",
+        "identifier_or_url": "doi:10.3934/math.2022265",
+        "material_read": "Publisher full PDF: model equation (1.3); Definitions 2.1 and 2.2; existence equations (3.3)–(3.5); numerical equations (4.1)–(4.10); Table 1 parameter values; stated initial condition; Figures 1–5 and conclusions. Relevant equation and simulation pages were visually inspected.",
+        "method": "Evaluated the autonomous vector field at the published initial state, compared each integral equation with the source definitions, and reconstructed the exact update identity for the exponential memory term.",
+        "title": "Oscillatory and complex behaviour of Caputo-Fabrizio fractional order HIV-1 infection model",
+        "trigger": "Primary source defining the fractional HIV model and presenting the simulations."
+      },
+      {
+        "assessment": "GENERAL_COMPATIBILITY_PRIOR_ART",
+        "evidence": "The paper states that nonsingular-kernel IVPs are compatible only under a zero-initial-value condition on the right-hand side, so that portion is not claimed as original.",
+        "identifier_or_url": "doi:10.1515/fca-2020-0032",
+        "material_read": "Open preprint/full text through the definition of the Caputo–Fabrizio derivative, the failure of the expected fundamental-theorem property, and the discussion of initial-value problems with nonzero vector field at the initial state.",
+        "method": "Separated the established general compatibility theorem from the new source-specific application and numerical-history claim.",
+        "title": "Why fractional derivatives with nonsingular kernels should not be used",
+        "trigger": "Prior primary mathematical analysis of the initial-value restriction for Caputo–Fabrizio derivatives."
+      },
+      {
+        "assessment": "GENERAL_THEORY_NOT_SOURCE_SPECIFIC_CORRECTION",
+        "evidence": "The article discusses compatibility and autonomous Caputo–Fabrizio dynamics but does not analyze DOI 10.3934/math.2022265 or its numerical equation chain.",
+        "identifier_or_url": "doi:10.1016/j.fraope.2023.100043",
+        "material_read": "Accessible full-text sections covering the initial-value compatibility condition, equilibrium/stability formulation, and autonomous Caputo–Fabrizio discussion.",
+        "method": "Checked whether the later general theory supplied a published correction of the specific HIV article.",
+        "title": "Stabilization and asymptotic stability of the Caputo–Fabrizio fractional-order linear and semilinear evolution equations",
+        "trigger": "Later mathematical treatment of Caputo–Fabrizio initial compatibility and autonomous evolution equations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2390b12d-ac4f-4343-b50a-1288d7b63132",
+  "value": {
+    "rationale": "The article’s principal scientific claims concern fractional-order HIV trajectories, oscillations, and chaotic-looking behavior generated by the displayed recurrence. The explicit initial data do not define a solution of the displayed fractional IVP, and the numerical derivation independently changes and then mishandles the history term. These are not cosmetic normalization issues: they sever the link between the plotted trajectories and the mathematical model. The result also identifies exactly what any corrected formulation must address—initial compatibility and a consistent memory update.",
+    "status": "PASS"
+  }
+}
