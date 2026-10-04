@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The four BCABE vertices form a Pauli tetrahedron with four joint eigenspaces of dimension \\(4^N\\). The mixture eigenvalues are \\(p_i/4^N\\). Partial transpose on \\(m\\) qubits flips only the global \\(Y\\)-coefficient by \\((-1)^m\\); odd reflection complements the tetrahedral barycentric spectral weights to \\(1/2-p_i\\), while even parity leaves the state unchanged. At most one \\(p_i\\) exceeds \\(1/2\\), so exact summation gives negativity \\(\\max\\{0,w-1/2\\}\\) and logarithmic negativity \\(\\max\\{0,\\log_2(2w)\\}\\). The bundled checker explicitly confirms the spectrum for \\(N=1,2,3\\) and four independent weight vectors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Augusiak--Horodecki give the Hilbert--Schmidt representation for generalized Smolin states and study Bell/nonlocality and information-concentration properties.",
+        "Hiesmayr et al. derive an exact multipartite concurrence-type measure for the full three-parameter simplex."
+      ],
+      "reasoning": "Those results are broader in other entanglement notions, but they do not dominate this claim because a concurrence-type quantity or PPT region does not specify the partial-transpose eigenvalue multiset or trace norm.",
+      "searches": [
+        "published-finding corpus: noisy Smolin state logarithmic negativity max weight",
+        "Web: \"Generalized Smolin states and their properties\" partial transpose negativity",
+        "Web: \"Simplex of bound entangled multipartite qubit states\" negativity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0411082v1",
+      "DOI:10.1103/PhysRevA.73.012318",
+      "arXiv:0807.4842v2",
+      "DOI:10.1103/PhysRevA.78.042327",
+      "Nature Communications 2026 s41467-026-74491-1",
+      "published-finding corpus focused semantic searches",
+      "Prior published findings searched for scientific overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2005 paper proves activability iff \\(w>1/2\\) and separability across every \\(2:(2N)\\) cut.",
+        "The 2008 paper proves the parity sign-flip geometry and a different exact entanglement measure.",
+        "The 2026 experiment reports a one-parameter four-qubit white-noise negativity threshold."
+      ],
+      "reasoning": "The new statement strictly refines the prior threshold by identifying all eigenvalues and multiplicities for every odd/even cut, then evaluates trace-norm negativity. The experimental threshold is recovered only after specializing the four weights and \\(N=1\\), so it does not cover the general claim.",
+      "searches": [
+        "arXiv:quant-ph/0411082v1 Eqs. 26--30 and noisy-state discussion",
+        "DOI:10.1103/PhysRevA.73.012318 Hilbert--Schmidt representation",
+        "arXiv:0807.4842v2 partial-transpose and entanglement sections",
+        "Nature Communications 2026 s41467-026-74491-1 Smolin negativity discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bandyopadhyay et al. identify the four-weight noisy family and the threshold \\(w>1/2\\).",
+        "Hiesmayr et al. show that odd partial transposition flips the global \\(Y\\)-coefficient and even partial transposition recovers the positivity condition."
+      ],
+      "reasoning": "The closest equivalent geometry is the Pauli tetrahedron and its reflected tetrahedron. That geometry determines the sign threshold but the inspected sources do not state the complete four-value spectrum, its degeneracy, or the negativity/log-negativity formulas.",
+      "searches": [
+        "published-finding corpus: Bell-correlated activable bound entanglement noisy BCABE negativity partial transpose spectrum",
+        "published-finding corpus: generalized Smolin state negativity one versus rest exact",
+        "Web: \"noisy BCABE\" \"partial transpose\" spectrum",
+        "arXiv:0807.4842v2 full-text inspection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-finding corpus record described the BCABE source, the parity spectrum, or the formula \\(\\\\max\\\\{0,w-1/2\\\\}\\); the highest-scoring returned records were on unrelated subjects.",
+        "Prior published findings available for overlap checking contained no BCABE, Smolin, or Bell-correlated finding."
+      ],
+      "reasoning": "No exact database/table coverage was found in the published-finding search or prior-corpus deduplication. This is evidence against overlap, not a proof of global uniqueness.",
+      "searches": [
+        "published-finding corpus: quant-ph/0411082 Bell-Correlated Activable Bound Entanglement",
+        "published-finding corpus: 81P68 Smolin BCABE partial transpose negativity"
+      ]
+    },
+    "rationale": "The anchor source supplies the noisy family and \\(w>1/2\\) activation threshold; later generalized-Smolin/simplex papers supply the Pauli representation and parity/PPT geometry. The inspected literature does not state the complete partial-transpose spectrum with \\(4^N\\) degeneracy or the induced size-independent negativity/log-negativity in the four BCABE weights. Focused published-finding corpus searches found no overlapping published finding.",
+    "residual_risks": [
+      "The exact spectrum is algebraically close to the 2008 Pauli-tetrahedron geometry and could have been written in an unindexed source not recovered by the searches.",
+      "The identification of the four BCABE vertices with the standard generalized-Smolin Pauli tetrahedron is supported by the common Smolin base case, local-Pauli relation, recursive construction, and later simplex literature; different label conventions can permute the four spectral entries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers construction, permutation symmetry, \\(2:(2N)\\) separability, Bell-diagonal reduction, and the qualitative threshold; does not give the claimed PT spectrum/negativity.",
+        "evidence": "Eqs. 26--30 define weights \\(x_+,x_-,y_+,y_-\\) and Bell-diagonal blocks; the text states activability iff their maximum exceeds \\(1/2\\).",
+        "identifier_or_url": "arXiv:quant-ph/0411082v1; DOI:10.1103/PhysRevA.71.062317",
+        "material_read": "Author-posted full preprint text: recursive formulas, four-qubit example, noisy-state Eqs. 26--30, and the \\(w>1/2\\) discussion.",
+        "method": "Full-text scientific inspection.",
+        "title": "Bell-correlated activable bound entanglement in multiqubit systems",
+        "trigger": "Anchor source for the exact noisy BCABE family and activation threshold."
+      },
+      {
+        "assessment": "Provides the global-Pauli representation used in the proof but no located PT spectrum or negativity formula for arbitrary four-weight mixtures.",
+        "evidence": "Eq. 7 writes the generalized Smolin vertex as identity plus three global Pauli strings; no partial-transpose or negativity passage was located.",
+        "identifier_or_url": "DOI:10.1103/PhysRevA.73.012318",
+        "material_read": "Full-text sections containing the recursive construction and Hilbert--Schmidt Eqs. 7--14; searched the full text for partial-transpose and negativity terminology.",
+        "method": "Full-text scientific inspection.",
+        "title": "Generalized Smolin states and their properties",
+        "trigger": "Potential stronger algebraic coverage of the generalized Smolin family."
+      },
+      {
+        "assessment": "Closest prior: explicitly states odd PT flips the y coefficient and even PT returns positivity; does not state the four PT eigenvalues, degeneracies, or negativity/log-negativity.",
+        "evidence": "Eq. 1 gives the Pauli simplex; the PT section states the parity sign flip; Eq. 10 gives a different concurrence-type quantity.",
+        "identifier_or_url": "arXiv:0807.4842v2; DOI:10.1103/PhysRevA.78.042327",
+        "material_read": "Full text around the Pauli-simplex definition, positivity tetrahedron, one/even-qubit partial transposition, exact n-partite entanglement formula, and references.",
+        "method": "Full-text scientific inspection.",
+        "title": "A simplex of bound entangled multipartite qubit states",
+        "trigger": "Closest plausible later coverage because it studies the full even-qubit Pauli tetrahedron and its entanglement geometry."
+      },
+      {
+        "assessment": "Provides a four-qubit one-parameter application and threshold, not the arbitrary four-weight/all-even-size parity spectrum.",
+        "evidence": "The article reports the white-noise construction and the \\(p<2/3\\) robustness scale, recovered by the accepted formula as a special case.",
+        "identifier_or_url": "Nature Communications 2026, article s41467-026-74491-1",
+        "material_read": "Article passage discussing one-versus-three and two-versus-two negativities for a white-noise Smolin mixture.",
+        "method": "Article-text inspection.",
+        "title": "Multiparticle entanglement of nuclear spins in silicon",
+        "trigger": "Current experimental use of Smolin-state one-versus-three negativity and white-noise robustness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0827243a-1fed-4f55-bce0-bdf5f94bb51d",
+  "value": {
+    "rationale": "The result upgrades the source’s qualitative activation threshold into an exact entanglement magnitude simultaneously for every bipartition parity and every even system size. The cancellation between exponentially small negative eigenvalues and exponentially large degeneracy explains why odd-cut negativity is independent of \\(N\\), and the formula directly specializes to experimentally used noisy Smolin states.",
+    "status": "PASS"
+  }
+}
