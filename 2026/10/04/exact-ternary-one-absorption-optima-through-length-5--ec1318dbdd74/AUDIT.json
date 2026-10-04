@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "PASS. For each \\(n\\in\\{2,3,4,5\\}\\), the verifier constructs all \\(3^n\\) ternary source words, computes their one-absorption balls in \\(\\Sigma_3^{n-1}\\), and solves two independent exact 0–1 optimization models: a received-word set-packing formulation and a conflict-graph maximum-independent-set formulation. Both models return \\(3,6,13,29\\), respectively, with zero reported MIP gap. The explicit codebooks are checked directly for pairwise-disjoint balls. The replayed package terminates with VERIFY_OK.",
+    "risks": [
+      "The exact upper bounds rely on the correctness of SciPy/HiGHS mixed-integer optimization rather than a formal proof certificate; this is mitigated by two independently generated formulations and direct witness checks."
+    ],
+    "sources": [
+      "arXiv:2302.09842v1, Section II and Definition II.4",
+      "verify.py",
+      "optimal_codes.json",
+      "solver_output.txt"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye–Elishco (arXiv:2302.09842v1) gives general single-absorption constructions and asymptotic redundancy bounds for \\(q\\ge3\\), not an exact initial finite table.",
+        "Nguyen–Cai–Quek–Immink (ISIT 2024, DOI:10.1109/ISIT57864.2024.10619179) gives ternary redundancy at most \\(\\log_3 n+5.43\\) symbols in the accessible abstract, not exact finite optima."
+      ],
+      "reasoning": "These broader coding results do not imply the exact values at \\(n=2,3,4,5\\); they bound or construct families asymptotically.",
+      "searches": [
+        "published-finding corpus: Codes Over Absorption Channels finite exact ternary",
+        "Web: Efficient Constructions of Non-Binary Codes Over Absorption Channels"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.09842v1",
+      "DOI:10.1109/TIT.2023.3346882",
+      "DOI:10.1109/ISIT57864.2024.10619179",
+      "published-finding corpus exact/alias searches listed in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source defines the same channel and correcting-code condition but does not state the exact profile through \\(n=5\\).",
+        "The inspected follow-up abstract states asymptotic redundancy bounds, which do not determine these exact cardinalities."
+      ],
+      "reasoning": "Neither inspected prior statement implies the finite set-packing optimum. The new claim is a finite exact benchmark in the same channel, not a corollary of the asymptotic bounds.",
+      "searches": [
+        "arXiv:2302.09842v1 full-text inspection",
+        "DOI:10.1109/ISIT57864.2024.10619179 abstract/metadata inspection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.09842v1 Definition II.4 identifies correcting codes with pairwise-disjoint absorption balls.",
+        "The packaged proof independently uses both ball set-packing and conflict-graph maximum-independent-set formulations."
+      ],
+      "reasoning": "The exact claim is invariant under the two standard finite formulations: disjoint error balls and independence in the confusability graph. Searches using both terminologies returned no matching exact ternary profile.",
+      "searches": [
+        "published-finding corpus: ternary absorption correcting codes exact A_ab 3 6 13 29",
+        "published-finding corpus: absorption ball ternary finite exact maximum code size",
+        "Web: single absorption ternary code length 5 maximum 29"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit stated an absorption-code value 29 or the profile 3,6,13,29.",
+        "The inspected primary full text has no finite optimum table for these parameters."
+      ],
+      "reasoning": "The searches targeted both exact values and table-style aliases. They found only unrelated coding records or the general absorption papers.",
+      "searches": [
+        "published-finding corpus: ternary absorption code length 5 maximum 29",
+        "published-finding corpus: single absorption code ternary n=2 n=3 n=4 n=5",
+        "Web exact-phrase searches for absorption channel ternary 29 length 5"
+      ]
+    },
+    "rationale": "Actual published-finding corpus and web searches using the exact values, absorption-ball language, confusability language, and finite-table language found no inspected prior source stating the profile. The primary full text was inspected directly. The closest 2024 follow-up is broader asymptotic construction work and its accessible abstract does not state the finite values.",
+    "residual_risks": [
+      "The full text of the 2024 ISIT follow-up was inaccessible in this run; an unadvertised small-parameter table there could overlap.",
+      "A poorly indexed unpublished finite computation could contain one or more of the same values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same objects and gives general constructions/asymptotic results, but no inspected statement of the exact ternary profile through \\(n=5\\).",
+        "evidence": "First public timestamp 2023-02-20 08:57:23 UTC; Definition II.4 equates correcting codes with disjoint absorption balls.",
+        "identifier_or_url": "arXiv:2302.09842v1",
+        "material_read": "ArXiv HTML full text: Introduction; Section II definitions including the single-absorption operation, absorption balls, and Definition II.4; abstract/results statements on constructions and asymptotics.",
+        "method": "Direct full-text inspection and in-page searches for finite tables/parameter statements.",
+        "title": "Codes Over Absorption Channels",
+        "trigger": "Primary source defining the exact channel and coding criterion."
+      },
+      {
+        "assessment": "Accessible material reports asymptotic ternary/general redundancy improvements, not exact small-blocklength cardinalities. Full text not inspected, so hidden finite-table overlap remains a residual risk.",
+        "evidence": "ISIT 2024 proceedings pages 1718–1723; accessible abstract states ternary redundancy at most \\(\\log_3 n+5.43\\) symbols.",
+        "identifier_or_url": "DOI:10.1109/ISIT57864.2024.10619179",
+        "material_read": "Repository abstract and bibliographic metadata; IEEE full-text fetch was unavailable during this run.",
+        "method": "Abstract/metadata inspection plus exact-value searches.",
+        "title": "Efficient Constructions of Non-Binary Codes Over Absorption Channels",
+        "trigger": "Closest later ternary-specific absorption-code construction paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ec1318db-dd74-464a-994b-9ee6b8c96304",
+  "value": {
+    "rationale": "PASS. The ternary alphabet is the smallest genuinely nonbinary absorption regime singled out by the primary theory for \\(q\\ge3\\). Determining the complete initial optimum profile through \\(n=5\\) gives a reproducible ground-truth benchmark for a newly studied synchronization channel, and the \\(n=5\\) case is a nontrivial exact set-packing problem on 243 possible source words. The claim is a natural finite invariant, not an arbitrary slice.",
+    "risks": [
+      "The result is intentionally finite and does not by itself determine asymptotic redundancy or larger blocklengths."
+    ],
+    "sources": [
+      "arXiv:2302.09842v1 abstract and Sections III–V",
+      "DOI:10.1109/ISIT57864.2024.10619179 abstract"
+    ],
+    "status": "PASS"
+  }
+}
