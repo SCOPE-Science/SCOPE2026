@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the immunization time gives the exact success probability as the Laplace transform \\(\\mathbb E[e^{-hT}]\\). Strict Jensen convexity proves the fixed-time extremum for every nonnegative integrable waiting law with mean \\(T_*\\). The exponential and fixed-time flux and stock formulas follow from competing risks and Little-style steady residence accounting. Boundary behavior is explicit: equality occurs only at deterministic waiting, while all stated strict comparisons assume \\(hT_*>0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu, Takeuchi, and Iwami (2008), DOI 10.1016/j.jtbi.2007.10.014, model delayed acquisition of immunity and possible infection before immunity, but the indexed abstract does not compare same-mean deterministic and exponential completion laws.",
+        "Wang, Guo, and Liu (2017), DOI 10.1093/imamat/hxx020, use continuous vaccination-age structure and analyze threshold/global dynamics, but the indexed abstract and reference record do not state the constant-hazard mean-matched extremum.",
+        "General phase-type literature recognizes that Markov stages impose exponential waiting and non-Markov stages allow nonexponential waiting; that general modeling fact does not imply the source-specific flux ordering unless the competing infection hazard and mean matching are combined."
+      ],
+      "reasoning": "Related literature covers vaccination age structure and nonexponential waiting broadly, so novelty is not claimed for the idea that dwell-time distributions matter. The accepted statement is the exact calibrated extremal relation for the 2022 model pair.",
+      "searches": [
+        "SVIR epidemic model vaccination age structure susceptibility relapse",
+        "SVIR epidemic models vaccination strategies fixed time vaccinees immunity",
+        "phase-type nonexponential waiting disease stages"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/nhm.2022012",
+      "hdl:11379/557120",
+      "doi:10.1016/j.jtbi.2007.10.014",
+      "doi:10.1093/imamat/hxx020"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source comparison paragraph does not choose a calibration and therefore does not imply a directional bias between the two mechanisms.",
+        "The 2008 paper establishes epidemiological threshold results for its SVIR dynamics, not the same-mean fixed-vs-exponential extremum.",
+        "The 2017 vaccination-age paper establishes threshold and persistence/global-stability results; available material does not give the source-specific competing-risk Laplace-transform ordering."
+      ],
+      "reasoning": "The new claim is not a corollary of the cited epidemic threshold results. It arises by introducing the natural mean-matching relation the 2022 source leaves unspecified, then applying the exact competing-risk transform.",
+      "searches": [
+        "mean matched exponential fixed delay vaccination implication",
+        "deterministic waiting minimizes completion before exponential competing event Jensen",
+        "Colombo Marcellini Rossi comparison vartheta_V T_*"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact-title source search located the 2022 article and institutional open PDF, whose comparison paragraph states the parameter-correspondence difficulty but gives no mean-matched formula.",
+        "Searches using “same mean”, “deterministic versus exponential waiting”, “competing risks”, and “breakthrough vaccination” returned no equivalent vaccination theorem in the published-finding index or web literature."
+      ],
+      "reasoning": "The searches cover the claim in its waiting-time, competing-risk, fixed-delay, exponential-compartment, and source-title formulations.",
+      "searches": [
+        "Vaccination strategies through intra-compartmental dynamics fixed immunization time exponential waiting vaccination",
+        "deterministic immunization delay exponential vaccination compartment competing infection hazard",
+        "vaccination latency fixed delay versus exponential waiting compartment model",
+        "same mean deterministic versus exponential waiting time competing risks vaccination immunization",
+        "fixed immunization time exponential waiting bias breakthrough vaccination",
+        "Colombo Marcellini Rossi 2022 immunization time comparison exponential deterministic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open 2022 PDF gives Model (2) with \\(\\dot V=p-\\rho_VIV-\\vartheta_VV\\) and Model (3) with \\(\\partial_tV+\\partial_\\tau V=-\\rho_VIV\\), boundary input \\(V(t,0)=p(t,S(t))\\), and terminal immunization at \\(T_*\\).",
+        "The same PDF explicitly says direct comparison is highly arbitrary because \\(\\vartheta_V\\) has no counterpart in Model (3) and \\(T_*\\) has no analogue in Model (2).",
+        "The 2008 SVIR primary record confirms the earlier continuous-vaccination model and its concern with infection before immunity; the 2017 primary record confirms continuous vaccination-age structure in a different model."
+      ],
+      "reasoning": "The mathematical reduction uses only mechanisms printed in the source. The comparison sources were checked for stronger or already-equivalent coverage rather than by title similarity alone.",
+      "searches": [
+        "doi:10.3934/nhm.2022012 full PDF Model (2) Model (3)",
+        "doi:10.1016/j.jtbi.2007.10.014 SVIR vaccination strategies",
+        "doi:10.1093/imamat/hxx020 vaccination age structure"
+      ]
+    },
+    "rationale": "The 2022 source prints both mechanisms and explicitly says their direct comparison is highly arbitrary because \\(\\vartheta_V\\) and \\(T_*\\) lack counterparts. The mean-matched calibration and its exact directional bias are not stated there. Searches for the literal source, same-mean fixed/exponential vaccination delays, competing-risk formulations, and related age-structured SVIR work did not identify a statement implying the source-specific extremal theorem.",
+    "residual_risks": [
+      "The full text of the 2008 antecedent and 2017 age-structured paper was not openly available in the inspected web sources; a hidden or unindexed passage could contain a related calibration.",
+      "A general competing-risks text could contain the Jensen extremum abstractly; novelty is therefore asserted only for applying it to and resolving the calibration question posed by this specific model pair."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_CALIBRATION",
+        "evidence": "The paper states that \\(\\vartheta_V\\) and \\(T_*\\) have no direct counterparts and therefore compares only different fixed-time instances; it does not set \\(\\vartheta_V=1/T_*\\) or derive the success-probability ordering.",
+        "identifier_or_url": "doi:10.3934/nhm.2022012",
+        "material_read": "Open full PDF: introduction, Section 2, Models (2)–(4), reproduction-number discussion, comparison paragraph, and numerical discussion of immunization time.",
+        "method": "Compared the ODE exit mechanism to the transport-age completion mechanism and reconstructed individual waiting-time laws under constant hazard.",
+        "title": "Vaccination strategies through intra-compartmental dynamics",
+        "trigger": "Primary source defining both compared vaccination mechanisms and flagging their comparison problem."
+      },
+      {
+        "assessment": "PLAUSIBLE_RELATED_SOURCE_NOT_DECISIVE",
+        "evidence": "The abstract stresses time to immunity and infection before immunity, but does not state the mean-matched waiting-time extremum.",
+        "identifier_or_url": "doi:10.1016/j.jtbi.2007.10.014",
+        "material_read": "Authoritative abstract/metadata and the 2022 source description of the inherited ODE mechanism; full article was not openly available in the inspected sources.",
+        "method": "Checked whether indexed claims already state a fixed-time versus exponential same-mean calibration.",
+        "title": "SVIR epidemic models with vaccination strategies",
+        "trigger": "The 2022 source identifies this as the antecedent for its ODE vaccinated compartment."
+      },
+      {
+        "assessment": "RELATED_AGE_STRUCTURE_NO_DECISIVE_COVERAGE",
+        "evidence": "The accessible abstract focuses on global attractors, thresholds, persistence, and effects of vaccination age on reproduction number, not same-mean fixed/exponential waiting-time bias.",
+        "identifier_or_url": "doi:10.1093/imamat/hxx020",
+        "material_read": "Publisher abstract and indexed bibliographic/reference record; full text was access-restricted in the inspected source.",
+        "method": "Compared claimed scope and vaccination-age emphasis with the constant-hazard extremal statement.",
+        "title": "SVIR epidemic model with age structure in susceptibility, vaccination effects and relapse",
+        "trigger": "Highly relevant vaccination-age structured primary literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2652ff4-622e-4884-87ce-db1a1d21ba6c",
+  "value": {
+    "rationale": "The source itself identifies comparison of its ODE and fixed-time vaccination mechanisms as problematic. Mean matching supplies a canonical calibration, and the theorem shows the remaining difference is not neutral: deterministic waiting is the worst case for immunization-before-infection among all mean-matched laws, while the common Markov ODE systematically overstates successful immunization. The result is structural, exact, and directly informs interpretation or calibration of the source models rather than being an arbitrary parameter exercise.",
+    "status": "PASS"
+  }
+}
