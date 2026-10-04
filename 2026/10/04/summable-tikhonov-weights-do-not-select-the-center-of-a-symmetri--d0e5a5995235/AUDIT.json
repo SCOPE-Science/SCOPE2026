@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The simplex minimization is an exact scalar quadratic calculation. It gives \\(\\beta_k=\\rho_k/(2c^2+\\rho_k)\\), \\(x_{k+1}=x_k(1-\\beta_k/\\sigma_k)\\), and \\(\\sigma_{k+1}=\\sigma_k+\\beta_k^2x_k^2/\\sigma_k\\). With \\(\\sigma_0\\ge1\\), every state factor is strictly between zero and one. Since \\(\\sum_k\\beta_k/\\sigma_k<\\infty\\), the infinite product is positive, proving \\(x_\\infty\\ne0\\). The displacement and parameter bounds follow by summing exact increments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li--Wang--Chen prove compactness, Pareto stationarity of accumulation points, and an O(epsilon^-2) residual bound.",
+        "De Santis--Eichfelder--Porcelli analyze a different AdaGrad-like multi-objective method.",
+        "Gratton--Jerad--Toint study single-objective objective-function-free adaptive regularization."
+      ],
+      "reasoning": "The closest broader methods prove stationarity or complexity. Those results allow the present behavior rather than determining the selected Pareto point, so they do not imply the quantitative claim.",
+      "searches": [
+        "SAA-RMGDA Tikhonov multiplier selection symmetric two objective Pareto interval bias",
+        "multiobjective Tikhonov simplex multiplier vanishing regularization Pareto selection exact",
+        "adaptive regularized multi-gradient symmetric quadratics schedule dependent Pareto point",
+        "summable Tikhonov regularization multi-gradient does not select central Pareto point"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.02722v1",
+      "arXiv:2602.05893",
+      "DOI:10.5802/ojmo.41",
+      "published-finding corpus:2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "published-finding corpus:2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "published-finding corpus:2026/9/17/SCOPE-automatic-boundedness-for-deterministic-gradient-mapping-accumulation--e3edbe40faf5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.02722v1, Algorithm 1 and Section 4",
+        "arXiv:2602.05893",
+        "DOI:10.5802/ojmo.41"
+      ],
+      "reasoning": "General Pareto-stationarity does not imply a selection law on a continuum of stationary points. Unique per-iteration Tikhonov multipliers also do not imply convergence to the uniform multiplier or to the symmetry center. The present exact recursion supplies that missing implication comparison.",
+      "searches": [
+        "SAA-RMGDA Tikhonov multiplier selection symmetric two objective Pareto interval bias",
+        "multiobjective Tikhonov simplex multiplier vanishing regularization Pareto selection exact",
+        "adaptive regularized multi-gradient symmetric quadratics schedule dependent Pareto point",
+        "summable Tikhonov regularization multi-gradient does not select central Pareto point"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary full text contains no stated Pareto-point selection theorem.",
+        "published-finding corpus searches returned adaptive-gradient stability and unrelated regularization results, not this simplex-multiplier selection law."
+      ],
+      "reasoning": "Queries included selection, bias, symmetric quadratic Pareto intervals, and vanishing/summable Tikhonov terminology. No hit stated an equivalent product law or noncentral selection theorem.",
+      "searches": [
+        "SAA-RMGDA Tikhonov multiplier selection symmetric two objective Pareto interval bias",
+        "multiobjective Tikhonov simplex multiplier vanishing regularization Pareto selection exact",
+        "adaptive regularized multi-gradient symmetric quadratics schedule dependent Pareto point",
+        "summable Tikhonov regularization multi-gradient does not select central Pareto point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+        "2026/9/17/SCOPE-automatic-boundedness-for-deterministic-gradient-mapping-accumulation--e3edbe40faf5",
+        "arXiv:2602.05893",
+        "DOI:10.5802/ojmo.41"
+      ],
+      "reasoning": "No exact table/database entry among the returned published findings concerned SAA-RMGDA Tikhonov multiplier selection on a Pareto interval.",
+      "searches": [
+        "SAA-RMGDA Tikhonov multiplier selection symmetric two objective Pareto interval bias",
+        "multiobjective Tikhonov simplex multiplier vanishing regularization Pareto selection exact",
+        "adaptive regularized multi-gradient symmetric quadratics schedule dependent Pareto point",
+        "summable Tikhonov regularization multi-gradient does not select central Pareto point"
+      ]
+    },
+    "rationale": "The primary source gives unique Tikhonov-regularized multipliers and general Pareto-stationarity/complexity guarantees, but no inspected statement determines which point of a non-singleton Pareto set is selected. The exact product law, noncentral multiplier limit, and total-Tikhonov-mass displacement bound were not found in targeted database or web searches. Search failure is not treated as proof of priority.",
+    "residual_risks": [
+      "An equivalent Pareto-selection result may exist under different terminology outside the inspected sources.",
+      "The theorem is a deliberately exact low-dimensional witness and should not be read as a general characterization of SAA-RMGDA selection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact symmetric-Pareto selection law; source supplies the exact algorithmic identities used in the proof.",
+        "evidence": "The paper states the unconstrained step p=-(1/sigma)H lambda_rho(H), the simplex-regularized lambda_rho problem, sigma_{k+1}=sigma_k+sigma_k||p_k||^2, and general Pareto-stationarity/complexity results.",
+        "identifier_or_url": "arXiv:2609.02722v1",
+        "material_read": "Abstract; Assumption 1; Sections 3.1, 3.2, and 4 including the unconstrained closed form, Algorithm 1, Lemmas 4.1 and 4.3, and Theorem 4.7; references.",
+        "method": "Full-text HTML inspection and targeted term searches for quadratic, linear convergence, eigenvalue, spectral, and selection-related language.",
+        "title": "An Adaptive Projected-Gradient Algorithm for Sample-Average Approximations of Stochastic Multi-Objective Optimization",
+        "trigger": "Primary source defining SAA-RMGDA, the Tikhonov simplex regularization, and the positive-summable schedule."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material; different adaptive mechanism and no matching quadratic selection result found.",
+        "evidence": "Abstract states an AdaGrad-like common-descent method with O(1/sqrt(k+1)) common-direction rate; targeted searches returned no quadratic or linear-convergence match.",
+        "identifier_or_url": "arXiv:2602.05893",
+        "material_read": "Abstract and accessible full-text term searches for quadratic and linear convergence.",
+        "method": "arXiv abstract/full-text inspection.",
+        "title": "Objective-Function Free Multi-Objective Optimization: Rate of Convergence and Performance of an Adagrad-like algorithm",
+        "trigger": "Recent function-value-free multi-objective adaptive-gradient comparator."
+      },
+      {
+        "assessment": "INAPPLICABLE to Pareto-set multiplier selection; it is single-objective.",
+        "evidence": "Publisher abstract concerns stochastic unconstrained nonconvex first-order criticality and evaluation complexity, not simplex multipliers or non-singleton Pareto sets.",
+        "identifier_or_url": "DOI:10.5802/ojmo.41",
+        "material_read": "Publisher abstract, bibliographic record, and source-paper description of the OFFO lineage.",
+        "method": "Open publisher page and bibliographic comparison.",
+        "title": "A Stochastic Objective-Function-Free Adaptive Regularization Method with Optimal Complexity",
+        "trigger": "Single-objective adaptive-regularization antecedent cited by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0e5a599-5235-445f-8799-be0082e48fa2",
+  "value": {
+    "rationale": "The result answers a natural selection question created by the source design: whether a unique Tikhonov-regularized multiplier induces a preferred Pareto point. On the simplest non-singleton symmetric Pareto set, summability gives finite total selection pressure; the exact displacement bound shows that a legal schedule can retain arbitrarily strong initialization bias. This distinguishes multiplier uniqueness from solution selection and is useful for interpreting or redesigning vanishing regularization.",
+    "status": "PASS"
+  }
+}
