@@ -1,0 +1,118 @@
+{
+  "claim": "For Guo-Feng Zhang's standard two-copy teleportation protocol using the thermal two-qubit Heisenberg--DM state, let \\(x=J/T\\), \\(s=\\sqrt{1+D^2}\\), \\(y=xs\\), let \\(C_{\\mathrm{in}}\\in(0,1]\\) be the input concurrence, and \\[Z=2e^{-x/2}\\left(1+e^x\\cosh y\\right).\\]Direct evaluation of the Bell-measurement Pauli channel gives the exact output concurrence \\[\\boxed{C_{\\mathrm{out}}=\\max\\!\\left\\{\\frac{4\\left[C_{\\mathrm{in}}e^x\\sinh^2 y-2s^2\\cosh y\\right]}{Z^2s^2},\\,0\\right\\}.}\\]The published Eq. (14) has the same bracket but prefactor \\(2\\), so whenever the output is entangled it underestimates the concurrence by exactly a factor of two. The sign threshold is unchanged. Moreover, for every fixed \\(J\\ne0\\), \\(T>0\\), and \\(C_{\\mathrm{in}}>0\\), the corrected numerator is positive for all sufficiently large finite \\(D\\), and \\[\\boxed{C_{\\mathrm{out}}(D)=\\frac{C_{\\mathrm{in}}}{1+D^2}+O\\!\\left(e^{-|J|\\sqrt{1+D^2}/T}\\right),\\qquad D\\to\\infty.}\\]Thus \\(\\lim_{D\\to\\infty}D^2C_{\\mathrm{out}}=C_{\\mathrm{in}}\\). The source's limiting statement \\(C_{\\mathrm{out}}\\to0\\) is correct, but its interpretation that sufficiently strong DM interaction makes the teleported entanglement vanish is not: every nonzero input concurrence is eventually revived and remains strictly positive at all sufficiently large finite \\(D\\), with a universal algebraic \\(D^{-2}\\) tail.",
+  "correctness": {
+    "rationale": "Bell overlaps of the reconstructed Gibbs state yield a Pauli channel with transverse contraction lambda_perp=2 exp(x/2)sinh(y)/(s Z) and longitudinal contraction lambda_z=2[exp(x/2)cosh(y)-exp(-x/2)]/Z. Applying the channel twice gives C_out=max{C_in lambda_perp^2-(1-lambda_z^2)/2,0}, which simplifies to the prefactor-4 formula and agrees with direct density-matrix replay. Its strong-D asymptotic is C_in/(1+D^2) plus exponentially small corrections.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. 2010 study output concurrence and fidelity for related XXZ channels with different DM orientations.",
+        "Later thermal-teleportation papers continue to analyze Heisenberg channels with DM interactions.",
+        "The inspected later material does not state the 2007 prefactor correction or the universal strong-D tail."
+      ],
+      "reasoning": "Broader model studies do not dominate the accepted claim unless they specialize to the same standard protocol and reproduce the corrected 2007 output concurrence.",
+      "searches": [
+        "The effect of different Dzyaloshinskii-Moriya interactions on teleportation via a two-qubit Heisenberg chain",
+        "thermal entanglement and teleportation two-qubit Heisenberg XXZ different Dzyaloshinskii Moriya interactions",
+        "entanglement teleportation Heisenberg DM strong coupling output concurrence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0703019",
+      "DOI:10.1103/PhysRevA.75.034304",
+      "DOI:10.1142/S0217984910022536",
+      "DOI:10.1103/PhysRevLett.87.267901",
+      "MaRDI Q2308412zb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2007 source states the Gibbs matrix, Bell-probability Pauli protocol, input concurrence, and printed output concurrence.",
+        "Its discussion says the output entanglement decreases to zero for large DM while the mathematical limit is zero.",
+        "The later XXZ paper studies related DM teleportation but no covering correction was found in the inspected preview."
+      ],
+      "reasoning": "The prior protocol definitions make the correction independently derivable, but they do not state the corrected concurrence magnitude or distinguish a zero limit from eventual finite-D vanishing.",
+      "searches": [
+        "Primary full text arXiv:quant-ph/0703019 equations 8, 13, 14 and discussion lines 67-73",
+        "DOI:10.1142/S0217984910022536 output concurrence DM teleportation",
+        "DOI:10.1103/PhysRevLett.87.267901 teleportation depolarizing Pauli channel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source Eq. (14) has prefactor 2.",
+        "Direct reconstruction of the stated protocol gives prefactor 4.",
+        "No targeted search located a factor-two correction or the D^-2 strong-D tail."
+      ],
+      "reasoning": "Equivalent coverage must either correct the Wootters concurrence normalization for this exact two-copy protocol or imply the same positive-value factor and large-D asymptotic. Generic DM-enhancement statements do not cover it.",
+      "searches": [
+        "thermal entanglement teleportation Heisenberg Dzyaloshinskii Moriya output concurrence large D reentrant entanglement",
+        "Guo-Feng Zhang 2007 output concurrence Dzyaloshinskii Moriya large interaction teleportation",
+        "entanglement teleportation Heisenberg DM asymptotic concurrence D squared",
+        "thermal teleportation output entanglement strong Dzyaloshinskii Moriya finite D zero revival",
+        "PhysRevA.75.034304 correction concurrence factor 2",
+        "quant-ph/0703019 correction output concurrence",
+        "Thermal entanglement and teleportation factor 2 concurrence Zhang"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source gives analytic Eq. (14) and plots but no corrected table.",
+        "The correction is obtained by reconstructing the channel, not by adjusting a plotted datum."
+      ],
+      "reasoning": "The factor-two result is a protocol-level algebraic comparison; the D^-2 law is an asymptotic theorem, not a table recomputation.",
+      "searches": [
+        "quant-ph/0703019 Eq. 14 output concurrence",
+        "DOI:10.1103/PhysRevA.75.034304 Eq. 14 concurrence",
+        "C_out quant-ph/0703019",
+        "Dzyaloshinskii Moriya teleportation output concurrence large D"
+      ]
+    },
+    "rationale": "The 2007 source prints prefactor 2, not 4, and does not identify eventual large-finite-D revival or the D^-2 tail. No targeted source located a correction or an equivalent asymptotic statement.",
+    "residual_risks": [
+      "An unindexed erratum or later paper may contain the same normalization correction.",
+      "Only preview-level material was available for the closest 2010 follow-up.",
+      "The asymptotic claim does not assert microscopic realizability of arbitrarily large dimensionless DM coupling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Eq. (14) has prefactor 2; direct protocol reconstruction gives 4. The source correctly notes a zero D->infinity limit but interprets strong DM as eventual vanishing rather than a positive algebraic tail.",
+        "evidence": "The source states C_in in the standard Wootters normalization and uses two independent Bell-probability Pauli channels, fixing the concurrence normalization.",
+        "identifier_or_url": "arXiv:quant-ph/0703019; DOI:10.1103/PhysRevA.75.034304",
+        "material_read": "Full arXiv text covering equations (1)-(17), especially Gibbs matrix (8), Bell-channel construction (13), concurrence (14), and the discussion of Figures 2-5.",
+        "method": "Full arXiv text inspection.",
+        "title": "Thermal entanglement and teleportation in a two-qubit Heisenberg chain with Dzyaloshinski-Moriya anisotropic antisymmetric interaction",
+        "trigger": "Direct source containing the Hamiltonian, Gibbs state, teleportation protocol, printed concurrence, and strong-D interpretation."
+      },
+      {
+        "assessment": "Related broader DM-teleportation study; no factor-two correction to the 2007 expression or universal D^-2 tail was located.",
+        "evidence": "The paper states that output concurrence can be controlled by DM orientation and coupling.",
+        "identifier_or_url": "DOI:10.1142/S0217984910022536",
+        "material_read": "Publisher-preview material covering abstract, model motivation, and stated output-concurrence conclusions.",
+        "method": "Publisher-preview text inspection.",
+        "title": "The effect of different Dzyaloshinskii-Moriya interactions on teleportation via a two-qubit Heisenberg chain",
+        "trigger": "Closest later paper on the same thermal-Heisenberg teleportation mechanism with different DM orientations."
+      },
+      {
+        "assessment": "Primary MSC is 81P47.",
+        "evidence": "The MSC list begins with Quantum channels, fidelity (81P47), followed by teleportation and open-system codes.",
+        "identifier_or_url": "MaRDI Q2308412zb",
+        "material_read": "Mathematical bibliographic record and MSC list.",
+        "method": "Bibliographic metadata inspection.",
+        "title": "The thermal teleportation of a qutrit in the two-qutrits XXZ chain — classification record",
+        "trigger": "Primary MSC ownership verification for thermal Heisenberg-chain teleportation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3628401f-2219-4560-ae71-9e8f3a6cd70b",
+  "value": {
+    "rationale": "The correction changes every positive teleported-concurrence value by a factor of two and changes the qualitative large-D picture: the resource revives at finite strong coupling and survives with a universal D^-2 scale instead of undergoing permanent finite-D death.",
+    "status": "PASS"
+  }
+}
