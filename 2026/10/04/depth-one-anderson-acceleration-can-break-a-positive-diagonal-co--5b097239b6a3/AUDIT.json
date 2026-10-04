@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The standard depth-one residual least-squares formula is used directly. The map is a strict diagonal positive contraction with an explicit positive fixed point and positive monotone Picard iterates. Scaling the slow coordinate gives an exact nondegenerate limiting Anderson recurrence whose sixth second coordinate is strictly negative while preceding coordinates are positive; rational dependence yields the open-family result. The packaged checker exactly verifies the rational witness and the one-dimensional fixed-point identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Walker--Ni provide the standard affine-combination algorithm, linear/GMRES relation, truncation discussion, and a qualitative warning about negative entries.",
+        "Potra--Engler give a complete characterization for their linear Anderson setting up to stagnation and relate it to GMRES.",
+        "Toth--Kelley prove convergence of Anderson depth one for contractive maps without assuming bounded coefficients."
+      ],
+      "reasoning": "Convergence and residual-minimization theory is broader in algorithmic scope but does not dominate an invariant-cone claim. A convergent accelerated sequence may leave the positive orthant transiently, as the exact example demonstrates.",
+      "searches": [
+        "Anderson Acceleration for Fixed-Point Iterations Walker Ni",
+        "A characterization of the behavior of the Anderson acceleration on linear problems Potra Engler",
+        "Convergence Analysis for Anderson Acceleration Toth Kelley",
+        "Web search: Anderson acceleration negative entries linear contraction"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/10078356X",
+      "arXiv:1102.0796v1",
+      "DOI:10.1137/130919398",
+      "Copper Mountain 2010 Walker abstract",
+      "Current research ledger through generation g000040"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Walker--Ni Algorithm AA specializes exactly to the affine two-residual recurrence used here at depth one and unit mixing; their NMF discussion says negative entries are possible in general.",
+        "Potra--Engler concern linear Anderson convergence/stagnation and GMRES equivalence, not preservation of the positive cone under a moving depth-one window.",
+        "Toth--Kelley establish convergence of Anderson(1) for contractions; convergence does not imply every intermediate iterate is coordinatewise nonnegative."
+      ],
+      "reasoning": "The prior literature supplies the algorithm and convergence framework, and one source already covers the qualitative possibility of negative entries. What remains non-implied is the exact minimal positive diagonal contraction mechanism, its robust parameter family, and the one-dimensional impossibility proof.",
+      "searches": [
+        "DOI:10.1137/10078356X full text Algorithm AA and negative entries",
+        "arXiv:1102.0796 full text linear Anderson GMRES stagnation",
+        "DOI:10.1137/130919398 Anderson(1) contraction convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published research record supplied an exact depth-one diagonal positive-contraction sign-crossing theorem.",
+        "Walker--Ni explicitly acknowledge possible negative Anderson entries in a nonnegative-matrix-factorization experiment, but without the minimal linear-contraction mechanism proved here.",
+        "Potra--Engler characterize linear Anderson behavior and GMRES equivalence in the untruncated setting rather than orthant invariance of the depth-one window."
+      ],
+      "reasoning": "The claim was searched as positive-orthant invariance, negative-entry production, diagonal affine contraction, and short-memory linear Anderson. Qualitative negativity is prior-covered; the exact cone-invariance obstruction and minimal dimension were not found.",
+      "searches": [
+        "Published-index search: Anderson acceleration depth one diagonal positive contraction negative coordinate sixth iterate",
+        "Published-index search: AA(1) positive affine contraction negative iterate two dimensions",
+        "Web search: Anderson acceleration positive orthant diagonal linear fixed point",
+        "Web search: Anderson acceleration nonnegative iterates affine contraction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked exact-term searches found general Anderson references and the Walker--Ni qualitative warning but no exact two-dimensional diagonal rational example or table of positivity thresholds.",
+        "The current research ledger contains no Anderson-acceleration claim under direct text search."
+      ],
+      "reasoning": "Because the witness is low-dimensional and elementary, direct exact-example and negative-entry searches were used. No checked database entry or table contained the stated family or scalar minimality result.",
+      "searches": [
+        "Published-index search: Anderson acceleration positive map negative entries nonnegative matrix factorization exact counterexample",
+        "Web search: Anderson acceleration negative entries contraction",
+        "Web search: Anderson mixing positivity constraint"
+      ]
+    },
+    "rationale": "Walker and Ni already note that Anderson acceleration can produce negative matrices, so mere negativity is not claimed. The accepted contribution is the exact minimal two-dimensional positivity obstruction for a diagonal strict contraction, the open small-parameter family with five positive accelerated iterates before a sign crossing, and the scalar impossibility theorem. Full-text linear Anderson/GMRES results and contraction-convergence results do not imply this coordinate-cone statement.",
+    "residual_risks": [
+      "Specialized positivity-preserving or constrained-Anderson literature may contain a related diagonal example under different terminology.",
+      "The Toth--Kelley full text was not recovered in this run; only the publisher abstract was inspected.",
+      "Qualitative negative entries are definitely prior-covered, so originality is limited to the exact minimal-dimensional diagonal-contraction construction and proof.",
+      "No sharp universal contraction-factor threshold is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the standard algorithm, linear equivalence ideas, and qualitative possibility of negative Anderson entries. It does not state the minimal diagonal positive-contraction theorem or the open depth-one family proved here.",
+        "evidence": "The NMF discussion explicitly notes that Anderson acceleration may in general produce matrices with negative entries; the paper also defines the constrained residual least-squares coefficients and affine combination of fixed-point images.",
+        "identifier_or_url": "DOI:10.1137/10078356X",
+        "material_read": "Author-hosted full paper, including Algorithm AA, the linear/GMRES section, truncation discussion, and the nonnegative-matrix-factorization experiment.",
+        "method": "Lawful full-text PDF inspection with page-level review.",
+        "title": "Anderson Acceleration for Fixed-Point Iterations",
+        "trigger": "Primary source defining the standard affine-combination algorithm and directly relevant to negative-entry behavior."
+      },
+      {
+        "assessment": "COVERS linear Anderson convergence and GMRES equivalence up to stagnation in its setting. It does not classify coordinatewise positivity or the depth-one positive diagonal map used here.",
+        "evidence": "The paper characterizes convergence versus stagnation for linear problems and optimized mixing but does not impose or analyze a positive orthant invariant.",
+        "identifier_or_url": "arXiv:1102.0796v1",
+        "material_read": "Full arXiv text, including the Anderson definitions, stagnation index, convergence theorem, and GMRES comparison.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "A Characterization of the Behavior of the Anderson Acceleration on Linear Problems",
+        "trigger": "Strongest directly relevant full-text linear Anderson characterization found in the comparison search."
+      },
+      {
+        "assessment": "COVERS q-linear convergence of Anderson(1) for contractions according to the abstract. It does not expose a coordinatewise positivity theorem in the inspected material; lack of full text is retained as a residual comparison risk.",
+        "evidence": "The abstract states q-linear convergence of Anderson(1) without coefficient assumptions and r-linear convergence of Anderson(m) with bounded coefficients.",
+        "identifier_or_url": "DOI:10.1137/130919398",
+        "material_read": "Publisher abstract, bibliographic metadata, keywords, and MSC classification.",
+        "method": "Publisher abstract inspection; full text was not recovered in this run.",
+        "title": "Convergence Analysis for Anderson Acceleration",
+        "trigger": "Direct contraction-theory comparison, including Anderson depth one."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b097239-b6a3-4c78-870a-ba04da97fd1b",
+  "value": {
+    "rationale": "Positive fixed-point maps occur when coordinates represent concentrations, probabilities, populations, or nonnegative factors. The result isolates a minimal failure mechanism showing that residual-minimizing extrapolation can violate the cone even without coupling or nonlinearity. The exact witness is useful for safeguards and regression tests, and the one-dimensional impossibility distinguishes a genuine multivariate effect.",
+    "status": "PASS"
+  }
+}
