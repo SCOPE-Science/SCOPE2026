@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The source full text verifies the exact modal factorization and monotonicity. Expanding the negative polynomial shows its conjugate-root modulus is sqrt(n(n+β)) for 0<β<2. On (0,1], 1-β decreases while both endpoint radii increase, so the first endpoint crossing is the unique minimizer; solving the two crossings gives the stated radicals. For β>1 the increasing endpoint terms cannot improve the value, and β≥2 has |1-β|≥1. A standalone checker replays roots and dense minimization over a grid of endpoint pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.23601 addresses exact worst-case class rates parameterized by sigma, not the visible fixed-graph signed endpoints.",
+        "arXiv:2607.25463 is an optimal-parameter paper for DIGing rather than the ATC/AugDGM recurrence.",
+        "arXiv:1609.05877 proves geometric ATC-DIGing convergence without the inspected exact optimizer."
+      ],
+      "reasoning": "The closest broader works differ either in quantifiers (worst case over graph/function classes) or algorithm (DIGing), so the inspected statements do not imply the fixed-graph sign-aware formula. Full-text access failure for the two July 2026 papers prevents claiming exhaustive exclusion.",
+      "searches": [
+        "arXiv:2607.23601v1",
+        "arXiv:2607.25463v1",
+        "arXiv:1609.05877v1",
+        "distributed gradient tracking homogeneous quadratic negative eigenvalue dominant consensus matrix optimal constant stepsize exact root radius",
+        "DGT uniform curvatures lambda_N negative dominant optimal stepsize",
+        "gradient tracking quadratic consensus spectrum negative endpoint stepsize"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.03548v1",
+      "arXiv:2607.23601v1",
+      "arXiv:2607.25463v1",
+      "arXiv:1609.05877v1",
+      "MSC2020:65K05",
+      "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+      "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source explicitly says the exact homogeneous optimizer can depend on all eigenvalues and imposes λ2≥|λN| to derive its closed form.",
+        "The accepted proof uses the source negative-mode modulus R-=sqrt(n(n+β)) but solves its crossing with 1-β, which the inspected source does not do as the graph-specific optimum."
+      ],
+      "reasoning": "The source ingredients make the new calculation short but do not logically state it: its theorem has a stricter spectral assumption and its sigma envelope inserts a fictitious positive endpoint when a negative endpoint dominates. The new statement removes that assumption and changes the optimum in a nonempty regime.",
+      "searches": [
+        "arXiv:2608.03548v1",
+        "arXiv:2607.23601v1",
+        "arXiv:2607.25463v1",
+        "ATC-DIGing AugDGM homogeneous scalar quadratic graph-specific optimal constant stepsize negative consensus eigenvalue λN sign asymmetry exact root radius",
+        "sqrt(n(4+5n)) distributed gradient tracking negative eigenvalue stepsize",
+        "uniform-curvature distributed gradient tracking exact eigenvalue-specific optimal beta lambda2 lambdaN"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states the signed λ2/λN optimizer or the square-root n(4+5n) branch.",
+        "Primary arXiv:2608.03548v1 states only the λ2≥|λN| closed form and a symmetric sigma envelope."
+      ],
+      "reasoning": "Aliases ATC-DIGing, AugDGM, distributed gradient tracking, homogeneous quadratics, graph-frequency decomposition, negative consensus eigenvalues, and exact root radius were searched. No inspected source gives a statement algebraically equivalent to the accepted formula.",
+      "searches": [
+        "distributed gradient tracking homogeneous quadratic negative eigenvalue dominant consensus matrix optimal constant stepsize exact root radius",
+        "DGT uniform curvatures lambda_N negative dominant optimal stepsize",
+        "gradient tracking quadratic consensus spectrum negative endpoint stepsize",
+        "ATC-DIGing AugDGM homogeneous scalar quadratic graph-specific optimal constant stepsize negative consensus eigenvalue λN sign asymmetry exact root radius",
+        "sqrt(n(4+5n)) distributed gradient tracking negative eigenvalue stepsize",
+        "uniform-curvature distributed gradient tracking exact eigenvalue-specific optimal beta lambda2 lambdaN",
+        "arXiv:2608.03548v1",
+        "arXiv:2607.23601v1",
+        "arXiv:2607.25463v1",
+        "arXiv:1609.05877v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned optimization spectral-radius findings, but none on distributed gradient tracking signed consensus endpoints.",
+        "General web searches for the exact radical expression and modal polynomial returned the primary source and related DGT works but no table/formula matching the claim."
+      ],
+      "reasoning": "This is an analytic optimizer rather than a tabulated invariant; exact-expression and method-name searches were used to test whether the radical branch already appears in a database or paper.",
+      "searches": [
+        "distributed gradient tracking homogeneous quadratic negative eigenvalue dominant consensus matrix optimal constant stepsize exact root radius",
+        "DGT uniform curvatures lambda_N negative dominant optimal stepsize",
+        "gradient tracking quadratic consensus spectrum negative endpoint stepsize",
+        "ATC-DIGing AugDGM homogeneous scalar quadratic graph-specific optimal constant stepsize negative consensus eigenvalue λN sign asymmetry exact root radius",
+        "sqrt(n(4+5n)) distributed gradient tracking negative eigenvalue stepsize",
+        "uniform-curvature distributed gradient tracking exact eigenvalue-specific optimal beta lambda2 lambdaN"
+      ]
+    },
+    "rationale": "The primary full text supplies the modal factors but stops at a positive-endpoint dominance regime and a sign-blind certified envelope. The accepted result exactly minimizes those factors over the actual signed spectrum, yielding a new negative-endpoint branch and switching criterion. Targeted published-finding corpus and literature searches found no implication-equivalent record. Two very close 2026 papers could only be inspected at abstract/review level, so that access limitation is retained as a residual risk.",
+    "residual_risks": [
+      "The full PDFs of arXiv:2607.23601v1 and arXiv:2607.25463v1 were not retrievable in this run, so an equivalent formula hidden beyond their abstracts remains possible.",
+      "An older distributed-control paper may contain the same fixed-spectrum calculation under state-space or root-locus terminology despite not appearing in targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact factors and monotonicity used in the proof, but states the closed-form optimum only under λ2≥|λN| and otherwise turns to a sign-blind sigma-based certificate.",
+        "evidence": "Equations (12)--(17) factor the modes and give R+ and R-; Lemma 2 derives 1-sqrt(sigma) under the positive-dominance assumption; equation (18) uses the symmetric interval envelope.",
+        "identifier_or_url": "arXiv:2608.03548v1",
+        "material_read": "Full nine-page arXiv PDF, especially Sections II--IV, equations (9), (12)--(18), Lemma 2 and its proof.",
+        "method": "Full-text inspection plus rendered PDF page inspection.",
+        "title": "Adaptive Stepsizes With Certified Convergence in Distributed Gradient Tracking With Quadratic Costs",
+        "trigger": "Primary source with exact homogeneous modal factorization and stated restriction to dominant positive spectral endpoint."
+      },
+      {
+        "assessment": "Describes rates optimized over function/network classes parameterized by connectivity magnitude sigma; no signed fixed-graph λ2/λN optimizer was visible in inspected material.",
+        "evidence": "The abstract explicitly frames exact worst-case rates over network/function classes; the review presents sigma-parameterized AugDGM formulas.",
+        "identifier_or_url": "arXiv:2607.23601v1",
+        "material_read": "ArXiv abstract and a detailed accessible technical review; direct full-PDF retrieval failed.",
+        "method": "Abstract/secondary technical review comparison.",
+        "title": "Exact Worst-case Convergence Rates of Distributed Gradient Tracking Methods",
+        "trigger": "Very close 2026 work claiming exact worst-case rates for DIGing and AugDGM."
+      },
+      {
+        "assessment": "Optimizes DIGing, whereas the accepted claim concerns the adapt-then-combine DGT/AugDGM modal polynomial used by Wang et al.; no implication-equivalent formula is visible in the abstract.",
+        "evidence": "The abstract names DIGing, unweighted sum of squares, graph-frequency decomposition, and optimal parameters.",
+        "identifier_or_url": "arXiv:2607.25463v1",
+        "material_read": "ArXiv abstract; direct full-PDF retrieval failed.",
+        "method": "Abstract-level algorithm/claim comparison.",
+        "title": "Optimal Parameter Design for DIGing on Minimizing Unweighted Sum of Squares",
+        "trigger": "Close graph-frequency parameter-design paper on quadratic distributed optimization."
+      },
+      {
+        "assessment": "Proves geometric convergence under uncoordinated stepsizes but does not state the present exact signed-endpoint constant-step optimizer in inspected material.",
+        "evidence": "Accessible abstract describes geometric convergence and ATC acceleration, not exact fixed-spectrum tuning.",
+        "identifier_or_url": "arXiv:1609.05877v1",
+        "material_read": "ArXiv abstract and publisher metadata/abstract.",
+        "method": "Claim-scope comparison.",
+        "title": "Geometrically Convergent Distributed Optimization with Uncoordinated Step-Sizes",
+        "trigger": "Foundational ATC-DIGing convergence reference."
+      },
+      {
+        "assessment": "65K05 is Numerical mathematical programming methods, matching the algorithmic parameter-design claim.",
+        "evidence": "AMS MSC2020 database lists 65K05 under numerical methods for mathematical programming, optimization and variational techniques.",
+        "identifier_or_url": "MSC2020:65K05",
+        "material_read": "AMS MathSciNet MSC2020 database entry.",
+        "method": "Classification lookup.",
+        "title": "MSC2020 database entry 65K05",
+        "trigger": "Primary-scope ownership verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4bef3051-2fd6-4b2b-b3b2-944054ed072c",
+  "value": {
+    "rationale": "The source motivates exact stepsize design but its closed form assumes positive spectral dominance and otherwise uses a sign-blind essential spectral radius. The new formula resolves the complementary negative-dominant homogeneous regime, shows exactly when the source formula remains valid under a weaker condition, and quantifies a strict rate gain available from signed spectrum information. This is a structural tuning result rather than a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
