@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "After translating the centers, each coordinate contributes independently to two support counters. The stated local polynomial exhausts and uniquely classifies every overlap value by whether it is nonzero relative to each center. Multiplication and coefficient truncation therefore count every common output exactly once. A direct finite implementation agrees throughout an exhaustive grid; the computation is corroborative rather than foundational.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The limited-magnitude tiling papers study packings/tilings of the same shapes. The inspected reconstruction paper studies maximum intersections and bounds because intersections control reconstruction."
+      ],
+      "reasoning": "Packing/tiling classifications do not determine the exact overlap of arbitrary translated balls with support truncation. The reconstruction paper is broader in coding goals but does not state a theorem that implies the full displacement-sensitive equality.",
+      "searches": [
+        "sequence reconstruction limited magnitude exact intersection arbitrary centers",
+        "maximum intersection limited-magnitude error balls",
+        "arXiv:2006.00198v1",
+        "arXiv:2301.05834v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.09662v1",
+      "DOI:10.1109/TIT.2022.3159736",
+      "arXiv:2006.00198v1",
+      "arXiv:2301.05834v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6 gives the maximum intersection K V_{K+1}(n-1,t-1), attained by unit displacement. Lemma 14 bounds general intersections in terms of distance. The proposed theorem recovers Theorem 6 at unit displacement but distinguishes arbitrary signed displacement vectors sharing the same coarse distance data."
+      ],
+      "reasoning": "The new claim is not a corollary of the global maximum or two-sided distance bounds: those statements do not determine exact intersection sizes for general center pairs. Conversely, the new equality strictly contains the unit-displacement count as a special case.",
+      "searches": [
+        "arXiv:2108.09662v1 Theorem 6",
+        "arXiv:2108.09662v1 Lemma 14",
+        "asymmetric limited magnitude ball intersection coefficient polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper defines the exact same pair-intersection N(x,y;t,k_+,k_-) and proves only the global maximum plus distance-based general bounds; its Lemma 14 is explicitly a two-sided bound, not an equality formula for arbitrary displacement."
+      ],
+      "reasoning": "The proposed coefficient formula is an exact equality parameterized by every signed coordinate displacement. The inspected primary statements do not give an equivalent exact enumerator or a transformation that determines it from their scalar distance alone.",
+      "searches": [
+        "exact arbitrary-center intersection formula for limited-magnitude error balls using displacement coordinates",
+        "integer-vector limited-magnitude channel exact two-ball intersection displacement histogram",
+        "arXiv:2108.09662v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding searches returned no record stating an arbitrary-center limited-magnitude intersection product or coefficient formula. Closest returned coding records concern different channels or invariants."
+      ],
+      "reasoning": "No exact database/table covering the claimed all-parameter pairwise intersection law was identified. Negative search is treated only as evidence, not as proof of novelty.",
+      "searches": [
+        "limited-magnitude error balls exact intersection generating function integer vectors",
+        "limited magnitude errors pairwise ball intersection exact formula",
+        "limited-magnitude reconstruction pairwise intersection bivariate enumerator support counts",
+        "coefficient extraction formula error-ball intersection limited magnitude",
+        "Sequence Reconstruction for Limited-Magnitude Errors Wei Schwartz"
+      ]
+    },
+    "rationale": "The primary reconstruction paper defines the same intersection object, proves its global maximum and distance-based bounds, but the inspected statements do not give an exact arbitrary-displacement enumerator. Related tiling sources do not dominate the claim. Targeted published-finding searches found no equivalent statement; residual risk of an unindexed or implicit derivation remains.",
+    "residual_risks": [
+      "An unindexed note, thesis, or differently phrased generating-function treatment may contain the same coordinate factorization.",
+      "Because the factorization is elementary once the full signed displacement is retained, prior implicit use without theorem-level emphasis is a plausible residual originality risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and closest prior work; establishes the known global maximum and general distance-based bounds, not the claimed exact arbitrary-displacement product formula.",
+        "evidence": "The paper defines N(x,y;t,k_+,k_-), calls maximum intersection essential for reconstruction, states Theorem 6 as the global maximum, and states Lemma 14 as lower/upper bounds for general pairs.",
+        "identifier_or_url": "arXiv:2108.09662v1 / DOI:10.1109/TIT.2022.3159736",
+        "material_read": "Definitions of limited-magnitude balls and pair intersections; Section III statement of Theorem 6; Lemma 14 and surrounding proof.",
+        "method": "Open full-text inspection of the arXiv/journal version, including the theorem and lemma statements rather than search snippets.",
+        "title": "Sequence Reconstruction for Limited-Magnitude Errors",
+        "trigger": "Direct source defining the same pair-intersection quantity."
+      },
+      {
+        "assessment": "Uses intersections to enforce packing/tiling constraints but does not supply an arbitrary-center exact overlap enumerator.",
+        "evidence": "The paper is organized around lattice tilings and non-overlap of translates, not pairwise intersection-size formulas.",
+        "identifier_or_url": "arXiv:2006.00198v1",
+        "material_read": "Definitions and portions discussing intersections/non-overlap in tiling arguments.",
+        "method": "Open full-text search and inspection.",
+        "title": "On Tilings of Asymmetric Limited-Magnitude Balls",
+        "trigger": "Same geometric error-ball family and potential broader overlap theory."
+      },
+      {
+        "assessment": "Classifies a special tiling problem and does not imply arbitrary-center intersection counts.",
+        "evidence": "Its stated scope is lattice-tiling classification for B(n,2,1,1), a different invariant.",
+        "identifier_or_url": "arXiv:2301.05834v1",
+        "material_read": "Title, abstract/metadata, and result scope.",
+        "method": "Open literature inspection.",
+        "title": "Complete characterization of lattice tilings of Z^n by B(n,2,1,1)",
+        "trigger": "Later work on the same limited-magnitude ball family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6eb1f0fe-59d3-44f8-8e70-615a43df17cf",
+  "value": {
+    "rationale": "The exact pairwise intersection is the natural ambiguity quantity in sequence reconstruction. The theorem resolves it for every center pair and all parameters and yields a direct O(n t^2) evaluator, replacing only bounds at the instance level. It is structural and all-parameter rather than a routine finite computation.",
+    "status": "PASS"
+  }
+}
