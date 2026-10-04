@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For \\(n=p^{\\ell}m\\), prime \\(\\ell\\) gives exactly two exponent divisors at \\(p\\), while squarefree \\(m\\) contributes one at each other prime. Direct substitution gives \\(d_e(n)=2\\), \\(\\sigma_e(n)=mp(1+p^{\\ell-1})\\), and \\(S_e(n)=1+p^{\\ell-1}\\). Type 1 would force \\(1+p^{\\ell-1}\\mid2\\), which is impossible. Type 2 is exactly \\(1+p^{\\ell-1}\\mid2m\\). Dividing the single possible factor \\(2\\) yields the stated \\(M\\)-criterion. A separate exact-integer checker recomputes the original definitions on 47,460 triples without discrepancy.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sándor (2006), Theorem 1: all squarefree integers are of both types",
+        "Sándor (2006), Theorem 2: an exponential-perfect criterion for type 1",
+        "Sándor (2006), Theorem 3: modified exponential-perfect implies type 2",
+        "arXiv:1603.04382v2, Theorems 2–3: multiplicatively exponential-perfect/superperfect cases"
+      ],
+      "reasoning": "These are broader in surrounding terminology but narrower or transverse in hypotheses. None covers all integers with one prime exponent \\(\\ell\\) and an arbitrary squarefree coprime cofactor, so the new theorem is not a corollary of their stated results.",
+      "searches": [
+        "On exponentially harmonic numbers Sándor theorem squarefree",
+        "Some Results on Generalized Multiplicative Perfect Numbers e-harmonic type 2",
+        "exponential harmonic numbers p^a squarefree"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1603.04382v1/v2",
+      "Sándor, Scientia Magna 2 (2006), no. 3, 44–47",
+      "OEIS A348961",
+      "OEIS A348964",
+      "OEIS A348965"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1603.04382v2, lines corresponding to Section 2 definitions and Theorems 2–3",
+        "Sándor (2006), pp. 45–47",
+        "targeted research-result search returned only classical power-harmonic and exponential-unitary-perfect results as close matches"
+      ],
+      "reasoning": "Classical harmonic, unitary harmonic, bi-unitary harmonic, exponential-perfect, and multiplicatively exponential-perfect claims use different divisor sets or additional hypotheses. Their conclusions do not imply the two divisibility statements proved here.",
+      "searches": [
+        "p^(ell-1)+1 divides 2m exponential harmonic",
+        "e-harmonic p^ell q prime",
+        "exponential harmonic prime exponent squarefree cofactor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1603.04382v2, Section 2, definitions of types 1 and 2",
+        "Sándor (2006), Section 2",
+        "OEIS A348961 and A348964"
+      ],
+      "reasoning": "The searches included the exact object names, the prime-exponent shape, and the defining function \\(S_e\\). The closest sources reproduce definitions and examples but not the equivalence \\(p^{\\ell-1}+1\\mid2m\\) or its squarefree generator form.",
+      "searches": [
+        "exponential harmonic type 2 prime exponent repeated prime squarefree cofactor",
+        "e-harmonic type 2 p^ell m squarefree exponent prime",
+        "e-harmonic type 2 p^a squarefree",
+        "S_e(n) e-harmonic squarefree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A348961 lists type-1 numbers",
+        "OEIS A348964 lists type-2 numbers",
+        "OEIS A348965 isolates nonsquarefree type-2 numbers"
+      ],
+      "reasoning": "The sequence tables corroborate examples such as \\(12,18,40,60,75,84,132,135,156,204\\), but their comments state only the squarefree theorem and definitions; they do not tabulate or formulate the complete prime-exponent stratum criterion.",
+      "searches": [
+        "OEIS A348961",
+        "OEIS A348964",
+        "OEIS A348965"
+      ]
+    },
+    "rationale": "The inspected literature defines the two exponential-harmonic notions and treats squarefree integers, exponential-perfect numbers, modified exponential-perfect numbers, and multiplicatively exponential-perfect/superperfect numbers, but does not state or imply the complete \\(p^{\\ell}m\\) squarefree-cofactor criterion. The exact OEIS tables are consistent with the theorem but contain no equivalent formula.",
+    "residual_risks": [
+      "An equivalent elementary lemma may occur in literature not indexed by the searches or in a source not accessible in full text.",
+      "The older Sándor article predates the dated primary arXiv source and was checked for implication, but its bibliographic record does not supply a day-level first-public timestamp in the inspected copies."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states the two definitions, then restricts its e-harmonic theorems to multiplicatively exponential-perfect or multiplicatively exponential-superperfect numbers. No theorem for \\(p^{\\ell}m\\) with squarefree \\(m\\) appears in the inspected section.",
+        "identifier_or_url": "arXiv:1603.04382v2",
+        "material_read": "Abstract metadata and Section 2 through the exponential-harmonic definitions, Theorems 1–3, and subsequent examples/characterizations.",
+        "method": "Authoritative arXiv HTML full text.",
+        "title": "Some Results on Generalized Multiplicative Perfect Numbers",
+        "trigger": "Primary source with exact public timestamp, primary MSC 11A25, and explicit definitions of both exponential-harmonic types."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article proves the squarefree case, an exponential-perfect type-1 criterion, and a modified-exponential-perfect sufficient condition for type 2; it does not state the prime-exponent squarefree-cofactor classification.",
+        "identifier_or_url": "Scientia Magna 2 (2006), no. 3, 44–47",
+        "material_read": "Full article text covering definitions, Theorems 1–3, remarks, and examples.",
+        "method": "Full-text PDF text extraction; page-image screenshot retrieval was unavailable from the host, but the complete relevant article text was readable.",
+        "title": "On exponentially harmonic numbers",
+        "trigger": "Foundational source cited by the 2016 paper and OEIS for the exact same notions."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The entries reproduce the definitions and Sándor's squarefree result and provide examples, but do not state the theorem or its \\(M\\)-parametrization.",
+        "identifier_or_url": "OEIS:A348961; OEIS:A348964; OEIS:A348965",
+        "material_read": "Definitions, comments, examples, formulas, cross-references, and displayed initial terms.",
+        "method": "Current OEIS entry text.",
+        "title": "OEIS A348961, A348964, A348965",
+        "trigger": "Exact databases for the two number classes and nonsquarefree type-2 examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "661e35e1-fc0a-41e7-80f4-c4e9004e0bd1",
+  "value": {
+    "rationale": "Prime exponents are the first nontrivial exponent-divisor layer because they have exactly two positive exponent divisors. The theorem therefore resolves a natural complete stratum rather than an arbitrary numerical slice. It exposes a sharp qualitative split between types 1 and 2 and reduces type-2 membership to the squarefree support of a single explicit integer \\(M\\); the two-prime-support corollary becomes one primality condition.",
+    "status": "PASS"
+  }
+}
