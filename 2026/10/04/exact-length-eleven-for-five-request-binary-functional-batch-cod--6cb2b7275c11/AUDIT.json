@@ -1,0 +1,107 @@
+{
+  "claim": "For binary three-dimensional functional batch codes in which every request in every five-request multiset has a pairwise-disjoint recovery set of size at most two, the minimum length is exactly \\(11\\). Equivalently, a \\([11,3,5,2]\\) code exists and no \\([n,3,5,2]\\) code exists for \\(n\\le 10\\).",
+  "correctness": {
+    "rationale": "The repeated-query formula is exact because every binary minimal recovery set of size at most two is a singleton q or a complementary pair u,v with u+v=q. Summing over the seven q gives n plus the pair-minimum sum. Balancing bounds that sum by 24 at total n=10, yielding 34<35. The explicit rank-three length-eleven witness is exhaustively verified on all 462 query multisets; the checker also independently enumerates all 8008 total-ten multiplicity vectors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2508.02586 studies minimum functional-batch length with unrestricted recovery size; the Tartu thesis reports unrestricted k=3,t=5 minimum 10.",
+        "arXiv:2601.12302 studies bounded recovery-set size and derives general lower bounds."
+      ],
+      "reasoning": "The unrestricted exact value does not dominate the locality-two problem because its recovery sets may be larger than two. The bounded-recovery general theory does not state a stronger theorem implying exact length 11 at this parameter.",
+      "searches": [
+        "functional batch code dimension three five requests recovery sets size two",
+        "functional batch code k=3 t=5 locality 2 minimum length",
+        "arXiv:2508.02586"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.12302",
+      "arXiv:2508.02586",
+      "UTartu:hdl.handle.net/10062/117012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unrestricted exact length 10 gives only a lower comparator for the constrained problem.",
+        "The locality-bounded paper gives the model and general counting bounds but no matching length-eleven construction or total-ten impossibility at this parameter."
+      ],
+      "reasoning": "Neither closest prior statement implies the claim: unrestricted recovery can use larger sets, while the general locality-two bounds are not exact here. Conversely, the new theorem sharpens the constrained parameter only and does not alter the unrestricted value.",
+      "searches": [
+        "binary functional batch locality two dimension 3 five requests exact length 11",
+        "functional batch code length 11 k=3 t=5 recovery sets size 2",
+        "arXiv:2601.12302",
+        "UTartu:hdl.handle.net/10062/117012"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.12302 defines locality r by pairwise-disjoint recovery sets of size at most r and uses [n,k,t,r] notation."
+      ],
+      "reasoning": "The claim was compared under both parameter notation and prose formulations. The bounded-recovery definition is equivalent to the formulation used here, but the inspected source does not supply the exact value for k=3,t=5,r=2.",
+      "searches": [
+        "[11,3,5,2] functional batch code",
+        "five-request locality-two functional batch code dimension three",
+        "arXiv:2601.12302"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Tartu thesis numerical Table 1 reports the unrestricted functional-batch minimum 10 for k=3,t=5.",
+        "The table does not impose locality two."
+      ],
+      "reasoning": "The most directly relevant exact small-parameter table covers the unrestricted problem, not the bounded-recovery invariant claimed here. No checked exact table listed the locality-two value 11.",
+      "searches": [
+        "exact minimum length binary [n,3,5,2] functional batch code locality two 11",
+        "11-column dimension 3 5 functional batch code recovery size 2",
+        "UTartu:hdl.handle.net/10062/117012"
+      ]
+    },
+    "rationale": "The inspected unrestricted literature gives length 10 for k=3,t=5 without a locality cap, while the inspected bounded-recovery paper defines [n,k,t,r] codes and general bounds but does not state the exact k=3,t=5,r=2 value. Focused exact-parameter and alias searches found no covering statement.",
+    "residual_risks": [
+      "Search incompleteness remains possible: an unindexed publication or thesis could contain the same exact locality-two value.",
+      "The result claims an exact minimum only, not uniqueness or classification of optimal codes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact constrained model and develops general bounds; no exact k=3,t=5,r=2 value was found in the inspected text.",
+        "evidence": "Definition 6 uses [n,k,t,r] for disjoint recovery sets of size at most r; the abstract states bounds on minimum length with small recovery sets.",
+        "identifier_or_url": "arXiv:2601.12302",
+        "material_read": "Full arXiv HTML text, especially Definitions 4-6, simplex discussion, and lower-bound section.",
+        "method": "Statement-level comparison of definitions, parameter ranges, and claimed bounds.",
+        "title": "On the Minimum Length of Functional Batch Codes with Small Recovery Sets",
+        "trigger": "Same objects and bounded recovery-set parameter."
+      },
+      {
+        "assessment": "Reports unrestricted binary functional-batch minimum 10 at k=3,t=5; locality two is not imposed.",
+        "evidence": "Table 1 has row k=3, column t=5 with actual minimum 10.",
+        "identifier_or_url": "UTartu:hdl.handle.net/10062/117012",
+        "material_read": "Repository metadata and thesis PDF, including Section 5.2.1 and Table 1 on page 24.",
+        "method": "Direct reading of the exact-parameter table and its explanatory paragraph.",
+        "title": "Asymptotic Bounds on the Length of Functional Batch and PIR Codes",
+        "trigger": "Exact small-parameter computer-search table for functional batch codes."
+      },
+      {
+        "assessment": "Relevant broader problem, but unrestricted recovery-set size means its exact values do not settle locality two.",
+        "evidence": "The abstract defines the minimum-length problem for fixed dimension and list size without a recovery-set-size cap.",
+        "identifier_or_url": "arXiv:2508.02586",
+        "material_read": "ArXiv abstract/metadata and paper scope; compared with the thesis exact table from the same research line.",
+        "method": "Implication comparison between unrestricted and locality-bounded recovery.",
+        "title": "The Length of Functional Batch and PIR Codes",
+        "trigger": "Broad minimum-length theory for the same functional-batch invariant without locality restriction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6cb2b727-5c11-4082-a0fc-767cc965c342",
+  "value": {
+    "rationale": "The parameter is structurally motivated: k=3 has the length-seven simplex locality-two code at four requests and a length-fourteen doubled-simplex construction at eight requests. Five requests are the first intermediate count, and the exact value 11 measures a genuine one-column penalty relative to the known unrestricted value 10. The repeated-query capacity argument is reusable and not a table recomputation.",
+    "status": "PASS"
+  }
+}
