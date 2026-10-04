@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For every agent, RSD assigns a top-k object whenever that agent is among the first k priority positions, so own top-k probability is at least k/n. With two preference types A,B and multiplicities r,s, equal treatment of equals and feasibility give r xA(T)+s xB(T)=k for every A-top-k set. Therefore s(xA(T)-xB(T))=n xA(T)-k>=0, with the symmetric argument for B. Exact enumeration independently gives 72/216 failures at n=3, all using three preference types, in two S3xS3 classes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bogomolnaia-Moulin Proposition 1 states that RP is weakly envy-free but may fail full envy-freeness for n>=3.",
+        "Hosseini-Larson-Cohen Example 4 states that their three-agent Example 2 is not sd-envyfree, and their paper studies envy empirically and proves a weaker lexicographic-domain fairness property."
+      ],
+      "reasoning": "These sources cover the general negative result and other preference domains, but do not imply the two-type theorem; the proof uses the special two-type feasibility identity.",
+      "searches": [
+        "Bogomolnaia Moulin random priority weakly envy-free may not be envy-free n>=3",
+        "Hosseini Larson Cohen RSD envy preference structure Example 4",
+        "random serial dictatorship lexicographic envyfree"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1006/jeth.2000.2710",
+      "arXiv:1503.01488"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior weak-envy theorem does not imply strong envy-freeness on a two-type domain.",
+        "The known three-agent counterexample establishes sharpness in size/type but not the positive all-n theorem.",
+        "Equal treatment of equals alone is insufficient; the additional top-k RSD lower bound and feasibility identity are needed."
+      ],
+      "reasoning": "The accepted claim is not a corollary of the named prior statements without the new two-type argument.",
+      "searches": [
+        "Bogomolnaia Moulin Definition 4 random assignment envy-free stochastic dominance",
+        "Hosseini Larson Cohen Example 2 acb abc bac RSD sd-envyfree",
+        "RSD equal treatment of equals two preference types"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned unrelated ordering/orbit/probability findings rather than a random-assignment envy theorem.",
+        "Targeted web searches located the standard Bogomolnaia-Moulin and Hosseini-Larson-Cohen fairness literature but not a theorem for at most two distinct preference orders or the exact 72-profile census."
+      ],
+      "reasoning": "Searches used both mechanism names, both envy terminologies, the structural restriction, and the exact boundary count; no equivalent formulation was found.",
+      "searches": [
+        "published-finding corpus: random serial dictatorship sd-envyfree two distinct preference orders",
+        "published-finding corpus: random priority stochastic dominance envy-free two preference types",
+        "Web: random serial dictatorship two preference types envy free",
+        "Web: random priority two preference types envy-free",
+        "Web: RSD three agents 72 profiles sd envy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected database or table contained the 144/72 three-agent sd-envy-freeness split or the two failing S3xS3 classes."
+      ],
+      "reasoning": "The finite sharpness census is generated directly from all strict profiles rather than copied from a known table.",
+      "searches": [
+        "published-finding corpus: RSD envy four agents exact profile classification",
+        "published-finding corpus: RSD three agents 72 profiles sd envy",
+        "Web: random priority 72 profiles envy"
+      ]
+    },
+    "rationale": "The closest primary sources establish general RSD non-envyfreeness, a three-agent witness, lexicographic-domain fairness, and empirical envy patterns; no inspected source or published-finding corpus record states the all-n two-preference-type stochastic-dominance envy-freeness theorem or the exact sharp n=3 quotient.",
+    "residual_risks": [
+      "An unindexed thesis, teaching note, exercise, or software table may contain the same two-type proof or exact three-agent census.",
+      "The theorem is only for the strict square unit-capacity model with uniform priorities and should not be generalized to other assignment domains without a separate proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes that RP is weakly envy-free but may not be envy-free for n>=3; does not state the two-preference-type positive theorem in inspected text.",
+        "evidence": "Journal of Economic Theory 100 (2001), 295-328; PDF states published online 2001-03-29.",
+        "identifier_or_url": "doi:10.1006/jeth.2000.2710",
+        "material_read": "Full accessible PDF, including publication metadata, Definition 4, Proposition 1, the Random Priority definition, and the proof section.",
+        "method": "Lawful public PDF text plus rendered-page inspection.",
+        "title": "A New Solution to the Random Assignment Problem",
+        "trigger": "Foundational source defining stochastic-dominance envy-freeness and the Random Priority fairness boundary."
+      },
+      {
+        "assessment": "Contains the three-agent counterexample and weaker lexicographic-domain fairness results; no all-n two-distinct-order sd-envy-free theorem or exact n=3 quotient was found.",
+        "evidence": "arXiv v1 submitted 2015-03-04; MSC 91B68/91A99.",
+        "identifier_or_url": "arXiv:1503.01488",
+        "material_read": "Full arXiv PDF, including Example 2, Section 5.1/Example 4, the stochastic-dominance definitions, and the envy experiments.",
+        "method": "Lawful arXiv PDF text plus rendered-page inspection.",
+        "title": "Random Serial Dictatorship versus Probabilistic Serial Rule: A Tale of Two Random Mechanisms",
+        "trigger": "Directly studies RSD envy and dependence on preference structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e7d900d-7fa1-45ab-be68-978ff8f1ba7d",
+  "value": {
+    "rationale": "The theorem gives a sharp structural domain where a canonical strategyproof mechanism recovers full stochastic-dominance envy-freeness, directly refining the classical general negative result. The exact smallest-market census proves the preference-type condition is nonvacuous and sharp.",
+    "status": "PASS"
+  }
+}
