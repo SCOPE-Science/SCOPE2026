@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Substituting the scalar quadratic into the published Remark 2.9 update gives \\(\\ell_k=L_k=\\lambda\\) exactly. The two algebraic identities \\(r^3-r-1=0\\) and \\(2ra^2-2a-r=0\\) force alternating branch choices and hence the exact period-two normalized steps. The resulting scalar iterate recurrence gives the stated Q-linear closed form; all denominators remain nonzero because \\(1<a<b<2\\) and \\(x^0\\ne0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2508.01353 proves convergence properties for the adaptive Bregman methods and reports fluctuating stepsizes, but does not characterize their exact periodic dynamics on scalar quadratics.",
+        "arXiv:2301.04431 develops broader Euclidean adaptive proximal theory and reports cyclic behavior, while stating that a rigorous explanation is future work."
+      ],
+      "reasoning": "The broader convergence theorems are compatible with, but do not imply, nonconvergence of the stepsize sequence or the specific plastic-constant cycle. The exact orbit is a dynamical refinement rather than a corollary explicitly covered by those results.",
+      "searches": [
+        "Full text: arXiv:2508.01353 Remark 2.9, Section 5.7.2, conclusion",
+        "Full text: arXiv:2301.04431 introduction and Section 4.3",
+        "published-finding corpus: adaptive proximal gradient scalar quadratic stepsize 1.1789749039 1.5618092263"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2508.01353v2 full text; earliest public version v1 dated 2025-08-02",
+      "arXiv:2301.04431v4 full text",
+      "published-finding corpus semantic database",
+      "Targeted public web searches for period-two/two-cycle/plastic-constant adaptive proximal stepsizes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source explicitly allows two positive initial stepsizes and gives the exact quadratic-kernel update needed for the construction.",
+        "The source says a small stepsize may trigger a larger next step and identifies this as a future-research direction.",
+        "The predecessor says the adaptive stepsizes exhibit seemingly cyclic behavior and asks whether rigorous arguments can support the empirical evidence."
+      ],
+      "reasoning": "The new claim directly supplies such a rigorous witness, but only for a deliberately initialized scalar quadratic. It therefore sharpens the empirical observation without overstating a generic convergence-to-cycle theorem.",
+      "searches": [
+        "Primary-source comparison: arXiv:2508.01353 Remark 2.6 and Remark 2.9 versus the claimed scalar recurrence",
+        "Predecessor comparison: arXiv:2301.04431 Section 4.3 oscillatory behavior versus an exact period-two orbit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text gives the quadratic-kernel recurrence but no exact period-two solution.",
+        "The Euclidean predecessor describes seemingly cyclic and oscillatory stepsizes but explicitly leaves rigorous support of that empirical evidence as an open question.",
+        "No targeted semantic or web result stated the plastic-constant two-cycle or the same two normalized steps."
+      ],
+      "reasoning": "A qualitative observation of oscillation is not implication-equivalent to existence of this exact orbit. The present statement supplies explicit parameters, verifies the active branches, and proves an infinite periodic sequence together with the iterate law.",
+      "searches": [
+        "published-finding corpus: B-adaPG quadratic scalar quadratic persistent stepsize oscillation two-cycle plastic constant",
+        "published-finding corpus: linesearch-free adaptive Bregman proximal gradient quadratic kernel stepsizes fail to converge two cycle",
+        "Web: adaptive proximal gradient period-2 stepsize quadratic",
+        "Web: adaptive gradient two-cycle stepsize proximal quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa concerns a different adaptive gradient rule and endpoint spectral persistence.",
+        "Closest published-finding corpus record 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53 concerns objective amplification for Barzilai--Borwein interval steps.",
+        "Other close hits concern Polyak-step frontiers, stochastic OSGM feedback, or unrelated stability problems; none records this recurrence or orbit."
+      ],
+      "reasoning": "Database neighbors share adaptive-stepsize vocabulary but are not statement-equivalent and do not imply the exact B-adaPGα period-two construction.",
+      "searches": [
+        "B-adaPG quadratic scalar quadratic persistent stepsize oscillation two-cycle plastic constant",
+        "linesearch-free adaptive Bregman proximal gradient quadratic kernel stepsizes fail to converge two cycle",
+        "adaptive proximal gradient scalar quadratic stepsize 1.1789749039 1.5618092263",
+        "plastic constant stepsize cycle proximal gradient"
+      ]
+    },
+    "rationale": "The exact period-two orbit, its plastic-constant parametrization, and its closed-form iterate contraction were not found in the inspected primary source, its closest Euclidean predecessor, targeted web searches, or targeted published-finding corpus semantic searches. The predecessor instead labels the observed cyclic behavior as empirical and leaves rigorous support open.",
+    "residual_risks": [
+      "An older adaptive-gradient paper could contain an equivalent scalar quadratic period-two calculation under different notation despite not surfacing in the targeted searches.",
+      "The construction proves existence for a specially chosen initialization and should not be read as evidence that generic initial stepsizes approach the same cycle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact recurrence and convergence context, but does not state or derive the plastic-constant period-two scalar orbit.",
+        "evidence": "Remark 2.6 permits \\(\\gamma_0,\\gamma_1>0\\); Remark 2.9 gives the quadratic-kernel update; Section 5.7.2 says a small step may trigger a larger next step; the conclusion reports fluctuating stepsizes.",
+        "identifier_or_url": "arXiv:2508.01353v2",
+        "material_read": "Abstract and classifications; Section 2.2 including Remarks 2.6 and 2.9; Section 5.7.2; conclusion; surrounding algorithm definitions.",
+        "method": "Lawful open arXiv full text inspected at the statement and formula level.",
+        "title": "Linesearch-free adaptive Bregman proximal gradient for convex minimization under local relative smoothness",
+        "trigger": "Primary source for the adaptive rule and the observed small-step/large-next behavior."
+      },
+      {
+        "assessment": "Reports seemingly cyclic and oscillatory adaptive stepsizes and explicitly leaves a rigorous explanation open; no exact two-cycle formula was found.",
+        "evidence": "Introduction characterizes the behavior as seemingly cyclic; Section 4.3 says oscillations appear in simulations and asks whether rigorous arguments can support the empirical evidence.",
+        "identifier_or_url": "arXiv:2301.04431v4",
+        "material_read": "Introduction, adaptive stepsize formula, Figure 4 discussion, and Section 4.3 Observations about the stepsize sequence.",
+        "method": "Lawful open arXiv full text inspected at the statement and implication level.",
+        "title": "Adaptive proximal algorithms for convex optimization under local Lipschitz continuity of the gradient",
+        "trigger": "Closest Euclidean predecessor explicitly cited by the primary source."
+      },
+      {
+        "assessment": "No returned record was implication-equivalent; closest records concern different adaptive algorithms or different one-step frontiers.",
+        "evidence": "Top recurring neighbors were the AdOGD spectral-persistence record and Barzilai--Borwein/Polyak frontier records, all with different update rules and conclusions.",
+        "identifier_or_url": "semantic database search",
+        "material_read": "Ranked titles and summaries returned by four claim-, alias-, and parameter-specific semantic queries.",
+        "method": "Semantic search followed by statement-level comparison of the closest returned records.",
+        "title": "published-finding corpus mathematical research records",
+        "trigger": "Required overlap check for equivalent or dominating unpublished/published records available in published-finding corpus."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e7d7ac1b-509b-4c21-b136-02c79acb4fd0",
+  "value": {
+    "rationale": "The result resolves a concrete qualitative phenomenon highlighted by both the primary source and its Euclidean predecessor on the smallest strongly convex model: adaptive stepsizes can oscillate forever even while the optimization iterates converge linearly. The exact plastic-constant values and contraction law provide a natural benchmark for future dynamical or asymptotic analyses.",
+    "status": "PASS"
+  }
+}
