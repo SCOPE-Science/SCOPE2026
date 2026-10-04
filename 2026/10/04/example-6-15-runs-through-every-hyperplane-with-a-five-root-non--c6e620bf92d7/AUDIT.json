@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The source gives \\(\\phi_\\rho^\\dagger(y)=\\rho y+y^{16}\\), \\((\\operatorname{im}\\phi_\\rho)^\\perp=\\ker\\phi_\\rho^\\dagger\\), and singularity iff \\(\\rho^{21}=1\\). For a singular parameter, nonzero adjoint-kernel vectors satisfy \\(y^{15}=\\rho\\). The fifteenth-power kernel in \\(\\mathbb F_{64}^{\\times}\\) has size \\(\\gcd(15,63)=3\\), exactly \\(\\mathbb F_4^\\times\\), so projective normals and singular parameters are in bijection. The hull criterion reduces to \\(\\operatorname{Tr}_{64/4}(y)=0\\), and elimination gives \\(\\rho^5+\\rho^4+1=0\\). The standalone verifier exhaustively confirms the \\(21\\) hyperplanes, five roots, and \\(60/5\\) full-family split.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source's Theorem 6.8 gives the adjoint intersection formula and Proposition 6.11 gives a trace-isotropy criterion.",
+        "Those general statements do not identify the singular images in this example with every projective hyperplane or eliminate the normal vector to obtain the degree-five parameter equation."
+      ],
+      "reasoning": "The new claim is not merely the general hull criterion specialized numerically: it proves a bijection onto the entire dual projective plane and derives a closed parameter equation for the exceptional locus.",
+      "searches": [
+        "linearized polynomial code q=4 m=3 k=1 rho x + x^4 hull",
+        "five non-LCD parameters F64 trace zero hyperplane code hull",
+        "linearized polynomial image code projective hyperplanes trace pairing"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.23097v2 full HTML",
+      "DOI:10.3934/amc.2026.101087 publisher page",
+      "Exact public searches for the degree-five polynomial together with the source/example",
+      "Semantic literature searches for the trace-zero and projective-hyperplane formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves \\((\\operatorname{im}\\phi_\\rho)^\\perp=\\ker\\phi_\\rho^\\dagger\\) and characterizes non-LCD singular fibres by isotropy.",
+        "The source counts five non-LCD parameters by exhaustive SageMath and lists them, but does not state a projective bijection or polynomial equation."
+      ],
+      "reasoning": "Knowing a criterion plus a computational list does not by itself state that all singular images are all hyperplanes exactly once, nor does it provide the representation-independent degree-five equation. Those implications require the fifteenth-power quotient argument and trace elimination.",
+      "searches": [
+        "On the hull of linearized polynomial codes Theorem 6.8 Proposition 6.11 Example 6.15",
+        "Example 6.15 five non-LCD points total isotropic verified computationally"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source lists five exceptional parameters in a chosen primitive-element basis and states that total isotropy was verified computationally.",
+        "No inspected source states the equivalent invariant condition \\(\\rho^5+\\rho^4+1=0\\) for Example 6.15."
+      ],
+      "reasoning": "The searches cover the source identifier, example number, numerical five-point locus, and an algebraically equivalent polynomial formulation.",
+      "searches": [
+        "arXiv 2604.23097 Example 6.15 hull linearized polynomial code five non-LCD parameters",
+        "On the hull of linearized polynomial codes Example 6.15 rho^5 rho^4 1",
+        "rho^5+rho^4+1 non-LCD hull F64"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The only exact same-example numerical table located is the five-element list in the primary paper itself.",
+        "No external code table or database entry inspected records the projective-hyperplane bijection or the degree-five exceptional polynomial."
+      ],
+      "reasoning": "The claim concerns the internal geometry of a specific parametric family rather than standard code parameters, so generic code tables do not dominate it.",
+      "searches": [
+        "Example 6.15 linearized polynomial hull 60 LCD 5 non-LCD",
+        "2604.23097 five non-LCD parameters polynomial",
+        "F64 rho^5 rho^4 1 coding theory"
+      ]
+    },
+    "rationale": "The primary paper reports the five exceptional parameters only by exhaustive computation in a primitive-element representation. It does not state that the \\(21\\) singular images exhaust all hyperplanes, nor the invariant equation \\(\\rho^5+\\rho^4+1=0\\). Focused searches of the exact example, source identifier, polynomial, trace-zero formulation, and hyperplane formulation found no same-object statement.",
+    "residual_risks": [
+      "A non-indexed note or author computation may contain the same projective reformulation.",
+      "The degree-five equation follows compactly from the source's trace-isotropy criterion, so its conceptual novelty is a specialization rather than a new general theorem.",
+      "The claim is intentionally limited to the exact worked example and does not assert a family-wide analogue."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "The source proves the general adjoint and isotropy tools and gives the 60/5 exhaustive count, but it does not state the hyperplane exhaustion or the exceptional polynomial.",
+        "identifier_or_url": "arXiv:2604.23097v2",
+        "material_read": "Abstract and MSC; Theorem 3.2; Lemma 6.7; Theorems 6.8 and 6.9; Proposition 6.11; full Example 6.15; Appendix A description and field setup.",
+        "method": "lawful public arXiv full text",
+        "title": "On the hull of linearized polynomial codes",
+        "trigger": "Primary source for the adjoint formula, hull criterion, singularity condition, and Example 6.15."
+      },
+      {
+        "assessment": "NO_BROADER_COVERAGE",
+        "evidence": "The publisher abstract describes the worked example and exact count but does not state the projective or polynomial refinement.",
+        "identifier_or_url": "DOI:10.3934/amc.2026.101087",
+        "material_read": "Publisher abstract, publication metadata, MSC classification, and structural summary table.",
+        "method": "publisher HTML",
+        "title": "On the hull of linearized polynomial codes",
+        "trigger": "Published version metadata and comparison against the current article text."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6e620bf-92d7-446f-8c47-c3dc6a84f840",
+  "value": {
+    "rationale": "The source devotes a worked example and appendix to exhaustive verification of the 60/5 hull split. The new result replaces the exceptional-list computation by a transparent finite-geometric classification: the singular family is the complete dual projective plane, and the non-LCD locus is exactly the trace-zero projective line transported to parameter space. The closed equation \\(\rho^5+\rho^4+1=0\\) is representation-independent, explains the count five, and separates the two \\(\\mathbb F_4\\) points from the cubic Frobenius orbit. This is a natural structural completion of the exact example rather than an arbitrary recomputation.",
+    "status": "PASS"
+  }
+}
