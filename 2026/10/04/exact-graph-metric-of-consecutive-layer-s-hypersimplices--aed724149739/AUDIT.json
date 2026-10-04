@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the published complete edge criterion for S-hypersimplices specialized to a consecutive interval. Three explicit route constructions give the upper bound. The minimum of their length functions is proved one-Lipschitz on every permitted edge, including separate bottom- and top-swap checks, which gives the matching lower bound. Complement symmetry and explicit extremal pairs then give the exact diameter. The packaged breadth-first-search checker agrees for every interval in dimensions 2 through 8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grötschel chapter abstract: complete linear description, greedy optimization, dual optimization, separation",
+        "Maurras--Stephan arXiv:0902.1932 abstract: cardinality-constrained matroid-polytope inequalities, facets, separation",
+        "Manecke--Sanyal--So full text: faces, edge criterion, dissections, triangulations, monotone paths, extension-complexity questions"
+      ],
+      "reasoning": "These works cover broader polyhedral or optimization questions, but the inspected statements do not imply an exact graph metric for this interval subfamily. The edge criterion is an essential premise rather than a stronger distance theorem.",
+      "searches": [
+        "cardinality homogeneous set polytope graph metric consecutive cardinalities",
+        "cardinality constrained polytope graph diameter 0-1",
+        "S-hypersimplices graph distance diameter"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1812.07491",
+      "DOI:10.37236/8457",
+      "ZIB-Report-02-19",
+      "DOI:10.1137/1.9780898718805.ch8",
+      "arXiv:0902.1932"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Manecke--Sanyal--So Theorem 1 characterizes edges; Section 4 treats monotone paths and Section 5 asks about volumes, Gröbner bases, and extension complexity.",
+        "Grötschel same-object alias source did not expose a distance or diameter statement in the accessible material.",
+        "Maurras--Stephan concerns a broader matroid setting but its stated results are facet/separation results, not graph metrics."
+      ],
+      "reasoning": "Knowing all edges does not itself state the shortest-path metric; the new claim derives and proves the global metric and sharp diameter. No inspected prior theorem has an implication that yields the displayed formula without this additional argument.",
+      "searches": [
+        "S-hypersimplices shortest path graph",
+        "S-hypersimplices diameter",
+        "Cardinality Homogeneous Set Systems shortest path",
+        "Cardinality Homogeneous Set Systems diameter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1812.07491; DOI:10.37236/8457",
+        "ZIB-Report-02-19; DOI:10.1137/1.9780898718805.ch8",
+        "arXiv:0902.1932"
+      ],
+      "reasoning": "The interval S-hypersimplex is the same convex hull as the consecutive-cardinality member of the cardinality-homogeneous family, so searches used both names as well as cube-slab and cardinality-constrained language. No source inspected stated the displayed three-route distance formula or its diameter consequence.",
+      "searches": [
+        "S-hypersimplex interval consecutive layers graph diameter distance",
+        "polytope conv 0 1 vectors Hamming weight between a and b graph diameter",
+        "cube slab a <= sum x_i <= b skeleton distance Johnson boundary swaps",
+        "truncated hypercube polytope graph metric diameter consecutive weight layers",
+        "hypersimplex Delta(d,[a,b]) diameter 1-skeleton",
+        "consecutive-layer S-hypersimplex exact graph distance diameter min(b,d-a)",
+        "Delta(d,[a,b]) one-skeleton distance p+q-2r boundary Johnson swaps",
+        "cardinality homogeneous set polytope graph metric consecutive cardinalities",
+        "Cardinality Homogeneous Set Systems shortest path",
+        "Cardinality Homogeneous Set Systems diameter",
+        "S-hypersimplices shortest path graph",
+        "S-hypersimplices diameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concerned unrelated simplex volume bounds, hypercube metric invariants, or other graph diameters; none used the same object and metric.",
+        "The Johnson-graph special case is known, but it is a single cardinality layer and does not cover the consecutive multi-layer formula."
+      ],
+      "reasoning": "Exact-form and parameter searches produced no table or record containing the claimed metric or diameter. The ordinary hypersimplex Johnson graph is a boundary/single-layer analogue, not a dominating result for the interval graph.",
+      "searches": [
+        "consecutive-layer S-hypersimplex exact graph distance diameter min(b,d-a)",
+        "Delta(d,[a,b]) one-skeleton distance p+q-2r boundary Johnson swaps",
+        "hypersimplex Delta(d,[a,b]) diameter 1-skeleton"
+      ]
+    },
+    "rationale": "The closest primary source supplies the edge criterion but does not state an all-pairs one-skeleton metric or the diameter formula. Searches under S-hypersimplex, cube-slab, cardinality-homogeneous, and cardinality-constrained aliases found no covering statement. Older same-object literature was compared for implication, with an explicit residual risk retained for differently phrased historical work.",
+    "residual_risks": [
+      "Older combinatorial-optimization literature on cardinality-homogeneous set systems may contain an equivalent metric observation under terminology not surfaced by the searches.",
+      "The Grötschel report was only partially semantically readable through the available text interface, so whole-document noncoverage is not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING: supplies the edge criterion and motivation, but no all-pairs graph metric or diameter formula was found in the inspected full text.",
+        "evidence": "Theorem 1 gives the two edge types; Section 4 studies monotone paths; Section 5 discusses volumes, Gröbner bases, and extension complexity.",
+        "identifier_or_url": "arXiv:1812.07491 / DOI:10.37236/8457",
+        "material_read": "ArXiv history; published full text introduction, definition, Theorem 1 and proof, monotone-path section, and further-questions section.",
+        "method": "Lawful public preprint/journal full text.",
+        "title": "S-hypersimplices, pulling triangulations, and monotone paths",
+        "trigger": "Same objects and the exact edge structure used by the proof."
+      },
+      {
+        "assessment": "PLAUSIBLE_ALIAS_SOURCE: accessible descriptions emphasize linear descriptions, greedy optimization, dual solutions, and separation; no covering distance statement was located, but historical-terminology risk remains.",
+        "evidence": "The public abstract lists complete linear description, greedy optimization, a dual solution, and separation as the stated results.",
+        "identifier_or_url": "ZIB-Report-02-19 / DOI:10.1137/1.9780898718805.ch8",
+        "material_read": "Public abstract, metadata, and report access; searchable extraction of the report was materially degraded and was not used to claim whole-document noncoverage.",
+        "method": "Public report/chapter metadata plus targeted searches under title and metric aliases.",
+        "title": "Cardinality Homogeneous Set Systems, Cycles in Matroids, and Associated Polytopes",
+        "trigger": "Earlier terminology for the same family of convex hulls."
+      },
+      {
+        "assessment": "NOT_COVERING: stated results concern forbidden-set/rank inequalities, facets, and separation, not one-skeleton shortest paths.",
+        "evidence": "The abstract gives complete linear descriptions, separation reduction, and facet conditions.",
+        "identifier_or_url": "arXiv:0902.1932",
+        "material_read": "ArXiv abstract, classification metadata, and stated results.",
+        "method": "Public preprint metadata and abstract.",
+        "title": "On the cardinality constrained matroid polytope",
+        "trigger": "Broader cardinality-constrained polytope terminology that could dominate the interval set-system case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aed72414-9739-47e0-858e-2269c8974d6a",
+  "value": {
+    "rationale": "The one-skeleton is a basic combinatorial invariant of S-hypersimplices and underlies navigation by edge moves. The result gives a closed all-pairs metric, identifies two precise boundary shortcuts to Hamming motion, and yields a sharp diameter for every consecutive-cardinality slab. This is a structural theorem for an infinite natural family rather than a recomputation of isolated small cases.",
+    "status": "PASS"
+  }
+}
