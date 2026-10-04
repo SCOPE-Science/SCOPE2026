@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Proposition 10 reduces maximum size to a finite integer optimization. Reversal permits x1<=y1. For fixed x1 through x3, the objective is affine in x5 and then affine in x4 after choosing x5 optimally, so checking the two x4 endpoints is exhaustive. Integer enumeration yields one reduced optimum for each q=7,8,9; Proposition 11 and q>=3 partition uniqueness give the exact code counts. A standalone verifier reproduces the enumeration, and the public reference solver independently matches all three optimum values and profiles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1303.1026v1",
+        "DOI:10.1007/s10623-023-01344-z, Proposition 10 and Section 6"
+      ],
+      "reasoning": "Blackburn gives constructions and general bounds, not these three exact values. The later SQN theorem supplies a general exact formulation but its published solved range does not include q=7,8,9; the present finite solution is not numerically implied without solving those instances.",
+      "searches": [
+        "Blackburn non-overlapping codes length six construction optimal",
+        "maximum non-overlapping codes integer optimization SQN q n",
+        "cross-bifix-free codes q-ary exact maximum length six"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.0236v1",
+      "arXiv:1303.1026v1",
+      "arXiv:2307.12593v1",
+      "DOI:10.1007/s10623-023-01344-z",
+      "github:magdevska/nono-codes",
+      "published-finding corpus:2026/9/21/SCOPE-exact-length-five-non-overlapping-codes--16d3635b1d46",
+      "published-finding corpus:2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1007/s10623-023-01344-z, Proposition 10 gives the optimization but Section 6 reports nonbinary exact runs only for 3<=q<=6.",
+        "arXiv:1303.1026v1 states optimality of Blackburn's class when n divides q; none of 7,8,9 is divisible by 6."
+      ],
+      "reasoning": "A general optimization formulation and a solver do not state its optimum for a new parameter instance. Blackburn's divisibility theorem does not cover q=7,8,9 at n=6, and at q=9 the exact optimum is strictly larger than the best k=5 member used for comparison.",
+      "searches": [
+        "Stanovnik Moskon Mraz SQN Proposition 10 maximum non-overlapping codes",
+        "Blackburn construction optimal n divides q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest records: 2026/9/21/SCOPE-exact-length-five-non-overlapping-codes--16d3635b1d46 and 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "Stanovnik–Moškon–Mraz (2024), Section 6 and Table 1"
+      ],
+      "reasoning": "The standard aliases non-overlapping, cross-bifix-free, mutually uncorrelated, and strong comma-free were included. The closest semantic matches solve length five rather than length six; the inspected primary table ends at q=6.",
+      "searches": [
+        "length six non-overlapping codes exact maximum structure q-ary",
+        "nine-ary length-six non-overlapping code maximum S(9,6)",
+        "length six cross-bifix-free code q=9 maximum classification",
+        "Blackburn construction length six q=9 non-overlapping codes",
+        "cross-bifix-free length 6 q=9 33872",
+        "mutually uncorrelated length six q=9 maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stanovnik–Moškon–Mraz Table 1 is explicitly restricted to 2<=q<=6 and 3<=n<=16.",
+        "Targeted web searches for 33872 with non-overlapping/cross-bifix-free terminology returned no scientific record of this value.",
+        "published-finding corpus searches returned no exact length-six q=7,8,9 record."
+      ],
+      "reasoning": "The natural published exact table stops immediately before the three alphabet sizes claimed here. Failed exact-number searches are supporting evidence only and are not treated as a proof of novelty.",
+      "searches": [
+        "length six non-overlapping codes exact maximum structure q-ary",
+        "nine-ary length-six non-overlapping code maximum S(9,6)",
+        "length six cross-bifix-free code q=9 maximum classification",
+        "Blackburn construction length six q=9 non-overlapping codes",
+        "33872 non-overlapping code",
+        "S(9,6) non-overlapping"
+      ]
+    },
+    "rationale": "The closest exact records found in published-finding corpus concern length five, while the 2024 primary article reports exact SQN computations only through q=6 for nonbinary alphabets. Targeted searches for the q=9 value, cross-bifix-free aliases, and the Blackburn comparison did not locate the present q=7,8,9 length-six classification. The principal residual risk is an unindexed or unpublished execution of the general solver.",
+    "residual_risks": [
+      "Searches cannot establish absolute novelty.",
+      "The public generic solver can compute these cases, so an unpublished or unindexed run may already exist.",
+      "Equivalent results may appear under a less common synchronization-code alias not captured by the searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_CLAIM",
+        "evidence": "The source gives general near-optimal constructions and bounds, not the exact length-six q=7,8,9 maxima or counts.",
+        "identifier_or_url": "arXiv:1209.0236v1",
+        "material_read": "ArXiv metadata and abstract; bibliographic linkage in the later full treatment.",
+        "method": "Direct arXiv record inspection.",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Early information-theoretic source using the principal alias and giving general q-ary constructions."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_CLAIM",
+        "evidence": "The source states construction optimality when n divides q and exactness only through length three; n=6 with q=7,8,9 is outside that exact statement.",
+        "identifier_or_url": "arXiv:1303.1026v1",
+        "material_read": "ArXiv metadata and abstract, including the divisibility-optimal construction statement and short-length exact scope.",
+        "method": "Direct arXiv record inspection.",
+        "title": "Non-overlapping codes",
+        "trigger": "Classical construction and closest historical exact/general bounds."
+      },
+      {
+        "assessment": "METHOD_COVERS_PROBLEM_BUT_PUBLISHED_PARAMETER_RANGE_NOT_CLAIM",
+        "evidence": "Section 6 says exact nonbinary SQN runs were performed for 3<=q<=6 and 5<=n<=16; Table 1 is limited to 2<=q<=6. The article does not display q=7,8,9 at n=6.",
+        "identifier_or_url": "arXiv:2307.12593v1; DOI:10.1007/s10623-023-01344-z",
+        "material_read": "Full open-access HTML: construction/uniqueness discussion, Proposition 10, Proposition 11, Section 6, Tables 1–3 context, data/code availability.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Primary source of the SQN exact optimization, code-count formula, and published computational table."
+      },
+      {
+        "assessment": "GENERAL_SOLVER_CORROBORATES_NEW_INSTANCES",
+        "evidence": "Running the public solver on n=6 and q=7,8,9 returned 7776, 16807, and 33872 with the same reduced profiles as the independent verifier.",
+        "identifier_or_url": "github:magdevska/nono-codes",
+        "material_read": "compute_sqn.c, common_functions.c, common_functions.h, README.md, and Makefile.",
+        "method": "Direct repository-source inspection and local compilation/replay.",
+        "title": "nono-codes companion repository",
+        "trigger": "Public reference implementation of the SQN search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4c76833-d8cb-4e09-aaeb-3fbdf42602d6",
+  "value": {
+    "rationale": "The three cases extend the exact length-six frontier immediately beyond the published q<=6 table. The q=9 case is structurally informative: after q=7 and q=8 retain the simple one-boundary extremizer, q=9 requires a nontrivial second partition and gains 258 words over the best k=5 Blackburn code. Exact N(q,6) values and full optimal profiles make the transition reusable for testing conjectures and algorithms for maximum non-overlapping codes.",
+    "status": "PASS"
+  }
+}
