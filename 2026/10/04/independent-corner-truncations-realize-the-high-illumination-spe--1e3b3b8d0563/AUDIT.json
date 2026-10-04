@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The cut hyperplanes are pairwise disjoint inside the cube because selected vertices have Hamming distance at least two and all depths are below one. The new vertices are exactly the edge-cut points. Surviving cube vertices retain pairwise disjoint illumination orthants, forcing at least \\(2^n-|T|\\) directions. For each new cut vertex, the direction indexed by its neighboring surviving cube vertex strictly decreases every active facet inequality, including the cut inequality by \\(-(n-2)<0\\). This yields the matching upper bound. The Banach--Mazur estimate follows from an exact concentric cube sandwich.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Livshyts--Tikhomirov prove that every sufficiently near nonparallelotope needs at most \\(2^n-1\\) directions and exhibit a sharp one-defect example.",
+        "General illumination surveys record \\(I(C_n)=2^n\\) because distinct cube vertices share no illumination direction, but do not supply the simultaneous-truncation spectrum found in the targeted searches.",
+        "Published computations for specific three-dimensional classes give isolated illumination numbers and do not dominate an arbitrary-dimensional near-cube spectrum."
+      ],
+      "reasoning": "The broader theory supplies universal upper bounds, special-class results, and the extremal cube value. None of those results fixes the exact illumination count after several independently placed corner cuts.",
+      "searches": [
+        "Cube is a strict local maximizer illumination number Theorem 1.1 Remark 1.2",
+        "illumination of convex bodies many symmetries cube",
+        "Hadwiger covering problem small dimensions illumination cube",
+        "fractional illumination convex bodies cube vertices"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1710.05070",
+      "DOI:10.1007/s00454-019-00115-9",
+      "2026/9/8/SCOPE008",
+      "targeted published semantic-index searches listed in the named checks",
+      "targeted public literature searches listed in the named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Remark 1.2 changes a single cube corner and proves the lower bound \\(2^n-1\\) from disjoint illuminating cones of the remaining vertices.",
+        "Theorem 1.1 gives only the upper estimate \\(2^n-1\\) for every sufficiently near nonparallelotope.",
+        "The new proof needs an additional simultaneous-cut vertex classification and uses independence to assign every new cut vertex to a surviving neighbor direction."
+      ],
+      "reasoning": "For \\(|T|=1\\), the exact numerical value is prior-covered in a different near-cube construction and is not claimed as new. For \\(|T|\\ge2\\), neither the source lower-bound argument nor its common upper bound implies the exact decrease by one per independent cut. The full spectrum requires the new matching construction.",
+      "searches": [
+        "Livshyts Tikhomirov Remark 1.2 illumination exact 2^n-1",
+        "Livshyts Tikhomirov Theorem 1.1 near cube illumination",
+        "Livshyts Tikhomirov canonical illuminating set sign vectors",
+        "cube illumination no two vertices share direction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The open-access Livshyts--Tikhomirov full text states the near-cube bound and its one-corner sharpness construction, but a full-text search has no truncation-family statement.",
+        "Searches using independent-set, parity-class, truncated-vertex, spectrum, and exact-count formulations returned the same local-cube paper or unrelated illumination results.",
+        "The one-corner prior witness has exact value \\(2^n-1\\), whereas the new theorem gives every exact value down to \\(2^{n-1}\\) by simultaneous independent cuts."
+      ],
+      "reasoning": "The claim was compared under both its convex-geometric formulation and its hypercube-graph formulation. A theorem giving only \\(I(K)\\le2^n-1\\) cannot imply the exact values \\(2^n-m\\) for \\(m\\ge2\\), and the published one-corner example does not determine interactions among many cuts.",
+      "searches": [
+        "illumination number independent set truncated cube vertices exact spectrum",
+        "shallow vertex truncations hypercube illumination number 2^n minus m",
+        "cube truncation illumination directions untruncated vertices",
+        "near cube exact illumination spectrum truncating parity class",
+        "illumination number truncated cube convex body",
+        "illumination number hypercube truncation vertices",
+        "illumination number independent set cube convex",
+        "illumination truncated hypercube convex geometry",
+        "illumination spectrum convex bodies cube",
+        "illumination number every integer convex body cube",
+        "illumination number 2^{n-1} convex body cube",
+        "illumination parity class convex body",
+        "convex hull cube deleted vertices illumination number",
+        "corner truncation cube illumination 2^n-|T|"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published indexed record 2026/9/8/SCOPE008 computes exact illumination numbers for five fixed three-dimensional parallelohedron representatives, including one value \\(4\\).",
+        "Other close hypercube-index records concern acute sets, metric dimension, or mutual visibility rather than convex illumination.",
+        "No returned indexed record states a family \\(K(T,\tau)\\) or the exact law \\(I=2^n-|T|\\)."
+      ],
+      "reasoning": "The closest illumination record is finite and three-dimensional; its objects are fixed parallelohedra and it gives no implication for shallow truncations of an \\(n\\)-cube or for arbitrary independent sets.",
+      "searches": [
+        "illumination number independent set truncated cube vertices exact spectrum",
+        "shallow vertex truncations hypercube illumination number 2^n minus m",
+        "cube truncation illumination directions untruncated vertices",
+        "near cube exact illumination spectrum truncating parity class",
+        "2026/9/8/SCOPE008",
+        "2026/9/20/SCOPE-q11-cubic-acute-seven-exchange-isolation--a555a8810a2a",
+        "2026/9/30/SCOPE-exact-low-distance-mutual-visibility-in-hypercubes--205d6ab586a0"
+      ]
+    },
+    "rationale": "The direct 2017/2020 primary source covers the one-defect exact value \\(2^n-1\\) and the general near-cube upper bound, but not simultaneous independent corner cuts or exact smaller counts. Searches by geometric construction, graph language, spectrum language, and the exact formula found no equivalent all-dimensional statement. The one-corner endpoint is excluded from the originality claim.",
+    "residual_risks": [
+      "The simultaneous-truncation proof is elementary enough that an equivalent construction may exist as folklore or in unindexed notes.",
+      "Searches cannot exhaust literature phrased only in the equivalent homothetic-covering language.",
+      "No necessity statement is proved for adjacent truncations or for illumination numbers below \\(2^{n-1}\\) near the cube."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ONE_CORNER_ENDPOINT_PRIOR_BUT_MULTI_TRUNCATION_NOT_COVERED",
+        "evidence": "The source proves the universal local upper bound and an exact one-corner value \\(2^n-1\\). It does not state a simultaneous corner-truncation family, an independent-set rule, or a high-half illumination spectrum. Its primary MSC is 52A20.",
+        "identifier_or_url": "arXiv:1710.05070; DOI:10.1007/s00454-019-00115-9",
+        "material_read": "Open-access full text: abstract; definition and Theorem 1.1; discussion of discontinuity; Remark 1.2 and its exact one-corner witness; canonical sign-vector strategy; relevant polytope sections; article metadata and MSC.",
+        "method": "Open-access publisher HTML and arXiv metadata inspection.",
+        "title": "Cube is a Strict Local Maximizer for the Illumination Number",
+        "trigger": "Direct middle-period primary source for illumination near the cube and the nearest possible prior construction."
+      },
+      {
+        "assessment": "FIXED_3D_EXAMPLES_NOT_COVERING",
+        "evidence": "The record gives exact values for five particular three-dimensional representatives. It does not contain an all-dimensional near-cube construction or an independent-corner formula.",
+        "identifier_or_url": "2026/9/8/SCOPE008",
+        "material_read": "Published title and scientific summary, including the exact values for the five displayed three-dimensional representatives.",
+        "method": "Published semantic-index record inspection.",
+        "title": "Exact illumination numbers of five canonical parallelohedron representatives",
+        "trigger": "Closest published indexed scientific record returned by all exact-spectrum searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e3b3b8d-0563-42a4-b919-50ab4e0ea6ca",
+  "value": {
+    "rationale": "The primary source explicitly emphasizes the discontinuity of illumination near the cube while establishing only the first strict drop from \\(2^n\\). The new theorem determines an exponentially large exact spectrum in every dimension: every integer from \\(2^{n-1}\\) through \\(2^n\\) occurs arbitrarily close to the cube. The graph-theoretic independent-set mechanism explains why each selected corner removes exactly one necessary direction while preserving an illuminating neighbor for every new vertex. This is a natural structural refinement of the local-maximizer phenomenon.",
+    "status": "PASS"
+  }
+}
