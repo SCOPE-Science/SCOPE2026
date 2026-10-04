@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Iannucci's exact identity and forbidden-representation criterion were reconstructed algebraically. The substitution \\(u=M-s\\), \\(v=M-t\\) turns the criterion into the absence of \\(a-M+1\\le up+vq\\le a\\). When \\(q\\le a\\), the residues \\((a-vq)\\bmod p\\), for \\(0\\le v\\le\\lfloor a/q\\rfloor\\), must all lie in the terminal interval of length \\(p-M\\) and are distinct, forcing \\(a<(p-M)q\\). Combining with \\(a=M(M+1)-(p-M)(q-M)\\) yields the product lower bound; the complementary case \\(q>a\\) is even stronger. Boundary conditions \\(p\\ge M+2\\), \\(x=p-M\\ge2\\), and \\(h<p\\) were checked explicitly. A standalone exact replay reproduces Iannucci's counts for \\(1\\le k\\le8\\) and checks the inequality for every enumerated pair.",
+    "risks": [
+      "The finite replay is not evidence for the infinite quantifier; correctness rests on the symbolic residue argument and the published exact criterion."
+    ],
+    "sources": [
+      "arXiv:1504.02761v1, Sections 2–3, especially equations (1)–(6)",
+      "verify.py exact finite replay"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "G. Melfi, Journal of Number Theory 147 (2015), Theorem 1, gives a sufficient prime family and conditional infinitude.",
+        "G. Amato et al., Riv. Mat. Univ. Parma 7(1) (2016), develops sufficient constructions with more prime factors."
+      ],
+      "reasoning": "The broader construction papers concern existence mechanisms and higher prime support. Their statements do not dominate a universal quantitative abundance restriction on every weird number of the two-prime odd-support form.",
+      "searches": [
+        "weird numbers primitive weird 2^k p q criterion abundant semiperfect",
+        "weird numbers 2^k p q abundance bound M(M+1) Iannucci conjecture",
+        "primitive weird 2^k p q abundance excess upper bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1504.02761v1",
+      "doi:10.1016/j.jnt.2014.07.024",
+      "Riv.Math.Univ.Parma 7(1) (2016) 153-163",
+      "OEIS A258882"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1504.02761v1 proves \\(M<a<M(M+1)\\) and conjectures \\(a<(M+1)(M+2)/3\\).",
+        "Melfi 2015 does not convert its sufficient conditions into a necessary bound for arbitrary pairs."
+      ],
+      "reasoning": "The new upper bound is strictly stronger than the proved Iannucci bound for every positive \\(M\\), but strictly weaker than the conjectured bound for the relevant range. It is therefore neither a corollary of the proved bound nor a disguised claim of the conjecture.",
+      "searches": [
+        "weird 2^k p q abundance excess upper bound Iannucci conjecture",
+        "primitive weird abundance bound M<a<3M^2/4+M 2^k p q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1504.02761v1 states the identity and exact criterion but not \\(xy>M^2/4\\) or the three-quarter abundance bound.",
+        "Focused mathematical-record searches returned no equivalent statement."
+      ],
+      "reasoning": "The product form \\((p-M)(q-M)>M^2/4\\), the abundance form \\(a<3M^2/4+M\\), and the residue-packing mechanism were searched as equivalent formulations; no source located states one of them.",
+      "searches": [
+        "primitive weird abundance bound M<a<3M^2/4+M 2^k p q",
+        "(p-M)(q-M) weird abundance residue criterion",
+        "primitive weird semiperfect residue packing p q abundance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Iannucci's published table gives counts \\(1,1,5,3,10,23,29,53\\) for \\(1\\le k\\le8\\); the standalone replay reproduces them exactly.",
+        "OEIS A258882 records the \\(2^k p q\\) family and classical prime bounds, but not the abundance inequality claimed here."
+      ],
+      "reasoning": "The relevant enumerations and database entry were checked both for numerical consistency and for an existing tabulated form of the claimed invariant bound; none was found.",
+      "searches": [
+        "Iannucci weird abundance conjecture M p q",
+        "weird 2^k p q residue semiperfect bound"
+      ]
+    },
+    "rationale": "The closest primary source proves only \\(a<M(M+1)\\) and explicitly labels the much sharper \\(a<(M+1)(M+2)/3\\) as a conjecture. Melfi gives a sufficient construction and conditional infinitude result rather than a universal abundance bound. The 2016 multi-prime extension generalizes constructions and does not state the present residue-packing inequality. Focused searches for the exact coefficient, equivalent product inequality, abundance language, and semiperfect residue formulation returned no matching result.",
+    "residual_risks": [
+      "A differently phrased or poorly indexed proof of a comparable abundance bound may exist outside the inspected sources.",
+      "The 2016 extension was available through bibliographic/abstract material rather than a line-by-line inspection of the full article; its stated scope is nevertheless constructional rather than a universal bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the premises and nearest prior bounds but not the three-quarter theorem.",
+        "evidence": "Equations (1)–(5) give the identity, necessary range, and forbidden representation; equation (6) is explicitly conjectural.",
+        "identifier_or_url": "arXiv:1504.02761v1",
+        "material_read": "Abstract, introduction, Sections 2–3, equations (1)–(6), enumeration counts, references.",
+        "method": "Full-text mathematical inspection of the accessible arXiv version.",
+        "title": "On primitive weird numbers of the form 2^k p q",
+        "trigger": "Closest source: same objects, same abundance parameter, exact criterion, and explicit open upper-bound conjecture."
+      },
+      {
+        "assessment": "Gives a broad sufficient family and conditional infinitude route, but no universal abundance upper bound matching or implying the claim.",
+        "evidence": "Theorem 1 constrains primes in a constructed neighborhood and the conclusion discusses infinitude and generalization to almost perfect bases.",
+        "identifier_or_url": "doi:10.1016/j.jnt.2014.07.024",
+        "material_read": "Introduction, Theorem 1, preliminary abundance lemma, main proof, conclusion.",
+        "method": "Full-text inspection of an accessible author-uploaded copy.",
+        "title": "On the conditional infiniteness of primitive weird numbers",
+        "trigger": "Highly relevant prior work on exactly the same factorization family."
+      },
+      {
+        "assessment": "Generalizes sufficient constructions to more prime factors; no evidence of a necessary abundance bound for all \\(2^k p q\\) weird numbers.",
+        "evidence": "The abstract describes sufficient conditions and generation algorithms, not a universal two-prime-support abundance inequality.",
+        "identifier_or_url": "Riv.Math.Univ.Parma 7(1) (2016) 153-163",
+        "material_read": "Bibliographic record, abstract, scope and stated construction objectives.",
+        "method": "Accessible record and abstract inspection; the later repository record identifies the 2016 journal article.",
+        "title": "Primitive weird numbers having more than three distinct prime factors",
+        "trigger": "Archive-era extension by the same research line; plausible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b810d8b6-6c9f-407e-b560-3dc54e012422",
+  "value": {
+    "rationale": "The claim makes quantitative progress on an explicit published conjecture for a canonical primitive-weird-number family. It reduces the leading coefficient of the best proved universal abundance upper bound from \\(1\\) to \\(3/4\\) by a structural residue-packing argument, rather than by finite enumeration. The bound is uniform in \\(k,p,q\\), constrains all candidate pairs, and exposes a reusable interaction between non-semiperfectness and residue occupancy.",
+    "risks": [
+      "The result is partial progress rather than a resolution of Iannucci's conjecture, and the coefficient \\(3/4\\) is not claimed optimal."
+    ],
+    "sources": [
+      "arXiv:1504.02761v1, equation (5) proved and equation (6) conjectured",
+      "G. Melfi, Journal of Number Theory 147 (2015), showing continuing structural interest in the same family"
+    ],
+    "status": "PASS"
+  }
+}
