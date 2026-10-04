@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For every model state the susceptibility multipliers lie in \\([0,1]\\), so \\(R_e\\le\\tau\\); therefore \\(\\tau<1\\) forces zero infections. Under zero infections the population vector shifts one class per season, reaching \\(p_r=1\\) after exactly \\(r-1\\) seasons, while the immunity recursion after that block depends only on drifts inside the block. This yields the stated common conditional law and global minorization. The total-variation contraction, existence and uniqueness of the stationary law, and the blockwise rate follow directly. The finite checker replays representative exact-rational updates but is not used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The WIREs review DOI 10.1002/wics.70002 records the standard theorem that a global minorization implies uniform ergodicity.",
+        "That generic theorem does not identify a common no-outbreak block in this epidemic chain, remove the source's drift-atom assumption, or supply the model-specific constant \\(\\beta^{r-1}\\)."
+      ],
+      "reasoning": "General Markov-chain theory dominates only the abstract second half of the argument. The substantive model-specific hypothesis verification and the weaker epidemic assumptions are not implied without the new finite-memory coalescence observation.",
+      "searches": [
+        "multi-season epidemic random genetic drift transmissibility remove atom assumption arbitrary r uniform geometric ergodicity no-outbreak block total variation",
+        "web: global minorization uniform ergodicity total variation Markov chain",
+        "web: source title plus atom assumption remove assumption"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2505.17933",
+      "doi:10.1007/s00285-025-02308-8",
+      "doi:10.1002/wics.70002",
+      "published comparison records including 2026/9/14/SCOPE021 and 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source transition equations show that no outbreak shifts population classes one step and updates immunity by one new drift factor.",
+        "The source proof forces a deterministic immunity-free state using repeated complete-drift seasons, while the new proof allows the terminal immunity vector to remain random and requires only low transmissibility.",
+        "The source explicitly says the atom assumption may possibly be removed, so the arbitrary-r removal is not already claimed as a theorem there."
+      ],
+      "reasoning": "Qualitative convergence under stronger assumptions does not imply convergence under the weaker assumption \\(\\mathbb P(\\tau<1)>0\\), and it does not imply the explicit blockwise total-variation bound. Conversely, the new theorem subsumes the source's stationary-convergence conclusion whenever its assumptions give positive probability to \\(\\tau<1\\).",
+      "searches": [
+        "full text: Britton and Pugliese, DOI 10.1007/s00285-025-02308-8, Sections 2.1-2.2 and Proposition 2.1",
+        "multi-season epidemic random genetic drift transmissibility remove atom assumption arbitrary r uniform geometric ergodicity no-outbreak block total variation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating article's Proposition 2.1 states recurrence, aperiodicity, and convergence to a stationary distribution under a density assumption plus an atom at complete drift; the following remark says removing the atom may be possible and singles out only the case r=2.",
+        "The closest published-finding hits concern coupled-SEIR reproduction numbers, reset coupon collectors, or generic renewal/Markov questions; none states a regeneration law for arXiv:2505.17933."
+      ],
+      "reasoning": "Uniform geometric ergodicity, global minorization, regeneration, and coupling are equivalent or closely related formulations relevant to this claim. The inspected model source contains no such quantitative statement for arbitrary finite immunity memory.",
+      "searches": [
+        "Britton Pugliese multi-season epidemic random genetic drift transmissibility Markov chain uniform geometric ergodicity Doeblin regeneration stationary distribution total variation",
+        "arXiv 2505.17933 epsilon r-1 Doeblin reset multi-season epidemic immunity chain uniform geometric mixing",
+        "web: exact title plus Doeblin / uniform ergodicity / geometric mixing / r-1 / atom-assumption aliases"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact source identifier, title, or claim match was present in the available prior scientific ledger.",
+        "No published-finding database hit matched the paper identifier or the arbitrary-r atom-removal/minorization statement. Closest IDs included 2026/9/14/SCOPE021 and 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed, which concern different models."
+      ],
+      "reasoning": "The exact source and claim were checked directly rather than inferred unique from slot partitioning. Database absence is supporting evidence only, not a proof of novelty.",
+      "searches": [
+        "Britton Pugliese multi-season epidemic random genetic drift transmissibility Markov chain uniform geometric ergodicity Doeblin regeneration stationary distribution total variation",
+        "seasonal epidemic immunity random drift transmissibility r consecutive no-outbreak reset geometric mixing Markov chain",
+        "arXiv 2505.17933 epsilon r-1 Doeblin reset multi-season epidemic immunity chain uniform geometric mixing",
+        "multi-season epidemic random genetic drift transmissibility remove atom assumption arbitrary r uniform geometric ergodicity no-outbreak block total variation",
+        "own scientific ledger: arXiv:2505.17933 / DOI 10.1007/s00285-025-02308-8 / exact title / Doeblin / uniform geometric"
+      ]
+    },
+    "rationale": "The motivating paper proves stationary convergence only under a complete-drift atom and explicitly leaves removal of that assumption open for general finite immunity memory. The new proof uses a different, state-independent coalescence mechanism: an \\(r-1\\)-season block with transmissibility below one makes every outbreak zero, shifts all population mass to the nonimmune class, and leaves the immunity vector as a function only of within-block drifts. This gives a model-specific global minorization and explicit total-variation rate. Exact-title/identifier searches, equivalent regeneration/minorization searches, the current published-finding database, and the full motivating article did not reveal that statement. Standard Doeblin literature covers only the abstract implication once the minorization has been found.",
+    "residual_risks": [
+      "A mathematically equivalent observation could exist in literature not indexed by the searched databases or exact-title web searches.",
+      "The geometric rate is a guaranteed bound and may be conservative; no optimality claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper proves qualitative convergence with an atom at complete drift and explicitly leaves general atom removal open; it does not give the no-outbreak-block minorization or quantitative rate.",
+        "evidence": "Sections 2.1-2.2 define the iid seasonal marks and updates; Proposition 2.1 uses r complete-drift subcritical seasons; the following remark says the atom assumption may possibly be removable and notes r=2 separately.",
+        "identifier_or_url": "arXiv:2505.17933; DOI 10.1007/s00285-025-02308-8",
+        "material_read": "Full open article text covering the model definition, effective reproduction number, final-size criterion, state transition equations, Proposition 2.1, its proof, and the immediately following remark.",
+        "method": "Full-text inspection of the open publisher HTML, cross-checked against arXiv metadata.",
+        "title": "A multi-season epidemic model with random genetic drift and transmissibility",
+        "trigger": "Primary source for the model and its open atom-removal remark."
+      },
+      {
+        "assessment": "PARTIAL_BACKGROUND_ONLY: covers the generic Doeblin implication, not the epidemic model's common-block construction or atom-removal theorem.",
+        "evidence": "The review states that global minorization establishes uniform ergodicity; it contains no analysis of the Britton–Pugliese epidemic chain.",
+        "identifier_or_url": "DOI 10.1002/wics.70002",
+        "material_read": "Global-minorization discussion and its stated implication to uniform ergodicity.",
+        "method": "Published review text inspection.",
+        "title": "Convergence rates of Metropolis–Hastings algorithms",
+        "trigger": "Check whether the Markov-chain consequence is standard rather than source-specific."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "281da857-aeb7-427c-a3bb-b9546c9fa925",
+  "value": {
+    "rationale": "The source explicitly identifies removal of the complete-drift atom as an unresolved proof issue for general \\(r\\). The finding resolves that issue under the natural and much weaker condition \\(\\mathbb P(\\tau<1)>0\\), and additionally provides an initialization-uniform quantitative burn-in bound for stationary simulations and predictions. The mechanism uses the model's finite immunity memory rather than a generic relabeling or parameter substitution.",
+    "status": "PASS"
+  }
+}
