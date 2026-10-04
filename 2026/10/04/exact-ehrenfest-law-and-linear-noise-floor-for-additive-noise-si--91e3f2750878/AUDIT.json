@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Uniform noise gives exact transition probabilities \\(k/M\\) and \\((M-k)/M\\) on the support-aligned lattice. Binomial detailed balance proves the invariant distribution, the chain's bipartite graph proves period two, and exact conditional moment recurrences yield \\(\\operatorname{Var}_\\pi(x)=\\delta B/(2\\lambda)\\) and \\(\\mathbb E_\\pi[f(x)]=\\delta B/4\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "signSGD full text, Algorithm 1 and stochastic-oracle analysis",
+        "The Geometry of Sign Gradient Descent full text, Sections 1–5",
+        "arXiv:2607.12360v1, Proposition 2 and Technical Appendix A",
+        "arXiv:2607.12360v1, Proposition 3"
+      ],
+      "reasoning": "The broader literature supplies general convergence and a multiplicative-noise exact stationary law. The 2026 additive proposition is for ordinary SGD, while its signSGD stationary law assumes pure multiplicative scale-family noise. Neither implication determines the additive-uniform binomial invariant law.",
+      "searches": [
+        "\"signSGD\" stationary distribution quadratic",
+        "\"signSGD\" invariant distribution",
+        "\"sign gradient descent\" Markov chain quadratic",
+        "\"signSGD\" uniform additive noise exact stationary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1802.04434v1",
+      "arXiv:2002.08056v1",
+      "arXiv:2607.12360v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1802.04434v3 full HTML: Algorithm 1, Assumption 3, symmetric-unimodal noise discussion, Appendix A quadratic experiment",
+        "arXiv:2002.08056v1 full HTML: signGD/signSGD definitions and deterministic maximum-norm geometry",
+        "arXiv:2607.12360v1 full PDF: Proposition 2 and Technical Appendix A solve pure-multiplicative signSGD as a two-ladder reflected walk with geometric invariant tails",
+        "arXiv:2607.12360v1 full PDF: Proposition 3 treats additive noise through the stationary second moment of ordinary SGD"
+      ],
+      "reasoning": "The 2018 and 2020 papers do not imply an invariant law. The 2026 paper is the decisive comparison: it already proves exact signSGD periodic stationary behavior for multiplicative noise, so that phenomenon is credited as prior coverage. Its additive result does not solve signSGD; changing to persistent uniform additive noise makes the restoring probability state-dependent and produces the distinct Ehrenfest law.",
+      "searches": [
+        "signSGD Algorithm 1 constant learning rate stochastic gradient",
+        "signSGD symmetric unimodal gradient noise quadratic experiment",
+        "Same Loss Same Noise signSGD Proposition 2 stationary law additive Proposition 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1802.04434v1",
+        "arXiv:2002.08056v1",
+        "arXiv:2607.12360v1"
+      ],
+      "reasoning": "The exact equivalent formulation is the Hamming-weight chain of the classical Ehrenfest urn. Targeted optimizer searches did not return this equivalence. The closest exact signSGD stationary analysis uses an infinite reflected walk under multiplicative noise rather than the finite additive-noise Ehrenfest chain.",
+      "searches": [
+        "signSGD Ehrenfest urn stationary binomial quadratic uniform noise",
+        "signSGD birth death chain uniform additive noise exact stationary",
+        "sign gradient descent Ehrenfest chain",
+        "signSGD periodic invariant law scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-result hit returned an Ehrenfest identification or the exact additive-uniform floor \\(\\delta B/4\\).",
+        "The closest optimization records concerned other stochastic quadratic dynamics rather than signSGD."
+      ],
+      "reasoning": "The targeted searches did not identify the stated finite-chain law or its exact parameter dependence. Search absence is not treated as proof of novelty, so the classical-Markov-chain terminology risk is retained.",
+      "searches": [
+        "signSGD scalar quadratic uniform noise stationary distribution binomial",
+        "signSGD constant step stationary distribution quadratic additive noise",
+        "sign gradient descent uniform noise birth death chain exact stationary",
+        "signSGD noise floor scalar quadratic exact invariant law"
+      ]
+    },
+    "rationale": "The inspected signSGD literature covers general convergence, deterministic sign geometry, and a recent exact stationary law for pure multiplicative noise. It does not cover the additive-uniform support-aligned Ehrenfest law or its exact linear-in-step floor.",
+    "residual_risks": [
+      "The same finite birth-death calculation may exist under Ehrenfest or stochastic-approximation terminology without mentioning signSGD.",
+      "The exact binomial law depends on support-lattice alignment; nonaligned offsets have different weights.",
+      "Recent work already covers exact multiplicative-noise signSGD stationary laws and period-two behavior; novelty here is restricted to the additive-uniform Ehrenfest law and exact linear floor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_ADDITIVE_INVARIANT_LAW.",
+        "evidence": "The source defines the exact constant-sign update used here and explicitly studies stochastic sign errors, but does not derive an additive-noise stationary distribution.",
+        "identifier_or_url": "arXiv:1802.04434v1",
+        "material_read": "Full open-access HTML: Algorithm 1; bounded-variance stochastic oracle; symmetric-unimodal noise discussion; Appendix A constant-learning-rate noisy quadratic experiment.",
+        "method": "Full-text HTML inspection.",
+        "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+        "trigger": "Defining source for signSGD and its stochastic-noise assumptions."
+      },
+      {
+        "assessment": "DETERMINISTIC_GEOMETRY_NOT_COVERING_STOCHASTIC_LAW.",
+        "evidence": "The paper develops geometric smoothness and deterministic sign-gradient comparisons, not constant-step stochastic invariant measures.",
+        "identifier_or_url": "arXiv:2002.08056v1",
+        "material_read": "Full open-access HTML: introduction, signGD/signSGD definitions, maximum-norm smoothness framework, and quadratic comparison sections.",
+        "method": "Full-text HTML inspection.",
+        "title": "The Geometry of Sign Gradient Descent",
+        "trigger": "Plausible broader sign-gradient quadratic analysis."
+      },
+      {
+        "assessment": "CLOSEST_EXACT_STATIONARY_RESULT_DIFFERENT_NOISE_REGIME.",
+        "evidence": "Its exact signSGD chain assumes pure multiplicative scale-family noise and has geometric tails on two half-lattices. Its additive proposition derives an exact stationary second moment for SGD, not a signSGD invariant law. The present persistent uniform additive noise instead gives state-dependent sign reliability and a finite binomial Ehrenfest chain.",
+        "identifier_or_url": "arXiv:2607.12360v1",
+        "material_read": "Full PDF pages containing Proposition 2, the additive-boundary Proposition 3, and Technical Appendix A; the proposition and appendix pages were visually inspected.",
+        "method": "Full-text PDF inspection with page screenshots.",
+        "title": "Same Loss, Same Noise, Opposite Schedules: Noise Structure and Optimizer Normalization Jointly Determine Whether Learning-Rate Cooldown Helps",
+        "trigger": "Highly relevant recent paper claiming an exact signSGD stationary law on a quadratic."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91e3f275-0878-41a8-9cf4-49156251e91c",
+  "value": {
+    "rationale": "The result resolves a natural persistent-additive-noise benchmark left distinct from the recently solved multiplicative case. It provides the complete invariant law, exact transient second moment, a parity obstruction, and the exact stationary loss \\(\\delta B/4\\). The linear step-size floor sharply distinguishes additive noise from the known quadratic-in-step multiplicative granularity floor and gives a useful schedule/noise diagnostic.",
+    "status": "PASS"
+  }
+}
