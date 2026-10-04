@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For current rejection count \\(r>0\\), retaining every old rejected coordinate above \\(c_r=K/(\\alpha r)\\) forces the next r-th order statistic above the e-BH rank-r threshold, so the next rejection count is at least r and every old coordinate remains above the no-larger new cutoff. Lowering one old coordinate below \\(c_r\\) while the other old coordinates equal \\(c_r\\) and outsiders are zero makes every rank fail. The affine continuation preserves the null supermartingale property by conditional expectation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carefree multiple testing with e-processes documents rejection revocation and obtains FDR-sup control with adjusted running suprema.",
+        "Anytime-valid FDR control with stopped e-BH identifies the common/global filtration condition needed for repeatedly monitored e-BH.",
+        "The recent adaptive-data-collection paper proves a nestedness result under a no-resampling-after-rejection policy."
+      ],
+      "reasoning": "These works cover the same sequential multiple-testing setting broadly, but their inspected guarantees do not dominate the present pathwise continuation theorem because they use a different rejection input, impose freezing, or address filtration validity rather than the sharp continuation floor.",
+      "searches": [
+        "carefree multiple testing e-BH nested discoveries continue data collection",
+        "e-BH persistence threshold old rejection threshold nestedness",
+        "lock-and-bet continuation rejected e-BH hypotheses e-process"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.26651v1",
+      "DOI:10.1111/rssb.12489",
+      "DOI:10.1214/26-EJS2546",
+      "arXiv:2501.19360",
+      "DOI:10.1016/j.spl.2025.110512",
+      "arXiv:2502.08539"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The adaptive-sampling source uses e-BH and gives a sufficient policy for nested rejection sets by collecting evidence only from unrejected hypotheses.",
+        "Base e-BH defines the order-statistic rejection threshold.",
+        "The carefree paper proposes running suprema plus adjusters for non-revocation/FDR-sup concerns."
+      ],
+      "reasoning": "The new theorem combines the e-BH threshold geometry with a prospective supermartingale continuation in a way not implied by the cited results: it allows resampling rejected streams, proves the exact floor sufficient for nesting, and proves that a smaller coordinatewise lock fails in a worst case.",
+      "searches": [
+        "Sample-Efficient Multiple Testing adaptive data collection nested rejection sets support unrejected hypotheses",
+        "False Discovery Rate Control with E-values e-BH threshold k e[k] K",
+        "Carefree multiple testing e-processes supremum adjuster rejection revoked"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected adaptive-sampling source states a sufficient nestedness condition that samples only outside the current rejection set.",
+        "The inspected base e-BH source states the rank threshold K/(alpha k).",
+        "The inspected carefree source treats revocation through running suprema and adjusters rather than a prospective floor-preserving continuation of current e-values."
+      ],
+      "reasoning": "These formulations are adjacent ingredients or alternative mechanisms. None of the inspected statements identifies the current e-BH threshold as a sharp coordinatewise lock or derives the affine lock-and-bet continuation.",
+      "searches": [
+        "e-BH nested rejection sets continue sampling rejected hypotheses threshold floor e-process",
+        "floor-preserving e-process locked capital after stopping time",
+        "splice e-process at stopping time affine mixture constant reserve"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed statistical hit was a sharp Simes-size result under pairwise independence, which concerns a different multiple-testing question.",
+        "Other high-ranked indexed hits were unrelated to e-BH continuation or rejection persistence.",
+        "No searched record stated the cutoff K/(alpha r) as a sharp post-rejection lock."
+      ],
+      "reasoning": "Database non-retrieval is not treated as novelty proof. It supports the direct statement-level comparisons with the primary sources.",
+      "searches": [
+        "Sample-Efficient Multiple Testing with Adaptive Data Collection nested rejection sets e-BH Proposition 3.1",
+        "sharp persistence floor e-BH rejection threshold nested sets",
+        "capital splitting locked wealth e-process multiple testing rejection persistence"
+      ]
+    },
+    "rationale": "The recent adaptive-sampling paper obtains nested e-BH by sampling only unrejected hypotheses. Base e-BH gives the threshold but not this continuation rule; carefree multiple testing instead uses running suprema and adjusters. Targeted semantic/database searches did not reveal the sharp cutoff-locking lemma or maximal-active-capital corollary. A terminologically different equivalent in unindexed material remains a residual risk.",
+    "residual_risks": [
+      "An equivalent floor-lock or capital-reservation argument may appear in unindexed notes, software documentation, or betting-language discussions under different terminology.",
+      "The maximal-active-capital statement is specific to coordinatewise worst-case persistence for affine updates whose factor may attain zero; weaker stochastic persistence objectives can permit different allocations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the adaptive multiple-testing setting and a sufficient no-sampling-after-rejection condition, but no inspected statement permits continued sampling through a sharp threshold lock.",
+        "evidence": "The source states that nested rejection sets are obtained when the sampling support is contained in the currently unrejected hypotheses.",
+        "identifier_or_url": "arXiv:2609.26651v1",
+        "material_read": "Abstract; base e-BH setup; product-form e-process construction; nested-rejection discussion and Proposition 3.1; surrounding adaptive-sampling method.",
+        "method": "Direct inspection of the accessible preprint text and bibliographic record.",
+        "title": "Sample-Efficient Multiple Testing with Adaptive Data Collection",
+        "trigger": "Primary recent source motivating adaptive e-BH sampling and nested rejection sets."
+      },
+      {
+        "assessment": "Supplies the rank cutoff used in the proof, but does not in the inspected material state a post-rejection lock-and-bet continuation theorem.",
+        "evidence": "Base e-BH selects the largest k satisfying k e_[k]/K >= 1/alpha.",
+        "identifier_or_url": "DOI:10.1111/rssb.12489",
+        "material_read": "Abstract; definition of e-values/e-processes; base e-BH order-statistic rule and surrounding discussion.",
+        "method": "Direct inspection of the journal full-text HTML.",
+        "title": "False Discovery Rate Control with E-values",
+        "trigger": "Foundational definition and threshold geometry of base e-BH."
+      },
+      {
+        "assessment": "Addresses the same revocation phenomenon by changing the evidence to adjusted running suprema; it does not state the sharp prospective threshold-lock continuation inspected here.",
+        "evidence": "The paper notes e-BH rejections can be revoked and proposes suprema with adjusters for FDR-sup control.",
+        "identifier_or_url": "DOI:10.1214/26-EJS2546; arXiv:2501.19360",
+        "material_read": "Abstract and accessible author/journal summary of the running-supremum and adjuster construction.",
+        "method": "Official journal metadata/abstract and author summary.",
+        "title": "Carefree multiple testing with e-processes",
+        "trigger": "Closest work explicitly addressing rejection revocation under ongoing e-process data collection."
+      },
+      {
+        "assessment": "Establishes the relevance of a common/global filtration condition but does not cover threshold locking or nestedness by continued sampling.",
+        "evidence": "The source explains that stopped e-BH needs globally valid e-processes, not merely local e-processes.",
+        "identifier_or_url": "DOI:10.1016/j.spl.2025.110512; arXiv:2502.08539",
+        "material_read": "Abstract and bibliographic summary describing local-versus-global filtration validity.",
+        "method": "Accessible abstract/metadata inspection.",
+        "title": "Anytime-valid FDR control with the stopped e-BH procedure",
+        "trigger": "Needed to check the filtration assumptions behind any anytime-valid interpretation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9da7494f-9cdd-494a-a4d2-d6d80e156d7e",
+  "value": {
+    "rationale": "The result converts a qualitative freeze-after-rejection sufficient condition into a sharp quantitative continuation rule. It permits continued data collection on rejected hypotheses, gives the exact worst-case amount of evidence that must be protected, and shows the remainder is maximally exposable under the stated criterion. This directly addresses sample-allocation flexibility in sequential multiple testing rather than merely restating e-BH validity.",
+    "status": "PASS"
+  }
+}
