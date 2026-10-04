@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The continuous switch state is explicit. A third-order expansion of the exact rotation product gives the \\(O(h)\\) middle-pulse correction from the second-order endpoint equation and the excess-time coefficient \\(r(1-r)/3\\) from the next independent tangent equation. Nonzero leading derivatives for \\(0<\\Delta<1\\) give a local implicit-function branch. A standalone exact-rotation replay reproduces the coefficient and exact grid alignment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bourdin–Trélat derive a general sampled-data Pontryagin principle but do not give this local error expansion.",
+        "Scarinci–Veliov analyze a specially constructed higher-order discretization for linear-quadratic bang-bang problems and obtain a generic second-order estimate, not the present zero-order-hold qubit branch."
+      ],
+      "reasoning": "The broader theories cover sampled or bang-bang control concepts, but their hypotheses, schemes, and conclusions do not subsume the qubit-specific cubic grid-phase coefficient.",
+      "searches": [
+        "DOI:10.3934/mcrf.2016.6.53",
+        "DOI:10.1007/s10589-017-9948-z",
+        "piecewise constant quantum control minimum time convergence sampling period two-level qubit bang-bang"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.09167v1",
+      "DOI:10.1103/PhysRevA.107.032613",
+      "arXiv:1501.07361",
+      "DOI:10.3934/mcrf.2016.6.53",
+      "DOI:10.1007/s10589-017-9948-z",
+      "2026/9/18/SCOPE-beta-report-grid-phase-constants--a7b833f50f30",
+      "2026/9/18/SCOPE-ssprk3-sharp-sparse-grid-cfl--3609313351c2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dionis–Sugny supply the numerical branch structure but not an asymptotic expansion of its endpoint time.",
+        "The general PMP supplies necessary optimality conditions, not the coefficient.",
+        "The higher-order linear-quadratic scheme changes the discretization and proves a different rate statement."
+      ],
+      "reasoning": "Obtaining the claim requires the new local matrix-exponential expansion at the continuous qubit switch; it is not a parameter substitution into the inspected prior theorems.",
+      "searches": [
+        "arXiv:2211.09167v1 Section 4.2",
+        "DOI:10.3934/mcrf.2016.6.53",
+        "DOI:10.1007/s10589-017-9948-z Theorem 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source describes, for most sample counts, a three-part control \\(-1,\\omega_0,+1\\) with the interior amplitude used for one sample and labels the observed convergence approximately exponential.",
+        "No inspected semantic-search record states a fractional switch phase \\(r_N\\) or the coefficient \\(r_N(1-r_N)/3\\) for a sampled qubit."
+      ],
+      "reasoning": "The final statement concerns the asymptotic endpoint branch obtained by quantizing a single bang switch and is not a restatement of the source's numerical convergence description.",
+      "searches": [
+        "two-level quantum piecewise constant pulse three constant parts cubic grid phase asymptotic",
+        "qubit sampled-data bang-bang switch interior pulse cubic convergence",
+        "quantum speed limit sampling period polynomial cubic grid phase",
+        "Dionis Sugny piecewise constant pulses convergence exponential polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest grid-phase semantic hit concerns Beta-report quantization, not quantum control.",
+        "The other close hits concern sparse-grid time stepping or oscillator phase compensation, with different objects and implications."
+      ],
+      "reasoning": "No checked database record contains the same qubit endpoint branch, fractional switch phase, and cubic excess-time law.",
+      "searches": [
+        "2026/9/18/SCOPE-beta-report-grid-phase-constants--a7b833f50f30",
+        "2026/9/18/SCOPE-ssprk3-sharp-sparse-grid-cfl--3609313351c2",
+        "2026/9/19/SCOPE-complete-cubic-compensation-stuart-landau-phase-corrections--3eaf705861a0"
+      ]
+    },
+    "rationale": "The direct qubit source reports the three-block sampled control and an approximate exponential numerical trend but does not state the cubic fractional-switch law. The inspected general sampled-data PMP and higher-order bang-bang discretization results do not imply this coefficient for this branch. Dedicated semantic searches found no matching statement.",
+    "residual_risks": [
+      "A mathematically equivalent switch-quantization expansion may exist in general hybrid or bang-bang discretization literature under terminology not recovered by the searches.",
+      "The final claim is deliberately local to the endpoint-solving three-block branch; it does not claim that the branch is globally optimal for every sample count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the branch geometry and numerical observations but not the cubic grid-phase law.",
+        "evidence": "The source states that for most sample counts the algorithm finds amplitudes \\(-1,\\omega_0,+1\\) with \\(\\omega_0\\) applied for one time step, and describes the convergence trend as approximately exponential.",
+        "identifier_or_url": "arXiv:2211.09167v1 / DOI:10.1103/PhysRevA.107.032613",
+        "material_read": "Open preprint full text, especially the one-control continuous solution, sampled-data formulation, Section 4.2 numerical discussion, and associated figures.",
+        "method": "Compared the continuous switch formula, the reported one-sample interior pulse, and the stated convergence interpretation against the derived endpoint expansion.",
+        "title": "Time-optimal control of two-level quantum systems by piecewise constant pulses",
+        "trigger": "Direct source with the same qubit, sample-and-hold constraint, and reported three-block control."
+      },
+      {
+        "assessment": "Not covering: it treats a different linear-quadratic problem and a specially reconstructed higher-order scheme, with a generic second-order estimate.",
+        "evidence": "Its Theorem 3.1 bounds a reconstructed-control/state/adjoint error by a power of the mesh size; it does not analyze the zero-order-hold qubit time excess or its grid phase.",
+        "identifier_or_url": "DOI:10.1007/s10589-017-9948-z",
+        "material_read": "Open-access full text, including the introduction, discretization construction, and Theorem 3.1.",
+        "method": "Compared problem class, discretization, switching assumptions, and rate conclusion.",
+        "title": "Higher-order numerical scheme for linear quadratic problems with bang-bang controls",
+        "trigger": "Plausible general bang-bang discretization result with explicit convergence rates."
+      },
+      {
+        "assessment": "Not covering: it develops necessary conditions, not the qubit-specific endpoint expansion.",
+        "evidence": "The stated contribution is a Pontryagin maximum principle on time scales; no cubic switch-quantization coefficient is given.",
+        "identifier_or_url": "arXiv:1501.07361 / DOI:10.3934/mcrf.2016.6.53",
+        "material_read": "Article abstract, formulation, and theorem-level description of the sampled-data Pontryagin principle.",
+        "method": "Checked whether the general theory states a discretization error coefficient or switch-phase asymptotic.",
+        "title": "Optimal sampled-data control, and generalizations on time scales",
+        "trigger": "General nonlinear sampled-data Pontryagin theory cited by the direct source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "99b8c1c4-93cd-4736-a5b5-f6aa3c3dc5e4",
+  "value": {
+    "rationale": "The direct source emphasizes unexpectedly rapid convergence and a noisy cloud of one-control data. The exact \\(r_N(1-r_N)/3\\) law explains that cloud, identifies a cubic scale and exact grid-alignment zeros, and supplies a reproducible asymptotic correction for a basic sampled quantum-control model.",
+    "status": "PASS"
+  }
+}
