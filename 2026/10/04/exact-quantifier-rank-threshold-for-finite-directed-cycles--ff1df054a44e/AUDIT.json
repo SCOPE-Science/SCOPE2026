@@ -1,0 +1,90 @@
+{
+  "correctness": {
+    "rationale": "The lower bound follows by quantifier-free symmetrization to the exact undirected-cycle theorem. The upper bound is obtained by checking that the published endpoint-coordinate response strategy uses signed offsets and therefore preserves directed successor when the cut paths are oriented consistently. Ranks one and two are verified directly. A separate exhaustive finite-game solver agrees in 220 cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pichler 2011 explicitly says the composition lemma is analogous for directed or undirected cycles, but records only a weaker sufficient estimate."
+      ],
+      "reasoning": "A broader theorem covering the exact directed threshold was not found. The undirected exact theorem does not by itself imply the upper bound in the richer directed language; the orientation-preservation check is needed.",
+      "searches": [
+        "successor cycles finite model theory exact quantifier depth",
+        "directed cycles Duplicator wins k rounds threshold"
+      ]
+    },
+    "checked_sources": [
+      "Brown and Hoshino, Ars Combinatoria 83 (2007), 193--212",
+      "Pichler, Database Theory lecture notes, 24 May 2011",
+      "Targeted public web searches for exact directed-cycle EF thresholds",
+      "Targeted semantic mathematical-record searches for directed/oriented/successor-cycle quantifier-rank thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brown--Hoshino gives exact undirected separation and a coordinate upper strategy; Pichler gives a directed-cycle upper bound of 2^q."
+      ],
+      "reasoning": "The lower half of the directed theorem is an immediate implication of Brown--Hoshino by quantifier-free symmetrization, but the upper half is not: directed adjacency is strictly richer. The new step is that their ordered-endpoint path strategy preserves signed offsets, allowing the exact undirected upper bound to lift to the directed language.",
+      "searches": [
+        "Brown Hoshino directed cycle orientation path strategy",
+        "Pichler directed cycles 2^k EF game"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brown--Hoshino 2007, Theorem 4.9: exact undirected-cycle threshold",
+        "Pichler 2011, pp. 53--54: directed cycles with only n >= 2^q sufficient bound"
+      ],
+      "reasoning": "No inspected source stated the directed result under an equivalent successor-relation, oriented-cycle, or quantifier-rank formulation.",
+      "searches": [
+        "directed cycles Ehrenfeucht-Fraisse exact threshold",
+        "oriented cycles quantifier rank exact indistinguishability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact phrase or numerical-threshold match was found in the public searches performed."
+      ],
+      "reasoning": "The exact constant was searched directly in combination with directed-cycle and EF-game terminology without locating a covering source.",
+      "searches": [
+        "2^{k-1}+3 directed cycle Ehrenfeucht",
+        "2^(k-1)+3 directed cycle Fraisse"
+      ]
+    },
+    "rationale": "The inspected 2007 source states the exact result only for undirected cycles. The inspected 2011 finite-model-theory notes explicitly treat directed cycles but state only the sufficient bound n >= 2^q. Targeted public literature and mathematical-database searches did not locate the sharper exact directed statement.",
+    "residual_risks": [
+      "An older unindexed thesis, lecture note, or textbook may already record the sharp directed-cycle threshold or the orientation-preserving lift."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the exact undirected threshold. Its path strategy is coordinate-based and orientation-compatible, but the paper states the theorem for graphs with symmetric adjacency, not directed cycles.",
+        "evidence": "Theorem 4.9 gives g(1)=1, g(2)=4, g(k)=2^{k-1}+3 for k>=3. Lemma 4.4 uses matched endpoints and equal signed coordinate differences in the response strategy.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+        "material_read": "Abstract; pp. 200, 207--212, especially Lemmas 4.4--4.5 and Theorems 4.6--4.9.",
+        "method": "Public full-text PDF inspection.",
+        "title": "The Ehrenfeucht-Fraisse Game for Paths and Cycles",
+        "trigger": "Primary exact result for undirected cycles and the path-cut upper strategy."
+      },
+      {
+        "assessment": "Explicitly defines isolated directed cycles and notes an analogous composition lemma for directed or undirected cycles, but states only the sufficient bound n >= 2^k for C_n ~_k C_{n+1}.",
+        "evidence": "Pages 53--54 contain the directed-cycle definition, cut-at-first-move argument, and the 2^k sufficient theorem.",
+        "identifier_or_url": "https://people.inf.elte.hu/kiss/12abea/dbt07.pdf",
+        "material_read": "Title/date metadata and pp. 53--54.",
+        "method": "Public full-text PDF inspection.",
+        "title": "Database Theory: Ehrenfeucht-Fraisse Games",
+        "trigger": "Potential prior treatment of directed cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ff1df054-a44e-481c-b6ce-b516b0048d40",
+  "value": {
+    "rationale": "Directed cycles are a canonical finite-model-theory test family and models of a single cyclic successor. The exact cutoff replaces a standard but nonsharp 2^q sufficient estimate by a complete classification and isolates the substantive fact that adding orientation does not change the rank threshold.",
+    "status": "PASS"
+  }
+}
