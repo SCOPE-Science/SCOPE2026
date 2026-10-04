@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every selected recovery pair, binary local distance \\(2\\) forces the two coordinate functions to be equal or complementary on the whole code. This gives equivalence classes of size at least \\(2\\) and an injective weighted quotient. With length \\(9\\) there are at most four classes; the only four-class weight pattern is \\((2,2,2,3)\\), and each fixed value of the weight-\\(3\\) coordinate leaves a length-three binary code of minimum distance at least \\(2\\), hence at most four words. The explicit eight-word code attains the bound. The packaged verifier independently checks the witness and exhausts all reduced partitions and subsets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kang--Xiong's strongest displayed arbitrary-code bound at \\((2,9,3,1,2)\\) is 64/5, so that result does not imply the exact value 8.",
+        "Li--Wei--Xiong arXiv:2608.05758v1 develops general moment-based LP bounds for linear and nonlinear LRCs but its public abstract does not state this exact tuple.",
+        "General LRC literature describes locality-one replication in disjoint-group settings, but the motivating definition allows selected recovery views to overlap; the present proof derives the equivalence-class partition rather than assuming disjoint groups."
+      ],
+      "reasoning": "Broader LRC bounds and neighboring exact results do not dominate the new statement. The proof closes a nonlinear-size gap left explicitly by the recent three-block table.",
+      "searches": [
+        "published-finding corpus: r=1 delta=3 locality repetition groups weighted quotient code",
+        "published-finding corpus: binary locally recoverable code locality 1 local distance 3 repetition classes",
+        "Web: locality r=1 locally recoverable code repetition code nonlinear",
+        "Web: all-symbol locality (1,2) binary locally recoverable codes repetition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.16044v1",
+      "arXiv:2608.05758v1",
+      "published-record:bfe156cd182f",
+      "Targeted web searches for exact tuple and locality-one aliases",
+      "Current and immediately prior private ledgers for overlap by recoverable claim and item ID"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper supplies only 8 <= \\(M_{\\max}\\((2,9,3,1,2)\\)\\) <= 64/5.",
+        "The neighboring semantic literature database residual-LRC record concerns different tuples and therefore has no parameter-specialization implication to \\((2,9,3,1,2)\\).",
+        "The new structural step shows that every binary locality-one recovery pair forces coordinate functions to agree up to complement, reducing arbitrary overlapping selected views to classes of size at least two."
+      ],
+      "reasoning": "The prior bounds do not imply the exact value, and the nearest published exact results concern different local-distance/length parameters. The new equivalence-class reduction plus the weighted quotient argument yields a strictly stronger conclusion for this tuple.",
+      "searches": [
+        "published-finding corpus: three-block LRC (2,9,3,1,2) nonlinear exact maximum",
+        "Web: length 9 distance 3 locality 1 binary code",
+        "Web: r=1 delta=2 LRC exact maximum binary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kang--Xiong arXiv:2609.16044v1 uses the same all-symbol local-distance definition and lists the tuple \\((2,9,3,1,2)\\) in Table V.1 with construction size 8 and three-block LP upper bound 64/5.",
+        "The closest published semantic literature database record returned by locality-one searches is 2026/9/17/published-record:bfe156cd182f; its summary states exact neighboring maxima \\(A_2(15,5;1,3)=16\\) and \\(A_3(7,3;1,3)=9\\), not the present tuple.",
+        "Exact-notation web searches did not return a source asserting \\(M_{\\max}\\((2,9,3,1,2)\\)=8\\)."
+      ],
+      "reasoning": "The searches covered the exact parameter tuple, verbal aliases, and the replication/locality-one structural language. No equivalent statement of the present exact nonlinear maximum was located.",
+      "searches": [
+        "published-finding corpus: M_max(2,9,3,1,2) locally recoverable code exact 8",
+        "published-finding corpus: binary length 9 distance 3 locality 1 maximum code size 8",
+        "published-finding corpus: all-symbol (1,2)-locality length 9 distance 3 exact maximum",
+        "Web: \"A_2(9,3;1,2)\" LRC",
+        "Web: \"M_max(2,9,3,1,2)\" LRC",
+        "Web: binary all-symbol (1,2)-locality 9 3 code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table V.1 reports \\(U_{\\mathrm{Del}}=128/3\\), \\(U_{\\mathrm{LWX}}=512/33\\), \\(U_{\\mathrm{out}}=512/33\\), \\(U_{\\mathrm{3blk}}=64/5\\), and \\(M_0=8\\) for \\((2,9,3,1,2)\\).",
+        "Theorem V.1 of arXiv:2609.16044v1 lists seven exact maximum code sizes and omits \\((2,9,3,1,2)\\).",
+        "The exact semantic literature database query returned no matching LRC record; the highest relevant hit was the neighboring residual-LRC record rather than this tuple."
+      ],
+      "reasoning": "The most directly relevant published table identifies a strict unresolved interval \\(8\\le M_{\\max}\\le 12.8\\). The present theorem proves the missing upper bound 8.",
+      "searches": [
+        "Kang--Xiong arXiv:2609.16044v1 Table V.1 parameter (2,9,3,1,2)",
+        "published-finding corpus exact query: \"M_max(2,9,3,1,2)=8\""
+      ]
+    },
+    "rationale": "The motivating 2026 three-block paper explicitly tabulates this exact tuple with lower bound \\(8\\) and certified arbitrary-code upper bound \\(64/5\\), and omits it from its theorem of exact maxima. Exact-tuple, alias, broader-locality, and semantic-literature searches did not locate the value \\(8\\) as an exact nonlinear maximum. A neighboring published record proves different locality-one tuples and does not imply this one.",
+    "residual_risks": [
+      "The locality-one equivalence-class reduction is elementary and may be implicit or folklore in older LRC literature even though the exact nonlinear length-nine value was not located by the targeted searches.",
+      "The inspection of arXiv:2608.05758v1 was limited to public metadata/abstract; the decisive closest source arXiv:2609.16044v1 was inspected in full HTML at the relevant definition and table.",
+      "Failed exact searches are not treated as novelty proof; originality rests primarily on the explicit unresolved source-table interval and the statement-level comparison with the closest published records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives \\(M_0=8\\) and \\(U_{\\mathrm{3blk}}=64/5\\), and does not list this tuple among exact maximum code sizes.",
+        "evidence": "arXiv HTML states all-symbol local-distance locality without linearity; Table V.1 row \\((2,9,3,1,2)\\) has \\(64/5\\) versus \\(8\\); Theorem V.1 omits this tuple.",
+        "identifier_or_url": "arXiv:2609.16044v1",
+        "material_read": "Full arXiv HTML for Definition II.1, the complete three-block LP context, Section V, Table V.1, and Theorem V.1.",
+        "method": "Statement-level comparison of the locality definition and the exact tuple \\((2,9,3,1,2)\\).",
+        "title": "Linear Programming Bounds for Locally Recovery Codes II",
+        "trigger": "Direct motivating source and exact parameter table."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material: develops general LRC LP bounds but no exact target tuple is stated.",
+        "evidence": "Abstract says the method applies to general linear and nonlinear (r,delta)-LRCs and reports computational improvements, without the target exact maximum.",
+        "identifier_or_url": "arXiv:2608.05758v1",
+        "material_read": "Public arXiv metadata and abstract.",
+        "method": "Checked scope and whether an exact value for the target tuple was stated in the public description.",
+        "title": "Moment-based linear programming bounds for locally recoverable codes",
+        "trigger": "Broader arbitrary-code LP bound cited by the motivating paper."
+      },
+      {
+        "assessment": "NOT_COVERING: summary gives neighboring exact values \\(A_2(15,5;1,3)=16\\) and \\(A_3(7,3;1,3)=9\\), not the target \\((2,9,3,1,2)\\).",
+        "evidence": "The record summary names the two locality-one exact nonlinear cases explicitly; neither equals the present tuple.",
+        "identifier_or_url": "published-record:bfe156cd182f",
+        "material_read": "Published semantic-search summary.",
+        "method": "Compared the tuples and logical implications stated in the summary.",
+        "title": "Exact maxima for three residual three-block LRC cases",
+        "trigger": "Closest published semantic literature database hit under exact and locality-one searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58317b39-85c9-4e30-837d-265734caadf4",
+  "value": {
+    "rationale": "This is a natural exact finite invariant singled out by a September 2026 benchmark table. The result closes the published nonlinear gap from \\(8\\le M_{\\max}\\le64/5\\) to equality at \\(8\\), showing that nonlinear codes provide no size gain in a binary locality-one row where the new three-block LP is still nonintegral. The proof also exposes a structural reduction from arbitrary overlapping recovery pairs to a weighted quotient, which is reusable beyond the single computation.",
+    "status": "PASS"
+  }
+}
