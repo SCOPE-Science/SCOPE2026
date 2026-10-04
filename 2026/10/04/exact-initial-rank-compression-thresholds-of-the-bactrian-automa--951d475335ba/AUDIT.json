@@ -1,0 +1,124 @@
+{
+  "claim": "For every odd \\(n>3\\), let \\(B_n\\) be the automaton on \\(Q=\\{1,\\ldots,n\\}\\) with \\(b(i)=i+1\\pmod n\\), \\(a(i)=i\\) for \\(i<n-1\\), \\(a(n-1)=1\\), and \\(a(n)=2\\). Define \\(\\lambda_n(s)=\\min\\{|w|:|Qw|\\le n-s\\}\\). For every \\(1\\le s\\le(n+1)/2\\), \\(\\lambda_n(1)=1\\); for every \\(k\\ge0\\) with \\(2k+2\\le(n+1)/2\\), \\(\\lambda_n(2k+2)=5k+1\\); and for every \\(k\\ge1\\) with \\(2k+1\\le(n+1)/2\\), \\(\\lambda_n(2k+1)=5k\\). Sharp witnesses are \\(a(b^4a)^k\\) for deficiency \\(2k+2\\) and \\(ab^3a(b^4a)^{k-1}\\) for deficiency \\(2k+1\\).",
+  "correctness": {
+    "rationale": "PASS. The proof identifies the two kernel pairs of \\(a\\), proves by an exhaustive four-letter symbolic case split on \\(R=\\{1,\\ldots,n-2\\}\\) that no post-\\(a\\) compression occurs in at most three letters and that four letters can lose at most one state, optimizes the resulting 1/2-state loss costs, and gives explicit hole-set inductions attaining both parity bounds. Exact BFS through odd \\(n=17\\) and witness replay through odd \\(n=101\\) agree with the formulas; those computations are checks, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ananichev–Volkov–Zaks prove the full reset threshold \\((n-1)(n-2)\\), which is an endpoint statement.",
+        "Collapsing Words concerns words universal across all \\(n\\)-compressible automata.",
+        "Martyugin 2009 studies complexity questions for compressing words in automaton classes."
+      ],
+      "reasoning": "These sources have broader synchronization or compression scope, but their stated results do not determine the exact shortest \\(B_n\\) word at each early target rank.",
+      "searches": [
+        "query: \"Synchronizing Automata with a Letter of Deficiency 2\" rank subset",
+        "query: \"Collapsing Words: a Progress Report\" pdf Ananichev Petrov Volkov",
+        "query: \"compressing words\" synchronizing automata deficiency 2 rank word"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/11779148_39; journal DOI:10.1016/j.tcs.2007.01.010",
+      "arXiv:1005.0129v1; DOI:10.1007/978-3-642-15155-2_7",
+      "DOI:10.1007/11505877_2; DOI:10.1142/S0129054106003966",
+      "Acta Cybernetica 19(2) (2009), 517–536"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original proof follows a complete reset word using a word-dependent coin weight and derives only the minimum length to rank one.",
+        "The 2010 proof sketch relates \\(B_n\\) to a primitive-digraph coloring and states only reset length."
+      ],
+      "reasoning": "An endpoint reset threshold does not imply the earlier rank thresholds. The present lower bound uses a distinct local statement: after every effective a, no new compression occurs within three letters and a double loss cannot occur within four. Explicit periodic witnesses then close the bounds.",
+      "searches": [
+        "source inspection: DOI:10.1007/11779148_39, Section 2 and Theorem 1.1",
+        "source inspection: arXiv:1005.0129v1, Theorem 5 and B_n definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No repository hit returned the \\(B_n\\) half-range profile under k-compressible/compressing/rank terminology.",
+        "The 2006/2007 \\(B_n\\) source describes images via surviving coins and proves only the reset endpoint.",
+        "The 2010 restatement gives \\(B_n\\) transitions and reset length, again without intermediate thresholds."
+      ],
+      "reasoning": "The claim was checked under the standard aliases rank of a word, image size, deficiency, k-compressibility, compressing word, and subset compression. These are the natural equivalent formulations of the target quantity.",
+      "searches": [
+        "query: B_n k-compressible word deficiency rank Ananichev Volkov Zaks",
+        "query: B_n compressing word rank of word bactrian automaton",
+        "query: minimum rank word B_n deficiency 2 synchronizing automaton",
+        "query: compressing words B_n slowly synchronizing automata",
+        "query: \"B_n\" \"compressing word\" automaton Ananichev",
+        "query: \"B_n\" \"k-compressing\" automaton",
+        "query: \"B_n\" \"rank n-3\" synchronizing automaton"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest repository records concern Cerny avoidance thresholds, a separate slow-reset census, and unrelated exact finite profiles.",
+        "No returned record supplied a \\(B_n\\) table matching \\(1,1,5,6,10,11,\\ldots\\)."
+      ],
+      "reasoning": "The repository search gives no exact database/table covering these \\(B_n\\) thresholds. This negative search supports but does not by itself prove originality.",
+      "searches": [
+        "query: synchronizing automata minimum rank intermediate rank shortest word exact profile",
+        "query: subset compression automata rank threshold shortest word classical automaton",
+        "query: B_n automaton rank profile shortest compression Ananichev Gusev Volkov",
+        "query: automaton B_n rank threshold n odd"
+      ]
+    },
+    "rationale": "PASS. Targeted repository and literature searches under rank, image-size, deficiency, k-compressible, compressing-word, and subset-compression terminology found the \\(B_n\\) reset endpoint and general compression literature but not this exact half-range profile. The endpoint theorem does not imply the intermediate thresholds; the local spacing lemma plus periodic hole witnesses supply a distinct statement. Residual bibliographic risk is recorded.",
+    "residual_risks": [
+      "Search cannot prove novelty; an older equivalent formula may be buried under different synchronization terminology.",
+      "Only abstract/metadata were inspected for Collapsing Words: A Progress Report and the Martyugin complexity paper.",
+      "The theorem intentionally stops at deficiency \\((n+1)/2\\); later thresholds are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same family and proves the rank-one endpoint, but no exact intermediate compression profile was found.",
+        "evidence": "Theorem 1.1 gives shortest reset length \\((n-1)(n-2)\\); Section 2 defines \\(B_n\\) and the coin process identifies image states.",
+        "identifier_or_url": "DOI:10.1007/11779148_39; journal DOI:10.1016/j.tcs.2007.01.010",
+        "material_read": "Full accessible text: theorem statement, Section 2 transition definition, reset-word construction, and coin-game lower-bound proof.",
+        "method": "Statement and implication comparison against the new intermediate-rank theorem.",
+        "title": "Synchronizing Automata with a Letter of Deficiency 2",
+        "trigger": "Primary source introducing the exact \\(B_n\\) family."
+      },
+      {
+        "assessment": "Matches the transitions used here and restates reset length \\(n^2-3n+2\\), without the half-range profile.",
+        "evidence": "The paper gives \\(a(i)=i\\) for \\(i<n-1\\), \\(a(n-1)=1\\), \\(a(n)=2\\), cyclic \\(b\\), then states reset threshold \\(n^2-3n+2\\).",
+        "identifier_or_url": "arXiv:1005.0129v1; DOI:10.1007/978-3-642-15155-2_7",
+        "material_read": "Full accessible text around the \\(B_n\\) definition and Theorem 5.",
+        "method": "Checked family equivalence and whether its theorem covers intermediate ranks.",
+        "title": "Slowly synchronizing automata and digraphs",
+        "trigger": "Later source using the convenient \\(1,\\ldots,n\\) labeling adopted in the claim."
+      },
+      {
+        "assessment": "Studies universal n-collapsing words rather than exact thresholds of \\(B_n\\); full text was not available in the inspected source.",
+        "evidence": "Abstract defines n-collapsing universally over arbitrary \\(n\\)-compressible DFAs.",
+        "identifier_or_url": "DOI:10.1007/11505877_2; DOI:10.1142/S0129054106003966",
+        "material_read": "Abstract and bibliographic metadata only.",
+        "method": "Compared problem definition and scope.",
+        "title": "Collapsing Words: A Progress Report",
+        "trigger": "Potential terminology overlap with k-compression."
+      },
+      {
+        "assessment": "Studies computational complexity of reset/compressing-word problems for automaton subclasses, not the stated \\(B_n\\) exact profile.",
+        "evidence": "Abstract formulates compressing-to-M-states decision/length problems for several classes.",
+        "identifier_or_url": "Acta Cybernetica 19(2) (2009), 517–536",
+        "material_read": "Abstract and article metadata.",
+        "method": "Scope comparison.",
+        "title": "Complexity of problems concerning reset words for some partial cases of automata",
+        "trigger": "Potential broader work on shortest compressing words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "951d4753-35ba-41a9-9c3f-a05ca35db7de",
+  "value": {
+    "rationale": "PASS. \\(B_n\\) is a classical slowly synchronizing extremal family built around a deficiency-two letter. Determining how quickly it can reach intermediate ranks is a natural refinement of its reset threshold, and the alternating exact marginal costs expose structure invisible in the endpoint value. The result is a parameter-uniform theorem rather than an isolated finite census.",
+    "status": "PASS"
+  }
+}
