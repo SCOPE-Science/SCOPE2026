@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The Euclidean proximal minimizer gives the stated affine recursion exactly for every a,c,alpha>0. Iteration and an r-contractive same-noise coupling establish the stationary random series, uniqueness, and W1 convergence. Independence gives the exact second moment and objective floor. The support cases follow from the exact two IFS images, with the critical fair binary expansion uniform on [-c,c]. No infinite conclusion rests on finite experimentation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 SPPA variance-reduction paper motivates variance reduction by persistent stochastic variance but does not provide the exact stationary law or support threshold for this model.",
+        "Bianchi-Hachem-Salim provide broader invariant-measure machinery, but their general asymptotic statements do not determine this fixed-step invariant measure or its exact objective moment without the present specialization."
+      ],
+      "reasoning": "General existence/tightness or small-step invariant-measure theory does not subsume an explicit finite-step random-series representation, exact stationary second moment, or the support topology of a specified two-map iterated-function system. The present statement is therefore not merely a corollary already stated by those broader results.",
+      "searches": [
+        "Published-record semantic query: SPPA two quadratics exact stationary variance constant stepsize",
+        "Published-record semantic query: proximal random affine recursion two centers exact objective floor",
+        "doi:10.1007/s10957-024-02502-6 inspected for vanilla SPPA persistent variance and constant-step claims",
+        "arXiv:1702.04144v3 inspected for general invariant-measure results that could dominate the claim"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.16655v1",
+      "doi:10.1007/s10957-024-02502-6",
+      "arXiv:1702.04144v3",
+      "Published-record semantic queries recorded in the private provenance checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source supplies the BSPPA rule and qualitative oscillation premise.",
+        "The 2019 source supplies a general Markov-chain viewpoint but no exact law for this instance.",
+        "The present proof independently solves the scalar proximal subproblem and derives the entire invariant law and support directly."
+      ],
+      "reasoning": "The primary source does not imply the claimed constants or topology without additional derivation. The general invariant-measure source guarantees a framework rather than the explicit invariant measure. Conversely, classical Bernoulli-convolution facts alone do not identify a stochastic proximal algorithm with that measure. The new claim is the algorithm-specific exact synthesis, not a claim that Bernoulli convolutions themselves are new.",
+      "searches": [
+        "arXiv:2510.16655v1 Algorithm 5.1 and constant-step discussion",
+        "doi:10.1007/s10957-024-02502-6 SPPA variance-reduction framework",
+        "arXiv:1702.04144v3 constant-step stochastic forward-backward invariant-measure framework"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.16655v1 defines vanilla BSPPA and describes constant-step oscillation/non-interpolation without the explicit two-map stationary law.",
+        "arXiv:1702.04144v3 treats constant-step stochastic forward-backward iterations as Feller Markov chains and studies invariant measures abstractly; the inspected affine material does not state the present Bernoulli-convolution specialization.",
+        "Targeted published-record searches returned no published finding with an equivalent stochastic-proximal Bernoulli-convolution claim."
+      ],
+      "reasoning": "The exact affine recursion makes the stationary law a classical Bernoulli convolution, but the algorithm-specific implication requires specializing the BSPPA proximal map, translating the invariant law back to optimization error, and identifying the dimensionless support threshold. None of the inspected closest statements implies those three pieces together.",
+      "searches": [
+        "Published-record semantic query: stochastic proximal point constant stepsize quadratic stationary distribution Bernoulli convolution",
+        "Published-record semantic query: constant-step stochastic proximal point symmetric quadratics exact invariant Bernoulli convolution",
+        "arXiv:2510.16655v1 full-text inspection of vanilla BSPPA and constant-step discussion",
+        "arXiv:1702.04144v3 full-text inspection for invariant measures, affine operators, Bernoulli, and quadratic formulations",
+        "Published-record semantic query: BSPPA Bernoulli convolution exact stationary law alpha a equals 1 Cantor support objective error floor symmetric quadratics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-record semantic matches concerned Bernoulli-product probability bounds, proximal convexification, or coordinate sampling; their mathematical statements concern different objects and do not imply the claim."
+      ],
+      "reasoning": "No checked database record tabulates the BSPPA stationary law, its exact objective floor, or the threshold at \\(\\alpha a=1\\). Search failure is not treated as proof of novelty; it is one component of the implication comparison.",
+      "searches": [
+        "Published-record semantic query: random affine iteration proximal point Cantor stationary distribution optimization",
+        "Published-record semantic query: BSPPA noninterpolation two quadratics stationary law Cantor support threshold",
+        "Published-record semantic query: stochastic proximal point invariant measure Bernoulli convolution step size"
+      ]
+    },
+    "rationale": "The closest inspected BSPPA/SPPA sources discuss constant-step oscillation or variance and the closest general stochastic forward-backward source develops invariant-measure theory, but none of their inspected statements implies the explicit two-quadratic Bernoulli-series law, exact objective floor, and \\(\\alpha a=1\\) support transition. The Bernoulli-convolution mathematics itself is not claimed as new.",
+    "residual_risks": [
+      "An older stochastic-proximal or random-iteration example under different terminology may have written down the same symmetric two-map specialization.",
+      "The overlap regime of Bernoulli convolutions has a deep density/singularity theory; no novelty or regularity claim about that classical theory is made here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the algorithmic premise and qualitative oscillation statement but not the exact invariant series, objective floor, or support transition.",
+        "evidence": "Vanilla BSPPA is the sampled Bregman proximal subproblem; the paper states that constant steps can leave oscillation around the minimizer in the non-interpolating case.",
+        "identifier_or_url": "arXiv:2510.16655v1",
+        "material_read": "Full-text portions containing the vanilla BSPPA algorithm, constant/vanishing stepsize discussion, and numerical discussion of non-interpolation oscillation.",
+        "method": "Open-access preprint full-text inspection, including the displayed algorithm and nearby remarks.",
+        "title": "Bregman Stochastic Proximal Point Algorithm with Variance Reduction",
+        "trigger": "Primary recent source defining vanilla BSPPA and motivating variance reduction through constant-step behavior."
+      },
+      {
+        "assessment": "Motivates the stochastic-variance issue but does not cover the exact stationary distribution or support geometry of the present two-quadratic vanilla SPPA instance.",
+        "evidence": "The article contrasts vanilla SPPA behavior with variance-reduced schemes and analyzes rates, not the present fixed-step affine invariant law.",
+        "identifier_or_url": "doi:10.1007/s10957-024-02502-6",
+        "material_read": "Open-access article material on SPPA, persistent stochastic variance, constant stepsizes in variance-reduced methods, and convergence framing.",
+        "method": "Open-access article/full-text inspection and targeted term searches.",
+        "title": "Variance Reduction Techniques for Stochastic Proximal Point Algorithms",
+        "trigger": "Closest earlier SPPA variance-reduction framework by overlapping authors."
+      },
+      {
+        "assessment": "Broader invariant-measure theory is relevant but does not state or calculate the present two-map Bernoulli-convolution law, exact optimization floor, or threshold.",
+        "evidence": "The paper studies invariant measures in a general random maximal-monotone framework and small-step limits; the inspected affine section does not specialize to this two-symmetric-quadratic recursion.",
+        "identifier_or_url": "arXiv:1702.04144v3",
+        "material_read": "Full-text sections on the Feller Markov-chain viewpoint, invariant measures, and affine monotone operators; targeted searches for Bernoulli and quadratic formulations.",
+        "method": "Open-access full-text inspection and exact-term searches.",
+        "title": "A Constant Step Forward-Backward Algorithm Involving Random Maximal Monotone Operators",
+        "trigger": "Plausible broader prior art on constant-step stochastic proximal iterations and invariant measures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5add2bab-7a45-43e3-95e9-8adc9d4b0cb2",
+  "value": {
+    "rationale": "The primary paper explicitly treats constant-step oscillation as a motivation for variance reduction. The minimal non-interpolating strongly convex example resolves that phenomenon exactly, quantifies the unavoidable objective floor, and exposes a sharp interval-to-Cantor support transition at the natural scale \\(\\alpha a=1\\). This is a structural boundary of the algorithmic stationary behavior rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
