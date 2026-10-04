@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The claim is an exact finite extremum for two explicitly defined channels. A 40-word duplication-correcting code and a 42-word deletion-correcting code give the lower bounds. The duplication upper certificate consists of 24 vertex-disjoint conflict edges plus 16 unmatched vertices, forcing an independent-set bound of 40. The deletion upper certificate partitions the graph vertices into eight conflict triangles, six conflict edges, and 28 singletons, forcing an independent-set bound of 42. The packaged verifier rebuilds the descendant relation and conflict graphs in two equivalent ways and checks every certificate block.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2312.00394v1 studies palindromic duplication codes with unbounded error count and states in its conclusion that finite-error optimal code size remains an open direction in general.",
+        "arXiv:2602.01151 develops constructions and asymptotic bounds for palindromic/reverse-complement duplication correction; inspected searches for the exact values 40 and 42 found no matching statement."
+      ],
+      "reasoning": "The broader literature addresses asymptotic rates, unbounded duplication count, arbitrary duplication lengths, or constructions. Those results do not imply either finite optimum at binary source length 6 and duplication length 2, and none of the inspected statements dominates the exact deletion comparison.",
+      "searches": [
+        "arXiv:2312.00394 full text finite t optimal code size palindromic duplication",
+        "arXiv:2602.01151 full text n=6 40 42 palindromic duplication correcting code",
+        "palindromic duplication code small parameters table"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1707.00052v1",
+      "arXiv:2312.00394v1",
+      "arXiv:2602.01151",
+      "exact-parameter web searches",
+      "semantic published-finding corpus searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1707.00052v1 gives explicit length-6, block-length-2 counterexamples showing that palindromic duplication and deletion correction are not equivalent, but such pairwise counterexamples do not determine maximum code size.",
+        "arXiv:2312.00394v1 proves zero coding capacity for arbitrary numbers of palindromic duplications when the duplication length is at least 2, which is asymptotic and does not specialize to the one-error finite maxima 40 or 42."
+      ],
+      "reasoning": "The final statement requires matching finite lower and upper certificates for two different conflict graphs. None of the inspected qualitative nonequivalence, sphere-size, capacity, or construction results implies those independence numbers.",
+      "searches": [
+        "arXiv:1707.00052 palindromic duplication deletion examples length 6 block length 2",
+        "arXiv:2312.00394 finite single duplication optimal size",
+        "A_2(6;1) palindromic duplication"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2017 source defines one-error correcting codes by disjoint palindromic duplication/deletion spheres.",
+        "For fixed length-6 sources, one-error duplication descendants have length 8 and one-error deletion descendants have length 4, so disjoint spheres for distinct codewords are equivalent to independence in the descendant-intersection conflict graph used in the proof."
+      ],
+      "reasoning": "The search covered the published sphere-disjointness formulation, conflict-graph language, reverse/palindromic duplication terminology, and finite optimal-code-size notation. The graph statement is a direct equivalent formulation, not a renamed new problem.",
+      "searches": [
+        "palindromic duplication deletion correcting codes exact finite cardinality length six ell two",
+        "reverse duplication palindromic duplication code small parameters table",
+        "binary length 6 palindromic duplication code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus exact-parameter searches for binary length-six palindromic duplication maximum 40 and palindromic deletion maximum 42 returned no same-claim record.",
+        "Web exact-parameter searches for palindromic duplication 40, palindromic deletion 42, and length-6 block-length-2 tables returned no relevant exact-value source.",
+        "Full-text searches of arXiv:2602.01151 found an unrelated n=6 example but no occurrence of 40 or 42."
+      ],
+      "reasoning": "No inspected database, table, or research record covers the exact pair of finite optima. Failed search is not treated as proof of novelty; the residual-risk entry preserves the possibility of an unindexed finite computation.",
+      "searches": [
+        "binary length six palindromic duplication correcting code length 2 maximum size 40",
+        "binary length six palindromic deletion correcting code length 2 maximum size 42",
+        "palindromic duplication 40 code",
+        "palindromic deletion 42 code"
+      ]
+    },
+    "rationale": "The exact finite claim was compared against the foundational definition/bounds paper, the later capacity paper, the 2026 construction paper, semantic research records, and exact numeric/alias/table searches. The inspected literature supplies the same objects and broader results but not these two finite optima or their strict separation. An unindexed finite computation remains the principal residual risk.",
+    "residual_risks": [
+      "A supplemental, unpublished, or poorly indexed finite computation may already contain one or both exact values even though no such statement appeared in the inspected full texts, semantic records, or exact-parameter searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "The paper defines palindromic duplication and deletion, gives binary length-6 block-length-2 counterexamples in both directions, and derives sphere-size/bounding machinery; the inspected text does not state the maxima 40 and 42.",
+        "identifier_or_url": "arXiv:1707.00052v1",
+        "material_read": "Open-access full text: preliminaries defining palindromic duplication/deletion; Section 2.2 examples establishing nonequivalence; Sections 3.3 and 3.4 on palindromic sphere sizes; abstract and bound statements.",
+        "method": "Primary open-access full text inspected at definition, example, sphere, and implication level.",
+        "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+        "trigger": "Foundational source for the exact channel operations and the natural length-6, block-length-2 test case."
+      },
+      {
+        "assessment": "BROADER_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "The paper defines optimal finite code size notation and proves zero capacity for arbitrary numbers of palindromic duplications of length at least 2; its conclusion states that finite-error optimal code size remains an open direction in general.",
+        "identifier_or_url": "arXiv:2312.00394v1",
+        "material_read": "Open-access full text: preliminaries and code definition; palindromic-duplication section; conclusion, especially the finite-t discussion.",
+        "method": "Primary open-access full text inspected for broader coverage and implication comparison.",
+        "title": "On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+        "trigger": "Closest later work on optimal palindromic-duplication code size."
+      },
+      {
+        "assessment": "CURRENT_CONSTRUCTIONS_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "The paper develops long-duplication and arbitrary-length constructions and asymptotic redundancy bounds. Full-text searches found an unrelated n=6 example and no occurrences of the exact values 40 or 42.",
+        "identifier_or_url": "arXiv:2602.01151",
+        "material_read": "Open-access full text: introduction, duplication-code definitions, long-duplication construction statements, arbitrary-length duplication section, and exact searches for n=6, 40, and 42.",
+        "method": "Current primary full text inspected for potentially dominating constructions or finite tables.",
+        "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+        "trigger": "Most recent highly relevant palindromic-duplication coding paper found in the search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d41a86ca-777b-4afb-977f-bac460e27c26",
+  "value": {
+    "rationale": "The parameter is mathematically motivated by the foundational nonequivalence examples themselves: binary source length 6 and duplication length 2 are the exact setting used to show that palindromic duplication and deletion correction differ. Computing both optima therefore sharpens a qualitative channel distinction into the exact quantitative separation 40 versus 42. The proof certificates are small and transparent, making the result a useful finite benchmark for subsequent code constructions and bounds.",
+    "status": "PASS"
+  }
+}
