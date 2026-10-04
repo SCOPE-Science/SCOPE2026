@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For an independent set meeting both sides, crown adjacency confines it to one deleted matched pair. For a set of size s inside one side, opposite-side vertices see s-1 or s selected neighbors; for 1<s<n both positive consecutive values occur, and for s=n the value n-1 is even because n is odd. Hence alpha_od=2 and the only maxima are deleted pairs. Strong odd color classes are odd independent sets, giving chi_so>=n; the deleted-pair partition gives n colors and forces uniqueness at equality. The bundled exact checker independently verifies definitions for n=3,5,7,9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2509.20763v2, Proposition 2 gives exact values only when all bipartite degrees are odd; an odd crown has degree n-1 even.",
+        "arXiv:2509.20763v2, Proposition 3 gives only alpha_od(G) <= ((d-1)/(2d-1))|G| for even d-regular graphs.",
+        "arXiv:2410.02336v1 notes chi_so(K_{m,n}) <= 4 but does not cover matching-deleted bicliques."
+      ],
+      "reasoning": "The strongest directly relevant published results do not imply alpha_od=2 or chi_so=n for the odd crown family.",
+      "searches": [
+        "regular bipartite odd independence even degree",
+        "strong odd coloring complete bipartite",
+        "even regular graph odd independence bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.20763",
+      "arXiv:2410.02336",
+      "arXiv:2510.01897"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For even crown order parameter n, the degree n-1 is odd and Proposition 2 already determines that branch; that branch is excluded from the new theorem.",
+        "For odd n, degree n-1 is even, and Proposition 3 supplies only a nonexact general upper bound.",
+        "The complete-bipartite chi_so comparison concerns K_{m,n}, not K_{n,n}-M_n."
+      ],
+      "reasoning": "After excluding the already covered even-n branch, no inspected prior theorem implies the odd-n exact values, the maximum-set classification, or uniqueness of the optimal coloring.",
+      "searches": [
+        "Proposition 2 odd-degree regular bipartite alpha_od chi_so",
+        "Proposition 3 even-degree regular alpha_od",
+        "complete bipartite strong odd coloring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.20763v2 defines odd independence and strong odd coloring and lists the principal treated graph families; crown graphs are not among them.",
+        "Searches used both the name crown graph and the equivalent form K_{n,n} minus a perfect matching.",
+        "The crown graph alias as the bipartite Kneser graph H(n,1) was also searched; no covering alpha_od or chi_so statement was located."
+      ],
+      "reasoning": "The claim was compared under both graph names and under the notations alpha_od and chi_so. No equivalent statement was located.",
+      "searches": [
+        "crown graph odd independence strong odd coloring parity",
+        "K_n,n minus perfect matching odd independence number strong odd chromatic",
+        "alpha_od crown graph chi_so crown",
+        "crown equality alpha_od chi_so product",
+        "bipartite Kneser graph H(n,1) odd independence strong odd coloring",
+        "crown graph bipartite Kneser H(n,1) alpha_od chi_so"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact crown entry was returned by the checked semantic research index or by exact web searches; the closest indexed crown statement is for proper conflict-free coloring, not either parameter here."
+      ],
+      "reasoning": "A failed search is not treated as novelty proof; it is used only to identify plausible closest records, which were then compared by statement and invariant.",
+      "searches": [
+        "crown graph odd independence number",
+        "crown graph strong odd chromatic number",
+        "K_n,n-M_n alpha_od chi_so"
+      ]
+    },
+    "rationale": "The claim isolates the odd-order crown branch, which is not implied by the source's exact proposition for odd-degree regular bipartite graphs: odd crowns have even degree. The source's even-degree regular bound is only an upper bound and is much weaker than the exact value 2 for all odd n. Exact-name, alias, parameter-notation, and implication searches found no covering crown result; the closest crown record concerns proper conflict-free coloring, a different invariant. Full text of the two primary parameter papers was inspected at the relevant definitions, propositions, family lists, and complete-bipartite comparison. Residual literature-index risk remains and is stated.",
+    "residual_risks": [
+      "Search indexes and terminology coverage are not exhaustive; an unindexed thesis, preprint, or differently phrased result could exist.",
+      "The broad strong-odd-coloring literature contains many class bounds; none inspected implies the exact odd-crown classification, but this is a residual overlap risk rather than a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The odd-degree regular-bipartite proposition covers the even-n crowns but not odd-n crowns. The even-degree proposition is only a general upper bound. No crown-specific exact theorem was located in the inspected material.",
+        "evidence": "arXiv:2509.20763v2, especially Proposition 1 (product inequality), Proposition 2 (odd-degree bipartite exact values), and Proposition 3 (even-degree regular upper bound).",
+        "identifier_or_url": "arXiv:2509.20763",
+        "material_read": "Abstract; introduction and family list; Proposition 1 and proof; Proposition 2 and proof; Proposition 3 and proof; AMS classification.",
+        "method": "Full-text PDF inspection and text search for crown, matching-deleted bipartite formulations, regular bipartite coverage, and exact parameter implications.",
+        "title": "The odd independence number of graphs, I: Foundations and classical classes",
+        "trigger": "Initiating source defining alpha_od and relating it to chi_so."
+      },
+      {
+        "assessment": "The paper notes chi_so(K_{m,n}) <= 4 and studies other graph classes; this does not imply the matching-deleted crown values.",
+        "evidence": "arXiv:2410.02336v1, introduction, including the K_{m,n} comparison.",
+        "identifier_or_url": "arXiv:2410.02336",
+        "material_read": "Abstract and introduction through the definition, general inequality chain, complete-bipartite comparison, and paper scope; targeted full-text search for crown terminology.",
+        "method": "Full-text PDF inspection and alias search.",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Primary predecessor for chi_so and a possible broader complete-bipartite result."
+      },
+      {
+        "assessment": "The stated scope is grids and chessboard-type graphs, with no crown formula in the inspected material.",
+        "evidence": "arXiv:2510.01897 abstract.",
+        "identifier_or_url": "arXiv:2510.01897",
+        "material_read": "Abstract and stated family scope.",
+        "method": "Primary abstract inspection.",
+        "title": "The odd independence number of graphs, II: Finite and infinite grids and chessboard graphs",
+        "trigger": "Companion paper could contain additional exact alpha_od/chi_so families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3bc0465d-6248-433a-92ce-79f4a15bf68f",
+  "value": {
+    "rationale": "Crown graphs are a standard, highly symmetric bipartite family, and the initiating paper explicitly develops odd independence alongside strong odd coloring and highlights the product inequality as fundamental. The result gives an exact infinite even-degree regular-bipartite family in which the general even-degree bound is far from the true value, classifies all maxima and all optimal colorings, and supplies a new equality family for alpha_od(G) chi_so(G) >= |G|. This is structural rather than a parameter substitution or finite-table recomputation.",
+    "status": "PASS"
+  }
+}
