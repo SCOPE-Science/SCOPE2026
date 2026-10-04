@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The short-step normal-residual formula is an exact algebraic identity. The Polyak expansion is obtained directly from f and its gradient, and composition yields x_next=(3/4)x+O(x^3). Two short steps reset the leading normal coefficient to 4/a; one short step gives the affine normal map with multiplier 8a/9. The local wedge is invariant after shrinking the neighborhood, so the asymptotic ratios follow.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 general theorem bounds the final error by an exponential involving min{K,I}; with fixed K=2 this bound does not force arbitrary accuracy as I grows.",
+        "The 2026 theorem is stated under convexity and a unique minimizer, whereas the relevant reflected quartic is explicitly used there as a nonconvex numerical example."
+      ],
+      "reasoning": "The broader theorems establish near-linear behavior under general hypotheses but do not dominate the fixed-K exact Q-factor, the 8a/9 normal multiplier, or the 9/8 threshold on this nonconvex family.",
+      "searches": [
+        "adaptive gradient descent fourth-order growth Polyak ravine block length one",
+        "near-linear convergence fourth-order growth convexity Polyak step Rosenbrock",
+        "Polyak step Rosenbrock convergence quartic ravine"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s10107-025-02290-5",
+      "arXiv:2409.19791",
+      "arXiv:2604.13393"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 source supplies the update rule and quartic example, but its theorem obtains O(log^2(1/epsilon)) by scaling both K and I; the fixed K=2 conclusion needs a separate exact cancellation argument.",
+        "The 2026 public figure supplies numerical evidence for K=1 on a=1/2, while the present proof derives its scaled-normal contraction and a sharp parameter boundary."
+      ],
+      "reasoning": "Neither prior statement implies the new fixed-block normal form. The exact short-step residual identity and the composed Polyak asymptotics are additional mathematical steps.",
+      "searches": [
+        "DOI:10.1007/s10107-025-02290-5 Algorithm 1 Theorem 5 Rosenbrock K=100",
+        "arXiv:2604.13393 block length 1 nonconvex quartic GDPolyak"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 source defines the block GDPolyak algorithm and its Rosenbrock benchmark but reports K=100 and short stepsize 0.0125, not the curvature-matched K=2 normal form.",
+        "The 2026 follow-up publicly reports a block-length-one numerical baseline on the orthogonally equivalent a=1/2 nonconvex quartic, but no exact 8a/9 normal multiplier or 9/8 threshold was located."
+      ],
+      "reasoning": "The searched aliases cover the algorithm name, canonical quartic, block lengths, and the exact threshold constants. The located sources give the algorithm, general rates, and numerics, not the stated normal-form theorem.",
+      "searches": [
+        "\"Rosenbrock\" \"GDPolyak\" \"K=2\"",
+        "\"x^4+10(y-x^2)^2\" Polyak stepsize gradient descent",
+        "\"GDPolyak\" \"9/8\" quartic",
+        "\"GDPolyak\" \"4/9\" quartic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches over published finding records returned nearby results on Polyak-step quadratic frontiers, adaptive-gradient spectral persistence, and other exact optimizer thresholds, but no record with the same quartic object and normal-form claim."
+      ],
+      "reasoning": "No indexed finding matched the combination of GDPolyak, quartic Rosenbrock ravine, curvature-matched short step, fixed block length, and the exact constants 3/4, 8a/9, and 9/8.",
+      "searches": [
+        "GDPolyak quartic Rosenbrock one short step normal mode 8a/9 threshold 9/8 two short steps curvature matched",
+        "Rosenbrock x^4 + 10(y-x^2)^2 GDPolyak two short steps Polyak exact local linear rate 3/4 normal cancellation"
+      ]
+    },
+    "rationale": "The primary paper gives the algorithm, general near-linear theorem, and K=100 Rosenbrock experiment; the 2026 follow-up gives a convex-theory refinement and publicly rendered K=1 numerics on an equivalent nonconvex quartic. Targeted statement-level and semantic searches did not locate the exact fixed-block theorem, multiplier, or threshold.",
+    "residual_risks": [
+      "The inaccessible full PDF of arXiv:2604.13393 could contain a model-specific derivation not visible in the public render.",
+      "An older or poorly indexed analysis of the Rosenbrock GDPolyak dynamics could contain an equivalent normal-form calculation; no exhaustive historical-priority claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper establishes general near-linear convergence and reports K=100 on the benchmark, but does not state the fixed-K=2 Q-linear law or the one-step 9/8 normal threshold.",
+        "evidence": "Algorithm 1 alternates K short steps and one Polyak step; Figure 2 uses K=100 and stepsize 0.0125 on x^4+10(y-x^2)^2; Theorem 5 gives an exp(-c eta min{K,I}) bound and O(log^2(1/epsilon)) by choosing K and I logarithmically.",
+        "identifier_or_url": "DOI:10.1007/s10107-025-02290-5 / arXiv:2409.19791",
+        "material_read": "Open full article sections containing the gradient update, Algorithm 1, the Rosenbrock motivation and Figure 2, Theorem 5 and its oracle-complexity consequence, related-work discussion, and MSC listing; arXiv metadata for the earliest public date.",
+        "method": "Statement-and-implication comparison followed by independent reconstruction of the exact model dynamics.",
+        "title": "Gradient descent with adaptive stepsize converges (nearly) linearly under fourth-order growth",
+        "trigger": "Primary source for GDPolyak and the canonical quartic Rosenbrock benchmark."
+      },
+      {
+        "assessment": "The theory is advertised for convex objectives; the nonconvex equivalent a=1/2 quartic appears as a numerical example. No exact 8a/9 multiplier, 9/8 threshold, or universal K=2 local theorem was located in accessible material.",
+        "evidence": "Public Figure 3 describes GDPolyak with stepsize 1 and block length 1 on g(v,u)=1/2(v+u^2)^2+u^4, which becomes f_{1/2} after y=-v.",
+        "identifier_or_url": "arXiv:2604.13393",
+        "material_read": "ArXiv abstract plus publicly rendered paper summary and figure captions, including the nonconvex quartic and the GDPolyak block-length-one baseline. A verified full PDF could not be obtained after open-access and institutional retrieval attempts.",
+        "method": "Statement, model-equivalence, and numerical-protocol comparison.",
+        "title": "A short proof of near-linear convergence of adaptive gradient descent under fourth-order growth and convexity",
+        "trigger": "Closest follow-up and direct numerical overlap with a one-short-step quartic experiment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b42f645d-9312-4d8c-bb3e-74f099b4d29c",
+  "value": {
+    "rationale": "The result identifies a sharp block-length mechanism on the motivating nonconvex benchmark: one curvature-matched short step has an exact parameter-dependent normal multiplier and threshold, while two short steps cancel the incoming normal mode and recover strict Q-linear convergence for all a>0. This explains a recent K=1 numerical observation, shows that the original a=10 benchmark needs no growing short-step block locally under curvature matching, and improves the model-specific oracle scale from the general O(log^2(1/epsilon)) guarantee to O(log(1/epsilon)).",
+    "status": "PASS"
+  }
+}
