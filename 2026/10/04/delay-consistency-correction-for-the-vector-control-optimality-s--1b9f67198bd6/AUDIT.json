@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The delayed incidence is \\(F_5=(1-u_2)\\beta_{hv}e^{-\\mu_v\\tau}I_h(t-\\tau)S_v(t-\\tau)\\). Exact product differentiation gives the stated \\(\\delta F_5\\), including the survival factor, both state variations, and delayed state arguments. The coefficient of \\(\\rho_2\\) forces the corrected control-gradient term. Changing variables \\(s=t+\\tau\\) in the costate pairing forces advanced coefficients with \\(u_2(t+\\tau)\\), current state factors \\(S_v(t)\\) or \\(I_h(t)\\), and the same survival factor. These are incompatible with the printed delay terms for general \\(\\tau>0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liao, Gao, Yan, and Zhou (2021), DOI 10.3934/mbe.2021209, is a primary delayed biological optimal-control paper using Pontryagin theory for a different Huanglongbing model.",
+        "Liang, Wang, Hu, and Nie (2023), DOI 10.1142/S0218339023500109, is a related vector-borne class-age optimal-control model but does not contain the discrete vector-incubation term corrected here."
+      ],
+      "reasoning": "The broader literature establishes that delayed biological optimal control is a populated area, but the checked systems do not dominate or imply the source-specific correction because their controlled delayed terms and state spaces differ.",
+      "searches": [
+        "delay optimal control vector-borne disease adjoint u2 e^{-mu tau} delayed state",
+        "hybrid ODE PDE DDE epidemic optimal control sensitivity delay state adjoint correction",
+        "Transmission dynamics and optimal control of a Huanglongbing model with time delay adjoint"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1186/s13662-026-04062-7",
+      "doi:10.3934/mbe.2021209",
+      "doi:10.1142/S0218339023500109",
+      "exact-title/DOI searches for preprint, correction, erratum, adjoint, Gâteaux derivative, and delayed control gradient"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source itself makes the discrete vector incubation term depend on delayed host/vector states and a survival factor, so its derivative is fixed algebraically by that displayed model.",
+        "The related delayed-control papers found in the searches do not state the Hu-Nie correction and have different controlled incidence structures."
+      ],
+      "reasoning": "The finding is a source-specific implication comparison: the stated controlled vector incidence implies a different first-order system than the one printed. General Pontryagin theory alone does not constitute the claimed source-specific correction.",
+      "searches": [
+        "lambda_5 e^{-mu_v tau} u_2 vector borne optimal control delay",
+        "Gateaux derivative I_h(t-tau) S_v(t-tau) epidemic optimal control",
+        "Dynamical behavior of a stage-structured Huanglongbing model with time delays and optimal control adjoint delay"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full 2026 article, DOI 10.1186/s13662-026-04062-7, prints the delayed controlled incidence in Eq. (23) and the first-variation/adjoint/control formulas in Eqs. (26), (32), and (35).",
+        "No checked correction or erratum supplied the missing survival factor and time arguments."
+      ],
+      "reasoning": "The searches target the exact source and the mathematical aliases first variation, Gâteaux derivative, adjoint, delay, and control gradient rather than relying on title similarity.",
+      "searches": [
+        "Global dynamics optimal control vector-borne class-age structured incubation discrete incubation multiple transmission pathways Hu Nie delay control Gateaux adjoint",
+        "10.1186/s13662-026-04062-7 correction OR erratum",
+        "10.1186/s13662-026-04062-7 adjoint",
+        "I_h(t-tau) S_v(t-tau) u_2(t) optimal control"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher record gives publication on 27 January 2026 and lists Mathematics Subject Classification 92B05 and 92D30.",
+        "Exact-title and DOI searches did not locate an earlier public preprint or a correction in the checked results."
+      ],
+      "reasoning": "The claim is not a database invariant; exact bibliographic searches were used to establish the verified public date and to check for a source correction. The residual possibility of an unindexed differently titled earlier version is stated explicitly.",
+      "searches": [
+        "Global dynamics and optimal control of a vector-borne disease model with class-age structured incubation and discrete incubation, and multiple transmission pathways preprint",
+        "Global dynamics and optimal control of a vector-borne disease model with class-age structured incubation and discrete incubation, and multiple transmission pathways 2025",
+        "s13662-026-04062-7 preprint"
+      ]
+    },
+    "rationale": "Source-specific bibliographic, formula, delay-adjoint, and optimal-control searches located no correction or equivalent statement for the 2026 model. Related delayed epidemic/biological optimal-control papers concern different state equations and do not imply the exact correction.",
+    "residual_risks": [
+      "A differently titled or unindexed earlier public version or correction may exist beyond the checked sources.",
+      "Only the delay-generated pieces of the printed optimality system were rederived; no claim is made about every other adjoint term.",
+      "The correction does not by itself settle existence or uniqueness of an optimizer for a fully corrected system."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED_SOURCE_BUT_NOT_CORRECTION: the article contains the inconsistent formulas but no correction of the delay factor/time arguments.",
+        "evidence": "Eq. (23) contains \\(e^{-\\mu_v\tau}I_h(t-\tau)S_v(t-\tau)\\); Eq. (26) drops the survival factor, duplicates a state variation, and uses current states in the control perturbation; Eq. (35) uses a current-state term without the survival factor.",
+        "identifier_or_url": "doi:10.1186/s13662-026-04062-7",
+        "material_read": "Publisher full-text HTML, especially the controlled model Eq. (23), Gâteaux first variation Eq. (26), adjoint system Eq. (32), Theorem 9 and its control characterization Eqs. (33)-(36), plus bibliographic classification/date.",
+        "method": "Direct equation-by-equation comparison followed by an independent symbolic differentiation of the delayed vector-incidence term and change of variables in the costate pairing.",
+        "title": "Global dynamics and optimal control of a vector-borne disease model with class-age structured incubation and discrete incubation, and multiple transmission pathways",
+        "trigger": "Primary source for the controlled delayed incidence and the claimed optimality system."
+      },
+      {
+        "assessment": "NOT_COVERING: the biological system and delayed controlled terms differ, so its optimality system does not imply the source-specific Hu-Nie correction.",
+        "evidence": "The 2021 paper studies Huanglongbing with three controls and a different latency-delay model; it does not contain the 2026 hybrid Eq. (23) or its vector-incubation term.",
+        "identifier_or_url": "doi:10.3934/mbe.2021209",
+        "material_read": "Publisher full-text HTML record, abstract, scope, and references; the article develops a delayed plant-vector model and an exact optimal-control formula.",
+        "method": "Comparison of model object, delay mechanism, and claimed control result with the 2026 hybrid host-vector model.",
+        "title": "Transmission dynamics and optimal control of a Huanglongbing model with time delay",
+        "trigger": "Highly relevant primary literature on delayed biological optimal control."
+      },
+      {
+        "assessment": "NOT_COVERING: related framework, but no matching discrete-delay incidence or source-specific first-variation formula.",
+        "evidence": "The 2023 paper is class-age structured and concerns a different optimal-control formulation; it does not state the corrected 2026 delay gradient.",
+        "identifier_or_url": "doi:10.1142/S0218339023500109",
+        "material_read": "Bibliographic record and abstract describing the multi-class-age vector-borne model and optimal-control problem.",
+        "method": "Object/structure comparison with the discrete vector-incubation control term of the 2026 source.",
+        "title": "Global dynamics and optimal control for a vector-borne epidemic model with multi-class-age structure and horizontal transmission",
+        "trigger": "Earlier vector-borne class-age optimal-control model by overlapping authors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1b9f6719-8bd6-4183-b856-2eaecdc998b1",
+  "value": {
+    "rationale": "The discrepancy changes the intervention gradient by both a multiplicative survival factor and delayed state evaluation, and it changes the advanced costate coefficients. Because the paper presents optimal control for a hybrid model with discrete vector incubation as a principal result, the correction is needed before the feedback characterization can be interpreted as a first-order necessary condition. It is therefore a structural correction, not a cosmetic symbol repair.",
+    "status": "PASS"
+  }
+}
