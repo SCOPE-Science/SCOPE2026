@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The source itself defines \\(\\digamma(T,\\overline T)=rT-c^{-1}\\int_{\\overline T}^{T}q(t)\\,dt\\). Setting this equal to zero yields \\(\\int_{\\overline T^*}^{T}q=crT\\) exactly, which forces the missing factor \\(T\\) in the average-value closed-season formula and the missing factor \\(1/c\\) in the fixed-season growth-rate formula. The local-stability lower bound repairs to \\((1/c)\\int_{\\overline T^*}^{\\overline T}q\\), preserving its sign. For the exact witness \\(T=c=2\\), \\(r=1\\), \\(q\\equiv4\\), \\(G=l=1\\), \\(E\\equiv2\\), the true root is \\(1\\), the printed root is \\(1/2\\), and at \\(\\overline T=3/4\\) the per-cycle logarithmic growth is at most \\(-1/2\\), proving global extinction. verify.py replays all arithmetic exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1016/j.jde.2023.01.014 studies the same seasonal Michaelis-Menten harvesting class and a critical closed-season duration.",
+        "DOI 10.1007/s00033-026-02726-8 studies a later seasonal switching fishery threshold with predation."
+      ],
+      "reasoning": "These works show that closed-season thresholds are established methodology and therefore do not support novelty for the generic concept. They do not identify or correct the two explicit scale errors in the 2025 source, nor do their abstracts imply the exact regime-reversal witness here.",
+      "searches": [
+        "Periodic dynamics of a single species model with seasonal Michaelis-Menten type harvesting threshold closed season 2023",
+        "Threshold dynamics seasonal switching Holling type II predation linear harvesting 2026"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/S0956792525100065",
+      "doi:10.1016/j.jde.2023.01.014",
+      "doi:10.1007/s00033-026-02726-8",
+      "https://mathzh.sysu.edu.cn/zh-hans/article/2254"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 article's abstract threshold theorem is formulated using the actual zero of \\(\\digamma\\), so it does not imply the incorrect explicit algebraic formulas.",
+        "The 2023 predecessor's public abstract states the existence and dynamical role of a closed-season threshold but not the later source's displayed calibration."
+      ],
+      "reasoning": "Prior threshold theory supplies the qualitative framework but does not subsume a correction to formulas printed in a later paper. The witness specifically shows that the printed 2025 cutoff, when inserted into that paper's own Theorem 3.1, yields the opposite regime from direct contraction.",
+      "searches": [
+        "Michaelis Menten seasonal harvesting closing-period threshold rT q over c",
+        "intrinsic growth threshold (T-barT) q/(cT) harvesting",
+        "fishing ban threshold rT q(t) bar T periodic Michaelis Menten"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.1017/S0956792525100065: Section 3.1 displays the threshold functional, the printed \\(\\overline T^*\\) formula, and the printed \\(r^*\\) formula.",
+        "The corrected integral-root form, average-catchability form, and per-cycle linear multiplier form were compared and are algebraically equivalent."
+      ],
+      "reasoning": "The root equation \\(\\digamma=0\\), the cumulative-catchability identity, and the zero-state cycle multiplier \\(e^{\\digamma}\\) encode the same threshold. None supports the two printed scale factors except in accidental normalizations such as \\(T=1\\) or \\(c=1\\).",
+      "searches": [
+        "Periodic dynamics general switching dynamical system harvesting closed season threshold formula missing factor T",
+        "Ding Yu Guo Chen Liu harvesting threshold bar T star r star switching model",
+        "Periodic dynamics of a general switching dynamical system threshold harvesting closing season"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI/title web searches returned the original Cambridge article but no correction or erratum for these formulas.",
+        "The closest semantic database hits concerned unrelated switching or threshold systems, led by 2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf."
+      ],
+      "reasoning": "No source-specific correction was located. Search absence is not treated as novelty proof by itself; it is combined with direct full-text comparison and statement-level implication checks.",
+      "searches": [
+        "10.1017/S0956792525100065 correction erratum",
+        "Periodic dynamics of a general switching dynamical system correction erratum Ding Yu Guo Chen Liu 2025",
+        "closed season threshold T(1-cr/q) periodic harvesting"
+      ]
+    },
+    "rationale": "The generic existence of closed-season thresholds in seasonal harvesting is prior art and is not claimed as new. The accepted claim is narrowly the source-specific algebraic correction of the two explicit formulas in DOI 10.1017/S0956792525100065, the repair of the proof equality, and the exact admissible regime-reversal witness. Exact DOI/title/correction searches and semantic searches found no published correction or prior finding covering those statements.",
+    "residual_risks": [
+      "A correction or author note not indexed by the searched public sources may exist.",
+      "The 2023 predecessor full text was not successfully recovered; only its public abstract and metadata were used. This does not resolve the later source-specific formulas, but it leaves a limited risk that an earlier paper already displayed the corrected algebra.",
+      "The first-public date records a public seminar announcement with the exact title and matching abstract; the article itself first appeared online on 8 August 2025."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The displayed threshold functional directly contradicts both printed explicit threshold formulas. The later proof equality also needs an integral correction, although its positivity conclusion survives.",
+        "evidence": "Section 3.1 displays \\(\\digamma=rT-c^{-1}\\int q\\), prints \\(\\overline T^*=(\\overline q-cr)/\\overline q\\), prints \\(r^*=(T-\\overline T)\\overline q/T\\), and later replaces the threshold difference by an average-times-length expression.",
+        "identifier_or_url": "doi:10.1017/S0956792525100065",
+        "material_read": "Lawful public full text: Section 3.1, equations (3.1)–(3.7), the threshold functional, the explicit threshold statements, Theorems 3.1–3.2, and the local-stability calculation.",
+        "method": "Publisher open-access HTML full text.",
+        "title": "Periodic dynamics of a general switching dynamical system",
+        "trigger": "Primary source containing the formulas under review."
+      },
+      {
+        "assessment": "The abstract establishes broader prior coverage of the closed-season threshold concept but does not cover the later source-specific scale errors.",
+        "evidence": "Journal of Differential Equations 354 (2023), 237–263; DOI 10.1016/j.jde.2023.01.014.",
+        "identifier_or_url": "doi:10.1016/j.jde.2023.01.014",
+        "material_read": "Public abstract, bibliographic record, and threshold description. A full-text retrieval attempt returned an unrelated 1980 article, so that material was rejected and not used.",
+        "method": "Public bibliographic/abstract sources; inaccessible full text was not treated as evidence.",
+        "title": "Periodic dynamics of a single species model with seasonal Michaelis-Menten type harvesting",
+        "trigger": "Closest predecessor on the same seasonal harvesting object."
+      },
+      {
+        "assessment": "Confirms continuing scientific use of closed-season thresholds but does not state a correction to the 2025 formulas.",
+        "evidence": "ZAMP 77 (2026), article 76; published online 29 January 2026.",
+        "identifier_or_url": "doi:10.1007/s00033-026-02726-8",
+        "material_read": "Public abstract and article metadata.",
+        "method": "Public publisher/index records.",
+        "title": "Threshold dynamics of a seasonal switching model with Holling type II predation and linear harvesting",
+        "trigger": "Later close analogue using a critical closed-season threshold."
+      },
+      {
+        "assessment": "The announcement was posted 22 April 2025, preceding the article's first online publication on 8 August 2025.",
+        "evidence": "Public posting date 2025-04-22 with the exact article title and matching abstract.",
+        "identifier_or_url": "https://mathzh.sysu.edu.cn/zh-hans/article/2254",
+        "material_read": "Announcement date, exact title, speaker, and matching abstract.",
+        "method": "Public university webpage.",
+        "title": "Periodic dynamics of a general switching dynamical system — seminar announcement",
+        "trigger": "Earliest verified public trace of the work located in date searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fe264884-4246-4525-9172-4de8a0ec8f86",
+  "value": {
+    "rationale": "These factors determine management cutoffs between extinction and persistence. The exact witness shows a qualitative reversal: the printed closed-season formula puts \\(\\overline T=3/4\\) above threshold, while the actual dynamics contract by at least \\(e^{-1/2}\\) per cycle and go extinct. The repair is compact, exact, and directly useful to anyone applying the paper's fishery calibration; it is not merely a typographical normalization check.",
+    "status": "PASS"
+  }
+}
