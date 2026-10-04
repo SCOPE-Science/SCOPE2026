@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Starting from the source SPS formula, the dimensionless map is derived exactly. For \\(0<q<2\\), both branches strictly decrease magnitude; cap activity is invariant once reached; perpetual uncapped motion would force a limiting magnitude simultaneously above \\(\\sqrt{2/3}\\) and equal to it, a contradiction. For \\(q\\ge2\\), direct substitution at \\(x_\\star=\\sqrt{2c/(3a)}\\) gives normalized step \\(2\\), hence an exact sign-flip two-cycle. Substitution into the source stability-index formula gives \\(\\frac{4c}{3}(1-1/q)\\). The proof covers branch equality at \\(q=2\\), all \\(a,c>0\\), all \\(\\alpha>0\\), and declares the zero-gradient minimizer fixed. Numerical replay checks but does not replace these universal arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 stability paper proves \\(\\delta_t^{\\mathrm{SPS}}\\le\\delta_t^{\\mathrm{SGD}}\\) and introduces the lower-bound estimation error, but this is a stability-index comparison rather than a global dynamical classification.",
+        "The 2023 ProxSPS paper identifies loose lower bounds as a practical/theoretical motivation for modifying SPS, without an exact scalar threshold in the inspected material."
+      ],
+      "reasoning": "These broader analyses explain why lower-bound quality matters but do not dominate the candidate: bounded stability index does not itself imply convergence, and the exact \\(q=2\\) boundary with the \\(c/3\\) cycle value is additional.",
+      "searches": [
+        "2602.09842 step-size stability stochastic optimization stability index SPS SPP quadratic exact threshold",
+        "Step-Size Stability in Stochastic Optimization Schaipp Gower Taylor stability index quadratic",
+        "capped Polyak SPS misspecified lower bound universal convergence threshold quadratic",
+        "lower-bound estimation error SPS stability index",
+        "badly specified lower bounds SPS"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.09842v2",
+      "PMLR 130 (2021), Loizou et al.",
+      "arXiv:2301.04935",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.09842 gives \\(\\tau_t=\\min\\{\\alpha_t,(f-C)/\\|g\\|^2\\}\\) and \\(\\delta_t^{\\mathrm{SPS}}=\\tau_t(1-\\tau_t/(2\\alpha_t))\\|g_t\\|^2\\).",
+        "PMLR 130 (2021) proves interpolation convergence using exact component minima, which excludes the strict error \\(C=-c<0\\) used here."
+      ],
+      "reasoning": "The new theorem follows from specializing the update and analyzing its exact piecewise map, not from the prior convergence theorems. Conversely, the prior stability-index inequality is compatible with the candidate cycle because it controls a bound term rather than asserting global pointwise convergence for arbitrary loose lower bounds.",
+      "searches": [
+        "2602.09842 step-size stability stochastic optimization stability index SPS SPP quadratic exact threshold",
+        "Step-Size Stability in Stochastic Optimization",
+        "Schaipp Gower Taylor 2602.09842 SPS stability index",
+        "lower-bound estimation error SPS stability index"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.09842, Lemma 4.1 and lower-bound-error discussion",
+        "PMLR 130 (2021), SPS/SPSmax definitions and interpolation convergence statements",
+        "arXiv:2301.04935, motivation concerning loose lower bounds"
+      ],
+      "reasoning": "The candidate can be phrased as a sharp global-convergence threshold, an exact two-cycle, or a lower-bound-error objective floor. None of the inspected sources states an equivalent formulation or a theorem that implies all three.",
+      "searches": [
+        "SPS stochastic Polyak loose lower bound negative quadratic two-cycle alpha threshold 2/a",
+        "stochastic Polyak step size misspecified lower bound deterministic quadratic 2-cycle",
+        "Polyak steps lower bound error cycle scalar strongly convex quadratic",
+        "SPS cap large learning rate loose lower bound exact convergence threshold",
+        8,
+        9,
+        11
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest database hit: 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789, concerning scaled deterministic Polyak steps on SPD quadratics.",
+        "Closest database hit: 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6, concerning stochastic OSGM feedback thresholds.",
+        "Closest database hit: 2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa, concerning AdOGD stepsize limits."
+      ],
+      "reasoning": "The nearest indexed results study different algorithms and parameters. Their statements neither specialize to the SPS truncated-model map with \\(C=-c\\) nor imply its two-cycle or exact universal-convergence threshold.",
+      "searches": [
+        "stability index adaptive step size SPS SPP exact scalar quadratic",
+        "stochastic Polyak step size misspecified lower bound deterministic quadratic 2-cycle",
+        "sharp SPS convergence threshold loose lower bound scalar quadratic alpha a 2 two-cycle c/3",
+        "stochastic Polyak step size lower-bound error exact two-cycle objective floor one third"
+      ]
+    },
+    "rationale": "The exact statement was compared by implication, not by title alone. The 2026 source permits loose lower bounds and quantifies their effect on the stability index, but its inspected quadratic analysis uses exact lower bounds and its misspecification discussion does not derive the scalar global threshold or nonzero cycle. Earlier SPS theory inspected uses exact component minima for its interpolation convergence result; ProxSPS explicitly motivates itself by the difficulty of loose lower bounds but does not imply this classification. Targeted database searches returned nearby Polyak-step, adaptive-gradient, and stability-threshold results with different update maps and no implication of the present claim. Residual risk remains for older equivalent dynamics under different terminology.",
+    "residual_risks": [
+      "An older analysis of Polyak-type steps under underestimated objective minima may contain an equivalent scalar cycle under terminology not surfaced by the targeted searches.",
+      "The claim is intentionally narrow; it does not establish a stochastic or high-dimensional sharp threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact update and stability index used here and highlights lower-bound error, but the inspected text does not state the scalar \\(q=2\\) convergence threshold, exact nonzero cycle, or objective floor \\(c/3\\).",
+        "evidence": "Lemma 4.1 gives the SPS update and stability index; the following discussion defines \\(\\varepsilon_{\\mathrm{lb}}\\).",
+        "identifier_or_url": "arXiv:2602.09842v2",
+        "material_read": "Full-text PDF: SPS truncated-model definition and Lemma 4.1; lower-bound estimation error discussion; experimental misspecified-lower-bound discussion; quadratic appendix.",
+        "method": "Full-text PDF inspection, including page rendering and statement-level comparison.",
+        "title": "Step-Size Stability in Stochastic Optimization: A Theoretical Perspective",
+        "trigger": "Primary source defining SPS with arbitrary valid lower bounds and the stability index."
+      },
+      {
+        "assessment": "The relevant convergence statements use exact component minima/interpolation assumptions. The inspected material does not cover a fixed strict lower-bound error with the exact cycle and threshold claimed here.",
+        "evidence": "SPSmax definition and interpolation convergence corollary use exact component minima.",
+        "identifier_or_url": "PMLR 130 (2021)",
+        "material_read": "Full-text statements defining SPSmax, step bounds, and interpolation/strongly-convex convergence; robustness discussion.",
+        "method": "Primary full-text inspection.",
+        "title": "Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence",
+        "trigger": "Foundational SPS convergence theory and capped SPS definition."
+      },
+      {
+        "assessment": "Confirms that loose lower bounds are a recognized issue, but does not provide the exact scalar SPS dynamical classification claimed here.",
+        "evidence": "The abstract states that SPS requires a lower bound and that available composite-objective lower bounds can be loose.",
+        "identifier_or_url": "arXiv:2301.04935",
+        "material_read": "Abstract and accessible source description of the lower-bound motivation.",
+        "method": "Primary abstract/metadata inspection plus targeted comparison.",
+        "title": "A Stochastic Proximal Polyak Step Size",
+        "trigger": "Close literature explicitly motivated by loose lower bounds for SPS."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86e9f062-1099-4a31-9097-8318a8a4dca0",
+  "value": {
+    "rationale": "The source explicitly makes lower-bound estimation error a determinant of SPS stability, so the simplest strongly convex one-sample quadratic with a strict valid lower-bound error is a motivated boundary case rather than an arbitrary slice. The result supplies a sharp iff threshold, a natural exact cycle, and the objective scale \\(c/3\\), showing concretely that bounded stability-index behavior can coexist with nonconvergent iterates. This clarifies the interpretation of a new stability framework without claiming a general algorithmic lower bound.",
+    "status": "PASS"
+  }
+}
