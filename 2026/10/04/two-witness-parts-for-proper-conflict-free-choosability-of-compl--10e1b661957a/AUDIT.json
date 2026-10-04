@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For an arbitrary admissible list assignment, the proof constructs two singleton witness colors in the first two parts. The second-part list lower bound is at least \\(n_1+2\\): offset two gives this directly, while offset one uses the existence of a nonempty third part. Every later part has lists strictly larger than the number of colors already used, so it can use a palette disjoint from all earlier parts. This proves properness and preserves both singleton neighborhood witnesses for all vertices. The packaged finite checker replayed the construction on exhaustive small list assignments and deterministic larger stress tests, ending with ALL CHECKS PASSED; those finite checks are implementation tests, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general degeneracy guarantee uses a substantially larger additive term on dense complete multipartite graphs and therefore does not imply the claimed offsets.",
+        "The maximum-average-degree theorems in arXiv:2601.15611 concern sparse classes and do not cover complete multipartite graphs in general.",
+        "The minimum-degree-three offset-one statement in arXiv:2601.15611 is posed as a conjecture rather than a proved theorem."
+      ],
+      "reasoning": "No located general theorem has hypotheses broad enough and a list-size bound strong enough to dominate either clause. Dense multipartite examples fall outside the sparse-class results, while the degeneracy bound is quantitatively weaker.",
+      "searches": [
+        "complete multipartite proper conflict-free (degree+2)-choosable every complete multipartite graph",
+        "complete multipartite graphs Conjecture 1.2 proper conflict-free degree plus 1",
+        "every connected complete multipartite graph with degeneracy d is proper conflict-free (degree+d)-choosable Conjecture 1.4",
+        "arXiv:2601.15611 sparse maximum-average-degree theorems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.12560",
+      "arXiv:2601.15611",
+      "2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+      "2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.2 of arXiv:2601.15611 proves only \\(K_{2,r}\\) is proper conflict-free \\((\\mathrm{degree}+2)\\)-choosable.",
+        "The first clause covers every connected complete multipartite graph, strictly containing the \\(K_{2,r}\\) family.",
+        "The second clause proves the offset-one bound for every complete multipartite graph with at least three parts, including cases where the minimum degree is below three."
+      ],
+      "reasoning": "The published biclique proposition is a genuine special case of the first clause and does not imply it. The two conjectures motivate the claimed bounds but, being conjectures, do not supply prior coverage. No located result provides a reduction from arbitrary complete multipartite graphs to \\(K_{2,r}\\) preserving arbitrary vertex lists.",
+      "searches": [
+        "arXiv:2601.15611 Proposition 3.2 K_{2,r}",
+        "arXiv:2601.15611 Conjecture 1.1 degree+2",
+        "arXiv:2601.15611 Conjecture 1.2 degree+1",
+        "Every connected complete multipartite graph is proper conflict-free (degree+2)-choosable",
+        "complete multipartite at least three parts proper conflict-free (degree+1)-choosable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.12560 states the degeneracy-based proper conflict-free degree-choosability conjecture and does not state a complete-multipartite theorem in the inspected full text.",
+        "arXiv:2601.15611 states the universal offset-two and minimum-degree-three offset-one conjectures; Proposition 3.2 proves the special case \\(K_{2,r}\\) for offset two.",
+        "Indexed record 2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105 is about ordinary proper conflict-free chromatic number of crown graphs rather than list choosability."
+      ],
+      "reasoning": "The target statements were compared under complete-multipartite, biclique, degree-offset, and list-choosability phrasings. The located statements either remain conjectures or cover a strict special case / different parameter.",
+      "searches": [
+        "Every connected complete multipartite graph is proper conflict-free (degree+2)-choosable",
+        "complete multipartite at least three parts proper conflict-free (degree+1)-choosable",
+        "K_{n_1,...,n_r} proper conflict-free degree plus two choosable",
+        "arXiv:2509.12560 full-text search: complete; bipartite; multipartite",
+        "arXiv:2601.15611 full-text search: complete bipartite; multipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105 gives exact ordinary proper conflict-free chromatic numbers for crown graphs and has no list-assignment conclusion.",
+        "2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2 concerns neighborhood-parity odd coloring of complete multipartite graphs, a different coloring invariant.",
+        "No indexed exact-table or finite-census record located by the exact/alias queries states the complete-multipartite list-choosability bounds claimed here."
+      ],
+      "reasoning": "The closest exact records use different coloring notions or non-list parameters. Their numerical or structural conclusions do not imply existence of a proper conflict-free coloring for every admissible list assignment.",
+      "searches": [
+        "complete bipartite proper conflict-free degree d choosable",
+        "proper conflict-free choosability complete bipartite lists",
+        "Every connected complete multipartite graph is proper conflict-free (degree+2)-choosable",
+        "complete multipartite at least three parts proper conflict-free (degree+1)-choosable",
+        "2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+        "2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2"
+      ]
+    },
+    "rationale": "The principal 2025 and 2026 primary sources formulate the relevant degree-offset conjectures; the 2026 paper proves only the complete-bipartite slice \\(K_{2,r}\\) as Proposition 3.2. Exact-form, alias, and broader-coverage searches did not locate a statement implying the two complete-multipartite clauses. The closest indexed proper-conflict-free record concerns ordinary chromatic number of crown graphs, not list choosability. This supports originality but is not treated as a formal novelty certificate; unindexed or differently worded prior work remains a residual risk.",
+    "residual_risks": [
+      "A prior theorem could be unindexed or expressed under terminology not captured by the searched aliases.",
+      "The theorem does not establish optimality of either additive offset.",
+      "The argument does not settle offset-one proper conflict-free degree-choosability for all complete bipartite graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general program, a weaker degeneracy guarantee, and the tree case; no inspected statement covers complete multipartite graphs at offsets two or one.",
+        "evidence": "Conjecture 4 asks for proper conflict-free \\((\\mathrm{degree}+d)\\)-choosability of \\(d\\)-degenerate graphs; the proved general bound in Proposition 2 uses one additional color.",
+        "identifier_or_url": "arXiv:2509.12560",
+        "material_read": "Abstract, introduction, definitions, Proposition 2, Theorem 3, Conjecture 4, and full-text searches for complete/bipartite/multipartite terminology.",
+        "method": "Primary full-text inspection.",
+        "title": "Remarks on proper conflict-free degree-choosability of graphs with prescribed degeneracy",
+        "trigger": "Foundational recent source for the degree-offset formulation and degeneracy conjecture."
+      },
+      {
+        "assessment": "Proves \\(K_{2,r}\\) at offset two but does not state the all-complete-multipartite theorem; the broader offset-two and minimum-degree-three offset-one statements remain conjectural in this source.",
+        "evidence": "Proposition 3.2 explicitly treats \\(K_{2,r}\\); Conjectures 1.1 and 1.2 state the respective universal offset-two and minimum-degree-three offset-one targets.",
+        "identifier_or_url": "arXiv:2601.15611",
+        "material_read": "Abstract, introduction with Conjectures 1.1--1.4, the sparse main results, Section 3.1 including Proposition 3.2, and full-text searches for complete bipartite and multipartite terminology.",
+        "method": "Primary full-text inspection.",
+        "title": "Degree-choosability of proper conflict-free list coloring of sparse graphs",
+        "trigger": "Most directly relevant recent paper: it contains the universal offset conjectures and a complete-bipartite proposition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10e1b661-957a-4494-9b9e-7ece36649e99",
+  "value": {
+    "rationale": "Complete multipartite graphs are a canonical dense family not subsumed by the sparse maximum-average-degree theorems. The offset-two clause verifies a recent universal conjectural bound throughout this family and strictly extends the proved \\(K_{2,r}\\) slice. The offset-one clause reaches the stronger conjectural scale for all multipartite graphs with at least three parts and even covers some instances outside the conjecture’s minimum-degree-three hypothesis. The proof exposes a reusable structural mechanism: two singleton witness colors plus disjoint inter-part palettes.",
+    "status": "PASS"
+  }
+}
