@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "On the scalar quadratic, the gradient-sign test is exactly the comparison of \\(q_t=\\lambda\\alpha_t\\) with \\(1\\). The resulting multiplicative map reaches \\([1-\\beta,1+\\beta]\\) in finite time, and logarithms conjugate both branches to one rigid rotation. Standard circle-rotation theory supplies the exact periodic/dense dichotomy, while the invariant band gives \\(|x_{t+1}|\\le\\beta|x_t|\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2017 thesis proves convergence of the scalar optimized variable and stable-interval entry.",
+        "The Baydin paper states the multiplicative normalized rule.",
+        "The 2025 paper cites prior scalar convergence and develops a different online-learning-based adaptation framework."
+      ],
+      "reasoning": "Primal convergence and interval trapping do not imply convergence, periodicity, or density of the learning rate. The circle law refines the state description without conflicting with the prior convergence theorem.",
+      "searches": [
+        "Online Learning Rate Adaptation with Hypergradient Descent multiplicative rule quadratic convergence",
+        "Convergence Analysis Adaptive Method Gradient Descent multiplicative quadratic",
+        "Provable Practical Online Learning Rate Adaptation Hypergradient Descent quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1703.04782",
+      "arXiv:1703.04782v3",
+      "MartinezRubio2017MSc",
+      "arXiv:2502.11229v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The thesis establishes convergence of \\(x_t\\) and bounds the stable learning-rate interval.",
+        "No inspected theorem in the thesis states that \\(\\alpha_t\\) converges.",
+        "The later hypergradient sources do not state a periodic-or-dense classification of \\(\\alpha_t\\)."
+      ],
+      "reasoning": "The prior scalar convergence theorem leaves the asymptotic learning-rate trajectory unresolved. The final claim fills that gap and proves, for \\(\\beta=1/2\\), that the learning rate cannot converge because its orbit is dense.",
+      "searches": [
+        "multiplicative hypergradient descent learning rate convergence quadratic",
+        "hypergradient descent periodic learning rate",
+        "hypergradient descent dense learning rate",
+        "multiplicative learning rate sign gradient correlation quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baydin et al. 2018, multiplicative normalized hypergradient rule",
+        "Martínez-Rubio 2017 MSc thesis, Algorithm 3.1.3 and scalar-quadratic convergence theorem",
+        "Chu et al. 2025, discussion of prior scalar quadratic hypergradient convergence"
+      ],
+      "reasoning": "Equivalent formulations are a two-branch multiplicative map, an interval exchange in log coordinates, and a rigid rotation on a quotient interval. No inspected source states these equivalent dynamics or their periodic/dense classification.",
+      "searches": [
+        "multiplicative hypergradient descent scalar quadratic circle rotation learning rate periodic dense",
+        "hypergradient multiplicative rule scalar quadratic nonconvergent learning rate",
+        "multiplicative HD learning rate periodic orbit quadratic",
+        "hypergradient descent sign correlation learning rate scalar quadratic periodic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published search result on hypergradient feedback uses a distinct recent feedback rule on random-curvature quadratics.",
+        "Other close results concern fixed-step quadratic frontiers, adaptive-step persistence, momentum root regimes, or unrelated spectral rotations."
+      ],
+      "reasoning": "No located published result combines the Baydin/Martínez-Rubio multiplicative sign-normalized rule with the claimed rigid-rotation invariant. Search absence is not treated as a uniqueness proof; older sign-correlation adaptation literature remains a terminology risk.",
+      "searches": [
+        "multiplicative hypergradient descent scalar quadratic circle rotation learning rate periodic dense",
+        "hypergradient multiplicative rule scalar quadratic nonconvergent learning rate",
+        "multiplicative HD learning rate periodic orbit quadratic",
+        "hypergradient descent sign correlation learning rate scalar quadratic periodic"
+      ]
+    },
+    "rationale": "The closest direct prior work proves primal convergence for the same scalar multiplicative rule and traps the learning rate in a stable interval, but the inspected thesis and later hypergradient literature do not identify the log-circle conjugacy or classify learning-rate orbits as periodic or dense.",
+    "residual_risks": [
+      "Older sign-correlation learning-rate heuristics may contain an equivalent map under different terminology.",
+      "The earliest verified public date records the initial Baydin et al. preprint date; the multiplicative form used here appears in a later public revision and in the 2017 thesis.",
+      "The result is scalar and does not directly transfer to multidimensional cosine-normalized hypergradients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_NOT_COVERING_CIRCLE_DYNAMICS.",
+        "evidence": "The source states the multiplicative rule but no scalar log-rotation or periodic/dense theorem.",
+        "identifier_or_url": "arXiv:1703.04782",
+        "material_read": "ArXiv version history plus the later full public version containing the alternative multiplicative normalized rule.",
+        "method": "Open-access full-text inspection.",
+        "title": "Online Learning Rate Adaptation with Hypergradient Descent",
+        "trigger": "Primary exact-date source for the multiplicative normalized hypergradient rule."
+      },
+      {
+        "assessment": "DIRECT_PRIOR_CONVERGENCE_NOT_COVERING_HYPERPARAMETER_ROTATION.",
+        "evidence": "The thesis proves primal convergence and interval trapping but contains no located periodic, dense, or circle-rotation classification of the learning-rate sequence.",
+        "identifier_or_url": "MartinezRubio2017MSc",
+        "material_read": "Full 52-page thesis, including Algorithm 3.1.3, the multiplicative rule, Theorem 3.2.4, and its scalar-quadratic proof.",
+        "method": "Full PDF text inspection with visual inspection of the algorithm and quadratic-convergence pages.",
+        "title": "Convergence Analysis of an Adaptive Method of Gradient Descent",
+        "trigger": "Closest direct convergence analysis of the same multiplicative rule on one-dimensional quadratics."
+      },
+      {
+        "assessment": "RECENT_BROADER_THEORY_NOT_COVERING_MULTIPLICATIVE_CIRCLE_LAW.",
+        "evidence": "The paper cites prior scalar quadratic convergence and studies a different adaptation framework; no multiplicative sign-rule rotation classification was located.",
+        "identifier_or_url": "arXiv:2502.11229v1",
+        "material_read": "Full text around related work, quadratic discussion, convergence claims, and distinctions from prior Hypergradient Descent.",
+        "method": "Open-access full-text inspection with targeted searches for multiplicative, periodic, dense, and quadratic terminology.",
+        "title": "Provable and Practical Online Learning Rate Adaptation with Hypergradient Descent",
+        "trigger": "Recent theory most likely to supersede earlier hypergradient dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e4c27d6-d4b9-404e-a2a9-1e5c5db1cc3a",
+  "value": {
+    "rationale": "The method is designed to adapt the learning rate itself. The circle law shows that successful parameter convergence does not imply hyperparameter convergence even on the simplest strongly convex quadratic: the learning rate can be periodic or dense forever. The theorem gives a complete arithmetic classification and explicit diagnostic examples.",
+    "status": "PASS"
+  }
+}
