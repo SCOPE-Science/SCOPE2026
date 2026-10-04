@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The proof identifies the dyadic morphic blocks P_k and Q_k, proves that they differ only in the final bit, establishes by induction that S_k={2^j-1:0<=j<=k} attracts every prefix of length from 2^k through 2^(k+1)-1, and proves first failure at length 2^(k+1) using the unique occurrence of Q_k in P_kQ_k. The uniqueness argument excludes interior windows by one-count preservation under cyclic rotation. A standalone exhaustive checker independently replays the greedy definition on all prefixes through length 128 and verifies the dyadic identities through thirteen levels.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaeffer--Shallit prove only a general O(log n) greedy bound under finite appearance constant.",
+        "The 2026 complete characterization concerns smallest attractors, whose cardinality is 2 on the period-doubling family, rather than the nested greedy set."
+      ],
+      "reasoning": "Neither broader theorem determines which endpoints the greedy process selects. A logarithmic upper bound does not imply the exact powers-of-two pattern, and minimum attractors may be chosen afresh for each prefix.",
+      "searches": [
+        "period doubling minimal novel factors greedy attractor",
+        "string attractor greedy automatic sequence exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.06840",
+      "DOI:10.1016/j.jcta.2024.105936",
+      "arXiv:2602.16152",
+      "Focused semantic searches under greedy, period-doubling, minimal-novel-factor, exact-position, and powers-of-two formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2012.06840 gives the greedy definition and a general logarithmic estimate, not equality or selected positions.",
+        "arXiv:2602.16152 gives all smallest attractors for dyadic period-doubling words, a constant-size invariant that does not determine the cumulative greedy trajectory."
+      ],
+      "reasoning": "The new theorem needs the specific morphic induction and unique-suffix obstruction. Neither closest source contains a statement strong enough to imply the exact set G={2^k-1:k>=0}.",
+      "searches": [
+        "period-doubling greedy string attractor powers of two minus one",
+        "string attractor greedy automatic sequence exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct 2020 source defines the greedy endpoint process but gives no exact period-doubling greedy position set.",
+        "Searches phrased both as exact positions and powers-of-two locations returned no matching theorem."
+      ],
+      "reasoning": "The formulations ask for the same cumulative endpoint set either directly or by its closed-form positions, so a result under either phrasing would imply the claim.",
+      "searches": [
+        "period-doubling greedy string attractor powers of two minus one",
+        "greedy string attractor period doubling exact positions",
+        "{2^k-1} period-doubling attractor greedy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed research result concerns exact minimum attractors for other automatic sequences, not this greedy period-doubling profile.",
+        "The cumulative comparison set contains period-doubling-related and attractor-related work but no exact greedy-set statement for this word."
+      ],
+      "reasoning": "Exact-parameter and table-style searches were checked for the same sequence and invariant; closest records differ either in the sequence or in using minimum rather than greedy attractors.",
+      "searches": [
+        "period-doubling greedy string attractor powers of two minus one",
+        "greedy string attractor period doubling exact positions",
+        "period doubling minimal novel factors greedy attractor",
+        "string attractor greedy automatic sequence exact",
+        "{2^k-1} period-doubling attractor greedy"
+      ]
+    },
+    "rationale": "The direct source defines the greedy invariant and proves a general logarithmic upper bound, while its period-doubling results concern minimum attractors. Later work completely characterizes smallest period-doubling attractors but still studies a different, per-prefix minimum invariant. Focused semantic and literature searches found no exact statement of the greedy set or its powers-of-two positions. Residual risk of an unindexed equivalent observation remains.",
+    "residual_risks": [
+      "An unindexed note, talk, or differently phrased observation may contain the same morphic formula.",
+      "The later smallest-attractor paper was inspected for its stated characterization, but the originality conclusion does not depend on exhaustive phrase matching across every related publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and not covering the exact greedy period-doubling set.",
+        "evidence": "The paper separately gives minimum size 2 for period-doubling prefixes and later introduces the greedy process with a general O(log n) bound.",
+        "identifier_or_url": "arXiv:2012.06840",
+        "material_read": "Period-doubling definition and minimum-attractor theorem; Section 9 definition of greedy string attractors, minimal-novel-factor lemma, and general logarithmic bound.",
+        "method": "Open-access full PDF text with visual inspection of the period-doubling theorem page.",
+        "title": "String Attractors for Automatic Sequences",
+        "trigger": "Direct source for both the greedy definition and known period-doubling minimum attractors."
+      },
+      {
+        "assessment": "Not covering because it classifies minimum-cardinality attractors for fixed words rather than the cumulative greedy endpoint set.",
+        "evidence": "Its stated contribution is a complete characterization of all smallest attractors of dyadic period-doubling words, with exactly two smallest position pairs.",
+        "identifier_or_url": "arXiv:2602.16152",
+        "material_read": "Abstract, introduction, and the stated period-doubling smallest-attractor characterization.",
+        "method": "Open-access full PDF text.",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Highly relevant later work on the same period-doubling word."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "344443ea-5b69-482c-9353-ce6f197f6a2b",
+  "value": {
+    "rationale": "The greedy attractor was introduced as a natural computational surrogate for the difficult minimum-attractor problem, and the direct source proves only a general logarithmic bound. The exact period-doubling profile is a canonical structural benchmark: it shows that the logarithmic order is attained by the greedy rule even though the true optimum is constantly 2. This gives a sharp separation between the online greedy invariant and minimum attractors on a standard automatic word, rather than an arbitrary finite parameter increment.",
+    "status": "PASS"
+  }
+}
