@@ -1,0 +1,127 @@
+{
+  "claim": "For the antiferromagnetic two-qubit Hamiltonian of Chen and Yin, \\[H=J(\\sigma_x\\otimes\\sigma_x+\\sigma_y\\otimes\\sigma_y)+J_z\\sigma_z\\otimes\\sigma_z+D_z(\\sigma_x\\otimes\\sigma_y-\\sigma_y\\otimes\\sigma_x),\\]with \\(J>0\\), \\(J_z>0\\), \\(D_z\\in\\mathbb R\\), define \\(R=\\sqrt{J^2+D_z^2}\\). For every positive temperature \\(T\\), the Gibbs state is locally unitarily equivalent to a Bell-diagonal state with two equal transverse correlation magnitudes \\(c_\\perp\\) and longitudinal magnitude \\(c_z\\). Their exact ordering is temperature independent: \\[|c_z|-|c_\\perp|=\\frac{2e^{-J_z/T}}{Z}\\left(e^{2(J_z-R)/T}-1\\right).\\]Hence the projective measurement maximizing the classical correlation, and therefore minimizing the quantum discord, is longitudinal exactly when \\(J_z>R\\), transverse exactly when \\(J_z<R\\), and degenerate over all axes when \\(J_z=R\\). If \\(J_z>J\\), the optimizer switches at the exact DM strength \\[|D_z|=\\sqrt{J_z^2-J^2},\\]independently of temperature; if \\(J_z\\le J\\), no nontrivial switch occurs. In addition, writing \\(\\mathcal D(T)\\) for the base-2 quantum discord, \\[\\lim_{T\\to\\infty}T^2\\mathcal D(T)=\\begin{cases}\\dfrac{R^2}{\\ln2},&J_z\\ge R,\\\\[4pt]\\dfrac{R^2+J_z^2}{2\\ln2},&J_z\\le R.\\end{cases}\\]The two branches agree at \\(J_z=R\\). This gives an exact analytic optimizer phase boundary and the leading high-temperature decay constant behind the source's numerical observation that thermal discord remains nonzero at every finite temperature but approaches zero asymptotically.",
+  "correctness": {
+    "rationale": "A local z rotation maps the source Hamiltonian to an XXZ Bell-diagonal Gibbs family with transverse coupling R=sqrt(J^2+Dz^2). Exact Bell weights give |cz|-|cperp| proportional to exp(2(Jz-R)/T)-1, so the optimizer boundary is exact for all T>0. The entropy expansion gives the stated T^-2 coefficient.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Luo gives the general analytic discord formula for Bell-diagonal two-qubit states using the largest correlation magnitude.",
+        "Kundu and Subrahmanyam report preferred-basis changes in anisotropic Heisenberg antiferromagnets at zero temperature.",
+        "Those broader results do not state the finite-temperature DM boundary of the Chen--Yin dimer."
+      ],
+      "reasoning": "The accepted claim is a model-specific exact reduction: the general optimization theorem becomes a temperature-independent coupling boundary only after the source Gibbs correlations are compared symbolically.",
+      "searches": [
+        "Quantum discord for two-qubit systems Luo Bell diagonal formula max correlation coefficient",
+        "Distribution of quantum discord in Heisenberg Antiferromagnets preferred measurement basis anisotropy",
+        "quantum discord Heisenberg XXZ DM thermal measurement basis"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1002.0176",
+      "DOI:10.1088/0253-6102/54/1/12",
+      "DOI:10.1103/PhysRevA.77.042303",
+      "arXiv:1307.1325",
+      "DOI:10.1038/s41598-017-13871-6",
+      "MaRDI Q3002282"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen--Yin define the exact Dz Hamiltonian and report numerically that QD stays nonzero at finite T and approaches zero asymptotically.",
+        "Their plots vary Dz and Jz separately and do not identify the optimizer switch at Jz=sqrt(J^2+Dz^2).",
+        "Luo implies that the largest Bell-diagonal correlation selects the measurement but does not specialize the Chen--Yin Gibbs correlations.",
+        "The 2017 coherence paper independently writes the same two-site Dz thermal matrix and transverse energy scale."
+      ],
+      "reasoning": "The accepted claim requires a local gauge reduction, exact comparison of correlation magnitudes, and a high-temperature entropy expansion. Those steps are not present together in the inspected prior work.",
+      "searches": [
+        "Primary full text arXiv:1002.0176 Hamiltonian (9), thermal discord discussion, Figures 1-3, Section IV",
+        "Primary DOI:10.1103/PhysRevA.77.042303 Bell-diagonal discord optimization",
+        "arXiv:1307.1325 preferred measurement basis Heisenberg antiferromagnets",
+        "DOI:10.1038/s41598-017-13871-6 thermal XXZ Dz density matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-database hit covered the two-qubit thermal XXZ-DM optimizer boundary.",
+        "Targeted literature searches returned the Chen--Yin source, general Bell-diagonal discord results, and broader Heisenberg-discord studies but no matching Jz=sqrt(J^2+Dz^2) temperature-independent boundary.",
+        "No searched source stated the piecewise T^-2 coefficient."
+      ],
+      "reasoning": "Equivalent coverage must compare the exact transverse and longitudinal Bell-diagonal correlation magnitudes for this Gibbs family, or state an algebraically equivalent optimizer boundary and asymptotic coefficient.",
+      "searches": [
+        "thermal quantum discord XXZ Dzyaloshinskii Moriya optimal measurement basis Jz sqrt J^2 Dz^2",
+        "high temperature quantum discord asymptotic 1/T^2 Heisenberg XXZ DM",
+        "Bell diagonal thermal state XXZ DM measurement switch temperature independent",
+        "quantum discord high temperature coefficient Dzyaloshinskii Moriya two qubit",
+        "sqrt(J^2+D_z^2) quantum discord J_z optimal measurement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source provides numerical plots of discord versus temperature and couplings.",
+        "No exact optimizer table, DM switch value, or high-temperature coefficient was located."
+      ],
+      "reasoning": "The result is an analytic all-temperature branch classification and asymptotic law, not a recomputation of plotted values.",
+      "searches": [
+        "Thermal Quantum Discord XXZ DM Fig. 1 Fig. 3 Jz Dz",
+        "Jz sqrt J^2 Dz^2 discord boundary",
+        "T squared quantum discord XXZ DM"
+      ]
+    },
+    "rationale": "The source plots the thermal discord and discusses its asymptotic decay but does not state the coupling-only optimizer boundary or the leading high-temperature coefficient. The general Bell-diagonal formula and later many-spin optimizer-switch results do not by themselves state this specialization.",
+    "residual_risks": [
+      "An equivalent Bell-diagonal specialization may appear in unindexed notes or under a locally gauge-rotated XXZ parameterization.",
+      "The result does not cover the source's Dx Hamiltonian or external fields.",
+      "The T^-2 formula is only the leading high-temperature term."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the exact model and numerical discord behavior, but no located temperature-independent optimizer boundary or high-temperature coefficient.",
+        "evidence": "The source defines H=JXX+JYY+JzZZ+Dz(XY-YX), restricts to J>0 and Jz>0, and states that QD becomes very small but nonzero at high finite temperature.",
+        "identifier_or_url": "arXiv:1002.0176; DOI:10.1088/0253-6102/54/1/12",
+        "material_read": "Official full-text extraction covering the Dz Hamiltonian, thermal-state construction, Figures 1-3 and their discussion, the Dx comparison, and the section discussing opposite trends of discord and entanglement.",
+        "method": "Official journal full-text extraction plus arXiv/public metadata.",
+        "title": "Thermal Quantum Discord in Anisotropic Heisenberg XXZ Model with Dzyaloshinskii--Moriya Interaction",
+        "trigger": "Direct source of the Hamiltonian and numerical thermal-discord observations."
+      },
+      {
+        "assessment": "Supplies the general optimization theorem but not the XXZ-DM specialization.",
+        "evidence": "For Bell-diagonal states the classical-correlation term is determined by the largest absolute correlation coefficient.",
+        "identifier_or_url": "DOI:10.1103/PhysRevA.77.042303",
+        "material_read": "Publisher abstract and openly indexed Bell-diagonal formula specifying c=max(|c1|,|c2|,|c3|).",
+        "method": "Publisher record plus openly indexed formula.",
+        "title": "Quantum discord for two-qubit systems",
+        "trigger": "General theorem controlling the optimizer for Bell-diagonal states."
+      },
+      {
+        "assessment": "Related optimizer phenomenon in many-spin ground states, but not the finite-temperature two-site DM boundary.",
+        "evidence": "The work states that the preferred measurement basis changes discontinuously across a Heisenberg anisotropy critical point.",
+        "identifier_or_url": "arXiv:1307.1325",
+        "material_read": "ArXiv abstract and indexed discussion of the anisotropy-driven measurement-basis switch.",
+        "method": "ArXiv record and indexed manuscript summary.",
+        "title": "Distribution of quantum discord in Heisenberg Antiferromagnets",
+        "trigger": "Broader literature on preferred measurement bases in Heisenberg systems."
+      },
+      {
+        "assessment": "Primary MSC is 82B20, followed by 82B30.",
+        "evidence": "The MSC list begins with lattice systems in equilibrium statistical mechanics (82B20).",
+        "identifier_or_url": "MaRDI Q3002282; DOI:10.1088/0253-6102/54/1/12",
+        "material_read": "Bibliographic record, DOI, full-work link, keywords, and MSC list.",
+        "method": "Mathematical bibliographic metadata inspection.",
+        "title": "Thermal Quantum Discord in Anisotropic Heisenberg XXZ Model with Dzyaloshinskii--Moriya Interaction — classification record",
+        "trigger": "Primary MSC ownership verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ac1b8d20-9f11-4d99-8c15-a95ba2421bab",
+  "value": {
+    "rationale": "The discord is defined by a local measurement optimization. An exact temperature-independent optimizer boundary removes that optimization for the entire thermal family, while the T^-2 coefficient gives a quantitative law for the source's highlighted asymptotic-discord regime.",
+    "status": "PASS"
+  }
+}
