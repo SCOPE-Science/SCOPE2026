@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For product families the centroid, intersection, Lebesgue volume, and translation variables all factor coordinatewise. This gives exact multiplicativity of both lazy and optimal volumes. The proof handles unattained infima by epsilon-near-minimizers and uses Fekete's lemma only after invoking the published positive lower bound. Boundary cases \\(m=1\\), \\(n=1\\), and the odd-dimensional interval extension are consistent. No finite computation is used to infer the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feldman's Theorem 1 is broader in family size but is a lower bound; its sharpness construction uses growing finite spherical nets rather than a fixed number of bodies.",
+        "Ahn--Cheng--Reinbacher (2013) studies algorithms for maximum overlap in higher dimensions; the inspected abstract/introduction does not give centroid-efficiency bounds.",
+        "Chan--Hair (2025) studies an algorithm for planar maximum overlap; the inspected full HTML contains no centroid result."
+      ],
+      "reasoning": "No broader theorem located implies the claimed fixed-\\(m\\) upper bound. Feldman's family-size-free sharpness does not keep \\(m\\) fixed, while algorithmic maximum-overlap results do not compare centroid alignment to optimum.",
+      "searches": [
+        "centroid alignment tensorization fixed number bodies dimension overlap",
+        "maximum overlap of convex polytopes under translation centroid",
+        "linear time maximum overlap convex polygons centroid"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.04516v1",
+      "DOI:10.1007/PL00005845",
+      "DOI:10.1016/j.comgeo.2011.11.003",
+      "DOI:10.4230/LIPIcs.SoCG.2025.31"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper proves \\(c_{2,m}=4/9\\) and a universal lower bound, but explicitly asks whether \\(c_{n,2}\\) reaches that lower bound for \\(n\\) at least three.",
+        "The new proof introduces the missing product-family identity \\(E(\\mathcal A\\boxtimes\\mathcal B)=E(\\mathcal A)E(\\mathcal B)\\), from which submultiplicativity and the higher-dimensional upper bound follow.",
+        "The 1998 result is confined to two planar bodies and therefore does not itself imply the higher-dimensional fixed-cardinality statement without the new product argument."
+      ],
+      "reasoning": "The claim is not a specialization or corollary obtained by merely substituting parameters into the cited theorems. It combines two fixed-cardinality near-minimizing families by a new dimension-product construction and proves exact factorization of the optimization problem.",
+      "searches": [
+        "arXiv:2608.04516v1 Theorem 1 Corollary 3 Question 19",
+        "DOI:10.1007/PL00005845 centroid overlap 4/9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feldman, arXiv:2608.04516v1, pp. 1--2 defines lazy efficiency and \\(c_{n,m}\\), proves the planar value, and notes the higher-dimensional fixed-cardinality question.",
+        "Feldman, arXiv:2608.04516v1, p. 10 states Question 19 for \\(c_{n,2}\\) and does not mention a Cartesian-product reduction.",
+        "The 1998 repository abstract states only the planar \\(9/25\\) guarantee and \\(4/9\\) upper example."
+      ],
+      "reasoning": "Searches covered the terms centroid alignment, lazy efficiency, tensorization, Cartesian product, fixed number of bodies, and the numeric \\(4/9\\) consequence. No equivalent higher-dimensional fixed-cardinality statement was found; the closest source instead leaves the exact two-body constants open.",
+      "searches": [
+        "centroid alignment two convex bodies higher dimensions product 4/9 c_n,2",
+        "lazy efficiency centroid alignment Cartesian products two bodies 4/9 higher dimension",
+        "maximum overlap centroid alignment (4/9)^k convex bodies",
+        "Feldman Question 19 c n 2 product planar extremizers",
+        "arXiv:2608.04516v1",
+        "DOI:10.1007/PL00005845"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The quantity is an analytic infimum over continuous convex-body families rather than a finite classified database invariant.",
+        "No indexed exact-value table or record matching the product bound was found in the targeted searches."
+      ],
+      "reasoning": "An exact database/table comparison is not naturally applicable here. The relevant check is statement-level literature coverage, which was performed; no table of fixed-cardinality constants beyond the planar value was identified.",
+      "searches": [
+        "(4/9)^floor(n/2) convex overlap centroid",
+        "two-body centroid alignment exponential upper bound higher dimension"
+      ]
+    },
+    "rationale": "The 2026 source introduces the fixed-cardinality constants and explicitly asks the higher-dimensional two-body question, but does not state product submultiplicativity or the resulting exponential upper bound. The planar \\(4/9\\) input is prior work and is not claimed as new. Targeted literature and indexed-record searches did not locate a statement covering the tensorization theorem or its fixed-cardinality consequence.",
+    "residual_risks": [
+      "The literature search cannot exclude an unindexed or independently unpublished observation of the same product argument.",
+      "The 1998 institutional repository exposed only its abstract through the noninteractive access path used; however, Feldman's 2026 full text independently proves and documents the exact planar constant needed here.",
+      "No claim of sharpness is made for the higher-dimensional upper bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states \\(c_{2,m}=4/9\\) and Question 19 but contains no Cartesian-product or tensorization statement and no upper bound \\((4/9)^{\\lfloor n/2\\rfloor}\\) for higher-dimensional fixed \\(m\\).",
+        "identifier_or_url": "arXiv:2608.04516v1",
+        "material_read": "Full-text PDF, especially pp. 1--4, 6--7, and 10; theorem, Corollary 3, fixed-cardinality discussion, sharpness construction, and Questions 19--22.",
+        "method": "Direct full-text inspection of the lawful open-access arXiv PDF.",
+        "title": "Arranging convex bodies for maximum intersection volume: the sharp efficiency of centroid alignment",
+        "trigger": "Primary source defining \\(c_{n,m}\\), the planar anchor, and the stated higher-dimensional open question."
+      },
+      {
+        "assessment": "PLANAR_INPUT_ONLY",
+        "evidence": "The abstract reports a \\(9/25\\) centroid guarantee and a planar example with \\(4/9\\) of optimum; it does not address higher-dimensional product constructions.",
+        "identifier_or_url": "DOI:10.1007/PL00005845",
+        "material_read": "Institutional-repository bibliographic record and abstract; the repository PDF access path required an interactive challenge.",
+        "method": "Repository abstract inspection, cross-checked against Feldman's full-text historical discussion and exact planar theorem.",
+        "title": "Computing the maximum overlap of two convex polygons under translations",
+        "trigger": "Original planar centroid-overlap upper example used as the \\(4/9\\) seed."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected material concerns algorithms for computing maximum overlap and contains no centroid-alignment efficiency or product-bound statement.",
+        "identifier_or_url": "DOI:10.1016/j.comgeo.2011.11.003",
+        "material_read": "Accessible abstract and introduction describing the higher-dimensional optimization problem and algorithms.",
+        "method": "Publisher-page text inspection.",
+        "title": "Maximum overlap of convex polytopes under translation",
+        "trigger": "Plausible higher-dimensional maximum-overlap source."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper addresses algorithmic complexity for finding optimal planar overlap; the inspected text has no centroid-alignment theorem.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.SoCG.2025.31",
+        "material_read": "Open-access HTML abstract and searchable full text.",
+        "method": "Direct HTML full-text inspection and centroid-term search.",
+        "title": "A Linear Time Algorithm for the Maximum Overlap of Two Convex Polygons Under Translation",
+        "trigger": "Recent planar maximum-overlap literature cited by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1f2caff-e92c-4d8c-a726-e909e7709c72",
+  "value": {
+    "rationale": "The source itself singles out fixed-cardinality constants, especially \\(c_{n,2}\\), as an open geometric problem. The product theorem is structural rather than a parameter substitution: it creates a multiplicative dimension law, proves existence of a fixed-\\(m\\) asymptotic root rate, and turns the exact planar obstruction into exponentially bad fixed-cardinality examples in every dimension. This constrains future approaches to Question 19 while making no claim to solve it.",
+    "status": "PASS"
+  }
+}
