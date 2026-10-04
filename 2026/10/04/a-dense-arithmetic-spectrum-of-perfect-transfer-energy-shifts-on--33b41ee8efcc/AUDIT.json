@@ -1,0 +1,114 @@
+{
+  "claim": "Fix an integer \\(n\\ge4\\). In the single-excitation XY model of Casaccino--Lloyd--Mancini--Severini on the complete graph \\(K_n\\), all off-diagonal couplings have Hamiltonian weight \\(2\\), and the two designated input/output vertices receive the same positive energy shift \\(\\Delta>0\\). Put \\[\\alpha(\\Delta)=\\sqrt{4n^2-4(n-4)\\Delta+\\Delta^2},\\qquad \\beta(\\Delta)=\\frac{\\Delta-2n}{\\alpha(\\Delta)}.\\]Then perfect state transfer between the shifted vertices occurs if and only if \\(\\beta(\\Delta)=p/q\\) in lowest terms for integers \\(q>0\\), \\(|p|<q\\), with \\(p\\) and \\(q\\) of opposite parity. In that case all positive perfect-transfer times are exactly \\[t=\\frac{2\\pi q}{\\alpha(\\Delta)}(2s+1),\\qquad s=0,1,2,\\ldots.\\]Equivalently, all positive perfect-transfer shifts are \\[\\Delta_{p,q}=\\frac{\\left(2p+\\sqrt{2nq^2-2(n-2)p^2}\\right)^2}{q^2-p^2},\\]with the same coprimality, size, and opposite-parity conditions. This set is countable and dense in \\((0,\\infty)\\). The source's tuning \\(\\Delta=2n\\) is exactly the case \\((p,q)=(0,1)\\), not the only positive shift producing exact transfer.",
+  "correctness": {
+    "rationale": "The exact invariant decomposition gives a leakage condition \\(\\sin(\\alpha t/2)=0\\) and then a single phase congruence \\(e^{-i\\pi k\\beta}=(-1)^{k+1}\\). In lowest terms \\(\\beta=p/q\\), this congruence is solvable exactly when \\(p-q\\) is odd, with all solutions \\(k=q(2s+1)\\). The positive-shift inverse map and density follow algebraically; finite reduced-dynamics checks agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Angeles-Canul et al. prove an exact join-amplitude formula and give sufficient rational/parity weight choices for weighted double cones, with self-loop and edge weights chosen jointly.",
+        "Kempton--Lippner--Yau later prove broad existence of potentials for graphs with suitable symmetric vertices, but their construction is not this fixed one-parameter classification.",
+        "Neither inspected source states that the source family has a countable dense set of exact-transfer shifts."
+      ],
+      "reasoning": "The broader theories explain why weighted or potential-controlled transfer can occur, but they do not dominate the exact fixed-coupling one-parameter result stated here.",
+      "searches": [
+        "On quantum perfect state transfer in weighted join graphs Casaccino self loops complete graph rational parity",
+        "Perfect state transfer on graphs with a potential complete graph two vertices equal potential",
+        "weighted join double cone self loop fixed edge weight perfect state transfer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0904.4510",
+      "DOI:10.1142/S0219749909006085",
+      "arXiv:0909.0431",
+      "arXiv:1611.02093",
+      "DOI:10.26421/QIC17.3-4-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Casaccino et al. give the eigenvalues lambda_a and lambda_+/- and impose Delta=2n to obtain PST.",
+        "The weighted-join corollary phrases its conditions as sufficient and chooses multiple weights from p,q.",
+        "The later potential theorem is deliberately broad and nonconstructive, with open questions about explicit potentials."
+      ],
+      "reasoning": "The new implication requires solving the source phase-alignment equations in both directions with fixed edge weights. That produces the opposite-parity rational criterion and exact transfer-time set, neither of which is stated by the inspected priors.",
+      "searches": [
+        "arXiv 0904.4510 Theorem 1 complete graph Delta E 2n alpha",
+        "arXiv 0909.0431 Corollary 2 rational p q weighted double cone",
+        "1611.02093 common neighborhood potential perfect state transfer explicit potential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no published finding with the fixed-coupling equal-shift classification.",
+        "Targeted web searches surfaced the Casaccino source, the weighted-join generalization, and later potential papers, but not an explicit iff list of the positive shifts.",
+        "The source calls Delta=2n the optimal shift and gives its transfer times, without an all-shift theorem."
+      ],
+      "reasoning": "Equivalent coverage would need to hold with every off-diagonal coupling fixed at 2 and only the common diagonal shift variable, and would need both necessity and sufficiency. The inspected nearby results allow more parameters to vary or assert existence only.",
+      "searches": [
+        "complete graph two vertex self-loop potentials perfect state transfer exact classification energy shift",
+        "Casaccino complete graph energy shift 2n perfect state transfer other shifts rational condition",
+        "weighted complete graph self loops two vertices perfect state transfer necessary sufficient",
+        "quantum state transfer complete graph potentials rational eigenvalue gap classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or parameter table listing the admissible positive shifts was found.",
+        "The direct source displays the single simple choice Delta=2n and compares it numerically with the unshifted case."
+      ],
+      "reasoning": "The parametrization is an all-parameter theorem derived from the source eigensystem, not a lookup or finite census.",
+      "searches": [
+        "published-finding corpus complete graph energy shift perfect state transfer Delta 2n",
+        "complete graph self loop PST energy shift table",
+        "0904.4510 other energy shifts perfect transfer"
+      ]
+    },
+    "rationale": "The accepted originality claim is restricted to the fixed-edge-weight iff classification, exact time set, inverse shift parametrization, and density conclusion.",
+    "residual_risks": [
+      "A later general strong-cospectrality or potential theorem may contain this result as an unstated specialization.",
+      "The word optimal in the source need not mean unique; the finding therefore claims an extension of the stated construction, not a correction of an explicit uniqueness theorem.",
+      "The classification assumes positive equal shifts and fixed XY edge weight 2."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides all spectral premises and one exact tuning, but no all-positive-shift iff classification.",
+        "evidence": "arXiv v1 is dated 2009-04-28. Theorem 1 sets alpha=sqrt(4n^2-4(n-4)Delta+Delta^2) and exhibits PST for Delta=2n. MaRDI/zbMATH lists MSC 81P45 first, followed by 81Q35.",
+        "identifier_or_url": "arXiv:0904.4510; DOI:10.1142/S0219749909006085",
+        "material_read": "Full arXiv PDF setup and complete-graph section, including Theorem 1, characteristic polynomial, eigenvalues, transition amplitudes, the Delta=2n specialization, and conclusion.",
+        "method": "Full-text PDF inspection with page image verification.",
+        "title": "Quantum state transfer through a qubit network with energy shifts and fluctuations",
+        "trigger": "Direct archive-era source defining the fixed-coupling complete-graph family."
+      },
+      {
+        "assessment": "Gives sufficient transfer constructions when several graph weights may be tuned; does not state the fixed-edge equal-potential iff result.",
+        "evidence": "The paper explicitly says its weighted double-cone result generalizes Casaccino et al. and chooses both self-loop and edge weights from arithmetic parameters.",
+        "identifier_or_url": "arXiv:0909.0431",
+        "material_read": "Full PDF join theorem and weighted-double-cone corollary, including the rational p/q parity construction.",
+        "method": "Full-text PDF inspection with page image verification.",
+        "title": "On quantum perfect state transfer in weighted join graphs",
+        "trigger": "Closest generalization of the Casaccino complete-graph construction."
+      },
+      {
+        "assessment": "Broad existence theorem in a larger potential space; no fixed-complete-graph arithmetic classification found.",
+        "evidence": "The introduction describes its main potential construction as nonconstructive and asks for explicit instances.",
+        "identifier_or_url": "arXiv:1611.02093; DOI:10.26421/QIC17.3-4-7",
+        "material_read": "Abstract, introduction, stated common-neighborhood theorem, and open questions about explicit potentials and transfer-time tradeoffs.",
+        "method": "Open full-text and publisher excerpt inspection.",
+        "title": "Perfect state transfer on graphs with a potential",
+        "trigger": "Later general graph-potential result that could potentially dominate explicit two-vertex tunings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "33b41ee8-efcc-4285-bd0c-274cc2388ad4",
+  "value": {
+    "rationale": "The theorem completely solves the natural one-parameter control problem left by the source construction: it gives every positive equal shift that produces exact transfer, every transfer time, and shows these exact tunings are dense. It is useful for design and for separating arithmetic exactness from robustness, while retaining the original physical coupling network.",
+    "status": "PASS"
+  }
+}
