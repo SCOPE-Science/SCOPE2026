@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact two-step Lanczos matrix-function approximation as an affine Ritz interpolant. Strict Rayleigh-Ritz endpoint separation is proved from the impossibility of an affine polynomial isolating an extreme eigenspace when three distinct spectral values are active. The sign of every physical coordinate is then reduced to a strictly decreasing affine polynomial whose unique top-eigenvalue zero gives the closed-form horizon. The explicit witness is checked from exact spectral moments and exact exponential values at the Ritz nodes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hochbruck-Lubich establish the polynomial Krylov framework and norm-error analysis.",
+        "Van den Eshof-Hochbruck formulate the symmetric positive-semidefinite Lanczos exponential approximation for parabolic applications and study convergence and preconditioning.",
+        "Druskin proves strictly decreasing Euclidean error and increasing approximation norm with Krylov dimension, with positivity of reduced Jacobi-system coordinates."
+      ],
+      "reasoning": "Norm convergence and positivity inside the reduced tridiagonal dynamics do not control signs after multiplication by a Lanczos basis containing signed physical coordinates. The new theorem resolves that missing physical-coordinate question exactly for the first nontrivial Krylov dimension.",
+      "searches": [
+        "On Krylov Subspace Approximations to the Matrix Exponential Operator",
+        "Preconditioning Lanczos Approximations to the Matrix Exponential",
+        "On monotonicity of the Lanczos approximation to the matrix exponential",
+        "Error Bounds for the Lanczos Methods for Approximating Matrix Exponentials"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/S0036142995280572",
+      "DOI:10.1137/040605461",
+      "DOI:10.1016/j.laa.2008.04.046",
+      "DOI:10.1137/11085935X",
+      "Published comparison: Eight-state barrier for Markov positivity of the [2/2] Padé map",
+      "Published comparison: Sharp certification boundary for Lanczos-based proximal convexification",
+      "Published comparison: Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hochbruck-Lubich's full text gives the degree-bounded polynomial exactness identity and the standard matrix-function projection formula used as input here.",
+        "Van den Eshof-Hochbruck's full text writes the Lanczos approximation as the projected exponential for symmetric positive-semidefinite matrices and motivates it by parabolic equations.",
+        "Druskin's full five-page article proves positivity of the reduced vector solving the Jacobi ODE and monotonicity of Euclidean error and approximation norm. The reconstructed vector is a signed Lanczos-basis combination, so those results do not imply original-coordinate positivity."
+      ],
+      "reasoning": "The accepted theorem starts from prior projection identities but adds a new implication comparison in the physical basis. Its negative coordinate is fully compatible with every inspected prior theorem, including Druskin's reduced-coordinate total positivity.",
+      "searches": [
+        "DOI:10.1137/S0036142995280572 full text polynomial exactness",
+        "DOI:10.1137/040605461 full text Lanczos exponential",
+        "DOI:10.1016/j.laa.2008.04.046 full text monotonicity total positivity",
+        "matrix exponential Lanczos total positivity physical coordinates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted searches returned classical convergence and error-bound literature, plus positivity results for other rational time-stepping maps, but no statement of the original-coordinate two-step horizon.",
+        "The closest title-level hit was Druskin's monotonicity paper; full-text reading shows its monotonicity variables are Euclidean errors, approximation norms, and reduced Jacobi-system coefficients."
+      ],
+      "reasoning": "The claim can be phrased as sign preservation of the affine Ritz interpolant, positivity of the reconstructed Lanczos vector, or a time horizon for physical-coordinate positivity. These equivalent aliases were searched, and the closest sources do not imply the statement.",
+      "searches": [
+        "Lanczos matrix exponential positivity preserving",
+        "Krylov matrix exponential nonnegative vector Lanczos positivity",
+        "two-step Lanczos matrix exponential positivity threshold Ritz interpolation sign",
+        "Lanczos exponential approximation negative component diagonal positive matrix",
+        "degree-one Krylov exponential interpolant positivity largest eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-phrase result gave the formula involving the two Ritz values and the largest physical eigenvalue.",
+        "No checked table or handbook-style source listed a physical-coordinate sign-safe time for two-step Lanczos."
+      ],
+      "reasoning": "The threshold is an exact scalar invariant, so direct constant/formula-style searches were used in addition to semantic searches. No matching database result was located.",
+      "searches": [
+        "\"Lanczos approximation\" \"positive\" \"exp(-tA)\"",
+        "\"matrix exponential\" Krylov positivity Lanczos",
+        "\"Lanczos\" \"nonnegative vector\" matrix exponential",
+        "\"positivity horizon\" Lanczos exponential"
+      ]
+    },
+    "rationale": "Classical Lanczos matrix-exponential formulas, norm convergence, reduced-coordinate positivity, and preconditioning are prior work and are excluded. The accepted statement is the exact original-coordinate positivity horizon for two-step Lanczos on positive diagonal systems, the inevitability of late-time sign loss whenever at least three distinct spectral values are active, the minimal three-dimensional onset, and the exact witness. Full-text comparison with the closest monotonicity paper shows that its positivity result is for coefficients in the reduced Jacobi system and its theorem is about Euclidean norms, not signs after reconstruction in the physical basis.",
+    "residual_risks": [
+      "Older matrix-function or positive-systems literature may encode the same two-step affine-interpolation sign crossing under different terminology.",
+      "Druskin's reduced-coordinate positivity theorem is close enough in terminology that the distinction between reduced and physical coordinates must be preserved explicitly.",
+      "The March 2004 preprint is known only at month resolution in the checked bibliographic evidence; no exact day is asserted for it.",
+      "No claim is made about physical-coordinate positivity for Krylov dimensions three and higher."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the Krylov/Lanczos approximation identity and norm convergence theory. The inspected text does not state the original-coordinate positivity horizon.",
+        "evidence": "The source states that degree-bounded polynomials commute exactly with the Krylov projection and formulates the standard approximation \\(V_m f(H_m)e_1\\); its published MSC list begins with 65F10.",
+        "identifier_or_url": "DOI:10.1137/S0036142995280572",
+        "material_read": "Open full text, including the Arnoldi polynomial identity, matrix-function projection formula, symmetric Lanczos discussion, and error-analysis sections.",
+        "method": "Full-text reading.",
+        "title": "On Krylov Subspace Approximations to the Matrix Exponential Operator",
+        "trigger": "Foundational source for polynomial Krylov exactness and matrix-exponential projection."
+      },
+      {
+        "assessment": "COVERS the exact numerical method and its parabolic motivation. The inspected text studies convergence and preconditioning rather than physical-coordinate sign preservation.",
+        "evidence": "The paper formulates the symmetric Lanczos approximation \\(V_m e^{-tT_m}e_1\\); its journal metadata lists primary MSC 65F10.",
+        "identifier_or_url": "DOI:10.1137/040605461",
+        "material_read": "Open full text covering the Lanczos recursion, projected exponential formula, convergence discussion, and preconditioning construction.",
+        "method": "Full-text reading.",
+        "title": "Preconditioning Lanczos Approximations to the Matrix Exponential",
+        "trigger": "Direct primary treatment of \\(e^{-tA}v\\) by Lanczos for positive-semidefinite matrices arising in parabolic problems."
+      },
+      {
+        "assessment": "NOT_COVERING for the accepted claim. It proves positivity of the reduced Jacobi-system coordinates, strict decrease of Euclidean error with Krylov dimension, and strict increase of approximation norm. It does not assert nonnegativity of the reconstructed vector in the original coordinate basis.",
+        "evidence": "Lemma 2 states positivity and inter-dimension growth of components of \\(e^{tT_m}e_1\\); Theorem 1 is a norm statement. Multiplication by the signed Lanczos basis is outside that positivity lemma.",
+        "identifier_or_url": "DOI:10.1016/j.laa.2008.04.046",
+        "material_read": "Complete five-page article, including Lemmas 1-2, Theorem 1, remarks, and references.",
+        "method": "Full-text reading.",
+        "title": "On Monotonicity of the Lanczos Approximation to the Matrix Exponential",
+        "trigger": "Highly relevant title and total-positivity keyword could plausibly dominate a positivity claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb3579f1-63d8-4e03-a5ce-fe30bd0fe4ef",
+  "value": {
+    "rationale": "Lanczos exponentials are used for parabolic and diffusion evolution where sign constraints can be substantive. Existing norm-monotonicity and reduced-coordinate positivity do not prevent an unphysical negative component after reconstruction. The result gives a complete sharp safe-time interval, proves inevitable late-time sign loss in every nontrivial two-step diagonal instance, identifies the minimal dimension, and supplies an exact diagnostic formula using quantities already produced by Lanczos.",
+    "status": "PASS"
+  }
+}
