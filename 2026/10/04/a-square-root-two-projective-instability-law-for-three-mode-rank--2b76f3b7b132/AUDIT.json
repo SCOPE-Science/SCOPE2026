@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For p=2 and three distinct active eigenvalues, direct specialization of the published Cauchy--Binet weights leaves exactly one pair at each spectral endpoint. Their quotient gives the stated ratio recurrence. Fixed-weight conjugacy gives the factor w3/w1. Log normalization produces the exact characteristic polynomial with both roots of modulus square-root two. The sign-run argument and linear-recurrence growth establish the zero/infinity subsequences. No numerical experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang--Yuan prove broader global R-linear norm convergence and fixed-weight conjugacy for arbitrary active dimension n>p, but do not imply bounded or convergent projective coordinate ratios.",
+        "Their three-dimensional Proposition 9 gives a rank-changing Ritz limit, not a trajectory law for consecutive block-start ratios."
+      ],
+      "reasoning": "The new statement is not a corollary merely of R-linear norm decay: homogeneous norm convergence leaves projective dynamics undetermined. The determinant identity specialized to the minimal nonterminating n=3, p=2 case supplies additional exact cancellation needed for the ratio law.",
+      "searches": [
+        "rank-compressed weighted LMSD global R-linear convergence complete sweep multiplier",
+        "limited memory gradient methods harmonic Ritz numerical rank deficiency",
+        "R-linear convergence limited memory steepest descent quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.12114v1",
+      "doi:10.1007/s11075-024-01895-9",
+      "arXiv:1610.03831v1 / doi:10.1093/imanum/drx016",
+      "Result records closest by semantics: 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705; 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0; 2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad; 2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang--Yuan Proposition 11 provides the algebraic ingredients but states a convex-combination formula rather than the endpoint-ratio dynamics.",
+        "Yang--Yuan Corollary 7/finite-termination results identify n=p+1 as the smallest nonterminating spectral support, which motivates rather than subsumes the specialization.",
+        "Ferrandi--Hochstenbach and Curtis--Guo provide method/convergence context without the derived projective recurrence."
+      ],
+      "reasoning": "The accepted claim is a new implication of published ingredients: at spectral endpoints only one two-index Cauchy--Binet term survives, causing a cancellation that closes the delayed dynamics on the extreme-coordinate ratio. The resulting unstable log recurrence and its square-root-two exponent are not contained in the broader norm-convergence statements inspected.",
+      "searches": [
+        "Yang Yuan 2609.12114 Proposition 11 Cauchy Binet three eigenvalues p=2",
+        "Ferrandi Hochstenbach LMSD ill conditioning rank deficiency",
+        "Curtis Guo LMSD R-linear convergence history length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang--Yuan, arXiv:2609.12114v1, Sections 2--4: delayed sweep, fixed-weight conjugacy, finite-termination strata, and complete-sweep determinant/Cauchy--Binet formula.",
+        "Ferrandi--Hochstenbach, DOI 10.1007/s11075-024-01895-9: LMSD Ritz extraction and numerical rank/conditioning discussion.",
+        "Curtis--Guo, arXiv:1610.03831 / DOI 10.1093/imanum/drx016: R-linear convergence of LMSD on strongly convex quadratics."
+      ],
+      "reasoning": "The inspected works analyze Ritz extraction, convergence, and conditioning, but no inspected statement rewrites the three-mode p=2 endpoint dynamics as the exact extreme-coordinate ratio recurrence or its logarithmic second-order recurrence.",
+      "searches": [
+        "three eigenvalue p=2 LMSD exact spectral component ratio recurrence projective instability",
+        "rank-compressed LMSD projective endpoint dynamics logarithmic recurrence",
+        "limited memory steepest descent three eigenvalues ratio r_{k+2} r_{k+1} r_k",
+        "Ritz LMSD near rank loss spectral ratio oscillation three dimensional",
+        "limited memory steepest descent projective dynamics",
+        "LMSD three eigenvalues spectral ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected mathematical-record hit matched the exact recurrence, the fixed ratio R_*, or the square-root-two log-projective exponent.",
+        "Closest records concerned other algorithms such as stagewise Richardson, spectral-filter residual distortion, Nesterov transient spikes, and CG_AOS; none uses the LMSD delayed Ritz sweep."
+      ],
+      "reasoning": "No exact table/database result located an equivalent LMSD statement. Absence of a hit is not treated as proof of priority; it only lowers overlap risk.",
+      "searches": [
+        "three-mode LMSD ratio recurrence sqrt2",
+        "weighted LMSD projective instability finite termination boundary",
+        "Ritz LMSD three-dimensional exact recurrence"
+      ]
+    },
+    "rationale": "Targeted semantic/database searches plus full-text inspection of the primary source and close LMSD literature found the ingredients and broader convergence results but no implication-equivalent three-mode endpoint-ratio recurrence or square-root-two projective-instability law.",
+    "residual_risks": [
+      "An older LMSD/spectral-gradient paper not surfaced by the targeted searches could contain an equivalent n=3, p=2 recurrence under different notation.",
+      "Curtis--Guo was not re-read line-by-line in full during this review; the primary and modern review papers were inspected more deeply."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "Provides the complete-sweep formula and conjugacy from which the recurrence is derived, but the paper does not state the extreme-mode ratio recurrence, its fixed ratio, or the square-root-two logarithmic instability.",
+        "identifier_or_url": "arXiv:2609.12114v1",
+        "material_read": "Abstract; Sections 2.2--2.4; Proposition 9; Section 4.2 and Proposition 11; numerical diagnostics and conclusions.",
+        "method": "Full HTML inspection with statement-level comparison of delayed recurrence, weight conjugacy, finite-termination support condition, determinant formula, and claimed convergence results.",
+        "title": "Global and Unconditional R-Linear Convergence of Rank-Compressed Weighted LMSD Sweeps for Strictly Convex Quadratics",
+        "trigger": "Primary recent source defining the exact rank-compressed weighted LMSD dynamics used in the claim."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Discusses LMSD spectral extraction and possible ill conditioning, but no exact three-mode delayed endpoint-ratio dynamics were located.",
+        "identifier_or_url": "doi:10.1007/s11075-024-01895-9",
+        "material_read": "Introduction; quadratic/Krylov construction; Ritz-extraction discussion; numerical-rank and conditioning discussion.",
+        "method": "Open full-text inspection and statement comparison.",
+        "title": "Limited memory gradient methods for unconstrained optimization",
+        "trigger": "Close modern review/variant paper on LMSD, Ritz values, harmonic variants, and numerical conditioning."
+      },
+      {
+        "assessment": "NOT_COVERING_AT_INSPECTED_LEVEL",
+        "evidence": "Establishes R-linear convergence for LMSD on strongly convex quadratics; no exact projective ratio law is stated in the inspected material.",
+        "identifier_or_url": "arXiv:1610.03831v1; DOI 10.1093/imanum/drx016",
+        "material_read": "Abstract and bibliographic record, with its role cross-checked against the primary source discussion.",
+        "method": "Abstract-level and citation-context comparison.",
+        "title": "R-Linear Convergence of Limited Memory Steepest Descent",
+        "trigger": "Established convergence analysis closest to the primary source lineage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2b76f3b7-b132-4e9c-b502-428761097ea2",
+  "value": {
+    "rationale": "The three-active-mode p=2 case is the smallest nonterminating LMSD spectral configuration, immediately adjacent to the source finite-termination threshold. The exact closed recurrence identifies a structural phenomenon hidden by norm convergence: all nonfixed projective ratio states have a square-root-two unstable exponent and recurrently approach finite-termination boundary strata. This gives an analytic mechanism for extreme spectral imbalance in a setting where the source reports severe history conditioning while proving global R-linear decay.",
+    "status": "PASS"
+  }
+}
