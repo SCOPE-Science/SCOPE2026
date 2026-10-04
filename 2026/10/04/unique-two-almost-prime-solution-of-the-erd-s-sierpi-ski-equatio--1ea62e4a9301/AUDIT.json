@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The proof partitions all integers with \\(\\Omega\\le2\\) into primes, prime squares, and products of two distinct primes. Prime endpoints are excluded by divisor-sum size. After isolating the even member as \\(2p\\), the four remaining square/product orientations reduce to two impossible quadratics, \\((q-2)(r-2)=-3\\), or \\((q-2)(r-2)=3\\); the last has only \\(q=3,r=5\\), yielding \\((14,15)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yamada, arXiv:1001.2511v1, studies upper bounds for solution counts and carries MSC 11A25.",
+        "Weingartner, Journal of Integer Sequences 14 (2011), studies infinitude under prime-tuple hypotheses for fixed shifts.",
+        "Benito's theorems concern parity and empirical distribution, not bounded prime-factor complexity."
+      ],
+      "reasoning": "Distributional and infinitude results for the full equation do not imply which solutions survive after simultaneously imposing \\(\\Omega(n),\\Omega(n+1)\\le2\\). The new classification requires a separate exact case analysis.",
+      "searches": [
+        "Solutions of sigma(n)=sigma(n+k) prime factors",
+        "Erdos Pomerance Sarkozy locally repeated sigma values",
+        "On equations sigma(n)=sigma(n+k) Yamada",
+        "On the Solutions of sigma(n)=sigma(n+k) Weingartner"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/00150517.1974.12430740",
+      "arXiv:0707.2190v1",
+      "arXiv:1001.2511v1",
+      "Journal of Integer Sequences 14 (2011), Article 11.5.5",
+      "OEIS:A002961"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guy--Shanks show a selected family n=2p, n+1=3^m q with m=1 producing 14, but do not prove every low-Ω solution belongs to that family.",
+        "Benito's full census through 1.5*10^10 begins with 14 but remains computational outside its proved parity theorems.",
+        "The closest published two-prime-support findings located concern different divisor-function predicates and do not imply this equation."
+      ],
+      "reasoning": "Prior constructions explain why 14 occurs, not why no other structural shape with two prime factors on each side can occur. The new proof closes the prime-square and both semiprime orientations explicitly.",
+      "searches": [
+        "sigma(n)=sigma(n+1) n=2p n+1=3^m q Guy Shanks",
+        "sigma(n)=sigma(n+1) semiprime classification",
+        "consecutive equal divisor sums Omega two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guy--Shanks, DOI 10.1080/00150517.1974.12430740, gives constructed families beginning with n=14.",
+        "Benito, arXiv:0707.2190v1, contains no occurrence of 'semiprime' or 'prime factor'.",
+        "OEIS A002961 lists the solution sequence but no two-almost-prime classification."
+      ],
+      "reasoning": "Searches covered the semiprime wording, the \\(\\Omega\\)-layer wording, the named Erdős--Sierpiński problem, and equal-divisor-sum aliases. No equivalent unrestricted statement was located.",
+      "searches": [
+        "sigma(n)=sigma(n+1) semiprime consecutive equal divisor sums 14 15",
+        "Erdos Sierpinski problem both semiprimes 14 15",
+        "consecutive integers equal sum of divisors two prime factors",
+        "sigma consecutive semiprimes equal divisor sum",
+        "equal divisor sums consecutive almost primes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002961 defines the exact sequence of n with equal consecutive divisor sums and begins 14,206,957,... .",
+        "The entry notes that in recorded cases both n and n+1 are composite.",
+        "The entry links Guy--Shanks, Benito, and Weingartner but states no unrestricted semiprime-layer theorem."
+      ],
+      "reasoning": "A finite or growing solution table cannot prove absence of arbitrarily large two-almost-prime solutions. The table is therefore consistent with, but does not cover, the theorem.",
+      "searches": [
+        "OEIS A002961 sigma(n)=sigma(n+1)",
+        "A002961 semiprime",
+        "A002961 prime factors 14 15"
+      ]
+    },
+    "rationale": "The inspected primary sources establish the classical equation, construct families, tabulate solutions, and prove distribution/parity results, but none states the exact classification with both consecutive integers in the \\(\\Omega\\le2\\) layer. The exact database also does not supply an unrestricted implication of this form.",
+    "residual_risks": [
+      "Some older computational papers cited in the 1974 and 2007 literature were not available as searchable full text.",
+      "A short equivalent observation could appear under 'almost prime' rather than 'semiprime' terminology in an unindexed source.",
+      "The theorem does not constrain solutions after either member reaches multiplicative complexity three."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. The article constructs specific solution families, including n=14, but gives no classification by number of prime factors.",
+        "evidence": "Its first family is n=2p, n+1=3^m q for selected m; it explicitly describes the method as a construction rather than an exhaustion of all solutions.",
+        "identifier_or_url": "doi:10.1080/00150517.1974.12430740",
+        "material_read": "The complete one-page article, including all displayed families, examples, and references.",
+        "method": "Full PDF page inspection.",
+        "title": "A Constructed Solution of sigma(n) = sigma(n+1)",
+        "trigger": "Foundational one-page primary construction paper for the same equation."
+      },
+      {
+        "assessment": "NOT_COVERING. It tabulates 1268 solutions and proves parity facts, but does not state or derive the two-almost-prime classification.",
+        "evidence": "The appendix begins 14,15,24; targeted full-text searches return no occurrence of 'semiprime' or 'prime factor'.",
+        "identifier_or_url": "arXiv:0707.2190v1",
+        "material_read": "Introduction, empirical-results section, all stated theorems, open questions, construction code, and the solution appendix.",
+        "method": "Full-text HTML inspection with targeted searches for semiprime and prime-factor terminology.",
+        "title": "Solutions of the problem of Erdös-Sierpiński: sigma(n)=sigma(n+1)",
+        "trigger": "Full archival study of the exact equation, its known solutions, theorems, and open questions."
+      },
+      {
+        "assessment": "NOT_COVERING. The table records solutions but no unrestricted two-almost-prime theorem.",
+        "evidence": "The entry begins with 14 and comments that recorded neighboring integers are composite.",
+        "identifier_or_url": "OEIS:A002961",
+        "material_read": "Definition, terms, comments, references, links, and formulas.",
+        "method": "Direct sequence-page inspection.",
+        "title": "OEIS A002961: Numbers k such that k and k+1 have same sum of divisors",
+        "trigger": "Exact database for the solution set."
+      },
+      {
+        "assessment": "CONTEXT_ONLY. No whole-document noncoverage claim is based on this limited inspection.",
+        "evidence": "The arXiv record gives MSC 11A25 and v1 submission on 14 January 2010.",
+        "identifier_or_url": "arXiv:1001.2511v1",
+        "material_read": "ArXiv metadata, abstract, submission history, MSC field, and available introduction excerpt.",
+        "method": "ArXiv record plus indexed first-page text inspection.",
+        "title": "On equations sigma(n)=sigma(n+k) and phi(n)=phi(n+k)",
+        "trigger": "Primary literature verifying subject ownership and broader distributional context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1ea62e4a-9301-48eb-899b-98ada1f4042d",
+  "value": {
+    "rationale": "The Erdős--Sierpiński equation is a classical open problem, and total prime-factor count is a standard intrinsic complexity measure. The theorem completely closes its first composite multiplicative layer and gives an algebraic explanation for the uniqueness of the first known pair 14,15 in that layer, rather than merely extending a computational cutoff.",
+    "status": "PASS"
+  }
+}
