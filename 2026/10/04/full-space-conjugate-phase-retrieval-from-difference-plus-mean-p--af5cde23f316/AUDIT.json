@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For equal measurements, reversing every ordered pair yields both \\(|z_i-z_j|^2=|y_i-y_j|^2+c\\) and equality of the real pairings with the mean coefficients. Double centering gives \\(G_z-G_y=(c/2)J\\). Since each centered complex configuration has a positive-semidefinite real Gram matrix of rank at most \\(2\\), \\(c>0\\) would force rank at least \\(n-1\\ge3\\), while \\(c<0\\) produces a negative quadratic form on a nonzero vector in \\(\\ker G_y\\cap\\mathbf1^\\perp\\). Hence \\(c=0\\). Equal Gram matrices give an orthogonal congruence, and the remaining pairing equations plus equal mean norms let the orthogonal extension also map the mean coefficient. This yields exactly the phase-or-conjugate-phase ambiguity. The exact \\(n=4\\) replay checks \\(625\\) Gaussian-integer test signals and all \\(1864\\) measurement collisions without floating point.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ya-Nan Li and Yun-Zhang Li, Conjugate phase retrieval on general Hilbert spaces, Linear and Multilinear Algebra 72 (2024)",
+        "Conjugate phase retrieval on graphs and with applications in shift-invariant spaces, arXiv:2507.22468",
+        "Führ--Oussa, Phase Retrieval for Nilpotent Groups, Journal of Fourier Analysis and Applications (2023)"
+      ],
+      "reasoning": "These works have broader ambient settings or different group/frame constructions, but the inspected statements do not specialize to a theorem for the doubly transitive difference-plus-mean orbit on all of \\(\\mathbb C^n\\). No broader result found in the searches dominates the claim.",
+      "searches": [
+        "conjugate phase retrieval general Hilbert spaces structured frame permutation orbit",
+        "conjugate phase retrieval graphs shift invariant spaces permutation orbit",
+        "phase retrieval nilpotent groups permutation representation conjugate phase retrieval"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.07123",
+      "doi:10.1016/j.laa.2023.07.033",
+      "doi:10.1080/03081087.2023.2300677",
+      "arXiv:2507.22468",
+      "2026/9/20/SCOPE-conjugation-counterexample-generalized-bicircular-idempotents--59b5875e78f2",
+      "2026/9/30/SCOPE-orbit-profile-isospectrality-of-the-rado-graph-and-random-tourna--9bfc6f512348"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2109.07123 the zero-sum theorem does not apply to the constant component; Remark 5.3 supplies a full-space failure only at \\(n=3\\) and says the higher-dimensional analogue was unknown; Proposition 5.4 proves only sign retrieval over \\(\\mathbb R^n\\)."
+      ],
+      "reasoning": "The new conclusion is neither a corollary nor a special case of the source's zero-sum conjugate-retrieval theorem or real sign-retrieval proposition. It settles precisely the missing complex full-space regime for \\(n\\ge4\\).",
+      "searches": [
+        "arXiv:2109.07123 Remark 5.3 dimensions n greater than 3",
+        "Phase retrieval for affine groups over prime fields difference plus mean conjugate phase retrieval"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2109.07123, Theorem 5.2 / Remark 5.3 / Proposition 5.4",
+        "doi:10.1080/03081087.2023.2300677",
+        "arXiv:2507.22468"
+      ],
+      "reasoning": "The primary source uses exactly the same permutation orbit and explicitly records the higher-dimensional counterexample question as open. Later inspected sources formulate conjugate phase retrieval abstractly or through graph sampling and do not identify this orbit or imply the double-centering rank argument.",
+      "searches": [
+        "doubly transitive permutation conjugate phase retrieval full space delta difference constant",
+        "pairwise directed difference magnitudes centered complex points orthogonal rigidity phase retrieval",
+        "psi = delta_k - delta_l + constant conjugate phase retrieval doubly transitive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic result 2026/9/20/SCOPE-conjugation-counterexample-generalized-bicircular-idempotents--59b5875e78f2 concerns Banach-space idempotents and does not imply a phase-retrieval orbit theorem.",
+        "Closest semantic result 2026/9/30/SCOPE-orbit-profile-isospectrality-of-the-rado-graph-and-random-tourna--9bfc6f512348 concerns permutation-group orbit profiles and has no phaseless-recovery statement."
+      ],
+      "reasoning": "The database searches returned no result about the same measurements, the same generator, or an implication covering the claimed all-dimension uniqueness.",
+      "searches": [
+        "finite harmonic analysis cyclic group uncertainty equality sparse Fourier support",
+        "phase retrieval Fourier masks cyclic group ambiguity function",
+        "doubly transitive permutation conjugate phase retrieval full space delta difference constant"
+      ]
+    },
+    "rationale": "The closest primary source explicitly leaves open whether its full-space \\(n=3\\) counterexample for the same difference-plus-mean generator has analogues in dimensions greater than \\(3\\). The new theorem proves the opposite for every \\(n\\ge4\\). Targeted semantic-database and literature searches found general conjugate-phase-retrieval frameworks and unrelated uses of conjugation, but no statement implying this structured permutation-orbit theorem.",
+    "residual_risks": [
+      "An equivalent result could exist under distance-geometry or frame-theoretic terminology not surfaced by the targeted searches.",
+      "Only the primary source was inspected in full text; later general conjugate-phase-retrieval comparisons were inspected at abstract/scope level because their stated models differ materially from the permutation-orbit problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_NEW_CLAIM",
+        "evidence": "The source proves conjugate phase retrieval on the zero-sum subspace, gives a full-space counterexample at \\(n=3\\), explicitly says higher-dimensional analogues were unknown, and then proves only real sign retrieval for the full-space generator.",
+        "identifier_or_url": "arXiv:2109.07123",
+        "material_read": "Full preprint, with focused reading of Theorem 5.2, Remark 5.3, and Proposition 5.4.",
+        "method": "Full-text inspection of the lawful arXiv preprint, including the pages containing the open higher-dimensional counterexample statement.",
+        "title": "Phase retrieval for affine groups over prime fields",
+        "trigger": "Exact same doubly transitive permutation representation and difference-plus-mean generator."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_SPECIFIC_ORBIT",
+        "evidence": "The paper develops general Hilbert-space frame criteria and perturbation results; the inspected statement does not provide the doubly transitive difference-plus-mean conclusion.",
+        "identifier_or_url": "doi:10.1080/03081087.2023.2300677",
+        "material_read": "Abstract, bibliographic metadata, and stated scope/results.",
+        "method": "Publisher metadata and abstract inspection.",
+        "title": "Conjugate phase retrieval on general Hilbert spaces",
+        "trigger": "Potentially broader conjugate-phase-retrieval theory that could imply the orbit theorem."
+      },
+      {
+        "assessment": "DIFFERENT_MEASUREMENT_MODEL",
+        "evidence": "The work uses graph signal measurements and relative magnitudes on neighboring vertices, not the single doubly transitive permutation orbit considered here.",
+        "identifier_or_url": "arXiv:2507.22468",
+        "material_read": "Abstract and stated main applications.",
+        "method": "ArXiv/search metadata inspection.",
+        "title": "Conjugate phase retrieval on graphs and with applications in shift-invariant spaces",
+        "trigger": "Later structured conjugate-phase-retrieval result with possible graph-distance overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "af5cde23-f316-4757-bee5-df366c1293ea",
+  "value": {
+    "rationale": "The theorem answers an explicit open higher-dimensional question for a natural group-generated frame, showing that the known \\(n=3\\) obstruction is exceptional. The rank-\\(2\\) distance-geometry mechanism explains why the obstruction disappears rather than merely supplying more examples, and it strengthens the closest source's full-space real sign-retrieval statement to complex conjugate phase retrieval for every \\(n\\ge4\\).",
+    "status": "PASS"
+  }
+}
