@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The target-input density identity follows exactly by conditioning on the binary response mode and rewriting the tilted mode weights through \\(q_b\\). Holding \\(p\\) fixed makes the intercept an even smooth function of \\(\\eta\\), giving \\(s_\\eta(v)=3\\eta v+O(\\eta^2)\\) uniformly. Centering cancels the first KL term, yielding the stated \\(3/2\\) coefficient; differentiating the exact density yields the Fisher coefficient. The triangular likelihood ratio has bounded vanishing increments, the displayed mean and variance, and therefore satisfies Lindeberg. Pinsker and a bounded sample-mean test establish the two outer regimes. The packaged deterministic quadrature independently replays the leading constants for the motivating source normalization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garg et al. give fixed-model MLLS error bounds inversely controlled by a minimum Hessian eigenvalue and discuss information loss from coarse calibration.",
+        "Lee, Ma, and Zhao develop large-sample semiparametric label-shift theory, but the accessible abstract/records checked here do not state a vanishing-identification triangular experiment."
+      ],
+      "reasoning": "General fixed-identification asymptotics explain why curvature matters but do not by themselves supply the sharp \\(m\\eta^2\\) threshold or the explicit Choi-model constants. The accepted claim is limited to that explicit subexperiment rather than asserting a new general label-shift theory.",
+      "searches": [
+        "label shift weak identifiability sample complexity Fisher information target class prior unlabeled inputs",
+        "target shift response shift identification rate unlabeled covariates logistic mixture eta squared",
+        "arXiv:2003.07554 Sections 5 and Appendix E",
+        "arXiv:2307.04250"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30886v1",
+      "arXiv:2003.07554",
+      "arXiv:2307.04250",
+      "DOI:10.1080/01621459.2024.2321653",
+      "MSC2020 62B15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Choi proves identification/nonidentification and supplies experiments, but explicitly leaves regression estimation rates undeveloped.",
+        "Garg et al. provide a broad but nonsharp fixed-model curvature bound; inserting a vanishing curvature does not yield the proved critical Gaussian experiment or its exact constants.",
+        "The semiparametric label-shift paper works in a broader fixed-model setting and was not found to state the present triangular limit."
+      ],
+      "reasoning": "The prior statements do not logically imply the accepted claim without a new model-specific calculation of the exact density perturbation, its quadratic information, and the triangular likelihood-ratio limit. Conversely, the accepted result is not presented as a replacement for broader label-shift estimation theory.",
+      "searches": [
+        "arXiv:2609.30886v1 weak identification and sensitivity experiment",
+        "arXiv:2003.07554 minimum Hessian eigenvalue label shift estimation error",
+        "arXiv:2307.04250 label shift asymptotic theory"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Choi identifies every positive mode-signal value and nonidentification at zero, and explicitly reports finite-sample deterioration before zero; the paper states that it does not derive a general regression estimation rate.",
+        "No checked source states the exact density reduction, the \\(3/2\\) KL coefficient, or the critical product-experiment total-variation limit."
+      ],
+      "reasoning": "The present statement is stronger than the binary population-identification claim: it identifies the vanishing-signal statistical experiment and its exact information scale. The source paper supplies the model and qualitative weak-identification phenomenon, not this quantitative phase diagram.",
+      "searches": [
+        "Exponential Tilt Reweighting Alignment weak identification response shift unlabeled target inputs eta Fisher information",
+        "Choi weak identification mode signal eta response tilt target inputs Fisher information eta squared",
+        "logistic gate response tilt KL divergence eta squared sample complexity unlabeled target inputs",
+        "arXiv:2609.30886v1 Sections 2.3, 5.4, Appendix A/B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed results were titled “Exact identifiability dichotomy and Fisher-correlation floor in the non-spatial Klausmeier model,” “Exact Fisher-information preservation at multiple locations under a fixed interval quantizer,” “Rare-event Bernoulli TV: signed mass balance and proxy information loss,” and “Exact identifiability threshold for equal-weight binomial mixtures with known anchors.”",
+        "Those records concern different statistical experiments, quantization, Bernoulli products, or binomial mixtures; none contains the logistic-gate response-tilt experiment or the stated constants."
+      ],
+      "reasoning": "Multiple statement-level and alias searches returned no indexed exact match or stronger result for this experiment.",
+      "searches": [
+        "recent probability statistics exact finite-sample boundary asymptotic 2026",
+        "selective inference randomization exact calibration probability statistics",
+        "exchangeability conformal prediction finite sample sharp bound",
+        "e-values sequential testing exact boundary recent statistics",
+        "target inputs identify response shift exact Fisher information weak signal exponential tilt",
+        "m eta squared phase transition label shift weak identification"
+      ]
+    },
+    "rationale": "The motivating 2026 paper gives the exact weak-signal family and a qualitative identified-for-positive-signal/unidentified-at-zero transition, while explicitly declining a general regression estimation rate. The closest checked label-shift theory controls fixed-model estimation through curvature or develops fixed-identification asymptotics. Targeted statement and implication searches did not locate the explicit vanishing-signal experiment, its KL/Fisher constants, or the product total-variation phase diagram.",
+    "residual_risks": [
+      "General weak-identification or semiparametric literature may contain an equivalent triangular-array result under more abstract notation.",
+      "The full text of Lee--Ma--Zhao was not accessible through the checked direct route; only its abstract and records were inspected.",
+      "The accepted claim is therefore deliberately model-specific and does not assert priority for the generic principle that Fisher information can vanish quadratically."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the model, proves qualitative identification for every \\(\\eta>0\\), nonidentification at \\(\\eta=0\\), and documents deterioration as \\(\\eta\\) weakens; it does not state the accepted quantitative information law.",
+        "evidence": "The paper states that it does not derive a general regression estimation rate, and its sensitivity section says ExTRA deteriorates before nonidentification at zero.",
+        "identifier_or_url": "arXiv:2609.30886v1",
+        "material_read": "Abstract; Sections 2.3 and 5.1--5.4; Appendix A identification propositions; Appendix B source-model and sensitivity details.",
+        "method": "Lawful arXiv HTML full text.",
+        "title": "Conformal Prediction under Exponential-Tilt Joint Shift",
+        "trigger": "Direct motivating source with the same logistic mode-signal parameter and response tilt."
+      },
+      {
+        "assessment": "Covers fixed-model curvature-dependent rates and calibration/information loss, but not the Choi logistic-gate triangular experiment or its sharp \\(m\\eta^2\\) phase law.",
+        "evidence": "The paper reports error proportional to an inverse minimum Hessian eigenvalue times root-sample error and discusses invertibility as a consistency condition.",
+        "identifier_or_url": "arXiv:2003.07554",
+        "material_read": "Theoretical analysis around the MLLS estimation-error rate and Appendix E Hessian argument.",
+        "method": "arXiv full text.",
+        "title": "A Unified View of Label Shift Estimation",
+        "trigger": "Closest broad primary theory linking label-shift estimation error to likelihood curvature and identifiability."
+      },
+      {
+        "assessment": "Relevant broad context, but no checked material states the present weak-signal triangular limit. Full-text access limitation is retained as a residual originality risk.",
+        "evidence": "The abstract states development of large-sample theory under label shift, without a vanishing-identification sequence or the current model-specific constants.",
+        "identifier_or_url": "arXiv:2307.04250 / DOI 10.1080/01621459.2024.2321653",
+        "material_read": "Abstract and bibliographic/full-record material; direct full-text HTML retrieval was unavailable in the checked route.",
+        "method": "arXiv abstract and publisher/PubMed records.",
+        "title": "Doubly Flexible Estimation under Label Shift",
+        "trigger": "Plausible broader semiparametric label-shift source with large-sample theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d699c302-03d4-4385-880f-b8547078652c",
+  "value": {
+    "rationale": "The source paper explicitly uses \\(\\eta\\) as a sensitivity axis and observes severe estimator instability before the exact nonidentification point. Quantifying the transition by \\(m\\eta^2\\) turns that qualitative ladder into an interpretable sample-size law, gives exact information and testing constants, and separates unavoidable information loss from estimator-specific failure. This is a natural boundary of the motivating model rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
