@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Vertex and edge mixed codes have explicit forms in a complete multipartite graph. Those forms prove that a complement has size at most two, identify the exact singleton and third-part collisions, and establish sufficiency of the remaining cases. Direct exhaustive verification checks every vertex and edge code on 128 multipartite types and 64,916 subsets through order ten.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 4.2 of the foundational work gives the valid complete-bipartite minimum formula.",
+        "Theorem 5 of the 2022 paper asserts N-1 when a part has size two and N-r otherwise for arbitrary complete multipartite graphs.",
+        "The corrected theorem agrees with the 2016 bipartite domain but disagrees with the broader 2022 statement for r>=3."
+      ],
+      "reasoning": "The 2022 statement would be broader coverage if correct, so it was tested at the statement level rather than dismissed by title. Its claimed generator sizes create unavoidable edge-edge or vertex-edge collisions; hence it does not validly imply the corrected theorem.",
+      "searches": [
+        "arXiv:1611.04292v1 Proposition 4.2 complete bipartite",
+        "DOI:10.3390/math10111815 Theorem 5 mixed metric dimension",
+        "complete multipartite mixed metric dimension correction 2023 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1611.04292v1",
+      "DOI:10.1016/j.amc.2017.07.027",
+      "DOI:10.3390/math10111815"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original bipartite theorem gives N-1 when one part has size two and N-2 when both have size at least three.",
+        "The 2022 theorem claims N-r for K_{3,3,5}, namely 8.",
+        "The direct definition-level checker finds no mixed generator of size below 10 for K_{3,3,5}, while every one-vertex complement is valid because all three parts have size at least two."
+      ],
+      "reasoning": "The corrected theorem strictly preserves the valid prior bipartite implication while refuting the invalid multipartite extension. Because a false theorem cannot cover a correct claim by implication, the corrected classification remains original subject to the stated literature-search risk.",
+      "searches": [
+        "inspect arXiv:1611.04292v1 definition and complete-bipartite proposition",
+        "inspect DOI:10.3390/math10111815 Section 3.4 and Theorem 5",
+        "compare K_{3,3,5} published value with direct mixed element codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2016 primary source defines mixed metric generators and gives a complete-bipartite formula only.",
+        "The 2022 primary source uses the same mixed-distance definition and states Theorem 5 for complete multipartite graphs.",
+        "Searches for mixed resolving sets and mixed metric generators did not locate a separate equivalent all-set classification."
+      ],
+      "reasoning": "Metric, edge-metric, doubly resolving, and outer-multiset resolving parameters distinguish different objects or use different signatures. None is equivalent to simultaneous resolution of vertices and edges by the mixed distance vector.",
+      "searches": [
+        "mixed metric dimension complete multipartite graph",
+        "mixed resolving sets complete multipartite graph all sets",
+        "complete multipartite mixed metric generator",
+        "K_{3,3,5} mixed metric dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed complete-multipartite findings concern outer multiset dimension, doubly resolving sets, distance equalizers, and general-position variants, not mixed vertex-edge resolution.",
+        "No indexed finding returned an arbitrary complete-multipartite mixed metric generator classification or a correction of the 2022 formula."
+      ],
+      "reasoning": "The closest parameters use different codes and do not imply the mixed element-distance signatures. The exact target theorem was not present in the checked index.",
+      "searches": [
+        "mixed metric dimension complete multipartite graph",
+        "mixed resolving sets complete multipartite graph all sets",
+        "complete multipartite mixed metric generator"
+      ]
+    },
+    "rationale": "The 2016 source correctly covers complete bipartite graphs. The 2022 source claims the arbitrary multipartite extension but its statement is contradicted by direct mixed codes for r>=3. No inspected source or targeted later search supplied the corrected all-set theorem. The new claim is therefore a correction plus a strictly stronger classification/enumerator, not a restatement of the covered bipartite case.",
+    "residual_risks": [
+      "A later erratum, correction, thesis, or differently phrased non-indexed treatment may exist.",
+      "The finite exhaustive computation covers orders at most ten; the unrestricted claim relies on the symbolic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the parameter and gives the correct complete-bipartite minimum formula, but not arbitrary complete multipartite graphs or an all-generator enumerator.",
+        "evidence": [
+          "Version 1 was submitted on 14 November 2016.",
+          "The paper defines mixed metric generators as resolving all vertices and edges simultaneously.",
+          "Its complete-bipartite proposition matches the bipartite specialization of the corrected theorem."
+        ],
+        "identifier_or_url": "arXiv:1611.04292v1 / DOI:10.1016/j.amc.2017.07.027",
+        "material_read": "Primary arXiv metadata and full text, including the definition of mixed metric generators and the complete-bipartite proposition.",
+        "method": "Primary-source statement and specialization comparison.",
+        "title": "Mixed metric dimension of graphs",
+        "trigger": "Foundational source for the mixed metric definition and the closest valid complete-bipartite result."
+      },
+      {
+        "assessment": "Theorem 5 is not valid in the multipartite range r>=3; the corrected code classification identifies the missing collisions.",
+        "evidence": [
+          "The article was published 25 May 2022 and lists MSC 05C12 and 05C90.",
+          "Theorem 5 states N-1 if some part has size two and N-r otherwise.",
+          "For K_{3,3,5}, that formula gives 8, while direct mixed codes give 10."
+        ],
+        "identifier_or_url": "DOI:10.3390/math10111815",
+        "material_read": "Full open-access article text around Section 3.4, Theorem 5, its proof and examples, together with article metadata and MSC classification.",
+        "method": "Primary full-text theorem reconstruction and direct implication test.",
+        "title": "On Resolvability- and Domination-Related Parameters of Complete Multipartite Graphs",
+        "trigger": "Direct broader-coverage risk: the paper explicitly claims the mixed metric dimension of arbitrary complete multipartite graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "50b4f24a-80d9-410d-9c81-048f13ee341d",
+  "value": {
+    "rationale": "The result repairs a published exact formula on a canonical graph class and explains the failure structurally. It also provides the full mixed-generator size enumerator, which is not determined by the prior minimum-value results and gives exact multiplicities of all feasible generators.",
+    "status": "PASS"
+  }
+}
