@@ -1,0 +1,108 @@
+{
+  "claim": "For the labeled \\(n\\)-state Wielandt automaton \\(W_n\\) on \\(Q=\\{0,\\ldots,n-1\\}\\), where \\(b(i)=i+1\\pmod n\\), \\(c(0)=c(1)=2\\), and \\(c(i)=i+1\\pmod n\\) for \\(2\\le i<n\\), let \\(\\lambda_n(s)=\\min\\{|w|:|Qw|\\le n-s\\}\\). For every \\(n\\ge3\\) and \\(1\\le s\\le\\lceil n/2\\rceil\\), \\(\\lambda_n(s)=2s-1\\), and the unique word of that minimum length attaining rank at most \\(n-s\\) is \\(c(bc)^{s-1}\\). Moreover, when \\(n\\ge4\\) and \\(s_0=\\lceil n/2\\rceil\\), the next threshold is strictly larger than the counting lower bound: \\(\\lambda_n(s_0+1)>2s_0+1\\).",
+  "correctness": {
+    "rationale": "The lower bound follows because only \\(c\\) can decrease rank, each \\(c\\) lowers rank by at most one, and after an effective \\(c\\) state \\(1\\) is absent, forcing at least one \\(b\\) before the next effective \\(c\\). Equality therefore forces the unique pattern \\(c(bc)^{s-1}\\). A missing-state induction proves every \\(c\\) in that word is effective through \\(\\lceil n/2\\rceil\\), and a parity-specific image calculation shows the next \\(c\\) is ineffective. The included power-automaton replay independently confirms the full claimed regime for \\(3\\le n\\le14\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gusev--Pribavkina (arXiv:1403.3992v1) gives reset thresholds for Wielandt-type automata with two cycle lengths.",
+        "Kari--Ryzhikov--Varonka (DLT 2019) studies shortest words of minimum rank; its Wielandt section uses the known reset threshold to construct other prescribed-rank automata."
+      ],
+      "reasoning": "The broader papers cover endpoint reset/minimum-rank behavior or derived automata. Their stated results do not imply the exact shortest length to reach rank \\(n-s\\) inside \\(W_n\\) for each early \\(s\\).",
+      "searches": [
+        "Wielandt automaton exact rank threshold shortest word image size synchronization",
+        "Words of Minimum Rank in Deterministic Finite Automata Wielandt",
+        "Reset thresholds of automata with two cycle lengths Wielandt"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.0129v1",
+      "arXiv:1403.3992v1",
+      "doi:10.1007/978-3-030-24886-4_5",
+      "published-result records returned by the targeted semantic searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2010 Wielandt theorem proves reset length \\(n^2-3n+3\\) and observes only that the cyclic letter preserves cardinality while the merging letter decreases it by at most one.",
+        "The 2019 minimum-rank paper explicitly discusses the \\(n\\)-state Wielandt automaton and its reset threshold, then applies a construction to obtain new rank-\\(r\\) automata; it does not determine intermediate ranks of \\(W_n\\) itself."
+      ],
+      "reasoning": "The counting observation supplies only \\(\\lambda_n(s)\\ge2s-1\\) after adding the separator argument. The exact matching upper bound, uniqueness, and the sharp boundary require the new missing-state dynamics and are not consequences of the cited endpoint theorems.",
+      "searches": [
+        "arXiv:1005.0129v1 Theorem 2 and Wielandt section",
+        "arXiv:1403.3992v1 abstract and Wielandt-type family",
+        "doi:10.1007/978-3-030-24886-4_5 Wielandt discussion and Corollary 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ananichev--Gusev--Volkov (arXiv:1005.0129v1) defines the unique Wielandt coloring and proves only the full reset threshold \\(n^2-3n+3\\).",
+        "Targeted exact-phrase and semantic searches returned reset-threshold, avoiding-threshold, and general rank-word records, but no statement of \\(\\lambda_n(s)=2s-1\\) for the Wielandt family."
+      ],
+      "reasoning": "The claim is about the minimum over words reaching every intermediate image size in one fixed synchronizing automaton. Reset threshold, prescribed avoided-set threshold, and minimum-rank threshold are different extremal quantities and do not supply the asserted half-range equality or uniqueness.",
+      "searches": [
+        "\"Wielandt automaton\" \"2s-1\" rank word",
+        "\"Wielandt automaton\" intermediate rank shortest word",
+        "Wielandt automaton compression profile minimum rank word 2s-1",
+        "rank threshold sequence synchronizing automata minimum word rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-result records found concerned a finite slow-reset census and exact k-avoiding thresholds of the Cerny automata, not the Wielandt intermediate-rank profile.",
+        "The current local research history contains a fooling-set result and a Cerny early-compression result; neither is the same automaton or claim."
+      ],
+      "reasoning": "No exact table, parameter row, or prior local claim matching the Wielandt \\(\\lambda_n(s)\\) profile was found.",
+      "searches": [
+        "finite automata subset synchronization rank threshold exact shortest word classic automaton",
+        "Wielandt automaton rank n-s shortest word cbcbc"
+      ]
+    },
+    "rationale": "Targeted statement/alias searches and inspection of the classical Wielandt source, a later two-cycle generalization, and a full-text minimum-rank paper that explicitly discusses the Wielandt automaton found reset-threshold and minimum-rank constructions but not the exact intermediate best-target profile, uniqueness statement, or sharp half-range boundary.",
+    "residual_risks": [
+      "The theorem is elementary once the rotated Wielandt labeling is fixed, so an older unindexed note, exercise, thesis, or differently named compression parameter may contain an equivalent observation.",
+      "No claim of exhaustive coverage of every non-digitized pre-2010 source is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source defines the unique coloring, proves reset threshold \\(n^2-3n+3\\), and later uses only the fact that one letter preserves cardinality and the other lowers it by at most one; no intermediate rank-threshold profile is stated.",
+        "identifier_or_url": "arXiv:1005.0129v1",
+        "material_read": "Full-text Wielandt section, Theorem 2 and proof, plus the induced-automaton connection with the Cerny family.",
+        "method": "Public full text.",
+        "title": "Slowly Synchronizing Automata and Digraphs",
+        "trigger": "Classical primary source defining the Wielandt automaton in synchronization theory."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The stated results determine reset thresholds of two-cycle families; they do not state shortest words to each intermediate image size of \\(W_n\\).",
+        "identifier_or_url": "arXiv:1403.3992v1",
+        "material_read": "Abstract, public metadata, and Wielandt-type family context.",
+        "method": "Public preprint metadata and full-text context surfaced with the family definition.",
+        "title": "Reset Thresholds of Automata with Two Cycle Lengths",
+        "trigger": "Direct later generalization of Wielandt-type automata."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper defines word rank, recalls the reset threshold of \\(W_n\\), and uses \\(W_n\\) to build different rank-\\(r\\) automata. It does not give \\(\\lambda_n(s)\\) for intermediate ranks within \\(W_n\\).",
+        "identifier_or_url": "doi:10.1007/978-3-030-24886-4_5",
+        "material_read": "Full-text introduction and the binary-construction section containing the Wielandt discussion, Corollary 2, and surrounding proof context.",
+        "method": "Open repository final-draft PDF.",
+        "title": "Words of Minimum Rank in Deterministic Finite Automata",
+        "trigger": "Closest broad work on rank words; it explicitly revisits the Wielandt automaton."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "267316e1-d983-456b-b714-de22cdf7f983",
+  "value": {
+    "rationale": "The Wielandt automata are a classical extremal family with quadratic reset threshold. Determining the exact initial rank-compression profile, the unique optimal words, and the exact point where the universal counting lower bound stops being tight isolates a structural feature of that family: its slow synchronization is not caused by slow initial loss of rank. This is a natural all-parameter invariant rather than a finite or ad hoc slice.",
+    "status": "PASS"
+  }
+}
