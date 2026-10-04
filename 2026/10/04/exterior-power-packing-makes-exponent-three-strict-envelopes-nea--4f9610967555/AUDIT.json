@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The graded coproduct calculation in the primary source separates the fresh exterior-power components. Lemma 4.7's two coefficient-separation steps require only linear independence of the chosen degree-two vectors, so binomial(q,2) defects can be packed into q free generators. Lemma 4.9 and Lemma 4.10 similarly require independence in the central degree-three component, allowing binomial(q,3) defects to be packed. The source's remaining rank-two extension and existential-closedness step are unchanged. Substitution into Theorem 3.3 then yields the displayed O(m^4) witness bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source gives gr_2(F_q) and gr_3(F_q) as exterior powers, hence dimensions binomial(q,2) and binomial(q,3).",
+        "The source's Lemma 4.7 proof isolates coefficients through linear independence in gr_2(F).",
+        "Remark 4.11 explicitly verifies that several degree-three defects can share one free factor and says the trick also works for Lemma 4.8.",
+        "Proposition 4.13 prints the 15n^2 bound, while Theorem 3.3 applies its envelope function to s(m)=(3m+4)t(m)+1."
+      ],
+      "reasoning": "The accepted theorem generalizes the paper's local four-defect observation to the full exterior-power basis at both repair stages, then propagates that quantitative improvement through the paper's own main bounded-obstruction proof.",
+      "searches": [
+        "primary PDF: graded coproduct decomposition and gr_i(F_q)=Lambda^i",
+        "primary PDF: Lemma 4.7 injectivity proof",
+        "primary PDF: Lemma 4.8 first strictness repair",
+        "primary PDF: Lemma 4.9 central triple-commutator attachment",
+        "primary PDF: Lemma 4.10 LCS-strict repair",
+        "primary PDF: Remark 4.11 nonoptimal generator bound",
+        "primary PDF: Proposition 4.13 strict finite envelope",
+        "primary PDF: Theorem 3.3 bounded amalgamation obstruction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30061",
+      "2026/9/30/SCOPE-the-exponent-three-group-model-companion-is-decidable--7d41886b0b65",
+      "Levi--van der Waerden (1933) for classical exponent-three group background"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Remark 4.11 supplies the local idea but not the general bound.",
+        "Proposition 4.13's proof spends separate generator blocks and concludes 15n^2.",
+        "Theorem 3.3 leaves the envelope as f0(s(m)); using the printed Proposition 4.13 gives O(m^8), whereas B gives O(m^4).",
+        "The published-finding database decidability finding does not imply a quantitative improvement of f0.",
+        "No prior current-ledger finding concerns arXiv:2609.30061 or this strict-envelope packing refinement."
+      ],
+      "reasoning": "The result is a nontrivial quantitative consequence of combining the source's exterior-power decomposition with its nonoptimality remark at both repair stages. Neither the main theorem nor the decidability corollary determines the sharper generator count.",
+      "searches": [
+        "primary-source implication check: Remark 4.11 versus general q2/q3 packing",
+        "primary-source implication check: Proposition 4.13 15n^2 versus B(n)",
+        "primary-source implication check: Theorem 3.3 f0(s(m)) versus B(s(m))",
+        "published-finding database closest result: 2026/9/30/SCOPE-the-exponent-three-group-model-companion-is-decidable--7d41886b0b65",
+        "current cumulative ledger comparison through generation g000048"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched result stated the inverse-binomial strict-envelope bound or its O(n^(2/3)) overhead.",
+        "The primary paper's Remark 4.11 gives only a four-defect example and says the same trick applies to Lemma 4.8."
+      ],
+      "reasoning": "The searches covered the exact source identifier, proposition-scale bound, lower-central strictness terminology, exterior-power packing, and the source's own nonoptimality remark.",
+      "searches": [
+        "published-finding database: exponent 3 strict envelope improved generator bound n plus n two thirds",
+        "published-finding database: arXiv 2609.30061 strict envelope 15 n^2 improve Remark 4.11",
+        "published-finding database: groups exponent 3 Lemma 4.8 4.10 binomial commutator packing",
+        "published-finding database: existentially closed exponent 3 groups strict lower central envelope generator bound",
+        "web: 2609.30061 exponent 3 Remark 4.11 15n^2",
+        "web: groups of exponent 3 lower central strict generators model companion",
+        "web: groups of exponent 3 independent commutators exterior power free Burnside group"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed finding, 'The exponent-three group model companion is decidable', uses effective finite bounds but does not sharpen Proposition 4.13.",
+        "The primary source itself gives 15n^2 and no inverse-binomial replacement."
+      ],
+      "reasoning": "The exact comparison is between the source's quantitative envelope function and the newly derived B(n), not merely between qualitative model-companion statements.",
+      "searches": [
+        "published-finding database: arXiv 2609.30061 strict envelope 15 n^2 improve Remark 4.11",
+        "web: 15n^2 exponent 3 model companion",
+        "web: Proposition 4.13 groups of exponent 3"
+      ]
+    },
+    "rationale": "Remark 4.11 explicitly hints at multi-defect packing but does not state the general inverse-binomial functions, near-linear strict-envelope theorem, or degree-four propagated obstruction bound. Targeted published-finding database and literature searches found no equivalent quantitative refinement.",
+    "residual_risks": [
+      "Because Remark 4.11 explicitly suggests the packing trick, the refinement may be readily derivable by specialists even though no checked source states the full bound.",
+      "A sharper packing that uses non-basis decomposable tensors or couples the two repair stages could improve B(n); no optimality is claimed.",
+      "The O(m^4) propagated bound follows the source's existing Theorem 3.3 proof and may not be the best possible bounded-amalgamation estimate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_WITH_EXPLICIT_HINT_BUT_NO_GENERAL_BOUND.",
+        "evidence": "The paper states the 15n^2 envelope, explicitly says the local bound is not optimal, gives a four-way degree-three packing example, and states that the same trick works for Lemma 4.8.",
+        "identifier_or_url": "arXiv:2609.30061",
+        "material_read": "Primary PDF introduction, Theorem 3.3, graded coproduct decomposition, Lemmas 4.7--4.10, Remark 4.11, Proposition 4.13, and the lower-bound examples in Section 5; relevant PDF pages were visually inspected.",
+        "method": "Line-by-line implication comparison and reconstruction of the two injectivity/intersection arguments with arbitrary independent exterior-power basis elements.",
+        "title": "Existence of a Model Companion for Groups of Exponent 3",
+        "trigger": "Primary recent source whose finite strict-envelope bound is being sharpened."
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING.",
+        "evidence": "The finding derives effective axiomatizability and decidability from explicit finite obstruction bounds but does not improve the strict-envelope generator function.",
+        "identifier_or_url": "2026/9/30/SCOPE-the-exponent-three-group-model-companion-is-decidable--7d41886b0b65",
+        "material_read": "published-finding database title and scientific summary.",
+        "method": "Implication comparison.",
+        "title": "The exponent-three group model companion is decidable",
+        "trigger": "Closest published finding on the same 2026 model-companion paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f961096-7555-43ae-8427-b873a5e1c0f7",
+  "value": {
+    "rationale": "The strict-envelope bound is a central quantitative ingredient of the new model-companion proof and is highlighted in the paper's introduction. Systematically exploiting the full exterior-power capacity reduces the envelope from quadratic to n+O(n^(2/3)) and the propagated finite-obstruction degree from eight to four. This is a substantial structural improvement to a natural bound explicitly flagged as nonoptimal.",
+    "status": "PASS"
+  }
+}
