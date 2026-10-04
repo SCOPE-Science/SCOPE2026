@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The natural-spline tridiagonal equation reduces to one interior second derivative. Exact substitution yields three cardinal coefficients on each interval, with exactly one negative coefficient. Linear minimization over the data cube therefore selects a vertex, and the remaining scalar cubic factor has the exact maximum \\(2/(3\\sqrt3)\\). Reflection supplies the second interval, and elementary branch derivatives prove the unique equal-spacing minimum and skew-mesh divergence. The packaged exact-rational checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fischer--Opfer--Puri explicitly state that a natural interpolating spline through positive values can become negative and propose adding knots to repair negative intervals.",
+        "Fritsch--Carlson and Fritsch--Butland develop monotonicity-preserving cubic alternatives because ordinary cubic interpolation does not reliably preserve shape."
+      ],
+      "reasoning": "These sources cover the qualitative positivity/monotonicity failure and repair strategies. The accepted claim is a quantitative sharp extremal problem for the unmodified three-knot natural spline, including its dependence on mesh ratio and exact extremizers. The accessible statements do not dominate that claim.",
+      "searches": [
+        "natural cubic spline positivity three knots sharp negative overshoot mesh ratio",
+        "natural spline nonnegative data negative overshoot mesh ratio cardinal basis",
+        "three point natural cubic spline positivity preservation nonuniform knots",
+        "A local algorithm for constructing non-negative cubic splines natural spline theorem positivity condition"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/0717021",
+      "DOI:10.1137/0905021",
+      "DOI:10.1016/0021-9045(91)90082-L",
+      "DOI:10.1137/0710088",
+      "Hamburger Beiträge zur Angewandten Mathematik preprint archive listing for Fischer--Opfer--Puri",
+      "published-finding corpus semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fritsch--Carlson give interval monotonicity criteria for cubic Hermite pieces, not a worst-case natural-spline cardinal-basis optimization over bounded data.",
+        "Fischer--Opfer--Puri's accessible abstract proves the qualitative need for positivity repair but does not state a sharp three-knot defect. Its full text was not recovered."
+      ],
+      "reasoning": "A general positivity criterion for a cubic piece could be applied after computing the natural-spline slopes, but that does not by itself imply the global minimax value over the data cube and mesh ratio. The unresolved possibility that the inaccessible 1991 full text performs this exact specialization is retained as a residual risk rather than treated as negative evidence.",
+      "searches": [
+        "Monotone Piecewise Cubic Interpolation Fritsch Carlson",
+        "A Method for Constructing Local Monotone Piecewise Cubic Interpolants Fritsch Butland",
+        "A local algorithm for constructing non-negative cubic splines Fischer Opfer Puri",
+        "Natural Cubic and Bicubic Spline Interpolation Hall"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no implication-equivalent record; the closest hit was the unrelated three-point quadrature envelope 2026/9/21/SCOPE-sharp-curvature-envelope-three-point-rules--be4efc393b53.",
+        "Web searches for the equivalent Lebesgue-constant formulation found general natural-spline interpolation and cardinal-basis references but no displayed three-node constant."
+      ],
+      "reasoning": "For three knots the positivity defect is equivalent to half the excess of the interpolation Lebesgue constant over one. Searches were therefore performed under both positivity and operator-norm aliases. No inspected statement supplied \\(C(r)\\), \\(\\Lambda(r)=1+2C(r)\\), or an implication that yields the same mesh-ratio law.",
+      "searches": [
+        "natural cubic spline three knots positivity defect exact mesh ratio bound",
+        "natural cubic spline three knot Lebesgue constant mesh ratio",
+        "natural cubic spline cardinal basis negative far endpoint coefficient",
+        "natural spline three points worst negative interpolation bounded data"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked database or table exposed the formula \\(\\max\\{r^{-1},r^2\\}/(3\\sqrt3(1+r))\\).",
+        "General natural-spline references give the standard tridiagonal system and interpolation-error estimates but not the bounded-data positivity defect."
+      ],
+      "reasoning": "The quantity is natural enough to appear either as a positivity bound or as a three-node Lebesgue constant; neither representation was found in the checked records.",
+      "searches": [
+        "natural cubic spline positive data undershoot sharp bound",
+        "natural cubic spline interpolation Lebesgue constant nonuniform knots",
+        "Lebesgue function natural cubic spline",
+        "natural cubic spline three points monotonicity condition"
+      ]
+    },
+    "rationale": "Qualitative positivity loss is prior-covered and explicitly excluded. The accepted claim is the sharp bounded-data three-knot extremal law, its mesh-ratio phase split, exact extremizers, and unbounded skew-mesh behavior. published-finding corpus and web searches under positivity, cardinal-basis, mesh-ratio, and Lebesgue-constant aliases found no implication-equivalent statement. The inaccessible full text of the closest 1991 paper and older spline-stability literature remain named risks.",
+    "residual_risks": [
+      "The full text of Fischer--Opfer--Puri (1991) was not recovered through the lawful routes attempted; an equivalent three-knot constant there cannot be excluded.",
+      "Classical spline stability and Lebesgue-constant literature may contain the equivalent formula \\(\\Lambda(r)=1+2C(r)\\) under operator-norm terminology.",
+      "The result does not establish any analogous sharp constant for four or more knots."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS cubic monotonicity criteria and a shape-preserving alternative; it does not state the natural-spline three-knot positivity-defect formula in the material inspected.",
+        "evidence": "The source states necessary and sufficient monotonicity conditions for a cubic and constructs a monotone piecewise cubic interpolant.",
+        "identifier_or_url": "DOI:10.1137/0717021",
+        "material_read": "Publisher abstract, bibliographic record, and accessible article opening/abstract copy.",
+        "method": "SIAM metadata plus lawful web-accessible article copy.",
+        "title": "Monotone Piecewise Cubic Interpolation",
+        "trigger": "Foundational cubic shape-preservation source and earliest verified public anchor."
+      },
+      {
+        "assessment": "COVERS a local monotone cubic construction and verifies primary MSC 65D05; it does not address the exact natural-spline positivity defect in the material inspected.",
+        "evidence": "The publisher lists MSC 65D05 first and describes a local monotone piecewise cubic interpolant.",
+        "identifier_or_url": "DOI:10.1137/0905021",
+        "material_read": "Publisher abstract, references, bibliographic information, and MSC metadata.",
+        "method": "SIAM publisher page.",
+        "title": "A Method for Constructing Local Monotone Piecewise Cubic Interpolants",
+        "trigger": "Primary numerical-interpolation classification and closely related shape-preserving method."
+      },
+      {
+        "assessment": "COVERS the qualitative fact that positive data may yield a negative natural spline and a repair by added knots. Whole-document comparison remains unresolved.",
+        "evidence": "The abstract explicitly says the method starts with the interpolating natural spline and redefines intervals in which it has negative values.",
+        "identifier_or_url": "DOI:10.1016/0021-9045(91)90082-L",
+        "material_read": "Author-institution bibliographic record and abstract, plus university preprint-archive listing.",
+        "method": "Lawful open metadata/abstract search; open-preprint route was checked, and an institutional full-text request was attempted but not available in this run.",
+        "title": "A Local Algorithm for Constructing Non-Negative Cubic Splines",
+        "trigger": "Closest prior on positivity loss of the interpolating natural spline."
+      },
+      {
+        "assessment": "COVERS approximation-error bounds for natural splines on arbitrary partitions; the accessible material does not concern positivity or the bounded-data extremal constant.",
+        "evidence": "The abstract studies \\(L_\\infty\\) interpolation error for natural splines rather than shape preservation.",
+        "identifier_or_url": "DOI:10.1137/0710088",
+        "material_read": "Publisher abstract and reference list.",
+        "method": "SIAM publisher page.",
+        "title": "Natural Cubic and Bicubic Spline Interpolation",
+        "trigger": "Primary background on natural cubic interpolation and arbitrary partitions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0b51d833-0304-4be6-a918-ae0a1819b492",
+  "value": {
+    "rationale": "Positivity loss in spline interpolation is a physically meaningful failure mode, and three knots are the minimal nontrivial case. The theorem completely resolves that case, quantifies the defect by mesh geometry, proves equal spacing uniquely minimizes it, and shows that mesh skew can make the undershoot arbitrarily large despite bounded nonnegative samples. This supplies a compact diagnostic and regression benchmark for interpolation software and mesh-design intuition.",
+    "status": "PASS"
+  }
+}
