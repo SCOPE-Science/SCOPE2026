@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For the linear kernel, the published cross-MMD numerator is exactly the product of independent half-sample mean differences and its empirical variance is exactly the second-half difference squared times the pooled first-half residual sum divided by the square of the half size. Cancellation leaves an independent random sign times a scaled classical pooled two-sample Student statistic, proving the exact law. The strict size inequality follows from the Student-vs-normal positive-tail ordering, and the displayed first-order coefficient follows from the standard fixed-x Student CDF expansion. The bundled verifier replays the algebraic identity and all reported numerical values.",
+    "risks": [
+      "The theorem is exact only under the explicitly stated Gaussian equal-variance linear-kernel assumptions."
+    ],
+    "sources": [
+      "arXiv:2211.14908v1 definitions and null test",
+      "classical equal-variance Gaussian pooled Student theorem",
+      "verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Accessible metadata for arXiv:2011.05068 describes a Gaussian limiting distribution from sample splitting and self-normalization and examples including mean testing.",
+        "The cross-MMD source proves a broader asymptotic null theorem but not a stronger finite-sample theorem that would imply the present formula."
+      ],
+      "reasoning": "A general asymptotic normality theorem does not imply the exact finite-sample scaled-Student identity. A broader exact theorem was not located in the checked material.",
+      "searches": [
+        "Dimension-agnostic inference using cross U-statistics exact Gaussian finite sample",
+        "cross U-statistics one-sample mean Student t finite sample",
+        "cross U-statistic exact t distribution Gaussian mean test sample splitting studentization",
+        "xMMD finite sample size distortion Gaussian normal calibration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.14908v1 (direct source; current full text inspected)",
+      "arXiv:2011.05068v1 (foundational source; abstract/metadata inspected)",
+      "Gretton et al. kernel two-sample bibliographic MSC record",
+      "published-finding searches listed in the named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shekhar-Kim-Ramdas use a standard-normal cutoff after proving limiting normality; specializing their definitions to a Gaussian linear kernel yields the exact law proved here.",
+        "Kim-Ramdas provide the cross-U methodology and asymptotic motivation but accessible evidence does not state the cross-MMD specialization."
+      ],
+      "reasoning": "The source results motivate and define the object but do not, in the inspected material, imply the finite-sample size formula without the new exact reduction.",
+      "searches": [
+        "arXiv:2211.14908 statistic variance estimator Theorem 4 null Gaussian",
+        "arXiv:2011.05068 Gaussian limiting distribution sample splitting self-normalization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cross-MMD full text defines the cross inner-product statistic, the projected variables and empirical variance estimator, then states asymptotic standard-normal calibration. Targeted full-text searches did not locate an exact Student distribution statement.",
+        "The closest published Student-t finding concerns size distortion caused by higher-order dependence, not sample-split cross-MMD."
+      ],
+      "reasoning": "The present claim is not a relabeling of the source asymptotic theorem: it gives an exact finite-sample distribution, an exact level repair, and a first-order size expansion for a concrete kernel/model specialization.",
+      "searches": [
+        "cross-MMD exact Student t null law linear kernel Gaussian finite sample",
+        "permutation-free kernel two-sample linear kernel finite-sample t calibration",
+        "cross U-statistic exact t distribution Gaussian mean test sample splitting studentization",
+        "arXiv:2211.14908 full text: t-distribution; Student; finite-sample; linear kernel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No ranked published-finding hit among the targeted queries stated the scaled-Student cross-MMD null law, its normal-cutoff size, or the exact corrected cutoff.",
+        "The nearest database hits addressed Student tests under non-iid dependence and jackknife pseudovalue covariance, which do not imply this claim."
+      ],
+      "reasoning": "The candidate differs in object, assumptions, and implication from the closest records; none dominates the exact calibration statement.",
+      "searches": [
+        "cross-MMD exact Student t null law linear kernel Gaussian finite sample",
+        "permutation-free kernel two-sample linear kernel finite-sample t calibration",
+        "cross U-statistic exact t distribution Gaussian mean test sample splitting studentization",
+        "xMMD finite sample size distortion Gaussian normal calibration",
+        "scaled Student t cross MMD",
+        "cross MMD exact null calibration Student t Gaussian linear kernel"
+      ]
+    },
+    "rationale": "The directly relevant cross-MMD paper defines the same statistic/studentizer and proves a limiting standard-normal null law, but the inspected full-text definitions, null theorem, and targeted searches did not state the exact finite-sample scaled-Student law or its size correction. Published-finding searches for aliases and implications returned no covering result. The foundational cross-U article is broader in method but its accessible abstract describes Gaussian limiting calibration, not this exact two-sample specialization. Residual access risk is recorded rather than treated as novelty proof.",
+    "residual_risks": [
+      "Full-text access to the foundational cross-U article was incomplete in this run.",
+      "An older exact studentization result under terminology unrelated to cross-MMD may exist; targeted searches did not locate one."
+    ],
+    "risks": [
+      "The full body of the foundational cross-U-statistics article was not available through the attempted lawful access route; an elementary Gaussian special case under different notation remains a residual risk.",
+      "Older finite-sample studentization literature could contain an algebraically equivalent construction without cross-MMD terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_PREDECESSOR_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "The paper defines cross-MMD and its empirical variance and proves convergence to a standard Gaussian under the null. No exact finite-sample scaled-Student formula or correction was located in the inspected material.",
+        "identifier_or_url": "arXiv:2211.14908",
+        "material_read": "Full-text portions containing the statistic and variance estimator, the testing rule, the null asymptotic theorem, and targeted full-text searches for t-distribution, Student, finite-sample, and linear kernel; relevant PDF pages were visually inspected.",
+        "method": "Lawful arXiv full text plus page-level visual inspection.",
+        "title": "A Permutation-free Kernel Two-Sample Test",
+        "trigger": "Exact same cross-MMD statistic, studentizer, and normal calibration."
+      },
+      {
+        "assessment": "BROADER_METHOD_WITH_RESIDUAL_ACCESS_RISK",
+        "evidence": "Accessible text describes a Gaussian limiting distribution and examples including mean testing, but no exact finite-sample cross-MMD law was located.",
+        "identifier_or_url": "arXiv:2011.05068",
+        "material_read": "Public abstract, arXiv metadata, bibliographic record, and targeted search results; the attempted full-body access path was unavailable.",
+        "method": "Lawful public metadata/abstract and targeted searches.",
+        "title": "Dimension-agnostic inference using cross U-statistics",
+        "trigger": "Foundational sample-splitting and self-normalization framework underlying cross-MMD."
+      },
+      {
+        "assessment": "MSC_62G10_SUPPORT",
+        "evidence": "Kernel two-sample testing is classified under nonparametric hypothesis testing, MSC 62G10.",
+        "identifier_or_url": "Gretton et al., bibliographic MSC record",
+        "material_read": "Bibliographic classification record.",
+        "method": "Public bibliographic metadata.",
+        "title": "A kernel two-sample test",
+        "trigger": "Verify statistical subject ownership for kernel two-sample hypothesis testing."
+      }
+    ],
+    "sources": [
+      "arXiv:2211.14908v1",
+      "arXiv:2011.05068v1",
+      "published finding 2026/9/20/SCOPE-pure-n-way-dependence-student-t-size-iid-gaussian-marginals--06f336863f9d",
+      "published finding 2026/9/21/SCOPE-exact-dependence-jackknife-pseudovalues-u-statistics--28a7e700bc55"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d42d48d8-25bd-49a6-8979-19cdfff78ba3",
+  "value": {
+    "rationale": "The source method replaces permutations by asymptotic Gaussian calibration. An exact finite-sample benchmark therefore addresses a central calibration question rather than a decorative specialization. The distortion is quantitatively nontrivial: at nominal 5 percent and half-size 10, exact null size is about 6.80 percent. The formula also supplies a zero-simulation exact repair and isolates the leading inverse-half-size calibration tax, providing a diagnostic for finite-sample behavior of the cross/studentization mechanism.",
+    "risks": [
+      "The benchmark does not establish finite-sample behavior for characteristic nonlinear kernels, so its value is calibration insight rather than a universal cross-MMD correction."
+    ],
+    "sources": [
+      "arXiv:2211.14908v1 motivates permutation-free Gaussian calibration",
+      "exact law and verifier in this package"
+    ],
+    "status": "PASS"
+  }
+}
