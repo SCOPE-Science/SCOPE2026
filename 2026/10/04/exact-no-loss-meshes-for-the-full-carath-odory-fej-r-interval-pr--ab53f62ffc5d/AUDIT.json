@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The continuous optimum is reconstructed from Fejer-Riesz factorization and the top eigenvalue of a path adjacency matrix. The explicit extremizer has a completely identified contact set. Positive contact weights give the sharp upper bound on meshes divisible by 2(n+2). For a hypothetical off-mesh equality, finite LP duality forces every dual optimizer onto the continuous contact set; Chebyshev-Vandermonde uniqueness forces positive mass at every distinct contact cosine, and the contact fractions 3/(2(n+2)) and 5/(2(n+2)) then force the full divisibility. Unbounded aliased cases are handled separately. The included checker corroborates the algebraic identities and exact contact-grid arithmetic but is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1304.0071 Proposition 3.3 proves convergence of finite cyclic constants to the continuous constant for fixed finite support, but not exact equality at specified mesh sizes.",
+        "arXiv:1304.0071 Remark 7.4 gives finite-dimensional duality, but no inspected theorem supplies the divisibility condition 2(n+2) | N for the full interval.",
+        "arXiv:math/0302193 treats the general discretized problem and aliasing but does not state the all-degree no-loss mesh classification."
+      ],
+      "reasoning": "General LCA-group equivalences, convergence, and duality are broader frameworks, but none of the inspected results dominates the new statement because they do not decide equality versus strict relaxation for each finite grid.",
+      "searches": [
+        "positive definite finite cyclic group interval extremal Fourier coefficients",
+        "Carathéodory-Fejér finite cyclic interval",
+        "Turán positive definite finite cyclic group interval Carathéodory Fejer",
+        "positive definite Z_m Carathéodory Fejer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0302193",
+      "arXiv:1304.0071",
+      "2026/9/19/SCOPE-cyclic-chebyshev-obstruction-euler-prefactor--528d46ae115f",
+      "2026/9/19/SCOPE-sharp-fractional-discrete-fourier-trace-defects--bbf7e58277be"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior degree-two row concerns only the quadratic full-interval case, which is excluded here by the hypothesis n >= 3.",
+        "The prior singleton-harmonic row allows only one higher harmonic and therefore has a strictly different feasible set from the full interval of harmonics 2 through n.",
+        "The prior isolated-third-harmonic row is another singleton restriction and does not imply the full-interval theorem."
+      ],
+      "reasoning": "The new claim is an all-degree structural sampling criterion for the full harmonic interval. It neither repeats the excluded quadratic case nor follows from the previously studied singleton-harmonic problems.",
+      "searches": [
+        "own ledger: exact degree-two discretized Carathéodory-Fejér constant",
+        "own ledger: exact sampling rigidity singleton Carathéodory-Fejér extremals",
+        "own ledger: exact discrete Carathéodory-Fejér constant isolated third harmonic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0302193 defines the discretized quantity M_m(H) in Problem 4 and states M_m(H) >= M(H) in Remark 4.",
+        "arXiv:1304.0071 identifies the classical full-degree problem as M([0,n]) and formulates the finite cyclic analogue M_m.",
+        "The closest semantic database hit for the first two direct queries was 2026/9/19/SCOPE-cyclic-chebyshev-obstruction-euler-prefactor--528d46ae115f, whose statement concerns shifted Chebyshev interpolation rather than cyclic Carathéodory-Fejér sampling."
+      ],
+      "reasoning": "The same optimization was searched under trigonometric-polynomial, positive-definite-sequence, cyclic-grid, contact-root, and no-loss-sampling language. The directly matching sources formulate the finite problem but the inspected statements do not give the exact mesh equality criterion.",
+      "searches": [
+        "discretized Carathéodory-Fejér full degree n trigonometric polynomial finite cyclic grid exact equality continuous constant 2 cos(pi/(n+2)) divisibility sampling",
+        "finite grid nonnegative trigonometric polynomial degree n maximize first cosine coefficient Carathéodory Fejer sampled roots contact points",
+        "positive definite function on cyclic group interval support exact first coefficient equality with integer line Carathéodory Fejér",
+        "no-loss sampling criterion Fejer extremal polynomial zeros cyclic grid degree n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-string web searches did not return a matching formula or table; returned items were unrelated to the finite cyclic full-interval constant.",
+        "The semantic database searches returned no close finding whose claim specifies the same object, parameter pair, and divisibility criterion."
+      ],
+      "reasoning": "Absence from a search is not a novelty proof; it is used only as a supplementary check after inspection of the two most directly relevant full texts.",
+      "searches": [
+        "2(n+2) M_m Carathéodory Fejér",
+        "M_m [2,n] Carathéodory Fejér",
+        "M_m({2,...,n})",
+        "discretized Carathéodory-Fejér divisibility"
+      ]
+    },
+    "rationale": "The inspected primary full texts formulate the same discretized extremal problem and provide general comparison, equivalence, convergence, and duality results, but no inspected statement determines exactly which finite meshes already attain the classical full-degree value. The claim is also not implied by the prior quadratic or singleton-harmonic findings.",
+    "residual_risks": [
+      "An older result may encode the same mesh criterion under circulant positive-definite sequence, Toeplitz linear-programming, or graph-theoretic theta terminology. The directly matching full texts and targeted searches inspected here did not locate such a statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_FRAMEWORK_NOT_COVERING_EXACT_MESH_CRITERION",
+        "evidence": "Problem 4 defines M_m(H) and Remark 4 states M_m(H) >= M(H). The paper records continuous Carathéodory-Fejér values and duality, but the inspected text does not state the all-degree equality iff 2(n+2) divides the mesh size.",
+        "identifier_or_url": "arXiv:math/0302193",
+        "material_read": "ArXiv full text, especially the definitions of Phi_m(H) and M_m(H), the relaxation remark, the aliasing remark, and the continuous extremal/duality discussion.",
+        "method": "Lawful open-access arXiv full text; text extraction and page inspection.",
+        "title": "On pointwise estimates of positive definite functions with given support",
+        "trigger": "This is the primary source introducing the exact discretized Carathéodory-Fejér quantity M_m(H) used by the new claim."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_COVERING_EXACT_MESH_CRITERION",
+        "evidence": "Proposition 3.3 gives only the limit as the cyclic order tends to infinity for fixed finite support, while Remark 7.4 gives a duality identity. Neither inspected statement classifies exact equality at individual finite meshes.",
+        "identifier_or_url": "arXiv:1304.0071",
+        "material_read": "ArXiv full text, including the discrete M_m definition, the identification of the classical full-degree problem, Proposition 3.3 on finite-to-continuous convergence, and Remark 7.4 on finite duality.",
+        "method": "Lawful open-access arXiv full text; text extraction and page inspection.",
+        "title": "The Carathéodory-Fejér type extremal problem on locally compact Abelian groups",
+        "trigger": "This later paper is a natural stronger framework for the same finite cyclic positive-definite optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab53f62f-fc5d-4c2a-b443-0b0fcf39b59e",
+  "value": {
+    "rationale": "The discretized Carathéodory-Fejér problem is a canonical finite relaxation of a classical extremal problem. The result gives a complete arithmetic classification of all grids with zero relaxation gap in every degree n >= 3, rather than a numerical table or isolated small case. The contact-set rigidity and exact divisibility mechanism are reusable structural information for finite positive-definite and sampling problems.",
+    "status": "PASS"
+  }
+}
