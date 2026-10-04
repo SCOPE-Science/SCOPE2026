@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For disease-free spatially constant initial data with positive healthy density, the spore, latent, infectious, and removed variables are identically zero until the source senescence switch. The healthy density then follows a positive logistic equation. Immediately after the switch the printed removed equation has strictly negative derivative at the boundary \\(R=0\\), so the nonnegative cone is not forward invariant. The source finite-difference update has the same sign. Summing the four host equations independently reproduces the source total-density balance with the doubled senescence loss.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 Symmetry predecessor models healthy hosts and spores and explicitly proposes an HLIR split as future work; it has no removed-compartment senescence equation.",
+        "Rimbaud et al. use an HLIR plant-epidemic architecture in which infectious hosts become epidemiologically inactive in the removed class.",
+        "The broader sources establish the modeling context but do not contain the printed 2022 rice-blast HLIR system or the senescence-switch sign calculation."
+      ],
+      "reasoning": "Related plant-disease HLIR and spore-dispersal models motivate the state interpretation but do not dominate the source-specific positivity obstruction.",
+      "searches": [
+        "\"Healthy-Latent-Infectious-Removed\" plant disease senescence model",
+        "\"removed\" senescence \"rice blast\" mathematical model",
+        "Mathematical Model for Rice Blast Disease Caused by Spore Dispersion Affected from Climate Factors HLIR",
+        "Mosaics mixtures rotations pyramiding HLIR removed infectious plant disease"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023125",
+      "doi:10.3390/sym14061131",
+      "doi:10.1111/eva.12681"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The immediate predecessor cannot imply the finding because it has no \\(L\\), \\(I\\), or \\(R\\) compartments.",
+        "General HLIR literature defines epidemiological removal but does not contain the source-specific negative senescence term.",
+        "The counterexample uses the motivating article’s own Heaviside switch and disease-free invariant subsystem to force a negative derivative at \\(R=0\\)."
+      ],
+      "reasoning": "The final claim is not a generic positivity theorem or a restatement of HLIR semantics; it is an exact failure of one published model and its displayed numerical update.",
+      "searches": [
+        "rice blast HLIR positivity removed density senescence",
+        "plant disease HLIR nonnegative invariant removed compartment",
+        "spore dispersal HLIR rice blast model correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article prints the removed equation with a negative senescence term proportional to \\(H+L+I\\) and separately declares nonnegative initial data.",
+        "Exact-title and DOI searches returned the article and bibliographic mirrors but no erratum or correction.",
+        "No located record states the disease-free senescence-switch counterexample or an equivalent positive-cone failure."
+      ],
+      "reasoning": "The searched formulations cover the literal source, the sign defect, the invariant-state-space consequence, and equivalent compartmental language. A generic observation that compartment models should stay nonnegative would not imply the exact source trajectory and switch calculation.",
+      "searches": [
+        "\"An extension of mathematical model for severity of rice blast disease\" correction erratum",
+        "\"10.3934/math.2023125\" negative removed density",
+        "\"10.3934/math.2023125\" positivity removed compartment",
+        "rice blast HLIR model senescence removed compartment negative density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary publisher PDF was inspected at equations (2.12)–(2.24), including the Heaviside switch and removed equation.",
+        "The explicit update (2.28), nonnegative initial conditions, simulation initial values, and Table 1 values \\(r_G=0.209\\), \\(r_s=0.103\\), \\(K_G=5.524\\), \\(t_s=95\\) were inspected.",
+        "The primary PDF records publication on 2 November 2022 and Mathematics Subject Classification beginning with 92D25."
+      ],
+      "reasoning": "The counterexample is tied to the exact printed signs, switch convention, and parameter values rather than a secondary reconstruction.",
+      "searches": [
+        "doi:10.3934/math.2023125 equations 2.12 2.13 2.20 2.24",
+        "doi:10.3934/math.2023125 equation 2.28 initial conditions Table 1",
+        "doi:10.3934/math.2023125 published 2 November 2022 MSC 92D25"
+      ]
+    },
+    "rationale": "The immediate predecessor has no HLIR removed compartment, while the motivating article is the source of the new senescence term. Exact-title, DOI, positivity, nonnegative-density, removed-compartment, senescence, and HLIR-equivalence searches found no published correction or prior source-specific counterexample. Broader HLIR plant-disease literature uses a removed class but does not analyze this equation.",
+    "residual_risks": [
+      "An unindexed author note or code repository could contain a corrected implementation not surfaced by the article and exact-title searches.",
+      "The article’s fitted outbreak trajectories were not reimplemented, so the finding does not assert that the published figures visibly cross into negative removed density.",
+      "Choosing the biologically preferred corrected senescence transfer requires modeling information beyond the sign obstruction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NONNEGATIVE_STATE_SPACE_NOT_FORWARD_INVARIANT",
+        "evidence": "For disease-free positive \\(H\\), the switch leaves \\(I=L=R=0\\) but changes \\(\\partial_tR\\) to \\(-r_sH<0\\). The displayed Euler update has the same negative step.",
+        "identifier_or_url": "doi:10.3934/math.2023125",
+        "material_read": "Open full publisher PDF: disease-severity definition; model-extension discussion; Heaviside senescence switch; total-density equation (2.13); component equations (2.14)–(2.24); nonnegative initial conditions; explicit finite-difference construction (2.25)–(2.28); data initial conditions; Table 1; results discussion. Pages containing equations (2.14)–(2.18) and the full system (2.20)–(2.24) were visually inspected.",
+        "method": "Tested inward-pointing conditions on the boundary \\(R=0\\), constructed an invariant disease-free trajectory up to the switch, replayed the source parameter values, and summed the host equations.",
+        "title": "An extension of mathematical model for severity of rice blast disease",
+        "trigger": "Primary source introducing the HLIR extension and the disputed senescence term."
+      },
+      {
+        "assessment": "PREDECESSOR_DOES_NOT_CONTAIN_THE_REMOVED_SENESCENCE_TERM",
+        "evidence": "The predecessor tracks healthy host and spore densities and proposes an HLIR split only as future improvement.",
+        "identifier_or_url": "doi:10.3390/sym14061131",
+        "material_read": "Publisher abstract, model scope, conclusions, and future-work statement recommending separation of the host population into HLIR classes.",
+        "method": "Compared state variables and transfer structure with the later HLIR extension.",
+        "title": "Mathematical Model for Rice Blast Disease Caused by Spore Dispersion Affected from Climate Factors",
+        "trigger": "Immediate predecessor explicitly cited by the primary source for the spore-dispersal subsystem."
+      },
+      {
+        "assessment": "CONTEXTUAL_HLIR_PRIOR_NOT_COVERING_SOURCE_SPECIFIC_OBSTRUCTION",
+        "evidence": "The model overview states that infectious hosts become epidemiologically inactive in the removed class; it does not contain the 2022 rice-blast senescence equation.",
+        "identifier_or_url": "doi:10.1111/eva.12681",
+        "material_read": "Published abstract/record and model-overview description of the HLIR architecture.",
+        "method": "Checked whether the standard plant-disease HLIR state semantics imply or cover the rice-blast sign defect.",
+        "title": "Mosaics, mixtures, rotations or pyramiding: What is the optimal strategy to deploy major gene resistance?",
+        "trigger": "Earlier plant-epidemic use of the HLIR terminology and removed-state interpretation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d5b30b79-2eb5-442e-94a9-95b8aa1b1ad8",
+  "value": {
+    "rationale": "The removed density is used in the denominator of the paper’s disease-severity quantity and is one of the five simulated state variables. A model that can drive this density negative from admissible nonnegative data loses the compartment interpretation on which the severity calculation rests. The obstruction is exact, occurs under the paper’s own senescence mechanism and parameter scale, and identifies the precise equation that must be changed before positivity-based biological interpretation can be justified.",
+    "status": "PASS"
+  }
+}
