@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source exact normalization reduces the claim to a perturbation bound for the top eigenvalue. The difference kernel is pointwise nonnegative. Positive leading eigenfunctions and two Rayleigh-quotient comparisons give lambda_epsilon <= lambda_* and lambda_epsilon >= lambda_* - ||D_epsilon||; this does not assume that the difference kernel defines a positive-semidefinite operator. Its row integral is H_epsilon(x)+H_epsilon(1-x), with strictly concave H_epsilon, so the exact maximum occurs at x=1/2. Schur's test gives the stated operator-norm bound. The finite numerical check is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.30331v1 cites “Global bounds and parameter expansions for weighted LIL constants” as an unpublished manuscript",
+        "arXiv:2609.30331v1 Section 7 separately asks for an explicit remainder"
+      ],
+      "reasoning": "A plausible broader companion is acknowledged, but the public source itself labels it unpublished and still identifies the explicit unweighted remainder as open. No publicly inspectable broader theorem covering the displayed modulus was found.",
+      "searches": [
+        "Global bounds and parameter expansions for weighted LIL constants Moldavskaya",
+        "weighted LIL Schur unweighted boundary Moldavskaya"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30331v1",
+      "arXiv:2606.21006",
+      "Veillette–Taqqu (Bernoulli 2013)",
+      "Published finding records returned by the three actual database queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 5.1 uses only a local O(|alpha-1/2|) operator estimate",
+        "Section 7 states that an explicit remainder would quantify accuracy at an interior memory parameter."
+      ],
+      "reasoning": "An asymptotic O(epsilon) statement does not imply the explicit global modulus or the numerical two-sided enclosure. The new claim is strictly a quantitative refinement, not a new LIL or a new endpoint eigenvalue computation.",
+      "searches": [
+        "arXiv:2609.30331 Proposition 5.1 explicit remainder",
+        "arXiv:2609.30331 Section 7 explicit remainder"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.30331v1, Proposition 5.1 and Section 7",
+        "Published-record closest hit 2026/9/19/SCOPE-critical-power-log-dyadic-phase-location-moduli--144dcf8ab051"
+      ],
+      "reasoning": "Searches covered the weighted-LIL terminology, the exact source identifier, memory-boundary wording, Schur perturbation language, and the K_alpha/K_{1/2} formulation. Returned published records concern unrelated boundary or spectral problems and do not imply this operator estimate.",
+      "searches": [
+        "weighted law iterated logarithm long range dependence rank two unweighted boundary explicit remainder",
+        "Moldavskaya 2609.30331 unweighted memory boundary explicit remainder",
+        "K_alpha K_1/2 Schur test eigenvalue remainder weighted LIL"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published finding record was returned for the source title, source identifier, or K_alpha/K_{1/2} remainder query."
+      ],
+      "reasoning": "The closest indexed records address different objects. No exact table, certified interval database, or published finding supplied this epsilon-dependent bound.",
+      "searches": [
+        "weighted law iterated logarithm long range dependence rank two unweighted boundary explicit remainder",
+        "Moldavskaya 2609.30331 unweighted memory boundary explicit remainder",
+        "K_alpha K_1/2 Schur test eigenvalue remainder weighted LIL"
+      ]
+    },
+    "rationale": "The motivating source proves only an unspecified first-order remainder and explicitly names an explicit unweighted-boundary remainder as a further question. Searches of the published finding database and public web sources found no statement implying the closed-form modulus. The source-listed general-rank companion is unpublished and remains a disclosed residual risk.",
+    "residual_risks": [
+      "The source-listed 2026 companion manuscript is unpublished and could contain a related quantitative estimate that was not publicly inspectable.",
+      "A sharper perturbation theorem may exist under different operator notation; the searches did not identify one specialized enough to imply the displayed closed-form modulus."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact normalization and certified endpoint eigenvalue, but not an explicit unweighted-boundary remainder; Section 7 identifies that refinement as useful.",
+        "evidence": "Submitted 2026-09-24; primary MSC 60F15; Section 7 explicit-remainder statement.",
+        "identifier_or_url": "arXiv:2609.30331v1",
+        "material_read": "Abstract; model and normalization; Section 5 including Proposition 5.1 and Theorem 5.4; Section 7; references.",
+        "method": "Public HTML full text.",
+        "title": "Constants in the Weighted Law of the Iterated Logarithm under Long-Range Dependence: Hermite Rank Two",
+        "trigger": "Primary motivating source and exact object."
+      },
+      {
+        "assessment": "Inaccessible plausible source; cannot certify noncoverage, so retained as a residual originality risk.",
+        "evidence": "The primary source labels it “Unpublished manuscript”.",
+        "identifier_or_url": "bibliographic citation in arXiv:2609.30331v1",
+        "material_read": "No public manuscript located; only the bibliographic description in the primary source was available.",
+        "method": "Exact-title public web search plus inspection of the primary source references.",
+        "title": "Global bounds and parameter expansions for weighted LIL constants",
+        "trigger": "Potential broader coverage."
+      },
+      {
+        "assessment": "Supplies the stochastic LIL input, not the explicit spectral boundary remainder proved here.",
+        "evidence": "The motivating source explicitly takes that stochastic theorem as input and develops the rank-two spectral boundary separately.",
+        "identifier_or_url": "arXiv:2606.21006",
+        "material_read": "Bibliographic and theorem-role material as described and linked in the primary source.",
+        "method": "Public-source comparison/search.",
+        "title": "Law of the Iterated Logarithm for Weighted Sums of Functionals of Long-Memory Gaussian Sequences",
+        "trigger": "Underlying stochastic theorem cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cd8f718a-d578-4425-b6cd-ede00f1afaf9",
+  "value": {
+    "rationale": "The motivating source itself identifies an explicit remainder as useful for quantifying accuracy at a specified interior memory parameter. The result supplies exactly that: a closed-form, all-interior-parameter enclosure that combines directly with the source-certified endpoint eigenvalue. It is a structural operator bound rather than a recomputation of the endpoint constant, and it gives a reproducible numerical interval without a new eigenproblem.",
+    "status": "PASS"
+  }
+}
