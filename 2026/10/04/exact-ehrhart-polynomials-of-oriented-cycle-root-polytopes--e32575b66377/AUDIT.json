@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes the lattice and quantifiers, identifies the primitive cycle relation, computes the full lattice index of the non-semi-balanced simplex, obtains every fundamental-parallelepiped height, and uses standard circuit triangulations whose maximal cells are spanning-tree root simplices. The extended and semi-balanced cases are handled separately, including the all-one-direction and imbalance-one boundaries. The packaged verifier checks all orientations through cycle length eight using exact integer arithmetic and combinatorial h-polynomial reconstruction; the finite checks are explicitly not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2203.17127v4 explicitly scopes its Q_G h*-formula to semi-balanced digraphs; arbitrary digraphs appear there through other graph polytopes, not this non-extended un-semibalanced cycle formula.",
+        "arXiv:2304.03221v3 gives broader arbitrary-digraph results for the extended root polytope, but only degree and leading coefficient; those imply neither the complete coefficient sequence nor the non-extended simplex h* polynomial.",
+        "The 2025 Rietsch-Williams root-polytope introduction was searched as broader context; no exact oriented-cycle h* or imbalance formula was located."
+      ],
+      "reasoning": "The strongest directly relevant broader theorems either restrict Q_G to semi-balanced digraphs or retain only coarse h* data for the extended polytope. Therefore they do not dominate the final exact formulas.",
+      "searches": [
+        "database query: un-semibalanced cycle root polytope h star Ehrhart",
+        "database query: directed edge polytope cycle normalized volume Ehrhart balanced orientation",
+        "web: root polytope cycle orientation imbalance volume",
+        "web: directed root polytope cycle volume orientation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.00960v3",
+      "arXiv:2203.17127v4",
+      "arXiv:2304.03221v3",
+      "Rietsch-Williams, Root, flow and order polytopes with connections to toric geometry (2025), introduction/search context"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2105.00960v3 states that an un-semibalanced cycle root polytope is a simplex and then says it fails to be unimodular; it gives no determinant or h* formula for that simplex.",
+        "The exact lattice-index calculation here gives normalized volume |p-q|, which yields both non-unimodular cases and the imbalance-one unimodular boundary.",
+        "arXiv:2304.03221v3 predicts the degree b-1 of the extended-cycle polynomial once the cycle dijoin number is identified, but degree plus leading coefficient does not imply the full polynomial 1+t+...+t^(b-1)."
+      ],
+      "reasoning": "The prior implications stop strictly short of the final statement. One source's unqualified non-unimodularity sentence is not covering evidence because the exact index calculation exhibits the imbalance-one boundary; the final claim is independently proved rather than inferred from that sentence.",
+      "searches": [
+        "database query: un-semibalanced cycle root polytope unimodular volume",
+        "web: un-semibalanced cycle root polytope unimodular",
+        "web: cycle interior polynomial dijoin directed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2105.00960v3, Proposition 3.1 and the discussion after Lemma 3.5: cycle affine dependence is characterized; the paper develops h* theory primarily in the semi-balanced case.",
+        "arXiv:2304.03221v3, Theorems 1.1 and 1.3: for arbitrary digraphs the extended-root interior polynomial has degree and leading coefficient described by minimum dijoins, but no complete oriented-cycle coefficient formula is stated.",
+        "No exact-match research-record hit was returned for the oriented-cycle root-polytope coefficient formula under the listed query."
+      ],
+      "reasoning": "The final theorem is invariant under reversing the traversal and is naturally expressible by the unordered pair of directional edge counts. The inspected direct sources do not give an equivalent all-coefficient formula for both Q_C and its extension.",
+      "searches": [
+        "database query: oriented cycle root polytope h star exact Ehrhart polynomial orientation imbalance",
+        "database query: directed cycle extended root polytope interior polynomial exact coefficients",
+        "web: oriented cycle root polytope h*",
+        "web: interior polynomial directed cycle orientation h* cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact research-record hit for oriented-cycle root-polytope h* data was returned under the listed queries.",
+        "The directly relevant graph-polytope papers inspected contain structural theorems and activity formulas but no database or table of the final cycle formulas."
+      ],
+      "reasoning": "No known table or database located in the required overlap searches contains these cycle h*-polynomials or the |p-q| normalized-volume classification.",
+      "searches": [
+        "database query: root polytope un-semibalanced cycle Ehrhart",
+        "database query: oriented cycle directed edge polytope unimodular triangulation normalized volume",
+        "web: h* un-semibalanced cycle",
+        "web: Ehrhart un-semibalanced cycle"
+      ]
+    },
+    "rationale": "Targeted database and literature searches found the directed-root-polytope framework, semi-balanced h*-theory, and a later arbitrary-digraph theorem for only the degree and leading coefficient of the extended-root interior polynomial. Statement-level comparison found no source giving the final complete coefficient formulas for both Q_C and its extension or the exact |p-q| unimodularity boundary.",
+    "residual_risks": [
+      "A general lattice-circuit theorem outside the graph-root-polytope literature may specialize to the same h*-formulas without using the same terminology; targeted exact-formula and circuit searches did not locate one.",
+      "The 2025 Rietsch-Williams work is broad and was checked as context rather than exhaustively theorem-by-theorem; no exact oriented-cycle Ehrhart statement was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the final cycle h* formulas. It identifies the un-semibalanced cycle as a simplex but gives no exact volume formula; its blanket non-unimodularity sentence does not cover the independently proved imbalance-one case.",
+        "evidence": "arXiv first posted 2021-05-03; MSC 52B20 is listed first. Proposition 3.1 gives the cycle affine-dependence criterion; the discussion after Lemma 3.5 addresses un-semibalanced cycles.",
+        "identifier_or_url": "arXiv:2105.00960v3",
+        "material_read": "Full PDF introduction, Definitions 2.1 and semi-balanced setup, Proposition 3.1, Lemma 3.5 and surrounding cycle/unimodularity discussion, and Ehrhart-theory section.",
+        "method": "Lawful arXiv full text; statement and proof comparison.",
+        "title": "Root polytopes and Jaeger-type dissections for directed graphs",
+        "trigger": "Defines the exact directed root polytope and treats cycle dependence and semi-balanced h*-theory."
+      },
+      {
+        "assessment": "Its Q_G h*-results are explicitly for semi-balanced digraphs. It does not provide the non-semi-balanced cycle simplex formula or the arbitrary-orientation extended-cycle coefficient sequence.",
+        "evidence": "The introduction states that Q_G h*-polynomials are treated for semi-balanced G and that spanning-tree simplices are unimodular.",
+        "identifier_or_url": "arXiv:2203.17127v4",
+        "material_read": "Full PDF introduction and setup/results sections, including the stated scope of Q_G formulas and spanning-tree unimodularity.",
+        "method": "Lawful arXiv full text; scope and implication comparison.",
+        "title": "h*-vectors of graph polytopes using activities of dissecting spanning trees",
+        "trigger": "Most plausible later source for complete graph-root-polytope h* formulas."
+      },
+      {
+        "assessment": "Covers only the degree and leading coefficient in general. For a cycle it is compatible with degree b-1 but does not imply the complete coefficient sequence or the non-extended Q_C formula.",
+        "evidence": "Theorem 1.1 expresses degree using the minimum dijoin; Theorem 1.3 gives the leading coefficient.",
+        "identifier_or_url": "arXiv:2304.03221v3",
+        "material_read": "Full PDF introduction, Theorems 1.1 and 1.3, cycle/dijoin lemmas, and proof of the degree theorem.",
+        "method": "Lawful arXiv full text; theorem-level implication comparison.",
+        "title": "Degrees of interior polynomials and parking function enumerators",
+        "trigger": "Broadens the extended root-polytope interior polynomial to arbitrary directed graphs and could dominate an oriented-cycle statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e32575b6-6377-4048-b8d6-d804bc28dc7d",
+  "value": {
+    "rationale": "Cycles are the minimal dependent graphs and a canonical test family for directed root-polytopes. The result supplies complete Ehrhart data where the foundational source only records a simplex/non-unimodularity observation, refines the later arbitrary-digraph degree theorem to every coefficient in this natural family, proves orientation-placement independence, and identifies the exact unimodularity boundary. This is a structural classification, not an arbitrary finite slice or table recomputation.",
+    "status": "PASS"
+  }
+}
