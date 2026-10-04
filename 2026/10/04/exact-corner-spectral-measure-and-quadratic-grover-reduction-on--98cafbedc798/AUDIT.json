@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every \\(0<p<1\\), direct substitution into the exact source matrix gives the four eigenvalues \\(0,p,2-p,2\\) and the displayed eigenfunctions. Their norms in the reversible measure give the corner weights exactly. Tensor-product spectral resolution proves the iid convolution law for every integer \\(d\\ge1\\). The sign-pair parametrization proves the support bound and irrational-\\(p\\) distinctness; the \\(p=1/2\\) interval argument proves the \\(4d+1\\) count. Spectral-projection cyclic-space theory then proves exact invariance under the rank-one oracle and inclusion of the constant ground state. The standard-library checker independently reproduces these identities for exact rational test cases but is not used to infer the quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2204.04355 treats normalized adjacency on undirected Hamming and other distance-regular graphs",
+        "arXiv:2201.05693 treats substitution graphs via spectral decimation and Schur complements"
+      ],
+      "reasoning": "The nearby broader theories cover different graph/operator classes. Standard Hamming symmetry does not supply the p-dependent four-atom corner weights, while spectral decimation is based on edge substitution rather than the normalized Cartesian sum with a corner oracle.",
+      "searches": [
+        "Hamming graph spatial search spectral support target vertex",
+        "weighted hypercube continuous-time quantum search Green function",
+        "arXiv:2204.04355",
+        "arXiv:2201.05693"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.01686",
+      "DOI:10.1007/s11128-023-04212-w",
+      "arXiv:2201.05693",
+      "arXiv:2204.04355"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source gives the normalized Kronecker-sum construction and generic formula G_gamma(z,w,w)=sum |a_{w,lambda}|^2/(gamma lambda-z).",
+        "The source performs numerical \\(d=5\\) corner-target calculations on \\(1024\\) vertices.",
+        "Chan-Godsil-Tamon-Xie give Hamming eigenvalues and asymptotic spatial-search criteria, not the weighted P4 product corner measure."
+      ],
+      "reasoning": "Generic tensor-product eigenvector facts are ingredients, but the source-specific overlap weights, arithmetic support collapse, exact cyclic-space dimension, and resulting reduced oracle Hamiltonian require additional derivation. None of the inspected prior statements directly implies that combined conclusion as a stated corollary.",
+      "searches": [
+        "arXiv:2207.01686 Section 3 hypercubic lattices",
+        "arXiv:2207.01686 Lemma 2.1 Green function",
+        "arXiv:2201.05693 Cartesian Kronecker oracle",
+        "arXiv:2204.04355 Hamming hypercube spatial search"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2207.01686, Sections 2-3 and Figures 1-2",
+        "arXiv:2204.04355, introduction and Hamming-graph example"
+      ],
+      "reasoning": "Searches were aimed at equivalent language involving corner spectral measures, cyclic/Krylov subspaces, rank-one perturbations and Green functions. The motivating source provides the generic Green expansion but not the explicit product-corner measure or cyclic dimension. The Hamming paper gives ordinary Hamming spectra and search criteria, not this reversible weighted P4 product.",
+      "searches": [
+        "\"Kronecker sum\" Grover weighted hypercube corner spectral measure quantum walk",
+        "\"corner spectral measure\" hypercube quantum walk probabilistic Laplacian",
+        "\"rank-one perturbation\" hypercube Green function Grover search weighted graph",
+        "\"cyclic subspace\" Cartesian product graph quantum search corner",
+        "arXiv:2207.01686",
+        "arXiv:2204.04355"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved scientific record stated the four-point corner law, the quadratic active-space bound, or the 4d+1 homogeneous count for this family.",
+        "The motivating numerical table in arXiv:2207.01686 reports \\(d=5\\) search quantities rather than an exact spectral-support table."
+      ],
+      "reasoning": "Queries included the exact objects, parameters, reductions and equivalent Green-function language. Retrieved nearest records concerned unrelated hypercube invariants or generic tensor/spectral topics and did not dominate the claim.",
+      "searches": [
+        "corner spectral measure d-fold Cartesian power probabilistic Laplacian rank-one Grover cyclic subspace",
+        "four-state path Cartesian power corner target exact Green function d+1 squared",
+        "weighted directed hypercubic lattice Grover search exact spectral measure corner",
+        "Kronecker sum corner spectral measure cyclic dimension quantum search"
+      ]
+    },
+    "rationale": "The motivating paper defines the weighted four-state path, normalized Cartesian powers, rank-one oracle, Green function, and a \\(1024\\)-state \\(d=5\\) numerical corner search, but does not state the four-atom corner measure, the at-most-\\((d+1)^2\\) active dimension, the exact \\(4d+1\\) homogeneous count, or the reduced Hamiltonian. The closest inspected papers address edge-substitution spectral decimation or standard undirected Hamming/distance-regular spatial search. Targeted searches found no statement implying the full source-specific claim.",
+    "residual_risks": [
+      "An equivalent abstract tensor-product Krylov-subspace theorem may exist under numerical-linear-algebra or association-scheme terminology and imply the reduction after specialization.",
+      "For rational \\(p\\), additional arithmetic collisions occur; only the universal upper bound and the homogeneous closed count are claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: supplies premises and numerical motivation but not the explicit corner spectral law or exact active-space reduction.",
+        "evidence": "arXiv:2207.01686; especially equations corresponding to the Green expansion and the Section 3 product construction.",
+        "identifier_or_url": "arXiv:2207.01686",
+        "material_read": "Full text relevant to the claim: definitions of the Hamiltonian and Green function in Section 2; Section 3 construction, Figures 1-2, reversible measure, normalized Kronecker sum, and \\(d=5\\) numerical section.",
+        "method": "Compared the exact objects, spectral coefficients, dimensional reduction and implications statement by statement.",
+        "title": "Quantitative approach to Grover's quantum walk on graphs",
+        "trigger": "Same weighted four-state path, Cartesian powers, corner target and rank-one oracle."
+      },
+      {
+        "assessment": "NOT_COVERING: the paper studies edge-substitution graphs and Schur-complement spectral decimation, not Cartesian powers with the claimed corner measure and oracle cyclic space.",
+        "evidence": "arXiv:2201.05693, Sections 1-5.",
+        "identifier_or_url": "arXiv:2201.05693",
+        "material_read": "Abstract, introduction, substitution-operator construction, spectral-decimation framework, and one-dimensional section structure; full text searched for Cartesian, Kronecker and oracle terminology.",
+        "method": "Compared graph construction and spectral mechanism with the Cartesian-product rank-one search problem.",
+        "title": "Spectral decimation of piecewise centrosymmetric Jacobi operators on graphs",
+        "trigger": "Same authors and closely related probabilistic path Laplacians."
+      },
+      {
+        "assessment": "NOT_COVERING: proves optimal-search criteria for undirected Hamming/distance-regular graphs but not the p-dependent reversible four-state Cartesian family or its exact corner cyclic dimension.",
+        "evidence": "arXiv:2204.04355, Sections 1 and 7.",
+        "identifier_or_url": "arXiv:2204.04355",
+        "material_read": "Introduction, main spatial-search setup, and Hamming-graph example; full text searched for Kronecker-product terminology.",
+        "method": "Compared operator normalization, graph family, target spectral support and claimed reduction.",
+        "title": "Of Shadows and Gaps in Spatial Search",
+        "trigger": "Broader continuous-time spatial-search theory explicitly covering Hamming graphs and the binary cube."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "98cafbed-c798-4764-be3e-8c5fd18d6a13",
+  "value": {
+    "rationale": "The motivating work numerically diagonalizes and evolves a corner-target \\(d=5\\) model with \\(1024\\) ambient states and proposes varying the product dimension and non-homogeneity. The new structural lemma reduces the exact search-active problem to at most \\((d+1)^2\\) states, with \\(21\\) states in the homogeneous \\(d=5\\) case, while retaining the exact Green function and success amplitude. The reduction therefore addresses the central computational object of the source and scales polynomially in \\(d\\) rather than exponentially in the ambient product dimension.",
+    "status": "PASS"
+  }
+}
