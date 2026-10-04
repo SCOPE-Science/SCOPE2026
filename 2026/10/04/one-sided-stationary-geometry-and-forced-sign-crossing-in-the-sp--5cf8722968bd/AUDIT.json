@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The conditional laws follow from exact generator identities against arbitrary one-coordinate test functions on compact support. The backward formula for y proves strict positivity on bounded complete trajectories. The mean defect is exactly Var(x), equality is rigid at the unique equilibrium, and the sign argument for yz forces every other compact invariant measure to use both z half-spaces. Exact rational replay returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wei--Moroz--Liu (2014), DOI 10.3906/mat-1305-64, studies degenerate Hopf bifurcations, hidden attractors and control in an extended Sprott E system.",
+        "Xu--Wu (2015), DOI 10.1007/s11633-014-0852-z, studies local stability and Hopf bifurcation under distributed-delay feedback."
+      ],
+      "reasoning": "Bifurcation, synchronization, and control results do not imply that every compact invariant measure of the unmodified flow straddles z=0 or that all bounded complete trajectories lie in y>0.",
+      "searches": [
+        "Sprott E compact invariant probability measure y nonnegative z changes sign",
+        "Sprott E periodic orbit z changes sign y positive time average"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1103/PhysRevE.50.R647",
+      "DML-CZ:143372",
+      "doi:10.3906/mat-1305-64",
+      "doi:10.1007/s11633-014-0852-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sprott (1994), DOI 10.1103/PhysRevE.50.R647, introduces the simple chaotic-flow family and reports critical points, Lyapunov exponents and fractal dimensions.",
+        "Wei--Wang (2013) explicitly states the Sprott E equations but develops an extended feedback-controlled system and synchronization analysis."
+      ],
+      "reasoning": "The final claim is not a corollary of a critical-point table, Lyapunov data, or local bifurcation/control analysis. Its support positivity, sharp defect, equality rigidity and two-sided recurrence require the additional global complete-trajectory and invariant-measure arguments.",
+      "searches": [
+        "Sprott E stationary conditional law invariant probability measure mean y variance x",
+        "Sprott E periodic orbit mean x 1/4 mean y variance x"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wei--Wang (2013), DML-CZ:143372, gives the generalized equations and explicitly identifies h=0 with Sprott E; its abstract and body focus on attractors, period-doubling, Lyapunov analysis and synchronization.",
+        "published-finding corpus exact-claim searches returned analogous stationary results for other flows but no Sprott E record."
+      ],
+      "reasoning": "No inspected same-object source gives an equivalent conditional-expectation or mean-defect formulation. The conditional laws require applying invariance to arbitrary one-coordinate test functions, not merely averaging the displayed ODE once.",
+      "searches": [
+        "Sprott E invariant measure conditional laws E[yz|x]=0 E[x^2|y]=y E[x|z]=1/4",
+        "Sprott E stationary mean y 1/16 Var(x) recurrence z sign crossing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records concern Shimizu--Morioka, Rabinovich--Fabrikant, Rössler, and other vector fields; no returned record names Sprott E."
+      ],
+      "reasoning": "The returned database records are analogies, not covering statements. Their polynomial generators and equality sets differ, so none implies the Sprott E theorem.",
+      "searches": [
+        "Sprott E exact stationary moment identities",
+        "Sprott E flow x'=yz y'=x^2-y z'=1-4x compact invariant measure positive y z sign crossing"
+      ]
+    },
+    "rationale": "Same-object literature inspected covers chaotic attractors, period doubling, synchronization, hidden attractors, Hopf bifurcation and delay-feedback control. Exact published-finding corpus and web searches found no statement implying the final invariant-measure theorem.",
+    "residual_risks": [
+      "The 1994 publisher full text could not be inspected; exact equations were instead verified in a later full-text source explicitly identifying the unmodified Sprott E case.",
+      "The 2014 and 2015 comparison papers were inspected at abstract/statement level rather than line-by-line full proof text.",
+      "Unindexed literature may formulate related statements using time averages, occupation measures, or statistical solutions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_DATE_SUPPORT and original-family context; not used alone for noncoverage.",
+        "evidence": "Published 1 August 1994; abstract states the search for 19 simple chaotic flows and reports critical points, Lyapunov exponents and fractal dimensions.",
+        "identifier_or_url": "doi:10.1103/PhysRevE.50.R647",
+        "material_read": "Publisher bibliographic page and abstract, including publication date and stated scope.",
+        "method": "Publisher HTML inspection; full publisher PDF unavailable.",
+        "title": "Some simple chaotic flows",
+        "trigger": "Earliest Sprott E source and archive-cohort date."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING: exact equations and ownership verified; stated analysis concerns attractors, bifurcation, Lyapunov exponents and synchronization.",
+        "evidence": "Section 2 displays xdot=yz+h(x), ydot=x^2-y, zdot=1-4x and identifies h=0 with Sprott E.",
+        "identifier_or_url": "DML-CZ:143372",
+        "material_read": "Full PDF, including Classification 34H10, 34H20 and the displayed generalized equations; the text explicitly states that e=f=g=0 is Sprott E.",
+        "method": "Open DML-CZ full-text inspection.",
+        "title": "Chaotic behavior and modified function projective synchronization of a simple system with one stable equilibrium",
+        "trigger": "Closest full-text same-object source and primary-MSC verification."
+      },
+      {
+        "assessment": "NOT_COVERING on inspected material; concerns extended-system Hopf bifurcations, hidden attractors and adaptive control.",
+        "evidence": "Abstract states those objectives and does not state invariant-measure or recurrence-half-space laws.",
+        "identifier_or_url": "doi:10.3906/mat-1305-64",
+        "material_read": "Journal abstract and bibliographic page.",
+        "method": "Publisher HTML inspection.",
+        "title": "Degenerate Hopf bifurcations, hidden attractors, and control in the extended Sprott E system with only one stable equilibrium",
+        "trigger": "Plausible stronger same-family analytical coverage."
+      },
+      {
+        "assessment": "NOT_COVERING on inspected material; studies delayed feedback, local stability and Hopf bifurcation.",
+        "evidence": "Abstract states characteristic-equation, normal-form and center-manifold analysis for delayed feedback.",
+        "identifier_or_url": "doi:10.1007/s11633-014-0852-z",
+        "material_read": "Journal abstract and bibliographic page.",
+        "method": "Publisher HTML inspection.",
+        "title": "Chaos Control and Bifurcation Behavior for a Sprott E System with Distributed Delay Feedback",
+        "trigger": "Potential same-object recurrence/bifurcation coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5cf87229-68bd-4d2b-8520-63f78c34d95b",
+  "value": {
+    "rationale": "The result gives exact global statistical and recurrence constraints for a canonical sparse chaotic flow. The strict one-sided support geometry, equilibrium-normalized variance defect, and mandatory z-sign crossing apply to every compact invariant measure and every nonconstant periodic orbit, not to an arbitrary finite computation or chosen parameter slice.",
+    "status": "PASS"
+  }
+}
