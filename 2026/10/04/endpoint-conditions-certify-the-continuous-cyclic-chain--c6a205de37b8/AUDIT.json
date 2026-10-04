@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation yields a closed sign system. Initial signs follow from the source static inequalities. The invariant \\(A+B=\\kappa+D>0\\) prevents simultaneous loss of \\(A\\) and \\(B\\); exact terminal matching forces \\(B(s)=u+v-d>0\\), excluding any earlier zero of \\(B\\). Monotonicity then gives positivity of \\(x,y,1-x-y\\). Bounded \\(L\\) and \\(E'=-LE\\) exclude a denominator singularity. The symbolic checker independently reproduces all differential and initial identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.06558v1, Lemma 5.2 and Theorem 5.3 provide finite-step control under step-size hypotheses; Section 7 separately introduces the continuous model.",
+        "published-finding corpus hit 2026/9/17/SCOPE011 concerns a Riesz-capacity deformation on different objects."
+      ],
+      "reasoning": "The finite-step theorem does not dominate the continuous statement without a limiting theorem; the source itself treats the continuum separately and leaves its pathwise verification unresolved.",
+      "searches": [
+        "Lian Xue Yuan continuous model pathwise feasibility ODE monotonicity homothetic triangles",
+        "continuous cyclic-chain feasibility A B monotonicity endpoint homothetic triangles",
+        "\"Non-Separable Homothetic Triangles\" continuous chain endpoint"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.06558v1",
+      "published-finding corpus semantic-search results for the six recorded final queries",
+      "Web search results for the three recorded phrase/alias queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source identities define \\(R,Y,E,x,y\\) but do not derive \\(E'=-LE\\), \\(A'=rB+yA\\), \\(B'=-(rB+yA)\\), or use \\(A+B=\\kappa+D\\) to eliminate pathwise checks.",
+        "The source expressly distinguishes its sampled continuous candidate from a proof of pathwise feasibility."
+      ],
+      "reasoning": "The new implication is endpoint equations plus static inequalities ⇒ every pathwise feasibility inequality. Prior finite examples, numerical node checks, and the finite-step lemma do not imply that statement as written.",
+      "searches": [
+        "continuous cyclic contact chains non-separable homothetic triangles pathwise feasibility endpoint conditions",
+        "Lian Xue Yuan continuous model pathwise feasibility ODE monotonicity homothetic triangles",
+        "pathwise feasibility continuous model non-separable homothetic triangles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.06558v1, Sections 5 and 7: continuous variables, endpoint equations, and listed pathwise constraints; the source states node checks do not establish pathwise feasibility.",
+        "published-finding corpus closest hit 2026/9/18/SCOPE-lab-boundary-attractor-degeneration-rates--2604f6e90e43 concerns mesh-bisection dynamics, not homothetic-triangle chains."
+      ],
+      "reasoning": "No equivalent endpoint-certification statement was found. The new claim is not a restatement of the source endpoint equations: it proves that those equations imply all intervening inequalities.",
+      "searches": [
+        "continuous cyclic contact chains non-separable homothetic triangles pathwise feasibility endpoint conditions",
+        "endpoint conditions certify continuous cyclic chain non-separable homothetic triangles",
+        "\"continuous model\" \"pathwise feasibility\" \"non-separable homothetic triangles\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches over published findings returned no homothetic-triangle continuous-chain endpoint theorem among the top 30 results for each query.",
+        "The current literature source arXiv:2609.06558v1 was inspected in the sections defining the recurrence and continuous model."
+      ],
+      "reasoning": "No database/table entry or published finding located by the required searches contains the claimed monotonicity system or the consequence that endpoint matching certifies the full path.",
+      "searches": [
+        "homothetic triangles continuous chain endpoint certification A B monotonicity",
+        "pathwise feasibility continuous model non-separable homothetic triangles",
+        "\"R(t)\" \"Y(t)\" \"E(t)\" homothetic triangles"
+      ]
+    },
+    "rationale": "The closest primary source explicitly leaves continuous pathwise feasibility uncertified for its numerical candidate and supplies no endpoint-to-path theorem. Direct full-text comparison shows its finite-step lemma is a discrete sign-control statement, not the continuous differential invariant proved here. Targeted semantic searches returned no statement implying the endpoint certification theorem.",
+    "residual_risks": [
+      "The primary source is very recent, so unindexed contemporaneous work could exist.",
+      "The theorem is conditional on exact endpoint matching; it does not establish that the source rounded numerical parameters solve those equations exactly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source supplies the model and finite discrete sign control, but explicitly does not certify pathwise feasibility of its continuous numerical candidate and does not state the endpoint-certification theorem.",
+        "evidence": "Section 7 lists denominator and sign inequalities as path requirements and says endpoint/node numerical checks do not establish pathwise feasibility or optimality.",
+        "identifier_or_url": "arXiv:2609.06558v1",
+        "material_read": "Full relevant text of Sections 5 and 7, including transformed recurrence variables, Lemma 5.2, terminal branch, continuous equations (7.1)--(7.3), numerical candidate, and stated limitations.",
+        "method": "Direct full-text inspection and equation-by-equation implication comparison.",
+        "title": "Non-Separable Homothetic Triangles, Part I: Constructions and Lower Bounds",
+        "trigger": "Primary source defining the continuous model and the exact gap addressed."
+      },
+      {
+        "assessment": "NOT_COVERING: closest hits concern unrelated geometric/dynamical objects.",
+        "evidence": "No returned title/summary involved the Lian--Xue--Yuan continuous cyclic chain or an endpoint-to-path feasibility implication.",
+        "identifier_or_url": "queries listed in the four originality checks",
+        "material_read": "Titles and summaries of the top 30 results for each final targeted query.",
+        "method": "Semantic search followed by statement-level comparison of the closest hits.",
+        "title": "published-finding corpus semantic search corpus",
+        "trigger": "Required overlap search for aliases, equivalent formulations, and stronger implications."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6a205de-37b8-4c9e-b58f-e31f49d2301e",
+  "value": {
+    "rationale": "The source introduces a continuous optimization problem but identifies pathwise feasibility as an unresolved verification burden for its numerical candidate. The theorem removes that infinite family of trajectory constraints for any exact endpoint solution and replaces it by endpoint certification, a structural reduction directly useful for rigorous optimization and future finite-to-continuous analysis. It is not merely a numerical recomputation or parameter substitution.",
+    "status": "PASS"
+  }
+}
