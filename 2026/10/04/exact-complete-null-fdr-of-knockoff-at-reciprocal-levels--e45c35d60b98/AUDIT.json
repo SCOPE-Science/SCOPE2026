@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The published conditional sign-flip property reduces the complete-null rule exactly to iid fair signs. Algebra turns the reciprocal Knockoff+ prefix criterion into first hitting of level r by a +1/-r walk. Strong Markov factorization gives F(z)^r, Lagrange inversion gives the exact coefficients, and exact-rational dynamic programming plus exhaustive short-string checks replay the identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rajchert and Keich study whether smaller additive corrections preserve FDR control.",
+        "Ren and Barber identify a stopping-time/e-BH representation of knockoffs.",
+        "A 2026 dependence paper emphasizes that valid knockoffs require conditional iid fair signs and studies failures when that property is absent."
+      ],
+      "reasoning": "These papers cover the surrounding threshold theory but not the complete-null reciprocal-level hitting distribution or its exact limiting constant.",
+      "searches": [
+        "Controlling the False Discovery Rate via Competition is the +1 needed",
+        "Derandomised knockoffs leveraging e-values stopping time",
+        "Mirror and knockoff+ thresholds under dependence fair coin flips"
+      ]
+    },
+    "checked_sources": [
+      "Candès et al., arXiv:1610.02351 / JRSSB 2018",
+      "Rajchert and Keich, arXiv:2204.13248 / Statistics & Probability Letters 2023",
+      "Ren and Barber, DOI 10.1093/jrsssb/qkad085",
+      "Barber and Candès, arXiv:1404.5609 (background predecessor identified by the primary sources)",
+      "Zhang, arXiv:2607.17084 (recent dependence comparison, abstract-level check)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Candès et al. prove iid null signs conditional on magnitudes and FDR control for the +1 threshold, without evaluating the attained complete-null FDR.",
+        "Rajchert and Keich focus on necessity of the correction under broader sequences.",
+        "Ren and Barber use the stopping rule to construct e-values, without the all-null first-passage distribution."
+      ],
+      "reasoning": "The final theorem requires a new implication chain: complete-null FDP reduces FDR to selection probability; reciprocal thresholding becomes a skip-free first-passage event; its generating function is solved exactly. None of the inspected sources states that chain or the final formula.",
+      "searches": [
+        "Panning for Gold Model-X knockoffs Lemma 3.3 Theorem 3.4",
+        "Controlling the FDR via competition +1 needed SSS+",
+        "Derandomised knockoffs e-BH equivalence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching research record was returned for the reciprocal-level Fuss-Catalan or golden-ratio formulations.",
+        "Candès et al. state the iid sign property and Knockoff+ threshold but only the inequality FDR <= q."
+      ],
+      "reasoning": "The searches covered random-walk, first-passage, all-null, reciprocal-level, and algebraic-root aliases. The exact attained FDR law is not implied as a stated result by the located records, although it follows from the published ingredients plus the new specialization.",
+      "searches": [
+        "knockoff+ global null Fuss-Catalan first passage fair signs",
+        "knockoff+ global null exact FDR reciprocal level 1/r",
+        "knockoff+ golden ratio q=1/2 global null",
+        "knockoff+ all-null selection probability random walk",
+        "model-X knockoff+ conservativeness complete null exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database record with the same formula, constants, or first-passage coefficients was located."
+      ],
+      "reasoning": "Absence from search is not treated as novelty proof; it is only supporting evidence combined with direct inspection of the closest primary sources.",
+      "searches": [
+        "knockoff+ global null exact FDR reciprocal level 1/r",
+        "knockoff+ golden ratio q=1/2 global null"
+      ]
+    },
+    "rationale": "The inspected knockoff sources establish sign symmetry, FDR control, +1 necessity, and stopping-time/e-value interpretations, but none of the inspected material states the complete-null reciprocal-level finite Fuss-Catalan law or the limiting root formula. Targeted semantic searches also returned no equivalent record. Residual older ballot/competition literature risk is retained.",
+    "residual_risks": [
+      "The same all-null specialization may appear in older target-decoy, ballot-theorem, or sequential-testing literature under different notation.",
+      "Because the first-passage coefficients are classical, novelty attaches to the exact Knockoff+ identification and calibration consequence, not to Lagrange inversion or generalized Catalan numbers themselves."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact complete-null reciprocal-level finite or limiting FDR law.",
+        "evidence": "Lemma 3.3 gives iid fair null signs conditional on magnitudes; Theorem 3.4 defines the +1 threshold and proves FDR <= q.",
+        "identifier_or_url": "arXiv:1610.02351",
+        "material_read": "Full arXiv HTML around feature statistics, Lemma 3.3, and Section 3.3 including Theorem 3.4.",
+        "method": "Direct full-text HTML inspection and targeted in-page searches.",
+        "title": "Panning for Gold: Model-X Knockoffs for High-dimensional Controlled Variable Selection",
+        "trigger": "Foundational source for the exact conditional sign law and Knockoff+ threshold."
+      },
+      {
+        "assessment": "NOT_COVERING the attained complete-null FDR of the original +1 rule.",
+        "evidence": "The paper analyzes when reducing +1 changes the rule or destroys control; it does not state the first-passage/Fuss-Catalan law for t=1 under all nulls.",
+        "identifier_or_url": "arXiv:2204.13248",
+        "material_read": "Full arXiv HTML introduction, equivalent-threshold section, and the beginning of the uncontrolled-FDR construction.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Controlling the False Discovery Rate via Competition: is the +1 needed?",
+        "trigger": "Directly studies the +1 term and rational reciprocal thresholds in competition-based FDR control."
+      },
+      {
+        "assessment": "NOT_COVERING the exact complete-null first-passage law.",
+        "evidence": "The article proves e-value validity and threshold equivalence; targeted search found no global-null formula.",
+        "identifier_or_url": "doi:10.1093/jrsssb/qkad085",
+        "material_read": "Full journal HTML around Section 2.1, stopping-time remarks, and appendix proof passages using iid coin-flip signs.",
+        "method": "Direct full-text HTML inspection and targeted searches for global null and conservatism.",
+        "title": "Derandomised knockoffs: leveraging e-values for false discovery rate control",
+        "trigger": "Closest structural reinterpretation of the knockoff threshold as a stopping-time/e-BH procedure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e45c35d6-0b98-4cf9-bb55-20f199317e1b",
+  "value": {
+    "rationale": "The theorem supplies an exact finite-sample and asymptotic calibration baseline for a widely used FDR procedure and quantifies severe complete-null conservatism at q=0.1. It distinguishes the nominal worst-case guarantee from attained all-null error and is useful for implementation checks and for assessing approximate/dependent variants.",
+    "status": "PASS"
+  }
+}
