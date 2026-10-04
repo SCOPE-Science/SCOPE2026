@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution into the standard scaled ADMM update yields the inactive threshold-input recurrence, the strict first-activation inequality, and the active affine recurrence. The boundary case where the threshold input equals \\(\\lambda/\\rho\\) is handled by the strict soft-threshold rule. Minimality of the activation index proves \\(0<z^{j_*}<b-\\lambda\\), so the nonzero geometric error factor \\(\\rho/(1+\\rho)\\) can never vanish at a finite iteration. The active-cell Jacobian is upper triangular with eigenvalues \\(\\rho/(1+\\rho)\\) and \\(0\\). Exact-rational replay checks representative cases but is not used to justify the universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1412.6858, Theorem 3.1, proves activity identification only for sufficiently large iteration index under partial smoothness.",
+        "arXiv:1606.02116 separates finite activity identification/local linear convergence from a finite-convergence theorem for Douglas–Rachford under additional local hypotheses."
+      ],
+      "reasoning": "The broader theorems cover eventual identification and local rates but do not imply finite termination of this scalar ADMM state, nor do they dominate the exact onset law.",
+      "searches": [
+        "ADMM Lasso exact active set identification index local rate rho",
+        "arXiv:1412.6858",
+        "arXiv:1606.02116"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1412.6858",
+      "doi:10.1109/ICASSP.2016.7472579",
+      "arXiv:1606.02116"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1109/ICASSP.2016.7472579, Theorem 1(c1), supports finite active-set identification.",
+        "doi:10.1109/ICASSP.2016.7472579, Theorem 1(c3), makes the opposite finite-termination assertion for \\(K=I\\) in the anisotropic case.",
+        "arXiv:1412.6858 does not strengthen eventual identification to whole-state finite termination."
+      ],
+      "reasoning": "The prior results do not imply the accepted claim. Instead, the exact scalar instance falsifies the stronger 2016 finite-termination conclusion while agreeing with the established finite-identification conclusion.",
+      "searches": [
+        "\"whole algorithm converges in finite time\" ADMM Lasso",
+        "\"finite time\" ADMM Lasso K=Id rho",
+        "Dohmatob Eickenberg Thirion Varoquaux finite convergence Lasso ADMM"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2016 paper's Eq. (2) specializes exactly to the recurrence used here; its Theorem 1(c3) states finite whole-algorithm convergence for the K=I anisotropic case.",
+        "No inspected source stated the exact first-positive-index formula or the geometric nontermination formula for this scalar specialization."
+      ],
+      "reasoning": "Equivalent scaled-dual and Douglas–Rachford formulations were checked at the statement level. The new claim is not a renaming: it separates finite support identification from exact finite termination and provides an explicit recurrence that disproves the latter.",
+      "searches": [
+        "scalar Lasso ADMM finite convergence counterexample large rho",
+        "\"Dohmatob\" finite time Lasso ADMM counterexample",
+        "doi:10.1109/ICASSP.2016.7472579"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected ADMM literature reports qualitative finite identification and numerical iteration histories rather than a table or database containing this exact scalar threshold index.",
+        "The exact witness b=2, lambda=1, rho=1 follows symbolically and is not a recomputation of a tabulated benchmark."
+      ],
+      "reasoning": "The result is a closed-form recurrence and correction to a theorem statement, not an extraction or recomputation of a known numerical table.",
+      "searches": [
+        "support identification ADMM soft threshold exact formula",
+        "scalar Lasso ADMM exact support identification iteration penalty rho soft threshold"
+      ]
+    },
+    "rationale": "The closest inspected sources establish eventual activity identification and local linear behavior, while one 2016 source makes the stronger finite-termination statement that the scalar calculation contradicts. Targeted searches found no source giving the exact scalar identification index together with the all-finite-penalty nontermination correction and penalty tradeoff.",
+    "residual_risks": [
+      "An unindexed erratum, author note, thesis, or implementation note could already contain the same scalar correction.",
+      "The 2016 large-penalty discussion may have been intended as an asymptotic heuristic, but the accepted correction targets the finite-termination statement as written for finite penalty values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports finite activity identification for sufficiently large iteration indices but does not provide the scalar onset index or finite whole-state termination.",
+        "evidence": "Theorem 3.1 states finite activity identification after sufficiently large k under its nondegeneracy assumptions.",
+        "identifier_or_url": "arXiv:1412.6858",
+        "material_read": "Abstract, introduction, Theorem 3.1, and Lasso-related discussion.",
+        "method": "full-text inspection",
+        "title": "Activity Identification and Local Linear Convergence of Douglas–Rachford/ADMM under Partial Smoothness",
+        "trigger": "Closest general finite-identification result for Douglas–Rachford/ADMM."
+      },
+      {
+        "assessment": "Equation (2) specializes to the scalar recurrence proved here; Theorem 1(c3) says the whole algorithm converges in finite time for \\(K=I\\) in the anisotropic case, which the scalar recurrence contradicts for every finite penalty under the stated initialization.",
+        "evidence": "The paper explicitly lists Lasso as \\(K=I\\) with the \\(\\ell_1\\) penalty and states the finite-time conclusion in Theorem 1(c3).",
+        "identifier_or_url": "doi:10.1109/ICASSP.2016.7472579",
+        "material_read": "Equation (2), Lemma 2.1, Theorem 1, proof of part (c3), relation-to-prior-work section, and numerical-experiment description.",
+        "method": "full-text inspection",
+        "title": "Local Q-Linear Convergence and Finite-time Active Set Identification of ADMM on a Class of Penalized Regression Problems",
+        "trigger": "Direct source of the Lasso ADMM update and the finite-termination statement being tested."
+      },
+      {
+        "assessment": "Distinguishes finite activity identification/local linear convergence from finite convergence under additional hypotheses; no implication-equivalent scalar Lasso finite-penalty formula was found.",
+        "evidence": "The finite-convergence theorem is stated separately from the ADMM identification and local-linear analysis.",
+        "identifier_or_url": "arXiv:1606.02116",
+        "material_read": "Abstract, introduction, finite-convergence theorem for Douglas–Rachford, and ADMM section.",
+        "method": "full-text inspection",
+        "title": "Local Convergence Properties of Douglas–Rachford and ADMM",
+        "trigger": "Later broader treatment that could have subsumed or corrected the finite-convergence issue."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ca65aabf-419a-4978-aaa2-da2404c2307c",
+  "value": {
+    "rationale": "The one-coordinate Lasso is the minimal nontrivial instance of a canonical ADMM model, so the slice is structurally motivated rather than arbitrary. The result corrects a published finite-termination assertion, gives the exact support-identification delay, and exposes a precise tuning tradeoff: increasing \\(\\rho\\) can make support identification earlier while making the post-identification factor \\(\\rho/(1+\\rho)\\) approach \\(1\\). This distinction matters when finite identification is used as a proxy for algorithmic termination or when large penalties are recommended from projection-limit intuition.",
+    "status": "PASS"
+  }
+}
