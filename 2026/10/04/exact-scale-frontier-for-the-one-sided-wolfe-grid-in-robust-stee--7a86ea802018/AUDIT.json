@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "In the scalar source specialization, the auxiliary problem is exactly \\(axY+\\tfrac12Y^2\\), so \\(Y=-ax\\). Direct substitution into the published Wolfe inequalities gives the necessary and sufficient interval \\(1-\\gamma\\le\\alpha a\\le2(1-\\beta)\\). The source grid has \\(\\alpha\\le1\\), which proves necessity of \\(a\\ge1-\\gamma\\); sufficiency follows from the factor-two spacing and the strict inequality \\(1-\\beta>1-\\gamma\\). The explicit example has a nonempty continuous Wolfe interval \\([2,12]\\) and no source-grid point.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source establishes existence of positive Wolfe steps under lower boundedness and then restricts Algorithm 1 to \\(\\{2^{-r}:r\\ge0\\}\\).",
+        "Nocedal--Wright's standard Wolfe procedure increases trial lengths until it finds an acceptable step or brackets a Wolfe interval, then zooms."
+      ],
+      "reasoning": "General Wolfe theory explains why expansion may be necessary, but it does not supply the exact threshold for this published algorithm and scalar robust-quadratic specialization.",
+      "searches": [
+        "Kumar--Deep full text: auxiliary problem, Theorem 3.4 Wolfe existence, Algorithm 1 dyadic step rule",
+        "Nocedal--Wright, Numerical Optimization, Section 3.5 Wolfe line-search algorithm"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.5269/bspm.81660",
+      "ISBN:978-0-387-40065-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem guarantees some positive Wolfe interval but does not assert that its later dyadic grid intersects that interval.",
+        "Classical bracketing expands the trial step precisely in the regime where the curvature condition indicates the current step is too small."
+      ],
+      "reasoning": "The final claim is not a special case of a stronger source theorem. It identifies a discrete-search obstruction that remains after the continuous existence theorem is satisfied.",
+      "searches": [
+        "DOI:10.5269/bspm.81660 full text, especially equations defining the auxiliary problem and Wolfe conditions, Theorem 3.4, and Algorithm 1",
+        "Nocedal--Wright Wolfe bracketing and zoom discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned finding states the exact one-sided-grid Wolfe frontier for the Kumar--Deep method.",
+        "Closest returned results concern unrelated stepsize frontiers for Polyak, Barzilai--Borwein, Newton, trust-region, and splitting methods."
+      ],
+      "reasoning": "The searches used both algorithm-specific and generic aliases: one-sided backtracking, dyadic trial grid, scalar quadratic, curvature condition, initial-step scaling, and accepted Wolfe interval.",
+      "searches": [
+        "Published-research database: Wolfe line search dyadic backtracking initial step one sided failure small curvature",
+        "Published-research database: backtracking Wolfe search largest 2^{-r} no accepted step quadratic scaling",
+        "Published-research database: Wolfe conditions scalar quadratic accepted interval alpha curvature initial trial step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No database hit contains the source DOI, its one-sided Wolfe grid, or the threshold \\(a=1-\\gamma\\)."
+      ],
+      "reasoning": "The result is an exact analytic boundary for an algorithmic trial-set restriction, not a recomputation of a published benchmark or table.",
+      "searches": [
+        "Published-research database: uncertain quadratic multiobjective robust steepest descent exact scalar direction Wolfe active set",
+        "Published-research database: objective wise worst case quadratic multiobjective steepest descent closed form one dimensional",
+        "Published-research database: max of quadratics multiobjective steepest descent direction active gradients exact formula"
+      ]
+    },
+    "rationale": "The primary paper proves continuous Wolfe-step existence and separately prescribes a one-sided dyadic search, but does not reconcile the two. Standard line-search references instead use an expansion/bracketing stage before zooming. Targeted published-result searches found no exact scalar definedness frontier or the threshold \\(a=1-\\gamma\\) for this algorithm.",
+    "residual_risks": [
+      "An implementation inspired by the paper may silently enlarge the initial trial step despite Algorithm 1's printed one-sided grid; the claim is about the published rule.",
+      "The exact threshold is proved only for the scalar specialization and standard Wolfe conditions.",
+      "Equivalent observations about shrink-only Wolfe searches may exist in pedagogical literature under different wording, although no source-specific threshold was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The continuous Wolfe existence argument is compatible with the scalar example, but Algorithm 1's one-sided dyadic grid can miss the entire admissible interval.",
+        "evidence": "The paper specifies \\(0<\beta<\\gamma<1\\), proves positive Wolfe-step existence under lower boundedness, and later searches only \\(\u0007lpha\\in\\{2^{-r}:r=0,1,\\ldots\\}\\).",
+        "identifier_or_url": "DOI:10.5269/bspm.81660",
+        "material_read": "Full text covering the model and MSC/date metadata, equations for the robust counterpart and auxiliary direction problem, Theorem 3.4 on Wolfe-step existence, Algorithm 1, and the convergence section.",
+        "method": "Full-text publisher-provided article text inspection.",
+        "title": "A Wolfe-Type Steepest Descent Algorithm for Uncertain Quadratic Multiobjective Optimization Problems",
+        "trigger": "Primary recent source defining the robust quadratic direction, Wolfe conditions, and discrete line-search rule."
+      },
+      {
+        "assessment": "Supports the distinction between Wolfe conditions and a shrink-only trial policy; does not contain the source-specific scalar frontier.",
+        "evidence": "The standard algorithm begins with a trial estimate and keeps increasing it until acceptance or bracketing, then invokes zoom.",
+        "identifier_or_url": "ISBN:978-0-387-40065-5",
+        "material_read": "Section 3.5 discussion of the Wolfe line-search algorithm, including increasing trial steps and subsequent zoom.",
+        "method": "Book-text inspection.",
+        "title": "Numerical Optimization",
+        "trigger": "Standard reference for how Wolfe line searches handle trial steps that are too small."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7a86ea80-2018-4a77-94c7-2858c93b901f",
+  "value": {
+    "rationale": "The obstruction occurs on the simplest strongly convex quadratic and is caused purely by scale, not by nonsmooth uncertainty or multiobjective geometry. It separates the source's valid continuous Wolfe-existence theorem from the actual discrete algorithm and gives an exact if-and-only-if definedness frontier. The two-sided dyadic repair is minimal, preserves geometric trial scaling, and explains why standard Wolfe searches include an expansion/bracketing phase.",
+    "status": "PASS"
+  }
+}
