@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian mean and scatter decomposition is exact for \\(n_s\\ge r+1\\). The pooled mean is jointly Gaussian and independent of the source-target difference, and the Gaussian source mean is independent of the Wishart scatter. The inverse-Wishart quadratic form reduces to independent chi-squares via a Schur complement, after which Beta-gamma factorization gives \\(K_{r,n_s}\\). The cross term vanishes by independence, yielding the displayed exact risk and the if-and-only-if sample-ratio boundary. The fixed-\\(r\\) and large-\\(r\\) limits follow from covariance consistency, the chi-square CLT, and uniform integrability. The packaged checker independently reproduces the reported constants; it is not used as a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han et al. 2024 prove prediction-MSE dominance for their own external-summary James-Stein estimator",
+        "Green and Strawderman 1991 state sample-mean dominance for a different combination estimator"
+      ],
+      "reasoning": "These are broader robustness guarantees for different estimators, not broader theorems covering SAGE Algorithm 2. Their existence is scientifically relevant because it shows the reversal is not inevitable for all adaptive summary fusion.",
+      "searches": [
+        "James-Stein external summary information integration guaranteed risk internal estimator Han Li Park Mukherjee Taylor",
+        "positive-part shrinkage source target Gaussian sample means SAGE risk"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30908v1",
+      "DOI:10.1093/biomtc/ujae072",
+      "DOI:10.1080/01621459.1991.10475144",
+      "Research-record queries listed in the four named originality checks",
+      "Prior scientific claim/source identifiers available for overlap checking"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang and Rothenhäusler Theorem 1 treats fixed \\(\\gamma\\) asymptotically; Lemma 3 treats consistency of the random \\(\\widehat\\gamma\\) only in an iterated limit with growing \\(r\\); Section 6 leaves finite-sample risk open.",
+        "Han et al. Theorem 1 concerns a different James-Stein construction with a dominance guarantee."
+      ],
+      "reasoning": "A fixed-step asymptotic risk theorem does not control the finite-sample risk of a data-dependent step computed from the same random summary difference and source covariance. The classical dominance theorems use different weights, so neither source logically implies the accepted claim.",
+      "searches": [
+        "Summary Adapted Gradient Estimator finite-sample risk Gaussian mean covariance step-size",
+        "James Stein positive part pooled estimator two sample means chi-square"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.30908v1, Algorithm 2 and Lemma 3",
+        "DOI:10.1093/biomtc/ujae072, Sections 1-2",
+        "DOI:10.1080/01621459.1991.10475144, abstract"
+      ],
+      "reasoning": "The SAGE estimator can be written as the fixed pooled mean plus a radial positive-part correction, which resembles James-Stein algebra, but the coefficient, shrinkage target, estimated covariance, and risk comparison are different. The inspected James-Stein results do not specialize to the SAGE weight and therefore do not imply the threshold.",
+      "searches": [
+        "arXiv 2609.30908 Summary-powered prediction distribution shift SAGE",
+        "positive-part shrinkage source target Gaussian sample means SAGE risk",
+        "adaptive pooling two normal means chi-square positive part risk threshold",
+        "James Stein positive part pooled estimator two sample means chi-square"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched research-record hit matched arXiv:2609.30908 or stated the finite-summary SAGE risk boundary; the nearest scientific records concern unrelated variance reversal, stochastic optimization, or Beta/Gamma calculations.",
+        "Prior claim and source identifiers available for overlap checking contained no occurrence of arXiv:2609.30908 or a SAGE finite-summary risk theorem."
+      ],
+      "reasoning": "Database and own-ledger checks found no statement with the same estimator, Gaussian specialization, risk formula, or target/source threshold. This is evidence against overlap, not a proof of global uniqueness.",
+      "searches": [
+        "arXiv 2609.30908 Summary-powered prediction distribution shift SAGE",
+        "SAGE finite summary dimension no shift risk reversal target source sample ratio",
+        "chi-square beta threshold adaptive summary fusion internal external sample mean risk"
+      ]
+    },
+    "rationale": "The checked SAGE full text supplies asymptotic fixed-step guarantees and consistency of \\(\\widehat\\gamma\\) only after a growing-summary limit, explicitly states that finite-sample risk guarantees remain future work, and does not derive the Gaussian finite-\\(r\\) risk identity or its target/source sample-ratio boundary. Classical external-summary James-Stein papers use different shrinkage rules and, where inspected, prove dominance properties rather than this SAGE-specific reversal.",
+    "residual_risks": [
+      "Green-Strawderman full text was not available through the inspected open route, so the comparison there is limited to the abstract; this is not decisive because the abstract describes a different dominance estimator and the highly relevant SAGE and Han full texts were inspected.",
+      "The result is a specialized Gaussian mean theorem, not a general finite-sample analysis of SAGE.",
+      "The literature and research-record searches reduce overlap risk but cannot establish global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the exact positive-part step-size statistic, proves fixed-step asymptotic risk and growing-summary consistency, and explicitly leaves finite-sample risk guarantees open. It does not contain the accepted finite-sample Gaussian threshold.",
+        "evidence": [
+          "Algorithm 2 lines 298-327",
+          "Theorem 1 lines 237-261",
+          "Lemma 3 lines 320-336",
+          "finite-sample caveat lines 387-390",
+          "Discussion lines 426-431"
+        ],
+        "identifier_or_url": "arXiv:2609.30908v1",
+        "material_read": "Full arXiv HTML: introduction, random-shift model, Sections 4.1-4.5, empirical finite-sample discussion, Section 6, and appendix notation/assumptions.",
+        "method": "Lawful arXiv full-text HTML.",
+        "title": "Summary-powered prediction under distribution shift",
+        "trigger": "Motivating source and exact estimator definition."
+      },
+      {
+        "assessment": "Uses a different James-Stein shrinkage rule and proves prediction-MSE dominance. It does not state or imply the SAGE Algorithm 2 finite-summary risk formula.",
+        "evidence": [
+          "Full-text lines 118-121",
+          "Theorem 1 discussion lines 157-165",
+          "relative-sample-size simulations lines 219-229"
+        ],
+        "identifier_or_url": "DOI:10.1093/biomtc/ujae072",
+        "material_read": "Full PMC text: Introduction, proposed-method dominance discussion, Theorem 1 neighborhood, positive-part discussion, and simulations.",
+        "method": "Lawful full-text PMC copy.",
+        "title": "Improving prediction of linear regression models by integrating external information from heterogeneous populations: James-Stein estimators",
+        "trigger": "Closest modern external-summary shrinkage comparison."
+      },
+      {
+        "assessment": "Abstract states sample-mean dominance for a different estimator and notes slightly higher risk than the usual combined estimator when auxiliary information is unbiased. No evidence in the material read covers the SAGE step-size rule.",
+        "evidence": [
+          "Publisher abstract states estimator form is James-Stein-like and dominates the sample mean."
+        ],
+        "identifier_or_url": "DOI:10.1080/01621459.1991.10475144",
+        "material_read": "Publisher abstract and bibliographic record; full text was not openly accessible in the inspected route.",
+        "method": "Publisher abstract search result.",
+        "title": "A James-Stein Type Estimator for Combining Unbiased and Possibly Biased Estimators",
+        "trigger": "Classical combination-estimator alias/equivalence check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "29a8e488-b106-4b95-961d-e5ff66c94097",
+  "value": {
+    "rationale": "The exact boundary addresses a finite-sample question explicitly left open by the motivating paper and quantifies why a growing summary dimension helps stabilize the adaptive step. It identifies a substantive failure mode, not a normalization artifact: under exact no shift, covariance and summary noise can cause the positive-part shift-strength estimate to over-update enough that risk exceeds source-only risk. The threshold \\(n_t/n_s>\\sqrt{K_{r,n_s}/r}\\) is directly interpretable for study design and asymptotically scales as \\(r^{-1/2}\\). The comparison with James-Stein dominance results also points to a concrete direction for finite-sample safeguarding.",
+    "status": "PASS"
+  }
+}
