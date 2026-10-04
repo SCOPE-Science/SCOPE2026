@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Under the stated bMGP Gaussian limits, whitening the sampling error by the posterior covariance produces the weighted chi-square law \\(Q=\\sum_i(1+\\lambda_i)^{-1}Z_i^2\\). The exact ellipsoid scalar follows from continuity and strict monotonicity of this law; the all-contrast threshold follows from the extremal generalized Rayleigh quotient. Strict anisotropic bounds and the high-confidence limit follow from pathwise chi-square comparisons. The proportionality converse follows by equality of moment-generating functions. The result is explicitly asymptotic and does not infer an infinite statement from finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Open-faced sandwich and location-scale calibration use matrix-valued transforms to match a target covariance.",
+        "Matrix adjustment can remove anisotropy and is therefore broader when rotations/directional scaling are permitted."
+      ],
+      "reasoning": "Those methods dominate only outside the scalar radial constraint. They do not subsume the sharp frontier characterizing what one direction-preserving scalar can and cannot calibrate simultaneously.",
+      "searches": [
+        "query: open-faced sandwich posterior adjustment draws covariance calibration",
+        "query: Location--Scale Calibration for Generalized Posterior scalar scaling eigenvalue all contrasts",
+        "source: doi:10.1080/10618600.2013.842174",
+        "source: arXiv:2511.15320v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30622v1",
+      "arXiv:2606.25729v1",
+      "arXiv:2311.02019v1",
+      "arXiv:2511.15320v1",
+      "doi:10.1080/10618600.2013.842174",
+      "B. E. Hansen (2021), Criterion-Based Inference Without the Information Equality: The Weighted Chi-Square Distribution"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tanaka implies that scalar calibration is generally level-specific, but does not in the inspected material compare the exact joint-ellipsoid root with the worst-direction contrast threshold.",
+        "Huggins--Miller vary bootstrap sample size rather than post-processing fixed bMGP draws.",
+        "Wang--Fong--Frazier prove conservative bMGP coverage, supplying the covariance premises but not the frontier."
+      ],
+      "reasoning": "The prior results motivate scalar calibration and explain its structural limits. The additional generalized-eigenvalue/weighted-chi-square argument is needed to obtain the strict bMGP joint-versus-contrast inequality and the high-confidence limit.",
+      "searches": [
+        "query: A Theory of Bootstrap Coverage Calibration generalized posterior credible sets scalar level proportional covariance",
+        "query: Reproducible Parameter Inference Using Bagged Posteriors bootstrap sample size covariance credible sets",
+        "source: arXiv:2606.25729v1",
+        "source: arXiv:2311.02019v1",
+        "source: arXiv:2609.30622v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang--Fong--Frazier give the bMGP limiting covariance sum and conservative scalar-contrast coverage, but not the strict joint-ellipsoid versus all-contrast scalar comparison.",
+        "Tanaka gives generic level-specific scalar calibration and the proportional-covariance obstruction across all nominal levels; the accessible material does not state the bMGP joint-versus-all-contrast threshold identity or its extreme-confidence coalescence."
+      ],
+      "reasoning": "The final claim excludes the generic level-specific/proportionality facts already covered by Tanaka. Its distinguishing statement compares two different scalar calibration targets—one joint ellipsoid and simultaneous protection of every linear contrast—inside the bMGP covariance geometry.",
+      "searches": [
+        "query: joint ellipsoid exact scalar calibration all linear contrasts frontier generalized eigenvalue posterior covariance sampling covariance",
+        "query: weighted chi square ellipsoid all contrast protection generalized eigenvalue posterior calibration",
+        "query: bagged martingale posterior anisotropic covariance scalar calibration all contrasts",
+        "source: arXiv:2609.30622v1",
+        "source: arXiv:2606.25729v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Weighted chi-square laws for quadratic forms are classical and numerically evaluable.",
+        "No checked database/table result states the bMGP scalar joint-versus-contrast frontier."
+      ],
+      "reasoning": "The weighted-chi-square distribution itself is background. Originality is assigned to the sharp comparison of calibration targets in the bMGP setting, not to computing a known distribution.",
+      "searches": [
+        "query: weighted chi square posterior covariance shrink joint credible region generalized eigenvalue calibration",
+        "query: weighted chi-square credible ellipsoid covariance misspecification",
+        "source: B. E. Hansen, Criterion-Based Inference Without the Information Equality: The Weighted Chi-Square Distribution"
+      ]
+    },
+    "rationale": "Tanaka (2026) already covers the generic facts that scalar posterior calibration is level-specific and that all-level Gaussian calibration requires proportional sampling and posterior covariance, so those statements were removed from the originality claim. The surviving claim is narrower: under the bMGP covariance decomposition, the exact scalar for a chosen joint Gaussian ellipsoid is a weighted-chi-square quantile ratio that is strictly below the sharp all-linear-contrast non-undercoverage threshold under anisotropy, and the two thresholds coalesce at extreme confidence. No inspected bMGP, generalized-posterior calibration, bagging, or matrix-adjustment source states this joint-versus-contrast frontier.",
+    "residual_risks": [
+      "Tanaka (2026) is very close structurally; although the inspected accessible text does not state the surviving joint-versus-all-contrast frontier, an equivalent observation could appear elsewhere in the paper under different notation.",
+      "Weighted-chi-square covariance-mismatch calculations and generalized-eigenvalue extremality are classical ingredients, so equivalent scalar-constrained consequences may exist under other terminology.",
+      "Matrix-valued posterior calibration is scientifically stronger when full covariance adjustment is permitted; the claim is restricted to scalar radial post-processing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the covariance premises but does not state the final joint-versus-all-contrast scalar frontier.",
+        "evidence": "The paper states limiting width \\(\\Sigma_0+\\Sigma_\\star\\), conservative contrast coverage, and explicitly says bMGP is not exactly calibrated in general.",
+        "identifier_or_url": "arXiv:2609.30622v1",
+        "material_read": "Open preprint abstract; theoretical-validity section including Theorem 3 discussion and Corollary 1 discussion; Gaussian example; regression covariance discussion.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Bagged Martingale Posteriors: Calibrated Uncertainty Quantification for Predictive Resampling",
+        "trigger": "Primary source for the bMGP covariance decomposition and conservative calibration."
+      },
+      {
+        "assessment": "Covers generic level-specific calibration and proportionality across all levels; these were removed from the originality claim. The inspected material does not state the surviving bMGP joint-versus-all-contrast frontier.",
+        "evidence": "The source explicitly says a scalar learning rate calibrates all nominal levels only under proportional covariance and treats fixed-level calibration as a coverage-root problem; its supplement is formulated for scalar contrasts.",
+        "identifier_or_url": "arXiv:2606.25729v1",
+        "material_read": "Primary abstract plus publicly accessible full-text excerpts including the discussion and supplementary scalar-contrast Edgeworth section.",
+        "method": "Compared fixed-level scalar calibration, all-level proportionality obstruction, and reported scope against the narrowed claim.",
+        "title": "A Theory of Bootstrap Coverage Calibration for Generalized Posterior Credible Sets",
+        "trigger": "Highly relevant scalar posterior-calibration theory discovered in the final overlap search."
+      },
+      {
+        "assessment": "Adjusts bag size rather than radially post-processing fixed bMGP draws and does not state the final frontier.",
+        "evidence": "Its covariance control acts through the bootstrap sampling scheme.",
+        "identifier_or_url": "arXiv:2311.02019v1",
+        "material_read": "Open preprint BayesBag definition, covariance decomposition and asymptotic material concerning bootstrap sample size.",
+        "method": "Compared mechanism and implication.",
+        "title": "Reproducible Parameter Inference Using Bagged Posteriors",
+        "trigger": "Closest bagged-posterior covariance literature."
+      },
+      {
+        "assessment": "Provides broader matrix-valued calibration, not the one-scalar frontier.",
+        "evidence": "The method extends open-faced sandwich to location-scale calibration and targets a sandwich covariance through an affine matrix transform.",
+        "identifier_or_url": "arXiv:2511.15320v1",
+        "material_read": "Open PDF abstract, introduction, problem setup, sandwich target definition, and location-scale method description.",
+        "method": "Full-text comparison of transformation class and target covariance.",
+        "title": "Location--Scale Calibration for Generalized Posterior",
+        "trigger": "Plausible broader coverage through posterior-draw post-processing."
+      },
+      {
+        "assessment": "Broader matrix correction; no evidence of the bMGP-specific scalar frontier.",
+        "evidence": "The adjustment transforms draws to achieve a target sandwich covariance.",
+        "identifier_or_url": "doi:10.1080/10618600.2013.842174",
+        "material_read": "Primary article abstract and accessible method description of the covariance adjustment.",
+        "method": "Compared admissible transformation class.",
+        "title": "The Open-Faced Sandwich Adjustment for MCMC Using Estimating Functions",
+        "trigger": "Classical post-hoc covariance correction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "93780f48-a968-48de-9f8c-29b785d482a5",
+  "value": {
+    "rationale": "The bMGP deliberately gains calibration by adding bootstrap variability, so the practical cost is excess width. The theorem gives an exact, level-specific way to remove as much scalar excess as possible for a joint ellipsoid without rerunning predictive simulations or estimating a rotation, and it proves when this goal conflicts with protecting every contrast. The two-dimensional example shows a substantial strict gap: exact 95 percent joint calibration at about \\(\\tau=0.69177\\) while all-contrast protection requires \\(\\tau=1\\). This is a motivated structural boundary, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
