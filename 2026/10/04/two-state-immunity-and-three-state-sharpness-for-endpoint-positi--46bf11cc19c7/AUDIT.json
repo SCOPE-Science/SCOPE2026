@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For two states, the exact projector decomposition Q=-s(I-Pi) gives the midpoint half-step Pi+r(I-Pi) and the endpoint Pi+r^2(I-Pi), whose four entries are nonnegative for all h>=0. For the three-state pure-birth generator, direct triangular inversion gives a stochastic endpoint matrix whose only sign-changing entry is 16h(4-h)/(h+4)^3, establishing positivity exactly through h=4. The package checker reconstructs the rational maps independently with exact arithmetic and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horvath 1998, DOI 10.1016/S0168-9274(98)00050-6, accessible abstract: general RK/DSRK positivity thresholds for positive IVPs.",
+        "Horvath 2005, DOI 10.1016/j.apnum.2004.08.026, accessible abstract: strict positivity thresholds and larger-step positivity on special invariant sets."
+      ],
+      "reasoning": "These papers are broader positivity theory and are therefore plausible covering sources. Their accessible materials do not expose the two-state projector formula or a three-state minimal Markov obstruction. Because full text was not available through the lawful routes checked, they remain a residual risk rather than negative evidence.",
+      "searches": [
+        "implicit midpoint squared positivity Metzler generator",
+        "two-state implicit midpoint positivity Runge Kutta",
+        "three-state implicit midpoint positivity Runge Kutta"
+      ]
+    },
+    "checked_sources": [
+      "Leiden:Report-2007-11",
+      "DOI:10.1016/j.apnum.2007.10.004",
+      "arXiv:1510.04303v1",
+      "MOX:56-2015",
+      "DOI:10.1016/S0168-9274(98)00050-6",
+      "DOI:10.1016/j.apnum.2004.08.026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest semantic record found concerns an eight-state minimal positivity obstruction for the distinct fourth-order [2/2] Pade/two-stage Gauss--Legendre map.",
+        "The same search also surfaced a backward-Euler-filtered Crank--Nicolson lattice positivity theorem, which concerns a different rational composition and spatial class."
+      ],
+      "reasoning": "Neither closest result implies the present theorem because the rational maps differ. The [2/2] Pade record is especially informative as a method-specific dimension barrier, but its degree-four map is not the square of the midpoint Cayley map analyzed here.",
+      "searches": [
+        "SSP-optimal SDIRK 2(2) positivity Markov generator endpoint",
+        "two implicit midpoint steps Markov chain positivity three state",
+        "two-stage Gauss-Legendre Markov positivity minimal dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferracina--Spijker, Leiden Report 2007-11, Sections 2--3: the two-stage second-order SDIRK method is optimal with characteristic coefficient 4.",
+        "Bonaventura--Della Rocca, arXiv:1510.04303v1, Section 5.1: the same method is two consecutive implicit-midpoint applications and has radius of absolute monotonicity 4."
+      ],
+      "reasoning": "The prior coefficient-4 statement is a worst-case stagewise SSP theorem over arbitrary convex functionals/problems. It neither states nor implies that every two-state Markov endpoint remains positive for arbitrarily large steps, and its converse does not identify the smallest CTMC dimension that realizes endpoint failure.",
+      "searches": [
+        "SSP-optimal SDIRK 2(2) positivity Markov generator endpoint",
+        "two implicit midpoint steps Markov chain positivity three state",
+        "SDIRK 2(2) two-state CTMC endpoint positivity radius 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ferracina--Spijker full report gives the coefficient table/formula for the optimal two-stage second-order SDIRK method: c(K)=4.",
+        "Bonaventura--Della Rocca full report repeats R(A,b)=4 and the two-midpoint factorization."
+      ],
+      "reasoning": "The exact coefficient is prior data and is not claimed as new. The new statement is a structural endpoint classification inside the CTMC subclass: unconditional dimension-two positivity and a dimension-three witness that realizes the known coefficient sharply.",
+      "searches": [
+        "SSP optimal SDIRK 2(2) radius absolute monotonicity 4",
+        "Strong Stability of Singly-Diagonally-Implicit Runge-Kutta Methods s=2 p=2 c=4"
+      ]
+    },
+    "rationale": "The known SSP coefficient 4 and the two-midpoint representation are explicitly treated as prior work. The inspected full primary sources do not state the endpoint Markov dimension classification, and the worst-case SSP converse does not imply it. Broad positivity literature was searched; two highly relevant Horvath papers could be inspected only at abstract/metadata level, so possible coverage there is retained as a residual risk.",
+    "residual_risks": [
+      "The full text of Horvath 1998 and 2005 was unavailable through the lawful routes checked; an equivalent small-state Markov specialization there cannot be excluded.",
+      "Older matrix-positivity or uniformization literature may contain the same Cayley-square calculation under terminology not captured by the searches.",
+      "The theorem concerns endpoint positivity only and therefore is not equivalent to the stronger stagewise SSP property whose coefficient 4 is classical."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS optimality and coefficient 4; DOES NOT STATE the two-state unconditional endpoint-positivity formula or a minimal three-state CTMC obstruction.",
+        "evidence": "Section 3.2 states the coefficients a11=a22=1/4, a21=b1=b2=1/2 and characteristic coefficient c(K)=4; the surrounding theorem is stagewise strong stability for arbitrary convex-function problems.",
+        "identifier_or_url": "Leiden:Report-2007-11; DOI:10.1016/j.apnum.2007.10.004",
+        "material_read": "Full report: abstract; strong-stability setup; Kraaijevanger coefficient results; Section 3.2 including the s=2, p=2 method and c(K)=4.",
+        "method": "Lawful open university preprint PDF, text and page inspection.",
+        "title": "Strong Stability of Singly-Diagonally-Implicit Runge-Kutta Methods",
+        "trigger": "Original source for the optimal two-stage second-order SDIRK method and its coefficient."
+      },
+      {
+        "assessment": "COVERS two-midpoint factorization and R(A,b)=4; DOES NOT STATE the CTMC endpoint dimension boundary.",
+        "evidence": "Section 5.1 says the method consists of two consecutive implicit-midpoint applications and has radius of absolute monotonicity 4.",
+        "identifier_or_url": "arXiv:1510.04303v1; MOX:56-2015",
+        "material_read": "Full report: positivity/absolute-monotonicity framework and Section 5.1 on SSP-optimal SDIRK2(2).",
+        "method": "Lawful open report PDF, text and rendered-page inspection.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Full-text source explicitly identifying SSP-SDIRK2(2) as two midpoint substeps and discussing positivity."
+      },
+      {
+        "assessment": "Plausible broader coverage; exact relation to the two-state/three-state CTMC specialization remains unresolved.",
+        "evidence": "Abstract states general RK/DSRK positivity conditions and maximal step-size thresholds for positive IVPs.",
+        "identifier_or_url": "DOI:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Accessible bibliographic record and abstract; full text was not retrievable through the checked route.",
+        "method": "Open repository metadata/abstract inspection with bounded full-text attempt.",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Foundational broad RK positivity analysis that could subsume a special Markov calculation."
+      },
+      {
+        "assessment": "Plausible broader coverage; no accessible statement identified the current dimension-minimal Markov theorem.",
+        "evidence": "Abstract distinguishes strict global thresholds from larger positivity ranges on special invariant sets.",
+        "identifier_or_url": "DOI:10.1016/j.apnum.2004.08.026",
+        "material_read": "Accessible bibliographic record and abstract; full text was not retrievable through the checked route.",
+        "method": "Open repository metadata/abstract inspection with bounded full-text attempt.",
+        "title": "On the positivity step size threshold of Runge-Kutta methods",
+        "trigger": "Sharp positivity-threshold paper, potentially relevant to restricted invariant sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46bf11cc-19c7-4726-a765-e17758928825",
+  "value": {
+    "rationale": "Endpoint nonnegativity is intrinsic for Markov transition probabilities, and state count is a natural structural parameter. The theorem gives a complete minimal-dimension classification: two-state chains are unconditionally endpoint-safe, while a three-state pure-birth chain exactly realizes the known SSP boundary. This isolates a concrete cancellation mechanism hidden by general stagewise SSP theory and supplies a minimal adversarial benchmark.",
+    "status": "PASS"
+  }
+}
