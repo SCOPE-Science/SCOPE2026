@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The proof checks the exact deletion/intersection equivalence, proves that heavy-coordinate sets of distinct codewords are disjoint, uses pigeonhole to force a heavy coordinate for every \\(n\\ge7\\) composition, classifies all heavy-free compositions at \\(n=5\\) and \\(n=6\\), and supplies matching witnesses. The finite verifier independently exhausts the two exceptional lengths; the infinite conclusion does not rely on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kreindel–Essayag–Zabokritskiy Proposition 12 gives \\(S_q(n,n-3)\\le q+\\binom q2\\) for \\(n\\ge q+2\\); at \\(q=3\\) this is only \\(S_3(n,n-3)\\le6\\).",
+        "Their exact ternary benchmark is for one deletion, a different parameter regime.",
+        "Kovačević–Tan develops general constructions and bounds in the discrete simplex but no located theorem covers this exact \\(q=3\\), output-size-three classification."
+      ],
+      "reasoning": "The closest broader theorem is strictly weaker at every \\(n\\) in the claimed range and therefore does not imply the finding. General framework results do not dominate this exact finite-alphabet classification.",
+      "searches": [
+        "Multiset Deletion Codes Cyclic Constructions Bounds Exact Results ternary n-3 three surviving symbols",
+        "arXiv:2601.05636v2 Section 4.4",
+        "arXiv:1612.08837v5 general multiset code bounds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.05636v1/v2 — earliest public date and current full-text comparison",
+      "arXiv:1612.08837v5 — foundational multiset/discrete-simplex framework",
+      "Published-result index searches using deletion, intersection, L1/discrete-simplex, and exact-value aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The recent bound \\(S_3(n,n-3)\\le6\\) permits code sizes four, five, or six and hence cannot imply exact values four or three.",
+        "The exact single-deletion formulas in the recent paper have \\(t=1\\) and do not specialize to \\(t=n-3\\) except at \\(n=4\\), outside the claimed \\(n\\ge5\\) range.",
+        "The older general multiset-code framework does not, in the inspected material, state a theorem forcing the heavy-coordinate threshold used here."
+      ],
+      "reasoning": "The final claim is neither a corollary nor a parameter substitution of the inspected prior theorems. It uses an additional \\(q=3\\) structural observation that produces a strictly stronger bound and matching witnesses.",
+      "searches": [
+        "arXiv:2601.05636v2 Proposition 12 certificate bound",
+        "arXiv:1612.08837v5 discrete simplex multiset codes",
+        "S_3 n-3 exact ternary multiset deletion code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For fixed total weight \\(n\\), deletion distance equals \\(n\\) minus multiset-intersection size, so the claim is equivalently a ternary discrete-simplex code with pairwise intersection at most two.",
+        "The current primary paper explicitly states the intersection-at-most-two condition for \\(t=n-3\\) but gives only a general certificate upper bound.",
+        "Searches using \\(\\ell_1\\)/discrete-simplex and intersection aliases returned no covering exact ternary formula."
+      ],
+      "reasoning": "The searches target the same mathematical statement after translating deletion correction into intersection and discrete-simplex distance. No retrieved result gives a stronger theorem or a special case that implies the claimed piecewise optimum.",
+      "searches": [
+        "ternary multiset deletion codes t=n-3 exact S_3(n,n-3)",
+        "three symbol multiset codes pairwise intersection at most two exact",
+        "compositions of n into three parts L1 distance 2n-4 maximum code",
+        "ternary discrete simplex code minimum distance n-2 maximum 3 4",
+        "arXiv:2601.05636v2 Section 4.4",
+        "arXiv:1612.08837v5 multiset/discrete-simplex framework"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-formula searches returned no indexed record with the value sequence \\(4,4,3,3,\\ldots\\) or an equivalent ternary \\(n-3\\) deletion table.",
+        "The closest indexed records concern asymptotic \\(q\\)-ary sequence-deletion redundancy, exact traceability codes, or unrelated packing problems."
+      ],
+      "reasoning": "No exact database/table hit was found that contains the claimed parameter values. Search failure is not treated as proof of novelty; it is combined with direct inspection of the most relevant primary sources.",
+      "searches": [
+        "S_3(n,n-3)=4 for n=5,6 and 3 for n>=7 multiset deletion",
+        "ternary multiset deletion three surviving symbols 4 4 3 exact",
+        "ternary discrete simplex code minimum distance n-2 maximum 3 4"
+      ]
+    },
+    "rationale": "The recent primary paper treats the same \\(t=n-3\\) regime but proves only a six-word certificate upper bound for \\(q=3\\), while its exact ternary results concern \\(t=1\\). Searches under the deletion notation and three equivalent formulations returned no result implying the exact \\(4,4,3,3,\\ldots\\) formula. The foundational discrete-simplex paper provides framework and general bounds but no located exact statement for this regime.",
+    "residual_risks": [
+      "An older result in lattice coding or discrete-simplex graph theory could encode the same elementary extremal statement under notation not surfaced by the targeted searches.",
+      "No independent audit has yet checked the originality search coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_TERNARY_N_MINUS_3",
+        "evidence": "Section 4.4 states \\(|S\\cap T|\\le2\\) and Proposition 12 proves \\(S_q(n,n-3)\\le q+\\binom q2\\) for \\(n\\ge q+2\\). For \\(q=3\\) this is only \\(S_3(n,n-3)\\le6\\). The exact ternary benchmark later in the paper concerns single deletion.",
+        "identifier_or_url": "arXiv:2601.05636v2",
+        "material_read": "Public arXiv HTML: definitions and contributions, Section 4.4 on \\(t=n-3\\), and the exact ternary benchmark discussion in Section 5.",
+        "method": "Direct full-text inspection of the relevant sections and theorem statements.",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "Same model, same extremal regime \\(t=n-3\\), and the paper explicitly advertises a dedicated analysis of that regime."
+      },
+      {
+        "assessment": "FRAMEWORK_AND_GENERAL_BOUNDS_NOT_COVERING_CLAIM",
+        "evidence": "The inspected material develops general multiset codes and asymptotic constructions/bounds but did not contain the exact \\(q=3\\), \\(t=n-3\\) formula or an implication yielding it.",
+        "identifier_or_url": "arXiv:1612.08837v5",
+        "material_read": "Public arXiv text covering the model, discrete-simplex formulation, and general construction/bound sections; targeted searches for the \\(n-3\\) and ternary formulations.",
+        "method": "Direct full-text inspection plus targeted phrase searches.",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "Foundational source for the multiset/discrete-simplex formulation and a plausible place for an equivalent extremal statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d3a62a71-c505-4699-b9b4-53b5a89152e5",
+  "value": {
+    "rationale": "The claim gives a natural complete exact classification for the ternary version of the recent extremal regime in which the output has size three. It replaces a general upper bound of six by the exact sequence \\(4,4,3,3,\\ldots\\) and an all-\\(n\\) structural proof. The result identifies a sharp threshold at \\(n=7\\) and is not a renaming, routine recomputation, or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
