@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For a part V_i, writing t_i for the number of negative labels outside V_i gives the exact identity f(N[u])=c_i-2t_i+f(u). The standard minimality witness condition forces any minimal SDF to have at least floor((N-L)/2) negative vertices. The explicit construction with that many negatives outside a largest part is checked directly to satisfy every closed-neighborhood inequality, and every positive vertex has a tight witness in the largest part. Exhaustive literal verification through order 10 agrees with the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1204.4827v1 studies signed k-domination and the upper signed k-parameter from complexity and general graph-theoretic perspectives.",
+        "The 2015 upper signed k-domination paper gives general sharp bounds for arbitrary graphs rather than an exact complete-multipartite evaluation."
+      ],
+      "reasoning": "A general bound would cover the present theorem only if it were proved tight for every complete multipartite graph; the inspected broader sources do not supply such a class-wide equality statement.",
+      "searches": [
+        "query: upper signed k-domination complete multipartite",
+        "query: upper signed domination multipartite -bipartite",
+        "source: arXiv:1204.4827v1",
+        "source: Upper Signed k-Domination Number in Graphs, Ars Combinatoria 122 (2015)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1204.4827v1",
+      "arXiv:1205.0343v1",
+      "International-J-Math-Combin-1-2014-87-92",
+      "Utilitas-Mathematica-81-2010-99-110",
+      "Upper Signed k-Domination Number in Graphs, Ars Combinatoria 122 (2015)",
+      "Tang--Chen, Upper signed domination number, Discrete Mathematics 308 (2008)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 theorem gives Gamma_s(K_{m,n})=m+n-2 floor(m/2) for m<=n.",
+        "The 2010 and 2012 complete-multipartite works advertise exact signed domination, signed total domination, and minus-domination values, which are different optimization parameters."
+      ],
+      "reasoning": "The bipartite theorem is exactly the r=2 specialization and does not imply the r>=3 case. Minimum signed-domination formulas do not determine the upper signed parameter because minimality and maximum weight are additional constraints.",
+      "searches": [
+        "source: International-J-Math-Combin-1-2014-87-92 Theorem 3.1",
+        "source: arXiv:1205.0343v1",
+        "source: Utilitas Mathematica 81 (2010), 99-110"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2014 source defines minimal signed dominating functions and the upper signed domination number, and treats paths, cycles, and complete bipartite graphs.",
+        "Strict-majority voting terminology was checked because signed domination is equivalently a strict majority in every closed neighborhood; no complete-multipartite upper formula was located under that terminology."
+      ],
+      "reasoning": "The candidate is stated in the standard upper signed domination language and was also searched through its neighborhood-majority interpretation; no equivalent arbitrary complete-multipartite statement was found.",
+      "searches": [
+        "query: upper signed domination number complete multipartite graph",
+        "query: minimal signed dominating function multipartite",
+        "query: strict majority function complete multipartite graph",
+        "source: International-J-Math-Combin-1-2014-87-92"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete-multipartite source arXiv:1205.0343v1 determines signed domination, signed total domination, and minus domination numbers.",
+        "No database/table result located in the searches gives the upper signed domination number for arbitrary complete multipartite graphs."
+      ],
+      "reasoning": "The known complete-multipartite tables/results concern minimum parameters and therefore do not determine the maximum weight over minimal signed dominating functions.",
+      "searches": [
+        "query: signed domination complete multipartite graph signed dominating functions polynomial",
+        "query: upper signed domination number complete multipartite graphs",
+        "query: Gamma_s complete multipartite domination",
+        "source: arXiv:1205.0343v1"
+      ]
+    },
+    "rationale": "The closest exact prior result found is the complete-bipartite formula, which is recovered as a proper special case. Complete-multipartite papers located determine minimum signed/minus parameters, while general upper signed k-domination sources give complexity results or bounds rather than this exact class formula. Searches under signed domination, minimal signed domination, upper signed domination, upper signed k-domination, complete multipartite, and strict-majority terminology did not locate a statement that implies the arbitrary multipartite theorem.",
+    "residual_risks": [
+      "Older signed-domination literature is unevenly indexed and may contain the same formula under a different notation.",
+      "The 2010 Utilitas Mathematica paper was inspected through its abstract rather than full text; its stated parameter list does not include the upper signed domination number."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers complete bipartite graphs but not arbitrary complete multipartite graphs.",
+        "evidence": "The paper states that it obtains the upper signed domination number for paths, cycles, and complete bipartite graphs; Theorem 3.1 gives the complete-bipartite formula.",
+        "identifier_or_url": "International-J-Math-Combin-1-2014-87-92",
+        "material_read": "Definition of minimal SDF and upper signed domination, the quoted minimality criterion, Theorem 3.1, and the complete-bipartite proof.",
+        "method": "Full-text inspection.",
+        "title": "Upper Singed Domination Number of Graphs",
+        "trigger": "Closest source explicitly naming the upper signed domination number and a complete multipartite subclass."
+      },
+      {
+        "assessment": "Determines minimum signed, signed-total, and minus parameters, not the upper signed domination number.",
+        "evidence": "Its stated scope is exact values of the signed domination number, signed total domination number, and minus domination number for complete multipartite graphs.",
+        "identifier_or_url": "arXiv:1205.0343v1",
+        "material_read": "Abstract, definitions, scope statement, and theorem section for signed domination.",
+        "method": "Full-text inspection of the public preprint.",
+        "title": "Signed and Minus Domination in Complete Multipartite Graphs",
+        "trigger": "Direct complete-multipartite signed-domination source."
+      },
+      {
+        "assessment": "Provides complexity and general bounds; no exact arbitrary complete-multipartite upper formula appears in the stated results.",
+        "evidence": "The abstract states NP-hardness for fixed k and sharp general lower bounds for minimum signed k-domination parameters.",
+        "identifier_or_url": "arXiv:1204.4827v1",
+        "material_read": "Public abstract and scope statement.",
+        "method": "Public preprint record inspection.",
+        "title": "On the Signed (Total) k-Domination Number of a Graph",
+        "trigger": "Broader source explicitly defining the upper signed k-domination number."
+      },
+      {
+        "assessment": "Abstract lists signed domination, minus domination, signed total domination, and minus total domination; it does not claim upper signed domination.",
+        "evidence": "The abstract enumerates the four exact complete-multipartite parameters it treats.",
+        "identifier_or_url": "Utilitas-Mathematica-81-2010-99-110",
+        "material_read": "Bibliographic record and abstract.",
+        "method": "Abstract-level inspection; full text was not available through the consulted public record.",
+        "title": "Several domination numbers of a complete multipartite graph",
+        "trigger": "Older directly relevant complete-multipartite domination paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e82a2088-2b85-468f-ba43-f6e256aac3a4",
+  "value": {
+    "rationale": "The upper signed domination number is a natural established invariant, and complete multipartite graphs are a standard structured family. The result replaces the bipartite-only exact formula by a closed expression for every number of parts, shows the invariant depends only on order and largest-part size, and supplies a maximum-weight construction. This is a structural exact evaluation rather than a routine numerical instance.",
+    "status": "PASS"
+  }
+}
