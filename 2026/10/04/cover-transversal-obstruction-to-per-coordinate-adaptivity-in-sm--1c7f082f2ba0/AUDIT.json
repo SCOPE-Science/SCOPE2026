@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For both source recurrences, the first-round target-cover accumulator equals \\(M^2\\) exactly when the off-target support hits that cover set. Therefore hitting every target-cover set is necessary and sufficient for one-round contamination, and the next target-only gradient gives \\(M^2+\\delta^2\\). The matrix and tensor slice covers have exact transversal number \\(2\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper states that general worst-case convergence can be worse than AdaGrad and that compatible activation patterns should improve behavior.",
+        "The reference implementation says a column accumulator for sparse gradients can significantly overestimate gradient squares."
+      ],
+      "reasoning": "These broader statements motivate the issue but do not imply the exact one-round support threshold or its rank-independent value for slice covers.",
+      "searches": [
+        "Memory-Efficient Adaptive Optimization SM3 worst case Adagrad cover activation pattern",
+        "SM3 sparse column accumulator overestimate gradient square",
+        "SM3 arbitrary cover convergence bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1901.11150v1",
+      "google-research:sm3/sm3.py"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1901.11150v1 states \\(\nu_t(i)\\) upper-bounds the coordinate's cumulative squared gradient.",
+        "The same source proves the SM3-II statistic lies between the AdaGrad statistic and the SM3-I statistic.",
+        "The source recommends row-column and codimension-one slice covers and gives only an informal compatibility argument."
+      ],
+      "reasoning": "An inequality saying SM3 may overestimate does not determine how few unrelated active coordinates can force an arbitrarily large overestimate. The final claim adds the exact minimum support and an attained attenuation formula for both source algorithms.",
+      "searches": [
+        "SM3 Claim 2 nu cumulative gradient squares",
+        "SM3 Proposition 3 SM3-II tighter upper bound",
+        "SM3 matrix rows columns tensor slices activation patterns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1901.11150v1, Sections 3, 3.1, and 4",
+        "google-research SM3 reference implementation"
+      ],
+      "reasoning": "The equivalent formulation is a hitting-set condition on the family of cover sets available to a target coordinate. The primary source discusses covers and overestimation only through inequalities and qualitative activation compatibility; no equivalent minimal-support characterization was found.",
+      "searches": [
+        "SM3 cover transversal hitting set cross contamination accumulator learning rate",
+        "SM3 row column two spikes suppress untouched coordinate update",
+        "SM3 accumulator cover adversarial gradients exact attenuation Adagrad",
+        "SM3 optimizer row column cover overestimate accumulator exact counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No targeted published-record result identified an SM3 transversal number or two-spike exact attenuation law.",
+        "Nearest returned records concerned unrelated accumulator or row-coupling obstructions in other algorithms."
+      ],
+      "reasoning": "The targeted search produced no matching SM3 formula. Search absence is not treated as a proof of uniqueness, so an informal-literature risk remains.",
+      "searches": [
+        "SM3 cover transversal hitting set cross contamination accumulator learning rate",
+        "SM3 row column two spikes suppress untouched coordinate update",
+        "SM3 accumulator cover adversarial gradients exact attenuation Adagrad",
+        "SM3 optimizer row column cover overestimate accumulator exact counterexample"
+      ]
+    },
+    "rationale": "The source contains the update formulas, the general upper-bound relation to AdaGrad, and a qualitative discussion of compatible activation patterns, but not the exact transversal invariant, its value on standard covers, or the sharp attenuation formula.",
+    "residual_risks": [
+      "An equivalent hitting-set observation may exist in informal optimizer discussions or code reviews not indexed as scientific literature.",
+      "The adversarial support pattern may be atypical when the chosen cover matches natural activation correlations.",
+      "EMA-modified or momentum variants require separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_TRANSVERSAL_OBSTRUCTION.",
+        "evidence": "The source gives all recurrences used in the proof and notes possible worst-case degradation, but does not state the minimal off-target support or exact two-spike construction.",
+        "identifier_or_url": "arXiv:1901.11150v1",
+        "material_read": "Open-access full text covering the SM3-I recurrence, Claim 2, SM3-II recurrence and Proposition 3, Discussion of activation patterns, and row-column/tensor-slice cover choice.",
+        "method": "Full-text HTML inspection with targeted searches for transversal, hitting, and overestimation terminology.",
+        "title": "Memory-Efficient Adaptive Optimization",
+        "trigger": "Defining source for SM3-I, SM3-II, and practical cover choice."
+      },
+      {
+        "assessment": "RELATED_OVERestimation_WARNING_NOT_COVERING_THEOREM.",
+        "evidence": "The implementation explicitly warns that a column accumulator can significantly overestimate sparse gradient squares, but provides no hitting-set characterization or sharp two-coordinate witness.",
+        "identifier_or_url": "google-research:sm3/sm3.py",
+        "material_read": "Dense SM3-II accumulator comments and sparse-path discussion.",
+        "method": "Public source-code inspection.",
+        "title": "Google Research SM3 reference implementation",
+        "trigger": "Check implementation-level treatment of cross-coordinate second-moment overestimation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1c7f082f-2ba0-4644-b2bd-392d3818b4ef",
+  "value": {
+    "rationale": "The cover is SM3's central memory-saving design object. The exact transversal number measures how much unrelated support is sufficient to destroy coordinatewise adaptivity in one round. Its value \\(2\\) for standard matrix and tensor covers, independent of rank, provides a concrete cover-design diagnostic and makes the protection-versus-memory role of singleton sets explicit.",
+    "status": "PASS"
+  }
+}
