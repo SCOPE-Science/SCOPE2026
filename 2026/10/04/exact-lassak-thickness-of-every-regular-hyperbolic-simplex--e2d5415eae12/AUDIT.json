@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The hyperboloid proof reduces every support width exactly to the largest Lorentz pairing of the support normal with a vertex. The inverse Gram matrix turns unit-normal normalization into a quadratic objective whose restriction to each required coordinate face is strictly convex. Therefore only zero-one patterns can minimize width; the exact consecutive-difference formula has the unique maximizing cardinality k=ceil(d/2), yielding both the formula and all equality cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lassak proves general properties of his width and computes selected regular-simplex widths, but the paper does not solve the global regular-simplex minimization problem.",
+        "Böröczky--Freyer--Sagmeister study volume minimization and horocyclic convexity for Lassak width; their open-access text contains no tetrahedral thickness formula or general regular-simplex minimizer classification.",
+        "Dekster's equidistant thickness is defined via a smallest region between two equidistant hypersurfaces and is not Lassak's later support-hyperplane width."
+      ],
+      "reasoning": "The broader hyperbolic-width literature either treats other width notions or different extremal functionals. Those theorems do not imply the claimed exact Lassak thickness or its equality classification.",
+      "searches": [
+        "Width of convex bodies in hyperbolic space regular simplex facet edge support",
+        "Pál's isominwidth problem in the hyperbolic space regular simplex thickness",
+        "Equidistant Thickness in a Space of Constant Curvature simplex hyperbolic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.04412",
+      "DOI:10.1007/s00025-023-02102-2",
+      "DOI:10.1007/s12220-025-02258-z",
+      "arXiv:2502.04427",
+      "B. V. Dekster, Equidistant Thickness in a Space of Constant Curvature (2001)",
+      "B. V. Dekster, Thickness of a Simplex Whose Edge Lengths Fall Within a Prescribed Range (1997)",
+      "targeted semantic and exact-phrase searches listed in the named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper explicitly describes its regular-simplex calculation as the width determined by a facet support, then separately constructs an edge support for a tetrahedron and compares only those two widths.",
+        "The motivating paper concludes from that comparison that regular hyperbolic tetrahedra are not reduced and says the author expects analogous behavior in higher dimensions; it does not identify the global thickness.",
+        "The later hyperbolic isominwidth paper discusses Lassak width as an extremal constraint but does not calculate regular-simplex thickness.",
+        "Older equidistant-thickness results cannot imply the claim because they optimize a different geometric strip."
+      ],
+      "reasoning": "The final theorem strictly strengthens the motivating tetrahedral comparison by proving global optimality and all equality cases, and then extends the optimization to every dimension. None of the inspected prior statements entails these conclusions.",
+      "searches": [
+        "arXiv:2306.04412 Example 2 Example 3 regular tetrahedron width",
+        "DOI:10.1007/s00025-023-02102-2 regular simplex width",
+        "Dekster equidistant thickness regular simplex hyperbolic",
+        "Pál's isominwidth problem in the hyperbolic space simplex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2306.04412 defines the relevant support-hyperplane width and thickness and contains the tetrahedral edge-supported calculation.",
+        "Searches combined regular hyperbolic simplex, minimum width, thickness, support hyperplane, edge support, Gram matrix, and Lassak terminology without locating an equivalent formula or minimizer classification.",
+        "Searches for equidistant thickness were separated because that phrase denotes a different hyperbolic width construction in the older literature."
+      ],
+      "reasoning": "A genuinely equivalent result would need to optimize Lassak width over all supports of a regular hyperbolic simplex, not merely compute a facet altitude, an edge-supported sample width, or a different notion of thickness. No such statement was located.",
+      "searches": [
+        "regular hyperbolic tetrahedron exact thickness minimum width supporting hyperplane edge",
+        "hyperbolic simplex thickness regular tetrahedron minimal width opposite edges",
+        "Lassak width regular tetrahedron minimum width exact classification",
+        "regular simplex hyperbolic width edge-support hyperplane thickness",
+        "hyperbolic tetrahedron minimal width edge edge common perpendicular",
+        "regular hyperbolic simplex Lassak thickness exact formula all minimizing support faces",
+        "hyperboloid Gram matrix regular simplex minimal Lassak width face dimension",
+        "equidistant thickness regular hyperbolic simplex exact formula Dekster Lassak",
+        "regular hyperbolic simplex Lassak width",
+        "regular hyperbolic simplex minimal width supporting hyperplane"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Opaque indexed record 47a8f9f119ab concerns Euclidean regular-simplex central-section stability, not hyperbolic support width.",
+        "Opaque indexed record 717f47020110 concerns ideal-hyperbolic-tetrahedron volume at fixed angle variance, not Lassak width.",
+        "Opaque indexed record 3184b81bbe2a concerns Euclidean diameter-bounded simplex volume, not hyperbolic thickness.",
+        "Opaque indexed record aa95d0b492e6 concerns Euclidean tetrahedral Ptolemy slacks, not support hyperplanes or width."
+      ],
+      "reasoning": "The closest indexed records share simplex, tetrahedron, hyperbolic, or width vocabulary but their invariants and implication directions differ. None contains a statement that would imply the final claim.",
+      "searches": [
+        "regular hyperbolic simplex Lassak thickness exact formula all minimizing support faces",
+        "hyperboloid Gram matrix regular simplex minimal Lassak width face dimension",
+        "equidistant thickness regular hyperbolic simplex exact formula Dekster Lassak"
+      ]
+    },
+    "rationale": "The motivating source defines Lassak thickness, computes facet width for regular simplices, and exhibits a narrower edge support for regular hyperbolic tetrahedra, but does not prove that edge support is globally minimizing or classify minimizers. Earlier equidistant-thickness work uses a different width notion, and later isominwidth work does not determine the regular-simplex thickness. Focused searches found no equivalent all-dimensional theorem.",
+    "residual_risks": [
+      "Dekster's 2001 full text was not available through the inspected public publisher page; its abstract makes clear that it uses a different width notion, so it is not a decisive unresolved comparison, but it remains a terminology-related access risk.",
+      "The proof is short once the Lorentz Gram formulation is chosen, so an equivalent observation could exist in an unindexed note, thesis, or differently phrased discussion.",
+      "No claim is made for nonregular or ideal hyperbolic simplices or for other notions of hyperbolic width."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PRIMARY_SOURCE_NOT_COVERING_GLOBAL_OPTIMIZATION",
+        "evidence": "The paper states that support width equals maximum point distance, defines thickness as the minimum over supports, computes the regular-simplex facet width, and in dimension three constructs one narrower edge support. It does not optimize over all supports or classify minimizers.",
+        "identifier_or_url": "arXiv:2306.04412; DOI:10.1007/s00025-023-02102-2",
+        "material_read": "Open-access full text: width and thickness definitions; Proposition 1; thickness section; regular triangle and regular tetrahedron examples; edge-supported tetrahedron calculation; concluding remark on nonreduced regular tetrahedra and higher dimensions; MSC line.",
+        "method": "Open-access arXiv-derived full-text inspection.",
+        "title": "Width of Convex Bodies in Hyperbolic Space",
+        "trigger": "Primary source defining the exact width notion and containing the closest regular-simplex and tetrahedral calculations."
+      },
+      {
+        "assessment": "DIFFERENT_WIDTH_NOTION_NOT_COVERING",
+        "evidence": "The abstract defines equidistant thickness using a smallest region between two hypersurfaces equidistant from a hyperplane. This is not Lassak's support-hyperplane width and the paper advertises estimates for simplices with edge lengths in a range rather than the final exact Lassak formula.",
+        "identifier_or_url": "B. V. Dekster, JP Journal of Geometry and Topology 1 (2001), 1–36",
+        "material_read": "Publisher abstract and bibliographic page describing the definition and application to simplex lower estimates.",
+        "method": "Publisher abstract inspection; full text was not available through the inspected public page.",
+        "title": "Equidistant Thickness in a Space of Constant Curvature",
+        "trigger": "Potential terminology collision: an older hyperbolic simplex paper uses the word thickness."
+      },
+      {
+        "assessment": "USES_SAME_WIDTH_BUT_NOT_REGULAR_SIMPLEX_THICKNESS",
+        "evidence": "The paper studies volume minimization under a Lassak-width constraint and horocyclic convexity. It contains no tetrahedron occurrence and its simplex discussion concerns Euclidean Steinhagen comparison, not an exact hyperbolic regular-simplex width calculation.",
+        "identifier_or_url": "DOI:10.1007/s12220-025-02258-z; arXiv:2502.04427",
+        "material_read": "Open-access full text at the introduction, Lassak-width discussion, the general convex-body counterexample, and the h-convex planar extremal results; exact searches for tetrahedron and simplex were also performed.",
+        "method": "Open-access publisher full-text inspection.",
+        "title": "Pál’s Isominwidth Problem in the Hyperbolic Space",
+        "trigger": "Later open-access paper using Lassak width and therefore a plausible source of broader coverage."
+      },
+      {
+        "assessment": "OLDER_ESTIMATE_UNDER_DIFFERENT_PRE_LASSAK_FRAMEWORK",
+        "evidence": "The abstract frames the contribution as lower estimates for a thickness in terms of edge-length bounds. It predates Lassak's 2023 width and does not state the support-hyperplane formula or minimizer classification claimed here.",
+        "identifier_or_url": "B. V. Dekster, Geometriae Dedicata 68 (1997), 49–59",
+        "material_read": "Public abstract describing a suitable thickness and lower estimates in constant-curvature geometries.",
+        "method": "Bibliographic abstract inspection.",
+        "title": "Thickness of a Simplex Whose Edge Lengths Fall Within a Prescribed Range",
+        "trigger": "Older simplex-thickness literature that could conceivably dominate an exact regular case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2d5415e-ae12-4075-a733-d50454265121",
+  "value": {
+    "rationale": "The motivating theory defines thickness as the central minimum-width invariant, while its canonical regular-simplex examples stop short of the global minimization. The exact formula and complete equality classification determine this invariant on the fundamental symmetric family in every dimension, reveal a parity-dependent minimizing face dimension, and upgrade the source's three-dimensional edge-support witness to the actual thickness.",
+    "status": "PASS"
+  }
+}
