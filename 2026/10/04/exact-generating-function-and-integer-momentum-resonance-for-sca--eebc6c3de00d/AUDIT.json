@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The exact averaging identity yields a closed recurrence and the differential equation \\((1-q)(1-Aq)G'(q)+s\\beta G(q)=x_1\\). Direct substitution verifies the generating function. Coefficient singularities prove the generic polynomial tail, rational-pole decay at integer \\(r=\\beta/(1-\\beta)\\), and exact polynomial truncation at \\(A=0\\). The full-state convergence condition is exactly \\(|A|<1\\), equivalent to \\(0<s<2/(1-\\beta)\\); the boundary and supercritical cases fail because the base sequence does not converge.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.15682v1",
+        "arXiv:2411.07061v1",
+        "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ],
+      "reasoning": "The primary paper establishes general convex guarantees and an empirical quadratic large-step effect; the later paper establishes nonconvex complexity guarantees. The nearby database records analyze different momentum or staged first-order methods and do not imply the Schedule-Free interpolation recurrence.",
+      "searches": [
+        "schedule-free optimization scalar quadratic exact stability averaging momentum parameter",
+        "schedule-free optimizer quadratic exact stability threshold gamma lambda 2/(1-beta)",
+        "normalized gradient method scalar quadratic constant step limit cycle momentum",
+        "averaging SGD quadratic large learning rate exact stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.15682v1",
+      "arXiv:2411.07061v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2405.15682v1 full text: algorithm, large-learning-rate discussion, quadratic Figure 3",
+        "arXiv:2411.07061v1 full text: Schedule-Free SGD definition and main nonconvex guarantee"
+      ],
+      "reasoning": "The 2024 source paper explicitly reports that interpolation allows larger learning rates on quadratic experiments and says the full large-step conditions are not fully understood in stochastic settings, but it does not state the exact scalar boundary or rate resonance. The later nonconvex analysis gives rate-optimality and parameter guidance, not the claimed constant-step scalar generating function. Neither inspected result specializes to the complete claim.",
+      "searches": [
+        "The Road Less Scheduled quadratic larger learning rates beta exact threshold",
+        "The Road Less Scheduled generating function scalar quadratic",
+        "General framework online-to-nonconvex schedule-free SGD quadratic exact stability",
+        "Schedule-Free SGD finite termination beta 0.9 quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2405.15682v1",
+        "arXiv:2411.07061v1",
+        "No matching focused database record"
+      ],
+      "reasoning": "The exact recurrence can be viewed as a primal-averaging recurrence, but the searched sources did not state the closed generating function or the integer-versus-noninteger coefficient dichotomy. The source paper discusses interpolation and averaging qualitatively and empirically rather than through this exact scalar coefficient analysis.",
+      "searches": [
+        "schedule-free SGD scalar quadratic exact generating function beta constant learning rate",
+        "schedule-free SGD rational beta finite termination quadratic",
+        "schedule-free SGD beta resonance linear convergence quadratic averaging",
+        "primal averaging scalar quadratic generating function constant step interpolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "No exact Schedule-Free SGD formula or table found"
+      ],
+      "reasoning": "The closest records concern Polyak steps, stochastic OSGM, reflected-gradient splitting, or other quadratic recurrences. They neither use the Schedule-Free three-sequence update nor contain the \\(2/(1-\beta)\\) frontier and resonance formulas.",
+      "searches": [
+        "schedule-free SGD scalar quadratic exact generating function beta constant learning rate",
+        "schedule-free optimizer quadratic exact stability threshold gamma lambda 2/(1-beta)",
+        "schedule-free SGD rational beta finite termination quadratic",
+        "schedule-free SGD beta resonance linear convergence quadratic averaging"
+      ]
+    },
+    "rationale": "The inspected primary Schedule-Free SGD sources do not state the combined exact scalar generating function, sharp full-state learning-rate frontier, arithmetic rate dichotomy, and finite-termination resonance. Targeted semantic searches returned only adjacent averaging and quadratic-stability results.",
+    "residual_risks": [
+      "An equivalent recurrence or generating-function analysis may exist in older primal-averaging, stochastic-approximation, or special-function literature under different terminology.",
+      "Focused search cannot prove global novelty; the claim is therefore limited to the exact mathematical statement compared against the inspected sources.",
+      "The arithmetic resonance is exact and should not be interpreted as a robustness guarantee for floating-point or stochastic implementations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "The paper defines the three-sequence update and reports empirically that beta below one enables larger learning rates on quadratic problems. It does not state the scalar generating function, the exact \\(2/(1-\beta)\\) frontier, or integer-momentum resonance.",
+        "identifier_or_url": "arXiv:2405.15682v1",
+        "material_read": "Full open-access PDF: method equations, momentum interpretation, large-learning-rate discussion, quadratic Figure 3, related work, and theory sections; targeted full-text searches for quadratic, linear convergence, eigenvalue, and generating-function language.",
+        "method": "Open-access arXiv full-text inspection, including the quadratic experiment page.",
+        "title": "The Road Less Scheduled",
+        "trigger": "Primary definition of equal-weight Schedule-Free SGD and its empirical large-learning-rate quadratic behavior."
+      },
+      {
+        "assessment": "BROADER_NONCONVEX_THEORY_NOT_COVERING.",
+        "evidence": "The paper proves optimal nonsmooth nonconvex rates and provides parameter guidance, but the inspected material does not give an exact constant-step scalar quadratic recurrence or resonance theorem.",
+        "identifier_or_url": "arXiv:2411.07061v1",
+        "material_read": "Full open-access PDF: introduction, three-sequence SF-SGD definition, main theorem summary, parameter-choice discussion, and targeted quadratic searches.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "General framework for online-to-nonconvex conversion: Schedule-free SGD is also effective for nonconvex optimization",
+        "trigger": "Most directly relevant follow-up theory for Schedule-Free SGD and its parameter choices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eebc6c3d-e00d-4c73-b5b6-bb18f9417453",
+  "value": {
+    "rationale": "The exact \\(2/(1-\\beta)\\) ceiling mathematically resolves the scalar version of the source paper's observed large-learning-rate stability effect. The generating function additionally reveals a non-obvious rate transition: exact integer \\(r=\\beta/(1-\\beta)\\) values produce geometric decay instead of the generic polynomial tail, and \\(s=1/(1-\\beta)\\) yields finite termination. These are motivated diagnostics for a widely used optimizer mechanism rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
