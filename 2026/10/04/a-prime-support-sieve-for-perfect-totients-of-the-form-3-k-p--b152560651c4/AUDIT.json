@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For even \\(m\\), induction gives \\(F(m)\\le2\\phi(m)-1\\). For a hypothetical perfect totient \\(3^k p\\), the exact identity \\(F(2\\cdot3^{k-1}(p-1))=3^{k-1}(p+2)\\) and the factorization \\(p-1=2^a3^b u\\) give \\(\\phi(m)=2\\cdot3^{k-2}(p-1)\\phi(u)/u\\). Substitution and cancellation yield the strict claimed bound. Multiplicativity then turns it into the prime-support product condition. The three congruence exclusions use exact products \\(24/35\\), \\(8/11\\), and \\(48/65\\), each below \\(3/4\\). The bundled finite checker directly replays definitions on a bounded domain and is explicitly not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "JIS:2006:06.1.6 studies value-set size, density, and congruences for the global iterated-totient sum.",
+        "JIS:2003:03.4.5 explicitly leaves existence of perfect totients \\(3^k p\\) for \\(k\\ge4\\) open after treating prescribed prime chains."
+      ],
+      "reasoning": "The global distribution results do not specialize to a pointwise lower bound for \\(\\phi(u)/u\\), while the 2003 and 2009 family results cover only prescribed factorizations of \\(p-1\\). No inspected broader theorem dominates the support sieve.",
+      "searches": [
+        "On the Sum of Iterations of the Euler Function perfect totient",
+        "perfect totient 3^k p open k>=4 Iannucci"
+      ]
+    },
+    "checked_sources": [
+      "JIS:2003:03.4.5",
+      "JIS:2006:06.1.6",
+      "JIS:2009:09.6.2",
+      "OEIS:A082897",
+      "Published published-finding corpus records returned by the recorded semantic claim searches; closest records concerned other arithmetic-number families and did not imply the claim."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "JIS:2003:03.4.5 Theorem 5 rules out one two-level prime-chain model for \\(k\\ge4\\), not arbitrary \\(p-1\\).",
+        "JIS:2009:09.6.2 rules out a specified four-level prime chain, not arbitrary \\(p-1\\).",
+        "JIS:2006:06.1.6 gives asymptotic and congruence information for the iterated-totient sum but no fixed-family Euler-product threshold."
+      ],
+      "reasoning": "The final claim is a uniform necessary condition for every prime \\(p>3\\) in the family. The inspected prior statements neither entail its numerical threshold nor its infinite residue-class exclusions. Conversely, the sieve does not subsume their sharper conclusions inside their prescribed prime-chain subclasses.",
+      "searches": [
+        "perfect totient p-1 Euler product 3/4",
+        "perfect totient phi(u)/u p+2",
+        "3^k p perfect totient necessary condition p-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "JIS:2003:03.4.5, full text Sections 2-3: structured sufficient conditions and nested-prime Diophantine reductions for \\(3^k p\\).",
+        "JIS:2009:09.6.2, full text: a deeper prescribed prime-chain exclusion for \\(k\\ge4\\).",
+        "Targeted semantic searches returned no statement equivalent to the Euler-product lower bound on the \\(6\\)-coprime part of \\(p-1\\)."
+      ],
+      "reasoning": "The new statement is invariant under exponents of primes dividing \\(u\\) and is a support-density inequality. The inspected chain-parametrization theorems instead assume explicit recursive primality shapes. Neither formulation algebraically implies the other in general.",
+      "searches": [
+        "perfect totient 3^k p prime support p-1 totient ratio necessary condition",
+        "perfect totient 3^k p Euler product p-1 sieve",
+        "sum iterates Euler phi 3^k p necessary condition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A082897 lists the known perfect totient sequence, including the finite-range hits used only for corroboration.",
+        "The bundled checker reproduces all hits of the target form with prime \\(p\\le200000\\) and \\(2\\le k\\le8\\) and finds no sieve violation."
+      ],
+      "reasoning": "The database supplies examples rather than a theorem about prime support; the claimed inequality is not a table lookup or recomputation of a tabulated invariant.",
+      "searches": [
+        "OEIS A082897 perfect totient numbers",
+        "perfect totient sequence 5571 46791 140103"
+      ]
+    },
+    "rationale": "Statement-level comparison found the closest literature treats the same perfect-totient family through explicit nested prime chains, or treats the iterated-totient sum globally. No inspected source states or implies the uniform lower bound on the Euler product of the \\(6\\)-coprime support of \\(p-1\\). Targeted semantic searches and the natural sequence database found no equivalent statement. Residual risk from two older inaccessible foundational papers is disclosed rather than treated as evidence of novelty.",
+    "residual_risks": [
+      "The 1939 Pérez-Cacho article and the 1982 Mohan–Suryanarayana article were not directly available for full-text inspection in this run. Their relevant results were compared through the 2003 article's detailed literature account, but an unreported equivalent elementary inequality remains a residual literature-access risk.",
+      "A negative semantic/database search cannot prove uniqueness; originality is supported by statement-level comparison of the highly relevant full-text sources, not by search failure alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the final support-sieve claim. It gives sufficient constructions for small \\(k\\), eliminates prescribed nested-prime shapes for larger \\(k\\), and leaves the unrestricted \\(k\\ge4\\) family open.",
+        "evidence": "The paper states its purpose is to investigate \\(3^k p\\), derives Diophantine equations under nested-prime hypotheses, and explicitly says the existence question for \\(k\\ge4\\) remains open.",
+        "identifier_or_url": "JIS:2003:03.4.5 | https://cs.uwaterloo.ca/journals/JIS/VOL6/Cohen2/cohen50.pdf",
+        "material_read": "Full seven-page article, especially the definition, Sections 2-3, Theorem 5, the open-question paragraph, references, and MSC line.",
+        "method": "Full-text inspection of the lawful journal PDF plus statement-level comparison.",
+        "title": "On Perfect Totient Numbers",
+        "trigger": "Same object and exact family \\(3^k p\\); primary literature for the archive direction."
+      },
+      {
+        "assessment": "NOT_COVERING. The results are global counting, density, and congruence statements and do not give the claimed pointwise Euler-product threshold for \\(p-1\\).",
+        "evidence": "Theorems concern the size of the value set, density of multiply perfect totients, and typical size of \\(|F(n)-n|\\), not prime-support restrictions in \\(3^k p\\).",
+        "identifier_or_url": "JIS:2006:06.1.6 | https://cs.uwaterloo.ca/journals/JIS/VOL9/Shparlinski/shpar43.html",
+        "material_read": "Full five-page article, including the definition, value-set bounds, multiply-perfect-totient density result, congruence argument, open questions, and references.",
+        "method": "Full-text PDF/text inspection and implication comparison.",
+        "title": "On the Sum of Iterations of the Euler Function",
+        "trigger": "Possible broader theorem on the same iterated-totient sum that could dominate the elementary orbit bound."
+      },
+      {
+        "assessment": "NOT_COVERING. It excludes a particular deeper prime-chain factorization for \\(k\\ge4\\), not arbitrary prime support of \\(p-1\\).",
+        "evidence": "Its abstract and proof hypotheses explicitly prescribe successive primes of forms built from powers of \\(2\\), \\(3\\), and the previous prime.",
+        "identifier_or_url": "JIS:2009:09.6.2 | https://cs.uwaterloo.ca/journals/JIS/VOL12/Deng/deng1.pdf",
+        "material_read": "Full article with emphasis on the introduction and the prescribed multi-level prime-chain theorem.",
+        "method": "Full-text journal PDF inspection and implication comparison.",
+        "title": "A Note On Perfect Totient Numbers",
+        "trigger": "Later work on the same unresolved \\(3^k p\\) family."
+      },
+      {
+        "assessment": "NOT_COVERING. It tabulates examples and references but does not state the support-sieve theorem.",
+        "evidence": "The listed examples include the bounded target hits used to check the verifier's implementation.",
+        "identifier_or_url": "OEIS:A082897 | https://oeis.org/A082897",
+        "material_read": "Sequence values, comments, references, definition, and program notes.",
+        "method": "Database/table inspection.",
+        "title": "A082897 — Perfect totient numbers",
+        "trigger": "Natural exact sequence/database for the objects and known examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b1525606-51c4-4a01-a374-87dd5194b4d3",
+  "value": {
+    "rationale": "The literature explicitly leaves the existence of perfect totients \\(3^k p\\) for \\(k\\ge4\\) open. The claim converts that motivated open family into a uniform, exponent-independent support barrier on \\(p-1\\), excluding whole infinite congruence classes such as \\(p\\equiv1\\pmod{35}\\), \\(p\\equiv1\\pmod{55}\\), and \\(p\\equiv1\\pmod{65}\\). This is a structural sieve useful for both theoretical case reduction and searches, rather than an arbitrary finite computation or a renamed textbook identity.",
+    "status": "PASS"
+  }
+}
