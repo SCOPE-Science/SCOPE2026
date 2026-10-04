@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The closed-form construction was reconstructed symbolically: exact model equality gives \\(\\rho_k=1\\); the geometric radius mass stays below \\(x_0\\), so all exact trust-region steps remain boundary steps and \\(x_k\\to x_\\infty>0\\). The C.1/C.2/C.3 status follows directly from these formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rieussec--Bastin prove generic convergence under C.1 plus other structural conditions and verify C.1 for five mechanism classes.",
+        "The source attributes Yuan's 1998 one-dimensional example to the zero-acceptance-threshold issue, distinct from the present positive-threshold all-successful construction."
+      ],
+      "reasoning": "The primary source gives broader sufficient convergence theory but does not dominate the necessity claim. Yuan's older counterexample is nearby in purpose but does not imply this exact mechanism because the failure mode and acceptance regime differ.",
+      "searches": [
+        "Rieussec Bastin Condition C.1 trust-region lower bound global convergence",
+        "Yuan example non-convergence trust region algorithms one dimensional eta zero"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.30202v1",
+      "DOI:10.1007/978-1-4613-3335-7_9",
+      "published-finding corpus:2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe",
+      "published-finding corpus:2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source: arXiv:2606.30202v1, Sections 1--4 and 6, inspected via lawful open full text.",
+        "Yuan 1998 reference and the source's discussion of it were inspected as the closest historical nonconvergence comparison."
+      ],
+      "reasoning": "The source's sufficiency theorem does not imply a necessity witness after removing C.1. Conversely, the new witness does not challenge the source's concrete mechanisms because those are proved to satisfy C.1. The exact logical addition is independent necessity of C.1 within the generic class when C.2 and C.3 alone are retained.",
+      "searches": [
+        "Rieussec Bastin lower bound radius key global convergence exact model",
+        "summable trust region radii exact quadratic accepted ratio one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no record stating an all-successful exact-quadratic summable-radius obstruction to the generic trust-region framework.",
+        "The primary source's inspected full text names C.1 and proves convergence with it but does not state this witness."
+      ],
+      "reasoning": "Equivalent wording was searched through radius summability, nonstationary stalling, scalar quadratics, and necessity of the radius lower bound. The closest hits concern different algorithms or different trust-region quantities.",
+      "searches": [
+        "trust-region radius summable accepted steps stall nonstationary scalar quadratic lower bound radius necessary",
+        "lower bound trust region radius relative gradient necessary counterexample summable radii accepted exact quadratic",
+        "trust region all successful steps radius contraction converges nonstationary one dimensional quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record: 2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe, on sharp fraction-of-optimal Cauchy decrease.",
+        "Another nearby record: 2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa, which uses a summable-step obstruction for a different adaptive gradient method."
+      ],
+      "reasoning": "Neither record is implication-equivalent: the first concerns one-step decrease quality, while the second concerns AdOGD rather than trust-region radius structural conditions.",
+      "searches": [
+        "published-finding corpus: trust-region radius summable accepted steps stall nonstationary scalar quadratic lower bound radius necessary",
+        "published-finding corpus: lower bound trust region radius relative gradient necessary counterexample summable radii accepted exact quadratic"
+      ]
+    },
+    "rationale": "The motivating survey states and uses C.1 but the inspected full text does not supply this exact all-successful scalar-quadratic necessity witness. Yuan's cited nonconvergence example is discussed there as an \\(\\eta=0\\) phenomenon. Targeted published-finding corpus searches found no implication-equivalent record.",
+    "residual_risks": [
+      "The historical trust-region literature is large; an older equivalent summable-radius necessity observation may exist under different terminology.",
+      "The Yuan 1998 chapter was compared through the detailed description in the 2026 primary survey rather than an independently inspected full chapter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact necessity witness; source provides the sufficient theory and motivation.",
+        "evidence": "The source defines C.1 as a radius lower bound, says it is key for global convergence, and discusses a distinct Yuan counterexample tied to \\(\\eta=0\\).",
+        "identifier_or_url": "arXiv:2606.30202v1",
+        "material_read": "Abstract; introduction; generic algorithm; Cauchy-decrease assumptions; structural conditions and convergence discussion; fixed/step-driven update discussion; references to Yuan's example.",
+        "method": "Lawful arXiv HTML and CC BY-SA full text; statement-level comparison.",
+        "title": "A survey of trust-region radius update mechanisms. Part I: First-order analysis",
+        "trigger": "Primary literature-led source defining C.1--C.3 and the generic algorithm."
+      },
+      {
+        "assessment": "PLAUSIBLY_RELATED_BUT_DISTINCT; residual risk retained.",
+        "evidence": "Rieussec--Bastin describe Yuan's example as cycling among three points in the \\(\\eta=0\\) acceptance discussion, unlike the present positive-threshold all-successful exact-quadratic stall.",
+        "identifier_or_url": "DOI:10.1007/978-1-4613-3335-7_9",
+        "material_read": "Bibliographic identification and the 2026 survey's explicit description of the result.",
+        "method": "Comparison through the citing primary source; full historical chapter was not independently obtained.",
+        "title": "An example of non-convergence of trust region algorithms",
+        "trigger": "Primary source cites it as the closest one-dimensional nonconvergence example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9fe44df5-76fa-44ea-a97e-3ed6990276ee",
+  "value": {
+    "rationale": "The construction isolates the role of the source's central structural condition: even perfect model fidelity, exact subproblem solves, strict positive acceptance thresholds, and the other two structural radius conditions do not ensure stationarity if successful radii can be summable. This clarifies why a radius-to-criticality lower bound is mathematically substantive rather than merely technical.",
+    "status": "PASS"
+  }
+}
