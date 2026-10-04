@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The SLD matrix is derived directly from the Clifford anticommutation relations. The biased-simplex probabilities and first two moments are explicit and positive for every interior radius. Transport to the score ellipsoid gives positive POVM effects, exact normalization, and \\(F=J/d\\). The lower bound \\(m\\ge d+1\\) follows from the zero-mean score identity and \\(\\operatorname{rank}(F)\\le m-1\\). Exact-rational regression checks independently verify the scalar moment identities over multiple dimensions and radii. The proof, not the finite tests, carries the quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yamagata, arXiv:2604.21323v1, proves a general sufficient upper bound \\((\\dim\\mathcal H)^2+d(d+1)/2-1\\) for locally unbiased estimation, not the sharp \\(d+1\\) value here.",
+        "Yamagata, arXiv:2609.23020v1, characterizes the normalized spin-factor Fisher region and attains weighted optima by randomized spectral measurements.",
+        "Heinosaari--Mazzarella--Wolf, arXiv:1109.5478, studies global informational completeness under prior state constraints rather than local Fisher-optimal support."
+      ],
+      "reasoning": "The broad support-size theorem does not imply \\(d+1\\), and its rank-one existence statement is compatible with the present generally higher-rank effects. Global tomography outcome bounds address injectivity over a state set, not local Fisher efficiency at one point.",
+      "searches": [
+        "spin-factor support size optimal POVM d+1 outcomes",
+        "Gill-Massar spin factor support size measurement outcomes",
+        "minimum outcomes attain Fisher matrix I/d quantum multiparameter",
+        "minimal number of outcomes quantum Fisher information POVM multiparameter"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.23020v1",
+      "arXiv:2604.21323v1",
+      "arXiv:1507.06904 / Phys. Rev. Lett. 116, 180402 (2016)",
+      "arXiv:1709.06112 / Phys. Rev. Lett. 120, 030404 (2018)",
+      "Gross--Dangniam--Caves, Fisher symmetry and the geometry of quantum states (2015 public presentation)",
+      "arXiv:1109.5478, Quantum Tomography under Prior Information"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.23020v1 implies existence of some optimal POVM and gives a \\(2d\\)-labeled-outcome randomized binary realization for the isotropic full model, but it does not force a \\((d+1)\\)-outcome realization or minimality.",
+        "arXiv:2604.21323v1 gives a much larger generic sufficient support bound and therefore does not imply exact \\(d+1\\) support.",
+        "The 2016 pure-state Fisher-symmetric theorem and 2018 two-copy universal theorem concern different statistical models and copy numbers.",
+        "The 2015 Gross--Dangniam--Caves presentation covers the \\(d=3\\) mixed-qubit specialization; the final claim starts at \\(d=4\\)."
+      ],
+      "reasoning": "None of the compared stronger-looking results implies the arbitrary-interior \\(d\\ge4\\) biased-simplex construction together with the matching \\(m\\ge d+1\\) lower bound. The qubit special case is explicitly carved out rather than relabeled as new.",
+      "searches": [
+        "Fisher-symmetric arbitrary mixed state qubit POVM",
+        "Fisher-Symmetric Informationally Complete Measurements for Pure States",
+        "Universally Fisher-Symmetric Informationally Complete Measurements",
+        "Sufficient support size of measurements for quantum estimation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published-record semantic hit concerns classical interval quantizers, not quantum POVMs.",
+        "Gross--Dangniam--Caves public 2015 Fisher-symmetry presentation states an arbitrary-mixed-qubit construction, covering the \\(d=3\\) specialization only.",
+        "Li et al., Phys. Rev. Lett. 116, 180402 (2016), concerns pure-state local models."
+      ],
+      "reasoning": "The aliases Fisher-symmetric, simplex POVM, outcome-minimal, support size, and Gill--Massar were searched. The only directly overlapping prior construction found is the qubit \\(d=3\\) special case, which is excluded from the novelty claim.",
+      "searches": [
+        "outcome-minimal POVM spin-factor Fisher information regular simplex",
+        "d+1 outcome optimal POVM spin factor Gill-Massar",
+        "simplex POVM attains Gill-Massar bound Bloch ball local estimation",
+        "Yamagata sufficient support size quantum estimation spin factor d+1 outcomes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact published-record searches for arXiv:2609.23020 and arXiv:2604.21323 returned no record matching the present claim.",
+        "A separate private deduplication check against earlier accepted claims found no matching source or statement."
+      ],
+      "reasoning": "No exact published record was found for this source/claim combination. This negative evidence is not treated as novelty proof; it is combined with implication comparisons against the relevant primary literature.",
+      "searches": [
+        "2609.23020",
+        "2604.21323",
+        "Yamagata spin-factor Gill-Massar",
+        "regular simplex POVM arbitrary mixed qubit Fisher"
+      ]
+    },
+    "rationale": "The recent spin-factor paper proves the full attainable Fisher region and supplies a randomized spectral realization, but does not give the sharp outcome complexity of the isotropic optimum. A separate 2026 support-size paper gives only broad upper bounds. Pure-state Fisher-symmetric work uses a different state family; public prior work explicitly covers arbitrary mixed qubits, so the claim is restricted to \\(d\\ge4\\). Searches did not surface a \\((d+1)\\)-outcome arbitrary-interior spin-factor construction or matching lower bound.",
+    "residual_risks": [
+      "An equivalent \\(d\\ge4\\) construction could exist in older Jordan-algebra or generalized-probabilistic-theory literature under terminology not surfaced by the searches.",
+      "The \\(d=3\\) qubit specialization is known and is excluded from the originality claim.",
+      "The primary 2026 spin-factor paper may admit an implicit compression not emphasized in its stated randomized-spectral construction; no such \\((d+1)\\)-support theorem was found in the inspected material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the \\(d+1\\) support theorem. It proves attainability and supplies a generic randomized spectral construction, but does not state the exact minimum number of outcomes or the biased-simplex realization.",
+        "evidence": "The source characterizes normalized attainable matrices as PSD with trace at most one and implements the optimum by randomizing d binary spectral measurements; for \\(W=J\\) the target is \\(I/d\\).",
+        "identifier_or_url": "arXiv:2609.23020v1",
+        "material_read": "Abstract; theorem statement for the normalized Fisher region and weighted bound; construction discussion using randomized spectral SLD measurements; five-parameter Gamma^5 example and isotropic \\(W=J\\) specialization.",
+        "method": "Public arXiv HTML/full-text material and indexed arXiv record were inspected; the source statement was compared by implication rather than title similarity.",
+        "title": "An attainable Gill--Massar-type bound for spin-factor models",
+        "trigger": "Primary recent source defining the spin-factor Fisher region and its explicit optimal-measurement construction."
+      },
+      {
+        "assessment": "NOT_COVERING. The local-estimation theorem gives a general sufficient support upper bound (dim H)^2+d(\\(d+1\\))/2-1, not a sharp model-specific \\(d+1\\) bound or construction.",
+        "evidence": "The abstract explicitly gives the general locally unbiased support upper bound and rank-one existence result.",
+        "identifier_or_url": "arXiv:2604.21323v1",
+        "material_read": "Primary abstract and theorem-level support-size statement.",
+        "method": "ArXiv primary record and indexed abstract were inspected.",
+        "title": "Sufficient support size of measurements for quantum estimation",
+        "trigger": "Directly relevant prior paper about outcome/support complexity in quantum estimation."
+      },
+      {
+        "assessment": "NOT_COVERING. It treats pure-state local models; its outcome count and Fisher fraction are tied to pure-state geometry rather than the full mixed spin-factor ball.",
+        "evidence": "The abstract explicitly says the parameters represent pure quantum states near a fiducial pure state.",
+        "identifier_or_url": "DOI:10.1103/PhysRevLett.116.180402; arXiv:1507.06904",
+        "material_read": "APS primary article page/abstract and bibliographic material.",
+        "method": "Primary APS page was inspected and compared to the model and parameter domain here.",
+        "title": "Fisher-Symmetric Informationally Complete Measurements for Pure States",
+        "trigger": "Closest established Fisher-symmetric measurement literature."
+      },
+      {
+        "assessment": "COVERS the \\(d=3\\) Bloch-ball specialization and therefore defines an originality boundary; it does not cover spin factors with \\(d\\ge4\\).",
+        "evidence": "The presentation states that an FSM can be calculated for an arbitrary mixed qubit, then identifies higher-dimensional mixed-state FSMs as an open/difficult direction in that context.",
+        "identifier_or_url": "https://jarthurgross.github.io/fisher-symmetric-2015/",
+        "material_read": "Public presentation sections on Gill--Massar, Fisher symmetry, pure states, mixed states, arbitrary mixed qubits, and higher dimensions.",
+        "method": "Full public HTML presentation was read around the mixed-state and higher-dimensional sections.",
+        "title": "Fisher symmetry and the geometry of quantum states",
+        "trigger": "Search surfaced an arbitrary-mixed-qubit Fisher-symmetric construction that could cover a low-dimensional special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b394b714-bf3f-41ff-86c9-34c9e2cedac6",
+  "value": {
+    "rationale": "Outcome complexity is an explicit open practical/theoretical concern in recent quantum-estimation work. The result is not a parameter substitution or table recomputation: it gives a closed-form POVM at every interior point, proves the exact minimum support, and compresses the recent five-parameter optimal construction from ten labeled outcomes to six. The biased-simplex moment construction also exposes a geometric mechanism for saturating the spin-factor Fisher tradeoff.",
+    "status": "PASS"
+  }
+}
