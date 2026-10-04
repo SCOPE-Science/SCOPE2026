@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\ge1\\), base \\(2\\) is not palindromic, so \\(b(2^n)=3\\) is equivalent to ternary palindromicity. The verifier represents each \\(2^n\\) exactly in base \\(3^{39}\\), proves no candidate can be discarded unless its first and reversed last 12 ternary digits disagree, and performs a complete exact palindrome comparison on every survivor. It scans every \\(1\\le n\\le10^6\\) and returns exactly \\(\\{1,2,3,4\\}\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "No published-finding corpus record or indexed web result located a proof of conjecture (e) or a finite verification reaching 10^6.",
+        "Nearby search hits concern other ternary digit problems or unrelated palindrome enumeration."
+      ],
+      "reasoning": "A proof of the full conjecture or a published larger verified cutoff would dominate this claim; neither was located.",
+      "searches": [
+        "published-finding corpus: powers of 2 palindrome base 3 ternary palindromic 50000",
+        "published-finding corpus: On minimum-base palindromic representations of powers of 2 conjecture e",
+        "Web: \"palindromic\" powers of 2 base 3 50000"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.07351v1",
+      "Integers 24 (2024), Article A69",
+      "OEIS:A369233",
+      "published-finding corpus semantic searches for minimum-base and ternary-palindrome formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper explicitly labels the all-exponent statement as a conjecture.",
+        "It reports complete palindromic-representation computation only for positive n<64."
+      ],
+      "reasoning": "The source paper does not imply the new finite cutoff; the new claim is a larger exact computational verification of its stated conjecture.",
+      "searches": [
+        "Kreher--Stinson arXiv:2401.07351 conjecture (e)",
+        "Kreher--Stinson computed all palindromic representations n<64"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kreher--Stinson conjecture (e) is exactly the statement that the minimum base is 3 only for exponents 1,2,3,4.",
+        "For positive exponents, base 2 is never palindromic, so the claim is equivalent to classifying ternary-palindromic powers of two in the finite range."
+      ],
+      "reasoning": "The searches cover both the authors' minimum-base wording and the equivalent fixed-base ternary-palindrome formulation.",
+      "searches": [
+        "published-finding corpus: minimum-base palindromic representations powers of 2 b(2^n)=3 ternary palindrome",
+        "published-finding corpus: Kreher Stinson minimum-base palindrome Conjecture b(2^n)=3 n=1 2 3 4",
+        "Web: \"b(2^n)=3\" palindrome base 3",
+        "Web: \"ternary\" \"2^n\" palindrome powers of 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A369233 defines the same minimum-base sequence and describes a linked table for n=1..10000.",
+        "The displayed sequence begins 3,3,3,3 and then contains larger bases, agreeing with the four verified small hits."
+      ],
+      "reasoning": "The exact database comparison supplies the closest finite table. The present 10^6 cutoff is 100 times the endpoint stated on the OEIS link.",
+      "searches": [
+        "OEIS:A369233",
+        "OEIS A369233 linked table of n,a(n)"
+      ]
+    },
+    "rationale": "The 2024 primary source states conjecture (e) and reports complete palindromic-representation computation only for \\(n<64\\). OEIS A369233 describes a linked table through \\(n=10000\\). The present exact cutoff \\(10^6\\) extends that stated public finite range by a factor of 100. Targeted published-finding corpus and web searches for the conjecture, ternary-palindrome formulation, and larger cutoffs found no covering verification.",
+    "residual_risks": [
+      "An unindexed or private computation may already have checked a larger exponent range.",
+      "This finite verification does not constrain the existence of a ternary-palindromic power of two beyond 10^6."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper states conjecture (e) and reports all palindromic representations only for n<64.",
+        "evidence": "arXiv:2401.07351v1; Integers 24 (2024), A69, Section 4.",
+        "identifier_or_url": "arXiv:2401.07351v1",
+        "material_read": "Definition of b(N), computational-results discussion, concluding conjectures, and appendix examples.",
+        "method": "arXiv HTML plus published PDF text and page-image inspection.",
+        "title": "On min-base palindromic representations of powers of 2",
+        "trigger": "Primary source of the definition, published computational range, and conjecture (e)."
+      },
+      {
+        "assessment": "OEIS records the same minimum-base sequence and describes a linked table for n=1..10000.",
+        "evidence": "OEIS A369233.",
+        "identifier_or_url": "OEIS:A369233",
+        "material_read": "Sequence definition, displayed terms, comments, links, and linked-table description.",
+        "method": "Direct OEIS entry inspection.",
+        "title": "OEIS A369233",
+        "trigger": "Closest exact database/table for the same sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2ad0d620-1bd9-4a59-953a-a85bd3db0890",
+  "value": {
+    "rationale": "The claim tests an explicit 2024 conjecture at a natural, substantially enlarged cutoff: \\(10^6\\) is more than 15,000 times the paper's complete-computation range and 100 times the range stated on the closest OEIS table link. The certificate is exact, compact, and replayable, and it records the complete set of near-miss prefix-filter survivors rather than relying on a routine opaque scan.",
+    "status": "PASS"
+  }
+}
