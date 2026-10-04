@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The ADMM subproblems were solved exactly, the reduced 3-by-3 recurrence was reconstructed, and its characteristic polynomial factors as \\(\\lambda(\\lambda^2+A(t)\\lambda+t^3)\\). The discriminant factorization and Sturm chain give one transition root. The dominant real root is strictly decreasing before the transition, with its only interior stationary point a horizontal point at \\(t=1/2\\); beyond the transition the conjugate-pair modulus is exactly \\(t^{3/2}\\), strictly increasing. The included checker replays all critical polynomial identities and the decimal isolation. The proof, not sampling, establishes the continuum claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.4208/eajam.240817.010318 studies the broader class of three-block separable quadratic programs and explicitly introduces the same direct ADMM with a positive penalty parameter.",
+        "arXiv:1408.4266 proves global linear convergence in broader multiblock settings but gives sufficient rate results rather than an exact spectral minimizer for this symmetric scalar family."
+      ],
+      "reasoning": "A broader convergence theorem does not by itself imply the optimizer of the exact spectral radius. The 2018 quadratic paper is the strongest possible coverage risk; only its abstract and introduction were retrievable, and they do not state parameter-optimal spectral tuning. Because its later pages were unavailable after open-access and institutional attempts, this comparison remains a named residual risk.",
+      "searches": [
+        "three-block ADMM quadratic spectral radius repeated eigenvalue optimal penalty",
+        "Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints spectral radius penalty parameter"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1155/2013/183961",
+      "arXiv:1408.4266",
+      "DOI:10.1137/140971178",
+      "DOI:10.4208/eajam.240817.010318",
+      "Targeted published-finding corpus searches listed in the four originality checks",
+      "Current and prior private ledger claims and IDs for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen--Shen--You prove direct three-block convergence under bounded penalty assumptions and separately optimize a relaxation step in a modified scheme; neither statement determines the minimizer of the standard method's spectral radius.",
+        "Lin--Ma--Zhang establish global linear convergence and in their illustrative example set the penalty to 0.99 times a sufficient upper bound, which is not an exact rate-optimality result.",
+        "Ke--Ma--Zhang's accessible material confirms the exact general quadratic object and direct iteration, making it a serious comparison source, but no retrieved statement gives the quartic critical-damping optimizer."
+      ],
+      "reasoning": "The accepted claim is not merely that the method converges or a special case of a published convergence range. It supplies the exact full spectral law and uniquely optimal penalty on a canonical symmetric mode. The unresolved 2018 full-text comparison is documented explicitly rather than converted into a novelty proof.",
+      "searches": [
+        "On the Convergence Analysis of the Alternating Direction Method of Multipliers with Three Blocks optimal step size penalty parameter",
+        "On the Global Linear Convergence of the ADMM with Multi-Block Variables penalty parameter spectral radius",
+        "Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints optimal penalty"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.1155/2013/183961 uses the same direct three-block ADMM framework; its stated optimal step size is for a relaxed predictor-corrector variant rather than the penalty of the unmodified method.",
+        "arXiv:1408.4266 writes the standard Gauss--Seidel multiblock ADMM recurrence with a penalty parameter but contains no occurrence of 'spectral radius' or 'optimal penalty' in the inspected full text.",
+        "No targeted published-finding corpus hit among the closest returned records had the same three-block ADMM object and penalty-tuning claim."
+      ],
+      "reasoning": "The main alias risk is terminology: penalty parameter, augmented-Lagrangian parameter, and ADMM stepsize can denote the same \\(\\rho\\). Searches included these variants. Relaxation or dual-step optimization is not equivalent because it changes a different algorithm parameter.",
+      "searches": [
+        "three-block ADMM direct extension symmetric strongly convex quadratic exact optimal penalty spectral radius critical damping three variables equality constraint",
+        "three-block alternating direction method symmetric scalar quadratic penalty spectral radius exact convergence factor",
+        "Gauss-Seidel augmented Lagrangian three identical quadratic blocks optimal penalty critical damping",
+        "multi-block ADMM three identical strongly convex quadratics exact penalty tuning",
+        "three-block ADMM quadratic spectral radius repeated eigenvalue optimal penalty"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56 concerns forward-reflected-backward splitting on skew rotations, not ADMM or the three-block quadratic recurrence.",
+        "Closest published-finding corpus record 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 concerns Richardson iteration, not multiblock ADMM.",
+        "The current private ledger contains ADMM findings on over-relaxation, scalar Lasso identification, strictly contractive PRSM, and linearized ADMM stabilization, but no direct three-block symmetric-quadratic penalty optimum."
+      ],
+      "reasoning": "Database similarity was driven by generic spectral-tuning language. Object, recurrence, parameter, and implication comparisons do not match the present claim.",
+      "searches": [
+        "three-block ADMM direct extension symmetric strongly convex quadratic exact optimal penalty spectral radius critical damping three variables equality constraint",
+        "three-block alternating direction method symmetric scalar quadratic penalty spectral radius exact convergence factor",
+        "Gauss-Seidel augmented Lagrangian three identical quadratic blocks optimal penalty critical damping",
+        "multi-block ADMM three identical strongly convex quadratics exact penalty tuning",
+        "three-block ADMM quadratic spectral radius repeated eigenvalue optimal penalty"
+      ]
+    },
+    "rationale": "The exact claim is the unique penalty minimizing the spectral radius of the unmodified symmetric scalar three-block ADMM, with the quartic transition and sharp factor. The closest archival sources prove convergence under restrictions or optimize a separate relaxation step, and the closest later quadratic paper is structurally broader but its accessible material does not state this tuning result. Targeted published-finding corpus searches returned no implication-equivalent finding. The inaccessible later pages of the 2018 quadratic paper remain a real residual risk and are disclosed rather than treated as negative evidence.",
+    "residual_risks": [
+      "The inaccessible later pages of DOI 10.4208/eajam.240817.010318 may contain an equivalent scalar specialization or a general theorem from which the optimizer follows immediately.",
+      "An unindexed thesis, note, or numerical-linear-algebra treatment may derive the same quartic tuning under different penalty or scaled-dual notation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the final claim: the optimal step size belongs to a relaxed variant, while the final claim optimizes the penalty of the unmodified direct method.",
+        "evidence": "Publisher text distinguishes penalty \\(\\beta\\) from the extra relaxed update and says the direct method is proved under restricted \\(\\beta\\).",
+        "identifier_or_url": "DOI:10.1155/2013/183961",
+        "material_read": "Publisher full HTML abstract and introduction, including the direct method, penalty restrictions, and the relaxed predictor-corrector extension.",
+        "method": "Statement and parameter-role comparison.",
+        "title": "On the Convergence Analysis of the Alternating Direction Method of Multipliers with Three Blocks",
+        "trigger": "Same algorithm family; title and abstract mention an optimal step size."
+      },
+      {
+        "assessment": "NOT_COVERING for exact tuning: proves linear convergence under scenarios but does not determine the symmetric scalar spectral radius or its minimizing penalty.",
+        "evidence": "The illustrative example chooses \\(\\gamma=0.99\\gamma_{\\max}\\), where \\(\\gamma_{\\max}\\) is a sufficient bound, rather than solving a spectral minimization problem.",
+        "identifier_or_url": "arXiv:1408.4266; DOI:10.1137/140971178",
+        "material_read": "Full arXiv HTML introduction, algorithm definition, convergence conclusions, and illustrative example; targeted in-document searches for 'spectral radius', 'optimal penalty', and 'penalty parameter'.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "On the Global Linear Convergence of the ADMM with Multi-Block Variables",
+        "trigger": "Broader global linear-convergence theorem for the standard multiblock ADMM with verified MSC 90C25/90C30."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK, not positive coverage: accessible material does not state the scalar quartic optimizer, but later inaccessible pages could contain an implication-equivalent specialization.",
+        "evidence": "The abstract describes solvability and convergence from matrix-computation and numerical-optimization viewpoints; the introduction gives the general recurrence. No accessible statement found an optimal penalty or critical-damping formula.",
+        "identifier_or_url": "DOI:10.4208/eajam.240817.010318",
+        "material_read": "Publisher abstract and accessible introduction pages defining the quadratic class, penalty parameter, and direct ADMM recurrence. Full later pages were not obtainable from the publisher PDF endpoint; an authorized institutional retrieval attempt and one fresh retry both returned no verified PDF.",
+        "method": "Accessible-text comparison plus bounded lawful retrieval attempts.",
+        "title": "Convergence of ADMM for Three-Block Separable Quadratic Programming Problems with Linear Constraints",
+        "trigger": "Closest later paper by object: general three-block separable quadratic programming analyzed by matrix computation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "88ef4701-3166-4609-bbd9-2f1388e666c1",
+  "value": {
+    "rationale": "Penalty selection is a central practical and theoretical issue for multiblock ADMM, where archival convergence results impose parameter restrictions and later quadratic work studies matrix convergence. The symmetric three-block quadratic is the canonical smallest strongly convex model retaining genuinely multiblock Gauss--Seidel dynamics. Its exact optimizer shows that fastest asymptotic convergence occurs at a spectral phase transition, quantifies the natural penalty scale relative to curvature, and separates rate-optimal tuning from merely sufficient convergence bounds. This is a motivated structural tuning fact rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
