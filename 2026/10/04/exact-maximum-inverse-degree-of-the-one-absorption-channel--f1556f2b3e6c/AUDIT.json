@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The proof partitions every possible parent into an ordinary one-symbol insertion supersequence or a position-specific genuine split. The insertion sphere has exactly \\(q+(n-1)(q-1)\\) words by a canonical first-difference argument. A symbol has at most \\(\\binom{q-1}{2}\\) genuine ordered splits, with equality at \\(q-1\\). This yields the upper bound, and the saturated received word makes the insertion and genuine-split families disjoint and attains it. The bundled verifier reconstructs the channel by two independent finite routes and checks the decomposition and formula. Source: RESULT.md and verify.py. Risk: finite checks alone are not an infinite proof, so acceptance relies on the analytic counting argument.",
+    "risks": [
+      "Any flaw would have to occur in the insertion/genuine-split exhaustion or counting; both were separately reconstructed and finite-tested, but the universal quantifiers are discharged only by the written proof."
+    ],
+    "sources": [
+      "RESULT.md proof",
+      "verify.py forward-channel and inverse-expansion checks",
+      "arXiv:2302.09842v1 channel definition"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye--Elishco Section V bounds codes through a zero-deletion hypergraph after restriction, while the conclusion distinguishes the difficult forward-ball-size problem from the present inverse-parent invariant.",
+        "The Nguyen--Cai--Quek--Immink abstract advertises improved redundancy constructions, not an exact received-word parent-degree theorem."
+      ],
+      "reasoning": "Neither the zero-deletion packing bound nor asymptotic construction redundancy determines the maximum incoming degree of the full absorption channel.",
+      "searches": [
+        "arXiv:2302.09842v1 Section V hypergraph and conclusion",
+        "doi:10.1109/ISIT57864.2024.10619179 absorption constructions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.09842v1",
+      "doi:10.1109/TIT.2023.3346882",
+      "doi:10.1109/ISIT57864.2024.10619179",
+      "published-results database findings under recorded inverse-ball/list-size/degree aliases",
+      "published finding ec1318db-dd74-464a-994b-9ee6b8c96304"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source definition supplies the channel operation used in the proof.",
+        "The source conclusion leaves forward one-absorption ball size as a future direction, but does not state or imply a formula for inverse balls.",
+        "The accessible 2024 follow-up discusses code constructions and redundancy only."
+      ],
+      "reasoning": "The new theorem is not a corollary of the cited code-size or redundancy statements: it counts all source parents incident to one received word, a different side of the channel incidence relation.",
+      "searches": [
+        "arXiv:2302.09842v1 definitions, Section V, conclusion",
+        "doi:10.1109/ISIT57864.2024.10619179 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text defines one-absorption balls but contains no match for list size, pre-image, or degree in the inverse-parent sense.",
+        "Published-results searches under inverse ball, parent count, preimage multiplicity, received-word degree, and list-size aliases returned no matching absorption-channel finding."
+      ],
+      "reasoning": "The claim was compared under coding-theoretic aliases for the same incidence quantity, not merely by title or by the displayed formula.",
+      "searches": [
+        "absorption channel maximum received-word degree inverse ball parent count",
+        "absorption channel hypergraph degree received sequence preimage multiplicity",
+        "saturated-sum absorption one-error list size",
+        "codes over absorption channels inverse sphere size received word parents",
+        "single absorption channel maximum list size",
+        "arXiv:2302.09842v1: find list size; inverse; pre-image; degree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest previously published absorption finding gives exact ternary correcting-code sizes for four short lengths; it contains no inverse-degree formula.",
+        "No exact-value/table search returned the all-q, all-n inverse-degree expression."
+      ],
+      "reasoning": "Finite code cardinalities and inverse channel degree are different invariants; neither implies the other.",
+      "searches": [
+        "absorption channel q+(n-1) binomial(q,2) parents",
+        "one absorption inverse ball maximum q n binomial alphabet",
+        "absorption channel maximum vertex degree incidence hypergraph",
+        "published finding ec1318db-dd74-464a-994b-9ee6b8c96304: exact ternary one-absorption optima through length 5"
+      ]
+    },
+    "rationale": "The primary full text and its zero-deletion hypergraph argument, its conclusion, the closest 2024 follow-up abstract, targeted public searches, published-results searches, and the previously published finding set was compared at the statement/implication level. None inspected states or implies the exact maximum inverse degree. Source: arXiv:2302.09842v1, DOI 10.1109/ISIT57864.2024.10619179, and recorded searches. Risk: the 2024 follow-up full text was not retrievable under the bounded access available, and an unindexed or differently phrased prior inverse-degree result may exist.",
+    "residual_risks": [
+      "The 2024 follow-up full text was not available in the bounded lawful-open search, so an unadvertised overlapping statement there cannot be excluded.",
+      "An unindexed, unpublished, or differently phrased inverse-degree result may exist; failed search is not treated as novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the inverse-degree theorem. The source studies forward balls, code constructions, and a zero-deletion hypergraph bound; it does not state the parent maximum.",
+        "evidence": "Definition II.2/Equation (1) define forward absorption balls; Section V builds H_q,n from zero-deletion balls; the conclusion says sharper code bounds would need better estimates of forward \\( |B^{ab}_1(x)| \\).",
+        "identifier_or_url": "arXiv:2302.09842v1",
+        "material_read": "Searchable full PDF text: definition of absorption and one-absorption balls; Section V hypergraph setup; conclusion and future-work paragraph.",
+        "method": "Lawful arXiv full-text inspection with targeted searches for inverse/list/preimage/degree terminology; page-image rendering was attempted but unavailable through the available access path.",
+        "title": "Codes Over Absorption Channels",
+        "trigger": "Primary source defining the exact channel and the closest code-size optimality discussion."
+      },
+      {
+        "assessment": "NO ADVERTISED COVERAGE; full-text comparison unresolved.",
+        "evidence": "The abstract reports improved redundancy constructions for q=3 and general q, with no inverse-ball or received-word-degree statement.",
+        "identifier_or_url": "doi:10.1109/ISIT57864.2024.10619179",
+        "material_read": "Bibliographic record and abstract.",
+        "method": "Public repository/metadata inspection after no lawful open full text was located in bounded search.",
+        "title": "Efficient Constructions of Non-Binary Codes over Absorption Channels",
+        "trigger": "Closest later paper on the same nonbinary absorption channel."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f1556f2b-3e6c-4b84-b140-e0d0f0d44bca",
+  "value": {
+    "rationale": "The quantity is the exact maximum incoming degree of the one-absorption channel incidence graph, equivalently the worst-case number of possible transmitted parents of a received word. That is a natural channel invariant relevant to ambiguity/list size and incidence-based coding bounds. The theorem holds for every alphabet size and block length and identifies an explicit extremal received word, so it is structural rather than an arbitrary finite slice. Sources: the primary paper motivates absorption-channel coding and uses incidence/hypergraph methods; RESULT.md gives the all-parameter theorem. Risk: the result does not by itself sharpen the best correcting-code redundancy bound and does not solve the separate forward-ball-size problem.",
+    "risks": [
+      "No downstream optimal code theorem is claimed; value rests on the natural worst-case ambiguity/incoming-degree invariant itself."
+    ],
+    "sources": [
+      "arXiv:2302.09842v1 channel motivation and hypergraph coding framework",
+      "RESULT.md universal inverse-degree theorem"
+    ],
+    "status": "PASS"
+  }
+}
