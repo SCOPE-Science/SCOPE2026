@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact first-order conditions give \\(y^{k+1}=bz^{k+1}\\) after each completed update. On this invariant manifold, \\(\\rho r=b\\,\\Delta z\\) and \\(|s|=\\rho|\\Delta z|\\), so every nonstationary residual ratio is exactly \\(b/\\rho^2\\). The induced three-branch penalty map is therefore exact. Crossing the deadband cannot overshoot it for every starting penalty exactly when \\(\\tau\\le\\mu\\); if \\(\\tau>\\mu\\), every \\(\\rho\\in(\\sqrt{\\mu b}/\\tau,\\sqrt{b/\\mu})\\) yields a literal two-cycle. The state contraction factor \\(q=(\\rho^2+ab)/((a+\\rho)(b+\\rho))\\) lies strictly in \\((0,1)\\). A standalone exact-rational checker replays these identities and representative phase-boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghadimi et al., OptimizationOnline:3917 / DOI:10.1109/TAC.2014.2354892, give optimal fixed parameters for the l2-regularized quadratic family.",
+        "McCann--Wohlberg, DOI:10.1109/OJSP.2023.3349115, state in the accessible abstract that they analyze quadratic ADMM as an affine fixed-point iteration and compare adaptive penalty methods."
+      ],
+      "reasoning": "The fixed-penalty optimum is explicitly prior-covered and used only as a benchmark. The later robust-selection paper is highly relevant, but its accessible abstract does not state the deadband/cycle theorem; because its full text was not inspected, it remains a residual risk rather than negative evidence.",
+      "searches": [
+        "ADMM primal dual residual balancing rate optimal penalty scalar quadratic",
+        "residual balancing heuristic ADMM penalty scale sensitivity exact",
+        "Robust and Simple ADMM Penalty Parameter Selection quadratic affine fixed point residual balancing"
+      ]
+    },
+    "checked_sources": [
+      "OptimizationOnline:3917",
+      "DOI:10.1109/TAC.2014.2354892",
+      "DOI:10.1561/2200000016",
+      "arXiv:1704.06209v1",
+      "DOI:10.1109/OJSP.2023.3349115",
+      "Targeted semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghadimi et al. Theorem 1 gives the fixed-penalty optimum; its scalar specialization is \\(\\rho_*=\\sqrt{ab}\\).",
+        "Boyd et al. define the adaptive update but do not derive this scalar orbit of the penalty parameter.",
+        "Wohlberg shows the target residual ratio is scale-sensitive and need not be one, a qualitative fact consistent with but not implying the exact scalar phase diagram."
+      ],
+      "reasoning": "Knowing the fixed optimum, the heuristic definition, and the general scaling flaw does not by itself imply the invariant y=bz, the exact residual ratio, the finite-capture iff condition, or the explicit two-cycle interval. Those are the content of the accepted claim.",
+      "searches": [
+        "Ghadimi optimal parameter ADMM quadratic rho sqrt delta lambda",
+        "Wohlberg residual balancing correct target ratio not unity",
+        "Boyd ADMM varying penalty mu 10 tau 2 residual balancing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al., DOI:10.1561/2200000016, Section 3.3--3.4 gives the standard residuals and multiplicative residual-balancing update with typical parameters.",
+        "Wohlberg, arXiv:1704.06209v1, analyzes residual balancing and its scaling defect but does not state the exact scalar penalty map in the inspected full text.",
+        "Targeted semantic searches returned no record whose statement implies the sharp deadband/cycling theorem."
+      ],
+      "reasoning": "The standard heuristic and its scaling critique are broader prior concepts, but neither inspected statement gives the exact state-independent scalar map, the if-and-only-if threshold \\(\\tau\\le\\mu\\), or the explicit period-two interval.",
+      "searches": [
+        "ADMM residual balancing scalar quadratic exact residual ratio penalty deadband",
+        "ADMM residual balancing deadband sqrt mu scalar quadratic",
+        "ADMM residual balancing penalty two-cycle tau mu"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Optimization Online records the Ghadimi et al. paper as first public on 2013-06-10 and describes optimal ADMM parameters for l2-regularized quadratic minimization.",
+        "The mathematical classification record for that paper lists 90C20 (quadratic programming) first, followed by 90C25 and 90C06.",
+        "No inspected indexed result or semantic record supplied the formula \\(|r|/|s|=b/\\rho^2\\) together with the sharp comparison between \\(\\tau\\) and \\(\\mu\\)."
+      ],
+      "reasoning": "The databases establish ownership, date, and the fixed-penalty benchmark, but do not expose the accepted adaptive-map theorem.",
+      "searches": [
+        "ADMM residual balancing exact residual ratio quadratic scalar",
+        "ADMM residual balancing fixed penalty optimum sqrt ab quadratic"
+      ]
+    },
+    "rationale": "The residual-balancing rule, its scaling sensitivity, and the fixed-penalty optimum are all treated as prior work. The accepted claim is the exact adaptive penalty map on the scalar quadratic source family, its sharp universal finite-stabilization threshold, its explicit period-two obstruction, and the exact relation of its deadband to the known fixed-penalty optimum. Targeted semantic searches returned no implication-equivalent finding. A highly relevant 2024 quadratic adaptive-penalty paper was identified but not inspected in full, which remains the principal residual risk.",
+    "residual_risks": [
+      "The full text of McCann--Wohlberg (2024) was not inspected; it could contain an equivalent scalar special-case calculation not visible in its abstract.",
+      "The adaptive-ADMM literature is large, and differently phrased analyses of residual-balancing cycles may exist outside the inspected sources.",
+      "The deadband comparison is coordinate-scale dependent; this is a feature of the standard residual heuristic, not a scale-invariant performance theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the fixed-penalty convergence factor and scalar optimizer \\(\\sqrt{ab}\\); DOES NOT STATE the residual-balancing deadband or the sharp comparison between \\(\\tau\\) and \\(\\mu\\) in the inspected material.",
+        "evidence": "Theorem 1 gives \\(\\rho_*=\\sqrt{\\delta\\lambda}\\) outside the central eigenvalue interval and \\(\\rho_*=\\delta\\) inside it; for one scalar eigenvalue this reduces to \\(\\sqrt{ab}\\).",
+        "identifier_or_url": "OptimizationOnline:3917; DOI:10.1109/TAC.2014.2354892",
+        "material_read": "Open full text: residual definitions, Section III problem and standard ADMM recurrence, multiplier identity, Theorem 1 and its optimal constant penalty.",
+        "method": "Lawful open Optimization Online full-text PDF inspection, including rendered pages containing equations (11)--(15).",
+        "title": "Optimal Parameter Selection for the Alternating Direction Method of Multipliers (ADMM): Quadratic Problems",
+        "trigger": "Primary archive source for the same l2-regularized quadratic ADMM family and its fixed-penalty optimum."
+      },
+      {
+        "assessment": "COVERS the heuristic definition; DOES NOT DERIVE the exact scalar map or sharp stabilization/cycling boundary.",
+        "evidence": "The source defines r=Ax+Bz-c, s=rho A^T B Delta z and the piecewise penalty update based on their norm imbalance.",
+        "identifier_or_url": "DOI:10.1561/2200000016",
+        "material_read": "Full-text sections defining primal and dual residuals and the varying-penalty rule, including typical choices mu=10 and multiplicative factors 2 and the scaled-dual rescaling note.",
+        "method": "Lawful open Stanford-hosted full-text PDF inspection.",
+        "title": "Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers",
+        "trigger": "Source of the standard primal/dual residual definitions and residual-balancing update used in the claim."
+      },
+      {
+        "assessment": "COVERS the general scaling flaw and the fact that the correct target residual ratio need not be one; DOES NOT STATE the accepted exact scalar deadband/cycling theorem in the inspected material.",
+        "evidence": "The conclusion attributes weakness to different scaling properties of primal and dual residuals and notes that the correct target ratio is problem-dependent.",
+        "identifier_or_url": "arXiv:1704.06209v1",
+        "material_read": "Full text, including the residual-balancing update, scaling analysis, and conclusion about unknown residual target ratio.",
+        "method": "Lawful arXiv/author-hosted full-text inspection.",
+        "title": "ADMM Penalty Parameter Selection by Residual Balancing",
+        "trigger": "Closest dedicated critique of the same residual-balancing heuristic."
+      },
+      {
+        "assessment": "RELEVANT BUT UNRESOLVED for exact overlap. The accessible abstract does not state the scalar deadband or tau/mu cycle threshold, but full-text equivalence cannot be excluded.",
+        "evidence": "The abstract says the paper develops a quadratic affine fixed-point framework and a new online penalty-selection method, and compares several methods.",
+        "identifier_or_url": "DOI:10.1109/OJSP.2023.3349115",
+        "material_read": "Author publication page and abstract only; full text was not recovered through the bounded route used in this review.",
+        "method": "Bibliographic/abstract inspection.",
+        "title": "Robust and Simple ADMM Penalty Parameter Selection",
+        "trigger": "Highly relevant later work explicitly analyzing quadratic ADMM as an affine fixed-point iteration and adaptive penalty choice."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9a3ce4b3-336e-4405-ae20-43a7f02ea0a5",
+  "value": {
+    "rationale": "The final penalty need not be merely an implementation detail: the canonical heuristic is widely used and variable-penalty convergence discussions often rely on eventual stabilization. The theorem gives an exact necessary-and-sufficient threshold for universal finite stabilization on a natural scalar strongly convex quadratic, identifies a concrete penalty two-cycle beyond it, and proves that stabilization can still leave an arbitrarily poor relative asymptotic rate versus the known fixed optimum. These are structural diagnostics rather than a routine recomputation of convergence.",
+    "status": "PASS"
+  }
+}

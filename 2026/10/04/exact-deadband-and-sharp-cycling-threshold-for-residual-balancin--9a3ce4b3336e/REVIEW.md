@@ -1,0 +1,12 @@
+# Same-model review
+
+## Correctness
+PASS. The proof starts from the exact unscaled ADMM first-order conditions. The identity \(y^{k+1}=bz^{k+1}\) survives varying penalties because it is established within each completed update. On that invariant manifold, \(\rho_k r^{k+1}=b(z^{k+1}-z^k)\) and \(|s^{k+1}|=\rho_k|z^{k+1}-z^k|\), giving the state-independent ratio \(b/\rho_k^2\) on every nonstationary step. The deadband map follows directly. The finite-capture proof and two-cycle construction cover the two sides of the sharp condition \(\tau\le\mu\). The scalar state recurrence has factor strictly between zero and one for every finite positive penalty. The packaged exact-rational checker independently replays these identities on representative inputs.
+
+## Originality
+PASS with stated residual risk. The classical residual-balancing heuristic, its typical parameters, and dual rescaling are explicitly prior work. Ghadimi et al. already give the optimal fixed penalty for the same quadratic family; the scalar optimizer \(\sqrt{ab}\) is not claimed as new. Wohlberg already establishes a general scaling weakness and warns that a unit target residual ratio is not generally justified; that critique is also excluded. The final claim is instead the exact induced penalty map on this source family, the if-and-only-if universal finite-stabilization threshold \(\tau\le\mu\), the explicit period-two interval when \(\tau>\mu\), and the exact comparison between its deadband and the known rate-optimal penalty. Targeted semantic searches returned no implication-equivalent published finding. A 2024 paper on robust ADMM penalty selection analyzes quadratic ADMM via affine fixed points, but only its abstract was inspected here; an equivalent scalar theorem in its full text remains the main risk.
+
+## Value
+PASS. Residual balancing is a widely used adaptive rule, and standard convergence arguments for variable-penalty ADMM often rely on eventual stabilization or controlled penalty changes. The theorem identifies exactly when the common symmetric multiplicative rule guarantees finite stabilization on a canonical strongly convex quadratic and when it can cycle forever. It also separates parameter stabilization from rate optimality: the common safe regime can freeze at penalties whose asymptotic rate is arbitrarily worse in relative terms than the known optimum. The result is a structural diagnostic, not a routine restatement of quadratic ADMM convergence.
+
+Same-model review: passed. Independent audit: not yet performed.
