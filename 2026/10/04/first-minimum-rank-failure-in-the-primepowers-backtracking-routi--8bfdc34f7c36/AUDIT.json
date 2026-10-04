@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Source-control flow was reconstructed, the first mismatch on 24..50 was independently enumerated, 50=25+25 proves exact minimum two, and the shorter 512550 identity was checked with prime bases and exponents.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The checked source paper states an at-most-five existence conjecture, not a theorem that its stored lengths are minimal."
+      ],
+      "reasoning": "General Waring-Goldbach and additive-basis results do not imply how this specific released DFS labels minimum lengths, so they do not cover the version-specific correction.",
+      "searches": [
+        "published-finding corpus: recent number theory elementary prime power sums minimum decomposition",
+        "web: limited prime power sums minimum number summands"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2508.01686v1",
+      "GitHub blob 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079",
+      "GitHub blob 6adf409a056f3fbf8f413b869abf0ef24aaa82ed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The paper gives 512550 as a five-term example but does not claim it is minimal; the repository separately describes minimum-term intent."
+      ],
+      "reasoning": "The finding corrects a minimum-rank interpretation while leaving the paper's main at-most-five existence conjecture unchanged; neither source statement implies the n=50 cutoff.",
+      "searches": [
+        "arXiv:2508.01686v1 computational evidence and examples",
+        "PrimePowers repository README and code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-finding corpus hit described the source routine or n=50 cutoff; web search returned no relevant mathematical discussion."
+      ],
+      "reasoning": "Aliases around minimum summand count, backtracking nonminimality, and the explicit 50 decompositions were searched; no equivalent claim was identified.",
+      "searches": [
+        "published-finding corpus: PrimePowers backtrack decomposition not minimal 50 25+25",
+        "published-finding corpus: Stricker limited prime powers repository minimum number summands backtracking bug",
+        "web: PrimePowers 32,9,9 50 prime powers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "README says the algorithm aims for the minimum number of terms and describes a Length column; the code returns the first success of a descending DFS without increasing-term-count optimization."
+      ],
+      "reasoning": "The exact released implementation is the decisive database/code artifact for the claim.",
+      "searches": [
+        "PrimePowers/PrimePowers README blob 6adf409a056f3fbf8f413b869abf0ef24aaa82ed",
+        "PrimePowers/PrimePowers backtrack_decomposition blob 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079"
+      ]
+    },
+    "rationale": "The exact n=50 minimum-rank failure and the shorter 512550 decomposition were not present in the inspected paper/repository and were not found in targeted published-finding corpus or public-web comparisons. Search failure is not treated as proof of absolute novelty.",
+    "residual_risks": [
+      "A differently phrased external discussion may exist outside the indexed searches.",
+      "The repository main branch can change; the claim is pinned to the inspected blobs.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper states an existence conjecture and lists several five-term representations, including 512550, but does not prove those lengths minimal.",
+        "evidence": "Sections 2-6 of the arXiv HTML; especially the computational-evidence and examples sections.",
+        "identifier_or_url": "arXiv:2508.01686v1",
+        "material_read": "HTML full text: definitions, computational methodology, examples, discussion, conclusion, data availability.",
+        "method": "Direct full-text inspection.",
+        "title": "On the Representation of Integers as Sums of Limited Prime Powers",
+        "trigger": "Primary recent source defining the problem and reporting computational evidence/examples."
+      },
+      {
+        "assessment": "The routine tries prime powers in descending order and returns the first recursive success; it does not minimize term count.",
+        "evidence": "Control flow of backtrack_decomposition and analyze_range.",
+        "identifier_or_url": "GitHub blob 2a1a0f4485e60b783542da37e5f2aa7ca4ea6079",
+        "material_read": "Complete 47-line source file.",
+        "method": "GitHub file fetch at exact blob SHA plus independent local reimplementation/replay.",
+        "title": "PrimePowers backtrack_decomposition",
+        "trigger": "Repository code advertised as generating the decomposition data."
+      },
+      {
+        "assessment": "README says the backtracking algorithm aims for the minimum number of terms and describes the final CSV column as total summand count.",
+        "evidence": "Contents and CSV-data descriptions.",
+        "identifier_or_url": "GitHub blob 6adf409a056f3fbf8f413b869abf0ef24aaa82ed",
+        "material_read": "Complete README.",
+        "method": "GitHub file fetch at exact blob SHA.",
+        "title": "PrimePowers README",
+        "trigger": "Repository documentation describing intended meaning of the computation and Length field."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8bfdc34f-7c36-4e2f-aff8-99ffe023c396",
+  "value": {
+    "rationale": "The correction separates existence verification from minimum-rank certification in a public data set whose README explicitly claims minimum-term intent. The exact first mismatch is a natural reproducibility boundary, and the shorter paper example prevents overinterpreting five displayed summands as evidence of sharpness.",
+    "status": "PASS"
+  }
+}
