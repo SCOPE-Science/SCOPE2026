@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "A graph face is encoded exactly as a partial orientation with tail outdegree at most one and no directed cycle; this is equivalent to an acyclic Hasse matching. The package enumerates every legal face recursively and separately checks all \\(3^{12}\\) raw edge states. It verifies the full face vector, every codimension-one face, \\(\\partial^2=0\\), and exact mod-\\(2\\) boundary ranks by three elimination orientations. These give \\(\\widetilde\\beta_5=4\\), \\(\\widetilde\\beta_6=139\\), and zero otherwise, with an independent Euler check. Risk: the statement is coefficient-specific; nothing here proves the integral groups or full homotopy type.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scoville--Zaremsky Theorem 4.4 and Example 4.8 give connectivity bounds for regular graphs and explicitly for \\(Q_n\\), not the boundary ranks of \\(\\mathcal M(Q_3)\\).",
+        "Contreras--Tawfeek give a Laplacian generating-function theorem that determines face counts for graph gradient vector fields but does not determine the simplicial homology.",
+        "Donovan--Scoville compute exact types for path/extended-star related families, with no cube result located in searchable full text."
+      ],
+      "reasoning": "The strongest checked general results control connectivity or the f-vector. Neither determines the nonzero mod-2 homology in degrees 5 and 6, so the final claim is not an immediate corollary of them.",
+      "searches": [
+        "arXiv:2004.10481 hypercube Q_n connectivity",
+        "arXiv:2105.05388 graph Laplacian gradient vector fields",
+        "arXiv:2207.13780 Morse complex graph families"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1909.11440v1",
+      "arXiv:2004.10481v1",
+      "arXiv:2105.05388v1",
+      "arXiv:2207.13780v1",
+      "DOI:10.18122/td/1684/boisestate",
+      "Chari--Joswig, Complexes of discrete Morse functions, DOI:10.1016/J.DISC.2004.07.027"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The hypercube connectivity bound is weaker than the final homology statement: connectivity gives low-degree vanishing but not ranks in degrees 5 and 6.",
+        "The Laplacian polynomial reproduces the face vector but an f-vector alone does not determine boundary ranks or homology.",
+        "The exact graph-family papers inspected concern different graph families and provide no reduction sending their results to \\(Q_3\\)."
+      ],
+      "reasoning": "The final statement requires the full simplicial boundary computation. None of the checked prior statements implies the ranks \\(4\\) and \\(139\\), and the claim is not a special case of the exact families located.",
+      "searches": [
+        "Scoville Zaremsky Q3 connectivity implication homology",
+        "Laplacian characteristic polynomial Morse complex homology implication",
+        "Morse complex cube exact homotopy implication"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2004.10481v1 defines the Morse complex as acyclic discrete vector fields and explicitly discusses hypercube graphs under its connectivity theorem.",
+        "DOI:10.18122/td/1684/boisestate uses directed-forest-complex terminology for Cayley graphs; its abstract was available, while the full text was not.",
+        "arXiv:1909.11440v1 uses the complex-of-discrete-Morse-functions terminology and computes other graph families."
+      ],
+      "reasoning": "The claim was compared under Morse-complex, complex-of-discrete-Morse-functions, gradient-vector-field, directed-forest, cube, and hypercube formulations. The accessible exact-family sources did not state the two Betti ranks for the cube graph.",
+      "searches": [
+        "\"Q_3\" \"Morse complex\" homology",
+        "\"hypercube graph\" \"Morse complex\"",
+        "directed forest complex cube graph Q3",
+        "complex of discrete Morse functions cube graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-title and exact-parameter searches found the general hypercube connectivity paper and an unrelated metric-graph cube calculation, but no table or database entry stating these Morse-complex Betti numbers.",
+        "The accessible Boise State thesis landing page provides only an abstract and no cube-specific table."
+      ],
+      "reasoning": "No checked exact table or database entry was found that already records the face vector together with the mod-2 boundary ranks or Betti numbers for \\(\\mathcal M(Q_3)\\). Failed search is not treated as proof of absence; the unavailable thesis remains an explicit risk.",
+      "searches": [
+        "\"Q_3\" \"Morse complex\"",
+        "\"cube graph\" \"Morse complex\" homology",
+        "\"Directed Forest Complex of Cayley Graphs\" hypercube Q3"
+      ]
+    },
+    "rationale": "The checked hypercube source gives a connectivity bound for \\(\\mathcal M(Q_n)\\), while the checked Laplacian source gives face-count information; neither determines the mod-\\(2\\) boundary ranks. Exact-homotopy papers inspected cover other graph families. Targeted equivalent-formulation and exact-parameter searches did not locate the two Betti ranks. The main residual risk is a 2020 thesis on directed forest complexes of Cayley graphs whose full text could not be accessed.",
+    "residual_risks": [
+      "The full text of Courtney's thesis on directed forest complexes of Cayley graphs was inaccessible during comparison, so it could contain a cube-specific computation not visible in the abstract.",
+      "Older directed-tree terminology may contain an equivalent cube computation that did not surface in targeted searches.",
+      "No claim of exhaustive bibliographic uniqueness is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact results for several other families; no cube-graph theorem was located.",
+        "evidence": "First public 2019-09-25; MSC list includes 55U05; abstract names caterpillar and related graph-family calculations.",
+        "identifier_or_url": "arXiv:1909.11440v1",
+        "material_read": "Abstract, bibliographic record, and searchable full text; cube/hypercube terminology was checked.",
+        "method": "Lawful open-access arXiv text and targeted term search.",
+        "title": "On the homotopy and strong homotopy type of complexes of discrete Morse functions",
+        "trigger": "Exact Morse-complex homotopy calculations for graph families are a direct possible coverage route."
+      },
+      {
+        "assessment": "Directly covers \\(Q_n\\) only at the connectivity-bound level, not with exact homology ranks.",
+        "evidence": "Theorem 4.4 bounds connectivity; Example 4.8 applies it to \\(Q_n\\). The paper states that exact homotopy types are known only for a handful of examples.",
+        "identifier_or_url": "arXiv:2004.10481v1",
+        "material_read": "Definition 1.2, introduction, graph connectivity theorem, regular-graph example, and hypercube example.",
+        "method": "Lawful open-access arXiv/author-posted text.",
+        "title": "Higher connectivity of the Morse complex",
+        "trigger": "The paper directly studies Morse complexes of graphs and explicitly treats hypercubes."
+      },
+      {
+        "assessment": "Determines the generating polynomial for graph gradient vector fields and therefore checks the f-vector, but does not supply the simplicial boundary ranks used here.",
+        "evidence": "The abstract states that graph Laplacian characteristic polynomials generate discrete gradient vector fields.",
+        "identifier_or_url": "arXiv:2105.05388v1",
+        "material_read": "Abstract and the graph-Laplacian generating-function statements.",
+        "method": "Lawful open-access arXiv text.",
+        "title": "On discrete gradient vector fields and Laplacians of simplicial complexes",
+        "trigger": "Its graph theorem can potentially dominate finite face enumeration."
+      },
+      {
+        "assessment": "Covers path/extended-star related families; no cube-specific result was located.",
+        "evidence": "The checked source develops exact homotopy calculations for specified families distinct from the cube graph.",
+        "identifier_or_url": "arXiv:2207.13780v1",
+        "material_read": "Abstract and searchable full text with graph-family and cube-term checks.",
+        "method": "Lawful open-access arXiv text.",
+        "title": "Star clusters in the Matching, Morse, and Generalized Morse complex",
+        "trigger": "Later exact Morse-complex computations could subsume a small graph case."
+      },
+      {
+        "assessment": "Plausible unresolved coverage risk. The accessible abstract is too broad to decide whether \\(Q_3\\) or its exact homology is treated.",
+        "evidence": "The abstract says the thesis studies homology of directed forest complexes of Cayley graphs; no cube-specific statement was exposed in accessible material.",
+        "identifier_or_url": "DOI:10.18122/td/1684/boisestate",
+        "material_read": "Public landing-page abstract and bibliographic metadata only; the linked full text returned an access failure during inspection.",
+        "method": "Institutional repository abstract plus targeted title/parameter searches.",
+        "title": "The Directed Forest Complex of Cayley Graphs",
+        "trigger": "The cube graph is a Cayley graph, and directed-forest terminology is a plausible equivalent route to the same complex."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3861de13-b7e0-4fc9-94ec-32727a86a530",
+  "value": {
+    "rationale": "The cube \\(Q_3\\) is the smallest hypercube beyond \\(Q_2\\), which is a cycle and lies in a previously computed family. Hypercubes are explicitly singled out in the checked connectivity literature, so the first new hypercube case is a natural calibration point rather than an arbitrary graph. The answer is structurally informative: reduced mod-\\(2\\) homology occurs in two adjacent dimensions, ruling out a single-dimensional wedge-of-spheres model, and it sharpens a general connectivity bound to complete mod-\\(2\\) homology for this first case. The exact finite computation therefore has motivated standalone value without claiming a general \\(Q_n\\) theorem.",
+    "status": "PASS"
+  }
+}
