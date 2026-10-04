@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Affine normalization reduces the theorem to an exact nine-point calculation for the bilinear polynomial \\(P(X,Y)=a+bX+cY+dXY\\). Rowwise linearity gives at most one zero per nonzero row; a full zero row forces the factorization \\(P(X,Y)=(X-\\alpha)(b+dY)\\), hence exactly three or five zeros. Five explicit nonzero coefficient vectors realize all allowed counts. Exact arithmetic in the packaged verifier corroborates the local rank patterns.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Delvaux–Van Barel Theorem 17 computes Hamming numbers of Kronecker products, hence global minimum output weights.",
+        "Bonami–Ghobber study equality cases at the minimum value of the uncertainty function for \\(\\mathbb Z_p\\times\\mathbb Z_p\\)."
+      ],
+      "reasoning": "These broader theorems bound or attain the smallest spectrum but do not imply which nonminimal spectrum sizes occur on the prescribed four-column rectangle. In particular, a minimum theorem cannot imply exclusion of the local support size \\(5\\) between attainable sizes \\(4\\) and \\(6\\).",
+      "searches": [
+        "finite field Fourier uncertainty four point parallelogram support exact Fourier zeros",
+        "F_3^d four sparse Fourier transform parallelogram support",
+        "KU-Leuven-TW477-2006",
+        "arXiv:1003.5060v1"
+      ]
+    },
+    "checked_sources": [
+      "KU-Leuven-TW477-2006",
+      "arXiv:1003.5060v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Delvaux–Van Barel supplies the product-Fourier rank framework and minimal Hamming numbers.",
+        "Bonami–Ghobber supplies minimum-support equality classifications on \\(\\mathbb Z_p\\times\\mathbb Z_p\\)."
+      ],
+      "reasoning": "The new theorem implies both the minimum \\(4\\cdot3^{d-2}\\) for this support class and all four larger attainable levels, plus the nonattainability of \\(5\\cdot3^{d-2}\\). The inspected prior statements imply at most extremal behavior and therefore do not dominate this claim.",
+      "searches": [
+        "KU-Leuven-TW477-2006",
+        "arXiv:1003.5060v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Delvaux–Van Barel formulate Fourier support questions through rank-deficient Fourier submatrices and Hamming numbers.",
+        "Bonami–Ghobber formulate finite-group uncertainty through the minimum spectrum size \\(\\theta(k,G)\\) and its equality cases."
+      ],
+      "reasoning": "The claim was compared in Fourier-support, rank-deficient-submatrix, bilinear-root, rectangle, and uncertainty-spectrum formulations. The inspected equivalent frameworks capture minima or selected singular submatrices, not the complete five-value spectrum for a fixed affine parallelogram.",
+      "searches": [
+        "finite field Fourier uncertainty four point parallelogram support exact Fourier zeros",
+        "bilinear polynomial roots of unity rectangle Fourier support spectrum",
+        "F_3^d four sparse Fourier transform parallelogram support",
+        "exact Fourier support spectrum four nonzero values parallelogram F_3^d missing five",
+        "Z_3 x Z_3 2x2 rectangle support Fourier zeros four coefficients",
+        "F3 tensor F3 four-column rectangle rank deficient five zero rows",
+        "KU-Leuven-TW477-2006",
+        "arXiv:1003.5060v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Delvaux–Van Barel report contains an explicit \\(F_3\\otimes F_3\\) rank-one example and Hamming-number tables, but its discussion states that the Hamming-number result does not characterize uniqueness of the relevant submatrices."
+      ],
+      "reasoning": "The inspected explicit tables and examples concern extremal rank deficiency; none lists the output-support spectrum for the four-column affine parallelogram or a five-value table equivalent to the claim.",
+      "searches": [
+        "exact Fourier support spectrum four nonzero values parallelogram F_3^d missing five",
+        "Z_3 x Z_3 2x2 rectangle support Fourier zeros four coefficients",
+        "F3 tensor F3 four-column rectangle rank deficient five zero rows",
+        "KU-Leuven-TW477-2006"
+      ]
+    },
+    "rationale": "The inspected rank-deficiency and uncertainty literature determines extremal or minimum-support behavior, not the complete fixed-support spectrum for the ternary affine parallelogram. The new statement records every attainable support size and a forbidden intermediate size.",
+    "residual_risks": [
+      "An equivalent fixed-submatrix rank-pattern result may exist under Fourier-matroid, tensor-Fourier, or roots-of-unity terminology not used in the inspected sources. No decisive unresolved comparison was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the complete fixed four-column affine-parallelogram support spectrum.",
+        "evidence": "Report TW 477 is dated 15 November 2006 and classifies its primary subject as 42A99. It studies maximal rank-deficient submatrices and Hamming numbers, explicitly exhibits rank-one structure in \\(F_3\\otimes F_3\\), and later states that the Hamming-number characterization does not characterize uniqueness of the submatrices.",
+        "identifier_or_url": "KU-Leuven-TW477-2006",
+        "material_read": "Abstract and introduction; the explicit \\(F_3\\otimes F_3\\) example; the subgroup/rank-one-block construction; the Hamming-number theorem; and the discussion of what the Hamming-number characterization does not determine.",
+        "method": "Full report text and rendered report pages were inspected.",
+        "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+        "trigger": "Closest primary source on rank-deficient submatrices of \\(F_3\\otimes F_3\\) and finite-Abelian Fourier uncertainty."
+      },
+      {
+        "assessment": "NOT_COVERING the nonminimal fixed-support spectrum claimed here.",
+        "evidence": "The paper defines \\(\\theta(k,G)\\) as the minimum possible Fourier-support size and classifies equality cases for selected groups; its stated problem is extremal rather than enumeration of every Fourier-support size on one prescribed four-point support.",
+        "identifier_or_url": "arXiv:1003.5060v1",
+        "material_read": "Abstract, introduction, definitions of the minimum spectrum function, and the stated scope of the equality-case classification for product groups.",
+        "method": "Full arXiv text was inspected.",
+        "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+        "trigger": "Closest primary source on exact uncertainty equality cases for \\(\\mathbb Z_p\\times\\mathbb Z_p\\), including \\(p=3\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb98eaba-6f8b-42e7-81d6-2ceb6e02b62c",
+  "value": {
+    "rationale": "The affine parallelogram is the canonical rank-two product support in \\(\\mathbb F_3^d\\). Its complete spectrum is a natural structural invariant, and the forbidden intermediate size is not visible from a minimum-support uncertainty bound. The theorem is uniform in ambient dimension, exact, and proved by a reusable factorization mechanism rather than by a finite census.",
+    "status": "PASS"
+  }
+}
