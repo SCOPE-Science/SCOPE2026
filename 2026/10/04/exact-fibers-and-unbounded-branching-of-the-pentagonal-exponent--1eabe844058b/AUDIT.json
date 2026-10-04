@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Writing a source integer as \\(m=2^k u\\) with \\(u\\) odd separates the valuation and odd part of \\(e(m)=2^k u(k+2)\\). Setting \\(t=\nu_2(k+2)\\) forces \\(k=\\ell-t\\) for a target \\(n=2^\\ell w\\), which yields the stated necessary-and-sufficient valuation and divisibility conditions and a unique preimage for each admissible \\(t\\). The unboundedness construction is proved by the recurrence \\(a_{j+1}=a_j+2^{a_j}\\): later increments are divisible by one extra power of two, so \\(\nu_2(a_{R+1}-a_j)=a_j\\). A packaged exhaustive replay agrees with the exact formula for every target through 400000 and checks the first three constructed branching levels.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Saikia--Sarma Lemma 2 handles three specific pairwise-disjoint forward orbits for telescoping.",
+        "Their Remark 4 states that the map is not injective and gives the merger \\(e(2)=e(3)=6\\), while explaining why this does not affect their selected orbits."
+      ],
+      "reasoning": "Pairwise disjointness for three chosen orbits does not imply any bound or classification for global one-step fibers. The new theorem is a different, stronger inverse-branching statement.",
+      "searches": [
+        "\"m(ν_2(m)+2)\" noninjective",
+        "orbit telescoping exponent map unbounded fibers 2-adic valuation",
+        "truncated pentagonal exponent map orbit merging"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25739v1",
+      "arXiv:2409.19907",
+      "published-finding corpus statement searches listed in the four named checks",
+      "Public exact-map and valuation-equation searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves selected orbit disjointness and records a single collision, but does not state bounded or unbounded fiber multiplicity.",
+        "The present exact formula immediately recovers the source collision at \\(n=6\\) and goes beyond it by describing every fiber."
+      ],
+      "reasoning": "The prior statement is a special example of noninjectivity. It neither implies the exact inverse classification nor the existence of arbitrarily large fibers.",
+      "searches": [
+        "Saikia Sarma truncated pentagonal exponent map noninjective fibers orbit merging",
+        "\"On the positivity of truncated pentagonal number series and some conjectures of Merca\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact-map searches returned no published-finding corpus record stating a fiber formula or unbounded preimage multiplicity.",
+        "Public exact-string searches for the map and the valuation equation surfaced the Saikia--Sarma source but no separate equivalent theorem."
+      ],
+      "reasoning": "The direct fiber statement and its equivalent valuation equation were both searched. The source contains only qualitative noninjectivity, not the necessary-and-sufficient inverse formula.",
+      "searches": [
+        "exponent map m -> m(v_2(m)+2) fiber preimage multiplicity noninjective unbounded",
+        "Saikia Sarma truncated pentagonal exponent map noninjective fibers orbit merging",
+        "e(m)=m(nu_2(m)+2) preimages valuation equation k+nu_2(k+2)",
+        "orbit telescoping exponent map unbounded fibers 2-adic valuation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-finding corpus table/record or public database entry was located for fiber counts of this newly introduced exponent map.",
+        "The finite replay was generated from the theorem and direct evaluation, not copied from a table."
+      ],
+      "reasoning": "No exact database or tabulation was found that would make the result a recomputation.",
+      "searches": [
+        "\"e(2)=e(3)=6\" pentagonal",
+        "e(m)=m(nu_2(m)+2) preimages valuation equation k+nu_2(k+2)",
+        "\"unbounded\" fibers exponent map pentagonal q-series"
+      ]
+    },
+    "rationale": "The motivating paper introduces this exact exponent map and explicitly notes one collision, but the inspected full-text section does not classify its fibers or give a uniform multiplicity result. Statement-level searches in published-finding corpus and on the public web for the exact map, inverse valuation equation, orbit merging, and unbounded fibers found no equivalent theorem. The result is not implied by the source paper's pairwise disjointness of three selected forward orbits; it addresses global inverse branching instead.",
+    "residual_risks": [
+      "Because the exponent map is extremely recent, an unindexed contemporaneous note could contain the same inverse classification.",
+      "A general theorem on maps of the form \\(m\\mapsto m f(\nu_p(m))\\) could specialize to this result under different terminology; targeted searches did not reveal one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_WITH_QUALITATIVE_NONINJECTIVITY_ONLY",
+        "evidence": "The paper proves pairwise disjointness for the orbits from 1, 4, and 5 and notes \\(e(2)=e(3)=6\\), but gives no general fiber formula or unbounded multiplicity theorem.",
+        "identifier_or_url": "arXiv:2609.25739v1",
+        "material_read": "arXiv abstract/metadata and HTML Section 2.1 around Lemma 2 and Remark 4, including the explicit three orbits, telescoping discussion, support argument, and the noninjectivity example.",
+        "method": "Full-text HTML inspection plus statement comparison.",
+        "title": "On the positivity of truncated pentagonal number series and some conjectures of Merca",
+        "trigger": "Introduces the exact exponent map and uses its forward orbits as the central telescoping mechanism."
+      },
+      {
+        "assessment": "RELATED_POSITIVITY_NOT_COVERING",
+        "evidence": "This work supplies a positivity theorem for q-series coefficients; the specific exponent-map inverse dynamics studied here is not its stated object.",
+        "identifier_or_url": "arXiv:2409.19907",
+        "material_read": "Abstract and role as cited by the source paper.",
+        "method": "Abstract/claim inspection.",
+        "title": "A general positivity result on coefficients of certain q-series",
+        "trigger": "Earlier positivity result used by Saikia--Sarma for the separate admissibility factor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1eabe844-058b-40f4-acf6-388325459f8e",
+  "value": {
+    "rationale": "The source paper makes this exponent map a central proof device and explicitly flags its noninjectivity. An exact fiber formula is a natural structural completion of that observation, while unbounded finite indegree is a substantive boundary for attempts to extend orbit telescoping beyond carefully separated seeds: no global bounded-merger simplification is available. The result is not an arbitrary small computation or parameter slice; it is an infinite classification with an explicit family witnessing unbounded branching.",
+    "status": "PASS"
+  }
+}
