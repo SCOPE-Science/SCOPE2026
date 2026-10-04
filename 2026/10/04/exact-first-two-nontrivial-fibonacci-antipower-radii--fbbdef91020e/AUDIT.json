@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For k=3, whether an index admits a block length at most 6 is determined by its length-18 factor; for k=4 and block length at most 10, by its length-40 factor. Garg explicitly uses the fact that the Fibonacci word is Sturmian, so it has exactly N+1 distinct factors of length N. The package exhibits 19 distinct length-18 factors and 41 distinct length-40 factors from the fixed point, hence exhausts both factor sets. Every block partition is then checked exactly. Four length-18 factors require 6 for k=3, and one length-40 factor requires 10 for k=4, providing matching lower bounds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garg's Theorem 6 gives a constant c at most 4 phi/sqrt(5), uniform in k and starting index, and later records liminf/limsup bounds for gamma_i(k)/k.",
+        "Berger--Defant's published update says Garg established the Fibonacci case of their general linear-bound conjecture."
+      ],
+      "reasoning": "A uniform O(k) theorem does not determine the exact worst-index minimum at fixed k. For k=3 it only supplies a substantially coarser universal ceiling, and for k=4 it still leaves an integer gap above the exact value 10.",
+      "searches": [
+        "published-finding corpus: Fibonacci word k-antipower optimal constant block length",
+        "web full text: Garg 2021 Theorem 6 and final asymptotic discussion",
+        "web full text: Berger Defant 2020 anti-powers aperiodic recurrent words"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.10816 full text",
+      "DOI:10.46298/dmtcs.7134 metadata and MSC 68R15",
+      "DOI:10.1016/j.aam.2020.102104 open full text",
+      "published-finding corpus semantic searches under five exact/equivalent formulations",
+      "current private ledger generation g000054 and recoverable prior claims",
+      "web searches for later 2022-2024 Fibonacci antipower literature and exact small-k formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Garg proves existence of a global linear constant and asymptotic bounds, then states a separate prefix-only conjecture; the inspected full text does not imply equality at either k=3 or k=4.",
+        "Later searches found Fibonacci work on cubes and string attractors, but not exact uniform antipower radii."
+      ],
+      "reasoning": "The prior theorem yields upper bounds but lacks the finite factor classification and sharp lower witnesses required for exactness. The new claim is therefore not a corollary of the inspected statements.",
+      "searches": [
+        "arXiv:1907.10816 full text, Introduction, Fibonacci section, Theorem 6, gamma_i(k) discussion",
+        "DOI:10.1016/j.aam.2020.102104 full text, conjecture and published update",
+        "web: Fibonacci word antipowers 2022 2023 2024",
+        "web: \"Fibonacci word\" \"gamma_i(k)\" antipower"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Garg defines gamma_i(k) as the least block length starting a k-antipower at index i, so max_i gamma_i(k) is exactly the uniform radius used in the claim.",
+        "No targeted search returned an exact value max_i gamma_i(3)=6 or max_i gamma_i(4)=10."
+      ],
+      "reasoning": "The searches cover both the block-length wording of the theorem and the gamma_i(k)/optimal-constant formulation used in the direct literature.",
+      "searches": [
+        "published-finding corpus: Fibonacci word 3-antipower block length 6 every position",
+        "published-finding corpus: Fibonacci word exact antipower constant k=3",
+        "web: \"Fibonacci word\" \"3-antipower\" 6",
+        "web: \"Fibonacci word\" \"optimal constant\" antipower"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus entry or web result located a table of the uniform Fibonacci radii at k=3 or k=4.",
+        "The direct paper contains no 4-antipower occurrence under exact-phrase search and no exact small-k radius table in the inspected sections."
+      ],
+      "reasoning": "The new values are not a transcription of a located table. The package computes the complete factor classes forced by Sturmian complexity.",
+      "searches": [
+        "published-finding corpus: antipowers Fibonacci word small k exact",
+        "published-finding corpus: Fibonacci 4-antipower block length 10",
+        "web: \"Fibonacci word\" \"4-antipower\" 10",
+        "web: \"Fibonacci word\" \"anti-power\" exact small k"
+      ]
+    },
+    "rationale": "The direct paper proves a global linear upper bound for all k and defines the pointwise minimum gamma_i(k), but the inspected full text states asymptotic bounds rather than exact small-k uniform maxima. Berger--Defant supply the general conjectural framework and later-update context, not the values 6 and 10. Five targeted published-finding corpus searches and several web searches found no statement implying these two exact radii.",
+    "residual_risks": [
+      "An unindexed thesis, note, or computation may contain the same two values under different notation.",
+      "The claim intentionally does not extend beyond k=4; larger exact radii may exhibit additional structure.",
+      "The finite factor certificate depends on the standard published Sturmian complexity fact for the Fibonacci word; it does not independently reprove Sturmianity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and not covering the final claim. It gives c<=4 phi/sqrt(5) for all k and asymptotic bounds, but no exact values of max_i gamma_i(k) for k=3 or k=4.",
+        "evidence": "Theorem 6 states the global linear bound; the later paragraph defines gamma_i(k) and gives only liminf/limsup bounds; Conjecture 18 concerns prefix antipowers at special Fibonacci-number parameters.",
+        "identifier_or_url": "arXiv:1907.10816 / DOI:10.46298/dmtcs.7134",
+        "material_read": "Full lawful arXiv PDF: introduction and definitions; Fibonacci section with Fact 14, Propositions 16-17, Theorem 6 proof, Sturmian/gamma_i(k) asymptotic discussion, and final Conjecture 18.",
+        "method": "Open arXiv full-text inspection, including rendered PDF pages.",
+        "title": "Antipowers in Uniform Morphic Words and the Fibonacci Word",
+        "trigger": "Direct primary source proving the Fibonacci linear antipower bound and defining gamma_i(k)."
+      },
+      {
+        "assessment": "Provides the broader conjectural framework but does not give exact Fibonacci small-k radii.",
+        "evidence": "The paper proves the uniform-morphism case and its update identifies Garg as handling the Fibonacci word.",
+        "identifier_or_url": "DOI:10.1016/j.aam.2020.102104",
+        "material_read": "Open full-text introduction, main conjecture/theorem statements, terminology, and the published update referring to Garg's Fibonacci result.",
+        "method": "Publisher open-archive HTML inspection.",
+        "title": "On anti-powers in aperiodic recurrent words",
+        "trigger": "Source of the morphic-word linear-block conjecture to which Garg's Fibonacci theorem responds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fbbdef91-020e-40fd-be8d-409579866bc3",
+  "value": {
+    "rationale": "The direct literature singles out the Fibonacci word as the first non-uniform morphic example with a uniform linear antipower bound and explicitly studies the pointwise minimum gamma_i(k). Since k=2 is trivial, k=3 and k=4 are the first two nontrivial uniform radii. Determining them exactly supplies sharp base cases for the central quantitative invariant rather than an arbitrary prefix-length computation, and the unique k=4 extremal factor gives a concrete structural obstruction benchmark for future work.",
+    "status": "PASS"
+  }
+}
