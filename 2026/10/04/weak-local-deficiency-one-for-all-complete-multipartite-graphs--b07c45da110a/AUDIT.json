@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For tied maximum parts, the odd-order construction is a restriction of the standard proper N-edge-coloring of K_N; the missing palette at each vertex is a translate of one part, made independent in the residue cycle by a Dirac Hamiltonian cycle. For even order, the standard one-factorization over Z_{N-1} is proper; the label placement makes every same-part finite label set independent in the step-two cycle, and the infinity-part labels also avoid step one. Therefore every missing-color set has no consecutive integers. Edge cases s=1 and bipartite/unique-largest cases are explicitly separated. The standalone verifier exhaustively stress-tests all new tied-maximum types through order 16. The finite test is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1606.09389v2 proves every complete multipartite graph is cyclically interval colorable.",
+        "arXiv:2609.15873v1 cites cyclic-interval work but still states Problem 6.6."
+      ],
+      "reasoning": "Cyclic interval colorability is superficially broader-looking but does not dominate the claim: a wrapped cyclic interval can have a long consecutive missing block in the ordinary integer order, so it does not force weak local deficiency at most 1.",
+      "searches": [
+        "complete multipartite cyclic interval edge coloring weak local deficiency",
+        "cyclic interval coloring does not imply weak near-interval complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.15873v1",
+      "arXiv:1606.09389v2",
+      "DOI:10.1002/jgt.22154",
+      "DOI:10.46991/PYSU:A/2022.56.1.019",
+      "published-finding corpus semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.15873v1: Theorem 3.2 covers unique-largest-part graphs; Theorem 3.3 gives only at most 2 in general; Problem 6.6 asks whether value 2 exists.",
+        "arXiv:1606.09389v2: all complete multipartite graphs have cyclic interval colorings, a non-dominating notion."
+      ],
+      "reasoning": "The new claim strictly improves the cited general upper bound from 2 to 1 and supplies precisely the tied-largest cases not covered by Theorem 3.2. Neither the tripartite special case nor the cyclic-interval theorem implies this universal weak-local result.",
+      "searches": [
+        "every complete multipartite graph weak local deficiency at most 1 weak near-interval coloring",
+        "complete multipartite cyclic interval edge coloring weak local deficiency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.15873v1, Theorems 3.1--3.3 and Problem 6.6; full text inspected.",
+        "published-finding corpus exact-formulation searches returned no weak-local-deficiency theorem for all complete multipartite graphs."
+      ],
+      "reasoning": "The aliases weak local deficiency, weak near-interval coloring, and the notation defwloc were searched. No equivalent statement covering all complete multipartite graphs was found.",
+      "searches": [
+        "complete multipartite weak near-interval coloring local deficiency 1",
+        "Problem 6.6 complete multipartite weak local deficiency 2 Casselgren Petrosyan"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit stated weak local deficiency at most 1 for every complete multipartite graph.",
+        "Closest complete-multipartite records concerned unrelated coloring, locating, or interval-representation invariants."
+      ],
+      "reasoning": "No exact database/table entry covering the claimed invariant and graph family was found in the required published-finding corpus searches.",
+      "searches": [
+        "every complete multipartite graph weak local deficiency at most 1 weak near-interval coloring",
+        "Problem 6.6 complete multipartite weak local deficiency 2 Casselgren Petrosyan",
+        "complete multipartite weak near-interval edge coloring",
+        "complete multipartite defwloc Problem 6.6"
+      ]
+    },
+    "rationale": "The initiating 2026 paper proves only the universal upper bound 2, proves 1 for tripartite graphs and for a unique largest part, and explicitly asks whether weak local deficiency 2 occurs for complete multipartite graphs. The new tied-maximum constructions close that stated gap. Targeted published-finding corpus and web searches found no covering statement. The older cyclic-interval theorem is not implication-equivalent because cyclic wraparound can leave an arbitrarily long ordinary linear gap.",
+    "residual_risks": [
+      "The initiating problem is very recent; a later revision or newly posted work after the checked sources could duplicate the result.",
+      "Search cannot prove global uniqueness; originality PASS is based on the explicit open problem, full-text implication comparison, and absence of a covering published-finding corpus/web hit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; it gives at most 2 generally and at most 1 only for special complete multipartite cases, then explicitly asks whether value 2 occurs.",
+        "evidence": [
+          "Definition of weak local deficiency in Section 1.",
+          "Theorems 3.1--3.3 in Section 3.",
+          "Problem 6.6 in Section 6."
+        ],
+        "identifier_or_url": "arXiv:2609.15873v1",
+        "material_read": "Full PDF definition section, complete multipartite Section 3, concluding Problem 6.6, and references.",
+        "method": "Lawful arXiv full text; theorem statements and proofs inspected, including Theorems 3.1--3.3 and Problem 6.6.",
+        "title": "Local measures of interval edge-uncolorability",
+        "trigger": "Initiating source defining the invariant and posing the complete-multipartite open problem."
+      },
+      {
+        "assessment": "NOT_COVERING; cyclic interval colorability does not bound the longest ordinary linear missing-color gap by 1.",
+        "evidence": [
+          "The paper defines cyclic interval color sets using wraparound.",
+          "It proves all complete multipartite graphs cyclically interval colorable.",
+          "A cyclic interval may have a long complementary ordinary interval, so implication to weak near-interval coloring fails."
+        ],
+        "identifier_or_url": "arXiv:1606.09389v2",
+        "material_read": "Full arXiv PDF abstract and introduction, including the definition of cyclic interval coloring and the statement that all complete multipartite graphs admit one.",
+        "method": "Lawful arXiv full text.",
+        "title": "Some Results on Cyclic Interval Edge Colorings of Graphs",
+        "trigger": "Same graph class and a potentially stronger-looking interval-type edge-coloring theorem."
+      },
+      {
+        "assessment": "NOT_COVERING; it treats exact interval edge-colorings, corresponding to weak local deficiency 0, not the universal at-most-1 theorem.",
+        "evidence": [
+          "Abstract states existence/construction results for interval colorings of complete multipartite graphs.",
+          "Metadata classifies the paper under MSC 05C15."
+        ],
+        "identifier_or_url": "DOI:10.46991/PYSU:A/2022.56.1.019",
+        "material_read": "Abstract and bibliographic metadata.",
+        "method": "Journal abstract/metadata page.",
+        "title": "On interval edge-colorings of complete multipartite graphs",
+        "trigger": "Exact interval-colorability literature on the same graph class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b07c45da-110a-4ef0-910a-01cf237fd6d8",
+  "value": {
+    "rationale": "The result directly settles the weak half of an explicit 2026 open problem for a natural and classical graph family, sharpening the published universal bound from 2 to 1. It also gives an exact dichotomy: weak local deficiency is 0 exactly in the interval-colorable cases and 1 otherwise. The proof provides explicit colorings rather than a small isolated computation.",
+    "status": "PASS"
+  }
+}
