@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite and exactly checkable. The verifier reconstructs all \\(64\\) binary words, uses the definition of asymmetric distance, exactly enumerates the compatibility graph's maximum cliques, obtains maximum size \\(12\\) with exactly \\(30\\) maxima, independently generates all \\(15\\) perfect matchings with both transversal-cube bipartition classes, and verifies equality of those \\(30\\) constructions with the complete maximum-clique list. It also exhausts all \\(720\\) coordinate permutations and obtains one orbit of size \\(30\\). The direct proof in RESULT.md verifies every constructed code has minimum asymmetric distance \\(2\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grassl et al. define binary Z-channel 1-codes by the same asymmetric-distance criterion and discuss general constructions from ternary outer codes.",
+        "Butenko et al. formulate the same problem as an independent-set problem and give short-length optimum sizes.",
+        "Etzion's indexed asymmetric-code paper is classified under MSC 94B60."
+      ],
+      "reasoning": "General construction theorems and optimum-size tables cover the ambient coding problem but do not force a classification of all extremizers at this parameter.",
+      "searches": [
+        "arXiv:1310.7536 full text, Introduction and Section II",
+        "DOI:10.1007/978-0-387-98096-6_12 full-text asymmetric-code section",
+        "web query: New lower bounds for asymmetric and unidirectional codes 94B60"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1310.7536",
+      "DOI:10.1109/ISIT.2012.6284659",
+      "DOI:10.1007/978-0-387-98096-6_12",
+      "DOI:10.1109/18.21262",
+      "OEIS:A010101",
+      "MaRDI subject record for DOI:10.1109/18.21262",
+      "MaRDI subject record for DOI:10.1109/18.104336"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grassl et al. Example 2.4 lists the exact representative and says it is optimal.",
+        "The exact-word web query returned no coding-theory source beyond irrelevant binary tables.",
+        "The semantic query returned no record asserting 30 maxima or a unique coordinate-permutation class."
+      ],
+      "reasoning": "Existence of one optimal representative plus knowledge of the optimum size does not imply that all optimal codes are equivalent to it. The new implication is the complete converse classification.",
+      "searches": [
+        "arXiv:1310.7536 Example 2.4 and surrounding text",
+        "web query using the exact representative 000000 000011 001100 001111 010101",
+        "semantic query: binary 1-code length 6 30 maximum codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grassl et al., arXiv:1310.7536, Example 2.4: the same 12-word representative is stated to be an optimal length-six 1-code.",
+        "Butenko et al., DOI:10.1007/978-0-387-98096-6_12, Table 1.4: length six has lower and upper bound 12.",
+        "OEIS A010101 records the length-six optimum 12 for asymmetric distance 2.",
+        "No searched semantic-record hit states the count 30, one-orbit conclusion, or matching/transversal classification."
+      ],
+      "reasoning": "The known optimum-size statements and the published representative do not imply a census of all extrema. The new statement requires showing that every 12-word code lies in one coordinate-permutation orbit and that the 30 labeled codes are exactly the 15 perfect matchings times two cube bipartition classes.",
+      "searches": [
+        "semantic query: length six binary Z-channel one asymmetric error correcting code maximum 12; closest records 2026/9/18/SCOPE-binary-bch-period-six-seven-minimum-distances--19e0cb0027e7 and 2026/9/8/SCOPE080",
+        "semantic query: asymmetric distance two binary code length 6 maximum 12 classification; closest record 2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0",
+        "semantic query: Constantin Rao code length 6 twelve codewords classification optimal asymmetric; closest record 2026/9/12/SCOPE082",
+        "semantic query: Grassl Shor Smith Smolin Zeng length 6 12 word asymmetric code unique; closest record 2026/9/20/SCOPE-exact-length-three-two-traceability-codes--3017376302a3",
+        "web query: length 6 asymmetric distance 2 code 12",
+        "web query: Z-channel 12 length 6 code",
+        "web query: binary asymmetric distance perfect matching code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A010101 gives the sequence value 12 at length six.",
+        "Butenko et al. Table 1.4 gives lower bound 12 and upper bound 12 for length six.",
+        "The Weber--de Vroedt--Boekee summary says a table of optimal sizes for short asymmetric codes is presented."
+      ],
+      "reasoning": "These tables settle the maximum cardinality but do not, in the inspected material, enumerate or classify the maximizing codebooks.",
+      "searches": [
+        "OEIS A010101",
+        "Butenko et al. Table 1.4",
+        "Weber--de Vroedt--Boekee DOI:10.1109/18.21262 metadata and summary"
+      ]
+    },
+    "rationale": "The closest full-text source gives the same representative and its optimality, while the older exact-size source gives the number \\(12\\); neither inspected statement gives the full labeled census, uniqueness up to coordinate permutation, or the perfect-matching/transversal characterization. Targeted semantic and web searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "The full text of Weber--de Vroedt--Boekee was not available through the checked lawful open sources, so an unadvertised equivalent census there cannot be excluded.",
+      "An older thesis, private code list, or unindexed finite enumeration may contain an equivalent classification under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the asymmetric-distance definition, optimum size, and one explicit representative; NOT_COVERING for the 30-code census, uniqueness up to coordinate permutation, and perfect-matching/transversal classification.",
+        "evidence": "Example 2.4 lists exactly the representative used here, states asymmetric distance 2, and says it is a known optimal 1-code for length six.",
+        "identifier_or_url": "arXiv:1310.7536; DOI:10.1109/ISIT.2012.6284659",
+        "material_read": "Full arXiv text, especially Definition 1.1, Theorem 1.2, Example 2.4, and the later discussion of Example 2.4.",
+        "method": "Full-text inspection of the lawful open-access version.",
+        "title": "New Constructions of Codes for Asymmetric Channels via Concatenation",
+        "trigger": "The paper is the closest source because it displays an optimal binary length-six 12-word 1-code."
+      },
+      {
+        "assessment": "COVERING for the exact maximum size 12 at length six; NOT_COVERING in the inspected sections for extremizer enumeration or classification.",
+        "evidence": "Table 1.4 has length six lower bound 12 and upper bound 12, while the surrounding discussion focuses on independent-set formulations, partitions, bounds, and constructions.",
+        "identifier_or_url": "DOI:10.1007/978-0-387-98096-6_12",
+        "material_read": "Full accessible chapter text around the asymmetric-distance definition, graph formulation, Table 1.4, and conclusions.",
+        "method": "Full-text inspection of an author-uploaded copy.",
+        "title": "Estimating the Size of Correcting Codes Using Extremal Graph Problems",
+        "trigger": "It gives an exact short-length table for the same asymmetric-distance problem."
+      },
+      {
+        "assessment": "Plausible source for the known optimum-size table; unresolved for whether an unadvertised extremizer census appears in the inaccessible full text.",
+        "evidence": "Accessible metadata describes upper bounds, constructions, and a table of optimal short-code sizes, and gives MSC 94B60.",
+        "identifier_or_url": "DOI:10.1109/18.21262",
+        "material_read": "Metadata, abstract-style summary, keywords, and MSC record; full article text was not available in the checked open sources.",
+        "method": "Bibliographic and subject-classification inspection.",
+        "title": "Bounds and Constructions for Binary Codes of Length Less than 24 and Asymmetric Distance Less than 6",
+        "trigger": "It is an older primary source cited for exact short asymmetric-code tables and is indexed under MSC 94B60."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6b3b72dd-21d8-4f44-a7c7-5ac389480bce",
+  "value": {
+    "rationale": "The finding is structurally motivated by a published optimal construction at the smallest even length where the cited ternary concatenation yields a 12-word optimum. It proves that this construction is not merely one optimum: every optimum is the same up to coordinate permutation. The matching-plus-transversal description explains the full extremal set, yields the exact labeled count \\(30\\), and exposes the stabilizer order \\(24\\). This is a natural complete classification, not an arbitrary slice or a recomputation of the already-known size.",
+    "status": "PASS"
+  }
+}
