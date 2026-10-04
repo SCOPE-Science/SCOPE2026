@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The randomized probability integral transform gives an exact conditional-variance decomposition for the mid-distribution rank. The Gini mean difference is exactly four times its covariance with X. Cauchy--Schwarz gives the bound, and its equality condition is exactly the affine midrank support. Jensen gives the N-atom corollary. The symmetric min-max result follows from exact two-sample identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Čiginas--Pumputis compare finite-population Gini and variance and derive exact support-gap formulas.",
+        "La Haye--Zizler prove the classical sharp continuous-constant Gini--variance inequality.",
+        "Parzen develops the mid-distribution transform for discrete data.",
+        "Papadatos proves the equal-weight N-point min--max correlation bound with arithmetic-progression equality."
+      ],
+      "reasoning": "These sources cover the main ingredients and important special consequences, but none states a theorem maximizing standardized Gini mean difference over support locations for an arbitrary prescribed atom-probability profile.",
+      "searches": [
+        "arXiv:1406.2275",
+        "DOI:10.1007/s40300-019-00149-2",
+        "DOI:10.1214/088342304000000387",
+        "arXiv:2205.14360"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.2275",
+      "DOI:10.1007/s40300-019-00149-2",
+      "DOI:10.1214/088342304000000387",
+      "arXiv:2205.14360"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The three-point probability-weight result optimizes min-max correlation on one fixed support and does not imply the general Gini support problem.",
+        "Papadatos's theorem fixes equal atom weights; the present theorem allows every positive probability profile.",
+        "The classical Gini--variance bound omits the atom correction, so its equality theorem does not imply the discrete fixed-profile equality geometry."
+      ],
+      "reasoning": "Neither the equal-weight order-statistic theorem nor the universal continuous-constant Gini inequality dominates the profile-specific statement. The final theorem is strictly sharper whenever the law has atoms.",
+      "searches": [
+        "sharp min-max correlation over three-point probability weights",
+        "Papadatos discrete rectangular min max correlation uniform finite lattice",
+        "La Haye Zizler Gini mean difference variance equality",
+        "Čiginas Pumputis finite population Gini variance gaps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches recovered the established mid-distribution variance identity and the classical Gini--variance inequality, but not their sharp fixed-profile combination.",
+        "No retrieved source stated support gaps proportional to adjacent probability sums as the equality condition."
+      ],
+      "reasoning": "The queries cover the covariance, midrank, tie-correction, finite-support, and explicit cubic-probability formulations of the theorem. The known component identities are credited; the searched gap is their sharp atom-profile extremal synthesis.",
+      "searches": [
+        "Gini mean difference variance finite support mid distribution atom probabilities",
+        "Gini covariance mid distribution variance atoms sum cubes",
+        "\"sum p_i^3\" \"mean difference\"",
+        "\"1 - sum p_i^3\" Gini",
+        "\"midrank\" \"Gini mean difference\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record or table containing the coefficient (4/3)(1-sum p_i^3) and its support equality classification was returned."
+      ],
+      "reasoning": "The result is symbolic for every positive finite probability vector and every real support geometry; it is not derived from a finite catalog.",
+      "searches": [
+        "finite support Gini variance arithmetic progression equality",
+        "Gini mean difference fixed probabilities support optimization",
+        "discrete Gini standard deviation sharp atom probabilities"
+      ]
+    },
+    "rationale": "The closest Gini--variance paper proves the classical 2/sqrt(3) constant, while the closest finite-population source gives gap-coordinate formulas and the closest discrete min-max paper treats equal weights. None of the inspected or searched sources states the cubic atom correction as a sharp fixed-profile support optimization with the stated equality geometry.",
+    "residual_risks": [
+      "Older L-moment or midrank literature may contain an equivalent atom-corrected inequality under different terminology.",
+      "The mid-distribution variance identity itself is established prior work; originality rests on the sharp fixed-profile Gini optimization and equality geometry."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "The paper develops estimation and asymptotic comparison of finite-population Gini and variance, but does not state the cubic atom-profile sharp constant or the affine-midrank equality classification.",
+        "identifier_or_url": "arXiv:1406.2275",
+        "material_read": "Complete 20-page arXiv paper, with focused inspection of the introduction, definitions (1.1)--(1.4), and the support-gap formulas in Section 2.",
+        "method": "Compared its finite-population scale formulas and optimized quantities with the fixed-probability support extremum.",
+        "title": "Gini's mean difference and variance as measures of finite populations scales",
+        "trigger": "Archive-era primary source directly comparing Gini mean difference and variance for finite populations."
+      },
+      {
+        "assessment": "CLASSICAL_BOUND_NOT_PROFILE_REFINEMENT",
+        "evidence": "The paper proves Delta <= 2 sigma/sqrt(3) and continuous-uniform equality. It does not replace 1/12 by the exact mid-distribution variance (1-sum p_i^3)/12 or solve the fixed-atom-probability support optimization.",
+        "identifier_or_url": "DOI:10.1007/s40300-019-00149-2",
+        "material_read": "Complete 10-page article, including Theorem 1, Corollary 1, the Lorenz/point-mass correspondence, and higher-moment extensions.",
+        "method": "Compared constants, treatment of atoms, Cauchy--Schwarz step, and equality statements.",
+        "title": "The Gini mean difference and variance",
+        "trigger": "Closest paper explicitly devoted to the sharp standard-deviation versus Gini inequality."
+      },
+      {
+        "assessment": "EQUAL_WEIGHT_SPECIAL_DIRECTION_NOT_COVERING",
+        "evidence": "Papadatos proves the equal-weight min-max constant and arithmetic-progression equality for arbitrary supports. It does not give the probability-profile Gini inequality or the nonuniform symmetric-profile min-max constant.",
+        "identifier_or_url": "arXiv:2205.14360",
+        "material_read": "Complete 13-page arXiv paper, with focused reading of the introduction, Theorem 1.2, and its equality characterization.",
+        "method": "Compared the fixed equal-weight support problem with the arbitrary probability-profile Gini theorem and symmetric min-max corollary.",
+        "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+        "trigger": "Closest exact finite-support order-statistic theorem and a potential implication of the equal-weight corollary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b70a618-6c60-47ac-9f5f-9a1dc746902d",
+  "value": {
+    "rationale": "The theorem solves a natural complete optimization problem for a standard dispersion functional under a prescribed discrete probability profile. It quantifies exactly how ties strengthen the classical Gini--variance inequality and uniquely determines the maximizing support geometry. The support-cardinality and symmetric order-statistic consequences give interpretable sharp corollaries.",
+    "status": "PASS"
+  }
+}
