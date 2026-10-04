@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Every exactly-two-b word has normal form b a^k b a^j on Q. After the first b and rotation, the second b lowers rank exactly when the missing state is outside the two-element kernel class. On those states b is a bijection onto Q\\{e,d}, so the oriented missing-state difference ranges over every nonzero residue except rho=d-e. A target pair fails in both orientations exactly when its difference equals its negative and rho, i.e. n is even and rho=n/2 with antipodal holes. The explicit witness has length 2+k+j<=2n. The packaged verifier exhaustively checks all rank-(n-1) maps through n=7 and deterministic random cases through n=13.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoffmann 2020 obtains complete reachability for arbitrary rank-(n-1) maps adjoined to primitive groups; an n-cycle alone is primitive only for prime n.",
+        "Zhu 2024 gives n(n-k)+n-1 for standardized completely reachable automata and exhibits general binary counterexamples to Don.",
+        "Ferens-Szykuła 2026 give 2n(n-|S|)-n H_{n-|S|} for completely reachable automata, equal to 5n/2 at codimension two."
+      ],
+      "reasoning": "The literature has broader all-subset results under stronger global hypotheses. None of these inspected statements implies the composite-n, arbitrary rank-(n-1), local codimension-two 2n result without complete reachability. Conversely, the present result is not broader for smaller target sizes.",
+      "searches": [
+        "arXiv:2007.09104 Theorem 4.2 and Corollary 4.3",
+        "arXiv:2402.19089 Theorems 1-3 and Section 1.2",
+        "ACM DOI 10.1145/3798283 Sections 1 and 6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.09104",
+      "arXiv:2311.00077",
+      "arXiv:2402.19089",
+      "doi:10.37236/5616",
+      "doi:10.1145/3798283",
+      "published-finding corpus:2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Don implies the 2n bound when gcd(rho,n)=1, so that portion is prior coverage and is explicitly credited.",
+        "Casas-Volkov generalize the coprime theorem for standardized automata whose orbit subgroup is all of Z_n, but arbitrary rank-(n-1) letters need not satisfy standardization or that orbit condition.",
+        "The Černý exact threshold result is a special case and supplies sharpness, not the arbitrary-map theorem."
+      ],
+      "reasoning": "The surviving new content is the exact two-b characterization for every rank-(n-1) transformation with a cycle letter, including non-coprime rho, plus the proof that the sole two-occurrence obstruction is the even antipodal displacement. Known results cover important special cases but do not dominate this statement.",
+      "searches": [
+        "Don 2016 Theorem 12 and Proposition 15",
+        "Casas-Volkov arXiv:2311.00077 pp. 2-3",
+        "Zhu arXiv:2402.19089 Section 1.2",
+        "Ferens-Szykuła DOI 10.1145/3798283 Example 2.4 and Section 6",
+        "published-finding corpus 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Don 2016 Proposition 15 gives the bound n(n-k) for circular defect-one automata only when the excluded-to-duplicated displacement is coprime to n.",
+        "Casas-Volkov 2023/2024 and Zhu 2024 work with standardized binary completely reachable automata and orbit-subgroup conditions.",
+        "The exact two-occurrence normal form reduces the new statement to the forbidden oriented difference rho, producing a single antipodal exception."
+      ],
+      "reasoning": "The new statement is not merely a renaming of Don's coprime-displacement theorem: it covers non-coprime displacement at codimension two and does not assume complete reachability. Nor is it the standardized-automaton theorem, because an arbitrary rank-(n-1) transformation need not be standardized. The exact exceptional set for two occurrences is additional structure.",
+      "searches": [
+        "excluded state duplicated state rank n-1 cyclic automaton two-hole reachability",
+        "circular defect-one automata two occurrences rank n-1 antipodal reachability",
+        "cycle letter rank n-1 transformation codimension two reaching Don bound",
+        "two missing states reachability binary circular automata defect one",
+        "Don 2016 Proposition 15; arXiv:2311.00077 full text; arXiv:2402.19089 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit: 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f, an exact result for the special Černý family.",
+        "Other close hits included 2026/9/9/SCOPE010 (C7 careful synchronizability) and 2026/9/7/SCOPE007 (slow-reset one-cluster census); neither states the arbitrary rank-(n-1) two-defect classification."
+      ],
+      "reasoning": "Database searches using excluded/duplicated, defect-one, two-hole, codimension-two, cycle-letter, and reaching-threshold terminology did not return the claimed arbitrary-map classification. This is evidence of non-overlap, not a proof of novelty.",
+      "searches": [
+        "excluded state duplicated state rank n-1 cyclic automaton two-hole reachability",
+        "circular defect-one automata two occurrences rank n-1 antipodal reachability",
+        "cycle letter rank n-1 transformation codimension two reaching Don bound",
+        "two missing states reachability binary circular automata defect one",
+        "Cerny automaton reaching threshold subset consecutive complement n-2 2n",
+        "Cerny automata reaching thresholds subsets Don conjecture exact",
+        "shortest word reaching subset in Cerny automaton size n-2"
+      ]
+    },
+    "rationale": "The claim extends the codimension-two 2n conclusion beyond Don's coprime-displacement condition and beyond standardized completely reachable automata, while isolating an exact antipodal obstruction to using two defect-one letters. Direct full-text comparisons and published-finding corpus searches found special cases and broader results under stronger hypotheses, but no statement implying the arbitrary-map classification.",
+    "residual_risks": [
+      "An older circular-automata or finite-transformation-semigroup source might contain an equivalent two-defect statement under different terminology. Searches did not locate one.",
+      "The theorem does not address overall reachability of antipodal exceptional targets with three or more occurrences of the defect-one letter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers all k-subsets at n(n-k) when gcd(rho,n)=1; notes many (n-2)-sets are reachable within 2n in general 1-contracting automata, but does not give the arbitrary circular rank-(n-1) exact two-occurrence classification.",
+        "evidence": "Published 2016; Proposition 15 states the coprime displacement hypothesis explicitly.",
+        "identifier_or_url": "doi:10.37236/5616",
+        "material_read": "Full primary PDF, especially Lemma 6, Theorem 12, Proposition 15, and the circularity discussion.",
+        "method": "Primary full-text inspection.",
+        "title": "The Černý Conjecture and 1-Contracting Automata",
+        "trigger": "Closest classical circular defect-one bound and possible coverage by the coprime displacement theorem."
+      },
+      {
+        "assessment": "Provides Don bounds for standardized automata under orbit-subgroup hypotheses; does not cover arbitrary rank-(n-1) maps without complete reachability.",
+        "evidence": "First public 2023-10-31; full text explicitly says Theorem 1 generalizes Don through the standardized orbit subgroup.",
+        "identifier_or_url": "arXiv:2311.00077",
+        "material_read": "Full primary PDF, especially pp. 2-3 defining standardized DFAs, Theorem 1, and the comparison to Don Proposition 15.",
+        "method": "Primary full-text inspection.",
+        "title": "Don's conjecture for binary completely reachable automata: an approach and its limitations",
+        "trigger": "Same circular binary defect-one setting with excluded and duplicated states."
+      },
+      {
+        "assessment": "General standardized bound is n(n-k)+n-1; counterexamples show 5n/2-3 can occur in broader binary completely reachable automata. The present local class and exact two-b criterion are different.",
+        "evidence": "First public 2024-02-29.",
+        "identifier_or_url": "arXiv:2402.19089",
+        "material_read": "Primary full HTML through the definitions, Theorems 1-3, and the expansion propositions including the size n-2 discussion.",
+        "method": "Primary full-text inspection.",
+        "title": "Around Don's conjecture for binary completely reachable automata",
+        "trigger": "Recent codimension-two counterexamples and standardized bounds."
+      },
+      {
+        "assessment": "Complete reachability follows for primitive permutation groups. A single n-cycle gives such a group for prime n, but this does not cover composite n or give the two-occurrence threshold classification.",
+        "evidence": "First public 2020-07-17; arXiv metadata lists MSC 68Q45 Primary.",
+        "identifier_or_url": "arXiv:2007.09104",
+        "material_read": "Primary full HTML around Theorem 4.2, Corollary 4.3, and the cycle-of-prime-length example.",
+        "method": "Primary full-text inspection.",
+        "title": "Completely Reachable Automata, Primitive Groups and the State Complexity of the Set of Synchronizing Words",
+        "trigger": "Arbitrary rank-(n-1) transformations combined with permutation groups."
+      },
+      {
+        "assessment": "Gives 5n/2 at codimension two for completely reachable automata and records that Černý automata meet Don by cardinality. It is weaker numerically on the present nonexceptional local class and assumes complete reachability.",
+        "evidence": "Published 2026-04-07.",
+        "identifier_or_url": "doi:10.1145/3798283",
+        "material_read": "Open-access primary article sections discussing reaching thresholds, codimension two, and Example 2.4.",
+        "method": "Primary full-text inspection.",
+        "title": "Recognizing Completely Reachable Automata in Quadratic Time",
+        "trigger": "Current general reaching-threshold upper bound and Černý special case."
+      },
+      {
+        "assessment": "Special-family result; its reaching discussion is compatible with but does not imply the arbitrary rank-(n-1) classification.",
+        "evidence": "The record states exact Černý k-avoiding thresholds and cites the known Don-type reaching bound for Černý.",
+        "identifier_or_url": "published-finding corpus:2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "material_read": "Full RESULT.md, AUDIT.json, and METADATA.json from the public record.",
+        "method": "published-finding corpus hit followed by source-record inspection.",
+        "title": "Exact k-avoiding thresholds of the Černý automata",
+        "trigger": "Closest database hit with exact Černý subset thresholds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d0ad329-ab1e-4edb-8c8c-c3b8d18da35f",
+  "value": {
+    "rationale": "Codimension two is the first nontrivial reaching layer and is where the known binary counterexamples to Don occur. The theorem gives a complete local classification for the broad cycle-plus-rank-(n-1) model, explains exactly when two defect-one steps suffice, removes coprimality in all nonexceptional cases, and identifies a sharp parity obstruction. The 2n coefficient is also sharp over the class via the known Černý family.",
+    "status": "PASS"
+  }
+}
