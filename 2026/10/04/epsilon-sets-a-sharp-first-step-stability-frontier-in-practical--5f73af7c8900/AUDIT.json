@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "At the first update, \\(s_1=\\gamma Hx_0\\) and \\(\\nu_1=\\gamma(Hx_0)\\odot(Hx_0)\\). For diagonal \\(H\\), each coordinate multiplier is exactly \\(1-q_i\\). Uniform objective nonincrease is therefore equivalent to \\(0\\le q_i\\le2\\) for every coordinate and initialization. Since \\(q_i\\) decreases with \\(|x_i|\\) and has supremum \\(c\\gamma h_i/\\varepsilon\\), the sharp frontier is \\(c\\gamma L\\le2\\varepsilon\\). Solving \\(q=2\\) gives the exact spike radius, and endpoint optimization of \\((1-q)^2\\) gives the exact supremal factor.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper proves convex convergence for a modified denominator containing a gradient-bound term.",
+        "A 2026 empirical study reports mixed MADGRAD dynamics, periodic loss explosions on Rosenbrock problems, and strong hyperparameter sensitivity.",
+        "General adaptive-method convergence theory does not specialize to the exact first practical MADGRAD update with the source cube-root denominator."
+      ],
+      "reasoning": "Long-run convergence guarantees for a safeguarded theoretical variant and nonlinear empirical instability do not imply the exact one-step necessary-and-sufficient practical-algorithm frontier.",
+      "searches": [
+        "MADGRAD convergence quadratic stability analysis",
+        "MADGRAD epsilon denominator convergence",
+        "MADGRAD stability optimizer paper"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2101.11075v1",
+      "DOI:10.1007/s00521-026-12014-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 uses \\(\\lambda_k=\\gamma_k\\sqrt{k+1}\\), accumulates \\(s\\) and \\(\nu\\), divides by \\(\nu^{1/3}+\u000barepsilon\\), and inline-averages the dual point.",
+        "The convergence analysis adds a non-practical gradient-bound term to the denominator and explicitly notes its omission from Algorithm 1.",
+        "The later empirical study's instability observations concern full nonlinear trajectories rather than the first-step diagonal-quadratic map."
+      ],
+      "reasoning": "The source recurrence is the premise of the theorem, but its published conclusions do not determine the exact near-origin first-step multiplier. The new result follows only after resolving the dependence of the cube-root accumulator on the current gradient magnitude and optimizing the objective ratio.",
+      "searches": [
+        "arXiv:2101.11075v1 Algorithm 1 MADGRAD epsilon cube root",
+        "arXiv:2101.11075v1 Equation 6 gradient bound denominator",
+        "MADGRAD periodic explosions Rosenbrock hyperparameter sensitivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source Algorithm 1 gives the exact cube-root accumulator and epsilon-regularized practical update.",
+        "The source convergence section explicitly analyzes a denominator with an additional gradient-bound term that is absent from Algorithm 1.",
+        "No inspected source states the local derivative \\(1-c\\gamma h/\u000barepsilon\\) or the equivalent frontier \\(c\\gamma L=2\u000barepsilon\\)."
+      ],
+      "reasoning": "Equivalent formulations include uniform first-step objective monotonicity, local contraction at the minimizer, and absence of a punctured near-minimizer spike basin. All reduce to the same sharp inequality, which was not found in the inspected literature.",
+      "searches": [
+        "MADGRAD first step scalar quadratic epsilon local stability objective increase",
+        "MADGRAD origin instability epsilon curvature threshold",
+        "MADGRAD local Jacobian minimizer epsilon learning rate",
+        "arXiv:2101.11075v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record matches concern sharp one-step frontiers for Polyak, Barzilai–Borwein, Gauss–Seidel, and other adaptive methods.",
+        "No close result uses MADGRAD's \\(\nu^{1/3}+\u000barepsilon\\) denominator or its inline averaging coefficient."
+      ],
+      "reasoning": "The nearby records establish that sharp one-step frontiers can be meaningful, but their update maps are different and do not imply the MADGRAD formula. Search absence is not used alone as novelty evidence.",
+      "searches": [
+        "MADGRAD optimizer exact scalar quadratic dynamics stability dual averaging momentum",
+        "MADGRAD first step scalar quadratic epsilon local stability objective increase",
+        "MADGRAD origin instability epsilon curvature threshold",
+        "MADGRAD cube root denominator quadratic near optimum overshoot",
+        "MADGRAD local Jacobian minimizer epsilon learning rate",
+        "MADGRAD convergence quadratic stability analysis",
+        "MADGRAD epsilon denominator convergence"
+      ]
+    },
+    "rationale": "The defining MADGRAD paper supplies the practical cube-root recurrence and a separate convergence-theory denominator safeguard, but does not state a first-step quadratic stability boundary. The later empirical optimizer study reports MADGRAD loss explosions and hyperparameter sensitivity without deriving this startup mechanism. Focused published-record searches did not locate the frontier, spike radius, or exact amplification law.",
+    "residual_risks": [
+      "An equivalent short startup calculation may exist in unindexed optimizer notes or implementation discussions.",
+      "The theorem is deliberately first-step and does not classify accumulated-state dynamics.",
+      "The exact multidimensional statement depends on Hessian alignment with the optimizer coordinates.",
+      "The later empirical explosions need not be caused by this specific first-step mechanism."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_SHARP_FIRST_STEP_FRONTIER.",
+        "evidence": "The source provides every recurrence used in the proof and explains why the extra theoretical denominator term is omitted in practice, but it does not state the first-step quadratic monotonicity threshold, spike interval, or amplification factor.",
+        "identifier_or_url": "arXiv:2101.11075v1",
+        "material_read": "Full JMLR paper around Sections 5.3-6, including the forward weighting \\(\\lambda_i\\), momentumized dual averaging, the cube-root denominator derivation, Algorithm 1, and Equation 6 with the additional gradient-bound term.",
+        "method": "Full-text PDF inspection with visual inspection of the algorithm and surrounding derivation pages.",
+        "title": "A Momentumized, Adaptive, Dual Averaged Gradient Method",
+        "trigger": "Defining source for MADGRAD's practical recurrence, cube-root denominator, epsilon term, and theoretical denominator modification."
+      },
+      {
+        "assessment": "EMPIRICAL_INSTABILITY_CONTEXT_NOT_COVERING_EXACT_STARTUP_FRONTIER.",
+        "evidence": "The study reports explosive/mixed MADGRAD trajectories and strong hyperparameter sensitivity, but gives no epsilon-curvature threshold or exact first-step quadratic calculation.",
+        "identifier_or_url": "DOI:10.1007/s00521-026-12014-1",
+        "material_read": "Open full-text sections describing MADGRAD, the Rosenbrock behavior taxonomy, mixed behavior with periodic loss explosions, phase-portrait observations, and the hyperparameter-robustness comparison.",
+        "method": "Full-text HTML inspection with targeted MADGRAD searches.",
+        "title": "First-order optimization algorithms: state of the art, classification, and performance: a practitioner’s guide",
+        "trigger": "Later comparative evidence on MADGRAD instability and hyperparameter sensitivity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f73af7c-8900-4183-80b5-656344e7b520",
+  "value": {
+    "rationale": "MADGRAD's defining adaptive mechanism is its cube-root accumulated-gradient denominator, while epsilon is usually described as numerical stabilization. The theorem shows that at startup near a zero gradient the adaptive term vanishes and epsilon alone sets a sharp curvature-dependent stability scale. It yields a necessary-and-sufficient monotonicity frontier, an exact spike basin, and an exact worst amplification factor, providing a concrete diagnostic for learning-rate, momentum, and epsilon tuning.",
+    "status": "PASS"
+  }
+}
