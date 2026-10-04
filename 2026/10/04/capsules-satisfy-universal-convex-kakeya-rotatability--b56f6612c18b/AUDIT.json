@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The central equivalence is exact: because the Euclidean ball is rotation invariant, a placement of T+rB in K is the same rotation/translation parameter pair as a placement of T in K⊖rB. The eroded host is compact and convex. Therefore paths of T-copies transfer verbatim to paths of thickened copies. Janzer's Theorem 1.2 supplies the needed path theorem for segments, and similarity extends unit length to every positive segment length.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janzer proves universal rotatability for line segments in all dimensions and disproves it for general bodies in dimensions at least four.",
+        "Bae et al. prove the stronger continuous-turning statement for arbitrary convex shapes only in the plane.",
+        "Janzer's Question 5.2 remains formulated precisely because these broader results do not supply a nontrivial higher-dimensional positive family."
+      ],
+      "reasoning": "Neither broader result implies the capsule theorem in d>=3: the all-dimensional theorem is shape-specific to segments, while the arbitrary-shape theorem is dimension-specific to the plane. The erosion identity bridges exactly these two missing features for ball-thickened segments.",
+      "searches": [
+        "\"Rotation Inside Convex Kakeya Sets\" Janzer 2209.09728",
+        "\"The reverse Kakeya problem\" Bae Cabello Cheong Choi Stehn Yoon 2021",
+        "convex Kakeya arbitrary shape continuous rotation higher dimensions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.09728",
+      "DOI:10.1007/s00454-024-00639-9",
+      "DOI:10.4230/LIPIcs.SoCG.2018.6",
+      "DOI:10.1515/advgeom-2020-0030",
+      "targeted literature searches listed in the named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janzer's Theorem 1.2 gives the path property for unit segments in every dimension.",
+        "Janzer's Question 5.2 asks for compact convex higher-dimensional examples other than segments or balls.",
+        "Bae et al. prove arbitrary-shape turning in two dimensions only."
+      ],
+      "reasoning": "The capsule conclusion is not a mere restatement of the segment theorem: it needs the exact placement-space equivalence induced by Euclidean erosion. Once that new reduction is observed, the segment theorem becomes a premise and the open question follows.",
+      "searches": [
+        "arXiv:2209.09728 Theorem 1.2 Question 5.2",
+        "DOI:10.1007/s00454-024-00639-9 Question 5.2",
+        "DOI:10.4230/LIPIcs.SoCG.2018.6 reverse Kakeya plane"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janzer's open-access full text defines S-Kakeya placement and the path property, proves the unit-segment theorem, and asks Question 5.2 for other shapes.",
+        "Searches using capsule, spherocylinder, stadium, Minkowski sum, inner parallel body, outer parallel body, and exact S-Kakeya terminology returned no source stating the capsule inheritance result.",
+        "Searches for the literal path phrase 'two S copies can be rotated into each other' together with capsule or Minkowski sum returned no equivalent theorem."
+      ],
+      "reasoning": "The new statement was searched both in geometric language and in the exact terminology of the primary paper. A prior result would cover the claim if it proved preservation of the placement-space path property under Euclidean outer parallel bodies, or specifically treated capsules; no such statement was located.",
+      "searches": [
+        "convex Kakeya capsule spherocylinder rotation copies segment ball Minkowski sum",
+        "\"Rotation Inside Convex Kakeya Sets\" capsule spherocylinder Minkowski sum ball segment",
+        "Question 5.2 Kakeya segment ball non-segment convex body capsule",
+        "S-Kakeya inner parallel body capsule segment rotation",
+        "\"capsule\" \"S-Kakeya\" Janzer",
+        "\"stadium\" \"S-Kakeya\"",
+        "\"spherocylinder\" \"Rotation Inside Convex Kakeya Sets\"",
+        "\"outer parallel\" Kakeya rotation convex",
+        "\"inner parallel body\" Kakeya convex rotation segment",
+        "\"Question 5.2\" Janzer Kakeya",
+        "\"Rotation Inside Convex Kakeya Sets\" 2025 Janzer \"Question 5.2\"",
+        "\"Janzer\" \"S-Kakeya\" convex body rotation",
+        "\"two S copies\" \"rotated into each other\" capsule",
+        "\"two S copies\" \"rotated into each other\" \"Minkowski sum\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Opaque indexed record 8d105c333ef0 concerns a planar support/polar-sum rigidity equation, not Kakeya placement spaces.",
+        "Opaque indexed record ee3c57397b05 concerns Hausdorff hyperspace isometries and outer parallel bodies, not Kakeya rotation.",
+        "Opaque indexed record 11cc15235c14 concerns constant-width support stability, not rotation of copies in convex hosts.",
+        "Opaque indexed record 49cee8c667fb concerns Hausdorff stability of constant-width bodies, not the placement-space path property."
+      ],
+      "reasoning": "The closest indexed records share terms such as convex body, stability, parallel body, or rotation but their objects and implications are different. None states or dominates the capsule Kakeya result.",
+      "searches": [
+        "convex Kakeya capsule spherocylinder rotation copies segment ball Minkowski sum",
+        "S-Kakeya inner parallel body capsule segment rotation",
+        "\"Question 5.2\" Janzer Kakeya"
+      ]
+    },
+    "rationale": "Janzer explicitly asks for higher-dimensional non-ball, non-segment shapes with the universal rotation property. His paper proves the segment case and mentions balls as trivial examples but does not state the ball-thickening inheritance lemma or capsules. The earlier reverse-Kakeya theorem is planar. Focused searches found no equivalent capsule result.",
+    "residual_risks": [
+      "The reduction is short and natural, so an equivalent observation could exist in unindexed notes, talks, or informal discussion.",
+      "No classification of all universally rotatable shapes is claimed.",
+      "The inheritance lemma is specific to rotation-invariant thickenings such as Euclidean balls unless the symmetry group is correspondingly restricted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_SEGMENT_THEOREM_AND_OPEN_QUESTION_NOT_CAPSULE_COVERAGE",
+        "evidence": "The article proves the unit-segment path theorem, gives general-body counterexamples in dimensions at least four, and asks for other higher-dimensional positive shapes, naming closed balls only as a trivial example. Its listed MSC classes begin with 52A20.",
+        "identifier_or_url": "arXiv:2209.09728; DOI:10.1007/s00454-024-00639-9",
+        "material_read": "Open-access full text: formal definitions of S-Kakeya and path rotation; Theorems 1.2--1.5; concluding Questions 5.1--5.2; reference discussion; article metadata and MSC listing.",
+        "method": "Open-access HTML full-text inspection plus arXiv metadata.",
+        "title": "Rotation Inside Convex Kakeya Sets",
+        "trigger": "Direct primary source containing the all-dimensional segment theorem and the explicit open Question 5.2."
+      },
+      {
+        "assessment": "PLANAR_BROADER_SHAPE_RESULT_NOT_HIGHER_DIMENSIONAL_COVERAGE",
+        "evidence": "The result is explicitly planar. It therefore does not answer Janzer's d>=3 question and does not state an erosion/ball-thickening inheritance theorem.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.SoCG.2018.6; DOI:10.1515/advgeom-2020-0030",
+        "material_read": "Public conference-version abstract, bibliographic record, and theorem summary describing continuous turning for convex shapes in a convex planar host.",
+        "method": "Open-access conference landing page and full-text metadata/abstract inspection.",
+        "title": "The Reverse Kakeya Problem",
+        "trigger": "Closest earlier theorem for arbitrary convex shapes and a potential source of broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b56f6612-c18b-4baa-84ae-56bd525e7965",
+  "value": {
+    "rationale": "The result answers an explicit open question from the primary source with an infinite natural family in every requested dimension. The mechanism is reusable rather than ad hoc: Euclidean erosion identifies the complete placement space of a ball-thickened shape with that of the original shape. It therefore turns Janzer's segment theorem into a systematic source of positive-thickness examples and clarifies a structural closure property of universal Kakeya rotatability.",
+    "status": "PASS"
+  }
+}
