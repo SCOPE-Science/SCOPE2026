@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For the scalar decay mode, backward Euler gives z_1=1/(1+r) and BDF2 gives (3+2r)z_n=4z_{n-1}-z_{n-2}. For r<1/2 the two real-root coefficients satisfy A_s-B_s=1 with A_s,B_s>0, proving positivity. At r=1/2 the repeated-root solution is 2^{-n}(1+n/3). For r>1/2 the exact conjugate-root form is rho^n sqrt(1+beta^2) cos(n theta-phi); since theta is in (0,pi/2), the first strict crossing of pi/2 is exactly floor((pi/2+phi)/theta)+1. Expanding theta and phi at r=1/2 gives N_-(r)sqrt(r-1/2)->pi sqrt(2). The packaged exact-rational checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2002 report provides general monotonicity results for linear multistep methods with starts, broader in problem class than the scalar theorem.",
+        "The 1998 report develops positivity thresholds for a family of theta-BDF2 methods on linear systems."
+      ],
+      "reasoning": "Those broader results dominate the positivity-boundary part and therefore that part is treated as prior work. Their inspected statements do not dominate the first-failure index or the near-threshold divergence law.",
+      "searches": [
+        "BDF2 positivity monotonicity starting procedure linear systems",
+        "BDF2 complex roots oscillations scalar decay"
+      ]
+    },
+    "checked_sources": [
+      "CWI:MAS-R0210",
+      "DOI:10.1137/S0036142902406326",
+      "CWI:MAS-R9831",
+      "DOI:10.1137/S0036142999364741",
+      "Targeted semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MAS-R0210 states the familiar BDF2 threshold coefficient 1/2 in the implicit two-step analysis.",
+        "MAS-R9831 states that BDF2 positivity results require a suitable start and analyzes loss of monotonicity for large step sizes."
+      ],
+      "reasoning": "Knowing the sharp all-time positivity boundary does not determine the supercritical transient length. The conjugate-root phase and exact first crossing are extra information not implied by the prior threshold result.",
+      "searches": [
+        "Monotonicity-Preserving Linear Multistep Methods BDF2 one half",
+        "Partially implicit BDF2 blends positivity suitable starting procedure"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "CWI Report MAS-R0210, implicit two-step section: BDF2 has monotonicity threshold coefficient 1/2 and backward Euler is a suitable starting procedure.",
+        "CWI Report MAS-R9831, positivity sections: standard implicit BDF2 loses monotonicity for large steps and positivity is analyzed with suitable starters.",
+        "No searched record stated the exact integer phase-crossing formula for the first negative scalar iterate."
+      ],
+      "reasoning": "A threshold statement says whether positivity holds for all steps; it does not imply when the first violation occurs after the threshold is crossed. The accepted claim resolves that additional dynamical quantity exactly.",
+      "searches": [
+        "BDF2 backward Euler start scalar decay positivity threshold first negative iterate oscillation delay",
+        "BDF2 scalar test equation sign change delay complex roots positivity",
+        "implicit BDF2 positivity threshold one half backward Euler start oscillation onset"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2002 report's BDF2 figure/table-level discussion records threshold values rather than a first-negative-iterate table.",
+        "No inspected indexed result or table exposed N_-(r)=floor((pi/2+phi)/theta)+1 or the pi sqrt(2) scaling."
+      ],
+      "reasoning": "The finding is not a recomputation of a known threshold table; it supplies a different exact observable, the first sign-loss time.",
+      "searches": [
+        "BDF2 first negative iterate table positivity",
+        "BDF2 sign loss index backward Euler starter"
+      ]
+    },
+    "rationale": "The known positivity/monotonicity threshold coefficient 1/2 for implicit BDF2 with suitable starting procedures is excluded from the novelty claim. The inspected 2002 and 1998 full texts discuss that threshold and positivity loss, but not the exact first-negative index or its critical square-root delay. Targeted searches across sign-change, oscillation, characteristic-root, and starter aliases found no implication-equivalent statement. An older specialist source under different terminology remains a residual risk.",
+    "residual_risks": [
+      "Older specialist literature on oscillation or root geometry of linear multistep methods may contain an equivalent scalar phase-crossing formula under terminology not captured by the searches.",
+      "The first-failure law is starter-specific; a different first-step method changes the phase shift and therefore the index."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the BDF2 monotonicity coefficient 1/2 and suitable-start framework; does not state the exact supercritical first-negative index or its asymptotic delay in the inspected material.",
+        "evidence": "The implicit BDF2 case is identified with threshold value 1/2; backward Euler is discussed as an unrestricted monotone starter.",
+        "identifier_or_url": "CWI:MAS-R0210 / DOI:10.1137/S0036142902406326",
+        "material_read": "Full open CWI report, especially Sections 2--3, the implicit second-order two-step discussion, Figure 1, and surrounding remarks on starting procedures and linear positivity.",
+        "method": "Lawful open full-text inspection, including rendered PDF pages.",
+        "title": "Monotonicity-Preserving Linear Multistep Methods",
+        "trigger": "Primary literature for BDF2 monotonicity with starting procedures and the sharp threshold coefficient."
+      },
+      {
+        "assessment": "COVERS qualitative positivity loss and threshold analysis for linear BDF2-type systems; no exact first-sign-loss phase formula was found in the inspected sections.",
+        "evidence": "The report says standard BDF2 loses monotonicity for large steps and derives positivity results assuming a suitable first step such as Euler's method.",
+        "identifier_or_url": "CWI:MAS-R9831 / DOI:10.1137/S0036142999364741",
+        "material_read": "Open full report introduction and positivity sections for the standard and theta-BDF2 methods, including the suitable-starter discussion and threshold-function setup.",
+        "method": "Lawful open full-text inspection, including rendered PDF pages.",
+        "title": "Partially Implicit BDF2 Blends for Convection Dominated Flows",
+        "trigger": "Earlier full-text BDF2 positivity analysis cited by the later report."
+      },
+      {
+        "assessment": "Primary MSC is 65L06, within the permitted slot.",
+        "evidence": "The MSC listing places 65L06 first, followed by 65M06 and 65M20.",
+        "identifier_or_url": "DOI:10.1137/S0036142902406326",
+        "material_read": "Abstract, publication information, and MSC listing.",
+        "method": "Publisher metadata inspection.",
+        "title": "SIAM Journal metadata for Monotonicity-Preserving Linear Multistep Methods",
+        "trigger": "Primary MSC ownership check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf66315c-5a14-4898-9139-1a30d5962e11",
+  "value": {
+    "rationale": "The first negative iterate is a natural operational quantity once positivity is used as a qualitative requirement. The exact formula shows that crossing the known sharp threshold need not cause an immediate visible failure: the delay diverges like (r-1/2)^(-1/2). This gives a mathematically sharp warning about finite-horizon validation of stiff time steps and isolates a critical-delay phenomenon not conveyed by the threshold alone.",
+    "status": "PASS"
+  }
+}
