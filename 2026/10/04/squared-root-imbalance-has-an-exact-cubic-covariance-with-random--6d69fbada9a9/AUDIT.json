@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the first-pivot rank gives independent left and right random-BST subproblems and the exact mean m_n(i)=mu_i+mu_{n-1-i}+n-1. The identity mu_{k+1}-mu_k=2(H_{k+1}-1) makes m_n(i) strictly increase away from the center. Explicit harmonic sums yield Cov(Q_n,P_n)=(n-2)(n-1)(n+1)/9, while uniform fourth moments yield Var(Q_n). The classical exact path-length variance then gives the stated correlation and limit. Exact enumeration through n=9 independently reproduces all finite formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Prodinger derives the exact mean and variance of random-BST path length from a permutation formulation.",
+        "Drmota--Hwang derive asymptotic covariance and correlation formulas for random-BST profile level sizes and connect profile limits with total path length.",
+        "Dekking--Meester study normalized path lengths in the same random-permutation BST model and are classified Primary 60C05."
+      ],
+      "reasoning": "These sources are broader in path-length distribution theory or profile covariance, but the inspected statements do not condition total path length on the first root split or use a symmetric root-imbalance statistic. The accepted claim therefore is not a special case of their displayed covariance theorems.",
+      "searches": [
+        "arXiv:math/9910070 / DOI:10.1007/s00453-001-0058-y",
+        "DOI:10.1239/aap/1118858628",
+        "DOI:10.1239/aap/1051201652"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/9910070",
+      "DOI:10.1007/s00453-001-0058-y",
+      "DOI:10.1239/aap/1118858628",
+      "DOI:10.1239/aap/1051201652"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own root-attachment/path-length finding uses random recursive trees, whose growth law and local statistic differ from the BST root split.",
+        "The own Cayley-tree result uses the uniform labeled-tree model and marked endpoint degree/distance, not search-tree splits.",
+        "Classical path-length expectation and variance are marginal results and do not determine covariance with the first-pivot rank.",
+        "Profile-level covariance formulas concern counts at depths and do not identify the root split size."
+      ],
+      "reasoning": "Knowing the marginal law or variance of total path length does not imply its joint dependence with the first split. The new calculation uses the conditional decomposition at the root and then integrates a symmetric quadratic of the root rank.",
+      "searches": [
+        "own: 3b3e0426-b1ba-4b0a-92d6-6e53709e7469 random recursive tree root attachments path length",
+        "own: d9ddfb06-a9ae-475b-b82b-91fd6636a31c Cayley endpoint degree distance",
+        "published random-BST path length expectation variance",
+        "published random-BST profile covariance total path length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Database searches returned tree and random-walk findings with different objects; no close random-BST root-split/path-length claim surfaced.",
+        "Targeted web searches returned standard BST and Quicksort recurrences and path-length literature, but no matching covariance polynomial, regression slope, or root-imbalance theorem."
+      ],
+      "reasoning": "Aliases covered root imbalance/root balance, left-subtree size, first-pivot rank, Quicksort comparisons, internal/total path length, covariance, regression, and the two exact constants. Novelty is not inferred from search failure alone; full same-object primary texts were compared below.",
+      "searches": [
+        "random binary search tree root imbalance total path length covariance",
+        "binary search tree root split path length covariance",
+        "quicksort pivot rank comparisons covariance imbalance",
+        "root balance random binary search tree total path length",
+        "squared root imbalance internal path length binary search tree",
+        "web: random binary search tree root imbalance path length covariance",
+        "web: first pivot total comparisons covariance Quicksort",
+        "web: left subtree size internal path length binary search tree covariance",
+        "web: 5/(4(n+2)) Quicksort",
+        "web: (n-2)(n-1)(n+1)/9 Quicksort"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact record matching Cov(Q_n,P_n)=(n-2)(n-1)(n+1)/9, beta_n=5/[4(n+2)], or the limiting correlation constant was located."
+      ],
+      "reasoning": "The theorem is symbolic for every n and is independently proved; the exhaustive permutation computation is only verification and not a finite table being promoted as the result.",
+      "searches": [
+        "web: squared root imbalance binary search tree path length",
+        "web: first pivot rank total comparisons covariance quicksort",
+        "web: root split internal path length regression random BST",
+        "binary search tree root split path length covariance"
+      ]
+    },
+    "rationale": "The closest full sources cover random-BST path length and covariance among BST profile levels but do not retain squared root split imbalance as a joint statistic. The root recurrence itself is standard and the iid marginal path-length moments are prior art; originality is limited to the mixed dependence law, exact covariance/slope, monotone regression, and nonzero correlation limit.",
+    "residual_risks": [
+      "Because the root decomposition is standard, older analysis-of-algorithms textbooks or exercises may contain this covariance as an unindexed calculation.",
+      "The Drmota--Hwang full text covers sophisticated BST covariance phenomena but not this root statistic; another older joint-search-tree paper could still encode the same moment in different notation.",
+      "The novelty claim excludes the classical mean/variance of path length and the standard first-pivot recurrence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PATH_LENGTH_MARGINAL_MOMENTS_PRIOR_NOT_ROOT_SPLIT_JOINT_LAW",
+        "evidence": "The paper defines path length recursively by the two subtrees and derives the classical mean 2(n+1)H_n-4n and variance used here. Its full treatment does not retain the root's left-subtree size or state covariance/regression with a root imbalance statistic.",
+        "identifier_or_url": "arXiv:math/9910070 / DOI:10.1007/s00453-001-0058-y",
+        "material_read": "All nine pages of the full article, including the root-recursive path-length definition, permutation formulation, expectation derivation, second-factorial-moment calculation, and final classical variance formula.",
+        "method": "Compared the retained random variables and displayed exact moments with the proposed joint root-split/path-length statistic.",
+        "title": "A q-Analogue of the Path Length of Binary Search Trees",
+        "trigger": "Closest full primary source for the exact random-BST path-length expectation and variance used in the claim."
+      },
+      {
+        "assessment": "BST_PROFILE_LEVEL_CORRELATIONS_NOT_ROOT_SPLIT_PATH_LENGTH_REGRESSION",
+        "evidence": "The paper's BST results concern covariance and sign changes among numbers of nodes at specified levels. No root-imbalance statistic appears, and no covariance between first-split size and total path length is stated.",
+        "identifier_or_url": "DOI:10.1239/aap/1118858628",
+        "material_read": "Full public text, including the random-BST construction and definitions, the BST covariance section on external and internal profile level sizes, and the discussion relating profile limits to total path length; full-text searches for imbalance, split, and subtree terminology were also made.",
+        "method": "Compared the covariance objects, conditioning variables, and implications with the first-split quadratic imbalance claim.",
+        "title": "Profiles of random trees: correlation and width of random recursive trees and binary search trees",
+        "trigger": "Highly relevant Primary 60C05 paper on correlation in the same random-BST model, with total path length among its keywords."
+      },
+      {
+        "assessment": "PRIMARY_60C05_PATH_LENGTH_LIMIT_BACKGROUND_NOT_ROOT_SPLIT_COVARIANCE",
+        "evidence": "The source studies normalized path lengths and the Quicksort limit distribution under the random permutation model. Its accessible statement does not concern first-pivot rank or root imbalance.",
+        "identifier_or_url": "DOI:10.1239/aap/1051201652",
+        "material_read": "Publisher abstract, model description, classification, and bibliographic/reference material.",
+        "method": "Used to verify probability-slot ownership and compared the stated path-length limit object with the finite root-split dependence claim.",
+        "title": "An almost sure result for path lengths in binary search trees",
+        "trigger": "Same random-permutation BST object and path-length statistic, with explicit Primary 60C05 classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6d69fbad-a9a9-45cf-b240-05fd7ce265c7",
+  "value": {
+    "rationale": "The first pivot is a single local choice, while total internal path length or Quicksort comparison count is accumulated over the entire recursive execution. An asymptotic correlation near 0.575 and linear explained-variance fraction near 0.330 show that this local split retains unexpectedly large predictive information. The exact slope and strict monotone-regression statement make the result reusable rather than a one-off numerical correlation.",
+    "status": "PASS"
+  }
+}
