@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation of the published infectious equation at the fully susceptible disease-free state gives i'=[beta(t)-(gamma+mu)]i because each recovered reinfection term R_k I is quadratic. Integrating this scalar equation over one sinusoidal period gives the exact multiplier exp(T[beta0/2-(gamma+mu)]) and threshold beta0=2(gamma+mu). The standalone checker reproduces the source-specific numerical threshold and susceptibility-average factors. The claim is explicitly limited to local invasion and does not infer global dynamics from the linear calculation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wesley and Allen, DOI 10.1080/17513750802304893, establish time-averaged threshold results for classes of epidemic models with periodic demographics.",
+        "Ma and Ma, DOI 10.3934/mbe.2006.3.161, give seasonal threshold results for SEIR variants."
+      ],
+      "reasoning": "The general periodic-threshold literature supplies background methodology and is consistent with the corrected threshold. It does not inspect the 2025 seasonal SIRn article or state that its Eq. (19) incorrectly averages transmission rates across empty recovered compartments. The accepted contribution is this source-specific contradiction and exact correction, not a claim of inventing Floquet or next-generation theory.",
+      "searches": [
+        "periodic SIR waning immunity disease-free Floquet beta0 over 2 gamma",
+        "basic reproduction number periodic demographics seasonal SIR time-average"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s11538-025-01454-w",
+      "pmcid:PMC12084257",
+      "pmid:40379989",
+      "doi:10.3934/mbe.2006.3.161",
+      "doi:10.1080/17513750802304893",
+      "doi:10.1016/j.epidem.2015.04.002"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper's infectious equation contains recovered reinfection only through products of the form beta_k(t) R_k I/N.",
+        "At the fully susceptible disease-free state those products are second order, while the susceptible term contributes beta(t) to the infectious Jacobian."
+      ],
+      "reasoning": "Earlier general theory implies how a periodic invasion threshold should be derived, but the inspected literature did not already make the source-specific implication comparison or report the resulting correction to Eq. (19). The claim is narrowed to that comparison and its exact sinusoidal threshold, avoiding broader novelty claims about periodic epidemic theory.",
+      "searches": [
+        "seasonal SIRn recovered compartments disease-free invasion reproduction number",
+        "average infection rates recovered classes influenza R0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The current open article still states Eq. (19) as an arithmetic average of the susceptible and recovered-stage transmission rates (DOI 10.1007/s11538-025-01454-w).",
+        "Ma and Ma, DOI 10.3934/mbe.2006.3.161, describe a time-average threshold for suitable seasonally forced models rather than an unweighted average over disease-state compartments."
+      ],
+      "reasoning": "The standard equivalent formulation is disease-free linear invasion or the periodic next-generation threshold. In this model that formulation collapses to a scalar infectious equation and excludes every recovered-stage susceptibility because all recovered compartments vanish at the disease-free state. No inspected source gave the paper's class-average Eq. (19) as an equivalent formulation of that linearized threshold.",
+      "searches": [
+        "Mathematical Modeling of Influenza Dynamics basic reproduction number average infection rates",
+        "seasonal SIRn R0 recovered-stage susceptibility average beta next generation",
+        "10.1007/s11538-025-01454-w R0 correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher's current article version, PubMed record PMID 40379989, and PMC record PMC12084257 were checked; no correction or erratum covering Eq. (19) was located.",
+        "The publisher page gives publication date 16 May 2025 and primary-listed MSC 92D30, with 92-10 also listed."
+      ],
+      "reasoning": "The exact source record and correction aliases were inspected rather than inferred from title similarity. No indexed correction was found that replaces the class-average reproduction-number formula.",
+      "searches": [
+        "10.1007/s11538-025-01454-w correction erratum corrigendum",
+        "Mathematical Modeling of Influenza Dynamics Eq. 19 R0"
+      ]
+    },
+    "rationale": "Exact-title, DOI, equation-language, reproduction-number, correction, and alias searches found the published Eq. (19) still present and found no source-specific correction. General seasonal-epidemic threshold theory is acknowledged as prior coverage of the method; the accepted claim is the previously unlocated comparison showing that this article's arithmetic class average is not its own disease-free invasion quantity, plus the exact corrected threshold for its stated sinusoidal forcing.",
+    "residual_risks": [
+      "A non-indexed author note or later correction could exist outside the sources and aliases searched.",
+      "General periodic reproduction-number conventions can differ numerically; the claim therefore rests on the convention-independent disease-free linear equation and Floquet stability threshold rather than asserting a unique scalar R0 convention."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the current article states the class-average formula but does not perform the disease-free linearization that contradicts that averaging.",
+        "evidence": "Model Eq. (1), beta_k(t)=s(tau_k) beta(t), sinusoidal Eq. (4), case-study gamma and mu, and Eq. (19) were all read in the current open article.",
+        "identifier_or_url": "doi:10.1007/s11538-025-01454-w",
+        "material_read": "Full open HTML sections containing model equations, transmission-rate relation, seasonality, case-study parameters, Eq. (19), discussion, metadata, and references.",
+        "method": "Reconstructed the disease-free Jacobian from the displayed ODEs and compared it term-by-term with Eq. (19).",
+        "title": "Mathematical Modeling of Influenza Dynamics: Integrating Seasonality and Gradual Waning Immunity",
+        "trigger": "Motivating source; Eq. (19) is the claim being tested."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_SOURCE_SPECIFIC_CORRECTION: it supports time averaging in seasonal models but does not justify or report the 2025 paper's recovered-class arithmetic average.",
+        "evidence": "The article states that, in an appropriate no-latent recruitment setting, the threshold is determined by the basic reproduction number of the time-average system.",
+        "identifier_or_url": "doi:10.3934/mbe.2006.3.161",
+        "material_read": "Open article abstract and threshold statement on the publisher site.",
+        "method": "Compared its time-average-system threshold statement with the motivating paper's arithmetic average across health-state transmission rates.",
+        "title": "Epidemic threshold conditions for seasonally forced SEIR models",
+        "trigger": "Cited by the motivating paper next to Eq. (19) and directly relevant to seasonal thresholds."
+      },
+      {
+        "assessment": "BACKGROUND: establishes time-averaged threshold results for periodic epidemic models but does not inspect the 2025 SIRn equation or its Eq. (19).",
+        "evidence": "The abstract states threshold results for time-averaged basic reproduction numbers under periodic demographics.",
+        "identifier_or_url": "doi:10.1080/17513750802304893",
+        "material_read": "Public abstract and bibliographic record.",
+        "method": "Checked whether the work supplied a broader result explicitly covering the 2025 article's class-average Eq. (19).",
+        "title": "The basic reproduction number in epidemic models with periodic demographics",
+        "trigger": "Independent periodic-epidemic threshold comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f84c5c12-a02b-41c7-8498-afcf689c974b",
+  "value": {
+    "rationale": "Eq. (19) is used by the motivating paper to interpret fitted influenza transmission in terms of a basic reproduction number. The correction removes a dependence on recovered-stage susceptibilities that are absent at disease-free invasion and supplies an exact threshold directly tied to the model's seasonal forcing. This is a substantive epidemiological interpretation issue, not a cosmetic notation change, while the claim remains narrow enough not to question the calibrated trajectories themselves.",
+    "status": "PASS"
+  }
+}
