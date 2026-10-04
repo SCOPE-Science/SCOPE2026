@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The scalar SPAM recursion was derived directly from the exact proximal map. Averaging is justified by iid client sampling. The characteristic polynomial factors as stated, and all three Jury inequalities were checked symbolically; two are automatic and the third is exactly the reported inequality. Boundary and numerical cross-checks agree. The claim is explicitly restricted to first moments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.20127v1",
+        "PMLR:v168:kim22a",
+        "arXiv:1712.09677v2"
+      ],
+      "reasoning": "The general SPAM theorem controls a stronger nonconvex stationarity quantity but only through sufficient conditions; it does not state an exact necessary-and-sufficient first-moment boundary for this model. The other inspected works do not cover the SPAM update.",
+      "searches": [
+        "proximal point momentum mean dynamics random curvature two client quadratic",
+        "federated Hessian similarity momentum variance reduction exact stability large stepsize"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.20127v1",
+      "PMLR:v168:kim22a",
+      "arXiv:1712.09677v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2405.20127v1",
+        "PMLR:v168:kim22a",
+        "arXiv:1712.09677v2"
+      ],
+      "reasoning": "The SPAM theorem's sufficient stepsize bound does not imply the exact frontier because it is designed for a more general and stronger convergence target. The direct-momentum quadratic conditions in the comparison papers govern different transition matrices. None of the inspected statements algebraically specializes to the reported factorization.",
+      "searches": [
+        "SPAM Theorem 3.2 gamma delta p exact proximal large stepsize",
+        "stochastic proximal point algorithm momentum quadratic stability condition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2405.20127v1",
+        "PMLR:v168:kim22a",
+        "arXiv:1712.09677v2"
+      ],
+      "reasoning": "The inspected SPAM paper has no exact first-moment matrix analysis for this specialization. The comparison papers place momentum directly on iterates (or on equivalent sketch-and-project recursions), whereas the present state includes SPAM's recursive estimator and shifted client prox.",
+      "searches": [
+        "SPAM stochastic proximal point momentum variance reduction stability quadratic mean dynamics",
+        "stochastic proximal point momentum exact first moment stability two point random curvature quadratics",
+        "SPAM stochastic proximal point momentum variance reduction exact first-moment Schur stability two-client scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2405.20127v1",
+        "PMLR:v168:kim22a",
+        "arXiv:1712.09677v2"
+      ],
+      "reasoning": "No exact matching theorem, table, or formula was found in the targeted literature searches or in the highly relevant full texts that were inspected.",
+      "searches": [
+        "SPAM two-client scalar quadratic Schur stability threshold",
+        "momentum variance reduction proximal point quadratic convergence mean stability",
+        "rho sqrt(2-p) stochastic proximal point momentum"
+      ]
+    },
+    "rationale": "The source SPAM paper contains the algorithm, a sufficient general convergence bound, and an empirical large-stepsize refresh-probability effect, but not this exact scalar first-moment Schur frontier. The two closest proximal-momentum papers inspected analyze structurally different momentum recursions and do not imply the claim.",
+    "residual_risks": [
+      "An equivalent first-moment result may exist under terminology not captured by the targeted searches.",
+      "The exact boundary is for a narrow scalar two-client specialization and should not be generalized without a new proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact scalar first-moment Schur frontier.",
+        "evidence": "The source specifies SPAM's recursive estimator and prox update, proves a sufficient general bound, and reports the \\(p=0.1\\) versus \\(p=0.9\\) qualitative switch at a large exact-proximal stepsize.",
+        "identifier_or_url": "arXiv:2405.20127v1",
+        "material_read": "Algorithm 1, Hessian-similarity setup, constant-parameter theorem, and exact-proximal synthetic experiment discussion.",
+        "method": "Full-text inspection.",
+        "title": "SPAM: Stochastic Proximal Point Method with Momentum Variance Reduction for Non-convex Cross-Device Federated Learning",
+        "trigger": "Primary algorithm and motivating large-stepsize observation."
+      },
+      {
+        "assessment": "NOT_COVERING because momentum is applied directly to iterates rather than through SPAM's variance-reduced gradient estimator.",
+        "evidence": "The analyzed recursion contains a Polyak term in the iterate update and has a different state transition.",
+        "identifier_or_url": "PMLR:v168:kim22a",
+        "material_read": "Momentum update and quadratic stability analysis.",
+        "method": "Full-text inspection.",
+        "title": "Convergence and Stability of the Stochastic Proximal Point Algorithm with Momentum",
+        "trigger": "Closest title-level match for proximal-point momentum stability."
+      },
+      {
+        "assessment": "NOT_COVERING because the proximal-point instance is tied to a sketch-and-project quadratic framework with direct momentum, not SPAM's estimator/prox composition.",
+        "evidence": "The momentum modification adds an iterate-difference term to the base stochastic method.",
+        "identifier_or_url": "arXiv:1712.09677v2",
+        "material_read": "Stochastic proximal-point equivalence and momentum sections.",
+        "method": "Full-text inspection.",
+        "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+        "trigger": "Broad earlier momentum treatment including stochastic proximal point."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "170ca03b-5dee-4ef9-a363-aa0a073a800b",
+  "value": {
+    "rationale": "The result gives a sharp mechanism for the source paper's reported sensitivity to refresh probability at large proximal stepsizes. It precisely separates first-moment stability from the stronger modes of convergence addressed by the paper and identifies a natural boundary where higher-moment analysis becomes essential.",
+    "status": "PASS"
+  }
+}
