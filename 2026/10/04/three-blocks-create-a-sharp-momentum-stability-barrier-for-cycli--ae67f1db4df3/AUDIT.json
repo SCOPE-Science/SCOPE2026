@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact coordinate minimization yields the displayed three-block sweep matrix. Its nonzero eigenvalues are a complex-conjugate pair with product \\(c^3\\) and real part \\(c^2(3-c)/2\\). Schur--Cohn applied to the lifted modal quadratic gives exactly \\((1-c)P_c(\\alpha)\\); no finite experiment is used as an infinite proof. \\(P_c\\) is strictly decreasing on \\(\\alpha\\in[0,1]\\), and the unit-momentum quartic has one positive root by Descartes plus endpoint signs. The two-block case is separately certified by the Jury inequalities. The packaged checker replayed successfully from the final package path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hong--Yavneh treat general stationary matrices and complex spectra but state sufficient robustness domains tied to real-spectrum tuning, not this exact source family.",
+        "Kamri--Glineur--Hendrickx--Necoara study CCD, alternating minimization, and a different CACD algorithm; their full text reports numerical inefficiency of deterministic cyclic acceleration.",
+        "Searches also surfaced extrapolated Gauss--Seidel literature for consistently ordered matrices, but accessible abstracts concern different extrapolation/semi-iterative schemes and do not state this global-before-sweep momentum boundary."
+      ],
+      "reasoning": "The broadest inspected sources overlap in mechanism but do not dominate the exact fixed-momentum stability classification for this cyclic alternating-minimization family.",
+      "searches": [
+        "inertial Gauss-Seidel block coordinate descent convergence momentum",
+        "constant momentum cyclic coordinate descent Gauss-Seidel acceleration quadratic stability",
+        "arXiv:2507.16675",
+        "arXiv:2102.09239"
+      ]
+    },
+    "checked_sources": [
+      "OptimizationOnline:4719",
+      "DOI:10.5802/smai-jcm.3",
+      "arXiv:2102.09239",
+      "arXiv:2507.16675",
+      "DOI:10.1080/00207168808803660",
+      "published-finding corpus semantic searches listed in the four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chambolle--Pock Proposition 1 accelerates a two-variable alternating descent and the introduction says the available explanation is limited to special structures.",
+        "Hong--Yavneh derive the generic modal characteristic equation; deriving the present claim additionally requires the exact three-block Gauss--Seidel spectrum and a sharp Schur--Cohn classification along that spectrum.",
+        "The 2025 CACD method uses per-coordinate auxiliary sequences rather than a global extrapolation followed by exact alternating minimization."
+      ],
+      "reasoning": "The primary two-block theorem does not imply the three-block counter-boundary. The general linear recurrence is an ingredient rather than a statement covering this exact threshold, and the later deterministic CACD result concerns a non-equivalent algorithm.",
+      "searches": [
+        "Hong Yavneh Nesterov stationary iteration complex eigenvalues convergence",
+        "On the Worst-Case Analysis of Cyclic Block Coordinate Descent type Algorithms acceleration deterministic inefficient",
+        "Chambolle Pock accelerated block coordinate descent n=2 alternating minimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text gives the two-block alternating-minimization acceleration and discusses the difficulty beyond such cases.",
+        "Hong--Yavneh equation (5) gives the general fixed-momentum stationary-iteration recurrence, but their stated complex-eigenvalue results concern robustness regions rather than this exact three-block cyclic-sweep phase boundary.",
+        "No returned published-finding corpus statement identified the polynomial \\(P_c(\\alpha)\\), the quartic \\(c_*\\) threshold, or the two-block versus three-block minimality claim."
+      ],
+      "reasoning": "The claim is not a relabeling of the two-block theorem: the third cyclic update produces a conjugate spectrum and a Schur boundary absent in two blocks. The general momentum recurrence is prior and explicitly excluded from the novelty claim.",
+      "searches": [
+        "three block cyclic alternating minimization global extrapolation momentum exact stability symmetric quadratic complex eigenvalues",
+        "accelerated block coordinate descent cyclic Gauss Seidel inertial momentum instability three blocks quadratic",
+        "Chambolle Pock alternating minimization acceleration three block counterexample momentum",
+        "arXiv:2102.09239",
+        "OptimizationOnline:4719"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records concern Nesterov objective spikes, real-root heavy-ball barriers, two-coordinate Gauss--Seidel transient norms, and other distinct iteration maps.",
+        "The primary source contains no table of fixed momentum stability as a function of block count and coupling m."
+      ],
+      "reasoning": "No checked database or source table supplies the claimed algebraic threshold or an implication-equivalent classification.",
+      "searches": [
+        "three block cyclic alternating minimization global extrapolation momentum exact stability symmetric quadratic complex eigenvalues",
+        "accelerated block coordinate descent cyclic Gauss Seidel inertial momentum instability three blocks quadratic",
+        "Chambolle Pock alternating minimization acceleration three block counterexample momentum",
+        "published-finding corpus:SCOPE-nesterov-three-dimensional-objective-spike-barrier",
+        "published-finding corpus:SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold"
+      ]
+    },
+    "rationale": "The primary 2015 source proves acceleration for its two-block alternating-minimization setting and explicitly limits the generality of that explanation. A 2021 stationary-iteration paper supplies the generic momentum recurrence and complex-eigenvalue framework, which is treated as prior, but does not state the source-specific three-block sweep spectrum or the sharp block-count stability boundary. A 2025 cyclic-BCD paper studies a different two-sequence accelerated method and reports deterministic inefficiency numerically. published-finding corpus searches found no implication-equivalent record. Older extrapolated Gauss--Seidel literature remains the main residual risk.",
+    "residual_risks": [
+      "Older extrapolated or semi-iterative Gauss--Seidel papers may contain an equivalent special-case stability boundary under different notation.",
+      "The generic stationary-iteration recurrence is known; the originality asserted here is the exact cyclic alternating-minimization spectrum, sharp phase boundary, and minimal-block interpretation, not the recurrence itself.",
+      "The theorem addresses only one symmetric all-to-all quadratic family and one global fixed-momentum placement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the model class and two-block accelerated construction; DOES NOT STATE the exact fixed-momentum three-block stability phase diagram.",
+        "evidence": "The introduction states that two-block alternating minimization becomes a forward-backward case and notes the limited extension of acceleration; Section 2.3 gives the explicit two-variable alternating update and accelerated proposition.",
+        "identifier_or_url": "OptimizationOnline:4719 / DOI:10.5802/smai-jcm.3",
+        "material_read": "Open preprint full text: introduction, model definition, forward-backward acceleration discussion, and Section 2.3 two-variable alternating descent including Proposition 1; journal metadata for MSC.",
+        "method": "Lawful open full-text inspection.",
+        "title": "A remark on accelerated block coordinate descent for computing the proximity operators of a sum of convex functions",
+        "trigger": "Primary source for the alternating-minimization model and its two-block acceleration discussion."
+      },
+      {
+        "assessment": "COVERS the generic recurrence used in the proof and complex-spectrum motivation; DOES NOT STATE the exact cyclic three-block spectrum, \\(P_c(\\alpha)\\) stability boundary, or minimal block count.",
+        "evidence": "Equation (5) is the general inertial recurrence and the subsequent modal quadratic is explicit; Section 3 studies sufficient complex-eigenvalue regions preserving a real-spectrum optimal parameter.",
+        "identifier_or_url": "arXiv:2102.09239",
+        "material_read": "Open full text: method definition, lifted recurrence and modal quadratic, plus complex-eigenvalue section and stated robustness-domain conclusions.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "On Adapting Nesterov's Scheme to Accelerate Iterative Methods for Linear Problems",
+        "trigger": "Strongest general prior for fixed momentum applied to a stationary linear iteration with complex eigenvalues."
+      },
+      {
+        "assessment": "Studies a different accelerated coordinate method with auxiliary sequences and numerical worst-case evidence; does not state the fixed global-before-sweep momentum threshold here.",
+        "evidence": "Section 4.7 defines CACD through per-coordinate x/z updates and reports slower-than-accelerated numerical behavior for deterministic cyclicization.",
+        "identifier_or_url": "arXiv:2507.16675",
+        "material_read": "Open full text: abstract/introduction, contribution summary, and Section 4.7 algorithm definitions and deterministic-versus-random acceleration discussion.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "On the Worst-Case Analysis of Cyclic Block Coordinate Descent type Algorithms",
+        "trigger": "Highly relevant recent work on deterministic cyclic coordinate descent, alternating minimization, and acceleration."
+      },
+      {
+        "assessment": "Different extrapolated/semi-iterative construction for generalized consistently ordered matrices; no equivalent three-block symmetric quadratic threshold was visible.",
+        "evidence": "The abstract emphasizes optimal factors for an extrapolated Gauss--Seidel plus semi-iterative scheme under GCO spectral assumptions.",
+        "identifier_or_url": "DOI:10.1080/00207168808803660",
+        "material_read": "Accessible abstract and bibliographic description.",
+        "method": "Publisher abstract inspection.",
+        "title": "The extrapolated Gauss-Seidel plus semi-iterative method for generalized consistently ordered matrices",
+        "trigger": "Terminology-based risk from older extrapolated Gauss--Seidel literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ae67f1db-4df3-444e-ad9d-ceb07a7d064e",
+  "value": {
+    "rationale": "The primary source singles out two-block alternating minimization as an acceleration-friendly case and describes extension beyond special structures as difficult. The new theorem isolates a precise mechanism behind that divide: two blocks remain stable across the entire natural momentum interval, whereas three blocks generate complex sweep eigenvalues and a sharp algebraic instability region. The complete boundary is a natural adversarial benchmark for cyclic acceleration, not an arbitrary parameter slice or a mere recomputation of an already-tabulated rate.",
+    "status": "PASS"
+  }
+}
