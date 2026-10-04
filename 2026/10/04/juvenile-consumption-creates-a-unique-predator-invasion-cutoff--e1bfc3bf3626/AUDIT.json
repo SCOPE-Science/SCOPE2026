@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "At the predator-free state \\(\\bar x=r/a,u=0\\), the prey diagonal derivative is exactly \\(-r\\), and the predator block decouples at first order because every derivative of \\(B(x,\\tau)u\\) or \\(\\mu(x,\\tau)u\\) with respect to prey is multiplied by \\(u=0\\). Solving the linear age equation gives the displayed Euler--Lotka equation. The triangle inequality excludes any characteristic root with nonnegative real part when \\(\\mathcal R_P<1\\), while continuity and strict decrease in the real exponent give a positive real invasion root when \\(\\mathcal R_P>1\\). The source logistic juvenile indicator is strictly positive at every finite positive age, which makes \\(\\mathcal R_P(g)\\) strictly decreasing; dominated convergence gives its zero limit. The finite-lifespan verification script independently stress-tests these identities but is not used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu and Liu (2018), DOI 10.1186/s13662-018-1614-y, use a predator net reproductive number in a model with age-structured prey and an unstructured predator.",
+        "Ripoll and Font (2023), DOI 10.3934/mbe.2023696, analyze a different age-structured Lotka--Volterra model numerically and do not contain the source-specific juvenile-consumption mortality factor."
+      ],
+      "reasoning": "These works show that threshold and renewal methods are established tools, but their state variables and interaction laws do not imply the role-reversal functional \\(\\mathcal R_P(g)\\), its complete monotonicity, or uniqueness of the juvenile-consumption cutoff.",
+      "searches": [
+        "Threshold dynamics of a predator-prey model with age-structured prey net reproductive number",
+        "age-structured predator-prey renewal equation invasion threshold maturation mortality",
+        "Numerical approach to an age-structured Lotka-Volterra model stability renewal equation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2502.19748v1",
+      "doi:10.1007/s00285-026-02402-5",
+      "doi:10.1186/s13662-018-1614-y",
+      "doi:10.3934/mbe.2023696"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Suarez et al. prove existence, uniqueness, positivity and numerical convergence, then use numerical Jacobians and phase diagrams for long-term classification.",
+        "Lu--Liu prove a global threshold for a different model in which prey, not predator, carries age structure.",
+        "Ripoll--Font address a different age-dependent interaction and numerical Hopf problem."
+      ],
+      "reasoning": "No inspected prior statement implies that, in the Suarez role-reversal model at fixed maturation age, increasing juvenile consumption strictly lowers the exact predator renewal reproduction functional to zero and therefore permits at most one invasion threshold.",
+      "searches": [
+        "Suarez Cameron role reversal exact predator-free stability theorem",
+        "Lu Liu age structured prey predator reproductive number global threshold 2018",
+        "Ripoll Font 2023 age structured Lotka Volterra Hopf renewal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full source text was searched for “net reproductive” with no match and for “Euler”; the latter occurs only in the numerical Forward Euler method.",
+        "The source defines a Kermack--McKendrick-type renewal equation but treats predator-free outcomes through simulation/classification rather than a displayed invasion functional."
+      ],
+      "reasoning": "Aliases checked included net reproductive number, reproduction functional, Euler--Lotka threshold, renewal invasion exponent, juvenile bottleneck, and predator-free stability. None of the inspected source material stated the derived functional or the one-crossing theorem in \\(g\\).",
+      "searches": [
+        "A predator-prey model with age-structured role reversal predator-free equilibrium Euler-Lotka invasion threshold juvenile consumption g",
+        "age structured predator prey renewal predator-free stability net reproduction number maturation juvenile mortality threshold",
+        "Suarez Cameron Fagan Levy 2502.19748 predator-free stability invasion reproduction functional",
+        "Suarez Cameron role reversal juvenile bottleneck extinction threshold g monotonicity",
+        "2502.19748 net reproductive number Euler-Lotka unique critical juvenile consumption",
+        "Juvenile consumption unique predator invasion cutoff Euler-Lotka age-structured role reversal",
+        "completely monotone juvenile consumption reproduction functional predator age structured"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source phase-diagram procedure scans \\(g\\) in increments after finite-time simulation and classifies predator extinction numerically.",
+        "The source reports that the predator becomes extinct at large \\(g\\) as maturation age increases, but no analytical table or database of \\(\\mathcal R_P\\) or \\(g_c\\) is supplied."
+      ],
+      "reasoning": "The finding is not a recomputation of a known table entry. It supplies an exact structural threshold and monotonicity theorem behind a numerically observed region.",
+      "searches": [
+        "2502.19748 predator-free g tau* phase diagram",
+        "role reversal age structured predator g tau* predator-free attractor"
+      ]
+    },
+    "rationale": "The motivating source numerically maps predator-free behavior in the \\((\\tau^*,g)\\)-plane and identifies \\(g\\) as highly influential, but its inspected full text contains no net-reproductive-number or Euler--Lotka invasion theorem. Generic structured-population threshold ideas are known, so the originality claim is deliberately source-specific: the exact reproduction functional for this role-reversal model, its strict/complete monotonicity in the juvenile-consumption parameter, and the resulting unique critical \\(g_c\\).",
+    "residual_risks": [
+      "Generic renewal-equation theory makes Euler--Lotka threshold reasoning classical; originality is only claimed for the explicit role-reversal functional, its strict/complete monotonicity in \\(g\\), and the unique source-specific cutoff.",
+      "A broader literature not surfaced by the searches could contain a mathematically equivalent monotone-hazard lemma, but no inspected source applies it to this model or states the same implication.",
+      "The result is local invasion theory and should not be read as a global classification of the nonlinear phase diagram."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes earliest public date and confirms the age-structured role-reversal scope; no analytic invasion threshold is advertised in the abstract.",
+        "evidence": "First submitted 2025-02-27; abstract emphasizes existence/positivity, Latin-hypercube sampling, and the importance of maturation age and juvenile consumption.",
+        "identifier_or_url": "arXiv:2502.19748v1",
+        "material_read": "Abstract and bibliographic record, including first-submission date.",
+        "method": "Open preprint record inspection.",
+        "title": "A predator-prey model with age-structured role reversal",
+        "trigger": "Earliest public version of the motivating source."
+      },
+      {
+        "assessment": "Contains all premises used in the derivation and documents numerical predator-free classification, but does not state the derived reproductive functional or one-crossing theorem in \\(g\\).",
+        "evidence": "Sections 2.3, 6.1--6.2, 7.3, and 8; primary MSC 92D25.",
+        "identifier_or_url": "doi:10.1007/s00285-026-02402-5",
+        "material_read": "Model equations and definitions; smooth maturation functions; existence section; numerical equilibrium/stability procedure; phase-diagram methods and discussion; classification and MSC metadata.",
+        "method": "Open-access full-text HTML inspection with targeted in-document searches.",
+        "title": "A predator-prey model with age-structured role reversal",
+        "trigger": "Primary full text for the exact equations, numerical specialization, and claimed long-term results."
+      },
+      {
+        "assessment": "Methodologically related but structurally different: prey is age structured and predator is unstructured.",
+        "evidence": "The paper proves global predator threshold dynamics using a net reproductive number for its own different model.",
+        "identifier_or_url": "doi:10.1186/s13662-018-1614-y",
+        "material_read": "Abstract, model construction, and summary of threshold theorem.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Threshold dynamics of a predator–prey model with age-structured prey",
+        "trigger": "Highly relevant prior using a predator net reproductive threshold in structured ecology."
+      },
+      {
+        "assessment": "Different age-dependent interaction and Hopf problem; no source-specific juvenile-consumption threshold.",
+        "evidence": "Focuses on numerical steady-state stability, renewal/PDE representations, and Hopf bifurcation.",
+        "identifier_or_url": "doi:10.3934/mbe.2023696",
+        "material_read": "Abstract and model-scope summary.",
+        "method": "Open full-text landing-page inspection.",
+        "title": "Numerical approach to an age-structured Lotka-Volterra model",
+        "trigger": "Relevant age-structured predator-prey stability literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1bfc3bf-3626-4aae-a7d1-24d9eedeae67",
+  "value": {
+    "rationale": "The source expends substantial simulation effort on predator-free classification and identifies juvenile consumption \\(g\\) as one of the two most influential parameters. The theorem converts that empirical direction into an exact one-dimensional invasion law: at fixed maturation age, the local invasion boundary in \\(g\\) can be crossed at most once, and a scalar renewal integral replaces repeated local stability computations. This isolates the biological juvenile bottleneck mechanism and gives a principled diagnostic for phase-diagram calculations without claiming a paper-sized global dynamics result.",
+    "status": "PASS"
+  }
+}
