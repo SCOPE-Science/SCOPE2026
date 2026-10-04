@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The foldwise centering identity reduces the statistic exactly to within- plus weighted between-fold sums of squares. Gaussian ANOVA supplies independent chi-square laws; moments and the derivative identity then give the stated formulas. Exact-rational replay checks all algebraic reductions and boundary specializations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haberman (2019) gives a U-statistic framework and sample-mean examples.",
+        "Bates, Hastie, Tibshirani, arXiv:2104.00673, show CV targets average prediction error and discuss fold-error dependence/variance underestimation."
+      ],
+      "reasoning": "Neither inspected source gives a theorem that directly implies the exact two-chi-square distribution plus strict monotonicity without the new model-specific ANOVA calculation.",
+      "searches": [
+        "cross-validation U-statistics sample mean K-fold variance",
+        "cross-validation estimand dependence fold errors variance"
+      ]
+    },
+    "checked_sources": [
+      "Haberman (2019), Cross-Validation and U-Statistics, DOI 10.1002/ets2.12263",
+      "Bates, Hastie, Tibshirani (2021), arXiv:2104.00673",
+      "Bengio and Grandvalet (2004), No Unbiased Estimator of the Variance of K-Fold Cross-Validation, JMLR 5:1089-1105 (background comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Haberman explicitly says traditional K-fold replication is an incomplete-U-statistic case and notes variance evaluation is generally difficult; the inspected sample-mean material does not provide this balanced-Gaussian K-fold law.",
+        "Bates et al. give the block covariance formula for generic CV errors and discuss fixed-K/LOO estimands, without the intercept-only closed form."
+      ],
+      "reasoning": "The new statement is a specialization that requires an additional exact ANOVA decomposition. It is not a mere restatement of the cited prior conclusions, although the ingredients are classical and the residual risk of an older equivalent derivation remains.",
+      "searches": [
+        "Haberman 2019 sample mean K-fold cross-validation variance",
+        "Bates Hastie Tibshirani K-fold variance dependence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit among the leading returned records stated the weighted independent-chi-square law or the strict K-monotonic variance formula.",
+        "Haberman (2019), DOI 10.1002/ets2.12263, was inspected at the sample-mean, variance, and K-fold replication sections."
+      ],
+      "reasoning": "Searches covered the principal aliases: Gaussian location/intercept-only, ANOVA decomposition, weighted chi-square law, fold count, and leave-one-out. The closest source provides ingredients and context but not the final statement found in the inspected material.",
+      "searches": [
+        "balanced K-fold cross-validation Gaussian location sample mean exact two chi-square law",
+        "intercept-only Gaussian K-fold cross-validation variance decreases with number of folds",
+        "leave-one-out cross-validation minimum variance sample mean squared loss Gaussian",
+        "ANOVA decomposition K-fold cross-validation intercept-only normal mean",
+        "K-fold CV exact distribution W plus weighted between-fold sum squares"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned unrelated exact-distribution and variance records; no matching cross-validation record was found."
+      ],
+      "reasoning": "No exact database/table result located the same law or coefficients. Failed search is not treated as proof of novelty; it only supports the comparison after source inspection.",
+      "searches": [
+        "K-fold CV exact distribution W plus weighted between-fold sum squares",
+        "balanced K-fold cross-validation Gaussian location sample mean exact two chi-square law"
+      ]
+    },
+    "rationale": "The closest directly inspected source, Haberman (2019), treats the sample mean and traditional K-fold replication but the inspected relevant sections do not state the balanced Gaussian weighted-chi-square law or strict variance monotonicity in K. Bates et al. (2021) establish the modern estimand/dependence context without this specialization. published-finding corpus alias searches found no equivalent record. Residual older-literature risk is retained.",
+    "residual_risks": [
+      "A pre-2019 cross-validation or elementary normal-theory source may contain an equivalent intercept-only formula under different notation.",
+      "The law follows from classical Gaussian ANOVA, so rediscovery risk is higher than for a theorem requiring a specialized modern technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the final weighted-chi-square law or strict fold-count monotonicity in the inspected material.",
+        "evidence": "Published 2019-06-26; sample mean appears in Example 1; K-fold replication appears in the incomplete-U-statistics section; the article states that variance evaluation for the improved/K-fold-type procedure is often difficult.",
+        "identifier_or_url": "doi:10.1002/ets2.12263",
+        "material_read": "Full HTML sections around Examples 1, 6, 10, 12; variance discussion; incomplete U-statistics and traditional K-fold replication; displayed equation images where needed.",
+        "method": "Direct full-text inspection and targeted in-page searches.",
+        "title": "Cross-Validation and U-Statistics",
+        "trigger": "Directly combines sample-mean prediction, variance analysis, and traditional K-fold replication."
+      },
+      {
+        "assessment": "NOT_COVERING the exact intercept-only Gaussian distribution or monotonicity theorem.",
+        "evidence": "First submitted 2021-04-01; the paper gives generic block covariance structure and explains why naive independent-error variance is too small.",
+        "identifier_or_url": "arXiv:2104.00673",
+        "material_read": "arXiv full HTML abstract/introduction, K-fold/LOO remarks, dependence-structure section, and CV MSE target section; targeted searches for intercept, sample mean, chi-square, variance, K-fold.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Cross-validation: what does it estimate and how well does it do it?",
+        "trigger": "Closest modern theory on CV estimands and dependence among fold errors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "562cbe07-fa9d-430d-a94e-bd07ce896094",
+  "value": {
+    "rationale": "The theorem gives a sharp finite-sample benchmark for a recurring methodological issue: fold-error dependence invalidates naive standard errors, but in this canonical model it coexists with strictly decreasing true sampling variance as K grows. The exact law also permits exact finite-sample calibration and separates moving-target bias from sampling variability.",
+    "status": "PASS"
+  }
+}
