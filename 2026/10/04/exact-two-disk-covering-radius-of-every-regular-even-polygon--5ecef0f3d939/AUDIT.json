@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The lower bound follows from a published connected-subchain reduction, central symmetry, and an explicit diameter estimate. The upper bound is realized by disks centered at offsets b/2 from the polygon center and is checked by an exact squared-distance inequality for every vertex. Convexity covers the intervening edges and half-polygons. The uniqueness statement follows from strictness for non-midpoint starts and from two forced diameter pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Choi–Jeong–Ahn give an O(n log n) algorithm for arbitrary convex polygons and state the complementary connected-boundary-subchain observation.",
+        "Kim–Shin is cited as an earlier general convex-polygon algorithmic result.",
+        "The later optimal planar two-center paper treats arbitrary convex polygons and distinguishes the vertex-set radius from the full-polygon radius."
+      ],
+      "reasoning": "These works have broader input classes but algorithmic conclusions. Their general algorithms do not imply a closed symbolic optimum or uniqueness classification without solving the regular instance. The present result is a special-family exact theorem rather than a broader algorithm.",
+      "searches": [
+        "Covering Convex Polygons by Two Congruent Disks arXiv:2105.02483",
+        "Efficient algorithms for two-center problems for a convex polygon Kim Shin 2000",
+        "An Optimal and Practical Algorithm for the Planar 2-center Problem regular polygon"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.02483",
+      "DOI:10.1007/s00224-025-10228-9",
+      "published-finding corpus semantic index queries listed in the named originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2105.02483 supplies the connected-subchain reduction and a general optimization algorithm, but not the regular-family value.",
+        "The later general paper explicitly treats the full convex polygon radius as potentially larger than the radius for its vertex set.",
+        "The present proof requires a new half-perimeter diameter lower bound and an explicit equality construction."
+      ],
+      "reasoning": "The new claim is not a corollary of a stated numeric bound in the prior papers. The structural observation is used as one proof input, after which the exact radius and all equality cases are derived geometrically.",
+      "searches": [
+        "arXiv:2105.02483 connected subchain convex polygon two congruent disks",
+        "planar two-center convex polygon full polygon versus vertices",
+        "regular polygon two-center exact radius opposite side midpoints"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus exact-formula queries returned no regular-polygon two-center theorem; closest hits concerned unrelated regular-polygon invariants, minimum enclosing disks, and covering in other senses.",
+        "The full text of arXiv:2105.02483 was searched for regular, symmetric, and even, with no matching special-family theorem.",
+        "Exact-expression and regular-even-polygon web searches did not surface the stated trigonometric radius formula."
+      ],
+      "reasoning": "No located source states either the value R*sqrt(1-(3/4)sin^2(pi/n)) for the continuous regular-even-polygon two-center problem or an equivalent characterization by opposite side midpoints and forced centers.",
+      "searches": [
+        "regular even n-gon covered by two congruent disks minimum radius exact formula",
+        "two-center regular polygon circumradius sin pi n sqrt 1 minus 3/4 sin squared",
+        "cover regular polygon with two disks edge midpoint diameter exact",
+        "planar two-center regular n-gon exact radius",
+        "regular polygon two-center problem optimal disks",
+        "\"regular even polygon\" \"two disks\" cover",
+        "\"regular 2m-gon\" \"two disks\" covering",
+        "\"regular polygon\" \"minimum radius\" \"two disks\" cover boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit among the returned ranked records states a regular polygon two-center radius formula.",
+        "Closest published-finding corpus records concern regular-hexagon minimal fillings, triangle roundness, Cech persistence, and other unrelated radius or regular-polygon problems."
+      ],
+      "reasoning": "No exact database entry or table located contains this formula. Search similarity alone is not treated as novelty proof; the directly relevant full texts were also inspected.",
+      "searches": [
+        "regular even n-gon covered by two congruent disks minimum radius exact formula",
+        "two-center regular polygon circumradius sin pi n sqrt 1 minus 3/4 sin squared",
+        "cover regular polygon with two disks edge midpoint diameter exact",
+        "planar two-center regular n-gon exact radius",
+        "regular polygon two-center problem optimal disks"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches did not locate the formula or optimizer classification. The directly relevant 2021 full text gives a general algorithm and the connected-subchain observation but no regular-polygon specialization; a later general two-center paper likewise contains no regular or symmetric special-case formula in the inspected material.",
+    "residual_risks": [
+      "The formula is elementary enough that it could have appeared in older computational-geometry notes, textbooks, or contest literature under terminology not captured by the searches.",
+      "The targeted searches do not exhaust non-digitized or weakly indexed literature.",
+      "The optimizer classification depends on the connected-boundary-subchain reduction for convex-polygon covers; the cited full text supports that reduction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states the general problem, an O(n log n) algorithm, and the connected-subchain observation. It does not state the regular-even-polygon radius formula or optimizer classification.",
+        "identifier_or_url": "arXiv:2105.02483",
+        "material_read": "Abstract, introduction, previous-work section, algorithm sketch, preliminaries, connected-subchain observation, and decision characterization.",
+        "method": "Full-text HTML inspection plus targeted in-document searches for regular, symmetric, and even.",
+        "title": "Covering Convex Polygons by Two Congruent Disks",
+        "trigger": "Primary middle-period literature anchor for the exact continuous convex-polygon two-center problem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected material gives general algorithms and structural conditions but no regular-polygon closed form; targeted text searches found no regular or symmetric specialization.",
+        "identifier_or_url": "DOI:10.1007/s00224-025-10228-9",
+        "material_read": "Convex-polygon overview, full-polygon versus vertex-set discussion, and concluding remarks returned by the accessible full-text page.",
+        "method": "Full-text/search-page inspection with targeted checks for regular and symmetric specializations.",
+        "title": "An Optimal and Practical Algorithm for the Planar 2-center Problem",
+        "trigger": "Later broad algorithmic treatment that includes the convex-polygon case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5ecef0f3-d939-4cf3-94a9-2980c5eee261",
+  "value": {
+    "rationale": "This is a natural complete classification for an infinite canonical family inside a standard exact geometric optimization problem. It provides closed-form benchmark values and all equality cases, and it exposes a genuine continuous-boundary effect distinct from covering only the polygon vertices.",
+    "status": "PASS"
+  }
+}
