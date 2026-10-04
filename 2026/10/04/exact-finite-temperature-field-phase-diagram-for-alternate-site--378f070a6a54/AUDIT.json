@@ -1,0 +1,115 @@
+{
+  "claim": "For the periodic four-qubit Heisenberg \\(XX\\) ring of Cao and Zhu with uniform field \\(B\\), nonzero exchange \\(J\\), temperature \\(T>0\\), and alternate-site concurrence \\(C_{13}\\), put \\(x=|J|/T\\), \\(h=|B|/T\\), \\(a=\\cosh(2x)\\), \\(k=\\cosh(2\\sqrt2\\,x)\\), and \\(c=\\cosh(2h)\\). The concurrence sign is governed exactly by \\[F_x(c)=L(x)c^2-Q(x)c-R(x),\\]where \\[L(x)=4\\!\\left(\\sinh^4x-\\cosh^2(\\sqrt2\\,x)\\right),\\quad Q(x)=4\\cosh(2x)+2\\cosh(2\\sqrt2\\,x)+2,\\quad R(x)=(\\cosh(2x)+1)^2.\\]Let \\(x_*>0\\) be the unique solution of \\(\\sinh^2x_*=\\cosh(\\sqrt2\\,x_*)\\), numerically \\(x_*=1.4195389207530749\\ldots\\), and let \\(T_*=|J|/x_*=0.7044540909589808\\ldots|J|\\). If \\(T\\ge T_*\\), then \\(C_{13}=0\\) for every finite \\(B\\). If \\(0<T<T_*\\), define \\[c_*(x)=\\frac{Q(x)+\\sqrt{Q(x)^2+4L(x)R(x)}}{2L(x)},\\qquad B_*(T)=\\frac{T}{2}\\operatorname{arcosh}c_*(|J|/T).\\]Then \\[\\boxed{C_{13}(T,B)>0\\iff |B|>B_*(T).}\\]Thus at every subcritical positive temperature there is one lower field threshold and no finite upper field cutoff. Moreover \\[B_*(T)\\sim\\sqrt2\\,T\\,e^{-(2-\\sqrt2)|J|/T}\\qquad(T\\downarrow0),\\]so the global lower-field floor is zero, while for fixed \\(0<T<T_*\\) \\[C_{13}(T,B)\\sim\\left[\\cosh(2|J|/T)-1-2\\cosh(\\sqrt2|J|/T)\\right]e^{-2|B|/T}\\qquad(|B|\\to\\infty).\\]This exact positive-temperature phase diagram corrects the finite field-window impression in the source's numerical plots: the high-field entanglement becomes exponentially small but remains strictly positive at every sufficiently large finite field below \\(T_*\\).",
+  "correctness": {
+    "rationale": "The published X-state concurrence is positive exactly when y^2-uv>0 because y is nonnegative. Exact expansion gives F_x(c)=L c^2-Q c-R. L changes sign once at sinh^2(x)=cosh(sqrt(2)x); above that root F is negative for all c>=1, while below the corresponding temperature the quadratic has opposite-sign roots and F(1)<0, giving exactly one positive field threshold. Exact coefficient asymptotics yield both limiting laws.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xi and collaborators study small XX chains without this exact uniform-field phase classification.",
+        "Zhou studies three- and four-qubit XX models with magnetic field and DM interaction, including next-neighbor entanglement, but the available abstract does not state the zero-D quadratic phase theorem.",
+        "No inspected broader result was found to imply the exact temperature ceiling or high-field tail."
+      ],
+      "reasoning": "A broader Hamiltonian only covers this claim if its stated theorem specializes to the exact alternate-site zero-D phase boundary. The accessible broader statements did not provide such an implication.",
+      "searches": [
+        "Pairwise entanglement N-qubit XX model Dzyaloshinski Moriya magnetic field four qubit next neighbor",
+        "pairwise thermal entanglement n-qubit n<=5 Heisenberg XX chain alternate qubits",
+        "four-qubit XX magnetic field DM next-neighbor critical temperature"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0501029",
+      "DOI:10.1103/PhysRevA.71.034311",
+      "MaRDI Q3102434",
+      "DOI:10.1142/S021797921110117X",
+      "DOI:10.1016/S0375-9601(02)00883-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cao and Zhu provide the exact u, v, y, Z formulas and the X-state concurrence used as premises.",
+        "Their abstract describes magnetic-field induction in a certain range and near-zero-temperature sudden changes.",
+        "The closest later paper's accessible abstract discusses field- and DM-dependent critical temperatures but does not state the accepted exact phase simplification."
+      ],
+      "reasoning": "The prior formulas make the theorem derivable, but the published qualitative field-window description does not imply the exact one-threshold topology, the zero lower global floor, or the asymptotic high-field positivity.",
+      "searches": [
+        "arXiv:quant-ph/0501029 reduced density matrix u v y concurrence",
+        "DOI:10.1103/PhysRevA.71.034311 magnetic field certain range two sudden changes",
+        "DOI:10.1142/S021797921110117X four qubit XX magnetic field next-neighbor entanglement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source states field-induced alternate-site entanglement and shows finite-resolution field-temperature contours, but no closed one-threshold condition.",
+        "Searches for the numerical ceiling and high-field exponential tail did not return an equivalent published statement.",
+        "The source's own exact reduced-state formulas algebraically imply the accepted theorem."
+      ],
+      "reasoning": "Equivalent coverage must determine the same positive-temperature field set or an implication that forces one lower threshold and an unbounded entangled high-field region. Qualitative field-induced entanglement or a plotted bounded-looking window does not imply the theorem.",
+      "searches": [
+        "four-qubit XX alternate qubits exact finite-temperature entanglement field threshold no upper cutoff",
+        "Cao Zhu 2005 thermal entanglement alternate qubits phase diagram high magnetic field",
+        "four-qubit Heisenberg XX alternate concurrence high field asymptotic exp(-2 B/T)",
+        "0.704454 concurrence four qubit XX magnetic field",
+        "sqrt(2) thermal entanglement four qubit XX field phase boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source reports finite-resolution contour and low-temperature plots with apparently bounded field regions.",
+        "The accepted result is an exact symbolic phase classification and not a recomputation of a table or contour."
+      ],
+      "reasoning": "Plot pixels cannot establish exact zeros when the analytic concurrence is exponentially small. The theorem instead classifies the sign from the source formulas for all finite fields.",
+      "searches": [
+        "quant-ph/0501029 concurrence contour B 0.09 0.41 1 critical temperature",
+        "PhysRevA.71.034311 alternate concurrence Figure magnetic field temperature",
+        "four-qubit XX B less than 0.09 concurrence correction"
+      ]
+    },
+    "rationale": "The direct source gives formulas and numerical phase plots but not the exact one-threshold theorem or either asymptotic. Searches for equivalent formulations and numerical constants did not locate covering literature. A later broader field-plus-DM paper remains an explicit residual risk because only abstract-level material was accessible.",
+    "residual_risks": [
+      "Only abstract-level material was accessible for the closest later field-plus-DM paper, so an equivalent zero-D specialization inside its inaccessible full text cannot be excluded.",
+      "Equivalent algebra may appear under a different normalization of the XX Hamiltonian or magnetic field.",
+      "The exponentially small high-field tail is numerically delicate, making later numerical papers poor evidence for exact zero versus positivity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact premises and qualitative field switching but does not state the exact quadratic sign reduction, one-threshold positive-temperature theorem, universal ceiling, or two asymptotic laws.",
+        "evidence": "The source explicitly writes C=2 max(|y|-sqrt(uv),0)/Z and gives closed expressions for u, v, y, Z.",
+        "identifier_or_url": "arXiv:quant-ph/0501029; DOI:10.1103/PhysRevA.71.034311",
+        "material_read": "Public full-text extraction of the author-uploaded manuscript covering the Hamiltonian, reduced-state entries u, v, y, partition function Z, concurrence formula, zero-temperature discussion, and field-temperature contour discussion; arXiv and publisher abstract metadata were also checked.",
+        "method": "Public manuscript text inspection plus arXiv and publisher metadata/abstract inspection.",
+        "title": "Thermal Entanglement between Alternate Qubits of a Four-qubit Heisenberg XX Chain in a Magnetic Field",
+        "trigger": "Direct source containing the Hamiltonian, exact reduced Gibbs state, concurrence formula, and magnetic-field phase plots."
+      },
+      {
+        "assessment": "Scientifically relevant but insufficient to establish or refute exact coverage of the zero-D phase theorem; retained as a residual originality risk.",
+        "evidence": "The abstract states that nearest- and next-neighbor concurrences and critical temperatures are studied as functions of magnetic field and DM interaction.",
+        "identifier_or_url": "DOI:10.1142/S021797921110117X",
+        "material_read": "Publisher-preview and bibliographic abstract material.",
+        "method": "Abstract-level inspection.",
+        "title": "Pairwise entanglement in the N-qubit XX model with Dzyaloshinski-Moriya interaction and magnetic field",
+        "trigger": "Closest later broader treatment of three- and four-qubit XX chains with field, DM coupling, and next-neighbor entanglement."
+      },
+      {
+        "assessment": "Primary MSC is 81P15; 82B20 is secondary.",
+        "evidence": "The record lists Quantum measurement theory, state operations, state preparations (81P15) first.",
+        "identifier_or_url": "MaRDI Q3102434; DOI:10.1103/PhysRevA.71.034311",
+        "material_read": "Bibliographic record, DOI, arXiv link, abstract, and ordered MSC list.",
+        "method": "Mathematical bibliographic metadata inspection.",
+        "title": "Thermal entanglement between alternate qubits of a four-qubit Heisenberg XX chain in a magnetic field — classification record",
+        "trigger": "Primary MSC ownership verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "378f070a-6a54-4213-9da9-1ea9c44719ec",
+  "value": {
+    "rationale": "The source presents the magnetic field as an entanglement switch. The exact theorem changes the topology of that switch at every positive subcritical temperature, explains apparent numerical cutoffs, and gives natural exact phase-boundary and asymptotic quantities rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
