@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The divisibility criterion reduces exactly to \\(AB\\mid 8bp^3q^{2b}\\). Prime-support arguments are valid because \\(b\\) is a power of two; \\(\\gcd(A,p)=1\\), \\(\\gcd(B,q)=1\\), and for even \\(b\\), \\(q+1\\mid B\\). These force \\(p=3,q=5\\), after which the exact lower bound \\(B>25^b>216b\\) contradicts divisibility. The accompanying checker independently validates the arithmetic formulas and bounded cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sándor proves the p^3 q^2 case and remarks on p^3 q^4, but gives no all-power-of-two exponent theorem.",
+        "Manea–Minculete repeat the p q^4, p^3 q^2, p^3 q^4 exclusions and then study different factorization families.",
+        "Closest published-finding corpus hits concern ordinary k-harmonic numbers, iterated unitary sigma, infinitary harmonic numbers, or exponential-unitary perfect numbers; none implies this bi-unitary statement."
+      ],
+      "reasoning": "The closest stronger-looking records concern different divisor notions. The inspected bi-unitary sources contain only fixed-exponent special cases, so no broader theorem located subsumes the claim.",
+      "searches": [
+        "published-finding corpus: bi-unitary harmonic two-prime support even exponent p cubed q power",
+        "Sándor 2011 full text, Theorem 4 and following remark",
+        "Manea–Minculete 2016 full text, Remark 1 and Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1105.0294v1",
+      "Manea-Minculete-2016-Types-II",
+      "OEIS:A286325",
+      "published-finding corpus semantic search results for two focused query families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sándor Theorem 5 is a sufficient product construction rather than a classification and does not imply exclusion for this family.",
+        "The fixed p^3 q^4 remark is exactly the t=1 case only.",
+        "The 2016 propositions classify other forms such as 2^k times an odd squarefree integer, p q t^2, and p^2 q^2 t."
+      ],
+      "reasoning": "No inspected prior implication reaches all t>=1. The new proof adds a parameter-uniform divisibility step q+1 | B and collapses all cases to (p,q)=(3,5).",
+      "searches": [
+        "Sándor 2011 Theorems 2–5 implication comparison",
+        "Manea–Minculete 2016 propositions implication comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states a theorem about bi-unitary harmonic numbers of the form p^3 q^(2^(t+1)).",
+        "Targeted web searches returned Sándor 2011 and Manea–Minculete 2016, whose stated exclusions stop at p^3 q^4."
+      ],
+      "reasoning": "The searched aliases and exact exponent patterns did not expose an equivalent infinite-family statement.",
+      "searches": [
+        "published-finding corpus: bi-unitary harmonic p^3 q^4 p^3 q^8 powers of two exponent",
+        "Web: \"p^3 q^8\" \"bi-unitary harmonic\"",
+        "Web: \"bi-unitary harmonic\" \"q^8\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A286325 provides a finite table of known bi-unitary harmonic numbers and cites Sándor 2011.",
+        "A finite table can test examples but cannot imply the infinite exclusion proved here."
+      ],
+      "reasoning": "The exact databases are consistent with the theorem but do not cover its infinite parameter range.",
+      "searches": [
+        "OEIS A286325 bi-unitary harmonic numbers",
+        "Sándor 2011 table through 10^9"
+      ]
+    },
+    "rationale": "The closest primary source proves \\(p^3q^2\\) and states \\(p^3q^4\\) as a further special case; the 2016 follow-up repeats those fixed forms. No published-finding corpus record, inspected primary source, OEIS note, or targeted web search was found that states or implies the full \\(p^3q^{2^{t+1}}\\) exclusion.",
+    "residual_risks": [
+      "Unindexed, print-only, or poorly searchable literature could contain the same infinite-family observation. No such source was located in the bounded search performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING beyond the t=1 p^3 q^4 special case.",
+        "evidence": "Theorem 4 excludes p^3 q^2; the following remark states exclusions for p q^4 and p^3 q^4, with no higher power-of-two exponent family.",
+        "identifier_or_url": "arXiv:1105.0294v1",
+        "material_read": "Full arXiv text around Theorems 2–5 and the table discussion.",
+        "method": "Compared exact factorization hypotheses and divisibility conclusions to the new parameterized claim.",
+        "title": "On bi-unitary harmonic numbers",
+        "trigger": "Closest primary source defining the object and treating p^3 q^2 and p^3 q^4."
+      },
+      {
+        "assessment": "NOT_COVERING.",
+        "evidence": "Remark 1 repeats p q^4, p^3 q^2, and p^3 q^4; later propositions address 2^k times squarefree odd parts, p q t^2, and p^2 q^2 t.",
+        "identifier_or_url": "Manea-Minculete-2016-Types-II",
+        "material_read": "PDF introduction/Remark 1 and the section on particular prime factorizations.",
+        "method": "Checked the enumerated forms and proposition statements against p^3 q^(2^(t+1)).",
+        "title": "Types of integer harmonic numbers (II)",
+        "trigger": "Later bi-unitary harmonic paper that might extend Sándor’s fixed-form exclusions."
+      },
+      {
+        "assessment": "CONSISTENT_BUT_NOT_COVERING.",
+        "evidence": "The entry lists known terms and references Sándor but provides no theorem implying the infinite exclusion.",
+        "identifier_or_url": "OEIS:A286325",
+        "material_read": "Sequence definition, listed terms, links, and formula section.",
+        "method": "Checked whether the database or comments state a two-prime infinite-family theorem.",
+        "title": "OEIS A286325 — Bi-unitary harmonic numbers",
+        "trigger": "Exact sequence/database check for known examples and linked references."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4cbca307-99f8-4763-945e-0c9bd75ad940",
+  "value": {
+    "rationale": "The claim turns an isolated published \\(p^3q^4\\) exclusion into an infinite structurally defined family. The proof identifies a reusable mechanism—prime-support collapse plus \\(q+1\\mid\\sigma^{**}(q^{2b})\\) for even \\(b\\)—rather than merely extending a numerical table.",
+    "status": "PASS"
+  }
+}
