@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "At equilibria, writing \\(x=s\\) with \\(s\\in\\{-1,1\\}\\) and \\(y=r\\) gives \\(a=r-r^2\\) and \\(z=-sr\\). Exact expansion yields \\(p_r(\\lambda)=\\lambda^3+(1-r^2)\\lambda^2+(1-r)\\lambda+(1-2r)\\), independent of \\(s\\). The cubic Routh determinant is \\(r(r^2-r+1)\\), whose second factor is strictly positive. This gives the stated root counts on every open \\(r\\)-regime, while \\(r=-1,0,1/2,1\\) are checked by exact factorization. On \\(0<a<1/4\\) the lower branch is Hurwitz, so the source’s commensurate criterion also makes it stable for every \\(0<q\\le1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest published-finding corpus records included exact stability or recurrence results for Rössler, Lorenz–Stenflo, Halvorsen, Rucklidge, and Rabinovich systems.",
+        "Those results do not contain the absolute-value vector field \\(D^q y=1-|x|\\) or its equilibrium cubic."
+      ],
+      "reasoning": "General Routh-Hurwitz theory supplies the method but not the source-specific classification. No broader published SCOPE result found in these searches has hypotheses that specialize to this vector field and parameter family.",
+      "searches": [
+        "four-dimensional autonomous flow exact invariant measure identity Lyapunov divergence stability correction hyperchaos",
+        "differential dynamics 4D flow conservation law first integral equilibrium stability Routh Hurwitz",
+        "Munoz Pacheco fractional order chaotic system exact equilibrium classification bifurcation parameter a"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/e20080564",
+      "msc2020:37C10",
+      "2026/9/20/SCOPE-rossler-compact-recurrence-threshold-and-measure-laws--6e87f2d3c811",
+      "2026/9/20/SCOPE-lorenz-stenflo-weak-rotation-global-threshold--eb5a675405b5",
+      "2026/9/20/SCOPE-halvorsen-diagonal-slab-and-mean-square-sphere--f567f56cc506",
+      "2026/9/20/SCOPE-rucklidge-balance-law-and-recurrence-barrier--c0b25a458f15",
+      "2026/9/20/SCOPE-rabinovich-quintic-pump-threshold-and-critical-slowing--811a42ee7416"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For \\(0<a<1/4\\), exact Routh-Hurwitz gives all three eigenvalues of the \\(r_-\\) pair in the open left half-plane.",
+        "Left-half-plane eigenvalues satisfy the source’s own commensurate stability criterion for every \\(0<q\\le1\\)."
+      ],
+      "reasoning": "The prior source does not imply the finding; its blanket instability sentence is contradicted by the exact characteristic polynomial. The source’s own stability theorem instead independently supports the fractional-order corollary once the corrected eigenvalue location is established.",
+      "searches": [
+        "source statement: all four equilibria unstable for \\(a<1/4\\)",
+        "source Theorem 1 commensurate stability condition \\(|\\arg(\\lambda)|>q\\pi/2\\)",
+        "Munoz-Pacheco A New Fractional-Order Chaotic System Different Families Hidden Self-Excited Attractors equilibrium stability integer order 0<a<1/4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit used the Muñoz-Pacheco vector field or the characteristic polynomial \\(p_r(\\lambda)=\\lambda^3+(1-r^2)\\lambda^2+(1-r)\\lambda+(1-2r)\\).",
+        "The source itself parameterizes the same equilibria by \\(r_\\pm=(1\\pm\\sqrt{1-4a})/2\\), so the present branch notation is an algebraic reparameterization of exactly the same objects, not a distinct system."
+      ],
+      "reasoning": "The searches targeted the source name, defining equations, equilibrium parameterization, and exact cubic. The closest results used different vector fields. No alias or coordinate change was found that converts a prior published-finding corpus theorem into this specific stability partition.",
+      "searches": [
+        "Munoz-Pacheco A New Fractional-Order Chaotic System Different Families Hidden Self-Excited Attractors equilibrium stability integer order 0<a<1/4",
+        "\"yz + x(y-a)\" \"1-|x|\" \"-xy-z\" equilibrium stability",
+        "\"lambda^3\" \"1-r^2\" \"1-r\" \"1-2r\" chaotic system"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 of the source lists eigenvalues at \\(a=-1\\) and \\(a=1/4\\), not across \\(0<a<1/4\\).",
+        "Section 3.5 explicitly says all four equilibria are unstable when \\(a<1/4\\).",
+        "Exact-title and equation searches returned the source/reprint and unrelated papers, with no indexed correction of the interval."
+      ],
+      "reasoning": "The relevant table does not cover the disputed open interval. The new claim therefore is not a recomputation of a tabulated value; it corrects the source’s interval-wide statement by an exact symbolic classification.",
+      "searches": [
+        "source DOI 10.3390/e20080564; Sections 3.1 and 3.5; Table 1",
+        "exact-title/DOI web searches for stable equilibrium, Routh, integer-order, and \\(0<a<1/4\\)"
+      ]
+    },
+    "rationale": "The introducing paper states the opposite blanket conclusion—four unstable equilibria for \\(a<1/4\\)—while its explicit eigenvalue table samples \\(a=-1\\) and \\(a=1/4\\) rather than proving the full interval. published-finding corpus searches by source, equations, aliases, polynomial, and interval returned no item on this vector field; closest hits concern different systems and do not imply the branchwise cubic partition. Exact web searches likewise surfaced the source and reproductions, not this correction.",
+    "residual_risks": [
+      "A later correction or independent derivation may exist outside the indexed web and published-finding corpus material searched.",
+      "The fractional-order corollary is only for commensurate \\(0<q\\le1\\) and does not classify incommensurate derivative orders.",
+      "No global attractor or basin conclusion is inferred from the local equilibrium correction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTRADICTED_ON_INTERVAL",
+        "evidence": "The source prints the four equilibrium branches, samples \\(a=-1\\) and \\(a=1/4\\), and states in Section 3.5 that all four equilibria are unstable for \\(a<1/4\\); exact Routh analysis shows two are stable for \\(0<a<1/4\\).",
+        "identifier_or_url": "doi:10.3390/e20080564",
+        "material_read": "Publisher full-text material covering the system definition (15), equilibrium equations and formulas (16)-(17), commensurate stability theorem, Section 3.1, Section 3.5 mechanism discussion, Figure 9 description, and Table 1.",
+        "method": "Lawful open-access HTML/full-text inspection and exact independent algebra from the printed equations.",
+        "title": "A New Fractional-Order Chaotic System with Different Families of Hidden and Self-Excited Attractors",
+        "trigger": "Same vector field and source of the interval-wide instability statement."
+      },
+      {
+        "assessment": "APPLICABLE_CLASSIFICATION",
+        "evidence": "MSC2020 37C10 is “Dynamics induced by flows and semiflows”; the core claim classifies equilibria of the \\(q=1\\) autonomous flow.",
+        "identifier_or_url": "msc2020:37C10",
+        "material_read": "MSC2020 entry 37C10 and surrounding 37Cxx classifications.",
+        "method": "AMS Mathematical Reviews MSC2020 database inspection.",
+        "title": "MSC2020 database",
+        "trigger": "Primary-slot ownership for a local classification of equilibria of an autonomous flow."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9035eef8-ac3f-478d-b6c5-a71783b02862",
+  "value": {
+    "rationale": "The source uses equilibrium type as the mechanism organizing its self-excited, nonhyperbolic, and no-equilibrium regimes. The exact one-parameter partition reveals a whole open interval, \\(0<a<1/4\\), with two sinks rather than four unstable equilibria. That changes the local phase portrait and is directly relevant to basin-based attractor interpretation. It is a natural complete classification in the paper’s sole control parameter, not a narrow arbitrary slice.",
+    "status": "PASS"
+  }
+}
