@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Affine covariance reduces every tetrahedron to barycentric simplex coordinates. The coefficient sign-pattern split is exhaustive. The triangular case is solved by direct edge-intersection centroid equations; the quadrilateral case is solved by an exact affine projection and exact resultant elimination, with all denominators positive on the stated parameter range. The zero-coefficient cases are separately excluded. The symbolic checker reconstructs the critical polynomial identities from the displayed geometric formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 theorem gives convex bodies with exactly one centroidal section for dimensions at least five and explicitly discusses the then-unsettled dimensions three and four.",
+        "The 2026 theorem proves the sharp global minimum one for every dimension at least three.",
+        "The 2020 paper proves general existence bounds and analyzes a triangular prism and a triangular bipyramid."
+      ],
+      "reasoning": "Global minimization over all convex bodies neither upper-bounds nor determines the number for a fixed tetrahedron. The explicit prism/bipyramid analyses concern different bodies. Hence these broader results do not cover the exact tetrahedron classification.",
+      "searches": [
+        "arXiv:2404.15188 full text",
+        "arXiv:2606.19865 full text",
+        "arXiv:2003.13536 full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.15188",
+      "arXiv:2003.13536",
+      "arXiv:2606.19865",
+      "targeted exact-phrase and semantic literature searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2404.15188 defines \\(\\mu(K)\\) and proves \\(\\mu(n)=1\\) only for \\(n\\ge5\\) in that work.",
+        "arXiv:2606.19865 proves \\(\\mu(3)=1\\) as a minimum over all convex bodies, not \\(\\mu(T)\\) for the tetrahedron.",
+        "arXiv:2003.13536 distinguishes barycentric hyperplanes from depth-realizing ones and explicitly analyzes other three-dimensional bodies."
+      ],
+      "reasoning": "The new claim is strictly object-specific: it determines every centroidal plane of every tetrahedron. None of the prior statements has an implication strong enough to force this classification or the exact count seven.",
+      "searches": [
+        "arXiv:2404.15188 Problem 2 and Remark 1",
+        "arXiv:2606.19865 Theorem 1.1",
+        "arXiv:2003.13536 barycentric hyperplanes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2404.15188 defines the centroid-section counting problem and its inspected full text has no “tetrahedron” or “simplex” occurrence.",
+        "arXiv:2606.19865 identifies centroidal sections with critical points of a half-space volume function, but its inspected full text has no “tetrahedron” or “simplex” occurrence.",
+        "Searches also used the aliases barycentric hyperplane, centroidal section, facet-parallel section, midpoint section, and vertex bipartition."
+      ],
+      "reasoning": "A statement equivalent to the new claim would have to classify all critical/centroidal planes for a tetrahedron, not merely prove existence or a global lower bound. No inspected source does this.",
+      "searches": [
+        "tetrahedron exactly seven centroidal hyperplane sections through centroid",
+        "tetrahedron centroid section centroid seven planes barycentric",
+        "simplex centroidal hyperplane sections vertex bipartitions",
+        "tetrahedron barycentric hyperplanes through centroid facet parallel midsection",
+        "Loewner mu tetrahedron centroidal sections exact",
+        "simplex barycentric hyperplanes centroid section barycenter",
+        "Grunbaum barycentric hyperplanes simplex centroid"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No standard table or indexed exact-value record located in the searches classifies the number of centroidal hyperplane sections of a tetrahedron.",
+        "The closest indexed simplex record concerns quantitative volume stability of central sections, not section centroids."
+      ],
+      "reasoning": "Section-volume classifications do not imply centroid-location classifications. No tabulated exact invariant located gives or dominates the value seven.",
+      "searches": [
+        "tetrahedron centroid section centroid seven planes barycentric",
+        "simplex centroidal hyperplane sections vertex bipartitions",
+        "Loewner mu tetrahedron centroidal sections exact"
+      ]
+    },
+    "rationale": "The inspected primary and closest later sources address the general counting problem but do not state or imply the tetrahedron value. The 2024 source proves a global minimum result only in dimensions at least five; the 2026 complete solution proves the minimum over all bodies is one in dimension three, which does not determine the exact count for a tetrahedron. The 2020 barycentric-cuts paper treats other three-dimensional examples and has no tetrahedron occurrence. Focused searches found no equivalent seven-plane classification.",
+    "residual_risks": [
+      "The classification is elementary enough that an equivalent result could occur in older simplex-geometry literature under terminology not indexed by the searches.",
+      "No higher-dimensional simplex classification is asserted.",
+      "The later global solution changes the status of the general dimension-three minimum problem but does not imply the object-level tetrahedron count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_TETRAHEDRON_EXACT_COUNT",
+        "evidence": "Primary MSC includes 52A20; first arXiv submission is 2024-04-23. The paper studies general minima and has no tetrahedron/simplex occurrence.",
+        "identifier_or_url": "arXiv:2404.15188",
+        "material_read": "Full open-access HTML: abstract, 2020 MSC line, introduction with Problems 1–2 and definition of \\(\\mu(K)\\), dimension discussion, main theorem, and remarks; full-text searches for tetrahedron and simplex.",
+        "method": "Open-access full-text inspection.",
+        "title": "Answers to questions of Grünbaum and Loewner",
+        "trigger": "Primary middle-cohort source defining the exact centroid-section counting invariant and the dimension-three context."
+      },
+      {
+        "assessment": "NOT_COVERING_TETRAHEDRON",
+        "evidence": "The paper studies a triangular prism and a triangular bipyramid and has no occurrence of tetrahedron.",
+        "identifier_or_url": "arXiv:2003.13536; DOI:10.4230/LIPIcs.SoCG.2020.62",
+        "material_read": "Open-access conference PDF: definition and Questions 1–2, Proposition 5 and surrounding remarks, triangular-prism proof, bipyramid discussion; full-text search for tetrahedron.",
+        "method": "Open-access PDF text inspection with page image check.",
+        "title": "Barycentric Cuts Through a Convex Body",
+        "trigger": "Closest earlier source for barycentric-hyperplane terminology and explicit three-dimensional examples."
+      },
+      {
+        "assessment": "GLOBAL_MINIMUM_NOT_OBJECT_SPECIFIC_COVERAGE",
+        "evidence": "The theorem proves the minimum over all convex bodies is one for dimension three; it does not determine the tetrahedron count and has no tetrahedron/simplex occurrence.",
+        "identifier_or_url": "arXiv:2606.19865",
+        "material_read": "Full open-access HTML: introduction, Theorem 1.1, critical-point reformulation, and full-text searches for tetrahedron and simplex.",
+        "method": "Open-access full-text inspection.",
+        "title": "A complete solution to the Grünbaum–Loewner centroid problems",
+        "trigger": "Potentially dominating later result resolving the global minimum in dimension three."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1e5b527-77a2-48b4-a0ae-ba7d668e03c3",
+  "value": {
+    "rationale": "The result completely classifies a natural invariant for the canonical three-dimensional simplex, rather than giving a routine special-case inequality. It identifies all equality directions and reveals an exact correspondence with the seven nontrivial vertex bipartitions. This supplies a concrete benchmark for centroid-section critical-point methods and sharply contrasts the rigid tetrahedron value seven with the now-known global dimension-three minimum one.",
+    "status": "PASS"
+  }
+}
