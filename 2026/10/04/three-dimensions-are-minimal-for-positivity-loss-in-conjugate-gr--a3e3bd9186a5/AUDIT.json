@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Sylvester's criterion gives \\(a>2/3\\), the explicit inverse is entrywise positive, and direct exact CG algebra gives \\((x_2)_1=N_a(B)/Q_a(B)\\). The identity relating \\(Q_a\\) to \\(p_1^T A_ap_1\\) proves denominator positivity. For \\(a\\le4\\), every coefficient of \\(N_a\\) is nonnegative with positive constant term; for \\(a>4\\), the leading coefficient is negative. Exact two-step recurrence verifies the rational witness. Dimension minimality follows from a nonnegative first iterate and finite termination in dimension at most two.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmelzer--Stoll explicitly cover the general SPD failure of coordinatewise nonnegativity and propose an active-set repair.",
+        "Meijerink--van der Vorst cover conjugate-gradient solution methods for symmetric M-matrices via regular splittings/incomplete factorization."
+      ],
+      "reasoning": "Those sources dominate the qualitative statements 'CG may become negative' and 'CG is used on symmetric M-matrices', so neither is claimed. Their accessible material does not imply the exact intersection result: a negative transient on an inverse-positive Stieltjes matrix with positive exact solution, the minimum dimension, or the displayed sharp threshold.",
+      "searches": [
+        "conjugate gradient symmetric M-matrix nonnegative iterates positivity",
+        "Non-Negative Conjugate Gradients positivity CG SPD",
+        "conjugate gradient Stieltjes negative iterate"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.6028/jres.049.044",
+      "DOI:10.1090/S0025-5718-1977-0438681-4",
+      "DOI:10.1137/0727091",
+      "arXiv:2607.22121v1",
+      "MaRDI record for the 1977 symmetric-M-matrix paper and MSC 65F10",
+      "Semantic database searches listed in the originality check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hestenes--Stiefel give finite termination and variational CG structure, which implies the two-dimensional exact-termination part but not coordinatewise positivity of intermediate iterates in higher dimension.",
+        "Meijerink--van der Vorst's accessible abstract concerns regular splittings and combining them with CG for symmetric M-matrices; it does not state an intermediate-coordinate sign theorem.",
+        "Schmelzer--Stoll's detailed abstract establishes the need for a nonnegativity-enforcing wrapper for general SPD systems, but no Stieltjes-specific threshold or minimal dimension is visible."
+      ],
+      "reasoning": "Classical finite termination plus inverse positivity proves only that the final solution is nonnegative; it does not imply that intermediate Krylov iterates are. The new family algebra supplies exactly that missing implication boundary. Because two highly relevant full texts were unavailable, specialized overlap remains a named risk rather than being inferred absent.",
+      "searches": [
+        "An iterative solution method for linear systems of which the coefficient matrix is a symmetric M-matrix conjugate gradient 1977",
+        "Methods of conjugate gradients for solving linear systems Hestenes Stiefel 1952",
+        "A Taxonomy for Conjugate Gradient Methods 65F10",
+        "Non-Negative Conjugate Gradients Schmelzer Stoll 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned no finding about coordinatewise positivity of CG on Stieltjes or inverse-positive systems; the closest hits concerned Richardson stage safety, CG-derived optimization transients, and inverse-positive coordinate sampling.",
+        "The recent Non-Negative Conjugate Gradients abstract states the broader fact that unconstrained CG need not respect \\(x\\ge0\\), but does not expose the Stieltjes minimal-dimension or sharp-family statement in the material available."
+      ],
+      "reasoning": "An implication-equivalent source would need to establish positivity loss despite inverse positivity, or a theorem/counterexample implying dimension three is minimal, or the \\(a=4\\) threshold. None of the inspected statements does so.",
+      "searches": [
+        "conjugate gradient positivity M-matrix nonnegative iterates counterexample",
+        "CG method M-matrix positive solution negative intermediate iterate",
+        "Stieltjes matrix conjugate gradients positivity preserving",
+        "conjugate gradient monotone cone invariant M matrix",
+        "conjugate gradient M-matrix positivity loss minimal dimension three",
+        "CG inverse positive SPD matrix negative iterate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked semantic database result tabulated a three-dimensional Stieltjes witness or an \\(a=4\\) threshold.",
+        "The checked published finding corpus contained no claim concerning conjugate-gradient positivity, M-matrices, Stieltjes matrices, or inverse-positive iteration paths."
+      ],
+      "reasoning": "The displayed family calculation is not a parameter match to a known table found in the checked databases; the closest numerical-linear-algebra records address different norms, preconditioners, or iterative methods.",
+      "searches": [
+        "conjugate gradient Stieltjes matrix nonnegative right hand side negative second iterate three dimensions",
+        "conjugate gradient path tridiagonal M-matrix nonnegative iterates",
+        "conjugate gradient inverse-positive matrix negative iterate"
+      ]
+    },
+    "rationale": "The broad possibility of negative CG iterates, classical CG theory, and CG methods for symmetric M-matrices are prior-covered and excluded. The accepted contribution is the inverse-positive Stieltjes restriction, exact dimension minimum, and sharp \\(a=4\\) threshold in the displayed family. No checked semantic-database or literature statement implied those claims. Unrecovered highly relevant full texts are retained as residual risks.",
+    "residual_risks": [
+      "The full text of Meijerink--van der Vorst (1977) was not recovered; an equivalent intermediate-sign example inside that paper cannot be excluded.",
+      "The full text of Schmelzer--Stoll (2026) was not available in the checked text route; it may contain small counterexamples beyond the abstract.",
+      "Older literature on positivity of Krylov approximants, Stieltjes functions, or inverse-positive iterative paths may contain an equivalent low-dimensional observation under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS foundational CG and finite termination. It predates the present coordinatewise Stieltjes positivity question and is treated as prior input.",
+        "evidence": "The paper presents an \\(n\\)-step algorithm for \\(Ax=b\\) and develops conjugate-direction minimization for positive-definite systems.",
+        "identifier_or_url": "DOI:10.6028/jres.049.044",
+        "material_read": "Public-domain NIST full text: title/introduction and the sections displaying conjugate-direction relaxation and error minimization were inspected.",
+        "method": "Lawful NIST full-text PDF inspection.",
+        "title": "Methods of Conjugate Gradients for Solving Linear Systems",
+        "trigger": "Foundational source for exact conjugate-gradient recurrence, finite termination, and variational interpretation."
+      },
+      {
+        "assessment": "COVERS CG methods for symmetric M-matrices through regular splittings and incomplete factorization. Whole-document noncoverage of intermediate-coordinate positivity is not asserted.",
+        "evidence": "The abstract explicitly says a regular splitting for M-matrices is combined with conjugate gradients when the matrix is symmetric.",
+        "identifier_or_url": "DOI:10.1090/S0025-5718-1977-0438681-4",
+        "material_read": "Abstract, bibliographic/MSC records, references, and citation context were inspected. Open full-text retrieval and an authorized institutional retrieval attempt did not recover a verified article PDF.",
+        "method": "Lawful metadata/abstract inspection plus bounded full-text retrieval attempts.",
+        "title": "An Iterative Solution Method for Linear Systems of Which the Coefficient Matrix is a Symmetric M-Matrix",
+        "trigger": "Same matrix class and conjugate-gradient method as the accepted claim."
+      },
+      {
+        "assessment": "COVERS CG characterization as error minimization in an HPD inner product and lists primary MSC 65F10. It does not address coordinatewise positivity in the inspected material.",
+        "evidence": "The publisher record lists MSC 65F10 first and states that each CG step minimizes an error norm over a Krylov subspace.",
+        "identifier_or_url": "DOI:10.1137/0727091",
+        "material_read": "Publisher abstract, publication metadata, MSC classification, and references were inspected.",
+        "method": "Publisher HTML inspection.",
+        "title": "A Taxonomy for Conjugate Gradient Methods",
+        "trigger": "Primary classification source for CG and verified primary MSC ownership."
+      },
+      {
+        "assessment": "COVERS the broad qualitative failure of \\(x\\ge0\\) under ordinary CG and an active-set repair. Whole-document comparison for a Stieltjes minimal-dimension example remains unresolved.",
+        "evidence": "The abstract explicitly states that CG solves SPD systems but does not respect \\(x\\ge0\\).",
+        "identifier_or_url": "arXiv:2607.22121v1",
+        "material_read": "Detailed arXiv abstract and bibliographic record were inspected. The full-text HTML route was unavailable in the checked access path.",
+        "method": "Lawful arXiv abstract inspection with a bounded full-text attempt.",
+        "title": "Non-Negative Conjugate Gradients",
+        "trigger": "Most directly relevant modern source on the failure of unconstrained CG to respect nonnegativity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a3e3bd91-86a5-49fa-b983-688b367e4885",
+  "value": {
+    "rationale": "Inverse positivity is the natural exact-solution positivity property for linear systems, making transient loss inside that class mathematically and computationally meaningful. The result supplies a minimum dimension and sharp family threshold, not merely a single counterexample, and distinguishes energy-norm convergence from coordinatewise invariance relevant to constrained or physically nonnegative applications.",
+    "status": "PASS"
+  }
+}
