@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The boundary specialization is algebraically exact. In the overshoot regime, the normalized max statistic follows \\(F_p(q)=q/(q-1)^{2p}\\). The inequality \\(F_p(q)>2\\) for all \\(q>2\\) is exact iff the proof condition \\(p\\le1/4\\) applies, and for \\(p>1/4\\), \\(F_p'(2)=1-4p<0\\) forces finite crossing. The post-crossing recurrence is exactly linear.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining source states that \\(p=1/2\\) recovers AMSGrad and small \\(p\\) approaches momentum SGD.",
+        "The follow-up source proves nonconvex stationarity rates and emphasizes \\(p\\in[0,1/4]\\) for sparse gradients."
+      ],
+      "reasoning": "Those theorems are broader in objective class but use horizon-dependent learning-rate choices and do not imply fixed-step convergence of the boundary recurrence. They therefore do not cover the persistent two-cycle or the finite-crossing phase above one quarter.",
+      "searches": [
+        "Closing the Generalization Gap Padam p 1/8 AMSGrad SGD",
+        "On the Convergence of Adaptive Gradient Methods Padam p 1/4",
+        "Padam nonconvex convergence partial adaptivity sparse gradients"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1806.06763v1",
+      "arXiv:1808.05671v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1806.06763v1 defines \\(\\widehat v_t=\\max(\\widehat v_{t-1},v_t)\\) and the update by \\(\\widehat v_t^p\\).",
+        "arXiv:1808.05671v1 gives convergence guarantees with learning rates chosen as functions of the horizon and does not specialize to a constant-step scalar quadratic."
+      ],
+      "reasoning": "The source recurrence is necessary to derive the result but its published bounds do not imply the exact state-space dynamics. The new claim identifies a sharp exponent phase and initialization radius under a fixed-step boundary specialization.",
+      "searches": [
+        "\"Padam\" \"two-cycle\" optimizer",
+        "\"Padam\" scalar quadratic convergence",
+        "\"partially adaptive\" \"limit cycle\" optimizer",
+        "\"Padam\" \"p=1/4\" convergence quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1806.06763v1, Algorithm 1 and discussion of partial adaptivity",
+        "arXiv:1808.05671v1, Padam convergence theorem and corollary for \\(p\\in[0,1/4]\\)"
+      ],
+      "reasoning": "The natural equivalent formulation is the normalized maximum recurrence \\(q_{t+1}=q_t/(q_t-1)^{2p}\\) during overshoot. Neither inspected source gives this scalar map, its invariant interval, or the orientation change at \\(p=1/4\\).",
+      "searches": [
+        "Padam partially adaptive momentum scalar quadratic exact two cycle",
+        "Padam partial adaptivity deterministic quadratic nonconvergence constant learning rate",
+        "partially adaptive momentum exponent p scalar quadratic limit cycle",
+        "Padam adaptive exponent p exact dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No Padam-specific published-result hit stated the scalar two-cycle, critical radius, or \\(p=1/4\\) overshoot-map transition.",
+        "Closest semantic records concerned other quadratic stability frontiers and adaptive-step counterexamples."
+      ],
+      "reasoning": "The closest records do not contain Padam's historical maximum or partial exponent, so their statements do not imply the final claim. Search absence is not treated as a proof of uniqueness.",
+      "searches": [
+        "Padam partially adaptive momentum scalar quadratic exact two cycle",
+        "Padam partial adaptivity deterministic quadratic nonconvergence constant learning rate",
+        "partially adaptive momentum exponent p scalar quadratic limit cycle",
+        "Padam adaptive exponent p exact dynamics"
+      ]
+    },
+    "rationale": "The primary Padam papers introduce partial adaptivity, max second-moment memory, and the exponent range but do not state this exact scalar max-memory phase transition or two-cycle.",
+    "residual_risks": [
+      "An equivalent recurrence may have appeared in informal optimizer notes that do not use Padam in the title.",
+      "The result is a boundary specialization with zero momentum and zero second-moment smoothing.",
+      "Positive smoothing, momentum, denominator epsilon, or learning-rate decay may remove or alter the cycle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_SCALAR_PHASE.",
+        "evidence": "The paper defines the max-second-moment recurrence and partial exponent used in the proof, but does not state a scalar quadratic two-cycle or the exact \\(p=1/4\\) dynamical boundary.",
+        "identifier_or_url": "arXiv:1806.06763v1",
+        "material_read": "Open-access full paper, including Algorithm 1, the discussion of \\(p\\in[0,1/2]\\), the AMSGrad and momentum-SGD endpoints, learning-rate discussion, and convergence section.",
+        "method": "Full-text inspection with visual inspection of the PDF algorithm page.",
+        "title": "Closing the Generalization Gap of Adaptive Gradient Methods in Training Deep Neural Networks",
+        "trigger": "Defining Padam source and algorithm formula."
+      },
+      {
+        "assessment": "BROADER_CONVERGENCE_THEORY_NOT_COVERING_FIXED_STEP_DYNAMICS.",
+        "evidence": "The paper highlights \\(p\\in[0,1/4]\\) in its rate analysis but does not derive the scalar max-memory map or a fixed-step phase transition.",
+        "identifier_or_url": "arXiv:1808.05671v1",
+        "material_read": "Open-access full text covering the Padam recap, main theorem, sparse-gradient corollary, and learning-rate choices.",
+        "method": "Full-text inspection and targeted search for quadratic, cycle, and fixed-step specializations.",
+        "title": "On the Convergence of Adaptive Gradient Methods for Nonconvex Optimization",
+        "trigger": "Follow-up analysis with the most relevant \\(p\\le1/4\\) convergence range."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "64bfa7f1-5a9c-4ae5-897e-a5aa1ef66dbc",
+  "value": {
+    "rationale": "Padam's defining novelty is its partial-adaptivity exponent. The exact scalar theorem shows that this exponent controls a qualitative transition between persistent oscillation and finite self-stabilization under the same historical-max mechanism. The critical value \\(p=1/4\\) is mathematically sharp and lies in a range already prominent in Padam's theory, making the result a meaningful diagnostic rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
