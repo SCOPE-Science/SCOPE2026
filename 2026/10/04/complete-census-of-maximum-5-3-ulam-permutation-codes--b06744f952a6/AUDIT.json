@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The verifier reconstructs all 120 permutations of \\(S_5\\), computes Ulam distance as five minus longest-common-subsequence length, builds the complete threshold graph for distance at least three, and exhaustively enumerates every maximal clique. The exact maximal-clique histogram is 60 of size two, 120 of size three, and 4020 of size four, so the maximum is four and the labeled maximum-code count is 4020. It then recomputes all six internal distances of every maximum code and finds all six equal to three. Finally, it constructs all 240 declared relabeling/reversal maps, checks distance preservation on every unordered pair, and exhaustively partitions all maxima into 24 orbits with sizes 60 repeated five times, 120 repeated seven times, and 240 repeated twelve times.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2017 Ulam-sphere work studies sphere sizes and resulting bounds on maximal code size, not the extremizer census at \\(n=5,d=3\\).",
+        "The later diametric Ulam work studies maximum sets of bounded diameter, the opposite inequality direction from minimum-distance codes."
+      ],
+      "reasoning": "General sphere bounds and anticode theorems do not imply the number, pair-distance profile, or subgroup orbit decomposition of maximum minimum-distance codes in this finite cell.",
+      "searches": [
+        "maximum Ulam permutation codes S5 distance 3 classification",
+        "Ulam sphere size permutation multipermutation maximal code size",
+        "diametric problem permutations Ulam metric optimal anticodes"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.0932v1",
+      "MaRDI:Q2989267",
+      "arXiv:1504.05100v1",
+      "arXiv:1712.03639",
+      "DOI:10.1016/j.jcta.2024.106002"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1504.05100v1 states only the actual optimum four after deriving an upper bound five for the cell.",
+        "The embedded exhaustive search shows many extremizers: 4020 labeled maxima in 24 subgroup orbits, information not determined by the scalar optimum."
+      ],
+      "reasoning": "Knowing that the clique number is four does not determine the number of four-cliques, their internal distance spectrum, or their orbit decomposition. Thus the prior optimum does not imply the accepted classification.",
+      "searches": [
+        "New Bounds for Permutation Codes in Ulam Metric 5 3 actual value 4",
+        "equidistant Ulam S5 maximum codes",
+        "Ulam S5 maximum clique 4020"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1504.05100v1 defines the same Ulam-code parameter \\(A(n,d)\\) and explicitly states \\(A(5,3)=4\\) in Example III.1.",
+        "arXiv:1202.0932v1 proves that translocation distance is the Ulam distance and establishes common-relabeling invariance."
+      ],
+      "reasoning": "Deletion/translocation, longest-common-subsequence, and Ulam formulations were compared. The retrieved exact-parameter source fixes the optimum size but does not enumerate the maximum cliques or state that every maximum is equidistant.",
+      "searches": [
+        "Ulam permutation code S5 minimum distance 3 exactly 4020 maximum codes equidistant",
+        "Ulam metric (5,3) maximum code classification census maximum cliques",
+        "A(5,3)=4 Ulam permutation code all maximum codes",
+        "permutation Ulam distance 3 S5 relabeling reversal orbit classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2015 finite table records the known maximum size four for \\(n=5,d=3\\).",
+        "No retrieved table or database entry gave 4020 maximum codes or the 24-orbit decomposition."
+      ],
+      "reasoning": "The known-size table is not a census: it records one scalar optimum. The accepted claim distinguishes and counts every extremizer and then classifies them under an explicit isometry subgroup.",
+      "searches": [
+        "4020 Ulam permutation code",
+        "4020 permutation codes Ulam",
+        "A(5,3)=4 Ulam",
+        "New Bounds for Permutation Codes in Ulam Metric computer search table"
+      ]
+    },
+    "rationale": "The exact optimum \\(A(5,3)=4\\) is explicitly prior. The accepted contribution is the complete 4020-code census, universal equidistance, and the 24-orbit decomposition under the specified subgroup. The closest full-text exact-parameter paper gives only the optimum and finite-search methodology, not these statements. Targeted searches over exact notation, aliases, counts, clique formulations, and symmetry formulations found no source implying the accepted claim.",
+    "residual_risks": [
+      "An obscure, unindexed, or unpublished finite enumeration could contain the same 4020-code census.",
+      "The orbit claim is deliberately restricted to the explicit 240-element subgroup; no full-isometry uniqueness claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_CENSUS",
+        "evidence": "The paper proves the Ulam/translocation equivalence and left invariance but focuses on bounds, constructions, and decoding rather than a complete \\(S_5,d=3\\) extremizer census.",
+        "identifier_or_url": "arXiv:1202.0932v1",
+        "material_read": "Full arXiv text sections defining permutations, translocations, Ulam distance, longest common subsequences, left invariance, and the metric identity.",
+        "method": "Lawful open full-text inspection.",
+        "title": "Error-Correction in Flash Memories via Codes in the Ulam Metric",
+        "trigger": "Foundational source for the same Ulam/translocation metric and its invariance properties."
+      },
+      {
+        "assessment": "CLOSEST_PRIOR_SIZE_ONLY",
+        "evidence": "Example III.1 states the actual value \\(A(5,3)=4\\); no statement inspected counts all maximum codes, proves universal equidistance, or gives the subgroup orbit decomposition.",
+        "identifier_or_url": "arXiv:1504.05100v1",
+        "material_read": "Full arXiv text including notation, the integer-programming section, Example III.1, finite-search discussion, and the exact-size statement.",
+        "method": "Lawful open full-text inspection.",
+        "title": "New Bounds for Permutation Codes in Ulam Metric",
+        "trigger": "Closest exact-parameter predecessor; it explicitly discusses \\(n=5,d=3\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b06744f9-52a6-456a-919b-b9d7bd2b1b33",
+  "value": {
+    "rationale": "The \\(n=5,d=3\\) cell is explicitly highlighted in the prior finite-search paper because the Singleton bound is not attained and the exact optimum required computation. Classifying every optimizer supplies more than the known scalar optimum: it gives a complete finite extremal landscape, proves a universal equidistance phenomenon, and quantifies symmetry through 24 subgroup orbits. These are natural reusable calibration data for exact Ulam-code searches and structural conjectures, not an arbitrary parameter slice or a recomputation of a known table entry.",
+    "status": "PASS"
+  }
+}
