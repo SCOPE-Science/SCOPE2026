@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source equations are reconstructed with their quantifiers and shared positive \\(\\varepsilon\\). For arbitrary \\(b\\in(0,1)\\), \\(\\alpha>0\\), and \\(q>2\\), the displayed positive initialization and tolerance give \\(\\gamma_1=\\gamma_2=q\\) exactly. The bias-corrected monitor is therefore exactly \\(q\\), so the source trigger fires at its first eligible step. With \\(\\beta_1=0\\), the switched method is scalar SGD with multiplier \\(1-q\\), whose magnitude exceeds one.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining SWATS paper is primarily empirical and states the projection rule and automatic trigger without a post-switch stability theorem.",
+        "The 2026 practitioner survey describes the same hybrid mechanism but does not provide a curvature safety condition."
+      ],
+      "reasoning": "Empirical success and general descriptions of hybrid switching do not imply stability of every rate accepted by the trigger. The counterexample targets precisely that missing implication.",
+      "searches": [
+        "SWATS convergence theorem optimizer",
+        "SWATS quadratic Adam SGD",
+        "SWATS stability optimizer",
+        "switching from Adam to SGD theoretical convergence SWATS quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1712.07628v1",
+      "DOI:10.1007/s00521-026-12014-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines \\(\\gamma_k=p_k^\top p_k/(-p_k^\top g_k)\\).",
+        "The source switches when the bias-corrected exponential average agrees with the current \\(\\gamma_k\\) within \\(\u000barepsilon\\).",
+        "The source explicitly discusses the \\(\beta_1=0\\) case and interprets \\(\\gamma_k\\) using a Rayleigh quotient."
+      ],
+      "reasoning": "Those formulas make the construction possible but do not imply the published conclusion that the chosen rate is dynamically safe. The new claim proves the opposite by constructing exact stationary estimates at every prescribed \\(q>2\\).",
+      "searches": [
+        "SWATS gamma projection p transpose p minus p transpose g",
+        "SWATS lambda beta2 bias corrected switch criterion",
+        "SWATS beta1 zero Rayleigh quotient gamma"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1712.07628v1, Section 2.1 projection-based SGD learning-rate estimate",
+        "arXiv:1712.07628v1, Section 2.2 bias-corrected switchover condition",
+        "DOI:10.1007/s00521-026-12014-1, survey description of SWATS switching on rate agreement"
+      ],
+      "reasoning": "Equivalent formulations include a stationary projection estimate outside the gradient-descent stability interval and a two-step false-safe trigger. Neither inspected source states that temporal agreement can occur at an arbitrarily unstable scalar rate.",
+      "searches": [
+        "SWATS scalar quadratic switch criterion neutral cycle SGD learning rate",
+        "Switching Adam to SGD SWATS counterexample convergence quadratic",
+        "SWATS projection learning rate estimate stability boundary scalar quadratic",
+        "SWATS automatic switchover failure exact two cycle",
+        "SWATS false switch unstable SGD learning rate scalar quadratic exact counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No SWATS-specific published-record hit returned an exact scalar quadratic false-switch construction.",
+        "Closest records concerned different adaptive-rate mechanisms such as AdOGD persistence, hypergradient feedback, and fixed-step quadratic stability frontiers."
+      ],
+      "reasoning": "The closest records do not use the SWATS projection estimator or its bias-corrected stationarity test. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "SWATS scalar quadratic switch criterion neutral cycle SGD learning rate",
+        "Switching Adam to SGD SWATS counterexample convergence quadratic",
+        "SWATS projection learning rate estimate stability boundary scalar quadratic",
+        "SWATS automatic switchover failure exact two cycle",
+        "SWATS false switch unstable SGD learning rate scalar quadratic exact counterexample"
+      ]
+    },
+    "rationale": "The defining paper supplies the projection estimator and stationarity trigger but no theorem that the selected SGD rate is stable. The inspected later survey repeats the stationarity-based interpretation. Focused searches for SWATS quadratic counterexamples, instability, and false switches did not locate the exact family or an implication-equivalent safety obstruction.",
+    "residual_risks": [
+      "An equivalent counterexample may exist in unindexed optimizer discussions or code issues under different terminology.",
+      "The theorem uses beta1 = 0 and does not establish the same pathology for the paper's default beta1 = 0.9.",
+      "The construction is adversarial and does not estimate how often unsafe stationary projection rates occur in stochastic deep learning."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_FALSE_SAFE_SWITCH.",
+        "evidence": "The paper defines the exact quantities used in the proof and reports empirical switch success, but does not state a deterministic stability guarantee for the selected SGD rate or a scalar quadratic failure family.",
+        "identifier_or_url": "arXiv:1712.07628v1",
+        "material_read": "Open-access full PDF covering the Adam update, Section 2.1 learning-rate projection, Section 2.2 switch condition, Algorithm 1, the no-momentum interpretation, and experimental switch behavior.",
+        "method": "Full-text PDF inspection with page-level visual inspection of the projection and switch equations.",
+        "title": "Improving Generalization Performance by Switching from Adam to SGD",
+        "trigger": "Defining SWATS source and direct source of the projection estimator and switching test."
+      },
+      {
+        "assessment": "RECENT_REVIEW_REPEATS_TRIGGER_WITHOUT_SCALAR_STABILITY_OBSTRUCTION.",
+        "evidence": "The review summarizes the switch-on-agreement mechanism but does not add a curvature-dependent safety test or cite a quadratic false-switch result.",
+        "identifier_or_url": "DOI:10.1007/s00521-026-12014-1",
+        "material_read": "Public section on hybrid methods describing SWATS, its Adam-to-SGD transition, and rate-agreement trigger.",
+        "method": "Published article section inspection.",
+        "title": "First-order optimization algorithms: state of the art, classification, and performance: a practitioner's guide",
+        "trigger": "Recent broad review that could have recorded a known SWATS stability caveat."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c17f8124-9b17-4375-9b0a-431c9c3694ea",
+  "value": {
+    "rationale": "The automatic switchover and automatically learned SGD rate are the central design features of SWATS. The result identifies a structural gap between 'the estimated rate stopped changing' and 'the estimated rate is safe': even exact stationarity can select any prescribed unstable scalar rate. Because the family uses positive tolerance and interior beta2, the obstruction is not a normalization artifact, and it directly motivates adding a magnitude- or curvature-sensitive safety check.",
+    "status": "PASS"
+  }
+}
