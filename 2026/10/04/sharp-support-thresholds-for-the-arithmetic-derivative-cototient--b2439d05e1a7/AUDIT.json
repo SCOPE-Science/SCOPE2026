@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For prime powers the exact identity is \\(G(p^e)=(e-1)p^{e-1}\\). For two-prime support, direct expansion gives \\(G(p^a q^b)=p^{a-1}q^{b-1}((a-1)q+(b-1)p+1)\\), making the threshold \\(8\\) and equality case \\(12\\) immediate. For squarefree numbers, \\(G(qm)=qG(m)+(m-\\varphi(m))\\), while a squarefree triple has \\(G(pqr)=p+q+r-1\\), whose minimum is \\(9\\) uniquely at \\(30\\). The radical identity shows repeated exponents can only increase the three-prime case. The packaged verifier independently confirms all stated fibers and support inequalities through \\(10^6\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A344178 states nonnegativity and the complete \\(0\\)- and \\(1\\)-fibers only.",
+        "The JIS arithmetic-subderivative paper defines the prime-factor formula for \\(D\\) but contains no occurrence of “cototient” or “A344178”."
+      ],
+      "reasoning": "No inspected broader arithmetic-derivative result implies the sharp support thresholds without the new comparison with the cototient and case analysis.",
+      "searches": [
+        "arithmetic derivative cototient small values 0 1 2",
+        "arithmetic derivative cototient squarefree semiprime prime square support lower bound",
+        "arithmetic derivative minus cototient exact low values"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A344178",
+      "JIS:22:19.7.4",
+      "published-finding corpus semantic index",
+      "general web exact/alias searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A344178 gives the formula and prior fibers at \\(0\\) and \\(1\\), but not any theorem forcing the next support thresholds.",
+        "The JIS paper gives \\(D(x)=x\\sum \\nu_p(x)/p\\) and primary MSC 11A25; a full-text search found no cototient discussion."
+      ],
+      "reasoning": "The new theorem uses the known formula but adds exact lower bounds separated by prime support and equality classifications, so it is not a restatement or immediate cited corollary of the inspected sources.",
+      "searches": [
+        "OEIS:A344178 comments and formulas",
+        "JIS 22 (2019) Article 19.7.4 arithmetic derivative formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no result concerning A344178 or the cototient gap; its closest hits were unrelated low-value or support-threshold problems.",
+        "General web searches for the exact function and values returned the canonical OEIS entry rather than a theorem classifying these fibers."
+      ],
+      "reasoning": "The searches covered the named OEIS sequence, the formula \\(D(n)-(n-\\varphi(n))\\), and explicit low fibers, so simple notation changes were checked.",
+      "searches": [
+        "arithmetic derivative minus cototient equals 2 classification",
+        "A344178 small fibers through 9 arithmetic derivative cototient",
+        "D(n) - (n-phi(n)) values 2 3 5 7 8 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The current A344178 entry lists initial terms and records exactly the \\(0\\)- and \\(1\\)-fiber characterizations; it does not state the \\(2\\)-through-\\(9\\) fibers or the support thresholds.",
+        "The displayed initial terms are consistent with the new classification but constitute finite data, not the all-integer theorem."
+      ],
+      "reasoning": "Because the object is itself an OEIS sequence, the canonical database entry was treated as the most important exact-table coverage check.",
+      "searches": [
+        "OEIS A344178 current entry",
+        "A344178 value 2 arithmetic derivative cototient"
+      ]
+    },
+    "rationale": "The canonical entry A344178 records the exact function and classifies only the fibers at \\(0\\) and \\(1\\). It does not state the sharp support thresholds or any of the fibers from \\(2\\) through \\(9\\). Exact web and published-finding corpus searches for those formulations returned no implication-equivalent result. The relevant arithmetic-derivative paper supplies the standard derivative formula and primary MSC classification but contains no cototient discussion.",
+    "residual_risks": [
+      "An unindexed elementary note may contain the same low-value classification.",
+      "The OEIS entry can change after this inspection; the assessment applies to the current inspected version.",
+      "The theorem does not attempt arbitrary fibers beyond 9."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The entry records nonnegativity and exactly the fibers at 0 and 1, but no support thresholds or fibers 2 through 9.",
+        "evidence": "The comments state “a(n)=0 iff” the prime/one set and “a(n)=1 iff” the squarefree semiprimes, while the formula section defines A344178(n)=A003415(n)-(n-eulerphi(n)).",
+        "identifier_or_url": "OEIS:A344178",
+        "material_read": "Current complete entry, including comments, formulas, initial terms, cross-references, author/date, and current status.",
+        "method": "Current database-page inspection.",
+        "title": "OEIS A344178",
+        "trigger": "Canonical exact database for the arithmetic-derivative minus cototient sequence."
+      },
+      {
+        "assessment": "The paper states the arithmetic derivative as the full-prime subderivative and is classified primary 11A25; it contains no cototient or A344178 discussion.",
+        "evidence": "The introduction gives \\(D_S(x)=x\\sum_{p\\in S}\\nu_p(x)/p\\) and identifies the arithmetic derivative as \\(D_{\\mathbb P}\\); the final page lists primary MSC 11A25. Targeted searches returned no “cototient” or “A344178”.",
+        "identifier_or_url": "JIS:22:19.7.4",
+        "material_read": "Open-access 11-page PDF text, including definition/formula, integer restrictions, concluding material, references, and MSC block.",
+        "method": "Full-text PDF inspection and targeted full-text searches for “cototient” and “A344178”.",
+        "title": "Arithmetic Subderivatives: Discontinuity and Continuity",
+        "trigger": "Primary arithmetic-derivative literature used to verify the standard formula and slot ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2439d05-e1a7-4884-b01e-453e260e55e9",
+  "value": {
+    "rationale": "A344178 already singles out its first two fibers, so the next exact fibers are a natural invariant rather than an arbitrary slice. The result is strengthened beyond isolated values by sharp structural thresholds according to prime support: \\(2\\) for composite prime powers, \\(8\\) for nonsquarefree two-prime support, and \\(9\\) for at least three distinct primes, each with a unique equality case. This explains the initial gaps of the sequence and completely resolves every value through the first three-prime threshold.",
+    "status": "PASS"
+  }
+}
