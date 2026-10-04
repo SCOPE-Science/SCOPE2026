@@ -1,0 +1,109 @@
+{
+  "claim": "Let \\(d\\gamma=(2\\pi)^{-1}e^{-|x|^2/2}\\,dx\\) on \\(\\mathbb R^2\\), and let \\(T_\\gamma(K)=\\int_K u\\,d\\gamma\\), where \\((\\Delta-x\\cdot\\nabla)u=-1\\) in \\(K\\) and \\(u=0\\) on \\(\\partial K\\). For every nonzero smooth \\(2\\pi\\)-periodic function \\(f\\) satisfying \\(f(\\theta+\\pi)=f(\\theta)\\) and \\(\\int_0^{2\\pi}f(\\theta)\\,d\\theta=0\\), let \\(K_\\varepsilon\\) have support function \\(h_\\varepsilon(\\theta)=1+\\varepsilon f(\\theta)\\) for sufficiently small \\(|\\varepsilon|\\). Then \\(\\operatorname{Per}(K_\\varepsilon)=2\\pi\\) exactly, and if \\(f(\\theta)=\\sum_{k\\ge2,\\ k\\ \\mathrm{even}}(a_k\\cos k\\theta+b_k\\sin k\\theta)\\), then\n\\[\n\\left.\\frac{d^2}{d\\varepsilon^2}T_\\gamma(K_\\varepsilon)\\right|_{\\varepsilon=0}\n=\\frac{\\sqrt e-1}{2\\sqrt e}\\sum_{\\substack{k\\ge2\\\\ k\\ \\mathrm{even}}}\\left[2-(\\sqrt e-1)(k^2+2\\lambda_k)\\right](a_k^2+b_k^2)<0,\n\\]\nwhere \\(\\lambda_k=F_k'(1)\\) and\n\\[\nF_k(r)=\\frac{r^k\\,{}_1F_1(k/2;k+1;r^2/2)}{{}_1F_1(k/2;k+1;1/2)}.\n\\]\nThus the unit disk is strictly second-order stable in every nontrivial smooth centrally symmetric Euclidean-perimeter-preserving support direction for Gaussian torsional rigidity. This is a local second-variation result only; it does not prove the global fixed-perimeter maximization problem.",
+  "correctness": {
+    "rationale": "For a smooth support path, Cauchy perimeter is exactly constant. The support-to-radial conversion gives the quadratic radial correction \\(-f'{}^2/2\\). Standard smooth-domain elliptic differentiation yields homogeneous OU equations for the first two Eulerian derivatives; expansion of the moving Dirichlet boundary gives their exact boundary data. Separation of variables gives the regular Kummer mode \\(F_k\\), and positivity of the Kummer series yields \\(\\lambda_k>k\\). Angular orthogonality isolates the constant second-order mode, while the moving Gaussian collar contributes the remaining explicit term. The resulting coefficient is \\((\\sqrt e-1)/(2\\sqrt e)[2-(\\sqrt e-1)(k^2+2\\lambda_k)]\\), strictly negative for every even \\(k\\ge2\\). The packaged verifier checks the algebraic normalization, radial expansion, sample Kummer values, and all-mode sign margin; finite checks are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen--Stancu prove a global failure of positive-power Minkowski convexity but explicitly do not settle fixed-perimeter maximality.",
+        "Marín Sola--Salerno prove a ball-only positive interpolation statement and broad negative interpolation results, neither controlling perimeter-preserving shape directions.",
+        "Classical Laplace-torsion second-variation formulas involve the Laplace Dirichlet-to-Neumann spectrum rather than the Ornstein--Uhlenbeck/Kummer spectrum."
+      ],
+      "reasoning": "Broader theorems checked do not dominate the claim: a Minkowski interpolation counterexample is logically independent of the sign of the constrained Hessian at a disk, and the ordinary-torsion Hessian concerns a different PDE and measure.",
+      "searches": [
+        "Gaussian torsional rigidity disk fixed perimeter Hessian Kummer hypergeometric lambda_k",
+        "Ornstein Uhlenbeck torsion disk support perturbation Fourier Kummer",
+        "unit disk Gaussian torsional rigidity local maximizer same perimeter centrally symmetric",
+        "web: classical torsional rigidity support function second variation disk"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.29941v1 full text",
+      "arXiv:2603.19164v1 full text",
+      "published-finding corpus semantic searches listed in the four originality checks",
+      "Current own ledger through generation g000034: all 33 finding claims searched for Gaussian torsion, torsional rigidity, Ornstein, fixed perimeter, and second variation",
+      "Web literature searches for Gaussian torsional rigidity second variation/Hadamard shape derivative and classical torsion support-function second variation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The lead paper states only a one-sided first-order lower bound for its Minkowski perturbation mechanism and notes that the exact Hadamard first variation is not proved there.",
+        "The lead paper separately asks whether the disk maximizes Gaussian torsional rigidity among centrally symmetric plane convex bodies with the same perimeter.",
+        "The companion paper does not provide a perimeter-constrained local Hessian."
+      ],
+      "reasoning": "A first-order lower bound along arbitrary Minkowski rays does not determine the exact second derivative on the codimension-one fixed-perimeter tangent space. The new Fourier/Kummer Hessian therefore is not a corollary or special case of the checked prior results.",
+      "searches": [
+        "Gaussian torsional rigidity unit disk fixed perimeter second variation support function Fourier mode Ornstein Uhlenbeck",
+        "unit disk Gaussian torsional rigidity local maximizer same perimeter centrally symmetric",
+        "primary full text: arXiv:2608.29941v1",
+        "primary full text: arXiv:2603.19164v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.29941v1: full text inspected; fixed-perimeter maximization is posed as open and no support-direction Hessian is stated.",
+        "arXiv:2603.19164v1: full text inspected; ball interpolation and general counterexamples are stated, with no fixed-perimeter second-variation formula.",
+        "published-finding corpus exact searches returned nearby Gaussian volume-product and fractional-perimeter Hessian/stability records, not Gaussian torsional rigidity."
+      ],
+      "reasoning": "Aliases checked included Gaussian torsion, Ornstein--Uhlenbeck torsion, shape/Hadamard derivative, support perturbation, Fourier Hessian, and local fixed-perimeter maximizer. These are statement-level equivalents or natural reformulations of the claim; none of the checked records states or implies the displayed Kummer-spectrum Hessian.",
+      "searches": [
+        "Gaussian torsional rigidity unit disk fixed perimeter second variation support function Fourier mode Ornstein Uhlenbeck",
+        "Gaussian torsion ball Hessian perimeter mean width Minkowski perturbation",
+        "Ornstein Uhlenbeck torsional rigidity Hadamard second shape derivative disk",
+        "T_gamma disk local maximum fixed perimeter convex bodies",
+        "web: \"Gaussian torsional rigidity\" \"second variation\" ball perimeter",
+        "web: \"Ornstein-Uhlenbeck\" torsional rigidity shape derivative Hadamard"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record or current own-ledger claim matched the Gaussian torsional-rigidity Hessian or its Kummer eigenvalues.",
+        "The object is a continuous shape functional rather than a standard finite classification/table entry; no exact database of these Hessian coefficients was located."
+      ],
+      "reasoning": "No standard exact table was found that could make the coefficient a lookup result. The explicit spectrum is derived from the OU boundary-value problem; keyword and semantic searches were used to rule out a directly indexed prior table or finding.",
+      "searches": [
+        "Gaussian torsional rigidity disk fixed perimeter Hessian Kummer hypergeometric lambda_k",
+        "web: \"Gaussian torsional rigidity\" Kummer Fourier Hessian",
+        "own-ledger: Gaussian torsion; torsional rigidity; Ornstein; fixed perimeter; second variation"
+      ]
+    },
+    "rationale": "The closest directly relevant 2026 papers establish Brunn--Minkowski failures, ball-only interpolation statements, and an explicit first-order disk calculation, but the lead paper expressly leaves the centrally symmetric fixed-perimeter maximization question open and says it does not prove the exact first variation. The new statement instead computes the full smooth centrally symmetric support-direction Hessian at the unit disk and proves every admissible mode is negative. Exact published-finding corpus searches for the Gaussian torsion Hessian, Kummer/Fourier formulation, fixed-perimeter local maximizer formulation, and aliases returned no covering record. Classical Laplace-torsion second variations are analogous but do not imply the Ornstein--Uhlenbeck coefficients.",
+    "residual_risks": [
+      "An unindexed or terminology-mismatched shape-calculus paper could contain the same weighted second variation; this is a residual originality risk because classical Laplace-torsion analogues exist.",
+      "The lead source open question is global, while the present theorem is only a smooth local second-variation result at the unit disk.",
+      "No claim is made that strict negativity of every smooth direction alone supplies a uniform Banach-space local-maximizer theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new Hessian claim. It supplies premises used here but explicitly does not prove an exact Hadamard first variation and leaves the centrally symmetric fixed-perimeter maximization problem open.",
+        "evidence": "arXiv:2608.29941v1; first public 2026-08-30; primary MSC 52A40.",
+        "identifier_or_url": "arXiv:2608.29941v1",
+        "material_read": "Full arXiv text sections covering definitions, the planar ball ODE, Proposition 3.3, discussion of exact first variation, and the concluding fixed-perimeter questions.",
+        "method": "Direct full-text inspection and statement/implication comparison.",
+        "title": "Failure of a Brunn--Minkowski-type inequality for the Gaussian torsional rigidity",
+        "trigger": "Lead 2026 geometry paper; it contains the explicit disk formula and states the same-perimeter question."
+      },
+      {
+        "assessment": "NOT_COVERING for the new fixed-perimeter support Hessian. Its positive result is restricted to centered balls along radius interpolation, while its negative results concern Minkowski convexity/concavity.",
+        "evidence": "arXiv:2603.19164v1; first public 2026-03-19.",
+        "identifier_or_url": "arXiv:2603.19164v1",
+        "material_read": "Full arXiv text portions containing the abstract, introduction/questions, definition of Gaussian torsional rigidity, counterexamples, and centered-ball result.",
+        "method": "Direct full-text inspection and implication comparison.",
+        "title": "Remarks on Brunn--Minkowski-type inequalities related to the Ornstein--Uhlenbeck operator",
+        "trigger": "Closest companion paper on the same OU torsional-rigidity functional and Minkowski interpolation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9ef21dd9-42c8-4af9-82f4-91a279390b24",
+  "value": {
+    "rationale": "The lead 2026 paper explicitly leaves the centrally symmetric same-perimeter maximization problem open. The finding resolves its natural local second-order test at the disk, supplies the complete Fourier-mode Hessian on the smooth centrally symmetric perimeter tangent space, and identifies the OU/Kummer spectral mechanism. This is structurally informative for the open geometric optimization problem and is not a routine recomputation of a known table or a parameter substitution.",
+    "status": "PASS"
+  }
+}
