@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The private-neighborhood proof exhausts all support patterns. A one-part set is independent, hence each selected vertex is self-private. If a set meets multiple parts, any selected vertex has positive degree inside the selected subgraph and must use an external private vertex. Complete-multipartite adjacency forces all other selected vertices into that private vertex's part; applying the argument from the opposite part forces exactly one selected vertex in each of two parts, and the two required omitted private vertices force both parts to have size at least two. This proves the classification. Maximality and both polynomials follow by direct counting. Literal exhaustive reconstruction through order 9 agrees on every tested subset.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alon–Defant, arXiv:1904.02595, Theorem 1.3: for a direct product of \\(n\\) complete multipartite graphs, every irredundant set is an independent set plus a set of size at most \\(2^n\\); their main equality theorem concerns direct products of balanced complete multipartite graphs.",
+        "Their full text defines \\(\\operatorname{IR}(G)\\) and states the direct-product host explicitly, so the object is not a single complete multipartite graph unless \\(n=1\\)."
+      ],
+      "reasoning": "The direct-product theorem is broader in host construction but weaker in the one-factor implication: at \\(n=1\\) it only bounds the non-independent residue by two vertices. It does not force those two vertices to lie in distinct non-singleton parts, does not classify maximal irredundant sets, and does not count all irredundant sets. Therefore it does not dominate the retained claim.",
+      "searches": [
+        "upper irredundance complete multipartite graph independence number",
+        "complete multipartite irredundance direct product",
+        "Isoperimetry stability irredundance direct products complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4153/CMB-1978-079-5",
+      "doi:10.1002/jgt.3190030306",
+      "arxiv:1812.03382",
+      "arxiv:1904.02595",
+      "url:https://mathworld.wolfram.com/IrredundancePolynomial.html",
+      "url:https://mathworld.wolfram.com/MaximalIrredundancePolynomial.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cockayne–Hedetniemi–Miller (1978) is identified by Mynhardt–Roux as introducing graph irredundance; the accessible abstract concerns hereditary hypergraphs and middle graphs.",
+        "Bollobás–Cockayne (1979) defines ir(G) and proves general domination/independence inequalities in the accessible abstract, not an exposed complete-multipartite classification.",
+        "Alon–Defant (2019/2020) gives a one-factor consequence \\(\\operatorname{IR}(G)\\le\\alpha(G)+2\\) from Theorem 1.3, while the present theorem proves \\(\\operatorname{IR}(G)=\\alpha(G)\\) and classifies every exceptional size-two pattern."
+      ],
+      "reasoning": "General domination-chain inequalities and the direct-product decomposition do not imply the exact one-factor set family. In particular, a bound of two exceptional vertices allows many configurations that the private-neighborhood argument rules out. The retained claim therefore requires the new exact converse.",
+      "searches": [
+        "Graph-theoretic parameters concerning domination independence irredundance complete multipartite",
+        "Properties hereditary hypergraphs middle graphs irredundance",
+        "all irredundant sets complete multipartite graphs private neighbors exact classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mynhardt–Roux, arXiv:1812.03382, defines irredundance using private neighborhoods and contains no occurrence of “multipartite”, “bipartite”, or “polynomial” in the inspected full text.",
+        "MathWorld defines the irredundance polynomial and maximal irredundance polynomial generically, without a complete-multipartite specialization on the inspected pages."
+      ],
+      "reasoning": "Private-neighbor, irredundance-number, upper-irredundance, irredundance-polynomial, and maximal-irredundance-polynomial terminology were compared. No alias located a statement equivalent to the exact three-case set classification or its two closed enumerators.",
+      "searches": [
+        "all irredundant sets complete multipartite graphs private neighbors exact classification",
+        "maximal irredundant sets complete multipartite graphs maximal irredundance polynomial",
+        "irredundance polynomial complete multipartite graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected MathWorld irredundance-polynomial page gives only the general definition \\(R_G(x)=\\sum_{k\\ge1}i_k(G)x^k\\) and cites general irredundance sources.",
+        "The inspected maximal-irredundance-polynomial page gives only the generic coefficient definition.",
+        "The semantic published-finding index returned nearby complete-multipartite results on independent sets, general position, and locating domination, but no exact irredundance table or family formula."
+      ],
+      "reasoning": "The result is a symbolic infinite-family classification rather than a finite-table recomputation. No exact database/table match surfaced; this negative result is used only as supporting evidence, not as novelty proof.",
+      "searches": [
+        "irredundance polynomial complete multipartite graphs",
+        "maximal irredundance polynomial complete multipartite graphs",
+        "published-finding corpus: maximal irredundant sets complete multipartite graphs maximal irredundance polynomial"
+      ]
+    },
+    "rationale": "The retained claim is the exact all-set and maximal-set classification, plus both irredundance counting polynomials, for a single arbitrary complete multipartite graph. The closest inspected full-text theorem is Alon–Defant Theorem 1.3 for direct products: in a product of \\(n\\) complete multipartite factors an irredundant set decomposes into an independent part and at most \\(2^n\\) exceptional vertices. For one factor that permits up to two exceptional vertices but does not identify the exact cross-pair obstruction, maximal sets, or counting polynomials. Foundational sources define irredundance and general parameter relations. Exact semantic searches returned no statement-equivalent published finding.",
+    "residual_risks": [
+      "The full 1979 foundational article was not available in the inspected lawful sources, so an unexposed family-specific statement in older literature remains a bibliographic risk.",
+      "Older literature may use private-neighbor or domination-chain terminology without the word “irredundance polynomial”; exact search cannot prove absence.",
+      "The scalar equality \\(\\operatorname{IR}(G)=\\alpha(G)\\) for one complete multipartite factor is compatible with later direct-product theory; originality is assigned to the exact all-set and maximal-set classification and the two enumerators, not merely to that scalar equality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_DEFINITIONS_NOT_COVERING",
+        "evidence": "The paper states that graph irredundance was introduced in 1978 and gives the private-neighborhood definition and AMS 05C69. No complete-multipartite or polynomial theorem appeared in the inspected searches.",
+        "identifier_or_url": "arxiv:1812.03382",
+        "material_read": "Introduction and definitions, including private neighborhoods, irredundant and maximal irredundant sets, lower and upper irredundance numbers, plus full-text searches for “multipartite”, “bipartite”, and “polynomial”.",
+        "method": "open-access full-text inspection",
+        "title": "Irredundance Graphs",
+        "trigger": "Modern full-text source for the exact private-neighborhood formulation, historical attribution, and primary subject classification."
+      },
+      {
+        "assessment": "BROADER_HOST_WEAKER_ONE_FACTOR",
+        "evidence": "Theorem 1.3 places every irredundant set in an independent part plus at most \\(2^n\\) exceptional vertices for an \\(n\\)-factor direct product. At \\(n=1\\) this is only a coarse two-exception bound and does not supply the exact one-factor classification or enumerators.",
+        "identifier_or_url": "arxiv:1904.02595",
+        "material_read": "Full-text abstract and introduction through Theorem 1.3, including the definitions of \\(\\operatorname{IR}(G)\\), the direct-product host, the equality problem, and the decomposition theorem.",
+        "method": "open-access full-text PDF inspection",
+        "title": "Isoperimetry, Stability, and Irredundance in Direct Products",
+        "trigger": "Closest theorem containing both irredundance and complete multipartite graphs."
+      },
+      {
+        "assessment": "FOUNDATIONAL_GENERAL_NOT_DECISIVE",
+        "evidence": "The abstract defines ir(G) and states general inequalities relating irredundance, domination, and independent domination. It does not expose a complete-multipartite all-set or polynomial formula.",
+        "identifier_or_url": "doi:10.1002/jgt.3190030306",
+        "material_read": "Publisher and repository abstracts and bibliographic record; full text was not available in the inspected lawful sources.",
+        "method": "abstract and bibliographic inspection",
+        "title": "Graph-theoretic parameters concerning domination, independence, and irredundance",
+        "trigger": "Foundational irredundance-parameter paper and plausible source of a family specialization."
+      },
+      {
+        "assessment": "FOUNDATIONAL_ARCHIVE_ANCHOR",
+        "evidence": "The article is dated 1978-12-01 and discusses graph parameters associated with vertex independence, dominance, and irredundance for middle graphs; it does not expose an arbitrary complete-multipartite classification.",
+        "identifier_or_url": "doi:10.4153/CMB-1978-079-5",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "publisher abstract inspection",
+        "title": "Properties of Hereditary Hypergraphs and Middle Graphs",
+        "trigger": "Earliest verified public source identified by the modern literature as introducing graph irredundance."
+      },
+      {
+        "assessment": "DEFINITIONS_ONLY",
+        "evidence": "The pages define the two polynomials generically and give no complete-multipartite specialization.",
+        "identifier_or_url": "url:https://mathworld.wolfram.com/IrredundancePolynomial.html",
+        "material_read": "Complete inspected reference pages for both polynomial definitions.",
+        "method": "public reference-page inspection",
+        "title": "Irredundance Polynomial; Maximal Irredundance Polynomial",
+        "trigger": "Exact database-style check for the two counting objects used in the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cea2cfd8-2f21-4961-82e0-e763b13e2079",
+  "value": {
+    "rationale": "This is a natural complete classification for a foundational domination-chain invariant on a canonical graph family. It determines every irredundant set and every maximal irredundant set, hence both standard counting polynomials and both extremal irredundance numbers. The result also sharpens the one-factor case suggested by the later direct-product decomposition: the allowed two-vertex residue is identified exactly as a transversal between non-singleton parts. This is structural information useful for maximal-irredundant-set enumeration and reconfiguration questions, rather than an arbitrary finite slice or a mere recomputation of a known scalar.",
+    "status": "PASS"
+  }
+}
