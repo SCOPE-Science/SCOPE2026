@@ -1,6 +1,7 @@
 # Review status
 
-Fresh independent audit: not yet performed.
+Fresh audit completed on 2026-09-30 UTC.
 
-The previously published mathematical claim is retained pending a new assessment. Historical independent judgments are inactive; existing computations are evidence, not a new audit.
-No new same-model or independent PASS is asserted.
+Disposition: **PASS**. Correctness, originality, and value each passed the current audit bar. See `INDEPENDENT_AUDIT_2026-09-30.md` and `.json` for evidence, sources, and residual risks.
+
+Lean verification and expert-attestation channels are unchanged.
