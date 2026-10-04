@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Under weak convergence and convergence of absolute first moments, the Kantorovich--Rubinstein test |x| gives the exact lower bound by the moment excess; clipping at [-R,R] gives a matching upper bound after R tends to infinity. Huang provides weak convergence of the reweighted laws and the exact perspective first-moment identity under the adopted assumptions. Uniform integrability of A_n and |B_n| gives the required primitive moment convergence. The call and put statements follow from continuous perspective integrands with a uniformly integrable linear-growth envelope, and compact-strike uniformity follows from equi-Lipschitzness. A deterministic three-atom checker independently verifies the formulas on a nontrivial signed-boundary example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beiglböck--Pammer--Riess (arXiv:2406.07523; SPA 192 (2026), 104779) extends change-of-numeraire structure to weak martingale transport and applications.",
+        "Huang explicitly contrasts its stability question with structural change-of-numeraire results and states the boundary obstruction at first order.",
+        "No inspected source gave a broader theorem that implies both the exact nonzero boundary W1 cost and the compact-strike signed price offsets."
+      ],
+      "reasoning": "Broader change-of-numeraire results focus on involutions/correspondences and transformed-moment hypotheses. Standard optimal-transport convergence theory supplies the tool for the metric step but does not itself identify the primitive boundary mass or its call/put signs.",
+      "searches": [
+        "call price vertical shift zero numeraire boundary payoff mass",
+        "positive negative boundary payoff call put asymptotic shift numeraire",
+        "Change of numeraire for weak martingale transport 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30329v1",
+      "arXiv:2406.07523 / DOI:10.1016/j.spa.2025.104779",
+      "Villani (2009), Theorem 6.9 via the motivating paper and corroborating statements",
+      "semantic database record 2026/9/12/SCOPE101 as the closest returned W2-stability record, scientifically inapplicable"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huang proves weak convergence of Gamma_n to Gamma even when Q charges a=0, and under UI(|B_n|) gives the limiting absolute first moments on both sides.",
+        "Huang concludes W1 -> 0 iff the boundary absolute-payoff mass is zero, but stops at this binary conclusion.",
+        "The new clipping lemma turns those two prior moment limits into an exact positive W1 limit; the perspective call/put identities then expose c_+ and c_- separately."
+      ],
+      "reasoning": "The prior statements supply essential premises but not the final metric or signed-price conclusions. The new claim is a strict quantitative refinement: it determines the full limiting defect whenever the source criterion fails, rather than only detecting failure.",
+      "searches": [
+        "change of numeraire boundary residue exact Wasserstein distance limit",
+        "change of numeraire exact nonzero W1 boundary defect payoff mass zero numeraire"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.30329v1, Proposition 2.1: exact call and first-moment perspective identities.",
+        "arXiv:2609.30329v1, Corollary 3.4(a): W1 convergence iff the zero-numeraire boundary |b|-mass vanishes under payoff uniform integrability.",
+        "Targeted semantic-database searches returned no record stating the nonzero W1 limit or the signed call/put decomposition."
+      ],
+      "reasoning": "The candidate is not merely a reformulation of the source iff criterion: an iff zero condition does not in general determine the magnitude of a metric when nonzero. The proof needs a separate clipping argument showing that, in this one-dimensional weak-limit setting, all excess absolute first moment is exactly the asymptotic W1 cost.",
+      "searches": [
+        "change of numeraire exact nonzero W1 boundary defect payoff mass zero numeraire",
+        "weak convergence first moment defect exact Wasserstein distance escaped mass",
+        "Stability of Change-of-Numeraire Reweighting exact Wasserstein boundary Huang 2609.30329"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic-database hit: 2026/9/12/SCOPE101, on W2 stability of commuting-Gaussian entropic transport, a different map and regime.",
+        "Other close hits concern weak topologies, rare Bernoulli total variation, or unrelated boundary layers; none tabulates the change-of-numeraire defect."
+      ],
+      "reasoning": "No exact database/table coverage of the stated formula was found. This negative search is supportive only; originality rests primarily on statement-level comparison with the highly relevant motivating paper.",
+      "searches": [
+        "weak convergence first absolute moment excess exact Wasserstein-1 distance limit",
+        "W1 defect weak convergence moment loss escaping mass exact limit"
+      ]
+    },
+    "rationale": "The inspected motivating source states the iff condition for W1 convergence and computes the boundary first-moment residue, but does not identify the exact nonzero W1 distance limit or the two one-sided call/put offsets. The structural weak-martingale-transport predecessor does not state this boundary quantification in its accessible abstract, and targeted database/web searches returned no stronger coverage. The generic transport lemma is treated as a standard tool, not as the originality claim.",
+    "residual_risks": [
+      "A generalized Young-measure, concentration-measure, or optimal-transport source may encode the generic first-moment escape identity in broader language; the generic lemma is therefore not presented as the novelty claim.",
+      "The full text of Beiglböck--Pammer--Riess was not directly inspected; its open abstract and Huang's detailed comparison were inspected. This is not a decisive unresolved comparison because its stated topic is structural change-of-numeraire transport, whereas Huang is the direct stability paper.",
+      "No finite-n convergence rate is established, and no additive defect formula is claimed for W_s with s>1."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESSENTIAL PREMISE / NOT COVERING FINAL CLAIM. It proves weak convergence, the W1 zero-boundary iff criterion, and the limiting first-moment residue, but does not state the exact nonzero W1 limit or the positive/negative call-put vertical offsets.",
+        "evidence": "The source states W1(Gamma_n,Gamma)->0 iff integral_{a=0}|b| dQ=0 and separately displays the two limiting absolute first moments; its pricing application asserts uniform call-curve convergence only in a boundary-free regime.",
+        "identifier_or_url": "arXiv:2609.30329v1",
+        "material_read": "Full arXiv HTML sections containing the definition, Proposition 2.1, Theorem 3.3/Corollary 3.4(a), sharpness discussion, and annuity-measure application; especially equations (3), (6), and (8).",
+        "method": "Primary full-text inspection.",
+        "title": "Stability of Change-of-Numéraire Reweighting: An Exact Wasserstein Boundary",
+        "trigger": "Direct source of the first-order zero-numeraire boundary obstruction and the closest possible coverage."
+      },
+      {
+        "assessment": "NOT COVERING in inspected material. The paper concerns extension of the change-of-numeraire correspondence to weak martingale transport, shadow couplings, and continuous time, not quantitative zero-numeraire boundary defects.",
+        "evidence": "The abstract describes structural applications and geometric/stretched Brownian correspondence; no boundary-residue or call/put offset theorem is stated there.",
+        "identifier_or_url": "arXiv:2406.07523; DOI:10.1016/j.spa.2025.104779",
+        "material_read": "Institutional open-access abstract and bibliographic record; Huang's detailed comparison to this work was also read.",
+        "method": "Open institutional record plus statement-level comparison in the primary motivating source.",
+        "title": "Change of numeraire for weak martingale transport",
+        "trigger": "Closest earlier paper with the same change-of-numeraire operation in transport."
+      },
+      {
+        "assessment": "GENERIC TOOL. It characterizes when W1 tends to zero but does not identify the nonzero asymptotic defect for the change-of-numeraire boundary or its price decomposition.",
+        "evidence": "Huang cites Villani Theorem 6.9 exactly at the step from weak convergence plus moment convergence to W_s convergence.",
+        "identifier_or_url": "Villani (2009), Theorem 6.9",
+        "material_read": "The theorem was checked through Huang's explicit use and multiple secondary statements of the weak-plus-moment criterion; no claim of novelty is made for this component.",
+        "method": "Citation-chain verification rather than full-book inspection.",
+        "title": "Optimal Transport: Old and New, Theorem 6.9",
+        "trigger": "Huang invokes it for the standard weak-plus-moment characterization of Wasserstein convergence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0638cfe1-668b-41fa-9cd8-5f7457e2d6a1",
+  "value": {
+    "rationale": "The result resolves a natural quantitative question left immediately by the source's exact binary boundary: how large is the first-order failure when it occurs? The answer is the same primitive boundary mass divided by the limiting numeraire mean, with a sign-resolved price interpretation. This supplies an exact metric severity and an entire compact-strike pricing signature for a boundary regime central to the source, rather than a routine recomputation or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
