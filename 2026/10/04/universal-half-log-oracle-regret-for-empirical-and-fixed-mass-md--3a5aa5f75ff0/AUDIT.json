@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For an interior oracle the bounded log-growth score satisfies \\(P h_{\\lambda^\\star}=0\\) and the exact information identity \\(\\operatorname{Var}(h_{\\lambda^\\star})=P h_{\\lambda^\\star}^2=-M''(\\lambda^\\star)=J\\). A local score equation, exponentially small boundary-event control, and bounded-summand moment bounds yield the asymptotic normal law and second/third moment limits. Taylor expansion then gives the one-step expected regret constant \\(1/2\\); harmonic summation gives cumulative \\(\\tfrac12\\log N+o(\\log N)\\). A fixed MDP component perturbs the score by uniformly \\(O(n^{-1})\\), so it does not alter the leading law. The deterministic Bernoulli checker independently confirms the coefficient in exactly summed finite-sample examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical prequential ML literature gives half-logarithmic redundancy in regular parametric likelihood models.",
+        "Orabona--Jun give regret guarantees for a universal-portfolio mixture centered on the best fixed bet in hindsight.",
+        "Wang--Agrawal--Ramdas prove almost-sure null bankruptcy for GRAPA and other strategies."
+      ],
+      "reasoning": "The inspected broader theorems use normalized parametric log loss, a different universal-portfolio algorithm/comparator, or merely bankruptcy. None directly implies the distribution-free bounded-mean expected oracle-gap expansion with an arbitrary predictable MDP perturbation. A generic sequential M-estimation theorem may cover the empirical special case under different terminology, which is retained as a residual risk.",
+      "searches": [
+        "prequential maximum likelihood regret d/2 log n",
+        "1/2 log n follow the leader stochastic regret strongly convex",
+        "Tight Concentrations and Confidence Sequences from the Regret of Universal Portfolio",
+        "Almost sure null bankruptcy of testing-by-betting strategies GRAPA regret"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.07964v1",
+      "doi:10.1093/jrsssb/qkad128",
+      "doi:10.1093/jrsssb/qkad009",
+      "doi:10.1109/TIT.2023.3330187",
+      "arXiv:2602.08888v1",
+      "MSC2020 62L12 descriptor",
+      "indexed public mathematical research records returned by the stated semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source gives expected Wasserstein error of order \\(n^{-1/2}\\) for MDP; inserted into its finite-sample comparison this yields only an \\(O(\\sqrt N)\\) cumulative upper bound.",
+        "Grünwald explicitly describes \\(\\tfrac12\\log N+O(1)\\) for GRAPA as suspected, by analogy to parametric prequential ML.",
+        "Orabona--Jun analyze universal portfolio rather than the empirical/MDP optimizer.",
+        "Wang--Agrawal--Ramdas establish almost-sure bankruptcy, not the inspected expected half-log rate."
+      ],
+      "reasoning": "The new implication is strictly sharper than the quantitative guarantee obtained from the motivating source and resolves the leading coefficient suggested but not proved in the GRAPA discussion, while also showing fixed MDP prior mass is asymptotically second-order neutral.",
+      "searches": [
+        "arXiv:2605.07964v1 Theorem 4.2 Proposition 5.1",
+        "doi:10.1093/jrsssb/qkad128 GRAPA REGROW regret",
+        "doi:10.1109/TIT.2023.3330187 best fixed betting strategy in hindsight",
+        "arXiv:2602.08888v1 abstract GRAPA null bankruptcy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kilian--Cortinovis--Caron Theorem 4.1 proves first-order log-optimality and Theorem 4.2 gives a linear Wasserstein-error bound; Section 5.2 identifies \\(\\kappa=0\\) with GRAPA and fixed \\(\\kappa\\) with the MDP predictive.",
+        "Grünwald states that GRAPA is a prequential empirical plug-in analogue, says he suspects half-logarithmic regret similar to the parametric case, and explicitly calls for further theoretical analysis."
+      ],
+      "reasoning": "The closest same-object source treats the half-log behavior as an expectation/conjectural analogy, not a proved result. The new statement proves the exact leading one-step constant and its cumulative consequence, and extends it to arbitrary predictable fixed-mass MDP components.",
+      "searches": [
+        "universal half-log oracle regret empirical predictive bounded-mean betting MDP",
+        "n times expected log-growth regret tends to one half GRAPA",
+        "mixture-DP fixed kappa half log regret bounded mean betting",
+        "interior oracle empirical growth maximizer expected regret one half log n",
+        "arXiv:2605.07964v1 full text: searches for regret, second-order, empirical predictive",
+        "doi:10.1093/jrsssb/qkad128 full-text extract: GRAPA, REGROW, regret"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed public mathematical records returned by the actual semantic searches concern limited-independence stopping bias, testing quantization, heterogeneous Bernoulli Chernoff envelopes, and stochastic-optimization curvature rather than predictive bounded-mean betting."
+      ],
+      "reasoning": "No exact stored claim, table, or indexed public research record located in the required searches contains the theorem or a stronger statement that implies it. This negative search is treated only as supporting evidence, not as a proof of novelty.",
+      "searches": [
+        "universal half-log oracle regret empirical predictive bounded-mean betting MDP",
+        "n times expected log-growth regret tends to one half GRAPA",
+        "mixture-DP fixed kappa half log regret bounded mean betting",
+        "interior oracle empirical growth maximizer expected regret one half log n"
+      ]
+    },
+    "rationale": "The motivating 2026 paper proves only first-order log-optimality and an MDP Wasserstein error rate. Grünwald explicitly presents half-log GRAPA regret as suspected rather than proved. Universal-portfolio and null-bankruptcy papers address different algorithms/comparators or different asymptotic questions. Targeted mathematical-database searches found no equivalent or stronger claim in the inspected indexed records. The residual possibility of a generic sequential M-estimation theorem implying the empirical special case is disclosed; no inspected theorem also covers the arbitrary predictable fixed-mass MDP extension.",
+    "residual_risks": [
+      "A sufficiently general sequential M-estimation/prequential theorem not retrieved here may imply the empirical \\(\\kappa=0\\) half-log coefficient under different terminology.",
+      "Full text of arXiv:2602.08888 was not available through the inspected public HTML interface; abstract-level evidence was inspected, so an unobserved finer null-rate statement remains an access risk.",
+      "No \\(O(1)\\) cumulative remainder is claimed; the proof establishes only the leading \\(\\tfrac12\\log N+o(\\log N)\\) term."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides first-order oracle convergence, a Wasserstein-error comparison, and MDP consistency, but no half-log second-order oracle-regret expansion.",
+        "evidence": "Theorem 4.2 bounds average oracle loss linearly by average expected Wasserstein error; Proposition 5.1 gives MDP error \\(O(n^{-1/2})\\).",
+        "identifier_or_url": "arXiv:2605.07964v1",
+        "material_read": "Full arXiv HTML: Sections 3, 4, 5.2 and Appendix A.3, including Theorems 4.1--4.2 and Proposition 5.1.",
+        "method": "Full-text statement and proof comparison.",
+        "title": "Asymptotically Log-Optimal Bayes-Assisted Confidence Sequences for Bounded Means",
+        "trigger": "Same predictive-assisted betting object and MDP construction."
+      },
+      {
+        "assessment": "Explicitly suspects GRAPA should attain half-logarithmic regret by analogy with parametric prequential ML and calls for further theoretical analysis; it does not prove the claim.",
+        "evidence": "The inspected text says GRAPA is an almost-REGROW empirical plug-in and that similar \\(\\tfrac12\\log t+O(1)\\) regret is suspected.",
+        "identifier_or_url": "doi:10.1093/jrsssb/qkad128",
+        "material_read": "Oxford full-text extract and author-hosted PDF text around Section 3.",
+        "method": "Statement-level comparison.",
+        "title": "Proposer of the vote of thanks to Waudy-Smith and Ramdas and contribution to the Discussion of Estimating means of bounded random variables by betting",
+        "trigger": "Direct discussion of GRAPA, REGROW and regret."
+      },
+      {
+        "assessment": "Controls regret for universal-portfolio betting around the best fixed strategy in hindsight; it is not the empirical/MDP predictive optimizer and does not imply the stated expected oracle-gap expansion.",
+        "evidence": "The abstract identifies the best fixed betting strategy in hindsight as the center of the concentration result.",
+        "identifier_or_url": "doi:10.1109/TIT.2023.3330187",
+        "material_read": "Publisher abstract and accessible theoretical summary.",
+        "method": "Algorithm/comparator implication comparison.",
+        "title": "Tight Concentrations and Confidence Sequences From the Regret of Universal Portfolio",
+        "trigger": "Closest established half-log-type betting regret comparator."
+      },
+      {
+        "assessment": "Establishes almost-sure bankruptcy for GRAPA and other betting strategies. The inspected material does not state the expected \\(-\\tfrac12\\log N\\) log-wealth rate.",
+        "evidence": "The abstract describes almost-sure convergence of wealth to zero and distinguishes this from prior regret results.",
+        "identifier_or_url": "arXiv:2602.08888v1",
+        "material_read": "arXiv/PMLR abstract and indexed formula summary; public HTML full text was unavailable.",
+        "method": "Abstract-level scope comparison with access limitation recorded.",
+        "title": "Almost sure null bankruptcy of testing-by-betting strategies",
+        "trigger": "Directly studies GRAPA under the null."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3a5aa5f7-5ff0-42ef-b283-e96765dd8177",
+  "value": {
+    "rationale": "The result answers a specifically identified theoretical gap in GRAPA regret analysis and sharpens the 2026 Bayes-assisted MDP guarantee from a generic cumulative \\(O(\\sqrt N)\\) consequence to the exact logarithmic leading order under a natural interior regime. The prior-neutral leading coefficient gives a concrete design interpretation: any fixed amount of prior predictive mass can change finite-sample behavior without paying second-order asymptotic oracle regret. The null corollary also quantifies expected bankruptcy speed, complementing qualitative almost-sure bankruptcy results.",
+    "status": "PASS"
+  }
+}
