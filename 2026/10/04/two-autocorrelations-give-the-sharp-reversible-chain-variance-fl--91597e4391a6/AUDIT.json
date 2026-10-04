@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For the normalized reversible spectral measure, \\\\(\\rho_1\\\\) and \\\\(\\rho_2\\\\) are the first two moments. Cauchy--Schwarz applied to the exact factorization of \\\\(1+\\lambda\\\\) yields the claimed lower bound. Equality conditions force support on \\\\(\\{-1,q\\}\\\\), and the moment equations determine both \\\\(q\\\\) and its mass. The explicit four-state symmetric kernel realizes all feasible pairs, while recalibrated lazification proves the finite aperiodic sharp infimum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Häggström--Rosenthal explicitly define the reversible spectral measure and the standard spectral asymptotic-variance integral.",
+        "Longla studies asymptotically linear variance and the associated spectral integrability condition.",
+        "Berg--Song represent reversible autocovariances as moments of a measure on \\\\([-1,1]\\\\) and study shape-constrained estimation.",
+        "Geyer is a classical source for reversible MCMC variance estimation and autocovariance-based efficiency analysis."
+      ],
+      "reasoning": "These sources cover the general spectral and MCMC frameworks but do not optimize the spectral asymptotic-variance functional subject only to its first two moments. The new statement solves that constrained moment problem and adds exact finite-state sharpness.",
+      "searches": [
+        "DOI:10.1214/ECP.v12-1336",
+        "arXiv:1310.8239",
+        "arXiv:2207.12705",
+        "DOI:10.1214/ss/1177011137"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1214/ss/1177011137",
+      "DOI:10.1214/ECP.v12-1336",
+      "arXiv:1310.8239",
+      "arXiv:2207.12705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Geyer's paired-autocovariance methodology groups adjacent lags for estimation and does not state a lower envelope from the first two individual lags.",
+        "Berg--Song's moment representation supplies the measure-theoretic setting but does not state the constrained optimum.",
+        "The closest prior fixed-slot finding concerns non-identifiability of an entire autocovariance sequence from paired sums, not a lower bound on asymptotic variance from \\\\(\\rho_1,\\rho_2\\\\)."
+      ],
+      "reasoning": "Neither paired-sequence estimation nor moment representation alone implies the claimed sharp constant without solving the first-two-moment extremal problem and its equality conditions. The finite-state all-pair realization and aperiodic sharpness are additional non-implications.",
+      "searches": [
+        "Geyer initial positive sequence paired autocovariance asymptotic variance",
+        "Berg Song reversible autocovariance moment sequence paired sequence",
+        "Haggstrom Rosenthal spectral asymptotic variance reversible Markov chain",
+        "own reversible paired autocovariance information loss"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned reversible-chain variance, spectral, and dependence results but no matching two-lag formula.",
+        "Exact raw-autocovariance and normalized-autocorrelation searches did not return the claimed ratio."
+      ],
+      "reasoning": "The queries cover the normalized autocorrelation, raw autocovariance, integrated-autocorrelation-time, effective-sample-size, and two-point spectral-equality formulations. Search failure is not used as a novelty proof; it is combined with statement-level comparison against the strongest relevant full texts.",
+      "searches": [
+        "reversible Markov chain asymptotic variance first two autocorrelations rho1 rho2 sharp lower bound",
+        "integrated autocorrelation time lag one lag two spectral measure Cauchy Schwarz",
+        "asymptotic variance observable reversible chain rho1 rho2 equality two point spectrum",
+        "effective sample size lower bound autocorrelation lag 1 lag 2 reversible",
+        "\"gamma_0+gamma_1\" \"gamma_0-gamma_2\" asymptotic variance Markov chain",
+        "\"asymptotic variance\" \"(gamma0+gamma1)^2\" autocovariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record or table with denominator \\\\(1-\\rho_2\\\\) and numerator \\\\((1+\\rho_1)^2\\\\) was returned."
+      ],
+      "reasoning": "The result is symbolic for every feasible two-lag moment pair and includes equality classification and realizability, rather than being a finite numerical table.",
+      "searches": [
+        "\"reversible Markov chain\" \"lag two\" autocorrelation asymptotic variance bound",
+        "\"spectral measure\" reversible Markov chain asymptotic variance Cauchy Schwarz autocorrelation",
+        "\"first two autocovariances\" \"asymptotic variance\" reversible"
+      ]
+    },
+    "rationale": "The closest inspected sources establish the reversible spectral representation, asymptotic-variance formulas, and moment-sequence structure of autocovariances. No inspected statement or searched record gives the exact two-lag lower envelope together with its equality fiber and all-pair finite-state realization.",
+    "residual_risks": [
+      "Classical truncated-moment or operator variational literature may contain the same Cauchy--Schwarz envelope under different notation.",
+      "The full Geyer 1992 publisher text was not machine-accessible through the checked route, so no whole-document noncoverage claim is made for it.",
+      "The bound is elementary once the spectral formulation is recognized; originality rests on the exact two-lag extremal statement, equality fiber, and all-pair finite-state sharpness rather than on a new inequality technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_SPECTRAL_FORMULA_NOT_TWO_LAG_ENVELOPE",
+        "evidence": "The paper gives the standard integral of \\\\( (1+\\lambda)/(1-\\lambda) \\\\) against the observable spectral measure and studies when it equals other asymptotic-variance expressions. It does not state the two-moment Cauchy--Schwarz lower envelope or its equality realization.",
+        "identifier_or_url": "DOI:10.1214/ECP.v12-1336",
+        "material_read": "Open 13-page PDF, with focused inspection of the notation/background pages defining autocovariances and the spectral measure, the displayed spectral variance formula, Theorem 4 comparing variance expressions, and the periodic example.",
+        "method": "Compared the optimized data, moment constraints, equality conditions, and whether any bound using only the first two autocorrelations is stated.",
+        "title": "On Variance Conditions for Markov Chain CLTs",
+        "trigger": "Closest full primary source for the exact reversible spectral asymptotic-variance functional."
+      },
+      {
+        "assessment": "SPECTRAL_LIMIT_THEORY_NOT_TWO_MOMENT_OPTIMUM",
+        "evidence": "The article relates reversible partial-sum variance to spectral integrability and gives spectral covariance formulas, but the inspected statements do not optimize the variance functional at fixed lag-one and lag-two correlations.",
+        "identifier_or_url": "arXiv:1310.8239",
+        "material_read": "Full arXiv HTML at the abstract, setup, spectral-measure identities, and variance-integrability statements.",
+        "method": "Checked whether the first two spectral moments are used to derive an exact asymptotic-variance floor.",
+        "title": "Remarks on limit theorems for reversible Markov processes",
+        "trigger": "Full spectral-limit-theorem source discussing asymptotically linear variance and spectral integrability."
+      },
+      {
+        "assessment": "MOMENT_REPRESENTATION_NOT_EXTREMAL_BOUND",
+        "evidence": "The paper identifies reversible autocovariances as a moment sequence and develops shape-constrained estimation. The inspected results do not state the claimed lower envelope, equality support, or finite-state sharpness construction.",
+        "identifier_or_url": "arXiv:2207.12705",
+        "material_read": "Full arXiv HTML sections giving the moment representation on \\\\([-1,1]\\\\), asymptotic-variance context, and the initial-sequence discussion.",
+        "method": "Compared its moment constraints and estimands with the exact first-two-moment extremal problem.",
+        "title": "Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain",
+        "trigger": "Strongest modern source found on the moment-sequence structure of reversible autocovariances and Geyer-type paired sequences."
+      },
+      {
+        "assessment": "ARCHIVE_ANCHOR_PARTIAL_ACCESS",
+        "evidence": "The verified record gives public date 1992-11-01 and describes reversible-chain CLT, Monte Carlo error, variance estimation, efficiency, and diagnostics. Because the full publisher text was not read through the accessible route, it remains a residual comparison risk.",
+        "identifier_or_url": "DOI:10.1214/ss/1177011137",
+        "material_read": "Verified bibliographic record, publication date, abstract, and scope; the publisher full-text route presented an automated-access security check.",
+        "method": "Used for archive dating and classical scope only, not for a whole-document noncoverage conclusion.",
+        "title": "Practical Markov Chain Monte Carlo",
+        "trigger": "Archive anchor and classical MCMC variance-estimation source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91597e43-91a6-4eba-aa86-4d327cb3fdce",
+  "value": {
+    "rationale": "Asymptotic variance directly controls Monte Carlo error and effective sample size in reversible MCMC. The result gives the exact best possible lower guarantee from the two most accessible autocorrelations, strictly strengthens the one-lag bound when the lag-two moment is nondegenerate, and completely characterizes equality and aperiodic sharpness. This is a natural constrained spectral-moment classification rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
