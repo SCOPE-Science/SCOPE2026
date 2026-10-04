@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The full LP is exactly reduced by proving every vertex pair is an exact resolving neighborhood and exhaustively classifying singleton neighborhoods; nonnegative pair constraints then dominate every larger resolving neighborhood. The reduced programs are solved analytically, including uniqueness. The unreduced LP and coordinate ranges are independently replayed for n=2..20.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kelenc et al. formulate the mixed metric problem with binary variables and element-pair constraints, but do not relax the variables continuously.",
+        "Ghalavand--Klavzar--Tavakoli study the integer max-mdim class and universal vertices; they explicitly note K4-e is max-mdim.",
+        "Rahmadi studies the integer mixed metric dimension of double fans, not the LP optimum or fractional optimizer."
+      ],
+      "reasoning": "These sources establish the integer model and integer benchmarks, but an integer optimum does not imply the continuous optimum, the optimum face, or the integrality ratio.",
+      "searches": [
+        "arXiv:1611.04292 full text, optimization formulation and Sections 2--3",
+        "arXiv:2305.19620 full text, introduction and Proposition 2.6",
+        "DOI 10.35508/jd.v6i1.12526 full PDF, Lemma 3.1 and Theorem 3.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1611.04292v1",
+      "DOI:10.1016/j.amc.2017.07.027",
+      "arXiv:2305.19620",
+      "DOI:10.1007/s40314-023-02351-5",
+      "DOI:10.35508/jd.v6i1.12526",
+      "targeted published-finding corpus searches for mixed-metric fractional/LP terminology",
+      "targeted web searches for fractional mixed resolving sets and double-fan bases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The foundational formulation requires binary variables, so its optimum is the integer mixed metric dimension.",
+        "The 2023 universal-vertex/max-mdim results constrain integer membership in mixed resolving sets and do not fix fractional weights.",
+        "The 2024 double-fan theorem reports an integer cardinality and contains no continuous optimization or uniqueness statement."
+      ],
+      "reasoning": "Even complete knowledge of the integer dimension does not determine the LP relaxation. The new proof depends on exact resolving-neighborhood geometry, which yields a complete fractional optimizer and a near-two gap not implied by the cited integer theorems.",
+      "searches": [
+        "Compare Kelenc et al. binary program at arXiv:1611.04292 with the relaxed constraints",
+        "Compare Ghalavand et al. Proposition 2.6 and K4-e example with the continuous problem",
+        "Inspect Rahmadi Theorem 3.1 and its displayed resolving set"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned record stated a continuous relaxation of the mixed-metric covering program or a double-fan fractional optimum.",
+        "The closest web results concern ordinary mixed metric dimension, dominant mixed metric dimension, mixed fault-tolerant dimension, or fractional metric dimension rather than this relaxation."
+      ],
+      "reasoning": "The claimed object is the continuous relaxation of constraints that distinguish vertices and edges simultaneously. Results for integer mixed dimension or for fractional vertex-only/edge-only resolving parameters do not determine this polytope.",
+      "searches": [
+        "published-finding corpus: mixed metric dimension linear programming relaxation fractional",
+        "published-finding corpus: mixed metric dimension LP relaxation integrality gap",
+        "published-finding corpus: fractional mixed resolving set graph",
+        "published-finding corpus: fractional mixed metric dimension graph",
+        "web: \"mixed metric dimension\" \"linear programming\" relaxation",
+        "web: \"mixed metric dimension\" fractional resolving",
+        "web: \"mixed metric generator\" fractional",
+        "web: \"mixed metric dimension\" \"integrality gap\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct 2024 double-fan article was located on the web, but no database record in the searches supplied an LP-relaxation table or fractional optimizer.",
+        "published-finding corpus returned resolving-parameter records for other graph classes and invariants, with no equivalent double-fan LP claim."
+      ],
+      "reasoning": "Neither exact family searches nor optimization-term searches produced the claimed value or optimizer; closest records differ in either invariant or graph family.",
+      "searches": [
+        "published-finding corpus: mixed metric dimension double fan graph",
+        "published-finding corpus: double fan mixed metric basis f_2_n",
+        "published-finding corpus: mixed resolving sets double fan bases",
+        "published-finding corpus: Rahmadi mixed metric double fan correction n=2",
+        "web: \"mixed metric dimension\" \"double fan\" bases",
+        "web: \"double fan graph\" \"mixed metric basis\""
+      ]
+    },
+    "rationale": "Prior work contains the binary mixed-metric program and integer double-fan values, but no inspected source or targeted database/web search gives the continuous relaxation, unique fractional optimizer, or integrality gap.",
+    "residual_risks": [
+      "An unindexed paper may study the same LP relaxation under different terminology.",
+      "Because the relaxation does not appear to have standard nomenclature in the inspected literature, terminology-based searches may miss a formulation embedded in an algorithms paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper introduces mixed metric dimension and a binary covering formulation. It does not study the continuous relaxation or an integrality gap.",
+        "evidence": [
+          "First public arXiv date 14 November 2016.",
+          "The manuscript lists AMS Subject Classification 05C12, 05C76, 05C90.",
+          "The optimization model uses binary variables and one constraint for each pair of graph elements."
+        ],
+        "identifier_or_url": "arXiv:1611.04292v1 / DOI:10.1016/j.amc.2017.07.027",
+        "material_read": "ArXiv manuscript first page, Sections 2--3 around the mixed-metric integer programming model, Lemma 3.7, and Theorem 3.8.",
+        "method": "Primary full-text statement and implication comparison, including visual inspection of the first PDF page.",
+        "title": "Mixed metric dimension of graphs",
+        "trigger": "Foundational definition, primary MSC ownership, and possible prior LP coverage."
+      },
+      {
+        "assessment": "It already implies the integer endpoint mdim(F_{2,2})=4, so that fact is treated as prior. It contains no continuous relaxation result.",
+        "evidence": [
+          "The paper explicitly states K4-e is max-mdim.",
+          "Proposition 2.6 says two universal vertices force max-mdim."
+        ],
+        "identifier_or_url": "arXiv:2305.19620 / DOI:10.1007/s40314-023-02351-5",
+        "material_read": "Accessible arXiv text covering the definition, Theorem 1.1, the K4-e observation, and Proposition 2.6 on universal vertices.",
+        "method": "Primary full-text implication comparison.",
+        "title": "Graphs whose mixed metric dimension is equal to their order",
+        "trigger": "Potential broader coverage of the n=2 double fan and max-mixed-dimensional graphs."
+      },
+      {
+        "assessment": "The article studies only the integer mixed metric dimension. It states n+1 for n>=2; its displayed upper-bound set contains all n+2 vertices. No fractional weights, LP relaxation, optimum-face description, or integrality gap appears.",
+        "evidence": [
+          "Published 9 February 2024.",
+          "Theorem 3.1 states the integer value n+1 for n>=2.",
+          "The proof displays S={u1,u2,v1,...,vn}, which has n+2 vertices."
+        ],
+        "identifier_or_url": "DOI:10.35508/jd.v6i1.12526",
+        "material_read": "Full five-page open PDF, especially the double-fan definition, Lemma 3.1, Theorem 3.1, the displayed metric representations, conclusion, and references; theorem pages were visually inspected.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "Mixed Metric Dimension of Double Fan Graph",
+        "trigger": "Direct same-object integer result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2fcec9f0-e2f2-4be8-9a11-307a634b32b2",
+  "value": {
+    "rationale": "The relaxation is not an arbitrary new parameter: it is the direct continuous relaxation of the foundational binary optimization model. The exact unique optimizer and asymptotically factor-two integrality gap provide a natural benchmark for formulation strength and mixed-metric optimization on a standard graph family.",
+    "status": "PASS"
+  }
+}
