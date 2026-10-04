@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A multinomial contact-class count is the law of independent with-replacement category draws, while a hypergeometric count is the law of distinct without-replacement sampling. The exact multivariate-hypergeometric infection probability follows by conditioning on the two infectious contact counts. For one infectious person it simplifies to N*q/M, and the published power formula is strictly smaller for N>1. The M=N=2, q=1 witness is exact and exposes a 1 versus 3/4 contradiction. The bundled exact-arithmetic checker separately enumerates finite contact subsets and reproduces the formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tuckwell and Williams explicitly use a binomial approximation only when population size is much greater than the contact count.",
+        "Ferrante, Ferraris, and Rovira describe daily contacts with different individuals and again introduce the binomial contact law under a large-population approximation.",
+        "The later time-dependent SIR literature continues the same model family but does not supply the source-specific correction identified here."
+      ],
+      "reasoning": "The broader literature establishes the sampling distinction itself, so novelty is not assigned to hypergeometric combinatorics. That prior work instead strengthens the source-specific diagnosis: the approximation qualifier present in the predecessor framework disappears from the exact contagion statement while a hypergeometric law is retained elsewhere.",
+      "searches": [
+        "\"Some properties of a simple stochastic epidemic model of SIR type\" hypergeometric binomial contacts",
+        "\"On a stochastic epidemic SEIHR model and its diffusion approximation\" exact contact probability",
+        "finite population epidemic contacts without replacement hypergeometric binomial approximation",
+        "\"Time-dependent non-homogeneous stochastic epidemic model of SIR type\" contact distribution"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2020490",
+      "doi:10.1016/j.mbs.2006.09.018",
+      "doi:10.1007/s11749-015-0465-z",
+      "doi:10.3934/math.20231181"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The predecessor theory implies that the simple power formula is an approximation to a distinct-contact finite-population model, but it predates the COVID model and does not state that the 2020 paper combines incompatible exact laws.",
+        "The earlier SEIHR extension similarly distinguishes different-person contacts from its large-population approximation.",
+        "The primary paper uses the power formula directly for its simulation transition probability and separately invokes a hypergeometric contact count."
+      ],
+      "reasoning": "Prior results cover the general approximation mechanism but do not imply away the source-specific contradiction because the final claim is about simultaneous exact statements in a later two-infectious-class model. The multivariate hypergeometric correction and saturation witness make that comparison explicit.",
+      "searches": [
+        "\"10.3934/math.2020490\" hypergeometric",
+        "\"10.3934/math.2020490\" multinomial",
+        "\"A stochastic epidemic model of COVID-19 disease\" exact finite population",
+        "\"Some properties of a simple stochastic epidemic model of SIR type\" binomial approximation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper gives a multinomial contact-class derivation for beta and later says a susceptible-contact count is hypergeometric.",
+        "Exact DOI/title searches returned the article and bibliographic copies but no erratum or source-specific finite-population correction.",
+        "Published-finding searches returned unrelated hypergeometric/multinomial results and epidemic results but no correction of this DOI."
+      ],
+      "reasoning": "The same inconsistency can be formulated as a replacement-versus-nonreplacement conflict, a multinomial-versus-hypergeometric conflict, or a saturation-boundary failure. The searches covered all three formulations and the exact source identity.",
+      "searches": [
+        "\"10.3934/math.2020490\" multinomial hypergeometric correction",
+        "\"A stochastic epidemic model of COVID-19 disease\" contact sampling with replacement without replacement",
+        "\"A stochastic epidemic model of COVID-19 disease\" hypergeometric binomial approximation",
+        "\"10.3934/math.2020490\" correction erratum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary publisher PDF was inspected on the title page, daily-encounter assumptions, multinomial beta derivation, hypergeometric contact-count paragraph, reproduction-number formula, and simulation setup.",
+        "The Tuckwell-Williams full article was inspected at its assumptions and transition-probability section, where the binomial law is explicitly introduced only after assuming population size much greater than contact count.",
+        "The Ferrante-Ferraris-Rovira full article was inspected at its model description and transition section; it says contacts are with different individuals and then marks the binomial calculation as an approximation."
+      ],
+      "reasoning": "The accepted claim compares the exact printed probability statements and their stated sampling assumptions rather than relying on abstracts or keyword matches.",
+      "searches": [
+        "doi:10.3934/math.2020490 daily encounters multinomial beta hypergeometric R0",
+        "doi:10.1016/j.mbs.2006.09.018 transition probabilities binomial approximation contacts",
+        "doi:10.1007/s11749-015-0465-z different individuals binomial approximation"
+      ]
+    },
+    "rationale": "Finite-population hypergeometric sampling and its binomial approximation are established prior knowledge and are not claimed as new. The source-specific contribution is identifying that the 2020 paper presents the multinomial contagion formula and the hypergeometric contact-count law as simultaneous exact statements, deriving the exact two-infectious-class finite-population replacement, and giving a saturation counterexample. The source's predecessor explicitly labels the binomial law as an approximation, and the earlier SEIHR extension likewise conditions it on a large-population assumption. No inspected source or indexed finding states this correction for DOI 10.3934/math.2020490.",
+    "residual_risks": [
+      "The 2020 authors may have intended the multinomial law only as a large-population approximation even though it is presented with equality and then used as the contagion probability; under that reading the correction is to the missing approximation qualifier rather than to the intended asymptotic model.",
+      "The reported numerical experiments use a large population and small daily contact counts, so the finite-population discrepancy may be numerically small in much of their parameter regime.",
+      "A non-indexed author note could acknowledge the contact-sampling ambiguity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FINITE_POPULATION_CONTACT_LAWS_INCOMPATIBLE_AS_EXACT_STATEMENTS",
+        "evidence": "The source's beta formula is the with-replacement multinomial law, while its later Z_i statement is hypergeometric. At M=N=2 with one certain transmitter, the two mechanisms give 3/4 and 1 respectively.",
+        "identifier_or_url": "doi:10.3934/math.2020490",
+        "material_read": "Publisher full text: title/MSC/date; individual-level daily encounter and transmission rules; encounter probabilities; multinomial contact-class calculation; closed-form contagion probability; basic reproduction-number discussion; hypergeometric susceptible-contact statement; and the numerical contact/quarantine setup. The title page and the page containing the multinomial and hypergeometric formulas were visually inspected.",
+        "method": "Compared the implied sampling mechanisms and reconstructed the exact without-replacement two-infectious-class probability by conditioning on multivariate hypergeometric counts.",
+        "title": "A stochastic epidemic model of COVID-19 disease",
+        "trigger": "Primary source defining the finite-population COVID contact process."
+      },
+      {
+        "assessment": "BINOMIAL_POWER_LAW_EXPLICITLY_APPROXIMATE_IN_PREDECESSOR",
+        "evidence": "The paper states that when population size is much greater than daily contacts the binomial approximation may be used before deriving the power formula.",
+        "identifier_or_url": "doi:10.1016/j.mbs.2006.09.018",
+        "material_read": "Full article: model motivation and assumptions; random daily contact group; transition-probability section; binomial approximation; infection probability; and the note on asymmetric meeting relationships. The transition-probability page was visually inspected.",
+        "method": "Checked whether the predecessor treats the simple power law as exact or approximate.",
+        "title": "Some properties of a simple stochastic epidemic model of SIR type",
+        "trigger": "Primary predecessor explicitly cited for the discrete contact mechanism."
+      },
+      {
+        "assessment": "GENERAL_APPROXIMATION_PRIOR_BUT_SOURCE_SPECIFIC_2020_CONFLICT_NOT_COVERED",
+        "evidence": "The article says susceptible individuals meet a given number of different people each day, then introduces a binomial law only after assuming population size is much larger than the number of contacts.",
+        "identifier_or_url": "doi:10.1007/s11749-015-0465-z",
+        "material_read": "Full article text: introduction; SIR predecessor model; daily encounter definition; transition-probability approximation; reproduction-number section; SEIHR extension; two infectious contact classes; and its contagion calculation.",
+        "method": "Checked whether the approximation-versus-distinct-contact distinction was already explicit in the model family.",
+        "title": "On a stochastic epidemic SEIHR model and its diffusion approximation",
+        "trigger": "Earlier same-family extension cited by the primary COVID model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d78b1ebd-8fb7-4619-8752-fcc302e3b027",
+  "value": {
+    "rationale": "The paper is an individual-based finite-population epidemic model whose simulation transition kernel is built from the contagion probability, while its reproduction-number discussion uses a different finite-population contact law. The exact correction closes that modeling ambiguity and supplies the appropriate two-infectious-class transition probability. The saturation witness shows the discrepancy is not merely symbolic: the published power law can assign positive probability to missing a sole transmitter even when every available person is contacted. The result also states the important limitation that the source's large-population first-order reproduction-number approximation is preserved.",
+    "status": "PASS"
+  }
+}
