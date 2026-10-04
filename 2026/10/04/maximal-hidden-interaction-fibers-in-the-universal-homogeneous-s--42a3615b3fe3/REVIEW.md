@@ -1,0 +1,9 @@
+# Review
+
+Correctness: PASS. The source gives the finite-state process as a relational metric structure, defines embeddings by preservation of finite-dimensional distributions, and supplies a universal ultrahomogeneous limit. For an injective finite tuple, its full joint law determines every predicate on every subtuple. Hence equal full laws give a finite partial isomorphism and ultrahomogeneity gives an automorphism; automorphisms conversely preserve the law. The fixed-marginal affine space is exactly \(u+W^{\otimes n}\), so its dimension is \((q-1)^n\). Strict positivity of \(u\), universality, and separability then give the continuum lower and upper bounds.
+
+Originality: PASS, with an explicit priority caveat. Searches covered exact and broader formulations involving the universal ultrahomogeneous stochastic process, automorphism orbits, proper-subtuple reconstruction, parity or highest-order interactions, and fixed-marginal dimensions. The primary paper supplies the construction but not this orbit-fiber theorem. The closest indexed probability results exploit hidden higher-order dependence for statistical functionals, while the closest model-theoretic results compute orbit profiles for different homogeneous structures. None located implies the stated identification, dimension, and maximal cardinality together. The marginal-table dimension itself is not claimed as new.
+
+Value: PASS. The result isolates a sharp local-to-global failure in a canonical model-theoretic object: every proper subtuple can have exactly the same orbit data while the full tuple varies over a positive-dimensional family and, in fact, continuum many automorphism orbits. The exact dimension \((q-1)^n\) quantifies the hidden interaction and the continuum bound is cardinally optimal.
+
+Same-model review: passed. Independent audit: not yet performed.
