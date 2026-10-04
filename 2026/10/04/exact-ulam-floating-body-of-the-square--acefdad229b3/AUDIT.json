@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The published support-point characterization reduces the problem to cap barycenters. For normals in one octant, the cap is exhaustively either a full-height trapezoid or a corner triangle; exact integration gives the stated barycenters and transition at m=delta/2. Eliminating the normal parameter yields the two conics. Green integration gives the exact area, and the above-half-area formula follows from the zero centroid and complementary caps. The standalone replay independently checks cap areas, barycenters, conic identities, reconstructed area, and complement scaling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 Ulam-body source proves general structural properties and smoothness, but does not evaluate the transform on the square.",
+        "The 2020 sublinear-expectation paper gives a general representation of Ulam bodies, but no explicit square specialization.",
+        "The 2017 metronoid paper introduces the broader measure-generated construction, without the square computation."
+      ],
+      "reasoning": "General representation theorems do not imply the claimed closed boundary and area without performing the square-specific cap optimization and integration. No inspected broader theorem specializes to the stated formulas automatically.",
+      "searches": [
+        "arXiv:1803.08224 Ulam floating body support barycenter cap",
+        "arXiv:2006.02186 Ulam floating bodies average quantile sets",
+        "Approximations of convex bodies by measure-generated sets uniform measures convex bodies"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.08224",
+      "arXiv:2006.02186",
+      "arXiv:1706.07112",
+      "published-finding corpus semantic searches listed in the named checks",
+      "Targeted web searches listed in the named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.1 of arXiv:1803.08224 supplies only the general support characterization used as a premise.",
+        "The later average-quantile formulation is equivalent at the construction level, not an explicit solution for the square.",
+        "The earlier metronoid framework supplies the general object but no square boundary or area computation."
+      ],
+      "reasoning": "The accepted claim is not a restatement of the prior framework: it solves the direction-dependent cap geometry, eliminates the direction parameter into explicit conics, integrates the exact area, and closes the delta>2 regime. Those conclusions are absent from the inspected sources.",
+      "searches": [
+        "arXiv:1803.08224 Proposition 2.1 support point cap barycenter",
+        "arXiv:2006.02186 average quantile Ulam floating body",
+        "arXiv:1706.07112 metronoid uniform convex body"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1803.08224 gives the cap-barycenter support characterization but its full text has no square, rectangle, or polygon specialization.",
+        "arXiv:2006.02186 identifies Ulam floating bodies with average-quantile convex sets; full-text searches found no square, rectangle, cube, or polygon formula.",
+        "Web searches using metronoid, average-quantile, zonoid-trimmed-region, square, parabola, hyperbola, and exact-area aliases returned the general theory rather than this formula."
+      ],
+      "reasoning": "The claim was compared under the principal equivalent names for the same transform, not only under the phrase Ulam floating body. No located statement gives the same support-point locus, conic decomposition, complement law, or exact area profile.",
+      "searches": [
+        "Ulam floating body square exact boundary uniform square metronoid",
+        "metronoid square parabola hyperbola boundary",
+        "Ulam floating body polygon support barycenter caps",
+        "uniform square cap barycenters convex body exact",
+        "\"Ulam floating body\" square exact boundary",
+        "metronoid square uniform measure exact boundary",
+        "\"Ulam floating body\" square parabola hyperbola",
+        "\"Ulam floating body\" square area formula",
+        "\"average quantile set\" square uniform exact",
+        "\"zonoid trimmed region\" uniform square exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit 2026/9/17/SCOPE-sharp-square-confinement-template-threshold--1cce41bcbf0d concerns an unrelated square confinement threshold.",
+        "Closest geometry hits concern Jung defects, constant-width stability, or unrelated square configurations rather than metronoids/Ulam bodies.",
+        "No published-finding corpus hit returned an Ulam-body, metronoid, average-quantile, or zonoid-trimmed square formula."
+      ],
+      "reasoning": "The closest semantic records share the word square or generic convex-geometry language but use different objects and invariants and do not imply this transform.",
+      "searches": [
+        "Ulam floating body square exact boundary uniform square metronoid",
+        "metronoid square parabola hyperbola boundary",
+        "Ulam floating body polygon support barycenter caps",
+        "uniform square cap barycenters convex body exact"
+      ]
+    },
+    "rationale": "The defining Ulam-body paper, the earlier metronoid paper, and the later average-quantile framework were inspected for square/rectangle/polygon specializations; none states the conic boundary or area profile. Targeted published-finding corpus and web searches under Ulam-body, metronoid, average-quantile, zonoid-trimming, square, and parabola/hyperbola aliases found no equivalent or stronger covering statement.",
+    "residual_risks": [
+      "An equivalent square computation may exist in older robust-statistics literature under zonoid-trimmed-region terminology and be weakly indexed.",
+      "The web and semantic-index searches are targeted rather than exhaustive.",
+      "The claim concerns the uniform Ulam/metronoid transform; formulas for other floating-body notions are not equivalent and were not treated as coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "The paper defines M_delta(K), states that the barycenter of each delta-cap is the unique support point with the prescribed normal, and proves general properties; it contains no square, rectangle, or polygon specialization.",
+        "identifier_or_url": "arXiv:1803.08224",
+        "material_read": "Abstract, MSC lines, introduction, geometric description, Proposition 2.1, main-results discussion, and targeted full-text searches for square, rectangle, and polygon.",
+        "method": "Accessible arXiv full-text inspection.",
+        "title": "Ulam Floating Body",
+        "trigger": "Primary middle-period source defining the construction and its cap-barycenter boundary characterization."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_COVERING",
+        "evidence": "The paper provides a general sublinear-expectation representation and discusses Ulam bodies, but no explicit square or polygon formula.",
+        "identifier_or_url": "arXiv:2006.02186",
+        "material_read": "Introduction, average-quantile definition, floating-like-body discussion, Ulam-body section, and full-text searches for square, rectangle, cube, and polygon.",
+        "method": "Accessible arXiv full-text inspection.",
+        "title": "Convex bodies generated by sublinear expectations of random vectors",
+        "trigger": "Later broader formulation identifying Ulam bodies with average-quantile convex sets."
+      },
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "The source introduces metronoids and notes uniform measures on convex bodies, but does not compute the square case.",
+        "identifier_or_url": "arXiv:1706.07112",
+        "material_read": "Metronoid definition, discussion of uniform measures on convex bodies, and targeted full-text searches for square, rectangle, and polygon.",
+        "method": "Accessible arXiv full-text inspection.",
+        "title": "Approximations of convex bodies by measure-generated sets",
+        "trigger": "Original metronoid framework behind the Ulam construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "acefdad2-29b3-45b2-8b67-1e3b8d292a12",
+  "value": {
+    "rationale": "The square is the canonical nonsmooth centrally symmetric planar body, while Ulam floating bodies are a recent convex-geometric transform tied to cap barycenters, metronoids, affine surface area, and average quantiles. The result gives a complete all-level model with explicit support geometry, a nontrivial parabola-to-hyperbola transition, exact area, and the polytope-type delta log(1/delta) deficit. It is a reusable benchmark rather than a routine substitution.",
+    "status": "PASS"
+  }
+}
