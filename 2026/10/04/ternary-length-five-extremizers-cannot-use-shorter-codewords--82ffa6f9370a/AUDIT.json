@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The code domain is exactly the compatibility graph on all 216 self-non-overlapping ternary words of lengths two through five. Exhaustive branch-and-bound with a valid coloring upper bound proves clique number 17; forcing each of all 72 short vertices proves maximum 16 in the short-word subdomain. Explicit witnesses are independently rechecked against the definitions. Risk: a software bug could invalidate a computer-assisted proof, mitigated by the small explicit model, direct witness checks, and fully embedded verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The stationary-occupancy record gives a general weighted Kraft-type inequality and an average-length lower bound, but not the exact ternary length-five classification."
+      ],
+      "reasoning": "Its inequality permits average lengths below \\(5\\) at cardinality \\(17\\); therefore it does not imply the exact value established here.",
+      "searches": [
+        "minimum average length ternary variable-length non-overlap cardinality 17 n=5",
+        "minimum average length (3,5,17) variable-length non-overlapping",
+        "2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.12593",
+      "arXiv:2402.18896",
+      "DOI:10.1007/s10623-025-01585-0",
+      "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "2026/9/21/SCOPE-exact-length-five-non-overlapping-codes--16d3635b1d46",
+      "2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang–Wang prove a general variable-to-fixed upper bound and a general average-length lower bound; Qin–Luo present later variable-length constructions and cardinality bounds. No inspected statement gives the exact \\((3,5,17)\\) average length or the sharp \\(16\\) forced-short maximum."
+      ],
+      "reasoning": "The accepted finite classification is not a corollary of the generic bounds located: those bounds do not exclude a \\(17\\)-word code with some word shorter than five.",
+      "searches": [
+        "maximum ternary variable-length non-overlapping codes length at most five short codeword cardinality sixteen",
+        "every 17-word ternary variable-length non-overlapping code length 5",
+        "minimum average length (3,5,17) variable-length non-overlapping",
+        "arXiv:2402.18896",
+        "DOI:10.1007/s10623-025-01585-0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest records state the fixed-length value \\(S(3,5)=17\\) and fixed-length length-five structure; they do not address codes containing shorter words."
+      ],
+      "reasoning": "A fixed-length optimum does not imply that a variable-length extremizer cannot mix in a shorter word. The accepted claim adds the sharp forced-short bound \\(16\\), so these records do not cover it.",
+      "searches": [
+        "ternary variable-length non-overlapping code maximum 17 length five all codewords length five",
+        "C(5,3)=17 variable length non-overlapping",
+        "maximum ternary variable-length non-overlapping codes length at most five short codeword cardinality sixteen",
+        "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "2026/9/21/SCOPE-exact-length-five-non-overlapping-codes--16d3635b1d46"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stanovnik–Moškon–Mraz compute exact fixed-length optima for small \\(q,n\\), including the nearby ternary length-five case."
+      ],
+      "reasoning": "The fixed-length table is a comparison baseline, not a database of variable-length codes with forced shorter words; the finite compatibility graph in this finding is a different domain.",
+      "searches": [
+        "arXiv:2307.12593",
+        "DOI:10.1007/s10623-023-01344-z",
+        "ternary variable-length non-overlapping code maximum 17 length five all codewords length five"
+      ]
+    },
+    "rationale": "Focused statement, alias, parameter, and implication searches found the exact fixed-length frontier and general variable-length bounds but no source implying the sharp short-word threshold 16 or the exact minimum average length 5 at cardinality 17.",
+    "residual_risks": [
+      "The 2025 generalized-construction paper was compared from accessible abstract/preview material rather than a full primary text; a hidden small-parameter remark is a residual literature risk.",
+      "A failed literature search is not a novelty proof; originality is supported by statement-level comparisons with the closest exact fixed-length and general variable-length results located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the fixed-length comparison frontier; no variable-length forced-short classification located.",
+        "evidence": "First public arXiv version dated 2023-07-24; the publisher article describes exact computations of small fixed-length optima.",
+        "identifier_or_url": "arXiv:2307.12593; DOI:10.1007/s10623-023-01344-z",
+        "material_read": "Abstract, definitions, optimization formulation, small-parameter discussion, and publication metadata.",
+        "method": "Primary arXiv/publisher inspection and statement comparison.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Closest exact fixed-length small-parameter source."
+      },
+      {
+        "assessment": "Gives the general upper-bound framework and average-length lower bound, but not the exact ternary length-five threshold proved here.",
+        "evidence": "The paper states that variable-length cardinality is at most the fixed-length maximum and that average length is at least \\(\\lceil\\log_q\\widetilde C\\rceil\\).",
+        "identifier_or_url": "arXiv:2402.18896",
+        "material_read": "Abstract, definition of variable-length non-overlap, construction linking variable and fixed lengths, and stated average-length bounds.",
+        "method": "Primary arXiv full-text inspection.",
+        "title": "On the maximum size of variable-length non-overlapping codes",
+        "trigger": "Direct variable-length framework and minimum-average-length question."
+      },
+      {
+        "assessment": "Abstract describes generalized constructions, enumerative formulas, and cardinality upper bounds; no exact \\((3,5,17)\\) extremal classification appears in the material read.",
+        "evidence": "Published online 2025-02-15; abstract scope is construction and cardinality bounds.",
+        "identifier_or_url": "DOI:10.1007/s10623-025-01585-0",
+        "material_read": "Accessible abstract and bibliographic/preview material.",
+        "method": "Publisher-indexed/accessible preview comparison.",
+        "title": "A generalized construction of variable-length non-overlapping codes",
+        "trigger": "Later paper plausibly able to contain stronger variable-length constructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "82ffa6f9-370a-42b7-a075-a0bf232adf35",
+  "value": {
+    "rationale": "The claim resolves a natural exact small-parameter instance of the published minimum-average-length problem and gives a sharp structural boundary: the presence of even one shorter word lowers the maximum cardinality from 17 to 16. This is a complete finite classification at a meaningful extremal frontier rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
