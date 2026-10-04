@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For matching samples, the observed coordinate matrices have mutually orthogonal left and right singular vectors, so singular-value shrinkage acts componentwise. The exact scalar recurrence yields activation at \\(\\lfloor\\tau/(\\delta s_j)\\rfloor+2\\), after which the error is multiplied by \\(1-\\delta\\). The activation bound gives error magnitude below \\(s_j\\), and \\(|1-\\delta|<1\\) prevents deactivation. The \\(\\delta=1\\) integer/noninteger cases give the stated settling index. A spectral-norm dual certificate and strict Frobenius equality prove uniqueness of the finite-\\(\\tau\\) regularized minimizer. The packaged exact-rational checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yin 2009 analyzes linearized Bregman methods and discusses acceleration/kicking in the l1 setting.",
+        "Ma--Goldfarb--Chen 2008 develops fixed-point and Bregman methods for matrix rank minimization."
+      ],
+      "reasoning": "These sources cover broader shrinkage/Bregman mechanisms, but the inspected abstracts and primary-source comparisons do not state an implication that yields the exact matching-sample SVT rank formula or \\(\\delta=1\\) settling time. The possibility of an uninspected specialized derivation is retained as a risk.",
+      "searches": [
+        "published-finding corpus: linearized Bregman exact support activation delay scalar basis pursuit kicking",
+        "Web: Analysis and Generalizations of the Linearized Bregman Method kicking 2009",
+        "Web: Fixed point and Bregman iterative methods matrix rank minimization 2008"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0810.3286v1",
+      "DOI:10.1137/080738970",
+      "OptimizationOnline:2302",
+      "OptimizationOnline:2151",
+      "published-finding corpus queries listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai--Candès--Shen prove convergence for the standard constant-step range and derive an initial zero phase.",
+        "Their abstract and journal record characterize nondecreasing rank as empirical rather than prove it for all sampling patterns."
+      ],
+      "reasoning": "General convergence does not imply monotone rank, exact activation indices, or finite termination. The initial all-zero calculation is a special prefix of the new per-direction formula, so it is explicitly treated as prior-covered rather than claimed as novel.",
+      "searches": [
+        "published-finding corpus: singular value thresholding algorithm full observation exact finite termination delta=1 activation time rank schedule",
+        "published-finding corpus: SVT matrix completion exact rank activation threshold iterations full observation",
+        "Primary source: Cai--Candès--Shen convergence and initialization sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit among the returned candidates states a matching-sample SVT rank staircase or finite-settling law.",
+        "The primary SVT abstract and journal page describe rank growth only as empirically nondecreasing in general."
+      ],
+      "reasoning": "A matching sample is equivalently a weighted partial permutation after row and column relabeling. Searches used both the matching terminology and the partial-permutation/scalar-activation formulation. No inspected statement supplied the same activation indices and persistence conclusion.",
+      "searches": [
+        "published-finding corpus: singular value thresholding matching observations rank staircase activation exact iteration finite termination",
+        "published-finding corpus: SVT disjoint observed entries partial permutation exact convergence finite steps",
+        "Web: \"matching\" \"singular value thresholding\" matrix completion rank iterates",
+        "Web: \"finite termination\" \"singular value thresholding\" matrix completion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source gives the SVT recurrence and derives a scalar threshold for skipping the common initial zero phase.",
+        "The source explicitly says the rank is empirically nondecreasing; it does not tabulate per-direction activation times for matching samples."
+      ],
+      "reasoning": "The primary source contains the ingredients needed for the reduction but stops at a global initial-step shortcut and an empirical rank observation. The accepted statement resolves the full staircase for a natural exact-solvable observation graph.",
+      "searches": [
+        "published-finding corpus: singular value thresholding empirical nondecreasing rank proof special case matching support",
+        "published-finding corpus: SVT kicking exact activation singular values threshold tau delta",
+        "Primary source: Cai--Candès--Shen equation (2.7), initial-steps discussion, and rank discussion"
+      ]
+    },
+    "rationale": "The primary paper already covers the SVT iteration, convergence, empirical nondecreasing rank, and the common initial all-zero skipping calculation. The accepted claim is narrower and different: a complete per-direction rank staircase, exact post-activation recurrence, and finite-settling resonance on matching samples. Targeted published-finding corpus and literature searches did not surface a statement implying all of these conclusions. Related linearized-Bregman and matrix-rank Bregman papers remain the closest conceptual sources; unindexed support-identification notes remain a residual risk.",
+    "residual_risks": [
+      "An unindexed thesis, implementation note, or specialized linearized-Bregman support-identification analysis may contain the same weighted-partial-permutation reduction.",
+      "The exact primary-source initial-zero-phase formula is a genuine overlapping special prefix and is therefore excluded from the novelty claim.",
+      "Search failure cannot establish novelty outside the inspected and indexed literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the algorithm, convergence, empirical rank monotonicity, and first common zero-phase shortcut; DOES NOT STATE the complete matching-sample staircase or \\(\\delta=1\\) finite-settling theorem.",
+        "evidence": "The paper calls iterate rank empirically nondecreasing and gives the initial zero-iterate index through the threshold ratio.",
+        "identifier_or_url": "arXiv:0810.3286v1; DOI:10.1137/080738970",
+        "material_read": "Abstract; shrinkage and equation (2.7); regularized problem; convergence theorem; implementation discussion on initial steps and rank behavior.",
+        "method": "Lawful arXiv/open-author full-text inspection with page images for the relevant PDF pages, plus journal metadata.",
+        "title": "A Singular Value Thresholding Algorithm for Matrix Completion",
+        "trigger": "Primary source for the exact recurrence, convergence range, rank observation, and initialization shortcut."
+      },
+      {
+        "assessment": "COVERS linearized-Bregman analysis, exact-penalty discussion, and acceleration ideas; no matching-sample SVT staircase is stated in the inspected material.",
+        "evidence": "The repository abstract describes l1-focused linearized Bregman analysis and gradient-based generalizations.",
+        "identifier_or_url": "OptimizationOnline:2302",
+        "material_read": "Optimization Online abstract, bibliographic description, and indexed summary.",
+        "method": "Open repository metadata/abstract inspection.",
+        "title": "Analysis and Generalizations of the Linearized Bregman Method",
+        "trigger": "Closest conceptual literature on componentwise shrinkage and kicking."
+      },
+      {
+        "assessment": "COVERS fixed-point/Bregman methods and convergence for nuclear-norm matrix problems; the inspected material does not state the matching-sample activation law.",
+        "evidence": "The abstract describes fixed-point and Bregman iterative algorithms for nuclear-norm minimization and matrix completion.",
+        "identifier_or_url": "OptimizationOnline:2151",
+        "material_read": "Optimization Online abstract and bibliographic description.",
+        "method": "Open repository metadata/abstract inspection.",
+        "title": "Fixed point and Bregman iterative methods for matrix rank minimization",
+        "trigger": "Contemporaneous matrix-rank Bregman literature that could dominate a special SVT calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "008b7842-a13f-4c6c-b962-4d74267c0977",
+  "value": {
+    "rationale": "The original SVT paper singles out empirical nondecreasing rank as a practical reason the method is efficient. Matching observations form the simplest sparse observation graph with exactly orthogonal singular directions, so they are a mathematically natural test class rather than an arbitrary slice. The theorem gives a complete rank-entry schedule, proves persistence of activated directions, identifies the exact finite-termination resonance at \\(\\delta=1\\), and supplies a closed-form implementation benchmark that isolates the effect lost when observation edges begin to share rows or columns.",
+    "status": "PASS"
+  }
+}
