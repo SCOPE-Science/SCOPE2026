@@ -1,0 +1,133 @@
+{
+  "claim": "Over \\(\\mathbb F_2\\), the exact minimum lengths for five-request all-symbol PIR and all-symbol batch codes of dimension \\(3\\) are both \\(10\\): \\(\\operatorname{ASP}(3,5,2)=\\operatorname{ASB}(3,5,2)=10\\). A length-\\(10\\) witness has column multiplicities \\((0,1,1,2,2,2,2)\\) on the seven nonzero vectors of \\(\\mathbb F_2^3\\), and no rank-\\(3\\) binary generator multiset of length at most \\(9\\) satisfies the five-all-symbol PIR property.",
+  "correctness": {
+    "rationale": "The exact finite state space is seven multiplicities on the nonzero vectors of F_2^3 after deleting zero columns. Every recovery set can be reduced to an inclusion-minimal independent set of size at most three. The packaged verifier exhausts all rank-3 multiplicity vectors at lengths 3 through 9 with no five-all-symbol PIR realization, then verifies the explicit length-10 witness for all 252 request multisets and validates every stored certificate recovery span and disjointness condition.",
+    "risks": [
+      "The theorem is finite and parameter-specific; no extrapolation beyond (k,t,q)=(3,5,2) is proved."
+    ],
+    "sources": [
+      "artifacts/verify.py",
+      "artifacts/witness_certificate.json"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 13 yields 8 <= ASP(3,5,2) <= ASB(3,5,2) <= 10.",
+        "Section 5 says exact minimum lengths are obtained for t in {1,2,3}, with partial t=4 results, and lists small-dimension optimal lengths as open."
+      ],
+      "reasoning": "The defining paper's general results leave two possible shorter lengths, 8 and 9, so they do not imply the exact value 10. No broader theorem located in the inspected sources dominates the finite exclusion of both lengths.",
+      "searches": [
+        "source: arXiv:2601.04041v2, Proposition 10",
+        "source: arXiv:2601.04041v2, Proposition 13",
+        "source: arXiv:2601.04041v2, Section 5",
+        "query: exact dimension-three five-request all-symbol PIR batch binary length"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.04041v2",
+      "DOI:10.1109/ISIT50566.2022.9834487",
+      "2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source bounds the target between 8 and 10 and imports an exact DGRP-derived ASP result only for three requests.",
+        "The published four-request dimension-three result is strictly weaker for the target parameter."
+      ],
+      "reasoning": "Prior statements leave ASP(3,5,2) in {8,9,10} and do not force ASB equality. The new finite lower bound eliminates 8 and 9, while the explicit batch witness attains 10; neither step is a corollary of the cited prior bounds.",
+      "searches": [
+        "source: arXiv:2601.04041v2, Proposition 13",
+        "source: arXiv:2601.04041v2, Section 2.2",
+        "source: 2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.04041v2 states that (t,s)-DGRP with s=n coincides with (t+1)-all-symbol PIR.",
+        "Karingula–Vardy–Wootters, ISIT 2022, is the primary DGRP reference identified by the defining paper."
+      ],
+      "reasoning": "The five-all-symbol PIR statement is equivalently a four-disjoint-repair-group statement when all stored symbols are covered. The equivalence was explicitly searched so novelty was not assessed only under ASP notation. No located DGRP statement fixed this binary dimension-three optimum at length 10.",
+      "searches": [
+        "query: ASP(3,5,2) ASB(3,5,2)",
+        "query: dimension three all-symbol PIR t=5 binary",
+        "query: 4-DGRP code",
+        "source: arXiv:2601.04041v2, Sections 1 and 2.2",
+        "query: 4-DGRP dimension 3 length 10 binary disjoint repair groups"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published published-finding corpus record gives exact dimension-three four-request all-symbol lengths, not five-request lengths.",
+        "No inspected exact-value table or database result returned ASP(3,5,2) or ASB(3,5,2)."
+      ],
+      "reasoning": "The closest exact table entry is at t=4. Its binary value 7 and strict monotonicity imply only a lower bound of 8 at t=5; they do not cover the present statement. A failed exact-value search is not itself novelty proof and is used only as supporting evidence.",
+      "searches": [
+        "query: exact dimension-three five-request all-symbol PIR batch binary length; closest result 2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f",
+        "query: ASP(3,5,2) ASB(3,5,2)",
+        "query: all-symbol batch code small dimension k=3 t=5",
+        "query: multiplicity 0 1 1 2 2 2 2 all-symbol PIR"
+      ]
+    },
+    "rationale": "The 2026 defining paper leaves optimal small-dimension lengths open beyond its solved small-request cases and gives only the interval 8 through 10 at (3,5,2). Searches across the defining terminology, DGRP equivalence, exact parameter notation, and the published published-finding corpus corpus located no stronger statement implying the exact value 10.",
+    "residual_risks": [
+      "An older small-parameter result may be indexed only under availability, majority-logic decoding, or DGRP language.",
+      "The closest 2022 DGRP publisher page was not directly readable in the inspected route; this access limitation does not overturn the explicit 2026 open-direction evidence but prevents a whole-document negative comparison of that source."
+    ],
+    "risks": [
+      "Unindexed older literature under availability, one-step majority-logic decoding, or disjoint-repair-group terminology could contain the same small parameter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the exact target value; gives only the interval from 8 to 10 and explicitly leaves small-dimension optimal lengths open beyond the solved small-request cases.",
+        "evidence": "Definition 2; Notation 4; Proposition 13; Section 5.",
+        "identifier_or_url": "arXiv:2601.04041v2",
+        "material_read": "Full open HTML: definitions, notation, previous-work section, Proposition 10, Proposition 13, discussion/future directions, and references.",
+        "method": "Direct full-text inspection of the lawful arXiv HTML version.",
+        "title": "Serving Every Symbol: All-Symbol PIR and Batch Codes",
+        "trigger": "Defining recent source for ASP/ASB and explicit small-dimension open direction."
+      },
+      {
+        "assessment": "Relevant to equivalent terminology and general redundancy bounds. No decisive statement covering the exact binary dimension-three four-DGRP/five-ASP length was located; access limitation is retained as residual risk rather than treated as evidence of novelty.",
+        "evidence": "The defining paper cites this work for the DGRP equivalence and for the exact three-request ASP result, not for five requests.",
+        "identifier_or_url": "DOI:10.1109/ISIT50566.2022.9834487",
+        "material_read": "Bibliographic record and accessible indexed primary-text excerpt; the 2026 source's full literature-review discussion of the theorem it imports from this work was also read.",
+        "method": "Open-access indexing/search plus cross-inspection through the defining paper's explicit DGRP comparison; publisher page itself required JavaScript and did not provide readable full text in the inspected route.",
+        "title": "Lower bounds on the redundancy of linear codes with disjoint repair groups",
+        "trigger": "Equivalent-language DGRP formulation identified by the 2026 source."
+      },
+      {
+        "assessment": "Covers t=4, with binary minimum 7; it does not imply the t=5 exact value 10.",
+        "evidence": "Strict monotonicity gives only ASP(3,5,2) >= 8.",
+        "identifier_or_url": "2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f",
+        "material_read": "Published title and summary from the research-results index.",
+        "method": "Semantic search followed by statement-level implication comparison.",
+        "title": "Exact dimension-three four-request all-symbol code lengths",
+        "trigger": "Closest published exact small-dimension all-symbol result returned by semantic search."
+      }
+    ],
+    "sources": [
+      "arXiv:2601.04041v2",
+      "DOI:10.1109/ISIT50566.2022.9834487",
+      "2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d7ec9023-90af-4bb7-805b-47c895a9ea80",
+  "value": {
+    "rationale": "The result resolves a natural exact invariant in the recent ASP/ASB framework at the first five-request binary dimension-three point. The defining 2026 paper explicitly calls small-dimension optimal lengths open and supplies only a three-value interval here; the finding closes that interval and shows PIR/batch coincidence at the optimum.",
+    "risks": [
+      "The result is a sharp finite boundary datum rather than a general family theorem."
+    ],
+    "sources": [
+      "arXiv:2601.04041v2, Proposition 13 and Section 5",
+      "artifacts/verify.py"
+    ],
+    "status": "PASS"
+  }
+}
