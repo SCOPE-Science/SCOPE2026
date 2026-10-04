@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The quadratic SPS ratio is exactly \\(1/(2ca_i)\\), so the bounded update is a finite family of affine contractions with \\(r_i=\\min(q,a_i\\gamma_b)\\), \\(q=1/(2c)\\). Uniform contraction gives a unique invariant law. The invariant first- and second-moment equations yield the displayed mean and variance, and direct substitution proves every phase boundary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2205.04583v1 full text, Section 4 and Appendix D",
+        "arXiv:2202.12328v1 full text, variational interpretation of SPSmax"
+      ],
+      "reasoning": "Broader follow-up theory establishes that SPS can be biased outside interpolation and proposes decreasing or slack-based repairs. Those results do not imply the fixed-cap invariant distribution or the exact mixed-cap surrogate.",
+      "searches": [
+        "stochastic Polyak non-interpolation bias quadratic component minimizers",
+        "SPS cap tuning non interpolating convex optimization",
+        "Cutting Some Slack SPSmax cap tuning"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.10542v1",
+      "arXiv:2205.04583v1",
+      "arXiv:2202.12328v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2002.10542v1 full text, SPS and SPSmax definitions and strongly convex neighborhood theorem",
+        "arXiv:2205.04583v5 full text, Section 4 counterexample and Appendix D quadratic proposition",
+        "arXiv:2202.12328v1 full text, Sections 3.4 and 5"
+      ],
+      "reasoning": "The defining theorem supplies only a neighborhood guarantee. The dynamics paper proves the arithmetic-center bias after making the cap inactive and under decreasing scaling. The slack paper explains why the cap needs tuning but does not derive its fixed-cap target. Therefore prior results cover the loose-cap phenomenon but do not imply the final finite-cap phase diagram.",
+      "searches": [
+        "Stochastic Polyak Step-size SPSmax gamma_b bounded variant theorem",
+        "Dynamics SPS bias quadratic assuming gamma_b large enough",
+        "Cutting Some Slack SPSmax variational cap parameter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2002.10542v1",
+        "arXiv:2205.04583v1",
+        "arXiv:2202.12328v1"
+      ],
+      "reasoning": "The random-affine formulation is mathematically equivalent on scalar quadratics. The later SPS-dynamics paper derives curvature cancellation only when the cap is assumed inactive; it does not identify finite-cap clipping of curvature weights.",
+      "searches": [
+        "SPSmax cap gamma_b quadratic exact bias stationary distribution component minimizers",
+        "stochastic Polyak capped stepsize quadratic stationary mean variance",
+        "SPS max heterogeneous curvature quadratic cap bias exact",
+        "stochastic Polyak stepsize fixed cap noninterpolating quadratic invariant distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching formula or phase table was identified in the targeted semantic searches.",
+        "The closest published optimization records concern other Polyak-step frontiers or stochastic quadratic bias phenomena."
+      ],
+      "reasoning": "No searched statement contained the clipped weights \\(\\min(a_i,q/\\gamma_b)\\) as the stationary target of fixed-cap SPSmax. A failed search is not a novelty proof, so the residual risk is retained explicitly.",
+      "searches": [
+        "SPSmax cap gamma_b quadratic exact bias stationary distribution component minimizers",
+        "stochastic Polyak capped stepsize quadratic stationary mean variance",
+        "SPS max heterogeneous curvature quadratic cap bias exact"
+      ]
+    },
+    "rationale": "The loose-cap curvature-blind bias is already known and is not claimed as new. The inspected sources do not give the fixed-cap curvature-clipping surrogate, exact invariant variance, or sharp cap thresholds.",
+    "residual_risks": [
+      "Equivalent invariant-law calculations may exist in stochastic approximation or iterated-random-functions literature without SPS terminology.",
+      "The uncapped curvature-blind target is prior-covered and is included only to delimit the cap phase diagram.",
+      "The scalar curvature-clipping interpretation does not automatically extend to noncommuting multidimensional Hessians."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_FIXED_CAP_PHASE.",
+        "evidence": "The source defines the exact capped rule and says the cap is essential for convergence to a small neighborhood, but does not state the invariant target or covariance on heterogeneous scalar quadratics.",
+        "identifier_or_url": "arXiv:2002.10542v1",
+        "material_read": "Open-access full text and PMLR PDF sections containing the SPS formula, SPSmax cap, strongly convex parameter choice, and neighborhood theorem.",
+        "method": "Full-text HTML inspection plus page-level PDF visual inspection.",
+        "title": "Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence",
+        "trigger": "Defining source for SPS and the bounded SPSmax variant."
+      },
+      {
+        "assessment": "COVERS_LOOSE_CAP_CURVATURE_BLIND_BIAS_NOT_FIXED_CAP_PHASE.",
+        "evidence": "The paper shows curvature cancellation and the arithmetic-center target, but its counterexample explicitly assumes the cap is large enough to be inactive. It does not derive the clipped-curvature stationary law for a finite active cap.",
+        "identifier_or_url": "arXiv:2205.04583v1",
+        "material_read": "Open-access full HTML, especially Section 4 and Appendix D on the one-dimensional quadratic bias.",
+        "method": "Full-text inspection with targeted searches for cap assumptions, quadratic bias, and stationary behavior.",
+        "title": "Dynamics of SGD with Stochastic Polyak Stepsizes: Truly Adaptive Variants and Convergence to Exact Solution",
+        "trigger": "Most relevant prior analysis of SPS bias outside interpolation."
+      },
+      {
+        "assessment": "MOTIVATES_CAP_TUNING_NOT_COVERING_EXACT_TARGET.",
+        "evidence": "The paper formalizes SPSmax and notes that its cap still requires careful tuning, but does not identify the cap as exact curvature clipping on scalar quadratics.",
+        "identifier_or_url": "arXiv:2202.12328v1",
+        "material_read": "Open-access full HTML sections on SPS outside interpolation, the variational form of SPSmax, and slack-based alternatives.",
+        "method": "Full-text inspection with targeted searches for quadratic and cap behavior.",
+        "title": "Cutting Some Slack for SGD with Adaptive Polyak Stepsizes",
+        "trigger": "Direct SPS follow-up giving a variational interpretation of SPSmax and discussing cap tuning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e87af50-06ee-453d-999b-e53386e77b5b",
+  "value": {
+    "rationale": "The SPS cap is an actual algorithmic parameter whose tuning affects behavior outside interpolation. The theorem shows that it clips curvature weights in the stationary target, giving an exact objective-consistency phase transition and a closed bias-variance decomposition. This is a structural benchmark for choosing or diagnosing the cap rather than a routine restatement of the known loose-cap bias.",
+    "status": "PASS"
+  }
+}
