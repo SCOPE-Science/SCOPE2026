@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The first three branches follow directly from set inclusion and uniqueness of single-ball projection. If neither single-ball projection is feasible, convex projection optimality excludes zero or one active constraint, so both sphere boundaries are active. The common boundary is a sphere in the radical hyperplane with the displayed center and radius, and orthogonal decomposition reduces nearest-point projection onto that sphere to a Cauchy--Schwarz equality. Nonempty interior excludes external tangency, while containment and concentric cases are already caught by a single-ball branch. Uniqueness of projection onto the convex lens excludes the degenerate \\(w=0\\) case when the seam radius is positive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source says the exact projection generally uses a two-multiplier dual problem or Dykstra and provides no projection-error analysis.",
+        "Caseiro--Facas Vicente--Vitória explicitly characterize the radical hyperplane sphere and the nearest point on the intersection of two spheres.",
+        "Thouvenin--Dobigeon--Tourneret explicitly use Dykstra to approximate projection onto an intersection of two closed Frobenius balls."
+      ],
+      "reasoning": "The prior sphere theorem covers the geometric seam but not which active set solves the convex lens problem; the optimization sources use iterative projection. No inspected broader theorem subsumes the piecewise lens formula.",
+      "searches": [
+        "arXiv:2609.06555v1 full text: projection model after constrained STM, R-STM set definition, Remark 4, exact-projection limitation",
+        "DOI:10.1016/j.laa.2020.09.013 full preprint: Propositions 2.5, 3.1 and 3.3",
+        "DOI:10.1109/TIP.2016.2579309 full text: variability projection and Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.06555v1",
+      "DOI:10.1016/j.laa.2020.09.013",
+      "DOI:10.1109/TIP.2016.2579309"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Remark 4 presents the simultaneous-active KKT system with two multipliers and recommends a two-dimensional dual solve or Dykstra rather than a finite formula.",
+        "Proposition 3.3 solves nearest-point projection onto the nonconvex common boundary sphere but does not classify projections onto the convex ball intersection.",
+        "The 2016 application treats Dykstra iterations as part of computational complexity."
+      ],
+      "reasoning": "The final statement is not implied by the source's own computational prescription. It follows only after combining convex active-set optimality with the known sphere-intersection geometry, yielding a finite branch algorithm and an explicit complexity consequence for the recent method.",
+      "searches": [
+        "arXiv:2609.06555v1 Remark 4 and projection-model paragraph",
+        "Caseiro et al. 2021 Proposition 3.3",
+        "Thouvenin et al. 2016 Appendix A"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2021 Linear Algebra and its Applications paper gives an exact projection formula for the intersection of two sphere boundaries, not the intersection of the corresponding closed balls.",
+        "The 2016 IEEE optimization application states that its projection onto a nonempty intersection of two closed Frobenius balls is approximated by Dykstra.",
+        "No located source stated the complete inside / one-active / two-active closed-form lens projector."
+      ],
+      "reasoning": "The strongest close formulation is the sphere-boundary projector. The final claim incorporates it only in the simultaneous-active branch and adds the convex active-set classification needed to decide when that branch is the Euclidean projection onto the lens.",
+      "searches": [
+        "Published-research database: Euclidean projection intersection two balls closed form exact formula",
+        "Published-research database: projection onto intersection of two Euclidean balls explicit",
+        "Web literature: projection onto the intersection of two closed balls",
+        "Web literature: metric projection intersection of two balls",
+        "Web literature: nearest point intersection of two spheres formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest database results concerned unrelated projection and optimization problems; no exact two-ball lens projector was returned.",
+        "Web search did locate the sphere-intersection projection paper, which was incorporated explicitly rather than treated as novelty."
+      ],
+      "reasoning": "The claim is an analytic closed-form projector and not a recomputation of a numerical table, benchmark, or stored constant.",
+      "searches": [
+        "Published-research database: lens projection two balls nearest point closed form",
+        "Published-research database: projection intersection balls KKT two multipliers scalar formula",
+        "Published-research database: two ball projection computational geometry nearest point lens"
+      ]
+    },
+    "rationale": "The recent optimization source explicitly requires exact two-ball projections and states that the simultaneous-active case is handled through a two-dimensional dual system or Dykstra iteration. The closest exact geometric prior gives projection onto the intersection of two sphere boundaries, not the complete convex lens projector. An earlier optimization application likewise uses Dykstra for an intersection of two closed balls. Targeted searches over ball-lens, KKT, nearest-point, radical-hyperplane, and closed-form aliases found no published statement equivalent to the complete active-set formula.",
+    "residual_risks": [
+      "The active-set synthesis is elementary enough that an equivalent formula may exist in older computational-geometry or software literature under lens or sphere-intersection terminology.",
+      "The known sphere-boundary formula is not novel and is explicitly credited; originality is limited to the complete convex lens projector and its optimization consequence.",
+      "No claim is made that the direct formula eliminates floating-point roundoff or supplies an inexact-projection robustness theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source explicitly assumes exact two-ball projections, counts them separately, and proposes a two-dimensional dual problem or Dykstra; it does not state the finite active-set formula.",
+        "evidence": "Remark 4 states that both spherical boundaries can be simultaneously active and gives the two-multiplier KKT relation; the preceding projection-model paragraph says no projection-error analysis is provided.",
+        "identifier_or_url": "arXiv:2609.06555v1",
+        "material_read": "Full-text portions defining constrained STM and R-STM, the projection-model paragraph, Remark 4 with its two-multiplier KKT system, and the later exact-projection limitation.",
+        "method": "Full-text arXiv PDF inspection with rendered-page checks.",
+        "title": "Localize, Restart, Accelerate: Stochastic Optimization under Generalized Smoothness",
+        "trigger": "Primary recent optimization source whose constrained inner method requires exact projection onto intersections of two Euclidean balls."
+      },
+      {
+        "assessment": "Covers the seam projection exactly, so that part is prior work; it does not give the convex two-ball active-set projector.",
+        "evidence": "The paper gives the common-sphere center and radius and projects a point onto that boundary by normalizing its radical-hyperplane component.",
+        "identifier_or_url": "DOI:10.1016/j.laa.2020.09.013",
+        "material_read": "Open full preprint, especially Proposition 2.5 on the radical-hyperplane center/radius and Proposition 3.3 on projection onto the intersection of two spheres.",
+        "method": "Full-text preprint inspection with rendered-page checks.",
+        "title": "Projection of a Point onto the Intersection of Spheres in Linear Varieties",
+        "trigger": "Closest exact geometry result for the simultaneous-active boundary set."
+      },
+      {
+        "assessment": "Uses Dykstra to approximate the two-ball projection and therefore does not dominate the direct formula.",
+        "evidence": "Appendix A explicitly states that the intersection is closed and convex and that its projection can be approximated by Dykstra; the complexity section counts Dykstra iterations.",
+        "identifier_or_url": "DOI:10.1109/TIP.2016.2579309",
+        "material_read": "Full-text variability update, computational-complexity discussion, and Appendix A on projections.",
+        "method": "Open full-PDF inspection with rendered-page check.",
+        "title": "Online Unmixing of Multitemporal Hyperspectral Images Accounting for Spectral Variability",
+        "trigger": "Earlier optimization application using projection onto a nonempty intersection of two closed Euclidean/Frobenius balls."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e55f2e94-6052-419d-8849-55ac51b15792",
+  "value": {
+    "rationale": "The exact two-ball projection is load-bearing in the recent certified-localization algorithm: every accelerated inner step uses it to remain inside a region where ordinary smoothness is certified, and the source explicitly separates its cost from gradient complexity. Replacing an iterative dual or Dykstra subsolve by a finite \\(O(n)\\) formula makes this oracle constructive at the same ambient order as a single ball projection. This is a concrete algorithmic simplification of a repeatedly invoked primitive, not an arbitrary geometric exercise. The limitation to exact-real arithmetic is stated, so the result does not overclaim a finite-precision robustness guarantee.",
+    "status": "PASS"
+  }
+}
