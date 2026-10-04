@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The six-state claim is exhaustive and finite. The published transition table was transcribed directly. Breadth-first search over all \\(63\\) nonempty image subsets proves minimum reset length \\(20\\). Shortest-path polynomial propagation counts every distance-tight word and yields the five marginal coefficient arrays; a separate `frozenset` layer implementation reproduces them and the unique target \\(3\\). Exact integer convolution checks all displayed factorizations and total \\(2^{24}3^3\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kisielewicz--Kowalski--Szykuła give a bidirectional algorithm for finding a shortest reset word and analyze known slow families, but the inspected text does not enumerate all optimal words by composition.",
+        "The de Bondt--Don--Zantema theorem gives the general threshold and a reduction showing that some optimal word may be chosen over a smaller subalphabet; such existence does not imply that every optimal word avoids a letter or determine any marginal polynomial."
+      ],
+      "reasoning": "General reset-length and one-witness results are strictly weaker than the complete all-shortest-word marginal distributions.",
+      "searches": [
+        "published-finding corpus: n=6 five-letter slowly synchronizing automaton shortest word multiplicity 20",
+        "published-finding corpus: shortest reset word letter count enumerator Theorem 3 five-letter synchronizing automaton",
+        "source: DOI:10.1007/s10878-013-9682-0"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.06853",
+      "DOI:10.1016/j.ic.2020.104614",
+      "DOI:10.1007/s10878-013-9682-0",
+      "published-finding corpus 2026/9/7/SCOPE007",
+      "published-finding corpus 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "published-finding corpus 2026/9/9/SCOPE010"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 proves reset length \\(n^2-3n+2\\) for full \\(A\\) and only an existence-preserving reduction to \\(c,d\\); many different shortest-word languages can share that same threshold.",
+        "The own seven-state result changes both state count and alphabet, so it neither contains nor implies the full five-letter six-state marginals."
+      ],
+      "reasoning": "The new statement strictly refines threshold information and is not a special case of the prior restricted-alphabet count.",
+      "searches": [
+        "arXiv:1609.06853 Theorem 3 lines defining A and proof reductions",
+        "DOI:10.1007/s10878-013-9682-0 abstract and algorithm description",
+        "own ledger: seven-state A^-cd/A^-bcd shortest-word multiplicity finding"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining full text gives the five-letter transition table and threshold but no occurrence of the exact total or these one-letter factorized enumerators.",
+        "The source explicitly reports shortest-word multiplicities for other small critical automata, demonstrating that this invariant is separately reportable rather than encoded by reset length."
+      ],
+      "reasoning": "Searches covered the exact integer, source identifier, family name, shortest-word multiplicity language, and marginal-enumerator formulation. None of the returned records stated an equivalent histogram or factorization.",
+      "searches": [
+        "published-finding corpus: de Bondt Don Zantema six-state five-letter Theorem 3 452984832 shortest synchronizing words",
+        "published-finding corpus: 1609.06853 A6 number of shortest reset words",
+        "published-finding corpus: 452984832 synchronizing automata",
+        "web: 452,984,832 reset words",
+        "source: arXiv:1609.06853 Theorem 3 and Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The defining paper tabulates numbers of DFAs by alphabet size and reset length through six states; those census cells count automata, not shortest words of this individual Theorem 3 automaton.",
+        "Exact-number public-web search returned no synchronizing-automata source containing the claimed total."
+      ],
+      "reasoning": "The published census endpoint motivates \\(n=6\\) but does not contain this per-automaton optimal-language enumeration.",
+      "searches": [
+        "source: arXiv:1609.06853 Section 4 six-state table",
+        "published-finding corpus: 452984832 synchronizing automata",
+        "web exact number: 452984832 synchronizing automaton"
+      ]
+    },
+    "rationale": "The defining theorem fixes the automaton family and reset threshold and proves existence-preserving letter replacements, but it does not enumerate all shortest words or their letter counts. A broader exact shortest-word algorithm likewise does not determine the claimed marginal distributions. Exact-number, alias, source-ID, multiplicity, and implication searches found no covering statement. The closest prior local record concerns the seven-state restrictions \\(A^{-cd}\\) and \\(A^{-bcd}\\), not the full five-letter \\(A_6\\).",
+    "residual_risks": [
+      "A non-indexed ancillary computation or unpublished enumeration could contain the same finite marginals; no such item was found in the checked sources and databases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for transition definitions and threshold; NOT_COVERING for the six-state all-shortest-word total, universal b-avoidance, target concentration, or marginal enumerators.",
+        "evidence": "Theorem 3 states the transition table and threshold \\(n^2-3n+2\\); the introduction explicitly gives multiplicities for other small automata; Section 4 states the exhaustive investigation ends at six states and tabulates automata by reset length.",
+        "identifier_or_url": "arXiv:1609.06853",
+        "material_read": "Introduction multiplicity examples; Theorem 3 transition table and proof; Section 4 small-DFA methodology and six-state table.",
+        "method": "Lawful arXiv full-text HTML inspection.",
+        "title": "Slowly synchronizing automata with fixed alphabet size",
+        "trigger": "Defining source for the exact five-letter automaton and the six-state census boundary."
+      },
+      {
+        "assessment": "NOT_COVERING for the claimed all-shortest-word marginals.",
+        "evidence": "The paper's stated output is a shortest reset word/reset length; its inspected text gives search algorithms and empirical reset-length studies, not the exact optimal-word language of this \\(A_6\\).",
+        "identifier_or_url": "DOI:10.1007/s10878-013-9682-0",
+        "material_read": "Abstract, introduction, BFS description, and discussion of slowly synchronizing families.",
+        "method": "Open full-text web rendering.",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Plausible broader coverage because it gives exact algorithms for shortest reset words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "55d4de68-7fe9-4030-90bf-946f83afd70b",
+  "value": {
+    "rationale": "The defining paper itself uses shortest-word multiplicity to distinguish small critical automata, and six states are the endpoint of its exhaustive unrestricted-alphabet census, so the parameter is not an arbitrary slice. The exact marginals expose structure invisible from reset length: every optimal word ignores one available input, all reset to one state, and the remaining letter counts factor into low-degree polynomial powers. These data form a compact benchmark for optimal-reset-language algorithms and structural study of slowly synchronizing automata.",
+    "status": "PASS"
+  }
+}
