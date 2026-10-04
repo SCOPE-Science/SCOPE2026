@@ -1,0 +1,116 @@
+{
+  "claim": "In the single-excitation \\(XY\\) model of Casaccino, Lloyd, Mancini, and Severini on the complete graph \\(K_n\\) with the input-output edge removed, let \\(n\\ge4\\), keep every edge hopping equal to \\(2\\), and perturb the source's optimal equal endpoint shift \\(2n-6\\) antisymmetrically: \\[\\Delta_i=2n-6+\\frac{\\delta}{2},\\qquad \\Delta_j=2n-6-\\frac{\\delta}{2},\\qquad \\delta\\in\\mathbb R.\\]Then the exact maximum transfer fidelity over all times is \\[\\boxed{F_{\\max}(n,\\delta)=\\left(\\frac{32(n-2)}{32(n-2)+\\delta^2}\\right)^2,}\\]attained exactly when \\[\\boxed{t_k=\\frac{2(2k+1)\\pi}{\\sqrt{32(n-2)+\\delta^2}},\\qquad k=0,1,2,\\ldots.}\\]Hence perfect state transfer survives if and only if \\(\\delta=0\\). For a target fidelity \\(\\eta\\in(0,1]\\), the condition \\(F_{\\max}\\ge\\eta\\) is exactly \\[|\\delta|\\le \\sqrt{32(n-2)\\left(\\eta^{-1/2}-1\\right)}.\\]In particular, for fixed \\(\\delta\\), \\[1-F_{\\max}(n,\\delta)=\\frac{\\delta^2}{16(n-2)}+O(n^{-2}),\\]while for \\(\\delta=c\\sqrt n\\) one has the nontrivial scaling limit \\[\\lim_{n\\to\\infty}F_{\\max}(n,c\\sqrt n)=\\left(\\frac{32}{32+c^2}\\right)^2.\\]Thus the missing-link all-to-all transfer scheme has a sharp \\(\\sqrt n\\) absolute tolerance to differential endpoint calibration error, even though any nonzero mismatch forbids exact perfect transfer.",
+  "correctness": {
+    "rationale": "The symmetry-adapted subspace \\((|+\\rangle,|-\\rangle,|r\\rangle)\\) is invariant. After subtracting \\(2n-6\\), its matrix has off-diagonal entries \\(\\delta/2\\) and \\(2\\sqrt{2(n-2)}\\), so \\(M^3=\\Omega^2M\\) with \\(\\Omega=\\frac12\\sqrt{32(n-2)+\\delta^2}\\). The exact amplitude is proportional to \\(\\cos(\\Omega t)-1\\), making the stated maximum global rather than numerical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Later robust-control work studies parameter sensitivity of optimized spin-ring controllers.",
+        "Weighted-graph state-transfer literature treats structural perfect- or pretty-good-transfer conditions in broader graph families.",
+        "No inspected broader source supplied the exact maximum-fidelity function for this missing-link all-to-all Hamiltonian with antisymmetric endpoint error."
+      ],
+      "reasoning": "General robustness and strong-cospectrality results motivate the perturbation but do not imply the quantitative global maximum without exploiting this model's three-level closure.",
+      "searches": [
+        "robustness energy landscape quantum state transfer spin network sensitivity potential",
+        "static bias quantum state transfer robustness spin network",
+        "quantum state transfer between twins weighted graphs potentials",
+        "robust energy landscape controllers spin rings coherent excitation transport"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0904.4510",
+      "DOI:10.1142/S0219749909006085",
+      "MaRDI Q3405954zb",
+      "arXiv:2303.00142",
+      "DOI:10.1017/qut.2023.5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Casaccino et al. prove perfect transfer for equal endpoint shift \\(2n-6\\) and separately study independent Gaussian site and coupling noise numerically.",
+        "The later robustness paper studies optimized ring controllers and logarithmic sensitivity rather than the present complete-graph-minus-edge reduction."
+      ],
+      "reasoning": "The source's equal-shift exact formula does not contain the unequal-endpoint parameter needed for this claim. The stochastic simulation also does not imply a deterministic all-time maximum or the sharp target-fidelity window.",
+      "searches": [
+        "primary full text arXiv:0904.4510 Theorem 2 fluctuations endpoint energy",
+        "arXiv:2303.00142 controller uncertainty fidelity spin rings",
+        "DOI:10.1017/qut.2023.5 energy landscape robustness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source uses one common endpoint shift in its analytic complete-graph and missing-link theorems.",
+        "Targeted searches returned the source and unrelated state-transfer work but no closed law for the differential endpoint error.",
+        "The exact formula depends on breaking the endpoint-exchange symmetry assumed by the source's analytic formulas."
+      ],
+      "reasoning": "Equivalent coverage would need to treat unequal source and target diagonal energies and determine the global fidelity ceiling, not merely state that disorder lowers fidelity or that unequal potentials obstruct exact perfect transfer.",
+      "searches": [
+        "complete graph missing link unequal endpoint energy shifts quantum state transfer fidelity",
+        "antisymmetric endpoint detuning complete graph minus edge perfect state transfer",
+        "energy shift mismatch input output complete graph missing link quantum transfer",
+        "systematic endpoint frequency mismatch all-to-all missing link state transfer",
+        "unequal energy shifts complete graph with a missing link quantum state transfer",
+        "endpoint frequency mismatch complete graph quantum state transfer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct source plots average fidelity versus Gaussian disorder variance but does not tabulate deterministic endpoint imbalance.",
+        "Its exact missing-link formula is parameterized by one shared endpoint shift."
+      ],
+      "reasoning": "The accepted result is an analytic global optimization for a different Hamiltonian family, not a recomputation of a published table.",
+      "searches": [
+        "arXiv:0904.4510 unequal endpoint shift",
+        "DOI:10.1142/S0219749909006085 frequency fluctuations fidelity",
+        "complete graph missing edge endpoint detuning fidelity formula"
+      ]
+    },
+    "rationale": "The exact source theorem assumes equal endpoint shifts. Its disorder section uses independent Gaussian perturbations and reports averaged numerical behavior. The accepted theorem instead solves a deterministic unequal-endpoint perturbation and gives an exact global optimum and calibration law not located in the inspected literature.",
+    "residual_risks": [
+      "A weighted-graph source may contain an algebraically equivalent maximum-fidelity formula under another hopping normalization.",
+      "The theorem does not include simultaneous common-mode endpoint error.",
+      "The later robustness literature is broad and not exhaustively enumerable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers equal endpoint shifts analytically and independent Gaussian disorder numerically, but not unequal deterministic endpoint shifts.",
+        "evidence": "The analytic theorem assigns the same \\(\\Delta E\\) to both input/output vertices; the fluctuations section adds independent random variables to frequencies or couplings and evaluates average fidelity numerically.",
+        "identifier_or_url": "arXiv:0904.4510; DOI:10.1142/S0219749909006085",
+        "material_read": "Full six-page arXiv manuscript, including Sections II, III.B, and V, the missing-link spectral formulas, transfer formula, and fluctuations discussion.",
+        "method": "Full-text and rendered-page inspection.",
+        "title": "Quantum state transfer through a qubit network with energy shifts and fluctuations",
+        "trigger": "Direct source defining the Hamiltonian, exact missing-link transfer theorem, and disorder experiment."
+      },
+      {
+        "assessment": "Addresses controller uncertainty and fidelity sensitivity on spin rings, not the exact missing-link complete graph or its antisymmetric endpoint mismatch.",
+        "evidence": "The work uses optimized ring controllers and logarithmic sensitivity/error statistics.",
+        "identifier_or_url": "arXiv:2303.00142; DOI:10.1017/qut.2023.5",
+        "material_read": "Open article abstract, introduction, system description, and robustness objective.",
+        "method": "Open full-text web inspection.",
+        "title": "Robustness of Energy Landscape Controllers for Spin Rings under Coherent Excitation Transport",
+        "trigger": "Closest broader robustness literature using static energy-landscape control for spin-network transfer."
+      },
+      {
+        "assessment": "Primary MSC is 81P45.",
+        "evidence": "The MSC list begins with Quantum information, communication, networks (81P45), followed by 81Q35.",
+        "identifier_or_url": "MaRDI Q3405954zb; DOI:10.1142/S0219749909006085",
+        "material_read": "Bibliographic metadata, DOI, full-work link, keywords, and MSC list.",
+        "method": "Mathematical bibliographic metadata inspection.",
+        "title": "Quantum state transfer through a qubit network with energy shifts and fluctuations — classification record",
+        "trigger": "Primary MSC ownership verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "65ba155e-2179-42b8-837f-46066a946c6e",
+  "value": {
+    "rationale": "The ideal protocol requires matched endpoint energies, so differential detuning is a directly motivated control imperfection. The result gives the exact global fidelity ceiling and readout times, not just a perturbative sensitivity. The target-fidelity window and \\(\\sqrt n\\) scaling quantify a network-size calibration budget.",
+    "status": "PASS"
+  }
+}
