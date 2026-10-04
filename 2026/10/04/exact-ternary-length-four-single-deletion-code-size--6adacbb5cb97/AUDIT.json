@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "An explicit 11-word code has pairwise disjoint one-deletion shadows. The Kim-Lee-Oh normalized count gives \\(|C|\\le 12\\) at \\(q=3\\); equality would force \\(|C_{4,2}|=3\\). There are exactly two orientations for each repeated outer symbol and all eight triples have a deletion collision, so 12 is impossible. The bundled standard-library verifier independently solves the complete 81-vertex compatibility graph and returns optimum 11.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kim-Lee-Oh prove the sharp length-four formula for even alphabet sizes and say the corresponding odd-\\(q\\) bound is not sharp.",
+        "Wang-Ji perfect-code existence at length four concerns perfect coverage and does not determine maximum cardinality because deletion shadows have nonuniform sizes."
+      ],
+      "reasoning": "The known broader even-alphabet theorem excludes \\(q=3\\), while perfect-code existence is not a dominating maximum-size theorem.",
+      "searches": [
+        "single deletion code length four odd alphabet",
+        "optimal single deletion code length four alphabet odd size",
+        "odd alphabet length four deletion exact ternary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0810.3729v1",
+      "arXiv:1003.4057v1",
+      "arXiv:1211.3128v1",
+      "DOI:10.1109/CIT.2012.137",
+      "Zhiyuan Li M.Sc. thesis (indexed passages)",
+      "Published published-finding corpus record 'Exact quinary length-four single-deletion code size'"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published published-finding corpus finding located is 'Exact quinary length-four single-deletion code size', which proves only \\(N(4,5,1)=42\\).",
+        "Kim-Lee-Oh's generic count yields only the \\(q=3\\) upper bound 12; the new orientation obstruction is needed to rule out equality.",
+        "Kulkarni-Kiyavash's fractional matching value 12 is an upper bound and does not imply an integer packing of size 12."
+      ],
+      "reasoning": "Neither adjacent exact \\(q=5\\) data, the general counting inequality, nor the fractional LP bound implies the ternary equality. The retained claim is the strict \\(q=3\\) integer improvement and its structural equality obstruction.",
+      "searches": [
+        "exact septenary length four single deletion code q=7",
+        "length four single deletion odd alphabet exact q=7",
+        "ternary length four single deletion exact 11 N(4,3,1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim-Lee-Oh define N(n,q,d) in insertion-deletion distance and identify the odd-q length-four sharp-bound problem.",
+        "Li-Houghten use equivalent one-deletion sphere/subsequence language for ternary codes."
+      ],
+      "reasoning": "The searches covered exact notation, channel terminology, and the equivalent insertion-deletion metric formulation; no implication-equivalent exact ternary value was located.",
+      "searches": [
+        "ternary length four single deletion exact 11 N(4,3,1)",
+        "N(4,3,1)=11 deletion code",
+        "ternary deletion insertion metric length four optimal code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kulkarni-Kiyavash Table I(d) lists \\(q=3,n=4\\) with numerical fractional-matching upper bound 12 and listed Tenengolts lower bound 8.",
+        "Li-Houghten Table III lists ternary Tenengolts codes of length four with maximum subclass size 8."
+      ],
+      "reasoning": "The exact parameter appears in published tables, but the located tables stop at bounds or a restricted-family value and do not contain the unrestricted optimum 11.",
+      "searches": [
+        "q=3 n=4 deletion correcting code exact maximum",
+        "ternary length four single deletion exact 11 N(4,3,1)"
+      ]
+    },
+    "rationale": "No inspected source states or implies \\(N(4,3,1)=11\\). The closest exact published-finding corpus record is \\(q=5\\), Kim-Lee-Oh solve even \\(q\\) and explicitly leave the odd sharp bound unresolved, Kulkarni-Kiyavash tabulate \\(q=3,n=4\\) only as an 8-to-12 gap, and Li-Houghten's full 2012 paper concerns the Tenengolts subclass with length-four maximum 8.",
+    "residual_risks": [
+      "The complete 2011 Li thesis could not be machine-read in this run; an unindexed exact small-parameter statement there remains a specific priority risk.",
+      "A non-indexed computational table or informal communication could contain the same finite optimum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the normalization and count, solves even \\(q\\), and explicitly says the odd-\\(q\\) bound is not sharp; it does not state the \\(q=3\\) optimum.",
+        "evidence": "The proof gives \\(|C|\\le|U|+|V|/2+|Z|/4+|C_{4,2}|/2-|C_{3,1}|/4\\) and \\(|C_{4,2}|\\le q\\lfloor(q-1)/2\\rfloor\\).",
+        "identifier_or_url": "arXiv:1003.4057v1",
+        "material_read": "Full arXiv HTML, especially Section 2, the substitution lemma, normalized word classes, deletion-output table, Theorem 2.2 proof, and Remarks 1-2.",
+        "method": "Full-text reading.",
+        "title": "Construction of optimal codes in deletion and insertion metric",
+        "trigger": "Same length-four deletion problem and the structural upper-bound argument used in the proof."
+      },
+      {
+        "assessment": "Reports numerical fractional-matching upper bound 12 and Tenengolts lower bound 8 for \\(q=3,n=4\\), not an exact integer optimum.",
+        "evidence": "Table I(d), \\(q=3\\), \\(n=4\\).",
+        "identifier_or_url": "arXiv:1211.3128v1",
+        "material_read": "Full arXiv HTML around the \\(q=3\\) table and table explanation.",
+        "method": "Full-text reading.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Exact \\(q=3,n=4\\) parameter appears in its numerical table."
+      },
+      {
+        "assessment": "Studies ternary Tenengolts codes and extensions; Table III has length-four Tenengolts sizes with maximum 8, but no unrestricted optimum 11.",
+        "evidence": "Section III and Table III.",
+        "identifier_or_url": "DOI:10.1109/CIT.2012.137",
+        "material_read": "Complete eight-page text.",
+        "method": "Full-text reading after open-access attempts did not supply the article text.",
+        "title": "Searching for Optimal Deletion Correcting Codes: New Properties and Extensions of Tenengolts Codes",
+        "trigger": "Computational study of ternary one-deletion codes and a plausible source of small-parameter data."
+      },
+      {
+        "assessment": "No exact unrestricted \\(q=3,n=4\\) optimum was found in inspected passages, but incomplete inspection leaves a priority risk.",
+        "evidence": "Indexed passages identify the thesis scope and construction algorithms.",
+        "identifier_or_url": "Zhiyuan Li, M.Sc. thesis, Brock University, 2011",
+        "material_read": "Search-indexed passages covering background, design constructions, and the greedy/backtracking setup; complete PDF text was not available through the reading interface.",
+        "method": "Indexed-text inspection.",
+        "title": "Construction of 1-Deletion-Correcting Ternary Codes",
+        "trigger": "Same ternary one-deletion object and cited by the 2012 computational paper."
+      },
+      {
+        "assessment": "Proves only the adjacent \\(q=5\\) value 42 and explicitly treats \\(q=3\\) only through earlier literature context; it does not imply the ternary claim.",
+        "evidence": "Statement \\(N(4,5,1)=42\\) and discussion of odd-\\(q\\) literature.",
+        "identifier_or_url": "published-finding corpus record dated 2026-09-21",
+        "material_read": "Published result and scientific metadata.",
+        "method": "Published-record reading.",
+        "title": "Exact quinary length-four single-deletion code size",
+        "trigger": "Closest semantic database result for the same length and deletion radius."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6adacbb5-cb97-445e-982b-40dc79d55140",
+  "value": {
+    "rationale": "The result closes the natural smallest nonbinary odd-alphabet length-four case singled out by the published odd-\\(q\\) sharp-bound gap and resolves the explicit \\(q=3,n=4\\) 8-to-12 interval in the Kulkarni-Kiyavash table. The equality obstruction explains why the natural counting/fractional value 12 is unattainable, so this is more than a recomputation of a known table entry.",
+    "status": "PASS"
+  }
+}
