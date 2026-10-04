@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For the explicit design, the residual projector is vv^T and the tested OLS functional is q^T. Under iid Gaussian errors, U=q^T epsilon and Z=v^T epsilon are independent standard normals. Uniform observation permutations send q^T Pv to exactly three values with computable multiplicities. The source empirical critical value reduces rejection to a binomial count, and Gaussian rotational symmetry supplies the exact wedge probabilities. All boundary cases k>m and strict inequalities are accounted for. The proof is analytic; computation only checks finite instances and reported numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Toulis Theorem 4 gives \\(p/n=o(1)\\) as a sufficient exchangeability regime and a size-error bound depending on \\(p/n\\); it does not cover \\(p=n-1\\).",
+        "Wen-Wang-Wang Appendix A7 reports numerical over-rejection of the Toulis RR procedure in proportional-dimensional simulations, including Gaussian design/noise, but gives no exact saturated formula."
+      ],
+      "reasoning": "The broader theory establishes validity conditions or empirical failures, not a theorem implying this explicit family. The exact finite-m expression and 1/2 saturation limit sharpen the qualitative/proportional-dimension picture rather than specializing a stronger known formula.",
+      "searches": [
+        "arXiv:1908.04218 Theorem 4 p/n=o(1) residual permutation",
+        "arXiv:2211.16182 Toulis residual randomization RR numerical comparison",
+        "residual permutation saturated regression Gaussian exact size"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1908.04218",
+      "arXiv:2211.16182",
+      "DOI:10.1093/biomet/asaf085",
+      "Freedman (1981), Bootstrapping regression models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 of arXiv:1908.04218 supplies sufficient asymptotic conditions, not an exact \\(p=n-1\\) rejection law.",
+        "The later numerical study observes RR inflation at \\(p/n=1/3\\) but does not determine the exact rank-one residual distribution.",
+        "The spherical-validity result for 'naive RPT' in arXiv:2211.16182 applies to a different residual-space-coordinate permutation construction and therefore does not contradict or imply the present observation-residual result."
+      ],
+      "reasoning": "Neither the direct theorem nor the later simulation implies the displayed formula or the 1/2 limit. Conversely, the new explicit family does not invalidate their positive results because it lies outside the stated low-dimensional/projection regimes.",
+      "searches": [
+        "arXiv:1908.04218 Eq. (17) Theorem 4",
+        "arXiv:2211.16182 Appendix A7 residual randomization Toulis",
+        "arXiv:2211.16182 naive RPT spherically symmetric"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1908.04218 Eq. (17) uses the observed coefficient statistic together with the same coefficient functional evaluated on randomly transformed full-model OLS residuals.",
+        "arXiv:2211.16182 distinguishes the Toulis residual-randomization procedure from its own projected RPT and from its residual-space-coordinate naive RPT."
+      ],
+      "reasoning": "The nearest procedures are not equivalent. The claimed calculation is tied to permutation of the n observation residual coordinates from the full fit. The later projected RPT constructs different projection spaces, and its naive RPT permutes coordinates after reduction to residual-space coordinates. No inspected source stated the same rank-one three-point law.",
+      "searches": [
+        "Toulis residual randomization residual permutation regression coefficient p=n-1 Gaussian exact size Cauchy",
+        "residual permutation test saturated linear regression rank n-1 Gaussian type I error",
+        "permuted OLS residuals exact finite-sample size Gaussian coefficient test high dimension",
+        "residual permutation regression coefficient test finite sample anti-conservative Gaussian full permutation",
+        "Toulis 1908.04218 residual permutation p=n-1 Cauchy size",
+        "arXiv:1908.04218 Sections 4.2-4.3",
+        "arXiv:2211.16182 Sections 3-4 and Appendix A7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic-index hits concerned pairwise-independent Student t size, conformal ordering laws, Gaussian chaos, and unrelated numerical linear algebra; none concerned full-model regression residual permutation at \\(p=n-1\\).",
+        "The current research ledger was searched for 'residual randomization', 'p=n-1', and permutation aliases; no prior row states this finding. A prior cyclic-permutation result concerns the distinct Lei-Bickel procedure."
+      ],
+      "reasoning": "No exact database/table entry or prior local finding was found that tabulates this null-size law. Search failure alone is not treated as proof of novelty; the direct and later full texts were separately inspected.",
+      "searches": [
+        "Toulis residual randomization residual permutation regression coefficient p=n-1 Gaussian exact size Cauchy",
+        "residual permutation test saturated linear regression rank n-1 Gaussian type I error",
+        "permuted OLS residuals exact finite-sample size Gaussian coefficient test high dimension",
+        "residual permutation regression coefficient test finite sample anti-conservative Gaussian full permutation",
+        "Toulis 1908.04218 residual permutation p=n-1 Cauchy size"
+      ]
+    },
+    "rationale": "The direct source defines the procedure and gives low-dimensional sufficient conditions, while the closest later high-dimensional paper reports empirical RR inflation but uses different methods for its validity results. Neither inspected source states the exact saturated construction, finite-m formula, or 1/2 limit. Semantic searches returned no equivalent statement. Residual risk remains for older residual-permutation literature under different terminology.",
+    "residual_risks": [
+      "An equivalent saturated-design calculation may exist in older residual-permutation or residual-bootstrap literature under terminology not surfaced by the searches.",
+      "The final journal version of the direct source appeared after the original preprint; the earliest-source date is taken from the verified 2019 arXiv submission, not the later publication date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_PREDECESSOR_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "Eq. (17) defines the analyzed procedure; Theorem 4 states \\(p/n=o(1)\\) as a sufficient exchangeability regime and does not state the \\(p=n-1\\) three-point law or exact size.",
+        "identifier_or_url": "arXiv:1908.04218",
+        "material_read": "Abstract and submission history; Sections 4.1-4.3 including Eqs. (14)-(18), Theorem 4, and the associated simulation discussion.",
+        "method": "Full-text HTML inspection of definitions, hypotheses, residual construction, critical-value convention, and stated dimension conditions.",
+        "title": "Asymptotic Validity and Finite-Sample Properties of Approximate Randomization Tests",
+        "trigger": "Direct source defining the full-model residual permutation coefficient test."
+      },
+      {
+        "assessment": "RELATED_EMPIRICAL_EVIDENCE_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "The paper reports RR over-rejection in proportional dimensions, including 11.1% at nominal 5% for \\(n=300\\), \\(p=100\\) with Gaussian design/noise, but does not state the exact saturated null-size formula.",
+        "identifier_or_url": "arXiv:2211.16182",
+        "material_read": "Introduction and method distinctions; spherical-validity proof for naive RPT; numerical comparison section and Appendix A7 rows for RR.",
+        "method": "Full-text HTML inspection, including the definitions distinguishing projected RPT, naive residual-space RPT, and Toulis RR.",
+        "title": "Residual permutation test for regression coefficient testing",
+        "trigger": "Later high-dimensional paper explicitly comparing against the Toulis residual-randomization procedure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e70c29ed-b973-4f03-bb8f-91b5ef2f09d2",
+  "value": {
+    "rationale": "The result exposes a structural failure mode at the natural saturation boundary: full-model residualization can compress the permutation reference distribution to scale n^{-1/2} while the observed coefficient remains order one. The exact finite-randomization formula quantifies the effect for the procedure actually defined in the source, and the limiting 1/2 size shows that the source's low-dimensional condition is not merely a proof artifact. This is a motivated boundary theorem, not a routine recalculation.",
+    "status": "PASS"
+  }
+}
