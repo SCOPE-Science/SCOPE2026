@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces each time slice for a two-point signal to a two-term character equation. The character map has exactly \\(d=\\gcd(N,s)\\) preimages per value. A finite family of explicit nonzero polynomial conditions guarantees that no coefficient ratio can cancel two different time slices; a distinct-prime window witnesses that the bad polynomials are proper. This yields exactly zero or \\(d\\) STFT zeros, and the ordinary Fourier calculation is the same one-slice root equation. The extremal formula follows from the largest proper divisor. The bundled exact replay checks the combinatorial and arithmetic skeleton through \\(N=300\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Malikiosis 2015 proves generic full spark and hence the universal lower bound \\(\\lvert\\operatorname{supp}V_gf\\rvert\\ge N^2-N+1\\), but does not determine the attainable support sizes for two-sparse signals.",
+        "Malikiosis 2018 proves one support-pair inclusion for all support sizes, not the reverse inclusion treated here."
+      ],
+      "reasoning": "The broader full-spark theorem is weaker for this stratum and does not imply the exact gcd-dependent spectrum. The broader one-inclusion theorem supplies attainability but not exclusion of extra STFT support values.",
+      "searches": [
+        "semantic query: two-sparse slice Problem 5.1 finite cyclic Gabor F_phi subset F",
+        "semantic query: phi(Z_N,2) N^2 N/p smallest prime divisor short-time Fourier",
+        "semantic query: two-point support short-time Fourier transform generic window gcd cyclic",
+        "semantic query: support-pair correspondence exact two-sparse cyclic STFT"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0611493v1",
+      "arXiv:1304.7709v1",
+      "arXiv:1602.09012v1",
+      "DOI:10.1016/j.acha.2007.09.008",
+      "DOI:10.2140/pjm.2018.294.159"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prime-order equality from the 2008 paper covers only prime \\(N\\).",
+        "Generic full spark from 2015 gives a lower bound but no exact two-sparse spectrum.",
+        "The 2016 preprint/2018 paper states generic \\(F\\subseteq F_\\varphi\\) and leaves \\(F_\\varphi\\subseteq F\\) as the hard direction."
+      ],
+      "reasoning": "For composite \\(N\\), the new reverse inclusion at exact support two is not a corollary of any inspected theorem; it supplies precisely a missing implication on a natural stratum of the published problem.",
+      "searches": [
+        "arXiv:math/0611493v1, Question 4.13",
+        "arXiv:1304.7709v1, Theorem 1.6",
+        "arXiv:1602.09012v1, Problem 5.1 and Theorem 5.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Malikiosis formulates the support-pair equality \\(F=F_\\varphi\\) and proves only \\(F\\subseteq F_\\varphi\\) generically; he describes the reverse inclusion as the difficult direction for composite order.",
+        "Krahmer--Pfander--Rashkov pose the same cyclic support-pair correspondence and give only prime-order proof plus small-order numerics."
+      ],
+      "reasoning": "The gcd spectrum \\(\\{N^2,N^2-\\gcd(N,s)\\}\\) is exactly a support-size-two formulation of the reverse inclusion; neither inspected source states this all-order stratum.",
+      "searches": [
+        "semantic query: finite cyclic group short-time Fourier transform two-point three-point window exact support uncertainty finite Gabor",
+        "semantic query: Krahmer Pfander Rashkov Conjecture 4.14 Z4 Gabor support almost every window",
+        "semantic query: two-sparse vector finite cyclic short-time Fourier transform generic window support",
+        "semantic query: Krahmer Pfander Rashkov conjecture two-sparse support Gabor cyclic",
+        "arXiv:1602.09012v1, Section 5, Problem 5.1 and Theorem 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2008 table reports the numerical value \\(33\\) at support bound \\(k=2\\) for \\(N=6\\); the theorem here yields \\(36-3=33\\) as one instance of the all-order formula."
+      ],
+      "reasoning": "The inspected table is numerical evidence at one composite order, not an exact database or theorem covering arbitrary \\(N\\).",
+      "searches": [
+        "Krahmer--Pfander--Rashkov 2008, Table 1 for \\(\\mathbb Z_6\\)",
+        "semantic query: phi(Z_N,2) N^2 N/p smallest prime divisor short-time Fourier"
+      ]
+    },
+    "rationale": "The closest primary source explicitly leaves the reverse support-pair inclusion open for composite cyclic order; the present theorem proves that reverse inclusion on the entire exact-support-two stratum and gives a closed formula for the associated \\(k=2\\) extremum. Targeted semantic searches found no equivalent or stronger two-sparse theorem. Residual risk remains for differently phrased or unindexed literature.",
+    "residual_risks": [
+      "A differently phrased, unindexed, or inaccessible treatment of the exact two-sparse stratum could exist; search non-detection is not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Poses the all-cyclic correspondence; proves prime case and reports small-order numerics, but no all-order exact-support-two theorem.",
+        "evidence": "Question 4.13 asks equality of the two support-pair sets for cyclic groups; Table 1 gives the numerical \\(N=6,k=2\\) value \\(33\\).",
+        "identifier_or_url": "arXiv:math/0611493v1 / DOI 10.1016/j.acha.2007.09.008",
+        "material_read": "Open-access PDF, relevant Sections 4--5 including Question 4.13 and Table 1.",
+        "method": "Primary full-text inspection.",
+        "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+        "trigger": "Original cyclic support-pair question and numerical evidence."
+      },
+      {
+        "assessment": "Shows almost all cyclic Gabor windows are full spark and gives the lower support bound, but not the exact two-sparse support spectrum.",
+        "evidence": "Theorem 1.6 gives \\(\\lvert\\operatorname{supp}V_gf\\rvert\\ge N^2-N+1\\) for all nonzero signals under a generic window.",
+        "identifier_or_url": "arXiv:1304.7709v1",
+        "material_read": "Open-access full HTML, Introduction and Theorems 1.2 and 1.6.",
+        "method": "Primary full-text inspection.",
+        "title": "A note on Gabor frames in finite dimensions",
+        "trigger": "Potentially dominating generic full-spark theorem."
+      },
+      {
+        "assessment": "Proves \\(F\\subseteq F_\\varphi\\) generically and explicitly identifies \\(F_\\varphi\\subseteq F\\) as the difficult direction for composite order; no two-sparse reverse-inclusion theorem is stated.",
+        "evidence": "Section 5, Problem 5.1 and Theorem 5.2.",
+        "identifier_or_url": "arXiv:1602.09012v1 / DOI 10.2140/pjm.2018.294.159",
+        "material_read": "Open-access journal PDF, Section 5 including Problem 5.1 and Theorem 5.2; arXiv metadata for first-public date and MSC.",
+        "method": "Primary full-text inspection.",
+        "title": "Spark deficient Gabor frames",
+        "trigger": "Later paper revisiting the exact support-pair problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f88f4760-cf3b-4d29-ac15-c7d5e02cc5f3",
+  "value": {
+    "rationale": "The result resolves the first nontrivial exact-support stratum of a published cyclic Fourier/STFT support-pair problem for every order \\(N\\), including composite orders where the reverse inclusion was explicitly left difficult. The closed formula \\(\\phi(\\mathbb Z_N,2)=N^2-N/p\\) turns earlier isolated numerical evidence into an all-order theorem and exposes the governing subgroup index through \\(\\gcd(N,s)\\).",
+    "status": "PASS"
+  }
+}
