@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The source's view recursion gives a union update on participant rows. Every suffix is therefore a union-preserving map whose output row is the union of input rows indexed by that suffix's singleton-start view. Comparing the suffix output before and after the chosen group gives the stated iff criterion. Equality of views implies equality of relation intersections, while the coordinate-equality model on {0,1}^A separates every distinct pair of view index sets. The compression corollary follows from a monotone integer potential and does not rely on the finite checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves that history indistinguishability implies view equality and explicitly notes the converse fails.",
+        "It identifies current relations through the agent views, but gives no factor-deletion criterion.",
+        "The 2015 ordinary-gossip theorem is a sharp pairwise extremal bound, not a suffix-sensitive arbitrary-group test.",
+        "The 2017 gossip paper treats pairwise call-sequence reachability and redundancy in a different protocol semantics."
+      ],
+      "reasoning": "These sources provide broader background but do not imply the exact accepted iff statement. The new proof requires factoring a suffix as a union-linear contributor map and then proving model-independent necessity.",
+      "searches": [
+        "Balbiani-van Ditmarsch-Lerouvillois 2026 full text: Section 3 view recursion and Lemma 3.6",
+        "Balbiani-van Ditmarsch-Lerouvillois 2026 full text: Definition 3.7 semantics",
+        "Balbiani-van Ditmarsch-Lerouvillois 2026 full text: Section 5 redundancy question",
+        "Brouwer-Draisma-Frenk 2015: ordinary gossip irredundant-call theorem",
+        "van Ditmarsch-Kokkinis-Stockmarr 2017: redundant calls in gossip protocols"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.31855",
+      "DOI:10.4204/EPTCS.447.5",
+      "DOI:10.1007/s00454-015-9666-1",
+      "DOI:10.1007/978-3-319-69131-2_6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source supplies the local update rule but not the arbitrary-suffix deletion theorem.",
+        "The source's warning about equal views prevents upgrading the result to full history-semantic equivalence.",
+        "None of the sixteen prior current-ledger claims concerns redundancy of asynchronous resolution histories."
+      ],
+      "reasoning": "The new statement is neither a corollary quoted in the source nor a reformulation of a prior accepted finding. It adds a forward-backward decomposition, an iff deletion criterion, a separating model for necessity, and a compression corollary.",
+      "searches": [
+        "primary source comparison: see_B(G) equals union of participant views",
+        "primary source comparison: equal views do not imply history indistinguishability",
+        "primary source comparison: future-work question on redundant resolutions",
+        "current-ledger claim and item-ID comparison through generation g000017"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed finding returned an equivalent prefix/suffix redundancy criterion for asynchronous resolutions.",
+        "The primary paper itself lists redundant resolutions as an open future question.",
+        "Pairwise gossip sources define redundant calls and prove stuttering or length bounds, but no matching arbitrary-group forward-backward criterion was located."
+      ],
+      "reasoning": "The searches covered redundancy, deletion, view equality, history compression, group calls, gossip, and final epistemic relations. The closest older results have different update arity or different semantic state objects.",
+      "searches": [
+        "published-finding database: asynchronous distributed knowledge redundant resolution history views participants equal information",
+        "published-finding database: resolution sequence redundancy distributed knowledge view union conference call",
+        "published-finding database: forward backward deletion criterion redundant gossip call sequence final knowledge",
+        "published-finding database: delete one resolution from history final epistemic relations criterion",
+        "web literature: redundant resolution asynchronous distributed knowledge see history",
+        "web literature: redundant call gossip epistemic logic",
+        "web literature: irredundant conference calls gossip"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact deletion test with the sets U_B, Q_a, and F_a was found.",
+        "No checked source gives the stated all-model accessibility-relation criterion for the 2026 asynchronous resolution semantics."
+      ],
+      "reasoning": "The claim is a structural iff theorem rather than a numerical table. Exact-search variants using deletion, suffix, prefix, and final relation terminology did not surface equivalent coverage.",
+      "searches": [
+        "published-finding database: group gossip call deletion redundancy suffix prefix exact criterion",
+        "published-finding database: asynchronous resolution history final relation redundancy exact test",
+        "web literature: call is redundant gossip protocol sequence",
+        "web literature: remove a call gossip sequence final knowledge"
+      ]
+    },
+    "rationale": "The 2026 primary source explicitly asks how to determine whether a resolution in a sequence is redundant because uninformative. It does not provide the prefix/suffix contributor criterion. Targeted published-finding and literature searches found pairwise gossip redundancy notions and irredundant-call bounds, but not the accepted arbitrary-group current-relation deletion theorem.",
+    "residual_risks": [
+      "A group-gossip or conference-call paper not surfaced by the searches may contain an algebraically equivalent deletion criterion under different terminology.",
+      "The accepted theorem deliberately does not settle full history-semantic redundancy under the relations approximately_a."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper contains the local view-update ingredients and the open redundancy question, but not the accepted arbitrary-occurrence final-relation criterion or compression theorem.",
+        "evidence": "Section 3 states the view recursion and union identity; immediately before the semantics it notes that equal views need not imply history indistinguishability, including repeated-resolution examples. Section 5 asks when a resolution in a sequence is redundant because uninformative.",
+        "identifier_or_url": "arXiv:2606.31855; DOI:10.4204/EPTCS.447.5",
+        "material_read": "Open-access PDF: Section 3 definition of the resolution relation and view; the identity see_B(G)=union of see_b(G); Lemma 3.6 and the explicit counterexamples to the converse; Definition 3.7 semantics; Section 5 conclusion and question (vi).",
+        "method": "Direct statement, implication, and quantifier comparison, including page-image inspection of the relevant definitions and open question.",
+        "title": "Resolving Asynchronous Distributed Knowledge",
+        "trigger": "Primary recent source defining the history views and explicitly posing resolution redundancy as future work."
+      },
+      {
+        "assessment": "NOT_COVERING: it treats pairwise ordinary gossip and extremal sequence length, not asynchronous resolution histories or deletion of an arbitrary occurrence relative to a suffix.",
+        "evidence": "The theorem bounds pairwise phone-call sequences by a binomial coefficient under an immediate-learning condition.",
+        "identifier_or_url": "DOI:10.1007/s00454-015-9666-1",
+        "material_read": "Open article text around Theorem 1.4 and the ordinary-gossip section, including the sharp bound on sequences of pairwise calls in which at least one participant learns something.",
+        "method": "Compare objects, call arity, redundancy notion, and conclusion.",
+        "title": "Lossy Gossip and Composition of Metrics",
+        "trigger": "Closest classical irredundant-information-transfer result for pairwise all-information gossip."
+      },
+      {
+        "assessment": "NOT_COVERING: the work concerns pairwise gossip protocols and does not state the accepted arbitrary-group prefix/suffix accessibility-relation criterion.",
+        "evidence": "The paper uses pairwise calls and discusses removing calls that do not affect the relevant gossip outcome.",
+        "identifier_or_url": "DOI:10.1007/978-3-319-69131-2_6",
+        "material_read": "Searchable text around the call protocols, redundant-call discussion, and reachability examples.",
+        "method": "Compare redundancy semantics and update mechanism.",
+        "title": "Reachability and Expectation in Gossiping",
+        "trigger": "Prior epistemic gossip work using explicit redundant-call terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a5a3e880-e3db-4f24-9319-f15880a650e6",
+  "value": {
+    "rationale": "The theorem answers a natural, explicitly posed redundancy problem at the current-information level and does so for an arbitrary event inside a history rather than only a final repetition. The exact prefix/suffix test supports history compression and state-space reduction, while the necessity construction cleanly separates relation redundancy from the richer history-sensitive semantics.",
+    "status": "PASS"
+  }
+}
