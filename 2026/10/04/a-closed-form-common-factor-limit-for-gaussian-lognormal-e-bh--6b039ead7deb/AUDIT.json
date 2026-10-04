@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian factor representation gives conditionally iid lognormal e-values. The e-BH rejection event is an empirical tail crossing. Conditional Glivenko--Cantelli convergence plus a small-tail binomial bound reduces the large-K event to a deterministic crossing except at one common-factor boundary. Reparameterizing by the Gaussian survival quantile turns the boundary into a one-dimensional minimization whose derivative is the Gaussian hazard minus a constant; strict hazard monotonicity gives the unique minimizer. Dominated convergence then gives the displayed FDR limit. The standalone verifier independently checks the hazard root, scalar minimum, tangency, side-of-boundary inequalities, and benchmark constants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dey's Theorem 4.3 gives a large-K global-null FDR formula for ordinary BH with one-sided Gaussian p-values under equicorrelation.",
+        "Dey's article contains no occurrence of 'e-value', 'lognormal', or 'likelihood' in the inspected full text.",
+        "Wang--Ramdas explicitly identify multivariate Gaussian dependence for e-values as a direction for future study."
+      ],
+      "reasoning": "Dey supplies a structurally close common-factor method but only for the standard BH critical curve. The e-BH likelihood-ratio boundary is a different nonlinear critical curve. No inspected theorem stated arbitrary step-up curves broadly enough to make the present formula an immediate corollary.",
+      "searches": [
+        "Benjamini Hochberg equicorrelated Gaussian asymptotic false discovery rate common factor",
+        "step-up equicorrelated Gaussian asymptotic rejection proportion",
+        "equicorrelated normal Benjamini-Hochberg asymptotic",
+        "false discovery rate equicorrelated normal common factor asymptotic BH"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2009.02824",
+      "arXiv:2212.08372",
+      "DOI:10.1111/rssb.12489",
+      "DOI:10.1007/s00362-024-01613-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang--Ramdas define base e-BH and the exact Gaussian likelihood-ratio e-values but analyze boosting from marginal distributions rather than the equicorrelated joint law.",
+        "Dey's Theorem 4.3 assumes ordinary Gaussian p-values and the BH cutoff; its formula does not become the present logarithmic boundary by choosing a parameter value."
+      ],
+      "reasoning": "The two closest sources motivate and suggest the calculation but do not logically imply the final closed formula without a new conditional tail-crossing derivation and minimization. A more abstract step-up theorem elsewhere could still subsume it, which is recorded as residual risk.",
+      "searches": [
+        "False Discovery Rate Control with E-values Gaussian dependence future studies",
+        "On Asymptotic Behaviors of Stepwise Multiple Testing Procedures e-value lognormal",
+        "arXiv 2212.08372 lognormal e-value likelihood"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No targeted published-finding corpus record returned an e-BH/lognormal/equicorrelation limit; the highest semantic matches concerned unrelated Gaussian-chaos or Gaussian-magnitude problems.",
+        "Direct web searches for e-BH with equicorrelated Gaussian or lognormal dependence returned the Wang--Ramdas source and ordinary-BH Gaussian-dependence literature, not the stated formula."
+      ],
+      "reasoning": "No equivalent formulation using common-factor, lognormal, likelihood-ratio, or hazard terminology was located. Search failure alone is not taken as novelty proof; direct source inspection and implication checks below are decisive parts of the assessment.",
+      "searches": [
+        "equicorrelated Gaussian lognormal e-values e-BH common factor asymptotic false discovery rate",
+        "e-BH multivariate Gaussian lognormal equicorrelation asymptotic rejection probability",
+        "Gaussian dependence e-values common factor step-up asymptotic",
+        "lognormal e-values equicorrelated Gaussian false discovery rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang--Ramdas Example 3 tabulates marginal lognormal boosting values, not a joint equicorrelated FDR limit.",
+        "Dey's displayed equicorrelation formula is for ordinary BH and contains Gaussian p-value quantiles rather than the logarithmic e-BH boundary."
+      ],
+      "reasoning": "The inspected tables and formulas do not contain the stated hazard equation, tangency fraction, or numerical benchmark.",
+      "searches": [
+        "e-BH multivariate Gaussian lognormal equicorrelation asymptotic rejection probability",
+        "lognormal e-values equicorrelated Gaussian false discovery rate",
+        "e-BH Gaussian equicorrelated lognormal Mills ratio"
+      ]
+    },
+    "rationale": "The closest inspected sources split the ingredients: Wang--Ramdas give e-BH and the lognormal likelihood-ratio e-values, while Dey gives an equicorrelated large-K formula for ordinary BH on one-sided Gaussian p-values. Neither source states or directly parameter-specializes to the likelihood-ratio e-BH boundary or its Mills-hazard tangency fraction. Targeted published-finding corpus and web searches found no equivalent claim. The structural similarity to general step-up factor arguments is retained as a residual risk rather than treated as absent.",
+    "residual_risks": [
+      "A general asymptotic theorem for arbitrary common-factor step-up critical curves, not located in the targeted searches, could subsume the result as a specialization.",
+      "The calculation is an exact specialization to Gaussian likelihood-ratio e-values; other e-value families may have different tangency geometry."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY COVERING. It supplies the procedure and exact marginal e-value model, but not the equicorrelated large-K global-null FDR formula or hazard tangency.",
+        "evidence": "Example 3 defines E=exp(delta X-delta^2/2) under a standard-normal null; the conclusion explicitly asks about further e-value gains under multivariate Gaussian structure.",
+        "identifier_or_url": "arXiv:2009.02824 / DOI 10.1111/rssb.12489",
+        "material_read": "ArXiv metadata and journal full text covering the base e-BH definition, Example 3 lognormal e-values, Example 6 PRDS boosting, and the concluding discussion of multivariate Gaussian dependence.",
+        "method": "Direct full-text inspection and targeted searches for log-normal, Gaussian dependence, boosting, and future-study language.",
+        "title": "False discovery rate control with e-values",
+        "trigger": "Primary source for base e-BH and the Gaussian likelihood-ratio e-value family."
+      },
+      {
+        "assessment": "STRUCTURALLY CLOSE BUT NOT COVERING. It gives the ordinary-BH one-sided Gaussian-p-value limit, not e-BH on likelihood-ratio e-values.",
+        "evidence": "Theorem 4.3 has boundary Phi^{-1}(1-alpha t)-sqrt(1-rho)Phi^{-1}(1-t); the present boundary is log(1/(alpha t))/delta+delta/2-sqrt(1-rho)Phi^{-1}(1-t).",
+        "identifier_or_url": "arXiv:2212.08372 / DOI 10.1007/s00362-024-01613-6",
+        "material_read": "ArXiv metadata plus the open journal full text around Theorem 4.3, its proof setup, the common-factor representation, and the article's MSC classification.",
+        "method": "Direct theorem/assumption comparison and full-text searches for e-value, lognormal, and likelihood terminology.",
+        "title": "On Asymptotic Behaviors of Stepwise Multiple Testing Procedures",
+        "trigger": "Closest primary literature on large-K step-up behavior under equicorrelated Gaussian dependence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6b039ead-7deb-4658-ad05-21efd180af8f",
+  "value": {
+    "rationale": "The result answers a concrete dependence question left open in the e-BH source for a canonical likelihood-ratio family and quantifies a burst mechanism that marginal FDR bounds do not show. The alpha-independent first-contact rejection fraction is a structural feature: a rare common-factor excursion can produce a macroscopic false-rejection block even when the overall limiting FDR is small. The closed one-dimensional hazard formula is directly computable and separates dependence strength from nominal-level shifting.",
+    "status": "PASS"
+  }
+}
