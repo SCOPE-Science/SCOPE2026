@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The six allocations reduce to three complementary pair partitions. With continuous data, level \\(1/3\\) rejection is equivalent to the original labels forming the two smallest or two largest pooled values. Standardized Gaussian pair contrasts reduce the event to an isotropic three-dimensional cone; the trihedral solid-angle formula gives the displayed closed form. Strict concavity of \\(x\\mapsto\\operatorname{arsinh}(\\sqrt{x})\\) yields the unique minimum at equal variances and the endpoint limit \\(1/2\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "QANOVA develops studentized permutation Wald statistics that are finitely exact under exchangeability and asymptotically valid more generally.",
+        "Bertanha–Chung develop broader asymptotically robust studentized permutation theory."
+      ],
+      "reasoning": "Those broader theories address validity and remedies but do not imply the exact finite-sample rejection probability of the unstudentized size-two-per-group Gaussian test; the solid-angle calculation is outside their stated asymptotic conclusions.",
+      "searches": [
+        "balanced two-sample permutation mean test heteroscedastic normal exact finite sample size",
+        "permutation test unequal variances balanced Gaussian exact finite sample",
+        "QANOVA full text Sections 1, 4, 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1912.09146v1",
+      "DOI:10.1007/s11749-021-00758-y",
+      "arXiv:2102.13638",
+      "DOI:10.1080/01621459.2022.2087660",
+      "DOI:10.1093/biomet/54.3-4.679"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bertanha–Chung state lack of size control in finite and large samples outside the sharp null, but no exact size-two-per-group function.",
+        "QANOVA states finite exactness under exchangeability and asymptotic validity after studentization, but does not evaluate the baseline finite-sample Gaussian weak-null size curve."
+      ],
+      "reasoning": "General warnings that a test can be invalid neither determine the exact probability nor its sharp range. The new statement quantifies the smallest balanced Gaussian case and identifies the extremal relative inflation.",
+      "searches": [
+        "permutation difference in means four observations variance ratio exact rejection probability",
+        "arXiv:2102.13638 full text pp. 2–4",
+        "Springer QANOVA full text Sections 1 and 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2102.13638v3 pp. 2–4 states the classical test can fail outside the sharp null and points to Janssen (1997) for mean differences.",
+        "No searched source returned the displayed four-observation variance-ratio formula or its complete-separation/solid-angle equivalence."
+      ],
+      "reasoning": "The claim was compared under aliases including classical two-sample permutation test, unstudentized mean permutation test, heteroscedastic Gaussian weak null, complete sample separation, and solid-angle probability. The accessible literature gives general invalidity or asymptotic remedies, not this exact finite-n identity.",
+      "searches": [
+        "two-sample permutation test size unequal variances Gaussian sample size two exact 1/3 1/2",
+        "complete separation two Gaussian samples size two permutation p value variance ratio",
+        "two samples of size 2 permutation test unequal variance",
+        "solid angle permutation test unequal variances Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Murphy (1967) abstract says quantitative sizes and powers were obtained by large-scale simulation for unequal variances.",
+        "Full-text retrieval returned no verified PDF, so its tables could not be inspected."
+      ],
+      "reasoning": "No accessible exact table or database entry was found that states this closed form. Murphy is the main unresolved table risk; its abstract is simulation-based and therefore does not by itself imply an analytic all-variance-ratio formula.",
+      "searches": [
+        "permutation variance ratio 1/3 1/2 normal",
+        "sqrt(1+2k) permutation test variance ratio",
+        "Full-text retrieval attempt for DOI 10.1093/biomet/54.3-4.679"
+      ]
+    },
+    "rationale": "Targeted semantic and web searches found general finite-sample/asymptotic invalidity results and studentized remedies but no source stating or implying this exact four-observation variance-ratio law. The main residual risk is an inaccessible 1967 simulation paper whose abstract does not state an analytic formula.",
+    "residual_risks": [
+      "The inaccessible Murphy (1967) full text may contain small-sample numerical tables overlapping special variance ratios, though no evidence of the closed form was found.",
+      "Search failure cannot prove global novelty; the PASS is based on statement/implication comparison across the closest located literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_GENERAL_CONTEXT_NOT_EXACT_CLAIM",
+        "evidence": "Studentized permutation Wald statistics are finitely exact under exchangeability and asymptotically valid more broadly; no four-observation Gaussian size curve is stated.",
+        "identifier_or_url": "arXiv:1912.09146v1 / DOI:10.1007/s11749-021-00758-y",
+        "material_read": "Full open-access HTML: introduction, permutation-test section, discussion, references.",
+        "method": "Open-access full-text inspection.",
+        "title": "QANOVA: quantile-based permutation methods for general factorial designs",
+        "trigger": "Paper with verified MSC 62G09/62G10/62G20 and explicit heteroscedastic permutation discussion."
+      },
+      {
+        "assessment": "COVERING_GENERAL_INVALIDITY_NOT_EXACT_CLAIM",
+        "evidence": "The paper states finite- and large-sample lack of size control outside the sharp null and cites mean-difference work, but does not give the exact Gaussian 2+2 rejection law.",
+        "identifier_or_url": "arXiv:2102.13638",
+        "material_read": "arXiv full text pages 1–4, including sharp-null exactness, weak-null failure, and difference-of-means literature.",
+        "method": "Open-access arXiv PDF text plus visual page inspection.",
+        "title": "Permutation Tests at Nonparametric Rates",
+        "trigger": "Direct statement of classical two-sample weak-null size failure and studentized asymptotic repair."
+      },
+      {
+        "assessment": "PLAUSIBLE_OVERLAP_SOURCE_INACCESSIBLE_FULL_TEXT",
+        "evidence": "The abstract reports simulation-based quantitative size and power results; it does not state an all-ratio exact formula. Uninspected tables remain a residual risk.",
+        "identifier_or_url": "DOI:10.1093/biomet/54.3-4.679",
+        "material_read": "Publisher abstract only; no verified full PDF after open-access search and bounded full-text retrieval attempt.",
+        "method": "Abstract inspection plus bounded full-text retrieval attempt.",
+        "title": "Some two-sample tests when the variances are unequal: a simulation study",
+        "trigger": "Highly relevant older paper on permutation mean tests under unequal variances."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a16c8f3-b610-411d-93da-cd4adfcce3cd",
+  "value": {
+    "rationale": "The result gives a sharp finite-sample boundary for the smallest nontrivial balanced two-sample permutation design. It quantifies exactly how variance heterogeneity alone breaks weak-null calibration under Gaussian symmetry and equal sample sizes, identifies the sharp relative inflation envelope, and cleanly motivates studentization.",
+    "status": "PASS"
+  }
+}
