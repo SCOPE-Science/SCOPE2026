@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The included verifier regenerates all 90 balanced ternary words, builds compatibility from Hamming distance, exhaustively enumerates every maximal clique, obtains maximum 15 with exactly 12 maxima, independently enumerates all six labeled 1-factorizations of \\(K_6\\), and checks the full \\(S_6\\times S_3\\) orbit/stabilizer assertions. The computation terminates exhaustively and does not infer impossibility from timeout.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gillespie--Praeger Theorem 1.2 characterizes diagonally neighbour-transitive codes, not all frequency permutation arrays.",
+        "Their Theorem 1.3 concerns group-generated permutation codes and repetitions, a restricted construction family."
+      ],
+      "reasoning": "A theorem covering all constant-composition or all FPA codes at these parameters would dominate the claim, but the inspected symmetry results cover only restricted subclasses and do not imply the finite census.",
+      "searches": [
+        "published-finding corpus: constant composition code 2,2,2 length 6 distance 4 classification",
+        "Web: frequency permutation arrays one-factorization K6",
+        "Source: DOI:10.1007/s10801-013-0465-6 full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0511173",
+      "DOI:10.1007/s10623-009-9312-0",
+      "DOI:10.1007/s10801-013-0465-6",
+      "published-finding corpus semantic search records returned for the exact-parameter/alias queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.5 in arXiv:math/0511173 supplies general monotonicity and upper bounds but no sharp bound 15 at \\(\\lambda=2,n=6,d=4\\).",
+        "The maxima here have two pairwise distances, 4 and 6, so an equidistant-only result does not imply their classification.",
+        "The 2014 paper explicitly frames its classification around diagonally neighbour-transitive and group-generated codes."
+      ],
+      "reasoning": "The closest prior results neither force the exact maximum nor determine the number, structure, or single-orbit classification of all maxima.",
+      "searches": [
+        "Source: arXiv:math/0511173 full text, Definition 2.3 and Theorem 2.5",
+        "Source: DOI:10.1007/s10623-009-9312-0 portal/abstract",
+        "Source: DOI:10.1007/s10801-013-0465-6 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0511173 defines \\(FPA_\\lambda(n,d)\\) and \\(M_\\lambda(n,d)\\) with the same Hamming metric.",
+        "No returned published-finding corpus record or indexed web source stated \\(M_2(6,4)=15\\) or the 12-maxima census."
+      ],
+      "reasoning": "The exact object is also a constant-composition code with composition (2,2,2). Searches used both FPA notation and the constant-composition formulation; no equivalent published statement was found.",
+      "searches": [
+        "published-finding corpus: FPA_2(6,4) maximum 15 exactly 12 frequency permutation arrays",
+        "published-finding corpus: frequency permutation array length six frequency two distance four one-factorization K6",
+        "Web: M_2(6,4) frequency permutation",
+        "Web: constant composition code 6,4 [2,2,2]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The foundational 2005 full text was searched for the exact parameter notation and nearby numeric forms without locating such a table.",
+        "published-finding corpus closest hits concerned different permutation-family and coding problems rather than this parameter set."
+      ],
+      "reasoning": "No exact database row or finite table matching the object and parameters was located. Failed search alone is not taken as proof; this is supported by inspection of the foundational source and the later symmetry-restricted full text.",
+      "searches": [
+        "published-finding corpus: frequency permutation arrays length 6 frequency 2 minimum distance 4",
+        "Web: FPA_2(6,4)",
+        "Web: frequency permutation array length 6 distance 4 15"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches found no statement implication-equivalent to the exact value together with the 12-code census and 1-factorization classification. The foundational full text gives definitions, constructions and general bounds; the 2014 full text concerns a symmetry-restricted family. The 2010 equidistant paper is inapplicable to the non-equidistant maxima at statement level, but inaccessible full text leaves a residual risk.",
+    "residual_risks": [
+      "The 2010 equidistant-FPA full text could not be retrieved from its linked preprint location.",
+      "An obscure unindexed finite enumeration or thesis table may contain the same 12-code census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Defines \\(FPA_\\lambda(n,d)\\) and \\(M_\\lambda(n,d)\\); the inspected general bounds do not give the 12-maxima census and no exact \\(M_2(6,4)\\) classification was found.",
+        "identifier_or_url": "arXiv:math/0511173",
+        "material_read": "Full PDF text: Definition 2.3, Theorem 2.5, surrounding constructions and bounds; exact-parameter text searches.",
+        "method": "Lawful arXiv full text plus page-image inspection of the definition page.",
+        "title": "Frequency permutation arrays",
+        "trigger": "Foundational source defining the exact object and notation."
+      },
+      {
+        "assessment": "POSSIBLE_BUT_NOT_DECISIVE",
+        "evidence": "The paper is explicitly about equidistant FPAs, whereas every maximum here has distances 4 and 6. Full-text inaccessibility is retained as a residual risk.",
+        "identifier_or_url": "DOI:10.1007/s10623-009-9312-0",
+        "material_read": "Portal metadata and abstract; linked preprint fetch attempted but unavailable.",
+        "method": "University portal metadata/abstract and failed lawful preprint fetch.",
+        "title": "Equidistant frequency permutation arrays and related constant composition codes",
+        "trigger": "Title is close and could potentially dominate a small FPA classification."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorems classify diagonally neighbour-transitive codes and group-generated permutation-code constructions, not all \\(FPA_2(6,4)\\) maxima.",
+        "identifier_or_url": "DOI:10.1007/s10801-013-0465-6",
+        "material_read": "Accessible full text: abstract, introduction, Theorems 1.2 and 1.3, definitions.",
+        "method": "Author-uploaded full text rendered as searchable text.",
+        "title": "Diagonally neighbour transitive codes and frequency permutation arrays",
+        "trigger": "Later FPA classification paper with directly relevant symmetry language."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4503ae5c-f6af-40ff-94fb-bd56735978dc",
+  "value": {
+    "rationale": "This is a natural complete extremal classification for the smallest frequency-two ternary FPA space. It sharpens the foundational general bounds to an exact maximum and exposes a nontrivial 1-factorization structure, with a complete labeled and symmetry census rather than an arbitrary isolated example.",
+    "status": "PASS"
+  }
+}
