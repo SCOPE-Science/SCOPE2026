@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The exact orbit solves both recurrence equations with \\(r=\\alpha/2-\\varepsilon/\\lambda\\). Normalized one-step Jacobians at the two phases multiply to a monodromy matrix with determinant \\([\\beta_2+2c(1-\\beta_2)]^2\\) and the stated trace. The complete Jury conditions reduce exactly to \\(c<1/2\\), hence \\(2\\varepsilon<\\alpha\\lambda<4\\varepsilon\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 source reports temporal-only AdaShift can be less stable and may suffer explosive gradients.",
+        "The 2021 analysis proves convergence for n=1 on a specific online problem with a decaying step schedule and notes larger delays may diverge."
+      ],
+      "reasoning": "Those results concern stochastic or online problems and decaying learning rates. They neither imply nor exclude the constant-step deterministic periodic orbit and its local Floquet stability window.",
+      "searches": [
+        "AdaShift convergence condition asynchronous optimizer n=1",
+        "Momentum Centering asynchronous AdaShift delay divergence",
+        "AdaShift temporal-only explosive gradient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.00143v1",
+      "arXiv:2110.05454v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines the delayed second-moment update and a windowed first moment; for n=1 the numerator reduces to the current gradient.",
+        "The later analysis explicitly classifies AdaShift as asynchronous and writes its n=1 denominator using past second-moment information.",
+        "The later analysis notes that delay choice can affect convergence, but gives no constant-step scalar cycle theorem."
+      ],
+      "reasoning": "The published formulas are premises for the new calculation, but the claimed orbit, sharp epsilon-dependent stability interval, and exact Floquet modulus require a separate nonlinear state-space analysis and are not corollaries of the cited convergence theorems.",
+      "searches": [
+        "AdaShift v_t g_t-n equation first moment window",
+        "AdaShift n=1 denominator previous second moment epsilon",
+        "AdaShift delay step n convergence instability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1810.00143v1/v4, temporal-shift recurrence, truncated first-moment window, and temporal-only experiments",
+        "arXiv:2110.05454v1/v3, asynchronous AdaShift representation and convergence-condition analysis"
+      ],
+      "reasoning": "Equivalent formulations include a delayed-RMSProp scalar two-cycle, a two-step Schur boundary in the asynchronous second-moment state, and a Floquet multiplier product crossing at the same normalized epsilon ratio. No inspected source or database hit stated these equivalent results.",
+      "searches": [
+        "AdaShift delayed second moment scalar quadratic exact stability",
+        "AdaShift time shift quadratic optimizer stability cycle",
+        "adaptive gradient time-shifted second moment local stability quadratic",
+        "AdaShift exact two-cycle scalar quadratic constant step epsilon",
+        "asynchronous AdaShift period two cycle quadratic",
+        "delayed RMSProp stable two-cycle scalar quadratic",
+        "AdaShift Floquet stability cycle beta2 epsilon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concerned stochastic delay laws, AdOGD persistence, population feedback stability, and unrelated degree-two spectral methods.",
+        "No returned record used AdaShift's asynchronous uncentered second-moment recurrence to state a period-two Floquet law."
+      ],
+      "reasoning": "The closest records analyze different delayed or adaptive algorithms. Search absence is not treated as proof of uniqueness; the direct primary-source comparison carries the main originality weight.",
+      "searches": [
+        "AdaShift delayed second moment scalar quadratic exact stability",
+        "AdaShift time shift quadratic optimizer stability cycle",
+        "adaptive gradient time-shifted second moment local stability quadratic",
+        "AdaShift exact two-cycle scalar quadratic constant step epsilon",
+        "asynchronous AdaShift period two cycle quadratic",
+        "delayed RMSProp stable two-cycle scalar quadratic",
+        "AdaShift Floquet stability cycle beta2 epsilon"
+      ]
+    },
+    "rationale": "The inspected AdaShift source and later asynchronous-optimizer analysis discuss decorrelation, convergence conditions, delay sensitivity, and empirical temporal-only instability, but do not state the deterministic constant-step period-two orbit or its exact Floquet phase diagram.",
+    "residual_risks": [
+      "An equivalent cycle calculation may exist in unindexed analyses of delayed RMSProp-like recurrences.",
+      "The theorem targets the n=1 asynchronous form rather than longer-delay or spatial AdaShift variants.",
+      "The local cycle analysis does not determine global basins of attraction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_PERIOD_TWO_FLOQUET_PHASE_DIAGRAM.",
+        "evidence": "The paper supplies the delayed adaptive mechanism and qualitative stability observations but no deterministic scalar constant-step cycle or Floquet computation.",
+        "identifier_or_url": "arXiv:1810.00143",
+        "material_read": "Full open-access text covering equations for temporally shifted second moments, blockwise spatial operation, the truncated recent-gradient first moment, detailed pseudocode, and the temporal-only appendix reporting occasional explosive gradients.",
+        "method": "Open-access full-text inspection.",
+        "title": "AdaShift: Decorrelation and Convergence of Adaptive Learning Rate Methods",
+        "trigger": "Defining source for temporal shifting and the n-step numerator/denominator construction."
+      },
+      {
+        "assessment": "BROADER_CONVERGENCE_ANALYSIS_NOT_COVERING_CONSTANT_STEP_SCALAR_CYCLE.",
+        "evidence": "The paper proves results for specific online/stochastic settings and decaying schedules, and notes delay-dependent divergence, but does not analyze the claimed period-two state or Floquet boundary.",
+        "identifier_or_url": "arXiv:2110.05454",
+        "material_read": "Full open-access text covering the async/sync classification, n=1 AdaShift denominator representation, convergence lemmas, delay sensitivity, and comparisons with ACProp.",
+        "method": "Open-access full-text inspection.",
+        "title": "Momentum Centering and Asynchronous Update for Adaptive Gradient Methods",
+        "trigger": "Strong later analysis that could subsume n=1 AdaShift dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "97e59547-9a7e-4a5f-890a-0a3da1e9f644",
+  "value": {
+    "rationale": "Temporal shifting is AdaShift's defining device, and the source itself reports that temporal-only variants can become unstable. The theorem gives a sharp deterministic mechanism behind that sensitivity: a nonzero oscillatory state is stable only in a finite epsilon-dependent window and becomes provably unstable beyond it, while zero epsilon makes the cycle always unstable. The exact boundary and Floquet factor distinguish denominator regularization from a merely numerical implementation detail.",
+    "status": "PASS"
+  }
+}
