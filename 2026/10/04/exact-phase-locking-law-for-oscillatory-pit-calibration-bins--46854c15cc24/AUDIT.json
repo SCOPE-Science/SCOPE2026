@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Direct integration gives the exact bin error, averaging the origin reduces to the exact integral of \\(|\\cos|\\), and the aligned-grid formula follows from a coprime residue reduction plus finite trigonometric sums. The zero criterion is equivalent to the reduced modulus being \\(1\\) or \\(2\\). Boundary cases and the \\(N=2k\\) shifted law follow directly. Supplementary numerical checks agree but are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.15709 studies general ECE binning/generalization bias rather than this exact sinusoidal phase-locking law.",
+        "General calibration references checked in the motivating paper address binning choice, smooth calibration, or empirical estimation without the exact divisibility criterion."
+      ],
+      "reasoning": "Broader ECE results do not imply the exact fixed-frequency arithmetic formula or the deterministic blindness condition without an additional Fourier-phase calculation.",
+      "searches": [
+        "Expected Calibration Error oscillatory density bins aliasing",
+        "equal-width binning cosine density absolute bin deviations exact formula",
+        "Information-theoretic Generalization Analysis Expected Calibration Error binning bias"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.08378v1",
+      "OpenReview:dy7XNC3W0g",
+      "arXiv:2405.15709",
+      "SCOPE-beta-report-grid-phase-constants--a7b833f50f30",
+      "SCOPE-critical-power-log-dyadic-phase-location-moduli--144dcf8ab051",
+      "SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source's sinc approximation predicts about \\(2/\\pi\\) retention at \\(N=2k\\), while the exact aligned-grid value is zero.",
+        "The exact randomized-origin mean equals that same \\(2/\\pi\\) value at \\(N=2k\\)."
+      ],
+      "reasoning": "The prior approximation does not imply the aligned-grid theorem; rather, the new phase formula explains why the prior number is obtained after phase randomization and distinguishes deterministic alignment from phase averaging.",
+      "searches": [
+        "Why Constants Matter distribution testing calibration sinc oscillatory bins",
+        "Calibrating the Calibration Tester optimal binning sinusoidal PIT"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.08378v1 uses the same sinusoidal PIT family and a sinc attenuation approximation.",
+        "The 2026 calibration workshop manuscript uses the same benchmark but states an approximate phase-free curve rather than an exact phase law."
+      ],
+      "reasoning": "The proposed statement is not merely a rewriting of the source approximation: for the standard grid it can differ qualitatively, including an exact zero where the source curve is positive. The sinc expression survives exactly only after averaging over the origin phase.",
+      "searches": [
+        "oscillatory calibration exact binned ECE sinc equal-width bins aliasing",
+        "sinusoidal PIT density exact finite bin calibration error gcd",
+        "N divides 2k calibration bins cosine PIT",
+        "histogram bins sinusoidal sinc aliasing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked result supplied a table or exact formula matching the three parity cases for the reduced modulus.",
+        "No checked result stated \\(E_N(0)=0\\) exactly when \\(N\\mid2k\\)."
+      ],
+      "reasoning": "The claim is a symbolic identity, not a recomputation of a known table; no exact tabulation or database entry covering it was found.",
+      "searches": [
+        "Nyquist calibration bins exact blindness N divides 2k",
+        "binned ECE sinc(k/N) exact",
+        "equal width histogram sinusoidal density phase offset"
+      ]
+    },
+    "rationale": "The motivating 2026 calibration source states a phase-free sinc approximation for this same oscillatory PIT benchmark and reports about \\(64\\%\\) retention at \\(N=2k\\). The inspected full text does not state the exact origin-dependent formula, the gcd/divisibility law, the exact blindness of the standard grid at \\(N=2k\\), or the interpretation of the sinc curve as the randomized-origin mean. Focused semantic searches found no covering published finding.",
+    "residual_risks": [
+      "An equivalent finite Fourier/histogram aliasing identity may occur in older signal-processing, quadrature, or histogram literature under terminology not retrieved by the focused searches.",
+      "The exact theorem is elementary once the correct bin-origin phase is retained, so terminology mismatch is a more material originality risk than technical duplication in calibration-specific papers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the phase-free sinc approximation but not the exact shifted-bin formula, gcd law, or deterministic blindness criterion.",
+        "evidence": "The source states the oscillatory density benchmark and describes sinc attenuation for equal-width binning.",
+        "identifier_or_url": "arXiv:2607.08378v1",
+        "material_read": "Abstract, calibration section, and oscillatory-density discussion in the accessible arXiv text.",
+        "method": "Full-text HTML/text inspection with targeted searches for the oscillatory family, sinc attenuation, bin count, and phase/origin language.",
+        "title": "Why Constants Matter in Distribution Testing: From Uniformity to Calibration",
+        "trigger": "This is the recent probability/statistics anchor and contains the oscillatory PIT calibration example."
+      },
+      {
+        "assessment": "The inspected text reports approximately sinc attenuation and about \\(64\\%\\) at \\(N=2k\\), but does not account for bin-origin phase or state the exact aligned-grid zero.",
+        "evidence": "The relevant page displays \\(q(v)=1+a\\cos(2\\pi k v)\\), the approximate sinc law, and the \\(N=2k\\) interpretation.",
+        "identifier_or_url": "OpenReview:dy7XNC3W0g",
+        "material_read": "Full accessible PDF, including the page containing the oscillatory density example and its displayed binned-ECE approximation.",
+        "method": "PDF text inspection plus direct page image inspection of the relevant example.",
+        "title": "Calibrating the Calibration Tester: Optimal Binning and Minimax Calibration Testing for Continuous Predictive Models",
+        "trigger": "It is the detailed manuscript behind the same oscillatory calibration benchmark and could plausibly contain a stronger statement."
+      },
+      {
+        "assessment": "It concerns generalization/bias control for ECE rather than an exact Fourier phase law for a sinusoidal population density.",
+        "evidence": "The accessible summary discusses generalization analysis and binning bias, not deterministic frequency-origin aliasing.",
+        "identifier_or_url": "arXiv:2405.15709",
+        "material_read": "Abstract and indexed summary available through scholarly search.",
+        "method": "Search and statement-level comparison.",
+        "title": "Information-theoretic Generalization Analysis for Expected Calibration Error",
+        "trigger": "A broader ECE-binning paper could dominate a narrow exact-bin calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46854c15-cc24-4ca3-9e1f-1a8549265ff2",
+  "value": {
+    "rationale": "The theorem directly resolves a discrepancy at the benchmark's designated critical resolution: standard aligned bins are exactly blind at \\(N=2k\\), whereas a half-bin shift recovers the entire population discrepancy. It also identifies the published sinc curve as an exact randomized-origin average. This changes the interpretation of a current calibration-testing example and yields a concrete phase-robust design lesson, rather than merely renaming or numerically recomputing a known quantity.",
+    "status": "PASS"
+  }
+}
