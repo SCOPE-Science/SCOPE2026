@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "A leaf-edge congruence splits off a nonsingular 2-by-2 alternating block and leaves the weighted forest with the leaf and its neighbour removed. The matching number obeys the identical recurrence because a maximum matching can always be chosen to contain a leaf edge. Thus rank equals twice support matching number over any field. Grouping edge assignments by support gives the coefficient formula. O'Brien--Voll Theorem B gives the factor q^(n-2i), since the graphical-group abelianization has size q^n. The rooted two-state recurrence follows from whether a child can supply a new matching edge at the root. The packaged checker independently verifies all finite steps on several tree shapes and fields.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rossmann's full text states Question 1.10 and lists only edgeless, path, and complete graphs as known polynomial cases.",
+        "O'Brien--Voll Theorem B states that the number of degree-q^i characters equals the number of commutator-matrix specialisations of rank 2i times |G/G'|q^(-2i).",
+        "The oriented-graph skew-rank literature relates rank and matching number, but its cited results concern fixed oriented matrices and do not enumerate all weighted finite-field supports."
+      ],
+      "reasoning": "The prior representation theorem leaves the family-specific rank count entirely open. The accepted result performs that count for all trees and therefore is not implied by the general Kirillov formula or by path enumeration.",
+      "searches": [
+        "Rossmann Question 1.10 graphical groups characters paths complete graphs trees",
+        "O'Brien Voll Theorem B commutator matrix rank character vector",
+        "skew-rank oriented graph matching number forest"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.05564v1",
+      "DOI:10.1112/blms.12665",
+      "DOI:10.1090/tran/6276",
+      "DOI:10.1016/j.laa.2016.01.036"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem B provides the multiplicative factor converting rank counts to character counts but does not compute the rank counts for tree-supported matrices.",
+        "Rossmann explicitly says it is unclear whether the rank-count approach answers the character question in general.",
+        "Matching-number skew-rank bounds make the forest identity plausible but do not supply the finite-field support multiplicities or graphical-group character recurrence."
+      ],
+      "reasoning": "The substantive new implication is that every specialised tree matrix has rank determined solely by the matching number of its nonzero support, which turns an algebraic rank problem into an exact support enumeration and yields a recursive solution for the full character vector.",
+      "searches": [
+        "O'Brien Voll Theorem B ch_i rank B(y)",
+        "Rossmann character graphical group antisymmetric matrix rank",
+        "skew-rank matching number forest tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned no published finding on tree graphical-group character distributions.",
+        "Web searches using both graphical-group and weighted-skew-matrix formulations returned Rossmann's open question and older skew-rank papers, not the displayed character formula.",
+        "No searched source contained the rooted two-state recurrence for the support matching-number polynomial."
+      ],
+      "reasoning": "The theorem can be phrased as a graphical-group character formula, a rank distribution for generic alternating matrices supported on trees, or a weighted edge-support enumeration by maximum matching number. All three formulations were searched.",
+      "searches": [
+        "graphical groups finite fields trees character degrees skew adjacency rank matching",
+        "tree graphical group character enumeration rank distribution matching number",
+        "weighted skew adjacency tree rank maximum matching finite field",
+        "Rossmann graphical groups tree character degrees",
+        "\"graphical groups\" tree character degrees matching number",
+        "\"generic antisymmetric matrix\" tree matching number finite field rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched table lists degree distributions for graphical groups attached to non-path trees.",
+        "No exact formula matching the coefficient expression or rooted recursion was located.",
+        "The primary paper's known-family list does not contain general trees."
+      ],
+      "reasoning": "A table or formula for non-path trees would already overlap the claim even if presented without a general theorem, so exact family and formula searches were included.",
+      "searches": [
+        "\"graphical group\" tree \"character\" Rossmann",
+        "\"matching-support\" character graphical group",
+        "\"q^{n-2i}\" tree graphical group",
+        "\"weighted forest\" skew rank matching finite field"
+      ]
+    },
+    "rationale": "Rossmann explicitly poses the character-enumeration question and records only edgeless graphs, paths, and complete graphs as solved polynomial families. The accepted theorem covers every tree and gives an explicit matching-support recurrence. O'Brien--Voll supply only the general rank-to-character conversion, while skew-rank papers study fixed oriented matrices rather than finite-field support distributions of graphical groups. Targeted database and web searches found no all-tree character formula.",
+    "residual_risks": [
+      "An equivalent all-tree rank-support formula may appear in older matrix literature without graphical-group terminology.",
+      "The character result is restricted to odd q by the representation-theoretic theorem used.",
+      "The weighted-forest rank lemma is elementary; the value of the finding lies in converting it into a complete all-tree character enumeration with an explicit recurrence.",
+      "Failed searches do not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXPLICIT_OPEN_CHARACTER_QUESTION_NOT_ALL_TREES",
+        "evidence": "The source states the rank-count route and says it is unclear whether it can answer the question in general; no all-tree character formula is present in the inspected text.",
+        "identifier_or_url": "arXiv:2107.05564v1 / DOI:10.1112/blms.12665",
+        "material_read": "Public full text, especially Section 1.6, Question 1.10, the definition of the generic antisymmetric support matrix, and the statement that only edgeless graphs, paths, and complete graphs were recorded as solved polynomial families.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+        "trigger": "Primary source explicitly posing the character-enumeration problem for graphical groups."
+      },
+      {
+        "assessment": "SUPPLIES_RANK_TO_CHARACTER_BRIDGE_NOT_TREE_RANK_ENUMERATION",
+        "evidence": "The theorem verifies the exact q^(n-2i) normalization for graphical groups once their rank counts are known.",
+        "identifier_or_url": "DOI:10.1090/tran/6276",
+        "material_read": "Public full PDF, including Theorem B and Proposition 2.4. Theorem B gives ch_i as the number of rank-2i commutator-matrix points times |G/G'|q^(-2i).",
+        "method": "Full-text theorem and normalization check.",
+        "title": "Enumerating classes and characters of p-groups",
+        "trigger": "Critical representation-theoretic premise converting commutator-matrix ranks to character degrees."
+      },
+      {
+        "assessment": "RELATED_FIXED_REAL_ORIENTED_MATRIX_RESULT_NOT_WEIGHTED_FINITE_FIELD_ENUMERATION",
+        "evidence": "The source studies skew adjacency matrices of oriented graphs; it does not enumerate finite-field edge weights or graphical-group character degrees.",
+        "identifier_or_url": "DOI:10.1016/j.laa.2016.01.036",
+        "material_read": "Public abstract and indexed theorem description giving general bounds between skew rank, matching number, and cycle rank.",
+        "method": "Scope and implication comparison.",
+        "title": "Skew-rank of an oriented graph in terms of matching number",
+        "trigger": "Closest matrix-rank literature connecting skew rank and matching number."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb80c871-ed65-4c17-8a6a-2f0d7e97ed3f",
+  "value": {
+    "rationale": "The result answers an explicit character-enumeration question on a broad natural graph family, extending the previously singled-out path case to every tree. It gives both a structural explanation and a computable recurrence, not merely isolated examples. The matching-support polynomial exposes exactly why trees are tractable and where cyclic graphs become harder through Pfaffian cancellation.",
+    "status": "PASS"
+  }
+}
