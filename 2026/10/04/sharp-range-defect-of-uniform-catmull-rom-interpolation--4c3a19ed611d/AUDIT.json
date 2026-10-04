@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact Hermite substitution gives three increment coefficients. Their signs and order on the full parameter rectangle are proved by elementary factorization and concavity, so linear optimization over all bounded monotone data is exhaustive rather than sampled. The two scalar cubic factors have unique interior maxima of \\(4/27\\). The standard and strict-positive witness formulas follow exactly, and the packaged checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang, Han, and Gong explicitly state that original Catmull-Rom overshoot violates global stability and contrast it with a monotonic modification.",
+        "Fritsch and Butland describe a completely local monotone piecewise cubic interpolant for monotone data.",
+        "Those sources establish the qualitative shape-preservation problem but do not state the sharp bounded-data constant in the accessible material."
+      ],
+      "reasoning": "The prior literature covers existence of overshoot and algorithmic remedies. A qualitative warning does not imply the exact minimax range over all four-point monotone inputs or its continuous tension law.",
+      "searches": [
+        "Web: A local adaptive Catmull-Rom to reduce numerical dissipation of semi-Lagrangian advection",
+        "Web: A Method for Constructing Local Monotone Piecewise Cubic Interpolants",
+        "Web: Monotone Piecewise Cubic Interpolation Catmull Rom overshoot",
+        "Web: range preserving Catmull Rom spline"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1145/54852.378511",
+      "DOI:10.1002/cav.1559",
+      "DOI:10.1137/0905021",
+      "published-finding corpus semantic searches listed in the four originality checks",
+      "Direct web searches for the exact \\(2/27\\) constant and range-preservation aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barry and Goldman establish the Catmull-Rom method family and recursive evaluation but the accessible abstract does not quantify bounded-data overshoot.",
+        "Huang, Han, and Gong establish that overshoot can violate global stability, which implies existence but not the sharp amplitude or equality cases.",
+        "Fritsch and Butland construct a different monotonicity-preserving slope rule; that method avoids rather than quantifies the unmodified cardinal defect.",
+        "Primary MSC 65D05 is explicitly listed for the Fritsch-Butland monotone interpolation paper."
+      ],
+      "reasoning": "None of the inspected prior statements implies the exact \\(4\\sigma/27\\) minimax law. Full text of the most directly relevant Catmull-Rom papers was not obtained; institutional retrieval attempts returned an unavailable-worker error, so possible hidden overlap is retained as a risk.",
+      "searches": [
+        "Web: A recursive evaluation algorithm for a class of Catmull-Rom splines",
+        "Web: A local adaptive Catmull-Rom overshoot global stability",
+        "Web: Fritsch Butland monotone cubic Hermite interpolation",
+        "Web: Catmull Rom tension parameter monotonicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-finding corpus record stated the sharp \\(2/27\\) standard defect or the \\(4\\sigma/27\\) cardinal-slope law.",
+        "Direct web searches for the exact constant did not return an implication-equivalent theorem.",
+        "The closest published-finding corpus hits concerned unrelated quadrature, interpolation, or positivity problems."
+      ],
+      "reasoning": "The same result could appear as a range-preservation defect, a negative cardinal-basis mass, or an overshoot factor. Searches covered those aliases as well as the exact constant. No inspected statement implied both sharp sides, the equality cases, and the slope/tension dependence.",
+      "searches": [
+        "published-finding corpus: Catmull Rom monotone data overshoot exact 2/27 bound",
+        "published-finding corpus: cardinal cubic spline tension monotonicity overshoot bounded monotone samples exact",
+        "published-finding corpus: Catmull Rom positivity nonnegative data negative undershoot sharp",
+        "published-finding corpus: uniform cardinal spline monotone samples range preserving overshoot constant",
+        "published-finding corpus: Catmull Rom four samples monotonicity condition overshoot bound",
+        "Web: \"Catmull-Rom\" \"2/27\"",
+        "Web: \"Catmull-Rom\" overshoot monotone exact bound 2/27"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-constant search exposed \\(2/27\\) as a Catmull-Rom overshoot or undershoot constant.",
+        "Barry and Goldman describe a Catmull-Rom spline class and shape parameters, but the accessible bibliographic/abstract material concerns recursive evaluation rather than a sharp range table."
+      ],
+      "reasoning": "The claim is an exact extremal invariant of the four-point local operator. Direct constant searches and coefficient/basis aliases did not locate a known table or formula for it.",
+      "searches": [
+        "Web: \"2/27\" \"Catmull-Rom\" interpolation",
+        "Web: Catmull Rom overshoot bound four points",
+        "published-finding corpus: Catmull Rom exact overshoot coefficient table",
+        "published-finding corpus: cardinal cubic negative basis coefficient 2/27"
+      ]
+    },
+    "rationale": "Qualitative Catmull-Rom overshoot and monotonicity-preserving cubic Hermite alternatives are established prior work and are excluded. The accepted claim is the exact bounded-monotone-data two-sided range, extremizers, full slope/tension law, and strictly increasing positive sign-reversal witness. published-finding corpus and web searches under direct and equivalent formulations found no implication-equivalent sharp statement. Inaccessible full text and older graphics literature remain explicit residual risks.",
+    "residual_risks": [
+      "Older computer-graphics or approximation-theory literature may state the same constant as a negative cardinal-basis mass, overshoot factor, or kernel norm.",
+      "Full text of the Barry-Goldman and Huang-Han-Gong papers was not recovered; authorized institutional retrieval was attempted but the retrieval worker was unavailable.",
+      "Nonuniform and centripetal Catmull-Rom variants have different local operators, so no novelty claim is made for those schemes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the Catmull-Rom spline class and recursive evaluation; accessible material does not state the sharp bounded-monotone-data range. Whole-document noncoverage is not claimed.",
+        "evidence": "The SIGGRAPH 1988 record gives publication date August 1, 1988 and describes a class of interpolating Catmull-Rom splines with useful shape parameters.",
+        "identifier_or_url": "DOI:10.1145/54852.378511",
+        "material_read": "Conference bibliographic record and abstract, including method-family description, local control, interpolation, and shape-parameter context.",
+        "method": "Open bibliographic/abstract inspection; open full-text search was unsuccessful, followed by authorized institutional retrieval attempt, which was unavailable.",
+        "title": "A Recursive Evaluation Algorithm for a Class of Catmull-Rom Splines",
+        "trigger": "Primary Catmull-Rom class paper and exact-date archival anchor."
+      },
+      {
+        "assessment": "COVERS qualitative overshoot and its global-stability consequence; accessible material does not give the exact \\(2/27\\) defect. Whole-document noncoverage is not claimed.",
+        "evidence": "The abstract states that original Catmull-Rom overshoot violates global stability and that a monotonic modification is unconditionally stable.",
+        "identifier_or_url": "DOI:10.1002/cav.1559",
+        "material_read": "Publisher abstract, bibliographic information, and references.",
+        "method": "Wiley open abstract inspection; open full-text search found no usable copy, followed by authorized institutional retrieval attempt, which was unavailable.",
+        "title": "A Local Adaptive Catmull-Rom to Reduce Numerical Dissipation of Semi-Lagrangian Advection",
+        "trigger": "Closest primary source explicitly discussing Catmull-Rom overshoot and global stability."
+      },
+      {
+        "assessment": "COVERS a different local monotonicity-preserving cubic method and establishes primary MSC 65D05; it does not quantify the unmodified Catmull-Rom defect in the accessible material.",
+        "evidence": "The publisher abstract describes a completely local monotone piecewise cubic interpolant to monotone data and lists MSC 65D05 first.",
+        "identifier_or_url": "DOI:10.1137/0905021",
+        "material_read": "Publisher abstract, article information, references, and MSC metadata.",
+        "method": "SIAM publisher HTML inspection.",
+        "title": "A Method for Constructing Local Monotone Piecewise Cubic Interpolants",
+        "trigger": "Classical primary numerical-analysis source on monotone cubic Hermite interpolation and MSC ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4c3a19ed-611d-41ac-b7ba-fea94b102a00",
+  "value": {
+    "rationale": "Catmull-Rom overshoot is a documented stability concern and motivates monotonicity filters. The exact \\(2/27\\) standard defect supplies a sharp worst-case scale rather than a qualitative warning, while the full \\(4\\sigma/27\\) law quantifies the tradeoff with cardinal tension. Exact equality cases and a strictly increasing positive counterexample make the result directly usable for regression testing and safeguard design.",
+    "status": "PASS"
+  }
+}
