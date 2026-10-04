@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Lower bounds follow from incident-edge distinctness, the rainbow C4 requirement, and odd-cycle parity. The block-cut construction supplies the matching upper bound with explicit palette counts at every cut vertex. Every cycle of a cactus lies in one block, so the construction checks all C4 constraints. An exact conflict-graph census of 6074 labeled cacti of orders 2 through 6 agrees with the formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1002/jgt.70067 proves q_B(G)=Delta(G) for outerplanar graphs with Delta(G)>=7.",
+        "arXiv:2609.02845v1 proves q_B(G)<=Delta+(d-1)Delta_2 for d-degenerate graphs.",
+        "arXiv:2609.12519v1 proves general K_{2,t}-free and degeneracy bounds."
+      ],
+      "reasoning": "The outerplanar theorem dominates the Delta>=7 slice, but not the low-degree cases or the sharp cactus threshold four. The degeneracy/codegree and K_{2,t}-free bounds are strictly weaker on cacti and do not imply the piecewise exact formula.",
+      "searches": [
+        "outerplanar B-coloring cactus maximum degree Delta",
+        "B-coloring planar graphs outerplanar Delta 7",
+        "B-coloring K2,t-free cactus"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.02845v1",
+      "arXiv:2609.12519v1",
+      "DOI:10.1002/jgt.70067",
+      "arXiv:2408.09059v2",
+      "SSRN:6528922",
+      "Advanced Modeling and Optimization 11(4) (2009), 407-421"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "SSRN 6528922 abstract gives q_B<=6 for subcubic graphs other than K_{3,3} and says the six-color equality cases are characterized.",
+        "Khan-Pal-Pal (2009) treats ordinary chromatic index of cactus graphs and states only Delta<=chi'(G)<=Delta+1 globally.",
+        "arXiv:2408.09059 proves q_B<=Delta+1 for 2-connected outerplanar graphs apart from explicit small exceptions."
+      ],
+      "reasoning": "None of these statements implies q_B<=4 for every subcubic cactus, nor the exact C4/odd-cycle/degree trichotomy. The high-degree outerplanar slice is prior coverage and is explicitly excluded from the originality claim.",
+      "searches": [
+        "Proper edge coloring of subcubic graphs with rainbow C4-s",
+        "Edge Colouring of Cactus Graphs 2009",
+        "Proper edge colorings of planar graphs with rainbow C4-s outerplanar"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.02845v1 defines the B-conflict graph and states q_B(G)=chi(Gamma_B(G)).",
+        "arXiv:2408.09059 gives the equivalent extended-line-graph formulation q_B(G)=chi(L^+(G))."
+      ],
+      "reasoning": "The cactus theorem was compared both in its B-coloring language and through the equivalent conflict/extended-line graph formulation. The inspected sources give the equivalence but no chromatic formula for cactus conflict graphs.",
+      "searches": [
+        "B-coloring cactus graphs exact q_B maximum degree C4 odd cycle",
+        "rainbow C4 edge coloring cactus formula",
+        "extended line graph cactus B-coloring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact-search result stated the cactus formula.",
+        "The closest stored research records concerned weak rainbow saturation, vertex b-chromatic number, and two-distance coloring rather than B-edge-coloring."
+      ],
+      "reasoning": "Matching terminology, aliases, and the exact low-degree values were searched. No table or exact cactus classification was found.",
+      "searches": [
+        "proper edge coloring cactus every 4-cycle rainbow",
+        "subcubic B-coloring cactus q_B 4",
+        "cactus q_B(G) B-coloring"
+      ]
+    },
+    "rationale": "The exact all-degree cactus formula was not found under B-coloring, rainbow-C4 edge-coloring, conflict-graph, or extended-line-graph formulations. Prior outerplanar work covers the Delta>=7 slice and broader papers give weaker bounds; these overlaps are stated explicitly.",
+    "residual_risks": [
+      "The full text of SSRN 6528922 was not available from the inspected public endpoint, so a more detailed low-color subcubic statement not visible in its abstract cannot be excluded completely.",
+      "The Delta>=7 part of the theorem is already implied by the general outerplanar result; originality is claimed for the complete exact cactus formula, especially degrees below seven and the sharp threshold four."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Gives q_B<=Delta+(d-1)Delta_2 and stability/gap theorems; no cactus statement was found.",
+        "identifier_or_url": "arXiv:2609.02845v1",
+        "material_read": "Abstract, introduction, theorem statements, and the definition of the B-conflict graph; full text searched for cactus terminology.",
+        "method": "Statement and implication comparison.",
+        "title": "Degeneracy bounds, stability, and a sharp gap for B-colorings",
+        "trigger": "Closest recent general theorem using the same invariant and conflict graph."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 4.1 yields broad Delta-plus-error bounds; it does not state the piecewise exact cactus formula.",
+        "identifier_or_url": "arXiv:2609.12519v1",
+        "material_read": "Abstract, introduction, Theorem 4.1 and proof, and surrounding discussion; full text searched for cactus terminology.",
+        "method": "Parameter substitution and implication comparison.",
+        "title": "B-coloring of K_{2,t}-free planar graphs",
+        "trigger": "Cacti are sparse and K_{2,3}-free, so its exclusion and degeneracy bounds are directly relevant."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "Proves q_B=Delta for outerplanar graphs with Delta>=7, covering only the high-degree slice of the cactus theorem.",
+        "identifier_or_url": "DOI:10.1002/jgt.70067",
+        "material_read": "Abstract and stated main results.",
+        "method": "Class inclusion and implication comparison.",
+        "title": "B-Coloring of Planar Graphs",
+        "trigger": "Strongest inspected general outerplanar result for the same invariant."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Gives a Delta+1 outerplanar bound with small exceptions and conjectures degree-optimality for large Delta; no cactus exact formula is stated.",
+        "identifier_or_url": "arXiv:2408.09059v2",
+        "material_read": "Definition, extended-line-graph equivalence, Theorem 1.6, Conjecture 1.7, and surrounding discussion.",
+        "method": "Statement comparison.",
+        "title": "Proper edge colorings of planar graphs with rainbow C4-s",
+        "trigger": "Foundational planar/outerplanar B-coloring source and extended-line-graph formulation."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK",
+        "evidence": "The abstract states q_B<=6 for subcubic graphs other than K_{3,3} and characterizes the six-color equality cases, but does not expose an exact cactus classification.",
+        "identifier_or_url": "SSRN:6528922",
+        "material_read": "Public abstract only; the inspected full-text endpoint was inaccessible.",
+        "method": "Abstract-level implication check.",
+        "title": "Proper edge coloring of subcubic graphs with rainbow C4-s",
+        "trigger": "Potentially decisive overlap for the Delta<=3 portion."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Studies ordinary edge-coloring and states Delta<=chi'(G)<=Delta+1; it does not impose rainbow C4 constraints.",
+        "identifier_or_url": "Advanced Modeling and Optimization 11(4) (2009), 407-421",
+        "material_read": "Abstract, definitions, and global theorem on the chromatic index.",
+        "method": "Invariant comparison.",
+        "title": "Edge Colouring of Cactus Graphs",
+        "trigger": "Same graph class under ordinary edge-coloring, which is the baseline part of B-coloring."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01451e47-82ad-4127-b67d-7ff53db9d7da",
+  "value": {
+    "rationale": "Cactus graphs are a standard natural subclass of outerplanar graphs. The result is a complete exact classification, not a routine parameter increment or arbitrary finite case. It proves degree-optimal B-colorability for every cactus from the sharp threshold Delta=4 and identifies the only low-degree obstructions.",
+    "status": "PASS"
+  }
+}
