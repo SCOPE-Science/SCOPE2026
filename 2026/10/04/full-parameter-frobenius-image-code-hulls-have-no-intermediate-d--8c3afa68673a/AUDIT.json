@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The source proves \\(\\operatorname{Hull}(C)=\\operatorname{im}\\phi\\cap\\ker\\phi^\\dagger\\) and that a nonzero adjoint kernel in the Frobenius case is an \\(\\mathbb F_{q^d}\\)-line. Independently, \\(d\\mid k\\) and \\(d\\mid(m-k)\\) make both \\(\\phi\\) and \\(\\phi^\\dagger\\) \\(\\mathbb F_{q^d}\\)-linear for arbitrary full-field parameters. Thus the image is an \\(\\mathbb F_{q^d}\\)-subspace and its intersection with the zero space or a one-dimensional \\(\\mathbb F_{q^d}\\)-kernel has \\(\\mathbb F_q\\)-dimension only \\(0\\) or \\(d\\). The nonzero-kernel-line fact is also reconstructed directly by taking the ratio of two nonzero kernel elements. The bundled verifier exhausts representative binary extension fields and returns VERIFY_OK; those finite checks are explicitly not used as the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The current AIMS full text states Theorem 6.8 as the image/intersection formula and states that the nonzero adjoint kernel is an F_{q^d}-line.",
+        "The current abstract still says that over the full parameter space the singular hull dimension is between 0 and d.",
+        "The closest published-finding corpus item, 2026/9/18/SCOPE-grl-galois-hulls-arbitrary-index--313d3312e276, concerns generalized Roth--Lempel Galois hulls rather than Frobenius image codes."
+      ],
+      "reasoning": "The primary source contains the ingredients but not the conclusion: its own summary leaves intermediate dimensions open, so its stated results do not already cover the dichotomy.",
+      "searches": [
+        "On the hull of linearized polynomial codes remaining singular case exact dichotomy",
+        "On the hull of linearized polynomial codes F_{q^d} hull"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.23097v1",
+      "DOI:10.3934/amc.2026.101087 current full-text HTML",
+      "Lidl--Niederreiter, Finite Fields",
+      "published-finding corpus focused semantic searches for the exact family and dichotomy",
+      "Web exact searches for no-intermediate/multiple-of-d hull formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves Hull(C)=im(phi) intersect ker(phi^dagger).",
+        "The source proves a nonzero adjoint kernel is an F_{q^d}-line.",
+        "The source nevertheless states only 0<=delta<=d for the remaining full-field case and for the self-adjoint singular case."
+      ],
+      "reasoning": "The missing implication is that im(phi) is also F_{q^d}-linear for arbitrary lambda and mu. Once added, the intersection with a one-dimensional F_{q^d}-kernel is forced to be either zero or the whole kernel.",
+      "searches": [
+        "arXiv:2604.23097 Theorem 6.8 full parameter hull adjoint",
+        "arXiv:2604.23097 nonzero adjoint kernel F_{q^d} line",
+        "On the hull of linearized polynomial codes 0<=delta<=d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no same-family finding stating a 0-or-d full-parameter hull dichotomy.",
+        "Web searches for no-intermediate hull dimensions and multiples of d returned the Bartoli--Grimaldi--Stănică paper itself but no stronger prior theorem."
+      ],
+      "reasoning": "The searches covered direct hull-dimension language, divisibility/multiple-of-d formulations, and the adjoint-intersection formulation.",
+      "searches": [
+        "Frobenius image code hull dimension 0 or d full parameter space im phi intersection ker adjoint",
+        "linearized polynomial code hull no intermediate dimension gcd(k,m)",
+        "hull dimension multiple of d Frobenius code finite field"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record or web result gave a table or classification in which every full-field Frobenius image-code hull has dimension 0 or d.",
+        "The source worked example over F_64 is a fixed-field verification and does not state the all-parameter all-field dichotomy."
+      ],
+      "reasoning": "A complete hull-stratum table asserting absence of intermediate dimensions would directly cover the claim; none was located.",
+      "searches": [
+        "Frobenius image code hull dimension 0 or d full parameter space im phi intersection ker adjoint",
+        "On the hull of linearized polynomial codes remaining singular case exact dichotomy"
+      ]
+    },
+    "rationale": "The current primary source explicitly leaves the full-parameter singular hull dimension between 0 and d and the self-adjoint case as 0<=delta<=d, while characterizing only the extremal delta=d case. Exact published-finding corpus and web searches for the dichotomy, subfield-linearity argument, and no-intermediate-dimension formulation found no prior statement. The closest published-finding corpus hull hit concerns generalized Roth--Lempel codes, a different family.",
+    "residual_risks": [
+      "A very recent corrigendum or unindexed note may independently observe the same one-line subfield argument.",
+      "The result depends on the binomial Frobenius form; broader linearized-polynomial families can have larger subfield-linear kernels and are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the dichotomy: the source gives the image/intersection formula and the F_{q^d}-line kernel, but explicitly retains an interval 0<=delta<=d on the residual full-parameter singular case.",
+        "evidence": "The current publisher abstract says the full-parameter singular hull dimension is between 0 and d; Theorem 6.12 likewise leaves 0<=delta<=d. Theorem 6.8 supplies the intersection formula used here.",
+        "identifier_or_url": "arXiv:2604.23097v1 / DOI 10.3934/amc.2026.101087",
+        "material_read": "Current publisher abstract; Section 5 family definition; Frobenius-kernel lemma; adjoint identity; Theorem 6.8 full-parameter hull intersection; the trace-isotropy discussion; Theorem 6.12 self-adjoint case; current conclusion/abstract statements.",
+        "method": "lawful public full-text HTML plus arXiv metadata",
+        "title": "On the hull of linearized polynomial codes",
+        "trigger": "This is the immediate same-object source and therefore the decisive coverage comparison."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": "The fixed-field identity is standard and does not state the coding-theoretic hull dichotomy.",
+        "identifier_or_url": "Lidl--Niederreiter, 2nd ed.",
+        "material_read": "Used only for the standard identity Fix(x->x^{q^s})=F_{q^{gcd(s,m)}} inside F_{q^m}.",
+        "method": "standard finite-field reference",
+        "title": "Finite Fields",
+        "trigger": "Standard background for fixed fields of Frobenius automorphisms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8c3afa68-673a-426a-bcb1-825a93d28074",
+  "value": {
+    "rationale": "The primary source identifies hull dimension with entanglement resource accounting and states a complete classification in only three of four full-field bijectivity configurations. The new subfield-linearity observation closes the remaining dimension range for every prime power and every full-field projective parameter: intermediate hull sizes cannot occur. This turns the source extremal trace-isotropy condition into a complete LCD-versus-d-dimensional-hull classification on the residual singular locus, a structural completion rather than a routine finite example.",
+    "status": "PASS"
+  }
+}
