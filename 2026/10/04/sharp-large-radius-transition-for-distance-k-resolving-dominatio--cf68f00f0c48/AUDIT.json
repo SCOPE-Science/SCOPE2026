@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Two landmark-free arms create equal distance vectors at equal depth, so every resolving set meets at least q-1 arms. A size-(q-1) resolving set is therefore one noncentral landmark on each of q-1 arms. For k<=L, its omitted leaf lies at distance at least L+1 and prevents distance-k domination. For ceil(L/2)<=k<L, choosing depth L-k on every arm dominates each arm end-to-end; for k=L, depth one on every arm works. For k>=L+1, depth-one landmarks on q-1 arms give a metric basis and dominate the omitted leaf. In the stabilized regime the omitted leaf has distance L+min d_i, which gives the exact optimizer criterion and counting formula. Exhaustive distance-vector and domination tests corroborate the theorem on 84 parameter-radius cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 all-k paper proves equality with metric dimension whenever k is at least the diameter and gives exact formulas for paths and cycles.",
+        "Its verified MSC classes are 05C12 and 05C69.",
+        "The earlier distance-2 paper gives exact values for complete, star, friendship, and path graphs, with no spider or subdivision occurrence in targeted full-text searches.",
+        "The later corona-product paper studies vertex corona products rather than balanced spiders."
+      ],
+      "reasoning": "The general diameter theorem yields only equality for k>=2L on S_{q,L}; it does not imply the sharp earlier threshold L+1 or the q-valued plateau below it. The star result is the L=1 boundary case and does not imply the behavior for L>=2.",
+      "searches": [
+        "arXiv:2111.09095v1 full text and searches for spider, subdivided, star, and tree",
+        "DOI 10.1088/1742-6596/1836/1/012017 full text and searches for spider and subdivid",
+        "2024 corona-product distance-k resolving-domination article abstract and scope"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.09095v1",
+      "DOI:10.1088/1742-6596/1836/1/012017",
+      "2024 corona-product distance-k resolving-domination article",
+      "targeted web searches for spider, balanced-spider, and subdivided-star formulations",
+      "semantic published-results searches for the same invariant and graph aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.1 gives only max{gamma_k,dim} <= gamma_k^r <= min{gamma_k+dim,n-1}.",
+        "Lemma 2.1 guarantees gamma_k^r=dim only for k at least the graph diameter.",
+        "The all-k paper states exact formulas for paths and cycles, not spiders.",
+        "The distance-2 paper treats paths, stars, complete graphs, and friendship graphs and then asks for distance-k values on further graphs."
+      ],
+      "reasoning": "For a balanced spider the diameter guarantee starts at 2L, whereas the final theorem proves equality already at L+1 and proves a distinct q-valued regime down to ceil(L/2). Neither general bound determines these exact values or the minimum-set enumeration.",
+      "searches": [
+        "Inspect arXiv:2111.09095 Proposition 2.1 and Lemma 2.1",
+        "Inspect arXiv:2111.09095 exact-family scope",
+        "Inspect DOI 10.1088/1742-6596/1836/1/012017 Theorems 2-5 and concluding open problems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned source stated a balanced-spider or subdivided-star formula for distance-k resolving domination.",
+        "The closest indexed sources were the general all-k paper and operation-focused resolving-domination papers."
+      ],
+      "reasoning": "The final claim includes a sharp radius threshold, an exact two-phase value, a complete optimum-depth criterion after stabilization, and an exact optimum count. These are not equivalent to the general lower/upper bounds or to values on unsubdivided stars.",
+      "searches": [
+        "published-results semantic search: distance k-resolving domination subdivided star spider tree",
+        "published-results semantic search: distance k-resolving domination spider trees",
+        "published-results semantic search: resolving domination subdivided star",
+        "web search: \"distance k-resolving domination\" \"subdivided star\"",
+        "web search: \"distance k-resolving domination\" spider graph",
+        "web search: \"balanced spider\" \"resolving domination\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact table for balanced spiders was found.",
+        "The distance-2 source lists exact values only for paths, stars, complete graphs, and friendship graphs."
+      ],
+      "reasoning": "The theorem is derived symbolically for arbitrary q, L, and all k in the claimed range. The verifier checks the formulas independently rather than supplying the claim from a finite table.",
+      "searches": [
+        "published-results semantic search: distance 2 resolving domination star subdivision",
+        "published-results semantic search: spider tree resolving domination",
+        "web search: \"resolving domination\" spider graph",
+        "web search: \"resolving domination\" \"subdivided star\" graph"
+      ]
+    },
+    "rationale": "The inspected foundational all-k paper gives exact paths and cycles plus a diameter-level stabilization theorem, but no spider specialization. The earlier distance-2 paper treats only paths, stars, complete graphs, and friendship graphs among its exact families. Searches using spider, balanced spider, and subdivided-star aliases did not locate the claimed phase transition or optimum-set classification.",
+    "residual_risks": [
+      "A differently named or non-indexed treatment of balanced subdivided stars may exist.",
+      "A broader tree theorem not retrieved in the searches could specialize to the value formula, although no inspected source implies the sharp L+1 stabilization threshold or the minimum-set count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general framework and a diameter-level stabilization result but not the balanced-spider phase transition or minimum-set classification.",
+        "evidence": [
+          "Version 1 is dated 17 November 2021.",
+          "MSC classes are 05C12 and 05C69.",
+          "Lemma 2.1 gives gamma_k^r(G)=dim(G) for k at least diam(G).",
+          "The paper's exact named families are paths and cycles; targeted searches found no spider or subdivided-star statement."
+        ],
+        "identifier_or_url": "arXiv:2111.09095v1",
+        "material_read": "Full open arXiv text covering the definition, MSC classification, Proposition 2.1, Lemma 2.1, exact-family summary, and targeted searches for spider, subdivided, star, and tree terminology.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "A study of a combination of distance domination and resolvability in graphs",
+        "trigger": "Primary all-k source defining the parameter and providing the closest general stabilization theorem."
+      },
+      {
+        "assessment": "Covers the unsubdivided star but not balanced spiders with arm length at least two, and explicitly leaves further distance-k determinations open.",
+        "evidence": [
+          "Published 23 March 2021.",
+          "The exact families listed are paths, stars, complete graphs, and friendship graphs.",
+          "No spider or subdivision occurrence was found in targeted full-text searches.",
+          "The conclusion asks for distance-k resolving domination numbers of further graphs."
+        ],
+        "identifier_or_url": "DOI:10.1088/1742-6596/1836/1/012017",
+        "material_read": "Open full text including the definition, bounds, Theorems 2-5 on paths, stars, complete graphs, and friendship graphs, and the concluding open problems; targeted searches for spider and subdivid.",
+        "method": "Primary full-text family and implication comparison.",
+        "title": "The distance 2-resolving domination number of graphs",
+        "trigger": "Earlier same-parameter source for the k=2 case and a plausible source of star or subdivision coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cf68f00f-0c48-4071-a476-5249a0a6467d",
+  "value": {
+    "rationale": "Balanced spiders are canonical one-branching-vertex trees. The theorem identifies the exact radius at which a combined domination/resolution parameter reaches the metric-dimension lower bound, cutting the general diameter guarantee from 2L to the sharp L+1 threshold. It also gives a nontrivial one-extra-landmark plateau and an exact classification and enumeration of every optimum after stabilization, so the result explains the structural mechanism rather than reporting a single value.",
+    "status": "PASS"
+  }
+}
