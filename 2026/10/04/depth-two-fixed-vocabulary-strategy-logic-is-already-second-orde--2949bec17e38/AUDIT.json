@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The source fixes Ag={a1,a2,a3,b,c} and AP={pb,pc,pS,pA,pM}. Inspection of the reduction shows that Good uses temporal depth at most two, Mem uses XXpb, Eq adds only strategy quantification, and Succ/Add/Mult use one X. The dagger translation adds only strategy quantifiers and Boolean connectives, prenex conversion preserves temporal occurrences, and the injectivizing padding is propositional. Therefore the source's one-one lower reduction lands in the claimed fragment. Proposition 3.1 gives an injective upper translation for all SL formulas and hence for the fragment; Myhill yields computable isomorphism.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source fixes exactly five agents and five propositions for the reduction.",
+        "The deepest temporal patterns occurring in the displayed construction are XXpc, XXpb, and their symmetric variants.",
+        "The arithmetic atomic predicates use only one X except membership, which uses two.",
+        "The final prenex conversion and injectivizing padding add no temporal nesting.",
+        "Earlier work distinguishes decidable one-goal and bounded-action fragments but does not cover this fixed-vocabulary depth-two restriction."
+      ],
+      "reasoning": "The source proves a stronger unrestricted-fragment theorem in one dimension, but the accepted claim is a sharper restriction of the hard range and is not implied merely by the theorem statement; it requires auditing the translation.",
+      "searches": [
+        "arXiv:2609.16173 full PDF: Theorem 1.1 and Proposition 3.1",
+        "arXiv:2609.16173 full PDF: fixed Ag and AP preceding Definition 3.3",
+        "arXiv:2609.16173 full PDF: Definitions 3.4, 3.6, 3.9, 3.13, 3.15",
+        "arXiv:2609.16173 full PDF: Theorem 3.20 and final syntax analysis",
+        "Mogavero--Murano--Perelli--Vardi 2017 satisfiability paper",
+        "Laroussinie--Markey 2013 bounded-action decidability result"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.16173",
+      "DOI:10.23638/LMCS-13(1:9)2017",
+      "DOI:10.4204/EPTCS.119.18"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 alone says only next-time Boolean-goal hardness and does not impose a depth bound.",
+        "Definitions 3.4, 3.6, 3.9, and 3.13 show directly that every temporal atom used by the reduction has depth at most two.",
+        "Definition 3.15 adds no temporal operators when translating arbitrary second-order arithmetic.",
+        "No prior current-ledger finding concerns arXiv:2609.16173 or this Strategy Logic restriction."
+      ],
+      "reasoning": "The accepted theorem is obtained by restricting the actual image of the published reduction and then re-establishing the reverse one-one reduction needed for computable isomorphism.",
+      "searches": [
+        "primary-source implication check: Theorem 1.1 versus the actual range of Theorem 3.2 reduction",
+        "primary-source implication check: fixed Ag/AP and X/XX formula definitions versus temporal-depth-two restriction",
+        "primary-source implication check: Proposition 3.1 upper reduction restricted to the sublanguage",
+        "current cumulative ledger comparison through generation g000058"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published finding states the depth-two fixed-vocabulary theorem.",
+        "Web searches located the 2026 exact-complexity paper and earlier Strategy Logic satisfiability work but no theorem phrased with temporal depth two or the fixed five-by-five vocabulary."
+      ],
+      "reasoning": "The searches cover both resource restrictions separately and jointly, along with the source's Boolean-goal and next-time terminology.",
+      "searches": [
+        "published-finding database: Strategy Logic temporal depth two fixed five agents five propositions second-order arithmetic",
+        "published-finding database: next-time Boolean-goal Strategy Logic depth 2 five agents five propositions",
+        "published-finding database: SLX BG fixed vocabulary second-order arithmetic strategy logic",
+        "published-finding database: Strategy Logic satisfiability fixed agents fixed atomic propositions highly undecidable",
+        "web literature: \"Strategy Logic\" \"temporal depth\" satisfiability",
+        "web literature: \"Strategy Logic\" \"fixed number of agents\" satisfiability",
+        "web literature: \"Strategy Logic\" \"next-time\" \"depth 2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest database results concern unrelated non-arithmetical modal or conditional logics.",
+        "No checked entry gives a depth-two fixed-vocabulary classification."
+      ],
+      "reasoning": "The exact invariant is not numerical: it is the complexity degree of satisfiability after simultaneously bounding temporal depth and freezing the modal vocabulary.",
+      "searches": [
+        "published-finding database: 2609.16173 Strategy Logic satisfiability computably isomorphic true second-order arithmetic",
+        "published-finding database: Strategy Logic temporal depth two fixed vocabulary",
+        "web literature: 2609.16173 temporal depth fixed agents propositions"
+      ]
+    },
+    "rationale": "The published theorem states hardness for the next-time Boolean-goal fragment but does not state fixed vocabulary or temporal depth two. The full proof was checked for those stronger properties, and candidate-specific published-finding and literature searches found no equivalent statement.",
+    "residual_risks": [
+      "Because the fixed vocabulary and X/XX patterns are explicit in the source proof, specialists may regard the refinement as an immediate but unstated corollary.",
+      "No minimality is claimed: fewer agents, fewer propositions, or temporal depth one may already suffice.",
+      "The reduction still uses an unbounded action domain, so the result does not challenge known bounded-action decidability phenomena."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG_PARTIAL_COVERAGE_WITH_UNSTATED_STRONGER_RANGE_RESTRICTION.",
+        "evidence": "The theorem statement covers all SLX[BG], while the actual reduction fixes five agents and five propositions and never nests X more than twice.",
+        "identifier_or_url": "arXiv:2609.16173",
+        "material_read": "Full primary PDF at the abstract and Theorem 1.1; Proposition 3.1; the fixed agent/proposition vocabulary; Definitions 3.4, 3.6, 3.9, 3.13, 3.15; Theorem 3.20; the explicit satisfying model; and the final syntax-analysis paragraph. PDF pages 1, 8, and 9 were also visually inspected.",
+        "method": "Formula-by-formula temporal-depth and vocabulary audit plus implication comparison.",
+        "title": "Exact Complexity of the Satisfiability Problem for Strategy Logic",
+        "trigger": "Primary recent source proving exact second-order complexity via a next-time Boolean-goal reduction."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING.",
+        "evidence": "The paper establishes earlier undecidability and decidability boundaries but not the depth-two fixed-vocabulary classification.",
+        "identifier_or_url": "DOI:10.23638/LMCS-13(1:9)2017",
+        "material_read": "Abstract and theorem-level complexity claims recovered from open bibliographic sources.",
+        "method": "Broader-coverage comparison.",
+        "title": "Reasoning about Strategies: on the Satisfiability Problem",
+        "trigger": "Principal earlier satisfiability result for Strategy Logic and its one-goal fragment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2949bec1-7e38-4f60-a857-cbfe026a232a",
+  "value": {
+    "rationale": "Temporal depth and vocabulary size are natural syntactic resources in modal and temporal logics. The result shows that neither deep temporal reasoning nor an expanding agent/proposition vocabulary causes Strategy Logic's second-order complexity: the full hardness is already present at depth two over ten fixed modal symbols, leaving strategy quantification as the unbounded resource. This sharpens the source's next-time-fragment result and identifies depth one as a concrete remaining boundary.",
+    "status": "PASS"
+  }
+}
