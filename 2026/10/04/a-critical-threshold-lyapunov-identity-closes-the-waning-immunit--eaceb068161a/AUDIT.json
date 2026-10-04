@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The functional \\(\\mathcal L=E+(\\beta S_*/\\zeta_2)A+(\\beta\\epsilon S_*/\\zeta_3)V\\) is reconstructed directly from the printed equations. Its exact derivative is \\(\\beta(S-S_*)h+\\zeta_1(\\mathcal R_0-1)E\\). On the source feasible set, \\(S\\le S_*\\), so the derivative is nonpositive for \\(\\mathcal R_0\\le1\\) and vanishes only when \\(E=A=V=0\\). LaSalle gives decay of those compartments; the hospital/ICU block is Hurwitz and the remaining cascade converges. A separate differential inequality for \\(S_*-S\\) proves Lyapunov stability at the critical endpoint. The symbolic checker independently verifies the critical algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ottaviano, Sensi, and Sottile prove \\(\\mathcal R_0=1\\) disease-free global stability for an unvaccinated multi-group SAIRS model.",
+        "That SAIRS model has susceptible, asymptomatic, symptomatic, and recovered classes but lacks the exposed, severe, hospital, ICU, and disease-death structure of the motivating model.",
+        "General endpoint-stability results show the equality case is a recognized mathematical issue but do not imply the exact weighted functional or cascade argument here."
+      ],
+      "reasoning": "Broader critical-threshold results prevent treating equality closure as novel in the abstract; originality is restricted to this source model, its exact functional, and the missing theorem endpoint.",
+      "searches": [
+        "\"Global stability of multi-group SAIRS epidemic models\" R0=1",
+        "disease-free equilibrium critical threshold R0=1 asymptotic stability exposed asymptomatic symptomatic waning immunity",
+        "critical reproduction number equality global stability SAIRS epidemic"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022871",
+      "arXiv:2202.02993",
+      "doi:10.1002/mma.9303"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source supplies the strict-subthreshold theorem but no equality argument; linearization is nonhyperbolic at equality.",
+        "The multi-group SAIRS equality theorem concerns a different state space and transition graph and cannot be specialized to the seven-class model without deleting source compartments and disease-induced mortality.",
+        "No inspected paper supplies the identity \\(\\dot{\\mathcal L}=\\beta(S-S_*)h+\\zeta_1(\\mathcal R_0-1)E\\) for the motivating equations."
+      ],
+      "reasoning": "The new result is not a continuity corollary of the strict theorem. It resolves the nonhyperbolic endpoint by an exact source-specific invariant functional.",
+      "searches": [
+        "waning immunity SARS-CoV-2 weighted infected Lyapunov critical R0",
+        "SAIRS R0=1 Lyapunov global stability exposed hospitalized ICU",
+        "SARS-CoV-2 seven compartment critical threshold disease-free equilibrium"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article states Theorem 3 and Theorem 4 only under the strict condition \\(\\mathcal R_0<1\\), while its conclusion uses \\(\\mathcal R_0\\le1\\).",
+        "Exact-title, DOI, critical-threshold, and Lyapunov searches returned the source and related epidemic papers but no correction or source-specific equality proof.",
+        "Published research-index searches returned different coupled-SEIR and critical-threshold models, with no matching seven-class SARS-CoV-2 functional."
+      ],
+      "reasoning": "The searches cover the literal source, the unsupported equality statement, critical-threshold terminology, and the natural Lyapunov/global-stability aliases.",
+      "searches": [
+        "\"Mathematical study of transmission dynamics of SARS-CoV-2 with waning immunity\" R0=1 global stability",
+        "\"10.3934/math.2022871\" \"R0 = 1\"",
+        "SEIR epidemic critical reproduction number R0 equals 1 global asymptotic stability disease-free equilibrium waning immunity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open AIMS PDF was inspected at equation (2.1), the population bound and feasible region, equation (3.8) for \\(\\mathcal R_0\\), Theorems 3 and 4, and the conclusion.",
+        "The theorem page was visually inspected and states global disease-free stability only for \\(\\mathcal R_0<1\\).",
+        "The conclusion page was visually inspected and states that global disease-free stability was proved for \\(\\mathcal R_0\\le1\\).",
+        "The full arXiv text of the multi-group SAIRS comparison paper was inspected through its model and disease-elimination section."
+      ],
+      "reasoning": "The comparison uses the exact primary equations and theorem statements, not title or abstract similarity.",
+      "searches": [
+        "doi:10.3934/math.2022871 equations 2.1 3.8 Theorem 3 Theorem 4 conclusion",
+        "doi:10.3934/math.2022871 feasible set Omega R0 <= 1",
+        "arXiv:2202.02993 disease elimination R0=1"
+      ]
+    },
+    "rationale": "The primary source proves its local and global disease-free theorems only for the strict condition \\(\\mathcal R_0<1\\) but later states \\(\\mathcal R_0\\le1\\) in its conclusion. The exact weighted functional and the endpoint proof are not present in the source. Related SAIRS literature proves equality-case stability for different compartment structures and does not imply this seven-class hospital/ICU model.",
+    "residual_risks": [
+      "A non-indexed author note could contain an endpoint proof not surfaced by exact-title, DOI, and equality searches.",
+      "The result proves convergence but does not determine the sharp decay law at the nonhyperbolic threshold.",
+      "The global endemic-equilibrium problem for \\(\\mathcal R_0>1\\) remains outside this finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CRITICAL_EQUALITY_CLAIM_TRUE_BUT_NOT_PROVED_BY_PRINTED_THEOREMS",
+        "evidence": "Theorem 4 states \\(\\mathcal R_0<1\\); the conclusion says \\(\\mathcal R_0\\le1\\). The exact functional closes the missing equality case.",
+        "identifier_or_url": "doi:10.3934/math.2022871",
+        "material_read": "Open full PDF: model equations, positivity and population bound, feasible region, disease-free equilibrium, next-generation reproduction number, Theorems 3 and 4, the global-stability proof, numerical examples, and conclusion; theorem and conclusion pages were visually inspected.",
+        "method": "Reconstructed the direct-transmission infected subsystem, matched the reproduction-number coefficients, derived a weighted left-null functional at the critical infected block, and completed the nonlinear invariance and stability argument.",
+        "title": "Mathematical study of transmission dynamics of SARS-CoV-2 with waning immunity",
+        "trigger": "Primary source whose conclusion claims the closed threshold while the printed theorems prove only the strict case."
+      },
+      {
+        "assessment": "RELATED_CRITICAL_THRESHOLD_RESULT_DIFFERENT_MODEL",
+        "evidence": "The SAIRS equality result applies without vaccination in a multi-group S-A-I-R model; it does not contain exposed, severe, hospital, ICU, or disease-death compartments and does not imply the present functional.",
+        "identifier_or_url": "arXiv:2202.02993; doi:10.1002/mma.9303",
+        "material_read": "Full arXiv text through the model definition and disease-elimination section, plus published abstract/outline/conclusion.",
+        "method": "Compared state variables, transmission graph, conservation structure, and equality-case scope with the seven-class SARS-CoV-2 model.",
+        "title": "Global stability of multi-group SAIRS epidemic models",
+        "trigger": "Closest inspected epidemic literature explicitly proving disease-free global stability at \\(\\mathcal R_0=1\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eaceb068-161a-4c2d-af96-6aba4a65cd75",
+  "value": {
+    "rationale": "The endpoint matters because the source conclusion and policy discussion use the closed eradication condition \\(\\mathcal R_0\\le1\\), while the printed theorems stop at \\(\\mathcal R_0<1\\). The exact functional converts that unsupported boundary claim into a rigorous theorem, independently reproves the strict regime, and isolates a reusable critical-threshold mechanism for a seven-class model with severe, hospital, ICU, and waning-immunity compartments.",
+    "status": "PASS"
+  }
+}
