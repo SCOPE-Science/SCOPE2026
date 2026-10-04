@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exact centered norm identity is reduced to the sharp angle lower bound \\(x^\\top Hx/(\\|x\\|\\|Hx\\|)\\ge2\\sqrt{\\mu L}/(\\mu+L)\\), with an explicit two-eigenvalue equality witness. This yields the exact Fromage and unprefactored factors and their learning-rate optima. The shifted scalar map is derived directly from the official update; its invariant interval and rigid log-rotation conjugacy prove nonconvergence to the nonzero minimizer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1801.03137v1",
+        "arXiv:1711.05224v1",
+        "arXiv:2002.03432v1"
+      ],
+      "reasoning": "Prior proportional-update theory covers convergence regions and a shifted one-dimensional example, while normalized-gradient theory studies different discrete or continuous-time step rules. Those results do not imply the unconditional centered Fromage contraction factor created by the additional prefactor.",
+      "searches": [
+        "normalized gradient relative step quadratic condition number exact rate",
+        "LARS proportional update quadratic exact region fixed learning rate",
+        "Fromage shifted quadratic nonconvergence log rotation",
+        "normalized gradient sqrt kappa optimization quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.03432v1",
+      "github:jxbz/fromage:fromage.py@840c6ce062237a62b31741457dc693644d448096",
+      "arXiv:1801.03137v1",
+      "arXiv:1711.05224v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2002.03432v1 full text, Fromage derivation and comparison with LARS",
+        "github:jxbz/fromage:fromage.py@840c6ce062237a62b31741457dc693644d448096",
+        "arXiv:1801.03137v1 full text, proportional-update definition and shifted one-dimensional analysis",
+        "arXiv:1711.05224v1 abstract and continuous-time normalized-gradient scope"
+      ],
+      "reasoning": "The Fromage paper and implementation fix the exact prefactor and zero-gradient behavior used here but do not derive the theorem. The 2018 proportional-update paper makes qualitative shifted-objective failure prior art, yet lacks Fromage's prefactor and the sharp centered factor. The normalized-gradient source studies continuous-time behavior with a different normalization and therefore does not imply the discrete result.",
+      "searches": [
+        "On the distance between two neural networks Fromage prefactor LARS sqrt 1 eta squared",
+        "Convergence Analysis proportional updates one dimensional quadratic fixed learning rate",
+        "Revisiting Normalized Gradient Descent condition number continuous time",
+        "Fromage official implementation p norm grad norm sqrt"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2002.03432v1",
+        "arXiv:1801.03137v1",
+        "arXiv:1711.05224v1"
+      ],
+      "reasoning": "Fromage is a proportional normalized-gradient step followed by a specific scalar prefactor. The inspected proportional-update and normalized-gradient sources use related geometry but do not state the exact prefactored SPD factor or its sharp equality witness.",
+      "searches": [
+        "Fromage optimizer SPD quadratic exact contraction rate condition number",
+        "Frobenius matched gradient descent quadratic exact rate",
+        "proportional updates normalized gradient centered SPD quadratic exact contraction",
+        "Fromage LARS prefactor centered quadratic stability condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published formula matching the prefactored Fromage factor, its sharp LARS comparison, and the shifted rotation boundary was identified by the focused searches."
+      ],
+      "reasoning": "The nearest exact quadratic results concern Polyak steps, trust-region Cauchy points, heavy-ball roots, or other normalized updates. They do not contain the Fromage prefactor or its origin-relative state map.",
+      "searches": [
+        "Fromage optimizer SPD quadratic exact contraction rate condition number",
+        "Frobenius matched gradient descent origin dependence translation invariance",
+        "Fromage shifted quadratic nonconvergence log rotation",
+        "LARS Fromage SPD quadratic Kantorovich angle contraction"
+      ]
+    },
+    "rationale": "The defining Fromage source gives the update and purpose of its prefactor but not the sharp SPD condition-number theorem. Earlier proportional-update work already covers qualitative fixed-rate failure on shifted scalar objectives, so novelty is restricted to the exact prefactor-induced centered law, its sharp LARS comparison, and the exact Fromage rotation boundary.",
+    "residual_risks": [
+      "A mathematically equivalent sharp centered formula may exist in older normalized-gradient or numerical linear-algebra literature under terminology unrelated to Fromage.",
+      "Qualitative fixed-step nonconvergence on shifted one-dimensional proportional updates is prior art; only the exact Fromage-prefactor rotation refinement is treated as part of the final claim.",
+      "The centered one-step worst-case witness need not remain an equality trajectory at every iteration, so the theorem does not claim a sharp asymptotic lower bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "The source specifies the norm-ratio update and the extra \\((1+\\eta^2)^{-1/2}\\) factor but does not state the sharp centered SPD condition-number contraction law.",
+        "identifier_or_url": "arXiv:2002.03432v1",
+        "material_read": "Open-access full text covering the relative update derivation, the Frobenius norm-ratio step, the comparison with LARS, and the prefactor introduced to correct relative norm growth.",
+        "method": "Full-text inspection together with comparison to the official implementation.",
+        "title": "On the distance between two neural networks and the stability of learning",
+        "trigger": "Defining source for Fromage and its normalization prefactor."
+      },
+      {
+        "assessment": "MATCHES_ANALYZED_UPDATE.",
+        "evidence": "The implementation scales a nonzero gradient by parameter norm over gradient norm, applies the learning rate, then divides the parameter by \\(\\sqrt{1+\\eta^2}\\); the division is also applied when the gradient is zero.",
+        "identifier_or_url": "github:jxbz/fromage:fromage.py@840c6ce062237a62b31741457dc693644d448096",
+        "material_read": "Complete optimizer source file at the recorded blob revision.",
+        "method": "Repository file inspection.",
+        "title": "Fromage official implementation",
+        "trigger": "Exact operational check of the prefactor and zero-gradient branch."
+      },
+      {
+        "assessment": "COVERS_QUALITATIVE_SHIFTED_FAILURE_NOT_FROMAGE_FACTOR.",
+        "evidence": "The paper already shows that fixed proportional updates need not converge exactly to a shifted scalar minimizer. It predates and therefore does not analyze Fromage's additional normalization prefactor or the sharp centered SPD law.",
+        "identifier_or_url": "arXiv:1801.03137v1",
+        "material_read": "Full open-access text covering the proportional-update definition, fixed-learning-rate one-dimensional shifted quadratic example, and strongly convex convergence discussion.",
+        "method": "Full-text inspection.",
+        "title": "Convergence Analysis of Gradient Descent Algorithms with Proportional Updates",
+        "trigger": "Closest prior theory for LARS-type proportional updates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce35c134-b5fa-48f3-8690-97cbc945bd72",
+  "value": {
+    "rationale": "Fromage was distinguished from LARS by exactly the prefactor analyzed here. The result shows that this factor removes the centered proportional-update stability ceiling and changes the sharp worst-case one-step conditioning dependence from \\(1-\\Theta(\\kappa^{-1})\\) to \\(1-\\Theta(\\kappa^{-1/2})\\). The shifted rotation boundary explains the price of that behavior: the guarantee is tied to origin-relative geometry and cannot be transferred to translated objectives.",
+    "status": "PASS"
+  }
+}
