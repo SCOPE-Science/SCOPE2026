@@ -1,0 +1,111 @@
+{
+  "claim": "For the Yan–Jie–Zhang flow \\(\\dot x=-ax+yz\\), \\(\\dot y=ax-xz\\), \\(\\dot z=-az+x^2+a\\) with \\(a>0\\), the real equilibria and first local bifurcations are exact: \\(E_0=(0,0,1)\\) is asymptotically stable for \\(0<a<1\\), has a zero eigenvalue at \\(a=1\\), and is a real saddle for every \\(a>1\\); the symmetry-related equilibria \\(E_\\pm=(\\pm\\sqrt{a(a-1)},\\pm\\sqrt{a(a-1)},a)\\) exist exactly for \\(a\\ge1\\), are asymptotically stable for \\(1<a<3/2\\), and undergo simultaneous supercritical Hopf bifurcations at \\(a=3/2\\). At the Hopf point the spectrum is \\(\\{-3,\\pm i\\sqrt3/2\\}\\), the crossing speed is \\(d\\operatorname{Re}\\lambda/da=6/13\\), and, in the standard Kuznetsov normalization, the first Lyapunov coefficient is \\(l_1=-2\\sqrt3/3<0\\), so a stable small periodic orbit is born from each \\(E_\\pm\\) for \\(a>3/2\\) sufficiently close to \\(3/2\\). For all \\(a>3/2\\), \\(E_\\pm\\) have one negative real eigenvalue and a complex conjugate pair with positive real part. Moreover every bounded complete trajectory satisfies the exact memory law \\(z(t)-1=\\int_0^\\infty e^{-as}x(t-s)^2\\,ds\\); hence every non-equilibrium bounded complete trajectory lies strictly in \\(z>1\\). In particular, at the source paper's \\(a=3\\), \\(E_0\\) has three real eigenvalues and is a saddle, not a saddle-focus.",
+  "correctness": {
+    "rationale": "The equilibrium set follows by exact elimination. The two characteristic polynomials and Routh first column give the stated stability intervals. At a=3/2 the pair is simple imaginary, its real-part crossing speed is exactly 6/13, and the standard Hopf coefficient evaluates to -2sqrt(3)/3, so the bifurcation is nondegenerate and supercritical. The bounded-complete memory law follows by solving the scalar equation for z-1 backward and taking the bounded limit. A packaged symbolic checker independently replays every algebraic identity used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest records concern Rössler zero-Hopf, Lorenz-84 memory, Halvorsen recurrence, and Shimizu–Morioka/Rucklidge barriers, all for different equations."
+      ],
+      "reasoning": "General Hopf and variation-of-constants theory supplies tools, not this source-specific threshold, coefficient, or all-bounded-complete-trajectory half-space theorem.",
+      "searches": [
+        "hidden attractor chaotic system exact invariant first integral Lyapunov spectrum equilibrium correction differential equations",
+        "x3-1 exponential memory x1^2 chaotic system bounded complete trajectory half-space",
+        "three-dimensional chaotic system equilibrium branch Hopf threshold exact Routh-Hurwitz xdot=-a x+yz"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1038/s41598-022-24142-4",
+      "pmcid:PMC9666663",
+      "pmid:36380006",
+      "MSC2020 37G10",
+      "2026/9/20/SCOPE-boundary-averaged-zeros-split-equilibria-rossler-zero-hopf--e55f9e3b5fad",
+      "2026/9/17/SCOPE-no-hopf-serial-am2-distinct-removal--f27e4f47727b",
+      "2026/9/20/SCOPE-halvorsen-diagonal-slab-and-mean-square-sphere--f567f56cc506",
+      "2026/9/20/SCOPE-lorenz84-eddy-memory-and-small-forcing-convergence--9ae03d7abd20",
+      "2026/9/20/SCOPE-shimizu-morioka-rucklidge-recurrence-barriers--03af2ccdb58c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source lists E± formally but does not state that they are real only for a>=1, stable on 1<a<3/2, or Hopf-critical at a=3/2.",
+        "The source numerically begins its parameter scan at a=3, so those lower-parameter transitions are not implied by its reported scan."
+      ],
+      "reasoning": "The published a=3 classification cannot imply the exact stability intervals or the supercritical Hopf theorem; the memory law is independent additional structure.",
+      "searches": [
+        "Yan Jie Zhang 2022 Scientific Reports system xdot=-a x+y z ydot=a x-x z zdot=-a z+x^2+a equilibrium Hopf bifurcation",
+        "Chaotic systems with variable indexs image encryption equilibrium stability a=3/2",
+        "three-dimensional chaotic system equilibrium branch Hopf threshold exact Routh-Hurwitz xdot=-a x+yz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 open-access primary article states the exact vector field, formal equilibrium expressions, and its a=3 classification, then numerically studies a in [3,15].",
+        "The primary full text contains no occurrence of 'Hopf', '1.5', or 'bounded complete'.",
+        "Exact-equation/title web searches returned the source article and bibliographic/citation records but no same-system theorem giving the a=3/2 threshold, first Lyapunov coefficient, or memory law."
+      ],
+      "reasoning": "An equivalent statement would identify the stability exchange at a=3/2 and the local periodic-orbit branch, or an equivalent scalar-filter formula. No inspected same-system source did so.",
+      "searches": [
+        "Yan Jie Zhang 2022 chaotic systems variable index xdot=-a x+y z stationary invariant measure mean z",
+        "Yan Jie Zhang 2022 Scientific Reports system xdot=-a x+y z ydot=a x-x z zdot=-a z+x^2+a equilibrium Hopf bifurcation",
+        "Chaotic systems with variable indexs image encryption equilibrium stability a=3/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary article was published 2022-11-15 under DOI 10.1038/s41598-022-24142-4 and gives its own numerical parameter study only for a in [3,15].",
+        "Its equilibrium section explicitly states one positive and two negative real roots at E0 for a=3 while labeling E0 a saddle-focus."
+      ],
+      "reasoning": "The claim is not a recomputation of a table: it supplies the exact full local parameter classification, a Hopf normal-form coefficient, and a global trajectory identity absent from the source.",
+      "searches": [
+        "system xdot=-a x+yz ydot=ax-xz zdot=-az+x^2+a exact moment identity",
+        "Scientific Reports 12 19585 equilibrium invariant measure recurrence z mean",
+        "Chaotic systems with variable indexs image encryption equilibrium stability a=3/2"
+      ]
+    },
+    "rationale": "The primary full text gives the vector field and a=3 equilibrium discussion but not the lower-parameter bifurcation classification, Hopf coefficient, or memory law. Targeted exact-equation, alias, threshold, implication, and semantic database searches found no equivalent result for this vector field.",
+    "residual_risks": [
+      "Citation and semantic indexes can miss unindexed or non-English equivalent analyses.",
+      "A non-obvious coordinate transformation could conceal an equivalent result; no such source was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the equations and equilibria and studies a>=3, but does not contain the a=3/2 Hopf theorem, first Lyapunov coefficient, or memory law; it also calls E0 a saddle-focus despite stating that all three of its a=3 eigenvalues are real.",
+        "evidence": [
+          "System (2) is the exact ODE used here.",
+          "The equilibrium section lists E0 and E±.",
+          "The parameter scan is stated for a in [3,15].",
+          "No full-text match was found for Hopf or 1.5."
+        ],
+        "identifier_or_url": "doi:10.1038/s41598-022-24142-4",
+        "material_read": "Open-access full-text HTML covering the model, equilibrium section, parameter scan, and article metadata.",
+        "method": "Direct full-text inspection and in-page searches for Hopf, 1.5, and bounded-complete terminology.",
+        "title": "Chaotic systems with variable indexs for image encryption application",
+        "trigger": "Primary source introducing the exact vector field."
+      },
+      {
+        "assessment": "37G10 is Bifurcations of singular points in dynamical systems, matching the principal theorem.",
+        "evidence": [
+          "MSC2020 lists 37G10 under local and nonlocal bifurcation theory."
+        ],
+        "identifier_or_url": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=37G15",
+        "material_read": "37Gxx classification table.",
+        "method": "Direct web inspection.",
+        "title": "MSC2020 database entry 37G10",
+        "trigger": "Verify primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d56139c-f3bb-48b0-9817-2ea0f956a933",
+  "value": {
+    "rationale": "The source presents this one-parameter flow as a parameter-dependent chaotic system but numerically starts at a=3. The exact theorem exposes its first real-equilibrium creation and first Hopf transition, proves the local cycle is stable, corrects a published equilibrium-type label at the showcased a=3 value, and gives a global half-space constraint on every bounded recurrent regime. These facts provide an analytic skeleton for interpreting and checking the later numerical regimes rather than a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
