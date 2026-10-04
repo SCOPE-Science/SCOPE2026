@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\ge3\\) the crown distances give the exact \\(0/2/1\\) edge-coordinate formula. Two matched index-pairs omitted from a generator create an explicit indistinguishable edge pair, proving the \\(n-1\\) lower bound. A one-per-pair transversal outside one omitted pair decodes tail/head/neither at every represented index and therefore resolves all ordered edge-index pairs. The counting statement then follows by pigeonhole. The packaged exhaustive checker independently verifies the distance formula, all smaller subsets, and every minimum-size subset for \\(3\\le n\\le8\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kelenc--Tratnik--Yero prove \\(\\operatorname{edim}(K_{r,t})=r+t-2\\), not a deletion-stability theorem.",
+        "Zhu--Taranenko--Shao--Xu characterize the maximum regime \\(\\operatorname{edim}(G)=|V(G)|-1\\).",
+        "Iqbal--Azhar--Bokhary impose an induced-subgraph-size constraint in the k-size variant."
+      ],
+      "reasoning": "None of these broader results dominates the retained theorem. Edge metric dimension is not monotone under edge deletion, so the \\(K_{n,n}\\) formula does not transfer to \\(K_{n,n}-M\\); the topful characterization is numerically inapplicable; and the k-size variant is a different optimization problem.",
+      "searches": [
+        "edge metric dimension bipartite graphs theorem resolving set 2019",
+        "On graphs with the maximum edge metric dimension n-1 characterization",
+        "The K-Size Edge Metric Dimension of Graphs complete bipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1602.00291v1",
+      "DOI:10.1016/j.dam.2018.08.031",
+      "DOI:10.1155/2020/1023175",
+      "Published-finding index searches under crown graph, perfect-matching deletion, and edge-resolving aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1602.00291v1, Remark 2: \\(\\operatorname{edim}(K_{r,t})=r+t-2\\).",
+        "DOI:10.1016/j.dam.2018.08.031: abstract/introduction state the paper characterizes topful graphs with \\(\\operatorname{edim}(G)=|V(G)|-1\\).",
+        "DOI:10.1155/2020/1023175: studies k-size edge resolving sets, not ordinary bases of crowns."
+      ],
+      "reasoning": "For \\(\\operatorname{Cr}_n\\) the retained value \\(n-1\\) differs from both the balanced complete-bipartite value \\(2n-2\\) and the topful value \\(2n-1\\). Neither statement implies a formula after deleting a perfect matching, and the k-size parameter changes the admissible-set condition. The new all-bases classification and exact basis count are stronger than a scalar value alone.",
+      "searches": [
+        "crown graph edge metric dimension n-1 all bases perfect matching",
+        "complete bipartite minus perfect matching edge resolving set",
+        "On graphs with the maximum edge metric dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kelenc--Tratnik--Yero, arXiv:1602.00291v1, full text inspected; no occurrences of “crown” or “matching”.",
+        "Target graph also searched as complete bipartite graph minus a perfect matching and via edge resolving set/basis terminology."
+      ],
+      "reasoning": "The claim was searched under both the standard graph-family name and its defining deletion construction, together with resolving-set and edge-metric synonyms. No equivalent statement surfaced; the closest exact-object published finding concerned a different crown-graph coloring parameter and has no implication for edge-distance codes.",
+      "searches": [
+        "crown graph edge metric dimension n-1 all bases perfect matching",
+        "complete bipartite minus perfect matching edge resolving set",
+        "crown graph edge codes resolving edges",
+        "crown graph edge metric dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact-value table or database entry gave \\(\\operatorname{edim}(\\operatorname{Cr}_n)\\), the basis classification, or the count \\(n2^{n-1}\\).",
+        "The founding paper explicitly formulates complete bipartite graphs instead, with value \\(r+t-2\\)."
+      ],
+      "reasoning": "The inspected exact-family result nearest to the target is the complete-bipartite formula, whose hypotheses include all cross-edges and therefore exclude crown graphs.",
+      "searches": [
+        "crown graph edge metric dimension",
+        "K_{n,n}-M edge metric dimension",
+        "complete bipartite minus perfect matching edge resolving set"
+      ]
+    },
+    "rationale": "Direct statement comparison found no inspected source implying the crown theorem. The founding paper proves only \\(\\operatorname{edim}(K_{r,t})=r+t-2\\) for complete bipartite graphs and its full preprint has no crown or matching treatment. The maximum-edge-metric-dimension paper treats the topful regime \\(\\operatorname{edim}(G)=|V(G)|-1\\), whereas crowns here have \\(n-1\\) on \\(2n\\) vertices. The k-size paper studies a different constrained variant. Exact alias searches in the published-finding index and web literature produced no stronger covering result. Residual risk from unindexed terminology is recorded rather than treated as proof of novelty.",
+    "residual_risks": [
+      "A source indexed under an unexpected name for crown graphs or an unindexed thesis may contain the same formula.",
+      "The search evidence supports but cannot logically prove global novelty; acceptance rests on direct non-implication from the closest inspected statements plus the targeted alias search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact parameter and proves \\(\\operatorname{edim}(K_{r,t})=r+t-2\\), but does not treat crowns or perfect-matching deletion.",
+        "evidence": "arXiv v1 submitted 31 January 2016; AMS \\(05C12\\) first; Remark 2 proves the complete-bipartite formula.",
+        "identifier_or_url": "arXiv:1602.00291v1",
+        "material_read": "Abstract, definitions, AMS classification, and full-text Section 2.1 including Remark 2 and its proof; full-text searches for crown and matching.",
+        "method": "Lawful arXiv full text, including PDF inspection.",
+        "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+        "trigger": "Foundational source and nearest exact complete-bipartite theorem."
+      },
+      {
+        "assessment": "Characterizes \\(\\operatorname{edim}(G)=|V(G)|-1\\) and therefore does not cover the crown value \\(n-1\\) on \\(2n\\) vertices.",
+        "evidence": "The paper defines topful graphs by \\(\\operatorname{edim}(G)=|V(G)|-1\\) and studies that maximum regime.",
+        "identifier_or_url": "DOI:10.1016/j.dam.2018.08.031",
+        "material_read": "Abstract and accessible introduction/general-results material describing the topful regime.",
+        "method": "Publisher-accessible text.",
+        "title": "On graphs with the maximum edge metric dimension",
+        "trigger": "Possible broader structural coverage of edge metric dimension."
+      },
+      {
+        "assessment": "Studies k-size edge resolving sets with an additional induced-subgraph-size condition; no implication for ordinary crown bases.",
+        "evidence": "Definition 1 changes the admissible family by fixing the size of the induced subgraph on the resolving set.",
+        "identifier_or_url": "DOI:10.1155/2020/1023175",
+        "material_read": "Abstract, definition, introduction, and accessible complete-bipartite discussion.",
+        "method": "Publisher full-text HTML.",
+        "title": "The K-Size Edge Metric Dimension of Graphs",
+        "trigger": "Search hit with complete bipartite graphs and edge resolving terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5b3c45f-23e8-4fc2-900a-6da47375a95b",
+  "value": {
+    "rationale": "Crown graphs are a canonical symmetric family obtained by the minimal structured deletion of a perfect matching from \\(K_{n,n}\\). The theorem shows a large, exact sensitivity phenomenon: the edge metric dimension drops from \\(2n-2\\) to \\(n-1\\) after deleting only \\(n\\) edges, and it completely classifies and counts every optimum basis. This is a structural family theorem rather than a routine isolated computation.",
+    "status": "PASS"
+  }
+}
