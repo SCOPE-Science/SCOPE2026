@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The displayed matrix is checked by exact arithmetic: rank 6, 25 distinct projective columns, all 364 hyperplane intersections have rank 5, all 364 projective nonzero supports form an antichain, direct trifference is checked on 264628 message pairs, and all 729 codewords give the stated weight distribution with minimum 11. The proof reduces each asserted property to these exhaustive finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2301.09457 reports 22 <= b_3^*(6,1) <= 24 and claims a [24,6]_3 trifferent inner code.",
+        "The closest published-finding corpus item establishes that the specific printed 24-column matrix has a support-containment defect while leaving existence of a corrected [24,6]_3 code unresolved."
+      ],
+      "reasoning": "The stronger published length-24 existence claim covers the bare statement that some length-25 code exists. Therefore that statement is not treated as original. The final claim is instead the exact displayed 25-column witness, its verified weight/hyperplane data, and its use as a concrete fallback certificate.",
+      "searches": [
+        "explicit ternary 25 6 11 minimal code projective trifferent strong blocking set",
+        "25-point strong blocking set PG(5,3) ternary minimal code",
+        "projective ternary minimal code length 25 dimension 6 minimum distance 11",
+        "validated length-25 dimension-6 ternary trifferent inner code replacement for defective 24-column matrix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.16339",
+      "arXiv:2011.11101",
+      "arXiv:2301.09457",
+      "DOI:10.1137/21M1391493",
+      "DOI:10.1515/forum-2020-0338",
+      "DOI:10.1112/jlms.12938",
+      "published-finding corpus:2026/9/21/SCOPE-published-24-6-trifferent-matrix-support-containment--829e9103f9fd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2011.11101 gives a 28-point construction at q=3.",
+        "arXiv:2301.09457 claims a 24-point construction but the published matrix used for the concatenation is directly falsified by a support containment; the present verifier independently reproduces that containment."
+      ],
+      "reasoning": "The 28-point construction does not imply this exact 25-point witness. The 24-point existence claim implies a stronger existential bound but does not provide this matrix or its verified invariants after the printed certificate fails. The final claim is intentionally phrased as a concrete repair rather than a new minimum-length theorem.",
+      "searches": [
+        "corrected replacement 24 6 trifferent matrix length 25",
+        "validated length-25 dimension-6 ternary trifferent inner code replacement for defective 24-column matrix",
+        "On cutting blocking sets 7(q+1) PG(5,q) dimension 6 minimal code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches under minimal-code, trifferent-code, strong-blocking-set, and exact-parameter formulations returned the defective 24-column record as the closest direct item and no 25-column repair.",
+        "The Wiley full text of arXiv:2301.09457 states the minimal/trifferent equivalence and prints the 24-column matrix used in Theorem 1.7."
+      ],
+      "reasoning": "The finding was compared in all equivalent languages: projective strong blocking set, ternary minimal code, and linear trifferent code, plus the exact [25,6,11]_3 parameter string.",
+      "searches": [
+        "ternary minimal code length 25 dimension 6 strong blocking set PG(5,3) 25",
+        "[25,6]_3 minimal code trifferent",
+        "strong blocking set PG(5,3) 25 points",
+        "cutting blocking set PG(5,3) size 25",
+        "linear trifferent code length 25 dimension 6",
+        "displayed explicit 6x25 ternary generator matrix projective minimal trifferent [25,6,11] exact weight distribution repair"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 full text tabulates b_3^*(6,1) as 22--24, so this length-25 witness does not improve the database bound.",
+        "No published-finding corpus exact-parameter hit matched the displayed [25,6,11]_3 repair."
+      ],
+      "reasoning": "Known tables already dominate the numerical upper bound; value and originality come from restoring a checkable concrete inner code, not from a new extremal parameter.",
+      "searches": [
+        "b_3^*(6,1) ternary strong blocking exact 22 24",
+        "[25,6,11]_3 minimal code"
+      ]
+    },
+    "rationale": "The accepted originality is narrow and concrete: the exact 25-column witness, its full finite invariants, and a verified fallback use in the published concatenation. The stronger published length-24 existence statement is explicitly recognized as covering bare length-25 existence, so no novelty is claimed for the numerical bound. Searches in published-finding corpus and the primary literature found the defective 24-column certificate but no matching 25-column repair.",
+    "residual_risks": [
+      "A valid length-24 code may exist despite the defect in the printed matrix; this finding does not address that existence question.",
+      "Another explicit length-25 witness could exist in unindexed ancillary files, private computations, or literature not surfaced by the searches.",
+      "The published 24-length theorem, if supported by another valid witness, is numerically stronger than this fallback; the present novelty remains the concrete verified replacement and its exact invariants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper claims 22 <= b_3^*(6,1) <= 24 and uses the printed 24-column matrix. The matrix itself fails minimality/trifference, but the paper's abstract existence claim is not disproved by that fact alone.",
+        "evidence": "Full text lines around the small-k table and Theorem 1.7; local exact checker reproduces support(r2+r3) proper subset support(r1+r4).",
+        "identifier_or_url": "arXiv:2301.09457 / DOI 10.1112/jlms.12938",
+        "material_read": "Publisher full-text sections defining strong blocking sets and minimal codes, Theorems 6.1--6.2, small-k table, and Theorem 1.7 with the full 6x24 matrix.",
+        "method": "Statement-level comparison plus independent transcription and exact support-containment check.",
+        "title": "Blocking sets, minimal codes and trifferent codes",
+        "trigger": "Closest stronger published claim and the exact inner matrix needing comparison."
+      },
+      {
+        "assessment": "Primary MSC is 94B05; earliest verified public date is 2020-10-30. The work develops minimal-code/cutting-blocking constructions but no matching 25-column witness was located.",
+        "evidence": "SIAM page lists MSC 94B05 first; arXiv metadata dates v1 to 2020-10-30.",
+        "identifier_or_url": "arXiv:2010.16339 / DOI 10.1137/21M1391493",
+        "material_read": "ArXiv abstract and SIAM bibliographic/MSC page.",
+        "method": "MSC and scope verification.",
+        "title": "Three Combinatorial Perspectives on Minimal Codes",
+        "trigger": "Primary coding-theory ownership and foundational equivalence framework."
+      },
+      {
+        "assessment": "The seven-line-spread construction has size 7(q+1), hence 28 at q=3; it does not cover this exact 25-point witness.",
+        "evidence": "The abstract explicitly states the PG(5,q) size 7(q+1).",
+        "identifier_or_url": "arXiv:2011.11101 / DOI 10.1515/forum-2020-0338",
+        "material_read": "Abstract containing the PG(5,q) construction and its size.",
+        "method": "Direct parameter specialization q=3.",
+        "title": "On cutting blocking sets and their codes",
+        "trigger": "Earlier explicit dimension-6 construction for quantitative comparison."
+      },
+      {
+        "assessment": "Confirms the concrete printed witness defect and explicitly leaves a corrected [24,6]_3 witness open; it does not contain the present length-25 matrix.",
+        "evidence": "published-finding corpus summary plus independent support-containment reproduction.",
+        "identifier_or_url": "published-finding corpus:2026/9/21/SCOPE-published-24-6-trifferent-matrix-support-containment--829e9103f9fd",
+        "material_read": "published-finding corpus title, summary, identifier and implication statement returned by semantic search.",
+        "method": "Compared exact failure statement with an independent checker against the primary matrix.",
+        "title": "Support-containment obstruction in a published length-24 ternary trifferent-code witness",
+        "trigger": "Closest database record to the repair problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a9f02b7a-7afd-4506-bed3-2f5c0dfaea2b",
+  "value": {
+    "rationale": "The finding repairs a concrete reproducibility failure in an explicit trifferent-code construction with a short, fully replayable inner code. A valid dimension-6 inner code is structurally necessary for the concatenation argument; length 25 recovers a nontrivial explicit asymptotic rate 23/325, and the exact projective/weight data make the replacement independently checkable. This is more than a routine recomputation because it supplies the missing constructive object while clearly separating the repaired statement from the unresolved stronger length-24 claim.",
+    "status": "PASS"
+  }
+}
