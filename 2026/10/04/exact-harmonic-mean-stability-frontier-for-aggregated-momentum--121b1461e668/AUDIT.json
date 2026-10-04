@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the exact modal characteristic polynomial from the defining AggMo recurrence. It proves small-step stability, excludes every nonreal unit-circle crossing by the identity \\(\\operatorname{Im}((1-z)\\overline{H(z)})=-\\sin\\theta\\sum_i(1-\\beta_i)/D_i\\), identifies the unique crossing at \\(z=-1\\), and uses the exact sign of \\(P_s(-1)\\) to prove necessity above the boundary. Diagonalization of the SPD Hessian then makes the top curvature \\(L\\) decisive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1804.00325v1",
+        "arXiv:1810.06801v1",
+        "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ],
+      "reasoning": "Broader QHM and classical-momentum analyses concern two-state families or rate properties. The present statement applies to arbitrary buffer count and depends on the entire damping vector through a harmonic mean, so the nearby two-state results do not imply it.",
+      "searches": [
+        "quasi hyperbolic momentum QHM scalar quadratic exact stability frontier",
+        "QHM optimizer quadratic spectral radius stability beta nu stepsize",
+        "AggMo scalar quadratic exact stability multiple momentum",
+        "Aggregated Momentum exact stability learning rate quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1804.00325v1",
+      "arXiv:1810.06801v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1804.00325v1 full text, Algorithm 3, Appendix B, Appendix C.1",
+        "arXiv:1810.06801v1 full text, Appendix H"
+      ],
+      "reasoning": "The defining paper gives the modal matrix and explicitly notes closed-form eigenvalue analysis as an open theoretical direction; its reported AggMo rates are computed numerically. The QHM paper relates an extended two-buffer weighting to QHM but does not specialize that equivalence to the original equal-weight multi-buffer Schur boundary. Thus the inspected prior statements do not imply the full arbitrary-K formula.",
+      "searches": [
+        "Aggregated Momentum quadratic eigenvalues closed form stability bound",
+        "Aggregated Momentum appendix B quadratic convergence closed form eigenvalues",
+        "Quasi-hyperbolic momentum AggMo appendix H extended AggMo",
+        "Aggregated Momentum learning rate stability beta vector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1804.00325v1",
+        "arXiv:1810.06801v1",
+        "No matching focused database record"
+      ],
+      "reasoning": "The characteristic equation can be written as a scalar feedback/root-locus relation, but the inspected AggMo and QHM sources do not state the unit-circle exclusion or harmonic-mean boundary. Focused semantic searches returned only other momentum and stability methods.",
+      "searches": [
+        "Aggregated Momentum AggMo exact scalar stability ceiling harmonic mean damping coefficients",
+        "AggMo quadratic Schur stability learning rate beta vector exact threshold",
+        "Aggregated Momentum unit circle root locus scalar quadratic stability",
+        "AggMo damping vector harmonic mean 1+beta learning rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4",
+        "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+        "No exact AggMo harmonic-mean table or formula found"
+      ],
+      "reasoning": "The closest records give exact stability or rate boundaries for reflected gradient, heavy ball, or other splitting schemes. None uses a multi-buffer AggMo damping vector or contains the displayed harmonic-mean threshold.",
+      "searches": [
+        "Aggregated Momentum AggMo exact scalar stability ceiling harmonic mean damping coefficients",
+        "AggMo quadratic Schur stability learning rate beta vector exact threshold",
+        "AggMo damping vector harmonic mean 1+beta learning rate",
+        "AggMo closed-form eigenvalues quadratic"
+      ]
+    },
+    "rationale": "The inspected AggMo paper gives the quadratic state matrix and numerical spectral analysis but leaves closed-form spectral characterization as an open direction. The inspected QHM paper gives equivalence and empirical comparisons rather than the arbitrary-buffer harmonic-mean Schur boundary. Targeted database and literature searches found no covering statement.",
+    "residual_risks": [
+      "An equivalent root-locus calculation may exist in older control or multi-rate momentum literature under terminology not captured by AggMo-focused searches.",
+      "The theorem does not settle the source paper's harder interior rate-optimal tuning problem.",
+      "Separate per-buffer learning rates can change the boundary and are not covered by the harmonic-mean formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "The source derives the exact multi-buffer quadratic state matrix and numerically computes convergence rates. It states that closed-form spectral analysis of the reduced block would be useful future work and does not give the harmonic-mean outer boundary.",
+        "identifier_or_url": "arXiv:1804.00325v1",
+        "material_read": "Open-access full PDF: defining update, quadratic experiments, Appendix B state matrix and eigenvalue discussion, and Appendix C.1 open questions; relevant PDF pages were visually inspected.",
+        "method": "Full-text arXiv PDF and page inspection.",
+        "title": "Aggregated Momentum: Stability Through Passive Damping",
+        "trigger": "Defining source for AggMo, its damping vector, and quadratic stability motivation."
+      },
+      {
+        "assessment": "RELATED_EQUIVALENCE_NOT_COVERING.",
+        "evidence": "The source shows how an extended two-buffer AggMo can recover QHM and compares passive damping empirically. It does not state an arbitrary-K equal-weight stability ceiling or the unit-circle proof used here.",
+        "identifier_or_url": "arXiv:1810.06801v1",
+        "material_read": "Open-access arXiv full text: algorithmic equivalences, Appendix H AggMo comparison, and extended AggMo discussion.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "Quasi-hyperbolic momentum and Adam for deep learning",
+        "trigger": "Later primary source connecting QHM and AggMo and discussing multi-buffer damping."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "121b1461-e668-4f6c-bdf7-b09101e8b069",
+  "value": {
+    "rationale": "The formula \\(s_\\star=2\\,\\operatorname{HM}(1+\\beta_i)\\) directly quantifies the stability tradeoff at the core of passive damping. It gives exact safe steps for arbitrary damping vectors, explains why the absolute ceiling cannot exceed that of the highest-\\(\\beta\\) single buffer, and still leaves room for AggMo's documented improvement in oscillation suppression and interior convergence behavior. The default vectors and geometric family obtain immediate closed-form consequences.",
+    "status": "PASS"
+  }
+}
