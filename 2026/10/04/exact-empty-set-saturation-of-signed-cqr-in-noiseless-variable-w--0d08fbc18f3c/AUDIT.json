@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "From arXiv:1905.03222v1 equations (14)-(16) and Appendix A, the calibration score is exactly -W in the stated model and the correction is the relevant reversed width order statistic. Endpoint algebra, continuous rank symmetry, and a conditional binomial count prove the marginal and conditional formulas. The embedded checker independently enumerates finite ranks and reproduces the reported example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1903.04684, abstract: marginal coverage does not imply conditional coverage",
+        "arXiv:2207.02808, Sections 1-3: global CQR correction lacks adaptiveness and negative correction shrinks bands"
+      ],
+      "reasoning": "The general conditional-coverage literature supplies qualitative context, and improved CQR motivates more local calibration. Neither source implies the exact finite-sample rank law for the original additive CQR construction.",
+      "searches": [
+        "conformal prediction conditional coverage empty prediction sets variable width",
+        "improved CQR negative correction local adaptiveness"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.03222v1",
+      "arXiv:1909.05433v1",
+      "arXiv:2207.02808",
+      "arXiv:1903.04684",
+      "Published-finding search results for the seven recorded claim/alias queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1905.03222v1 states non-positive scores inside plug-in bands and finite-sample marginal coverage",
+        "arXiv:2207.02808 states that negative correction narrows bands",
+        "arXiv:1909.05433v1 states that CQR coverage is marginal and analyzes asymptotic efficiency"
+      ],
+      "reasoning": "Those results allow negative shrinkage and warn that validity is marginal, but they do not determine whether the post-calibration endpoints cross, the exact probability of crossing, or the conditional coverage function. The new statement requires the additional explicit noiseless variable-width specialization and a rank calculation.",
+      "searches": [
+        "signed CQR shrink overcoverage negative correction",
+        "CQR marginal conditional coverage comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.03222v1, equations (14)-(16), Theorem 1, Appendix A",
+        "arXiv:1909.05433v1, Section 1.2"
+      ],
+      "reasoning": "Searches targeted aliases based on negative signed scores, endpoint crossing after shrinkage, exact order statistics, and noiseless variable-width bands. The primary and comparison papers define the ingredients but do not formulate the claimed empty-set saturation law.",
+      "searches": [
+        "conformalized quantile regression signed conformity scores empty intervals exact finite sample order statistic",
+        "CQR negative conformity score overconservative intervals empty set exact coverage",
+        "conformal quantile regression marginal coverage low-width subgroup empty prediction set",
+        "conformalized quantile regression noiseless centered variable width exact order statistic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact formula was found in the inspected primary/follow-up texts or the published-finding search results."
+      ],
+      "reasoning": "This claim is an analytic identity, not a recomputation of a known numerical table. The numerical values in RESULT.md are consequences of the proved binomial formula.",
+      "searches": [
+        "conformalized quantile regression empty interval formula floor alpha m plus 1",
+        "CQR binomial conditional coverage width quantile"
+      ]
+    },
+    "rationale": "The closest primary and follow-up CQR sources discuss signed negative corrections, marginal rather than conditional coverage, and local adaptiveness, but the inspected material does not state the exact empty-set event, its finite-sample rank probability, or the binomial width-quantile profile. General conditional-coverage impossibility results are broader and do not imply this formula.",
+    "residual_risks": [
+      "A less discoverable implementation note or later paper may mention empty additive-CQR intervals without using the searched terminology.",
+      "General conformal conditional-miscalibration results cover broader phenomena, but none inspected supplied this CQR-specific exact law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines every ingredient needed for the derivation and explicitly permits non-positive scores, but no empty-output probability or width-quantile conditional profile was found.",
+        "evidence": "Equation (14) gives the signed score; equations (15)-(16) give additive CQR; Appendix A gives empirical order statistics; the practical discussion notes overconservative quantile bands and signed-score shrinkage.",
+        "identifier_or_url": "arXiv:1905.03222v1",
+        "material_read": "Full accessible HTML, especially equations (14)-(16), Theorem 1, practical considerations, experiments, and Appendix A equations (32), (36)-(40).",
+        "method": "Direct full-text inspection and targeted searches for empty outputs, negative scores, quantiles, and conservativeness.",
+        "title": "Conformalized Quantile Regression",
+        "trigger": "Primary source defining signed CQR and its finite-sample quantile convention."
+      },
+      {
+        "assessment": "Discusses CQR as marginally valid and asymptotically conditionally efficient under consistency assumptions, but does not give the claimed finite-sample empty-set law.",
+        "evidence": "Section 1.1 explicitly distinguishes marginal from conditional coverage; Section 1.2 reproduces signed additive CQR and compares alternative rescalings.",
+        "identifier_or_url": "arXiv:1909.05433v1",
+        "material_read": "Accessible full text through theoretical analysis and empirical comparison, including CQR equations (3)-(8).",
+        "method": "Statement-level comparison against exact finite-sample emptiness and conditional-profile claims.",
+        "title": "A comparison of some conformal quantile regression methods",
+        "trigger": "Closest follow-up analyzing CQR variants, marginal versus conditional coverage, and efficiency."
+      },
+      {
+        "assessment": "Explicitly says a negative conformal quantile shrinks both endpoints and motivates clustered calibration, but no empty-set event or exact rank/binomial formula was found.",
+        "evidence": "Section 2 states that negative correction narrows the bands; Section 3 proposes cluster-specific corrections because the global step lacks adaptiveness.",
+        "identifier_or_url": "arXiv:2207.02808",
+        "material_read": "Accessible full text of introduction, CQR recap, contribution, experiments, and conclusion; targeted search for empty outputs.",
+        "method": "Checked whether negative shrinkage and locality discussion already contained the crossing law.",
+        "title": "Improved conformalized quantile regression",
+        "trigger": "Highly relevant follow-up focused on the original global conformal step's lack of adaptiveness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0d08fbc1-8f3c-4fe4-b3fe-c3f88c49a7f5",
+  "value": {
+    "rationale": "The exact law identifies a mathematically natural boundary behavior of signed additive CQR: global shrinkage can turn a nominal interval procedure into an empty-set procedure on a covariate-defined low-width stratum while maintaining exact marginal calibration. The finite-sample frequency and exact conditional profile quantify a practically interpretable failure mode not captured by average interval width or marginal coverage alone.",
+    "status": "PASS"
+  }
+}
