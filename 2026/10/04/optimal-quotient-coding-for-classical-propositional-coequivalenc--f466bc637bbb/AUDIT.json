@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The lower bound follows because m separating formulas produce at most 2^m distinct truth vectors. For the upper bound, inject the k quotient classes into m-bit strings and define each bit by a CPC formula whose truth set is the union of classes carrying bit one. Classical finite Boolean definability makes every such union definable. The partition census is then exactly the Stirling/Bell census. A finite checker independently verifies every partition for n up to three.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Definition 3.6 defines separation by a finite conjunction of unary formula equivalences.",
+        "Example 3.10 constructs one class-indicator formula for each CPC quotient class.",
+        "The categorical and model-theoretic discussion explains why such formulas are explicit coordinates for an implicit quotient."
+      ],
+      "reasoning": "The source supplies qualitative effectivity but not a minimal coordinate count. The accepted theorem strictly refines that construction by proving both a smaller construction and a matching lower bound.",
+      "searches": [
+        "Almeida-De Berardinis 2026 full text: Definition 3.6",
+        "Almeida-De Berardinis 2026 full text: Propositions 3.7 and 3.9",
+        "Almeida-De Berardinis 2026 full text: Example 3.10",
+        "model-theory literature: uniform elimination of imaginaries as definable quotient coding"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.4204/EPTCS.447.4",
+      "arXiv:2606.31854",
+      "Ghilardi-Zawadowski, Trends in Logic 14 (2002)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 3.10 uses one formula per equivalence class and does not establish minimality.",
+        "The effectivity characterization guarantees existence of some explicit quotient coordinates, not the least number.",
+        "No prior current-ledger claim concerns quantitative coequivalence separation in CPC."
+      ],
+      "reasoning": "A qualitative existence theorem does not imply the sharp logarithmic optimum. The new lower bound and binary-code construction are both needed, and the census adds a further exact classification.",
+      "searches": [
+        "primary source implication check: Example 3.10 class-indicator construction versus minimum separator length",
+        "primary source implication check: CoSP effectivity versus quantitative coding rank",
+        "current-ledger claim and item-ID comparison through generation g000018"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed finding returned an exact minimal separator-length theorem for CPC coequivalences.",
+        "General web searches returned the 2026 coequivalence paper and elimination-of-imaginaries background, but no logarithmic optimization theorem."
+      ],
+      "reasoning": "The searches cover the terminology of the source paper and natural aliases: separating variables, explicit quotient definitions, minimum predicates, binary coding, and elimination of imaginaries.",
+      "searches": [
+        "published-finding database: CPC coequivalence relation separating variables minimum number formulas quotient equivalence classes Boolean valuations",
+        "published-finding database: coequivalence separation rank classical propositional logic equivalence relation valuations binary code",
+        "web literature: coequivalence minimum number formulas CPC",
+        "web literature: coequivalence relation CPC separating formulas binary code",
+        "web literature: coequivalence separation CPC valuations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source tabulates CPC coequivalences by number of quotient classes or separator rank.",
+        "The source paper proves existence of separators but does not give Bell-number or Stirling-number counts."
+      ],
+      "reasoning": "Once CPC coequivalences are identified with equivalence relations on the valuation cube, Bell and Stirling numbers give the exact semantic census; the rank distribution then follows from the newly proved logarithmic rank formula.",
+      "searches": [
+        "published-finding database: classical propositional coequivalence Bell number partitions valuations minimum separating formulas",
+        "published-finding database: CPC coequivalence Bell number equivalence relations valuations separating formulas",
+        "web literature: CPC coequivalence Bell number",
+        "web literature: Bell number coequivalence propositional logic"
+      ]
+    },
+    "rationale": "The primary 2026 paper proves qualitative separation for CPC using one formula per quotient class. It does not state the optimal logarithmic separator count, the sharp n-variable bound, or the Bell/Stirling distribution by separator length. Candidate-specific database and literature searches did not locate an equivalent.",
+    "residual_risks": [
+      "The logarithmic coding argument is elementary enough that an equivalent observation may exist under general finite quotient coding terminology outside the coequivalence literature.",
+      "The rank ignores formula size, so it does not measure total descriptive complexity of the separating formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source proves qualitative separation but does not optimize the number of formulas or enumerate coequivalences by quotient-class count or separation rank.",
+        "evidence": "Example 3.10 explicitly chooses one formula psi_i for each equivalence class C_i and conjoins all equalities psi_i(p1) iff psi_i(p2).",
+        "identifier_or_url": "DOI:10.4204/EPTCS.447.4; arXiv:2606.31854",
+        "material_read": "Full accessible text at Definition 3.6, Propositions 3.7 and 3.9, Remark 3.2, and Example 3.10, including the construction of one formula for each CPC equivalence class.",
+        "method": "Direct comparison of definitions, quantifiers, construction size, and logical implication.",
+        "title": "Coequivalence Relations and Descent in Modal Logic",
+        "trigger": "Primary recent source introducing the separating condition used by the claim and proving CPC has CoSP."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY.",
+        "evidence": "The 2026 source attributes the effectiveness/separation correspondence to Ghilardi and Zawadowski.",
+        "identifier_or_url": "Springer Trends in Logic 14 (2002)",
+        "material_read": "Used through the precise background attribution and proposition references given in the 2026 primary source.",
+        "method": "Background comparison only.",
+        "title": "Sheaves, Games, and Model Completions",
+        "trigger": "Background source for the categorical interpretation of effective equivalence relations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f466bc63-7bbb-445e-ad3f-c186bcc3bdbe",
+  "value": {
+    "rationale": "The source frames separation as making implicit quotients explicit. The least number of Boolean coordinates is therefore a natural invariant. The theorem gives that invariant exactly, shows a sharp n-variable bound, and classifies all semantic coequivalences by rank. This is a meaningful quantitative strengthening of the source's one-formula-per-class construction rather than a renaming or isolated finite computation.",
+    "status": "PASS"
+  }
+}
