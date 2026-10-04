@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Deleting the last coordinate embeds a radius-\\(s\\) Hamming ball about each length-\\(n-1\\) prefix into the channel ball. Disjoint channel balls force prefix distance at least \\(2s+1\\). This forbids two codewords for \\(n\\le2s+1\\); at \\(n=2s+2\\) it makes first symbols pairwise distinct, so at most \\(q\\) codewords occur. Constant words attain \\(q\\). The finite verifier independently reconstructs channel balls for small parameters and agrees with every boundary assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 systematic-code paper treats multiple deletions and substitutions with construction/redundancy objectives.",
+        "Public metadata for the 2023 journal extension describes nonbinary bounds for the same general channel but did not expose the short-block threshold."
+      ],
+      "reasoning": "Broader construction and asymptotic results do not determine the exact first nontrivial block length. The 2023 full text was not completely inspected, so this comparison carries a stated residual risk.",
+      "searches": [
+        "single deletion s substitution code length 2s+2 maximum q",
+        "DS s q 2s+2 single deletion substitution correcting code",
+        "DOI:10.1109/TIT.2022.3177169",
+        "DOI:10.1109/TIT.2023.3319088"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2005.09352 / DOI:10.1109/ISIT44484.2020.9174213 — full conference-paper inspection of the same channel definitions and relevant bounds.",
+      "DOI:10.1109/TIT.2022.3177169 — public abstract/overview for systematic multiple-deletion/multiple-substitution codes.",
+      "DOI:10.1109/TIT.2023.3319088 — public metadata/abstract for the later journal extension.",
+      "Published-results record 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03 — deletion-only, therefore not covering the present channel.",
+      "Cumulative prior-finding ledger — closest item concerns binary length-seven/eight one-deletion one-substitution optima and does not cover the all-parameter threshold."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest prior ledger item gives exact binary one-deletion one-substitution code sizes at lengths seven and eight.",
+        "The 2020 inspected bound and the 2022 construction results concern different parameter ranges/objectives and do not imply the short-block equality for every \\(q\\) and \\(s\\)."
+      ],
+      "reasoning": "Neither the finite binary length-seven/eight result nor the cited longer-block bounds subsume the all-parameter threshold. The new proof uses a fixed-coordinate Hamming-ball obstruction not recorded in those statements.",
+      "searches": [
+        "cumulative prior-finding ledger",
+        "arXiv:2005.09352",
+        "DOI:10.1109/TIT.2022.3177169"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2005.09352 defines the same single-deletion/substitution error balls and extremal code-size problem.",
+        "The inspected conference paper states a nonbinary one-substitution upper bound only for longer block lengths and does not give the threshold \\(2s+2\\)."
+      ],
+      "reasoning": "Searches used exact length-four, deletion/substitution, and code-size aliases. The closest source shares the channel but not the claimed boundary statement.",
+      "searches": [
+        "exact q-ary length four single deletion single substitution correcting code size",
+        "single deletion single substitution code length 4 alphabet q maximum q",
+        "A_q 4 deletion substitution correcting code",
+        "arXiv:2005.09352"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-results hit gives the quinary length-four optimum for the deletion-only channel, not deletion plus substitutions.",
+        "No returned exact-table hit stated \\(M_{q,s}(n)=1\\) through \\(2s+1\\) and \\(M_{q,s}(2s+2)=q\\)."
+      ],
+      "reasoning": "The exact-table search separated deletion-only results from the stricter deletion-plus-substitution channel; failed search is recorded only as negative evidence, not as a novelty proof.",
+      "searches": [
+        "exact q-ary length four single deletion single substitution correcting code size",
+        "single deletion s substitution code length 2s+2 maximum q",
+        "one deletion s substitutions short length exact q-ary code",
+        "minimum length nontrivial single deletion multiple substitution code",
+        "2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+      ]
+    },
+    "rationale": "The same-channel foundational paper and broader follow-ups were compared at statement level against the exact all-alphabet, all-substitution-radius short-block threshold. The inspected primary full text does not state or imply the threshold through its published longer-block bound. Targeted exact-formula and alias searches returned no covering published finding, and the cumulative prior-finding ledger contains no equivalent or stronger statement. Residual risk from an unindexed or differently phrased elementary observation remains explicit.",
+    "residual_risks": [
+      "The 2023 journal extension was not available for complete full-text inspection during the bounded literature check.",
+      "Because the proof is elementary, an unindexed note, thesis, textbook exercise, or differently phrased observation could contain the same threshold.",
+      "Negative database searches are evidence of non-overlap only and are not treated as proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the channel and provides longer-block bounds, but the inspected theorem does not state the sharp boundary through \\(2s+2\\); its displayed one-substitution nonbinary theorem begins at longer length.",
+        "evidence": "Definitions identify one deletion plus at most the allowed number of substitutions; the displayed nonbinary one-substitution bound is conditioned on a longer block-length range.",
+        "identifier_or_url": "arXiv:2005.09352; DOI:10.1109/ISIT44484.2020.9174213",
+        "material_read": "Open full-text conference-paper PDF, including definitions, error-ball notation, the nonbinary ball-size lemma, and the displayed nonbinary upper-bound theorem on the first two pages.",
+        "method": "Lawful open author-hosted PDF and arXiv metadata.",
+        "title": "Single-Deletion Single-Substitution Correcting Codes",
+        "trigger": "Foundational source for the exact same deletion/substitution channel and extremal notation."
+      },
+      {
+        "assessment": "The accessible material addresses systematic constructions and asymptotic redundancy, not an exact short-block threshold.",
+        "evidence": "The stated contribution is construction of systematic codes correcting multiple deletions and substitutions with redundancy bounds.",
+        "identifier_or_url": "DOI:10.1109/TIT.2022.3177169",
+        "material_read": "Public abstract and bibliographic/overview material describing the systematic constructions and redundancy guarantees.",
+        "method": "Public publisher/index metadata.",
+        "title": "Systematic Codes Correcting Multiple-Deletion and Multiple-Substitution Errors",
+        "trigger": "Broader treatment allowing multiple substitutions."
+      },
+      {
+        "assessment": "The metadata describes nonbinary bounds and constructions but does not expose the claimed short-block formula. Incomplete full-text access remains a residual originality risk.",
+        "evidence": "No exact threshold statement appears in the accessible title/abstract metadata.",
+        "identifier_or_url": "DOI:10.1109/TIT.2023.3319088",
+        "material_read": "Public metadata and abstract; complete full text was not available in the bounded open-access inspection.",
+        "method": "Public bibliographic metadata.",
+        "title": "Extended journal treatment of single-deletion single-substitution correcting codes",
+        "trigger": "Highly relevant later version of the foundational channel analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "844aefa7-25a5-49a2-aa42-2bc5955a2c46",
+  "value": {
+    "rationale": "The theorem identifies the exact first block length at which the fundamental deletion/substitution channel can encode more than one message and gives the exact optimum there for every finite alphabet and every substitution radius. This is a natural phase boundary of the channel, not a selected finite table entry, and it complements the longer-block/asymptotic emphasis of the cited literature.",
+    "status": "PASS"
+  }
+}
