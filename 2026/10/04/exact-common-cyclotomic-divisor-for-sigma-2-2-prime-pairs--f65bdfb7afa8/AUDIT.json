@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The published quasisolution theorem identifies every \\(\\sigma_{2,2}\\) pair with consecutive chain terms. The recurrence gives \\(\\Phi_3(t_k)=t_{k-1}t_{k+1}\\), and consecutive terms are coprime, reducing the target gcd to \\(\\gcd(t_i,t_{i+3})\\). Any common prime other than \\(3\\) satisfies \\(4t_{i+1}\\equiv1\\), so substitution into \\(t_{i+1}^2+t_{i+1}+1\\equiv0\\) forces that prime to divide \\(21\\), hence it is \\(7\\). Separate congruence arguments exclude common factors \\(9\\) and \\(49\\). Complete periods modulo \\(3\\) and \\(7\\) give the exact index conditions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source's Lemma 6 excludes a square of one pair-prime dividing the other cyclotomic value, which is weaker and differently directed than determining the gcd of the two full cyclotomic values.",
+        "The source's squarefreeness conjecture would imply that the common gcd is squarefree, but does not determine which common primes occur or prove the present formula.",
+        "The prior bounded squarefreeness verification is confined to the three prime pairs in the published search range and does not imply an all-chain gcd formula."
+      ],
+      "reasoning": "No located broader theorem determines the common overlap for every sigma_2,2 pair; the present result is unconditional but deliberately weaker than individual squarefreeness.",
+      "searches": [
+        "odd perfect sigma pair common divisors cyclotomic values gcd",
+        "sigma_2,2 squarefree conjecture Bibby Vyncke Zelinsky",
+        "A101368 arithmetic properties gcd divisibility"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1908.09420v1",
+      "arXiv:1908.09420v3",
+      "Integers 22 (2022), corresponding published paper",
+      "OEIS:A101368",
+      "OEIS:A264611",
+      "OEIS:A264612",
+      "MathDB squarefreeness problem summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 5 supplies the chain representation and recurrence.",
+        "Lemma 6 proves that a pair-prime squared cannot divide the opposite cyclotomic value, but does not compare the full integers.",
+        "The source's individual squarefreeness statement remains conjectural."
+      ],
+      "reasoning": "The exact gcd requires a new distance-three recurrence calculation and congruence elimination. It is not implied by the one-sided square-divisibility lemma or by the finite verification of the three known pairs.",
+      "searches": [
+        "arXiv:1908.09420 Lemma 5 Lemma 6 Conjecture 9",
+        "sigma_2,2 pair square divides q^2+q+1 Lemma 6",
+        "quasisolution recurrence 5pq=p^2+q^2+p+q+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source states the complete consecutive-term classification and the individual squarefreeness conjecture, but no exact common-gcd theorem.",
+        "OEIS A101368 states that all reciprocal-divisibility solutions are consecutive terms and records the recurrence, without a distance-three gcd formula.",
+        "Exact web searches for the displayed gcd and the number 21 did not return a mathematical source asserting the theorem."
+      ],
+      "reasoning": "The searches cover the prime-pair language, the expanded cyclotomic values, the equivalent chain-distance formulation, and the sequence identifier.",
+      "searches": [
+        "sigma 2,2 pair gcd p^2+p+1 q^2+q+1 21",
+        "gcd p^2+p+1 q^2+q+1 sigma pair",
+        "quasisolution sequence t_n gcd t_(n-1) t_(n+2) 21",
+        "A101368 gcd terms distance three 3 7 21"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A101368 lists the quasisolution chain and prime indices.",
+        "OEIS A264611 and A264612 list the three currently known prime pairs.",
+        "None of these entries states the common-gcd formula; evaluating the three listed pairs gives gcds 1, 3, and 21."
+      ],
+      "reasoning": "Sequence databases are a natural place for a recurrence-based observation of this kind, so the directly relevant entries were checked.",
+      "searches": [
+        "OEIS A101368",
+        "OEIS A264611 sigma pair",
+        "OEIS A264612 sigma pair",
+        "22419767768701 107419560853453 gcd"
+      ]
+    },
+    "rationale": "The primary paper classifies quasisolutions, proves related one-sided square-divisibility obstructions, and poses individual squarefreeness as a conjecture, but does not state the exact common gcd. A prior bounded verification establishes squarefreeness only for prime pairs inside the paper's reported search range, whereas this theorem is unconditional for every chain index and determines a different invariant. Current OEIS entries record the chain and known prime pairs without this formula.",
+    "residual_risks": [
+      "An unindexed recurrence note may contain the same gcd identity.",
+      "The theorem is elementary once the chain classification is known, so independent rediscovery outside indexed literature is plausible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source contains the premises used here but does not state the exact common-gcd formula.",
+        "evidence": "Lemma 5 says every quasisolution is a consecutive pair in the t-sequence; later discussion poses individual squarefreeness as a conjecture.",
+        "identifier_or_url": "arXiv:1908.09420v1",
+        "material_read": "Full section containing Lemma 5, the recurrence and modular remarks, Lemmas 6-8, the squarefreeness conjecture, and surrounding discussion.",
+        "method": "Open-access full-text inspection.",
+        "title": "On the third largest prime divisor of an odd perfect number",
+        "trigger": "Primary source defining sigma_2,2 pairs, proving the complete quasisolution-chain classification, and posing the squarefreeness conjecture."
+      },
+      {
+        "assessment": "The entry corroborates the complete chain and known prime indices but has no gcd-of-distance-three statement.",
+        "evidence": "The entry says consecutive terms are all solutions to the reciprocal divisibility problem.",
+        "identifier_or_url": "OEIS:A101368",
+        "material_read": "Current definition, comments, prime-index comment, recurrence context, and listed terms.",
+        "method": "Current database-page inspection.",
+        "title": "A101368",
+        "trigger": "Exact recurrence/database check for the complete quasisolution sequence."
+      },
+      {
+        "assessment": "The entries list three known prime pairs and do not record their common cyclotomic gcds.",
+        "evidence": "The listed pairs are (3,13), (13,61), and (22419767768701,107419560853453).",
+        "identifier_or_url": "OEIS:A264611; OEIS:A264612",
+        "material_read": "Definitions, examples, current known-pair lists, and cross-references.",
+        "method": "Current database-page inspection.",
+        "title": "A264611 and A264612",
+        "trigger": "Exact database check for all currently listed sigma_2,2 prime pairs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f65bdfb7-afa8-47d6-999f-4b5ef8817085",
+  "value": {
+    "rationale": "The result gives an exact structural invariant for the same \\(\\sigma_{2,2}\\) pairs that the primary paper identifies as a major obstruction in odd-perfect-number arguments. It isolates all shared prime support of the two relevant cyclotomic values to \\(3\\) and \\(7\\), with exact chain-index criteria and a sharp universal bound \\(21\\). This is directly motivated by the source's squarefreeness conjecture and remains meaningful beyond the finite search range of currently known prime pairs.",
+    "status": "PASS"
+  }
+}
