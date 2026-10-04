@@ -1,0 +1,115 @@
+{
+  "claim": "For the right-tail regime of Deuchert--Li's canonical ideal-Bose-gas large-deviation theorem with \\(\\alpha>1\\) and \\(b>b_c\\), put \\(r=(b_c/b)^\\alpha\\), \\(\\eta_{\\max}=r/(1-r)\\), and, for \\(0<\\eta<\\eta_{\\max}\\), let \\(z(\\eta)\\in(0,1)\\) be the unique solution of \\(\\operatorname{Li}_{\\alpha}(z)=\\zeta(\\alpha)[1-(1-r)\\eta/r]\\). Then the positive right-tail rate is exactly \\[J(\\eta)=\\frac{r}{\\zeta(\\alpha)}[\\zeta(\\alpha+1)-\\operatorname{Li}_{\\alpha+1}(z)]+[r-(1-r)\\eta]\\log z.\\] It is strictly increasing and strictly convex, with \\(J'(\\eta)=-(1-r)\\log z\\) and \\(J''(\\eta)=(1-r)^2\\zeta(\\alpha)/(r\\operatorname{Li}_{\\alpha-1}(z))>0\\), and its one-sided endpoint cost is \\(\\lim_{\\eta\\uparrow\\eta_{\\max}}J(\\eta)=r\\zeta(\\alpha+1)/\\zeta(\\alpha)\\). As \\(\\eta\\downarrow0\\), its local geometry has three regimes: \\(J(\\eta)\\sim C_{\\alpha,r}\\eta^{\\alpha/(\\alpha-1)}\\) for \\(1<\\alpha<2\\), \\(J(\\eta)\\sim (1-r)^2\\zeta(2)\\eta^2/[2r|\\log\\eta|]\\) for \\(\\alpha=2\\), and \\(J(\\eta)\\sim (1-r)^2\\zeta(\\alpha)\\eta^2/[2r\\zeta(\\alpha-1)]\\) for \\(\\alpha>2\\), where \\(C_{\\alpha,r}=\\frac{\\alpha-1}{\\alpha}(1-r)[\\zeta(\\alpha)(1-r)/(r[-\\Gamma(1-\\alpha)])]^{1/(\\alpha-1)}\\).",
+  "correctness": {
+    "rationale": "The proof reconstructs the source variational exponent with its hypotheses and admissible interval; evaluates the Bose logarithmic integral by an absolutely convergent series; uses the published critical-temperature normalization; derives the unique saddle by differentiation; derives J prime and J double-prime with correct signs; and obtains endpoint and small-eta limits from standard polylogarithm expansions. The packaged verifier independently checks representative parameters and the variational sign. The exact threshold event and uniform moderate deviations remain unproved and are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chatterjee--Diaconis (2014) gives canonical condensate fluctuation orders and limiting laws, not this fixed-deviation right-tail rate.",
+        "Rademacher (2024/2025) studies weakly interacting zero-temperature ground-state observables, a different model and observable class.",
+        "General ideal-gas thermodynamics uses polylogarithms for density and pressure, but that does not by itself state the canonical condensate-number large-deviation phase diagram proved here."
+      ],
+      "reasoning": "The inspected broader literature either addresses central fluctuations or different interacting/ensemble settings; none implies the claimed exact rate geometry for the Deuchert--Li canonical right tail.",
+      "searches": [
+        "Bose-Einstein condensate large deviation polylogarithm canonical",
+        "ideal Bose gas condensate right tail rate function polylogarithm",
+        "Fluctuations of the Bose-Einstein condensate canonical Chatterjee Diaconis",
+        "Large Deviations for the Ground State of Weakly Interacting Bose Gases Rademacher"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.26378v1",
+      "arXiv:2608.26378v2",
+      "DOI:10.1088/1751-8113/47/8/085201",
+      "DOI:10.1007/s00023-024-01463-w"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves strict convexity and the integral saddle equation, so those ingredients are prior and are used rather than claimed as new.",
+        "The source notes special behavior at the terminal right-tail threshold but does not give the universal one-sided interior rate limit.",
+        "The 2014 fluctuation theorem does not imply a fixed-deviation rate without additional uniform large-deviation control."
+      ],
+      "reasoning": "The new claim is a derived structural refinement of the source theorem, not a re-claim of its LDP. Prior strict convexity does not imply the explicit derivative, endpoint, or local asymptotic formulas until the saddle is evaluated and analyzed. Conversely, the fixed-eta LDP here is not used to claim a new CLT or moderate-deviation theorem.",
+      "searches": [
+        "arXiv:2608.26378v2 theorem and saddle proof",
+        "arXiv:2608.26378v2 endpoint remarks",
+        "Chatterjee Diaconis 2014 condensate fluctuations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.26378v2 states the right-tail rate as an infimum over s<0 and characterizes the unique minimizer by an integral equation.",
+        "No polylogarithm occurrence was found in the inspected source full text.",
+        "Semantic-search closest matches concerned unrelated polylogarithm inequalities or unrelated large-deviation problems."
+      ],
+      "reasoning": "Substituting z=exp(s) and evaluating the Bose integral produces an inverse-polylogarithm representation that is not stated in the primary source. No equivalent formulation was located in the targeted corpus searches.",
+      "searches": [
+        "Bose Einstein condensate canonical ensemble large deviations right tail polylogarithm inverse polylog exact rate function",
+        "ideal Bose gas condensate right-tail large deviation explicit minimizer polylogarithm",
+        "arXiv 2608.26378 polylogarithm right tail rate explicit formula",
+        "condensate number large deviation rate strict convexity polylog inverse",
+        "arXiv:2608.26378v2 full-text search: polylog / polylogarithm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-identifier searches returned the source metadata/abstract but no table or note with the claimed formulas.",
+        "Semantic-search records returned no Bose-condensate finding with the same source, parameters, or implication."
+      ],
+      "reasoning": "No exact formula table, database entry, or published finding located by identifier-plus-formula searches covers the inverse-polylogarithm saddle, endpoint cost, and three local regimes together.",
+      "searches": [
+        "2608.26378 polylogarithm",
+        "2608.26378 endpoint rate",
+        "2608.26378 strictly convex rate",
+        "canonical ideal Bose condensate alpha=2 eta^2 log eta rate"
+      ]
+    },
+    "rationale": "The primary paper was inspected at the theorem, saddle-proof, and endpoint-discussion level. It contains the implicit variational rate and strict convexity but not the explicit inverse-polylogarithm rate, its derivative geometry, endpoint cost, or the alpha=2 local crossover. Targeted claim, alias, source-identifier, and broader-literature searches found no equivalent or stronger covering statement.",
+    "residual_risks": [
+      "An equivalent fugacity/polylogarithm reduction may exist in older statistical-mechanics literature under different terminology and may not have surfaced in targeted searches.",
+      "The source is recent and later revisions or follow-up papers could independently record the same refinement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_ONLY",
+        "evidence": "The paper proves the underlying LDP and implicit saddle but does not state the polylogarithmic closed form, derivative formulas, three local regimes, or one-sided endpoint constant.",
+        "identifier_or_url": "arXiv:2608.26378v2",
+        "material_read": "Abstract/metadata; theorem assumptions and right-tail formula; proof passage establishing strict convexity and the unique saddle equation; endpoint remarks; full-text search for polylogarithm terminology.",
+        "method": "Lawful open arXiv HTML/full-text inspection and source-specific searches.",
+        "title": "Large Deviations for the Bose--Einstein Condensate of the Ideal Gas in the Canonical Ensemble",
+        "trigger": "Primary source of the right-tail theorem and closest possible coverage."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It treats centered fluctuation scales/limits, not the fixed-fraction right-tail LDP rate or the claimed polylogarithmic phase diagram.",
+        "identifier_or_url": "DOI:10.1088/1751-8113/47/8/085201",
+        "material_read": "Abstract and result-level description of fluctuation orders and limiting distributions for non-interacting canonical bosons.",
+        "method": "Web-indexed article metadata/abstract inspection.",
+        "title": "Fluctuations of the Bose-Einstein condensate",
+        "trigger": "Closest rigorous canonical ideal-gas fluctuation theory and possible domination of the local-rate statement."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The model is a weakly interacting mean-field Bose gas at zero temperature and the observable class differs from canonical condensate-number deviations.",
+        "identifier_or_url": "DOI:10.1007/s00023-024-01463-w",
+        "material_read": "Open-access abstract, introduction-level scope, and theorem context.",
+        "method": "Open-access publisher page inspection.",
+        "title": "Large Deviations for the Ground State of Weakly Interacting Bose Gases",
+        "trigger": "Broader Bose-gas large-deviation literature that could contain a stronger theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cc276694-eb75-4d40-8856-4d3da763dfdc",
+  "value": {
+    "rationale": "The claim exposes structural information hidden by the source infimum: an exact fugacity coordinate, strict global rate geometry, a finite terminal cost with infinite slope, and a sharp local transition at alpha=2. Those regimes align with the mathematically important change in canonical condensate fluctuation behavior, while the endpoint calculation clarifies the universal interior law immediately before fine spectral information becomes relevant. This is a motivated structural refinement, not a table recomputation or arbitrary special case.",
+    "status": "PASS"
+  }
+}
