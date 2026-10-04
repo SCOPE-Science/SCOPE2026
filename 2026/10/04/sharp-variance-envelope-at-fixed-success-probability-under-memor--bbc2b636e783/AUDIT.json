@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the problem to X=s^{T_0} on the discrete lattice {s,s^2,...}. The function phi(x)=x log(x)/log(s) is strictly concave and equals t s^t at lattice point s^t. Its polygonal interpolant through consecutive lattice points is concave, so Jensen gives the sharp upper tilted moment M_+. The lower inequality M>=p is pointwise and its nonattainment for p<s is explicit. The {1,N} construction approaches M=p, mixtures fill all intermediate M, and the published variance formula is affine decreasing in M. Boundary p=s forces T_0=1. No finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reuveni (Phys. Rev. Lett. 116, 170601, 2016) concerns the coefficient of variation at an optimally tuned restart rate, a different optimization problem.",
+        "Starkov and Belan (Phys. Rev. E 107, L062101, 2023) give general restart performance bounds in terms of base-process summaries, not this fixed-p exact variance envelope."
+      ],
+      "reasoning": "The broader restart literature inspected addresses optimization over restart rates or general performance inequalities. Those results do not imply the exact finite-p convex-hull classification here, which fixes q and p and varies the entire base law.",
+      "searches": [
+        "geometric restart completion time coefficient of variation sharp bounds PGF derivative",
+        "universal performance bounds restart variance",
+        "optimal stochastic restart fluctuations universal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.16566v1",
+      "arXiv:2102.00895v1",
+      "doi:10.1103/PhysRevLett.116.170601",
+      "doi:10.1103/PhysRevE.107.L062101",
+      "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang-Lu Eq. (17) leaves variance dependent on D1=g'(s); Proposition 4.2(c) bounds the associated tilted logarithmic moment by ordinary Jensen but does not solve the discrete fixed-p extremum.",
+        "Lauber Bonomo-Pal Eq. (23) supplies a second moment for geometric restart but does not optimize over base distributions subject to a fixed success transform."
+      ],
+      "reasoning": "The new claim requires solving a discrete convex-hull problem not contained in either prior theorem. The general moment formulas are necessary inputs but do not themselves imply which base laws are extremal or the exact half-open variance interval without the new optimization argument.",
+      "searches": [
+        "arXiv:2609.16566v1, pp. 8-14",
+        "arXiv:2102.00895v1, pp. 1-8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.16566v1, Example 2.9 gives the variance in terms of p and g'(s), and Proposition 4.2(c) uses a continuous Jensen bound rather than a sharp fixed-p lattice envelope.",
+        "arXiv:2102.00895v1, Sections II and II.A give general discrete-restart PGF and second-moment formulas, including geometric restart, without a fixed-success-probability extremal classification."
+      ],
+      "reasoning": "Equivalent notation can use a geometric restart probability, a one-attempt success probability, or a tilted moment. The searched and inspected sources provide moment formulas but not the exact attainable interval of the tilted moment at fixed success probability or its adjacent-support and long-tail extremizers.",
+      "searches": [
+        "memoryless catastrophe completion time variance fixed success probability sharp envelope derivative g'(s) two point",
+        "stochastic restart fixed success probability variance extremal base completion law",
+        "stochastic restart variance coefficient of variation completion time geometric restart"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published reset/coupon comparison concerns asymptotic success rates and completion growth, not the fixed-success-probability variance feasible set.",
+        "The inspected primary sources do not tabulate or classify the stated adjacent-support and long-tail extremizers."
+      ],
+      "reasoning": "No exact published table or source statement was located that records the stated extremal interval or its extremizing base laws.",
+      "searches": [
+        "\"On Completion Times under Memoryless Catastrophe\" variance fixed success probability",
+        "balanced nonuniform reset coupon rates completion-time variance",
+        "restart completion-time variance extremal base law"
+      ]
+    },
+    "rationale": "Focused published-finding corpus and web searches plus full-text comparison with the motivating 2026 paper and the closest general discrete-restart paper found moment formulas and nonsharp Jensen controls, but not the exact fixed-success feasible derivative interval, half-open variance range, or adjacent/long-tail extremizers.",
+    "residual_risks": [
+      "An equivalent convex-hull extremal statement could exist in older restart or discrete moment-problem literature under different notation.",
+      "The closest public reset-coupon comparison was available at claim-summary level and was not decisive; the two materially closest primary papers were inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper gives Var(T) in terms of p and g'(s) and a continuous Jensen asymptotic estimate, but not the exact lattice-constrained fixed-p optimization or extremal base laws.",
+        "evidence": "Example 2.9, Eq. (17); Proposition 4.2(c); related discussion of p and D1.",
+        "identifier_or_url": "arXiv:2609.16566v1",
+        "material_read": "Full text inspected, especially pp. 8-14 and the further-directions section.",
+        "method": "Lawful full-text PDF access after arXiv/open-access retrieval route; text inspected directly.",
+        "title": "On Completion Times under Memoryless Catastrophe",
+        "trigger": "Motivating source; contains the exact variance identity and the derivative-reduction framework."
+      },
+      {
+        "assessment": "Provides general and geometric-restart moments but no optimization over base laws at fixed success probability.",
+        "evidence": "Eqs. (11), (20), (22), and (23).",
+        "identifier_or_url": "arXiv:2102.00895v1",
+        "material_read": "Full text inspected through p. 8, including the renewal PGF, geometric-restart specialization, and second-moment formula.",
+        "method": "Lawful full-text PDF access and direct text inspection.",
+        "title": "First passage under restart for discrete space and time: application to one dimensional confined lattice random walks",
+        "trigger": "Closest general discrete-time restart moment framework."
+      },
+      {
+        "assessment": "Concerns coefficient-of-variation universality at the optimally tuned restart rate, not the fixed-q, fixed-p extremal problem.",
+        "evidence": "Published abstract states unit relative standard deviation at optimal nonzero restart.",
+        "identifier_or_url": "doi:10.1103/PhysRevLett.116.170601",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Publisher abstract inspected.",
+        "title": "Optimal Stochastic Restart Renders Fluctuations in First Passage Times Universal",
+        "trigger": "Potential broader coverage of restart variance universality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bbc2b636-e783-480e-925c-4ebe7a4ffd23",
+  "value": {
+    "rationale": "At fixed q and p the mean completion time is already fixed, so the theorem answers the natural next question: exactly how much variance can remain hidden behind identical mean-determining success data. The result is a complete sharp finite-p classification with natural extremizers, strengthens the motivating paper's continuous Jensen control by using the integer lattice, and can be used to calibrate finite-p uncertainty in exponential approximations. The slice is not arbitrary: p is the central sufficient statistic of the memoryless-catastrophe model.",
+    "status": "PASS"
+  }
+}
