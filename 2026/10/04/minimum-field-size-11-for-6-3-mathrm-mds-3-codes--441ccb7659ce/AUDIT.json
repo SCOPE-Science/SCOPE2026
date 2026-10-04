@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the published iff characterization of \\([n,3]\\)-\\(\\mathrm{MDS}(3)\\) codes by projective collinearity and concurrence. Every six-point ordinary-MDS configuration contains a projective frame; fixing four ordered points to the standard frame is therefore symmetry-complete. The verifier implements exact arithmetic for every finite field order below \\(11\\), checks its arithmetic identities, enumerates all normalized candidate pairs, and tests all \\(20\\) point triples and all \\(15\\) perfect matchings. It exhausts \\(1502\\) normalized pairs below \\(11\\) with no survivor and directly verifies the displayed \\(\\mathbb F_{11}\\) witness. The claim is finite and no sampling, timeout, or extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 source asks for explicit \\((n,3)\\)-\\(\\mathrm{MDS}(3)\\) constructions over quadratic-size fields.",
+        "The later source calls \\([n,3]\\)-\\(\\mathrm{MDS}(3)\\) the smallest nontrivial case and gives an explicit \\(O(n^3)\\) construction, not an exact six-column minimum."
+      ],
+      "reasoning": "A broader theorem covering all \\(n\\) at optimal field size would dominate the claim, but the inspected construction and open-question statements leave a gap between asymptotic bounds and this exact first finite instance.",
+      "searches": [
+        "arXiv:2206.05256, Question 1.23",
+        "arXiv:2212.11262, Theorem 1.13 and abstract",
+        "query: 6-arc general position finite field higher order MDS"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.05256",
+      "arXiv:2212.11262",
+      "DOI:10.1137/23M1598064",
+      "opaque record 2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f",
+      "current cumulative historical ledger through generation g000049"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first primary source implies the finite geometric test but not the minimum field order.",
+        "The second primary source implies a lower bound of \\(5\\), not \\(11\\), and an asymptotic existence theorem without an exact six-column threshold.",
+        "The closest historical record concerns four-request PIR codes and does not imply any higher-order MDS field-size statement."
+      ],
+      "reasoning": "The new implication comes from combining complete projective-frame enumeration over every smaller finite field with an explicit \\(\\mathbb F_{11}\\) configuration. Neither inspected prior result supplies those two sides.",
+      "searches": [
+        "arXiv:2206.05256, geometric characterization and Question 1.23",
+        "arXiv:2212.11262, field lower bound and explicit construction",
+        "opaque closest record: 2026/9/17/SCOPE-dimension-three-four-request-all-symbol-lengths--a938eedf9b5f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source states that a \\([n,3]\\) code is \\(\\mathrm{MDS}(3)\\) exactly when its projective columns have no three collinear and every three joining lines from disjoint pairs are nonconcurrent.",
+        "The exact coding-notation and projective-frame searches produced no matching prior exact threshold among the checked records."
+      ],
+      "reasoning": "The coding statement and the six-point projective statement are equivalent by the cited characterization, so both formulations were searched and compared at the level of implications rather than titles.",
+      "searches": [
+        "query: minimum field size [6,3] MDS(3) code 11",
+        "query: \"[6,3]\" \"MDS(3)\"",
+        "query: six point projective frame MDS(3) field 11",
+        "arXiv:2206.05256, projective-plane characterization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 1.6 gives \\(|\\mathbb F|\\ge \\binom{n-2}{k-1}-1\\), which becomes only \\(|\\mathbb F|\\ge5\\) for \\((n,k)=(6,3)\\).",
+        "No checked exact-parameter record supplied exclusions at field orders \\(5,7,8,9\\) or an \\(\\mathbb F_{11}\\) witness."
+      ],
+      "reasoning": "The closest exact parameter bound leaves four finite-field orders unresolved below the witness. The exhaustive normalized enumeration closes precisely those cases rather than recomputing a known exact table.",
+      "searches": [
+        "arXiv:2212.11262, Theorem 1.6",
+        "query: [6,3] higher-order MDS minimum field size",
+        "query: minimum finite field six point MDS(3) code"
+      ]
+    },
+    "rationale": "The two closest primary full texts establish the exact geometric criterion, the general field-size lower bound, and asymptotic constructions, but do not state the exact \\([6,3]\\) threshold. Semantic searches under native coding notation and finite-geometric aliases found no statement implying that the minimum field order is \\(11\\). The current historical ledger contains no claim about higher-order MDS field-size thresholds. A residual risk remains that older finite-geometry literature uses an unsearched name for the same six-point configuration.",
+    "residual_risks": [
+      "Older finite-geometry literature may encode the same six-point condition under a classical name not reached by the checked aliases.",
+      "The projective characterization is a published premise; the verifier checks the complete finite classification after that reduction rather than rederiving the general higher-order MDS equivalence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Essential premise and motivation; it does not state the exact \\([6,3]\\) minimum field order.",
+        "evidence": "The paper states that \\([n,3]\\)-\\(\\mathrm{MDS}(3)\\) means no three projective columns are collinear and no three joining lines from disjoint pairs are concurrent, and asks for quadratic-field-size explicit constructions.",
+        "identifier_or_url": "arXiv:2206.05256",
+        "material_read": "Full-text PDF around Section 1.2, including Definition 1.8 and the projective characterization on pages 6–7, plus Question 1.23.",
+        "method": "Open full-text inspection with page rendering and text comparison.",
+        "title": "Generic Reed-Solomon Codes Achieve List-decoding Capacity",
+        "trigger": "Direct source for the higher-order MDS definition, the dimension-three projective characterization, and the small-field construction question."
+      },
+      {
+        "assessment": "Not covering: its exact lower bound gives only field order at least \\(5\\) for \\([6,3]\\), and its construction is asymptotic rather than the exact threshold.",
+        "evidence": "Theorem 1.6 gives \\(|\\mathbb F|\\ge\\binom{n-2}{k-1}-1\\); the explicit dimension-three construction is stated over fields of size \\(O(n^3)\\).",
+        "identifier_or_url": "arXiv:2212.11262",
+        "material_read": "Abstract, Theorem 1.6, the discussion identifying \\([n,3]\\)-\\(\\mathrm{MDS}(3)\\) as the smallest nontrivial case, and the explicit construction statement.",
+        "method": "Open full-text inspection and targeted theorem comparison.",
+        "title": "Improved Field Size Bounds for Higher Order MDS Codes",
+        "trigger": "Closest later source on field-size lower bounds and explicit constructions for the same objects."
+      },
+      {
+        "assessment": "The publisher lists primary MSC 68P30, placing the direct source in coding/information theory.",
+        "evidence": "MSC codes are listed as 68P30 and 15A69, in that order.",
+        "identifier_or_url": "DOI:10.1137/23M1598064",
+        "material_read": "Journal metadata and abstract, including the listed MSC classifications.",
+        "method": "Publisher metadata inspection.",
+        "title": "Generic Reed–Solomon Codes Achieve List-Decoding Capacity",
+        "trigger": "Verification of subject ownership for the direct source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "441ccb76-59ce-4c81-bbcd-ebe02c9cc0bc",
+  "value": {
+    "rationale": "Length six is mathematically distinguished: it is the first dimension-three length at which three disjoint pairs exist, hence the first point where \\(\\mathrm{MDS}(3)\\) imposes a condition beyond ordinary MDS. Determining its exact minimum field order gives the first genuine finite calibration point for the explicit-small-field problem highlighted in the primary literature, and sharpens the general lower bound from \\(5\\) to the exact threshold \\(11\\) in this base case.",
+    "status": "PASS"
+  }
+}
