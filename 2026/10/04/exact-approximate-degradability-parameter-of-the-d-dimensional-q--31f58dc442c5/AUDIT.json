@@ -1,0 +1,106 @@
+{
+  "claim": "For the standard \\(d\\)-dimensional quantum erasure channel \\(\\mathcal E_{p,d}\\), \\[\\mathcal E_{p,d}(\\rho)=(1-p)\\rho\\oplus p\\operatorname{Tr}(\\rho)|e\\rangle\\langle e|,\\qquad d\\ge2,\\] and Sutter--Scholz--Winter--Renner approximate-degradability parameter \\(\\varepsilon_{\\mathcal E_{p,d}}=\\inf_{\\Xi}\\|\\mathcal E^c_{p,d}-\\Xi\\circ\\mathcal E_{p,d}\\|_\\diamond\\), the exact value is \\[\\varepsilon_{\\mathcal E_{p,d}}=0\\quad(0\\le p\\le\\tfrac12),\\qquad \\varepsilon_{\\mathcal E_{p,d}}=2(2p-1)(1-d^{-2})\\quad(\\tfrac12<p\\le1).\\] For \\(p>1/2\\), an optimal degrading channel forwards every unerased receiver state to the environment data sector and, on a receiver erasure flag, outputs the maximally mixed state \\(I_d/d\\) with probability \\((2p-1)/p\\) and the environment erasure flag with probability \\((1-p)/p\\). The residual defect is \\((2p-1)(\\operatorname{id}-\\mathcal R)\\), where \\(\\mathcal R(\\rho)=\\operatorname{Tr}(\\rho)I_d/d\\), and \\(\\|\\operatorname{id}-\\mathcal R\\|_\\diamond=2(1-d^{-2})\\).",
+  "correctness": {
+    "rationale": "Covariance reduction gives a two-parameter defect. A maximally entangled input yields the exact scalar lower bound 2A(1-d^{-2}) with A>=2p-1. The explicit degrading channel attains A=B=2p-1. The remaining norm is exactly ||id-R||_diamond=2(1-d^{-2}) by matching maximally-entangled and Choi-SDP certificates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sutter et al. prove a general SDP for the minimum epsilon.",
+        "Siddhu--Tayur explicitly evaluate the erasure example only for 0<=p<=1/2 in the inspected passage and state antidegradability for p>1/2."
+      ],
+      "reasoning": "The general SDP implies computability but does not itself state the closed optimizer or value. The trivial degradable half does not imply the nonzero antidegradable-half profile.",
+      "searches": [
+        "quantum erasure channel exact approximate degradability parameter diamond distance complementary degrading map",
+        "erasure channel optimal degrading channel depolarizing filler diamond norm",
+        "identity completely depolarizing diamond norm erasure approximate degradability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1412.0980",
+      "DOI:10.1287/educ.2022.0243",
+      "arXiv:1207.5726"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Sutter et al. full text defines epsilon-degradability and its SDP but a full-text search found no occurrence of erasure.",
+        "The Siddhu--Tayur passage gives epsilon=0 for p<=1/2 and says p>1/2 is antidegradable; it does not state the positive-half closed defect."
+      ],
+      "reasoning": "Prior general machinery reduces the task to an SDP, but the closed evaluation requires a channel-specific symmetry reduction, an exact lower bound, and an explicit optimizer.",
+      "searches": [
+        "Approximate Degradable Quantum Channels arXiv 1412.0980 erasure",
+        "Five Starter Pieces erasure channel epsilon degradable p 1/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Focused published-finding corpus searches returned no erasure-channel approximate-degradability formula.",
+        "Focused web searches located the general Sutter et al. SDP and a later tutorial erasure example, but not the displayed positive-half formula."
+      ],
+      "reasoning": "An equivalent result would need to give the minimum diamond simulation error, not merely antidegradability, capacity, or an upper bound from a nonoptimal degrading map.",
+      "searches": [
+        "erasure channel exact approximate degradability parameter diamond norm p",
+        "quantum erasure channel distance to degradable exact epsilon degradability",
+        "approximate degradable erasure channel exact degrading map",
+        "d-dimensional erasure channel epsilon degradable exact formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-finding corpus record was found. The nearest semantic hits concerned classical coding, relay SDPI, or unrelated norm-distance problems."
+      ],
+      "reasoning": "No database table with the dimension- and p-dependent closed value was located.",
+      "searches": [
+        "published-finding corpus: erasure channel exact approximate degradability parameter diamond norm p",
+        "published-finding corpus: d-dimensional erasure channel epsilon degradable exact formula"
+      ]
+    },
+    "rationale": "Originality is limited to the closed erasure-channel epsilon profile and explicit optimizer. The general epsilon-degradability SDP and the exact degradability threshold are credited as prior work.",
+    "residual_risks": [
+      "An equivalent formula may exist in notes, notebooks, or software documentation not indexed by the searches.",
+      "The proof uses strong symmetry specific to the standard erasure channel.",
+      "No priority claim beyond the inspected literature is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the quantity and general SDP; no erasure specialization found.",
+        "evidence": "v1 submitted 2014-12-02; arXiv metadata lists MSC 81P45. The paper says the minimum epsilon can be computed efficiently via SDP.",
+        "identifier_or_url": "arXiv:1412.0980",
+        "material_read": "Full HTML abstract, definitions, approximate-degradability discussion, SDP characterization, and applications overview; full-text search for erasure.",
+        "method": "arXiv full-text inspection.",
+        "title": "Approximate Degradable Quantum Channels",
+        "trigger": "Archive-era source defining the exact optimization target and primary MSC 81P45."
+      },
+      {
+        "assessment": "The inspected passage checks only p<=1/2, where epsilon=0, and notes antidegradability above.",
+        "evidence": "The passage states epsilon_Ep=0 for 0<=p<=1/2 and describes numerical SDP agreement.",
+        "identifier_or_url": "DOI:10.1287/educ.2022.0243",
+        "material_read": "Publisher-extracted erasure-channel passage.",
+        "method": "Publisher full-text search result.",
+        "title": "Five Starter Pieces: Quantum Information Science via Semidefinite Programs",
+        "trigger": "Later tutorial explicitly illustrating approximate degradability for erasure channels."
+      },
+      {
+        "assessment": "Supplies general diamond-norm SDP machinery, not the erasure-channel optimization.",
+        "evidence": "Used only for the standard SDP upper-bound certificate for ||id-R||_diamond.",
+        "identifier_or_url": "arXiv:1207.5726",
+        "material_read": "Bibliographic and theorem-level background as cited by the approximate-degradability literature.",
+        "method": "Literature cross-check.",
+        "title": "Simpler semidefinite programs for completely bounded norms",
+        "trigger": "Background for the diamond-norm SDP certificate used in the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "31f58dc4-42c5-434c-80eb-daffd78be330",
+  "value": {
+    "rationale": "The exact formula closes a canonical finite-dimensional SDP benchmark for all p and d, gives an explicit optimal degrading channel, and provides a sharp analytic parameter usable in solver validation and approximate-capacity bounds.",
+    "status": "PASS"
+  }
+}
