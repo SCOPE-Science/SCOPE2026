@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Fix a finite join A and standard k. The relation that the e-th A^(k)-oracle computation outputs 1 on y is arithmetical in A. If all model sets were Turing reducible to A^(k), each would have a total characteristic index and the resulting arithmetical formula would uniformly enumerate the whole second-order part. Pakhomov's Theorem 6.1 states that Sigma1_1-Rfn refutes uniform enumeration by every arithmetical formula, including with set parameters. Hence some model set escapes the bound. The proof does not conflate per-k escape with one set escaping all k.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source explicitly allows formulas witnessing uniform enumeration to use set parameters.",
+        "Theorem 6.1 refutes uniform enumeration for every formula, and for arithmetical formulas the required reflection lies already in Sigma1_1-Rfn.",
+        "The source discusses the resulting new Sigma1_1 consequences but does not translate them into fixed-jump degree bounds."
+      ],
+      "reasoning": "The accepted theorem is obtained by choosing a specific arithmetical enumerator family derived from a hypothetical fixed Turing bound. General reverse-mathematics background does not supply the reflection-theoretic obstruction.",
+      "searches": [
+        "arXiv:2608.07050: definition of Rfn and Sigma1_n-Rfn",
+        "arXiv:2608.07050: Theorem 6.1 on uniformly enumerated models",
+        "arXiv:2608.07050: Corollary 6.2 and surrounding sharpness discussion",
+        "standard reverse-mathematics background: omega-models as Turing ideals"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.07050",
+      "Pakhomov seminar abstract on Lévy–Montague reflection",
+      "Simpson, Subsystems of Second Order Arithmetic, second edition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A fixed finite-jump Turing bound canonically yields one arithmetical uniform-enumeration formula, so the source theorem implies the accepted result.",
+        "The source does not state the degree-theoretic corollary or its principal-ideal consequence.",
+        "No prior current-ledger finding concerns arXiv:2608.07050, Lévy–Montague reflection, or the finite-jump geometry of its omega-models."
+      ],
+      "reasoning": "The claim is a structural consequence rather than a restatement: it identifies a familiar invariant of omega-models and derives a universal exclusion class of Turing ideals.",
+      "searches": [
+        "primary-source implication check: uniform non-enumerability versus fixed finite-jump Turing boundedness",
+        "primary-source implication check: arithmetical phi case of Theorem 6.1 versus Sigma1_1-Rfn",
+        "current cumulative ledger claim comparison through the immediately preceding generation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Candidate-specific published-finding searches returned no reflection result about finite-jump Turing bounds.",
+        "Web searches located the 2026 reflection paper and general computability material but no theorem that an omega-model of the reflection scheme must escape every fixed finite jump bound."
+      ],
+      "reasoning": "The searches cover the source terminology, omega-model terminology, principal-ideal and finite-jump formulations, and the source's own uniform-enumeration terminology.",
+      "searches": [
+        "published-finding database: Levy Montague reflection omega-model Turing degrees finite jumps unbounded",
+        "published-finding database: Sigma1_1 reflection omega model no maximal Turing degree arithmetic cofinal",
+        "published-finding database: Rfn uniformly enumerated universe Turing degree arithmetically unbounded",
+        "published-finding database: omega models reflection no principal Turing ideal finite jump",
+        "web literature: \"Lévy–Montague reflection\" \"Turing degree\"",
+        "web literature: \"Lévy Montague reflection\" \"omega-model\" Turing",
+        "web literature: \"uniformly enumerated\" \"Turing degree\" second order arithmetic",
+        "web literature: \"arithmetically cofinal\" omega-model reflection second order arithmetic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked database entry gives the exact finite-jump escape statement.",
+        "The closest degree-oriented hits concern uniform introreducibility spectra and computable-structure degree spectra, with no implication for reflection."
+      ],
+      "reasoning": "There is no numerical table here; the exact comparison is whether the same reflection principle has already been converted into the stated universal Turing-degree obstruction.",
+      "searches": [
+        "published-finding database: Levy Montague reflection WKL0 Rfn incomparable ACA0 Pi1_n comprehension",
+        "published-finding database: WKL0 plus reflection incomparable with ACA0 reverse mathematics",
+        "published-finding database: reflection scheme second order arithmetic comprehension hierarchy incomparable",
+        "published-finding database: omega models reflection no principal Turing ideal finite jump"
+      ]
+    },
+    "rationale": "The primary source proves the nonexistence of a uniform formula enumerating the second-order universe, but does not formulate a Turing-degree bound on omega-models. Targeted database and literature searches for reflection together with finite jumps, Turing bounds, and principal Turing ideals found no equivalent result.",
+    "residual_risks": [
+      "The accepted theorem is a direct structural corollary of the source's uniform-enumeration obstruction, so an equivalent observation may exist informally under different degree-theoretic terminology.",
+      "The statement is only fixed-k unboundedness; it does not give one set that escapes all finite jumps of a parameter.",
+      "No characterization of the possible Turing ideals of reflected omega-models is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG_SUPPORTING_PRIOR_BUT_NOT_THE_TURING_DEGREE_FORMULATION.",
+        "evidence": "Theorem 6.1 supplies the exact non-enumerability premise, while its arithmetical-formula clause places the needed reflection inside Sigma1_1-Rfn.",
+        "identifier_or_url": "arXiv:2608.07050",
+        "material_read": "Abstract and full-text portions containing the definition of Rfn and Sigma1_n-Rfn, the main conservativity theorem, Theorem 6.1 on uniformly enumerated models, Corollary 6.2, and the subsequent discussion of sharp Sigma1_1 consequences.",
+        "method": "Direct implication reconstruction with a candidate arithmetical oracle-computation formula.",
+        "title": "Lévy–Montague reflection is Pi^1_1-conservative over WKL_0",
+        "trigger": "Primary recent source defining the reflection scheme and proving the uniform-enumeration obstruction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0fc7732-dcc7-401a-8f24-587d040378f6",
+  "value": {
+    "rationale": "Omega-models in reverse mathematics are naturally studied via their Turing ideals. Turning the source's formula-enumeration obstruction into the statement that every fixed finite jump cone over finitely many internal parameters misses an internal set yields a concrete, reusable model invariant. It rules out principal and fixed-jump-bounded ideals and clarifies what computational richness reflection forces without asserting jump closure.",
+    "status": "PASS"
+  }
+}
