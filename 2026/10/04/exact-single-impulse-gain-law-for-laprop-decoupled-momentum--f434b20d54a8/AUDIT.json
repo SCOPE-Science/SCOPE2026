@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The isolated input leaves a single nonzero preconditioned gradient followed by zeros, so LaProp's bias-corrected momentum tail is exactly solvable. Geometric domination proves finite gain for every fixed momentum below one, the reciprocal-polynomial form proves strict monotonicity, harmonic limiting partial sums prove divergence at momentum one, and the Adam comparison is an exact tail-ratio test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 1 bounds each individual LaProp update.",
+        "Proposition 2 gives an Adam update bound under the coupling condition \\(\\mu<\\sqrt{\nu}\\).",
+        "The source regret theorem has different quantifiers and assumptions."
+      ],
+      "reasoning": "A per-step bound does not give a uniform cumulative impulse-gain bound over momentum. The regret theorem does not compute exact displacement from one isolated input.",
+      "searches": [
+        "LaProp bounded update proposition momentum adaptivity",
+        "LaProp mu sqrt nu Adam bound",
+        "LaProp sparse gradient convergence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.04839v1",
+      "arXiv:2002.04839v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 supplies the exact bias-corrected LaProp recurrence.",
+        "Proposition 1 bounds each update but does not sum the momentum tail.",
+        "The source Adam analysis identifies the momentum/adaptivity coupling."
+      ],
+      "reasoning": "The final theorem requires solving the isolated-input recurrence, summing the bias-corrected tail, proving monotonicity and divergence of that sum, and applying a separate tail-ratio test to Adam.",
+      "searches": [
+        "arXiv:2002.04839v3 Algorithm 1 LaProp",
+        "arXiv:2002.04839v3 Proposition 1 bounded update",
+        "arXiv:2002.04839v3 Proposition 2 Adam mu sqrt nu"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source preconditions each gradient before momentum and proves a per-step bound independent of momentum.",
+        "The source discusses pathologically large single gradients but does not sum the resulting tail.",
+        "No inspected source states the exact sparse-input gain series."
+      ],
+      "reasoning": "Equivalent forms include total response to one nonzero preconditioned gradient, the cumulative bias-corrected momentum gain, and sensitivity as momentum approaches one. These were not found.",
+      "searches": [
+        "LaProp impulse response gradient",
+        "LaProp isolated gradient momentum",
+        "LaProp cumulative displacement momentum",
+        "arXiv:2002.04839v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record results concern other adaptive or momentum methods and unrelated quadratic stability frontiers.",
+        "No returned record gives a LaProp single-impulse cumulative gain."
+      ],
+      "reasoning": "The nearest records use different recurrences and do not imply the claim. Search absence supplements, but does not replace, direct source comparison.",
+      "searches": [
+        "LaProp optimizer quadratic stability exact recurrence",
+        "LaProp alternating gradients momentum adaptivity exact",
+        "LaProp constant gradient impulse response",
+        "LaProp beta1 beta2 stability adaptive learning rate",
+        "LaProp impulse response gradient",
+        "LaProp isolated gradient momentum",
+        "LaProp single gradient update tail",
+        "LaProp cumulative displacement momentum"
+      ]
+    },
+    "rationale": "The defining paper proves a pointwise LaProp update bound and discusses resilience to a single large gradient, but the inspected full text does not state the cumulative impulse displacement, its exact gain series, or its unbounded high-momentum limit. Focused published-record and web searches found no implication-equivalent result.",
+    "residual_risks": [
+      "An equivalent short calculation may exist in unindexed notes.",
+      "Originality rests on cumulative rather than pointwise response.",
+      "Positive damping changes the Adam comparison tail but not the LaProp theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_AND_POINTWISE_BOUNDS_NOT_COVERING_CUMULATIVE_IMPULSE_GAIN.",
+        "evidence": "The source proves each LaProp update is bounded and contrasts Adam coupling, but no exact total displacement after one isolated gradient was located.",
+        "identifier_or_url": "arXiv:2002.04839v3",
+        "material_read": "Full open-access HTML including Algorithm 1, the conceptual framework, signed-gradient interpolation, Propositions 1 and 2, convergence theorem, and recommended hyperparameters.",
+        "method": "Full-text HTML inspection with equation-level comparison and targeted searches for isolated gradients, impulse response, and cumulative displacement.",
+        "title": "LaProp: Separating Momentum and Adaptivity in Adam",
+        "trigger": "Defining source for the recurrence, bias corrections, isolated-outlier motivation, and update bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f434b20d-54a8-464f-a5dd-194d444cb9d9",
+  "value": {
+    "rationale": "Single-gradient robustness is part of the defining motivation for LaProp. The exact law shows what the source pointwise bound does not control: decoupling removes the adaptivity parameter from cumulative sparse-input response and removes Adam's impulse-summability coupling threshold, but high momentum still yields arbitrarily large accumulated gain. This is a direct momentum-tuning diagnostic.",
+    "status": "PASS"
+  }
+}
