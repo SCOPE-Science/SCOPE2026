@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For dz=Fz dt+G dB with Brownian correlation matrix R, Ito product differentiation gives M'=FM+MF^T+GRG^T. The source's diagonal G makes its printed Q exactly GRG^T. Thus adding both GG^T and Q double-counts the independent component. At R=I, Hurwitz uniqueness implies W_printed=2 W_ind exactly. The standalone exact-rational verifier checks the identities and independent-limit factor two.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bashkirtseva–Ryashko–Ryazanova 2017, DOI 10.1016/j.mbs.2017.08.007, abstract and bibliographic record.",
+        "Huang–Du–Liang 2026 cites that 2017 work for stochastic-sensitivity confidence domains."
+      ],
+      "reasoning": "The 2017 paper is methodological background for stochastic sensitivity in population systems. The accessible abstract does not state the 2026 SIRS correlated-noise formula or a result that would subsume the source-specific independent-limit correction.",
+      "searches": [
+        "\"Stochastic sensitivity technique in a persistence analysis of randomly forced population systems with multiple trophic levels\" pdf",
+        "\"stochastic sensitivity\" correlated noise covariance matrix Lyapunov equation epidemiology"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026278",
+      "doi:10.1016/j.mbs.2017.08.007",
+      "PMID:28851626"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eq. (3.16): FW+WF^T+GG^T=0.",
+        "Remark 3.8: FW+WF^T+GG^T+Q=0 and Q_ij=rho_ij sigma_i sigma_j E_i^* E_j^*.",
+        "For a Brownian correlation matrix rho_ii=1, hence at R=I one has Q=GG^T."
+      ],
+      "reasoning": "The source's own independent formula does not imply the printed correlated extension; instead it contradicts its R=I specialization. The correction restores the exact limiting implication.",
+      "searches": [
+        "source Eq. (3.16) versus Remark 3.8 Eq. (3.19)",
+        "independent limit R=I for correlated Brownian covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huang–Du–Liang 2026, DOI 10.3934/math.2026278, Eq. (3.16) and Remark 3.8 Eq. (3.19).",
+        "Direct Ito covariance identity: d<B>_t=R dt gives diffusion forcing GRG^T."
+      ],
+      "reasoning": "The corrected forms FW+WF^T+GRG^T=0, FW+WF^T+Q=0, and FW+WF^T+GG^T+Q_off=0 with diag(Q_off)=0 are equivalent. The source's displayed Q has unit-diagonal Brownian terms and is therefore GRG^T itself, not Q_off.",
+      "searches": [
+        "\"Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model\" correction covariance correlated Brownian",
+        "\"Remark 3.8\" \"G G\" \"Q\" \"stochastic SIRS\"",
+        "\"rho_ij\" \"sigma_i\" \"E_i\" \"confidence ellipsoid\" stochastic sensitivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publisher full text, DOI 10.3934/math.2026278: model (1.3) has separate Brownian mortality terms; Eq. (3.16) uses GG^T; Eq. (3.19) adds GG^T+Q with Q_ij=rho_ij sigma_i sigma_j E_i^* E_j^*.",
+        "No indexed erratum or correction was located in exact-title and DOI searches."
+      ],
+      "reasoning": "The exact source equations are sufficient to compare the claimed extension with the independent case. Search results returned the article and mirrors rather than a correction. This is evidence against known coverage, not a proof that no unindexed correction exists.",
+      "searches": [
+        "\"10.3934/math.2026278\" covariance correlated Brownian correction",
+        "exact article title plus arXiv/preprint search",
+        "publisher full-text inspection of Eqs. (1.3), (3.16), (3.19), and Section 4.2"
+      ]
+    },
+    "rationale": "The source-specific statement was compared by implication, not title alone. Exact-title/DOI/Remark-3.8 and correlated-covariance searches located no correction already stating that Eq. (3.19) double-counts the diagonal Brownian variance. The methodological predecessor located is broader background and does not imply this source-specific inconsistency from the material available.",
+    "residual_risks": [
+      "The 2017 methodological paper was not available in lawful open full text during review, so the comparison to it is abstract-level only.",
+      "An unindexed or unpublished correction to Remark 3.8 could exist even though exact-title, DOI, and equation-oriented searches did not locate one.",
+      "Bibliographic mirrors disagree by one day on the 2026 publication display; the earliest verified public display located is 2026-03-15, while the publisher site shows 2026-03-16."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source prints Q as the full rho-weighted diffusion covariance and also adds GG^T, producing a double count under standard Brownian correlation conventions.",
+        "evidence": "DOI 10.3934/math.2026278; pages 6722, 6730–6733.",
+        "identifier_or_url": "doi:10.3934/math.2026278",
+        "material_read": "Publisher full text: model (1.3), Theorem 3.4 and Eqs. (3.14)–(3.17), Remark 3.8 Eq. (3.19), numerical sensitivity discussion in Section 4.2, classification and publication metadata.",
+        "method": "Lawful open-access HTML/PDF inspection.",
+        "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
+        "trigger": "Primary source for the candidate covariance correction."
+      },
+      {
+        "assessment": "Methodologically relevant background; available material does not state or cover the 2026 SIRS correlated-noise correction.",
+        "evidence": "PMID 28851626; DOI 10.1016/j.mbs.2017.08.007.",
+        "identifier_or_url": "doi:10.1016/j.mbs.2017.08.007",
+        "material_read": "PubMed bibliographic record and abstract; no lawful open full text was located during the review.",
+        "method": "Abstract-level inspection only.",
+        "title": "Stochastic sensitivity technique in a persistence analysis of randomly forced population systems with multiple trophic levels",
+        "trigger": "Methodological predecessor cited by the primary source for stochastic sensitivity and confidence domains."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "645774f4-d661-4cad-8af9-542d8ab01d27",
+  "value": {
+    "rationale": "The affected remark is specifically intended to quantify how noise correlation changes confidence-ellipsoid geometry. Its printed equation fails the mandatory independent-noise limit and doubles covariance there, inflating every ellipsoid half-axis by sqrt(2); for general correlation it adds an entire independent covariance component and can alter both scale and orientation. Correcting that formula is materially useful for subsequent stochastic-sensitivity calculations.",
+    "status": "PASS"
+  }
+}
