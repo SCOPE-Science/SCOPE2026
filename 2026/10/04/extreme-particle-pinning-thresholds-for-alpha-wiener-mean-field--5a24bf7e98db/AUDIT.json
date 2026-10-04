@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The residual SDE is solved exactly; fixed-time residuals are a deterministic scale times an iid Gaussian sample centered by its empirical mean. The centering error is negligible for both first-order and Gumbel extreme scaling, and direct integration gives the three endpoint variance regimes. No finite experiment is used to justify an infinite asymptotic statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1214/10-AAP716 gives general concentration inequalities for mean-field particle models.",
+        "DOI:10.1088/1751-8121/ac2715 gives the earlier one-segment pinned system and mean-field alpha-Wiener limit.",
+        "closest published-result ID 2026/9/19/SCOPE-quadratic-anisotropy-slaving-simplex-covariance--c7e9c46d956f"
+      ],
+      "reasoning": "General mean-field concentration results are broader in model class but do not imply the exact finite-n centered-Gaussian reduction, the alpha-dependent terminal window, or the Gumbel profile. The earlier pinned-system paper has the right model family but not the growing-ensemble extreme statement.",
+      "searches": [
+        "coalescent mean field interacting particles convergence rate maximum particle deviation",
+        "uniform pinning all particles alpha Wiener bridge mean field maximum deviation",
+        "joint space time limit pinned interacting particles maximum Gaussian deviations"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/jpr.2025.10032",
+      "arXiv:0810.3070",
+      "DOI:10.1088/1751-8121/ac2715",
+      "DOI:10.1214/10-AAP716",
+      "published-result searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1017/jpr.2025.10032 explicitly says the effect of the interaction function on convergence rate is left for future study and separately that a spatial convergence rate is left for future research.",
+        "arXiv:0810.3070 studies a single alpha-Wiener bridge near the endpoint.",
+        "DOI:10.1088/1751-8121/ac2715 studies the one-segment interacting system and its mean-field limit."
+      ],
+      "reasoning": "The source representation plus a classical Gaussian-max theorem makes the new proof short, but the new statement is not a corollary already stated by the source: the order of growth in n and approach to the terminal time is coupled, producing explicit all-particle thresholds and a second-order Gumbel law. Prior single-bridge limits cannot by themselves control a maximum over a growing number of coordinates.",
+      "searches": [
+        "Mean-field interacting systems with sequential coalescence at future ensemble averages convergence rate",
+        "alpha-Wiener bridges sample path terminal behavior growing maximum",
+        "A family of interacting particle systems pinned to their ensemble average alpha Wiener bridge"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1017/jpr.2025.10032, Example 2.1 and Remark 2.1",
+        "arXiv:0810.3070",
+        "closest published-result ID 2026/9/18/SCOPE-signed-chaos-maxima-sign-sensitive-gaussianization--948f406a92ce"
+      ],
+      "reasoning": "The natural equivalent formulation is an extreme-value problem for iid Gaussian bridge coordinates after subtracting their sample mean. The single-bridge literature treats endpoint behavior, and the closest database maximum result concerns second-chaos Gaussianization rather than pinned Gaussian particle residuals.",
+      "searches": [
+        "pinned interacting particles maximum deviation Gumbel alpha Wiener bridge",
+        "alpha Wiener bridge ensemble maximum Gumbel",
+        "maximum particle deviation ensemble average pinned interacting diffusion log n alpha Wiener bridge"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-result record stated an exact all-particle pinning threshold for this model.",
+        "closest published-result ID 2026/9/19/SCOPE-gaussian-mimo-one-flip-poisson-gumbel--c9f0247bbad2"
+      ],
+      "reasoning": "The exact combination of the alpha-Wiener variance scale with a growing centered Gaussian maximum was not present in the searched published-result records; nearby Gumbel results concern unrelated models.",
+      "searches": [
+        "simultaneous pinning Gumbel mean field particles",
+        "future ensemble average maximum deviation log n",
+        "pinned interacting particles maximum deviation Gumbel alpha Wiener bridge"
+      ]
+    },
+    "rationale": "The 2025 source explicitly leaves convergence-rate study open and contains no maximum-over-particles or Gumbel theorem. The single alpha-Wiener bridge literature and general mean-field concentration literature do not imply the exact growing-ensemble terminal-window phase diagram. Classical Gaussian extreme-value theory is treated as prior infrastructure, not as the novelty claim.",
+    "residual_risks": [
+      "A differently worded extreme-value result for this exact pinned system may exist outside the searched literature.",
+      "The theorem intentionally claims novelty only for the exact model-specific centered-maximum reduction and its joint terminal-window consequences, not for classical Gaussian maxima or single-bridge endpoint asymptotics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the representation and alpha-Wiener specialization but explicitly leaves convergence-rate questions for future research; no all-particle maximum threshold or Gumbel law was found.",
+        "evidence": "Example 2.1 uses f(t)=alpha/(T_end-t); Remark 2.1 says f controls convergence speed and leaves a detailed rate study for future research; the spatial limit is called pointwise and its rate is also left for future research.",
+        "identifier_or_url": "DOI:10.1017/jpr.2025.10032",
+        "material_read": "Full Cambridge HTML plus first page and relevant full-text sections including residual representation, Remark 2.1, spatial-limit remark, Example 2.1, covariance formulas, and conclusion.",
+        "method": "Statement-level comparison of model, rates, maxima, and limit order.",
+        "title": "Mean-field interacting systems with sequential coalescence at future ensemble averages",
+        "trigger": "Motivating source and exact model specialization"
+      },
+      {
+        "assessment": "Covers single-process endpoint regularity, not the joint n-versus-terminal-time maximum transition.",
+        "evidence": "The paper studies X^(alpha) solving the singular linear SDE and its behavior as t approaches T.",
+        "identifier_or_url": "arXiv:0810.3070",
+        "material_read": "Abstract and open full-text material describing the SDE and sample-path endpoint analysis.",
+        "method": "Compared object count and quantifiers: one bridge versus maximum over a growing centered ensemble.",
+        "title": "alpha-Wiener bridges: singularity of induced measures and sample path properties",
+        "trigger": "Closest source for endpoint behavior of the exact bridge coordinates"
+      },
+      {
+        "assessment": "Establishes pinning and the alpha-Wiener mean-field connection but does not state the exact growing-ensemble maximum threshold.",
+        "evidence": "Abstract states convergence to the ensemble average and mutually independent alpha-Wiener bridges in the mean-field limit.",
+        "identifier_or_url": "DOI:10.1088/1751-8121/ac2715",
+        "material_read": "Publisher/search full-text preview including abstract, model motivation, and alpha-Wiener mean-field statement.",
+        "method": "Compared finite-n maxima and joint limit claims.",
+        "title": "A family of interacting particle systems pinned to their ensemble average",
+        "trigger": "Earlier one-segment version of the same interacting architecture"
+      },
+      {
+        "assessment": "Broad model-level concentration machinery, but no statement with the exact centered-Gaussian reduction or alpha-dependent critical windows.",
+        "evidence": "The paper derives Hoeffding/Bernstein/Bennett-type concentration for broad mean-field particle models.",
+        "identifier_or_url": "DOI:10.1214/10-AAP716",
+        "material_read": "Abstract and accessible summary of theorem scope.",
+        "method": "Checked whether general concentration statements specialize to the exact terminal-window constants and Gumbel law.",
+        "title": "Concentration inequalities for mean field particle models",
+        "trigger": "Potential broader concentration theorem dominating a maximum bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a24bf7e-98db-4333-80ff-564466d67350",
+  "value": {
+    "rationale": "The source identifies convergence rate as a future direction. Controlling each fixed particle does not control the largest deviation in an ensemble whose size grows. The theorem isolates the precise logarithmic extreme-value penalty, shows an alpha=1/2 phase transition in the terminal approach scale, and supplies a Gumbel risk profile useful for choosing how close to the terminus a finite but large ensemble must be observed.",
+    "status": "PASS"
+  }
+}
