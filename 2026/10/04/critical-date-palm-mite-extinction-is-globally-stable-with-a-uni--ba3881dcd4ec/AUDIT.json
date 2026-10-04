@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "At \\(\\mathcal R_0=1\\), the source's linear Lyapunov function has the exact derivative \\(\\dot V=-\\mu_AAS/(K+S)\\), whose largest invariant zero set is the origin, proving global convergence and stability. At the same threshold the Jacobian has one simple zero root and a Hurwitz cubic factor. With normalized positive left/right zero eigenvectors, the exact critical coordinate satisfies \\(\\dot z=-AS/[H(K+S)]\\). Positivity makes the full state comparable to \\(z\\); exponential stability of the complementary spectral subspace then gives \\(x=zr+o(z)\\), hence \\(\\dot z=-(C/(KH))z^2(1+o(1))\\) and the stated \\(t^{-1}\\) limit. The packaged exact-rational checker verifies all displayed normalization identities and a concrete threshold witness. The computation is supportive; the generic proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected 2021 Fitri-Hanum-Kusnanto-Bakhtiar article studies an eleven-compartment plant-insect-pathogen control system rather than this four-stage autonomous chain.",
+        "Broader searches returned critical-decay results for different maps, oscillators, chemostats, and age-structured equations, none of which specialize to this ODE."
+      ],
+      "reasoning": "No broader theorem located in the inspected literature simultaneously gives global critical attraction and the exact asymptotic stage vector for this Beverton-Holt chain.",
+      "searches": [
+        "\"Beverton-Holt\" stage-structured population R0=1 algebraic decay",
+        "stage-structured population critical reproduction threshold algebraic 1/t decay",
+        "critical reproduction number algebraic decay population ODE",
+        "doi:10.1155/2021/6630193 pest control stage structured"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261058",
+      "doi:10.1155/2021/6630193",
+      "Exact-title, threshold-alias, and stage-structured critical-decay search results inspected on 2026-10-02 UTC."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's global theorem has the strict hypothesis \\(\\mathcal R_0<1\\); equality is not a corollary of that theorem.",
+        "The source's forward-transcritical theorem is local and supplies neither a global basin statement nor the exact \\(t^{-1}\\) coefficient.",
+        "The 2021 predecessor uses different state variables and equations, so it cannot imply this model-specific critical law."
+      ],
+      "reasoning": "The new statement is not a parameter substitution into a stronger prior theorem. Its global equality case requires the exact nonpositive Lyapunov derivative and a largest-invariant-set argument; its rate requires a separate stable-mode calculation.",
+      "searches": [
+        "doi:10.3934/math.20261058 Theorem 8 R0<1 global stability",
+        "doi:10.3934/math.20261058 Theorem 15 forward transcritical bifurcation",
+        "doi:10.1155/2021/6630193 model pest insects control eleven compartments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.20261058 states global extinction for the strict regime and a forward bifurcation at the critical threshold, but does not state critical global asymptotic stability or the universal time profile.",
+        "Exact-title and alias searches returned the motivating article and unrelated critical-decay systems, not an equivalent four-stage mite theorem."
+      ],
+      "reasoning": "Equivalent wording was searched through the biological object, the reproduction-threshold notation, algebraic critical slowing, and the stage-ratio formulation. No result with the same object and implication was found.",
+      "searches": [
+        "\"date palm mite\" \"R_0 = 1\" algebraic decay",
+        "critical date palm mite extinction globally asymptotically stable R0=1 t^-1 stage profile",
+        "four-stage Beverton-Holt ODE critical reproduction threshold universal stage ratios algebraic decay",
+        "doi:10.3934/math.20261058 critical extinction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating article's searchable full text and figures cover subcritical extinction, supercritical coexistence, and the forward bifurcation, but no exact critical-decay table or formula is given.",
+        "No curated table or database entry located in these searches records the claimed critical coefficient or stage profile."
+      ],
+      "reasoning": "The claim is an exact dynamical theorem for a newly published model rather than a tabulated invariant. Direct source-text and exact-model searches were therefore the relevant table/database check.",
+      "searches": [
+        "Cost-effective strategies controlling date palm mite infestations R0=1 critical extinction algebraic decay",
+        "date palm mite stage structured population model egg larva nymph adult",
+        "AIMS Mathematics 2026 26359 26396 critical threshold"
+      ]
+    },
+    "rationale": "The motivating article proves global extinction only for the strict condition \\(\\mathcal R_0<1\\) and separately establishes a local forward transcritical bifurcation at equality. Neither statement implies global attraction from arbitrary nonnegative initial data at equality, and neither states the sharp all-stage \\(t^{-1}\\) profile. Searches over exact source terms, critical-threshold aliases, Beverton-Holt stage-structured formulations, and algebraic-decay wording found no publication that states or dominates the combined theorem.",
+    "residual_risks": [
+      "The motivating article already computes local center-manifold data for the transcritical bifurcation; although it does not state the global critical theorem or the exact time profile, a reader could derive part of the local rate from those displayed ingredients.",
+      "Search coverage cannot exclude obscure, non-indexed, or unpublished work on an equivalent serial-stage model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the final claim: the article excludes equality from its global extinction theorem and does not give the sharp critical time profile.",
+        "evidence": "The article states global asymptotic stability for \\(\\mathcal R_0<1\\), identifies \\(\\mathcal R_0=1\\) as nonhyperbolic, and proves a forward transcritical bifurcation.",
+        "identifier_or_url": "doi:10.3934/math.20261058",
+        "material_read": "Open-access HTML covering the model equations, equilibrium and threshold formula, local and global extinction sections, critical Jacobian/bifurcation calculation, figures, and conclusion.",
+        "method": "Full-text HTML inspection and statement-level comparison.",
+        "title": "Cost-effective strategies for controlling date palm mite infestations: an optimal control approach",
+        "trigger": "Motivating source with the exact four-stage model, threshold, strict-subthreshold global theorem, and critical bifurcation."
+      },
+      {
+        "assessment": "NOT_COVERING: the object is a different plant-insect-pathogen control system and has no four-stage Beverton-Holt critical theorem.",
+        "evidence": "The predecessor explicitly uses eleven compartments for plants, pest stages, infection status, and pheromone control.",
+        "identifier_or_url": "doi:10.1155/2021/6630193",
+        "material_read": "Open-access full-text sections describing the model, eleven compartments, control problem, cost-effectiveness analysis, and conclusion.",
+        "method": "Full-text HTML inspection and model-structure comparison.",
+        "title": "Optimal Pest Control Strategies with Cost-effectiveness Analysis",
+        "trigger": "Cited pest-control predecessor and plausible broader source on stage-structured pest dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba3881dc-d4ec-4ef4-9083-53c73d3a8b5f",
+  "value": {
+    "rationale": "The equality case is the management boundary singled out by the source. Showing that extinction remains globally asymptotically stable at exactly \\(\\mathcal R_0=1\\), while slowing from exponential to the explicit \\(t^{-1}\\) law, changes the mathematical interpretation of the threshold and quantifies critical slowing in every biological stage. The result is structural rather than a parameter-table recomputation: it combines a global invariant-set closure with a universal asymptotic profile for all nonzero nonnegative initial data.",
+    "status": "PASS"
+  }
+}
