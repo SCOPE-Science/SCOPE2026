@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The primary source states that a monic generator of a length-\\(n\\) \\(\\lambda\\)-constacyclic code must divide \\(x^n-\\lambda\\). For the printed first Table 2 row, exact arithmetic in \\(\\mathbb F_4[x]\\) gives remainder \\(1+\\omega^2x+\\omega x^3\\) for the natural coefficient order and a different nonzero remainder for the reverse order. The auxiliary six-shift span is independently exhaustive over all \\(4^6\\) messages and has distance \\(3\\) and Hermitian hull dimension \\(0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The paper's general hull theorems establish existence under algebraic hypotheses, but they do not make an arbitrary printed tuple divide the constacyclic modulus.",
+        "Related Galois-hull code families located by search do not analyze this displayed tuple."
+      ],
+      "reasoning": "A general existence theorem cannot cover a generator-specific contradiction: the displayed polynomial must satisfy the quotient-ring divisor criterion to support the row.",
+      "searches": [
+        "Galois hull constacyclic codes F4 length 10 hull dimension 2",
+        "one dimensional two dimensional Galois hull constacyclic EAQECC",
+        "quaternary constacyclic [10,6,4] hull"
+      ]
+    },
+    "checked_sources": [
+      "Primary full text for DOI 10.3934/amc.2025054",
+      "Publisher metadata and Table 2 rendering",
+      "Public searches for the DOI/title with correction and erratum terminology",
+      "Exact searches for the classical and quantum parameter strings and the printed generator tuple",
+      "Research-record semantic searches for the row, aliases, Galois-hull equivalents, and broader constacyclic coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1 requires \\(g(x)\\mid x^n-\\lambda\\).",
+        "Example 3.7 uses the same \\(\\mathbb F_4\\), \\(n=10\\), and \\(\\lambda=\\omega\\) setting and explicitly factors \\(x^{10}-\\omega\\) before choosing a generator.",
+        "Table 2 later gives the disputed tuple and parameters, while no inspected erratum resolves the conflict."
+      ],
+      "reasoning": "The general theorem directly supplies a necessary condition. Exact nondivisibility therefore contradicts the table row rather than merely failing to reproduce an optional computational invariant.",
+      "searches": [
+        "10.3934/amc.2025054 Theorem 2.1 Table 2",
+        "Study of small Galois hull dimensions Example 3.7 x^10 omega",
+        "10.3934/amc.2025054 erratum correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary Table 2 gives the exact tuple, field size, length, dimension, distance, hull dimension, and EAQECC parameters.",
+        "No inspected public result states that the tuple fails the divisibility condition or supplies the same correction."
+      ],
+      "reasoning": "The searches cover the paper identifier, exact row, polynomial interpretation, classical parameters, and correction wording.",
+      "searches": [
+        "10.3934/amc.2025054 Table 2 [10,6,4] F4 generator (1,omega,1,1,1) correction",
+        "Study of small Galois hull dimensions constacyclic [10,6,4] generator polynomial omega",
+        "constacyclic code length 10 F4 lambda omega generator 1+omega x+x^2+x^3+x^4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact table under dispute is Table 2 of the primary paper, where the first row is explicitly labeled as an optimal constacyclic code.",
+        "No inspected external table supplies the same printed generator together with a corrected parameter set."
+      ],
+      "reasoning": "The claim is about the internal consistency of a named table row, so the exact primary table is the dominant comparison source.",
+      "searches": [
+        "[10,6,4] quaternary constacyclic code table",
+        "[[10,4,4;2]] quaternary EAQECC",
+        "Table 2 optimal constacyclic small Galois hull F4"
+      ]
+    },
+    "rationale": "The primary article presents the row as an optimal constacyclic code and derives an almost-EAQMDS code from it. Focused public and research-record searches using the DOI, title, exact classical and quantum parameters, generator tuple, and erratum terminology found no public correction or prior statement of the divisibility failure.",
+    "residual_risks": [
+      "A non-indexed author correction may exist.",
+      "The tuple may contain a typographical error, in which case a different intended polynomial must be checked separately.",
+      "The auxiliary ordinary shift-span parameters are not asserted to identify the intended constacyclic replacement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTRADICTED_FOR_THE_PRINTED_FIRST_TABLE_ROW",
+        "evidence": "Theorem 2.1 requires divisibility by \\(x^{10}-\\omega\\), while the printed tuple in the first Table 2 row fails exact polynomial division in both coefficient orders.",
+        "identifier_or_url": "DOI:10.3934/amc.2025054",
+        "material_read": "Theorem 2.1 and Galois-inner-product definitions; Example 3.7 over \\(\\mathbb F_4\\) with \\(n=10\\) and \\(\\lambda=\\omega\\); Lemma 4.2; Table 2 including its first row; conclusion and table notation.",
+        "method": "publisher metadata plus lawful public full PDF; relevant PDF pages were visually inspected",
+        "title": "Study of small Galois hull dimensions of constacyclic codes",
+        "trigger": "Primary source for the constacyclic generator criterion, field convention, disputed table row, and EAQECC application."
+      },
+      {
+        "assessment": "SUPPORTS_SOURCE_IDENTITY_AND_ROW",
+        "evidence": "The publisher page dates the article to 6 November 2025, gives primary MSC 94B05, and independently renders the first Table 2 row.",
+        "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/amc.2025054",
+        "material_read": "Early-access and online-publication dates, primary MSC, abstract, and Table 2 first row.",
+        "method": "publisher HTML",
+        "title": "Publisher record for Study of small Galois hull dimensions of constacyclic codes",
+        "trigger": "Publication date, MSC ownership, and independent rendering of the table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "47629799-c0dc-429e-9aa5-ebec82c8565d",
+  "value": {
+    "rationale": "The disputed row is presented as an optimal constacyclic code and is used to advertise an almost-EAQMDS construction. Failure of the generator's defining divisibility condition invalidates that row as printed before any subtle hull computation is reached. The correction materially affects a named quantum-code output, while the exhaustive shift-span check supplies a reproducible diagnostic showing that the displayed coefficients also miss the claimed distance and hull under the most direct linear interpretation.",
+    "status": "PASS"
+  }
+}
