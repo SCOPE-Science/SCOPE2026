@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The only collision pairs are \\(\\{n-1,n\\}\\) for \\(a\\) and \\(\\{1,n\\}\\) for \\(b\\). After the first letter, an image always omits \\(1\\) or \\(n\\), so \\(b\\) cannot reduce rank again. Equality in the spacing lower bound forces \\((ba)^{s-1}\\); an explicit hole induction proves it works through \\(s=\\lceil n/2\\rceil\\), and the saturation pattern proves strict failure at the next deficiency. Exhaustive subset BFS for \\(4\\le n\\le18\\) and replay through \\(n=200\\) corroborate all claimed cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General rank/minimum-rank search results",
+        "arXiv:1005.0129v1",
+        "arXiv:1302.5793v2"
+      ],
+      "reasoning": "Broader results on word rank, synchronization, and subset compression do not imply the exact family-specific profile because a final reset threshold alone leaves all intermediate target-rank distances undetermined.",
+      "searches": [
+        "synchronizing automata intermediate rank compression profile subset rank thresholds Wielandt Cerny bactrian",
+        "Eppstein automata slowly synchronizing rank threshold",
+        "minimum rank word length synchronizing automata exact intermediate ranks",
+        "automaton no permutation letter n^2-3n+2 intermediate rank"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.0129v1",
+      "DOI:10.1007/978-3-642-15155-2_7",
+      "arXiv:1302.5793v2",
+      "DOI:10.1007/s10958-013-1392-8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ananichev–Gusev–Volkov prove reset threshold \\(n^2-3n+2\\)",
+        "The present claim gives exact distances to many higher ranks and a uniqueness assertion"
+      ],
+      "reasoning": "Knowing only the shortest rank-one word length cannot determine shortest words to ranks greater than one, nor their uniqueness. The present claim is therefore not a corollary of the cited reset-threshold theorem.",
+      "searches": [
+        "minimum rank word length synchronizing automata exact intermediate ranks",
+        "Ananichev Gusev Volkov D double prime automaton intermediate rank compression",
+        "automaton no permutation letter n^2-3n+2 intermediate rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1005.0129v1, Section on the D_n colorings",
+        "arXiv:1302.5793v2, Section 4.3 and Figure 8"
+      ],
+      "reasoning": "The inspected same-family sources define the coloring and prove the final reset threshold, but no statement equivalent to the exact initial target-rank function, unique shortest words, or saturation boundary was located.",
+      "searches": [
+        "Ananichev Gusev Volkov D double prime automaton intermediate rank compression",
+        "slowly synchronizing automaton D_n'' rank profile minimum rank word",
+        "D_n double prime initial rank compression lambda 2s-2 unique ba s-1",
+        "Ananichev Gusev Volkov D''_n rank n-s shortest word ba",
+        "D double prime automaton deficiency rank profile ba"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact same-claim published record was returned by the semantic searches",
+        "The same-family primary sources were inspected directly rather than inferred from snippets"
+      ],
+      "reasoning": "Exact-phrase and semantic searches returned unrelated rank results and general synchronizing-automata records, not this theorem. This is evidence of search coverage, not a proof of absence.",
+      "searches": [
+        "D_n double prime initial rank compression lambda 2s-2 unique ba s-1",
+        "Ananichev Gusev Volkov D''_n rank n-s shortest word ba",
+        "D double prime automaton deficiency rank profile ba"
+      ]
+    },
+    "rationale": "The closest primary and extended sources establish the reset threshold of the same family but do not state the inspected intermediate-rank profile. Targeted exact and alias searches did not locate an equivalent theorem. A residual risk remains for older unindexed terminology.",
+    "residual_risks": [
+      "Literature searches cannot establish absolute novelty.",
+      "An older or poorly indexed source may formulate the same profile using different terminology for deficiency or compression."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_INSPECTED_CLAIM",
+        "evidence": "The source states the family and its quadratic reset threshold; no intermediate target-rank profile or unique short compression words were found in the inspected family treatment.",
+        "identifier_or_url": "arXiv:1005.0129v1; DOI:10.1007/978-3-642-15155-2_7",
+        "material_read": "Abstract, bibliographic record, family section, coloring figure/theorem, and reset-threshold proof context.",
+        "method": "Direct full-text inspection.",
+        "title": "Slowly synchronizing automata and digraphs",
+        "trigger": "Original source naming the family and proving its reset threshold."
+      },
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_INSPECTED_CLAIM",
+        "evidence": "The section gives the coloring and reset threshold \\(n^2-3n+2\\), but the inspected statement and proof do not give the initial rank-compression function claimed here.",
+        "identifier_or_url": "arXiv:1302.5793v2; DOI:10.1007/s10958-013-1392-8",
+        "material_read": "Section 4.3, Figure 8, Theorem 6, surrounding proof and extremal-property discussion.",
+        "method": "Direct PDF and extracted-text inspection.",
+        "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+        "trigger": "Extended same-author treatment of the same family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e0ae0699-15a7-4fa4-8a90-3971d64a23c2",
+  "value": {
+    "rationale": "The result identifies a structural phase transition in a classical slowly synchronizing family with no permutation letter: the image can be compressed to deficiency \\(\\lceil n/2\\rceil\\) at the locally minimal linear rate, with unique optimal words, but this pattern stops immediately afterward. This is a natural invariant of the same object, not an arbitrary finite slice or recomputation.",
+    "status": "PASS"
+  }
+}
