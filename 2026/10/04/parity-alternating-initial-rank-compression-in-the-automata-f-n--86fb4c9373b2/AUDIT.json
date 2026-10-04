@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The all-parameter lower bound follows from the unique collision of \\(a\\), idempotence \\(a^2=a\\), and forced separator spacing between effective rank drops. The matching witnesses have explicit missing-state sets proved by induction. Exact power-automaton BFS for every odd \\(5\\le n\\le17\\) and direct witness/hole replay for every odd \\(5\\le n\\le301\\) corroborate all stated cases without being used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper relates reset thresholds to primitive-digraph exponents and proves endpoint reset thresholds, not exact prescribed-rank equalities.",
+        "The closest indexed automata records concerned a finite slow-reset census or Černý avoiding thresholds, not the \\(F_n\\) intermediate-rank profile."
+      ],
+      "reasoning": "A general theorem would dominate the claim even without naming \\(F_n\\). The inspected broader material supplies endpoint bounds, reset-threshold methods, or different invariants; none gives the exact all-odd-\\(n\\) parity profile.",
+      "searches": [
+        "primitive digraph V_n coloring F_n rank profile words of prescribed rank",
+        "minimum length word rank synchronizing automaton rank k",
+        "rank threshold synchronizing automaton"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1302.5793v2",
+      "DOI:10.1007/s10958-013-1392-8",
+      "arXiv:1005.0129v1",
+      "DOI:10.1007/978-3-642-15155-2_7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 7 of arXiv:1302.5793v2 gives the reset threshold \\(n^2-3n+3\\) and reset word \\((ab^{n-2})^{n-2}a\\).",
+        "The new witnesses use short alternating gaps and concern ranks down only to approximately half the state set; the endpoint theorem does not determine these minima.",
+        "The earlier arXiv:1005.0129v1 does not contain the \\(F_n\\) notation in its searchable full text."
+      ],
+      "reasoning": "Knowing the final reset threshold does not determine intermediate rank minima: different compression profiles can share an endpoint. The proof of the new profile uses a local separator constraint absent from the endpoint theorem.",
+      "searches": [
+        "arXiv:1302.5793v2 Section 4.4 Theorem 7",
+        "arXiv:1005.0129v1 related slowly synchronizing families"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1302.5793v2, Section 4.4 defines \\(F_n\\) and Theorem 7 states only reset threshold \\(n^2-3n+3\\).",
+        "Full-text search of arXiv:1302.5793v2 returned no occurrence of the term ‘rank’.",
+        "No exact-claim indexed result matched the parity formulas or the \\(F_n\\) prescribed-rank invariant."
+      ],
+      "reasoning": "Rank-compression threshold, shortest word to image size \\(n-s\\), and deficiency threshold are equivalent descriptions of the same invariant. Neither the inspected same-family source nor the exact-claim searches stated this invariant.",
+      "searches": [
+        "Ananichev Gusev Volkov F_n exact intermediate rank compression profile lambda_n(s) 3s-2 3s-3",
+        "F_n slowly synchronizing automaton shortest word rank n-s odd even deficiency",
+        "F_n synchronizing automaton image rank deficiency shortest word a b^3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source's tables concern distributions of reset thresholds, not \\(\\lambda_n(s)\\) values.",
+        "The exact source-identifier searches returned no record whose statement contains the claimed profile."
+      ],
+      "reasoning": "No exact database/table entry located in the searches tabulates or implies the claimed prescribed-rank values for \\(F_n\\).",
+      "searches": [
+        "arXiv 1302.5793 F_n Ananichev Gusev Volkov",
+        "Primitive digraphs with large exponents and slowly synchronizing automata F_n",
+        "F_n n^2-3n+3 reset threshold rank"
+      ]
+    },
+    "rationale": "The inspected defining source proves only the rank-one reset threshold for \\(F_n\\); it does not state the intermediate prescribed-rank profile. Searches over equivalent terminology, stronger/broader coverage, exact formulas, and the source identifier found no statement that implies the claim.",
+    "residual_risks": [
+      "An unindexed or differently named earlier source could contain the same prescribed-rank profile.",
+      "The literature comparison establishes no located stronger implication, not a formal proof of global bibliographic uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the family definition and reset-threshold endpoint, not the claimed intermediate-rank profile.",
+        "evidence": "Section 4.4 gives the transition maps; Theorem 7 states reset threshold \\(n^2-3n+3\\) and proves it via the \\(V_n\\) digraph. No prescribed-rank threshold is stated.",
+        "identifier_or_url": "arXiv:1302.5793v2; DOI:10.1007/s10958-013-1392-8",
+        "material_read": "Full-text HTML around Section 4.4, Figure 9, Theorem 7, its proof, the surrounding overview, and full-text term searches.",
+        "method": "Statement-and-implication comparison against the complete accessible full text.",
+        "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+        "trigger": "Defines the exact automaton family \\(F_n\\) and is the nearest possible primary coverage."
+      },
+      {
+        "assessment": "Does not state the claimed \\(F_n\\) prescribed-rank profile.",
+        "evidence": "The searchable full text contains no occurrence of \\(F_n\\); it treats related families and reset-length questions.",
+        "identifier_or_url": "arXiv:1005.0129v1; DOI:10.1007/978-3-642-15155-2_7",
+        "material_read": "Open arXiv full text, especially the overview and sections on slowly synchronizing series, plus searches for \\(F_n\\) and the endpoint expression.",
+        "method": "Full-text search followed by statement comparison.",
+        "title": "Slowly synchronizing automata and digraphs",
+        "trigger": "Earlier paper by the same authors could contain an equivalent precursor statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86fb4c93-73b2-468b-a5bf-c66989f458e6",
+  "value": {
+    "rationale": "This is a complete natural initial profile for a classical slowly synchronizing family, not an isolated parameter increment. It exposes a parity-sensitive compression mechanism that the published quadratic reset threshold does not show: one-letter opportunities for effective collision force three-letter recovery before the next such opportunity. Exact prescribed-rank information can be used when comparing slow families before full synchronization and when testing rank-compression heuristics.",
+    "status": "PASS"
+  }
+}
