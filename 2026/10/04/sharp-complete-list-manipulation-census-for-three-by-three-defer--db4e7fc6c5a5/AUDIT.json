@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The verifier exhausts all complete strict profiles for n<=3 and all unilateral complete-list reports. At n=3 it checks 46,656 truthful profiles, uses two independent deferred-acceptance implementations, and separately enumerates all six true matchings whenever manipulation occurs. It reproduces 864 bad profiles, the 648/216 manipulator split, one profitable report per manipulating woman, true stability of every profitable outcome, and 24 symmetry classes by both canonicalization and Burnside counting.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Teo-Sethuraman-Tan derive an optimal single-woman complete-list cheating strategy and report random simulations, including 1000 random instances at size 8.",
+        "Shen-Deng-Tang study arbitrary coalitions and feasible stable outcomes via permutation manipulation.",
+        "Later work explicitly describes single-woman permutation manipulation as a separate algorithmic problem."
+      ],
+      "reasoning": "General algorithms decide or construct manipulations, but they do not imply the exact fraction of all three-by-three truthful profiles, the manipulator multiplicities, or the symmetry-class count without a complete finite classification.",
+      "searches": [
+        "Gale-Shapley Stable Marriage Problem Revisited Strategic Issues Applications PDF complete preferences cheating",
+        "Coalitional Permutation Manipulations Gale-Shapley arXiv 1502.07823",
+        "permutation manipulation Gale Shapley women complete lists"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/3-540-48777-8_32",
+      "doi:10.1287/mnsc.47.9.1252.9784",
+      "arXiv:1502.07823",
+      "doi:10.24963/ijcai.2017/62",
+      "OEIS:A344666"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Teo-Sethuraman-Tan explicitly use simulations to estimate how often cheating pays at larger sizes and call detailed probabilistic analysis beyond their scope.",
+        "Their existence and optimal-cheating theorems do not furnish the exact first-size distribution.",
+        "Shen-Deng-Tang's general coalition results do not state the n=3 one-profitable-report or 24-orbit facts."
+      ],
+      "reasoning": "Prior algorithms can be run on each profile, but the exhaustive incidence and finite structural classification are additional mathematical facts rather than direct restatements of those algorithms.",
+      "searches": [
+        "Teo Sethuraman Tan does it pay to cheat 1000 n=8 stable marriage",
+        "Shen Deng Tang permutation manipulation stable matching true preferences",
+        "single woman optimal cheating strategy Gale-Shapley complete list"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted published-finding corpus searches returned no stable-matching record matching the finite manipulation census.",
+        "Exact-number web searches did not locate the 864-profile or 24-class result.",
+        "Teo-Sethuraman-Tan 1999 studies the same report model but gives an optimal cheating algorithm and simulations rather than the small exact census."
+      ],
+      "reasoning": "The claim was searched by mechanism, side, market size, report restriction, and exact counts. No equivalent statement was found.",
+      "searches": [
+        "stable marriage men proposing deferred acceptance manipulation women three by three exact enumeration",
+        "deferred acceptance women manipulate 3x3 profile exact count",
+        "\"864\" \"Gale-Shapley\" manipulation women",
+        "\"3x3\" \"permutation manipulation\" Gale-Shapley women"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS and later stable-marriage enumeration sources tabulate profiles by number of stable matchings, not by complete-list manipulability.",
+        "No checked table gives the 864 manipulable profiles or their 24 role-preserving classes."
+      ],
+      "reasoning": "The known 46,656-profile census by stable-matching count does not determine which truthful profiles permit a receiver-side permutation manipulation.",
+      "searches": [
+        "\"46656\" stable marriage manipulation",
+        "\"864\" stable marriage manipulation women",
+        "\"24\" stable marriage manipulation women three men three women",
+        "stable marriage 3 men 3 women manipulation enumeration"
+      ]
+    },
+    "rationale": "The closest primary work establishes and algorithmically studies complete-list permutation manipulation but does not state the exact three-by-three boundary census or quotient refinements found here.",
+    "residual_risks": [
+      "An unindexed thesis, course note, code table, or supplementary computation could contain the same three-by-three census.",
+      "The true-stability exhaustion is a finite n=3 statement and must not be generalized to larger markets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly establishes the report model and optimal single-woman manipulation, but the inspected paper reports sampled n=8, n=100, and n=500 experiments rather than an exhaustive n=3 census.",
+        "evidence": "The proceedings volume is Springer LNCS 1610, softcover published 19 May 1999; the paper reports 1000 random n=8 instances in its simulation section.",
+        "identifier_or_url": "doi:10.1007/3-540-48777-8_32",
+        "material_read": "Full 10-page IPCO 1999 extended abstract, including the optimal cheating algorithm, Example 1, the discussion of complete lists versus rejection, strategic equilibria, and the 'Does It Pay To Cheat?' simulation section.",
+        "method": "Author-hosted full PDF with rendered-page inspection.",
+        "title": "Gale-Shapley Stable Marriage Problem Revisited: Strategic Issues and Applications",
+        "trigger": "Primary source for single-woman manipulation by permutations of complete preference lists."
+      },
+      {
+        "assessment": "Provides broader algorithmic and coalition results but no exact three-by-three profile incidence or symmetry census.",
+        "evidence": "First submitted 27 February 2015; arXiv:1502.07823.",
+        "identifier_or_url": "arXiv:1502.07823",
+        "material_read": "ArXiv full text covering the introduction and related work, permutation-manipulation definitions, feasibility/stability discussion, rotation-based results, and the appendix example of an unstable manipulated outcome.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Coalitional Permutation Manipulations in the Gale-Shapley Algorithm",
+        "trigger": "General later treatment of permutation manipulations by arbitrary subsets of women."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db4e7fc6-c5a5-4b85-a2b5-f1aecfdf681f",
+  "value": {
+    "rationale": "The result resolves the first market size at which complete-list receiver manipulation can occur and quantifies exactly how often it occurs. The one-versus-two manipulator split, unique profitable report, stability of every profitable outcome at the boundary, and exact symmetry quotient give a compact structural classification of a canonical deferred-acceptance incentive problem.",
+    "status": "PASS"
+  }
+}
