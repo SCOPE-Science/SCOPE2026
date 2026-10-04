@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The exact nuisance prior produces an averaged Helstrom difference with spectrum \\(\\{-\\sqrt{2114}/104,0,0,\\sqrt{2114}/104\\}\\), yielding the upper bound. The explicit kernel-corrected observable has spectrum \\(\\{-1,-4/39,4/39,1\\}\\), hence defines a POVM, and its success profile differs from the claimed value by \\(\\frac{\\sqrt{2114}}{219856}(1-\\cos\\theta)(2\\cos\\theta-1)(246\\cos\\theta+713)\\), nonnegative on the full interval. The packaged checker replays the finite algebraic identities and dense profile agreement; the continuum step rests on the exact factorization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:quant-ph/0504048, Sec. II: its minimax objective maximizes the smaller label-conditioned correct-detection probability when label priors are unknown.",
+        "DiMario and Becerra, Phys. Rev. Lett. 121, 023603 (2018): robustness is studied for coherent-state receivers under experimental imperfections, not a finite-dimensional common-unitary nuisance orbit."
+      ],
+      "reasoning": "The 2005 theorem is broader in Hilbert-space dimension but addresses a different uncertainty variable, and the coherent-state work addresses a different state family and robustness model. Neither implication contains the continuous nuisance-interval benchmark solved here.",
+      "searches": [
+        "minimax quantum state discrimination nuisance parameter unitary rotation binary pure states",
+        "D'Ariano Sacchi Kahn minimax quantum state discrimination binary pure states",
+        "robust measurement binary coherent states imperfections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.04020v1",
+      "arXiv:quant-ph/0504048",
+      "doi:10.1103/PhysRevLett.121.023603",
+      "Helstrom, Quantum Detection and Estimation Theory (1976)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.04020v1 proves minimax/LFP duality abstractly but leaves concrete continuous-parameter optimization to future algorithmic development.",
+        "arXiv:quant-ph/0504048 gives a Bayes/minimax connection for unknown label priors but contains no common-unitary nuisance interval or three-copy benchmark."
+      ],
+      "reasoning": "General minimax duality explains why a least-favorable prior can certify an optimum but does not determine this prior, the radical value, or the factorized success profile. Those benchmark-specific quantities require the new calculation.",
+      "searches": [
+        "least favorable prior quantum state discrimination nuisance parameter common unitary binary pure states",
+        "continuous parameter robust quantum discrimination common unitary finite grid limitation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.04020v1, Sec. IV.2 and Table 1: the same three-copy qubit model is solved numerically on a 41-point optimization grid and evaluated on a 401-point grid, with global worst-case value 0.72.",
+        "arXiv:2609.04020v1, Sec. V.4: the authors state that the finite-grid SDP solves the discretized minimax problem rather than the continuous problem directly."
+      ],
+      "reasoning": "The source's object and parameters match exactly, but its statement is a rounded grid computation. The new statement is the exact continuous optimum with an analytic certificate, so it is not equivalent to a theorem already stated there.",
+      "searches": [
+        "binary qubit discrimination common unknown rotation continuous minimax three copies alpha pi/4 theta pi/3 exact 0.72",
+        "robust quantum state discrimination unknown rotation Helstrom minimax nuisance parameter",
+        "arXiv:2609.04020 exact binary qubit minimax continuous"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2609.04020v1, Table 1 lists the global collective worst-case value as 0.72 on both optimization and evaluation grids.",
+        "No searched result provided the exact radical value or the weights 5/13, 3/13, 5/13."
+      ],
+      "reasoning": "The exact value sharpens, rather than recomputes, a known rounded numerical table entry by proving it for the full continuum and identifying an exact dual certificate.",
+      "searches": [
+        "arXiv:2609.04020 Table 1 binary qubit 0.72",
+        "three-copy robust qubit 0.721049306395627 least favorable prior"
+      ]
+    },
+    "rationale": "The primary source reports only the rounded finite-grid value 0.72 for this benchmark and explicitly notes that its SDP solves a discretized nuisance problem. It does not give the exact constant, the exact three-point least-favorable prior, or a closed-form continuum certificate. The closest older minimax paper optimizes over unknown state-label priors, a different minimax variable.",
+    "residual_risks": [
+      "An equivalent semi-infinite binary detection calculation could exist in older robust-control, covariant-detection, or reference-frame literature under terminology not surfaced by the targeted searches.",
+      "The finding is benchmark-specific; no originality claim is made for a general arbitrary-parameter formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the accepted exact claim: the paper reports 0.72 numerically on finite grids and does not state the exact continuous optimum or exact least-favorable prior.",
+        "evidence": "The binary model uses alpha=pi/4, theta_max=pi/3, n=3, equal priors; Table 1 reports 0.72, while Sec. V.4 explicitly distinguishes the discretized SDP from the continuous problem.",
+        "identifier_or_url": "arXiv:2609.04020v1",
+        "material_read": "Full arXiv HTML: problem formulation, minimax/LFP theorem, Sec. IV.2 binary model, Table 1, limitations in Sec. V.4, Appendix A SDP duality, and reference list.",
+        "method": "Direct full-text inspection.",
+        "title": "Robust multi-hypothesis quantum-state discrimination under unknown common unitary perturbations via least favorable priors",
+        "trigger": "Exact same object and benchmark parameters."
+      },
+      {
+        "assessment": "NOT_COVERING: its adversarial variable is the unknown label prior / label-conditioned risk, not a common external unitary nuisance parameter with fixed label prior.",
+        "evidence": "Its Eq. (3)-(4) minimizes the maximum of the two state-conditioned errors; no nuisance orbit or continuous common rotation appears in the binary theorem.",
+        "identifier_or_url": "arXiv:quant-ph/0504048",
+        "material_read": "ArXiv full text through Secs. I-II and the binary minimax theorems, including the Bayes/minimax relation.",
+        "method": "Direct full-text inspection.",
+        "title": "Minimax quantum state discrimination",
+        "trigger": "Closest general binary minimax state-discrimination theorem cited by the source."
+      },
+      {
+        "assessment": "NOT_COVERING: coherent optical states and receiver imperfections differ from the three-copy qubit common-rotation nuisance family.",
+        "evidence": "The prior work optimizes a photon-number-resolving receiver for robustness to experimental noise and imperfections.",
+        "identifier_or_url": "doi:10.1103/PhysRevLett.121.023603",
+        "material_read": "Abstract and bibliographic description.",
+        "method": "Publisher/PubMed inspection.",
+        "title": "Robust measurement for the discrimination of binary coherent states",
+        "trigger": "The 2026 source cites it as prior robust binary discrimination work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4c045020-d029-4613-90bc-1e7e01c33b51",
+  "value": {
+    "rationale": "The source uses this binary model as its first concrete demonstration and reports only a rounded finite-grid optimum while flagging continuous nuisance optimization as a limitation. An exact continuous value, exact three-point dual prior, and explicit all-theta optimal profile turn that numerical illustration into a sharp benchmark and provide a reusable certificate for validating future continuous-parameter methods.",
+    "status": "PASS"
+  }
+}
