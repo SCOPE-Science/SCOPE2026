@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The nonlinear pre-threshold trajectory is solved exactly; the first strict threshold crossing yields the displayed floor formula. The candidate fixed point is verified by direct projection and shrinkage. In the identified cell, the exact error matrix is a scaled rotation with M^T M=(a^2/(1+a^2))I. The onset error is strictly within an invariant ball contained in the cell under gamma>=b/(1-a), proving permanence and the exact all-step norm law. The embedded checker replays the original nonlinear map on representative cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Demanet--Zhang gives eventual linear convergence with the principal-angle rate for basis pursuit.",
+        "Liang et al. gives general finite manifold identification and local linear convergence for partly smooth objectives.",
+        "Later forward--Douglas--Rachford literature gives identification bounds under different assumptions for a different splitting scheme."
+      ],
+      "reasoning": "The broader theorems guarantee or bound identification in other levels of generality but do not imply the exact floor formula for this nonlinear DR trajectory, nor the exact invariant-cell Euclidean norm identity.",
+      "searches": [
+        "arXiv:1301.0542 Sections 1.1-1.2 basis pursuit Douglas-Rachford algorithm transient regime principal angle",
+        "arXiv:1412.6858 Theorem 3.1 finite activity identification Douglas-Rachford partial smoothness",
+        "web: Forward-Douglas-Rachford bound number of iterations identification Proposition 5.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1301.0542",
+      "arXiv:1412.6858",
+      "DOI 10.1090/mcom/2965",
+      "DOI 10.1007/s10957-019-01524-9",
+      "published-finding index",
+      "targeted web literature search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source expressly leaves the transient uncharacterized, even while identifying the eventual principal-angle slope.",
+        "The finite-identification theorem says only that the active manifolds are identified for all sufficiently large k.",
+        "Neither inspected source provides a quantitative formula depending on gamma, b, and a for the first permanently identified iterate."
+      ],
+      "reasoning": "Obtaining the claim requires solving the pre-threshold nonlinear trajectory, locating the strict threshold crossing, and proving post-crossing cell invariance. Those steps are not consequences stated by the inspected prior theorems.",
+      "searches": [
+        "Demanet--Zhang arXiv:1301.0542 algorithm (1.3), Definition 1.1, Theorem 1.2",
+        "Liang--Fadili--Peyre--Luke arXiv:1412.6858 Theorem 3.1 and proof",
+        "web: Douglas-Rachford basis pursuit transient regime gamma"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Demanet--Zhang arXiv:1301.0542 states that no attempt is made to characterize the transient regime before linear convergence.",
+        "Liang--Fadili--Peyre--Luke arXiv:1412.6858 proves finite activity identification but states the time only as sufficiently large k.",
+        "Targeted published-finding searches returned no basis-pursuit record with the same exact floor-law onset index."
+      ],
+      "reasoning": "The claim was searched as an exact threshold-crossing law, a quantitative support-identification time, and a transient-length dependence on the soft threshold. The closest sources establish eventual/finite identification without the displayed exact two-variable onset formula.",
+      "searches": [
+        "basis pursuit Douglas-Rachford zero initialization soft threshold gamma transient identification delay exact iterations 1x2",
+        "Douglas-Rachford basis pursuit transient length proportional threshold gamma support identification",
+        "Demanet Zhang basis pursuit transient regime soft threshold parameter gamma identification time",
+        "finite activity identification Douglas-Rachford l1 basis pursuit quantitative iteration bound threshold",
+        "web: Douglas-Rachford basis pursuit finite identification support gamma initialization",
+        "web: Douglas-Rachford soft-thresholding support identification iteration count l1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No implication-equivalent published-finding record was returned.",
+        "Nearest semantic hits concerned unrelated transient laws in other numerical methods or other splitting algorithms."
+      ],
+      "reasoning": "This is not a tabulated invariant; the index check was used to detect an already-published exact onset formula or a stronger result that directly specializes to it.",
+      "searches": [
+        "published-finding index: basis pursuit Douglas-Rachford zero initialization soft threshold gamma transient identification delay exact iterations 1x2",
+        "published-finding index: Douglas-Rachford basis pursuit transient length proportional threshold gamma support identification",
+        "published-finding index: finite activity identification Douglas-Rachford l1 basis pursuit quantitative iteration bound threshold"
+      ]
+    },
+    "rationale": "The primary basis-pursuit paper explicitly omits transient characterization, while the closest general finite-identification theorem is qualitative in the identification time. Targeted published-finding and literature searches found no implication-equivalent exact gamma-dependent onset formula. Residual risk remains for later or differently phrased treatments.",
+    "residual_risks": [
+      "A later paper, thesis, lecture note, or code commentary may have solved the same two-variable recurrence without using the same terminology.",
+      "The later forward--Douglas--Rachford identification-bound paper was identified through search-visible material rather than exhaustively inspected in full text, so it remains a low-level comparison risk; its algorithm is different.",
+      "The sufficient threshold condition is not claimed sharp, avoiding any unsupported novelty claim about the full parameter partition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The paper supplies the iteration and eventual rate, but explicitly says it makes no attempt to characterize the transient regime preceding linear convergence.",
+        "identifier_or_url": "arXiv:1301.0542",
+        "material_read": "arXiv HTML full text: abstract; Sections 1.1-1.5, including equations (1.2)-(1.6), Definition 1.1, Theorem 1.2, and the explicit statement that the transient regime is not characterized.",
+        "method": "Direct full-text inspection of the arXiv HTML version.",
+        "title": "Eventual linear convergence of the Douglas Rachford iteration for basis pursuit",
+        "trigger": "Primary source for the exact Douglas--Rachford basis-pursuit map and its eventual principal-angle rate."
+      },
+      {
+        "assessment": "BROADER_QUALITATIVE_NOT_COVERING_EXACT_TIME",
+        "evidence": "Theorem 3.1 proves finite activity identification for all sufficiently large k under nondegeneracy, but gives no exact identification index for this basis-pursuit trajectory.",
+        "identifier_or_url": "arXiv:1412.6858",
+        "material_read": "arXiv HTML full text: Introduction and Section 3 through Theorem 3.1, its proof, and Remark 3.2.",
+        "method": "Direct full-text inspection of the arXiv HTML version.",
+        "title": "Activity Identification and Local Linear Convergence of Douglas--Rachford/ADMM under Partial Smoothness",
+        "trigger": "Closest general result on finite support/manifold identification for Douglas--Rachford."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_ALGORITHM",
+        "evidence": "The located bound concerns forward--Douglas--Rachford under additional assumptions, not the standard basis-pursuit DR map analyzed here.",
+        "identifier_or_url": "JOTA 2019, DOI 10.1007/s10957-019-01524-9",
+        "material_read": "Search-visible proposition summary describing an identification bound for forward--Douglas--Rachford.",
+        "method": "Targeted literature search; no claim of whole-document exclusion.",
+        "title": "Convergence Rates of Forward--Douglas--Rachford Splitting Method",
+        "trigger": "Search result indicating a later bound on the number of iterations to identification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b610d2f-2864-45b9-9d63-15f46499b2d3",
+  "value": {
+    "rationale": "The result quantifies a mathematically motivated gap between finite activity identification and asymptotic rate analysis: the eventual principal-angle factor stays fixed while the exact transient grows linearly with the soft-threshold scale. This gives a sharp finite-horizon calibration example for a canonical splitting method rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

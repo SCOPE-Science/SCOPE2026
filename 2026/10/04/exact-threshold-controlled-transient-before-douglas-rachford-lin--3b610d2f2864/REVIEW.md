@@ -1,0 +1,15 @@
+# Same-model review
+
+## Correctness
+PASS. Before the first active threshold, the exact nonlinear Douglas--Rachford map keeps \(y^k\) on the sensing-row direction and yields \(R(y^k)=((k+2)b/(1+a^2))(1,a)^\top\). This gives the stated first crossing index. Under \(\gamma\ge b/(1-a)\), the second coordinate has not crossed when the first activates. The candidate fixed point projects to \((b,0)\) and shrinks back to that point. Inside the correct sign/support cell, the exact error matrix satisfies \(M^\top M=(a^2/(1+a^2))I\). The onset error is strictly smaller than \(b\), while the fixed reflected point has at least that much margin to every relevant cell boundary under the stated threshold condition, proving invariance and the exact all-step norm law. The checker independently iterates the original nonlinear map on representative parameters and returns `VERIFY_OK`.
+
+## Originality
+PASS with a residual literature risk. Demanet--Zhang explicitly state that they do not characterize the transient regime preceding their eventual linear convergence theorem; their full text gives the same basis-pursuit Douglas--Rachford map and the eventual principal-angle rate, but not an exact identification index. Liang--Fadili--Peyre--Luke prove finite activity identification under partial smoothness and nondegeneracy, but their theorem asserts only that identification occurs for all sufficiently large indices. Targeted published-finding and web searches for quantitative Douglas--Rachford support-identification time, soft-threshold dependence, and this two-variable model located no implication-equivalent formula. Later forward--Douglas--Rachford work gives bounds under different hypotheses and for a different algorithm, not this exact basis-pursuit onset law.
+
+## Value
+PASS. The result isolates a concrete limitation of asymptotic rate descriptions: on a natural basis-pursuit model, the eventual factor is completely independent of \(\gamma\), yet the exact time before that regime grows on the order of \(\gamma/b\). This directly quantifies a transient that the primary source leaves open and provides a reproducible calibration example for choosing soft-threshold parameters when finite iteration count matters. The claim is exact, structurally motivated by finite activity identification, and not a mere recomputation of the eventual rate.
+
+## Closest literature and limitations
+The closest primary literature is Demanet--Zhang's basis-pursuit analysis and Liang--Fadili--Peyre--Luke's finite activity-identification theorem. The former supplies the algorithm and eventual rate while explicitly omitting transient characterization; the latter supplies qualitative finite identification at much greater generality. The present claim is deliberately narrow: two variables, one affine constraint, zero initialization, and a sufficient large-threshold regime. The sharp boundary for permanent identification at smaller thresholds remains open here.
+
+Same-model review: passed. Independent audit: not yet performed.
