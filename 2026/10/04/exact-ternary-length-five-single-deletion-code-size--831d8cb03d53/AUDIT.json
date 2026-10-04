@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The explicit 24-word code has pairwise disjoint distinct deletion shadows. The 81 rational output weights encoded with denominator 14 have numerator sum 348, and exhaustive integer replay verifies every one of the 243 input words has deletion-shadow numerator weight at least 14. Therefore any code has size at most floor(348/14)=24, matching the construction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1211.3128 gives a general q-ary single-deletion upper bound and a numerical fractional-matching table, but its \\(q=3,n=5\\) row lists upper 24 and lower 17 rather than exactness.",
+        "The published \\(q=5,n=4\\) exact result is parameter-specific and does not specialize or reduce to \\(q=3,n=5\\)."
+      ],
+      "reasoning": "Known broader bounds dominate only the upper side; they do not supply a size-24 ternary length-five construction or an implication to exactness.",
+      "searches": [
+        "q=3 n=5 single deletion code maximum",
+        "optimal ternary deletion code length five size 24",
+        "Tenengolts ternary n=5 optimal code 24"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1211.3128",
+      "published-finding corpus:2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+      "DOI:10.1109/CIT.2012.137 (abstract/bibliographic material)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The quinary published-finding corpus record proves \\(N(4,5,1)=42\\) and mentions \\(q=4\\) as a sanity check; it contains no \\(q=3,n=5\\) theorem.",
+        "Li–Houghten 2012 is bibliographically verified and its abstract concerns experiments and extensions of nonbinary Tenengolts codes; full-text inspection was not established."
+      ],
+      "reasoning": "Neither inspected exact result implies the ternary length-five equality. The inaccessible conference paper is retained as a residual risk rather than treated as non-covering.",
+      "searches": [
+        "exact quinary length-four single-deletion code size published-finding corpus",
+        "Searching for Optimal Deletion Correcting Codes Li Houghten q=3 length 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no exact \\(q=3,n=5\\) deletion-code record; the closest exact deletion result was the different \\(q=5,n=4\\) record.",
+        "Kulkarni–Kiyavash define the same problem as maximum hypergraph matching on distinct deletion shadows."
+      ],
+      "reasoning": "The standard aliases—single-deletion code, insertion-deletion formulation, and deletion-shadow hypergraph matching—were searched directly; no indexed statement equivalent to \\(N(5,3,1)=24\\) was found.",
+      "searches": [
+        "ternary length five single deletion correcting code exact 24",
+        "N(5,3,1) deletion code 24",
+        "ternary single deletion hypergraph matching 24 length 5",
+        "single insertion deletion metric ternary length five 24"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table I(b) of arXiv:1211.3128 gives \\(n=5\\): general bound 30, rounded LP-UB 24, and Tenengolts size 17.",
+        "The table text states that for q>2 the listed lower values are the largest Tenengolts-family codes known to the authors."
+      ],
+      "reasoning": "The exact parameter was inspected in the primary table. The number 24 was already an upper bound there, but the exact equality and size-24 witness were not present.",
+      "searches": [
+        "q=3 n=5 deletion correcting code",
+        "Kulkarni Kiyavash Table I q=3 n=5 LP-UB Tenengolts"
+      ]
+    },
+    "rationale": "Statement-level comparison found a published exact-parameter upper-bound row but no prior exact value: Kulkarni–Kiyavash list rounded LP upper bound 24 and best Tenengolts construction 17 for \\(q=3,n=5\\). published-finding corpus and web searches found no indexed theorem giving a 24-word construction or exact optimum. A computational 2012 Tenengolts-extension paper remains an explicit access residual risk.",
+    "residual_risks": [
+      "The full text of Li–Houghten (CIT 2012) was not available for inspection and could contain an unindexed small-parameter computation.",
+      "An older insertion-deletion or edit-metric table may encode the same fixed-length optimum under different notation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_COVERING: establishes a rounded fractional upper bound 24 for \\(q=3,n=5\\) but lists only a size-17 Tenengolts construction, so it does not state exactness.",
+        "evidence": [
+          "Table I(b), \\(n=5,q=3\\): general bound 30, LP-UB 24, Tenengolts 17.",
+          "The surrounding text describes LP-UB as a fractional matching upper bound and the Tenengolts column as the best known code family for q>2."
+        ],
+        "identifier_or_url": "arXiv:1211.3128",
+        "material_read": "Abstract, introduction, single-deletion definitions, hypergraph/LP formulation, Table I(b), and discussion around the table.",
+        "method": "Primary arXiv PDF text plus page-image inspection of the table.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Same deletion channel, same \\(q=3,n=5\\) parameter, and a published numerical upper-bound table."
+      },
+      {
+        "assessment": "NOT_COVERING: proves \\(q=5,n=4\\) only; the \\(q=3,n=5\\) parameter is not a corollary.",
+        "evidence": [
+          "Its theorem is \\(N(4,5,1)=42\\).",
+          "Its \\(q=4\\) computation is only a separate sanity check and no ternary length-five statement appears."
+        ],
+        "identifier_or_url": "published-finding corpus:2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+        "material_read": "Full RESULT.md including definition, witness, integer-program upper bound, literature context, limitations, and references.",
+        "method": "Published repository full-text inspection.",
+        "title": "Exact quinary length-four single-deletion code size",
+        "trigger": "Closest indexed exact single-deletion finite-parameter result returned by published-finding corpus."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK: the abstract reports computational experiments and extensions but is insufficient to determine whether \\(q=3,n=5\\) size 24 was observed.",
+        "evidence": [
+          "The abstract says the work examines parameter choices and extensions of nonbinary Tenengolts codes and supports hypotheses by experiments."
+        ],
+        "identifier_or_url": "DOI:10.1109/CIT.2012.137",
+        "material_read": "Bibliographic record and abstract only; full text was not available in the inspected sources.",
+        "method": "Bibliographic/abstract inspection.",
+        "title": "Searching for Optimal Deletion Correcting Codes: New Properties and Extensions of Tenengolts Codes",
+        "trigger": "Plausible computational source on nonbinary Tenengolts codes from the same period."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "831d8cb0-3d53-4d0b-84f1-c1612241237b",
+  "value": {
+    "rationale": "The \\(q=3,n=5\\) row is a natural small-alphabet synchronization-code parameter explicitly exhibiting a gap in the primary 2012 table: upper 24 versus listed construction 17. The exact value closes that recorded gap, and the compact rational dual certificate gives a reusable finite proof rather than a solver log.",
+    "status": "PASS"
+  }
+}
