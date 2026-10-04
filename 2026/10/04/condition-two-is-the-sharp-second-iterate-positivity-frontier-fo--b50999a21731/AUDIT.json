@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Residual orthogonality yields exact two-by-two normal equations for the second MINRES iterate. Moment expansions prove that the affine solution-polynomial zero is a positive weighted average of pairwise spectral sums, hence at least twice the smallest eigenvalue. The Stieltjes sign pattern then proves the universal condition-number-two bound. The diagonal three-mode family proves sharpness for every larger condition number, and two-dimensional exact termination proves minimality. The embedded exact-rational checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Choi--Paige--Saunders review MINRES as residual minimization over each Krylov subspace and develop the Lanczos/QR implementation.",
+        "Fong--Saunders prove monotonicity of MINRES solution norms, error norms, residuals, and backward errors on positive definite systems.",
+        "Liu--Roosta develop further monotonicity and negative-curvature properties of MINRES and explicitly write the Krylov residual-minimization problem.",
+        "Embree et al. place residual-minimizing short-recurrence Krylov methods, including MINRES in the article keywords, under primary MSC 65F10."
+      ],
+      "reasoning": "These sources establish the method, its residual-minimizing definition, and norm-level monotonicity. None of those properties implies coordinatewise positivity in a fixed basis, which depends on the Stieltjes sign pattern and the low-degree polynomial coefficients.",
+      "searches": [
+        "MINRES-QLP Optimization Online 2569 full text",
+        "CG Versus MINRES empirical comparison 2012",
+        "MINRES From Negative Curvature Detection to Monotonicity Properties arXiv 2206.05732",
+        "Short-Term Recurrence Krylov Subspace Methods for Nearly Hermitian Matrices 65F10"
+      ]
+    },
+    "checked_sources": [
+      "OptimizationOnline:2569",
+      "DOI:10.1137/100787921",
+      "DOI:10.24200/squjs.vol17iss1pp44-62",
+      "arXiv:2206.05732",
+      "DOI:10.1137/21M143666X",
+      "DOI:10.1137/110851006",
+      "Published-record semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The MINRES-QLP full text states x_k is chosen to minimize residual norm over K_k(A,b); full-text searches found no Stieltjes, M-matrix, or orthant terminology.",
+        "The Liu--Roosta full text likewise gives the MINRES residual-minimization problem and extensive monotonicity theory; searches found no Stieltjes, M-matrix, nonnegative, or orthant statement.",
+        "The Fong--Saunders abstract proves norm monotonicity but not coordinatewise positivity. The open PDF route returned HTTP 403 and a subsequent authorized institutional retrieval attempt found no verified PDF."
+      ],
+      "reasoning": "Known norm monotonicity neither entails nor rules out individual coordinate sign changes. The new proof adds a basis-sensitive Stieltjes argument and an exact second-degree moment identity; no inspected prior statement dominates it.",
+      "searches": [
+        "Optimization Online MINRES-QLP full text positive Stieltjes M-matrix orthant",
+        "arXiv:2206.05732 full text Stieltjes orthant nonnegative M-matrix",
+        "CG Versus MINRES full text access",
+        "Oxford institutional retrieval DOI:10.24200/squjs.vol17iss1pp44-62"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-record semantic-search hit states the second-iterate condition-number-two orthant frontier or the pairwise spectral-sum formula.",
+        "Direct web searches under Stieltjes, M-matrix, nonnegative, and orthant terminology did not locate a matching MINRES theorem.",
+        "The closest published published-record semantic-search hit is a Euclidean-error barrier for symmetric GMRES(1), which concerns a different norm quantity and restarted one-step method."
+      ],
+      "reasoning": "The claim can be phrased as positivity of the affine second-step solution polynomial, orthant preservation of MINRES, or a conjugate-residual sign theorem on Stieltjes matrices. Searches covered those aliases and found no statement implying the accepted result.",
+      "searches": [
+        "MINRES Stieltjes matrix nonnegative right hand side negative iterate positivity",
+        "minimum residual SPD positive orthant second iterate condition number",
+        "MINRES exact line search M-matrix positivity second iterate",
+        "conjugate residual Stieltjes positivity second iterate",
+        "MINRES condition number 2 positivity Stieltjes second iterate",
+        "Web: \"MINRES\" Stieltjes matrix positivity nonnegative iterates",
+        "Web: \"minimum residual\" \"M-matrix\" positivity iterative method",
+        "Web: \"MINRES\" positive orthant linear system"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked database result or exact-constant search supplied the threshold kappa=2 for coordinatewise MINRES positivity.",
+        "No checked source tabulated the explicit witness x^(2)=(22/25,109/200,-1/80) or the all-kappa threshold formula."
+      ],
+      "reasoning": "Because the constant two and the second iteration are natural small parameters, direct exact searches were performed. The checked results concerned convergence, monotonicity, or other Krylov methods rather than this sign invariant.",
+      "searches": [
+        "minimum residual second iterate Stieltjes matrix condition number two",
+        "MINRES positive orthant M-matrix second Krylov iterate",
+        "Web: \"MINRES\" \"M-matrix\"",
+        "Web: \"MINRES\" \"Stieltjes matrix\"",
+        "Web: \"condition number\" 2 MINRES positivity"
+      ]
+    },
+    "rationale": "Classical MINRES construction and known norm-monotonicity results are explicitly treated as prior work. The accepted statement is coordinatewise: the second-iterate Stieltjes frontier at condition number two, its pairwise spectral-barycenter mechanism, the matching all-kappa obstruction family, and the minimal-dimension result. Published-record semantic and primary-literature searches under equivalent terminology found no implication-equivalent statement.",
+    "residual_risks": [
+      "Older conjugate-residual or monotone-iteration literature may state an equivalent low-degree Stieltjes sign criterion under terminology not found in the searches.",
+      "The Fong--Saunders full text could not be recovered in this run; only its public abstract was inspected, so no whole-document noncoverage conclusion is drawn.",
+      "The theorem classifies only the first two unpreconditioned MINRES iterates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the classical MINRES construction and residual-minimization definition; the inspected full text does not state the Stieltjes coordinatewise positivity theorem.",
+        "evidence": "Section 3 writes MINRES as minimizing the residual over the current Krylov subspace; targeted searches found no Stieltjes, M-matrix, or orthant occurrences.",
+        "identifier_or_url": "OptimizationOnline:2569; DOI:10.1137/100787921",
+        "material_read": "Full open PDF, especially introduction, Lanczos process, Section 3 MINRES residual minimization, and exact-arithmetic Krylov definitions; targeted full-text searches for positive, Stieltjes, M-matrix, nonnegative, and orthant terminology.",
+        "method": "Lawful Optimization Online PDF inspection with page screenshot and text search.",
+        "title": "MINRES-QLP: A Krylov Subspace Method for Indefinite or Singular Symmetric Systems",
+        "trigger": "Direct full-text source reviewing the exact MINRES Krylov minimization used in the proof."
+      },
+      {
+        "assessment": "COVERS norm/objective monotonicity and negative-curvature properties; the inspected full text contains no matching Stieltjes or coordinatewise positivity result.",
+        "evidence": "The paper states x_k minimizes residual norm over K_k(A,b) and lists several monotonicity properties, but targeted full-text searches found no Stieltjes, orthant, nonnegative, or M-matrix terms.",
+        "identifier_or_url": "arXiv:2206.05732; DOI:10.1137/21M143666X",
+        "material_read": "Open arXiv full text, including introduction, stated contributions, MINRES review, and residual-minimization formulation; targeted searches for Stieltjes, orthant, nonnegative, and M-matrix.",
+        "method": "Lawful arXiv PDF inspection with page screenshot and text search.",
+        "title": "MINRES: From Negative Curvature Detection to Monotonicity Properties",
+        "trigger": "Most relevant modern primary source explicitly focused on structural monotonicity properties of MINRES and verifying primary MSC 65F10."
+      },
+      {
+        "assessment": "COVERS norm-level monotonicity of MINRES on positive definite systems. Whole-document noncoverage is not claimed because full text was not recovered.",
+        "evidence": "The abstract explicitly states monotone solution norms, error norms, residuals, and backward errors; it does not mention coordinatewise positivity.",
+        "identifier_or_url": "DOI:10.24200/squjs.vol17iss1pp44-62",
+        "material_read": "Journal and DOAJ abstracts stating monotonicity of solution norms, Euclidean and energy errors, residuals, and backward errors.",
+        "method": "Open journal abstract inspection; the journal PDF route returned HTTP 403, then authorized institutional retrieval was attempted and returned no verified PDF.",
+        "title": "CG Versus MINRES: An Empirical Comparison",
+        "trigger": "Closest archive-era source on behavior of early MINRES iterates for positive definite systems."
+      },
+      {
+        "assessment": "ESTABLISHES primary MSC 65F10 for the relevant numerical-linear-algebra method family; it does not address the accepted Stieltjes positivity theorem in the inspected material.",
+        "evidence": "The publisher lists 65F10 first and includes MINRES among the article keywords; published online June 5, 2012.",
+        "identifier_or_url": "DOI:10.1137/110851006",
+        "material_read": "Publisher abstract, keywords, MSC metadata, publication history, and references.",
+        "method": "SIAM publisher HTML inspection.",
+        "title": "Short-Term Recurrence Krylov Subspace Methods for Nearly Hermitian Matrices",
+        "trigger": "Archive-era primary-MSC ownership check for residual-minimizing short-recurrence Krylov methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b50999a2-1731-4bf4-8869-6b2c4fcc7fe7",
+  "value": {
+    "rationale": "MINRES is explicitly advocated for early termination on positive definite systems because of favorable norm monotonicity. Stieltjes systems have nonnegative exact solutions, so a negative early coordinate is a genuine qualitative defect not detected by norm monotonicity. The theorem gives a sharp robust conditioning threshold, an explanatory pairwise spectral-barycenter formula, and the minimal dimension of failure.",
+    "status": "PASS"
+  }
+}
