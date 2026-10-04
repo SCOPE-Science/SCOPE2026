@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the coupling in quantile coordinates for atomless states, verifies strict monotonicity, obtains the exact pre-map W_1 cancellation, applies the derivative bound on T, and uses a contraction mapping for the fixed quantile. The two-sided equilibrium constants follow by solving the same fixed-point increment inequality on both sides before cellwise integration. Ordered particle ranks are exactly i/N under the lower-rank convention, and the transient estimate follows from a one-step cellwise W_1 inequality and a geometric recurrence. Bi-Lipschitz resource quantiles make the fixed quantile bi-Lipschitz, justifying absolute continuity. No numerical or partial-enumeration evidence is used as a substitute for an infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tanzi, DOI 10.1007/s40574-023-00350-2, reviews self-consistent transfer operators and thermodynamic-limit questions but no resource-quantile finite-size theorem was located.",
+        "Standard one-dimensional optimal-transport references cover monotone rearrangement and displacement interpolation, not the self-consistent dissipative equilibrium and particle-error theorem."
+      ],
+      "reasoning": "The broader STO framework does not dominate the present statement because it lacks the specific resource-targeted quantile recursion and the exact scale e_N(rho). General optimal-transport facts are used as tools, not as stronger coverage of the dynamical conclusion.",
+      "searches": [
+        "self-consistent transfer operators arbitrary resource distribution thermodynamic limit",
+        "mean-field coupled systems self-consistent transfer operators review quantile resource Wasserstein",
+        "arbitrary target measure self-consistent transfer operator quantile"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28664v1 — full primary text inspected in the relevant sections.",
+      "doi:10.1007/s40574-023-00350-2 — review inspected for broader coverage.",
+      "Villani, Optimal Transport: Old and New (2009) — standard background reference cited for monotone transport; not treated as a novelty source.",
+      "Santambrogio, Optimal Transport for Applied Mathematicians (2015) — standard background reference cited for quantiles and displacement interpolation; not treated as a novelty source."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.28664v1 proves the homogeneous quantile update Q -> T((1-epsilon)Q+epsilon u), homogeneous contraction, and a finite-particle equilibrium lower bound tau epsilon/(2N).",
+        "The present proof solves the lower fixed-point increment inequality Delta Q >= tau[(1-epsilon)Delta Q+epsilon Delta R], giving the additional denominator 1-tau(1-epsilon), and integrates against arbitrary resource quantile cells.",
+        "The current result also gives the transient error recursion with forcing L epsilon e_N(rho), whereas the source forcing is specialized to the uniform-grid value 1/(2N)."
+      ],
+      "reasoning": "The source supplies essential ingredients but its statements do not imply the arbitrary-resource theorem as a corollary without a new definition and proof. Even after specializing the new theorem back to uniform resources, its lower equilibrium constant is strictly stronger than the source statement, so it is not merely a rephrasing of that theorem.",
+      "searches": [
+        "arXiv:2609.28664 quantile fixed point finite particle Theorem 4.3 Lemma 4.4",
+        "nonuniform resources self-consistent transfer operator finite particle equilibrium",
+        "resource quantile fixed point lower bound tau epsilon denominator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.28664v1 formulates the resource model with homogeneous resources and the quantile target u; full-text checks for non-uniform, inhomogeneous and general-resource variants found none.",
+        "The source proof gives exact cancellation of the common uniform rank term before the microscopic map, which is the ingredient generalized here to a fixed resource quantile R."
+      ],
+      "reasoning": "Replacing the uniform rank by a target quantile is an equivalent optimal-transport viewpoint only at the interpolation step. It does not by itself state or imply the fixed-point increment constants, the two-sided equilibrium comparison with the target quantization error, or the transient finite/continuum estimate proved here.",
+      "searches": [
+        "self-consistent transfer operator arbitrary nonuniform resource distribution quantile target measure contraction rank coupling",
+        "repulsive mean-field coupling target resource quantile Q_rho F_mu Wasserstein contraction",
+        "rank-based target distribution self-consistent transfer operator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact source identifier arXiv:2609.28664 and phrase-level searches returned the source paper itself or unrelated results, not a table or database entry containing the present theorem.",
+        "No known finite-particle table or database was located that tabulates the two-sided e_N(rho) equilibrium error or the sharpened homogeneous lower constant."
+      ],
+      "reasoning": "This is an analytic theorem rather than a tabulated invariant. The relevant exact-source and statement searches did not reveal a pre-existing tabulation or database result from which the claim would follow.",
+      "searches": [
+        "finite particle equilibrium resource quantization error self-consistent transfer operator",
+        "Castorrini Galatolo Tanzi 2609.28664 nonuniform resource extension",
+        "resource quantization mean-field dynamical system Wasserstein"
+      ]
+    },
+    "rationale": "The closest primary source treats homogeneous resources and proves contraction and finite-particle bounds only for the uniform target. Direct full-text comparison found no nonuniform-resource theorem and its stated lower finite-size constant omits the fixed-point denominator recovered here. A general review supplies the surrounding self-consistent-operator framework but not this quantile-targeted finite-size law. Multiple statement-level searches for target quantiles, arbitrary resource laws, resource quantization and finite-particle equilibria found no equivalent or stronger result. The residual folklore risk is recorded rather than treated as proof of novelty.",
+    "residual_risks": [
+      "The replacement of the uniform target by an arbitrary fixed quantile is algebraically natural, so specialists may regard part of the extension as implicit folklore even though no matching statement was located.",
+      "The literature comparison was targeted rather than exhaustive across all rank-based interacting-particle fields; an equivalent theorem under different terminology could exist.",
+      "No originality claim is made for the underlying one-dimensional monotone-rearrangement identities themselves; originality is assessed for the combined dynamical and finite-size theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper treats homogeneous resources, corresponding to R(u)=u. It provides the core rank-coupling mechanism but does not state the arbitrary-resource quantization law, and its stated lower finite-size constant is weaker than the fixed-point-resolved constant proved here.",
+        "evidence": "arXiv:2609.28664v1, especially the quantile contraction and finite-particle results in Sections 3 and 4.",
+        "identifier_or_url": "arXiv:2609.28664v1",
+        "material_read": "Abstract and Sections 1-4.2, including the homogeneous-resource model, quantile evolution, contraction argument, fixed-point equation, ordered finite-particle dynamics, equilibrium estimate and thermodynamic-limit lemma.",
+        "method": "Primary full-text inspection with targeted searches for non-uniform, inhomogeneous, general-resource, quantile and finite-particle terminology.",
+        "title": "Repulsive Mean-Field Couplings and Self-Consistent Transfer Operators",
+        "trigger": "Primary source for the fresh resource-allocation model and the closest possible covering theorem."
+      },
+      {
+        "assessment": "The review gives general STO context but no theorem matching the resource-targeted quantile recursion or the two-sided resource-quantization finite-size law.",
+        "evidence": "M. Tanzi, Boll. Unione Mat. Ital. 16 (2023), DOI 10.1007/s40574-023-00350-2.",
+        "identifier_or_url": "doi:10.1007/s40574-023-00350-2",
+        "material_read": "Abstract and the surfaced sections describing self-consistent transfer operators and thermodynamic-limit questions, with targeted searches for quantile, resource and Wasserstein terminology.",
+        "method": "Published HTML inspection and targeted text search.",
+        "title": "Mean-field coupled systems and self-consistent transfer operators: a review",
+        "trigger": "Broader literature that could subsume a target-resource formulation or thermodynamic-limit estimate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e59486d4-51fe-4456-bf6b-98a9f5736d6c",
+  "value": {
+    "rationale": "Nonuniform resource supply is a natural structural variation of the motivating resource-allocation model, not an arbitrary parameter slice. The theorem identifies the target law’s intrinsic one-dimensional quantization error as the exact finite-size scale, preserves a resource-independent contraction rate, and sharpens the lower equilibrium constant even in the original homogeneous setting. This gives a reusable way to separate microscopic contraction from resource discretization and supplies finite-N information not contained in the homogeneous source theorem.",
+    "status": "PASS"
+  }
+}
