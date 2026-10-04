@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exact pair-distance identity \\(d_H=2w-r-t\\) forces supports to meet at most once and forbids repeated nonzero symbols in a coordinate. This bounds each coordinate degree by \\(w\\) and yields \\(|C|\\le n\\). At equality every coordinate degree is \\(w\\), so supports form a symmetric \\(n_w\\) configuration and symbols form a proper Levi-graph \\(w\\)-edge-coloring. Conversely every symmetric \\(n_w\\) Levi graph is \\(w\\)-regular bipartite and hence \\(w\\)-edge-colorable by König; the induced words have composition \\(\\llbracket1^w\\rrbracket\\) and distances \\(2w\\) or \\(2w-1\\). The package verifier realizes both directions on \\(PG(2,5)\\). The \\(n=34\\) threshold then follows from the published \\(k=6\\) configuration spectrum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1008.1611, Section VIII, says the only undetermined total-weight-at-most-six values are the all-distinct seven-ary cases at \\(n=33,34\\).",
+        "arXiv:1203.0709 surveys symmetric configurations, Levi graphs and applications to LDPC codes, but the inspected text does not state the constant-composition equality theorem."
+      ],
+      "reasoning": "The coding paper gives nearby support-counting bounds and the configuration survey gives broader incidence constructions, but neither source contains a theorem whose statement implies the two-way edge-colored equality classification.",
+      "searches": [
+        "constant composition code [1^w] symmetric n_w configuration König edge coloring",
+        "all-distinct constant-composition codes symmetric configurations Levi graph edge coloring",
+        "Chee Dau Ling constant composition symmetric configuration six"
+      ]
+    },
+    "checked_sources": [
+      "AJC 38 (2007) 273–277",
+      "arXiv:1008.1611",
+      "arXiv:1203.0709",
+      "research-index records returned by the listed exact/alias searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kaski–Östergård Theorem 1 states that a symmetric configuration with \\(k=6\\) exists if and only if \\(v=31\\) or \\(v\\ge34\\).",
+        "Chee et al. do not identify their equality codes with symmetric configurations; the converse requires proving that a configuration can always be symbol-labeled by decomposing its regular bipartite Levi graph into perfect matchings."
+      ],
+      "reasoning": "The configuration spectrum alone is not a coding theorem, and the coding table alone does not supply the missing configurations. The new correspondence is the implication bridge needed to transfer the spectrum and close the coding threshold.",
+      "searches": [
+        "A_7(n,11,[1,1,1,1,1,1]) symmetric configuration Nccc 34",
+        "6-regular bipartite girth six constant composition code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No close research-index hit stated a correspondence between all-distinct constant-composition equality codes and edge-colored symmetric configurations.",
+        "Web searches combining constant-composition, symmetric configuration, incidence/Levi graph, and edge coloring produced no same-statement source."
+      ],
+      "reasoning": "Equivalent forms checked included supports as regular linear hypergraphs, Levi graphs as regular bipartite girth-at-least-six graphs, and symbol assignments as one-factorizations/proper edge-colorings.",
+      "searches": [
+        "A_7(n,11,[1,1,1,1,1,1]) symmetric configuration Nccc 34",
+        "all-distinct constant-composition codes symmetric configurations Levi graph edge coloring",
+        "constant-composition code [1^w] symmetric n_w configuration König edge coloring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1008.1611 Table III lists \\(N_{\\mathrm{ccc}}(\\llbracket1,1,1,1,1,1\\rrbracket)\\) only in \\([33,35]\\).",
+        "The same source states \\(A_7(n,11,\\llbracket1,1,1,1,1,1\\rrbracket)\\) is undetermined for \\(n\\in\\{33,34\\}\\)."
+      ],
+      "reasoning": "The exact parameter/table was inspected rather than inferred from title matches. The new threshold 34 is not already present in that table.",
+      "searches": [
+        "N_ccc [1^6] 34 constant composition code",
+        "A_7(n,11,[1,1,1,1,1,1]) symmetric configuration Nccc 34",
+        "constant composition code N_ccc composition 1 1 1 1 1 1 symmetric configuration 6"
+      ]
+    },
+    "rationale": "Direct statement-level comparison separates three ingredients: the 2010 coding paper leaves the all-distinct weight-six cases \\(n=33,34\\) unresolved; the 2007 configuration paper proves the exact \\(n_6\\) existence spectrum; the 2012 survey gives the symmetric-configuration/Levi-graph framework but does not state the constant-composition equality correspondence. The new step is the two-way equality classification, including the symbol-to-edge-coloring map and its converse via König edge coloring. Targeted semantic and web searches found no indexed statement implying that bridge or the resulting \\(N_{\\mathrm{ccc}}=34\\) conclusion. Residual risk remains for terminology-shifted older design-coding literature.",
+    "residual_risks": [
+      "An older design-coding paper may express the same equality correspondence under generalized packings, one-factorizations, or incidence-matrix terminology without using constant-composition language.",
+      "The exact threshold conclusion relies on the published \\(n_6\\) existence spectrum; this package does not re-run the historical exhaustive nonexistence computation for \\(n=33\\)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the final theorem: supplies the coding bound/problem and support-counting ingredients but not the symmetric-configuration/edge-coloring equivalence; its table leaves the target threshold unresolved.",
+        "evidence": [
+          "Section VIII: only \\(A_7(n,11,\\llbracket1^6\\rrbracket)\\) for \\(n\\in\\{33,34\\}\\) are undetermined in the stated range.",
+          "Table III: \\(N_{\\mathrm{ccc}}(\\llbracket1^6\\rrbracket)\\) is in \\([33,35]\\)."
+        ],
+        "identifier_or_url": "arXiv:1008.1611",
+        "material_read": "Sections VI–VIII, including the definition of \\(N_{\\mathrm{ccc}}\\), Proposition 7.1, the statement of the two undetermined \\(A_7\\) values, and Table III.",
+        "method": "Primary PDF text and page image inspection.",
+        "title": "Linear Size Optimal q-ary Constant-Weight Codes and Constant-Composition Codes",
+        "trigger": "Exact same constant-composition family and the only unresolved weight-six cases."
+      },
+      {
+        "assessment": "PARTIALLY COVERING: proves the exact \\(n_6\\) existence spectrum, but does not state a constant-composition code equivalence or \\(N_{\\mathrm{ccc}}\\) value.",
+        "evidence": [
+          "Theorem 1: a symmetric configuration with \\(k=6\\) exists if and only if \\(v=31\\) or \\(v\\ge34\\).",
+          "The proof establishes the missing \\(v=33\\) nonexistence and combines it with earlier \\(v=31\\)/\\(v\\ge34\\) existence and \\(v=32\\) nonexistence results."
+        ],
+        "identifier_or_url": "Australasian Journal of Combinatorics 38 (2007), 273–277",
+        "material_read": "All five pages, including definition, Theorem 1, search proof, and references.",
+        "method": "Open-access primary PDF page inspection.",
+        "title": "There exists no symmetric configuration with 33 points and line size 6",
+        "trigger": "Exact configuration spectrum needed for the weight-six corollary."
+      },
+      {
+        "assessment": "NOT_COVERING the coding correspondence: it defines symmetric configurations and Levi graphs and records \\(32_6\\)/\\(33_6\\) nonexistence, with applications to LDPC codes rather than the all-distinct constant-composition equality problem.",
+        "evidence": [
+          "Definition 1.1 gives \\(v_k\\); the Levi graph is regular bipartite of girth at least six.",
+          "Spectrum discussion records nonexistence of \\(32_6\\) and \\(33_6\\)."
+        ],
+        "identifier_or_url": "arXiv:1203.0709",
+        "material_read": "Introduction, definitions, Levi-graph discussion, application discussion, and spectrum section around the \\(k=6\\) nonexistence entries.",
+        "method": "Full HTML/text inspection of relevant sections.",
+        "title": "On constructions and parameters of symmetric configurations \\(v_k\\)",
+        "trigger": "Broader configuration survey and terminology/alias check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6bd3d89a-6723-49e7-80c4-b120f6cd17ae",
+  "value": {
+    "rationale": "The bridge resolves the exact gap highlighted in the 2010 weight-at-most-six coding tables: it converts the two missing seven-ary all-distinct cases into a known configuration-spectrum question and yields \\(N_{\\mathrm{ccc}}(\\llbracket1^6\\rrbracket)=34\\). More generally it classifies the entire equality layer as edge-colored symmetric configurations, enabling established configuration existence and classification results to transfer directly to this coding family.",
+    "status": "PASS"
+  }
+}
