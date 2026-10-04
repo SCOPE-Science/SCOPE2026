@@ -1,0 +1,146 @@
+{
+  "claim": "For the analytic \\(N\\)-site \\(XX\\) perfect-state-transfer chain with couplings\n\\[\nJ_n=\\frac{\\lambda}{2}\\sqrt{n(N-n)},\\qquad n=1,\\ldots,N-1,\\qquad \\lambda>0,\n\\]\nlet the scheduled readout time be \\(t_0=\\pi/\\lambda\\), let the actual readout time be \\(t_0+\\Xi\\), where \\(\\Xi\\) is Gaussian with mean \\(0\\) and variance \\(\\sigma_t^2\\), and put \\(m=N-1\\) and \\(s=\\lambda\\sigma_t\\). The exact mean endpoint occupation probability is\n\\[\n\\boxed{\\mathcal P_m(s)=4^{-m}\\left[\\binom{2m}{m}+2\\sum_{k=1}^{m}\\binom{2m}{m-k}e^{-k^2s^2/2}\\right].}\n\\]\nFor every \\(m\\ge1\\), \\(\\mathcal P_m(s)\\) is strictly decreasing for \\(s>0\\), from \\(1\\) to \\(4^{-m}\\binom{2m}{m}\\). Its large-chain robustness has two distinct exact asymptotic regimes. If \\(s=c/\\sqrt m\\) with fixed \\(c\\ge0\\), then\n\\[\n\\boxed{\\lim_{m\\to\\infty}\\mathcal P_m(c/\\sqrt m)=\\frac{1}{\\sqrt{1+c^2/2}}.}\n\\]\nIf instead \\(s>0\\) is fixed, then\n\\[\n\\boxed{\\lim_{m\\to\\infty}\\sqrt m\\,\\mathcal P_m(s)=\\frac{1}{\\sqrt\\pi}\\left(1+2\\sum_{k=1}^{\\infty}e^{-k^2s^2/2}\\right).}\n\\]\nConsequently, for every target \\(\\eta\\in(0,1)\\), the unique dimensionless Gaussian timing standard deviation \\(s_{m,\\eta}\\) satisfying \\(\\mathcal P_m(s_{m,\\eta})=\\eta\\) for all sufficiently large \\(m\\) obeys\n\\[\n\\boxed{\\sqrt m\\,s_{m,\\eta}\\longrightarrow\\sqrt{2(\\eta^{-2}-1)}.}\n\\]\nEquivalently, the sharp high-fidelity Gaussian clock-jitter tolerance is asymptotically \\(1/\\sqrt{N-1}\\) in units of \\(1/\\lambda\\), while any fixed nonzero dimensionless timing noise drives the mean transfer probability to zero at the slower rate \\(1/\\sqrt{N-1}\\) with the explicit theta-series prefactor above.",
+  "correctness": {
+    "rationale": "For \\(m=N-1\\), the exact source amplitude makes the noisy endpoint probability \\(\\cos^{2m}(X/2)\\) with \\(X\\sim\\mathcal N(0,s^2)\\). The finite cosine expansion and \\(\\mathbb E[\\cos(kX)]=e^{-k^2s^2/2}\\) prove the finite formula. Positive Fourier coefficients prove strict decrease in \\(s\\). Dominated convergence gives the \\(s=c/\\sqrt m\\) profile; central-binomial asymptotics and dominated convergence of the coefficient ratios give the fixed-\\(s\\) theta series. Monotone inversion then proves the target-jitter constant. Numerical replay independently checks finite Hamiltonian evolution and all stated limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kay's 2006 paper treats a deterministic offset from the ideal readout time and optimizes spectral spread.",
+        "Kirkland 2015 gives closed derivative formulas and lower bounds for deterministic perturbations.",
+        "Gordon et al. 2015/2016 derive general numerical-range bounds for small deterministic readout-time perturbations.",
+        "A 2012 dissertation searchable excerpt discusses deterministic high-fidelity time-window width and timing precision, but not enough full text was accessible to exclude every stochastic reformulation."
+      ],
+      "reasoning": "The broader robustness literature controls pointwise time perturbations or deterministic windows. Those results are useful comparators but neither dominate nor algebraically imply the distributional expectation and its two asymptotic regimes. The inaccessible dissertation is therefore recorded as residual risk rather than treated as negative evidence.",
+      "searches": [
+        "perfect state transfer readout time sensitivity lower bound spin chain",
+        "\"Sensitivity analysis of perfect state transfer in quantum spin networks\"",
+        "\"Perfect State Transfer: Beyond Nearest-Neighbor Couplings\" timing errors",
+        "\"perfect state transfer\" \"time window\" averaged fidelity spin chain",
+        "\"average fidelity\" \"time window\" \"spin chain\" state transfer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0903.4274",
+      "DOI:10.1142/S0219749910006514",
+      "MaRDI:Q3587036",
+      "arXiv:quant-ph/0309131",
+      "DOI:10.1103/PhysRevLett.92.187902",
+      "arXiv:quant-ph/0509065",
+      "DOI:10.1103/PhysRevA.73.032306",
+      "DOI:10.1016/j.laa.2015.01.013",
+      "arXiv:1510.05550",
+      "DOI:10.1103/PhysRevA.93.022309",
+      "Quantum State Transfer in Spin Chains (2012 dissertation; searchable excerpts only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The anchor's analytic solution fixes the couplings and perfect time and discusses timing-window robustness, but it does not integrate against a random clock error.",
+        "Christandl et al. give \\(F(t)=[-i\\sin(\\lambda t/2)]^{N-1}\\) and explicitly state that other error sources are not considered.",
+        "Kay 2006 studies deterministic \\(\\delta t\\) and a lower bound optimized by minimal spectral spread.",
+        "Gordon et al. consider \\(t_0+h\\) for a deterministic small \\(h\\) and derive a lower bound."
+      ],
+      "reasoning": "The accepted theorem is not a special case of a prior stochastic theorem found in the inspected sources. It requires evaluating and asymptotically analyzing a distributional average not present in those deterministic statements.",
+      "searches": [
+        "arXiv:0903.4274 timing errors analytic solution",
+        "arXiv:quant-ph/0309131 exact transfer amplitude errors",
+        "arXiv:quant-ph/0509065 timing errors fidelity delta t",
+        "arXiv:1510.05550 readout time perturbation Gaussian random average"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0903.4274 discusses deterministic timing windows and local curvature for the analytic chain.",
+        "arXiv:quant-ph/0309131 gives the exact endpoint amplitude and states that other error sources are not treated.",
+        "arXiv:1510.05550 contains no occurrences of Gaussian, random, or average in its readout-time analysis.",
+        "Targeted searches returned deterministic sensitivity and unrelated stochastic results, not the accepted finite Gaussian average or theta-series asymptotic."
+      ],
+      "reasoning": "Equivalent coverage would need to average the analytic-chain endpoint probability over a timing distribution, or imply the same finite binomial-exponential law and both large-chain regimes. Deterministic timing windows and pointwise lower bounds do not imply those stochastic averages.",
+      "searches": [
+        "Gaussian readout time jitter engineered perfect state transfer chain exact average probability",
+        "Krawtchouk chain timing error averaged transfer probability",
+        "perfect state transfer timing error central binomial theta function",
+        "\"timing errors\" \"Gaussian\" \"perfect state transfer\" spin",
+        "\"random readout time\" quantum state transfer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct sources present analytic amplitudes, deterministic timing plots, or bounds; no Gaussian-jitter table or exact average was located.",
+        "The finite formula is derived analytically from the source amplitude rather than recomputed from a published numerical table."
+      ],
+      "reasoning": "No exact database or tabulated stochastic timing result was found that contains the accepted finite law or asymptotic constants.",
+      "searches": [
+        "Krawtchouk Gaussian timing error fidelity exact",
+        "spin chain state transfer timing uncertainty distribution average fidelity Krawtchouk chain",
+        "fixed timing noise state transfer inverse square root chain length",
+        "binomial spectrum perfect state transfer random timing error"
+      ]
+    },
+    "rationale": "Prior work covers the engineered chain, deterministic timing windows, deterministic timing offsets, sensitivity derivatives, and lower bounds. The accepted claim is restricted to the exact Gaussian timing-distribution average and its two sharp large-chain regimes, which were not located in targeted full-text and database searches.",
+    "residual_risks": [
+      "The 2012 dissertation titled Quantum State Transfer in Spin Chains was available only through searchable excerpts because the full PDF exceeded the comparison interface's fetch limit; an equivalent stochastic calculation elsewhere in that document cannot be excluded.",
+      "A Gaussian timing-average formula may exist in experimental or photonic-transfer literature under clock-jitter or phase-noise terminology not surfaced by the targeted searches.",
+      "The accepted claim does not assert novelty of the \\(1/\\sqrt N\\) timing scale alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers deterministic timing windows, local curvature, and the analytic chain, but not random timing distributions or Gaussian averaging.",
+        "evidence": "The timing section asks for a tolerable-error time window and analyzes derivatives; the analytic solution gives the \\(J_x\\) couplings and perfect time.",
+        "identifier_or_url": "arXiv:0903.4274; DOI:10.1142/S0219749910006514",
+        "material_read": "Full arXiv HTML for the analytic solution, optimality discussion, timing-errors section, and transfer-rate formulas.",
+        "method": "Full-text HTML inspection.",
+        "title": "A Review of Perfect State Transfer and its Application as a Constructive Tool",
+        "trigger": "Literature-leading anchor with the analytic chain and an explicit timing-errors section."
+      },
+      {
+        "assessment": "Provides the deterministic amplitude used as a premise but does not treat timing noise.",
+        "evidence": "Equation (15) gives \\(F(t)=[-i\\sin(\\lambda t/2)]^{N-1}\\); the paper states that other error sources are not considered.",
+        "identifier_or_url": "arXiv:quant-ph/0309131; DOI:10.1103/PhysRevLett.92.187902",
+        "material_read": "Full arXiv HTML through the engineered-chain construction and exact endpoint-amplitude formula.",
+        "method": "Full-text HTML inspection.",
+        "title": "Perfect state transfer in quantum spin networks",
+        "trigger": "Original exact engineered-chain construction."
+      },
+      {
+        "assessment": "Treats deterministic timing offsets and spectral lower bounds, not Gaussian or other stochastic readout-time averages.",
+        "evidence": "Section III.3 asks for the fidelity at \\(t_0+\\delta t\\) and develops a deterministic lower bound.",
+        "identifier_or_url": "arXiv:quant-ph/0509065; DOI:10.1103/PhysRevA.73.032306",
+        "material_read": "Full arXiv text including Section III.3 on timing errors and adjacent spectrum-choice discussion.",
+        "method": "Full-text HTML/text inspection.",
+        "title": "Perfect State Transfer: Beyond Nearest-Neighbor Couplings",
+        "trigger": "Highly relevant prior work devoted in part to timing errors and robustness."
+      },
+      {
+        "assessment": "Provides deterministic small-offset lower bounds for general graphs; no Gaussian/random/average timing model was found.",
+        "evidence": "Theorem II.1 assumes a readout at \\(t_0+h\\) with small deterministic \\(h\\); in-document searches found no Gaussian, random, or average terms.",
+        "identifier_or_url": "arXiv:1510.05550; DOI:10.1103/PhysRevA.93.022309",
+        "material_read": "Full arXiv text for the introduction and Section II on readout-time sensitivity; full-text searches for Gaussian, random, and average.",
+        "method": "Full-text HTML/text inspection and in-document term search.",
+        "title": "Bounds on probability of state transfer with respect to readout time and edge weight",
+        "trigger": "Closest general mathematical treatment of readout-time robustness before the archive cutoff."
+      },
+      {
+        "assessment": "Reports closed derivatives and lower bounds for deterministic perturbations; no distributional timing theorem is stated in the inspected material.",
+        "evidence": "The abstract specifies derivatives of transfer probability with respect to time and edge weight and a lower bound for \\(p(t_0+h)\\).",
+        "identifier_or_url": "DOI:10.1016/j.laa.2015.01.013",
+        "material_read": "Abstract and accessible opening material describing the theorem scope.",
+        "method": "Bibliographic/abstract inspection.",
+        "title": "Sensitivity analysis of perfect state transfer in quantum spin networks",
+        "trigger": "Earlier general sensitivity analysis cited by the later bounds paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2adc187-4d32-4e52-adb7-6fdcee95b861",
+  "value": {
+    "rationale": "Readout timing precision is a stated design issue in the source literature, and a stochastic clock is naturally specified by \\(\\sigma_t\\). The theorem gives an exact finite-chain performance law and two non-equivalent large-\\(N\\) regimes rather than only a local derivative or worst-case window. The target formula converts a fidelity requirement directly into an asymptotically sharp calibration rule, while the fixed-noise theta series explains the contribution of periodic revivals.",
+    "status": "PASS"
+  }
+}
