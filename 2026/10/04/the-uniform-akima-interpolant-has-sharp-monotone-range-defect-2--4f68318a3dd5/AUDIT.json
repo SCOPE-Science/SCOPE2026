@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The four-secant Akima derivative is a nonnegative weighted mean whose weights satisfy an exact half-total-variation inequality. On monotone uniform-grid data this yields hm_i<=M/2 by telescoping. The cubic Hermite basis has only one negative derivative basis function, whose magnitude peaks at 4/27; the symmetric upper estimate is identical. An explicit rational family approaches the bound and an affine transform gives a strictly positive sign-reversal witness. The packaged checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Akima 1970 introduces the local cubic interpolation construction.",
+        "Fried--Zietz 1973 reports that Akima interpolation can significantly overshoot when data change abruptly.",
+        "Rasch--Williamson explicitly distinguishes derivative estimates such as Akima from modifications required to guarantee monotonicity.",
+        "Fritsch--Butland gives a different completely local cubic Hermite rule designed to preserve monotonicity."
+      ],
+      "reasoning": "These sources show that qualitative overshoot and monotonicity remedies are prior work. They do not determine the exact worst excursion of the unmodified uniform-grid Akima rule.",
+      "searches": [
+        "Web: A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures Akima",
+        "Web: Curve fitting by spline and Akima methods possibility of interpolation error and its suppression",
+        "Web: On Shape-Preserving Interpolation and Semi-Lagrangian Transport Akima",
+        "Web: A Method for Constructing Local Monotone Piecewise Cubic Interpolants"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1145/321607.321609",
+      "DOI:10.1088/0031-9155/18/4/306",
+      "DOI:10.1137/0905021",
+      "Technical exposition of original Akima derivative formula",
+      "Focused research-database searches under Akima, overshoot, positivity, exact-constant, and derivative-bound aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Akima bibliographic record and abstract state the local cubic construction but do not present a worst-case range theorem in accessible material.",
+        "Fried--Zietz establishes possibility of overshoot, which implies existence only and supplies no sharp amplitude.",
+        "The full Fritsch--Butland article constructs a different slope rule satisfying monotonicity conditions; it does not quantify the unmodified Akima defect."
+      ],
+      "reasoning": "Existence of overshoot does not imply a universal 2/27 envelope or its sharpness. A monotonicity-preserving alternative also does not dominate the claim because it changes the derivative rule. The inaccessible original Akima full text is retained as a residual comparison risk rather than assumed not to cover the constant.",
+      "searches": [
+        "DOI:10.1145/321607.321609 Akima original method",
+        "DOI:10.1088/0031-9155/18/4/306 Akima overshoot",
+        "DOI:10.1137/0905021 monotone cubic full text",
+        "Web: Akima interpolation four neighboring secants monotonicity not retained"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked research-database record states a sharp Akima range defect or the half-total-variation derivative lemma.",
+        "Exact-constant web searches did not expose 2/27 as an Akima overshoot constant.",
+        "A detailed technical exposition confirms that monotonicity of input data is not necessarily retained and gives the original four-secant derivative formula."
+      ],
+      "reasoning": "The claim could appear as an overshoot factor, positivity defect, range-preservation bound, Hermite slope bound, or monotonicity violation. These aliases and the exact constant were searched. The checked literature establishes the method and qualitative loss of monotonicity but not the sharp global envelope.",
+      "searches": [
+        "Semantic database query: Akima interpolation monotone bounded data sharp range defect 2/27",
+        "Semantic database query: Akima spline monotone samples exact overshoot factor Hermite derivative",
+        "Semantic database query: Akima interpolation positive data negative interpolant sharp bound",
+        "Semantic database query: Akima derivative half total variation bound monotone data",
+        "Web: \"Akima\" \"2/27\" interpolation",
+        "Web: \"Akima\" overshoot bound monotone data",
+        "Web: \"Akima interpolation\" range preserving monotone overshoot"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-constant search produced the value 2/27 in connection with Akima interpolation.",
+        "No checked table or implementation documentation supplied a global sharp range envelope for monotone bounded data."
+      ],
+      "reasoning": "Because 2/27 is a simple dimensionless constant, it was searched directly in addition to semantic queries. Nothing found identified it as a known Akima extremal constant.",
+      "searches": [
+        "Web: \"Akima\" \"2/27\"",
+        "Web: \"Akima\" overshoot \"7.4%\" interpolation",
+        "Semantic database query: Akima interpolation monotone bounded data sharp range defect 2/27",
+        "Semantic database query: Akima derivative half total variation bound monotone data"
+      ]
+    },
+    "rationale": "The Akima construction, qualitative overshoot, and monotonicity-preserving alternatives are prior work and explicitly excluded. The accepted claim is the sharp 2/27 bounded-monotone-data range defect, the half-total-variation derivative lemma, the sharp family, and the strict-positive sign-reversal witness. Focused searches did not locate an implication-equivalent statement.",
+    "residual_risks": [
+      "The original Akima 1970 article was not recovered as verified full text, so a hidden explicit bound there cannot be ruled out from direct inspection.",
+      "Older engineering or computer-graphics literature may encode the same constant as an overshoot factor without using range-defect terminology.",
+      "The theorem is restricted to uniform grids; nonuniform Akima variants may have different sharp constants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the method construction. Whole-document noncoverage of the new sharp constant is not claimed because full text was unavailable.",
+        "evidence": "The abstract describes local cubic pieces with slopes determined locally; the technical exposition gives the four-secant weights and notes that monotonicity need not be retained.",
+        "identifier_or_url": "DOI:10.1145/321607.321609",
+        "material_read": "Publisher/bibliographic abstract and publication metadata; a verified full-text copy was not recovered. The defining four-secant derivative formula and special zero-weight cases were cross-checked in a detailed technical exposition.",
+        "method": "Open bibliographic/abstract inspection plus independent formula cross-check.",
+        "title": "A New Method of Interpolation and Smooth Curve Fitting Based on Local Procedures",
+        "trigger": "Original source for the exact Akima interpolation rule."
+      },
+      {
+        "assessment": "COVERS qualitative overshoot for abruptly changing data; no exact global defect constant was exposed in accessible material.",
+        "evidence": "The indexed summary states that both spline and Akima interpolations may significantly overshoot and that Akima errors can be reduced by modifications.",
+        "identifier_or_url": "DOI:10.1088/0031-9155/18/4/306",
+        "material_read": "Indexed title, bibliographic record, and abstract-level summary.",
+        "method": "Open bibliographic inspection.",
+        "title": "Curve fitting by spline and Akima methods: possibility of interpolation error and its suppression",
+        "trigger": "Closest older primary source explicitly reporting Akima overshoot."
+      },
+      {
+        "assessment": "COVERS a different local derivative rule designed to preserve monotonicity; does not state the sharp range defect of the unmodified Akima rule.",
+        "evidence": "The first page lists primary MSC 65D05 and states the goal of producing monotone local cubic interpolants; the article requires derivative choices inside the monotonicity region.",
+        "identifier_or_url": "DOI:10.1137/0905021",
+        "material_read": "Complete five-page article, including derivative-selection framework, sufficient slope conditions, formulas, examples, and references.",
+        "method": "Lawful full-text PDF inspection with page image confirmation.",
+        "title": "A Method for Constructing Local Monotone Piecewise Cubic Interpolants",
+        "trigger": "Primary numerical-analysis comparison source on local monotone cubic Hermite interpolation and MSC ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f68318a-3dd5-4d5b-8144-e58c9e808316",
+  "value": {
+    "rationale": "Original Akima interpolation is a widely used local cubic rule chosen to suppress visually objectionable oscillation, yet it is not monotonicity preserving. The exact 2/27 envelope supplies a sharp safety margin for bounded monotone data and the strict-positive witness shows direct relevance to physical positivity constraints. The result is structural and global over the full admissible class, not an arbitrary finite example.",
+    "status": "PASS"
+  }
+}
