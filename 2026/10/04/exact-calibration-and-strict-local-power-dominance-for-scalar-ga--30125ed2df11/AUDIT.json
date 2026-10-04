@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The scalar published statistic reduces algebraically to scaled half-sample Student statistics. Under the Gaussian null, the two Student variables are independent, symmetric, and have signs independent of magnitudes, which gives the exact finite-sample law and cutoff. Under local alternatives, joint Student convergence, an orthogonal Gaussian rotation, and an explicit one-crossing conditional-rejection comparison prove strict asymptotic power dominance. The proof covers all stated m, alpha, and fixed nonzero h; numerical checks are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1093/jrsssb/qkae091 develops a general calibration method for repeated randomized splits and studies the Kim--Ramdas mean example.",
+        "arXiv:2011.05068 gives a general fixed-dimensional limiting law for the cross-fitted statistic."
+      ],
+      "reasoning": "Neither broader result dominates the claim. The Kim--Ramdas proposition gives only the general limiting null form, not a finite-sample scalar law or calibrated power comparison. Guo--Shah analyzes a different rank-transformed aggregation procedure rather than the two-way cross-fitted statistic.",
+      "searches": [
+        "Rank-transformed subsampling inference multiple data splitting exchangeable p-values Kim Ramdas cross U-statistics zero mean",
+        "multiple data splitting Gaussian mean power single split cross fitted"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2011.05068",
+      "doi:10.3150/23-BEJ1613",
+      "arXiv:2301.02739",
+      "doi:10.1093/jrsssb/qkae091"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2011.05068 states that general higher-power calibration over many splits was unknown and separately supplies the scalar single-split local-power formula.",
+        "doi:10.1093/jrsssb/qkae091 proves power properties for rank-transformed subsampling, a different procedure."
+      ],
+      "reasoning": "The new implication is specific: exact calibration of the two complementary cross-fit directions plus strict local-power dominance over the source single split for every nonzero scalar Gaussian local signal. The direct source leaves this two-way statistic with a non-Gaussian calibration problem; the later paper does not derive this statistic’s exact law. Therefore the claim is not a corollary or special case of the inspected prior theorems.",
+      "searches": [
+        "\"provably higher power\" \"single split\" cross-fitted Gaussian mean",
+        "\"cross-fitted\" Gaussian mean \"local power\" Kim Ramdas",
+        "\"multiple sample splitting\" exact null Student t cross fitted"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2011.05068, Appendix A and Appendix B.2",
+        "doi:10.1093/jrsssb/qkae091, Example 2 and Section 3.2",
+        "No searched semantic-database record stated the scalar Student representation or strict power theorem."
+      ],
+      "reasoning": "The exact scalar reduction can be written either as a signed sum of absolute Student variables or, asymptotically, through rotated Gaussian coordinates. Direct and alias searches did not locate that statement. The later multiple-splitting paper cites the same cross-fitted statistic specifically as nonnormal but moves to a different rank-transformed aggregation method.",
+      "searches": [
+        "Gaussian cross-fitted one-sample mean statistic exact finite-sample distribution sum absolute t",
+        "multiple sample splitting cross-fitting mean test exact t distribution Gaussian",
+        "Kim Ramdas cross-fitted statistic finite sample Gaussian calibration",
+        "symmetrized sum absolute Student t cross-fitted mean test",
+        "cross-fitted Gaussian mean test asymptotic local power dominance single split",
+        "multiple sample splitting cross fitting provably higher power single split Gaussian mean",
+        "two-way crossfit Gaussian mean exact null Student t local power",
+        "\"cross-fitted\" \"t_{m-1}\" mean testing Gaussian",
+        "\"sqrt(2) max\" cross-fitted mean test Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches using the listed exact-null and calibration queries returned no record asserting the scalar cross-fitted Student representation or its cutoff.",
+        "The closest returned Student-t result concerned ordinary Student testing under a different dependence construction and does not imply the cross-fitted law."
+      ],
+      "reasoning": "The closest indexed records use Student statistics in different problems and do not tabulate or imply the distribution of the Kim--Ramdas two-way cross-fit.",
+      "searches": [
+        "two-way crossfit Gaussian mean exact null Student t local power",
+        "Gaussian cross-fitted one-sample mean exact calibration"
+      ]
+    },
+    "rationale": "The direct source gives the two-way cross-fitted statistic and its general fixed-dimensional limiting null law, while explicitly identifying calibration difficulty; it gives the scalar local-power formula only for the single split. A later primary paper on multiple splitting studies a different rank-transformed aggregation method and explicitly cites the cross-fitted statistic as nonnormal. Targeted database and web searches found no statement of the exact scalar Student law, its cutoff, or the all-nonzero-h strict dominance theorem.",
+    "residual_risks": [
+      "Older work on symmetrized split-sample or Studentized Gaussian statistics could contain an equivalent scalar identity under different terminology.",
+      "The direct article has broad statistics subject classification rather than an explicit item-level full MSC code in the sources inspected; ownership is recorded at the permitted broad MSC 62 level."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the two-way statistic and proves a general limiting null form, but does not state the scalar finite-sample Student representation, exact cutoff, cross-fit local-power integral, or strict dominance over the single split.",
+        "evidence": "Appendix A defines the cross-fitted statistic and calls its non-Gaussian limit a calibration challenge; Appendix B.2 derives the scalar Gaussian local-power formula for the single-split statistic; the conclusion says provably higher-power calibration over splits is not known in general.",
+        "identifier_or_url": "arXiv:2011.05068; doi:10.3150/23-BEJ1613",
+        "material_read": "Primary full text: one-sample mean definition, conclusion on multiple splitting, Appendix A Proposition A.1, and Appendix B.2 scalar Gaussian local-power calculation.",
+        "method": "Lawful arXiv full text and publisher metadata; equations and surrounding discussion inspected.",
+        "title": "Dimension-agnostic inference using cross U-statistics",
+        "trigger": "Direct source defining the statistic and the single-split comparator."
+      },
+      {
+        "assessment": "Provides general rank-transformed subsampling and power analysis for a different aggregation procedure. It notes the Kim--Ramdas two-way cross-fit has a nonnormal limit but does not derive or calibrate the exact statistic treated here.",
+        "evidence": "Example 2 cites Kim--Ramdas Proposition A.1 as the reason direct cross-fitting is difficult to calibrate; the proposed remedy aggregates randomized split statistics through rank-transformed subsampling.",
+        "identifier_or_url": "arXiv:2301.02739; doi:10.1093/jrsssb/qkae091",
+        "material_read": "Primary article: introduction Example 2, power section, mean-testing application, and discussion.",
+        "method": "Oxford full-text HTML and arXiv metadata inspected.",
+        "title": "Rank-transformed subsampling: inference for multiple data splitting and exchangeable p-values",
+        "trigger": "Highly relevant later work explicitly revisiting the same mean-testing example and multiple-split calibration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "30125ed2-df11-4ee8-aadd-f16d7a399a2e",
+  "value": {
+    "rationale": "The claim resolves a concrete calibration and efficiency question for the canonical scalar Gaussian instance of a published cross-fitted statistic. The exact finite-sample null law converts an explicitly noted non-Gaussian calibration obstacle into a one-dimensional convolution quantile, while the single-crossing theorem proves that using both complementary directions strictly improves local power over the published single split for every nonzero local signal. This is a natural benchmark and boundary case for multiple-splitting methods, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
