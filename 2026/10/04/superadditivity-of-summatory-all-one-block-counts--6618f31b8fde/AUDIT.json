@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For a fixed position \\(i\\), occurrences of \\(1^r\\) are exactly the final \\(2^i\\) residues in a period of length \\(2^{i+r}\\). The resulting summand has the explicit floor-plus-tail formula in RESULT.md. A complete residue case split proves that summand superadditive for arbitrary inputs; the total block count is a finite sum of those summands. The equality strip follows directly by prefixing a leading \\(1\\) and locating the unique possible new boundary occurrence. The verifier independently compares direct string counts to the formula, tests more than a million input pairs, checks residue boundaries, and replays the equality strip. Finite computation is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kirschenhofer's abstract treats the mean summatory number of arbitrary subblocks.",
+        "Muramoto–Okada–Sekiguchi–Shiota give a general exact representation for arbitrary subblocks and explicitly cite Kirschenhofer and Prodinger.",
+        "The 2023 anchor cites these same sources as possible hints while still posing the block-counting inequality question."
+      ],
+      "reasoning": "The older sources dominate the candidate in which blocks they can count, but their inspected results concern values, means, asymptotics, and explicit representations. The present statement is a structural inequality linking three arguments. It is not a stated special case of those results, and its proof uses the special tail-residue geometry of all-one blocks.",
+      "searches": [
+        "published-finding corpus: subblock occurrence summatory function superadditivity Kirschenhofer",
+        "published-finding corpus: Kirschenhofer subblock occurrences superadditive",
+        "web: Subblock Occurrences in the q-Ary Representation of n Kirschenhofer",
+        "web: An Explicit Formula of Subblock Occurrences for the p-Adic Expansion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.16806, including the Section 8 PDF page",
+      "DOI:10.4036/iis.2002.115, complete seven-page open-access PDF",
+      "DOI:10.1137/0604025, public abstract and bibliographic record",
+      "DOI:10.1137/0603004, publisher abstract and metadata",
+      "published-finding corpus semantic searches for thirteen source, alias, parameter, and implication formulations",
+      "current cumulative private ledger through generation g000046"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Allouche–Stipulanti ask the precise direction rather than state an answer.",
+        "Muramoto et al. give an exact representation for the same summatory object but do not state a two-addend inequality; their full seven-page text was inspected.",
+        "Prodinger and Kirschenhofer address generalized digit sums and subblock averages, respectively, rather than this sharp additive comparison."
+      ],
+      "reasoning": "A formula capable of evaluating individual values is not by itself the claimed implication: one must prove a uniform comparison between the values at three unrelated arguments. Here that comparison comes from showing each positional tail-count summand is superadditive. The dyadic equality strip is an additional statement not provided by the older exact representation.",
+      "searches": [
+        "published-finding corpus: summatory number of 11 blocks binary expansion superadditive",
+        "published-finding corpus: subblock occurrences q-ary summatory inequality 11",
+        "web: Allouche Stipulanti Summing the sum of digits block counting number of 11",
+        "web: Muramoto Okada Sekiguchi Shiota explicit formula subblock occurrences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allouche–Stipulanti Section 8 explicitly asks for similar inequalities for a block-counting function and names binary 11.",
+        "No matching published-finding corpus finding appeared under the native block-count, B(N,w), or superadditivity formulations.",
+        "Targeted public-web searches returned the classical explicit-formula paper rather than a matching additive inequality."
+      ],
+      "reasoning": "The notations \\(B_r(N)\\), a summatory occurrence count for \\(1^r\\), and the classical \\(B(N,w)\\) with \\(w=1^r\\) describe the same mathematical object up to whether the endpoint \\(N\\) is included. The searches therefore cover the principal aliases rather than relying on title matches.",
+      "searches": [
+        "published-finding corpus: binary block counting 11 summatory function superadditive",
+        "published-finding corpus: number of occurrences of 11 in binary expansion inequality summatory",
+        "published-finding corpus: B(N,w) inequality w=11 binary subblock",
+        "web: \"superadditivity\" \"number of 11\" binary expansion",
+        "web: \"B(N,w)\" superadditive Kirschenhofer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no matching published finding for the all-one family or the binary 11 case.",
+        "The closest indexed exact source is the 2002 full formula for subblock sums; it is not a table of additive inequalities.",
+        "The 2024 published version of the anchor retains the open-ended block-counting question."
+      ],
+      "reasoning": "There is no known finite database parameter whose exact entry would automatically subsume this all-length theorem. The relevant exact source is functional rather than tabular, and comparison was made at the statement and implication level.",
+      "searches": [
+        "published-finding corpus: superadditivity summatory occurrences all-ones binary block 1^r",
+        "published-finding corpus: all ones word block-counting summatory inequality",
+        "web: \"block counting function\" superadditive binary",
+        "web: \"superadditive\" \"subblock\" binary expansion occurrences"
+      ]
+    },
+    "rationale": "The direct 2023 source explicitly poses the existence of analogous block-counting inequalities and names the count of binary 11 as its example, while citing the classical subblock papers merely as possible hints. The closest exact-formula paper was inspected throughout and supplies exact/asymptotic representations, not a two-addend superadditivity statement or the dyadic equality strip. Targeted published-finding corpus and web searches under native, alias, and implication-oriented formulations found no matching result. The exact general formula is a real residual coverage risk, but the claimed inequality is not obtained by direct parameter substitution: it requires a new tail-residue decomposition and a global comparison at three independent arguments.",
+    "residual_risks": [
+      "The 1983 Kirschenhofer full text was not available through the checked open routes; only its abstract and descriptions in later papers were inspected.",
+      "The general 2002 exact formula contains the full summatory function and may permit another derivation of the inequality, although the inequality is not stated there and the 2023 anchor still poses the direction as a question.",
+      "An unindexed note, thesis, or differently phrased older corollary may contain the same superadditivity property."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct motivating source; it poses rather than answers the block-counting inequality question.",
+        "evidence": "Section 8 asks whether similar inequalities hold for another block-counting function and explicitly gives the number of 11 in a binary expansion as the example; its classification line begins with 68R15.",
+        "identifier_or_url": "arXiv:2311.16806",
+        "material_read": "Abstract and introduction; the Graham inequality discussion; Section 8 questions and expectations; reference list and classification line. The PDF page containing the binary 11 question was visually inspected.",
+        "method": "arXiv abstract/full-text parsing plus direct PDF screenshot inspection.",
+        "title": "Summing the sum of digits",
+        "trigger": "Direct recent literature source that asks for block-counting analogues of digit-sum inequalities."
+      },
+      {
+        "assessment": "Same object and broader block parameter, but the paper develops exact/asymptotic formulas and does not state the superadditivity inequality or dyadic equality strip.",
+        "evidence": "The abstract defines the summatory subblock function and promises a simple representation; the main results give explicit periodic/error formulas for arbitrary words. No two-addend additive inequality appears in the inspected results.",
+        "identifier_or_url": "DOI:10.4036/iis.2002.115",
+        "material_read": "All seven pages of the open-access PDF, including definitions, Theorems 1.1, 3.1 and 3.2, proofs, and references.",
+        "method": "J-STAGE open-access PDF visually inspected page by page and article metadata/abstract read.",
+        "title": "An Explicit Formula of Subblock Occurrences for the p-Adic Expansion",
+        "trigger": "Closest broader theorem on the same summatory subblock-count object."
+      },
+      {
+        "assessment": "Highly relevant background; its advertised result is a mean-value theorem for subblock occurrences, not the claimed additive inequality.",
+        "evidence": "The abstract states that it studies the mean value of the number of subblocks in q-ary representations and an application to generalized digit sums.",
+        "identifier_or_url": "DOI:10.1137/0604025",
+        "material_read": "Bibliographic record and abstract; the complete publisher full text was not available through the checked open routes.",
+        "method": "Public abstract/bibliographic inspection and cross-check through later open sources citing its theorem.",
+        "title": "Subblock Occurrences in the q-Ary Representation of n",
+        "trigger": "Classical primary source repeatedly cited for the same subblock-counting object."
+      },
+      {
+        "assessment": "Related summatory-digit framework but not covering the all-one subblock superadditivity statement.",
+        "evidence": "The abstract analyzes a generalized sum-of-digits summatory function for a special parameter family and does not state a subblock-additivity theorem.",
+        "identifier_or_url": "DOI:10.1137/0603004",
+        "material_read": "Publisher abstract, bibliographic metadata, and the description of its generalized digit function and summatory analysis.",
+        "method": "Publisher abstract/metadata inspection.",
+        "title": "Generalizing the Sum of Digits Function",
+        "trigger": "Older source named by the anchor as a possible hint toward block-counting inequalities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6618f31b-8fde-46c6-b65f-9818b7983de2",
+  "value": {
+    "rationale": "The finding directly answers the concrete \\(11\\)-block example in a published questions section and extends it to every all-one block \\(1^r\\), so the parameter family is mathematically motivated rather than an arbitrary slice. The dyadic equality strip also determines the sharp qualitative form of any Graham-style correction: unlike the digit-sum inequality, no positive correction depending only on the smaller addend can hold. This structural contrast is useful for future attempts to classify which block-counting functions admit additive inequalities.",
+    "status": "PASS"
+  }
+}
