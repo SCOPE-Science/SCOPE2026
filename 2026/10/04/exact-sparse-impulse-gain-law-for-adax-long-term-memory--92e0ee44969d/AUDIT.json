@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The impulse recurrences solve in closed form. The response kernel is strictly increasing and bounded; the cumulative gain is its expectation under a geometric index, which proves strict monotonicity and the sharp limit. The Adam comparison follows from an exact geometric tail ratio.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The AdaX source proves broader convex and nonconvex convergence statements.",
+        "The local-convergence source develops fixed-point stability tools for Adam and several adaptive methods.",
+        "Those results do not determine the exact motion after a single isolated gradient."
+      ],
+      "reasoning": "Broader convergence and fixed-point theorems do not imply the sparse-input gain, its strict dependence on the first-moment parameter, or the sharp long-memory ceiling.",
+      "searches": [
+        "AdaX sparse gradient zero gradients momentum tail normalized update",
+        "AdaX beta1 sqrt beta2 condition impulse",
+        "AdaX local convergence optimizer",
+        "arXiv:2102.09804v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2004.09740v1",
+      "arXiv:2102.09804v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 supplies the recurrence used in the proof.",
+        "The source discusses sparse gradients and long-term stability but not an impulse-gain theorem.",
+        "The local-convergence paper does not supply an AdaX sparse-input response law."
+      ],
+      "reasoning": "The final claim requires solving the recurrence, recognizing a geometric-expectation gain, proving monotonicity and the sharp limit, and separately classifying Adam impulse summability.",
+      "searches": [
+        "arXiv:2004.09740v1 Algorithm 2 AdaX beta1 beta2 long term memory",
+        "AdaX single gradient impulse momentum tail cumulative parameter displacement",
+        "arXiv:2102.09804v1 adaptive optimizer local convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the exact long-term second-moment recurrence and matching bias correction.",
+        "The source explicitly motivates decreasing sensitivity to sparse and small current gradients.",
+        "No inspected source states the isolated-gradient cumulative gain or its geometric-expectation representation."
+      ],
+      "reasoning": "Equivalent formulations include total response to one nonzero gradient, normalized impulse gain, and sharp maximum cumulative drift as first-moment memory tends to one. None was found in the inspected sources.",
+      "searches": [
+        "AdaX isolated gradient impulse cumulative displacement exponential long term memory",
+        "AdaX impulse response beta1 beta2 optimizer",
+        "AdaX zero subsequent gradients normalized second moment memory impulse gain",
+        "arXiv:2004.09740v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concerned unrelated exponential-memory systems, adaptive-gradient counterexamples, stochastic feedback, and momentum stability.",
+        "No close returned record used the AdaX long-term second moment with a one-impulse input."
+      ],
+      "reasoning": "The nearest records use different algorithms or state recurrences. Search absence is supporting evidence only and is combined with direct primary-source comparison.",
+      "searches": [
+        "AdaX adaptive gradient exponential long term memory scalar quadratic stability",
+        "AdaX isolated gradient impulse cumulative displacement exponential long term memory",
+        "AdaX sparse gradient zero gradients momentum tail normalized update",
+        "AdaX impulse response beta1 beta2 optimizer",
+        "AdaX long term memory exact weight first gradient bias correction",
+        "AdaX beta1 sqrt beta2 condition impulse",
+        "AdaX single gradient impulse momentum tail cumulative parameter displacement",
+        "AdaX zero subsequent gradients normalized second moment memory impulse gain",
+        "AdaX exact sparse gradient response beta1 beta2",
+        "AdaX effective second moment weights early gradient asymptotic mass"
+      ]
+    },
+    "rationale": "The defining AdaX source motivates long-term memory for sparse gradients and proves broader convergence properties, but the inspected full text does not state the isolated-gradient cumulative response or sharp gain ceiling. Nearby local adaptive-optimizer theory concerns fixed points rather than this sparse input-response law.",
+    "residual_risks": [
+      "An equivalent short calculation may exist in unindexed implementation notes.",
+      "The theorem is an optimizer input-response statement rather than a fixed-objective convergence theorem.",
+      "Implementations may add denominator regularization absent from the displayed Algorithm 2."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_EXACT_SPARSE_IMPULSE_GAIN.",
+        "evidence": "The source gives the long-term recurrence and displayed default but no isolated-gradient cumulative displacement or sharp gain ceiling.",
+        "identifier_or_url": "arXiv:2004.09740v1",
+        "material_read": "Full paper including the adaptive-method comparison, decreasing-gradient counterexample, long-term-memory motivation, Algorithm 2, second-moment expectation calculation, first-moment bias-correction discussion, and convergence statements.",
+        "method": "Full-text PDF inspection with visual inspection of the algorithm page and targeted searches for sparse, zero-gradient, single-gradient, and impulse formulations.",
+        "title": "AdaX: Adaptive Gradient Descent with Exponential Long Term Memory",
+        "trigger": "Defining source for the recurrence, bias correction, defaults, and sparse-gradient motivation."
+      },
+      {
+        "assessment": "GENERAL_LOCAL_ANALYSIS_NOT_COVERING_ADAX_IMPULSE_RESPONSE.",
+        "evidence": "The inspected source treats fixed-point convergence of Adam and related methods, not the AdaX one-impulse response.",
+        "identifier_or_url": "arXiv:2102.09804v1",
+        "material_read": "Full text covering the dynamical-systems fixed-point method, Adam recurrence and Hessian-dependent local bound, and extensions to several adaptive methods.",
+        "method": "Full-text inspection with targeted comparison against AdaX and sparse-input response claims.",
+        "title": "Local Convergence of Adaptive Gradient Descent Optimizers",
+        "trigger": "Closest broad primary local-dynamics analysis for adaptive optimizers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92e0ee44-969d-4c7b-bd86-0a31cc600ffd",
+  "value": {
+    "rationale": "Sparse and diminishing gradients are a stated AdaX motivation. The exact gain law quantifies the interaction between first- and second-moment memories, proves a clean robustness distinction from Adam, and shows the non-obvious finite-gain cost growing like the inverse square root of the long-memory parameter.",
+    "status": "PASS"
+  }
+}
