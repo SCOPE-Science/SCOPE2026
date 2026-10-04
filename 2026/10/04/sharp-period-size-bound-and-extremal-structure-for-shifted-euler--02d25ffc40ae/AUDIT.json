@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For a period-\\(T\\) cycle, rearranging \\(x_{i+1}=\\varphi(x_i)+k\\) gives the exact telescoping identity \\(\\sum_i c(x_i)=Tk\\) for \\(c(n)=n-\\varphi(n)\\). No cycle term is \\(1\\), so every cototient is at least \\(1\\). The maximum cannot be prime; for composite \\(M\\), the least-prime-factor argument gives \\(c(M)\\ge\\sqrt M\\). Therefore \\(\\sqrt M\\le Tk-(T-1)=T(k-1)+1\\). Equality forces every nonmaximum term to be prime and forces equality in the composite totient bound, hence \\(M=q^2\\) with prime \\(q=T(k-1)+1\\). The recurrence on prime terms then forces the entire arithmetic progression and the converse is checked algebraically. The packaged verifier replays representative cycles and extremal examples independently with integer arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leonetti-Luca Theorem 1.2 gives an eventual-periodicity and trajectory bound involving the initial value and k, not a bound for a period-T cycle in terms of T and k.",
+        "The later improvement explicitly concerns x_{n+2}=phi(x_{n+1})+phi(x_n)+k and does not dominate the one-step cycle statement."
+      ],
+      "reasoning": "The closest broader results control whole trajectories or the separate two-step recurrence. Neither supplies the cyclic cototient budget that yields the new sharp period-size relation.",
+      "searches": [
+        "Leonetti Luca phi(n)+k cycle maximum period bound square",
+        "periodic orbit shifted Euler function fixed points two cycles",
+        "An improvement to a theorem of Leonetti and Luca DOI 10.1017/S0004972723000862"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.01783v1",
+      "DOI:10.1017/S0004972723000394",
+      "DOI:10.1017/S0004972723000862",
+      "OEIS:A051953"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source full text explicitly says it has no answer on sharpness/nontrivial size bounds and suggests cycles made of primes in arithmetic progression except the last term.",
+        "The source uses phi(n)<=n-sqrt(n) for composite n in proving boundedness, but does not combine it with a cyclic cototient identity or derive the period-size square bound.",
+        "The follow-up improves only the two-step recurrence bound."
+      ],
+      "reasoning": "The new theorem is not a corollary of the source trajectory estimate: on a periodic orbit that estimate still depends on the chosen initial point. The decisive extra ingredient is summing the cototient deficits around a cycle, after which equality analysis rigidly identifies the source’s suggested construction.",
+      "searches": [
+        "arXiv:2302.01783v1 full text open questions period primes arithmetic progression",
+        "DOI:10.1017/S0004972723000394 full text Theorem 1.2 Claim 2.1",
+        "DOI:10.1017/S0004972723000862 abstract recurrence bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-search hit states the period-size square bound or equality classification.",
+        "General web searches for the exact map and formula returned the Leonetti-Luca source, its two-step follow-up, and general cototient references, not an equivalent theorem."
+      ],
+      "reasoning": "The comparison included the natural aliases shifted Euler map, cototient, periodic orbit, prime arithmetic progression, and prime-square terminal term. None of the located statements implies the claimed period-sensitive bound.",
+      "searches": [
+        "shifted Euler F_k(n)=phi(n)+k T-cycle maximum (T(k-1)+1)^2",
+        "totient periodic orbit cototient sum Tk shifted Euler equality prime square",
+        "phi(n)+k cycle all primes arithmetic progression last composite square",
+        "shifted Euler function periodic cycle cototient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A051953 defines and tabulates c(n)=n-phi(n), with related cototient references, but does not record shifted-Euler periodic-cycle bounds or the equality progression.",
+        "Exact-number web searches did not locate the displayed extremal cycles as known shifted-Euler examples."
+      ],
+      "reasoning": "Because the proof is phrased through the standard cototient and includes explicit extremal cycles, both the canonical cototient database and exact example values were checked for prior tabulation.",
+      "searches": [
+        "OEIS A051953 cototient n-phi(n)",
+        "98023201 98026501 98029801 totient cycle",
+        "1129002001 1129010401 1129018801 1129027201 totient"
+      ]
+    },
+    "rationale": "Leonetti and Luca prove eventual periodicity and a starting-value-dependent trajectory bound, then explicitly ask about sharpness and size information and suggest prime-progression cycles with one final composite. The inspected full text does not state a period-sensitive bound or characterize that suggested pattern. The later improvement concerns the different two-step recurrence. OEIS A051953 catalogs cototients but not this cyclic identity or extremal theorem. Targeted semantic and web searches did not locate a statement implying the result.",
+    "residual_risks": [
+      "The cyclic cototient identity is elementary, so an equivalent period bound may occur in an unindexed note or informal discussion.",
+      "The equality criterion reduces extremal existence to simultaneous primality; no infinitude claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering. It proves eventual periodicity and a trajectory bound, but explicitly leaves sharpness/size questions open and only suggests the prime-progression cycle pattern.",
+        "evidence": "The source states that it has no answer on sufficiently sharp upper estimates/nontrivial lower bounds and proposes cycles made of primes in arithmetic progression except the last term.",
+        "identifier_or_url": "arXiv:2302.01783v1; DOI:10.1017/S0004972723000394",
+        "material_read": "Open-access full HTML article: abstract, Theorem 1.2, discussion, end-of-introduction open questions, and the proof passage using the composite totient inequality.",
+        "method": "Full-text HTML inspection with targeted searches for the open-question language, arithmetic progression, and the composite bound.",
+        "title": "On the iterates of the shifted Euler's function",
+        "trigger": "Primary source for the exact one-step shifted Euler map and its explicit open questions on sharpness, size, and prime-progression cycles."
+      },
+      {
+        "assessment": "Not covering. Its improved estimate is for the two-step recurrence, not the one-step map whose cycles are classified here.",
+        "evidence": "The abstract states x_{n+2}=phi(x_{n+1})+phi(x_n)+k and gives a bound for that recurrence.",
+        "identifier_or_url": "DOI:10.1017/S0004972723000862",
+        "material_read": "Cambridge article page, abstract, classification, and stated recurrence/result.",
+        "method": "Publisher-page inspection and targeted scope comparison.",
+        "title": "An improvement to a theorem of Leonetti and Luca",
+        "trigger": "Direct later follow-up with the same source in the title and an improved bound."
+      },
+      {
+        "assessment": "Not covering the cyclic theorem.",
+        "evidence": "The entry tabulates n-phi(n) and related properties but contains no shifted-Euler period-size bound or extremal cycle statement.",
+        "identifier_or_url": "OEIS:A051953",
+        "material_read": "Sequence definition, comments, formulas, links, cross-references, and cited cototient literature.",
+        "method": "Current database-page inspection.",
+        "title": "OEIS A051953: Cototient(n) := n - phi(n)",
+        "trigger": "Canonical database for the arithmetic function used in the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "02d25ffc-40ae-4cc1-8b88-9a377c0e984c",
+  "value": {
+    "rationale": "The theorem addresses a named structural gap in the source paper rather than an arbitrary parameter slice. It gives a sharp period-sensitive envelope for every periodic orbit of the one-step map and converts the source’s suggested prime-progression construction into a necessary-and-sufficient equality criterion. The result also yields the nontrivial relation \\(T\\ge(\\sqrt M-1)/(k-1)\\), so a large cycle maximum forces a long period. Explicit periods \\(2\\), \\(3\\), and \\(4\\) attain equality, demonstrating that the extremal mechanism is not merely formal.",
+    "status": "PASS"
+  }
+}
