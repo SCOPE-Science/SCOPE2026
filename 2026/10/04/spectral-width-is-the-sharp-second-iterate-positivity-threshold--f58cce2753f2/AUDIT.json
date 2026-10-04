@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The direct good-Broyden rank-one update yields the exact second-iterate identity. The Rayleigh quotient lies in [mu,L], every Stieltjes off-diagonal contributes nonnegatively, and a_ii<=L gives positivity whenever gamma>=L-mu. The two-dimensional diagonal family makes the high-curvature coordinate negative for every smaller gamma. Exact rational replay confirms the algebra and explicit witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "O'Leary proves projection and finite-termination structure for Broyden on linear systems and emphasizes understanding intermediate iterates.",
+        "Carlsson and Cary compare standard Broyden with a hypersecant Jacobian approximation in sparse nonlinear solves."
+      ],
+      "reasoning": "Projection and convergence theory constrain residual subspaces and eventual termination, not coordinate signs in the original basis. The accepted theorem uses inverse-positive matrix structure and spectral width, so those broader results do not dominate it.",
+      "searches": [
+        "Why Broyden nonsymmetric method terminates on linear equations",
+        "Some convergence properties of Broyden method linear equations",
+        "Broyden good method intermediate iterates linear systems",
+        "hypersecant Jacobian approximation Broyden sparse nonlinear systems"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/0805012",
+      "hdl:1903/583",
+      "arXiv:0905.1054v1",
+      "C. G. Broyden, Mathematics of Computation 19 (1965), 577-593",
+      "Focused searches under Stieltjes, M-matrix, positive-orthant, spectral-width, scalar-initialization, and second-iterate aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected O'Leary full text gives the inverse-update secant framework, identifies good Broyden, proves projection/termination results, and states primary AMS 65H10. It does not state coordinatewise positivity or the spectral-width threshold in the inspected pages.",
+        "The hypersecant paper treats Jacobian approximation quality and sparse nonlinear solves rather than Stieltjes orthant preservation."
+      ],
+      "reasoning": "The prior secant and projection formulas are inputs to the derivation, but the accepted conclusion requires the new exact two-step elimination plus Stieltjes entrywise analysis. No checked prior statement implies the robust threshold or the two-dimensional sharp family.",
+      "searches": [
+        "DOI:10.1137/0805012 full text Broyden intermediate iterates",
+        "hdl:1903/583 Broyden linear equations projection",
+        "arXiv:0905.1054 Broyden hypersecant Jacobian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked publication or indexed mathematical record stated an entrywise-positivity criterion equivalent to gamma >= L-mu for the second good-Broyden iterate.",
+        "Searches under positive-orthant, M-matrix, Stieltjes, nonnegative iterate, and scalar-Jacobian aliases returned general quasi-Newton or unrelated positivity work."
+      ],
+      "reasoning": "The claim can be restated as entrywise nonnegativity of a Rayleigh-shifted Stieltjes matrix after the first rank-one update. The alias searches targeted both the method name and that matrix-class formulation; no implication-equivalent statement was found.",
+      "searches": [
+        "Broyden second iterate positivity Stieltjes spectral width scalar initial Jacobian",
+        "Broyden method positive orthant M-matrix nonnegative right hand side",
+        "good Broyden diagonal SPD negative iterate positive solution",
+        "Broyden linear system Stieltjes positivity second iterate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-constant or formula search exposed L-mu or condition number 2 as a Broyden positivity threshold.",
+        "The standard literature tables and summaries encountered concern update choices, convergence rates, and termination rather than orthant-safety constants."
+      ],
+      "reasoning": "Because the threshold is an elementary exact spectral quantity, direct searches for the constant and initialization formula were included; none located the claimed result.",
+      "searches": [
+        "Broyden spectral width L-mu positivity",
+        "Broyden condition number 2 positive iterate",
+        "good Broyden gamma I second iteration formula",
+        "Broyden Stieltjes matrix table positivity"
+      ]
+    },
+    "rationale": "Classical Broyden update formulas, projection interpretations, convergence, and finite linear termination are treated as prior work. Focused searches did not locate the spectral-width second-iterate orthant theorem or its minimal two-dimensional obstruction. The closest full-text linear Broyden paper studies intermediate residual subspaces but not coordinatewise positivity.",
+    "residual_risks": [
+      "Older monotone-equation or positivity-preserving quasi-Newton literature may contain the same two-step criterion under different terminology.",
+      "The theorem is robust over a spectral class; special matrices or right-hand sides can be positive for smaller gamma.",
+      "No claim is made for later Broyden iterates or nonsymmetric M-matrices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS Broyden projection structure, intermediate residual formulas, and finite termination. The inspected text does not state the Stieltjes coordinatewise positivity criterion or the spectral-width threshold.",
+        "evidence": "The paper states AMS 65H10, 65F10; calls the v_k parallel to s_k choice good Broyden; and explicitly says the work develops understanding of intermediate linear iterates.",
+        "identifier_or_url": "DOI:10.1137/0805012; hdl:1903/583",
+        "material_read": "Full five-page author-hosted PDF, especially the abstract, introduction, inverse secant update, good-method description, linear-system specialization, residual-factor formulas, and finite-termination theorem.",
+        "method": "Lawful author-hosted PDF full-text and page-image inspection.",
+        "title": "Why Broyden's Nonsymmetric Method Terminates on Linear Equations",
+        "trigger": "Closest primary full-text analysis of Broyden intermediate iterates on linear equations and primary subject-classification evidence."
+      },
+      {
+        "assessment": "COVERS sparse quasi-Newton Jacobian approximation and comparison with standard Broyden; it does not address positive orthants or spectral-width safety.",
+        "evidence": "The source describes Broyden as the baseline prior-iterate Jacobian approximation and focuses on sparse recovery and convergence behavior.",
+        "identifier_or_url": "arXiv:0905.1054v1",
+        "material_read": "Abstract and method-description material available from the public preprint record.",
+        "method": "Public preprint metadata and abstract inspection.",
+        "title": "The Hypersecant Jacobian Approximation for Quasi-Newton Solves of Sparse Nonlinear Systems",
+        "trigger": "Archive-era source comparing a practical Jacobian approximation directly against standard Broyden."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f58cce27-53f2-46b2-8e12-a3845ab605ab",
+  "value": {
+    "rationale": "The scalar initial Jacobian B0=gamma I is a natural low-information quasi-Newton initialization, and Stieltjes systems have a genuine nonnegativity interpretation through inverse positivity. The exact safety threshold gamma=L-mu, minimal-dimensional failure, and condition-number-two specialization give a usable initialization rule and regression test rather than a routine convergence calculation.",
+    "status": "PASS"
+  }
+}
