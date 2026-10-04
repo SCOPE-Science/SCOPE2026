@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the complete equality chain. From tr(S)=n and nonnegative eigenvalues, Cauchy-Schwarz gives tr(S^2)>=n^2/d. The rank-one expansion gives tr(S^2)=n+sum_{j!=k}a_jk a_kj, and the correlation bound gives tr(S^2)-n<=sum|a_jk a_kj|<=n(n-1)M^2. At M^2=(n-d)/(d(n-1)), the endpoints coincide, so all eigenvalues are n/d and every ordered product has modulus M^2. Diagonalizability then gives S=(n/d)I, while |a_jk|,|a_kj|<=M force every off-diagonal modulus to equal M. The n=d boundary has M=0 and is included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Waldron 2003 characterizes Hilbert-space Welch-bound-equality vector sequences, where functionals come from the inner product.",
+        "Preprints.org 202608.1175 classifies normalized equiangular tight systems only in complex l_infinity^2 and l_1^2 and assumes tight equiangularity."
+      ],
+      "reasoning": "The Hilbert result is a special case and does not cover independent Banach functionals. The 2026 Banach paper is narrower in space and assumes the target structure rather than deriving it from maximum-correlation equality.",
+      "searches": [
+        "Generalized Welch bound equality sequences are tight frames Waldron 2003",
+        "Banach Welch bound tight ASF equiangular",
+        "preprints.org:202608.1175",
+        "\"first order Welch bound\" Banach equiangular"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.00980",
+      "doi:10.7153/jca-2023-22-07",
+      "doi:10.1109/TIT.2003.815788",
+      "preprints.org:202608.1175"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.5 in arXiv:2201.00980 identifies equality in the trace/sum inequality with tightness.",
+        "Theorem 3.11 gives the maximum-correlation lower bound and only states the forward implication from equiangularity to equality, followed immediately by Question 3.12(i).",
+        "Waldron 2003 is Hilbert-only; the 2026 preprint is two-dimensional and assumes tight equiangularity."
+      ],
+      "reasoning": "The new implication uses equality propagation across the full chain n^2/d-n <= tr(S^2)-n <= sum |a_jk a_kj| <= n(n-1)M^2. None of the inspected prior statements supplies the step from equality in M to saturation of every ordered off-diagonal product in the Banach dual-pair setting.",
+      "searches": [
+        "arXiv:2201.00980 Theorem 2.5 equality holds iff tight ASF",
+        "arXiv:2201.00980 Theorem 3.11 Question 3.12",
+        "doi:10.1109/TIT.2003.815788",
+        "preprints.org:202608.1175"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2201.00980, Theorem 3.11 and Question 3.12(i), states the first-order maximum-correlation bound and asks whether equality forces equiangularity.",
+        "The claim is formulated directly as constant off-diagonal modulus, avoiding the source's squared-modulus parameter convention ambiguity."
+      ],
+      "reasoning": "No equivalent formulation located under Welch-bound equality, Grassmannian ASF, approximate Schauder frame, or constant cross-correlation terminology covered the Banach dual-pair statement.",
+      "searches": [
+        "Krishna Question 3.12 equality first order Banach Welch bound implies equiangular",
+        "\"equality\" Welch bound Banach spaces equiangular approximate Schauder frame",
+        "\"Question 3.12\" \"equiangular\" Banach",
+        "arXiv:2201.00980 Question 3.12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The current/prior own ledger contains no Banach Welch-bound equality claim; the only prior equiangular occurrence is in an unrelated total-coherence frame result.",
+        "Semantic-index searches returned no result whose statement implies the present theorem; closest frame-related hits concerned unrelated numerical or optimization settings."
+      ],
+      "reasoning": "No exact database/table entry or own-ledger item was found for the equality classification.",
+      "searches": [
+        "Banach Welch bound equality implies equiangular tight approximate Schauder frame Question 3.12",
+        "approximate Schauder frame Welch bound equality characterization",
+        "Krishna Banach Grassmannian frame equality first order Welch bound equiangular",
+        "own ledger search: Welch; Question 3.12; approximate Schauder; Grassmannian; equiangular"
+      ]
+    },
+    "rationale": "The anchor source explicitly poses the equality-to-equiangularity implication as Question 3.12(i). The classical Hilbert equality theorem and the later two-dimensional Banach existence classification do not imply the general Banach dual-pair equality theorem. Targeted semantic and exact searches found no covering statement.",
+    "residual_risks": [
+      "An unindexed note or later paper could have answered Question 3.12(i) under different Banach-frame terminology.",
+      "The anchor source has a notation convention ambiguity for the equiangular parameter; the present claim avoids it by stating the off-diagonal modulus explicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_GAP: the source proves the bound and asks whether equality forces equiangularity; it does not state the general converse proved here.",
+        "evidence": "Question 3.12(i) explicitly asks whether equality in inequality (10) implies gamma-equiangularity.",
+        "identifier_or_url": "arXiv:2201.00980",
+        "material_read": "Definitions 2.1-2.3; Theorem 2.5 proof and its equality statement; Definitions 3.6-3.9; Theorem 3.11; Question 3.12; bibliographic metadata.",
+        "method": "Full-text HTML/OCR inspection of the lawful open preprint and journal copy.",
+        "title": "Discrete and Continuous Welch Bounds for Banach Spaces with Applications",
+        "trigger": "Primary source defining the Banach Welch bound and posing the exact equality-case question."
+      },
+      {
+        "assessment": "NOT_COVERING: it concerns Hilbert-space vector sequences, not Banach approximate Schauder pairs with independent functionals.",
+        "evidence": "The abstract identifies Welch-bound-equality sequences with tight frames in the Hilbert/signal-sequence setting.",
+        "identifier_or_url": "doi:10.1109/TIT.2003.815788",
+        "material_read": "Title, abstract, bibliographic description, and its role as cited by the anchor source.",
+        "method": "Publisher/indexed abstract and bibliographic inspection.",
+        "title": "Generalized Welch Bound Equality Sequences Are Tight Frames",
+        "trigger": "Classical equality-case theorem with potentially broader wording."
+      },
+      {
+        "assessment": "NOT_COVERING: it assumes tight equiangularity and treats only two complex two-dimensional norms; it does not derive equiangularity from Welch-bound equality.",
+        "evidence": "Its complete classification is restricted to complex l_infinity^2 and l_1^2 and starts from normalized equiangular/tight hypotheses.",
+        "identifier_or_url": "preprints.org:202608.1175",
+        "material_read": "Abstract, introduction, normalized-system definition, main cardinality theorem, complete two-space classification, and references.",
+        "method": "Full open HTML inspection.",
+        "title": "Equiangular Finite Unit-Norm Tight Systems in Complex l_infinity^2 and l_1^2",
+        "trigger": "Recent Banach-space paper explicitly citing Krishna and classifying equiangular tight systems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9378450e-7d75-43f7-909c-0297ebf6a01d",
+  "value": {
+    "rationale": "The anchor paper explicitly leaves the equality-to-equiangularity implication open as Question 3.12(i). The result resolves that natural question for every finite-dimensional Banach space under the source hypotheses and strengthens the conclusion by obtaining tightness simultaneously. The equality mechanism is structural, not a parameter renaming or finite recomputation.",
+    "status": "PASS"
+  }
+}
