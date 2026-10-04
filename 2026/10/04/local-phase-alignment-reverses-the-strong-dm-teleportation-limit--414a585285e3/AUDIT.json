@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the thermal Bell weights from the source eigenvectors, shows that \\(U_D\\) removes only the known local phase, derives the product-Pauli channel average on the exact source input ensemble, reproduces Zhang Eq. (11) when the phase is left unaligned, and obtains the gain by subtraction. The strictness condition and both strong-DM limits follow directly from the closed forms. The bundled checker independently validates the identities and representative channel averages.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1142/S0217979210054579 analyzes DM-enhanced entanglement and the complex odd-sector eigenvectors.",
+        "DOI:10.1142/S0217984910022536 studies different DM orientations in teleportation and reports fixed-protocol fidelity trends."
+      ],
+      "reasoning": "These broader works cover DM entanglement and DM-dependent teleportation behavior, but the material inspected does not state the local phase-aligned correction to Zhang Eq. (11) or the limit \\(F_{\\rm align}\\to1\\) for the same protocol.",
+      "searches": [
+        "semantic query: \"thermal Heisenberg Dzyaloshinskii Moriya teleportation phase aligned Bell basis average fidelity\"",
+        "web query: \"Dzyaloshinskii-Moriya\" teleportation \"Bell basis\" phase",
+        "web query: \"Dzyaloshinskii-Moriya\" teleportation \"phase gate\" Heisenberg"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0703019 / DOI:10.1103/PhysRevA.75.034304",
+      "arXiv:0804.0710 / DOI:10.1142/S0217979210054579",
+      "arXiv:quant-ph/9807091 / DOI:10.1103/PhysRevA.60.1888",
+      "DOI:10.1142/S0217984910022536 (partial accessible material)",
+      "DOI:10.1088/1674-1137/37/11/113102 (abstract/reference comparison)",
+      "current private ledger through generation g000048"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang Eq. (11) is reproduced exactly by the same Bell-overlap calculation with the odd-sector coherence reduced by \\(\\cos\\theta_D=1/\\sqrt{1+D^2}\\).",
+        "After the local phase gate the full odd-sector coherence enters, producing a strictly positive difference proportional to \\(D^2\\sinh^2(J\\sqrt{1+D^2}/T)\\)."
+      ],
+      "reasoning": "The new statement strictly contradicts the unrestricted reading of the source sentence that Eq. (11) is maximal: an explicit allowed local-unitary preprocessing achieves a larger value for every \\(JD\\neq0\\). If the source sentence is instead read as maximal only after freezing its Bell basis and correction table, the numerical Eq. (11) remains correct and the present statement identifies the missing optimization.",
+      "searches": [
+        "web query: \"034304\" \"maximal fidelity\" teleportation",
+        "web query: \"Thermal entanglement and teleportation\" \"phase\" \"Dzyaloshinski\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:quant-ph/0703019 gives the phase-bearing eigenvectors and fixed-basis Eq. (11).",
+        "DOI:10.1103/PhysRevA.60.1888 gives the general optimal-fidelity/maximal-singlet-fraction theorem, but not this model-specific two-copy formula."
+      ],
+      "reasoning": "The general singlet-fraction theorem motivates local-basis optimization but does not imply the displayed two-copy odd-parity ensemble average without carrying out the source-specific channel calculation. No equivalent formula or the exact gain term was found in the targeted searches.",
+      "searches": [
+        "semantic query: \"Zhang Heisenberg DM teleportation Eq. 11 maximal fidelity local phase compensation asymptotic one\"",
+        "web query: \"034304\" \"local unitary\" teleportation",
+        "web query: \"quant-ph/0703019\" \"local unitary\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic-index hits were unrelated published findings, including 2026/9/17/SCOPE-dpo-half-threshold-sharpness--ba2cd47befbe and 2026/9/16/SCOPE007.",
+        "The current private ledger contains item 3628401f-2219-4560-ae71-9e8f3a6cd70b on a factor-two output-concurrence correction for the unaligned Zhang protocol, not the present phase-aligned average-fidelity claim."
+      ],
+      "reasoning": "No exact database/table entry located the phase-aligned formula or gain. The nearest own-ledger item fixes the Bell basis and studies output concurrence, whereas this result changes the local resource basis and proves an average-fidelity improvement and different strong-DM limit. Neither statement implies the other.",
+      "searches": [
+        "semantic query: \"quant-ph/0703019 Eq 11 fidelity local rotation\"",
+        "semantic query: \"two-copy teleportation DM phase local unitary fidelity 2/3 strong coupling\""
+      ]
+    },
+    "rationale": "The accepted statement is not the general fact that local unitaries can optimize singlet fraction. It is the source-specific exact phase gate, closed fidelity formula, exact positive gain over Zhang's Eq. (11), and opposite strong-DM limit for the same two-copy input ensemble. Targeted semantic and web searches did not locate that statement. The closest directly related later DM-teleportation paper was only partially accessible, so that access limitation is retained as a residual risk.",
+    "residual_risks": [
+      "The complete body of DOI:10.1142/S0217984910022536 was not accessible in the inspected corpus; only its publisher preview and abstract-level material were read.",
+      "The claim is not that no unpublished or unindexed derivation exists; semantic and web searches establish comparison coverage, not absolute novelty.",
+      "The term 'maximal' in Zhang's prose may have been intended only relative to a frozen Bell basis/correction convention. The mathematical correction is therefore phrased as failure of maximality once local-unitary preprocessing is permitted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING the unaligned fixed-basis formula; NOT_COVERING the phase-aligned preprocessing or its exact gain. The new calculation reproduces Eq. (11) before alignment and exceeds it after alignment.",
+        "evidence": "The source eigenstates carry \\(e^{i\\arctan D}\\); Eq. (11) is called maximal and is reported to approach \\(2/3\\) at strong DM coupling.",
+        "identifier_or_url": "arXiv:quant-ph/0703019; DOI:10.1103/PhysRevA.75.034304",
+        "material_read": "Complete four-page article text, including Sections II--V and Eq. (11).",
+        "method": "Full-text reading and independent algebraic reconstruction of the Bell overlaps.",
+        "title": "Thermal entanglement and teleportation in a two-qubit Heisenberg chain with Dzyaloshinski-Moriya anisotropic antisymmetric interaction",
+        "trigger": "Primary source containing the thermal state, DM phase, two-copy teleportation channel, Eq. (11), and the maximality/strong-DM statements."
+      },
+      {
+        "assessment": "COVERING the DM eigenvector structure and entanglement enhancement; NOT_COVERING the two-copy teleportation average-fidelity correction.",
+        "evidence": "The odd-sector eigenvectors explicitly contain the complex amplitude \\(J_+-iD\\), while the paper's stated scope is entanglement and SWAP-gate behavior rather than Zhang's teleportation fidelity.",
+        "identifier_or_url": "arXiv:0804.0710; DOI:10.1142/S0217979210054579",
+        "material_read": "Abstract, model setup, eigenvalue/eigenvector section, and model-specific DM-entanglement sections from the full arXiv text.",
+        "method": "Full-text inspection of the publicly available preprint.",
+        "title": "Two Qubit Entanglement in Magnetic Chains with DM Antisymmetric Anisotropic Exchange Interaction",
+        "trigger": "Highly relevant mathematical treatment of the same DM two-qubit Hamiltonian and its complex eigenvectors; also supplies verified primary MSC ownership."
+      },
+      {
+        "assessment": "BROADER conceptual coverage of optimal teleportation fidelity, but it does not state the present DM phase gate, two-copy restricted-ensemble formula, gain, or strong-DM comparison with Zhang Eq. (11).",
+        "evidence": "The theorem gives \\(f_{\\max}=(dF_{\\max}+1)/(d+1)\\) for general teleportation; the accepted claim is an explicit construction and exact source correction in a different two-copy restricted-input setting.",
+        "identifier_or_url": "arXiv:quant-ph/9807091; DOI:10.1103/PhysRevA.60.1888",
+        "material_read": "Public abstract and theorem statement describing optimal fidelity through maximal singlet fraction.",
+        "method": "Theorem-statement comparison with the source-specific claim.",
+        "title": "General teleportation channel, singlet fraction, and quasidistillation",
+        "trigger": "Potential broader theorem that could subsume any local-unitary fidelity improvement."
+      },
+      {
+        "assessment": "The accessible material does not report the phase-aligned correction or the strong-\\(D_z\\) limit proved here. Because the full body was unavailable, it remains an explicit residual originality risk rather than negative evidence.",
+        "evidence": "The abstract distinguishes \\(D_x\\) and \\(D_z\\) fixed-protocol performance and reports unit fidelity for suitable \\(D_x\\) in one regime, but does not state phase compensation of Zhang's \\(D_z\\) formula.",
+        "identifier_or_url": "DOI:10.1142/S0217984910022536",
+        "material_read": "Publisher preview containing title, abstract, first-page material, references, and reported fidelity conclusions; the complete body was not accessible in the inspected corpus.",
+        "method": "Publisher-preview inspection after searches for a public preprint or lawful full-text copy did not yield a complete article.",
+        "title": "The effect of different Dzyaloshinskii-Moriya interactions on teleportation via a two-qubit Heisenberg chain",
+        "trigger": "Closest later paper by title and object: two-qubit Heisenberg teleportation with different DM orientations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "414a5852-85e3-48c8-9a79-e94ac73691f3",
+  "value": {
+    "rationale": "This is not a cosmetic basis rewrite: it reverses the source's operational strong-DM conclusion from the classical boundary \\(2/3\\) to asymptotically perfect fidelity \\(1\\) using only a calibrated one-qubit phase gate on each shared pair. It also supplies an exact positive performance gap for every nonzero \\(J\\) and \\(D\\), clarifying which part of the reported degradation is physical and which is a fixed-measurement-basis artifact.",
+    "status": "PASS"
+  }
+}
