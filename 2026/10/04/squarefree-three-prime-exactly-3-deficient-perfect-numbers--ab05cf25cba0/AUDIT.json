@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For n=2pq the deficiency is exactly pq-3p-3q-3. Because it is smaller than pq, no three-divisor representation can use pq, leaving exactly twenty triples from {1,2,p,2p,q,2q}. Writing a triple as c+ap+bq gives the exact factorization (p-(b+3))(q-(a+3))=(a+3)(b+3)+c+3. The right side is at most 33 and both factors are positive, so enumerating its positive divisors is exhaustive without any search cutoff. The packaged verifier reconstructs all twenty rows, finds exactly six prime pairs, and directly verifies each divisor-sum identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper's introduction says Chen handled exactly 2-deficient-perfect numbers with omega<=2 and that the authors continue with odd exactly 3-deficient-perfect numbers with omega<=2.",
+        "published-finding corpus record 2026/9/20/SCOPE-deficient-perfect-three-prime-squarefree-slice--3e91eb00b44d concerns ordinary deficient-perfect numbers, i.e. a single deficient divisor, not a sum of three."
+      ],
+      "reasoning": "A broader theorem for exactly 3-deficient-perfect numbers with three prime factors would cover the claim, but the located literature and the closest published internal result address different deficient-divisor counts.",
+      "searches": [
+        "deficient-perfect exact 3 squarefree even three prime support",
+        "exactly k-deficient-perfect squarefree 2pq",
+        "three distinct prime factors exactly 3-deficient-perfect"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.06953v1",
+      "Fibonacci Quarterly 59 (2021), 33-46",
+      "Integers 19 (2019), A37",
+      "OEIS:A331629",
+      "published-finding corpus:2026/9/20/SCOPE-deficient-perfect-three-prime-squarefree-slice--3e91eb00b44d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.3 of Aursukaree--Pongsriiam is restricted to odd numbers with two distinct prime factors.",
+        "Chen's cited classification is for exactly 2-deficient-perfect numbers with at most two distinct prime factors.",
+        "The closest published-finding corpus theorem assumes a single deficient divisor."
+      ],
+      "reasoning": "None of these prior statements can be specialized to an even squarefree number with three prime factors and three distinct deficient divisors. The twenty-case factorization is new mathematical content required for the present conclusion.",
+      "searches": [
+        "arXiv:2001.06953 Theorem 2.3 omega 2 odd",
+        "Feng-Juan Chen exactly k-deficient-perfect omega<=2",
+        "published-finding corpus deficient-perfect three-prime squarefree 2^a p q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2001.06953v1 defines exactly 3-deficient-perfect numbers and states only the odd omega<=2 classification.",
+        "OEIS A331629 lists the six values but does not assert that they exhaust the 2pq family.",
+        "No exact family or six-value search returned a prior complete classification."
+      ],
+      "reasoning": "The checks cover the original terminology, the structural form n=2pq, the squarefree-three-prime reformulation, and the exact resulting value set.",
+      "searches": [
+        "exactly 3-deficient-perfect numbers squarefree three prime factors 2 p q",
+        "2pq exactly three deficient perfect classification",
+        "\"squarefree\" \"exactly 3-deficient-perfect\"",
+        "\"130, 154, 170, 182, 290, 434\" deficient perfect"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A331629 contains all six numbers in its sequence of exactly 3-deficient-perfect integers.",
+        "The OEIS comments cite the odd omega<=2 theorem but contain no statement that the six numbers are the complete squarefree 2pq subfamily."
+      ],
+      "reasoning": "Because the answer is a finite six-element set, sequence databases are a major coverage risk. The database provides corroborating instances but not the classification theorem.",
+      "searches": [
+        "OEIS A331629 exactly 3-deficient-perfect",
+        "\"130\" \"154\" \"170\" \"182\" \"290\" \"434\" \"deficient-perfect\"",
+        "A331629 squarefree 2pq"
+      ]
+    },
+    "rationale": "The 2020 primary source treats odd exactly 3-deficient-perfect numbers with omega at most two and explicitly frames further characterization as open terrain. Chen's 2019 result concerns exactly 2-deficient-perfect numbers with at most two prime factors. OEIS A331629 lists the six integers among initial terms but does not state a complete 2pq classification. The closest published-finding corpus record classifies ordinary deficient-perfect numbers with one deficient divisor in the 2^a p q family, which neither states nor implies the three-divisor equation. Targeted exact searches for the family, squarefree formulation, six values, and prime-pair list found no covering theorem.",
+    "residual_risks": [
+      "An unindexed or unpublished note may contain the same 2pq classification.",
+      "The Chen 2019 full text was not needed for a decisive comparison because the primary 2021 paper explicitly states its scope; nevertheless, a hidden remark outside its stated omega<=2 exactly-2 result is a low residual risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper classifies odd exactly 3-deficient-perfect numbers with omega=2 and does not cover the even squarefree omega=3 family.",
+        "evidence": "The introduction states that the paper continues the investigation on odd 3-deficient-perfect numbers with omega<=2, and Theorem 2.3 gives only 1521 in that domain.",
+        "identifier_or_url": "arXiv:2001.06953v1; Fibonacci Quarterly 59 (2021), 33-46",
+        "material_read": "ArXiv metadata; full open-access paper introduction, Definitions 1.1-1.2, Lemmas 2.1-2.2, and Theorem 2.3.",
+        "method": "Full-text PDF inspection with rendered-page check.",
+        "title": "On Exactly 3-Deficient-Perfect Numbers",
+        "trigger": "Primary source defining the object and giving the closest classification theorem."
+      },
+      {
+        "assessment": "It classifies exactly 2-deficient-perfect numbers with at most two distinct prime factors, not the present 3-divisor, 3-prime-support slice.",
+        "evidence": "Aursukaree--Pongsriiam explicitly describe Chen's result as the omega<=2 exactly-2 case.",
+        "identifier_or_url": "Integers 19 (2019), A37",
+        "material_read": "Bibliographic record and scope as summarized by the primary 2021 paper and MaRDI record.",
+        "method": "Bibliographic and source-context inspection.",
+        "title": "On exactly k-deficient-perfect numbers",
+        "trigger": "Earlier closest work on exact deficient-divisor counts."
+      },
+      {
+        "assessment": "It corroborates all six values but does not state their completeness inside the 2pq family.",
+        "evidence": "The sequence begins 130,154,170,182,...,290,434,... and comments only on the odd omega<=2 theorem.",
+        "identifier_or_url": "OEIS:A331629",
+        "material_read": "Current sequence definition, comments, initial terms, example, links, and references.",
+        "method": "Current database-page inspection.",
+        "title": "A331629",
+        "trigger": "Exact database check for the finite classified values."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab05cf25-cba0-44e7-b769-a245f695e75a",
+  "value": {
+    "rationale": "The result gives a complete classification for the first natural squarefree three-prime-support slice immediately beyond the primary paper's omega<=2 focus. It converts an observed finite sequence pattern into a proof with no computational cutoff and supplies explicit deficient-divisor witnesses. The slice is motivated directly by prime support and squarefreeness, not by an arbitrary numerical bound.",
+    "status": "PASS"
+  }
+}
