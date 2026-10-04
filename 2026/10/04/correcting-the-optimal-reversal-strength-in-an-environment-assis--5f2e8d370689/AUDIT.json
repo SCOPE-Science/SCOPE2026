@@ -1,0 +1,104 @@
+{
+  "claim": "In the third environment-assisted weak-measurement-reversal scheme of Xu, Cheng, Liu, Su, Wang, and Zhang for two equally amplitude-damped qubits, let \\(d\\in(0,1)\\) be the damping strength and \\(q\\in[0,1]\\) the reversal strength. With \\(r=1-d\\) and \\(y=1-q\\), their displayed formulas imply \\[C_3(q)=\\frac{2r\\sqrt y}{r+y},\\qquad P_3(q)=\\frac{r+y}{2}.\\]The concurrence is uniquely maximized at \\(y=r\\), hence at \\(q=d\\), with \\[C_{3,\\max}=\\sqrt{1-d},\\qquad P_3(q=d)=1-d.\\]The paper instead labels \\(q_{\\mathrm{pub}}=2d-d^2\\) as optimal; this has \\(y=r^2\\) and gives \\[C_{\\mathrm{pub}}=\\frac{2r}{1+r},\\qquad P_{\\mathrm{pub}}=\\frac{r(1+r)}2.\\]For every \\(0<d<1\\), the corrected point strictly dominates the published point in both quantities: \\[C_{3,\\max}-C_{\\mathrm{pub}}=\\frac{\\sqrt r(1-\\sqrt r)^2}{1+r}>0,\\qquad P_3(q=d)-P_{\\mathrm{pub}}=\\frac{r(1-r)}2>0.\\]Moreover, the complete concurrence-success Pareto frontier of this one-parameter scheme is \\(0\\le q\\le d\\), equivalently \\(r\\le P\\le(1+r)/2\\), with \\[C_{\\mathrm{Pareto}}(P)=\\frac{r\\sqrt{2P-r}}{P}.\\]Thus the source's stated scheme-three optimum lies on the strictly dominated branch \\(q>d\\); comparisons in that paper that substitute the published scheme-three optimum require recomputation. No claim is made about the other two schemes or about globally optimal entanglement-restoration protocols.",
+  "correctness": {
+    "rationale": "Starting from the source equations, set \\(r=1-d\\) and \\(y=1-q\\). Then \\(C_3=2r\\sqrt y/(r+y)\\) and \\(dC_3/dy=r(r-y)/[\\sqrt y(r+y)^2]\\), proving a unique maximum at \\(y=r\\). Exact substitution yields \\(C_{\\max}=\\sqrt r\\), \\(P=r\\), and strictly positive differences from the published \\(y=r^2\\) point. Monotonicity also proves the full Pareto frontier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Later review literature covers weak-measurement reversal and environment-assisted recovery broadly.",
+        "No inspected later source was found to specialize to the source's third-scheme scalar optimization and replace q=2d-d^2 by q=d.",
+        "The correction is derived directly from the primary source formula, so broader protocol literature does not subsume it without this specialization."
+      ],
+      "reasoning": "General weak-measurement optimization results are not covering unless they imply the same source-model optimum under the same damping and reversal parametrization.",
+      "searches": [
+        "weak measurement environment assisted entanglement restoration survey Xu Cheng Liu Su Wang Zhang",
+        "quantum state recovery environment-assisted measurement weak measurement 2022",
+        "weak measurement reversal amplitude damping entanglement optimal concurrence review"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s11128-015-1111-0",
+      "ResearchGate:publication/282388675",
+      "arXiv:2109.12842",
+      "DOI:10.1142/S0219749922500071"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly gives the function being optimized and then states a different point as optimal.",
+        "The derivative of that source function changes sign only at q=d.",
+        "At q=d both concurrence and success probability exceed their values at the source's q=2d-d^2."
+      ],
+      "reasoning": "The primary source does not imply the accepted claim without detecting and correcting its optimization step; indeed its printed conclusion is the opposite parameter choice.",
+      "searches": [
+        "DOI:10.1007/s11128-015-1111-0 equations 25a 25b 26a 26b 27",
+        "Environment-assisted entanglement restoration qO=2d-d^2 optimal concurrence",
+        "Comparison of quantum state protection against decoherence weak measurement Xu 2015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source states equations (25a)-(25b) for concurrence and success probability and equation (27) for the value it labels optimal.",
+        "Exact-phrase and semantic searches did not surface a correction using q=d or an equivalent reparametrized condition.",
+        "A later weak-measurement survey cites the 2015 source but the inspected indexed material did not surface this optimization correction."
+      ],
+      "reasoning": "An equivalent formulation must change the source's scheme-three optimizer or state an algebraically equivalent condition, not merely cite the protocol or discuss weak-measurement restoration in general.",
+      "searches": [
+        "Environment-assisted entanglement restoration scheme 3 optimal concurrence q=d",
+        "10.1007/s11128-015-1111-0 q=d concurrence correction",
+        "2d-d^2 weak measurement reversal concurrence correction",
+        "environment-assisted WMR third scheme Pareto concurrence success probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No erratum, correction notice, or exact parameter table replacing the published scheme-three optimum was located.",
+        "The primary full text itself supplies the decisive formulas and the contrary claimed optimum."
+      ],
+      "reasoning": "The new result is not a re-tabulation of known corrected values; it follows from a fresh exact optimization of the source's analytic expression.",
+      "searches": [
+        "s11128-015-1111-0 erratum",
+        "Environment-assisted entanglement restoration correction optimal concurrence",
+        "Xu Cheng Liu Su Wang Zhang scheme 3 q=2d-d^2"
+      ]
+    },
+    "rationale": "The direct source states the contrary optimum and uses it downstream. Targeted searches found the source and later review literature but no published correction or equivalent Pareto analysis.",
+    "residual_risks": [
+      "A correction may exist in an unindexed note, thesis, code repository, or alternate-parameter treatment.",
+      "The result does not recompute every downstream figure or ranking in the source; it only establishes that those using the stated scheme-three optimum need recomputation.",
+      "No claim is made about globally optimal recovery beyond this one-parameter source protocol."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The displayed equations (25a)-(25b) are internally consistent, but direct differentiation contradicts the optimizer stated in equation (27).",
+        "evidence": "The source gives C3=2(1-d)sqrt(1-q)/[(1-d)+(1-q)] and P3=[(1-q)+(1-d)]/2, then labels qO=2d-d^2 as optimal.",
+        "identifier_or_url": "DOI:10.1007/s11128-015-1111-0",
+        "material_read": "Author-uploaded full text covering the third-scheme state, equations (23)-(27), the discussion of optimal concurrence and success probability, and the later scheme-three comparison formulas.",
+        "method": "Author-provided full-text inspection.",
+        "title": "Environment-assisted entanglement restoration and improvement of the fidelity for quantum teleportation",
+        "trigger": "Direct source containing the third-scheme concurrence, success probability, and claimed optimum."
+      },
+      {
+        "assessment": "The survey establishes continuing use of the source in weak-measurement protection literature; the inspected material did not surface the corrected scheme-three optimization.",
+        "evidence": "The survey cites the 2015 article as a weak-measurement/environment-assisted protection reference.",
+        "identifier_or_url": "arXiv:2109.12842; DOI:10.1142/S0219749922500071",
+        "material_read": "Public abstract, indexed citation context, and reference entry for the 2015 source.",
+        "method": "Open bibliographic and indexed-text inspection.",
+        "title": "Comparison of quantum state protection against decoherence via weak measurement, a survey",
+        "trigger": "Later review literature that could have recorded a correction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f2e8d37-0689-4de0-868a-f9a831985f84",
+  "value": {
+    "rationale": "The published point is strictly Pareto-dominated, so this is not a cosmetic algebraic correction. The corrected setting simultaneously raises concurrence and success probability for every nontrivial damping strength, changes the quantitative input to subsequent source comparisons, and yields the exact nondominated tradeoff curve.",
+    "status": "PASS"
+  }
+}
