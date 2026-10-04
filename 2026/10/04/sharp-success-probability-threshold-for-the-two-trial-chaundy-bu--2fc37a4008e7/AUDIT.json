@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the appended \\(\\operatorname{Bin}(2,p)\\) variable reduces the tail gap exactly to two adjacent masses. Their exact ratio gives a one-factor sign test with the stated root. Endpoints are checked separately. The proof covers every integer \\(k\\ge1\\), \\(m\\ge0\\), and every \\(p\\in[0,1]\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fokkink--Papavassiliou--Pelekis Theorem 3.3 treats every \\(n\\) but only guarantees \\(p\\le1/n\\).",
+        "The same source states the Chaundy--Bullard special case at \\(p=1/n\\)."
+      ],
+      "reasoning": "A theorem covering all block sizes would dominate the present result only if it supplied the larger exact \\(n=2\\) range. The inspected general theorem does not; the present threshold extends strictly beyond its \\(n=2\\) interval and also proves reversal above the threshold.",
+      "searches": [
+        "\"Some inequalities on Binomial and Poisson probabilities\" Theorem 3.3",
+        "binomial tail comparison success probability beyond 1/2 two added trials"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2011.11795v1",
+      "MR0214176 bibliographic record",
+      "doi:10.1214/aoms/1177698243 abstract",
+      "Chaundy--Bullard Newton--Pepys bibliographic descriptions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.3: \\(\\Pr\\{\\operatorname{Bin}(nk+m,p)\\ge k\\}\\ge\\Pr\\{\\operatorname{Bin}(n(k+1)+m,p)\\ge k+1\\}\\) for \\(p\\in[0,1/n]\\).",
+        "The present factorization yields positivity up to \\(p=(k+m+1)/(2k+m+1)>1/2\\) and negativity afterward."
+      ],
+      "reasoning": "The prior theorem implies only the lower subinterval of the present n=2 classification. The strict extension and the reversal region are not logical corollaries of its stated conclusion; they require the n=2 exact reduction.",
+      "searches": [
+        "arXiv:2011.11795v1 Theorem 3.3 n=2",
+        "Chaundy Bullard inequality p=1/n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2011.11795v1, Corollary 3.2 and Theorem 3.3",
+        "Jogdeo--Samuels, doi:10.1214/aoms/1177698243, accessible abstract"
+      ],
+      "reasoning": "The searches and inspected source statements did not identify an equivalent all-k,m exact sign boundary. The closest theorem gives only p<=1/2 after setting n=2.",
+      "searches": [
+        "\"(k+m+1)/(2k+m+1)\" binomial tail",
+        "\"Chaundy-Bullard\" binomial p threshold",
+        "\"Bin(2k+m\" \"Bin(2k+m+2\" probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Berkeley bibliographic record for Anderson--Samuels (1967)",
+        "Jogdeo--Samuels 1968 abstract and DOI metadata",
+        "Public descriptions of the Chaundy--Bullard Newton--Pepys inequality at p=1/n"
+      ],
+      "reasoning": "The checked bibliographic and accessible textual records concern related tail monotonicity, medians, and the classical p=1/n comparison; none exposes a table or exact formula matching the stated threshold.",
+      "searches": [
+        "\"Some inequalities among binomial and Poisson probabilities\" Anderson Samuels",
+        "\"Monotone Convergence of Binomial Probabilities\" Jogdeo Samuels",
+        "Newton Pepys binomial two-trial threshold"
+      ]
+    },
+    "rationale": "The closest full-text source proves only the general sufficient interval \\(p\\le1/n\\); at \\(n=2\\) it does not state the sharp if-and-only-if threshold above \\(1/2\\). Targeted statement-level searches found no equivalent formula. Older inaccessible or partially accessible sources remain explicitly recorded as residual risks.",
+    "residual_risks": [
+      "The original Anderson--Samuels and Chaundy--Bullard full texts were not directly readable in the available route; an equivalent older formulation could therefore have been missed.",
+      "Keyword and semantic searches cannot prove historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source proves \\(p\\le1/n\\) and does not state the sharp \\(n=2\\) if-and-only-if threshold or reversal above it.",
+        "evidence": "Theorem 3.3 states \\(p\\in[0,1/n]\\); its proof establishes nonnegativity on that interval.",
+        "identifier_or_url": "arXiv:2011.11795v1",
+        "material_read": "Full public text around Corollary 3.2, Theorem 3.3, and its derivative proof.",
+        "method": "Direct inspection of the public HTML text rendering.",
+        "title": "Some inequalities on Binomial and Poisson probabilities",
+        "trigger": "Exact same successive-binomial-tail family and the source of the n=2 sufficient range."
+      },
+      {
+        "assessment": "INCONCLUSIVE_FULL_TEXT_ACCESS: no accessible evidence of the present exact threshold, but the full article was not read.",
+        "evidence": "The 2020 lead source cites this work for related inequalities while presenting its own Chaundy--Bullard probability-range extension.",
+        "identifier_or_url": "MR0214176",
+        "material_read": "Bibliographic record and later-source characterization; direct full-text fetch was blocked.",
+        "method": "Public bibliographic metadata plus comparison through the lead source.",
+        "title": "Some inequalities among binomial and Poisson probabilities",
+        "trigger": "Foundational cited predecessor for binomial/Poisson tail comparisons."
+      },
+      {
+        "assessment": "NOT_SHOWN_COVERING: the abstract focuses on generalized monotonicity, medians, and Ramanujan coefficients; it does not state this two-trial threshold.",
+        "evidence": "Accessible abstract describes Sections 2--4 and their median/Ramanujan results without the present formula.",
+        "identifier_or_url": "doi:10.1214/aoms/1177698243",
+        "material_read": "Accessible abstract and bibliographic description.",
+        "method": "Public abstract inspection.",
+        "title": "Monotone Convergence of Binomial Probabilities and a Generalization of Ramanujan’s Equation",
+        "trigger": "Older work on binomial-probability monotonicity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2fc37a40-08e7-468c-b518-320ebbb41008",
+  "value": {
+    "rationale": "This is a natural complete classification of the smallest nontrivial block in a published tail-monotonicity family, not an arbitrary parameter slice. It identifies the exact finite-sample slack beyond the known sufficient \\(1/2\\) range and the precise reversal boundary for every \\(k\\) and \\(m\\).",
+    "status": "PASS"
+  }
+}
