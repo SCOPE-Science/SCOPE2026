@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Gaussian conditioning yields iid bivariate-normal reduced residuals independent of the reduction. Conditional resampling gives an exact standard-normal reference, the observed normalized statistic is an independent chi-normal sum, and the exact size integral follows. The local phase follows from the chi law of large numbers and Slutsky; the alignment identity follows from the Gaussian conditional covariance. The bundled verifier reproduces constants and matrix identities. Excluded regimes are stated explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2211.14698 proves asymptotic dCRT/GCM equivalence and product-rate robustness.",
+        "arXiv:2203.06496 proves finite-sample upper bounds and statistic-specific product-rate bounds.",
+        "Classical Wishart theory covers Gaussian scatter matrices."
+      ],
+      "reasoning": "Broader CI-testing results do not dominate the exact finite-n reduced-adjustment calculation; classical Gaussian distribution theory is treated as background rather than novelty.",
+      "searches": [
+        "Reconciling model-X and doubly robust approaches conditional independence testing finite-sample Gaussian dCRT",
+        "generalized covariance measure nuisance product errors conditional independence",
+        "Wishart sample covariance bivariate normal exact distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.06496",
+      "doi:10.1093/jrsssb/qkad081",
+      "arXiv:2211.14698",
+      "doi:10.1214/24-AOS2372"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2203.06496 Theorems 3 and 4 provide upper bounds rather than an exact rejection law.",
+        "arXiv:2211.14698 labels its main robustness theory asymptotic; its finite-sample assessment is simulation-based.",
+        "Own prior item 24f98ca6-d87c-4489-8f93-2b7dcc369d84 concerns finite-resample power under correct model-X specification."
+      ],
+      "reasoning": "Neither cited theorem implies the finite-n chi-mixture size formula. The own prior item studies a different axis: Monte Carlo power under correct specification rather than confounding-induced null invalidity.",
+      "searches": [
+        "Maxway CRT theorem 3 inner-product statistic product mean errors",
+        "Maxway CRT theorem 4 d0 statistic",
+        "dCRT asymptotic double robustness GCM equivalent local alternatives"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2203.06496 Section 3.4 and Gaussian linear example",
+        "arXiv:2211.14698 Sections 2, 4, and 6",
+        "Targeted semantic-database searches returned no exact contextual match."
+      ],
+      "reasoning": "Searches covered Maxway, d0, normalized cross-product, residual-correlation, and chi-normal aliases. No inspected source stated the same exact p-value and size law.",
+      "searches": [
+        "Maxway CRT exact Gaussian null law inner product chi distribution omitted confounding",
+        "conditional randomization reduced adjustment Gaussian exact p-value partial correlation chi",
+        "almost doubly robust exact Gaussian type I inflation product errors CRT",
+        "Maxway inner product statistic finite sample Gaussian type I",
+        "\"Maxway\" \"residual correlation\" Gaussian chi",
+        "\"dCRT\" \"residual correlation\" Gaussian exact size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records were unrelated Gaussian-correlation or Student-size findings.",
+        "Web searches found standard Wishart/sample-covariance material but no Maxway rejection table or theorem."
+      ],
+      "reasoning": "No inspected database/table contained the full scientific statement.",
+      "searches": [
+        "Maxway CRT Gaussian exact type-I error residual correlation chi normal mixture",
+        "reduced adjustment conditional randomization Gaussian omitted confounding alignment exact size",
+        "d0 CRT Gaussian residual correlation n inverse square root validity boundary",
+        "product nuisance errors orthogonal alignment conditional randomization type I error",
+        "\"rho chi_n\" normal sample correlation inner product",
+        "normalized inner product bivariate Gaussian chi normal mixture"
+      ]
+    },
+    "rationale": "The closest primary work gives product-error upper bounds and asymptotic double robustness, not this finite-sample Maxway size law under insufficient Gaussian reduction. Classical Gaussian scatter theory can supply the distributional decomposition, so novelty is claimed only for the Maxway validity theorem, sharp residual-correlation phase, and alignment interpretation.",
+    "residual_risks": [
+      "Older Wishart/Bartlett or Gaussian sample-covariance literature may encode the same probabilistic representation under different notation; that representation is not claimed as novel.",
+      "An unindexed conditional-randomization robustness calculation could contain the same contextual formula; targeted alias searches did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the final exact law.",
+        "evidence": "Defines d0 and proves type-I upper bounds with root-n product-error terms; no exact chi-normal rejection formula was found.",
+        "identifier_or_url": "arXiv:2203.06496 / doi:10.1093/jrsssb/qkad081",
+        "material_read": "Full arXiv PDF around Sections 2-4, especially pages 12-14, plus Gaussian linear examples and overlap discussion.",
+        "method": "Statement/implication comparison.",
+        "title": "Maxway CRT: Improving the Robustness of the Model-X Inference",
+        "trigger": "Direct source for framework, d0 statistic, and Gaussian product-error bounds."
+      },
+      {
+        "assessment": "NOT_COVERING the exact final claim.",
+        "evidence": "Theory is asymptotic; finite-sample section is simulation-based and does not state the chi-normal Maxway law.",
+        "identifier_or_url": "arXiv:2211.14698 / doi:10.1214/24-AOS2372",
+        "material_read": "Full arXiv PDF around dCRT definition, asymptotic equivalence/double robustness, and finite-sample performance section.",
+        "method": "Statement/implication comparison.",
+        "title": "Reconciling model-X and doubly robust approaches to conditional independence testing",
+        "trigger": "Closest dCRT double-robustness result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "05f4fc06-f902-4850-bbfb-03eb36e55671",
+  "value": {
+    "rationale": "The exact theorem resolves a motivated robustness gap left at rate-bound level. It separates omission magnitude from alignment: two nonzero omissions can cancel exactly when orthogonal, while aligned omissions attain the product-error order. The root-n residual-correlation boundary is a concrete design diagnostic and the exact integral enables finite-sample stress testing.",
+    "status": "PASS"
+  }
+}
