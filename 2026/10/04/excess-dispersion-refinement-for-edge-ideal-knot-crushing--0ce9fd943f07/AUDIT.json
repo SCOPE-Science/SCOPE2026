@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The proof uses two explicit source facts: each nontrivial connected-sum crush adds exactly two ideal edges, and every nontrivial prime knot represented by an ideal loop of length greater than one admits a prime-preserving crush that strictly reduces tetrahedra. Iteration gives the exact length sum, while applying the second fact once in each distinct overlength prime component gives the refined tetrahedron lower bound. The concentration corollary is a direct pigeonhole count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full arXiv version explicitly says its Proposition 26 proof allows all excess ideal edges to be eliminated by one additional crush and suggests more controlled crushing might strengthen the bound.",
+        "The SoCG version proves only the one-extra-crush inequality and asks whether its bound is tight."
+      ],
+      "reasoning": "The source contains the ingredients and the weaker universal consequence, but it does not give a theorem parameterized by how many prime outputs remain overlength. No inspected broader result dominates that sequence-sensitive refinement.",
+      "searches": [
+        "published-finding corpus: edge-ideal triangulation composite knot tightness Proposition 26 Question 28",
+        "published-finding corpus: composite knot edge-ideal complexity m plus sum prime factors tight",
+        "published-finding corpus: edge-ideal complexity connected sum trefoil 3_1#3_1 triangulation complexity",
+        "published-finding corpus: edge-ideal triangulation excess ideal edges concentration prime factors crushing loop lengths",
+        "published-finding corpus: edge-ideal triangulation length profile after connected-sum crushing",
+        "published-finding corpus: controlled crushing excess ideal edges Proposition 26 refinement",
+        "published-finding corpus: prime-output ideal loop lengths decomposition crushing edge surplus",
+        "Web: \"edge-ideal\" \"excess\" crushing knot triangulation length prime factors",
+        "Web: \"edge-ideal triangulation\" \"loop length\" crushing prime factors",
+        "Web: \"controlled\" crushing \"ideal edges\" knot factorisation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.03942v1",
+      "DOI:10.4230/LIPIcs.SoCG.2025.55",
+      "2026/9/18/SCOPE-exact-canonical-torus-knot-triangulation-census--831655b0b665",
+      "2026/9/20/SCOPE-exact-stick-numbers-after-trefoil-summation--dfc293ee9d95"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "He--Sedgwick--Spreer Proposition 26 gives \\(\\widetilde c(\\mathbb S^3\\setminus K)\\ge m+\\sum_i\\widetilde c(\\mathbb S^3\\setminus K_i)\\).",
+        "The source proof records exact \\(+2\\) edge growth per nontrivial decomposition crush but then uses only that at least one prime loop has length greater than one."
+      ],
+      "reasoning": "The new theorem recovers the source bound because the exact surplus is positive and hence \\(r\\ge1\\), but the source bound does not imply the stronger \\(r\\)-dependent term. When \\(r>1\\), the new bound for that triangulation and decomposition chain is strictly stronger.",
+      "searches": [
+        "published-finding corpus: controlled crushing excess ideal edges Proposition 26 refinement",
+        "published-finding corpus: prime-output ideal loop lengths decomposition crushing edge surplus"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2504.03942v1, Lemma 22, Lemma 25, Proposition 26, Question 28",
+        "DOI:10.4230/LIPIcs.SoCG.2025.55, Section 7",
+        "No matching published-finding corpus finding among the returned ranked results."
+      ],
+      "reasoning": "Searches covered the exact terminology of edge-ideal triangulations, excess ideal edges, loop-length profiles, controlled crushing, and the source proposition. Returned published-finding corpus items concerned other triangulation or connected-sum invariants rather than the claimed profile-sensitive crushing bound.",
+      "searches": [
+        "published-finding corpus: edge-ideal triangulation composite knot tightness Proposition 26 Question 28",
+        "published-finding corpus: composite knot edge-ideal complexity m plus sum prime factors tight",
+        "published-finding corpus: edge-ideal complexity connected sum trefoil 3_1#3_1 triangulation complexity",
+        "published-finding corpus: edge-ideal triangulation excess ideal edges concentration prime factors crushing loop lengths",
+        "published-finding corpus: edge-ideal triangulation length profile after connected-sum crushing",
+        "published-finding corpus: controlled crushing excess ideal edges Proposition 26 refinement",
+        "published-finding corpus: prime-output ideal loop lengths decomposition crushing edge surplus",
+        "Web: \"edge-ideal\" \"excess\" crushing knot triangulation length prime factors",
+        "Web: \"edge-ideal triangulation\" \"loop length\" crushing prime factors",
+        "Web: \"controlled\" crushing \"ideal edges\" knot factorisation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source census examples for the trefoil connected sums are not used in the proof.",
+        "The claim is symbolic and does not depend on a finite database, knot census, or numerical table."
+      ],
+      "reasoning": "There is no database lookup whose coverage could subsume the theorem. Census data in Example 27 only motivates the source tightness question and is deliberately excluded from the logical proof.",
+      "searches": [
+        "published-finding corpus: edge-ideal triangulation composite knot tightness Proposition 26 Question 28",
+        "Web: \"edge-ideal\" \"excess\" crushing knot triangulation length prime factors"
+      ]
+    },
+    "rationale": "The inspected source versions use only one overlength prime component after decomposition and therefore guarantee only one additional crush. They do not state the refinement by the number of overlength prime outputs or the associated concentration bound. Targeted published-finding corpus and web searches found the source paper itself but no equivalent statement.",
+    "residual_risks": [
+      "An unindexed later note, talk, or informal observation could independently record the same excess-dispersion bookkeeping.",
+      "The theorem is sequence-sensitive; without a uniform lower bound on \\(r\\) or upper bound on \\(H\\), it does not improve the knot invariant bound universally."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the exact +2 edge increase for every nontrivial decomposition crush and the existence of a prime-preserving crush for any overlength nontrivial prime loop. Its complexity argument uses only one overlength output and does not state the dispersion refinement.",
+        "evidence": [
+          "arXiv:2504.03942v1, Section 4.4 and Section 7.1."
+        ],
+        "identifier_or_url": "arXiv:2504.03942v1",
+        "material_read": "Full HTML text around the edge-ideal definition, Section 4.4 Lemmas 21--22, Section 7.1 Lemma 25, Proposition 26, Example 27, and Question 28.",
+        "method": "Full open arXiv HTML inspected statement-by-statement in the relevant sections.",
+        "title": "A Practical Algorithm for Knot Factorisation",
+        "trigger": "Primary recent source introducing edge-ideal triangulations and proving the composite-knot complexity bound that the refinement targets."
+      },
+      {
+        "assessment": "The published version states the one-extra-crush argument and the same lower bound, but no dependence on the number of overlength prime outputs.",
+        "evidence": [
+          "SoCG 2025 LIPIcs 332, Article 55, Section 7."
+        ],
+        "identifier_or_url": "DOI:10.4230/LIPIcs.SoCG.2025.55",
+        "material_read": "Section 7 triangulation-complexity discussion, including the excess-edge argument, lower bound, census example, and tightness question.",
+        "method": "Open HTML proceedings text inspected.",
+        "title": "A Practical Algorithm for Knot Factorisation",
+        "trigger": "Published proceedings version of the same work, checked for a broader or already-published refinement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ce9fd94-3f07-45c1-8d32-001cab2d2c72",
+  "value": {
+    "rationale": "The source explicitly identifies controlled excess-edge crushing as the mechanism that could strengthen its composite-knot complexity bound. The new lemma isolates the weaker but directly certifiable condition actually needed for multiple guaranteed extra crushes: excess must be dispersed across multiple prime components. This gives a structural target for future constructions and a stronger bound whenever such dispersion is established.",
+    "status": "PASS"
+  }
+}
