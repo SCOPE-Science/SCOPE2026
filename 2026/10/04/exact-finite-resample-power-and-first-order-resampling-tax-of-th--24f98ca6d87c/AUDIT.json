@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The observed Gaussian score is derived by conditioning X on Y; the null resample scores are iid standard normal after division by ||Y||, so the Monte Carlo exceedance count is conditionally binomial. Uniform rank gives exact null size. The local fixed-B limit follows from chi concentration. On reciprocal exact-size budgets, rejection is comparison with a beta uniform order statistic; its variance and the explicit second derivative of the alternative tail function yield the stated coefficient. The embedded standard-library replay checks the numerical values and asymptotic scaling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Candès et al. analyze Monte Carlo p-value resolution and computational cost, but do not derive the alternative-power integral or its beta-order-statistic expansion.",
+        "Katsevich--Ramdas derives most-powerful CRT statistics and local asymptotic power in a broad model-X framework, without a fixed finite-resampling budget term."
+      ],
+      "reasoning": "The nearest broader CRT theory covers statistic choice, validity, and asymptotic power, whereas the accepted claim isolates and exactly quantifies finite-resampling power for a canonical Gaussian statistic.",
+      "searches": [
+        "conditional randomization test 1/B power correction finite resampling Gaussian",
+        "Monte Carlo CRT resampling tax asymptotic power correction order 1 over B"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1610.02351",
+      "arXiv:2005.05506",
+      "arXiv:2010.02304",
+      "doi:10.1111/rssb.12265",
+      "doi:10.1214/22-EJS2085",
+      "doi:10.1093/biomet/asab052"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang--Janson Section 2.1 states that their empirical cutoff has a finite-sample correction, but their analyzed CRT uses an analytical cutoff and the same power results hold when the resample count tends to infinity.",
+        "Wang--Janson Theorem 1 gives asymptotic z-test power for the marginal-covariance statistic, not a fixed-B power law.",
+        "The new beta-order-statistic expansion quantifies the regime excluded by sending the number of resamples to infinity."
+      ],
+      "reasoning": "The prior theorem supplies the ideal-resampling asymptotic endpoint but does not imply the fixed-B limit or its explicit first-order approach to that endpoint.",
+      "searches": [
+        "model-X CRT Monte Carlo resampling budget exact power Gaussian covariance statistic",
+        "Gaussian CRT one predictor exact finite sample power"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned no record matching finite-B Gaussian CRT power or a resampling-tax coefficient.",
+        "Searches using rank-p-value, beta-order-statistic, conditional-randomization, and finite-Monte-Carlo aliases likewise found no direct equivalent."
+      ],
+      "reasoning": "The main possible equivalence is through classical Monte Carlo randomization tests; this was explicitly searched, and the claim is narrowed to the Gaussian CRT specialization plus coefficient rather than generic rank validity.",
+      "searches": [
+        "finite-sample finite-resample Gaussian conditional randomization test power chi normal rank law",
+        "conditional randomization test rank p-value exact power finite B Gaussian linear alternative",
+        "Gaussian conditional randomization test Beta order statistic power expansion",
+        "finite Monte Carlo randomization power expansion beta order statistic test"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite-B Gaussian marginal-covariance CRT power table or formula was found in the searched research records.",
+        "The closest records returned by semantic search concern ordering under pairwise independence, Gaussian fluctuation laws, or Bernoulli envelopes rather than CRT resampling power."
+      ],
+      "reasoning": "No checked database record dominates the exact finite-B formula or the local 1/B coefficient.",
+      "searches": [
+        "finite-sample finite-resample Gaussian conditional randomization test power chi normal rank law",
+        "finite Monte Carlo randomization power expansion beta order statistic test"
+      ]
+    },
+    "rationale": "Direct full-text inspection shows that the primary asymptotic CRT power paper deliberately takes the empirical resample count to infinity, while the original CRT paper emphasizes resampling cost and Monte Carlo uncertainty. Targeted semantic and literature searches did not locate the finite-B Gaussian power identity, fixed-B local limit, or first-order resampling tax. The accepted novelty claim is therefore narrow and retains a generic-randomization-literature residual risk.",
+    "residual_risks": [
+      "Older Monte Carlo randomization or permutation-test literature may contain a generic order-statistic power expansion that specializes to the same coefficient without using CRT terminology.",
+      "The coefficient is stated only on exact-size reciprocal-level subsequences; off-subsequence lattice corrections can dominate the same order."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the CRT by conditional resampling, emphasizes its heavy computational cost, and discusses binomial Monte Carlo uncertainty of finite randomization p-values; does not state the accepted exact power law or coefficient.",
+        "evidence": "Sections 1.6 and 4 define the CRT; Section 4.3 explains the high resampling cost and finite-K binomial p-value uncertainty.",
+        "identifier_or_url": "arXiv:1610.02351",
+        "material_read": "CRT introduction, Algorithm 2 context, literature comparison, and Section 4.3 computational-cost discussion.",
+        "method": "Full-text inspection of the open preprint, including the rendered page containing Section 4.3.",
+        "title": "Panning for Gold: Model-X Knockoffs for High-dimensional Controlled Variable Selection",
+        "trigger": "Original source for the model-X CRT and its finite-resampling computational motivation."
+      },
+      {
+        "assessment": "Derives asymptotic CRT power, including marginal covariance, but explicitly studies an analytical cutoff and says the empirical-cutoff results agree when the resample count tends to infinity.",
+        "evidence": "Section 2.1 states the finite-sample empirical correction and the condition M_n -> infinity; Theorem 1 gives marginal-covariance asymptotic power.",
+        "identifier_or_url": "arXiv:2010.02304",
+        "material_read": "Abstract, Sections 1.2 and 2.1, local-alternative setting, Definition 1, and Theorem 1 on marginal covariance.",
+        "method": "Full-text inspection of the open preprint, including the rendered page with the finite-resample statement.",
+        "title": "A Power Analysis of the Conditional Randomization Test and Knockoffs",
+        "trigger": "Closest direct prior power analysis for the same CRT statistic family."
+      },
+      {
+        "assessment": "Identifies likelihood-based most-powerful CRT statistics against point alternatives and develops local asymptotic power, but does not analyze fixed Monte Carlo resampling budgets in the inspected sections.",
+        "evidence": "Theorem 1 gives the most powerful conditionally valid CRT statistic; the abstract describes the later switch to asymptotic local-power analysis.",
+        "identifier_or_url": "arXiv:2005.05506",
+        "material_read": "Abstract, Section 2.1 conditional validity, Section 2.2 and Theorem 1 on most-powerful CRTs.",
+        "method": "Full-text inspection of the open preprint, including the rendered theorem page.",
+        "title": "On the power of conditional independence testing under model-X",
+        "trigger": "Broad prior theory that could potentially dominate a specialized power calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24f98ca6-d87c-4489-8f93-2b7dcc369d84",
+  "value": {
+    "rationale": "CRT resampling cost is a documented bottleneck. The claim converts that computational budget into exact statistical power for a canonical Gaussian model and shows a persistent fixed-B local-power loss plus an explicit 1/B correction. The 5% h=2 example shows a practically material gap at the minimum feasible budget, so this is a motivated design fact rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
