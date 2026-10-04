@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The source update gives \\(r_k=(I-\\alpha_kA)r_{k-1}\\). With \\(\\sigma(A)=\\{\\mu,1\\}\\) and \\(\\alpha_1=1\\), one gets exactly \\(r_1=(1-\\mu)P_\\mu r_0\\). In the nonzero branch all later residuals remain in the \\(\\mu\\)-eigenspace. The invariant bound \\(q_k\\in[0,1-\\mu]\\) implies \\(1-\\mu(1+q_k)\\ge(1-\\mu)^2>0\\), so the norm ratio is exactly \\(q_{k+1}=1-\\mu-\\mu q_k\\). The fixed point and closed form follow by solving this affine recurrence. The endpoint minimax step follows by balancing \\(|1-\\alpha\\mu|\\) and \\(|1-\\alpha|\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2602.13620, Lemma 2.4 gives only the ratio bound and Theorem 2.5 gives one-sided practical-estimator bounds",
+        "arXiv:2602.13620, Theorem 2.1 analyzes a spectral-radius oracle rather than the residual-ratio estimator",
+        "arXiv:1910.09529, Algorithm 1 uses gradient-difference local-curvature information",
+        "arXiv:2308.02261, adaptive proximal-gradient method uses observed gradient differences"
+      ],
+      "reasoning": "The primary source is broader in problem instances but weaker on this exact practical trajectory: its bounds do not imply equality or alternation. The oracle theorem has a different observable and, at exact normalization, different behavior. Gradient-difference adaptive methods employ different recurrences and do not dominate the stated residual-ratio identity.",
+      "searches": [
+        "parameter free optimization quadratics stability",
+        "spectral stepsize adaptive method separable quadratic",
+        "An adaptive framework for first-order gradient methods",
+        "Hu Pollock Xue Zhu adaptive gradient residual geometric mean"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.13620",
+      "arXiv:1910.09529",
+      "arXiv:2308.02261",
+      "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.13620, Theorem 2.5 derives inequalities from \\(\\|r_{k+1}\\|/\\|r_k\\|\\le\\|I-\\alpha_{k+1}A\\|\\), not equality on a surviving eigenspace",
+        "arXiv:2602.13620, numerical experiments observe approach of the estimated factor but do not prove the exact affine trajectory",
+        "published-finding corpus record 2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa shows endpoint loss can prevent identification for a different estimator",
+        "arXiv:1910.09529 and arXiv:2308.02261 use gradient-difference curvature estimates"
+      ],
+      "reasoning": "The new claim requires the extra structural observation that the normalized first step annihilates the top endpoint and leaves an invariant minimal eigenspace, turning the source’s norm inequality into equality. None of the inspected broader results supplies that equality for this estimator. The closest endpoint-annihilation result is not an implication because its estimator preserves historical curvature extrema and has a different update map.",
+      "searches": [
+        "Hu Pollock Xue Zhu adaptive GD two eigenvalues optimal stepsize",
+        "geometric residual norm ratio adaptive GD endpoint spectrum mu one exact convergence",
+        "Adaptive Gradient Descent without Descent quadratic two eigenvalues stepsize",
+        "Adaptive Proximal Gradient Method observed gradient differences quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.13620, Algorithm 2.1 and equation (2.2), practical l=1 estimator",
+        "published-finding corpus closest record 2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+        "published-finding corpus closest record 2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c"
+      ],
+      "reasoning": "Searches using residual-ratio, endpoint-spectrum, closed-form, oscillatory, and adaptive-step aliases returned the source paper and adjacent adaptive/quadratic analyses, but no equivalent statement for the practical Hu--Pollock--Xue--Zhu l=1 rule. The AdOGD record shares endpoint annihilation as a mechanism but uses historical local-curvature extrema rather than residual-ratio feedback.",
+      "searches": [
+        "residual-ratio adaptive gradient descent two-point spectrum closed-form parameter convergence",
+        "residual-ratio adaptive gradient descent two-point spectrum closed-form parameter convergence [published-finding corpus]",
+        "residual norm ratio adaptive GD endpoint spectrum mu one exact convergence",
+        "adaptive gradient method residual ratio exact oscillatory convergence stepsize"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit: 2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa, score 0.57419395 on the focused query",
+        "Other close published-finding corpus hits: 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705; 2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c; 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789; 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "The primary manuscript contains no endpoint-spectrum or closed-form theorem for the practical l=1 estimator; its numerical section reports convergence and oscillations without the present formula"
+      ],
+      "reasoning": "The focused database search retrieved several sharp quadratic-step analyses, but their methods, observables, or recurrence classes differ. Full-text inspection of the primary paper separated the practical estimator from its oracle theorem and found no exact table or formula subsuming the claim.",
+      "searches": [
+        "published-finding corpus: adaptive stepsize quadratic convergence gradient differences optimization",
+        "published-finding corpus: parameter free optimization quadratics stability",
+        "published-finding corpus: spectral stepsize adaptive method separable quadratic",
+        "published-finding corpus: residual-ratio adaptive gradient descent two-point spectrum closed-form parameter convergence",
+        "arXiv full-text searches in 2602.13620 for endpoint, spectrum, closed form, exact"
+      ]
+    },
+    "rationale": "No inspected source states the practical \\(l=1\\) two-endpoint recurrence, its closed form, or its exact alternating parameter-error law. The primary paper analyzes this estimator only through bounds and experiments; its exact geometric contraction theorem concerns a different spectral-radius oracle. The closest published endpoint-annihilation result concerns AdOGD with a different curvature estimator and reaches the opposite identification behavior after endpoint loss.",
+    "residual_risks": [
+      "A later revision or non-indexed work could contain the same endpoint-spectrum special case.",
+      "The result is intentionally narrow; its originality does not imply a comparable exact law for spectra with interior eigenvalues.",
+      "The closest primary theorem’s proof contains inequalities that become equalities under the present invariant-eigenspace restriction, so the distinction depends on treating the explicit exact trajectory and its alternating identification consequence as a separate statement rather than as an unstated corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact practical two-endpoint recurrence. The oracle theorem is distinct; the practical theorem gives inequalities; experiments are observational.",
+        "evidence": "Algorithm 2.1 sets the first step to one and updates the next step as one plus the rate estimate. Equation (2.2) makes the l=1 estimate the successive residual norm ratio. Lemma 2.4 and Theorem 2.5 state bounds rather than the claimed equality and closed form.",
+        "identifier_or_url": "arXiv:2602.13620",
+        "material_read": "Full manuscript sections covering Algorithm 2.1, equation (2.2), Lemma 2.4, Theorems 2.1 and 2.5, Remark 2.6, numerical Section 3.1, and references.",
+        "method": "arXiv full text and PDF inspection.",
+        "title": "An adaptive framework for first-order gradient methods",
+        "trigger": "Same algorithm, same practical residual-ratio estimator, and same quadratic setting."
+      },
+      {
+        "assessment": "NOT_COVERING. Its step uses iterate and gradient differences to estimate local curvature, not successive residual norm ratios.",
+        "evidence": "Algorithm 1 chooses a minimum of a controlled growth step and a ratio involving iterate displacement over gradient displacement.",
+        "identifier_or_url": "arXiv:1910.09529",
+        "material_read": "Introduction, quadratic discussion, and Algorithm 1 with its stepsize rule.",
+        "method": "arXiv full text inspection.",
+        "title": "Adaptive Gradient Descent without Descent",
+        "trigger": "Foundational adaptive gradient method cited by the primary source; plausible broader adaptive-step coverage."
+      },
+      {
+        "assessment": "NOT_COVERING. It explicitly bases adaptation on observed gradient differences rather than residual-ratio feedback.",
+        "evidence": "The abstract and contribution describe local-curvature adaptation from observed gradient differences.",
+        "identifier_or_url": "arXiv:2308.02261 / NeurIPS 2024",
+        "material_read": "Abstract and contribution framing in the conference paper.",
+        "method": "NeurIPS paper PDF and arXiv abstract inspection.",
+        "title": "Adaptive Proximal Gradient Method for Convex Optimization",
+        "trigger": "Later broad adaptive-gradient refinement by the same authors as the 2020 method."
+      },
+      {
+        "assessment": "NOT_COVERING. It studies Adaptive Optimal Gradient Descent with historical local-curvature estimators. Endpoint annihilation can break identification there, whereas the present residual-ratio feedback has a different scalar map and recovers the normalized endpoint optimum.",
+        "evidence": "The record defines local curvature from gradient-step differences and running minimum/maximum estimators, then analyzes endpoint persistence and annihilation. It contains no Hu--Pollock--Xue--Zhu residual-ratio recurrence.",
+        "identifier_or_url": "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+        "material_read": "Published RESULT.md in full.",
+        "method": "Published repository record inspection.",
+        "title": "Spectral-persistence counterexamples and a repair for AdOGD",
+        "trigger": "Top semantic match and a directly related endpoint-eigenspace annihilation mechanism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "70ce85b5-04e2-4977-bebe-f3c79dc471a8",
+  "value": {
+    "rationale": "The class \\(\\sigma(A)=\\{\\mu,1\\}\\) is the canonical two-endpoint model underlying worst-case tuning of strongly convex gradient descent. The result reveals that exact endpoint annihilation, which can obstruct identification in other adaptive schemes, does not obstruct this residual-ratio feedback: after the top mode disappears, the remaining scalar trajectory still reconstructs \\(2/(1+\\mu)\\). The exact alternating transient sharpens the source’s one-sided practical-estimator bounds and provides a concrete mechanism for observed parameter oscillations.",
+    "status": "PASS"
+  }
+}
