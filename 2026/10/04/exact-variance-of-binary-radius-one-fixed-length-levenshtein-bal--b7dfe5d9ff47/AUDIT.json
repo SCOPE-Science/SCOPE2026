@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The proof is all-length: independent binary equality indicators reduce the ball size to a linear run count plus a zero-run pair statistic; exact interval covariance and exact moment recurrences determine the variance. Literal channel enumeration through length 10 and recurrence replay through 200 edges match the closed form exactly and are used only as corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang--Wang gives the exact mean and Azuma concentration for radius-one FLL ball size.",
+        "Bar-Lev--Etzion--Yaakobi gives minimum, maximum, and average radius-one FLL ball sizes."
+      ],
+      "reasoning": "An Azuma inequality supplies tail upper bounds but does not determine the exact variance. Extremal and average ball sizes likewise do not determine the second moment over centers.",
+      "searches": [
+        "arXiv:2204.02201v2",
+        "arXiv:2206.07995v1",
+        "fixed length Levenshtein ball Azuma binary mean concentration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.02201v2",
+      "arXiv:2206.07995v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known pointwise run/alternating-segment formula is an input from which the new second-order calculation starts.",
+        "The known mean follows by first moments, whereas the variance requires covariances and a second-moment recurrence for zero-run statistics."
+      ],
+      "reasoning": "The new formula is derivable from known structural ingredients, but it is not a logical consequence of the prior displayed mean, extrema, or concentration inequality alone. The substantive new step is the exact correlated second-moment calculation.",
+      "searches": [
+        "arXiv:2204.02201v2, Lemma 2.5 / Theorem 2.8 / binary concentration theorem",
+        "arXiv:2206.07995v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2204.02201v2 studies the same random radius-one FLL ball and concentration around its mean; no exact variance appears in the inspected theorem/statement set.",
+        "No matching exact-variance or second-moment statement appeared among the closest searched research records."
+      ],
+      "reasoning": "Searches covered the direct variance wording, second-moment wording, fixed-length Levenshtein terminology, and synchronization-channel aliases. The target is an equality for the full second moment, not merely a tail upper bound.",
+      "searches": [
+        "fixed-length Levenshtein radius-one ball exact variance binary",
+        "Levenshtein ball size second moment binary radius one",
+        "distribution of fixed length Levenshtein balls variance",
+        "exact variance synchronization channel ball size",
+        "radius one Levenshtein ball variance concentration binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact variance formula or finite variance table for this object appeared in the closest returned records."
+      ],
+      "reasoning": "The claim is an all-length symbolic identity, so a matching database/table would need to encode or imply those second moments. None was identified; this is supporting evidence only, not a uniqueness proof.",
+      "searches": [
+        "exact variance FLL ball size",
+        "Levenshtein ball size second moment binary radius one",
+        "distribution of fixed length Levenshtein balls variance"
+      ]
+    },
+    "rationale": "The closest inspected primary work proves the exact mean and an Azuma concentration bound for the same random ball, while the preceding ball-size work treats minimum, maximum, and average size. Neither inspected statement gives or implies an equality for the variance. Targeted alias searches found no exact second-moment statement; negative search alone is not treated as novelty proof.",
+    "residual_risks": [
+      "An unindexed thesis, note, supplementary calculation, or differently phrased derivation may contain the same elementary second-moment identity.",
+      "The exact variance is a natural corollary direction from the known pointwise formula, so priority risk is higher than for a result requiring a new object; this risk does not create a known implication or coverage conflict."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact variance identity.",
+        "evidence": "The inspected paper states the exact mean and proves concentration by Azuma; the variance equality and second-moment recurrence are not among the inspected results.",
+        "identifier_or_url": "arXiv:2204.02201v2",
+        "material_read": "Abstract, definitions, radius-one ball formula, exact-mean theorem, binary distribution/concentration section, and conclusion-level scope.",
+        "method": "Open full-text statement inspection and implication comparison.",
+        "title": "On the size distribution of Levenshtein balls with radius one",
+        "trigger": "Same random object and the closest distributional result."
+      },
+      {
+        "assessment": "NOT_COVERING the second moment or variance over uniformly random centers.",
+        "evidence": "Its stated radius-one objectives are minimum, maximum, and average ball sizes and small-diameter anticodes.",
+        "identifier_or_url": "arXiv:2206.07995v1",
+        "material_read": "Abstract and the stated minimum/maximum/average scope, cross-checked against the formula cited in the later distribution paper.",
+        "method": "Statement-level comparison.",
+        "title": "On the Size of Balls and Anticodes of Small Diameter under the Fixed-Length Levenshtein Metric",
+        "trigger": "Foundational radius-one FLL ball-size work cited by the closest distribution paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7dfe5d9-ff47-4caf-8051-6c7956c76d9f",
+  "value": {
+    "rationale": "Variance is the canonical second-order invariant for the ball-size distribution already studied via concentration. The formula resolves it for every binary length, identifies the exact root-mean-square fluctuation scale and leading constant, and directly refines understanding of the gap between an Azuma-scale bound and typical fluctuations. It is not an arbitrary finite slice or a known-table recomputation.",
+    "status": "PASS"
+  }
+}
