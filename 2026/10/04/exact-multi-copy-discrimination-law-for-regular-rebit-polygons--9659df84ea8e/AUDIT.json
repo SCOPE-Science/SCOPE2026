@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The weighted Gram matrix is decomposed exactly into orthogonal cyclic characters indexed by the binomial count modulo N. Pure-GU PGM optimality then converts that spectrum into the success probability. The fixed-N expansion follows from the two dominant root-of-unity-filter modes and a controlled square-root Taylor expansion, with the next Fourier modulus bounded by the cube of the dominant one. The Chernoff statement uses the established multiple-state theorem plus the sharp adjacent-gap bound on the projective circle. Quantifiers, priors, projective identification, fixed-N asymptotics, and the distinction between finite-copy and exponent optimality are explicit. The bundled checker independently checks representative Gram eigenpair identities, but no numerical experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2501.12376 proves PGM optimality for pure GU ensembles but does not specialize the symmetric-power regular polygon to residue masses.",
+        "arXiv:1507.04737 gives a general representation-theoretic GU error formula; applying it here still requires the explicit cyclic character multiplicities computed by the binomial-residue decomposition.",
+        "arXiv:1508.06624 proves the multiple Chernoff exponent for arbitrary fixed finite ensembles; the regular-polygon uniqueness then follows from a separate sharp packing argument on the real projective circle."
+      ],
+      "reasoning": "The broad theorems are used as premises where appropriate, not re-labeled as new. They do not state the all-(N,k) closed form or the sharp finite-copy regular-polygon asymptotic coefficient. The exponent clause is explicitly presented as a new specialization/consequence tied to the recent rebit conjecture, not a new Chernoff theorem.",
+      "searches": [
+        "arXiv:2501.12376 pure-state GU PGM optimality",
+        "arXiv:1507.04737 GU representation-theoretic MPE formula",
+        "arXiv:1508.06624 multiple quantum Chernoff distance",
+        "regular rebit polygon exact success modulo N binomial residues arbitrary copies",
+        "regular N-gon rebit minimum error success probability Binomial(k,1/2) modulo N Renyi one half",
+        "fixed N regular qubit polygon discrimination error one half cos(pi/N)^(2k)",
+        "regular rebit polygon unique Chernoff exponent optimal among N pure real qubits"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.26647v1",
+      "arXiv:2604.26927v1",
+      "arXiv:2501.12376",
+      "arXiv:1507.04737",
+      "arXiv:1508.06624"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The recent sources establish or use the N>k expression and leave N<=k outside their analytic result.",
+        "General GU theory implies optimality of the PGM but does not, without the new cyclic multiplicity calculation, imply the explicit residue-mass formula as a stated corollary.",
+        "The multiple Chernoff theorem supplies the general exponent equality, while the regular-polygon uniqueness requires the projective-circle extremal step and the exact formula supplies the prefactor."
+      ],
+      "reasoning": "No inspected prior statement dominates the full final claim. The non-aliasing special case and the generic exponent theorem are explicitly excluded from the novelty claim and used as prior ingredients.",
+      "searches": [
+        "arXiv:2604.26647v1",
+        "arXiv:2604.26927v1",
+        "arXiv:2501.12376",
+        "arXiv:1507.04737",
+        "arXiv:1508.06624",
+        "regular polygon rebit multicopy minimum error discrimination binomial residues modulo N exact success",
+        "cyclic geometrically uniform states arbitrary n k aliasing binomial modulo n",
+        "regular N-gon pure real qubits PGM success probability all copies n less than k",
+        "binomial modulo n Renyi one half quantum state discrimination polygon",
+        "regular rebit polygon exact success modulo N binomial residues arbitrary copies",
+        "regular N-gon rebit minimum error success probability Binomial(k,1/2) modulo N Renyi one half",
+        "fixed N regular qubit polygon discrimination error one half cos(pi/N)^(2k)",
+        "regular rebit polygon unique Chernoff exponent optimal among N pure real qubits"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.26647v1 derives the regular cyclic-qubit success law only for N>k and states that N<=k needs separate investigation.",
+        "arXiv:2604.26927v1 gives the same non-aliasing expression for regular real-qubit polygons when N>=k+1 and conjectures broader finite-copy optimality.",
+        "No targeted search returned a statement identifying the Gram spectrum with Binomial(k,1/2) reduced modulo N."
+      ],
+      "reasoning": "For N>k the new expression deliberately reduces to the known formula, so that portion is not claimed novel. Novel content is the residue-class aliasing evaluation for arbitrary N,k, its fixed-N sharp prefactor, and the rebit-circle Chernoff extremal consequence.",
+      "searches": [
+        "regular polygon rebit multicopy minimum error discrimination binomial residues modulo N exact success",
+        "cyclic geometrically uniform states arbitrary n k aliasing binomial modulo n",
+        "regular N-gon pure real qubits PGM success probability all copies n less than k",
+        "binomial modulo n Renyi one half quantum state discrimination polygon",
+        "arXiv:2604.26647v1 Appendix A, Proposition 4.5",
+        "arXiv:2604.26927v1 Section 8, Theorem 8.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-database hits concerned unrelated binomial congruences, polygon geometry, and Renyi problems; none concerned rebit polygon discrimination.",
+        "The 2026 cyclic-state paper tabulates f(k) for small k in the N>k regime, while the all-(N,k) residue formula is absent from the inspected table and appendix."
+      ],
+      "reasoning": "The claim is an analytic identity for all N,k rather than a recomputation of a known numerical table. Known table entries are recovered as consistency checks.",
+      "searches": [
+        "regular polygon rebit multicopy minimum error discrimination binomial residues modulo N exact success",
+        "cyclic geometrically uniform states arbitrary n k aliasing binomial modulo n",
+        "regular N-gon pure real qubits PGM success probability all copies n less than k",
+        "binomial modulo n Renyi one half quantum state discrimination polygon",
+        "regular rebit polygon exact success modulo N binomial residues arbitrary copies",
+        "regular N-gon rebit minimum error success probability Binomial(k,1/2) modulo N Renyi one half",
+        "fixed N regular qubit polygon discrimination error one half cos(pi/N)^(2k)",
+        "regular rebit polygon unique Chernoff exponent optimal among N pure real qubits"
+      ]
+    },
+    "rationale": "The two 2026 source papers cover the non-aliasing regular-polygon regime and explicitly leave or numerically explore the complementary regime; broader GU theory proves PGM optimality and gives representation-level formulas but the inspected statements do not state the binomial-residue spectrum, the all-parameter aliasing law, or its sharp fixed-N error prefactor. The Chernoff theorem is broader but does not itself identify the unique regular rebit polygon via projective-circle packing. Targeted semantic searches found no published finding with these statements. Residual risk from remote cyclic-frame or phase-shift-keying terminology is recorded rather than treated as eliminated.",
+    "residual_risks": [
+      "An equivalent cyclic-character calculation may exist in older optical phase-shift-keying, tight-frame, or coding literature under terminology not recovered by the targeted searches.",
+      "The general representation formula in arXiv:1507.04737 is broad enough that the exact residue law is a specialization of its method, although the inspected source does not state this specialization.",
+      "The finite-copy global optimality conjecture for regular rebit polygons remains unresolved and is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the non-aliasing regime and small-copy examples but not the residue-aliasing law for arbitrary N<=k.",
+        "evidence": "The appendix concludes the N>k calculation and states that N<=k needs to be investigated separately.",
+        "identifier_or_url": "arXiv:2604.26647v1",
+        "material_read": "Main cyclic-geometrically-uniform discussion, Proposition 4.5, Table of f(k), Appendix A proof, and the note on N<=k.",
+        "method": "Full arXiv HTML text inspected around the proposition and appendix, with statement-to-claim comparison.",
+        "title": "Nonclassical traits in multi-copy state discrimination",
+        "trigger": "Same cyclic regular-qubit ensemble and explicit N>k formula."
+      },
+      {
+        "assessment": "States the formula for N>=k+1 and conjectures broader optimality; does not give the modulo-N residue formula or fixed-N k-to-infinity prefactor.",
+        "evidence": "The theorem assumes N>=k+1; later discussion reports numerical evidence beyond that analytic regime.",
+        "identifier_or_url": "arXiv:2604.26927v1",
+        "material_read": "Real-qubit section including Theorem 8.2, its regular-polygon lower bound, asymptotic discussion, and numerical-conjecture discussion.",
+        "method": "Full arXiv HTML text inspected at the theorem and adjacent discussion.",
+        "title": "The most discriminable quantum states in the multicopy regime",
+        "trigger": "Same regular rebit polygons, same non-aliasing formula, and a broader optimality conjecture."
+      },
+      {
+        "assessment": "Supplies PGM optimality but no regular-polygon symmetric-power character multiplicities or binomial-residue spectrum.",
+        "evidence": "The work advertises a streamlined pure-GU PGM proof and general multi-copy bounds rather than this closed-form cyclic specialization.",
+        "identifier_or_url": "arXiv:2501.12376",
+        "material_read": "Pure-state GU PGM-optimality statements and multi-copy discussion.",
+        "method": "Primary arXiv text/abstract and theorem-level implication comparison.",
+        "title": "On the distinguishability of geometrically uniform quantum states",
+        "trigger": "Potential broader theorem covering all pure GU discrimination."
+      },
+      {
+        "assessment": "Provides broader machinery, but not the explicit fair-binomial residue weights or the stated all-(N,k) asymptotic.",
+        "evidence": "The paper emphasizes a general representation formula whose evaluation requires decomposition of the particular group representation.",
+        "identifier_or_url": "arXiv:1507.04737",
+        "material_read": "GU MPE/PGM formulation and representation-theoretic success-probability framework.",
+        "method": "Primary arXiv abstract and formula-level description compared to the residue-multiplicity calculation.",
+        "title": "Optimal Measurements for Symmetric Quantum States with Applications to Optical Communication",
+        "trigger": "Representation-theoretic GU formula could potentially dominate a cyclic specialization."
+      },
+      {
+        "assessment": "Directly supplies the general exponent theorem, but not the extremal identification of the regular N-gon among real projective qubits.",
+        "evidence": "Its theorem is state-agnostic; the projective-circle packing and uniqueness argument is additional.",
+        "identifier_or_url": "arXiv:1508.06624",
+        "material_read": "Main theorem identifying the multiple-hypothesis exponent with the minimum pairwise quantum Chernoff distance.",
+        "method": "Primary arXiv theorem/abstract implication comparison.",
+        "title": "Discriminating quantum states: the multiple Chernoff distance",
+        "trigger": "Potential complete coverage of the asymptotic exponent clause."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9659df84-ea8e-4085-b5e7-c5729d882511",
+  "value": {
+    "rationale": "Two recent papers make the regular rebit polygon a central multicopy benchmark; one explicitly leaves N<=k for separate investigation and the other conjectures broader optimality while giving only the N>=k+1 analytic value. The exact aliasing law resolves that natural missing finite-parameter regime, supplies a compact probabilistic interpretation, and yields the sharp fixed-N error prefactor. The Chernoff specialization settles the asymptotic exponent version of the regular-polygon extremal question for every fixed N. This is a motivated structural completion rather than an arbitrary parameter slice or table recomputation.",
+    "status": "PASS"
+  }
+}
