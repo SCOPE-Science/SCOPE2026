@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces repeated pendant twins exactly, proves a universal bipartite lower bound of min{4, side sizes}, and supplies matching side and four-extreme-vertex constructions after trimming. Boundary cases including stars, complete bipartite graphs, K2, and the three-by-three half graph are covered by the same argument. The executable verifier exhaustively agrees on all 511 canonical connected chain profiles of total order at most 10; this computation is corroborative rather than a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.23989v2, Section 3.3, Algorithm 2 is the closest same-object coverage and claims a polynomial-time minimum routine.",
+        "arXiv:2503.08088 gives upper bounds for P5-free graphs, a broader graph class containing chain graphs, but not exact chain-graph values.",
+        "The 2003-dated Finite Order Domination manuscript lists paths, cycles, multipartite graphs, and products in its stated exact-value scope."
+      ],
+      "reasoning": "The broader P5-free bounds do not determine the exact value. The later same-object algorithm agrees with the retained four-vertex core only when both trimmed sides have size at least four; it does not cover the small-side minimum because H3 has value 3 while the displayed routine returns four vertices.",
+      "searches": [
+        "secure domination chain graph pendant vertices four extreme vertices minimum",
+        "chain graph secure dominating set bipartition side",
+        "secure domination in P5-free graphs"
+      ]
+    },
+    "checked_sources": [
+      "Burger et al., Finite Order Domination in Graphs, public PDF dated 2003-09-11, AMS 05C69.",
+      "Swathi D and N. Sadagopan, arXiv:2512.23989v2, Section 3.3 and Algorithm 2.",
+      "A. Jha, DOI:10.1016/j.akcej.2019.10.005.",
+      "A. P. Burger, A. P. de Villiers, J. H. van Vuuren, DOI:10.2989/16073606.2015.1068238.",
+      "U. K. Gupta, M. A. Henning, P. V. Maniya, D. Pradhan, arXiv:2503.08088."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2512.23989v2, Algorithm 2 initializes {x_{m-1},x_m,y_1,y_2} and adds all but one vertex from each multiple pendant class.",
+        "For the half graph H3 there are no multiple pendant classes, so that displayed routine returns four vertices; the retained proof gives gamma_s(H3)=3 and excludes size 2.",
+        "Secure total domination on chain graphs requires total domination after every swap and hence does not imply ordinary secure domination.",
+        "DOI:10.2989/16073606.2015.1068238 characterizes general small secure-domination numbers but does not specialize to this chain-block formula in its abstracted results."
+      ],
+      "reasoning": "The retained theorem is not a corollary of the closest prior statement: its small-side values contradict the size returned by the displayed same-object routine. The theorem independently proves the exact value and recovers the four-extreme-vertex behavior only in the regime where it is actually optimal.",
+      "searches": [
+        "arXiv:2512.23989v2 Section 3.3 Algorithm 2",
+        "DOI:10.1016/j.akcej.2019.10.005 chain graphs",
+        "DOI:10.2989/16073606.2015.1068238 secure dominating sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2512.23989v2 uses the ordinary secure-domination definition and treats chain graphs directly.",
+        "DOI:10.1016/j.akcej.2019.10.005 treats secure total domination, which adds a total-domination requirement and is not equivalent.",
+        "Semantic-index semantic searches for chain, half, and Ferrers formulations returned no finding stating this formula."
+      ],
+      "reasoning": "Chain graphs are also called Ferrers bipartite graphs in some literature, and half graphs form a canonical subclass. Searches under all three descriptions did not reveal an equivalent closed formula. The secure-total parameter is separated explicitly because its feasible sets are strictly more constrained.",
+      "searches": [
+        "exact secure domination number connected chain graphs leaf twins formula",
+        "secure domination half graph gamma_s",
+        "secure domination Ferrers graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic-index searches produced domination findings on other parameters and graph classes but no exact chain-graph secure-domination formula.",
+        "No standard invariant table indexed by arbitrary chain-block profiles was identified in the focused literature search."
+      ],
+      "reasoning": "The claim is an infinite parametric theorem rather than a finite named-graph table entry. Database searching is therefore useful for overlap detection but cannot by itself establish uniqueness; the decisive comparison is with the same-object full text.",
+      "searches": [
+        "secure domination chain graphs",
+        "secure domination half graphs",
+        "secure domination Ferrers graph"
+      ]
+    },
+    "rationale": "Focused searches located one later source on ordinary secure domination of chain graphs, arXiv:2512.23989v2. Its Section 3.3 gives a four-extreme-vertex routine plus pendant additions, but it does not state the formula here and its displayed minimum-output claim disagrees on the three-by-three half graph, where the exact value is 3. Older secure-domination sources and secure-total chain-graph work do not imply the retained theorem.",
+    "residual_risks": [
+      "The 2003 Bulletin article that introduced secure domination was identified bibliographically, but a lawful full text was not available during this review; the same-object 2025/2026 chain-graph preprint was fully inspected, so this is a historical rather than decisive overlap risk.",
+      "Unindexed theses or non-English literature may contain an equivalent closed formula despite the targeted searches.",
+      "arXiv:2512.23989v2 is a preprint and may be revised; the comparison here is to the inspected v2 statement and Algorithm 2."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The stated exact-value examples are paths, cycles, multipartite graphs, and products; no chain-graph formula is stated in the inspected front matter.",
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20049/vol-049-paper%2011.pdf",
+        "material_read": "public PDF title page, abstract, and introductory definition; title page dated 11 September 2003 and listing AMS 05C69",
+        "method": "direct public PDF inspection",
+        "title": "Finite Order Domination in Graphs",
+        "trigger": "archive-era source for the secure-domination protection framework and MSC ownership"
+      },
+      {
+        "assessment": "CLOSEST_PARTIAL_AND_DISCREPANT",
+        "evidence": "Algorithm 2 starts from four extreme vertices and adds pendant excess. On H3 it returns four vertices, whereas the retained theorem proves the exact value is three.",
+        "identifier_or_url": "arXiv:2512.23989v2",
+        "material_read": "Section 3.3 definition, proper ordered chain partition, pendant discussion, and Algorithm 2 in the public PDF",
+        "method": "direct public full-text inspection",
+        "title": "Secure Domination in Bisplit graphs -- A Structural and algorithmic study",
+        "trigger": "same parameter and exact same graph class"
+      },
+      {
+        "assessment": "DIFFERENT_PARAMETER",
+        "evidence": "The paper requires total domination before and after swaps; ordinary secure domination does not impose that condition.",
+        "identifier_or_url": "DOI:10.1016/j.akcej.2019.10.005",
+        "material_read": "full HTML introduction and chain-graph section, including the definition of secure total domination",
+        "method": "direct open full-text inspection",
+        "title": "Secure total domination in chain graphs and cographs",
+        "trigger": "same graph class and closely named domination variant"
+      },
+      {
+        "assessment": "GENERAL_NOT_IMPLYING",
+        "evidence": "The indexed results concern minimum secure sets and graphs with secure domination numbers 1, 2, and 3; the publisher metadata lists 05C69.",
+        "identifier_or_url": "DOI:10.2989/16073606.2015.1068238",
+        "material_read": "publisher abstract and indexing metadata",
+        "method": "publisher metadata inspection",
+        "title": "On minimum secure dominating sets of graphs",
+        "trigger": "general minimum secure domination and MSC classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "558922dc-bbe9-4974-9061-1a4518c73733",
+  "value": {
+    "rationale": "The formula collapses a potentially long chain-block description to four natural statistics: two side sizes and two leaf-twin excesses. It gives an immediate exact algorithm, explains the four-guard threshold structurally through a universal bipartite lower bound, and resolves small-side instances omitted by the closest four-extreme-vertex routine. This is a natural complete invariant for a standard graph class rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
