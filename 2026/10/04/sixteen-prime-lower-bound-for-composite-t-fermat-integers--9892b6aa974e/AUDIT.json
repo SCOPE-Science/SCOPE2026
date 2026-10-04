@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The proof translates published necessary conditions into finite compatibility graphs exactly. The standalone verifier enumerates all relevant primes and all target-size cliques for each M from 3 through 15. No M-clique exists for M at most 14; the unique size-15 clique has product N with N-1 congruent to 90 modulo 330, so it is not Carmichael. Since every composite T-Fermat integer is Carmichael, all support sizes at most 15 are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hakobyan proves that composite T-Fermat integers are Carmichael and proves finiteness for each fixed number of prime divisors, but the inspected paper does not provide a numerical support lower bound of 16.",
+        "Located weak-Carmichael and Lucas–Carmichael results concern different divisibility conditions and therefore do not dominate the T-Fermat statement."
+      ],
+      "reasoning": "Fixed-support finiteness and classifications for other Carmichael-like predicates do not imply nonexistence for T-Fermat support sizes 3 through 15.",
+      "searches": [
+        "T-Fermat Carmichael exact lower bound number of prime factors",
+        "odd multiplicative order modulo p-1 Carmichael three primes",
+        "T-Fermat integers at least 16 prime factors",
+        "T-Fermat omega lower bound 16 prime divisors"
+      ]
+    },
+    "checked_sources": [
+      "Hakobyan, T-Fermat integers, arXiv:2603.00679v2",
+      "International Mathematics Competition 2024, Problem 10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Corollary 2.2 of arXiv:2603.00679v2 bounds each prime divisor by the divisor count.",
+        "Theorem 1.4 and Lemma 2.7 of the same paper provide the common \\(2\\)-adic class and odd-order compatibility conditions.",
+        "Theorem 1.5 supplies the Carmichael condition used to eliminate the unique size-15 compatible support."
+      ],
+      "reasoning": "These prior statements imply the finite search space but not its outcome. The new implication requires the exhaustive clique exclusion through size 14 and a separate Korselt check of the sole size-15 survivor.",
+      "searches": [
+        "T-Fermat Carmichael exact lower bound number of prime factors",
+        "T-Fermat compatibility graph multiplicative orders prime divisors",
+        "Hakobyan almost prime T-Fermat integer Carmichael at least 16 prime factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.00679v2 was inspected through the definitions, Theorems 1.4 and 1.5, Corollary 2.2, Corollary 2.5, and Lemma 2.7.",
+        "The 2024 competition problem was checked as the earlier “almost prime” alias for the same divisor-polynomial condition.",
+        "No located source states the threshold \\(\\omega(n)\\ge16\\) for composite T-Fermat integers."
+      ],
+      "reasoning": "The searches cover both current and predecessor terminology, the exact support-size claim, and its Carmichael/order formulation. The precursor formulation does not imply the new finite exclusion because it lacks the pairwise order restrictions used here.",
+      "searches": [
+        "T-Fermat integers three prime factors Carmichael numbers",
+        "composite T-Fermat integer omega(n)=3",
+        "Hakobyan almost prime T-Fermat integer Carmichael at least 16 prime factors",
+        "almost prime integer divisor polynomial sum x^d d(n)x Carmichael prime factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of a published-finding index with the exact threshold and compatibility-graph language returned no T-Fermat record.",
+        "The closest hits concerned weak Carmichael, Lucas–Carmichael, cyclotomic tau, and practical-number predicates rather than the defining T-Fermat polynomial congruence."
+      ],
+      "reasoning": "No located database or tabulation gives a support census for T-Fermat integers, so there is no known table from which the threshold follows as a listed special case.",
+      "searches": [
+        "T-Fermat integers at least 16 prime factors",
+        "T-Fermat compatibility graph multiplicative orders prime divisors",
+        "Hakobyan T-Fermat Corollary 2.2 Lemma 2.7 computational lower bound"
+      ]
+    },
+    "rationale": "The inspected 2026 primary source supplies the necessary restrictions but not the explicit sixteen-prime threshold. Exact statement, alias, implication, and database-style searches found no covering result; the closest located Carmichael variants use different predicates. The 2024 “almost prime” precursor gives the basic definition but not the 2026 pairwise order machinery.",
+    "residual_risks": [
+      "The terminology changed from “almost prime” to “T-Fermat”, so an unindexed source using another alias could exist.",
+      "Search non-detection is not a proof of worldwide novelty; independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS PREMISES; DOES NOT COVER CLAIM",
+        "evidence": "The source gives the Carmichael implication, oddness, \\(p<d(n)\\), common \\(\\nu_2(p-1)\\), and pairwise odd multiplicative order, while no explicit sixteen-prime lower bound appears in the inspected text.",
+        "identifier_or_url": "arXiv:2603.00679v2",
+        "material_read": "Abstract and full-text passages containing Definitions 1.1–1.2, Theorems 1.4–1.5, Corollaries 2.2 and 2.5, and Lemma 2.7.",
+        "method": "Full-text inspection of the arXiv paper, including rendered PDF pages for the defining and divisor-bound statements.",
+        "title": "T-Fermat integers",
+        "trigger": "Primary source defining the object and proving the restrictions used in the candidate theorem."
+      },
+      {
+        "assessment": "ALIAS/PRECURSOR; NOT COVERING",
+        "evidence": "The problem supplies the predecessor terminology and a basic structural question but not the 2026 Carmichael/order conditions or the support-size threshold.",
+        "identifier_or_url": "IMC-2024-Problem-10",
+        "material_read": "Problem statement and the displayed defining congruence.",
+        "method": "Public problem-statement inspection.",
+        "title": "International Mathematics Competition 2024, Problem 10",
+        "trigger": "Alias search found the earlier “almost prime” name for the same squarefree divisor-polynomial congruence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9892b6aa-974e-4a5e-ad0d-abc605341bdf",
+  "value": {
+    "rationale": "The number of prime divisors is a natural invariant for an object whose composite existence remains open. An unconditional jump to at least 16 prime divisors materially narrows constructions and searches and extracts a global consequence from the recent local divisor/order restrictions.",
+    "status": "PASS"
+  }
+}
