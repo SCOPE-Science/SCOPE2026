@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The exact-line-search recurrence gives \\(x^{(2)}=\u0007lpha_0\u0007lpha_1[(\\mu_0+\\mu_1)I-A]b\\). For a Stieltjes matrix with condition number at most \\(2\\), every entry of the bracket is nonnegative because \\(\\mu_0+\\mu_1\\ge2\\lambda_{\\min}\\ge\\lambda_{\\max}\\ge a_{ii}\\). The sharp family is diagonal and its sign criterion reduces to one exact rational expression. In two dimensions the residual returns after two steps as a scalar multiple with multiplier in \\([0,1)\\), yielding explicit nonnegative even and odd iterates. The packaged rational checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Knyazev--Lashuk formulate steepest descent for symmetric positive definite linear systems and provide a geometric convergence-rate analysis.",
+        "Gonzaga--Schneider give a full treatment of the Cauchy algorithm on quadratic functions and the classical Akaike--Forsythe oscillation mechanism.",
+        "Neither inspected full text states the Stieltjes positivity frontier or an all-iterate two-dimensional positive-orthant theorem."
+      ],
+      "reasoning": "General convergence and oscillation theory does not determine coordinatewise signs after transforming back from the eigenbasis. The new theorem imposes a Stieltjes sign structure and extracts a sharp finite-horizon positivity consequence not supplied by the broader spectral theory.",
+      "searches": [
+        "Steepest Descent and Conjugate Gradient Methods with Variable Preconditioning",
+        "On the steepest descent algorithm for quadratic functions",
+        "steepest descent M-matrix exact line search positive iterates",
+        "gradient method Stieltjes matrix positivity exact line search"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0605767v1",
+      "DOI:10.1137/060675290",
+      "Optimization Online:4964",
+      "DOI:10.1007/s10107-009-0267-8",
+      "Focused semantic searches on Stieltjes, M-matrix, positive-orthant, condition-number, and second-iterate formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knyazev--Lashuk state the standard residual update and steepest-descent local optimum for SPD systems and classify the paper under MSC 65F10.",
+        "Gonzaga--Schneider explicitly diagonalize the quadratic, write the Cauchy step, prove successive-gradient orthogonality, and summarize the classical two-extreme-mode oscillation theory.",
+        "Those facts explain the algebra behind the proof but do not state that nonnegative right-hand side and solution force every two-dimensional iterate into the positive orthant, nor do they imply the Stieltjes condition-number frontier without the new coordinate-basis argument."
+      ],
+      "reasoning": "The accepted statement is not merely the known two-mode oscillation law: it combines that law with inverse positivity for an all-iterate orthant result and adds a sharp all-dimensional second-iterate Stieltjes threshold with a matching three-mode obstruction. No inspected prior statement dominates those conclusions.",
+      "searches": [
+        "arXiv:math/0605767 steepest descent residual exact step",
+        "Optimization Online 4964 Cauchy algorithm Akaike Forsythe",
+        "steepest descent two eigenvalues residual periodic exact line search",
+        "steepest descent two dimensional all iterates nonnegative positive solution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned nearby results on objective monotonicity, Euclidean transient bounds, coordinate sampling, and other iterative methods, but no result with the second-iterate Stieltjes orthant criterion.",
+        "The inspected classical steepest-descent sources discuss convergence, exact line searches, orthogonality, and spectral oscillation rather than coordinatewise positivity in the original basis."
+      ],
+      "reasoning": "Equivalent statements could be phrased as orthant invariance, monotone iteration, positivity of the second Cauchy iterate, or positivity of a degree-two residual polynomial on Stieltjes systems. Those aliases were searched, and no checked source implied the combined frontier and minimal-dimension theorem.",
+      "searches": [
+        "steepest descent condition number 2 positivity second iterate Stieltjes matrix",
+        "steepest descent second iterate M-matrix nonnegative condition number two",
+        "steepest descent exact line search positive orthant iterates",
+        "steepest descent coordinatewise positivity inverse positive SPD dimension three counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-phrase or exact-constant search produced a condition-number-\\(2\\) positivity table, a three-dimensional second-iterate sign witness, or the displayed sharpness family.",
+        "The classical sources tabulate or analyze convergence factors, not the coordinate sign invariant used here."
+      ],
+      "reasoning": "The number \\(2\\) is a natural conditioning threshold and was searched directly. No exact database or table located in the review contained the claimed coordinatewise positivity frontier.",
+      "searches": [
+        "\"steepest descent\" Stieltjes matrix nonnegative iterates condition number 2",
+        "\"steepest descent\" diagonal matrix negative component second iterate",
+        "\"Cauchy algorithm\" positive orthant quadratic",
+        "\"gradient method\" \"positive orthant\" exact line search quadratic"
+      ]
+    },
+    "rationale": "Classical exact-line-search steepest-descent formulas, residual orthogonality, convergence bounds, and Akaike--Forsythe spectral oscillation are treated as prior work. The accepted claim is the coordinatewise Stieltjes second-iterate frontier at condition number \\(2\\), its sharp all-\\(\\kappa>2\\) three-mode obstruction family, and the all-iterate two-dimensional orthant theorem. Focused semantic and literature searches did not locate an implication-equivalent result.",
+    "residual_risks": [
+      "Older monotone-iteration or M-matrix literature may contain the same finite-horizon sign theorem under terminology not captured by the searches.",
+      "The exact two-mode cycle itself is classical; originality is claimed for its coordinatewise positivity consequence together with the sharp all-dimensional Stieltjes frontier and obstruction family.",
+      "The theorem does not classify third and later iterates for dimensions at least three."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the standard SPD steepest-descent framework and convergence-rate theory. It does not state coordinatewise orthant preservation, the condition-number-\\(2\\) second-iterate frontier, or a three-mode positivity obstruction in the inspected full text.",
+        "evidence": "The paper gives the SPD linear-system residual iteration and identifies the shortest recursion as standard preconditioned steepest descent; its AMS subject classification is 65F10.",
+        "identifier_or_url": "arXiv:math/0605767; DOI:10.1137/060675290",
+        "material_read": "Open full text, including the abstract, introduction, standard SPD residual iteration, steepest-descent specialization, geometric convergence discussion, and bibliographic references to classical steepest descent.",
+        "method": "Lawful arXiv full-text inspection with page images and text search.",
+        "title": "Steepest Descent and Conjugate Gradient Methods with Variable Preconditioning",
+        "trigger": "Primary numerical-linear-algebra source defining the relevant steepest-descent linear-system iteration and verifying primary MSC ownership."
+      },
+      {
+        "assessment": "COVERS exact-line-search quadratic steepest descent, orthogonal successive gradients, and classical spectral zig-zag behavior. Searches within the full text found no positive-orthant, nonnegative-iterate, or Stieltjes formulation.",
+        "evidence": "The paper states the Cauchy step explicitly, notes that successive gradients are orthogonal, and describes asymptotic concentration on the extreme eigenspaces.",
+        "identifier_or_url": "Optimization Online:4964",
+        "material_read": "Full open preprint, especially the problem diagonalization, exact Cauchy step, orthogonality statement, main Akaike--Forsythe theorem, qualitative two-mode oscillation discussion, and references.",
+        "method": "Lawful Optimization Online PDF inspection with page images and text search.",
+        "title": "On the Steepest Descent Algorithm for Quadratic Functions",
+        "trigger": "Closest open full-text treatment of exact-line-search Cauchy dynamics and spectral oscillation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "16f98e76-89a7-48b7-9727-11ad871f9238",
+  "value": {
+    "rationale": "Stieltjes matrices are a standard class for elliptic discretizations and inverse-positive linear systems. A negative transient coordinate can violate a natural physical or probabilistic sign constraint even while steepest descent decreases the quadratic energy. The sharp conditioning threshold, minimal dimension, earliest failing iterate, and exact witness family give a structural diagnostic rather than a routine restatement of convergence theory.",
+    "status": "PASS"
+  }
+}
