@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "Exact subresultant elimination re-derives the primitive degree-10 secant polynomial from the published rational matrix. A separate standard-library verifier proves irreducibility mod 19 and an irreducible 7+3 factorization mod 17. Transitivity plus the resulting 7-cycle gives primitivity; Jordan gives A10; the mod-19 10-cycle is odd, so the Galois group is S10. The source independently certifies the same exact fiber as ten totally real secants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aslam et al. Theorem 1.4 covers generic geometric monodromy; Example 2.4 covers total reality of one fiber. Neither combines these into a specialization-level arithmetic Galois theorem.",
+        "Companion Monodromy_computation.txt certifies path permutations in parameter space, not Frobenius factorization of a fixed rational fiber."
+      ],
+      "reasoning": "The new fixed-fiber arithmetic claim is not implied by the broader generic-monodromy theorem and is logically distinct from the certified-realness claim.",
+      "searches": [
+        "generic monodromy versus specialization Galois twisted cubic secants",
+        "2603.25003 monodromy Galois common real secants"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.25003v1",
+      "github:mattfaust/SecantsofTwoCubicsMRC2025",
+      "published-finding corpus 2026/9/9/SCOPE088",
+      "published-finding corpus 2026/9/11/SCOPE033"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source certifies 40 real ordered solutions at M0 and proves generic monodromy S10 using loops based at M0.",
+        "The new mod-19 irreducibility and mod-17 7+3 factorization are fixed-fiber arithmetic data not present in the inspected source/repository."
+      ],
+      "reasoning": "A base point for a geometric monodromy computation need not itself have full arithmetic Galois group; therefore the new conclusion is not a corollary of the cited theorem without the new Frobenius certificates.",
+      "searches": [
+        "arXiv:2603.25003 Example 2.4 monodromy fixed fiber",
+        "github mattfaust SecantsofTwoCubicsMRC2025 Monodromy_computation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper states geometric monodromy S10 and certifies Example 2.4 as ten totally real, but full-text searches for “Galois group”, “specialization”, “arithmetic”, and “irreducible” found no fixed-fiber arithmetic statement.",
+        "The closest published-finding corpus secant record, 2026/9/9/SCOPE088, concerns a different Gr(2,6) real Schubert problem."
+      ],
+      "reasoning": "Generic geometric monodromy S10 is not equivalent to the arithmetic Galois group of a particular rational fiber; a specialization can have a proper subgroup.",
+      "searches": [
+        "twisted cubic common secants Galois group S10 explicit specialization",
+        "common real secants twisted cubic arithmetic Galois",
+        "Common Real Secants to Pairs of Real Twisted Cubic Curves explicit Example 2.4 Galois group of secant coordinate polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit asserts an arithmetic Galois group for this twisted-cubic specialization.",
+        "The paper tables classify real secant triples, not fixed-fiber Galois groups."
+      ],
+      "reasoning": "The exact rational matrix is published, but the degree-10 elimination polynomial and its finite-field Galois certificate are absent from the inspected tables/database records.",
+      "searches": [
+        "published-finding corpus: twisted cubic common secants Galois group S10 explicit specialization",
+        "published-finding corpus: Common Real Secants Example 2.4 Galois group secant coordinate polynomial"
+      ]
+    },
+    "rationale": "The inspected primary paper proves generic geometric monodromy S10 and total reality of Example 2.4, but does not state the arithmetic Galois group of that fixed rational specialization. Targeted published-finding corpus/web/repository searches found no equivalent fixed-fiber claim.",
+    "residual_risks": [
+      "A fixed-fiber arithmetic observation could exist in unpublished notes or under different resolvent terminology.",
+      "The literature search is not a mathematical proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OWNS generic monodromy S10 and total reality of Example 2.4; NOT_COVERING the fixed-fiber arithmetic Galois group in the inspected text.",
+        "evidence": "Example 2.4 says the matrix entries are exact and 40 ordered solutions are certified real; Theorem 1.4 is explicitly a monodromy theorem for the moving family.",
+        "identifier_or_url": "arXiv:2603.25003v1",
+        "material_read": "Abstract/introduction, 2020 MSC line, polynomial-system construction, Example 2.4, monodromy section, open-problem/table material; targeted full-text searches for Galois group, specialization, arithmetic, irreducible.",
+        "method": "Full-text PDF inspection plus page screenshots of the relevant theorem/example/table pages.",
+        "title": "Common Real Secants to Pairs of Real Twisted Cubic Curves",
+        "trigger": "Primary source for the exact matrix, real certification, and generic monodromy."
+      },
+      {
+        "assessment": "NOT_COVERING the fixed-fiber elimination polynomial/Galois certificate; monodromy file tracks certified parameter loops.",
+        "evidence": "The repository reproduces M0 and certified loop computations but no arithmetic factorization of a degree-10 specialization polynomial was found.",
+        "identifier_or_url": "github:mattfaust/SecantsofTwoCubicsMRC2025",
+        "material_read": "README.md, repository tree, Monodromy_computation.txt, seen.txt, triple_counts.txt, local_sampling_guide.txt.",
+        "method": "Direct repository-file inspection.",
+        "title": "SecantsofTwoCubicsMRC2025 companion repository",
+        "trigger": "Potential supplementary coverage of arithmetic computations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b180e362-4a37-4eff-9581-e349cfb85c04",
+  "value": {
+    "rationale": "The result supplies an explicit rational enumerative-geometry fiber where two strong behaviors coexist: all ten solutions are totally real while the arithmetic Galois action is still the full S10. This is a natural arithmetic refinement of the paper’s chosen base example and a reproducible benchmark distinguishing generic geometric monodromy from specialization arithmetic; it is not merely a recomputation of the published real count.",
+    "status": "PASS"
+  }
+}
