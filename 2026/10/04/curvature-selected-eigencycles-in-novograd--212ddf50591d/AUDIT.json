@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The period-two state satisfies the exact NovoGrad recurrence once \\(\\sqrt{\\lambda^2r^2+\\varepsilon}=\\alpha\\lambda/[2(1+\\beta_1)]\\). Orthogonal eigenmode perturbations do not change the scalar squared-gradient norm to first order, yielding the exact characteristic polynomial \\(z^2-(1+\\beta_1)(1-2\\mu/\\lambda)z+\\beta_1\\). Jury stability is therefore equivalent to \\(0<\\mu<\\lambda\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The dedicated NovoGrad paper discusses robustness to learning rate and gradient scale and uses learning-rate schedules in experiments.",
+        "ND-Adam preserves vector directions using a scalar second moment but bias-corrects the unnormalized gradient momentum and renormalizes weights.",
+        "The normalized-gradient saddle paper explicitly focuses on continuous-time descent and leaves discrete stable-manifold analysis for future work."
+      ],
+      "reasoning": "These broader results motivate normalization but do not imply the constant-step NovoGrad state cycle. In particular, changing whether momentum is accumulated before or after normalization changes the dynamical system.",
+      "searches": [
+        "NovoGrad optimizer quadratic convergence",
+        "normalized gradient descent constant step quadratic two cycle",
+        "normalized momentum gradient quadratic stability",
+        "ND-Adam layerwise second moment quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1904.03288v1",
+      "arXiv:1905.11286v3",
+      "arXiv:1709.04546v2",
+      "arXiv:1711.05224v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jasper Section 2.4 gives the layerwise scalar second moment, normalized-gradient momentum, and weight update.",
+        "The dedicated NovoGrad paper gives the same ordering and the optional Adam-like averaging variant separately.",
+        "ND-Adam forms momentum from unnormalized projected gradients and normalizes the bias-corrected first moment before explicit spherical weight renormalization.",
+        "The normalized-gradient saddle paper states the discrete direction-only iteration but centers its theorems on continuous-time flow."
+      ],
+      "reasoning": "The source formulas make the new orbit derivable but do not imply it as a published theorem. The closest predecessor and generic normalized-gradient literature are not statement-wise stronger because their state maps differ.",
+      "searches": [
+        "Jasper NovoGrad layerwise second moment momentum equation",
+        "NovoGrad Algorithm 1 normalized gradient before momentum",
+        "ND-Adam scalar vector second moment weight renormalization",
+        "Revisiting normalized gradient descent discrete time future work"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1904.03288v1, NovoGrad section",
+        "arXiv:1905.11286v3, Algorithm 1 and equations for layerwise second moment and normalized-gradient momentum",
+        "arXiv:1709.04546v2, ND-Adam algorithm",
+        "arXiv:1711.05224v3, discrete normalized-gradient definition and continuous-time scope"
+      ],
+      "reasoning": "Equivalent formulations include a period-two orbit of the full optimizer state and a constant transverse Floquet block indexed by Hessian eigenvalue ratio. None of the inspected sources states that block, the exact radius, or the sharp \\(\\mu/\\lambda=1\\) boundary.",
+      "searches": [
+        "NovoGrad scalar quadratic exact dynamics layerwise norm adaptive optimizer",
+        "NovoGrad deterministic quadratic convergence limit cycle normalized gradient",
+        "NovoGrad layerwise second moment exact stability",
+        "NovoGrad normalization radial dynamics quadratic",
+        "NovoGrad period two cycle eigenvector transverse stability quadratic",
+        "layerwise normalized momentum quadratic eigenvector cycle relative curvature",
+        "normalized gradient momentum quadratic two-cycle transverse eigenmodes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record results concerned other sharp quadratic stability frontiers, normalized operators, and transient amplification, not NovoGrad.",
+        "No returned title or summary contained a NovoGrad eigencycle, the radius formula, or a transverse curvature-ratio polynomial."
+      ],
+      "reasoning": "The closest records do not use the source NovoGrad layerwise scalar EMA plus normalized-current-gradient momentum recurrence. Search absence is not treated as a proof of uniqueness; residual folklore risk is retained.",
+      "searches": [
+        "NovoGrad scalar quadratic exact dynamics layerwise norm adaptive optimizer",
+        "NovoGrad deterministic quadratic convergence limit cycle normalized gradient",
+        "NovoGrad layerwise second moment exact stability",
+        "NovoGrad normalization radial dynamics quadratic",
+        "NovoGrad period two cycle eigenvector transverse stability quadratic",
+        "layerwise normalized momentum quadratic eigenvector cycle relative curvature",
+        "normalized gradient momentum quadratic two-cycle transverse eigenmodes"
+      ]
+    },
+    "rationale": "The inspected primary NovoGrad sources define the layerwise normalization and momentum ordering but do not analyze exact quadratic eigencycles or their transverse spectrum. The closest normalization predecessors use materially different state orderings or continuous-time dynamics.",
+    "residual_risks": [
+      "Fixed-step normalized-gradient two-cycles may be known informally outside indexed NovoGrad literature.",
+      "The theorem does not classify radial Floquet stability.",
+      "Learning-rate schedules, weight decay, stochasticity, and the optional gradient-averaging variant may change or remove the cycles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EARLIEST_NOVOGRAD_SOURCE_NOT_COVERING_EIGENCYCLES.",
+        "evidence": "The paper introduces NovoGrad and specifies the state ordering used here. It contains empirical training results but no deterministic quadratic orbit or Floquet analysis.",
+        "identifier_or_url": "arXiv:1904.03288v1",
+        "material_read": "Submission history plus the full current open-access PDF section 2.4, including the layerwise second-moment, normalized-gradient momentum, weight-decay, and weight-update equations.",
+        "method": "ArXiv abstract metadata, PDF text extraction, and page-level visual inspection.",
+        "title": "Jasper: An End-to-End Convolutional Neural Acoustic Model",
+        "trigger": "Earliest located public source introducing NovoGrad."
+      },
+      {
+        "assessment": "DEFINING_ALGORITHM_NOT_COVERING_PERIOD_TWO_FLOQUET_LAW.",
+        "evidence": "The source explicitly normalizes the current layer gradient by a scalar EMA before momentum accumulation. It does not state a fixed-step eigenvector cycle or curvature-selected transverse stability theorem.",
+        "identifier_or_url": "arXiv:1905.11286v3",
+        "material_read": "Full open-access PDF pages covering normalized-gradient motivation, Algorithm 1, equations (4)–(6), moment initialization, default second-moment choices, and the optional Adam-like first-moment variant.",
+        "method": "ArXiv PDF text extraction and page-level visual inspection.",
+        "title": "Stochastic Gradient Methods with Layer-wise Adaptive Moments for Training of Deep Networks",
+        "trigger": "Dedicated NovoGrad paper and closest algorithmic source."
+      },
+      {
+        "assessment": "RELATED_LAYERWISE_NORMALIZATION_WITH_DIFFERENT_STATE_ORDERING.",
+        "evidence": "ND-Adam accumulates an unnormalized projected-gradient first moment and only then divides by the scalar second moment, followed by weight renormalization. Its recurrence does not imply the NovoGrad cycle polynomial.",
+        "identifier_or_url": "arXiv:1709.04546v2",
+        "material_read": "Full open-access paper around Algorithm 1 and equations (8)–(14), including projected gradients, scalar vector second moment, bias correction, and explicit spherical weight normalization.",
+        "method": "Full-text inspection with page-level visual inspection.",
+        "title": "Normalized Direction-preserving Adam",
+        "trigger": "Closest predecessor using one scalar second moment for a vector."
+      },
+      {
+        "assessment": "BROADER_NORMALIZATION_CONTEXT_NOT_COVERING_NOVOGRAD_FLOQUET_RESULT.",
+        "evidence": "The source defines discrete normalized gradient descent but its main results concern continuous-time saddle escape and do not include momentum, a scalar EMA normalizer, or fixed-step quadratic period-two stability.",
+        "identifier_or_url": "arXiv:1711.05224v3",
+        "material_read": "Full open-access introduction and literature review, including the discrete normalized-gradient iteration, continuous-time focus, and statement that discrete stable-manifold analysis is future work.",
+        "method": "PDF text extraction plus page-level visual inspection.",
+        "title": "Revisiting Normalized Gradient Descent: Fast Evasion of Saddle Points",
+        "trigger": "Potential broader coverage of fixed-magnitude normalized gradient dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "212ddf50-591d-4075-bbda-bc17b65bb224",
+  "value": {
+    "rationale": "NovoGrad's defining design choice is layerwise scalar normalization before momentum. The exact eigencycle theorem reveals a nonzero state-space consequence of that design and a sharp relative-curvature selection law: lower-curvature cycles are destabilized by higher-curvature modes, while top-eigenspace cycles have no such unstable orthogonal direction. The accompanying momentum-controlled plateau gives a concrete spectral diagnostic beyond routine origin linearization.",
+    "status": "PASS"
+  }
+}
