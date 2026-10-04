@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For the balanced two-atom kernel, symmetry forces every scaling to remain scalar. Substituting a scalar incoming column scaling into the source certificate equations yields the exact feasible intermediate plan, zero repair defect, the displayed primal and dual bounds, and hence the closed certificate gap. The derivative of \\(G\\) is strictly negative for every \\(p>0\\); the asymptotic slack and exact stopping-index formulas then follow analytically. The packaged verifier only supplements these symbolic steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.33814v1, Section 4, reports that much of the common-initial-temperature O-BDRS advantage is explained by reaching lower effective temperatures sooner and that roughly rescaled iteration counts track BDRS objectives.",
+        "DOI:10.3390/a14050143 studies globally convergent and locally accelerated overrelaxation for fixed-temperature Sinkhorn rather than the 2026 unregularized BDRS certificate.",
+        "arXiv:2408.11620v1 studies annealed Sinkhorn regularization and relaxation errors but predates and therefore cannot state the later BDRS certificate."
+      ],
+      "reasoning": "The broader sources cover annealing, overrelaxation, or convergence, but none dominates the exact certificate statement because the new theorem depends on the specific 2026 primal-dual bounds and their effective-temperature schedule.",
+      "searches": [
+        "overrelaxed BDRS stopping tolerance factor lambda exact certificate",
+        "Overrelaxed Sinkhorn-Knopp Algorithm for Regularized Optimal Transport",
+        "A note on overrelaxation in the Sinkhorn algorithm",
+        "Annealed Sinkhorn for Optimal Transport convergence regularization path debiasing"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.33814v1",
+      "arXiv:2408.11620v1",
+      "arXiv:2509.08739v1",
+      "DOI:10.3390/a14050143",
+      "PMLR:115:433-453",
+      "DOI:10.1007/s11590-021-01830-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source provides a general inequality \\(L\\le p^\\star\\le U\\) and the schedules \\(\\eta/(k+1)\\) and \\(\\eta/(\\lambda k+1)\\), but does not simplify them to this benchmark in the inspected text.",
+        "The primary experiment section gives an empirical cooling explanation but not the exact certificate slack or exact tolerance stopping-count theorem.",
+        "The older IPOT and BDRS sources establish algorithmic ancestry rather than the later certificate, so their stated results do not imply the complete claim without the new certificate equations."
+      ],
+      "reasoning": "The claim is a genuine consequence of combining the new certificate with a symmetry invariant and then solving the resulting benchmark exactly. General convergence or annealing results do not imply the closed gap formula or ceiling stopping counts as stated.",
+      "searches": [
+        "arXiv:2609.33814v1 Proposition 3 certificate effective temperature",
+        "arXiv:2408.11620v1 annealed Sinkhorn entropic scaling",
+        "DOI:10.3390/a14050143 overrelaxed Sinkhorn",
+        "PMLR:115:433-453 IPOT exact Wasserstein"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.33814v1, equations (14)--(20), gives the effective temperature, row/column scalings, intermediate plan, and general certificate from which the specialization is derived.",
+        "arXiv:2408.11620v1, equations (2)--(3), gives the unique entropic scaling form and standard Sinkhorn recursion.",
+        "No inspected source stated the combined formula for the source-specific certificate gap on balanced two-atom transport."
+      ],
+      "reasoning": "The balanced two-atom entropic plan is an elementary specialization of Sinkhorn scaling, so the plan itself is not treated as novel. The searched equivalent formulation was the complete certificate law, including the dual lower bound, zero repair term, and stopping rule; that combined statement was not found.",
+      "searches": [
+        "Annealed Sinkhorn with Momentum certificate two atom exact formula",
+        "BDRS primal dual certificate binary uniform marginals exp temperature exact",
+        "balanced two-point optimal transport BDRS exact certificate entropic path",
+        "arXiv:2609.33814v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved transport records concerned conditioning of quadratically regularized optimal transport, not the BDRS/O-BDRS certificate or its balanced two-atom specialization.",
+        "No retrieved exact table or record matched the formulas for \\(U(p)\\), \\(L(p)\\), or \\(G(p)\\), or the exact ceiling stopping counts."
+      ],
+      "reasoning": "Search absence is not treated as novelty proof. It supports, but does not replace, the direct comparison with the primary full text and older method papers.",
+      "searches": [
+        "arXiv 2609.33814 BDRS certificate balanced two point transport exact duality gap",
+        "binary optimal transport overrelaxed BDRS certificate temperature iteration count",
+        "balanced 2x2 Sinkhorn certificate asymptotically sharp",
+        "two-atom optimal transport primal-dual certificate Sinkhorn exact stopping"
+      ]
+    },
+    "rationale": "The exact balanced two-atom specialization of the 2026 BDRS/O-BDRS certificate, including identically zero repair penalty, explicit certificate slack, asymptotic sharpness, and exact tolerance stopping counts, was not stated in the inspected primary or closest prior sources. The primary paper already gives the effective cooling schedules and an empirical approximately \\(1/\\lambda\\) explanation; the new content is the exact certificate calibration and theorem on a natural minimal benchmark.",
+    "residual_risks": [
+      "The balanced two-atom entropic plan is elementary and may be tabulated in older matrix-scaling literature under different notation.",
+      "An older or unindexed source could combine that plan with an equivalent primal-dual lower bound, although the specific BDRS/O-BDRS certificate and effective-temperature schedules are new to the 2026 primary source.",
+      "The exact \\(1/\\lambda\\) stopping ratio is specific to the symmetric benchmark where the certificate depends on the methods only through effective temperature; this mechanism need not persist on general instances with active repair error."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING the premises and general cooling interpretation; NOT COVERING the exact balanced two-atom certificate formula, zero-repair law, slack asymptotic, or exact stopping counts in the inspected text.",
+        "evidence": "Equations (14)--(15) state the method-dependent effective temperatures and common scaling identities; Proposition 3 defines the general certificate; Section 4 reports that much fixed-initial-temperature O-BDRS improvement is explained by faster cooling.",
+        "identifier_or_url": "arXiv:2609.33814v1",
+        "material_read": "Full arXiv HTML: Sections 3.3--3.4; Proposition 2; equations (10)--(22); Algorithm 1; Section 4 and the overrelaxation ablation discussion.",
+        "method": "Direct full-text inspection of the lawful arXiv HTML.",
+        "title": "Annealed Sinkhorn with Momentum: Certified Unregularized Optimal Transport in Linear Memory",
+        "trigger": "Primary source defining O-BDRS, the effective temperatures, and the primal-dual certificate."
+      },
+      {
+        "assessment": "COVERING standard entropic scaling and annealing background; NOT COVERING the later BDRS/O-BDRS certificate.",
+        "evidence": "The source gives the unique entropic minimizer in diagonal-scaling form and the Sinkhorn recursion, while the 2026 certificate does not yet exist there.",
+        "identifier_or_url": "arXiv:2408.11620v1",
+        "material_read": "Full arXiv HTML: introduction; equations (1)--(3); annealed Sinkhorn discussion; convergence and regularization-path overview.",
+        "method": "Direct full-text inspection of the lawful arXiv HTML.",
+        "title": "Annealed Sinkhorn for Optimal Transport: convergence, regularization path and debiasing",
+        "trigger": "Closest full-text source for annealed Sinkhorn regularization paths and the entropic scaling representation."
+      },
+      {
+        "assessment": "COVERING fixed-temperature overrelaxation and its convergence rationale; NOT COVERING the later annealed BDRS certificate.",
+        "evidence": "The article studies Sinkhorn--Knopp successive overrelaxation at fixed entropic regularization and a Lyapunov-based convergence condition, not the 2026 unregularized certificate or effective-temperature stopping law.",
+        "identifier_or_url": "DOI:10.3390/a14050143",
+        "material_read": "Open-access full article webpage: abstract; overview; Sections 3--4 discussion of overrelaxation, convergence, and local acceleration; experimental conclusions.",
+        "method": "Direct full-text inspection of the open-access publisher HTML.",
+        "title": "Overrelaxed Sinkhorn--Knopp Algorithm for Regularized Optimal Transport",
+        "trigger": "Primary older source for overrelaxed Sinkhorn cited by the 2026 O-BDRS paper."
+      },
+      {
+        "assessment": "BACKGROUND ONLY; not used to justify a whole-document absence claim.",
+        "evidence": "The abstract introduces IPOT as an inexact proximal method for exact optimal transport with simplex projections.",
+        "identifier_or_url": "PMLR:115:433-453",
+        "material_read": "Published PMLR abstract and metadata.",
+        "method": "Direct inspection of the PMLR proceedings page.",
+        "title": "A Fast Proximal Point Method for Computing Exact Wasserstein Distance",
+        "trigger": "Algorithmic ancestor because the 2026 source identifies BDRS with warm-started one-inner-step IPOT."
+      },
+      {
+        "assessment": "BACKGROUND ONLY; not used to justify a whole-document absence claim.",
+        "evidence": "The source introduces BDRS and discusses discrete OT, while the primal-dual certificate calibrated here is introduced in the later 2026 paper.",
+        "identifier_or_url": "arXiv:2509.08739v1",
+        "material_read": "ArXiv abstract/metadata and accessible preprint text excerpt describing BDRS and its OT specialization.",
+        "method": "Direct inspection of arXiv metadata plus accessible preprint text.",
+        "title": "Bregman Douglas-Rachford Splitting Method",
+        "trigger": "Original BDRS method and discrete optimal-transport specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2993278e-58be-4508-bcb0-8a70b2825adc",
+  "value": {
+    "rationale": "The finding gives a natural exact calibration point for a newly proposed anytime certificate. It decomposes the certificate into true entropic primal bias, explicit dual slack, and an identically zero repair contribution; proves the certificate becomes relatively sharp; and turns the source paper's empirical faster-cooling explanation into an exact asymptotic stopping law on the smallest nontrivial balanced instance. This is useful as a mathematical unit test and as a boundary case for future certificate analyses, while the limitations prevent extrapolation beyond the benchmark.",
+    "status": "PASS"
+  }
+}
