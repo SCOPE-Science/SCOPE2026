@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The source simplex-volume formula is exactly a Bernstein polynomial of degree \\(np\\) with coefficients \\(\binom nj\\) followed by zeros. Differentiation gives coefficient differences \\(\binom n{j+1}-\binom nj\\), whose nonzero signs change exactly once. After \\(x=t/(1-t)\\), Descartes' rule permits at most one positive derivative zero, while the constant coefficient is \\(n-1>0\\) and the last nonzero coefficient is negative, forcing exactly one. The planar quadratic, maximum simplification, and limits are exact consequences. The bundled checker replayed with VERIFY_OK and is explicitly auxiliary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General Descartes and Bernstein variation principles are classical algebraic tools, but the inspected sources do not apply them to the higher-order unbalanced simplex profile.",
+        "arXiv:2412.05308 gives an order-one pointwise unbalanced Rogers--Shephard theory; it does not cover higher orders."
+      ],
+      "reasoning": "A generic variation-diminishing theorem supplies proof machinery, not a previously published geometric statement dominating this claim. The closest geometric predecessor has a strictly smaller parameter/order scope.",
+      "searches": [
+        "higher-order unbalanced difference body simplex volume profile parameter t higher order Godbersen",
+        "D_p^t simplex volume maximum over t higher order difference body",
+        "Artstein-Avidan Putterman higher-order unbalanced difference body simplex parameter optimization",
+        "binomial Bernstein polynomial one sign change derivative strict unimodality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.08612v1",
+      "arXiv:2412.05308",
+      "published-finding corpus semantic search with the six recorded queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.08612v1 provides the formula and low-dimensional pointwise inequality but leaves the dependence on \\(t\\) unoptimized in the inspected material.",
+        "arXiv:2412.05308 proves pointwise order-one inequalities, not the higher-order simplex-profile theorem."
+      ],
+      "reasoning": "The new claim is not merely a restatement of the source formula: it proves one critical point for all \\(n,p\\), identifies it by an exact polynomial, solves the planar optimizer in radicals, and combines the result with the source pointwise theorem to obtain a sharp supremum over \\(t\\). These conclusions require an additional sign-variation argument.",
+      "searches": [
+        "higher-order unbalanced difference body simplex volume profile parameter t higher order Godbersen",
+        "planar simplex D_p^t maximum t unique maximum volume",
+        "\"Around higher-order Godbersen conjectures\" optimizer t simplex",
+        "\"2p+1\" \"sqrt((2p-1)(6p-5))\" simplex difference body",
+        "strict unimodality simplex higher-order unbalanced difference body Bernstein profile unique maximizing t",
+        "Fryš Kotrbatý simplex profile unique positive zero Descartes higher-order difference body",
+        "planar higher-order unbalanced difference body exact maximizing parameter sqrt (2p-1)(6p-5)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.08612v1: simplex-volume formula can be rewritten as the Bernstein polynomial \\(F_{n,p}\\).",
+        "The derivative is equivalent, under \\(x=t/(1-t)\\), to the sign polynomial \\(Q_{n,p}\\); targeted searches for both geometric and polynomial formulations found no matching published finding."
+      ],
+      "reasoning": "The geometric volume profile, its Bernstein representation, and the positive-root characterization were compared as equivalent formulations. None of the closest indexed results concerns this family or entails the one-sign-change derivative theorem.",
+      "searches": [
+        "higher-order unbalanced difference body simplex volume profile parameter t higher order Godbersen",
+        "D_p^t simplex volume maximum over t higher order difference body",
+        "planar simplex D_p^t maximum t unique maximum volume",
+        "\"higher-order unbalanced difference body\" maximum simplex t",
+        "\"D_p^t\" simplex maximum convex",
+        "strict unimodality simplex higher-order unbalanced difference body Bernstein profile unique maximizing t",
+        "Fryš Kotrbatý simplex profile unique positive zero Descartes higher-order difference body",
+        "planar higher-order unbalanced difference body exact maximizing parameter sqrt (2p-1)(6p-5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned closest records on shortest-edge simplex volume, simplex sections, and mixed-volume stability, with no record on \\(D_p^t\\), the displayed optimizer, or the higher-order unbalanced profile.",
+        "The lead source identifier, the phrases higher-order unbalanced difference body and the exact planar optimizer signature were compared against targeted literature searches; no stronger or equivalent published statement was located.",
+        "Final claim-specific published-finding corpus searches for strict unimodality, the Descartes positive-zero formulation, and the planar radical returned only scientifically unrelated records such as reflexive-simplex Ehrhart unimodality, Fourier bipyramid zero-free strips, and quadrature minimax constants."
+      ],
+      "reasoning": "The exact source, aliases, parameter notation, polynomial form, and planar constant were searched. The nearest records are scientifically distinct and do not imply the new profile theorem.",
+      "searches": [
+        "higher-order unbalanced difference body simplex volume profile parameter t higher order Godbersen",
+        "D_p^t simplex volume maximum over t higher order difference body",
+        "planar simplex D_p^t maximum t unique maximum volume",
+        "Artstein-Avidan Putterman higher-order unbalanced difference body simplex parameter optimization",
+        "higher-order unbalanced difference body planar simplex exact optimizer t p formula",
+        "hypergeometric binomial sum higher order difference body simplex",
+        "strict unimodality simplex higher-order unbalanced difference body Bernstein profile unique maximizing t",
+        "Fryš Kotrbatý simplex profile unique positive zero Descartes higher-order difference body",
+        "planar higher-order unbalanced difference body exact maximizing parameter sqrt (2p-1)(6p-5)"
+      ]
+    },
+    "rationale": "The inspected 2026 primary source introduces the higher-order unbalanced family, proves low-dimensional pointwise bounds, and gives the simplex-volume formula, but does not state or imply via a named specialized result the profile optimizer, strict unimodality, planar radical, or uniform-in-parameter corollary. The inspected 2024 predecessor treats the order-one construction. Targeted semantic-database and literature searches found no direct or stronger coverage.",
+    "residual_risks": [
+      "An unindexed note may have applied Bernstein or total-positivity methods to the identical simplex profile without using the source's terminology.",
+      "The general profile optimizer for \\(n\\ge3\\) is implicit; an equivalent special-function parametrization could be harder to retrieve by keyword."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: supplies premises and the benchmark formula, but no strict-unimodality theorem, unique parameter optimizer, planar radical formula, or uniform-in-parameter sharp bound.",
+        "evidence": "First public 2026-09-08; primary MSC listed as 52A40; the displayed simplex formula is the direct starting point of the proof.",
+        "identifier_or_url": "arXiv:2609.08612v1",
+        "material_read": "Abstract; introductory definitions and higher-order Godbersen statements; definition and conjecture for the higher-order unbalanced difference body; low-dimensional theorem; simplex-volume computation/formula.",
+        "method": "Full-text arXiv HTML material was inspected where available, with the arXiv record used to verify the first-public date and authorship.",
+        "title": "Around higher-order Godbersen conjectures",
+        "trigger": "Lead source defining the higher-order unbalanced body and giving its simplex benchmark."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes order-one pointwise results and related averages; it does not treat the higher-order \\(p\\)-profile or the claimed optimizer.",
+        "evidence": "Theorem 3 proves the order-one unbalanced Rogers--Shephard conjecture through dimension five; the construction predates and does not contain the 2026 higher-order polynomial.",
+        "identifier_or_url": "arXiv:2412.05308",
+        "material_read": "Abstract and introduction, including Godbersen Conjecture 1, unbalanced Rogers--Shephard Conjecture 2, Theorem 3, and the mixed-volume expansion of the unbalanced body.",
+        "method": "ArXiv HTML full text.",
+        "title": "On unbalanced difference bodies and Godbersen's conjecture",
+        "trigger": "Closest order-one predecessor and likely alias source for unbalanced Rogers--Shephard formulations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5026d304-e448-4e3b-8ca5-f17c02aeb370",
+  "value": {
+    "rationale": "The imbalance parameter is intrinsic to the newly introduced higher-order body, so its worst value is a natural invariant rather than an arbitrary numerical slice. The theorem resolves the entire parameter axis of the simplex benchmark for all dimensions and orders, converts the source's pointwise low-dimensional comparison into a sharp uniform extremal inequality, and yields an explicit planar optimizer and nontrivial large-order constant. This is structurally reusable in any attempt to prove or test the higher-dimensional pointwise conjecture.",
+    "status": "PASS"
+  }
+}
