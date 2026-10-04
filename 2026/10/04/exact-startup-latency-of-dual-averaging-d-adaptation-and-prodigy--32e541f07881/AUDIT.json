@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For D-Adaptation, constant \\(g_k=-G\\) and unchanged \\(d_k=d_0\\) imply \\(s_n=-nd_0G\\), \\(\\gamma_n=(G\\sqrt n)^{-1}\\), and the stated closed form for \\(R_n\\). For Prodigy, \\(\\lambda_k=d_0^2\\) before activation gives the stated \\(x_i\\) and \\(P_n\\). Exact rational enclosures prove \\(R_1,\\ldots,R_7<1<R_8\\) and \\(P_1,\\ldots,P_4<1<P_5\\). The condition \\(D>d_0\\sqrt8\\) independently verifies the constant-subgradient premise on one common objective.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The D-Adaptation paper proves asymptotic optimality for convex Lipschitz optimization and analyzes dependence on the initial distance estimate.",
+        "The Prodigy paper proves a better non-asymptotic dependence and says its modified step sizes are larger while preserving the key error term.",
+        "Prodigy is explicitly presented as a faster-adapting modification of D-Adaptation."
+      ],
+      "reasoning": "Global convergence-rate comparisons and exponential-growth bounds do not determine the exact earliest update on which \\(d_k\\) can increase for a fixed subgradient sequence. The final claim is a finite-time structural refinement rather than a corollary of the rate statements.",
+      "searches": [
+        "D-Adaptation constant gradient lower bound warmup latency Prodigy",
+        "Prodigy D-Adaptation distance estimate first growth constant subgradient",
+        "D-Adaptation learning rate free convergence distance lower estimate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.07733v1",
+      "arXiv:2306.06101v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "D-Adaptation Algorithm 1 defines the nondecreasing \\(d_k\\) proposal used in the closed form.",
+        "Prodigy Algorithm 2 sets \\(\\lambda_k=d_k^2\\), updates the same type of lower estimate, and changes the dual-averaging normalization.",
+        "The Prodigy paper states qualitative and rate-level faster adaptation but does not give the exact constant-gradient cutoff."
+      ],
+      "reasoning": "The published algorithms imply the formulas after a new finite-time calculation, but their stated theorems do not imply the exact indices. The cutoff requires solving each recurrence under the self-consistency condition that \\(d_k\\) has not yet grown.",
+      "searches": [
+        "D-Adaptation d_k remains d0 first iterations",
+        "Prodigy dual averaging lambda d squared faster adaptation",
+        "D-Adaptation Prodigy exact first distance estimate increase constant gradient 8 5 steps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2301.07733v1 / PMLR 2023, Algorithm 1 dual averaging with D-Adaptation",
+        "arXiv:2306.06101v1, Algorithm 2 dual-averaging Prodigy",
+        "Focused semantic searches for constant-gradient startup latency and first distance-estimate growth"
+      ],
+      "reasoning": "Equivalent formulations include the first index at which the monotone lower estimate leaves its initialization, the exact startup dead-zone length under a coherent subgradient, and the finite cutoff comparison between the two dual-averaging recurrences. No inspected source states these forms.",
+      "searches": [
+        "D-Adaptation optimizer scalar quadratic exact dynamics distance estimate",
+        "D-Adaptation learning rate free quadratic stability counterexample",
+        "D-Adaptation Prodigy exact first distance estimate increase constant gradient 8 5 steps",
+        "D-Adaptation constant gradient lower bound warmup latency Prodigy",
+        "Prodigy D-Adaptation distance estimate first growth constant subgradient",
+        "D-Adaptation d_k remains d0 first iterations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record comparison concerns AdOGD step-size persistence, not D-Adaptation.",
+        "Another close published-record comparison concerns a different deterministic accumulator method.",
+        "Closest records on Polyak and Barzilai–Borwein analyze different quadratic step rules."
+      ],
+      "reasoning": "No closest result contains the D-Adaptation distance lower-bound recurrence or Prodigy's squared-distance dual weights. Search absence is not treated as proof of uniqueness; it is combined with direct full-text comparison of the defining papers.",
+      "searches": [
+        "D-Adaptation optimizer scalar quadratic exact dynamics distance estimate",
+        "D-Adaptation learning rate free quadratic stability counterexample",
+        "D-Adaptation Prodigy exact first distance estimate increase constant gradient 8 5 steps",
+        "D-Adaptation constant gradient lower bound warmup latency Prodigy",
+        "Prodigy D-Adaptation distance estimate first growth constant subgradient",
+        "D-Adaptation d_k remains d0 first iterations"
+      ]
+    },
+    "rationale": "The defining D-Adaptation paper gives the exact distance-estimate recurrence, and the Prodigy paper explicitly motivates faster adaptation and prescribes squared distance weights. The inspected full texts do not state the exact constant-subgradient first-growth indices \\(8\\) and \\(5\\), and focused published-record searches found no implication-equivalent result.",
+    "residual_risks": [
+      "An equivalent finite-cutoff calculation may exist in unindexed implementation discussions or informal notes.",
+      "The result is specific to the dual-averaging variants and a coherent one-dimensional subgradient.",
+      "The cutoff comparison does not determine later convergence speed after both estimates begin to grow."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_EXACT_STARTUP_CUTOFF.",
+        "evidence": "The exact recurrence used in the proof appears in Algorithm 1, but no constant-subgradient finite cutoff \\(n=8\\) is stated in the inspected source.",
+        "identifier_or_url": "arXiv:2301.07733v1",
+        "material_read": "Open-access PMLR full text including Algorithm 1, the definition of the solution distance, the dual-averaging normalization, the distance lower-bound update, and the discussion of finite dependence on the initial estimate.",
+        "method": "Full-text PDF inspection with visual inspection of the algorithm page.",
+        "title": "Learning-Rate-Free Learning by D-Adaptation",
+        "trigger": "Defining source for dual-averaging D-Adaptation and the learned distance estimate."
+      },
+      {
+        "assessment": "DIRECT_SUCCESSOR_NOT_COVERING_EXACT_FIFTH_UPDATE_CUTOFF.",
+        "evidence": "The source explains why Prodigy adapts faster and gives the exact recurrence used here, but does not state the \\(n=5\\) constant-subgradient first-growth index.",
+        "identifier_or_url": "arXiv:2306.06101v1",
+        "material_read": "Open-access full text covering Section 2, Algorithm 2, the squared-distance weights, modified dual-averaging normalization, larger-step motivation, non-asymptotic comparison, and the lower-complexity discussion.",
+        "method": "Full-text HTML inspection with targeted searches for dual averaging, distance estimate, and growth bounds.",
+        "title": "Prodigy: An Expeditiously Adaptive Parameter-Free Learner",
+        "trigger": "Closest later method explicitly designed to adapt the D-Adaptation distance estimate faster."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "32e541f0-7881-4647-97a4-941105f0a213",
+  "value": {
+    "rationale": "The learned distance estimate is the defining adaptive quantity in D-Adaptation and Prodigy, and Prodigy is motivated by faster adaptation of that quantity. The exact first-growth index is therefore a natural finite-time invariant rather than an arbitrary slice. The \\(8\\)-versus-\\(5\\) theorem quantifies a concrete startup advantage on the canonical constant-subgradient regime and directly complements the published asymptotic and non-asymptotic rate comparisons.",
+    "status": "PASS"
+  }
+}
