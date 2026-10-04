@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exact \\(24^5\\) labeled domain is fully enumerated, not sampled. Schulze and set-valued Ranked Pairs are independently implemented twice, with distinct strongest-path and Ranked-Pairs formulations. Both verifiers reproduce \\(51840\\) divergences, probability \\(5/768\\), strict \\(2\\)-versus-\\(3\\) containment, and exactly two margin types.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tideman's full text defines Ranked Pairs and, when pair rankings tie, considers every possible tie ordering and retains all candidates that can win.",
+        "Schulze's published formulation defines strongest-path comparison in the weighted majority graph.",
+        "Parkes and Xia directly compare Schulze and Ranked Pairs and use parallel-universe tie-breaking for Ranked Pairs, confirming that disagreement is a meaningful prior phenomenon."
+      ],
+      "reasoning": "Definitions and isolated disagreement examples do not imply the first odd electorate size at four candidates, the frequency of disagreement there, or its margin-graph classification.",
+      "searches": [
+        "Tideman Independence of Clones ranked pairs ties all possible pair orderings",
+        "Schulze strongest paths election method Social Choice Welfare",
+        "Parkes Xia comparison Schulze Ranked Pairs parallel universe tie breaking"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/BF00433944",
+      "doi:10.1007/s00355-010-0475-4",
+      "AAAI2012:Parkes-Xia-Schulze-RankedPairs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A published four-candidate disagreement example proves existence at some electorate size but gives no lower voter bound.",
+        "With three candidates, the cycle structure allows a direct proof that both methods expose exactly the candidates associated with minimum-strength cycle edges.",
+        "Complete enumeration independently rules out divergence for four candidates with one or three voters and establishes five-voter sharpness."
+      ],
+      "reasoning": "Prior qualitative non-equivalence does not imply minimal electorate size or the universal direction \\(RP(P)\\subsetneq S(P)\\) on the first layer. Those require the lower-bound proof and exhaustive five-voter classification.",
+      "searches": [
+        "Schulze Ranked Pairs example different winner four candidates",
+        "three candidates Schulze Ranked Pairs same Condorcet methods",
+        "Ranked Pairs Schulze strongest path comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic repository searches returned no published finding matching the four-candidate five-voter census.",
+        "Web searches by both rule names, parallel-universe tie-breaking, the exact count, and the exact fraction returned general rule descriptions and comparison papers but no equivalent finite classification.",
+        "The closest direct comparison literature establishes qualitative disagreement between the rules without the threshold or census reported here."
+      ],
+      "reasoning": "The novelty claim is deliberately narrower than saying that Schulze and Ranked Pairs differ. The searches cover canonical names, the set-valued tie convention, the exact parameter pair, exact constants, and winner-set language.",
+      "searches": [
+        "Schulze ranked pairs voting exact smallest profile divergence Condorcet methods",
+        "Schulze ranked pairs four candidates five voters exact divergence census",
+        "parallel universe tie-breaking ranked pairs Schulze exact small election",
+        "Schulze winner set ranked pairs winner set five voters four candidates",
+        "5/768 Schulze ranked pairs",
+        "\"51840\" \"Schulze\" \"Ranked Pairs\"",
+        "\"four candidates\" \"five voters\" Schulze \"Ranked Pairs\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source supplied the \\(51840\\) count, the \\(5/768\\) probability, or the labeled histogram.",
+        "No inspected source supplied the two canonical margin vectors or the split \\(11520+40320\\).",
+        "The counts are generated from all labeled profiles and independently from all anonymous profiles with multinomial weights."
+      ],
+      "reasoning": "The two independently generated censuses make this an exact finite classification rather than a recomputation of a located published table.",
+      "searches": [
+        "\"51840\" Schulze Ranked Pairs",
+        "\"5/768\" Schulze Ranked Pairs",
+        "\"7962624\" Schulze Ranked Pairs",
+        "\"two margin types\" Schulze Ranked Pairs"
+      ]
+    },
+    "rationale": "Prior work defines both rules and already gives examples where they differ. No inspected source covers the exact first odd-electorate boundary at four candidates, the full \\(51840\\)-profile census, the universal containment direction, or the two weighted-majority-graph types.",
+    "residual_risks": [
+      "The 1987 Ranked Pairs publication is chronologically older than the stored day-resolved date, but the inspected authoritative metadata supplied only a month; no publication day was inferred.",
+      "An unindexed election-software test corpus, thesis appendix, or unpublished enumeration could contain the same five-voter census.",
+      "No claim is made about the first divergence for fixed deterministic tie-breaking, larger odd electorates, or five or more candidates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the Ranked Pairs correspondence used here but does not supply the four-candidate five-voter Schulze comparison or census.",
+        "evidence": "Social Choice and Welfare 4 (1987), 185–206; DOI 10.1007/BF00433944. The checked publisher metadata gives publication month September 1987 but not a day.",
+        "identifier_or_url": "doi:10.1007/BF00433944",
+        "material_read": "Full lawfully accessible PDF sections defining the ranked-pairs procedure, ordering pairs by majority strength, eliminating inconsistent rankings, and explicitly considering all possible orders when pair rankings tie so that all candidates winning under some tie ordering are retained.",
+        "method": "Full-PDF text extraction plus rendered-page inspection of the algorithm and tie-handling pages.",
+        "title": "Independence of Clones as a Criterion for Voting Rules",
+        "trigger": "Foundational primary source for Ranked Pairs and its set-valued treatment of tied pair rankings."
+      },
+      {
+        "assessment": "Establishes the Schulze rule used in the census but does not provide the exact comparison with Ranked Pairs at the first small electorate.",
+        "evidence": "Social Choice and Welfare 36 (2011), 267–303; published online 11 July 2010; DOI 10.1007/s00355-010-0475-4.",
+        "identifier_or_url": "doi:10.1007/s00355-010-0475-4",
+        "material_read": "Publisher record and full method text defining link strengths, strongest paths, candidate comparison by path strengths, and the winner computation algorithm.",
+        "method": "Publisher metadata plus full-text and rendered-page inspection of the strongest-path definitions and algorithm.",
+        "title": "A new monotonic, clone-independent, reversal symmetric, and Condorcet-consistent single-winner election method",
+        "trigger": "Primary published source for the Schulze strongest-path rule."
+      },
+      {
+        "assessment": "Decisively establishes that disagreement is prior, but it studies strategic complexity and examples rather than the exact small-electorate boundary or census.",
+        "evidence": "Proceedings of AAAI 2012, pp. 1429–1435.",
+        "identifier_or_url": "AAAI2012:Parkes-Xia-Schulze-RankedPairs",
+        "material_read": "Full conference PDF introduction and rule-definition sections, including the direct Schulze/Ranked-Pairs comparison, the parallel-universe tie-breaking convention for Ranked Pairs, and a worked example in which the rules choose different winners.",
+        "method": "Full-PDF text extraction plus rendered-page inspection.",
+        "title": "A Complexity-of-Strategic-Behavior Comparison between Schulze's Rule and Ranked Pairs",
+        "trigger": "Closest primary comparison paper treating both methods and parallel-universe tie-breaking."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01c3eaa4-ee00-43ee-93df-a3846f03fa66",
+  "value": {
+    "rationale": "Schulze and Ranked Pairs are prominent Condorcet methods using the same pairwise evidence in structurally different ways. Locating the first electorate where that distinction affects the set-valued outcome is a natural boundary question. The exact census and two-margin-type result show that the first disagreement is both quantitatively rare and structurally rigid.",
+    "status": "PASS"
+  }
+}
