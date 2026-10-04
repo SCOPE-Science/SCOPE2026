@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "Direct elimination of v gives the quadratic F(u)=0, but reconstructing v shows that a positive equilibrium additionally requires p(u)=a+mu-u^2>0. For u>0 and a>0, p(u)>0 exactly below its positive zero tau. Exact substitution proves the branch numerator and the rational counterexample; verifier.py checks the witness with Fraction arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jaibi et al. 2020 derives homogeneous background states for the antecedent reduced model and explicitly allows the analogous linear water-loss coefficient to have either sign."
+      ],
+      "reasoning": "The antecedent work supplies the model family and sign structure but does not state or dominate the corrected 2024 quadratic-root classification.",
+      "searches": [
+        "dryland vegetation homogeneous equilibrium feasibility reduced Gilad model negative water density",
+        "systematically reduced dryland vegetation homogeneous background states positive water equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2411.07255v1",
+      "arXiv:2001.11804v1",
+      "DOI 10.1016/j.physd.2020.132637"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 source writes v=1/(a+mu-u^2) for the listed branches but its Theorem 2.1 conditions do not separately require the denominator to be positive.",
+        "The 2020 antecedent explicitly states that its analogous coefficient Omega may be negative."
+      ],
+      "reasoning": "The source quadratic condition is necessary but not sufficient for positivity; the antecedent sign convention prevents dismissing negative linear coefficients as outside the model family.",
+      "searches": [
+        "arXiv 2411.07255 Theorem 2.1 positive equilibrium denominator sign",
+        "Jaibi reduced dryland model Omega negative homogeneous equilibrium"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2411.07255v1, equations (2.1)-(2.3) and Theorem 2.1.",
+        "arXiv:2001.11804v1, equations (1.5)-(1.6) and the explicit statement that the analogous linear coefficient may be negative."
+      ],
+      "reasoning": "The exact equivalent form is: a positive equilibrium is a positive root of the reduced quadratic that also satisfies a+mu-u^2>0. No inspected source states this as a correction to the 2024 theorem.",
+      "searches": [
+        "dryland vegetation reduced plant model positive equilibrium feasibility denominator a + m u - u^2 b + c u + d u^2",
+        "Pattern formation and global analysis systematically reduced plant model equilibrium classification Theorem 2.1 c m real",
+        "vegetation biomass water model positive equilibrium counterexample c negative",
+        "arXiv 2411.07255 positive equilibrium classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No closest semantic result contained arXiv:2411.07255, the branch numerator a(1+d)^2+(m-c)(md+c), or the witness a=b=d=m=1, c=-3."
+      ],
+      "reasoning": "The counterexample is an exact constructed witness, not a recomputation of a tabulated equilibrium.",
+      "searches": [
+        "2411.07255 (m-c)/(1+d) positive equilibrium a(1+d)^2+(m-c)(md+c)",
+        "a(1+d)^2 + (m-c)(md+c) dryland vegetation equilibrium",
+        "u < (m+sqrt(m^2+4a))/2 positive equilibrium plant model"
+      ]
+    },
+    "rationale": "The source theorem classifies roots as positive over a,b,d>0 and m,c real without the denominator-sign filter. Exact-source, alias, formula, and implication searches returned no source-specific correction; the closest dryland result located concerns a different Klausmeier identifiability question.",
+    "residual_risks": [
+      "A later unindexed revision, journal version, or erratum could add the missing feasibility condition.",
+      "The exact counterexample is within the source stated dimensionless parameter domain but is not claimed to correspond to a calibrated field parameter set."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.1 omits the sign condition needed to make its displayed v-coordinate positive over the stated real m,c domain.",
+        "evidence": "The paper states a,b,d>0 and m,c real; equations (2.2)-(2.3) precede Theorem 2.1, whose cases classify roots as positive while defining v by 1/(a+mu-u^2).",
+        "identifier_or_url": "arXiv:2411.07255v1",
+        "material_read": "Full-text model scaling, temporal system, equilibrium equations, Theorem 2.1, and later equilibrium/stability sections.",
+        "method": "Statement-to-equation implication reconstruction and exact substitution.",
+        "title": "Pattern formation and global analysis of a systematically reduced plant model in dryland environment",
+        "trigger": "Primary recent source whose positive-equilibrium theorem is being assessed."
+      },
+      {
+        "assessment": "The antecedent explicitly permits the analogous linear coefficient Omega to be negative, so sign-indefinite linear water loss is part of the intended model family.",
+        "evidence": "Equation (1.6) defines Omega and the text immediately states Omega may be negative.",
+        "identifier_or_url": "arXiv:2001.11804v1 / DOI 10.1016/j.physd.2020.132637",
+        "material_read": "Model equations, nondimensional parameters, and homogeneous-background discussion.",
+        "method": "Parameter-sign and model-structure comparison.",
+        "title": "The existence of localized vegetation patterns in a systematically reduced model for dryland vegetation",
+        "trigger": "Antecedent reduced dryland model; check whether sign conventions exclude the counterexample mechanism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c1867f4-b098-4041-92a4-1d7b986ef82a",
+  "value": {
+    "rationale": "The corrected filter is sharp for every candidate root and controls whether the ecological water coordinate is positive. Since positive equilibria underpin the source stability and bifurcation analysis, preventing a negative-water equilibrium from being counted as positive is mathematically substantive. The witness changes the equilibrium count under an explicitly stated theorem case.",
+    "status": "PASS"
+  }
+}
