@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The fold normalization reduces each held-out log e-value to a two-Gaussian quadratic form. Conditional Gaussian integration gives the exact component \\(q\\)-moment and its strict integrability boundary. Jensen supplies finiteness for the average when \\(q\\ge1\\), positivity supplies necessity, and \\(x^q\\le1+x\\) covers \\(0\\le q\\le1\\). The unequal-split statement follows from the same exact normalization. The log-moment claim follows because the log average lies between the minimum and maximum quadratic forms. The packaged exact-arithmetic checker verifies determinant and threshold algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wasserman, Ramdas & Balakrishnan (2019/2020), arXiv:1912.11436, introduces split/cross-fit universal likelihood-ratio inference and discusses exponential moments in a Chernoff perspective.",
+        "Dunn et al. (2021), arXiv:2104.14676, analyzes Gaussian universal LRT variants and repeated splitting."
+      ],
+      "reasoning": "These sources provide the broader method and Gaussian setting but do not supply a theorem that dominates the stated moment-integrability spectrum. Classical Gaussian quadratic-form MGFs supply a generic tool, not the application-specific averaged-statistic threshold located here.",
+      "searches": [
+        "\"universal likelihood ratio\" \"moments\" cross-fit Gaussian",
+        "\"cross-fit likelihood ratio\" moments Gaussian",
+        "\"K-fold likelihood ratio\" universal inference moments",
+        "\"q-th moment\" \"split likelihood ratio\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1912.11436",
+      "arXiv:2104.14676",
+      "DOI:10.1002/sta4.501",
+      "DOI:10.1002/sta4.573"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tse & Davison (2022) establish the variance-level predecessor and report the K-fold variance in supporting information.",
+        "Wasserman, Ramdas & Balakrishnan (2023) explicitly call consequences of infinite cross-fit variance unclear and recommend studying logarithms."
+      ],
+      "reasoning": "The new statement strictly refines the variance observation into a sharp continuum of moment phase transitions and adds the balanced-split extremal statement. The predecessor variance result is recovered at \\(q=2\\) but does not imply the full stated hierarchy without additional derivation.",
+      "searches": [
+        "Tse Davison universal inference variance K-fold supporting information",
+        "Wasserman Ramdas Balakrishnan infinite variance logarithm split likelihood ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tse & Davison (2022), Section 5, DOI:10.1002/sta4.501: variance of cross-fit and K-fold likelihood-ratio statistics.",
+        "Wasserman, Ramdas & Balakrishnan (2023), DOI:10.1002/sta4.573: notes infinite cross-fit variance and discusses the logarithm."
+      ],
+      "reasoning": "No inspected source stated the all-real-order moment spectrum, golden-ratio boundary, or the exact \\(K\\)-versus-moment hierarchy under equivalent terminology.",
+      "searches": [
+        "Gaussian universal inference K-fold crossfit likelihood ratio higher moments infinite variance",
+        "crossfit likelihood ratio moment spectrum normal mean universal inference",
+        "K-fold universal likelihood ratio q-th moment",
+        "Gaussian crossfit e-value heavy tail moment threshold",
+        "golden ratio crossfit likelihood ratio normal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches returned no direct record for a Gaussian universal-likelihood-ratio all-order moment threshold.",
+        "The closest direct article explicitly labels its Section 5 as a variance study rather than an all-moment classification."
+      ],
+      "reasoning": "No exact table or database entry located contained the displayed threshold \\(q_K=(1+\\sqrt{4K-3})/2\\) or its unequal-split analogue.",
+      "searches": [
+        "Gaussian universal inference K-fold crossfit likelihood ratio higher moments infinite variance",
+        "crossfit likelihood ratio moment spectrum normal mean universal inference",
+        "K-fold universal likelihood ratio q-th moment",
+        "Gaussian crossfit e-value heavy tail moment threshold",
+        "golden ratio crossfit likelihood ratio normal",
+        "\"universal likelihood ratio\" \"moments\" cross-fit Gaussian",
+        "\"cross-fit likelihood ratio\" moments Gaussian",
+        "\"K-fold likelihood ratio\" universal inference moments",
+        "\"q-th moment\" \"split likelihood ratio\""
+      ]
+    },
+    "rationale": "The closest inspected direct paper computes variance for Gaussian cross-fit and \\(K\\)-fold likelihood-ratio averages, while the later discussion highlights infinite cross-fit variance but does not give an all-order threshold. The original universal-inference paper motivates exponential-moment analysis, and the Gaussian ULR paper studies size and power rather than this moment spectrum. Targeted searches found no statement equivalent to the exact \\(q_K\\) boundary, the integer-moment threshold, or the unequal-split optimum. Generic Gaussian quadratic-form MGF theory can imply the component integral after the application-specific reduction, so a residual abstraction/terminology risk remains.",
+    "residual_risks": [
+      "The inaccessible 2022 supporting-information PDF may contain calculations beyond the variance description in the main article.",
+      "Older Gaussian quadratic-form or likelihood-ratio literature may imply the component-moment formula abstractly under different terminology.",
+      "Search failure does not establish historical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "Introduces the construction and motivates exponential moments, but no sharp Gaussian \\(K\\)-fold moment spectrum was found.",
+        "identifier_or_url": "arXiv:1912.11436",
+        "material_read": "Definition of split/cross-fit statistics and Chernoff-style discussion of exponential moments.",
+        "method": "Open-access arXiv full text and abstract metadata.",
+        "title": "Universal Inference",
+        "trigger": "Foundational definition of split and cross-fit universal likelihood-ratio statistics."
+      },
+      {
+        "assessment": "CLOSE_NOT_COVERING",
+        "evidence": "Studies size, power, geometry, cross-fitting and repeated splitting; no occurrence of an all-order moment theorem was found.",
+        "identifier_or_url": "arXiv:2104.14676",
+        "material_read": "Cross-fit and subsampling definitions, Gaussian setting, and searchable full text.",
+        "method": "Open-access arXiv full text.",
+        "title": "Gaussian Universal Likelihood Ratio Testing",
+        "trigger": "Primary Gaussian analysis of universal likelihood-ratio variants."
+      },
+      {
+        "assessment": "CLOSE_VARIANCE_ONLY_WITH_ACCESS_RISK",
+        "evidence": "Main text explicitly computes/discusses variance and says the K-fold variance is derived in supporting information. The visible article does not state the all-order spectrum.",
+        "identifier_or_url": "DOI:10.1002/sta4.501",
+        "material_read": "Full HTML Sections 2–6, especially Section 5; supporting-information link was attempted but returned access failure.",
+        "method": "Open-access full HTML; publisher supplement attempt.",
+        "title": "A note on universal inference",
+        "trigger": "Closest direct predecessor on variance of cross-fit and K-fold likelihood-ratio averages."
+      },
+      {
+        "assessment": "MOTIVATING_NOT_COVERING",
+        "evidence": "States that infinite cross-fit variance is interesting but consequences are unclear and suggests studying the log statistic; no sharp raw-moment spectrum is stated.",
+        "identifier_or_url": "DOI:10.1002/sta4.573",
+        "material_read": "Full HTML discussion around the infinite-variance paragraph.",
+        "method": "Open-access full HTML.",
+        "title": "A Discussion of “A Note on Universal Inference” by Tse and Davison",
+        "trigger": "Direct commentary on the infinite Gaussian cross-fit variance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "744b2d02-6282-411b-b3a0-90e3bc36fd05",
+  "value": {
+    "rationale": "This gives a motivated all-orders stability classification for a procedure whose infinite cross-fit variance has been explicitly highlighted as puzzling in the literature. It identifies exactly how many folds are needed for each integer moment, explains the golden-ratio cross-fit tail boundary, and gives a new moment-robustness reason for balanced two-way splitting while separating raw-e-value tails from benign log-statistic moments.",
+    "status": "PASS"
+  }
+}
