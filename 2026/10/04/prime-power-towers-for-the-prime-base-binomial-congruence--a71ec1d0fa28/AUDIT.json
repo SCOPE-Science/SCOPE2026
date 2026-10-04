@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For p>=5, Jacobsthal--Ljunggren lifting gives B_j=B_{j-1} modulo p^(3j), hence a p-adic limit beta with B_r=beta modulo p^r. Fermat plus LTE gives q^(p^r)=omega_p(q) modulo p^r. The original congruence is therefore exactly beta=omega modulo p^r. The low-layer equivalences use B_1=q modulo p^3 and the valuation identity v_p((q/omega)^(p-1)-1)=v_p(q/omega-1). A packaged direct replay checks 60 finite cases and 30 lifting increments without being used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Granville's prime-power binomial framework supplies lifting congruences but is not a classification of solutions to the prime-base congruence.",
+        "Higher Wieferich literature studies q^(p-1) modulo p^r but does not by itself determine the binomial side for every r."
+      ],
+      "reasoning": "Neither ingredient alone implies the exact initial-segment theorem without identifying both p-adic limits and comparing them at every exponent.",
+      "searches": [
+        "binomial(q p^r,p^r) p-adic limit Teichmuller Wieferich prime powers",
+        "initial segment prime powers solutions binom(qn,n) q^n modulo n",
+        "Jacobsthal p-adic limit binomial q p^r p^r"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.30232v1",
+      "Granville 1997, CMS Conf. Proc. 20",
+      "Keller--Richstein 2005, Math. Comp. 74",
+      "OEIS A084699, A080469, A109760, A109769, A392484",
+      "published-finding corpus statement searches listed in the four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guedes--Machado proves H>=2 in the present language, not the full equivalence r<=H.",
+        "Ljunggren--Jacobsthal gives convergence precision but does not mention the target congruence's prime-power solution set."
+      ],
+      "reasoning": "The new statement implies the published square theorem and adds all higher exponents; the converse implication from the square theorem is false because knowledge at r=2 does not determine r>=3.",
+      "searches": [
+        "\"Structured Solutions of Prime-Base Binomial Congruences\" Wieferich p^2 square solutions",
+        "higher Wieferich p^3 binomial(q p^3,p^3) congruence",
+        "\"q^{p-1}\" \"p^3\" Wieferich binomial coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guedes--Machado Theorem 6.2 states only the p^2 equivalence with base-q Wieferich primes.",
+        "published-finding corpus's closest returned records concerned unrelated prime-power or p-adic problems and did not state this binomial tower criterion."
+      ],
+      "reasoning": "Searched both the direct p^r statement and the equivalent p-adic-limit/Teichmuller formulation; no equivalent statement was found.",
+      "searches": [
+        "\"Structured Solutions of Prime-Base Binomial Congruences\" Wieferich p^2 square solutions",
+        "\"Structured Solutions of Prime-Base Binomial Congruences\" prime powers p^r",
+        "prime-base binomial congruence prime-power tower p^r Teichmuller limit binomial(q p^r,p^r)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source paper links the congruence to OEIS sequences for q=2,3,5,7,11 and records square terms from Wieferich primes; no exponent-threshold table or p-adic tower invariant is stated there."
+      ],
+      "reasoning": "Known sequence membership data are examples, not a theorem determining all exponents for a fixed (p,q).",
+      "searches": [
+        "OEIS A084699 A080469 A109760 A109769 A392484 prime powers",
+        "prime powers binomial(qn,n) q^n OEIS Wieferich"
+      ]
+    },
+    "rationale": "The motivating 2026 paper proves only the square layer, while classical sources provide the separate lifting and higher-Wieferich ingredients. Statement-level searches did not locate an all-exponent criterion identifying the prime-power solution set with the valuation distance between the p-adic binomial limit and the Teichmuller lift. The new theorem strictly contains the source square theorem and adds the cubic criterion plus the exact tower monotonicity.",
+    "residual_risks": [
+      "An older or differently indexed source may package the same two p-adic limits into an equivalent criterion without using the searched terminology.",
+      "The Keller--Richstein paper was used as higher-Wieferich context rather than as a full-text exclusion source; it does not create a decisive unresolved comparison because its stated topic lacks the binomial side."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_SQUARE_ONLY",
+        "evidence": "Theorem 6.2 treats n=p^2 for p>=5 and proves equivalence to q^(p-1)=1 mod p^2; no all-r prime-power tower criterion is stated.",
+        "identifier_or_url": "arXiv:2606.30232v1",
+        "material_read": "arXiv HTML abstract, MSC metadata, Sections 2, 3, and 6 including Theorem 6.2 and proof, plus references.",
+        "method": "Full-text HTML inspection.",
+        "title": "Structured Solutions of Prime-Base Binomial Congruences",
+        "trigger": "Same congruence and exact square/Wieferich precursor."
+      },
+      {
+        "assessment": "INGREDIENT_NOT_COVERING",
+        "evidence": "Provides prime-power binomial congruence machinery; no located statement classifies the target prime-base congruence via a Teichmuller/binomial-limit distance.",
+        "identifier_or_url": "Granville, CMS Conf. Proc. 20 (1997), 253--275",
+        "material_read": "Accessible article landing/contents and its identification in the motivating paper's full reference list; the exact Jacobsthal modulus was cross-checked against a standard secondary statement.",
+        "method": "HTML inspection plus statement comparison.",
+        "title": "Arithmetic properties of binomial coefficients I: Binomial coefficients modulo prime powers",
+        "trigger": "Primary classical source cited by the motivating paper for Jacobsthal-type lifting."
+      },
+      {
+        "assessment": "RELATED_NOT_DOMINATING",
+        "evidence": "Studies higher Wieferich congruences, not the binomial p-adic limit that governs the target tower from the fourth layer onward.",
+        "identifier_or_url": "Keller--Richstein, Math. Comp. 74 (2005), 927--936",
+        "material_read": "Bibliographic statement and role as cited higher-Wieferich computational literature.",
+        "method": "Targeted title/claim search.",
+        "title": "Solutions of the congruence a^(p-1) congruent 1 modulo p^r",
+        "trigger": "Potential broader coverage through higher-order Wieferich primes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a71ec1d0-fa28-4fcb-9d47-372aac7be7ad",
+  "value": {
+    "rationale": "The source problem already isolates prime powers through its square/Wieferich theorem. Determining the entire exponent tower is a natural structural gap: the result proves the solution exponents are an initial segment, recovers squares, identifies cubes with order-three Wieferich congruences, and explains why higher layers require a new p-adic binomial invariant. This is not a parameter substitution or table extension.",
+    "status": "PASS"
+  }
+}
