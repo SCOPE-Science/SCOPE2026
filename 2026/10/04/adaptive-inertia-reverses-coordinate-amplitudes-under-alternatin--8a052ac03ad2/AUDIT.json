@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "Constant coordinatewise squared amplitudes make the source second-moment bias correction exact: \\(\\widehat v_{i,t}=G_i^2\\) for every iteration. The inertia coefficients are therefore fixed from the first step. The alternating first-moment recurrence is a finite geometric series, and the product bias correction is exactly \\(1-\\beta_i^t\\). Substitution into the clipping rule gives the three response branches; direct differentiation proves strict decrease on the interior branch.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves broader stochastic convergence and derives diffusion-scale saddle and minimum behavior.",
+        "The source explicitly notes that an earlier adaptive-momentum method is not parameterwise and is essentially different from Adai.",
+        "The broader source theorems do not determine the exact response to a persistent alternating input."
+      ],
+      "reasoning": "General convergence and diffusion results have different quantifiers and do not imply the discrete-time alternating-response ordering. The final theorem relies on the source-specific coordinate ratio and clipping map.",
+      "searches": [
+        "Adai optimizer exact quadratic stability adaptive inertia",
+        "Adaptive Inertia parameterwise momentum flat minima saddle convergence",
+        "adaptive momentum parameterwise inertia periodic gradients"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2006.15815"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Algorithm 2 supplies the exact recurrence and product bias correction used in the proof.",
+        "The source recommends \\(\\beta_0=0.1\\), \\(\\beta_2=0.99\\), and clip parameter \\(0.001\\).",
+        "The source's stated theory concerns saddle escape, flat-minimum selection, and convergence rather than periodic-input gain."
+      ],
+      "reasoning": "The prior formulas are premises, but the amplitude reversal is not a stated consequence. It requires solving the bias-corrected recurrence, reducing the inertia to a relative-energy map, deriving the asymptotic response, and proving its branchwise monotonicity.",
+      "searches": [
+        "arXiv:2006.15815 Algorithm 2 Adai beta0 beta2 clip parameterwise inertia",
+        "arXiv:2006.15815 alternating periodic oscillating frequency",
+        "Adai constant magnitude alternating gradients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Algorithm 2 defines the parameterwise inertia from the ratio of mean bias-corrected squared-gradient energy to each coordinate's energy.",
+        "Full-text searches of the defining paper for alternating, periodic, oscillatory, and frequency terminology returned no covering result.",
+        "No focused published-record result stated a Nyquist-frequency or persistent-alternation response for Adai."
+      ],
+      "reasoning": "Equivalent formulations include a high-frequency gain law, reversal of coordinate update amplitudes, and exact erasure of the second-moment decay parameter under constant-magnitude alternation. None was found in the inspected source or focused searches.",
+      "searches": [
+        "Adai alternating gradient adaptive inertia frequency response",
+        "Adaptive Inertia optimizer oscillating gradient beta1 coordinate amplitude",
+        "Adai periodic gradients momentum attenuation",
+        "arXiv:2006.15815"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concerned AdOGD persistence, Nesterov transients, heavy-ball root geometry, stochastic feedback, and unrelated frequency-matching systems.",
+        "No close result used Adai's parameterwise inertia map under constant-magnitude alternating gradients."
+      ],
+      "reasoning": "The closest records have different update states and do not imply the piecewise Adai gain law. Search absence is supporting evidence only and is combined with direct full-text source inspection.",
+      "searches": [
+        "Adai optimizer exact quadratic stability adaptive inertia",
+        "Adai alternating gradient adaptive inertia frequency response",
+        "Adaptive Inertia optimizer oscillating gradient beta1 coordinate amplitude",
+        "Adai periodic gradients momentum attenuation",
+        "Adai constant magnitude alternating gradients"
+      ]
+    },
+    "rationale": "The defining Adaptive Inertia paper supplies the parameterwise inertia rule and analyzes saddle escape, flat minima, and convergence, but the inspected full text does not state an alternating-gradient frequency response or coordinate-amplitude reversal. Focused published-record searches returned no implication-equivalent Adai result.",
+    "residual_risks": [
+      "A short equivalent frequency-response calculation may exist in unindexed implementation notes.",
+      "The theorem is an exogenous-input diagnostic rather than a trajectory theorem for a fixed objective.",
+      "The current public paper version was inspected; the paper's earliest public version dates to 2020-06-29."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_ALTERNATING_AMPLITUDE_REVERSAL.",
+        "evidence": "Algorithm 2 contains the exact ratio-and-clip rule analyzed here. The paper's theory treats diffusion, escape, minima, and convergence; no persistent-alternation response or coordinate-order reversal was located.",
+        "identifier_or_url": "arXiv:2006.15815",
+        "material_read": "Open full paper, current public version, including Algorithm 2, the Adaptive Inertia section, default hyperparameters, saddle/minimum propositions, and convergence theorem. The algorithm page was visually inspected.",
+        "method": "Full-text PDF inspection, page screenshot inspection, and targeted searches for alternating, periodic, oscillatory, and frequency terminology.",
+        "title": "Adaptive Inertia: Disentangling the Effects of Adaptive Learning Rate and Momentum",
+        "trigger": "Defining source for Adai's parameterwise second moment, inertia clipping, product bias correction, defaults, and theoretical scope."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8a052ac0-3ad2-4a45-b5be-6926b291e912",
+  "value": {
+    "rationale": "Parameterwise adaptive inertia is the defining design feature of Adai. The result exposes a structural consequence of that design at the frequency most strongly filtered by momentum: within the genuinely adaptive branch, larger coordinate variance produces higher inertia strongly enough to reverse the ordering of update amplitudes. The exact default-parameter example shows a twofold larger gradient receiving less than half the update, making the effect quantitatively substantial and directly relevant to interpreting the optimizer.",
+    "status": "PASS"
+  }
+}
