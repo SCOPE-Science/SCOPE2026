@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For a finite p-group, [G,G] lies in Phi(G), so every conjugacy class has one fixed image in G/Phi(G). Burnside's basis theorem reduces generation of a pair to spanning the rank-two Frattini quotient. Therefore invariable generation of two conjugacy classes is equivalent to linear independence of their quotient images. Zero images are exactly the isolated vertices; nonzero images split into p+1 projective-line parts, with all cross-part and no within-part edges. The clique, chromatic, diameter, and part-size consequences follow directly. The packaged replay checks the actual class-pair relation for four finite groups.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garzoni's 2021 paper says generation and invariable generation coincide for finite nilpotent groups and points to Harper--Lucchini for ordinary generating graphs.",
+        "Harper--Lucchini's stated results concern maximal connectivity and Hamiltonicity of the element-vertex generating graph.",
+        "The 2021 paper's main theorem concerns groups whose reduced invariably generating graphs can have many connected components, not an exact p-group classification."
+      ],
+      "reasoning": "The broader nilpotent literature supplies the reduction from invariable to ordinary generation, but the conjugacy-class quotient and rank-two projective partition are additional statements not supplied by those broad results.",
+      "searches": [
+        "invariably generating graph finite group nilpotent p-group",
+        "generating graph finite nilpotent groups Frattini quotient p-group",
+        "connectivity generating graphs nilpotent groups complete multipartite",
+        "invariably generating graph Frattini subgroup"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1706.08423v1",
+      "DOI:10.1515/jgth-2019-0187",
+      "DOI:10.1017/S0004972721000149",
+      "arXiv:2002.03330v1",
+      "DOI:10.5802/alco.132"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 paper explicitly provides the key reduction for nilpotent groups but does not state the projective-line partition or p+1 clique/chromatic values.",
+        "The 2020 nilpotent generating-graph paper works on element vertices, whereas the final claim concerns conjugacy classes and their collapse modulo conjugation.",
+        "The 2017 foundational preprint studies alternating and symmetric groups, not p-groups."
+      ],
+      "reasoning": "Prior results imply that ordinary generation can be used, but the final graph is obtained only after combining that fact with [G,G] <= Phi(G), Burnside's basis theorem, and the projective geometry of a rank-two Frattini quotient.",
+      "searches": [
+        "DOI:10.1017/S0004972721000149 Frattini nilpotent generation invariable",
+        "DOI:10.5802/alco.132 nilpotent generating graph connectivity Hamiltonian",
+        "arXiv:1706.08423 invariably generating graph definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The targeted published-result searches returned graph-theoretic complete-multipartite results unrelated to group generation, but no matching finite-group theorem.",
+        "DOI:10.1017/S0004972721000149 defines the same graph and discusses Frattini isolated classes and nilpotent groups without the projective-line decomposition.",
+        "DOI:10.5802/alco.132 studies the element generating graph of nilpotent groups, with stated emphasis on connectivity and Hamiltonicity."
+      ],
+      "reasoning": "Searches covered the graph's standard name, the equivalent Frattini-quotient description, complete-multipartite terminology, and the resulting clique/chromatic invariants.",
+      "searches": [
+        "invariably generating graph two-generated p-group complete multipartite Frattini",
+        "invariable generating graph p-group chromatic clique number p+1",
+        "conjugacy-class generating graph p-group Frattini quotient projective lines",
+        "invariable generation nilpotent p-group complete multipartite graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed table or formula for the conjugacy-class graph of arbitrary two-generated p-groups was located.",
+        "The nearest database hits concern unrelated complete multipartite graph invariants or other group graphs."
+      ],
+      "reasoning": "The theorem is parametric in every prime and every two-generated finite p-group, so isolated examples or computations would not dominate it.",
+      "searches": [
+        "two-generated p-group invariably generating graph",
+        "p-group generating graph complete multipartite Frattini",
+        "p+1 chromatic invariably generating graph",
+        "projective line Frattini generating graph p-group"
+      ]
+    },
+    "rationale": "The foundational graph paper defines the conjugacy-class graph. The 2021 connected-components paper explicitly notes both that Frattini classes can be isolated and that, for nilpotent groups, generation and invariable generation coincide. The closest nilpotent generating-graph paper studies connectivity and Hamiltonicity on element vertices. No inspected source or targeted database result states the exact complete-(p+1)-partite conjugacy-class decomposition, nor the universal clique and chromatic values p+1 for two-generated p-groups.",
+    "residual_risks": [
+      "The theorem is an elementary Frattini-quotient consequence and may have appeared under ordinary generating-graph terminology without being indexed by the searches.",
+      "The full Harper--Lucchini article was not used to assert a whole-document noncoverage statement; only its accessible stated results were compared.",
+      "The multipartite part sizes are group-specific and are not classified here.",
+      "Failed searches do not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_GRAPH_AND_KEY_REDUCTION_NOT_EXACT_P_GROUP_STRUCTURE",
+        "evidence": "The source defines Lambda(G), notes Frattini isolated classes, and states the nilpotent coincidence, but its main results concern connected components for other families and it does not state the complete-(p+1)-partite theorem.",
+        "identifier_or_url": "DOI:10.1017/S0004972721000149",
+        "material_read": "Full open-access PDF introduction and contextual discussion, including the graph definition, the observation about classes contained in the Frattini subgroup, and the explicit statement that generation and invariable generation coincide in finite nilpotent groups; the paper's primary MSC 20D60 was also verified.",
+        "method": "Full-text PDF inspection with rendered-page review and statement/implication comparison.",
+        "title": "Connected components in the invariably generating graph of a finite group",
+        "trigger": "Closest primary full-text source for the same graph and for the nilpotent reduction."
+      },
+      {
+        "assessment": "ELEMENT_VERTEX_CONNECTIVITY_CONTEXT",
+        "evidence": "The accessible source states connectivity and Hamiltonicity results for the element generating graph; the final claim instead classifies the conjugacy-class invariably generating graph.",
+        "identifier_or_url": "arXiv:2002.03330v1; DOI:10.5802/alco.132",
+        "material_read": "Open journal abstract, bibliographic record, and stated main results concerning maximal connectivity and Hamiltonicity of the non-isolated element generating graph.",
+        "method": "Statement and scope comparison; no whole-document noncoverage claim is based on inaccessible material.",
+        "title": "Connectivity of generating graphs of nilpotent groups",
+        "trigger": "Closest broader source on ordinary generating graphs of the same nilpotent groups."
+      },
+      {
+        "assessment": "FOUNDATIONAL_DEFINITION_DIFFERENT_GROUP_FAMILY",
+        "evidence": "The source studies alternating and symmetric groups, not finite p-groups.",
+        "identifier_or_url": "arXiv:1706.08423v1; DOI:10.1515/jgth-2019-0187",
+        "material_read": "Public abstract and bibliographic record describing the graph definition and its alternating/symmetric-group scope.",
+        "method": "Object-domain and scope comparison.",
+        "title": "The invariably generating graph of the alternating and symmetric groups",
+        "trigger": "Foundational source for the graph and earliest verified public source date."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fa798182-62dc-4620-aca4-22bbc74104d1",
+  "value": {
+    "rationale": "The invariably generating graph is an established graph-on-groups invariant, and the 2021 literature explicitly contrasts its connectivity with ordinary generation while pointing to clique and chromatic questions. The theorem gives an exact infinite-family structure rather than a numerical example: for every noncyclic two-generated p-group the entire reduced conjugacy-class graph is complete multipartite, with universal clique and chromatic number p+1 and diameter 2. It also identifies precisely which classes are isolated and exposes the projective-line geometry controlling adjacency.",
+    "status": "PASS"
+  }
+}
