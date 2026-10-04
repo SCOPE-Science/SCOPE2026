@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The outer map is exactly the polynomial \\(p(H)=(1-\\alpha)I+\\alpha(I-\\eta H)^k\\). The stability conditions follow by solving \\(-1<p(\\lambda)<1\\) on positive curvature modes. The interval minimax proof is exhaustive: for even \\(k\\) interpolation cannot lower a subunit nonnegative power, while for odd \\(k\\) the fixed-\\(\\eta\\) optimum is either \\(\\alpha=1\\) or balanced endpoints; the auxiliary derivative argument proves both branches are bounded below by \\(q^k\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1907.08610v1",
+        "DOI:10.1109/ICASSP40776.2020.9054014",
+        "NeurIPS2021:e53a0a2978c28872a4505bdb51db06dc",
+        "arXiv:2310.13459v1"
+      ],
+      "reasoning": "The broader sources prove convergence, risk, or nonexpansive interpolation results across larger problem classes, but their statements do not dominate the claimed exact fixed-parameter interval theorem. In particular, the nonexpansive-base theorem cannot certify the odd-period region beyond the individual gradient-map stability threshold.",
+      "searches": [
+        "Lookahead optimizer quadratic convergence deterministic eigenvalues fixed alpha",
+        "Lookahead convergence stationary smooth nonconvex step sizes",
+        "Lookahead Krasnoselskii Mann quasi-nonexpansive gradient descent",
+        "Towards Understanding Why Lookahead Generalizes Better Than SGD strongly convex"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.08610v1",
+      "DOI:10.1109/ICASSP40776.2020.9054014",
+      "NeurIPS2021:e53a0a2978c28872a4505bdb51db06dc",
+      "arXiv:2310.13459v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1907.08610v1, Algorithm 1, Proposition 1, Appendix B.1-B.2",
+        "arXiv:2310.13459v1, Theorem 7.3 and Corollary 7.5"
+      ],
+      "reasoning": "Proposition 1 optimizes an adaptive line interpolation for the current quadratic segment and can cancel special scalar configurations; the final claim deliberately concerns one fixed global interpolation over an entire spectral interval. Appendix B.1 supplies a general linear-system recipe but leaves eigenvalues to numerical computation rather than proving the closed robust optimum. The 2023 quasi-nonexpansive theorem yields the classical safe gradient range and therefore does not imply stabilization when the inner gradient map itself is expansive.",
+      "searches": [
+        "Lookahead Proposition 1 optimal slow weights quadratic alpha deterministic appendix",
+        "Lookahead deterministic quadratic dynamical system eigenvalues appendix B",
+        "Lookahead benefits from larger learning rate inner loop quadratic",
+        "Stable Nonconvex-Nonconcave Training Lookahead quasi-nonexpansive alpha 0.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1907.08610v1",
+        "arXiv:2310.13459v1",
+        "No matching focused database record"
+      ],
+      "reasoning": "The exact modal multiplier is an equivalent polynomial formulation of fixed-parameter Lookahead-SGD, but the searched literature did not provide the parity-resolved sharp boundary or the interval minimax solution. The broad nonexpansive formulation supplies sufficient conditions, not the supercritical odd-period characterization.",
+      "searches": [
+        "Lookahead optimizer scalar quadratic exact stability k inner steps interpolation",
+        "Lookahead SGD parity synchronization period exact scalar stability frontier odd even k alpha",
+        "Lookahead optimizer supercritical inner learning rate odd k stability quadratic",
+        "Lookahead slow weights multiplier 1-alpha+alpha(1-eta lambda)^k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+        "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "No exact Lookahead parity/minimax record found"
+      ],
+      "reasoning": "The nearest records give exact stability or minimax frontiers for other fixed-step algorithms. None contains Lookahead's shifted \\(k\\)-th-power polynomial or implies its parity split and no-acceleration optimum.",
+      "searches": [
+        "Lookahead SGD odd k unstable inner steps exact scalar quadratic stability alpha",
+        "Lookahead SGD one-cycle exact annihilation alpha scalar quadratic",
+        "slow fast weights scalar quadratic lookahead stability frontier",
+        "Lookahead optimizer quadratic finite termination interpolation"
+      ]
+    },
+    "rationale": "The inspected Lookahead sources do not state the combined fixed-interpolation parity stability frontier and exact interval minimax no-acceleration theorem. The original adaptive quadratic slow-step proposition and general state-space formulation were compared directly and are not being relabeled as novel.",
+    "residual_risks": [
+      "An equivalent fixed-polynomial minimax calculation may exist in stationary iterative-method, relaxation, or numerical linear algebra literature under terminology unrelated to Lookahead.",
+      "The original paper's general state-space formulation makes the modal formula mechanically derivable; originality here rests on the sharp parity classification plus the proved interval minimax/no-acceleration statement, not on merely writing the outer polynomial.",
+      "The theorem should not be generalized to adaptive interpolation, stochastic noise, momentum inner states, or nonquadratic training."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY_RELATED_NOT_COVERING_FINAL_FIXED_INTERVAL_THEOREM.",
+        "evidence": "The source defines the exact interpolation and states that larger inner learning rates can be beneficial. Its deterministic appendix forms a general linear dynamical system and proposes numerical eigenvalue computation; its Proposition 1 is an adaptive one-segment minimizer rather than a fixed-parameter interval minimax theorem.",
+        "identifier_or_url": "arXiv:1907.08610v1",
+        "material_read": "Open-access full HTML: Algorithm 1 and slow-weight equations; Proposition 1; noisy quadratic section; Appendix B.1 deterministic quadratic dynamical system; Appendix B.2 proof of optimal adaptive slow step.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Lookahead Optimizer: k steps forward, 1 step back",
+        "trigger": "Primary algorithm, quadratic analysis, larger-learning-rate motivation, and potential dominating adaptive result."
+      },
+      {
+        "assessment": "BROADER_STATIONARITY_GUARANTEE_NOT_EXACT_INTERVAL_COVERAGE.",
+        "evidence": "The source proves stationary-point convergence for appropriate step sizes in smooth nonconvex problems, not the fixed quadratic parity boundary or minimax factor.",
+        "identifier_or_url": "DOI:10.1109/ICASSP40776.2020.9054014",
+        "material_read": "Publisher/author-hosted abstract and bibliographic record.",
+        "method": "Primary research-page abstract inspection.",
+        "title": "Lookahead Converges to Stationary Points of Smooth Non-convex Functions",
+        "trigger": "Early convergence analysis that could dominate a quadratic convergence claim."
+      },
+      {
+        "assessment": "GENERALIZATION_AND_RATE_THEORY_NOT_COVERING.",
+        "evidence": "The source analyzes optimization/generalization tradeoffs and stagewise strategies rather than the exact fixed-step spectral polynomial minimax problem.",
+        "identifier_or_url": "NeurIPS2021:e53a0a2978c28872a4505bdb51db06dc",
+        "material_read": "Official NeurIPS abstract and opening problem/method description.",
+        "method": "Official proceedings HTML inspection.",
+        "title": "Towards Understanding Why Lookahead Generalizes Better Than SGD and Beyond",
+        "trigger": "Strongly convex Lookahead-SGD theory and potential broader optimization-rate coverage."
+      },
+      {
+        "assessment": "BROADER_SUFFICIENT_CONVERGENCE_THEORY_NOT_COVERING_SHARP_PARITY_OR_MINIMAX.",
+        "evidence": "The source proves convergence when the base algorithm is quasi-nonexpansive and gives a cocoercive gradient guarantee through the classical step threshold. It does not state the exact odd-period supercritical quadratic stability region or the fixed-parameter interval minimax no-acceleration theorem.",
+        "identifier_or_url": "arXiv:2310.13459v1",
+        "material_read": "Open-access full HTML: Lookahead related work; linear-interpolation update; quasi-nonexpansive theorem; cocoercive corollary; discussion of interpolation stabilization.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Stable Nonconvex-Nonconcave Training via Linear Interpolation",
+        "trigger": "Direct operator-theoretic analysis of Lookahead and linear interpolation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "35cbb349-a324-4595-88ab-25affa9d521b",
+  "value": {
+    "rationale": "The theorem resolves the source paper's larger-inner-learning-rate motivation into an exact parity-dependent boundary, then shows that this extra stability is not equivalent to worst-case spectral acceleration. The distinction is structurally useful: odd \\(k\\) with \\(\\alpha<1\\) can stabilize otherwise divergent inner steps, while the best fixed robust rate on a known SPD interval still turns interpolation off.",
+    "status": "PASS"
+  }
+}
