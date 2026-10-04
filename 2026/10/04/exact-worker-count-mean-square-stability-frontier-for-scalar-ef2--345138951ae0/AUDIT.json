@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The exact EF21 scalar update closes on four exchangeable second moments. The induced positive covariance operator has unit-eigenvalue determinant \\(s[6n-(n+8)s]/(16n)\\). Stability exists for sufficiently small positive steps by the source PL theorem, the spectral radius is unbounded for large steps, and positivity forces any unit-modulus stability crossing through \\(+1\\); hence \\(6n/(n+8)\\) is the unique positive mean-square boundary. The deterministic many-worker limit independently has exact Jury ceiling \\(6\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2106.05203v1",
+        "arXiv:2202.00998v1"
+      ],
+      "reasoning": "The broad source theorems give sufficient convergence rates under smoothness and Polyak–Łojasiewicz assumptions. They do not imply necessity or the finite-worker exact threshold and therefore do not cover the claim.",
+      "searches": [
+        "EF21 independent compressors worker count stability threshold quadratic",
+        "EF21 3PC lazy aggregation exact quadratic rate",
+        "error feedback Markov compressor strongly convex quadratic large stepsize"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.05203v1",
+      "arXiv:2202.00998v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2106.05203v1 full text, distributed Algorithm 2, Theorems 2 and 3, and stepsize-tolerance experiments",
+        "arXiv:2202.00998v1 full text, EF21 row of the three-point-compressor framework and lazy-aggregation discussion"
+      ],
+      "reasoning": "The defining paper fixes the exact update and proves a nonempty small-step linear-convergence region, but its bounds are sufficient and do not identify the exact scalar phase transition. The 3PC framework recovers EF21 algebraically without deriving the half-dropout worker-count second-moment law.",
+      "searches": [
+        "EF21 Algorithm 2 distributed Markov compressor theorem 3 PL stepsize",
+        "3PC EF21 special case lazy aggregation",
+        "EF21 experiments large stepsizes oscillating error feedback"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2106.05203v1",
+        "arXiv:2202.00998v1",
+        "No matching exact published formula identified in focused semantic searches."
+      ],
+      "reasoning": "The nearest equivalent description is a randomized lazy-gradient memory system. The inspected sources connect EF21 to Markov compression and lazy aggregation but do not derive the closed exchangeable second-moment operator.",
+      "searches": [
+        "EF21 multiple workers Bernoulli dropout scalar quadratic exact mean square stability",
+        "Markov compressor lazy gradient scalar quadratic exact stability EF21",
+        "EF21 half dropout quadratic worker count stability",
+        "lazy gradient memory Bernoulli refresh scalar quadratic mean square"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published table or formula matching \\(6n/(n+8)\\) was identified by the focused searches."
+      ],
+      "reasoning": "Closest database results concern other stochastic quadratic recurrences, reflected-gradient stability, or random-delay laws. None contains EF21's worker-memory update or the same threshold.",
+      "searches": [
+        "EF21 half dropout quadratic 6n n plus 8 stability",
+        "EF21 Bernoulli compressor exact mean square frontier",
+        "distributed lazy gradient scalar quadratic exact stability six"
+      ]
+    },
+    "rationale": "The inspected EF21 and 3PC sources do not state the exact half-dropout scalar moment matrix, the worker-count threshold, or the deterministic limit-six interpretation.",
+    "residual_risks": [
+      "Equivalent stability calculations may exist in switched-systems or lazy-aggregation literature without EF21 terminology.",
+      "The one-worker threshold coincides with a classical Bernoulli error-feedback calculation; originality rests on the distributed EF21 worker-count law and limit-six mechanism.",
+      "Heterogeneous local Hessians require additional moments and can change the boundary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_EXACT_FRONTIER.",
+        "evidence": "The source gives the exact local memory correction and average-gradient model step, and proves broad sufficient convergence guarantees. It does not state an exact Bernoulli half-dropout scalar moment recursion or worker-count stability boundary.",
+        "identifier_or_url": "arXiv:2106.05203v1",
+        "material_read": "Full open-access paper, including the compressor definition, distributed Algorithm 2, smoothness notation, Theorems 2 and 3, initialization discussion, and large-stepsize experiments.",
+        "method": "Full-text and page-level PDF inspection.",
+        "title": "EF21: A New, Simpler, Theoretically Better, and Practically Faster Error Feedback",
+        "trigger": "Defining source for the distributed EF21 update and contractive-compressor theory."
+      },
+      {
+        "assessment": "DIRECT_FRAMEWORK_GENERALIZATION_NOT_COVERING.",
+        "evidence": "The follow-up recovers EF21 as a special case and develops broader communication theory, but does not provide the half-dropout scalar second-moment matrix or exact threshold.",
+        "identifier_or_url": "arXiv:2202.00998v1",
+        "material_read": "Full open-access paper, including the three-point-compressor table recovering EF21 and the discussion linking contractive compression, EF21, and lazy aggregation.",
+        "method": "Full-text and page-level PDF inspection.",
+        "title": "3PC: Three Point Compressors for Communication-Efficient Distributed Training and a Better Theory for Lazy Aggregation",
+        "trigger": "Direct follow-up that recovers EF21 and links it to lazy aggregation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34513895-1ae0-441e-acc2-bfaf13854a37",
+  "value": {
+    "rationale": "The exact frontier turns EF21's qualitative large-step robustness into a sharp distributed benchmark. Independent worker averaging expands the admissible normalized step from \\(2/3\\) at one worker to \\(6\\) in the mean-field limit, crossing the ordinary gradient-descent ceiling at four workers. This provides a concrete stability mechanism and a reproducible test for compressed distributed implementations.",
+    "status": "PASS"
+  }
+}
