@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The proof exactly characterizes a valid one-step inverse at each start. Two adjacent valid starts necessarily give the same parent, so distinct parents inject into an independent set of a path with \\(n-1\\) vertices, yielding \\(\\lfloor n/2\\rfloor\\). The period-four complement-pair word attains the bound, and fixed-point-freeness guarantees pairwise distinct parents. The finite verifier independently matches forward and inverse channel implementations over twelve exhaustive cases and checks the construction through \\(n=100\\) for five even alphabet sizes. The computation is corroborative; the universal conclusion rests on the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yohananov--Schwartz determine coding capacity for arbitrary numbers of duplications and explicitly distinguish the single-error regime.",
+        "Sun--Ge study one arbitrary-length duplication through Gilbert--Varshamov bounds and explicit codes.",
+        "Zabokritskiy studies multiple errors and the maximum number of exactly-two-error descendants from a source."
+      ],
+      "reasoning": "Capacity, code-size bounds, and forward descendant counts do not determine the maximum number of distinct one-error parents of a fixed received word. No inspected broader theorem specializes to the claimed inverse degree.",
+      "searches": [
+        "published-finding corpus semantic search: reverse complement palindromic duplication even length two parent ambiguity",
+        "Sources checked: arXiv:2312.00394; arXiv:2602.01151; arXiv:2609.00779"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.11811 / IEEE Transactions on Information Theory 68(11), 2022",
+      "DOI:10.1109/ACCESS.2020.2995812",
+      "arXiv:2312.00394 / DOI:10.1007/s10623-025-01627-7",
+      "arXiv:2602.01151",
+      "arXiv:2609.00779 (abstract only; full text unavailable in bounded retrieval)",
+      "Targeted published-finding corpus published-finding searches under reverse-complement, palindromic, inverse-ball, parent, preimage, and one-step-ancestor aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 lemma is restricted to odd duplication length and fixes the parent before asking whether two duplication positions yield the same descendant.",
+        "The present claim fixes the descendant and counts distinct parents at even duplication length \\(2\\).",
+        "The 2026 abstract's exact enumeration concerns descendants after exactly two errors from one source, the opposite incidence direction and a different error count."
+      ],
+      "reasoning": "The quantifiers and incidence direction differ. Neither odd-length location uniqueness nor a two-error forward descendant maximum implies the one-error inverse-degree formula.",
+      "searches": [
+        "Full-text inspection: Ben-Tolila--Schwartz, On the Reverse-Complement String-Duplication System, Lemma 16 and Theorem 17",
+        "Open-access inspection: Yohananov--Schwartz, On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+        "Abstract inspection: arXiv:2609.00779"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ben-Tolila--Schwartz Lemma 16 treats uniqueness of the duplication location for a fixed parent when the duplication length is odd.",
+        "Zeraatpisheh--Esmaeili--Gulliver treat palindromic deduplication roots at length \\(2\\), not the number of immediate parents.",
+        "Zabokritskiy's abstract states an even-length coordinate-wise bijection between reverse-complement and palindromic duplication."
+      ],
+      "reasoning": "The even-length bijection is a genuine equivalent formulation, so a prior exact parent-count result for palindromic duplication would cover the claim. The inspected palindromic source instead concerns irreducible roots and code construction; root uniqueness is strictly weaker/different than an exact count of all immediate one-step parents.",
+      "searches": [
+        "published-finding corpus semantic search: reverse-complement duplication length 2 inverse ball preimage parent multiplicity",
+        "published-finding corpus semantic search: palindromic duplication length two inverse ball parent multiplicity",
+        "Sources checked: arXiv:2112.11811; DOI:10.1109/TIT.2022.3182873; DOI:10.1109/ACCESS.2020.2995812; arXiv:2609.00779"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus hits were unrelated findings such as 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a and 2026/9/18/SCOPE-qary-counterexamples-mirror-vanishing--7d5d46a2a226; none states an inverse-degree table or formula for this channel."
+      ],
+      "reasoning": "No exact table or database entry found in the targeted searches contains the sequence \\(\\lfloor n/2\\rfloor\\) with the reverse-complement or palindromic one-error parent interpretation. Failed search is treated only as supporting evidence, not as novelty proof.",
+      "searches": [
+        "published-finding corpus semantic search: reverse-complement duplication length two maximum inverse ball floor n over 2",
+        "published-finding corpus semantic search: exact parent count one reverse-complement duplication length two",
+        "published-finding corpus semantic search: palindromic deduplication length 2 number one step ancestors"
+      ]
+    },
+    "rationale": "The inspected literature establishes the reverse-complement channel, an odd-duplication-length fixed-parent uniqueness lemma, capacity and code-construction results, an even-length reverse-complement/palindromic correspondence, and palindromic-root uniqueness. None of the inspected statements implies the sharp one-error inverse-degree formula for length \\(2\\). Targeted published-result searches returned no matching finding. The inaccessible full text of arXiv:2609.00779 and unindexed literature remain explicit residual risks.",
+    "residual_risks": [
+      "The full text of arXiv:2609.00779 was not retrievable in the bounded open route; an intermediate lemma there could overlap even though the abstract does not state this invariant.",
+      "An unindexed thesis, unpublished computation, or differently phrased result may have enumerated immediate palindromic or reverse-complement parents.",
+      "The even-length RC/PAL bijection means a prior palindromic result would cover this claim even if it never used reverse-complement terminology; the targeted alias search reduces but does not eliminate that risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. It proves fixed-parent duplication-location uniqueness for odd duplication length and constructs odd-length single-error codes; the even length \\(2\\) inverse-parent maximum is not stated.",
+        "evidence": "Lemma 16 explicitly assumes odd \\(k\\) and derives contradictions from odd-length reverse-complement fixed points. The arXiv abstract separately highlights binary length \\(2\\) dynamics but not inverse parent multiplicity.",
+        "identifier_or_url": "arXiv:2112.11811; DOI:10.1109/TIT.2022.3182873",
+        "material_read": "Journal full text, especially the construction and Lemma 16/Theorem 17 on pages 10--11; arXiv metadata for first public date.",
+        "method": "Lawful open full-text inspection plus page-image confirmation of the relevant proof.",
+        "title": "On the Reverse-Complement String-Duplication System",
+        "trigger": "Foundational paper for the exact channel and the closest uniqueness statement."
+      },
+      {
+        "assessment": "NOT_COVERING. The paper's uniqueness object is an irreducible root reached after repeated deduplications, not the complete set of immediate one-step parents.",
+        "evidence": "Its length-two lemma gives at most one designated irreducible root; it does not enumerate all immediate ancestors of a received word or optimize that count over received words.",
+        "identifier_or_url": "DOI:10.1109/ACCESS.2020.2995812",
+        "material_read": "Open full-text material describing palindromic deduplication, length-two palindromic irreducible roots, and the uniqueness lemma for those roots.",
+        "method": "Lawful open full-text search and statement comparison.",
+        "title": "Construction of Duplication Correcting Codes",
+        "trigger": "Even-length reverse-complement duplication is now known to correspond to palindromic duplication, so the palindromic length-two literature is a necessary alias check."
+      },
+      {
+        "assessment": "NOT_COVERING. It determines arbitrary-error coding capacity and notes that single-error capacity is one, without giving the exact one-error inverse degree.",
+        "evidence": "The conclusion explicitly separates the single-duplication regime from the arbitrary-error capacity analysis.",
+        "identifier_or_url": "arXiv:2312.00394; DOI:10.1007/s10623-025-01627-7",
+        "material_read": "Open-access article definitions, reverse-complement length-at-least-two section, and conclusion/open questions.",
+        "method": "Lawful open HTML full-text inspection.",
+        "title": "On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes",
+        "trigger": "Broader coding-capacity result for the same two duplication systems."
+      },
+      {
+        "assessment": "NOT_COVERING on the inspected material. It studies redundancy and constructions rather than exact received-word parent multiplicity.",
+        "evidence": "The stated one-error result is a redundancy upper bound of order \\(2\\log_q n+\\log_q\\log_q n\\), not an inverse-ball formula.",
+        "identifier_or_url": "arXiv:2602.01151",
+        "material_read": "ArXiv abstract and accessible article summary describing the one-error Gilbert--Varshamov bound and explicit length-one constructions.",
+        "method": "ArXiv/open-web inspection.",
+        "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+        "trigger": "Recent single-duplication code construction for arbitrary duplication length."
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_TO_MODERATE_RISK. The abstract gives the even-length RC/PAL bijection and a maximum for exactly-two-error forward descendants, but does not state the one-error inverse-degree formula. Full-text overlap cannot be excluded.",
+        "evidence": "The abstract enumerates its principal contributions and names the two-error descendant maximum, while the exact one-error parent maximum is absent from that description.",
+        "identifier_or_url": "arXiv:2609.00779",
+        "material_read": "ArXiv abstract only; direct full-PDF retrieval failed in the bounded open route.",
+        "method": "ArXiv abstract inspection and bounded full-text retrieval attempt.",
+        "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+        "trigger": "Very recent work specifically covering even duplication lengths and multiple errors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3e75eaf6-ac15-426b-a3f1-8f78413ffbc8",
+  "value": {
+    "rationale": "The maximum inverse degree is the exact worst-case uncoded list ambiguity of the one-error reverse-complement channel, a natural incidence invariant relevant to decoding and list behavior. It also gives a sharp even-length contrast to the foundational odd-length fixed-parent uniqueness phenomenon: at duplication length \\(2\\), distinct-parent ambiguity can grow linearly and its exact coefficient is \\(1/2\\). The result holds for every even alphabet and every source length \\(n\\ge2\\), rather than for a narrow finite parameter slice.",
+    "status": "PASS"
+  }
+}
