@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes the Euclidean norm, parameter range, defining halfspaces, and all quantifiers. Permutation averaging preserves an inscribed ball via Minkowski averaging and convexity, reducing to a diagonal center. Normalized distances to every subset-sum hyperplane give a one-variable max-min problem. The crossing values a_k are exact; the derivative of f(t)=t(2n+1-t^2)/(2(t+1)) has a strictly decreasing numerator, excluding interior minima and reducing the answer to k=1 or k=m. Active facet inequalities then force uniqueness of the center. The packaged standard-library computation checks 20,298 parameter pairs as a finite consistency test, not as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2403.07387, Theorem 2.3 and surrounding sections give a minimal inequality description for generalized parking-function polytopes and later prove generalized-permutahedron/polymatroid structure; full-text searches found no “inradius” or “Chebyshev” statement.",
+        "Generic Chebyshev-center references explain the linear-program reduction for an H-polytope but do not provide the partial-permutohedron endpoint formula or its tangency phase transition.",
+        "Research-record searches returned no general inradius theorem for generalized permutahedra or polymatroid polytopes that implies the claimed closed form."
+      ],
+      "reasoning": "Broader facet descriptions supply input data, not a theorem computing this metric invariant. No inspected broader result determines the endpoint minimization, the exact threshold, or uniqueness of the center.",
+      "searches": [
+        "inradius generalized permutahedron Euclidean Chebyshev center submodular polytope",
+        "polymatroid polytope Euclidean inradius Chebyshev center subset inequalities",
+        "largest inscribed Euclidean ball generalized permutohedron",
+        "web search: \"inradius\" generalized permutahedron",
+        "web search: \"inradius\" polymatroid polytope"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.09901",
+      "DOI:10.1137/21M1417958",
+      "arXiv:2207.14253",
+      "arXiv:2403.07387",
+      "arXiv:2212.06885",
+      "arXiv:2512.14199 (abstract-level context only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2012.09901, Theorem 5.9 implies the halfspace system but does not itself state or solve the maximum-inscribed-ball optimization.",
+        "arXiv:2207.14253 develops the same family substantially further but its stated results concern faces, volume, and Ehrhart polynomials.",
+        "arXiv:2403.07387 supplies a broader symmetric subset-sum facet framework for a related family but no radius theorem."
+      ],
+      "reasoning": "The final formula is a new metric consequence requiring symmetry reduction, normalized Euclidean facet distances, minimization over subset cardinalities, and a proof that only the endpoint cardinalities can control. None of the inspected prior theorems states a stronger radius result from which this is an immediate special case.",
+      "searches": [
+        "partial permutohedron inradius Chebyshev center subset inequalities",
+        "generalized parking function polytope inradius facet description",
+        "partial permutohedron largest Euclidean ball"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2012.09901, Section 5.1 and Theorems 5.9-5.10: exact inequality and facet descriptions, with no occurrence of “inradius”, “radius”, or “Euclidean” in the inspected full text.",
+        "arXiv:2207.14253: full-text searches returned no occurrence of “inradius” or “radius”; the paper’s stated scope is face lattice, volume, and Ehrhart theory.",
+        "No exact semantic research-record hit matched the proposed partial-permutohedron inradius formula; closest records concerned type-B generalized permutohedron decompositions and unrelated geometric radii."
+      ],
+      "reasoning": "The natural aliases “largest inscribed Euclidean ball”, “inradius”, and “Chebyshev center” were searched alongside the exact object name and the formula’s phase parameters. No equivalent statement was located.",
+      "searches": [
+        "partial permutohedron inradius n/2 sqrt m m+sqrt m inscribed Euclidean ball",
+        "partial permutohedron Chebyshev center upper subset facets Euclidean",
+        "partial permutation polytope largest inscribed ball inradius",
+        "web search: \"partial permutohedron\" inradius",
+        "web search: \"partial permutohedra\" Chebyshev center"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The research-record search returned no partial-permutohedron inradius table or exact value.",
+        "The two directly relevant partial-permutohedron papers provide tables/formulas for combinatorial and Ehrhart/volume data rather than Euclidean inradii."
+      ],
+      "reasoning": "No database or table located in the overlap search records the claimed radii or active-facet transition.",
+      "searches": [
+        "partial permutohedron Euclidean inradius Chebyshev center largest inscribed ball",
+        "parking function polytope inradius partial permutohedra inscribed sphere",
+        "partial permutohedra metric radius Euclidean geometry"
+      ]
+    },
+    "rationale": "Statement-level comparison of the directly relevant full texts found the published inequality/facet descriptions, face-lattice results, volume/Ehrhart theory, and generalized parking-function-polytope structure, but no Euclidean inradius or largest-inscribed-ball formula. Targeted research-record and web searches over exact object names, Chebyshev-center terminology, generalized permutahedra, and polymatroid inradii found no dominating result. The final theorem is independently proved from the known halfspaces rather than inferred from absence of search hits.",
+    "residual_risks": [
+      "A general convex-optimization or polymatroid result using different terminology might specialize to this exact inradius formula; targeted object, alias, generalized-permutahedron, and polymatroid searches did not locate one.",
+      "The 2025 Parking Function Polytopes paper was checked at abstract/search level rather than theorem-by-theorem because it studies a broader related family; its abstract advertises normal fans, face posets, h-polynomials, volumes, and Ehrhart polynomials, not Euclidean radii."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the defining inequalities and redundancy information but no Euclidean inradius or center theorem.",
+        "evidence": "Theorem 5.9 gives subset-sum upper inequalities and coordinate nonnegativity; Theorem 5.10 counts facets and identifies redundancies when m>n.",
+        "identifier_or_url": "arXiv:2012.09901",
+        "material_read": "Lawful arXiv full HTML, especially Definition 5.4 and Section 5.1, Theorems 5.9-5.10 and their proofs; full-text searches for inradius, radius, and Euclidean.",
+        "method": "Full-text theorem and proof comparison.",
+        "title": "Partial Permutation and Alternating Sign Matrix Polytopes",
+        "trigger": "Introduces partial permutohedra and contains the exact halfspace description needed for the proof."
+      },
+      {
+        "assessment": "No inradius or largest-inscribed-ball formula was located; the work studies faces, volume, and Ehrhart data.",
+        "evidence": "arXiv metadata lists 52B05 first and v1 date 2022-07-28; abstract and full text state the face-lattice, volume, and Ehrhart program.",
+        "identifier_or_url": "arXiv:2207.14253",
+        "material_read": "Lawful arXiv full text/HTML around the face/facet description and the stated volume/Ehrhart results; full-text searches for inradius and radius.",
+        "method": "Full-text scope and implication comparison.",
+        "title": "Partial permutohedra",
+        "trigger": "Most direct later paper on the exact same polytope family, with primary MSC list beginning 52B05."
+      },
+      {
+        "assessment": "No Euclidean radius result was located; its metric results are combinatorial/circuit diameter bounds, not inscribed balls.",
+        "evidence": "Theorem 2.3 gives the minimal facet system; the introduction explicitly lists vertices, facets, generalized-permutahedron structure, face types, and combinatorial/circuit diameters.",
+        "identifier_or_url": "arXiv:2403.07387",
+        "material_read": "Lawful arXiv full HTML, introduction and Theorem 2.3 facet description; full-text searches for inradius and Chebyshev.",
+        "method": "Full-text broader-coverage comparison.",
+        "title": "Combinatorics of generalized parking-function polytopes",
+        "trigger": "Broader related family with symmetric subset-sum facets and generalized-permutahedron/polymatroid structure that could potentially dominate the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "df8bf5a2-a297-4198-9cf4-2d5a51d20d40",
+  "value": {
+    "rationale": "The Euclidean inradius is a canonical metric invariant of a polytope and is useful for roundness, scaling, conditioning, and comparison with other realizations. Partial permutohedra have an active recent literature on faces, volumes, Ehrhart theory, generalized-permutahedron structure, and parking-function connections, but no inspected source gives this invariant. The formula is not an arbitrary finite slice: it classifies an infinite two-parameter family, proves uniqueness of the optimal center, and exposes a sharp geometric phase transition between total-sum and coordinate-cap tangencies at n=m+sqrt(m).",
+    "status": "PASS"
+  }
+}
