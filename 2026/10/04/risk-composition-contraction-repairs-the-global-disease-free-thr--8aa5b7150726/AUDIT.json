@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The source's comparison is disproved by an exact state in its invariant simplex at a source parameter set with R0<1. The repair is derived directly from the susceptible equations: the normalized composition difference q obeys an exact scalar differential identity, its positive part decays at least as exp(-mu t), and the effective susceptibility equals the disease-free weighted susceptibility times S+L plus a signed composition correction. This yields eventual domination by a constant Hurwitz Metzler infected block. The remaining compartments converge by stable variation-of-constants. Local stability is independently reconstructed from the disease-free Jacobian.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ibrahim et al. (2022), DOI 10.3390/vaccines11010003, model distinct high-risk and low-risk susceptible classes and establish global stability in a different recruitment/intervention system.",
+        "Katriel (2012), DOI 10.1007/s00285-011-0460-2, studies epidemic size under a general distribution of susceptibility.",
+        "Allen et al. (2007), DOI 10.1137/060672522, prove threshold global stability in a spatially heterogeneous SIS patch model."
+      ],
+      "reasoning": "These sources establish heterogeneous susceptibility and threshold dynamics as a broader area, but their flows and proofs do not imply the exact composition contraction for the Pan–Tang SLEIRS equations.",
+      "searches": [
+        "epidemic two susceptible risk groups preferential infection composition global stability",
+        "\"high-risk\" \"low-risk\" susceptible epidemic global stability reproduction number",
+        "\"heterogeneous susceptibility\" epidemic global stability disease free equilibrium Lyapunov",
+        "\"COVID-19 Model with High- and Low-Risk Susceptible Population Incorporating the Effect of Vaccines\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20241032",
+      "doi:10.3390/vaccines11010003",
+      "doi:10.1007/s00285-011-0460-2",
+      "doi:10.1137/060672522"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's local threshold computation is compatible with R0<1 but its global proof requires a pointwise inequality that fails for admissible initial states.",
+        "Related high-/low-risk COVID-19 models prove their own global stability results with different flows and do not imply the Pan–Tang weighted-composition identity.",
+        "General heterogeneous-susceptibility papers establish broader epidemiological effects but do not supply this finite-dimensional transient bound."
+      ],
+      "reasoning": "The final claim is a source-specific structural lemma plus theorem repair. The decisive step is the exact cancellation of common recruitment and immunity-loss terms in q.",
+      "searches": [
+        "two susceptibility epidemic composition contraction high risk low risk",
+        "preferential depletion high susceptibility epidemic susceptible composition",
+        "SLEIRS weighted susceptibility global threshold proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text contains Theorem 1 and the displayed comparison dy/dt <= (F-V)y based on replacing alpha S+beta L by alpha rho+beta(1-rho).",
+        "Exact-title and correction searches returned the source and bibliographic copies but no erratum or published repair.",
+        "The closest indexed research findings concern different SEIR, age-structured, or switching epidemic models and do not contain the Pan–Tang composition identity."
+      ],
+      "reasoning": "The searches cover literal source identity, theorem language, the exact weighted-susceptibility expression, and natural correction terminology. No located statement gives q=S/rho-L/(1-rho), its one-sided contraction, or the repaired proof.",
+      "searches": [
+        "\"A new model for COVID-19 in the post-pandemic era\" global stability SLEIRS R0",
+        "SLEIRS high-risk low-risk susceptible ratio contraction global disease-free stability",
+        "alpha S plus beta L rho weighted susceptibility Lyapunov epidemic",
+        "Pan Tang 2024 SLEIRS correction theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open AIMS PDF was inspected at equation (2.2), which defines the normalized SLEIRS system and invariant simplex.",
+        "The reproduction number in equation (3.4), Theorem 1, the infected-system comparison in equation (3.6), and the Lyapunov argument in equations (3.7)-(3.8) were inspected in full.",
+        "The numerical section gives alpha=0.2, beta=0.1, rho=0.3, delta=0.15, gamma=0.8, mu=0.005 and reports R0=0.995."
+      ],
+      "reasoning": "The counterexample and repair are tied to the exact printed equations and parameter values.",
+      "searches": [
+        "DOI 10.3934/math.20241032 PDF equation 2.2 Theorem 1 equation 3.6",
+        "\"A new model for COVID-19 in the post-pandemic era\" PDF",
+        "DOI 10.3934/math.20241032 alpha 0.2 beta 0.1 rho 0.3"
+      ]
+    },
+    "rationale": "The primary source states the global theorem but uses a pointwise susceptible comparison that is false on its own invariant set. The new contribution is an exact risk-composition contraction identity that repairs the theorem at the original local threshold. Searches of the source title, SLEIRS/global-stability terminology, two-risk susceptible models, weighted susceptibility, and correction language found no published source-specific repair.",
+    "residual_risks": [
+      "A non-indexed author note could contain a repair not surfaced by exact-title and correction searches.",
+      "The critical case R0=1 is not settled by this argument.",
+      "ResearchGate metadata labels the article broadly as January 2024 despite the primary PDF recording receipt in April and publication on 1 July; the primary publisher date is used as the verified exact public date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "THE_GLOBAL_THEOREM_SURVIVES_BUT_THE_PUBLISHED_POINTWISE_COMPARISON_DOES_NOT",
+        "evidence": "At a valid simplex state with the source's R0<1 parameter set, alpha S+beta L exceeds alpha rho+beta(1-rho) and reverses the first-component comparison. The exact q equation provides a replacement transient estimate.",
+        "identifier_or_url": "doi:10.3934/math.20241032",
+        "material_read": "Open full PDF: model assumptions; normalized system (2.2); invariant simplex; disease-free equilibrium; next-generation calculation and R0; Theorem 1; Jacobian calculation; equations (3.6)-(3.8) and the LaSalle step; source parameter sets in the numerical section. The model and theorem pages were also visually inspected.",
+        "method": "Reconstructed the infected block, tested the displayed comparison on the full invariant simplex, derived the normalized susceptible-composition equation, and proved eventual Metzler domination at the same threshold.",
+        "title": "A new model for COVID-19 in the post-pandemic era",
+        "trigger": "Primary source stating global disease-free stability and the weighted susceptible comparison."
+      },
+      {
+        "assessment": "RELATED_HETEROGENEOUS_SUSCEPTIBILITY_MODEL_NOT_COVERING_THE_REPAIR",
+        "evidence": "The model has different recruitment and intervention factors and does not contain the Pan–Tang ratio q or the exponentially decaying composition excess.",
+        "identifier_or_url": "doi:10.3390/vaccines11010003",
+        "material_read": "Open full HTML: abstract, model formulation, high-/low-risk susceptible equations, global-stability summary, vaccination extension, and discussion.",
+        "method": "Compared its risk-class flows and global-stability architecture with the Pan–Tang susceptible composition mechanism.",
+        "title": "COVID-19 Model with High- and Low-Risk Susceptible Population Incorporating the Effect of Vaccines",
+        "trigger": "Closest inspected applied model with explicitly separated high-risk and low-risk susceptible populations."
+      },
+      {
+        "assessment": "BROADER_HETEROGENEITY_RESULT_NOT_SOURCE_SPECIFIC",
+        "evidence": "The work derives final-size relations for arbitrary susceptibility distributions; it does not analyze the Pan–Tang recruitment/loss-of-immunity equations or the disputed comparison.",
+        "identifier_or_url": "doi:10.1007/s00285-011-0460-2",
+        "material_read": "Published abstract, bibliographic record, and model scope.",
+        "method": "Checked whether its susceptibility-distribution results imply the finite-dimensional SLEIRS composition contraction.",
+        "title": "The size of epidemics in populations with heterogeneous susceptibility",
+        "trigger": "Primary mathematical literature on heterogeneous susceptibility."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8aa5b715-0726-442f-97ce-cb3dde83f3f6",
+  "value": {
+    "rationale": "The source's main threshold theorem is useful, but its published global proof fails on admissible initial risk compositions. The new lemma diagnoses the exact failure and restores the theorem without imposing a stronger transmission threshold. It quantifies how preferential infection removes excess high-risk susceptibility and gives a reusable transient estimate for risk-stratified epidemic models.",
+    "status": "PASS"
+  }
+}
