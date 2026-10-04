@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "From the source’s first fixed-point equation, any feasible positive equilibrium obeys \\(s^*=\\mu^*(1-1/r-\\mu^*)\\), hence \\(0<\\mu^*<13/113\\) when \\(r=113/100\\). On this interval, the positive terms of the source quartic satisfy \\(H<292201/22600000\\), while \\(rv=226/15625\\), with exact gap \\(173427/113000000>0\\). Thus \\(Q=H-rv<0\\) throughout the feasible interval. Exact rational replay also gives first-coordinate residual \\(-16167/200000\\) at the reported rounded pair \\((0.33,0.0006)\\). No numerical enumeration or asymptotic inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nåsell studies moment closure as an approximation to quasi-stationary cumulants in stochastic logistic models.",
+        "Nåsell also discusses spurious moment-closure solutions in a broader stochastic-logistic setting."
+      ],
+      "reasoning": "These broader results explain generic strengths and failures of moment closure, but they do not imply the exact Yang–Han feasible interval at \\(r=113/100\\), the quartic bound at \\(v=8/625\\), or the contradiction with Figures 5–6.",
+      "searches": [
+        "doi:10.1016/S0040-5809(02)00060-6",
+        "doi:10.1016/S0040-5809(03)00074-1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdss.2026151",
+      "doi:10.3934/mbe.2026018",
+      "doi:10.1016/S0040-5809(02)00060-6",
+      "doi:10.1016/S0040-5809(03)00074-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang–Han characterize feasible positive equilibria by a quartic root in \\(0,1-1/r\\) and then present Figures 5–6 as confirming the analytical results.",
+        "The comparator papers do not contain the additive-noise Figure 5 parameter pair or an implication that rules it out."
+      ],
+      "reasoning": "The source’s own Figure 4 range already points numerically away from a positive equilibrium at \\(r=1.13\\), but the same paper then presents Figures 5–6 as positive-equilibrium validation at that parameter. The finding is the explicit incompatibility of those published assertions, together with an exact rational certificate that does not depend on reading a plotted threshold. The comparator papers do not resolve or state this source-specific inconsistency.",
+      "searches": [
+        "doi:10.3934/dcdss.2026151",
+        "doi:10.3934/mbe.2026018",
+        "doi:10.1016/S0040-5809(02)00060-6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Yang–Han source uses additive noise \\(X_{n+1}=rX_n(1-X_n)+\\varepsilon_n\\) and its Figure 5 labels \\(r=1.13\\), \\(v=0.0128\\).",
+        "Wang–Wang use multiplicative noise \\(X_{n+1}=rX_n(1-X_n)\\varepsilon_n\\) with \\(E[\\varepsilon_n]=1\\) and \\(E[\\varepsilon_n^2]=v>1\\)."
+      ],
+      "reasoning": "The multiplicative-noise model is not an equivalent reparameterization of the additive-noise map, so its equilibrium statements do not cover the printed additive-noise parameter inconsistency.",
+      "searches": [
+        "doi:10.3934/dcdss.2026151",
+        "doi:10.3934/mbe.2026018"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The article page labels Figure 5 with \\(r=1.13\\) and \\(v=0.0128\\).",
+        "The full text reports convergence of Monte Carlo and moment closure to a positive equilibrium near \\(\\mu^*=0.33\\), with variance about \\(0.0006\\).",
+        "The same numerical section states that at \\(v=0.0128\\) feasible positive equilibria occur approximately only for \\(1.65<r<2.75\\)."
+      ],
+      "reasoning": "The source is the exact data/table/figure record being checked. Its own Figure 4 range is consistent with the exact nonexistence certificate and does not already formulate the contradiction as a correction.",
+      "searches": [
+        "doi:10.3934/dcdss.2026151",
+        "AIMS Figure 5 for DOI 10.3934/dcdss.2026151"
+      ]
+    },
+    "rationale": "The source contains the ingredients of the contradiction: its feasibility theory and Figure 4 exclude the printed Figure 5 growth rate at the stated noise level, while Figures 5–6 assert positive-equilibrium validation. It does not identify or resolve that clash. The new contribution is the explicit source-specific inconsistency plus an exact rational nonexistence certificate; the closest inspected stochastic-logistic papers use different stochastic formulations or provide general closure theory and do not cover this correction.",
+    "residual_risks": [
+      "The simulation code or data used for Figures 5–6 were not available in the inspected public text, so an unreported parameter value or caption typo could explain the discrepancy.",
+      "The claim therefore concerns the printed map and printed parameter labels only, not the authors’ unobserved computational intent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source asserts the validation that the exact certificate contradicts at the printed pair; it does not state this correction.",
+        "evidence": "The source gives \\(s^*=\\mu^*(1-1/r-\\mu^*)\\), the quartic \\(Q=H-rv\\), Figure 5 labels \\(r=1.13\\), \\(v=0.0128\\), and reports a positive equilibrium near \\(\\mu^*=0.33\\).",
+        "identifier_or_url": "doi:10.3934/dcdss.2026151",
+        "material_read": "Article metadata, primary classification, equilibrium derivation, critical-threshold theorem, numerical Section 6, Figures 4–6 captions and surrounding discussion.",
+        "method": "Lawful open-access article/full-text inspection.",
+        "title": "Equilibrium and bifurcation analysis of a stochastic logistic difference equation with additive noise",
+        "trigger": "Same model, same equilibrium equations, and the exact validation figures under examination."
+      },
+      {
+        "assessment": "Not covering: the noise is multiplicative and the moment map is different.",
+        "evidence": "Its stochastic equation is \\(X_{n+1}=rX_n(1-X_n)\\varepsilon_n\\) with mean-one multiplicative perturbations.",
+        "identifier_or_url": "doi:10.3934/mbe.2026018",
+        "material_read": "Abstract, model definition, equilibrium/bifurcation summary, and open article record.",
+        "method": "Open-access article inspection.",
+        "title": "Stability and bifurcation of difference equations from stochastic logistic models",
+        "trigger": "Closest recent Gaussian moment-closure logistic-difference predecessor cited by the source."
+      },
+      {
+        "assessment": "Not covering: it addresses a different stochastic logistic formulation and asymptotic cumulant approximation, not the Yang–Han discrete additive map or its validation parameters.",
+        "evidence": "The abstract concerns quasi-stationary distributions and moment-closure approximations of cumulants.",
+        "identifier_or_url": "doi:10.1016/S0040-5809(02)00060-6",
+        "material_read": "Bibliographic record and abstract describing quasi-stationary cumulants and moment closure.",
+        "method": "Primary bibliographic/abstract inspection.",
+        "title": "Moment closure and the stochastic logistic model",
+        "trigger": "Classical moment-closure comparator for stochastic logistic population models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e1793f3-b24a-4bc2-8eb0-4055b182cd32",
+  "value": {
+    "rationale": "The source presents Figures 5–6 as Monte Carlo validation of its Gaussian moment equilibrium analysis and positive persistence regime. Demonstrating that the printed validation parameter pair has no feasible positive fixed point of the displayed moment system directly affects interpretation of that validation and of the associated persistence claim. The issue is structurally motivated by the source’s own feasibility theorem and is not a routine recomputation or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
