@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The normalization b=c=1, a=x with 0<x<2 is exhaustive up to similarity. All median, altitude, semiperimeter and inradius formulas are exact. Rationalization produces a sign-aware three-interval proof; no squaring is used without controlling signs. The outer intervals reduce to an exact factorization over Q(sqrt(3)); the left sign is certified by positive Bernstein coefficients of Q' and Q(4/7)<0, while the right sign follows from exact shifted coefficient positivity and a quadratic discriminant -10. Equality is checked exactly and occurs only at x=1. The bundled checker reconstructs and verifies all algebraic certificates using standard-library rational arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Liu (2021), DOI 10.7153/jmi-2021-15-92, full text: theorem (10)/(11) concerns medians, angle bisectors, and exradii, not the altitude-difference lower bound.",
+        "American Mathematical Monthly Problem 11790 solution (2017): proves m_a+m_b+m_c <= 2s-3(2sqrt(3)-3)r, an upper bound without altitudes.",
+        "J. Liu (2023), DOI 10.28919/aia/8232, Lemma 2 gives a pointwise lower bound for each m_a-h_a. For the isosceles triangle (a,b,c)=(1/2,1,1), its summed lower bound is 29*sqrt(15)/480, strictly below the target (25-9*sqrt(5))/20."
+      ],
+      "reasoning": "Neither the 2021 nor 2017 result dominates the claim. The more directly related 2023 Lemma 2 also does not dominate it: although summable over the three vertices, at (a,b,c)=(1/2,1,1) its total lower bound is 29*sqrt(15)/480, whereas Conjecture 4 requires (25-9*sqrt(5))/20, larger by about 0.00977666629. Thus the 2023 lemma is strictly insufficient on the x<1 isosceles branch.",
+      "searches": [
+        "Liu 2021 proof double inequality triangles medians angle bisectors exradius",
+        "sum of medians triangle 11790 American Mathematical Monthly 2017",
+        "Two inequalities involving circumradius, inradius and medians of an acute triangle altitudes",
+        "doi:10.28919/aia/8232"
+      ]
+    },
+    "checked_sources": [
+      "J. Liu, Journal of Science and Arts 12(2)(19), 2012, pp. 127-136.",
+      "J. Liu, Journal of Mathematical Inequalities 15(4), 2021, pp. 1361-1374, DOI 10.7153/jmi-2021-15-92.",
+      "American Mathematical Monthly 124(2), 2017, Problem 11790 solution.",
+      "J. Liu, Advances in Inequalities and Applications 2023, Article 12, DOI 10.28919/aia/8232."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 paper labels the full inequality Conjecture 4 rather than a theorem.",
+        "The 2021 theorem has the form m_sum+w_sum >= 3sqrt(ab+bc+ca) >= w_sum+r_a+r_b+r_c.",
+        "The 2017 Monthly theorem is only an upper bound on m_sum.",
+        "Liu (2023), Lemma 2: m_a-h_a is bounded below by an explicit nonnegative side-length expression; summing it at (a,b,c)=(1/2,1,1) gives 29*sqrt(15)/480 < (25-9*sqrt(5))/20, so it cannot imply the target even on the full isosceles class."
+      ],
+      "reasoning": "The new claim is a complete proof on the natural isosceles subclass. The 2021 and 2017 statements have different implication direction/objects. The 2023 lemma is closest in object because it directly bounds m_a-h_a, but its summed bound is demonstrably too weak for a concrete isosceles triangle, so no implication to the claimed sharp lower bound follows.",
+      "searches": [
+        "Liu 2012 Conjecture 4 medians altitudes",
+        "Proof of a double inequality in triangles Liu 2021",
+        "Sum of Medians of a Triangle 11790",
+        "Two inequalities involving circumradius, inradius and medians of an acute triangle",
+        "Liu 2023 Lemma 2 median altitude"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J. Liu (2012), Conjecture 4, equation (4.7): the target all-triangle inequality is explicitly conjectured.",
+        "Exact derivation in RESULT.md: for isosceles sides (x,1,1), the target is equivalent to the one-variable function G(x)>=0."
+      ],
+      "reasoning": "Searches included the exact median-minus-altitude expression, the s-3sqrt(3)r form, and isosceles aliases. No published-finding corpus or public-literature hit stated the same isosceles theorem.",
+      "searches": [
+        "triangle conjecture sum medians minus sum altitudes at least 3r - s Liu 2012",
+        "m_a+m_b+m_c - h_a-h_b-h_c >= 3r-s triangle",
+        "Liu 2012 Conjecture 4 medians altitudes 3r s",
+        "Conjecture 4 m_a h_a Liu triangle isosceles",
+        "s - 3√3 r medians altitudes isosceles triangle",
+        "s-3sqrt(3)r triangle medians altitudes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no hit whose statement contains Liu's Conjecture 4, the exact lower bound, or an isosceles resolution; closest hits were unrelated median/operator or general triangle-inequality findings.",
+        "Own ledger and embedded files through generation g000025 were searched for Liu 2012, the exact expression, median-altitude aliases, and isosceles versions; no prior own finding covered this claim."
+      ],
+      "reasoning": "This is a symbolic theorem, not a known-table recomputation. Database and own-ledger checks were used only for overlap detection.",
+      "searches": [
+        "Liu 2010 Conjecture 1 medians fourth power b^2 c^2 c^2 a^2 a^2 b^2 13 r^2 4R^2",
+        "triangle medians sum fourth power 16 minus 13 r squared over 4 R squared",
+        "isosceles triangle median conjecture fourth power Liu",
+        "triangle conjecture sum medians minus sum altitudes at least 3r - s Liu 2012",
+        "m_a+m_b+m_c - h_a-h_b-h_c >= 3r-s triangle",
+        "Liu 2012 Conjecture 4 medians altitudes 3r s",
+        "Conjecture 4 m_a h_a Liu triangle isosceles",
+        "s - 3√3 r medians altitudes isosceles triangle",
+        "s-3sqrt(3)r triangle medians altitudes",
+        "sum of medians sum of altitudes s - 3 triangle"
+      ]
+    },
+    "rationale": "The source paper states the all-triangle conjecture but does not supply this isosceles resolution. published-finding corpus searches for the exact difference inequality, aliases, and isosceles specialization returned no covering finding. The later 2021 full text addresses a different median/bisector/exradius double inequality, the 2017 Monthly result is an upper bound for the median sum alone, and the closely related 2023 Lemma 2 gives a summable m_a-h_a lower bound that is strictly too weak at (a,b,c)=(1/2,1,1). No checked statement implies the present theorem; residual risk is limited to unindexed or differently phrased literature.",
+    "residual_risks": [
+      "Search coverage cannot exclude an unindexed, non-English, or differently phrased earlier proof of the isosceles specialization.",
+      "The 2012 source uses 2000 MSC 51M16; the present record maps it directly to the permitted geometry primary class 51M16."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_OPEN_CLAIM; does not contain the isosceles proof given here.",
+        "evidence": "Section 4 explicitly states Conjecture 4 as m_sum-h_sum >= s-3sqrt(3)r and says it is motivated as a lower bound for the left side of Theorem A.",
+        "identifier_or_url": "https://josa.ro/docs/josa_2012_2/a_03_Liu_J.pdf",
+        "material_read": "Full article, with detailed inspection of Sections 2-4, especially Theorem A, Blundon's inequality, and Conjecture 4 on pp. 132-135.",
+        "method": "Lawful public full-text PDF, text extraction plus rendered-page inspection.",
+        "title": "On an inequality for the medians of a triangle",
+        "trigger": "Primary source of Conjecture 4 and the exact target inequality."
+      },
+      {
+        "assessment": "NOT_COVERING; theorem concerns medians, angle bisectors, and exradii, not the target median-minus-altitude lower bound.",
+        "evidence": "Theorem (10)/(11) compares median and angle-bisector sums with sqrt(ab+bc+ca) and exradii; the article contains no occurrence of the target s-3sqrt(3)r bound.",
+        "identifier_or_url": "https://files.ele-math.com/articles/jmi-15-92.pdf",
+        "material_read": "Full 14-page article; introduction, theorem, lemmas, corollaries, conjectures, and references were inspected and searched for altitude and target-expression terms.",
+        "method": "Lawful publisher full-text PDF with text search and statement-level reading.",
+        "title": "Proof of a double inequality in triangles",
+        "trigger": "Later paper by the same author citing the 2012 work and proving a median-related double inequality."
+      },
+      {
+        "assessment": "NOT_COVERING; gives an upper bound on the median sum alone.",
+        "evidence": "The proved statement is m_sum <= 2s-3(2sqrt(3)-3)r and contains no altitude sum.",
+        "identifier_or_url": "jstor:10.4169/amer.math.monthly.124.2.179",
+        "material_read": "Problem statement and published solution text as indexed in the February 2017 Monthly problem section.",
+        "method": "Indexed issue text and bibliographic mirror; statement/solution comparison.",
+        "title": "Sum of Medians of a Triangle, Problem 11790",
+        "trigger": "Prominent later median-sum inequality citing Liu 2012 and therefore a plausible dominating result."
+      },
+      {
+        "assessment": "NOT_COVERING; Lemma 2 yields a lower bound for each m_a-h_a, but its summed consequence is insufficient on the x<1 isosceles branch.",
+        "evidence": "At (a,b,c)=(1/2,1,1), summing Lemma 2 gives 29*sqrt(15)/480, while the target right side is (25-9*sqrt(5))/20; the target exceeds the published lower bound by about 0.00977666629.",
+        "identifier_or_url": "https://doi.org/10.28919/aia/8232",
+        "material_read": "Full 21-page article, including Lemma 2, its side-length lower bound for m_a-h_a, the main theorem statements, conjecture section, and references.",
+        "method": "Lawful CC-BY public full-text PDF with text extraction/find and statement-level implication comparison.",
+        "title": "Two inequalities involving circumradius, inradius and medians of an acute triangle",
+        "trigger": "Later same-author paper with a lemma directly comparing each median with the corresponding altitude."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "81ed088a-2654-49dc-abd1-88d3642721ea",
+  "value": {
+    "rationale": "Liu explicitly posed the inequality as a conjectured sharp lower bound and connected it to Blundon's inequality. The isosceles family is the full natural symmetry subclass of triangles, spans every admissible aspect ratio, and contains the sharp equilateral equality case. A complete proof on this subclass is a motivated structural partial resolution rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
