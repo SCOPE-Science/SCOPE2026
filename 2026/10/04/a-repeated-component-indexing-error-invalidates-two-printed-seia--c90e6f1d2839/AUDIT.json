@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The source model, its correct Volterra equations, its later component definitions, and its displayed discretization were compared line by line. The last two printed correctors use \\(F_3\\) and \\(F_4\\) where the target system requires \\(F_4\\) and \\(F_5\\). For an exact positive-parameter, nonnegative-state witness, \\(F_3(0)=1/2\\), \\(F_4(0)=1\\), and \\(F_5(0)=0\\). The Caputo integral expansion then produces nonzero \\(t^\\alpha\\) leading differences, proving that a consistent quadrature of the printed mapping cannot converge to the target \\(A\\) and \\(R\\) equations. No experiment or timeout is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garrappa 2018, DOI 10.3390/math6020016: convolution/product-integration methods use \\(f_j=f(t_j,y_j)\\) and explicitly cover non-scalar systems.",
+        "Garrappa 2010, DOI 10.1080/00207160802624331: stability theory for fractional predictor-corrector algorithms, without the SEIAR source's component mapping.",
+        "Sene 2022, DOI 10.1016/B978-0-323-99888-8.00003-6: bibliographic/abstract evidence for related Caputo SEIR numerical methods; full text not reliably inspected."
+      ],
+      "reasoning": "The general predictor-corrector theory is broader as numerical methodology but does not imply a source-specific indexing correction. Its vector formulation in fact makes the required component correspondence explicit. The closely related 2022 chapter remains a residual risk because full-text comparison was unavailable.",
+      "searches": [
+        "fractional SEIAR numerical scheme asymptomatic recovered Garrappa predictor corrector",
+        "\"Investigations on the fractional SEIAR epidemic model utilizing the Caputo derivative\" Garrappa predictor corrector",
+        "\"Numerical Solution of Fractional Differential Equations: A Survey and a Software Tutorial\" Garrappa predictor corrector componentwise system",
+        "\"On linear stability of predictor-corrector algorithms for fractional differential equations\" Garrappa 2010"
+      ]
+    },
+    "checked_sources": [
+      "PJM 15(1) (2026), 200-213",
+      "doi:10.3390/math6020016",
+      "doi:10.1080/00207160802624331",
+      "doi:10.1016/B978-0-323-99888-8.00003-6",
+      "published-finding id 2026/9/14/SCOPE021"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sene--Mansal 2026 states the correct target model in Eq. (1.1), correct integral relations in (5.4)-(5.5), shifted relations in (5.10)-(5.11), shifted final correctors in (5.15)-(5.16), and convergence estimates in (5.28)-(5.29).",
+        "Garrappa 2018 states the system method through evaluation of the supplied vector field f(t,y), but does not discuss this SEIAR paper."
+      ],
+      "reasoning": "The source's correct model and general quadrature theory do not themselves state the contradiction or its exact witness. Comparing the two establishes a new implication: refinement of the displayed shifted mapping cannot deliver the claimed target-component error bounds.",
+      "searches": [
+        "\"Investigations on the fractional SEIAR epidemic model utilizing the Caputo derivative\" numerical scheme error F3 F4",
+        "\"Investigations on the fractional SEIAR epidemic model utilizing the Caputo derivative\" Garrappa predictor corrector",
+        "Caputo SEIAR numerical convergence componentwise predictor corrector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sene--Mansal 2026, Eqs. (5.4)-(5.5), (5.10)-(5.11), (5.15)-(5.16), and (5.20)-(5.24), with the relevant \\(F_3,F_4,F_5\\) component assignments.",
+        "No exact-title or component-alias search result located a published correction of the shifted A/R mapping."
+      ],
+      "reasoning": "An equivalent result would need to identify the \\(F_3/F_4/F_5\\) component shift or prove the printed \\(A\\)- and \\(R\\)-formulas fail to approximate the target SEIAR components. The inspected exact-title and formula-alias searches returned the source or unrelated work, not such a result.",
+      "searches": [
+        "Investigations on the fractional SEIAR epidemic model utilizing the Caputo derivative F3 F4 F5 numerical scheme",
+        "SEIAR Caputo predictor corrector asymptomatic recovered right hand side component mismatch",
+        "\"Investigations on the fractional SEIAR epidemic model utilizing the Caputo derivative\" numerical scheme error F3 F4",
+        "Sene Mansal fractional SEIAR F3 F4 F5 correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding hit 2026/9/14/SCOPE021 is a two-patch SEIR reproduction-number counterexample, not a numerical component-indexing result.",
+        "Other high-ranked published-finding hits concerned unrelated numerical or dynamical-system questions and did not share this source or claim.",
+        "Exact source-title and component-alias searches did not return a published record covering the repeated \\(F_3/F_4/F_5\\) shift."
+      ],
+      "reasoning": "Semantic published-finding searches found no exact record, table, or prior claim covering the source-specific misrouting and its nonvanishing leading error.",
+      "searches": [
+        "Investigations on the fractional SEIAR epidemic model utilizing the Caputo derivative F3 F4 F5 numerical scheme",
+        "SEIAR Caputo predictor corrector asymptomatic recovered right hand side component mismatch",
+        "fractional SEIAR numerical scheme asymptomatic recovered Garrappa predictor corrector"
+      ]
+    },
+    "rationale": "The motivating paper is internally inconsistent in a way not identified in the inspected literature: correct \\(F_4/F_5\\) Volterra equations and definitions coexist with repeated \\(F_3/F_4\\) assignments in the numerical mapping. Targeted source-title, component-alias, method, and semantic database searches found no prior correction or equivalent claim. Garrappa's general method treats the vector field componentwise and therefore supplies methodology rather than the source-specific result.",
+    "residual_risks": [
+      "A mathematically equivalent correction could exist under different wording outside the inspected sources; targeted exact-title, alias, and semantic searches did not find one.",
+      "The closely related 2022 Sene chapter could not be compared from a reliable matching full text; its abstract does not expose enough numerical detail to resolve coverage.",
+      "No public implementation for the 2026 article was located, so the printed-formula defect cannot be assumed to describe the code used for figures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED_SOURCE_BUT_NOT_FINDING: the paper prints both the correct component definitions and the inconsistent shifted numerical formulas; it does not flag or repair the contradiction.",
+        "evidence": "Eq. (1.1) assigns \\(A\\) to \\(F_4\\) and \\(R\\) to \\(F_5\\); Eqs. (5.10)-(5.11), (5.15)-(5.16), and (5.21) misassign the last components; Eqs. (5.28)-(5.29) still claim vanishing target errors.",
+        "identifier_or_url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_15(1)_2026_200_to_213.pdf",
+        "material_read": "Full numerical-method derivation around Eqs. (5.1)-(5.29), model Eq. (1.1), definitions in Eq. (5.24), conclusion, and bibliographic metadata.",
+        "method": "Open-access full-text inspection, including rendered PDF pages for the model and numerical formulas.",
+        "title": "Investigations on the fractional SEIAR epidemic model utilizing the Caputo derivative",
+        "trigger": "Motivating primary source with matching objects, numerical scheme, and explicit primary MSC 92D30."
+      },
+      {
+        "assessment": "NOT_COVERING: provides the general componentwise system method and convergence methodology, but no SEIAR-specific indexing defect or correction.",
+        "evidence": "The method uses \\(f_j=f(t_j,y_j)\\) and explicitly treats non-scalar systems; it gives no basis for shifting component functions.",
+        "identifier_or_url": "doi:10.3390/math6020016",
+        "material_read": "Open-access full text, especially the general convolution formula, product-integration section, non-scalar system discussion, and software interface for a vector field f(t,y).",
+        "method": "Publisher open-access HTML full-text inspection.",
+        "title": "Numerical Solution of Fractional Differential Equations: A Survey and a Software Tutorial",
+        "trigger": "The motivating article cites Garrappa for the predictor-corrector scheme."
+      },
+      {
+        "assessment": "NOT_DECISIVE: general stability theory; no evidence of the source-specific component mapping.",
+        "evidence": "Abstract scope is predictor-corrector stability regions and multiple corrector iterations.",
+        "identifier_or_url": "doi:10.1080/00207160802624331",
+        "material_read": "Abstract and bibliographic record; publisher full text was not openly available in the inspected source.",
+        "method": "Publisher record and institutional repository metadata.",
+        "title": "On linear stability of predictor-corrector algorithms for fractional differential equations",
+        "trigger": "Second Garrappa reference cited by the motivating numerical section."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK: plausible related source, but no inspected evidence that it states the present SEIAR component-indexing finding.",
+        "evidence": "The abstract says two numerical schemes are applied to a Caputo SEIR model but provides no component formulas.",
+        "identifier_or_url": "doi:10.1016/B978-0-323-99888-8.00003-6",
+        "material_read": "Abstract and bibliographic record only; a reliable matching full-text copy was not obtained.",
+        "method": "Open web bibliographic/abstract search followed by a bounded full-text retrieval attempt.",
+        "title": "Numerical methods applied to a class of SEIR epidemic models described by the Caputo derivative",
+        "trigger": "Same lead author and closely related Caputo SEIR numerical-method subject."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c90e6f1d-2839-4cc9-a32a-c90fdc5712c1",
+  "value": {
+    "rationale": "This is not a cosmetic relabeling: the wrong fields appear in the continuous integral mapping, both final correctors, and the recovered predictor, while the article asserts componentwise convergence and bases its numerical section on the scheme. The exact witness quantifies a nonvanishing leading model discrepancy for every \\(0<\\alpha\\le1\\). Correcting this is directly useful for reproducibility and for interpretation of the asymptomatic and recovered trajectories, without requiring a larger downstream theorem.",
+    "status": "PASS"
+  }
+}
