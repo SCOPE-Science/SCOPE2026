@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Exact multiplicity counts over the blocks through a fixed point-pair plus 2*C(m,2)<=lambda*(m-1) prove the union bound. The needed symmetric-design block-intersection identity is derived from the incidence matrix. PG(3,q) gives algebraic equality; PG(3,2) and PG(3,3) were reconstructed and checked independently by the included script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source explicitly leaves lambda>1 with no pairwise separated p-set as its remaining non-exact regime.",
+        "Standard sources found describe symmetric-design block intersections and quasi-3 designs, but not this parameter-only sufficient criterion."
+      ],
+      "reasoning": "The claim is compared against results that could dominate it by classifying triple coverage or by a stronger parameter criterion.",
+      "searches": [
+        "pairwise separated set symmetric BIBD replica threshold p=3 no pairwise separated set lambda greater than one",
+        "SBIBD no block contains three chosen points bound union lambda blocks through a pair",
+        "web: symmetric design triple contained in a block lambda"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.29149v1",
+      "https://link.springer.com/article/10.1007/s10623-024-01452-4",
+      "2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2",
+      "2026/9/9/SCOPE045",
+      "2026/9/12/SCOPE082",
+      "2026/9/20/SCOPE-codimension-two-lrc-pair-incidence--43ade2b4102e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For p=3 the source sufficient condition is v-2>lambda(k-2).",
+        "The new condition replaces its right side by lambda(k-2)-(lambda-1)(lambda-2), which is strictly smaller for lambda>=3."
+      ],
+      "reasoning": "The source does not imply the new criterion: parameters can satisfy the new strict inequality while failing the source inequality. Conversely the new theorem is only an existence lemma and does not imply the source threshold classification.",
+      "searches": [
+        "arXiv:2609.29149v1 Definition 6 and Proposition V.1",
+        "arXiv:2609.29149v1 Proposition IV.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.29149v1 Proposition V.1 gives the weaker p=3 criterion v-2>lambda(k-2).",
+        "No returned database result stated the overlap-corrected union bound."
+      ],
+      "reasoning": "A separated triple is exactly a 3-set not contained in a block, so searches included both the storage terminology and standard design terminology.",
+      "searches": [
+        "symmetric design pairwise separated triple blocks through pair union overlap bound",
+        "projective 3-space symmetric design every three points contained in a hyperplane pairwise separated triple",
+        "symmetric 2-(v,k,lambda) design pairwise separated triple sufficient condition v-2 > lambda(k-2) - (lambda-1)(lambda-2)",
+        "web: \"symmetric 2-design\" \"every 3-subset\" block",
+        "web: exact formula lambda(k-2)-(lambda-1)(lambda-2) design"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published finding IDs: 2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2, 2026/9/9/SCOPE045, 2026/9/12/SCOPE082, 2026/9/20/SCOPE-codimension-two-lrc-pair-incidence--43ade2b4102e.",
+        "None of those summaries concerns the claimed symmetric-design union inequality."
+      ],
+      "reasoning": "The exact formula, motivating title, and projective-space boundary were queried separately.",
+      "searches": [
+        "Replica Thresholds for Stripeless Erasure Coding Based on Symmetric Block Designs",
+        "symmetric 2-(v,k,lambda) design pairwise separated triple sufficient condition v-2 > lambda(k-2) - (lambda-1)(lambda-2)",
+        "PG(3,q) sharp boundary pairwise separated triple symmetric design replica thresholds"
+      ]
+    },
+    "rationale": "The recent primary source gives v-2>lambda(k-2) for p=3 and does not include the overlap correction. Focused semantic and formula searches found no statement implying the new criterion. Residual risk remains that an older design-theory source states an equivalent result under different terminology.",
+    "residual_risks": [
+      "Classical design-theory literature may contain an equivalent bound under covering, blocking, or triple-intersection terminology; focused searches did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Proposition V.1 states v-2>lambda(k-2) for p=3; the PDF does not state the overlap-corrected term.",
+        "identifier_or_url": "arXiv:2609.29149v1",
+        "material_read": "Full PDF, with Definition 6, Propositions IV.4, V.1, V.3 and surrounding discussion inspected.",
+        "method": "Statement-by-statement comparison of the p=3 separation criterion and its proof with the present union bound.",
+        "title": "Replica Thresholds for Stripeless Erasure Coding Based on Symmetric Block Designs",
+        "trigger": "Direct motivating paper for pairwise separated sets and the remaining threshold case."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "It confirms the standard block-intersection property but does not provide the claimed separated-triple bound.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-024-01452-4",
+        "material_read": "Article landing-page theorem/background text returned by search.",
+        "method": "Checked the standard symmetric-design property that two distinct blocks meet in lambda points.",
+        "title": "Additivity of symmetric and subspace 2-designs",
+        "trigger": "Check the block-intersection fact used in the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2026b406-0dda-43aa-b03b-03c181c8cf48",
+  "value": {
+    "rationale": "The criterion directly sharpens the newly published sufficient condition governing the structural obstruction in stripeless SBIBD storage. The improvement is forced by symmetric-design intersection geometry and is sharp on an infinite family, so it gives a meaningful boundary rather than a routine numerical increment.",
+    "status": "PASS"
+  }
+}
