@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The sweep matrix is reconstructed from the relaxed projection updates. The vector \\(a^\\perp\\) gives an exact lower bound proving unique one-sweep optimality of \\(\\omega=1\\). The characteristic polynomial and discriminant are verified algebraically; the classical two-cyclic SOR optimum \\(\\omega_\\star=2/(1+s)\\) is a non-scalar double-root matrix. Its nilpotent decomposition gives an exact binomial formula for every integer power, and the two singular values follow from determinant and Frobenius norm. The ratio and the small-angle crossover expansion are then exact consequences. The included checker verifies all symbolic identities and exact rational replays; no numerical experiment is used to prove an infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Szwarc and Świderski (2013), DOI 10.4064/sm216-3-3, study convergence of relaxed Kaczmarz in Hilbert space; the inspected metadata/abstract does not state a two-row finite-power Euclidean singular-value formula.",
+        "Oseledets, Rakhuba, and Uschmajew, DOI 10.1002/nla.2459, explicitly state the two-block Young/SOR asymptotic optimum \\(\\omega_{\\mathrm{opt}}=2/(1+\\sqrt{1-\\beta^2})\\); this supplies the classical spectral-radius component rather than the new finite-horizon norm calculation.",
+        "Dax (2022), DOI 10.1155/2022/6143444, treats spectral-radius convergence and optimal relaxation for Kaczmarz/SOR-type iterations; the inspected text frames optimality asymptotically through \\(\\rho(F_\\omega)\\)."
+      ],
+      "reasoning": "Broader convergence and SOR theory covers why overrelaxation can improve asymptotic rates. The claim here keeps that classical part explicit and adds the exact original-variable nonnormal transient created by the optimal double root.",
+      "searches": [
+        "Kaczmarz algorithm with relaxation in Hilbert space Szwarc Swiderski",
+        "Local convergence of alternating low-rank optimization methods with overrelaxation Young SOR optimal omega spectral radius",
+        "The Rate of Convergence of the SOR Method in the Positive Semidefinite Case Kaczmarz optimal relaxation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1409.8310 (Czaja–Tanis, 2014-09-29)",
+      "DOI 10.4064/sm216-3-3 (Szwarc–Świderski, 2013)",
+      "DOI 10.1002/nla.2459 (Oseledets–Rakhuba–Uschmajew, first published 2022-07-01)",
+      "DOI 10.1155/2022/6143444 (Dax, 2022)",
+      "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+      "2026/9/20/SCOPE-alternating-projection-approximation-numbers--6fc6f397c9a2",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Young's two-cyclic SOR theorem determines the asymptotic spectral-radius optimum but does not determine Euclidean singular norms in the original Kaczmarz solution coordinates; similarity/duality relations used for spectral analysis do not preserve those norms.",
+        "The unrelaxed alternating-projection power-law record fixes \\(\\omega=1\\) and therefore does not imply the Jordan-block power formula at \\(\\omega_\\star>1\\).",
+        "The Kaczmarz residual-spike record uses a residual norm and an adaptive row-selection rule, so its bounds do not imply the fixed cyclic solution-error norm here.",
+        "The two-coordinate Gauss-Seidel transient record establishes a different minimax ordering result and does not supply the relaxation-dependent all-horizon ratio or small-angle crossover."
+      ],
+      "reasoning": "The classical spectral result is deliberately separated from the finite-horizon statement. None of the closest results transfers by an implication that preserves both the algorithmic iterate and the Euclidean solution-error norm.",
+      "searches": [
+        "two-row Kaczmarz overrelaxation Jordan coalescence finite-sweep norm exact formula crossover",
+        "Kaczmarz optimal relaxation finite horizon spectral radius transient polynomial factor two equations",
+        "SOR optimal relaxation defective double root transient norm finite iterations Kaczmarz two by two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published finding 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f studies maximal-distance Kaczmarz residual spikes under row coherence, not cyclic common-relaxation Euclidean solution-error power norms.",
+        "Published finding 2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881 concerns order-dependent bias for strongly underrelaxed inconsistent cyclic block Kaczmarz, not the consistent two-row transient/asymptotic tradeoff.",
+        "Published finding 2026/9/20/SCOPE-alternating-projection-approximation-numbers--6fc6f397c9a2 gives power laws for unrelaxed two-subspace alternating projections, not relaxed Kaczmarz at the spectral-radius optimum."
+      ],
+      "reasoning": "The searches varied Kaczmarz/SOR/alternating-projection terminology and finite-horizon, singular-value, transient, and angle formulations. The retrieved close results differ in row rule, observable, relaxation regime, or algorithm, so they do not imply the stated exact power norm and crossover.",
+      "searches": [
+        "two row Kaczmarz overrelaxation spectral radius Euclidean operator norm one sweep principal angle",
+        "SOR optimal relaxation two by two Kaczmarz one sweep singular value transient norm",
+        "relaxed alternating projections two lines one sweep operator norm optimal relaxation",
+        "Kaczmarz relaxation transient amplification singular values asymptotic optimal parameter",
+        "successive orthogonal projections overrelaxation two subspaces principal angle spectral radius norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published record returned the exact ratio \\(R_k(s)\\), the horizon-one factor \\(\\sqrt{1+3s^2}+2s\\), or the \\(s^{-1/2}\\) crossover.",
+        "The closest transient record, 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b, optimizes update ordering for standard two-coordinate Gauss-Seidel as a function of condition number, not common relaxation for cyclic Kaczmarz in solution-error coordinates."
+      ],
+      "reasoning": "Exact-expression and parameter searches did not expose a database/table entry containing the same formula. This negative search is supporting evidence only, not a proof of novelty.",
+      "searches": [
+        "cyclic Kaczmarz two normalized rows unique one-sweep Euclidean norm minimizer omega equals one spectral-radius optimal overrelaxation",
+        "Kaczmarz two-row asymptotic optimal relaxation finite-sweep operator norm tradeoff",
+        "two-row Kaczmarz relaxation angle spectral radius Young formula transient Euclidean norm",
+        "two-row Kaczmarz overrelaxation Jordan coalescence finite-sweep norm exact formula crossover",
+        "sqrt(1+3s^2)+2s Kaczmarz",
+        "1/(1+s)^2 Kaczmarz relaxation angle"
+      ]
+    },
+    "rationale": "The asymptotic optimal-relaxation formula is classical and is not claimed as new. The final claim is the exact original-variable Euclidean power norm at that optimum, its strict one-sweep disadvantage relative to unrelaxed Kaczmarz, and the nearly-parallel finite-horizon crossover law. Semantic searches and inspected primary literature found neighboring convergence, spectral-radius, residual, and Gauss-Seidel results but no statement implying this finite-horizon formula. A residual risk remains for older unindexed SOR/Kaczmarz literature.",
+    "residual_risks": [
+      "Classical SOR and Kaczmarz literature is large; an older unindexed source may contain the same two-by-two finite-power singular-value calculation.",
+      "Only metadata/abstract material was reliably inspected for the 2013 Szwarc–Świderski paper; it is therefore not used to assert whole-document absence.",
+      "The result is structurally meaningful but specialized to two rows; extension to larger cyclic systems is unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "First submitted 2014-09-29; treats frame-theoretic convergence of Kaczmarz, not constant-relaxation two-row finite-horizon power norms.",
+        "identifier_or_url": "arXiv:1409.8310",
+        "material_read": "ArXiv abstract page with title, authors, exact first submission timestamp, abstract, and Kaczmarz context.",
+        "method": "Lawful open arXiv access.",
+        "title": "Kaczmarz Algorithm and Frames",
+        "trigger": "Historical public-source anchor and same-algorithm background."
+      },
+      {
+        "assessment": "HIGHLY_RELEVANT_PARTIAL_INSPECTION_NOT_COVERING_IN_READ_MATERIAL",
+        "evidence": "Abstract concerns sufficient convergence conditions independent of relaxation coefficients; no finite-horizon two-row singular-value formula appears in the material read.",
+        "identifier_or_url": "DOI 10.4064/sm216-3-3",
+        "material_read": "Journal/MathDoc metadata and abstract; bibliographic record and scope statement.",
+        "method": "Lawful journal metadata/abstract access; full text was not required for any positive claim about absence.",
+        "title": "Kaczmarz algorithm with relaxation in Hilbert space",
+        "trigger": "Direct relaxed-Kaczmarz title."
+      },
+      {
+        "assessment": "COVERS_CLASSICAL_ASYMPTOTIC_COMPONENT_ONLY",
+        "evidence": "States \\(\\omega_{\\mathrm{opt}}=2/(1+\\sqrt{1-\\beta^2})\\) and minimizes SOR spectral radius; does not state the Kaczmarz original-variable finite-sweep singular norm or crossover.",
+        "identifier_or_url": "DOI 10.1002/nla.2459",
+        "material_read": "Full HTML including the asymptotically optimal relaxation section and Lemma 1 formula.",
+        "method": "Lawful publisher full-text HTML.",
+        "title": "Local convergence of alternating low-rank optimization methods with overrelaxation",
+        "trigger": "Explicit modern statement of the two-block Young/SOR optimal-relaxation formula."
+      },
+      {
+        "assessment": "ASYMPTOTIC_RATE_NOT_FINITE_NORM",
+        "evidence": "Defines optimal relaxation by minimizing \\(\\rho(F_\\omega)\\) and notes it can exceed one; no exact two-row finite-power Euclidean solution-error norm was found in the inspected passages.",
+        "identifier_or_url": "DOI 10.1155/2022/6143444",
+        "material_read": "Publisher HTML passages on Kaczmarz optimal relaxation and spectral-radius rate.",
+        "method": "Lawful publisher HTML.",
+        "title": "The Rate of Convergence of the SOR Method in the Positive Semidefinite Case",
+        "trigger": "Kaczmarz/SOR optimal-relaxation spectral-radius comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d549f725-1aa1-47ab-9ca4-6637ad31c6f5",
+  "value": {
+    "rationale": "The claim isolates a motivated tuning conflict: spectral-radius optimality is asymptotic, while practical row-action solvers often stop after finite sweeps. At the classical optimum the two-row sweep becomes defective, so the exact Jordan transient can be quantified rather than merely warned about. The all-horizon formula and \\(s^{-1/2}\\) crossover law show precisely how near-parallel geometry delays the benefit of overrelaxation. This is a structural finite-horizon statement, not a recomputation of a known spectral radius or an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
