@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The modal state matrix is reconstructed directly from the printed update. Its determinant factors as \\(z(z-\\beta)[z^2-(1+q_\\lambda-\\eta\\lambda)z+q_\\lambda]\\). The complete quadratic Jury criterion gives the claimed necessary-and-sufficient scalar stability conditions, and monotonicity gives the exact SPD interval condition. The active-root product and discriminant give the exact minimum state factor.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1109/CVPR.2018.00889",
+        "DOI:10.1109/ICME46284.2020.9102970"
+      ],
+      "reasoning": "The broader sources motivate controller terms, overshoot reduction, and derivative-noise handling. They do not provide the exact deterministic SPD-quadratic necessary-and-sufficient region or modal rate plateau.",
+      "searches": [
+        "A PID Controller Approach stochastic optimization scalar quadratic Schur stability Kd",
+        "PID optimizer gradient difference momentum scalar quadratic exact stability derivative gain",
+        "PID optimizer characteristic polynomial quadratic learning rate derivative coefficient"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/CVPR.2018.00889",
+      "DOI:10.1109/ICME46284.2020.9102970",
+      "github:tensorboy/PIDOptimizer:pid.py@master"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1109/CVPR.2018.00889, optimizer equation and tuning discussion",
+        "DOI:10.1109/ICME46284.2020.9102970, primary abstract and method description",
+        "github:tensorboy/PIDOptimizer:pid.py@master"
+      ],
+      "reasoning": "The defining paper gives the recurrence but only qualitative/control-heuristic stability discussion. The follow-up changes the optimizer construction. The public implementation uses a different algebraic update. None therefore implies the complete factorization-and-frontier claim.",
+      "searches": [
+        "A PID Controller Approach stochastic optimization scalar quadratic Schur stability Kd",
+        "ID optimizer derivative momentum curvature dependent effective momentum quadratic",
+        "PID optimizer characteristic polynomial quadratic learning rate derivative coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1109/CVPR.2018.00889",
+        "DOI:10.1109/ICME46284.2020.9102970",
+        "Published heavy-ball stability results were the closest semantic matches."
+      ],
+      "reasoning": "The active factor is algebraically heavy-ball-like only after the four-state factorization is performed, and unlike ordinary heavy ball its root product varies with curvature. The inspected PID/ID sources do not state that equivalence.",
+      "searches": [
+        "PID optimizer gradient difference momentum scalar quadratic exact stability derivative gain",
+        "ID optimizer derivative momentum curvature dependent effective momentum quadratic",
+        "PID optimizer characteristic polynomial quadratic learning rate derivative coefficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published database hits concerned fixed-momentum heavy ball, reflected-gradient methods, and stochastic feedback optimizers rather than this PID recurrence."
+      ],
+      "reasoning": "No exact table, formula, or database finding with the printed PID state equation and the curvature-dependent factor \\(q_\\lambda\\) was found.",
+      "searches": [
+        "PID optimizer gradient difference momentum scalar quadratic exact stability derivative gain",
+        "A PID Controller Approach stochastic optimization scalar quadratic Schur stability Kd",
+        "PID optimizer characteristic polynomial quadratic learning rate derivative coefficient"
+      ]
+    },
+    "rationale": "The inspected defining and follow-up sources do not state the combined four-state factorization, exact SPD Schur region, absolute stepsize supremum, and derivative-gain rate penalty. Focused semantic searches found neighboring momentum and stability results but no covering statement.",
+    "residual_risks": [
+      "Equivalent state-space factorizations may exist in older control or optimization literature under different terminology.",
+      "The associated implementation differs from the printed recurrence and requires a separate analysis.",
+      "The deterministic quadratic rate tradeoff does not quantify stochastic derivative-noise amplification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING.",
+        "evidence": "The recurrence analyzed here appears explicitly, but the source does not state the modal factorization or exact discrete Schur region.",
+        "identifier_or_url": "DOI:10.1109/CVPR.2018.00889",
+        "material_read": "Full open-access accepted manuscript, including the momentum equations, Equation 10 recurrence, derivative-gain initialization discussion, and the explicit warning that excessive derivative gain makes the system fragile.",
+        "method": "Full-text and page-level visual inspection.",
+        "title": "A PID Controller Approach for Stochastic Optimization of Deep Networks",
+        "trigger": "Defining source for the recurrence and derivative-gain motivation."
+      },
+      {
+        "assessment": "DIRECT_FOLLOWUP_NOT_COVERING_IN_ACCESSIBLE_MATERIAL.",
+        "evidence": "The accessible description treats the earlier optimizer as using derivative information and proposes a more complete PID construction to address derivative noise; it does not state the present exact quadratic formulas.",
+        "identifier_or_url": "DOI:10.1109/ICME46284.2020.9102970",
+        "material_read": "Primary abstract and accessible method description.",
+        "method": "Primary-source abstract inspection after open-access full text was not found.",
+        "title": "Rethinking the PID Optimizer for Stochastic Optimization of Deep Networks",
+        "trigger": "Direct follow-up on the earlier controller-inspired optimizer."
+      },
+      {
+        "assessment": "IMPLEMENTATION_DIFFERS_FROM_PRINTED_RECURRENCE.",
+        "evidence": "The code adds the current gradient directly to weighted integral and derivative buffers before the parameter step, so it is not algebraically identical to the printed equation.",
+        "identifier_or_url": "github:tensorboy/PIDOptimizer:pid.py@master",
+        "material_read": "Complete `pid.py` source on the public master branch.",
+        "method": "Repository source inspection.",
+        "title": "PIDOptimizer public implementation",
+        "trigger": "Reproducibility comparison with the source-associated implementation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b863d0a-1163-4eac-bff2-313bb601cf8d",
+  "value": {
+    "rationale": "The exact factorization converts the source paper's overshoot-versus-fragility motivation into a sharp structural law. Derivative feedback can enlarge the stable stepsize ceiling toward \\(4/L\\), but it simultaneously raises \\(q_\\lambda\\) and worsens the best scalar factor to \\(\\sqrt{q_\\lambda}\\). This is a directly interpretable boundary and tradeoff for the published optimizer.",
+    "status": "PASS"
+  }
+}
