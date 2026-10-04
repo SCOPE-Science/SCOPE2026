@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For each vertex in part V_i, the avoided closed-neighborhood complement is V_i minus that vertex. Pair intersections have size n_i-2 only for same-part pairs and are empty for cross-part pairs when k>=1. A spanning tree can attain exactly n_i-1 same-part edges in every part simultaneously, proving the tau_k formula. Non-dominating k-sets are exactly proper k-subsets of a single part. The per-part binomial identity gives the residual, which is nonnegative and vanishes exactly at n_i<=k+1. The included direct-definition verifier checks every complete-multipartite isomorphism type through order 11.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beaton and Brown prove unimodality for complete multipartite domination polynomials, a broader coefficient-shape result but not an evaluation of Omar's later overlap correction.",
+        "Omar's general Proposition 14 applies to all graphs only as a lower bound and leaves higher-order corrections open; it does not imply the exact residual on this family."
+      ],
+      "reasoning": "A theorem that the domination polynomial is unimodal does not determine sigma_k, the maximum-spanning-tree optimization tau_k, or the gap between the lower bound and r_k. The general 2026 inequality supplies the framework but not the family-specific equality and deficit.",
+      "searches": [
+        "overlap corrected domination probability complete multipartite repeated neighborhoods twins",
+        "complete multipartite domination polynomial normalized coefficient r_k exact formula",
+        "higher order overlap correction complete multipartite domination polynomial",
+        "arXiv:2012.11813v1 complete multipartite domination polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.14494v1",
+      "arXiv:2012.11813v1",
+      "2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf",
+      "2026/9/30/SCOPE-exact-total-strong-roman-domination-of-complete-multipartite-gra--f1a2cc307443",
+      "2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Omar provides only r_k >= 1 - sigma_k + tau_k in general and explicitly points to higher-order overlap corrections as a further direction.",
+        "The new residual can be positive, for example whenever a part has size at least k+2, so the general lower bound is genuinely non-exact on much of the family.",
+        "The prior complete-multipartite unimodality theorem does not state or imply when the 2026 pairwise correction is exact."
+      ],
+      "reasoning": "The final claim strictly refines the general lower bound on this family by evaluating both sides and their difference. Neither cited prior statement entails the sharpness criterion without the new neighborhood and spanning-tree calculation.",
+      "searches": [
+        "arXiv:2601.14494v1 Definition 8, equation (4.4), Proposition 14, Section 6",
+        "arXiv:2012.11813v1 complete multipartite theorem",
+        "\"tau_k\" \"complete multipartite\" domination",
+        "\"overlap correction\" \"complete multipartite\" \"domination polynomial\"",
+        "\"spanning tree\" overlap domination polynomial complete multipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.14494v1 defines sigma_k and tau_k and proves r_k >= 1 - sigma_k + tau_k, but its complete-multipartite discussion is only a citation to known unimodality and it gives no exact tau_k evaluation.",
+        "Searches using tau_k, spanning-tree overlap, closed-neighborhood overlap, and complete-multipartite aliases returned no equivalent residual identity."
+      ],
+      "reasoning": "The candidate statement is about the exact value and exact error of a newly defined overlap statistic. Searches were therefore phrased both with the source notation and with its set-system interpretation; no equivalent statement was located.",
+      "searches": [
+        "domination polynomial overlap correction tau_k complete multipartite graphs exact formula",
+        "closed neighborhood overlap maximum spanning tree complete multipartite domination",
+        "sigma_k tau_k complete multipartite graph domination polynomial",
+        "tau_k complete multipartite exact maximum spanning tree neighborhood overlap",
+        "arXiv:2601.14494v1 Section 4 and Section 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-index complete-multipartite hits concerned self/solid locating domination, total strong Roman domination, outer multiset dimension, and other different invariants.",
+        "No indexed record or exact-value table found in the searches listed the tau_k formula, the residual identity, or the max-part sharpness criterion."
+      ],
+      "reasoning": "The exact database comparison was performed at the level of the claimed quantities and implications, not merely by title matching. The returned complete-multipartite records do not concern the same overlap statistic.",
+      "searches": [
+        "domination polynomial overlap correction tau_k complete multipartite graphs exact formula",
+        "sigma_k tau_k complete multipartite graph domination polynomial",
+        "complete multipartite domination polynomial normalized coefficient r_k exact formula",
+        "\"overlap correction\" \"complete multipartite\" \"domination polynomial\""
+      ]
+    },
+    "rationale": "The exact formulas for the 2026 overlap parameter and the residual of Proposition 14 were not found in the initiating paper, the inspected complete-multipartite domination literature, the semantic index, or targeted web searches. The prior complete-multipartite result proves unimodality and gives domination-polynomial structure, but it does not imply the newly defined maximum-spanning-tree overlap statistic without the additional analysis supplied here.",
+    "residual_risks": [
+      "An equivalent calculation may exist under terminology that does not use Omar's recently introduced tau_k notation and was not surfaced by the inspected searches.",
+      "The result is a family-specific exact calibration; it does not settle the source paper's general higher-order-correction problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it defines the general overlap-corrected lower bound and motivates higher-order corrections, but does not give the complete-multipartite tau_k formula, exact residual, or sharpness criterion.",
+        "evidence": "arXiv:2601.14494v1, especially Section 4 equations (4.1), (4.4), Proposition 14, and Section 6 Perspective 2.",
+        "identifier_or_url": "arXiv:2601.14494v1",
+        "material_read": "Abstract; Introduction; Section 4 through Definition 8, equation (4.4), and Proposition 14; Section 6 conclusion on higher-order overlap corrections.",
+        "method": "Lawful arXiv HTML full text and arXiv version metadata.",
+        "title": "New Perspectives on the Unimodality of Domination Polynomials",
+        "trigger": "This paper introduces the exact sigma_k and tau_k quantities used in the claim and states the higher-order-overlap direction."
+      },
+      {
+        "assessment": "NOT_COVERING: it establishes unimodality for complete multipartite graphs and uses their domination structure, but it predates the 2026 overlap statistic and does not evaluate tau_k or a residual of a spanning-tree correction.",
+        "evidence": "arXiv:2012.11813v1, complete-multipartite domination-polynomial result.",
+        "identifier_or_url": "arXiv:2012.11813v1",
+        "material_read": "Abstract and the complete-multipartite theorem/proof in the primary preprint.",
+        "method": "Lawful arXiv primary text.",
+        "title": "On the Unimodality of Domination Polynomials",
+        "trigger": "This is the directly cited prior source for complete-multipartite domination-polynomial unimodality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41da6484-779a-4567-bb77-40e56d6468b2",
+  "value": {
+    "rationale": "The 2026 source introduces the spanning-tree overlap correction precisely to exploit highly overlapping neighborhoods and explicitly asks for higher-order corrections. Complete multipartite graphs are a canonical dense family with strongly repeated open-neighborhood structure and highly overlapping avoidance events. The finding determines the new optimization parameter, gives an exact sharpness boundary, and quantifies the entire omitted higher-order contribution. That makes it a motivated structural calibration of the new method rather than a routine recomputation of a known domination polynomial.",
+    "status": "PASS"
+  }
+}
