@@ -1,0 +1,88 @@
+{
+  "correctness": {
+    "rationale": "For the finite seven-state claim, complete breadth-first traversal of the reachable power automaton proves the first singleton distance and exact integer shortest-path multiplicities. The embedded verifier checks length \\(32\\), counts \\(331{,}776\\) and \\(1{,}327{,}104\\), the target-state split, the factor \\(4\\), and the source witness. The source theorem supplies a separate mathematical check that \\(n^2-3n+4=32\\) at \\(n=7\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1609.06853 states that its exhaustive global DFA census covers \\(n\\le6\\), while the construction exists for arbitrary \\(n\\).",
+        "Published record 2026/9/7/SCOPE007 concerns a different binary one-cluster eight-state automaton; published record 2026/9/9/SCOPE010 concerns Cerny one-hole mutants."
+      ],
+      "reasoning": "No broader result located determines shortest-word multiplicities for this fixed-alphabet family at seven states. Threshold theorems do not determine multiplicity, so the source threshold does not subsume the claim.",
+      "searches": [
+        "shortest reset word multiplicity Cerny extension a b e n^2-3n+4",
+        "seven-state three-letter slowly synchronizing automaton shortest reset word multiplicity 32"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.06853",
+      "doi:10.1016/j.ic.2020.104614",
+      "published-record:2026/9/7/SCOPE007",
+      "published-record:2026/9/9/SCOPE010",
+      "published-record:2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:1609.06853, Theorem 3 gives shortest length \\(n^2-3n+4\\) for \\(A^{-cd}\\) and notes the two-letter \\(A^{-bcd}\\) has the same shortest length.",
+        "The source gives an explicit shortest witness but no enumeration of all shortest words for these seven-state restrictions."
+      ],
+      "reasoning": "Knowing that both automata have shortest length \\(32\\), even with one explicit witness, does not determine how many distinct words attain the optimum or which singleton targets they reach. The new finite count is therefore not implied by the published threshold statement.",
+      "searches": [
+        "\"Slowly synchronizing automata with fixed alphabet size\" shortest words count",
+        "\"n^2-3n+4\" automaton shortest synchronizing words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1609.06853, Theorem 3 transition table and proof of the \\(n^2-3n+4\\) threshold",
+        "doi:10.1016/j.ic.2020.104614, published version of the same construction"
+      ],
+      "reasoning": "“Shortest synchronizing word” and “shortest reset word” are standard aliases for the same object here. The searches used both phrasings and the restriction notation. The primary source gives thresholds and witnesses but not the number of optimum words.",
+      "searches": [
+        "de Bondt Don Zantema slowly synchronizing fixed alphabet shortest synchronizing words multiplicity number of shortest reset words A^{-cd}",
+        "number of shortest reset words slowly synchronizing automata fixed alphabet A^-cd",
+        "regular language all shortest synchronizing words fixed alphabet construction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-number searches returned no matching published enumeration for the de Bondt--Don--Zantema family.",
+        "Closest published IDs inspected for implication were 2026/9/7/SCOPE007, 2026/9/9/SCOPE010, and 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f."
+      ],
+      "reasoning": "The closest database records use other automata or study avoiding thresholds rather than the count of shortest reset words; none supplies these seven-state counts as a table entry or corollary.",
+      "searches": [
+        "\"1327104\" shortest reset words synchronizing automaton",
+        "\"331776\" shortest reset words synchronizing automaton",
+        "A^-cd seven states shortest synchronizing words"
+      ]
+    },
+    "rationale": "The inspected primary source proves the common reset threshold but does not enumerate the shortest reset words at \\(n=7\\). Searches over aliases, exact counts, the family name, and the threshold found no statement that covers or implies the claimed multiplicities.",
+    "residual_risks": [
+      "An obscure or unindexed prior enumeration of shortest words for this exact seven-state automaton could exist.",
+      "The search establishes no bibliographic impossibility theorem; originality is supported by direct primary-source comparison plus alias and exact-number searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact objects and proves their reset thresholds, but does not state the seven-state multiplicities 331,776 or 1,327,104, the target-state split, or the factor-4 comparison.",
+        "evidence": "arXiv:1609.06853, Theorem 3 and proof; first public submission 2016-09-22.",
+        "identifier_or_url": "arXiv:1609.06853",
+        "material_read": "Theorem 3 transition table and its proof, including the \\(A^{-cd}\\) and \\(A^{-bcd}\\) restrictions, the \\(n^2-3n+4\\) threshold, the explicit witness, and nearby discussion of shortest-word counts for small examples.",
+        "method": "Full-text inspection of the lawful arXiv version, including the displayed transition table and proof text.",
+        "title": "Slowly synchronizing automata with fixed alphabet size",
+        "trigger": "This is the defining source for the fixed-alphabet construction and is the most plausible source for coverage of the exact claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "640171a8-1c21-45b7-9768-7c98252a8cbf",
+  "value": {
+    "rationale": "The paper centers alphabet-size effects in slow synchronization, and its exhaustive global census stops at \\(n\\le6\\). At the first state count beyond that census, the exact multiplicity comparison shows that a threshold-preserving letter extension can quadruple the number of optimal reset words and add a second optimal target state. This is a natural robustness invariant for the source construction rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
