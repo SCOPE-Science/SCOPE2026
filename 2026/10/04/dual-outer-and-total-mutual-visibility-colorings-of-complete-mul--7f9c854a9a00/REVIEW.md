@@ -1,0 +1,15 @@
+# Same-model review
+
+## Correctness
+PASS. The proof reduces every visibility requirement to a single exact geodesic criterion. For two vertices in the same multipartite part \(V_i\), every geodesic has length two and may use any vertex outside \(V_i\), so visibility relative to \(M\) is equivalent to the existence of a vertex in \((V(G)\setminus M)\setminus V_i\). Applying that criterion to the pair types required by the outer, dual, and total definitions yields the stated structural tests. The two-color constructions then cover every noncomplete nonexceptional graph. The star obstructions are forced by the unique two-edge leaf geodesics. Boundary cases \(K_{1,1}\) and \(K_{1,2}\) are treated separately. A direct exhaustive verifier agrees on all 102 parameter cases in the recorded finite range. The computation is not used as a proof of the infinite statement.
+
+## Originality
+PASS. The initiating 2026 paper was inspected through its definitions, general finiteness results, class-specific sections, and open questions; no complete multipartite theorem appears, and a full-text search for “multipartite” is negative. It already implies the total-star obstruction through its convex-\(P_3\) theorem and supplies the general outer one-color obstruction, so those pieces are not presented as new. Exact semantic searches under the parameter names, complete multipartite/bipartite aliases, and the star boundary did not locate a statement implying the unified formula. A 2024 diameter-two paper was also inspected because complete multipartite graphs are cographs of diameter at most two; its cograph theorem concerns maximum visibility-set sizes, not visibility colorings. Residual risk remains because the parameters are very recent and an equivalent result may be unindexed.
+
+## Value
+PASS. The three chromatic parameters were introduced in 2026, and their initiating paper explicitly asks for further tractable families and structural understanding of infinite dual colorability. Complete multipartite graphs are a canonical diameter-two family rich enough to exhibit all three behaviors. The exact formulas expose a genuine distinction between dual and total colorability at \(K_{1,2}\), identify the full star obstruction inside the family, and reduce all other noncomplete cases to two colors. This is a natural complete classification rather than a parameter substitution or an arbitrary finite slice.
+
+## Closest literature and limitations
+The closest source is Babu–Jakovac–Kuziak–Lakshmanan S.–Yero, arXiv:2609.31427v1. Its general total-colorability theorem covers the total-star impossibility, but it does not give the complete multipartite formulas or the dual classification. Cicerone–Di Stefano–Klavžar–Yero (European Journal of Combinatorics 120 (2024), 103995) studies maximum mutual-visibility-set cardinalities on diameter-two graphs and cographs, which is a different invariant. The result here does not extend beyond complete multipartite graphs, and very recent unindexed work remains a literature risk.
+
+Same-model review: passed. Independent audit: not yet performed.
