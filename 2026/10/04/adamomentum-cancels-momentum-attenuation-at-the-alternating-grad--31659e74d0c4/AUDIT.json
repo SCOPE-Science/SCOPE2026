@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The first-moment recurrence under alternating gradients is an exact geometric sum. After bias correction, the second moment is an exponentially weighted average of a sequence converging geometrically to \\(a^2G^2\\), plus the exact floor \\(\u000barepsilon/(1-\beta_2)\\). This gives the limiting normalized update. The raw-gradient ablation has a constant squared input, making its bias-corrected denominator exact at every step. Differentiation of the closed restoration factor proves its monotonicity and sharp endpoint limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "AdaMomentum's source develops broader convergence and basin-escape theory and motivates the second EMA as additional smoothing.",
+        "LaProp shows that momentum and adaptive normalization can interact pathologically when coupled differently.",
+        "Neither broader analysis determines the exact alternating-gradient normalized amplitude of the AdaMomentum recurrence."
+      ],
+      "reasoning": "Convergence or escape-time theorems under stochastic assumptions do not imply this deterministic frequency response. LaProp's different update architecture cannot dominate the momentum-squared AdaMomentum calculation.",
+      "searches": [
+        "AdaMomentum twofold exponential moving average smoothing momentum second moment",
+        "momentum adaptive normalization oscillating gradients",
+        "LaProp momentum adaptivity instability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.11514v1",
+      "arXiv:2002.04839v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "AdaMomentum Algorithm 1 gives \\(m_t\\), the EMA of \\(m_t^2\\), the bias corrections, and the inner damping term.",
+        "The source says the substitution further smooths the EMA but does not compute its response to an alternating signal.",
+        "LaProp studies a separate sign-variance interpolation and momentum/adaptivity coupling."
+      ],
+      "reasoning": "The final statement requires solving the alternating first-moment transient, passing its square through the second EMA, and comparing the normalized steady response with a raw-gradient ablation. Those steps are not stated consequences of the source's qualitative smoothing claim.",
+      "searches": [
+        "arXiv:2106.11514v1 Algorithm 1 AdaMomentum momentum squared epsilon",
+        "arXiv:2106.11514v1 twofold EMA motivation",
+        "arXiv:2002.04839v1 momentum adaptive normalization instability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source algorithm squares the momentumized gradient in the second moment and applies the corresponding bias correction.",
+        "Full-text searches for alternating and oscillating gradients returned no covering statement.",
+        "No published-record hit stated a normalized high-frequency restoration factor for AdaMomentum."
+      ],
+      "reasoning": "Equivalent formulations include a Nyquist-frequency normalized gain, cancellation of first-moment attenuation by the second-moment denominator, and the exact large-signal ratio \\((1+\beta_1)/(1-\beta_1)\\). None was found in the inspected sources.",
+      "searches": [
+        "AdaMomentum alternating gradient exact steady state normalized update",
+        "AdaMomentum oscillating gradients momentumized second moment Nyquist",
+        "AdaMomentum periodic gradient two cycle second moment",
+        "arXiv:2106.11514v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published findings concerned unrelated quadratic stability, stochastic feedback, adaptive-gradient counterexamples, and matrix-valued adaptive moments.",
+        "No returned record used AdaMomentum's momentum-squared second moment under a persistent alternating input."
+      ],
+      "reasoning": "The closest records have different state recurrences and do not imply the final gain law. Search absence is supporting evidence only and is combined with direct primary-source inspection.",
+      "searches": [
+        "AdaMomentum alternating gradient exact steady state normalized update",
+        "AdaMomentum oscillating gradients momentumized second moment Nyquist",
+        "AdaMomentum twofold EMA frequency response alternating sign gradients",
+        "AdaMomentum periodic gradient two cycle second moment"
+      ]
+    },
+    "rationale": "The defining source introduces the momentum-squared second moment and calls it a twofold EMA, but the inspected algorithm, motivation, theory, and experimental appendix do not state the alternating-gradient frequency-response cancellation. The closest nearby momentum/adaptivity analysis concerns LaProp's different decoupled recurrence. Focused published-record searches returned no implication-equivalent AdaMomentum result.",
+    "residual_risks": [
+      "An equivalent frequency-response calculation may exist in unindexed implementation notes.",
+      "The alternating signal is an extreme diagnostic and is not a distributional model of all stochastic gradients.",
+      "The raw-gradient control isolates one architectural change rather than reproducing every convention of standard Adam."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_ALTERNATING_GRADIENT_RESTORATION_LAW.",
+        "evidence": "Algorithm 1 explicitly uses \\(m_t^2\\) in the second moment and adds epsilon inside that recurrence. The source describes this as additional smoothing, but searches for alternating or oscillating gradients found no exact frequency-response result.",
+        "identifier_or_url": "arXiv:2106.11514v1",
+        "material_read": "Open-access full-text material around Algorithm 1 and its preliminaries/motivation, the paper's theoretical discussion of the adaptive denominator, and the appendix hyperparameter tables; the algorithm page was visually inspected.",
+        "method": "Full-text PDF inspection, targeted full-text searches, and visual inspection of the algorithm page.",
+        "title": "Rethinking Adam: A Twofold Exponential Moving Average Approach",
+        "trigger": "Defining source for AdaMomentum's momentum-squared second moment, bias correction, damping placement, and twofold-EMA motivation."
+      },
+      {
+        "assessment": "RELATED_MOMENTUM_NORMALIZATION_ANALYSIS_NOT_COVERING_ADAMOMENTUM.",
+        "evidence": "LaProp analyzes a different architecture and identifies instability from momentum/adaptivity mismatch; it does not square the momentumized gradient as AdaMomentum does.",
+        "identifier_or_url": "arXiv:2002.04839v1",
+        "material_read": "Open full-text sections on the adaptive-gradient family, sign-variance mechanism, momentum/adaptivity mismatch, and the LaProp decoupling motivation.",
+        "method": "Full-text HTML inspection with targeted comparison of recurrences and stability mechanisms.",
+        "title": "LaProp: Separating Momentum and Adaptivity in Adam",
+        "trigger": "Nearby primary analysis of how momentum interacts with adaptive normalization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "31659e74-d0c4-4282-a4d7-a265ee6eb055",
+  "value": {
+    "rationale": "AdaMomentum's defining scientific claim is that a second EMA of momentum provides a better adaptive scale. The alternating-gradient mode is the sharpest test of what the first EMA removes. The exact result shows that normalization can restore all of that removed high-frequency amplitude, quantifies the restoration by a simple factor, and gives a factor \\(19\\) at the widely used \\(\beta_1=0.9\\). This is a structural property of the optimizer's core mechanism, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
