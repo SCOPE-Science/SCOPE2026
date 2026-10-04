@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The Richardson recurrence and backward Euler substep amplification give the claimed rational stability function exactly. Its sign reduces to one scalar inequality; a strictly increasing logarithmic ratio proves a unique threshold for every integer refinement factor. The standard threshold is an exact quadratic root. Elementary logarithmic bounds prove the all-refinement asymptotic. The packaged exact-rational checker returns VERIFY_OK and corroborates the finite algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Constantinescu--Sandu construct Euler-based extrapolated methods, prove order properties, and study linear stability.",
+        "Shampine describes extrapolation as combining subintegrations and studies how the substep sequence affects efficiency and stability considerations.",
+        "Positivity-preserving numerical literature confirms that positivity is a distinct structural property beyond ordinary linear stability."
+      ],
+      "reasoning": "These broader sources explain construction, order, efficiency, and stability but do not by themselves imply sign preservation on positive scalar decay or its sharp loss threshold.",
+      "searches": [
+        "\"Extrapolated Implicit-Explicit Time Stepping\" Euler extrapolation linear stability",
+        "\"Efficient Extrapolation Methods for ODEs\" sequence stability",
+        "\"implicit extrapolation methods\" \"strong stability preserving\"",
+        "\"Richardson extrapolation\" positivity ODE numerical"
+      ]
+    },
+    "checked_sources": [
+      "Virginia Tech TR-08-13",
+      "DOI:10.1137/080732833",
+      "DOI:10.1093/imanum/3.4.383",
+      "Targeted semantic literature searches under positivity, sign-reversal, stability-function, and absolute-monotonicity aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Constantinescu--Sandu provide the Aitken--Neville extrapolation recurrence with arbitrary integer substep counts and analyze scalar linear stability, which supplies the construction but not the positivity theorem.",
+        "Shampine studies extrapolated midpoint rules and substep-sequence efficiency; his inspected full text does not specialize to the backward-Euler two-level positivity problem.",
+        "The two-level positivity threshold follows only after comparing the two positive backward-Euler amplifications with the signed Richardson coefficient."
+      ],
+      "reasoning": "Prior construction formulas make the new calculation possible but do not state or logically imply the sharp sign classification without the additional monotonic-ratio argument. The possibility that older monotonicity theory contains the same scalar invariant under different language is retained as a residual risk.",
+      "searches": [
+        "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods",
+        "Extrapolated Implicit-Explicit Time Stepping Constantinescu Sandu",
+        "Efficient Extrapolation Methods for ODEs Shampine",
+        "implicit Euler extrapolation stability function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The checked searches returned related results on other positivity barriers and extrapolation methods, but no source stating the equation \\((1+z/r)^r=r(1+z)\\) as a backward-Euler extrapolation positivity boundary.",
+        "The directly relevant Constantinescu--Sandu full text develops Euler extrapolation recurrences and scalar linear stability functions without stating the claimed sign boundary in the inspected material."
+      ],
+      "reasoning": "The result could appear as a scalar positivity radius, a negative-real-axis sign threshold of the stability function, or an absolute-monotonicity-related obstruction. Searches covered these aliases and the exact standard constant; no inspected source implied the all-refinement theorem.",
+      "searches": [
+        "implicit Euler extrapolation negative stability function scalar decay positivity threshold",
+        "backward Euler Richardson extrapolation scalar test equation negative stability function",
+        "Euler extrapolation stiff decay sign reversal positivity",
+        "extrapolated implicit Euler negative solution positive decay",
+        "\"2+2sqrt2\" backward Euler extrapolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-constant search exposed \\(2+2\\sqrt2\\) as the positivity threshold of the standard two-level backward-Euler extrapolate.",
+        "No checked extrapolation table or stability summary supplied the asymptotic \\(z_r=\\log r+\\log\\log r+o(1)\\)."
+      ],
+      "reasoning": "The standard threshold is simple enough to have been tabulated, so it was searched directly as well as through structural terminology. The checked records did not produce it.",
+      "searches": [
+        "\"2+2sqrt2\" backward Euler extrapolation",
+        "\"2+2 sqrt(2)\" implicit Euler Richardson",
+        "backward Euler extrapolation positivity threshold",
+        "implicit Euler extrapolation absolute monotonicity"
+      ]
+    },
+    "rationale": "Euler-based extrapolation, extrapolation-table construction, substep-sequence design, and linear stability analysis are established prior work. The accepted claim is the exact scalar positivity boundary for every two-level refinement factor, the standard closed threshold, the negative stiff tail, and the logarithmic refinement law. Searches under positivity, sign reversal, stability-function, absolute-monotonicity, and exact-constant aliases found no implication-equivalent statement in the checked literature.",
+    "residual_risks": [
+      "Older absolute-monotonicity or strong-stability literature may encode the same scalar negative-real-axis threshold under different terminology.",
+      "The theorem classifies only the second-order two-level extrapolate, not higher extrapolation columns.",
+      "A stability plot or software manual may implicitly contain the standard root without highlighting it as a positivity theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the method construction, convergence-order mechanism, and linear stability framework; the inspected text does not state the exact positivity boundary, standard \\(2+2\\sqrt2\\) threshold, or logarithmic refinement law.",
+        "evidence": "The paper defines base calculations over macro-steps divided into integer numbers of substeps and recursively extrapolates them; it explicitly studies stability functions on scalar linear test equations.",
+        "identifier_or_url": "Virginia Tech TR-08-13; DOI:10.1137/080732833",
+        "material_read": "Open full text covering the Euler base evaluations, the Aitken--Neville extrapolation recurrence, the harmonic substep sequence, and the scalar linear stability section.",
+        "method": "Lawful Virginia Tech/Argonne author-hosted full-text inspection.",
+        "title": "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods / Extrapolated Implicit-Explicit Time Stepping",
+        "trigger": "Direct primary source for Euler-based extrapolation with arbitrary integer substep counts and linear stability analysis."
+      },
+      {
+        "assessment": "COVERS classical ODE extrapolation and the significance of the substep sequence; it studies midpoint-based constructions rather than the backward-Euler two-level positivity threshold.",
+        "evidence": "The paper explicitly describes extrapolation as combining fixed-step subintegrations, compares classical and alternative integer sequences, and notes stability as a sequence-selection criterion.",
+        "identifier_or_url": "DOI:10.1093/imanum/3.4.383",
+        "material_read": "Full text pages covering the extrapolation construction, Neville tableau, substep sequences, efficiency comparisons, and the semi-implicit midpoint section.",
+        "method": "Authorized institutional full-text inspection after the publisher open-PDF route returned a rate-limit error.",
+        "title": "Efficient Extrapolation Methods for ODEs",
+        "trigger": "Highly relevant classical primary paper on ODE extrapolation sequences and their efficiency/stability tradeoffs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c9c2b9f6-d7e1-4e64-8f7b-4b7a9c27a36a",
+  "value": {
+    "rationale": "Backward Euler is a canonical positive stiff-decay integrator, and Richardson extrapolation is a canonical accuracy accelerator. The theorem gives a sharp structural incompatibility between those two features, including a closed threshold for the standard construction and an all-refinement law showing that positivity radius grows only logarithmically despite linearly increasing substep work.",
+    "status": "PASS"
+  }
+}
