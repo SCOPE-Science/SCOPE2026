@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The frame operation is exactly existential choice of a neighbourhood contained in the support and intersecting each instance set. Singleton instance sets for every element of D force any witness inside D to equal D, proving reconstruction. For the lower bound, every test with at most n-1 nonempty instance sets has a proper transversal of size at most n-1, so adding only the full carrier as a neighbourhood is invisible below arity n; n singleton tests expose it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source defines the omega-indexed BAIO family and the set-indexed complete-atomic operator.",
+        "Its duality proof reconstructs membership of a neighbourhood from an operator indexed by all atoms below that neighbourhood.",
+        "The 2022 paper studies an omega-indexed collection of fragments, but its accessible abstract does not state a carrier-size cutoff or finite exact reconstruction theorem.",
+        "The 2017 paper studies expressive fine structure but no checked accessible statement gives the sharp n-world threshold."
+      ],
+      "reasoning": "The primary source covers the upper reconstruction mechanism, so that part is not claimed as independent novelty. The accepted contribution is the exact worst-case cutoff, requiring a lower-bound pair invisible to every smaller instance arity.",
+      "searches": [
+        "de Groot 2026 full text: Definition 3.1 BAIO",
+        "de Groot 2026 full text: Lemma 3.5 and Remark 3.6",
+        "de Groot 2026 full text: frame operator in Section 4",
+        "de Groot 2026 full text: Theorem 4.3 reconstruction step",
+        "de Groot 2022 publisher abstract: omega-indexed family of INL fragments",
+        "van Benthem et al. 2017 abstract and bibliographic record: expressive fragments of INL"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/jsl.2026.10202",
+      "DOI:10.1007/s11225-021-09975-w",
+      "DOI:10.1017/S1755020316000447",
+      "DOI:10.26686/ajl.v23i2.10308"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source reconstruction formula implies that at most |D| instance arguments are enough to test D in N(x), hence gives the upper bound n on an n-world frame.",
+        "Remark 3.6 concerns replacing the complete-atomic signature by a unary primitive, not proving minimality of a finite initial BAIO segment.",
+        "The 2022 abstract confirms arity fragments are studied but does not provide the finite threshold; full text was inaccessible.",
+        "No prior current-ledger claim concerns instantial neighbourhood arity cutoffs."
+      ],
+      "reasoning": "The upper half is an explicit finite consequence of prior work and is treated as such. Neither the upper bound alone nor the existence of arity fragments implies the matching lower bound. The new pair proves that every uniform bound below n loses frame information.",
+      "searches": [
+        "primary-source implication check: atom-based reconstruction versus finite upper bound",
+        "primary-source implication check: Remark 3.6 signature shrinking versus finite BAIO truncation",
+        "2022 fragment-paper abstract comparison: arity-indexed fragments versus carrier-size cutoff",
+        "current cumulative ledger claim comparison through generation g000027"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed finding returned a finite carrier-size reconstruction cutoff for INL.",
+        "Web searches returned the 2017 INL paper, the 2022 arity-fragment paper, the 2026 Thomason-duality paper, and unary-fragment completeness work, but no exact n-world cutoff statement."
+      ],
+      "reasoning": "The searches cover the natural formulations of the claim: bounded instance arity, truncated BAIO signature, finite-frame reconstruction, arity hierarchy, and distinguishability.",
+      "searches": [
+        "published-finding database: instantial neighbourhood logic finite arity cutoff reconstruct neighbourhood frame",
+        "published-finding database: INL bounded arity neighbourhood frame distinguish full neighbourhood",
+        "published-finding database: finite instantial neighbourhood frame arity n operators",
+        "web literature: instantial neighbourhood logic bounded arity finite frame",
+        "web literature: instantial neighbourhood strict hierarchy arity",
+        "web literature: instantial neighbourhood n-bisimulation finite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula saying that the least uniform cutoff on n-world frames is n was located.",
+        "No checked source contains the explicit pair P(X) minus {X} versus P(X) as a lower-arity indistinguishability witness."
+      ],
+      "reasoning": "This is a sharp structural threshold rather than a numerical table; exact searches targeted the threshold and its natural lower-bound witness.",
+      "searches": [
+        "published-finding database: BAIO finite frame operator arity reconstruction",
+        "published-finding database: Thomason duality instantial neighbourhood finite signature cutoff",
+        "web literature: exact arity cutoff instantial neighbourhood finite"
+      ]
+    },
+    "rationale": "The 2026 duality source implies the finite upper bound through its atom-based reconstruction step, but no checked source states the matching lower bound or identifies n as the least uniform cutoff. The 2022 arity-fragment paper is the main residual risk because only its publisher abstract was accessible.",
+    "residual_risks": [
+      "The inaccessible full text of de Groot (2022) may contain a finite-model consequence equivalent to the sharp carrier-size cutoff.",
+      "Restricted instantial neighbourhood frame classes may have previously known smaller arity bounds under specialized terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: the atom-based reconstruction directly yields the finite upper bound n, but the source does not state a least uniform finite cutoff or a lower-bound indistinguishable frame pair.",
+        "evidence": "The source defines f_n for every n in omega and reconstructs neighbourhood membership using the atoms below the candidate neighbourhood.",
+        "identifier_or_url": "DOI:10.1017/jsl.2026.10202",
+        "material_read": "Open-access full text: introduction; Definition 3.1; Lemma 3.5; Remark 3.6; Section 4 definition of the frame operator; Theorem 4.3 and the neighbourhood-membership reconstruction step; conclusion.",
+        "method": "Direct statement and implication comparison using the HTML text and page-image inspection of the operator definition.",
+        "title": "Thomason Duality for Instantial Neighbourhood Frames",
+        "trigger": "Primary recent source defining the omega-indexed BAIO signature and reconstructing instantial neighbourhood frames in the duality proof."
+      },
+      {
+        "assessment": "PLAUSIBLE_RELATED_SOURCE_WITH_RESIDUAL_RISK.",
+        "evidence": "The abstract states that an omega-indexed collection of INL fragments is studied via Hennessy-Milner and Van Benthem characterizations.",
+        "identifier_or_url": "DOI:10.1007/s11225-021-09975-w",
+        "material_read": "Publisher abstract, bibliographic metadata, and reference list. Open-access and preprint searches did not yield the full text in the available comparison channel.",
+        "method": "Scope comparison only; no whole-document noncoverage inference was made.",
+        "title": "Hennessy-Milner and Van Benthem for Instantial Neighbourhood Logic",
+        "trigger": "Highly relevant paper explicitly studying an omega-indexed collection of INL fragments."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY.",
+        "evidence": "The abstract states that the paper studies expressive fine structure in fragments of INL.",
+        "identifier_or_url": "DOI:10.1017/S1755020316000447",
+        "material_read": "Publisher abstract, bibliographic record, and its use as the defining source in the 2026 duality paper.",
+        "method": "Background scope comparison.",
+        "title": "Instantial Neighbourhood Logic",
+        "trigger": "Foundational source introducing the modal family and expressive fragments."
+      },
+      {
+        "assessment": "NOT_COVERING_THE_FRAME_RECONSTRUCTION_CLAIM.",
+        "evidence": "The paper concerns Henkin-style canonical-model completeness for full INL and a unary fragment.",
+        "identifier_or_url": "DOI:10.26686/ajl.v23i2.10308",
+        "material_read": "Open journal abstract and bibliographic metadata.",
+        "method": "Compare fragment objective and theorem type.",
+        "title": "Henkin Completeness of Some Instantial Neighbourhood Logics",
+        "trigger": "Recent paper focused on full INL and a unary fragment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0e614d1-df15-40bb-a145-e15a35b82a1f",
+  "value": {
+    "rationale": "The new duality uses an omega-indexed BAIO signature and explicitly discusses signature reduction. The theorem gives a natural, exact finite compression result: on n worlds the first n instance arities retain all frame information, and no smaller uniform initial segment can do so. The matching lower bound prevents the result from being a routine restatement of the source reconstruction formula.",
+    "status": "PASS"
+  }
+}
