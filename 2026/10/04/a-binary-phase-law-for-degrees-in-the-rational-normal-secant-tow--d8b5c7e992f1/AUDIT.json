@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The source gives the minimal secant-degree formula and proves rational normal scrolls attain it. Specializing the one-dimensional scroll S(d) gives \\(D_{d,k}=\\binom{d-k}{k+1}\\) in the proper range. Kummer then gives the exact prime-adic carry count. For parity, Lucas modulo two reduces oddness to binary support containment. When \\(d+2\\) is a power of two, \\(d+1\\) is an all-ones binary word and every admissible subtraction produces the complementary low bits, forcing evenness. Otherwise, \\(a=2^{\\nu_2(d+2)}\\) is the first admissible lower index whose bit survives in \\(d+1-a\\), while every smaller positive \\(a\\) fails Lucas. The proof covers all quantifiers and boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ciliberto--Russo prove a general lower bound and equality for rational normal scrolls, which contains the numerical degree formula as a specialization.",
+        "Nogueira 2023 studies characteristic classes, Hilbert series, and secant hypersurface invariants of rational normal curves, but only its abstract was inspected."
+      ],
+      "reasoning": "The general degree formula does not by itself state the prime-adic minimization or global parity phase; these require Kummer/Lucas analysis across the entire tower.",
+      "searches": [
+        "binomial secant variety rational normal curve degree",
+        "rational normal curve degree secant variety binomial",
+        "secant degree rational normal curve binomial odd",
+        "parity secant variety rational normal curve"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0406494 full text",
+      "arXiv:2309.09254 abstract",
+      "semantic literature searches for rational-normal-curve secant parity and valuation formulations",
+      "own cumulative algebraic-geometry archive ledger for overlap exclusion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary geometric theorem implies only the binomial formula after specialization.",
+        "Kummer and Lucas imply parity facts only after the geometric parameters are matched and the admissible secant range is globally analyzed.",
+        "The nearest own historical record concerns tangent versus first-secant degrees of smooth complete-intersection curves and neither contains nor implies this rational-normal higher-secant classification."
+      ],
+      "reasoning": "No inspected prior statement quantifies simultaneously over all proper secant indices and classifies the exceptional ambient dimensions and first odd stage.",
+      "searches": [
+        "minimal secant degree rational normal curve Ciliberto Russo",
+        "Kummer theorem rational normal curve secant degree",
+        "Lucas theorem secant variety rational normal curve"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searches returned general secant-variety and unrelated parity material but no statement of the power-of-two phase law or the first odd index.",
+        "The primary source contains no match for the term parity or 2-adic in full-text search; its unrelated uses of odd/even concern Castelnuovo surfaces rather than degree parity."
+      ],
+      "reasoning": "The searches test both the geometric language and the equivalent arithmetic formulations of the final claim.",
+      "searches": [
+        "rational normal curve secant degree parity odd even binomial",
+        "higher secant rational normal curve degree 2-adic valuation binary carry",
+        "rational normal curve all secant degrees even power of two",
+        "degree S^k rational normal curve binomial parity",
+        "rational normal curve secant degree parity",
+        "2-adic secant rational normal curve"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved table or database result classified the dimensions for which every proper secant degree is even.",
+        "The formula generates familiar individual degrees, but the exact least odd stage \\(2^{\\nu_2(d+2)}-1\\) was not found in retrieved sources."
+      ],
+      "reasoning": "The claim is an infinite classification of a classical degree tower rather than a new isolated table entry.",
+      "searches": [
+        "rational normal curve secant degree sequence binomial",
+        "rational normal curve secant degrees 2 6 14 30 parity",
+        "rational normal curve secant degree power of two ambient dimension"
+      ]
+    },
+    "rationale": "The archival primary source supplies the geometric degree formula but the inspected secant-degree sections do not state the carry interpretation, the whole-tower all-even classification, or the exact first odd index. Direct semantic and web searches using rational-normal-curve secant degree, parity, oddness, binary carry, power-of-two, and two-adic formulations found no covering claim. A later rational-normal-secant paper was checked only at abstract level and is explicitly retained as a residual risk.",
+    "residual_risks": [
+      "The arithmetic theorem is an elementary but structured consequence of a classical binomial degree formula, so an older combinatorics or algebraic-geometry source may state it without using secant-variety language.",
+      "The later arXiv:2309.09254 comparison was abstract-level only and therefore cannot establish full-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_DEGREE_FORMULA_NOT_ARITHMETIC_PHASE_LAW",
+        "evidence": "Theorem 4.2 gives the binomial lower bound and Example 5.1 proves equality for rational normal scrolls, hence the rational normal curve formula. The inspected material does not state the prime-adic carry law, all-even classification, or least odd index.",
+        "identifier_or_url": "arXiv:math/0406494",
+        "material_read": "Full HTML around the introduction and secant convention, Theorem 4.2, Example 5.1 on rational normal scrolls, and the curve-classification discussion; full-text term searches for parity and 2-adic were also performed.",
+        "method": "Full-text HTML inspection and targeted text search.",
+        "title": "Varieties with minimal secant degree and linear systems of maximal dimension on surfaces",
+        "trigger": "Direct archival source for higher secant degree and rational normal curves."
+      },
+      {
+        "assessment": "RELATED_LATER_WORK_ABSTRACT_ONLY",
+        "evidence": "The abstract discusses Hilbert series, Euler characteristic, duals, characteristic classes, polar degrees, and gradient maps of secant varieties; it does not mention parity or prime-adic valuations. No whole-document noncoverage claim is made.",
+        "identifier_or_url": "arXiv:2309.09254",
+        "material_read": "Abstract only.",
+        "method": "ArXiv abstract inspection.",
+        "title": "Classes características e secantes de curvas racionais normais",
+        "trigger": "Later work directly focused on secants of rational normal curves and therefore a plausible coverage risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d8b5c7e9-92f1-452b-bb65-4116e04c4269",
+  "value": {
+    "rationale": "Higher secant varieties are central projective invariants of rational normal curves, and their degrees count complementary linear sections. The result converts the entire classical degree tower into an exact carry statistic at every prime and gives a complete binary phase transition: precisely the dimensions \\(d=2^m-2\\) have no odd proper secant degree, while every other dimension has an explicit first odd stage. This is a natural complete classification rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
