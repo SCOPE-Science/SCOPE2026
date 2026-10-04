@@ -1,0 +1,126 @@
+{
+  "claim": "Let \\(\\mathcal H=\\bigoplus_{i=1}^{K}(\\mathcal H_{A_i}\\otimes\\mathcal H_{B_i})\\) with \\(d_i=\\dim\\mathcal H_{A_i}\\ge1\\) and \\(m_i=\\dim\\mathcal H_{B_i}\\ge1\\), and let \\(\\mathcal A=\\bigoplus_{i=1}^{K}(\\mathcal B(\\mathcal H_{A_i})\\otimes I_{B_i})\\). Write \\(\\mathcal P_{\\mathcal A}\\) for the trace-preserving Hilbert--Schmidt conditional expectation onto this algebra, and let \\(\\mathcal E_p(\\rho)=(1-p)\\rho\\oplus p\\,\\operatorname{Tr}(\\rho)|e\\rangle\\langle e|\\), \\(0\\le p\\le1\\), be the standard flagged erasure channel on \\(\\mathcal H\\). Then the exact Bény reconstruction error is \\[\\boxed{\\epsilon_{\\mathcal A}(\\mathcal E_p):=\\inf_{\\mathcal R}\\|\\mathcal R\\circ\\mathcal E_p-\\mathcal P_{\\mathcal A}\\|_\\diamond=2p\\left(1-\\frac1S\\right),\\qquad S:=\\sum_{i=1}^{K}d_i^2=\\dim_{\\mathbb C}\\mathcal A.}\\] An optimal recovery applies \\(\\mathcal P_{\\mathcal A}\\) on the unerased branch and, on the erasure flag, prepares \\[\\sigma_\\star=\\bigoplus_{i=1}^{K}\\frac{d_i^2}{S}\\left(\\frac{I_{A_i}}{d_i}\\otimes\\frac{I_{B_i}}{m_i}\\right).\\] Thus the worst-case erasure reconstruction cost depends only on the protected algebra dimension \\(S\\), not on the gauge multiplicities \\(m_i\\). For a \\(K\\)-level classical memory it becomes \\(2p(1-1/K)\\), while for a \\(d\\)-dimensional fully quantum memory it becomes \\(2p(1-1/d^2)\\). If \\(\\lambda=(d_1,\\ldots,d_K)\\) is Kuperberg's hybrid-memory shape, then \\(S=\\|\\lambda\\|_2^2\\), so the same invariant that controls the shape's \\(2\\)-norm also fixes this exact single-shot diamond-norm erasure radius.",
+  "correctness": {
+    "rationale": "The CP reduction map gives the reference-stable upper domination, and the sector-weight minimax plus a maximally entangled witness gives the matching lower bound. The flagged erasure decomposition then yields the exact factor \\(p\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bény--Oreshkov arXiv:0907.5391 uses worst-case entanglement fidelity.",
+        "General conditional-expectation literature located in search concerns structural channel results rather than this erasure reconstruction value."
+      ],
+      "reasoning": "Broader recovery theory does not directly imply the closed form without the block-weight minimax and reference-stable domination.",
+      "searches": [
+        "operator algebra erasure diamond norm quantum error correction",
+        "approximate correctability erasure hybrid algebra",
+        "constant channel conditional expectation diamond norm quantum",
+        "Operator algebra generalization Watrous conditional expectation mixed unitary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0907.4207",
+      "DOI:10.1007/978-3-642-10698-9_7",
+      "MaRDI:Q5189228",
+      "arXiv:quant-ph/0203105",
+      "DOI:10.1109/TIT.2003.811917",
+      "arXiv:0907.5391",
+      "DOI:10.1103/PhysRevLett.104.120501"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bény Theorem 3.1 bounds reconstruction by a complementary-channel disturbance rather than evaluating this direct-sum erasure case.",
+        "Kuperberg identifies \\(\\|\\lambda\\|_2\\) as a capacity invariant but does not study diamond recovery from erasure.",
+        "Bény--Oreshkov optimize a different metric."
+      ],
+      "reasoning": "An additional theorem computing the conditional-expectation-to-replacer radius is necessary to obtain the stated formula.",
+      "searches": [
+        "Conditions for the approximate correction of algebras full text theorem 3.1",
+        "The capacity of hybrid quantum memory full text 2-norm dense coding",
+        "General Conditions for Approximate Quantum Error Correction near-optimal recovery hybrid codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bény arXiv:0907.4207 defines the same diamond reconstruction metric and general algebra projector.",
+        "No inspected source stated the exact constant-channel radius for \\(S=\\sum_i d_i^2\\)."
+      ],
+      "reasoning": "Equivalent coverage would have to compute the same minimax diamond radius for all matrix-block sectors; the inspected sources and searches did not.",
+      "searches": [
+        "finite dimensional C star algebra conditional expectation replacer diamond norm sum squares block dimensions",
+        "hybrid quantum classical memory complete erasure optimal constant recovery diamond norm",
+        "pinching channel versus constant channel diamond norm block dimensions",
+        "2(1-1/dim A) diamond quantum channel algebra",
+        "dimension of the algebra diamond norm conditional expectation quantum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source gives general bounds and a subspace specialization, not a flagged-erasure table.",
+        "Kuperberg gives shape capacities, not recovery-error tables."
+      ],
+      "reasoning": "The claim is not a recomputation of a published table.",
+      "searches": [
+        "arXiv:0907.4207 erasure hybrid algebra exact reconstruction",
+        "arXiv:quant-ph/0203105 erasure diamond hybrid memory",
+        "sum_i d_i^2 erasure quantum memory",
+        "erasure p-norm hybrid quantum memory"
+      ]
+    },
+    "rationale": "The inspected primary framework and hybrid-memory capacity sources do not state the exact direct-sum diamond erasure formula; targeted alias and broader-coverage searches did not locate it.",
+    "residual_risks": [
+      "An equivalent conditional-expectation/replacer diamond identity may exist under different operator-algebra terminology.",
+      "Selective erasure and preserved side information are outside the theorem.",
+      "The supporting hybrid-memory capacity source has a different primary classification and is used only for comparison, not ownership."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework and bounds are present; the exact flagged-erasure direct-sum formula is not.",
+        "evidence": "The source defines \\(\\epsilon_{\\mathcal A}\\) and \\(\\mathcal P_{\\mathcal A}\\), then bounds reconstruction through complementary-channel disturbance.",
+        "identifier_or_url": "arXiv:0907.4207; DOI:10.1007/978-3-642-10698-9_7",
+        "material_read": "Full arXiv HTML text including Sections 2 and 3, Definition 1, Theorem 3.1, the subspace specialization, and outlook.",
+        "method": "Full-text inspection.",
+        "title": "Conditions for the approximate correction of algebras",
+        "trigger": "Primary source for algebra decomposition, conditional expectation, and diamond reconstruction error."
+      },
+      {
+        "assessment": "Defines shape norms and their capacities but not erasure recovery or diamond distance.",
+        "evidence": "The source represents finite hybrid memories as direct sums of matrix algebras and gives an information-theoretic role to the \\(2\\)-norm.",
+        "identifier_or_url": "arXiv:quant-ph/0203105; DOI:10.1109/TIT.2003.811917",
+        "material_read": "Full arXiv HTML through the introduction, memory model, direct-sum classification, and capacity discussion.",
+        "method": "Full-text inspection.",
+        "title": "The capacity of hybrid quantum memory",
+        "trigger": "Closest source for hybrid-memory shapes and the \\(2\\)-norm invariant."
+      },
+      {
+        "assessment": "Uses worst-case entanglement fidelity, not the claimed diamond erasure formula.",
+        "evidence": "The abstract explicitly names worst-case entanglement fidelity as the success metric.",
+        "identifier_or_url": "arXiv:0907.5391; DOI:10.1103/PhysRevLett.104.120501",
+        "material_read": "Abstract and bibliographic description.",
+        "method": "Open abstract inspection.",
+        "title": "General Conditions for Approximate Quantum Error Correction and Near-Optimal Recovery Channels",
+        "trigger": "Broader optimal-recovery literature for hybrid codes."
+      },
+      {
+        "assessment": "Primary MSC is 81P45.",
+        "evidence": "The record lists Quantum information, communication, networks (81P45).",
+        "identifier_or_url": "MaRDI:Q5189228",
+        "material_read": "Bibliographic metadata, abstract, full-work link, and MSC entry.",
+        "method": "Mathematical bibliographic metadata inspection.",
+        "title": "Conditions for the approximate correction of algebras — classification record",
+        "trigger": "Primary MSC verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3843252a-e134-4931-8ab8-d66c4fb0c030",
+  "value": {
+    "rationale": "The exact single-shot benchmark applies to the full hybrid-algebra class, removes all gauge multiplicities from the answer, unifies classical and quantum cases, and identifies \\(S=\\sum_i d_i^2\\) as the sole erasure-sensitivity parameter.",
+    "status": "PASS"
+  }
+}
