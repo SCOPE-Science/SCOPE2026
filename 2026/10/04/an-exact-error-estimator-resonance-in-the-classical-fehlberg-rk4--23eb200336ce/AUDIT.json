@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution of the published rational tableau reconstructs \\(R_4\\) and \\(R_5\\) exactly and gives \\(E(z)=z^5(3z-8)/6240\\). The root \\(z=8/3\\), multiplier \\(1613/117\\), and derivative \\(1024/15795\\) are exact rational identities. The true defect is strictly positive because the sixth Taylor partial sum of \\(e^{8/3}\\) already exceeds \\(1613/117\\) by \\(139264/426465\\). The near-resonant divergence follows from a simple zero of \\(E\\) and nonzero continuous true defect, and the repeated-step statement is an exact scalar recurrence. The packaged checker replays these identities from the actual tableau and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Higham and Hall 1990 analyze stepsize-control equilibria through stability and error polynomials and include the Fehlberg pair in stability/equilibrium comparisons.",
+        "Ranocha et al. write the modern scalar controller model \\(u^{n+1}=R(z)u^n\\), \\(e^{n+1}=E(z)u^n\\) with \\(E\\) the difference of stability polynomials.",
+        "Higham 1997 studies regular embedded Runge--Kutta pairs and spurious fixed points under variable stepsize control; its abstract was accessible, while full text was not."
+      ],
+      "reasoning": "These broader theories make the error polynomial and its zeros natural comparison objects. Higham--Hall's full inspected paper does not give the accepted Fehlberg-specific resonance. Higham 1997 remains a genuine access risk, but its stated regularity target is spurious fixed points, whereas the resonant multiplier here is \\(1613/117\ne1\\); the abstract therefore does not imply the present claim.",
+      "searches": [
+        "web: \"Embedded Runge-Kutta formulae with stable equilibrium states\" Fehlberg",
+        "web: \"Regular Runge-Kutta pairs\" Fehlberg 4 5 error polynomial",
+        "web: \"Optimized Runge-Kutta Methods with Automatic Step Size Control for Compressible CFD\" error estimate stability polynomial",
+        "web: \"embedded Runge-Kutta\" \"error estimate\" zero \"linear\" test equation"
+      ]
+    },
+    "checked_sources": [
+      "NASA:NTRS-19690021375",
+      "NASA-TR-R-315",
+      "DOI:10.1016/0377-0427(90)90192-3",
+      "DOI:10.1016/S0168-9274(97)00062-7",
+      "DOI:10.1007/s42967-021-00159-w",
+      "DOI:10.1007/BF01389456",
+      "published-finding corpus semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Higham--Hall define the embedded error difference and study controller equilibrium on linear test problems, but their inspected pages treat stability-boundary equilibrium and compare Fehlberg through aggregate metrics and plots.",
+        "Higham 1997 characterizes regularity for avoiding spurious fixed points according to its abstract. The accepted resonant step is not a fixed point of the numerical state map because its multiplier is \\(1613/117\\).",
+        "The exact recurrence shows a different implication: with a fixed resonant step the estimator is zero at every nonzero state while the numerical and exact trajectories separate geometrically."
+      ],
+      "reasoning": "Known controller equilibrium or fixed-point regularity does not, from the material inspected, logically imply this nonstationary blind trajectory. Because the 1997 full text was inaccessible, possible explicit overlap there is retained as the principal residual risk rather than being declared absent.",
+      "searches": [
+        "web: \"Regular Runge-Kutta pairs\" spurious fixed point embedded error control",
+        "web: \"Embedded Runge-Kutta formulae with stable equilibrium states\" Fehlberg",
+        "web: \"Fehlberg\" \"spurious fixed point\" Runge Kutta pair",
+        "published-finding corpus: persistent zero embedded error estimate Fehlberg exponential growth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact published-finding corpus queries returned no Fehlberg-specific implication-equivalent record; their top matches concerned unrelated approximation, Padé positivity, Aitken acceleration, and other numerical topics.",
+        "Fehlberg NASA TR R-315 Table III supplies the exact six-stage Formula 2 coefficients, and its fourth-order section states that the difference between the embedded fourth- and fifth-order formulas is used as an approximation to the leading truncation error.",
+        "Higham and Hall 1990 explicitly formulate embedded-pair error control and compare the commonly used true six-stage Fehlberg pair on linear problems."
+      ],
+      "reasoning": "The published coefficient pair and use of the difference as an estimator are prior. The inspected sources do not state the factorization \\(E(z)=z^5(3z-8)/6240\\), the nonzero root \\(z=8/3\\), the common multiplier \\(1613/117\\), or the resulting persistent resonant trajectory.",
+      "searches": [
+        "published-finding corpus: Fehlberg RK4(5) error stability polynomial z^5(3z-8) embedded estimate zero",
+        "published-finding corpus: persistent zero embedded error estimate Fehlberg exponential growth",
+        "published-finding corpus: Fehlberg 4(5) scalar test equation embedded estimator cancellation",
+        "web: \"Fehlberg\" \"zero error estimate\" Runge Kutta",
+        "web: \"Fehlberg\" \"8/3\" Runge Kutta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked published-finding corpus record or inspected literature table listed a nonzero Fehlberg error-polynomial zero at \\(8/3\\).",
+        "Higham--Hall Table 4 reports truncation and equilibrium metrics for the Fehlberg pair, not the exact positive-real zero or common embedded multiplier."
+      ],
+      "reasoning": "The source tables cover coefficients, truncation metrics, stability boundaries, and equilibrium measures. They do not tabulate or imply the specific zero-estimator/nonzero-defect identity assessed here.",
+      "searches": [
+        "published-finding corpus: Fehlberg RKF45 embedded error estimator zero at z=8/3",
+        "published-finding corpus: Runge Kutta local error estimate accidentally zero embedded pair scalar exponential",
+        "web: RKF45 error estimate vanishes linear y'=lambda y"
+      ]
+    },
+    "rationale": "The source pair, error-difference mechanism, scalar error-polynomial framework, and general controller-equilibrium theory are all treated as prior work. The inspected Fehlberg report and Higham--Hall full paper do not state the exact positive-real resonance, common multiplier, reciprocal-distance reliability blow-up, or persistent fixed-step blind trajectory. Targeted published-finding corpus searches returned no implication-equivalent record. Higham's 1997 regularity paper is highly relevant but full text remained behind a human-verification barrier after lawful open and institutional access attempts, so possible explicit overlap there remains an acknowledged risk.",
+    "residual_risks": [
+      "The full text of Higham's 1997 Regular Runge-Kutta pairs could not be inspected because lawful institutional retrieval reached a human-verification barrier. It may contain an explicit Fehlberg-specific zero not exposed by the abstract.",
+      "Older stepsize-control and Runge--Kutta reliability literature may discuss the same positive-real error-polynomial root under different terminology.",
+      "The exact cancellation is simple once the scalar stability polynomials are written down; novelty rests on the specific reliability interpretation and persistence law, not on the algebraic factorization alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the coefficients and the embedded error-difference principle. DOES NOT STATE in the inspected material the scalar stability-polynomial factorization or the nonzero resonance claimed here.",
+        "evidence": "NASA metadata gives publication date July 1, 1969 and report R-315. The report states that the difference between the fourth- and fifth-order outputs approximates the leading truncation error, and Table III lists Formula 2's rational coefficients.",
+        "identifier_or_url": "NASA NTRS 19690021375; NASA-TR-R-315",
+        "material_read": "NASA metadata; fourth-order section describing the fourth/fifth embedded formulas and use of their difference for stepsize control; Table III coefficients inspected from the public PDF.",
+        "method": "Lawful NASA public full text; PDF table inspected visually.",
+        "title": "Low-Order Classical Runge-Kutta Formulas with Stepsize Control and Their Application to Some Heat Transfer Problems",
+        "trigger": "Primary source for the exact RK4(5) Formula 2 coefficients and the intended embedded error signal."
+      },
+      {
+        "assessment": "COVERS scalar error-polynomial controller analysis and Fehlberg stability/equilibrium comparison. DOES NOT STATE the exact \\(z=8/3\\) zero, \\(1613/117\\) common multiplier, near-root divergence, or persistent fixed-step blind trajectory.",
+        "evidence": "The paper defines the embedded difference as the local error estimate, introduces characteristic polynomials \\(S\\) and \\(E\\), and explicitly calls Fehlberg a commonly used true six-stage order-4,5 pair in its comparisons.",
+        "identifier_or_url": "DOI:10.1016/0377-0427(90)90192-3",
+        "material_read": "Open author PDF pages 25--33, including the local extrapolation setup, error estimate, scalar stability/error-polynomial equilibrium analysis, new-pair tables, plots and comparisons including Fehlberg, numerical results, and references.",
+        "method": "Lawful author-hosted full PDF; relevant pages visually inspected.",
+        "title": "Embedded Runge-Kutta formulae with stable equilibrium states",
+        "trigger": "Closest inspected prior on embedded order-4,5 pairs, scalar error polynomials, stepsize-controller equilibrium, and the Fehlberg pair itself."
+      },
+      {
+        "assessment": "ABSTRACT COVERS avoidance of spurious fixed points and variable-step regularity. FULL-TEXT COMPARISON UNRESOLVED. The accepted resonance is nonstationary because the multiplier is not one, so the abstract does not imply it.",
+        "evidence": "The abstract defines regular methods as those avoiding spurious fixed points and says regularity is extended to embedded pairs under variable stepsize error control.",
+        "identifier_or_url": "DOI:10.1016/S0168-9274(97)00062-7",
+        "material_read": "University repository abstract and bibliographic record. Full text was absent from open repositories; institutional retrieval was attempted only after open-access failure and reached a human-verification barrier.",
+        "method": "Open metadata/abstract inspection plus bounded authorized institutional retrieval attempt.",
+        "title": "Regular Runge-Kutta pairs",
+        "trigger": "Potentially strongest overlap because it studies embedded pairs under variable stepsize local error control and zero-tolerance regularity."
+      },
+      {
+        "assessment": "COVERS the modern \\(u^{n+1}=R(z)u^n\\), \\(e^{n+1}=E(z)u^n\\) framework. DOES NOT STATE in inspected material the Fehlberg-specific resonance.",
+        "evidence": "Its scalar controller model explicitly identifies \\(E\\) as the difference of the embedded and main stability polynomials.",
+        "identifier_or_url": "DOI:10.1007/s42967-021-00159-w",
+        "material_read": "Open full-text introduction, controller discussion, and scalar linear-model section defining \\(R\\) and \\(E\\).",
+        "method": "Lawful publisher full-text HTML inspection.",
+        "title": "Optimized Runge-Kutta Methods with Automatic Step Size Control for Compressible Computational Fluid Dynamics",
+        "trigger": "Modern full-text treatment of step-size control stability through main and embedded stability polynomials."
+      },
+      {
+        "assessment": "Supports primary subject ownership in numerical initial-value ODE methods.",
+        "evidence": "The record says its RKF4RW algorithm is based on the well-known RKF4(5) pair and lists AMS(MOS) 65L05.",
+        "identifier_or_url": "DOI:10.1007/BF01389456",
+        "material_read": "Bibliographic abstract and subject-classification record.",
+        "method": "University research-portal metadata inspection.",
+        "title": "Partitioned Runge-Kutta methods with stiffness detection and stepsize control",
+        "trigger": "Classification evidence for the RKF4(5) method family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23eb2003-36ce-4619-a46e-995c087a3ac0",
+  "value": {
+    "rationale": "The embedded difference is the quantity a controller uses to decide whether a step is accurate, so a nonzero root with nonzero true defect is a natural reliability invariant. The classical Fehlberg pair has such a root on the simplest scalar test equation, with a \\(4.21\\%\\) one-step relative miss, unbounded true-error-to-estimator ratio near the root, and an exact fixed-step or maximum-step-clamped trajectory whose estimator is always zero while global relative error tends to one. This supplies a compact stress test and a structural warning for controller safeguards.",
+    "status": "PASS"
+  }
+}
