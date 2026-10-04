@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Rank-one matrices are parameterized by image/kernel projective lines and a nonzero scalar. The adjacency criterion is exact. The symbolic rectangle argument excludes every dominating set of size at most \\(q\\) for \\(q>2\\), while an explicit two-vertex set works for \\(q=2\\). The verifier independently confirms the two smallest actual matrix graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Božić--Petrović study directed zero-divisor graphs of matrix rings and diameter; the publication is classified under MSC \\(16S50\\).",
+        "Jafari--Jafari Rad compute directed in-/out-domination for matrix rings over finite fields.",
+        "The later survey covers matrix zero-divisor graphs and states both directed and undirected noncommutative conventions."
+      ],
+      "reasoning": "The closest broad sources cover the same matrix-ring graph program but do not supply ordinary domination of the underlying undirected graph.",
+      "searches": [
+        "doi:10.1080/00927870802465951",
+        "doi:10.4153/CMB-2015-017-6",
+        "doi:10.1080/09728600.2024.2332780"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/00927870802465951",
+      "doi:10.4153/CMB-2015-017-6",
+      "doi:10.1080/09728600.2024.2332780"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 theorem gives directed out- and in-domination \\((q^n-1)/(q-1)\\), hence \\(q+1\\) at \\(n=2\\).",
+        "Passing to the underlying undirected graph adds reverse-arc adjacencies; a directed lower bound therefore does not give an undirected lower bound.",
+        "The final \\(q=2\\) value is \\(2\\), strictly below the directed value \\(3\\), so the final claim is not a corollary of the directed theorem."
+      ],
+      "reasoning": "The implication comparison is decisive: the prior theorem is for a stronger asymmetric domination condition, and the binary case supplies an explicit separation.",
+      "searches": [
+        "Jafari--Jafari Rad 2015 Theorem 2.7 Corollary 2.9",
+        "\"directed\" domination underlying undirected zero-divisor graph matrix ring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The later matrix-graph survey explicitly defines the undirected noncommutative graph by the condition that either product vanishes.",
+        "Searches under underlying, undirected, symmetrized, and two-sided-product wording returned directed matrix-graph papers or unrelated domination results, not the piecewise formula."
+      ],
+      "reasoning": "The standard aliases for forgetting edge directions and for the product-zero adjacency relation were checked directly, so the comparison is not based only on title wording.",
+      "searches": [
+        "\"underlying undirected\" \"zero-divisor graph\" domination matrix ring",
+        "\"undirected zero-divisor graph\" \"M_2\" finite field domination",
+        "\"AB=0 or BA=0\" domination matrix ring",
+        "\"domination number\" \"underlying graph\" zero-divisor ring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact parameterized searches located the 2015 directed domination paper but no table or theorem for the undirected symmetrization.",
+        "No inspected source tabulates the exceptional value \\(2\\) for the binary underlying graph."
+      ],
+      "reasoning": "The exact matrix size, field parameter, adjacency condition, and domination invariant were searched together; no stronger or equal coverage was found.",
+      "searches": [
+        "\"domination\" \"M_2(F_q)\" zero divisor graph",
+        "\"zero divisor graph of matrix ring\" finite field domination",
+        "\"zero-divisor graph\" \"AB=0 or BA=0\" M2 finite field"
+      ]
+    },
+    "rationale": "The closest matrix-domination theorem is directed and gives in-/out-domination \\(q+1\\); it cannot imply the undirected lower bound after edge symmetrization, and the \\(q=2\\) strict drop demonstrates the distinction. No inspected source gives the final undirected formula.",
+    "residual_risks": [
+      "An unindexed paper using the older undirected noncommutative zero-divisor convention may contain the same \\(2\\times2\\) formula.",
+      "The 2009 matrix-ring source was available only through abstract and bibliographic metadata in the inspected access path.",
+      "The theorem does not address \\(M_n(\\mathbb F_q)\\) for \\(n\\ge3\\)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It defines the noncommutative graph as directed and proves directed in-/out-domination \\((q^n-1)/(q-1)\\); it does not state ordinary domination of the underlying undirected graph.",
+        "evidence": "Canadian Mathematical Bulletin 58 (2015), 271–275; Theorem 2.7 and Corollary 2.9.",
+        "identifier_or_url": "doi:10.4153/CMB-2015-017-6",
+        "material_read": "Full PDF introduction and the page containing Theorem 2.7, Corollary 2.8, and Corollary 2.9.",
+        "method": "Public full-text PDF, text extraction, and page-image inspection.",
+        "title": "On Domination of Zero-divisor Graphs of Matrix Rings",
+        "trigger": "Closest primary source: same full matrix rings over finite fields and the domination invariant."
+      },
+      {
+        "assessment": "Studies directed matrix zero-divisor graphs and diameter, not domination; metadata lists MSC \\(16S50\\).",
+        "evidence": "Communications in Algebra 37 (2009), 1186–1192; verified publication date 14 May 2009.",
+        "identifier_or_url": "doi:10.1080/00927870802465951",
+        "material_read": "Abstract and bibliographic/MSC metadata.",
+        "method": "Public bibliographic record and abstract; full text was not publicly available in the inspected source.",
+        "title": "Zero-Divisor Graphs of Matrices Over Commutative Rings",
+        "trigger": "Archive-era primary matrix-ring graph source and MSC ownership evidence."
+      },
+      {
+        "assessment": "Explicitly records adjacency by \\(AB=0\\) or \\(BA=0\\) for the undirected convention and surveys directed matrix results; no ordinary-domination formula for the underlying \\(M_2(\\mathbb F_q)\\) graph is stated.",
+        "evidence": "Survey MSC includes \\(16S50\\); matrix zero-divisor section distinguishes directed and undirected conventions.",
+        "identifier_or_url": "doi:10.1080/09728600.2024.2332780",
+        "material_read": "Web full text, preliminaries and matrix zero-divisor graph section.",
+        "method": "Public full-text web rendering.",
+        "title": "Graphs from matrices — a survey",
+        "trigger": "Broader comparison and explicit statement of the undirected noncommutative zero-divisor convention."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5269e95a-539e-4d2d-9745-d94879dcc18b",
+  "value": {
+    "rationale": "The theorem gives the exact undirected counterpart of a classical directed matrix-domination problem for the first nontrivial full matrix size, identifies the unique binary drop under symmetrization, and supplies a reusable projective image-kernel model rather than a one-off computation.",
+    "status": "PASS"
+  }
+}
