@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the stated constant-temperature process from its defining drift and exponential compound-Poisson jumps. A first-jump renewal equation yields the continuous-passage probability; exponential memorylessness yields the mean overshoot; and the deterministic bound tau_x <= x/c makes optional stopping of the compensated process immediate. Subtracting the one-level identities gives the claimed finite-stage correction for all c, lambda, theta > 0 and finite 0 <= a < b. The bundled checker only evaluates the analytic formulas and is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coutin and Ngom study joint first-passage, overshoot, and undershoot laws for Lévy processes including compound-Poisson components.",
+        "Doney and Kyprianou give broad fluctuation identities for overshoots and undershoots of Lévy processes.",
+        "The closest published-finding corpus overshoot hit concerns the failure of Lorden bounds under pairwise independence and does not cover this source model or calibration."
+      ],
+      "reasoning": "The general literature covers the mathematical phenomenon of level-dependent overshoots, but no inspected broader result was found that states the motivating article's finite-stage calibration correction. The accepted originality is therefore the exact source-specific consequence, not the general overshoot mechanism.",
+      "searches": [
+        "published-finding corpus query: compound Poisson exponential jumps overshoot mean first passage calibration development rate",
+        "published-finding corpus query: E[overshoot] exponential jump continuous drift first passage compound Poisson",
+        "Coutin Ngom arXiv:1603.02506 joint law hitting time overshoot undershoot Levy process",
+        "Doney Kyprianou 10.1214/105051605000000647 overshoots undershoots Levy processes"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00285-026-02461-8",
+      "doi:10.21203/rs.3.rs-9204874/v1",
+      "arxiv:1603.02506",
+      "doi:10.1214/105051605000000647",
+      "doi:10.1016/j.physa.2021.126200",
+      "published-finding corpus:2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f",
+      "published-finding corpus:2026/9/20/SCOPE-pairwise-independent-lorden-overshoot-counterexample--9d2c1e07f7b4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pasquali 2021 uses a Gamma-process stage model rather than the drift-plus-compound-Poisson process considered here.",
+        "Coutin–Ngom and Doney–Kyprianou provide general first-passage theory but do not imply that the motivating paper already included this correction; rather, their framework is consistent with level-dependent overshoot.",
+        "The motivating source itself conditions on jump crossing and then treats that conditional mean as unconditional, so the published calibration does not imply the corrected identity."
+      ],
+      "reasoning": "The accepted claim is neither a special case of an already-corrected formula in the source nor a corollary of the earlier stage-structured Gamma model. General Lévy results supply context but not prior source-specific coverage.",
+      "searches": [
+        "Pasquali 2021 10.1016/j.physa.2021.126200 no-regression stage structured Gamma process",
+        "arxiv:1603.02506 compound Poisson overshoot hitting time",
+        "10.1214/105051605000000647 overshoot first passage Levy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The final journal text and the 2026-03-25 preprint use the same overshoot-cancellation step in the constant-temperature calibration.",
+        "The source-specific searches returned the motivating source itself and no correction or erratum stating the level-dependent unconditional overshoot term.",
+        "The closest published-finding corpus age-structured hit concerns deterministic Gurtin–MacCamy threshold dynamics rather than this compound-Poisson calibration."
+      ],
+      "reasoning": "Equivalent wording would likely mention the source title or identifier together with overshoot, first passage, calibration, stage duration, or the drift/jump rate. No such source-specific correction was found.",
+      "searches": [
+        "\"An analytical stochastic stage-structured model for pest population dynamics\" overshoot calibration error",
+        "\"An analytical stochastic stage-structured model\" \"overshoot\" \"calibration\"",
+        "\"rs-9204874\" overshoot",
+        "published-finding corpus query: An analytical stochastic stage-structured model pest population dynamics Cydia pomonella compound Poisson overshoot calibration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source calibration section explicitly fits the combined deterministic and jump development rate using the disputed finite-stage identity.",
+        "No inspected database result or source-specific table gave the corrected boundary-dependent term.",
+        "The current and prior own-ledger prefix contained no finding matching the source identifiers, Cydia pomonella, compound-Poisson overshoot, or this calibration claim."
+      ],
+      "reasoning": "This is not a recomputation of a known biological table. It changes the analytic equation from which the fitted rate is interpreted.",
+      "searches": [
+        "\"Cydia pomonella\" \"overshoot\" compound Poisson development rate",
+        "doi:10.1007/s00285-026-02461-8",
+        "doi:10.21203/rs.3.rs-9204874/v1",
+        "published-finding corpus query: stage structured pest physiological age compound Poisson calibration overshoot"
+      ]
+    },
+    "rationale": "The claim is deliberately source-specific. General Lévy overshoot formulas are classical, but the motivating article replaces a conditional jump-crossing overshoot mean by an unconditional mean and then cancels the two boundary terms. Searches of the source title/identifiers, calibration language, overshoot terminology, and nearby literature found no published correction deriving this exact finite-stage term for the model.",
+    "residual_risks": [
+      "A general Lévy-theory reference may contain an algebraically equivalent closed form for this drift-plus-exponential-jump special case; the novelty claim excludes general overshoot theory and is limited to the explicit source-specific calibration consequence.",
+      "A later or poorly indexed erratum to the 2026 biological paper could reduce source-specific originality; no such correction was found in the performed searches.",
+      "No empirical re-fitting was performed, so the size of downstream biological parameter changes remains unquantified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source conditions correctly on jump crossing but then sets the unconditional mean overshoot at each finite boundary equal to theta, causing a cancellation that is not valid when continuous passage has positive probability.",
+        "evidence": "The calibration derivation explicitly replaces both boundary overshoot means by theta; the later calibration section uses the resulting relation to fit the combined deterministic and jump development rate.",
+        "identifier_or_url": "doi:10.1007/s00285-026-02461-8; doi:10.21203/rs.3.rs-9204874/v1",
+        "material_read": "Preprint cover/date and the full constant-temperature calibration derivation, including the overshoot conditioning and later parameter-calibration section.",
+        "method": "Full-text inspection of lawful public journal/preprint copies.",
+        "title": "An analytical stochastic stage-structured model for pest population dynamics: a case study on Cydia pomonella in Italy",
+        "trigger": "Primary source defining the process and calibration under review."
+      },
+      {
+        "assessment": "Broadly relevant first-passage theory; no source-specific Cydia calibration statement was found.",
+        "evidence": "The paper treats joint laws of hitting time, overshoot, and undershoot for Lévy processes including compound-Poisson components.",
+        "identifier_or_url": "arxiv:1603.02506",
+        "material_read": "Abstract, setup, and first-passage/overshoot definitions from the full arXiv text.",
+        "method": "Full-text inspection of the arXiv paper.",
+        "title": "Joint law of the hitting time, overshoot and undershoot for a Lévy process",
+        "trigger": "Potential broader coverage by first-passage theory for compound-Poisson Lévy processes."
+      },
+      {
+        "assessment": "Classical general framework; it does not state the biological finite-stage calibration correction.",
+        "evidence": "The article develops fluctuation identities for overshoots and undershoots of Lévy processes at first passage.",
+        "identifier_or_url": "doi:10.1214/105051605000000647",
+        "material_read": "Publicly available extracted article text describing the first-passage overshoot/undershoot identities and scope.",
+        "method": "Text inspection of an accessible prepublication/article copy.",
+        "title": "Overshoots and undershoots of Lévy processes",
+        "trigger": "Classical broader theory that could dominate the mathematical component."
+      },
+      {
+        "assessment": "Uses a different Gamma-process construction; no implication of the present compound-Poisson overshoot correction was identified.",
+        "evidence": "The earlier model represents no-regression development through a Gamma-process formulation rather than deterministic drift plus compound-Poisson jumps.",
+        "identifier_or_url": "doi:10.1016/j.physa.2021.126200",
+        "material_read": "Repository abstract and open-postprint metadata describing the stochastic driver and model class.",
+        "method": "Repository text inspection.",
+        "title": "A stage structured demographic model with ‘no-regression’ growth: The case of constant development rate",
+        "trigger": "Earlier closely related stage-structured work by the same modeling lineage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5fa95198-f2fc-46cb-9723-26b770427fb8",
+  "value": {
+    "rationale": "The disputed identity is used in the source's calibration section to relate observed mean stage durations to the deterministic drift plus mean jump-development rate. The missing term is strictly positive at every finite consecutive boundary in the nondegenerate jump regime and depends on the drift being estimated, so the correction changes the parameter-identification equation rather than merely restating a normalization or sign convention.",
+    "status": "PASS"
+  }
+}
