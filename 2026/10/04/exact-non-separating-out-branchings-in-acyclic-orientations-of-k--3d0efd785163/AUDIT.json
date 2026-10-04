@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The source-removal blocks canonically determine all cross-part arc directions. Multiple first-block vertices give multiple sources. In each of the four exceptional codes, one vertex has every incident edge forced into every out-branching, so deletion disconnects it. For every other code, the proof gives one entering arc for every non-source vertex and explicitly lists enough unused cross edges to connect the complement. All four positive cases were checked for direction validity and complement connectivity. An independent brute-force parent-choice enumeration agrees for every canonical word with \\(4\\le n\\le7\\), while the explicit constructions replay for all words with \\(4\\le n\\le30\\). The finite checks are supporting evidence, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bang-Jensen-Yeo 2026 gives a polynomial algorithm for arbitrary acyclic digraphs but no structural complete-bipartite classification.",
+        "Bang-Jensen-Bessy-Yeo 2022 assumes independence number two in its principal results; K_{3,n} has independence number n for n at least 4."
+      ],
+      "reasoning": "A general recognition algorithm does not state or imply the four forbidden source-removal codes without carrying out the family-specific structural analysis. The older independence-number-two theorems do not cover the present graph family.",
+      "searches": [
+        "published-finding corpus: non-separating out-branching acyclic orientation complete bipartite graph exact characterization",
+        "Web/full text: Acyclic orientations of mixed graphs Section 5",
+        "Web: Non-separating spanning trees and out-branchings in digraphs of independence number 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.32403v1",
+      "arXiv:2303.09021v2 / Utilitas Mathematica 125 (2025), 21-41",
+      "arXiv:2007.02834v1 / Graphs and Combinatorics 38 (2022), 187",
+      "published-finding corpus searches recorded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bang-Jensen-Yeo show existence can be decided by matroid intersection and that some acyclic orientation exists exactly when the underlying graph has two edge-disjoint spanning trees.",
+        "Carballosa-Reyes-Khera characterize existence of a directed spanning tree by a unique source in the complete-multipartite setting."
+      ],
+      "reasoning": "Those implications yield only (a) graph-level existence for \\(K_{3,n}\\) and (b) orientation-level existence of an out-branching. The accepted claim separates positive and negative unique-source orientations exactly, so it is neither a corollary nor a special case of either prior statement.",
+      "searches": [
+        "published-finding corpus: oriented complete bipartite graph out-branching complement connected",
+        "Bang-Jensen-Yeo 2026 Theorem 5.3 and Problem 5.4",
+        "Carballosa-Reyes-Khera 2025 Theorem 2.8 / source-removal code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carballosa-Reyes-Khera encode acyclic complete multipartite orientations by source-removal blocks and identify a directed spanning tree with a unique source, but their full text contains no occurrence of 'non-separating' or 'complement'.",
+        "Bang-Jensen-Yeo 2026 Theorem 5.3 characterizes the already-oriented acyclic-digraph decision problem through a matroid-intersection spanning-tree condition."
+      ],
+      "reasoning": "The nearest equivalent language is unique-source/directed-spanning-tree encoding. That condition is necessary but not sufficient here: the four displayed unique-source codes fail exactly because deleting every possible out-branching disconnects the underlying graph. Thus the accepted statement is not a rephrasing of the prior unique-source criterion.",
+      "searches": [
+        "published-finding corpus: K_{3,n} acyclic orientation non-separating out-branching forced star",
+        "published-finding corpus: complete bipartite acyclic orientation non-separating branching unique source",
+        "Carballosa-Reyes-Khera 2025 full text: source-removal encoding and directed spanning tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit among the returned closest records states a non-separating out-branching classification for acyclic \\(K_{3,n}\\) orientations. Closest records concern other complete-bipartite invariants or unrelated acyclic-orientation signatures.",
+        "The 2025 complete-multipartite orientation paper tabulates/enumerates acyclic orientations and unique-source orientations, not connectivity after removing an out-branching."
+      ],
+      "reasoning": "The relevant published database and enumeration source do not contain the four-pattern table or an equivalent family-specific criterion.",
+      "searches": [
+        "published-finding corpus: Ferrers orientation K3n out-branching complement connected",
+        "published-finding corpus: complete bipartite graph acyclic orientation directed spanning tree block word",
+        "published-finding corpus: K_{3,n} acyclic orientation non-separating out-branching forced star"
+      ]
+    },
+    "rationale": "The initiating 2026 paper gives a general polynomial recognition algorithm for an already acyclic digraph and poses the orientation-completion problem, but does not classify acyclic \\(K_{3,n}\\) orientations. The 2025 complete-multipartite orientation paper provides the source-removal encoding and unique-source criterion only. published-finding corpus searches using the invariant, family, aliases, and forced-star formulation found no same claim.",
+    "residual_risks": [
+      "A differently named family-specific result could exist outside the searched sources; no novelty search proves absence.",
+      "The general matroid-intersection criterion can mechanically decide each fixed orientation, so originality rests on the closed four-pattern classification and explicit proof rather than decidability itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 5.3 is a matroid-intersection recognition algorithm for arbitrary acyclic digraphs; the paper does not give the four \\(K_{3,n}\\) source-removal obstructions. Problem 5.4 asks the broader mixed-completion complexity question.",
+        "identifier_or_url": "arXiv:2609.32403v1 / https://arxiv.org/html/2609.32403v1",
+        "material_read": "Abstract, introduction, and full Section 5 including Theorem 5.3, its proof, and Problem 5.4.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "Acyclic orientations of mixed graphs",
+        "trigger": "This is the fresh paper introducing the acyclic non-separating-out-branching direction and the closest general theorem."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR_NOT_COVERING_CLAIM",
+        "evidence": "It supplies the canonical source-removal encoding and counts unique-source orientations, but does not study connectivity after deleting an out-branching; full-text searches returned no 'non-separating' or 'complement' occurrence.",
+        "identifier_or_url": "arXiv:2303.09021v2; DOI:10.61091/um125-02",
+        "material_read": "Open-access PDF abstract, introduction, source-removal encoding discussion, unique-source/directed-spanning-tree discussion, and source-code portions; full-text searches for 'non-separating' and 'complement'.",
+        "method": "Publisher open-access full text plus PDF visual inspection.",
+        "title": "Encoding and enumerating acyclic orientations of graphs",
+        "trigger": "It treats exactly acyclic complete multipartite orientations and directed spanning trees, so it could dominate the block-code portion of the claim."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its main hypotheses concern 2-arc-strong digraphs with independence number two. For \\(K_{3,n}\\) with \\(n\\ge4\\), the independence number is n, and the present digraph is acyclic rather than strongly connected.",
+        "identifier_or_url": "arXiv:2007.02834v1; DOI:10.1007/s00373-022-02589-6",
+        "material_read": "Abstract and bibliographic scope statement.",
+        "method": "arXiv-index and journal abstract inspection.",
+        "title": "Non-separating spanning trees and out-branchings in digraphs of independence number 2",
+        "trigger": "Same terminology and overlapping authors make it a plausible stronger source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d0efd78-5163-4e6a-a801-fb89baaf4eed",
+  "value": {
+    "rationale": "The family \\(K_{3,n}\\), for \\(n\\ge4\\), is the first complete-bipartite regime where a non-separating out-branching can exist at all: \\(K_{2,n}\\) and \\(K_{3,3}\\) fail the necessary two-edge-disjoint-spanning-tree edge count. The result therefore resolves the natural boundary family orientation-by-orientation, converts a general matroid-intersection decision into four transparent obstruction codes, and separates the unique-source condition from the genuinely non-separating condition. This is a structural classification motivated directly by the new 2026 problem, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
