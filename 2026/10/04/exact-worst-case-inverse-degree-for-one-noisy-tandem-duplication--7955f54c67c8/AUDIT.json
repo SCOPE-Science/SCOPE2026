@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof gives an exact reduction from raw received words to weight-one mismatch windows, proves the parent-collision criterion directly by comparing deleted strings, derives a sharp local packing bound, and gives an explicit all-parameter witness. The independent verifier reconstructs the channel literally and matches the theorem on 27 exhaustive parameter cases (7,829 received words), then checks 1,134 witness cases. Finite checks support but are not used to replace the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang–Farnoud treat any number of exact duplications plus one noisy duplication via roots and code constructions.",
+        "Tang–Yehezkeally–Schwartz–Farnoud treat duplication plus a substitution, including substitutions in duplicated copies.",
+        "Lenz–Wachter-Zeh–Yaakobi determine sphere information for exact tandem/palindromic duplication-deletion channels."
+      ],
+      "reasoning": "These papers cover broader error sequences or neighboring exact-duplication channels, but their statements do not dominate the present raw one-step inverse-degree problem. Root-level correction with arbitrary exact duplications does not determine how many distinct length-n raw parents a fixed length-(n+k) word has after exactly one noisy duplication.",
+      "searches": [
+        "arXiv:2008.08174",
+        "arXiv:1911.05413",
+        "arXiv:2011.05896",
+        "arXiv:1712.09345"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ALLERTON.2019.8919847",
+      "arXiv:2008.08174",
+      "doi:10.1109/TIT.2021.3059095",
+      "arXiv:1911.05413",
+      "doi:10.1109/TIT.2020.3006228",
+      "arXiv:1712.09345",
+      "arXiv:1707.00052",
+      "arXiv:2011.05896"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The noisy paper characterizes how one noisy duplication changes duplication roots and builds codes; targeted inspection found no statement counting raw one-step parents.",
+        "The exact-duplication sphere paper counts/uses tandem-deletion spheres under adjacent-block equality, not Hamming distance one."
+      ],
+      "reasoning": "Neither prior result implies the claimed maximum. The new proof requires a collision analysis among overlapping weight-one windows and a sharp two-per-(k+1)-starts packing lemma; those are absent from the compared statements.",
+      "searches": [
+        "Tang–Farnoud, Error-correcting Codes for Noisy Duplication Channels: channel definition, descendant-cone definitions, root-error characterization, conclusion",
+        "Lenz–Wachter-Zeh–Yaakobi, Duplication-Correcting Codes / Bounds on Codes Correcting Tandem and Palindromic Duplications: sphere statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tang–Farnoud define a noisy length-k duplication as an exact copy followed by one substitution in the inserted copy, equivalently Hamming distance one between the two adjacent blocks.",
+        "No matching published-finding corpus record was returned under inverse-ball, parent, preimage, list-size, ambiguity, or mismatch-profile aliases."
+      ],
+      "reasoning": "The accepted statement is invariant under the aliases parent set, inverse ball, one-step ancestor set, preimage degree, and received-word list ambiguity. Searches across those formulations did not locate the same formula; this is supporting evidence rather than a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: noisy tandem duplication inverse ball maximum parent degree Hamming distance one copy",
+        "published-finding corpus: noisy duplication one-step ancestors preimage exact formula",
+        "published-finding corpus: tandem duplication substitution copy Hamming distance one list size",
+        "published-finding corpus: received word ambiguity noisy duplication channel parent count",
+        "published-finding corpus: mismatch profile noisy tandem duplication exact inverse degree",
+        "published-finding corpus: noisy tandem duplication 2 floor m/(k+1) exact maximum inverse degree received word",
+        "arXiv:2008.08174 targeted full-text searches: list; ball; parent; preimage; ancestor; sphere"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-result search returned no exact noisy-duplication inverse-degree table or formula.",
+        "The own ledger contains an exact confusability edge count for one fixed-length exact tandem duplication and an inverse-degree theorem for length-two reverse-complement duplication, but neither uses the Hamming-distance-one noisy-copy channel."
+      ],
+      "reasoning": "Known exact tables and prior internal findings concern different channels or invariants. The current theorem is not a recomputation of an exact-duplication sphere table because its legal inverse windows have mismatch weight one rather than zero.",
+      "searches": [
+        "published-finding corpus: noisy tandem duplication inverse ball maximum parent degree Hamming distance one copy",
+        "published-finding corpus: noisy duplication one-step ancestors preimage exact formula",
+        "published-finding corpus: tandem duplication substitution copy Hamming distance one list size",
+        "published-finding corpus: received word ambiguity noisy duplication channel parent count",
+        "published-finding corpus: mismatch profile noisy tandem duplication exact inverse degree",
+        "published-finding corpus: noisy tandem duplication 2 floor m/(k+1) exact maximum inverse degree received word",
+        "own-ledger current cumulative part: titles/claims for tandem duplication and inverse-degree findings"
+      ]
+    },
+    "rationale": "The noisy-duplication operation is prior art, but no inspected source states or implies the exact maximum number of distinct one-step parents. The closest exact-duplication sphere results use equality rather than a one-mismatch condition; the noisy-channel paper develops root error patterns and codes rather than raw inverse-degree enumeration.",
+    "residual_risks": [
+      "An unindexed, unpublished, or differently phrased prior derivation of the same inverse-degree formula may exist.",
+      "The 2019 Allerton version was identified through bibliographic metadata but its full text was not available in the inspected open source; the expanded 2020/2021 full text was inspected instead."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and analyzes the same channel but does not state the raw one-step inverse-degree theorem located here.",
+        "evidence": "The paper defines the copied block to be at Hamming distance one, studies descendant cones and root manifestations, and concludes with coding redundancy and multi-noisy-duplication directions.",
+        "identifier_or_url": "arXiv:2008.08174; DOI 10.1109/TIT.2021.3059095",
+        "material_read": "Open full-text portions covering abstract/introduction, formal noisy-duplication and descendant-cone definitions, transition to error-correcting codes, and conclusion; targeted full-text searches for list, ball, parent, preimage, ancestor, and sphere.",
+        "method": "Lawful open author-uploaded/preprint text indexed on the web.",
+        "title": "Error-correcting Codes for Noisy Duplication Channels",
+        "trigger": "Same channel and same one-substitution noisy-copy definition."
+      },
+      {
+        "assessment": "Studies detection/correction after duplication/substitution sequences, not the exact one-step parent count of a received word.",
+        "evidence": "Its objects are descendant cones and codes under many duplications plus at most one substitution.",
+        "identifier_or_url": "arXiv:1911.05413; DOI 10.1109/TIT.2020.3006228",
+        "material_read": "Open full-text abstract/introduction, restricted-error model definitions, duplication-root setup, and code sections relevant to noisy duplication.",
+        "method": "Lawful open preprint/author-uploaded text.",
+        "title": "Single-Error Detection and Correction for Duplication and Substitution Channels",
+        "trigger": "Earlier closely related model allowing a substitution in duplicated substrings."
+      },
+      {
+        "assessment": "Strong comparison for exact duplication, but the sphere condition is different and does not cover noisy copies at Hamming distance one.",
+        "evidence": "The stated sphere results concern tandem duplication/deletion with an exact repeated block; the present operation requires one mismatch.",
+        "identifier_or_url": "arXiv:1712.09345; arXiv:1707.00052",
+        "material_read": "Abstract and published metadata statements describing determined tandem/palindromic duplication/deletion spheres and words by sphere size.",
+        "method": "Open arXiv abstracts and institutional publication metadata.",
+        "title": "Duplication-Correcting Codes / Bounds on Codes Correcting Tandem and Palindromic Duplications",
+        "trigger": "Closest sphere-packing literature for inverse deletion spheres."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7955f54c-67c8-4498-94a6-b831125cb55b",
+  "value": {
+    "rationale": "The quantity is the exact worst-case uncoded list ambiguity of a standard noisy tandem-duplication channel. It supplies a sharp all-parameter channel invariant with direct decoding/sphere-packing relevance; the answer is not a small parameter increment or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
