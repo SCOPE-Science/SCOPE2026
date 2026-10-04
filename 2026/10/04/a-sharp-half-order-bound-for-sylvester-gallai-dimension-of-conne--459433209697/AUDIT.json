@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For the upper bound, the distinct special lines belonging to graph edges form a connected line-intersection system covering every configuration point. The first line uses at least three points; any later line sharing at least two old points lies in the old affine span, while a line sharing exactly one old point can add at most one dimension and must contribute at least two new points. Thus an affine dimension of \\(d\\) requires at least \\(3+2(d-1)\\) points. For trees, the diametral-path induction always removes either a pendant two-vertex path or two sibling leaves, and the two vertices can be restored on a new line through the attachment vertex outside the old span, adding exactly one dimension. Base cases \\(n=3,4\\) are collinear. The finite checker confirms the reduction on all 985 nonisomorphic trees through order 12; the infinite theorem rests on the proof, not on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dvir's Theorem 1.2 states \\(\\operatorname{SGdim}(G)\\le12(n-1)/D\\) for minimum degree at least \\(D\\); with connectedness alone \\(D\\) may equal one.",
+        "Dvir records only a lower bound \\(\\operatorname{SGdim}(G)\\ge\\lfloor(n-1)/2\rfloor\\) for forests.",
+        "Earlier fractional Sylvester--Gallai work controls dimension from dense local collinearity hypotheses, not from a merely connected prescribed-edge graph."
+      ],
+      "reasoning": "The known quantitative upper bounds do not dominate a sharp \\(\\lfloor(n-1)/2\rfloor\\) bound under connectedness alone, and the forest statement in the initiating paper has the opposite inequality.",
+      "searches": [
+        "Sylvester Gallai dimension connected graph upper bound half vertices",
+        "arXiv:2608.15967 quantitative Sylvester Gallai minimum degree",
+        "Fractional Sylvester Gallai dimension local information global bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.15967v1",
+      "published-finding corpus:2026/9/17/SCOPE-exact-sylvester-gallai-dimension-k2n--8117f3ac3376",
+      "Barak--Dvir--Wigderson--Yehudayoff, Fractional Sylvester--Gallai theorems, PNAS 2013",
+      "focused web searches for exact tree, connected half-order, and special-line formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The initiating paper's forest lower bound, combined with the new connected upper bound, yields the exact tree formula; the missing implication is precisely the new upper bound.",
+        "The exact \\(K_{2,n}\\) result has a stronger bound on that family but does not cover trees or all connected graphs."
+      ],
+      "reasoning": "Prior statements provide one side of the tree equality or cover a separate graph family. None logically implies the connected half-order upper bound; therefore none implies the full accepted claim.",
+      "searches": [
+        "Sylvester Gallai dimension tree exact floor n-1 over 2",
+        "Sylvester Gallai dimension forest star",
+        "Sylvester Gallai dimension K_{2,n} complete bipartite exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full text of arXiv:2608.15967v1 defines special-line realizations but contains no connected-graph half-order theorem.",
+        "The searched semantic records returned the exact \\(K_{2,n}\\) finding as the closest parameter-specific result, not a tree or connected-graph equivalent."
+      ],
+      "reasoning": "Rephrasing the claim through the hypergraph of edge-special lines yields the same line-intersection charging statement. Neither that formulation nor the tree equality appeared in the checked source or database results.",
+      "searches": [
+        "Sylvester Gallai dimension tree exact floor n-1 over 2",
+        "SGdim trees exact connected graph upper floor n/2",
+        "special-line realization connected graph affine dimension n/2",
+        "web: special line graph connected affine dimension Sylvester Gallai"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/9/17/SCOPE-exact-sylvester-gallai-dimension-k2n--8117f3ac3376 was the closest exact SG-dimension result and was inspected in full.",
+        "That record proves \\(\\operatorname{SGdim}(K_{2,n})=1+\\lfloor n/4\rfloor\\) and explicitly limits itself to \\(K_{2,n}\\).",
+        "No returned SG-dimension record stated an exact formula for all trees or the connected half-order upper bound."
+      ],
+      "reasoning": "The closest exact database entry is a proper family-specific result and supplies neither an implication to all connected graphs nor a tree classification.",
+      "searches": [
+        "Sylvester Gallai dimension tree exact floor n-1 over 2",
+        "SGdim trees exact connected graph upper floor n/2",
+        "Sylvester Gallai dimension connected graph upper bound half vertices",
+        "special-line realization connected graph affine dimension n/2",
+        "Sylvester Gallai dimension K_{2,n} complete bipartite exact",
+        "SGdim complete bipartite graph exact Sylvester Gallai",
+        "Sylvester Gallai dimension complete bipartite K2n",
+        "special-line realization K_{2,n} affine dimension"
+      ]
+    },
+    "rationale": "The initiating 2026 paper was inspected in full HTML. It gives the forest lower bound \\(\\lfloor(n-1)/2\rfloor\\) but no matching connected-graph upper bound or exact all-tree theorem; its stated general upper bound is \\(12(n-1)/D\\) under minimum degree \\(D\\). Focused semantic searches found a published exact \\(K_{2,n}\\) follow-up, whose complete result was inspected and whose proof is family-specific. It does not imply the present universal connected bound or exact tree class. Focused web searches for the tree and connected formulations surfaced only the initiating paper and secondary summaries, not the claimed theorem.",
+    "residual_risks": [
+      "The graph parameter was introduced only in August 2026, so a very recent or poorly indexed note could duplicate the elementary connected-line argument.",
+      "The proof establishes equality for every tree but does not classify all connected equality graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the connected half-order upper bound or exact all-tree formula; it records the forest lower bound and a much looser general minimum-degree upper bound.",
+        "evidence": "Lines 50--65 define \\(\\operatorname{SGdim}\\) and state the quantitative upper bound; lines 84--94 state the minor-free result and the explicit forest lower bound; Observation 2.5 gives only asymptotic complete-bipartite bounds.",
+        "identifier_or_url": "arXiv:2608.15967v1",
+        "material_read": "Full arXiv HTML, including Definition 1.1, Theorems 1.2--1.7, proof overview, geometric constructions, and the complete-bipartite Observation 2.5; focused text searches for connected, forest, complete bipartite, star, and tree formulations.",
+        "method": "Primary full-text HTML inspection.",
+        "title": "The Sylvester--Gallai dimension of graphs",
+        "trigger": "Primary source introducing the parameter and the closest stated result for forests."
+      },
+      {
+        "assessment": "Not covering: it determines only \\(K_{2,n}\\), explicitly says it does not treat general fixed-side complete bipartite families, and contains no connected-graph or tree theorem.",
+        "evidence": "Its theorem is \\(\\operatorname{SGdim}(K_{2,n})=1+\\lfloor n/4\rfloor\\); its limitations restrict the result to that family.",
+        "identifier_or_url": "published-finding corpus:2026/9/17/SCOPE-exact-sylvester-gallai-dimension-k2n--8117f3ac3376",
+        "material_read": "Complete published RESULT.md, including theorem, incidence-graph upper bound, sharp construction, prior-work comparison, and limitations.",
+        "method": "Public repository full-text inspection through the repository connector.",
+        "title": "Exact Sylvester--Gallai dimension of K_{2,n}",
+        "trigger": "Closest published exact computation returned by every focused semantic search for the new parameter."
+      },
+      {
+        "assessment": "Not covering: its hypotheses quantify many special pairs per point and do not imply the sharp bound from connectivity of a prescribed-edge graph.",
+        "evidence": "The article describes fractional local collinearity hypotheses converted into global dimension bounds; no connected graph parameter or tree exact formula is stated.",
+        "identifier_or_url": "PNAS 110 (2013), 19213--19219",
+        "material_read": "Abstract and theorem-level introductory description available through the open PMC record.",
+        "method": "Open-access literature inspection.",
+        "title": "Fractional Sylvester--Gallai theorems",
+        "trigger": "Broader pre-existing dimension bounds from partial collinearity conditions, cited by the initiating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "45943320-9697-4e47-8f31-c3bbaf026632",
+  "value": {
+    "rationale": "The result closes the exact value on the entire natural class of trees for a newly introduced graph dimension and simultaneously supplies a sharp universal upper bound for every connected graph. The line-intersection charging lemma explains structurally why one extra affine dimension costs at least two additional vertices after the first special line. This is not a parameter substitution or finite table: it converts a published one-sided forest bound into a complete infinite-class theorem and gives a reusable obstruction for arbitrary connected graphs.",
+    "status": "PASS"
+  }
+}
