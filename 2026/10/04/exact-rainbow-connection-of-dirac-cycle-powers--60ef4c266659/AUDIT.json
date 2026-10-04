@@ -1,0 +1,129 @@
+{
+  "claim": "Let \\(C_n^k\\) be the \\(k\\)-th power of the cycle on \\(\\mathbb Z_n\\). For every noncomplete Dirac cycle power, equivalently \\(\\lceil n/4\\rceil\\le k<\\lfloor n/2\\rfloor\\), one has \\(\\operatorname{rc}(C_n^k)=\\operatorname{src}(C_n^k)=2\\). If \\(n<4k\\), a generator-based two-coloring exists: color the edges of cyclic distance \\(k\\) red and all shorter generator edges blue. At the exact boundary \\(n=4k\\), no two-coloring depending only on cyclic distance can be rainbow connecting, but the following non-generator-based coloring is strongly rainbow connecting: write each edge uniquely as \\(\\{i,i+r\\}\\) with \\(1\\le r\\le k\\) modulo \\(4k\\), and color it by the parity of \\(\\lfloor i/k\\rfloor\\). Complete cycle powers have \\(\\operatorname{rc}=\\operatorname{src}=1\\).",
+  "correctness": {
+    "rationale": "For n<4k, every nonadjacent pair at cyclic distance d with k<d<=floor(n/2)<2k has the explicit geodesic u,u+k,v whose edge distances are k and d-k, hence opposite colors. For n=4k, the block-parity coloring makes the two starts u and u+k lie in blocks of opposite parity. The generator obstruction is exact because 0 and 2k have only common neighbors k and 3k, and both incident distances are k. Noncompleteness supplies the lower bound two. The standalone verifier stress-tests 312398 constructed nonadjacent pairs and independently brute-forces 5850 small-case pairs.",
+    "risks": "The computation is finite and is not used as an infinite proof. The proof assumes the standard simple undirected cycle-power convention and the stated symmetric definition of generator-based coloring.",
+    "sources": [
+      "The analytical proof in RESULT.md.",
+      "The finite replay in verify_cycle_power_rainbow.py and verification_output.txt.",
+      "arXiv:2609.11437v1 for the rc2 definition and motivating Dirac-circulant question."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barát--Boyadzhiyska--Freschi leave every Dirac circulant/Cayley graph as an open question.",
+        "Basavaraju et al. prove only r(G^k) <= rc(G^k) <= 2r(G^k)+1 for general powers."
+      ],
+      "reasoning": "A theorem covering all Dirac circulants or all graph powers with rc<=2 would dominate this result, but the inspected sources do not provide one. The general graph-power bound gives at best a larger constant in this diameter-two setting.",
+      "searches": [
+        "arXiv:2609.11437v1",
+        "arXiv:1104.4190v2",
+        "\"circulant graph\" \"rainbow connection number\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.11437v1",
+      "arXiv:1104.4190v2",
+      "doi:10.21136/MB.2008.133947",
+      "Targeted published-results searches using the query strings recorded in the four originality checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper asks rather than answers the circulant case and records the generator obstruction at n=4k.",
+        "The 2011/2014 graph-power theorem does not force rc=2 and does not concern src equality."
+      ],
+      "reasoning": "The new theorem supplies a concrete positive subclass answer, a strong-rainbow strengthening, and a sharp characterization of when a generator-distance coloring works within this family. These are not corollaries of the compared statements.",
+      "searches": [
+        "arXiv:2609.11437v1 Question on Dirac circulant/Cayley graphs",
+        "arXiv:1104.4190v2 Theorem 2",
+        "doi:10.21136/MB.2008.133947"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-results hit states rc(C_n^k)=src(C_n^k)=2 in the Dirac range or an equivalent two-edge geodesic formulation.",
+        "The closest semantic matches concerned weak rainbow saturation, circular-power digraph e-positivity, and unrelated circulant invariants."
+      ],
+      "reasoning": "The searched aliases included rainbow connection, strong rainbow connection, rc2, cycle power, circulant, generator-based coloring, and the exact boundary C_{4k}^k. No equivalent statement was found.",
+      "searches": [
+        "rainbow connection cycle powers Dirac circulant rc2 coloring C_n^k",
+        "generator based rc2 coloring circulant graph cycle power",
+        "rainbow connection number power of cycle graph",
+        "Dirac circulant rainbow connecting 2-coloring",
+        "C_4k^k cycle power rainbow connection generator based antipodal",
+        "Dirac cycle power strong rainbow connection rc src C_n^k",
+        "Rainbow connecting 2-colorings of super-Dirac graphs circulant Cayley cycle power"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked published-results record or searched literature table returned exact rainbow/strong-rainbow values for C_n^k in the Dirac interval."
+      ],
+      "reasoning": "The finding is an infinite structural formula and constructive coloring, not a recomputation of a known finite table.",
+      "searches": [
+        "C_4k^k cycle power rainbow connection generator based antipodal",
+        "Dirac cycle power strong rainbow connection rc src C_n^k",
+        "\"C_n^k\" \"rainbow connection number\""
+      ]
+    },
+    "rationale": "The claim is not implied by the initiating 2026 paper, which poses the relevant Dirac circulant/Cayley question and explicitly identifies only the failure of generator-distance coloring at the boundary example. The older graph-power theorem supplies only a radius-based upper bound. Targeted published-results and literature searches found no exact rc/src formula for Dirac cycle powers and no non-generator boundary construction. The residual risk of obscure special-family coverage is recorded.",
+    "residual_risks": [
+      "Search cannot rule out an obscure exact treatment of powers of cycles under different notation.",
+      "The generator-based terminology is specialized here to dependence on undirected cyclic distance, matching the natural symmetric Cayley-generator interpretation; broader notions of generator-based coloring could differ."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper asks the general circulant/Cayley question and observes a generator-based obstruction for the boundary cycle power, but does not give the non-generator two-coloring or the exact rc/src theorem proved here.",
+        "evidence": [
+          "arXiv:2609.11437v1, concluding remarks: question asking whether every Dirac circulant (or Cayley) graph has an rc2-coloring.",
+          "arXiv:2609.11437v1, same discussion: generator-distance coloring on the cyclic graph of order 4k cannot guarantee a rainbow path between 0 and 2k."
+        ],
+        "identifier_or_url": "arXiv:2609.11437v1",
+        "material_read": "Abstract, introductory formulation of rc2-colorings, concluding open-problem discussion containing the Dirac circulant/Cayley question and the generator-based discussion of the cyclic graph on Z_{4k}.",
+        "method": "Primary-source full-text inspection and arXiv metadata verification.",
+        "title": "Rainbow connecting 2-colorings of super-Dirac graphs",
+        "trigger": "Direct initiating source; it poses the Dirac circulant/Cayley question and discusses the cycle-power boundary obstruction."
+      },
+      {
+        "assessment": "NOT_COVERING: provides a general bound for graph powers, not the exact value two for Dirac cycle powers, no strong-rainbow equality for this family, and no generator-boundary classification.",
+        "evidence": [
+          "arXiv:1104.4190v2, stated result: for connected G and k at least 2, r(G^k) <= rc(G^k) <= 2r(G^k)+1."
+        ],
+        "identifier_or_url": "arXiv:1104.4190v2; doi:10.1007/s00373-013-1355-3",
+        "material_read": "Abstract, introduction, and stated graph-power theorem giving radius-based bounds.",
+        "method": "Primary/open full-text inspection of the theorem statement and scope.",
+        "title": "Rainbow Connection Number of Graph Power and Graph Products",
+        "trigger": "Closest earlier literature on rainbow connection of graph powers."
+      },
+      {
+        "assessment": "NOT_COVERING: defines rc/src and treats ordinary cycles and other families, not powers of cycles in the Dirac range.",
+        "evidence": [
+          "Mathematica Bohemica 133 (2008), 85–98, definition of rainbow and strong rainbow connection."
+        ],
+        "identifier_or_url": "doi:10.21136/MB.2008.133947",
+        "material_read": "Bibliographic record, abstract, definitions, and stated scope of exact families.",
+        "method": "Open bibliographic/full-text record inspection.",
+        "title": "Rainbow connection in graphs",
+        "trigger": "Foundational source for rc and src and exact values for ordinary cycles/standard families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "60ef4c26-6659-4bfc-ba83-e6d324fffce5",
+  "value": {
+    "rationale": "The result directly resolves the canonical family singled out in the new Dirac-circulant open problem. It explains the exact boundary where the natural generator-distance strategy fails while showing that rainbow connection itself still succeeds, and it strengthens ordinary rainbow connection to strong rainbow connection. This is a structural, infinite-family answer rather than an arbitrary finite slice.",
+    "risks": "It is a subclass result and does not settle arbitrary circulants or Cayley graphs. Its value is primarily as a sharp model family and obstruction/construction pair for the broader question.",
+    "sources": [
+      "arXiv:2609.11437v1, concluding question on Dirac circulant/Cayley graphs and boundary generator discussion.",
+      "The exact constructions and obstruction proved in RESULT.md."
+    ],
+    "status": "PASS"
+  }
+}
