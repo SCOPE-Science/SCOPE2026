@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the operator argument from the published identities. The Gaussian part has eigenvalues \\(c_\\beta q^{|\\nu|}\\), giving its \\(r\\)-th trace exactly. The correction \\(R=B-A\\) is positive finite rank with \\(\\|R\\|_1=1-\\operatorname{tr}(A)=O(\\beta^{-d})\\), while \\(\\|A\\|\\le\\|B\\|=O(\\beta^{-d})\\). Noncommutative telescoping therefore gives an \\(O(\\beta^{-dr})\\) trace-power error. The resulting \\(r=2\\) case reproduces the published variance asymptotic, and the cumulant and Berry--Esseen deductions use standard independent-sum identities. The finite-sample joint-limit case is explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Henze--Wagner 1997 provides the limiting BHEP representation and closed forms for the first three cumulants.",
+        "The 2026 spectral paper proves a Gaussian vanishing-bandwidth limit by a maximal-eigenvalue Lyapunov argument but does not provide a Kolmogorov convergence rate.",
+        "A classical Berry--Esseen theorem for independent summands applies after the BHEP-specific third-to-second power-sum ratio has been identified."
+      ],
+      "reasoning": "Generic central-limit or Berry--Esseen theorems do not determine the BHEP-specific rate without the spectral power asymptotics. The known BHEP results cover only finitely many cumulant orders explicitly.",
+      "searches": [
+        "query: Henze Wagner operator beta large normal approximation rate",
+        "query: weighted chi square BHEP vanishing bandwidth Berry Esseen",
+        "query: Gaussian kernel finite rank correction trace powers BHEP",
+        "Henze--Wagner 1997, DOI 10.1006/jmva.1997.1684"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28464",
+      "DOI:10.1006/jmva.1997.1684",
+      "arXiv:2609.35037"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Remark 6.2 of arXiv:2609.28464 gives only the second power asymptotic and a qualitative Gaussian limit.",
+        "Propositions 4.1 and 4.3 give the ingredients from which the all-order law is derived: geometric Gaussian spectrum plus a positive finite-rank correction.",
+        "arXiv:2609.35037 states the all-order cumulant identity but supplies new closed form only for order four and does not state the vanishing-bandwidth power-sum theorem."
+      ],
+      "reasoning": "The conclusion requires a new trace-ideal comparison: the positive finite-rank correction has trace norm \\(O(\beta^{-d})\\), and noncommutative telescoping makes its contribution to the \\(r\\)-th trace smaller by a full factor \\(\beta^{-d}\\). This step upgrades the known variance analysis to every fixed power and yields the rate consequence.",
+      "searches": [
+        "arXiv:2609.28464 Remark 6.2",
+        "arXiv:2609.28464 Proposition 4.1 and Proposition 4.3",
+        "arXiv:2609.35037 Proposition 2.1 and Theorem 2.2",
+        "query: arXiv 2609.35037 beta infinity cumulants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.28464 gives the complete spectrum, the positive finite-rank correction, the second spectral power asymptotic, and a qualitative Lyapunov central limit theorem.",
+        "arXiv:2609.35037 gives the general cumulant/power-sum identity and an explicit fourth cumulant, but no all-fixed-order vanishing-bandwidth power-sum asymptotic was found in its full text."
+      ],
+      "reasoning": "The new statement is not merely a reparametrization of the published central limit theorem: it identifies the leading constant for every fixed spectral power and hence every standardized cumulant order. Low-order formulas are treated as prior work rather than claimed as new.",
+      "searches": [
+        "query: BHEP spectral power sums vanishing bandwidth all cumulants",
+        "query: BHEP standardized cumulants beta infinity Berry Esseen",
+        "query: BHEP trace powers beta infinity cumulants",
+        "arXiv:2609.28464",
+        "arXiv:2609.35037"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The spectral paper tabulates the first four cumulants only at \\(\beta=1\\) for selected dimensions and explicitly computes the fourth power in its numerical validation.",
+        "The four-moment paper reports exact first-four moment formulas and selected numerical moment characteristics, but not the all-order \\(\beta\to\\infty\\) hierarchy."
+      ],
+      "reasoning": "Finite tables and low-order closed forms do not cover the quantified statement for every fixed integer \\(r\\ge2\\), nor the operator-level remainder \\(O_{d,r}(\beta^{-dr})\\).",
+      "searches": [
+        "query: BHEP spectral power sums cumulants eigenvalues",
+        "query: BHEP vanishing bandwidth standardized skewness kurtosis",
+        "arXiv:2609.28464 Section 7 numerical tables",
+        "arXiv:2609.35037 Section 4 moment characteristics"
+      ]
+    },
+    "rationale": "Focused statement-level searches and full-text comparisons found prior BHEP results for the complete spectrum, the second power asymptotic, the first three cumulants, and a later exact fourth cumulant, but not the all-fixed-order vanishing-bandwidth power-sum expansion or the resulting Berry--Esseen rate. The claim explicitly excludes novelty for the known low-order cumulant formulas.",
+    "residual_risks": [
+      "An abstract trace-ideal perturbation result could subsume the telescoping estimate as a general lemma, although no BHEP-specific all-order constant statement was found.",
+      "Closed forms for low cumulant orders can independently imply their own large-\\(\beta\\) asymptotics; the originality claim is therefore restricted to the unified all-fixed-order spectral law and its quantitative Gaussianization consequence.",
+      "The contemporaneous four-moment preprint was first public after the frozen weekly source anchor but was nevertheless compared because it is public at the time of this review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the accepted all-fixed-order power-sum asymptotic and Berry--Esseen rate; it covers the \\(r=2\\) asymptotic and qualitative Gaussian limit.",
+        "evidence": "Proposition 4.1 gives eigenvalues \\(c_\beta q^{|\nu|}\\) for the Gaussian operator; Proposition 4.3 gives the positive finite-rank correction; Remark 6.2 states \\(\\operatorname{tr}(A^2)\\sim2^{-d}\beta^{-d}\\) and proves a Lyapunov CLT.",
+        "identifier_or_url": "arXiv:2609.28464",
+        "material_read": "Full relevant sections: introduction, Mercer diagonalization, exact finite-rank reduction, trace formula, common limiting null distribution, vanishing-bandwidth Remark 6.2, and numerical cumulant section.",
+        "method": "Full-text statement and proof comparison.",
+        "title": "The Spectra of the Henze--Zirkler and Henze--Wagner Operators for BHEP Tests",
+        "trigger": "Motivating source and closest direct spectral predecessor."
+      },
+      {
+        "assessment": "NOT_COVERING for the all-order power-sum theorem; known first-three-cumulant formulas are treated as prior work.",
+        "evidence": "Later BHEP papers explicitly attribute the expectation, variance, and third central moment formulas to Henze--Wagner.",
+        "identifier_or_url": "DOI:10.1006/jmva.1997.1684",
+        "material_read": "Abstract and the precise description of its role in the two later full-text BHEP papers.",
+        "method": "Bibliographic and implication comparison.",
+        "title": "A New Approach to the BHEP Tests for Multivariate Normality",
+        "trigger": "Original multivariate limiting-law source and source of the first three cumulants."
+      },
+      {
+        "assessment": "NOT_COVERING for the accepted claim. It gives the all-order identity \\(\\kappa_r=2^{r-1}(r-1)!\\operatorname{tr}(A^r)\\) and an explicit \\(r=4\\) formula, but not the all-fixed-order \\(\beta\to\\infty\\) power-sum law or Berry--Esseen rate.",
+        "evidence": "Proposition 2.1 states the general trace identity; Theorem 2.2 gives the fourth cumulant; no vanishing-bandwidth asymptotic statement was found in the inspected full text.",
+        "identifier_or_url": "arXiv:2609.35037",
+        "material_read": "Full-text introduction, Section 2 through the all-order cumulant identity and fourth-cumulant theorem, moment-characteristic section, and spectral-reference discussion.",
+        "method": "Full-text implication comparison, including searches for vanishing-bandwidth and large-parameter asymptotics.",
+        "title": "Four-Moment Approximations and Fast p-Values for BHEP Tests of Multivariate Normality",
+        "trigger": "Strong contemporaneous comparison because it gives the fourth cumulant in arbitrary dimension and smoothing parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "37013560-02d2-449a-856d-ee83a8d116d0",
+  "value": {
+    "rationale": "The result supplies a structural quantitative refinement of a newly proved Gaussian boundary regime. It identifies the effective spectral power scale at every fixed order, shows that standardized cumulants decay in a complete hierarchy \\(\\beta^{-d(r-2)/2}\\), exposes the dimension-independent leading excess-kurtosis coefficient \\(12\\), and converts the source qualitative Lyapunov argument into an explicit Kolmogorov-rate order. These quantities are directly relevant to moment and p-value approximations for the BHEP limiting law rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
