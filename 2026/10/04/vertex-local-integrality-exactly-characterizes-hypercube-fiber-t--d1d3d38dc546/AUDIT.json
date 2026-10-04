@@ -1,0 +1,119 @@
+{
+  "claim": "Let \\(G\\) be a finite connected simple graph, let \\(g\\in V(G)\\), and let \\(\\sigma_g(G)=\\{\\theta:E_\\theta e_g\\ne0\\}\\) be the adjacency eigenvalue support of \\(g\\). For \\(d\\ge2\\), let \\(a,b\\) be antipodal vertices of the \\(d\\)-cube \\(Q_d\\), and use the standard adjacency Hamiltonian on the lexicographic product \\(G[Q_d]\\), whose adjacency matrix is \\(A_G\\otimes J_{2^d}+I\\otimes A_{Q_d}\\). Then perfect state transfer from \\((g,a)\\) to \\((g,b)\\) occurs if and only if \\(\\sigma_g(G)\\subseteq\\mathbb Z\\). When it occurs, the complete set of positive transfer times is \\(t=(2r+1)\\pi/2\\), \\(r=0,1,2,\\ldots\\); in particular the minimum time is \\(\\pi/2\\). More precisely, at an arbitrary time \\(t\\), such transfer is possible only if \\(\\cos t=0\\) and \\(e^{-i2^d tA_G}e_g=e_g\\). This strictly strengthens the earlier sufficient condition requiring all of \\(G\\) to be integral. For example, let \\(T\\) be the seven-vertex tree with a degree-two vertex \\(g\\) joining two degree-three vertices, each of which has two pendant leaves. Then \\(\\phi_T(x)=x^3(x^2-2)(x^2-4)\\), so \\(T\\) is nonintegral, while \\(\\phi_{T-g}(x)=x^2(x^2-2)^2\\) and the local support at \\(g\\) is exactly \\(\\{-2,0,2\\}\\). Hence \\(T[Q_d]\\) is a connected nonintegral graph with perfect state transfer between the two antipodes in the \\(g\\)-fiber at time \\(\\pi/2\\) for every \\(d\\ge2\\).",
+  "correctness": {
+    "rationale": "The exact decomposition by the uniform hypercube vector reduces transfer to an orthogonal-sector hypercube equation plus \\(e^{-i2^dtA_G}e_g=e_g\\). Hypercube amplitudes at distances zero and one force \\(\\cos t=0\\). The return equation then makes \\(2^{d-2}(2r+1)\\theta\\) integral for every supported eigenvalue \\(\\theta\\), hence \\(\\theta\\) is a rational algebraic integer and therefore an integer. The converse and exact time set follow directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ge et al. Lemma 5 assumes \\(t_H|V_H|\\operatorname{Spec}(G)\\subseteq2\\pi\\mathbb Z\\), a condition on the full outer spectrum.",
+        "Their hypercube corollary states perfect transfer for integral outer graphs.",
+        "Godsil's survey develops eigenvalue support and periodicity but the inspected material does not state this lexicographic-hypercube equivalence.",
+        "Later blow-up and join work contains refined local-support criteria for different graph operations, not for \\(G[Q_d]\\) with \\(d\\ge2\\)."
+      ],
+      "reasoning": "The closest prior results supply the two ingredients separately. The present result identifies the exact intersection for this product and proves necessity from hypercube amplitude rigidity.",
+      "searches": [
+        "Perfect state transfer graph products equitable partitions lexicographic Lemma 5 Corollary 6 hypercube",
+        "State transfer on graphs Ge lexicographic product eigenvalue support",
+        "Quantum walks on blow-up graphs Ge sufficient conditions lexicographic product H perfect state transfer",
+        "Quantum walks on join graphs adjacency periodic eigenvalue support integral"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.1340",
+      "DOI:10.1142/S0219749911007472",
+      "DOI:10.1016/j.disc.2011.06.032",
+      "arXiv:2308.13887",
+      "DOI:10.1088/1751-8121/ad6653"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proof contains a sum over all outer eigenvectors and enforces phase one for every outer eigenvalue, which is sufficient but stronger than necessary for a fixed \\(g\\).",
+        "General support theory says only eigenvalues with nonzero local idempotent component affect a vertex state.",
+        "The later blow-up paper uses exactly this local-support principle in a different lexicographic special case, supporting the distinction between global and local conditions."
+      ],
+      "reasoning": "The prior global theorem does not logically give transfer for the nonintegral seven-vertex tree. The new implication requires restricting the phase condition to the local support and, for necessity, showing that the hypercube orthogonal sector forces an odd half-period.",
+      "searches": [
+        "arXiv 1009.1340 Lemma 5 lexicographic product spectrum condition",
+        "arXiv 1009.1340 Corollary 6 G Q_n integral",
+        "Godsil state transfer eigenvalue support periodic vertex",
+        "arXiv 2308.13887 lexicographic product sufficient Ge eigenvalue support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic-database searches returned no finding stating the local-support hypercube-fiber equivalence.",
+        "Targeted web searches returned the Ge et al. sufficient construction, general state-transfer support theory, and later blow-up work, but not the displayed iff criterion.",
+        "The 2024 blow-up paper explicitly says Ge et al. provided sufficient lexicographic-product conditions and then treats the different independent-fiber special case."
+      ],
+      "reasoning": "An equivalent statement must simultaneously be local in the outer vertex, necessary as well as sufficient, and specialized to hypercube antipodes. Global integrality, general periodicity, and independent-fiber blow-up criteria do not imply the strict nonintegral example without the present decomposition argument.",
+      "searches": [
+        "lexicographic product hypercube perfect state transfer local eigenvalue support integral vertex",
+        "G[Q_n] perfect state transfer vertex support integral adjacency",
+        "lexicographic product hypercube antipodes PST iff integral eigenvalue support",
+        "eigenvalue support vertex lexicographic product perfect state transfer",
+        "local eigenvalue support adjacency quantum walk perfect state transfer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No table or published example of a connected nonintegral outer graph with this hypercube-fiber transfer was found.",
+        "The source summary lists \\(\\operatorname{INT}[Q_{d\\ge2}]\\) as its lexicographic-product family.",
+        "The seven-vertex tree example was independently identified by exact local characteristic-polynomial analysis."
+      ],
+      "reasoning": "The example is not a known-spectrum recomputation: its role is to prove the local criterion strictly enlarges the published global-integrality family.",
+      "searches": [
+        "G[Q_n] nonintegral graph perfect state transfer",
+        "lexicographic product hypercube nonintegral perfect state transfer example",
+        "seven vertex tree integral eigenvalue support middle vertex perfect state transfer"
+      ]
+    },
+    "rationale": "The originality claim is limited to replacing the published global sufficient integrality condition by an exact vertex-local necessary-and-sufficient criterion for hypercube fibers, together with the strict connected nonintegral example.",
+    "residual_risks": [
+      "Because the theorem is a short synthesis of standard product decomposition and local-support ideas, an equivalent corollary may exist under different terminology.",
+      "Recent graph-operation papers use local support extensively; no exact hypercube-fiber statement was found, but this makes literature overlap a continuing risk.",
+      "The one-dimensional hypercube fiber has a different parity criterion and is excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the product spectral decomposition and a global sufficient condition; does not state the vertex-local iff criterion or connected nonintegral example.",
+        "evidence": "arXiv v1 is dated 2010-09-07. MaRDI/zbMATH lists MSC 81P45 and 82B41. Lemma 5 uses the full \\(\\operatorname{Spec}(G)\\), and the hypercube corollary assumes integral \\(G\\).",
+        "identifier_or_url": "arXiv:1009.1340; DOI:10.1142/S0219749911007472",
+        "material_read": "Full experimental HTML for the introduction, definitions, Fact 3, Lemma 5, Corollary 6, and the stated integral-outer-graph hypercube example; arXiv submission record and zbMATH/MaRDI classification.",
+        "method": "Full-text arXiv HTML plus bibliographic classification metadata.",
+        "title": "Perfect state transfer, graph products and equitable partitions",
+        "trigger": "Direct archive-era source for lexicographic products with hypercube fibers."
+      },
+      {
+        "assessment": "Develops the local spectral machinery used in the proof but does not state the hypercube-fiber lexicographic classification.",
+        "evidence": "The survey states that supported eigenvalues are the only spectral components seen from a vertex and records ratio conditions for vertex periodicity.",
+        "identifier_or_url": "DOI:10.1016/j.disc.2011.06.032",
+        "material_read": "Sections defining eigenvalue support, local periodicity ratio conditions, and discussion of graph-product state transfer.",
+        "method": "Publisher full-text inspection.",
+        "title": "State transfer on graphs",
+        "trigger": "Closest general source for vertex eigenvalue support and periodicity."
+      },
+      {
+        "assessment": "Treats independent-set fibers and explicitly characterizes Ge et al.'s result as a sufficient condition requiring the fiber to exhibit PST; it does not cover hypercube fibers.",
+        "evidence": "The paper identifies blow-ups as a special lexicographic product and develops local support criteria for that distinct operation.",
+        "identifier_or_url": "arXiv:2308.13887; DOI:10.1088/1751-8121/ad6653",
+        "material_read": "Full arXiv introduction, transition-matrix section, eigenvalue-support proposition, and strong-cospectrality/PGST setup.",
+        "method": "Full-text arXiv inspection.",
+        "title": "Quantum walks on blow-up graphs",
+        "trigger": "Recent adjacency-state-transfer work on a special lexicographic product using local eigenvalue support."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1d3d38d-c546-4ecf-baaa-0bad1b7aa563",
+  "value": {
+    "rationale": "The result gives a natural complete classification for a published product family, replaces an unnecessarily global hypothesis by the exact local invariant, and constructs connected nonintegral graphs with exact transfer that are not covered by the original integral-graph corollary. The complete transfer-time set is also determined.",
+    "status": "PASS"
+  }
+}
