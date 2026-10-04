@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces every non-codeword trace to the canonical threshold blocks. Same-block twins force at most one omission per block; the two same-side trace comparisons are exactly interval nonemptiness tests; cross-side equality is exactly simultaneous emptiness of an A-prefix and a B-prefix; and the two remaining conditions are precisely domination. The polynomial then counts the choice of the unique omitted vertex in each marked block. The packaged verifier independently enumerates all 511 canonical connected threshold profiles of orders 2 through 10 and all 349,524 vertex subsets, matching 2,104 coefficient positions exactly. Finite verification is explicitly limited to regression testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Foucaud et al., Discrete Applied Mathematics 200 (2016), Theorem 13 proves a half-order upper bound for twin-free split and co-bipartite graphs; it is not an exact threshold-graph classification.",
+        "Foucaud, Journal of Discrete Algorithms 31 (2015), studies decision/approximation hardness on broad restricted classes including split graphs.",
+        "Belo and Santana (2025) give minimum-cardinality formulas for complete split and split-corona graphs, which are special split subclasses and do not provide the all-threshold all-cardinality theorem."
+      ],
+      "reasoning": "Broader split-graph results address bounds, hardness, or particular subclasses. None dominates the current statement, which classifies every locating-dominating set for every connected threshold graph and therefore determines every coefficient of the enumerator.",
+      "searches": [
+        "Web: \"Decision and approximation complexity for identifying codes and locating-dominating sets in restricted graph classes\"",
+        "Web: \"Locating-dominating sets in twin-free graphs\" split graphs",
+        "Web: \"Locating-dominating sets in some subclasses of split graphs\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1412.2376",
+      "DOI:10.1016/j.dam.2015.06.038",
+      "DOI:10.1016/j.jda.2014.08.004",
+      "arXiv:1808.06891",
+      "DOI:10.1007/s44425-025-00028-1",
+      "published-finding corpus 2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf",
+      "published-finding corpus 2026/9/21/SCOPE-locating-total-rooted-products-odd-cycles--77fa90e81e9f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foucaud et al. 2016 prove only gamma_L(G) <= n/2 for twin-free split graphs and their proof uses a split partition; threshold graphs with nontrivial twin blocks fall outside the twin-free hypothesis.",
+        "Junnila et al. 2019 explicitly state gamma_LD <= gamma_DLD <= gamma_SLD and characterize threshold graphs by gamma_DLD=N-1, so their result is about a stronger invariant and cannot recover the ordinary all-set family.",
+        "Foucaud 2015 establishes computational hardness on broader classes rather than exact threshold structure."
+      ],
+      "reasoning": "The current five conditions follow from exact trace equalities in the canonical threshold decomposition and are neither a corollary nor a special case of the inspected prior theorems.",
+      "searches": [
+        "Full-text inspection: Foucaud et al. 2016, Section 4 on split graphs",
+        "Full-text inspection: Junnila et al. 2019, Proposition 19 and definitions of solid/self locating-domination",
+        "Abstract/metadata inspection: Foucaud 2015 restricted-class complexity survey"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf concerns solid/self location-domination on complete multipartite graphs, not ordinary locating-domination on threshold graphs.",
+        "Junnila et al., arXiv:1808.06891, Proposition 19 states that solid location-domination has value N-1 exactly for threshold graphs; ordinary locating-domination is explicitly weaker in the same paper."
+      ],
+      "reasoning": "Aliases using location-domination, locating-dominating code, creation sequence, and threshold graph were searched. The stronger solid condition forbids trace inclusion, whereas the present theorem only requires nonempty distinct traces, so the stronger extremal theorem does not entail this classification.",
+      "searches": [
+        "published-finding corpus: threshold graphs locating-dominating sets characterization all sets",
+        "published-finding corpus: location-domination polynomial threshold graphs",
+        "published-finding corpus: threshold graph locating-dominating polynomial",
+        "Web: \"threshold graph\" \"locating-dominating set\"",
+        "Web: \"threshold graphs\" \"location-domination\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record among the retrieved nearest neighbors states the same threshold-graph ordinary locating-domination theorem.",
+        "Web searches returned the 2019 stronger-code threshold result and broader split-graph literature, but no exact threshold locating-domination table or polynomial."
+      ],
+      "reasoning": "No exact database/table covering the same object, parameter, and graph class was located. Failed search is not treated as proof of novelty; the residual indexing risk is recorded separately.",
+      "searches": [
+        "published-finding corpus: locating domination threshold graph twin classes",
+        "published-finding corpus: locating dominating sets split graph threshold exact",
+        "Web: threshold graph locating domination polynomial enumeration"
+      ]
+    },
+    "rationale": "The claim is an all-set characterization and cardinality enumerator for ordinary locating-domination on threshold graphs. The closest published sources found either prove general/twin-free split-graph bounds, establish hardness on the broader split class, or study the strictly stronger solid/self locating variants. None of the inspected statements implies the five-condition omission theorem or its twin-thick factorization. published-finding corpus semantic searches returned no threshold-graph ordinary locating-domination classification; the closest hits concern stronger locating variants or different graph families.",
+    "residual_risks": [
+      "Older theses or papers may use creation-sequence, nested-neighborhood, or threshold-split terminology not surfaced by the searches.",
+      "The 2015 complexity paper could not be fully inspected because the direct repository PDF returned an access error; its accessible abstract is not itself sufficient for a whole-document negative claim.",
+      "The 2025 complete-split/split-corona paper may contain special-case structural lemmas beyond its abstract; the present general threshold all-set theorem is not claimed to be the first treatment of those special cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves a half-order upper bound for twin-free split/co-bipartite graphs, not an exact all-set theorem for threshold graphs.",
+        "evidence": "Section 4 states Theorem 13 for twin-free split graphs and concludes with possible extensions of extremal characterizations to structured classes.",
+        "identifier_or_url": "arXiv:1412.2376; DOI:10.1016/j.dam.2015.06.038",
+        "material_read": "Abstract, definitions, and Section 4 including Theorem 13 in the lawful author-hosted PDF.",
+        "method": "Full-text web inspection; page 58 visually inspected as well as extracted text.",
+        "title": "Locating-dominating sets in twin-free graphs",
+        "trigger": "Closest primary full text treating locating-domination on split graphs."
+      },
+      {
+        "assessment": "NOT_COVERING: Proposition 19 characterizes threshold graphs by maximal solid location-domination, a strictly stronger predicate than ordinary locating-domination.",
+        "evidence": "The paper states every solid-locating-dominating code is locating-dominating and gamma_LD <= gamma_DLD, then proves gamma_DLD=N-1 iff the graph is threshold.",
+        "identifier_or_url": "arXiv:1808.06891",
+        "material_read": "Definitions comparing ordinary, solid, and self locating-domination; Proposition 19 and its proof.",
+        "method": "Full arXiv HTML inspection.",
+        "title": "On Stronger Types of Locating-Dominating Codes",
+        "trigger": "Contains an explicit threshold-graph theorem for a closely related locating invariant."
+      },
+      {
+        "assessment": "NOT_DECISIVE: accessible material describes hardness/approximability on bipartite, split, and co-bipartite classes, not an exact threshold formula; full-text access failure is retained as risk.",
+        "evidence": "The abstract explicitly frames decision/minimization complexity and hardness on split graphs.",
+        "identifier_or_url": "DOI:10.1016/j.jda.2014.08.004",
+        "material_read": "Repository abstract and bibliographic metadata; direct PDF fetch was blocked during this run.",
+        "method": "Repository/web metadata inspection.",
+        "title": "Decision and approximation complexity for identifying codes and locating-dominating sets in restricted graph classes",
+        "trigger": "Broad restricted-class survey/hardness paper for the same parameter."
+      },
+      {
+        "assessment": "PARTIAL_SPECIAL_CASE_RISK: gives minimum-cardinality formulas for complete split and split-corona graphs, not the full threshold all-set polynomial according to the accessible abstract.",
+        "evidence": "Abstract states closed formulas for gamma_L only in complete split graphs and split corona graphs.",
+        "identifier_or_url": "DOI:10.1007/s44425-025-00028-1",
+        "material_read": "Repository abstract and citation metadata.",
+        "method": "Web metadata inspection.",
+        "title": "Locating-dominating sets in some subclasses of split graphs",
+        "trigger": "Recent exact formulas on named split subclasses could overlap threshold special cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db9a27cc-7092-4503-8ab7-225e37c5a9a1",
+  "value": {
+    "rationale": "Threshold graphs are a canonical structured subclass of split graphs, and prior work shows that the stronger solid location-domination parameter is maximized on exactly this class. The ordinary parameter behaves very differently. The theorem gives a complete, checkable description of every ordinary locating-dominating set, determines all cardinality counts, and yields a clean factorization, exact minimum, and exact basis count when no canonical twin block is singleton. This is a natural structural gap rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
