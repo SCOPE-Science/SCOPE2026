@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every positive-definite quadratic form, sign-change averaging preserves the two-sided comparison with the Cesàro norm while removing the cross term, so diagonal quadratic forms suffice globally. For diagonal parameter \\(t\\), the squared distortion is the max/min ratio of \\(F_t(s)=\\sqrt{16+(1+s)^4}/(4(1+t s^2))\\). At \\(t=1/\\sqrt{17}\\), an exact factorization proves the endpoints are the only minima; derivative analysis proves a unique interior maximum at \\(s_*\\). Comparing that fixed interior slope with the appropriate endpoint shows every \\(t\\ne1/\\sqrt{17}\\) gives strictly larger distortion. The standard-library checker reproduces the root and decimals but is not used to justify global optimality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zuo 2012, DOI 10.1186/1029-242X-2012-107, computes a Ptolemy constant for the exponent-2 Cesàro plane, not a general \\(p\\) Banach--Mazur theorem.",
+        "The 2022 Gao-type paper gives primary MSC \\(46\\mathrm{B}20\\) for the same geometric setting but its Cesàro example concerns another constant."
+      ],
+      "reasoning": "No inspected broader theorem supplies an exact Euclidean Banach--Mazur profile for all finite-dimensional Cesàro spaces that could specialize to the claimed \\(p=4\\) formula.",
+      "searches": [
+        "finite dimensional Cesaro p=4 optimal ellipse Hilbertian distortion",
+        "ces_p^(2) John ellipsoid Banach Mazur distance",
+        "source:doi:10.1186/1029-242X-2012-107",
+        "source:doi:10.3390/math10234591"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.jmaa.2006.02.085",
+      "doi:10.1186/1029-242X-2012-107",
+      "doi:10.3390/math10234591"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006-online paper gives the family definition and a James-constant problem, not affine Euclidean distortion.",
+        "The 2012 and 2022 papers compute Ptolemy and Gao-type constants, respectively, and do not provide a theorem equating either with the \\(p=4\\) Banach--Mazur distance."
+      ],
+      "reasoning": "The new claim requires minimization over every linear isomorphism. That implication is supplied here by sign-symmetry averaging plus an exact one-variable minimax argument, and does not follow from the inspected prior constant computations.",
+      "searches": [
+        "source:doi:10.1016/j.jmaa.2006.02.085",
+        "source:doi:10.1186/1029-242X-2012-107",
+        "source:doi:10.3390/math10234591",
+        "two-dimensional Cesaro ces_4 Banach-Mazur distance Euclidean exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Maligranda--Petrot--Suantai, DOI 10.1016/j.jmaa.2006.02.085: Section 4 defines the same finite-dimensional Cesàro family; full-text search gives no Banach--Mazur occurrence.",
+        "Zuo--Huang--Huang--Wang, DOI 10.3390/math10234591: Example 5 concerns \\(\\mathrm{ces}_q^{(2)}\\) but computes a Gao-type constant."
+      ],
+      "reasoning": "Searches covered Banach--Mazur distance, Hilbertian distortion, John ellipsoid, optimal ellipse, the \\(\\mathrm{ces}_p^{(2)}\\) notation, and the characteristic algebraic parameter. The inspected same-object papers use different invariants and do not state an equivalent affine-distance result.",
+      "searches": [
+        "two-dimensional Cesaro ces_4 Banach-Mazur distance Euclidean exact",
+        "finite dimensional Cesaro p=4 optimal ellipse Hilbertian distortion",
+        "ces_p^(2) John ellipsoid Banach Mazur distance",
+        "Cesaro norm p=4 sqrt17 ellipsoid",
+        "source:doi:10.1016/j.jmaa.2006.02.085",
+        "source:doi:10.3390/math10234591"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic records returned for the exact-object queries concerned Mahler deficits, squeezing constants, elliptic Hilbert-transform examples, or general Banach--Mazur stability; none used the two-dimensional Cesàro norm.",
+        "Exact web searches for Banach--Mazur with \\(\\mathrm{ces}_q\\), \\(\\mathrm{ces}_p\\), or John ellipsoid with Cesàro returned no matching result."
+      ],
+      "reasoning": "No searched database record or exact-result table matched both the Cesàro \\(p=4\\) object and Euclidean Banach--Mazur distance.",
+      "searches": [
+        "two-dimensional Cesaro ces_4 Banach-Mazur distance Euclidean exact",
+        "finite dimensional Cesaro p=4 optimal ellipse Hilbertian distortion",
+        "ces_p^(2) John ellipsoid Banach Mazur distance",
+        "Cesaro norm p=4 sqrt17 ellipsoid",
+        "\"Banach-Mazur\" \"ces_q\" Cesaro",
+        "\"Banach-Mazur\" \"ces_p\" Cesàro finite-dimensional",
+        "\"John ellipsoid\" Cesàro \"ces_p\""
+      ]
+    },
+    "rationale": "The 2006-online primary Cesàro paper defines \\(\\mathrm{ces}_p^{(n)}\\), computes a James constant at \\(p=2\\), and explicitly leaves James constants at \\(p\\ne2\\) open; its full text has no Banach--Mazur occurrence. The 2012 source treats only the Ptolemy constant of \\(\\mathrm{ces}_2^{(2)}\\). The 2022 same-family paper treats a Gao-type constant, not affine Euclidean distortion. Targeted semantic and web searches using the object, invariant aliases, optimal ellipsoid language, and the characteristic \\(\\sqrt{17}\\) parameter found no statement implying the exact \\(p=4\\) distance. The closest indexed results concern different bodies or different invariants.",
+    "residual_risks": [
+      "A targeted literature search cannot prove global bibliographic novelty; an unindexed equivalent formula could exist.",
+      "The later same-family Gao-type article was only partially text-searchable during review, although the inspected Cesàro section concerns a different invariant and exact Banach--Mazur web searches returned no match."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the definition of \\(\\mathrm{ces}_p^{(n)}\\) and the historical \\(p=2\\) James computation; NOT_COVERING for the claimed Banach--Mazur formula. No Banach--Mazur occurrence is present in the full text.",
+        "evidence": "The source says “Available online 17 April 2006”; Section 4 defines \\(\\|x\\|_{p,n}\\); Problem 4 asks for \\(J(\\mathrm{ces}_p^{(2)})\\) when \\(p\\ne2\\).",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2006.02.085",
+        "material_read": "Author-uploaded full text: bibliographic header, introduction, Section 4 family definition, Theorem 3 vicinity, Problem 4, and full-text term search.",
+        "method": "Public full-text article copy.",
+        "title": "On the James constant and B-convexity of Cesàro and Cesàro--Orlicz sequence spaces",
+        "trigger": "Primary early source defining the finite-dimensional Cesàro family and discussing its two-dimensional geometry."
+      },
+      {
+        "assessment": "COVERING for the Ptolemy constant at exponent \\(2\\); NOT_COVERING for exponent \\(4\\) Euclidean Banach--Mazur distance.",
+        "evidence": "The Cesàro example is \\(\\mathrm{ces}_2^{(2)}\\), not \\(\\mathrm{ces}_4^{(2)}\\), and the reported invariant is the Ptolemy constant.",
+        "identifier_or_url": "doi:10.1186/1029-242X-2012-107",
+        "material_read": "Open-access article, including the Cesàro example and surrounding definitions.",
+        "method": "Publisher open-access full text.",
+        "title": "The Ptolemy constant of absolute normalized norms on the real plane",
+        "trigger": "Closest older exact geometric-constant computation for a two-dimensional Cesàro norm."
+      },
+      {
+        "assessment": "COVERING for a Gao-type constant on the same \\(\\mathrm{ces}_q^{(2)}\\) family; NOT_COVERING in the inspected material for Euclidean Banach--Mazur distance.",
+        "evidence": "The article lists MSC \\(46\\mathrm{B}20;46\\mathrm{B}25\\), and its Cesàro discussion concerns maximizers of a Gao-type constant, not ellipsoidal distortion.",
+        "identifier_or_url": "doi:10.3390/math10234591",
+        "material_read": "Publisher open-access metadata, introduction, exact-constant framework, and the Cesàro Example 5/Remark 3 material exposed in the article text.",
+        "method": "Publisher open-access HTML.",
+        "title": "The Gao-Type Constant of Absolute Normalized Norms on \\(\\mathbb R^2\\)",
+        "trigger": "Later same-family paper whose Example 5 treats two-dimensional Cesàro spaces for general exponent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4dd72769-6008-47cd-9618-31e45f5f6a78",
+  "value": {
+    "rationale": "Euclidean Banach--Mazur distance is a natural affine invariant of a finite-dimensional Banach space, and the two-dimensional Cesàro family is a classical object whose fine geometry has been studied through several exact constants. Exponent \\(4\\) is the first non-Hilbert even exponent after \\(2\\), so it is a natural benchmark rather than an arbitrary numerical slice: its squared radial profile becomes an explicitly tractable square root of a quartic while still requiring a nontrivial anisotropic optimizer. The result gives both the exact distortion and a global optimizer over all linear maps, and the symmetry-averaging reduction is reusable for other unconditional planar norms.",
+    "status": "PASS"
+  }
+}
