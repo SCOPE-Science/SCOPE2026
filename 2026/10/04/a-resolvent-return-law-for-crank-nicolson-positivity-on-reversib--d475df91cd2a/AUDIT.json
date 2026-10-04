@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact end-step matrix, verifies the \\(M\\)-matrix inverse and stochastic-row identities, and reduces entrywise positivity to diagonal resolvent entries. Reversibility yields a symmetric similarity and a positive spectral mixture whose derivative is strictly negative. The threshold bounds, two-state formula, complete-graph formula, and unconditional classification follow with all quantifiers and boundary cases stated. The embedded exact-rational checker returns `VERIFY_OK`.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth's full paper develops a general Runge--Kutta positivity theory and explicitly states positivity radius \\(2\\) for the implicit trapezoidal rule.",
+        "Horváth's threshold is a method/problem-class result based on the positivity radius, not an exact fixed-generator threshold depending on a Markov resolvent.",
+        "The reversible-chain theorem can yield thresholds larger than the elementary classwise restriction and gives infinite threshold for the balanced two-state chain."
+      ],
+      "reasoning": "The strongest broad prior establishes general conditional positivity and the trapezoidal positivity radius. It does not dominate the chain-specific theorem because a method-class radius does not determine which individual Markov generators remain positive beyond the worst-case radius.",
+      "searches": [
+        "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods Horvath",
+        "Runge Kutta positivity radius implicit trapezoidal rule 2",
+        "Crank Nicolson positivity Markov generator",
+        "trapezoidal rule continuous-time Markov chain positivity"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/S0168-9274(98)00050-6",
+      "DOI:10.13001/1081-3810.1086",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "AMS MSC2020 entry 65L06"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horváth, Example 1, states positivity radius \\(2\\) for implicit trapezoidal Runge--Kutta; Theorems 6--7 turn such radii into problem-class step thresholds under dissipativity hypotheses.",
+        "Fallat--Tsatsomeros, Lemma 2.2, proves the Cayley/resolvent identity, while Section 4 studies M-matrices; it does not specialize to singular Markov generators or derive entrywise stochastic positivity thresholds in the inspected full text.",
+        "The filtered Crank-Nicolson record inserts a backward-Euler half-step, so its positive kernel does not imply positivity of the unfiltered map.",
+        "The [2/2] Padé record concerns a fourth-order rational map and does not imply the [1/1] Crank-Nicolson threshold."
+      ],
+      "reasoning": "The proof intentionally starts from two prior ingredients: general Runge--Kutta positivity theory and known Cayley algebra. The new implication step is specific to Markov generators: the inverse M-matrix is stochastic, so off-diagonal Cayley entries are automatically nonnegative and only diagonal return entries matter. Reversibility then converts those return entries into positive spectral mixtures, yielding unique thresholds and the stationary-mass classification.",
+      "searches": [
+        "DOI:10.1016/S0168-9274(98)00050-6 full text positivity trapezoidal",
+        "DOI:10.13001/1081-3810.1086 full text Cayley transform M-matrix",
+        "published-finding corpus: backward Euler filtered Crank Nicolson lattice positivity",
+        "published-finding corpus: Padé Markov positivity barrier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published research record found was a backward-Euler-filtered Crank-Nicolson lattice result, which changes the rational map before applying Crank-Nicolson.",
+        "A separate published record treats the [2/2] Padé map on Markov generators; it is a different rational approximation.",
+        "Fallat--Tsatsomeros gives the Cayley identity and studies M-matrix Cayley transforms, but the inspected paper does not state the Markov-generator return-diagonal threshold or reversible spectral crossing law."
+      ],
+      "reasoning": "The claim was searched as a Crank-Nicolson/trapezoidal positivity problem, a Cayley-transform nonnegativity problem, and a backward-Euler resolvent return-probability problem. The algebraic identity is prior-covered; the accepted claim is the fixed-generator stochastic nonnegativity criterion plus the reversible threshold structure and classifications.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson Markov chain reversible positivity resolvent diagonal 1/2",
+        "published-finding corpus: trapezoidal CTMC stationary mass 1/2 positivity threshold reversible generator",
+        "published-finding corpus: implicit midpoint Markov chain two state stationary distribution positivity threshold",
+        "published-finding corpus: Cayley transform reversible generator positivity stationary distribution",
+        "Web: \"Crank-Nicolson\" \"Markov chain\" positivity stochastic matrix",
+        "Web: \"Cayley transform\" M-matrix nonnegative matrix diagonal inverse 1/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked published-finding corpus record or exact-phrase web result supplied \\(h_*=2/|a-b|\\) for the two-state generator, \\(h_*=2/[c(n-2)]\\) for the complete graph, or the reversible spectral root equation.",
+        "Fallat--Tsatsomeros supplies \\(I+C(A)=2(I+A)^{-1}\\), so that identity is treated as known rather than as a discovered formula."
+      ],
+      "reasoning": "Direct exact-formula searches were used because the low-dimensional thresholds are natural candidates for a table or handbook entry. None of the inspected sources exposed them as Markov-chain Crank-Nicolson positivity constants.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson two state Markov chain positivity threshold transition matrix",
+        "published-finding corpus: trapezoidal rule CTMC positivity two state exact step size",
+        "Web: \"Cayley transform\" \"M-matrix\" nonnegative transform",
+        "Web: \"2(I+A)^{-1}-I\" nonnegative M-matrix",
+        "Web: Crank Nicolson Markov generator nonnegative transition matrix exact condition"
+      ]
+    },
+    "rationale": "The Cayley identity, general Runge--Kutta positivity framework, and trapezoidal method positivity radius are explicitly treated as prior work. The accepted claim is the fixed-Markov-generator diagonal-return criterion together with the reversible unique-threshold spectral law, spectral enclosure, unconditional finite-chain classification, and closed family thresholds. No checked source or published research record implied that combined statement.",
+    "residual_risks": [
+      "Specialized continuous-time Markov-chain discretization literature may state the same fixed-generator criterion using uniformization, return probabilities, or stochastic Cayley transforms.",
+      "Matrix positivity literature may contain a corollary for singular M-matrix Cayley transforms not found by the exact and semantic searches performed.",
+      "For nonreversible generators the result gives the exact pointwise diagonal criterion but does not prove a single positivity interval after the first crossing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general Runge--Kutta positivity and explicitly gives positivity radius \\(2\\) for implicit trapezoidal Runge--Kutta. It does not state the fixed finite-Markov-generator resolvent-return threshold or reversible-chain spectral law in the inspected text.",
+        "evidence": "Example 1 states that the implicit trapezoidal rule has positivity radius \\(2\\); Theorem 6 translates positivity radii into conditional positivity thresholds for positive dissipative problem classes.",
+        "identifier_or_url": "DOI:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Full article, including the positivity-radius development, Theorems 4--7, Example 1, and references.",
+        "method": "Full-text article inspection.",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Closest general primary source on Runge--Kutta positivity and the implicit trapezoidal rule."
+      },
+      {
+        "assessment": "COVERS the identity \\(I+C(A)=2(I+A)^{-1}\\) and structural Cayley facts for M-matrices. It does not state the Markov stochasticity criterion, reversible return-diagonal crossing theorem, or chain-family thresholds in the inspected text.",
+        "evidence": "Lemma 2.2 gives \\(I+F=2(I+A)^{-1}\\); Theorem 4.1 characterizes M-matrices through M-matrix properties of Cayley factors rather than entrywise nonnegativity of the Cayley transform itself.",
+        "identifier_or_url": "DOI:10.13001/1081-3810.1086",
+        "material_read": "Complete seven-page open article, with particular attention to Lemma 2.2, Theorem 3.5, and Section 4 on M-matrices.",
+        "method": "Open full-text PDF and page inspection.",
+        "title": "On the Cayley Transform of Positivity Classes of Matrices",
+        "trigger": "Direct matrix-algebra prior for the Cayley transform of M-matrices."
+      },
+      {
+        "assessment": "NOT_COVERING by implication: the map is backward-Euler-filtered before Crank--Nicolson and the result is a lattice convolution-kernel theorem, not an exact threshold for the unfiltered finite-chain Cayley map.",
+        "evidence": "The record's claimed method is one backward-Euler half-step followed by a Crank--Nicolson full step.",
+        "identifier_or_url": "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Published title and scientific summary returned by semantic search.",
+        "method": "Published-record comparison.",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson",
+        "trigger": "Closest published research record involving Crank--Nicolson and positivity."
+      },
+      {
+        "assessment": "NOT_COVERING by implication: it treats the fourth-order \\([2/2]\\) Padé map, whereas the accepted claim concerns the \\([1/1]\\) Crank--Nicolson map and a reversible spectral return law.",
+        "evidence": "The record explicitly identifies the \\([2/2]\\) Padé / two-stage Gauss--Legendre end-step map.",
+        "identifier_or_url": "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Published title and scientific summary returned by semantic search.",
+        "method": "Published-record comparison.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest published research record on rational approximation and finite Markov positivity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d475df91-cd2a-4243-9fdc-02a9baf57029",
+  "value": {
+    "rationale": "Negative transition entries are a direct structural failure for Markov evolution, and Crank--Nicolson is a standard \\(A\\)-stable second-order method. The theorem gives an exact generator-specific positivity diagnostic, not merely a sufficient step restriction, and ties it to probabilistically meaningful return resolvents. The reversible formula exposes how stationary mass and relaxation spectrum jointly control the threshold, while the unconditional classification and closed two-state/complete-graph thresholds provide concrete design and test cases.",
+    "status": "PASS"
+  }
+}
