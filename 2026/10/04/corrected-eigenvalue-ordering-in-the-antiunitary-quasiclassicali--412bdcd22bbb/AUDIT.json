@@ -1,0 +1,111 @@
+{
+  "claim": "In Eq. (19) of Oszmaniec and Kuś, “On detection of quasiclassical states” (arXiv:1111.1005; J. Phys. A 45 (2012) 244034), the phrase “increasingly ordered eigenvalues” is incompatible with the displayed antiunitary convex-roof formula and must be read as nonincreasingly ordered, \\(\\mu_1\\ge\\mu_2\\ge\\cdots\\ge\\mu_r\\). If the printed descriptor is instead read literally as \\(\\mu_1\\le\\mu_2\\le\\cdots\\le\\mu_r\\), then for every use of the formula with \\(r\\ge2\\), positivity gives \\(\\mu_1-\\sum_{j=2}^r\\mu_j\\le\\mu_1-\\mu_2\\le0\\), so the stated roof collapses to zero. The cited Uhlmann proposition gives the same formula with descending eigenvalues. In the paper’s two-qubit setting, the Bell-white-noise family \\(\\rho_p=p|\\Phi^+\\rangle\\langle\\Phi^+|+(1-p)I/4\\), with \\(|\\Phi^+\\rangle=(|00\\rangle+|11\\rangle)/\\sqrt2\\), has spin-flip singular values \\(b=(1+3p)/4\\) and \\(a=(1-p)/4\\) threefold; hence the corrected formula gives \\(\\max\\{0,(3p-1)/2\\}\\), while the literal printed ordering gives zero. At \\(p=1/2\\), the discrepancy is \\(1/4\\) versus \\(0\\). The correction concerns only the ordering descriptor in Eq. (19), not the paper’s representation-theoretic theorems.",
+  "correctness": {
+    "rationale": "The source text says increasingly ordered immediately after a largest-minus-the-rest roof. Uhlmann Proposition 4.1, cited by the source, requires descending eigenvalues. For literal ascending order and r>=2, positivity gives mu_1-sum_{j>=2} mu_j <= mu_1-mu_2 <= 0. The Bell-white-noise witness gives the corrected value max(0,(3p-1)/2), including 1/4 at p=1/2, while the literal order gives zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Uhlmann gives the general descending-order roof theorem and is explicitly cited by Oszmaniec–Kuś.",
+        "The accepted claim does not attempt to supersede Uhlmann; it concerns the inconsistent ordering descriptor in its later application."
+      ],
+      "reasoning": "The broader theorem determines which ordering is mathematically correct, but it does not make the source wording harmless: literal increasing order makes the displayed detector vanish for r>=2. The accepted item is therefore a source-specific correction, not a new general roof theorem.",
+      "searches": [
+        "Roofs and Convexity Uhlmann eigenvalues decreasing concurrence",
+        "antiunitary convex roof largest singular value minus sum remaining ordering",
+        "quasiclassical mixed states eigenvalue ordering typo concurrence convex roof"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1111.1005",
+      "DOI:10.1088/1751-8113/45/24/244034",
+      "DOI:10.3390/e12071799"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uhlmann proves lambda_1 minus the remaining eigenvalues with lambda_1 the largest.",
+        "Oszmaniec–Kuś reproduce that algebraic expression but state the opposite ordering.",
+        "The Bell-white-noise witness shows the difference changes the detector from 1/4 to 0 at p=1/2."
+      ],
+      "reasoning": "The prior theorem implies the corrected convention, while the later paper’s literal wording contradicts it. The accepted claim is precisely the diagnosis and consequence of that mismatch; it does not claim the corrected roof value as a new theorem independent of Uhlmann.",
+      "searches": [
+        "Oszmaniec Kus Eq. (19) Uhlmann Proposition 4.1",
+        "On detection of quasiclassical states increasing eigenvalues Uhlmann",
+        "Bell white noise spin flip concurrence eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Oszmaniec–Kuś Eq. (19) uses largest-minus-the-rest but describes the eigenvalues as increasingly ordered.",
+        "Uhlmann Proposition 4.1 uses the same expression with lambda_1 >= lambda_2 >= ... .",
+        "No searched published finding supplied an equivalent correction of the ordering descriptor."
+      ],
+      "reasoning": "An equivalent formulation would have to identify that mu_1 must be the largest eigenvalue, or explicitly correct increasing to decreasing order. General discussions of concurrence or antiunitary roofs are prior background but do not by themselves diagnose the later paper’s wording.",
+      "searches": [
+        "Oszmaniec Kus quasiclassical Eq 19 increasingly ordered eigenvalues correction convex roof antiunitary",
+        "quasiclassical mixed states eigenvalue ordering typo concurrence convex roof",
+        "antiunitary convex roof largest singular value minus sum remaining ordering",
+        "On detection of quasiclassical states vacuous formula increasingly ordered",
+        "mixed classicality antiunitary spectrum largest eigenvalue correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv manuscript and an author-uploaded journal-text copy both contain the increasing-order wording.",
+        "Targeted searches did not locate an indexed erratum or correction."
+      ],
+      "reasoning": "This is not a recomputation of a database entry or numerical table. The relevant evidence is a textual statement in the primary paper compared with the theorem it cites.",
+      "searches": [
+        "On detection of quasiclassical states Eq. (19) erratum correction",
+        "DOI 10.1088/1751-8113/45/24/244034 increasingly ordered",
+        "Oszmaniec Kus decreasingly ordered eigenvalues"
+      ]
+    },
+    "rationale": "The antiunitary roof theorem is prior work and is credited to Uhlmann. The new item is limited to identifying and proving the consequence of the reversed ordering descriptor in the later paper, plus an explicit impact witness. No indexed correction was located in targeted searches.",
+    "residual_risks": [
+      "An informal or unindexed correction may exist outside the searched literature.",
+      "The accepted claim does not reassess other formulas or representation-theoretic conclusions in the paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper displays largest-minus-the-rest and then says increasingly ordered eigenvalues.",
+        "evidence": "Eq. (19) is followed immediately by the increasing-order descriptor; the paper cites Uhlmann for the roof construction.",
+        "identifier_or_url": "arXiv:1111.1005; DOI:10.1088/1751-8113/45/24/244034",
+        "material_read": "ArXiv abstract/classification metadata and the full manuscript around Eq. (19), including the sentence defining the eigenvalue order and the subsequent examples.",
+        "method": "Full-text PDF inspection with visual confirmation of the relevant printed page.",
+        "title": "On detection of quasiclassical states",
+        "trigger": "Primary source containing Eq. (19) and the mixed-state criterion."
+      },
+      {
+        "assessment": "The theorem explicitly orders eigenvalues nonincreasingly before applying lambda_1 minus the sum of the rest.",
+        "evidence": "Proposition 4.1 states lambda_1 >= lambda_2 >= ... and gives max(0, lambda_1-sum_{j>1} lambda_j).",
+        "identifier_or_url": "DOI:10.3390/e12071799",
+        "material_read": "Proposition 4.1 and its proof defining the eigenvalue ordering and the largest-minus-the-rest formula.",
+        "method": "Full-text PDF inspection.",
+        "title": "Roofs and Convexity",
+        "trigger": "Reference cited for the antiunitary convex-roof formula."
+      },
+      {
+        "assessment": "The increasing-order wording is also present there.",
+        "evidence": "The same descriptor appears alongside Eq. (19), reducing the likelihood that the issue is only an extraction artifact.",
+        "identifier_or_url": "DOI:10.1088/1751-8113/45/24/244034",
+        "material_read": "Searchable author-uploaded journal text around Eq. (19).",
+        "method": "Full-text web inspection.",
+        "title": "On detection of quasiclassical states — journal-text copy",
+        "trigger": "Check whether the wording was corrected outside the arXiv rendering."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "412bdcd2-2bbb-4c9b-988d-1eefaede21a1",
+  "value": {
+    "rationale": "The correction prevents a substantive failure mode: literal increasing order makes the mixed-state criterion zero for every r>=2. The Bell-white-noise witness shows a standard state for which a direct implementation would return 0 instead of 1/4. Restoring the ordering is therefore necessary for the detector to have the function claimed for it.",
+    "status": "PASS"
+  }
+}
