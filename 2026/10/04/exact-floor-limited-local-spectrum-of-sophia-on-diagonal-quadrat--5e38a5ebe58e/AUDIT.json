@@ -1,0 +1,90 @@
+{
+  "correctness": {
+    "rationale": "Exact diagonal Hessian refreshes give \\(h_i^{(j)}=\\lambda_i(1-\\beta_2^j)\\). The local unclipped limit matrix has determinant \\(\\beta_1\\) and trace \\(1+\\beta_1-(1-\\beta_1)\\chi_i\\), with \\(\\chi_i=\\eta\\lambda_i/\\max\\{\\gamma\\lambda_i,\\varepsilon\\}\\). Second-order Jury conditions and the discriminant provide the exact strict stability frontier and rate plateau.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source Theorem 4.3 gives a condition-number-independent runtime bound for a simplified deterministic full-Hessian method.",
+        "The practical source algorithm uses momentum, a diagonal Hessian EMA, clipping, and a max-with-epsilon denominator."
+      ],
+      "reasoning": "The source theorem is broader in objective class but analyzes a different simplified update. It does not imply the exact limiting spectrum of the practical momentum recurrence or the floor-induced flat-curvature boundary.",
+      "searches": [
+        "Sophia condition number independent deterministic convergence",
+        "Sophia practical algorithm momentum Hessian EMA clipping epsilon",
+        "Sophia convergence analysis momentum quadratic stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.14342v1",
+      "arXiv:2305.14342v4",
+      "ICLR 2024 Sophia proceedings paper"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 3 specifies the practical momentum, Hessian EMA, denominator floor, clipping, and weight-decay order.",
+        "Section 4 explicitly switches to a simplified full-Hessian update and notes that the max-with-epsilon is not needed there.",
+        "The implementation appendix reports beta1=0.96, beta2=0.99, epsilon=1e-12, k=10, gamma=0.01 for Sophia-H and gamma=0.05 for Sophia-G."
+      ],
+      "reasoning": "The prior theorem establishes the qualitative goal of condition-number independence but does not imply the practical local-mode polynomial. The final claim quantifies precisely where the actual denominator floor preserves or destroys that behavior.",
+      "searches": [
+        "Sophia Algorithm 3 momentum hessian EMA max gamma h epsilon clipping",
+        "Sophia Theorem 4.3 full Hessian condition number independent",
+        "Sophia hyperparameters beta1 beta2 epsilon gamma k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.14342v1 and v4 practical Algorithm 3",
+        "ICLR 2024 Sophia theoretical Section 4"
+      ],
+      "reasoning": "The equivalent formulation is a preconditioned momentum mode with dimensionless gain \\(chi=\\eta\\lambda/\\max\\{\\gamma\\lambda,\u000barepsilon\\}\\). The source does not state this local polynomial for the practical algorithm, and targeted searches did not identify an equivalent published formula.",
+      "searches": [
+        "Sophia optimizer local stability scalar quadratic Hessian floor epsilon momentum",
+        "Sophia optimizer exact spectral radius scalar quadratic beta1 gamma epsilon",
+        "Sophia Hessian floor condition number independence local quadratic",
+        "Sophia clipped second order optimizer scalar deterministic quadratic rate plateau"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-record hit returned a Sophia-specific exact local spectral table, the Jury ceiling, or the flat-curvature threshold."
+      ],
+      "reasoning": "The nearest retrieved sharp-stability records concern other optimization methods and do not contain the Sophia state or denominator floor. Search absence is not treated as a proof of novelty, so the terminology risk remains explicit.",
+      "searches": [
+        "Sophia optimizer local stability scalar quadratic Hessian floor epsilon momentum",
+        "Sophia optimizer exact spectral radius scalar quadratic beta1 gamma epsilon",
+        "Sophia clipped second order optimizer scalar deterministic quadratic rate plateau"
+      ]
+    },
+    "rationale": "The source proves condition-number independence for a simplified full-Hessian method, but the inspected practical-algorithm and theory sections do not contain the local practical-mode polynomial, all-curvature stability ceiling, or epsilon-floor plateau threshold.",
+    "residual_risks": [
+      "Equivalent local formulas may exist under generic preconditioned-momentum terminology without naming Sophia.",
+      "The stochastic Hessian estimators used in practice introduce random preconditioner dynamics not captured by the exact-Hessian theorem.",
+      "The result is local and does not classify clipping-active nonlinear cycles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_EXACT_PRACTICAL_LOCAL_SPECTRUM.",
+        "evidence": "The paper defines the practical update and separately proves a condition-number-independent theorem for a simplified full-Hessian method. The inspected text does not state the practical two-state characteristic polynomial, exact Jury ceiling, or epsilon-floor plateau threshold.",
+        "identifier_or_url": "arXiv:2305.14342v1; arXiv:2305.14342v4",
+        "material_read": "Full open-access paper portions covering Algorithm 3, practical hyperparameters, Section 4, Theorem 4.3, and the implementation appendix; the practical algorithm, theory page, and hyperparameter table were visually inspected.",
+        "method": "Full-text PDF inspection with page-level visual verification.",
+        "title": "Sophia: A Scalable Stochastic Second-order Optimizer for Language Model Pre-training",
+        "trigger": "Defining source and directly relevant practical and theoretical formulations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e38a5eb-e58e-4e9c-b090-7cfc329d3129",
+  "value": {
+    "rationale": "Condition-number adaptation is a defining motivation of Sophia, and the practical max-with-\\(\\varepsilon\\) floor is absent from its simplified theory. The exact result identifies the curvature scale below which that floor restores first-order-like slowing, while also showing a broad momentum-controlled plateau with rate \\(\\sqrt{\\beta_1}\\). This is a concrete diagnostic for practical parameter choices and for interpreting the source condition-number-independence claim.",
+    "status": "PASS"
+  }
+}
