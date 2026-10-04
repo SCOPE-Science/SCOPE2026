@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The maximum atom probabilities and score covariance are exact. Every centered increasing support decomposes into positive centered-threshold rays. The objective and norm of each ray are computed exactly, giving the lower endpoint by the triangle inequality. Strictness, the two-level closure extremizers, the upper projection extremizer, and interval filling are all proved explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "López-Blázquez states an upper bound problem for the expected maximum of iid samples from discrete N-point distributions and characterizes upper extremizers.",
+        "Balakrishnan--Charalambides--Papadatos treat best expected-order-statistic bounds for sampling without replacement from an equiprobable finite population.",
+        "Papadatos characterizes sequences of expected maxima and gives discrete-uniform approximants with explicit maximum probabilities."
+      ],
+      "reasoning": "These sources cover the upper projection problem, a different without-replacement model, and sequence characterization. None of the inspected accessible material dominates the lower fixed-profile support geometry.",
+      "searches": [
+        "DOI:10.1016/S0378-3758(97)00181-X",
+        "DOI:10.1016/S0378-3758(01)00321-4",
+        "arXiv:1610.06835",
+        "Hartley David Gumbel universal expected maximum variance bound"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/S0378-3758(97)00181-X",
+      "DOI:10.1016/S0378-3758(01)00321-4",
+      "arXiv:1610.06835",
+      "Hartley--David (1954)",
+      "Gumbel (1954)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1998 source's stated objective is the maximum expected value, not the minimum normalized gap.",
+        "The 2016 full text characterizes expected-maxima sequences rather than optimizing support geometry at a fixed atom profile.",
+        "The 2003 paper samples without replacement from equal-probability finite populations.",
+        "The closest database min-max correlation result optimizes a different order-statistic functional on three fixed support points."
+      ],
+      "reasoning": "An upper projection theorem does not imply a lower bound on the same cone. The lower endpoint comes from the extreme rays of the monotone support cone and has different equality behavior: it is generally only attained in the closure.",
+      "searches": [
+        "Discrete distributions with maximum expected value of the maximum 1998",
+        "On sequences of expected maxima and expected ranges arXiv:1610.06835",
+        "Bounds on expectation of order statistics from a finite population 2003",
+        "sharp min-max correlation over three-point probability weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved database record states the cut functional min_j (P_j-P_j^n)/sqrt(P_j(1-P_j)).",
+        "The closest records concern upper expected-maximum bounds or unrelated order-statistic correlations."
+      ],
+      "reasoning": "Queries covered lower bound, normalized expected maximum, prescribed probabilities, support optimization, and discrete order-statistic terminology. The candidate is not an alias of the classical upper projection problem.",
+      "searches": [
+        "sharp lower bound expected maximum finite discrete fixed probabilities variance",
+        "minimum standardized expected maximum discrete distribution prescribed probabilities",
+        "expected maximum lower envelope fixed atom probabilities",
+        "discrete expected maximum support optimization lower bound variance",
+        "lower bound expected maximum discrete distribution fixed probabilities variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula database record or table containing the lower cut constant or complete interval was returned."
+      ],
+      "reasoning": "The theorem is symbolic for every positive finite probability vector and every sample size n>=2; it is not inferred from finite enumeration.",
+      "searches": [
+        "fixed probability profile expected maximum variance sharp support",
+        "finite discrete iid sample maximum prescribed probabilities lower bound",
+        "standardized expected maximum two level cut discrete"
+      ]
+    },
+    "rationale": "The closest archive paper explicitly studies the opposite upper optimization for discrete expected maxima. Accessible full text on expected-maxima sequences and the without-replacement literature does not state the fixed-profile lower endpoint or full interval. The inaccessible remainder of the 1998 article is retained as a residual risk rather than treated as novelty evidence.",
+    "residual_risks": [
+      "The complete 1998 discrete expected-maximum paper was not available for inspection; accessible material establishes its upper-bound focus but cannot rule out an unobserved lower-bound remark.",
+      "Older order-statistic projection literature may formulate the monotone-cone lower endpoint under different geometric terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_UPPER_RESULT_WITH_ACCESS_RISK",
+        "evidence": "The accessible material explicitly says the objective is an upper bound for the expected largest order statistic and characterization of maximizing discrete distributions. Because the full article was unavailable, an unobserved lower-bound remark is retained as a residual risk.",
+        "identifier_or_url": "DOI:10.1016/S0378-3758(97)00181-X",
+        "material_read": "Publisher abstract, introduction, and rendered opening of the main-result section; complete article text was not available.",
+        "method": "Compared the stated optimization direction, sample model, fixed masses/support setup, and extremal objective with the lower-endpoint claim.",
+        "title": "Discrete distributions with maximum expected value of the maximum",
+        "trigger": "Closest archive source on optimizing iid expected maxima over discrete supports."
+      },
+      {
+        "assessment": "FULL_TEXT_RELATED_NOT_COVERING",
+        "evidence": "The paper characterizes which sequences can be expected-maxima sequences and uses discrete uniform approximants with probabilities (i/n)^k-((i-1)/n)^k. It does not optimize the normalized expected maximum from below over supports with a prescribed probability vector.",
+        "identifier_or_url": "arXiv:1610.06835",
+        "material_read": "Complete arXiv HTML, including the introduction, expected-maxima characterization, constructive discrete-uniform approximation, and expected-range section.",
+        "method": "Compared its characterization objective and explicit maximum probabilities with fixed-profile support minimization.",
+        "title": "On sequences of expected maxima and expected ranges",
+        "trigger": "Full accessible primary treatment of expected maxima for iid samples, including discrete approximants."
+      },
+      {
+        "assessment": "DIFFERENT_SAMPLING_MODEL_ACCESS_RISK",
+        "evidence": "The accessible abstract treats simple random sampling without replacement from an equiprobable ordered finite population and derives best moment bounds. The present theorem fixes an arbitrary iid atom-probability profile.",
+        "identifier_or_url": "DOI:10.1016/S0378-3758(01)00321-4",
+        "material_read": "Repository and author-institution metadata plus abstract; complete article text was not available.",
+        "method": "Compared sampling scheme and optimization constraints.",
+        "title": "Bounds on expectation of order statistics from a finite population",
+        "trigger": "Highly related finite-population order-statistic bounds and a possible stronger-coverage source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "20ffd25e-d698-4ae9-91e2-70d682ecc6d0",
+  "value": {
+    "rationale": "The lower side is a natural missing counterpart to the classical discrete upper problem. For a fixed atom profile it gives a positive, computable anti-collapse constant, identifies all closure extremizers by cumulative-mass cuts, and combines with the known upper projection result to classify the entire attainable standardized expected-maximum range.",
+    "status": "PASS"
+  }
+}
