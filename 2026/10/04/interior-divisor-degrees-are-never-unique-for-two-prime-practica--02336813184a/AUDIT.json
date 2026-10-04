@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "Cyclotomic factorization makes degree multiplicities coefficients of a subset-sum generating polynomial. For the 2-power layer, the coefficient sequence is exactly 1,2,...,2,1. Every interior degree exists by Thompson's criterion. Any representation with an interior layer subtotal already contributes at least two subsets; an all-endpoint representation is converted explicitly to an interior one, with separate carry identities for p<=2^a-1 and the boundary p=2^a+1. Complement symmetry handles endpoint vectors beginning with zero. Degree 1 has exactly the two choices Phi_1 and Phi_2, proving the minimum is exactly two.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thompson Lemma 4.1 gives when adjoining a prime power preserves phi-practicality; it supplies existence but no interior-degree multiplicity lower bound.",
+        "Later distribution references count phi-practical integers rather than divisors of a fixed polynomial by degree."
+      ],
+      "reasoning": "The prior extension theorem implies the family on which every degree exists, but it does not imply that each interior degree has two distinct divisors; the proof here adds a layer-coefficient and carry argument.",
+      "searches": [
+        "Polynomials with divisors of every degree Thompson phi-practical Lemma 4.1",
+        "phi-practical distribution Pomerance Thompson Weingartner"
+      ]
+    },
+    "checked_sources": [
+      "Thompson, arXiv:1111.5401v1 / Journal of Number Theory 132 (2012), full HTML",
+      "OEIS A260653",
+      "Indexed published-result corpus via recorded semantic queries",
+      "Web searches for divisor-degree multiplicity and equivalent generating-function formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For M=2^a, Thompson's lemma yields the same admissible prime bound used here.",
+        "The new coefficient identity H_A(z)=(1+z)(1-z^A)/(1-z) and endpoint-carry replacements are not statements of Thompson's lemma."
+      ],
+      "reasoning": "Prior work identifies the existence regime. The final claim is strictly finer: it determines that degree-realization multiplicity has minimum exactly two and that only endpoint degrees are unique.",
+      "searches": [
+        "Thompson Lemma 4.1 p^k M phi-practical p<=M+1",
+        "two-prime phi-practical multiplicity divisors polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Thompson's full text defines phi-practicality as existence of a degree-d divisor for every d and proves the relevant extension criterion, but the inspected statement does not count how many divisors have each degree.",
+        "Targeted indexed-corpus queries using multiplicity, monic-divisor, degree-counting, and generating-function language returned no equivalent theorem."
+      ],
+      "reasoning": "The claim classifies uniqueness of degree realizations, not mere existence. The natural coefficient formulation via product over cyclotomic degrees was searched explicitly without a matching result.",
+      "searches": [
+        "phi-practical multiplicity monic divisors every degree two-prime support unique degree cyclotomic",
+        "polynomial x^n-1 number of monic divisors of each degree phi practical multiplicity",
+        "coefficients product (1+z^phi(d)) phi-practical divisor degree count",
+        "two-prime phi-practical 2^a p^b multiplicity divisors polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A260653 records which n are phi-practical and cites distribution results, but does not tabulate the number of divisors of each degree.",
+        "A separate OEIS hit concerns divisors of maximum height, a different statistic."
+      ],
+      "reasoning": "No located database or table records the uniqueness classification or exact interior minimum in the claimed family.",
+      "searches": [
+        "OEIS phi-practical A260653 multiplicity divisor degree",
+        "number of divisors x^n-1 by degree cyclotomic"
+      ]
+    },
+    "rationale": "The inspected primary source establishes degree existence and the prime-extension criterion but does not state a multiplicity theorem. Targeted semantic and web searches using equivalent coefficient, uniqueness, and divisor-count formulations found no same or stronger result.",
+    "residual_risks": [
+      "An older or obscure paper may study the coefficient sequence product_{d|n}(1+z^{phi(d)}) without using phi-practical terminology.",
+      "No claim is made for general phi-practical integers with three or more distinct prime factors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers existence of a divisor in every degree and exactly characterizes prime-power extension thresholds; no multiplicity-by-degree theorem was located.",
+        "evidence": "Lemma 4.1 states pM is phi-practical iff p<=M+2 and p^k M for k>=2 iff p<=M+1; its proof constructs one representation by contiguous intervals.",
+        "identifier_or_url": "arXiv:1111.5401v1",
+        "material_read": "Full HTML around Definition 3.2, Lemma 3.3, and Lemma 4.1, including the proof of the prime-extension criterion.",
+        "method": "Direct full-text inspection and targeted in-page search.",
+        "title": "Polynomials with divisors of every degree",
+        "trigger": "Primary source defining phi-practicality and potentially dominating the two-prime-support claim."
+      },
+      {
+        "assessment": "Records membership and global counting, not numbers of monic divisors realizing each degree.",
+        "evidence": "The entry states the subsum criterion and asymptotic counting references, with no multiplicity refinement.",
+        "identifier_or_url": "OEIS:A260653",
+        "material_read": "Entry definition, comments, and cited distribution summary.",
+        "method": "Direct entry inspection.",
+        "title": "OEIS A260653: Phi-practical numbers",
+        "trigger": "Standard database for the same class could contain a known refinement or multiplicity comment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "02336813-184a-4b5f-b31b-ae62afe47f2e",
+  "value": {
+    "rationale": "Phi-practicality is defined by existence in every degree; classifying when those degree realizations are unique is a natural second-order structural question. The theorem gives a complete uniqueness classification and sharp minimum multiplicity on the entire even two-prime-support family, rather than an arbitrary finite slice or a routine recomputation.",
+    "status": "PASS"
+  }
+}
