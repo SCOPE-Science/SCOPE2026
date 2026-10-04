@@ -1,0 +1,100 @@
+{
+  "claim": "For the normalized admittance-model tuned-collector flow with \\(y_{12}=y_{22}=0\\), \\(L_1=L_2=C=1\\), \\(0<M<1\\), \\(Y:=y_{11}>0\\), \\(\\alpha<0\\), and \\(\\beta>0\\), namely \\(\\dot x=-y+\\alpha(z/Y)^3+\\beta z/Y\\), \\(\\dot y=(x-Mz/Y)/(1-M^2)\\), \\(\\dot z=(Mx-z/Y)/(1-M^2)\\), the linear Hopf threshold \\(\\beta=MY\\) is also an exact global recurrence threshold. If \\(0<\\beta\\le MY\\), the origin is globally asymptotically stable. If \\(\\beta>MY\\), every compactly supported invariant probability measure \\(\\mu\\neq\\delta_0\\) satisfies \\(\\int z^4\\,d\\mu/\\int z^2\\,d\\mu=Y^2(\\beta-MY)/(-\\alpha)=:K\\), and in fact \\(\\int z^2\\,d\\mu<K<\\max_{\\operatorname{supp}\\mu} z^2\\); the same identity and strict bounds hold for the uniform measure on every nonconstant periodic orbit. For the published chaotic parameter set \\(M=49/100\\), \\(Y=33/10\\), \\(\\alpha=-10\\), \\(\\beta=15\\), one has \\(K=14574087/1000000\\), so every nontrivial compact recurrent statistical state has RMS \\(i_2\\)-current strictly below \\(3.8176022579\\) while its support reaches strictly beyond that magnitude.",
+  "correctness": {
+    "rationale": "Direct substitution of the published normalized equations gives qdot=x and the exact storage identity Hdot=((beta-MY)/(MY^2))z^2+(alpha/(MY^4))z^4. For beta<=MY, H is positive definite and coercive and its zero-derivative invariant set is only the origin, so LaSalle gives global asymptotic stability including beta=MY. The reconstructed characteristic polynomial factors at that boundary as (lambda^2+1)(lambda+1/[Y(1-M^2)]). For beta>MY, stationarity of H gives the exact fourth/second moment ratio; equality-case analysis makes both resulting amplitude inequalities strict. Exact rational replay verifies the published parameter constant.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest semantic records included global-threshold/balance results for Thomas, Goodwin, Lorenz--Stenflo, Rössler, Moore--Spiegel, Halvorsen and Genesio systems.",
+        "Those records use different vector fields, parameters and observables; none contains the tuned-collector equations or a reduction that dominates the present claim."
+      ],
+      "reasoning": "General balance-law methodology does not imply the source-specific cancellation or threshold without the present construction, and no broader theorem located specializes to this model.",
+      "searches": [
+        "tuned collector chaotic oscillator global stability threshold beta M y11 Hopf",
+        "tuned collector oscillator exact recurrence threshold fourth second moment",
+        "four dimensional chaotic flow exact invariant average balance periodic orbit differential equations 37C10"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math11092213",
+      "doi:10.3390/math10214047",
+      "2026/9/20/SCOPE-goodwin-global-hopf-slope-balance--69bab068e3f7",
+      "2026/9/20/SCOPE-moore-spiegel-balance-laws-and-period-floor--8ed8e017fb90",
+      "2026/9/20/SCOPE-rossler-compact-recurrence-threshold-and-measure-laws--6e87f2d3c811",
+      "2026/9/20/SCOPE-lorenz-stenflo-weak-rotation-global-threshold--eb5a675405b5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly notes constant divergence when backward trans-conductance vanishes, but constant divergence constrains phase-volume contraction and does not imply the quartic/second-moment identity or global stability at beta=MY.",
+        "Generic stationarity identities for invariant measures are standard, but the decisive observable H and its sign/coercivity are model-specific."
+      ],
+      "reasoning": "Neither the source’s divergence formula nor general invariant-measure stationarity logically yields the accepted theorem without the constructed storage identity and its equality analysis.",
+      "searches": [
+        "transistor-based tuned-collector oscillator analytic invariant balance Lyapunov divergence",
+        "tuned collector oscillator y12 y22 zero alpha beta invariant measure z fourth second moment",
+        "chaotic jerk system periodic orbit averaging first Lyapunov coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3390/math11092213 full text: searches for moment found no occurrence; average appears only in numerical-time wording, not an invariant average law.",
+        "Exact-title and same-system searches returned the introducing article and bibliographic/citation records, not an equivalent global-threshold or fourth/second-moment theorem."
+      ],
+      "reasoning": "No equivalent formulation of the storage identity, the closed global Hopf boundary, or the current-moment ratio was located for this oscillator.",
+      "searches": [
+        "\"Chaotic States of Transistor-Based Tuned-Collector Oscillator\" moment invariant measure periodic orbit",
+        "Petrzela tuned collector beta = M y11 Hopf global Lyapunov",
+        "Petrzela tuned collector oscillator invariant measure current moment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary article tabulates/plots numerical Lyapunov and attractor information and derives divergence, but it does not tabulate the claimed moment ratio or amplitude threshold.",
+        "The exact numerical constant search returned unrelated records rather than a known table/database entry for this oscillator."
+      ],
+      "reasoning": "The claimed invariant is not a recomputation of a published table value; it is an exact consequence newly extracted from the model equations.",
+      "searches": [
+        "DOI 10.3390/math11092213 full article; searches for moment, fourth, average, global stability",
+        "14574087 1000000 chaotic oscillator i2 moment"
+      ]
+    },
+    "rationale": "The source gives the same vector field, unique origin equilibrium, characteristic polynomial, divergence, numerical attractors and experiments, but no global Lyapunov theorem or invariant current-moment law. Targeted source, web, semantic-database, alias, parameter and implication searches found no same-system coverage. The closest results are structurally analogous theorems for different vector fields and do not imply this formula. Residual risk remains from unindexed literature.",
+    "residual_risks": [
+      "Semantic and web search cannot prove uniqueness in the literature; an unindexed source may contain an equivalent identity.",
+      "Only the introducing article was inspected at full-text depth; the older broad review was used as background rather than as a same-system source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the global stability theorem and invariant current-moment relation; supplies the premises and motivation.",
+        "evidence": "Equation (8) gives the model; the article states the origin is the only equilibrium, gives equations (9) and (10), normalizes L1=L2=C=1, and reports set (13) with M=0.49, y11=3.3, y12=y22=0, alpha=-10, beta=15. No moment theorem was found.",
+        "identifier_or_url": "doi:10.3390/math11092213",
+        "material_read": "Publisher/repository full text covering the admittance equations, unique equilibrium, characteristic polynomial, divergence, normalization, parameter set (13), numerical analysis, discussion and metadata.",
+        "method": "Direct full-text inspection plus exact-title/DOI term searches.",
+        "title": "Chaotic States of Transistor-Based Tuned-Collector Oscillator",
+        "trigger": "Exact introducing source of the model and published chaotic parameter set."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY; predates the tuned-collector article and cannot cover its source-specific theorem.",
+        "evidence": "The review concerns broad analog-chaos design and predates the 2023 tuned-collector model.",
+        "identifier_or_url": "doi:10.3390/math10214047",
+        "material_read": "Bibliographic/abstract-level material and relationship metadata.",
+        "method": "Literature comparison search.",
+        "title": "Chaos in Analog Electronic Circuits: Comprehensive Review, Solved Problems, Open Topics and Small Example",
+        "trigger": "Closely related review surfaced as a common-reference item for the source family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f0b4d252-2dc9-4bc6-8782-2a4f127b4071",
+  "value": {
+    "rationale": "The y12=y22=0 subfamily is exactly the source’s showcased near-ideal-current-source chaotic case, not an arbitrary parameter slice. The result closes the local Hopf threshold to a global asymptotic-stability boundary and, beyond it, forces every nontrivial compact recurrent state to share a parameter-only fourth/second current-moment ratio with a strict RMS/support amplitude sandwich. This supplies a mathematically natural and experimentally/numerically testable invariant for the oscillator.",
+    "status": "PASS"
+  }
+}
