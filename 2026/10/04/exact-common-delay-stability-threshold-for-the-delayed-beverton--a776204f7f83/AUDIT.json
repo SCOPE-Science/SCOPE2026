@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Starting from the source characteristic equation, the common-delay substitution gives the exact factorization \\((\\lambda e^{\\lambda\\tau})^2+P(\\lambda e^{\\lambda\\tau})+Q=0\\). Zero-delay hyperbolic stability yields \\(P,Q>0\\), so the two quadratic roots lie in the open left half-plane. For each scalar factor, all imaginary crossings are determined exactly by modulus and phase; the first crossing produces the stated piecewise \\(\\tau_c\\). Differentiation gives \\(\\operatorname{Re}(d\\lambda/d\\tau)=\\omega^2/(1+\\omega^2\\tau^2)>0\\) at every simple imaginary root, so stability is lost at the first crossing and never regained. The repeated-root case is explicitly separated. The packaged verifier reproduces the source Figure 2 threshold and checks the characteristic residual at the crossing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nishiguchi studies the scalar equation \\(\\lambda+\\alpha-\\beta e^{-\\lambda\\tau}=0\\) with complex coefficients and gives general stability analysis.",
+        "Bortz develops characteristic-root methods for two-lag linear delay equations.",
+        "Surya, Vyasarayani, and Kalmár-Nagy develop Lambert-\\(W\\)-based continuation for multiple-delay characteristic roots."
+      ],
+      "reasoning": "These works provide broader delay-equation machinery but do not specialize the Huang–Long–Shan common-delay characteristic equation to two scalar factors or give the present coefficient-level threshold. They therefore support, rather than dominate, the model-specific result.",
+      "searches": [
+        "two species competition common delay lambda squared exponential characteristic equation exact Hopf threshold",
+        "lambda e lambda tau quadratic factorization delay differential equation stability",
+        "single constant delay complex coefficients exponential stability Lambert W Nishiguchi",
+        "characteristic roots two-lag linear delay differential equations Lambert W Bortz"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdsb.2025075",
+      "doi:10.3934/dcds.2016048",
+      "doi:10.3934/dcdsb.2016053",
+      "doi:10.1177/1077546317717629",
+      "doi:10.1007/BF02124750",
+      "Available private ledger snapshots g000032 through g000041",
+      "Published semantic-index query results identified in the search evidence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.9 in the motivating paper remains phrased through positive roots of a delay-dependent transcendental frequency equation.",
+        "The scalar Lambert-\\(W\\) literature supplies tools for factors of the form \\(\\lambda e^{\\lambda\\tau}=z\\), but the source does not expose those factors.",
+        "The available own ledger through generation g000041 contains delay-related findings on other epidemiological and ecological models, but no Beverton–Holt common-delay factorization or threshold."
+      ],
+      "reasoning": "The new implication is obtained by an exact algebraic reduction of the source quasipolynomial, followed by a complete first-crossing analysis. Neither the source theorem nor the checked broader references states this closed result.",
+      "searches": [
+        "Beverton Holt competition equal delays characteristic equation Lambert W exact stability threshold",
+        "Huang Long Shan delayed Beverton Holt equal delay stability closed form",
+        "Beverton Holt competition common delay exact critical delay"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Huang–Long–Shan full text gives the common-delay characteristic equation and Theorem 2.9 but does not express it as a quadratic in \\(\\lambda e^{\\lambda\\tau}\\) or state the closed threshold.",
+        "Published semantic-index searches returned no item matching the exact paper plus common-delay stability closure. The closest returned records were 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac, 2026/9/20/SCOPE-ikeda-critical-delay-stability-and-sharp-relaxation--51fcdbf5a801, and 2026/9/18/SCOPE-all-order-gamma-memory-bifurcation-geometry--1c8a8bf2a700, all on different equations."
+      ],
+      "reasoning": "Equivalent formulations such as exact critical delay, common-delay threshold, Lambert-\\(W\\) spectrum, and quadratic factorization were searched. None of the inspected records states the same theorem for the source model.",
+      "searches": [
+        "Beverton Holt competition equal delays characteristic equation Lambert W exact stability threshold",
+        "The effects of two discrete delays on the competition outcomes in a Beverton-Holt competition model common delay",
+        "Lambert W factorization coexistence equilibrium common delay population competition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary full text gives Figure 2 with the parameter set \\(m_1=0.5\\), \\(b=1.2\\), \\(m_2=0.6\\), \\(c_1=0.4\\), \\(c_2=0.5\\), reporting convergence at equal delay \\(2\\) and oscillation at equal delay \\(4\\).",
+        "Direct substitution into the paper's equilibrium and coefficient formulas gives \\(\\tau_c=3.590488585197\\ldots\\)."
+      ],
+      "reasoning": "The numerical figure is used only as an external consistency check. The theorem and threshold are derived analytically and are not a table lookup.",
+      "searches": [
+        "The effects of two discrete delays on the competition outcomes in a Beverton-Holt competition model common delay",
+        "Beverton Holt competition common delay exact critical delay",
+        "The effects of two discrete delays Beverton Holt Figure 2 tau 2 tau 4"
+      ]
+    },
+    "rationale": "The motivating paper supplies the characteristic equation but not the closed factorization or threshold. Exact-title and alias searches across the published semantic index and the primary literature did not locate the same Beverton–Holt common-delay theorem. General scalar Lambert-\\(W\\) stability theory becomes applicable only after the model-specific quadratic reduction and therefore does not by itself cover the claim.",
+    "residual_risks": [
+      "A specialized delay-equation paper not retrieved by the searches may contain the same algebraic reduction in a more general matrix setting, though no inspected source states the present Beverton–Holt specialization.",
+      "The exact local threshold does not itself establish a nonlinear Hopf bifurcation, especially at the repeated-root boundary \\(\\Delta=0\\)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_PREDECESSOR_NOT_COVERING: the paper derives the characteristic equation and an implicit common-delay criterion but not the quadratic factorization or closed threshold.",
+        "evidence": "At equal delays the paper prints \\(\\lambda^2+(p_2+p_3)\\lambda e^{-\\lambda\\tau}+q_4e^{-2\\lambda\\tau}=0\\) and then proceeds through a transcendental frequency equation.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2025075",
+        "material_read": "Full article, especially system (6), equations (14), (17), (22), Theorem 2.9, Figure 2, and discussion.",
+        "method": "Full-text reading and independent algebraic reconstruction.",
+        "title": "The effects of two discrete delays on the competition outcomes in a Beverton-Holt competition model",
+        "trigger": "Direct source defining the model, characteristic equation, common-delay theorem, and Figure 2 comparison."
+      },
+      {
+        "assessment": "GENERAL_TOOL_NOT_COVERING: studies a first-order scalar single-delay characteristic equation with complex coefficients, but not this ecological model or its quadratic reduction.",
+        "evidence": "The abstract explicitly states analysis of \\(\\lambda+\\alpha-\\beta e^{-\\lambda\\tau}=0\\) with complex coefficients using Lambert \\(W\\).",
+        "identifier_or_url": "doi:10.3934/dcds.2016048",
+        "material_read": "Publisher abstract, scope statement, and reference list.",
+        "method": "Publisher-page inspection.",
+        "title": "On parameter dependence of exponential stability of equilibrium solutions in differential equations with a single constant delay",
+        "trigger": "Potential broader coverage after scalarization."
+      },
+      {
+        "assessment": "NOT_COVERING: develops a series expansion for two-lag characteristic roots, not the exact common-delay Beverton–Holt factorization or threshold.",
+        "evidence": "The abstract describes a general two-lag root expansion and an ecological application without the present coefficient formula.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2016053",
+        "material_read": "Publisher abstract and stated method.",
+        "method": "Publisher-page inspection.",
+        "title": "Characteristic roots for two-lag linear delay differential equations",
+        "trigger": "Potential broader multi-delay root coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: delay-related entries concern other models and claims.",
+        "evidence": "No recoverable prior claim concerns the Huang–Long–Shan Beverton–Holt common-delay spectrum or the stated \\(\\tau_c\\) formula.",
+        "identifier_or_url": "private-ledger-prefix",
+        "material_read": "Recoverable titles, claims, source identifiers, and keyword matches across the available ledger prefix.",
+        "method": "Local exact-text and keyword search for Beverton, Lambert, common delay, Hopf, characteristic equation, and stability threshold.",
+        "title": "Available private ledger through generation g000041",
+        "trigger": "Required overlap check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a776204f-7f83-450c-a3ac-8d4c35df71bf",
+  "value": {
+    "rationale": "The result turns the recent paper's implicit common-delay stability test into a direct coefficient formula, supplies the entire Lambert-\\(W\\) spectrum, identifies the generic crossing direction, and resolves the paper's own stable-versus-oscillatory Figure 2 parameter comparison at a sharp value \\(\\tau_c\\approx3.59049\\). It is a structural simplification of an ecologically motivated delay mechanism, not a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
