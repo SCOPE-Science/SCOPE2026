@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact recurrence. Jury stability gives \\(0<\\alpha\\lambda<2(1+\\beta)\\). For a two-cycle, periodicity forces velocities \\(\\pm(a-b)/\\alpha\\), hence clipped gradients \\(\\pm(1+\\beta)(a-b)/\\alpha\\). The unsaturated branch forces the exact boundary; the saturated branch gives \\(a-b=\\alpha C/(1+\\beta)\\) and the exact center band. Strictly saturated perturbations satisfy \\(e_t=\\beta e_{t-1}\\), proving the claimed transverse rate. The standalone checker reproduces these identities on exact rational and floating-point cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1905.11881v1 — theory of clipped/normalized gradient methods under relaxed smoothness.",
+        "arXiv:2002.03305v1 — normalized SGD with momentum.",
+        "arXiv:2102.06489v1 — clipped stochastic methods and a momentum extension for weakly convex problems.",
+        "arXiv:2301.05799v1 — unclipped heavy-ball on convex quadratics.",
+        "arXiv:2305.01588v1 — tight convergence guarantees for clipped gradient methods."
+      ],
+      "reasoning": "These sources cover broader convergence and stability questions, but their algorithmic maps or target statements differ. None supplies the exact fixed-parameter scalar two-cycle existence set, the critical continuum, the supercritical center band, and the transverse contraction formula together.",
+      "searches": [
+        "gradient clipping momentum optimization convergence weakly convex",
+        "normalized SGD momentum gradient clipping",
+        "gradient clipping deterministic quadratic convergence",
+        "heavy ball convex quadratics stability",
+        "gradient clipping momentum scalar quadratic exact stability limit cycle heavy ball",
+        "gradient clipping heavy ball scalar quadratic period two continuum cycles",
+        "clipped gradient momentum scalar quadratic neutral two cycle",
+        "gradient clipping before momentum heavy ball quadratic exact stability threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.11881v1",
+      "arXiv:2002.03305v1",
+      "arXiv:2102.06489v1",
+      "arXiv:2301.05799v1",
+      "arXiv:2305.01588v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2102.06489v1 explicitly studies a clipped method with momentum, but its convergence result is for a stochastic weakly convex construction and does not yield the present fixed-step orbit equations.",
+        "arXiv:2002.03305v1 normalizes a momentum-based direction rather than using the present clip-before-heavy-ball map.",
+        "arXiv:2301.05799v1 analyzes heavy-ball on convex quadratics without saturation."
+      ],
+      "reasoning": "Specializing the inspected convergence theorems does not produce the claimed continuum: their update maps are different or their assumptions enforce decaying/adaptive steps. The unclipped heavy-ball source can recover the local linear threshold but cannot imply the clipped supercritical cycle manifold because that manifold uses the saturation plateau essentially.",
+      "searches": [
+        "gradient clipping heavy ball period two alpha lambda 2 one plus beta",
+        "gradient clipping before momentum heavy ball quadratic exact stability threshold",
+        "clipped momentum continuum period two center band quadratic",
+        "gradient clipping replaces divergence with limit cycles momentum quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2102.06489v1 — momentum extension exists, but the inspected method and stochastic weakly convex convergence target differ from the present recurrence.",
+        "arXiv:2301.05799v1 — nearby heavy-ball quadratic dynamics without clipping.",
+        "Published-record search hit 2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158 concerns interval-robust unclipped heavy-ball root geometry, not saturation cycles."
+      ],
+      "reasoning": "The same recurrence can be described as a saturated second-order feedback system. Searches explicitly included heavy-ball, clipped momentum, saturation, and period-two language. No retrieved result stated the same orbit set or implied it by a stronger theorem. Standard heavy-ball Schur/Jury theory covers only the local unclipped matrix, not the saturated orbit classification.",
+      "searches": [
+        "gradient clipping momentum scalar quadratic exact stability limit cycle heavy ball",
+        "gradient clipping heavy ball scalar quadratic period two continuum cycles",
+        "clipped gradient momentum scalar quadratic neutral two cycle",
+        "gradient clipping before momentum heavy ball quadratic exact stability threshold",
+        "momentum gradient clipping quadratic nonconvergence limit cycle",
+        "clipped SGD momentum quadratic period two",
+        "gradient clipping large step scalar quadratic alternating cycle",
+        "gradient clipping heavy ball period two alpha lambda 2 one plus beta",
+        "clipped momentum continuum period two center band quadratic",
+        "gradient clipping replaces divergence with limit cycles momentum quadratic",
+        "saturated gradient momentum discrete time quadratic limit cycle",
+        "clipped gradient periodic orbit momentum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record search returned no exact matching clipping-plus-heavy-ball cycle theorem.",
+        "Closest published records included SCOPE-sosgm-feedback-curvature-stability--021cc30589a6, SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158, SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4, and SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53."
+      ],
+      "reasoning": "The closest records study clipping in a different stochastic feedback method, unclipped heavy-ball root structure, reflected-gradient stability, or Barzilai–Borwein steps. Their objects and recurrences do not contain the present clipped heavy-ball period-two table as a special case.",
+      "searches": [
+        "gradient clipping momentum scalar quadratic exact stability limit cycle heavy ball",
+        "gradient clipping heavy ball scalar quadratic period two continuum cycles",
+        "clipped gradient momentum scalar quadratic neutral two cycle",
+        "gradient clipping before momentum heavy ball quadratic exact stability threshold",
+        "momentum gradient clipping quadratic nonconvergence limit cycle",
+        "clipped SGD momentum quadratic period two",
+        "gradient clipping large step scalar quadratic alternating cycle",
+        "gradient clipping heavy ball period two alpha lambda 2 one plus beta",
+        "clipped momentum continuum period two center band quadratic",
+        "gradient clipping replaces divergence with limit cycles momentum quadratic"
+      ]
+    },
+    "rationale": "The final statement is a complete bifurcation theorem for the specific ordering “clip current scalar gradient, then apply raw heavy-ball momentum.” The inspected primary sources cover clipped gradient descent, stochastic clipped methods, a differently ordered clipped momentum method, normalized SGD with momentum, and unclipped heavy-ball quadratics. None of the inspected statements implies the boundary family plus the supercritical center band and normal-attraction law.",
+    "residual_risks": [
+      "A mathematically equivalent saturated second-order recurrence may appear in switched-systems, digital control, or nonlinear feedback literature under terminology not captured by optimization-focused searches.",
+      "The result must not be generalized from one dimension to multidimensional clipped momentum, where clipping couples modes through the norm.",
+      "The theorem classifies period two only; it does not exclude longer recurrent behavior for other initial conditions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING_MOMENTUM_CYCLE",
+        "evidence": "The theory analyzes clipped and normalized gradient methods under relaxed smoothness; it does not give the raw heavy-ball clip-before-momentum recurrence or its period-two bifurcation.",
+        "identifier_or_url": "arXiv:1905.11881v1",
+        "material_read": "Open-access arXiv abstract and full-text treatment of clipped/normalized gradient methods and its scope.",
+        "method": "Open-access arXiv text inspection.",
+        "title": "Why gradient clipping accelerates training: A theoretical justification for adaptivity",
+        "trigger": "Foundational modern theory for deterministic gradient clipping and normalization."
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE",
+        "evidence": "The work normalizes a momentum-based direction and proves stochastic nonconvex rates; it does not clip the current scalar gradient before a raw heavy-ball recurrence.",
+        "identifier_or_url": "arXiv:2002.03305v1",
+        "material_read": "Open-access arXiv abstract and method description for normalized SGD with momentum.",
+        "method": "Open-access arXiv text inspection.",
+        "title": "Momentum Improves Normalized SGD",
+        "trigger": "Potential overlap from combining normalization and momentum."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_MOMENTUM_CONSTRUCTION_AND_TARGET",
+        "evidence": "The source studies stochastic weakly convex convergence and a clipped momentum extension; it does not state the constant-step scalar quadratic two-cycle classification or the critical/supercritical center bands derived here.",
+        "identifier_or_url": "arXiv:2102.06489v1",
+        "material_read": "Open-access arXiv full text: clipped-SGD definition, related-work discussion, contributions, momentum-extension scope, and convergence framing.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Stability and Convergence of Stochastic Gradient Clipping: Beyond Lipschitz Continuity and Smoothness",
+        "trigger": "Most directly relevant source because it explicitly includes a clipped method with momentum."
+      },
+      {
+        "assessment": "UNCLIPPED_NEIGHBOR_NOT_COVERING",
+        "evidence": "The source studies classical heavy-ball on convex quadratics without the saturation nonlinearity that creates the claimed cycle continuum.",
+        "identifier_or_url": "arXiv:2301.05799v1",
+        "material_read": "Open-access arXiv abstract and quadratic heavy-ball convergence framing.",
+        "method": "Open-access arXiv text inspection.",
+        "title": "An Accelerated Lyapunov Function for Polyak's Heavy-Ball on Convex Quadratics",
+        "trigger": "Closest primary source for heavy-ball quadratic dynamics."
+      },
+      {
+        "assessment": "RELATED_CLIPPED_GRADIENT_NOT_HEAVY_BALL",
+        "evidence": "The source provides tight clipped-gradient convergence guarantees and clipping-threshold dependence, not the raw heavy-ball period-two phase diagram.",
+        "identifier_or_url": "arXiv:2305.01588v1",
+        "material_read": "Open-access arXiv abstract, submission metadata, and deterministic/stochastic clipping scope.",
+        "method": "Open-access arXiv text inspection.",
+        "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+        "trigger": "Recent tight clipping theory with deterministic and stochastic components."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "979ce950-6a74-4f32-aad1-49fe7dce4c4a",
+  "value": {
+    "rationale": "Gradient clipping is widely used as a stabilizer and momentum is a standard optimization component. The exact bifurcation shows a structurally important distinction between bounded oscillation and convergence: clipping leaves the local heavy-ball boundary \\(\\alpha\\lambda=2(1+\\beta)\\) unchanged, creates a continuum of critical cycles at the boundary, and a full center band of normally attracting saturated cycles above it. The formulas identify the cycle half-gap and the exact transverse rate, making the result a concrete benchmark for diagnosing fixed-step clipped-momentum dynamics.",
+    "status": "PASS"
+  }
+}
