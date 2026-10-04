@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The metric characterization is necessary and sufficient: a selected matched core–pendant pair forces the core onto a shortest path to any third selected vertex, while in the absence of matched pairs the only internal vertices on geodesics between selected vertices are unselected core mates of pendant endpoints. Counting then gives (1+2x)^n+n x^2. Strict log-concavity is verified symbolically at the only three affected indices and inherited from the scaled binomial tail elsewhere. A separate distance-based exhaustive checker confirms all coefficients through n=10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 preprint states positive preservation results for edgeless graphs and paths and gives C_6 as a counterexample to preservation of log-concavity.",
+        "The 2019/2021 corona theorem states gp(G∘H)=|V(G)|ρ(H), which specializes to gp(K_n∘K_1)=n."
+      ],
+      "reasoning": "The prior corona-number theorem supplies only the top degree, not the all-size counts or log-concavity. The 2026 paper has broader thematic coverage of coronas but its stated positive classes do not include complete graphs.",
+      "searches": [
+        "Full-text inspection of arXiv:2603.06930v1, Sections 6–7 on corona unimodality and log-concavity",
+        "Full-text inspection of DOI 10.7151/dmgt.2269, Theorem 4.3 on coronas",
+        "General position polynomial corona preservation open problem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.05696v1",
+      "DOI:10.1007/s00025-024-02133-3",
+      "arXiv:2603.06930v1",
+      "DOI:10.7151/dmgt.2269",
+      "published-finding corpus semantic searches recorded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 paper asks whether unimodality is preserved under G∘K_1 and proves the comb P_n∘K_1 case.",
+        "The 2026 preprint proves preservation for edgeless graphs and paths, while explicitly saying the general problem remains open; it also shows log-concavity fails for C_6∘K_1.",
+        "The 2019/2021 theorem determines only gp(G∘H), not the polynomial."
+      ],
+      "reasoning": "The final claim is not a special case of any stated polynomial theorem in the inspected sources. It extends the list of positive corona families and, because strict log-concavity is stronger than unimodality, supplies information not implied by the known maximum-size result.",
+      "searches": [
+        "Inspect 2024 General Position Polynomials, Problem 5.1 and Theorem 4.1",
+        "Inspect arXiv:2603.06930v1, Theorem 6.2, Proposition 6.3, and Section 7",
+        "Inspect DOI 10.7151/dmgt.2269, Theorem 4.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest semantic-database result was 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f, a generalized-windmill theorem on a different graph family.",
+        "Exact web searches returned the 2024 foundational polynomial paper and the 2026 corona follow-up, but no complete-graph-corona polynomial.",
+        "The 2026 full-text search contains no occurrence of a K_n corona formula; its stated positive corona classes are edgeless graphs and paths."
+      ],
+      "reasoning": "Generalized windmills are joins with disjoint cliques, not cliques with matched pendant leaves. The complete-graph corona has a distinct metric structure and the displayed polynomial is not an alias of the retrieved formulas.",
+      "searches": [
+        "published-finding corpus: general position polynomial corona complete graph K_n K_1 unimodal",
+        "published-finding corpus: general position sets corona complete graph pendant vertices weight polynomial",
+        "Web: \"general position polynomial\" \"K_n\" corona",
+        "Web: \"general position polynomial\" \"complete graph with pendant vertices\"",
+        "Web: \"general position polynomial\" corona \"complete graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus ID 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f proves unimodality for W_{n,m}=K_1∨nK_m.",
+        "Other close published-finding corpus hits concern complete-multipartite general-position variants and unrelated polynomial phenomena."
+      ],
+      "reasoning": "No exact indexed finding gives the corona K_n∘K_1 all-set count or strict log-concavity; the closest graph family is non-isomorphic and neither contains nor implies the claim.",
+      "searches": [
+        "published-finding corpus: general position polynomial corona complete graph K_n K_1 unimodal",
+        "published-finding corpus: unimodality corona general position polynomial complete graphs"
+      ]
+    },
+    "rationale": "The 2024 primary source poses corona-unimodality as an open problem. The 2026 full preprint gives positive corona families for edgeless graphs and paths, and a negative result for log-concavity in general, but no complete-graph-corona formula or theorem. The earlier corona-number theorem gives only the maximum size.",
+    "residual_risks": [
+      "A differently phrased or non-indexed complete-graph-corona polynomial may exist.",
+      "The 2026 preprint is highly relevant and its general corona observations make the complete-graph classification accessible, but it does not state the final formula or log-concavity theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact counting object, proves path-corona unimodality via combs, and leaves general corona preservation open; no complete-graph corona formula appears.",
+        "evidence": [
+          "arXiv v1 is dated 11 January 2024.",
+          "Problem 5.1 asks whether unimodality of ψ(G) implies unimodality of ψ(G∘K_1).",
+          "MSC listing begins with 05C31 and includes 05C69 and 05C76."
+        ],
+        "identifier_or_url": "arXiv:2401.05696v1 / DOI:10.1007/s00025-024-02133-3",
+        "material_read": "Full accessible HTML, especially the unimodality section, Theorem 4.1, concluding Problem 5.1, article metadata, and MSC listing.",
+        "method": "Primary full-text statement and gap inspection.",
+        "title": "General Position Polynomials",
+        "trigger": "Primary source introducing the polynomial and posing the corona-unimodality problem."
+      },
+      {
+        "assessment": "States positive corona results for edgeless graphs and paths, retains the open general unimodality problem, and gives C_6∘K_1 as a failure of log-concavity preservation; it does not state the complete-graph-corona formula or theorem.",
+        "evidence": [
+          "Section 6 lists edgeless graphs and paths as the positive base families.",
+          "Section 7 gives ψ(C_6∘K_1)=1+12x+66x^2+88x^3+39x^4+6x^5+x^6 and uses it to disprove general log-concavity preservation.",
+          "The conclusion again lists paths, combs, and edgeless graphs as the positive corona cases."
+        ],
+        "identifier_or_url": "arXiv:2603.06930v1",
+        "material_read": "Full 27-page preprint text, with focused inspection of Sections 6–7 and the conclusion; page images were also inspected.",
+        "method": "Full-text theorem and implication comparison.",
+        "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+        "trigger": "Highly relevant later paper directly revisiting corona preservation and thus a decisive overlap risk."
+      },
+      {
+        "assessment": "Determines gp(G∘H)=|V(G)|ρ(H), giving the degree n for K_n∘K_1, but contains no all-size polynomial or log-concavity statement.",
+        "evidence": [
+          "Theorem 4.3 states gp(G∘H)=n(G)ρ(H) for connected G of order at least two.",
+          "The proof concerns maximum general-position sets and does not enumerate all general-position subsets."
+        ],
+        "identifier_or_url": "DOI:10.7151/dmgt.2269 / arXiv:1903.04286",
+        "material_read": "Full primary PDF, especially Theorem 4.3 and its proof; the theorem page was visually inspected.",
+        "method": "Primary theorem implication comparison.",
+        "title": "The General Position Problem on Kneser Graphs and on Some Graph Operations",
+        "trigger": "Earlier corona result could dominate a claimed complete-corona theorem at the level of the maximum size."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cc76f1cb-7642-483c-a0bf-35ef62fc2ef4",
+  "value": {
+    "rationale": "The 2024 paper explicitly asks for corona preservation of unimodality, and the 2026 follow-up continues that program while showing log-concavity can fail. The complete-graph family is canonical, connected, and not among the previously stated positive corona classes. The result gives an exact polynomial and the stronger strict log-concavity property, so it contributes nontrivial structural information beyond the known maximum size.",
+    "status": "PASS"
+  }
+}
