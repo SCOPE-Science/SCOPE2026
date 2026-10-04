@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Write \\(W_b\\) as \\(n\\) minus the sum of clean-window indicators. Each clean-window mean is \\(r^b\\). For offset \\(d\\), the joint clean event requires exactly \\(u_d\\) distinct coordinates to avoid substitution, hence probability \\(r^{u_d}\\); summing all cyclic covariances gives the exact variance. The overlap count includes both possible cyclic intersections and also covers \\(b=n\\). Rational-arithmetic exhaustive checks reconstruct \\(W_b\\) directly for all \\(n\\le9\\) and several probabilities, and a larger symbolic grid checks the simplified \\(n\\ge2b\\) form.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Song--Fujiwara's abstract states coding bounds for b-symbol spheres.",
+        "Vega 2023 gives b-symbol weight enumerators for semiprimitive irreducible cyclic codes, not a Bernoulli product measure on arbitrary error supports."
+      ],
+      "reasoning": "Sphere volumes or code weight enumerators count vectors under uniform combinatorial weighting. They do not by themselves state the iid-error variance for arbitrary \\(p\\); the present covariance law uses probabilities of unions of two cyclic windows.",
+      "searches": [
+        "runs coverage Bernoulli cyclic windows b-symbol channel",
+        "Bernoulli coverage of cyclic length-b windows coding b-symbol",
+        "Song and Fujiwara 2018 sphere packing / Gilbert-Varshamov b-symbol bounds",
+        "Vega 2023 b-symbol weight distributions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.09236v1",
+      "DOI:10.1587/transfun.E101.A.1915",
+      "DOI:10.1007/s10623-023-01193-w",
+      "published-finding corpus 2026/9/8/SCOPE080 and the returned neighboring semantic hits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ding--Zhang--Ge define the cyclic b-read vector and distance and then study Singleton/MDS properties.",
+        "Song--Fujiwara's accessible record states sphere-packing and Gilbert--Varshamov bounds.",
+        "Vega studies b-weight distributions within specific cyclic codes."
+      ],
+      "reasoning": "None of the inspected statements implies the iid substitution first/second moments. The Song--Fujiwara full text could not be inspected, so it remains a named residual risk rather than being classified as definitely non-covering.",
+      "searches": [
+        "arXiv:1609.09236v1 pp.1-3",
+        "DOI:10.1587/transfun.E101.A.1915 abstract/metadata",
+        "DOI:10.1007/s10623-023-01193-w full-text HTML",
+        "exact mean variance b-symbol corruption count independent substitutions cyclic read windows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/9/8/SCOPE080 concerns three optimal binary cyclic symbol-pair codes; other leading hits concern unrelated variance problems.",
+        "arXiv:1609.09236v1 defines \\(D_b(x,y)=\\mathrm{wt}_b(x-y)\\) but does not formulate a random substitution law."
+      ],
+      "reasoning": "Searches covered the aliases b-symbol distance, b-symbol weight, stochastic substitution channel, and moment/variance language. No located statement gives the claimed expectation and variance under iid substitution locations.",
+      "searches": [
+        "variance b-symbol distance independent substitutions b-symbol read channel",
+        "stochastic b-symbol weight distribution substitution channel",
+        "moments b-symbol error weight random errors",
+        "variance b-symbol distance stochastic substitution channel q-ary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit exposed a table or formula for these stochastic moments.",
+        "The inspected Ding--Zhang--Ge preliminaries contain metric definitions and deterministic weight inequalities, not a stochastic table."
+      ],
+      "reasoning": "The claimed quantity is an all-parameter moment formula rather than a finite table; no exact database entry or tabulation determining it was located.",
+      "searches": [
+        "variance b-symbol distance independent substitutions b-symbol read channel",
+        "mean variance number of corrupted b-symbol windows Bernoulli errors cyclic",
+        "exact mean variance b-symbol corruption count independent substitutions cyclic read windows",
+        "Bernoulli coverage of cyclic length-b windows coding b-symbol"
+      ]
+    },
+    "rationale": "Targeted semantic searches returned no published-finding corpus finding stating or implying the independent-substitution moment formulas. The closest b-symbol published-finding corpus record concerns optimal cyclic symbol-pair codes, not stochastic distance moments. The open full text of Ding--Zhang--Ge defines the metric and develops MDS code bounds/constructions; Vega's open article develops b-symbol weight distributions of structured cyclic codes. Song--Fujiwara is the closest sphere-bound paper; only its abstract/metadata were accessible after bounded lawful retrieval attempts, and that residual risk is recorded rather than treated as negative evidence.",
+    "residual_risks": [
+      "The Song--Fujiwara full text was not retrievable through the bounded lawful routes used here, so an unstated intermediate formula there is a residual originality risk.",
+      "A cyclic-Bernoulli coverage calculation may exist outside coding-theory terminology or in an unindexed source.",
+      "A complete b-symbol weight enumerator for the full ambient space under a refined Hamming-weight marking could imply the arbitrary-p moments even if the moment formula is not stated explicitly; no such dominating source was located in the searches performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same cyclic b-symbol metric and deterministic weight relations; the paper's stated program is Singleton bounds and MDS constructions, not stochastic independent-substitution moments.",
+        "evidence": "arXiv v1 is dated 29 Sep 2016; Section 2 defines \\(\\pi_b\\), \\(D_b\\), and \\(\\mathrm{wt}_b\\) and relates \\(D_b(x,y)\\) to \\(\\mathrm{wt}_b(x-y)\\).",
+        "identifier_or_url": "arXiv:1609.09236v1",
+        "material_read": "Open full text, especially abstract/introduction and Section 2 definitions and Propositions 2.1--2.3.",
+        "method": "Lawful arXiv full text, with page images checked for the title/MSC and preliminaries.",
+        "title": "Maximum Distance Separable Codes for b-Symbol Read Channels",
+        "trigger": "Foundational middle-cohort open paper with the exact cyclic b-read definition and primary MSC in the assigned range."
+      },
+      {
+        "assessment": "Accessible material states sphere-packing, Gilbert--Varshamov, and asymptotic coding bounds; it does not expose stochastic moment formulas. Whole-document non-coverage is not claimed.",
+        "evidence": "The abstract says the paper derives three coding bounds for b-symbol read channels; a 2017 technical-report record predates the 2018 journal issue.",
+        "identifier_or_url": "DOI:10.1587/transfun.E101.A.1915",
+        "material_read": "Publisher abstract and bibliographic record; full text unavailable through open sources and a bounded authorized institutional retrieval attempt.",
+        "method": "Publisher metadata/abstract plus bounded lawful full-text retrieval attempts.",
+        "title": "Sphere Packing Bound and Gilbert-Varshamov Bound for b-Symbol Read Channels",
+        "trigger": "Closest title-level source because sphere bounds can depend on b-symbol ball enumeration."
+      },
+      {
+        "assessment": "Determines b-symbol weight enumerators for a structured class of irreducible cyclic codes. It does not put an iid Bernoulli law on arbitrary coordinate-error supports or state the variance claimed here.",
+        "evidence": "The paper defines \\(A_i^{(b)}\\) for codewords and gives a finite code weight enumerator; its main theorem is parameterized by semiprimitive irreducible cyclic-code structure.",
+        "identifier_or_url": "DOI:10.1007/s10623-023-01193-w",
+        "material_read": "Open full-text HTML: introduction, b-symbol weight definition, and main weight-enumerator theorem.",
+        "method": "Lawful open full text.",
+        "title": "The b-symbol weight distributions of all semiprimitive irreducible cyclic codes",
+        "trigger": "Broader weight-distribution literature could dominate a moment calculation if it covered arbitrary random error vectors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c9a49f78-2c6b-4377-ba49-88d65c8a008f",
+  "value": {
+    "rationale": "The number of corrupted \\(b\\)-symbol reads is the direct random distortion seen by the \\(b\\)-symbol channel under the standard independent-substitution model. Its exact mean and variance quantify the amplification and dependence created by overlapping reads, and the \\(n\\ge2b\\) formula gives the exact \\(\\sqrt n\\) fluctuation scale for every fixed \\(b\\) and \\(p\\). This is an all-parameter channel statistic, not an arbitrary finite slice or a recomputation of a known code table.",
+    "status": "PASS"
+  }
+}
