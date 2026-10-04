@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof expands the two maximal-displacement branches with their correct shifted local coins, uses the common final local unitary to prove orthogonality at each arrival site, obtains a sharp upper bound edge by edge, and saturates any selected edge with a localized coin state. The resulting Lipschitz ball gives the weighted shortest-path distance exactly by the distance-to-origin test function. A deterministic matrix replay on position-dependent periodic instances agrees with the seminorm identity to floating-point precision. The universal statement is analytic; finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2105.09056 studies weighted finite graphs for a different Dirac construction and explicitly notes that its noncommutative distance generally differs from weighted geodesic distance.",
+        "arXiv:2609.31488v1 is the only located work tying the unitary step operator of this plastic walk to Connes distance; its inhomogeneous treatment remains numerical."
+      ],
+      "reasoning": "Broader graph-spectral-distance results do not dominate the claim because they use a different operator and, in general, do not yield a weighted shortest-path metric. The final theorem depends on the specific factorization of the plastic walk and orthogonality of its maximal-displacement coin branches.",
+      "searches": [
+        "Connes distance discrete time quantum walks exact line metric",
+        "plastic quantum walk Connes distance weighted graph",
+        "Estimating noncommutative distances on graphs path graph exact distance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.31488v1",
+      "arXiv:2105.09056",
+      "arXiv:1803.07538",
+      "arXiv:1807.06935",
+      "MSC2020 81Q35"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.31488v1, lines corresponding to Eq. (26) and Appendix D.2: the source says the homogeneous coordinate-moment reduction no longer holds and solves the inhomogeneous problem with CVXPY.",
+        "The source Appendix C.2 proves the constant-coin norm using orthogonal maximal-jump branches, but does not carry the position index through those coefficients.",
+        "The general optimal-transport papers explain duality after a Lipschitz seminorm is known; they do not imply which local weights the plastic-walk commutator produces."
+      ],
+      "reasoning": "The source theorem does not imply the final claim: replacing the constant cosine by a local cosine inside an operator norm is exactly the step that must be proved, and the source instead performs numerical spectral-norm optimization. Conversely, the new formula strictly contains the source homogeneous formula as the constant-weight special case and solves its inhomogeneous numerical objective on the stated algebra.",
+      "searches": [
+        "arXiv:2609.31488v1 inhomogeneous spatial metric convex problem",
+        "arXiv:2105.09056 weighted graph Connes geodesic",
+        "arXiv:1803.07538 discrete Connes optimal transport"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.31488v1, Section VI.2 and Appendix C.2: the homogeneous commutator is evaluated exactly, while the inhomogeneous case is sent to numerical convex optimization.",
+        "arXiv:1803.07538: Connes spectral distance is related to Wasserstein-1 in commutative settings, but discrete spectral triples need not agree with transport built from pure-state costs.",
+        "arXiv:1807.06935: provides a general dual perspective on spectral distance, not the plastic-walk local seminorm."
+      ],
+      "reasoning": "The final claim is not merely a rephrasing of general Kantorovich duality. Its nonstandard step is the exact position-dependent commutator identity for the two-shift plastic-walk unitary. Once that identity is proved, the weighted shortest-path interpretation follows. None of the inspected general formulations supplies that model-specific identity.",
+      "searches": [
+        "inhomogeneous plastic quantum walk Connes distance exact weighted path commutator",
+        "Connes distance inhomogeneous discrete time quantum walk weighted Wasserstein",
+        "spectral distance weighted path graph Kantorovich quantum walk position algebra"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches returned no published finding with the same walk, position-dependent commutator norm, and weighted shortest-path conclusion.",
+        "The closest internally indexed quantum-walk result located by title concerns uniform average mixing on a finite path, a different observable and a different notion of time averaging."
+      ],
+      "reasoning": "The searches were aimed at the exact object, aliases (spectral/Connes distance, weighted path, Wasserstein), and the key parameter variation from constant to position-dependent coin. Absence of a hit is not treated as a novelty proof; it is combined with direct full-text comparison to the motivating source and broader primary literature.",
+      "searches": [
+        "inhomogeneous plastic quantum walk Connes distance exact weighted path commutator",
+        "Connes distance inhomogeneous discrete time quantum walk weighted Wasserstein",
+        "homogeneous plastic quantum walk exact finite Connes distance mean absolute position"
+      ]
+    },
+    "rationale": "The motivating 2026 paper derives only the constant-coin closed form and explicitly switches to numerical convex optimization for spatially varying coins. Broader spectral-distance/optimal-transport literature does not provide the walk-specific position-dependent commutator identity. Searches over direct aliases and implication-equivalent formulations located no stronger covering result. The remaining risk is an older, differently phrased quantum-walk or edge-spectral-triple theorem that specializes to the same unitary factorization.",
+    "residual_risks": [
+      "An equivalent special-case theorem may exist under older terminology connecting edge spectral triples and coined quantum walks; targeted searches did not locate one.",
+      "The theorem is not a claim about generic graph spectral triples; transferring it to another Dirac or unitary construction would require a new commutator calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper proves the constant-coin formula but states that the coordinate-moment reduction fails for spatially varying speed and solves the inhomogeneous distance numerically.",
+        "evidence": "Section VI.2.2 introduces \\(\\cos\theta(x)=\\kappa c(x)\\), Eq. (26) retains the supremum, and Appendix D.2 solves it with CVXPY at every step.",
+        "identifier_or_url": "arXiv:2609.31488v1",
+        "material_read": "Full HTML: Section VI.2, especially Eqs. (21)-(26); Appendix C.2; Appendix D.2.",
+        "method": "Direct full-text inspection of model definitions, homogeneous proof, inhomogeneous discussion, and numerical formulation.",
+        "title": "Connes Distance in Discrete-Time Quantum Walks",
+        "trigger": "Same walk, same diagonal algebra, same commutator constraint, and explicit inhomogeneous numerical problem."
+      },
+      {
+        "assessment": "NOT_COVERING: it studies a different graph Dirac operator and emphasizes that its spectral distance is generally not the graph geodesic distance.",
+        "evidence": "The paper states \\(d_D\\le \\ell_D\\) in general and gives nonadditive chain formulas for its graph Dirac construction.",
+        "identifier_or_url": "arXiv:2105.09056",
+        "material_read": "Abstract and full-text sections defining weighted graph Dirac operators, geodesic distance, and explicit chain behavior.",
+        "method": "Primary-text inspection via publicly indexed full text.",
+        "title": "Estimating noncommutative distances on graphs",
+        "trigger": "Potentially broader weighted-graph spectral-distance coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: it documents both coincidences and failures of spectral/Wasserstein identification, but does not analyze the plastic-walk unitary or its local gradient weights.",
+        "evidence": "The abstract explicitly notes a discrete example where spectral distance does not coincide with Wasserstein distance built from pure-state spectral costs.",
+        "identifier_or_url": "arXiv:1803.07538",
+        "material_read": "Abstract and stated discrete-space comparison.",
+        "method": "Primary arXiv record inspection.",
+        "title": "Connes distance and optimal transport",
+        "trigger": "Potential equivalence between spectral distance and Wasserstein distance."
+      },
+      {
+        "assessment": "NOT_COVERING: it gives a general infimum duality but no evaluation of the plastic-walk commutator seminorm.",
+        "evidence": "Its contribution is a Beckmann-type dual formula and matrix-algebra examples, not the quantum-walk local coefficient identity.",
+        "identifier_or_url": "arXiv:1807.06935",
+        "material_read": "Abstract and theorem-level description of the dual formulation.",
+        "method": "Primary arXiv record inspection.",
+        "title": "A dual formula for the spectral distance in noncommutative geometry",
+        "trigger": "Potential general dual formula that might subsume the transport statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8887b945-c5ab-44a0-9af7-97bdc336a05e",
+  "value": {
+    "rationale": "The source treats spatially varying geometry by a spectral-norm convex solve at every time step and interprets the result numerically. The exact formula identifies the local lattice line element, removes that optimization for both the infinite line and the finite periodic parity cycle, and gives a direct closed geometric observable for arbitrary finite-time wavepacket distributions. This is a structural lemma tied to the source's main inhomogeneous case rather than a routine constant substitution.",
+    "status": "PASS"
+  }
+}
