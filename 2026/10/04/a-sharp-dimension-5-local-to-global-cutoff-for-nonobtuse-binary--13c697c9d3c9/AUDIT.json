@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The Gram-sign criterion is reconstructed from dual facet normals. Cube coordinate reflections reduce exhaustively to origin-containing vertex sets. Exact rational enumeration checks every candidate in dimensions 3, 4, and 5 and finds no local-but-global failure; a dimension-six witness is checked by its exact inverse Gram matrix and by all 35 tetrahedral faces. The finite search is exhaustive rather than sampled.",
+    "risks": [
+      "A software implementation error is mitigated by exact arithmetic, explicit normalization logic, published count agreement, and a separate closed-form witness matrix; independent validation remains unperformed."
+    ],
+    "sources": [
+      "arXiv:1512.03483, Proposition 2.6",
+      "arXiv:1209.3875, Table 1 as an independent count cross-check"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1512.02940, Conjecture 3.25 bounds the possible obtuse incidences when all k-faces are nonobtuse",
+        "arXiv:1512.02940, Theorem 5.11 uses the stronger hypothesis that tetrahedral faces are sub-orthocentric",
+        "arXiv:1512.03483, Proposition 2.6 characterizes an already-global nonobtuse simplex by inverse-Gram signs"
+      ],
+      "reasoning": "The general k-face conjecture gives angle-count restrictions rather than global nonobtuseness. The sub-orthocentric theorem has a strictly stronger local hypothesis. The binary matrix-structure paper starts from global nonobtuseness. None of these implications subsumes the new finite local-to-global assertion.",
+      "searches": [
+        "\"Conjecture 3.25\" simplex nonobtuse",
+        "\"0/1 simplex\" nonobtuse tetrahedral facets",
+        "\"3-facets\" \"0/1-simplex\" nonobtuse"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.3875",
+      "arXiv:1512.02940",
+      "arXiv:1512.03044",
+      "arXiv:1512.03483",
+      "DOI:10.21136/AM.2018.0207-18"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1512.02940 explicitly notes that 0/1-simplices have restricted angle properties and treats simplices with all k-faces nonobtuse",
+        "arXiv:1512.03483, Lemma 2.11 records only the forward implication from global nonobtuseness to nonobtuse faces and says the converse fails in general",
+        "arXiv:1209.3875 supplies a global census but not a local-to-global theorem"
+      ],
+      "reasoning": "The new statement is a converse restricted simultaneously by binarity and low dimension. Existing one-way face inheritance, stronger sub-orthocentric hypotheses, and global census values do not imply it. The explicit dimension-six simplex proves that the converse cannot extend unchanged to all binary dimensions.",
+      "searches": [
+        "0/1 simplex every tetrahedral face nonobtuse implies simplex nonobtuse dimensions 4 5 counterexample dimension 6",
+        "dimension 6 0/1 simplex all 3-faces nonobtuse but obtuse dihedral angle",
+        "nonobtuse binary simplex tetrahedral face local global cutoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1512.02940, Sections 3.4, 5, and 6",
+        "arXiv:1512.03483, Section 2.2",
+        "arXiv:1512.03044, full-text term and statement search"
+      ],
+      "reasoning": "The searches covered the aliases binary simplex/0/1-simplex, tetrahedral face/facet, and the inverse-Gram formulation. The inspected papers discuss lower-face angle restrictions, sub-orthocentric tetrahedra, global nonobtuse binary simplices, and acute enumeration, but no inspected statement identifies the dimension-5 cutoff or the displayed 6-dimensional separating simplex.",
+      "searches": [
+        "\"all tetrahedral faces\" nonobtuse binary simplex",
+        "\"tetrahedral facets\" \"binary simplex\" nonobtuse",
+        "\"tetrahedral faces\" \"0/1\" simplex nonobtuse",
+        "binary simplex local nonobtuseness tetrahedral faces global nonobtuse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1209.3875, Table 1 gives global nonobtuse counts 34, 480, 9984, 284672 for dimensions 3, 4, 5, 6",
+        "arXiv:1209.3875 states that exhaustive-enumeration details for those global counts are outside the paper"
+      ],
+      "reasoning": "The published table counts globally nonobtuse simplices, not simplices defined only by the local tetrahedral-face condition. Exact enumeration in the present result finds local counts 34, 480, 9984 through dimension 5 and a strict separation in dimension 6, so the table cross-checks but does not contain the claimed cutoff.",
+      "searches": [
+        "Brandts Dijkhuis de Haan Krizek nonobtuse binary simplex counts 34 480 9984",
+        "\"9984\" nonobtuse binary simplices",
+        "\"480\" nonobtuse binary simplices"
+      ]
+    },
+    "rationale": "Statement-level searches across the main inverse-M-matrix and binary-simplex literature found no theorem or table containing this exact local-to-global cutoff. The closest results either bound obtuse incidences under local hypotheses, assume the stronger sub-orthocentric condition, or classify simplices already known to be globally nonobtuse.",
+    "residual_risks": [
+      "The 2012 paper states that details of its exhaustive global nonobtuse census are outside the paper; unpublished intermediate data may contain related observations.",
+      "An equivalent finite cutoff or the same 6-dimensional witness could exist in unindexed software output, a monograph, or differently worded computational literature.",
+      "Literature search cannot prove global uniqueness of the statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Conjecture 3.25 bounds obtuse incidences; the global theorem for tetrahedral data requires the stronger sub-orthocentric condition. The paper highlights 0/1-simplices but does not state the binary dimension cutoff.",
+        "identifier_or_url": "arXiv:1512.02940",
+        "material_read": "Full HTML searched; Sections 1, 3.4, 5, and 6 inspected, including Conjecture 3.25, Theorems 5.10--5.11, and the discussion of 4-simplices with nonobtuse tetrahedral facets.",
+        "method": "Statement and implication comparison in the openly available full text.",
+        "title": "Geometric aspects of the symmetric inverse M-matrix problem",
+        "trigger": "Primary source for local nonobtuse k-face questions and the explicit 0/1-simplex motivation."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Table 1 counts globally nonobtuse binary simplices; it does not count or characterize the a priori larger class whose tetrahedral faces alone are nonobtuse. The paper says the exhaustive-enumeration details behind the table are outside the paper.",
+        "identifier_or_url": "arXiv:1209.3875",
+        "material_read": "Full HTML introduction, Table 1, and the section on nonobtuse binary simplices inspected.",
+        "method": "Compared the objects counted and the direction of implication.",
+        "title": "There are only two nonobtuse binary triangulations of the unit n-cube",
+        "trigger": "Closest exact published census of nonobtuse binary simplices."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper characterizes simplices already globally nonobtuse and records that their faces are nonobtuse; it does not give the low-dimensional binary converse established here.",
+        "identifier_or_url": "arXiv:1512.03483",
+        "material_read": "Full HTML abstract, introduction, Sections 2.1--2.2, and relevant later statements searched and inspected.",
+        "method": "Compared hypotheses and consequences, especially Proposition 2.6 and Lemma 2.11.",
+        "title": "On the combinatorial structure of 0/1-matrices representing nonobtuse simplices",
+        "trigger": "Same objects with an exact inverse-Gram characterization."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper develops enumeration of acute 0/1-simplices and associated matrix patterns; no local-nonobtuse tetrahedral-face cutoff statement was found.",
+        "identifier_or_url": "arXiv:1512.03044",
+        "material_read": "Full HTML searched for nonobtuse and tetrahedral statements; abstract, enumeration methodology, and relevant occurrences inspected.",
+        "method": "Searched for the local tetrahedral condition and dimension-specific converse.",
+        "title": "Enumeration and investigation of acute 0/1-simplices modulo the action of the hyperoctahedral group",
+        "trigger": "Plausible computational source using the same cube symmetry and simplex representation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "13c697c9-d3c9-4c09-8b5e-68db257dd41f",
+  "value": {
+    "rationale": "The result gives the exact first dimension in which a natural local nonobtuseness condition stops forcing global nonobtuseness inside the literature-motivated class of binary simplices. It identifies a complete low-dimensional cutoff and a concrete separating witness, rather than an arbitrary parameter slice or a routine recomputation.",
+    "risks": [
+      "The theorem is finite-dimensional and binary-specific; it does not settle the general k-face conjecture or classify dimension-six counterexamples."
+    ],
+    "sources": [
+      "arXiv:1512.02940 explicitly frames local k-face nonobtuseness as a structural program and singles out 0/1-simplices.",
+      "arXiv:1209.3875 and arXiv:1512.03483 establish binary nonobtuse simplices as a studied geometric/computational class."
+    ],
+    "status": "PASS"
+  }
+}
