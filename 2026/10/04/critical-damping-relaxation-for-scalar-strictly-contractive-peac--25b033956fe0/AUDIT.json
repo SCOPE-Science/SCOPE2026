@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The scalar subproblems are solved exactly and give a two-dimensional linear state recurrence. Its determinant is \\(u^2(1-\\alpha)^2\\) and its trace is \\(u^2\\alpha^2-2w\\alpha+1+u^2\\). Under \\(\\min\\{a,b\\}<\\beta<\\max\\{a,b\\}\\), the negative repeated-root equation has one root in \\(0,1\\). A product-of-roots lower bound excludes every smaller relaxation and a trace lower bound excludes every larger relaxation, so the minimizer is global and unique. The included standard-library checker independently reconstructs the recurrence and checks the closed forms on exact rational cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He–Ma–Yuan 2016, DOI 10.1137/15M1044448: symmetric ADMM with two multiplier updates and larger convergence step-size domains.",
+        "Giselsson 2015, arXiv:1506.01556: tight global Douglas–Rachford linear convergence bounds under operator regularity assumptions.",
+        "Gu–Jiang–Han 2015, arXiv:1506.02221: broader strictly contractive Peaceman–Rachford variant with two relaxation factors and proximal terms."
+      ],
+      "reasoning": "These works are broader in algorithmic or operator scope, but their inspected statements do not dominate the exact problem-dependent scalar formula: convergence regions and global contraction bounds do not determine this unique common-relaxation minimizer.",
+      "searches": [
+        "SC-PRSM symmetric ADMM exact spectral radius quadratic",
+        "symmetric alternating direction multiplier scalar quadratic spectral radius optimal alpha",
+        "Peaceman Rachford underrelaxation critical damping quadratic equality"
+      ]
+    },
+    "checked_sources": [
+      "He, Liu, Wang, Yuan (2014), DOI 10.1137/13090849X, open manuscript PMCID PMC4302964.",
+      "He, Ma, Yuan (2016), DOI 10.1137/15M1044448.",
+      "Giselsson (2015), arXiv:1506.01556.",
+      "Jin, Wan, Zhang (2019), DOI 10.1186/s13660-019-2091-x.",
+      "Gu, Jiang, Han (2015), arXiv:1506.02221."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 paper states empirical preference for relaxation factors roughly in the interval from 0.8 to 0.9 on its tested applications.",
+        "The 2016 symmetric-ADMM abstract emphasizes admissible larger step sizes and convergence rather than exact scalar spectral optimization."
+      ],
+      "reasoning": "Neither empirical tuning nor a sufficient convergence domain implies the unique minimizer, its closed form, or the critical-damping repeated-root identity. The new theorem therefore is not a corollary of the inspected prior statements.",
+      "searches": [
+        "strictly contractive Peaceman-Rachford quadratic spectral radius relaxation factor optimal",
+        "symmetric ADMM quadratic spectral radius relaxation factor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "He–Liu–Wang–Yuan 2014, DOI 10.1137/13090849X: common underrelaxation is introduced; numerical guidance favors values close to one.",
+        "Jin–Wan–Zhang 2019, DOI 10.1186/s13660-019-2091-x: reproduces the two relaxed multiplier updates with one common factor."
+      ],
+      "reasoning": "No searched statement gave the closed form for the unique rate-minimizing common relaxation on the scalar two-curvature quadratic, nor the repeated-negative-root characterization. Algorithmic equivalence to the published update equations was explicitly accounted for.",
+      "searches": [
+        "Peaceman Rachford scalar quadratic exact finite termination penalty curvature relaxation alpha",
+        "strictly contractive PRSM scalar quadratic optimal penalty exact two step",
+        "symmetric ADMM scalar quadratic optimal relaxation critical damping",
+        "Peaceman-Rachford critical damping optimization quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact parameter table or database result located in the targeted searches gives the theorem or the example \\(a=1,b=4,\\beta=2\\) with \\(\\alpha_*=0.9462158829301036\\ldots\\)."
+      ],
+      "reasoning": "The claim is an exact symbolic parameter law rather than a recomputation of a tabulated numerical invariant; no matching table was found.",
+      "searches": [
+        "PRSM quadratic finite termination penalty equals curvature",
+        "strictly contractive PRSM quadratic relaxation factor optimal spectral radius"
+      ]
+    },
+    "rationale": "The inspected 2014 source introduces the common relaxation and gives convergence theory plus empirical parameter guidance, but does not state this exact scalar spectral-radius minimizer. The inspected later sources cover admissible step-size domains, general Douglas–Rachford contraction rates, or broader algorithm variants rather than this common-relaxation critical-damping theorem.",
+    "residual_risks": [
+      "The detailed full text of the 2016 symmetric-ADMM paper was not inspected in this review; an equivalent scalar calculation could conceivably occur outside the accessible abstract.",
+      "An unindexed thesis, lecture note, or implementation note may contain the same two-dimensional scalar spectral calculation under different notation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact scalar rate-optimal relaxation formula located here.",
+        "evidence": "The paper develops strict contraction and iteration-complexity results and reports empirically preferred relaxation values close to one.",
+        "identifier_or_url": "doi:10.1137/13090849X; pmcid:PMC4302964",
+        "material_read": "Open full-text HTML sections on contraction analysis and numerical sensitivity, plus publisher metadata and abstract.",
+        "method": "Compared update structure, stated convergence results, endpoint relation to PRSM, and relaxation-factor discussion against the exact scalar theorem.",
+        "title": "A Strictly Contractive Peaceman–Rachford Splitting Method for Convex Programming",
+        "trigger": "Primary source defining the common-relaxation method and its parameter guidance."
+      },
+      {
+        "assessment": "Algorithmically matching formulation; application paper does not state the exact scalar spectral minimizer.",
+        "evidence": "Displayed iteration uses the same factor in both multiplier updates with the factor restricted to the open unit interval.",
+        "identifier_or_url": "doi:10.1186/s13660-019-2091-x",
+        "material_read": "Open full-text HTML around the displayed PRSM and SC-PRSM update equations.",
+        "method": "Verified that the algebra analyzed here uses the published common-factor two-multiplier-update scheme.",
+        "title": "Strictly contractive Peaceman–Rachford splitting method to recover the corrupted low rank matrix",
+        "trigger": "Accessible full-text reproduction of the algorithm with both relaxed multiplier updates."
+      },
+      {
+        "assessment": "No implication-equivalent theorem appears in the inspected material; incomplete full-text access leaves residual risk.",
+        "evidence": "The abstract frames the contribution as convergence analysis for larger multiplier step sizes.",
+        "identifier_or_url": "doi:10.1137/15M1044448",
+        "material_read": "Publisher abstract and bibliographic metadata; detailed full text was not inspected in this review.",
+        "method": "Compared the stated contribution—larger convergence step-size regions—with the exact scalar spectral-radius optimization claim.",
+        "title": "Convergence Study on the Symmetric Version of ADMM with Larger Step Sizes",
+        "trigger": "Closest prior work on two multiplier updates and step-size ranges."
+      },
+      {
+        "assessment": "Related but not implication-equivalent; it does not supply this SC-PRSM scalar relaxation formula.",
+        "evidence": "The source studies global Douglas–Rachford contraction bounds under strong monotonicity/Lipschitz/cocoercivity assumptions.",
+        "identifier_or_url": "arxiv:1506.01556",
+        "material_read": "ArXiv abstract and accessible summary of the tight global contraction-rate results.",
+        "method": "Compared the operator-level Douglas–Rachford contraction problem with the two-half-step common-relaxation recurrence here.",
+        "title": "Tight Global Linear Convergence Rate Bounds for Douglas–Rachford Splitting",
+        "trigger": "Broader reflected-resolvent rate theory that could dominate a scalar splitting calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "25b03395-6fe0-4464-821e-c30e2b38abf0",
+  "value": {
+    "rationale": "The primary method leaves relaxation selection largely empirical, so the smallest strongly convex equality-coupled quadratic is a natural calibration problem. The result gives an exact closed-form tuning law and a structural interpretation—critical damping—while showing that strict underrelaxation can asymptotically accelerate a case where the unrelaxed endpoint converges. This provides a meaningful benchmark for broader parameter-selection rules.",
+    "status": "PASS"
+  }
+}
