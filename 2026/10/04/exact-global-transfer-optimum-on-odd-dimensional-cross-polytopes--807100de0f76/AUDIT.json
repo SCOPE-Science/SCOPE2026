@@ -1,0 +1,115 @@
+{
+  "claim": "Let \\(N=4k+2\\ge6\\), and let \\(G_N\\) be the \\(N/2\\)-cross-polytope (cocktail-party) graph, that is, \\(K_N\\) with a perfect matching removed. Under the uniform adjacency Hamiltonian, for a removed matched pair \\((u,\\bar u)\\), define \\(P_N(t)=|\\langle\\bar u|e^{-itA(G_N)}|u\\rangle|^2\\). Then \\[\\max_{t\\in\\mathbb R}P_N(t)=\\cos^2(\\pi/N),\\]with equality at \\(t=\\pi/2\\pm\\pi/N\\pmod{\\pi}\\). In particular, the value emphasized by Tsomokos, Plenio, de Vega, and Huelga at \\(t=\\pi/2\\), namely \\(P_N(\\pi/2)=(1-2/N)^2\\), is not the global optimum. The exact optimal infidelity is \\(\\sin^2(\\pi/N)\\sim\\pi^2/N^2\\), whereas the source-time infidelity is \\(4/N-4/N^2\\), so optimizing the transfer time improves the asymptotic error from order \\(N^{-1}\\) to order \\(N^{-2}\\). The proof uses the exact amplitude \\[A_N(t)=-\\frac12+\\left(\\frac12-\\frac1N\\right)e^{2it}+\\frac1N e^{-i(N-2)t}\\]and, writing \\(N=2m\\) with odd \\(m\\), the identity \\[1-|A_N(t)|^2=\\frac{m-1}{m}\\cos^2t+\\frac1m\\cos^2((m-1)t)+\\frac{m-1}{m^2}\\sin^2(mt),\\]followed by a sharp one-variable trigonometric minimization.",
+  "correctness": {
+    "rationale": "The exact antipodal amplitude is reconstructed from the cocktail-party adjacency spectrum. The identity for \\(1-|A_N(t)|^2\\) reduces the global optimization to a sharp trigonometric minimum, and the candidate times attain equality. Direct matrix checks agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Angeles-Canul et al. place cocktail-party graphs in the perfect-state-transfer theory and recover a parity condition for unit transfer.",
+        "Later discrete-time work proves pretty-good transfer on cocktail-party graphs in a different walk model.",
+        "Neither broader result supplies the continuous-time sub-perfect maximum for \\(N=4k+2\\)."
+      ],
+      "reasoning": "Perfect-transfer existence theorems only decide whether the maximum reaches one; they do not determine the exact maximum when it does not.",
+      "searches": [
+        "Perfect state transfer integral circulants join graphs cocktail party cross polytope",
+        "pretty good state transfer cocktail party graph discrete time",
+        "continuous time quantum walk cocktail party perfect state transfer parity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0808.2261",
+      "DOI:10.1103/PhysRevA.78.062310",
+      "arXiv:0907.2148",
+      "MaRDI Q3172440",
+      "arXiv:2105.03762"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 source explicitly derives perfect transfer for \\(N=4k\\) and evaluates \\(N=4k+2\\) at \\(t=\\pi/2\\).",
+        "The 2009 mathematical paper cites the cross-polytope result and treats perfect-transfer existence on cocktail-party graphs.",
+        "The discrete-time model uses different dynamics and therefore does not imply the continuous-time optimum."
+      ],
+      "reasoning": "The new implication requires optimizing the source's exact continuous-time amplitude over all \\(t\\), which is strictly stronger than evaluating one distinguished time and strictly different from deciding perfect-transfer existence.",
+      "searches": [
+        "Primary full text arXiv:0808.2261 Sections III-IV and Equations (3)-(10)",
+        "Primary mathematical literature arXiv:0907.2148 cocktail-party and cross-polytope discussion",
+        "Later discrete-time cocktail-party pretty-good state transfer literature"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source gives \\((1-2/N)^2\\) at \\(t=\\pi/2\\) for \\(N=4k+2\\), not a maximization over time.",
+        "Searches across three standard graph aliases did not locate the candidate finite-\\(N\\) global maximum.",
+        "The directly related mathematical paper discusses perfect transfer on cocktail-party graphs but not the excluded parity-class maximum."
+      ],
+      "reasoning": "Equivalent coverage would need to maximize the continuous-time adjacency transition probability between deleted matching partners, or imply the exact value \\(\\cos^2(\\pi/N)\\) and its attaining times.",
+      "searches": [
+        "cross polytope quantum state transfer maximum fidelity cos(pi/N)",
+        "N=4k+2 cross polytope maximum transfer fidelity cos pi over N",
+        "cross polytope graph continuous time quantum walk opposite vertices maximum transition probability",
+        "cocktail party graph state transfer maximum probability continuous time",
+        "K_n minus perfect matching quantum walk antipodal maximum transfer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source's Equation (10) is a single-time expression evaluated at \\(t=\\pi/2\\).",
+        "No exact table or database entry for the candidate global maxima was located."
+      ],
+      "reasoning": "The accepted formula is an all-\\(N\\) analytic extremum, not a recomputation of a finite table.",
+      "searches": [
+        "State Transfer in Highly Connected Networks Eq. 10 N=4k+2 fidelity",
+        "0808.2261 near perfect transfer maximum fidelity",
+        "cocktail party graph transfer probability table"
+      ]
+    },
+    "rationale": "The 2008 source evaluates the non-perfect parity class only at \\(t=\\pi/2\\). The closest mathematical cocktail-party literature classifies perfect transfer rather than the global sub-perfect maximum. No checked source states the exact value \\(\\cos^2(\\pi/N)\\).",
+    "residual_risks": [
+      "An equivalent extremum may have appeared under one of the graph aliases without being indexed by the searched phrases.",
+      "The exact 2008 physics article is not itself assigned an MSC code in the located record; slot ownership is supported by the primary 81P45 classification of the directly related mathematical treatment of the same cross-polytope state-transfer family.",
+      "The result does not address disorder, weights, local potentials, or other quantum-walk generators."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact dynamical setup and the \\(t=\\pi/2\\) value, but the analytical section does not maximize the \\(N=4k+2\\) transfer over time.",
+        "evidence": "The manuscript states that \\(N=4k+2\\) has no perfect transfer at \\(t=\\pi/2\\), evaluates the squared transition amplitude there as \\((1-2/N)^2\\), and calls the large-\\(N\\) behavior almost perfect transfer.",
+        "identifier_or_url": "arXiv:0808.2261; DOI:10.1103/PhysRevA.78.062310",
+        "material_read": "Full public manuscript, especially the fidelity definition, numerical maximum discussion, and analytical Equations (4)-(10).",
+        "method": "ArXiv/public full-text extraction and repository copy.",
+        "title": "State Transfer in Highly Connected Networks and a Quantum Babinet Principle",
+        "trigger": "Direct source of the cross-polytope Hamiltonian, perfect-transfer parity statement, and near-perfect \\(N=4k+2\\) evaluation."
+      },
+      {
+        "assessment": "Confirms the graph alias, the prior Tsomokos result, and perfect-transfer parity context; no sub-perfect global maximum was located.",
+        "evidence": "The paper identifies cocktail-party, hyperoctahedral, and cross-polytope graphs as the same class and discusses them in perfect-state-transfer constructions.",
+        "identifier_or_url": "arXiv:0907.2148; MaRDI Q3172440",
+        "material_read": "Public full text around the introduction and cocktail-party double-cone discussion, plus the mathematical bibliographic record.",
+        "method": "ArXiv HTML and mathematical bibliographic metadata.",
+        "title": "Perfect state transfer, integral circulants and join of graphs",
+        "trigger": "Closest mathematically indexed treatment of the same cocktail-party/cross-polytope graph family."
+      },
+      {
+        "assessment": "Different dynamical model; does not cover continuous-time adjacency evolution.",
+        "evidence": "The work studies discrete-time quantum walks, so its pretty-good-transfer result is not an implication for the Hamiltonian used here.",
+        "identifier_or_url": "arXiv:2105.03762",
+        "material_read": "Abstract and indexed theorem summaries describing the discrete-time normalized-adjacency model.",
+        "method": "Public abstract and indexed source inspection.",
+        "title": "Pretty good state transfer in discrete-time quantum walks",
+        "trigger": "Later result mentioning pretty-good transfer on cocktail-party graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "807100de-0f76-45c8-a3db-f4e4383a1bc2",
+  "value": {
+    "rationale": "The global transfer maximum is the natural performance invariant of the network. The result changes the near-perfect finite-size scaling from the source-time order \\(N^{-1}\\) error to the sharp order \\(N^{-2}\\) error and gives exact optimal times.",
+    "status": "PASS"
+  }
+}
