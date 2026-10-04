@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All positive metrics in the two-level source family are covered. Exact trace/determinant algebra yields eigenvalues \\(t(1\\pm r)\\); strict minimization in \\(t\\) and strict monotonicity in \\(r\\) prove uniqueness for \\(1<p<\\infty\\), while explicit piecewise/equioscillation arguments cover \\(p=1\\) and \\(p=\\infty\\). A standalone verifier numerically replays representative cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 paper motivates metric selection by norm minimization and explicitly leaves other Schatten choices available.",
+        "The 2006 and 2022 papers cover larger admissible-metric families but do not optimize the stated Schatten objectives."
+      ],
+      "reasoning": "Broader parameterizations contain the feasible set but do not imply the claimed minimizer formula without the new optimization argument.",
+      "searches": [
+        "DOI:10.1098/rspa.2018.0264",
+        "DOI:10.1016/j.physletb.2006.07.028",
+        "DOI:10.1063/5.0079385"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1804.06766v1",
+      "DOI:10.1098/rspa.2018.0264",
+      "arXiv:quant-ph/0607104v1",
+      "DOI:10.1016/j.physletb.2006.07.028",
+      "arXiv:2111.04216v2",
+      "DOI:10.1063/5.0079385"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source coefficient at \\(p=2\\) is a strict special case of the present formula.",
+        "General metric parameterizations do not determine a norm minimizer; the present proof adds a monotonicity reduction and exact minimization."
+      ],
+      "reasoning": "The final claim is not a corollary merely by substituting parameters into the inspected prior statements; it requires optimizing a family of non-Hilbert Schatten objectives.",
+      "searches": [
+        "arXiv:1804.06766v1 Section 5.1",
+        "arXiv:2111.04216v2 Sections II-III",
+        "arXiv:quant-ph/0607104v1 Sections 2-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2018 source states that other Schatten-class minimizations may be considered, while its worked two-dimensional formula is the Hilbert–Schmidt case.",
+        "The 2006 source gives a positive two-state metric family and discusses restrictions, but not Schatten-distance minimization.",
+        "The 2022 source parameterizes compatible metrics by solving the intertwining relation, not by minimizing distance to the identity."
+      ],
+      "reasoning": "No inspected source gives the all-Schatten closed form or the conclusion that every Schatten index selects one and the same positive ray.",
+      "searches": [
+        "arXiv:1804.06766v1",
+        "arXiv:quant-ph/0607104v1",
+        "arXiv:2111.04216v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest semantic-database records concern unrelated covariance-metric geometry, Toeplitz Schatten ideals, and graph-projection ideals; none contains quasi-Hermitian metric selection by Schatten distance."
+      ],
+      "reasoning": "No database record inspected contained the same objects, objective, and implication.",
+      "searches": [
+        "2026/9/19/SCOPE-complete-line-angular-collapse-sylvester-covariance-metrics--821fc9209308",
+        "2026/9/18/SCOPE-fock-toeplitz-zero-divisors-all-schatten--1095c1bf378e",
+        "2026/9/20/SCOPE-bounded-graph-projection-ideal-profile--7d58306788c0"
+      ]
+    },
+    "rationale": "The closest 2018 source explicitly mentions other Schatten-class minimizations but works out Hilbert–Schmidt; inspected 2006 and 2022 metric-parameterization papers do not state the complete all-\\(p\\) optimizer or invariant-ray conclusion. Dedicated database searches found no direct match.",
+    "residual_risks": [
+      "An equivalent generic theorem for optimally scaling two nonorthogonal rank-one projectors may exist in matrix-approximation or frame literature under terminology not recovered by the searches.",
+      "The originality claim is limited to the complete Schatten-distance formula and invariant-ray conclusion, not to the general fact that two-state quasi-Hermitian metrics are non-unique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the \\(p=2\\) special case and motivation but not the claimed all-Schatten theorem.",
+        "evidence": "Section 5.1 gives equal coefficients \\(1/(1+\\gamma)\\) with \\(\\gamma=s^2\\); the introduction explicitly says analogous minimization in other Schatten classes is possible.",
+        "identifier_or_url": "arXiv:1804.06766v1 / DOI:10.1098/rspa.2018.0264",
+        "material_read": "Open-access full text, especially Introduction and Section 5.1.",
+        "method": "Read the full-text statements defining the metric-selection problem, the remark on other Schatten classes, and the complete two-dimensional example.",
+        "title": "The minimally anisotropic metric operator in quasi-Hermitian quantum mechanics",
+        "trigger": "Direct source that proposes Hilbert–Schmidt metric selection and explicitly mentions other Schatten classes."
+      },
+      {
+        "assessment": "Parameterizes a specific two-state metric family but does not formulate or solve Schatten-distance-to-identity minimization.",
+        "evidence": "The paper exhibits the metric eigenvalues and an arbitrary scale/free parameter, then discusses non-norm subsidiary restrictions.",
+        "identifier_or_url": "arXiv:quant-ph/0607104v1 / DOI:10.1016/j.physletb.2006.07.028",
+        "material_read": "Open-access full text, Sections 2.2 and 3.",
+        "method": "Inspected the explicit two-parameter metric constraints, eigenvalues, positivity condition, and discussion of viable restrictions.",
+        "title": "Construction of a unique metric in quasi-Hermitian quantum mechanics: non-existence of the charge operator in a 2 x 2 matrix model",
+        "trigger": "Earlier two-state paper explicitly devoted to the ambiguity and selection of positive metrics."
+      },
+      {
+        "assessment": "Describes the feasible metric space, including real-spectrum cases, but does not select a metric by Schatten distance or imply the closed-form optimizer without a separate optimization.",
+        "evidence": "The paper solves \\(H^\\dagger M=MH\\) by diagonal-basis parameterization and classifies signatures/canonical freedom.",
+        "identifier_or_url": "arXiv:2111.04216v2 / DOI:10.1063/5.0079385",
+        "material_read": "Open-access full text, Sections II-III.",
+        "method": "Inspected the solution of the intertwining equation and canonical parameterization of metrics.",
+        "title": "Which Metrics Are Consistent with a Given Pseudo-Hermitian Matrix?",
+        "trigger": "Later generic finite-dimensional paper claiming all compatible metrics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b021ab86-de52-413e-95ba-43ef94d6092b",
+  "value": {
+    "rationale": "The source explicitly raises other Schatten-class minimizations as a natural alternative. Solving all of them in dimension two shows a robust structural invariant—the selected projective metric ray—while quantifying exactly how normalization and distance depend on \\(p\\).",
+    "status": "PASS"
+  }
+}
