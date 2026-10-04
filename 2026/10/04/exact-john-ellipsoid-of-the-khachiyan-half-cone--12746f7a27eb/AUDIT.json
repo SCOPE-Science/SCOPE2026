@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Uniqueness forces the optimizer to inherit O(n-1) symmetry, reducing it to center c e_1 and semiaxes (a,b,...,b). Slab and cone containment are converted exactly into a<=min(s,1-s) and b^2<=((n+s)^2-a^2)/(n^2-1). Volume is strictly increasing in a up to the slab cap; the resulting s-branch is strictly increasing before s=1/2 and strictly decreasing after it. This uniquely yields c=-1/2, a=1/2, b^2=n/(n-1). The source independently supplies J(K_n)=B_2^n and feasibility of the same ellipsoid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güler--Gürtuna, arXiv:0709.0707v1: develops general symmetry/optimality theory, but its introduction states that the inscribed ellipsoid problem for the second class containing truncated second-order cones is not solved there.",
+        "Searches for maximum-volume inscribed ellipsoids of truncated second-order/circular cones found general algorithms, duality papers, and covering-ellipsoid formulas, but no explicit covering theorem for this K_n^- formula."
+      ],
+      "reasoning": "General uniqueness and symmetry theorems justify the reduction used here but do not supply the scalar optimizer. Covering ellipsoids of truncated cones are a different extremal problem and do not dominate the present inscribed-ellipsoid statement.",
+      "searches": [
+        "published-finding corpus: maximum-volume ellipsoid truncated circular cone frustum rotational symmetry",
+        "published-finding corpus: arXiv 2609.28447 cone witness exact ratio John ellipsoid half-cone",
+        "Web: \"maximum volume inscribed ellipsoid\" truncated second-order cone",
+        "Web: \"truncated second-order cone\" inscribed ellipsoid"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28447v1",
+      "arXiv:0709.0707v1",
+      "Tarasov--Khachiyan--Erlikh (1988), as characterized and cited in arXiv:2609.28447v1",
+      "published-finding corpus semantic index, four targeted searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.28447v1, Section 4 derives only w(K_n^-)/w(K_n) >= vol(E_n)/vol(B_2^n), and Section 7.4 says the best constant for each prescribed dimension remains undetermined by its argument.",
+        "arXiv:2609.28447v1 credits Khachiyan and Tarasov--Khachiyan--Erlikh with the cone example and limiting sqrt(e)/2 value, but does not attribute finite-dimensional maximality of E_n.",
+        "arXiv:0709.0707v1 supplies uniqueness/symmetry machinery but not the present inscribed truncated-cone computation."
+      ],
+      "reasoning": "Feasibility of E_n yields only a lower bound; maximality requires ruling out all larger ellipsoids. The proof here does that by forcing the unique optimizer to be rotational and solving the resulting exact constrained volume problem. It therefore is not a corollary of the cited feasibility statement. It also does not settle the broader fixed-dimensional extremal constant.",
+      "searches": [
+        "Web/full text: arXiv:2609.28447 Sections 4, 5.1, 7.4",
+        "Web/full text: arXiv:0709.0707 introduction and maximum-volume ellipsoid section",
+        "Web: Khachiyan ellipsoid half cone maximum volume inscribed ellipsoid"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.28447v1, Section 4: defines K_n and E_n, proves J(K_n)=B_2^n and E_n subset K_n^-, then explicitly states that no maximality assertion about E_n inside the half-cone is needed.",
+        "Targeted published-finding corpus searches returned no record whose statement determines the John ellipsoid of this retained half-cone or gives the exact finite-n equality."
+      ],
+      "reasoning": "The equivalent formulations “E_n is the John ellipsoid of K_n^-,” “the source lower bound is equality for this family,” and “the exact finite-n maximum ellipsoid volume of K_n^- is the displayed determinant” were searched directly. The recent paper stops at feasibility, so its statement does not imply the new maximality result.",
+      "searches": [
+        "published-finding corpus: John ellipsoid truncated second-order cone half cone maximum volume inscribed ellipsoid exact",
+        "published-finding corpus: Khachiyan cone central cut exact finite-dimensional ratio n/(n-1)",
+        "Web: \"No maximality assertion about E_n inside the half-cone is needed\"",
+        "Web: \"K_n\" \"n/(n-1)\" \"maximum-volume\" ellipsoid"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches produced no matching published finding for the exact half-cone John ellipsoid or the finite-dimensional determinant ratio.",
+        "No exact table or database entry for this family was located in targeted searches."
+      ],
+      "reasoning": "The claimed object is an analytic family rather than a finite census. Database checks were therefore used to detect an existing exact formula or stronger family theorem; none was found.",
+      "searches": [
+        "published-finding corpus: John ellipsoid truncated second-order cone half cone maximum volume inscribed ellipsoid exact",
+        "published-finding corpus: Khachiyan cone central cut exact finite-dimensional ratio n/(n-1)",
+        "published-finding corpus: maximum-volume ellipsoid truncated circular cone frustum rotational symmetry",
+        "published-finding corpus: arXiv 2609.28447 cone witness exact ratio John ellipsoid half-cone"
+      ]
+    },
+    "rationale": "The recent source gives exactly the same cone and candidate ellipsoid but proves only feasibility and a lower bound, explicitly stating that no maximality assertion is needed. The exact John-ellipsoid formula was not found in targeted published-finding corpus or literature searches. A broad 2007 extremal-ellipsoid paper gives the relevant symmetry framework but explicitly declines the inscribed problem for truncated second-order cones. The main residual risk is uninspected detail in the 1988/1990 historical sources cited for the cone limit.",
+    "residual_risks": [
+      "The original 1988 Russian paper and early Khachiyan source were not independently inspected line by line; a buried exact finite-dimensional maximality statement would defeat originality, although the detailed 2026 historical comparison does not attribute one.",
+      "Search failure is not a proof of novelty; an uncatalogued treatment of the same truncated-cone John ellipsoid may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the accepted claim: it proves normalization and feasibility, explicitly makes no maximality assertion for E_n inside K_n^-, and leaves prescribed-dimension best constants undetermined.",
+        "evidence": "Section 4 equations (4.1)--(4.3) and the sentence immediately after Lemma 4.1; Section 7.4.",
+        "identifier_or_url": "arXiv:2609.28447v1",
+        "material_read": "Abstract; Sections 1, 4, 5.1, 7.2, 7.4; Appendix A statements relevant to uniqueness.",
+        "method": "Full-text inspection of the arXiv PDF plus targeted phrase searches.",
+        "title": "A Spectral Proof of Khachiyan's Ellipsoid Conjecture",
+        "trigger": "Fresh source defining the canonical sharpness cone and candidate ellipsoid."
+      },
+      {
+        "assessment": "NOT_COVERING: it gives general John-ellipsoid theory and symmetry reduction, but explicitly says it does not solve the inscribed ellipsoid problem for the truncated-cone class considered there.",
+        "evidence": "Introduction statement that the inscribed ellipsoid problem for the second class is not solved for space considerations; later explicit treatment is of the covering ellipsoid.",
+        "identifier_or_url": "arXiv:0709.0707v1",
+        "material_read": "Abstract, introduction, general maximum-volume inscribed-ellipsoid section, and truncated-cone/cylinder discussion.",
+        "method": "Full-text HTML/arXiv inspection and targeted searches for the inscribed truncated-cone problem.",
+        "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+        "trigger": "Highly relevant older work on symmetry and extremal ellipsoids of truncated second-order cones."
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_RISK for exact finite-n maximality: the recent paper attributes the cone limit and recursive estimates to it, not the statement that E_n is the John ellipsoid of K_n^-.",
+        "evidence": "arXiv:2609.28447v1 Sections 4 and 7.2 describe the earlier contribution as the cone example/limit and weaker central-cut estimates.",
+        "identifier_or_url": "Tarasov--Khachiyan--Erlikh, Doklady Akademii Nauk SSSR 298(5), 1988",
+        "material_read": "Bibliographic description and historical comparison in arXiv:2609.28447v1; original full text not independently inspected line by line.",
+        "method": "Secondary-source comparison from the recent primary source plus targeted web searches.",
+        "title": "The method of inscribed ellipsoids",
+        "trigger": "The recent source identifies this as an origin of the cone example and limiting ratio."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12746f7a-27eb-4881-bfed-3e9fe2ab9c6f",
+  "value": {
+    "rationale": "The recent proof uses this cone family as the sharpness witness but only needs a feasible ellipsoid and explicitly avoids a maximality claim. Determining the exact John ellipsoid converts its asymptotic witness into a precise finite-dimensional benchmark, while the source states that fixed-dimensional best constants remain open. The result is a natural exact extremal fact attached directly to that open finite-dimensional geometry rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
