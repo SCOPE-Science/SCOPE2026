@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly solves the two symmetry-reduced equilibrium equations, proves all denominators and the determinant are positive, converts both floor constraints to exact linear lower bounds on the opposite-side source count, and handles the full-part boundary profiles separately. The \\(\tau=\\lambda\\) and \\(\tau>\\lambda\\) cases use the sharp one-step support bound. Exact-rational replay checks 1280 profile cases and 28 direct full-system subset cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.31535v1 Corollary 6.7 gives stars.",
+        "arXiv:2609.31535v1 Proposition 7.1 gives complete graphs.",
+        "The inspected full text contains no occurrence of “bipartite”."
+      ],
+      "reasoning": "The closest broader family results cover two different symmetry classes: stars and complete graphs. Neither implies the two-part \\(K_{m,n}\\) formula when both parts have size at least two.",
+      "searches": [
+        "Discounted Hitting Domination Allagan Pereyra Massey complete bipartite",
+        "discounted hitting domination exact complete graphs stars",
+        "web full-text arXiv:2609.31535v1 Section 7 complete graphs stars bipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.31535v1",
+      "doi:10.1109/TKDE.2023.3349164",
+      "arXiv:1302.4546",
+      "published-finding corpus searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo et al. 2024 define pairwise and top-\\(k\\) GHP queries for prescribed target groups relative to a source node.",
+        "Li et al. 2014 optimize fixed-budget finite-horizon aggregate random-walk objectives.",
+        "arXiv:2609.31535v1 gives a distance-domination recovery window, but that window does not provide the exact all-\\((\\lambda,\tau)\\) biclique formula."
+      ],
+      "reasoning": "The prior objectives are not stronger statements whose corollaries include the theorem. The general recovery window covers only a restricted parameter interval and leaves the remaining regimes unresolved; the theorem gives every \\(0<\tau\\le1\\) for the entire complete-bipartite family.",
+      "searches": [
+        "Efficient Algorithms for Group Hitting Probability Queries on Large Graphs complete bipartite minimum target set",
+        "Random-walk domination in large graphs fixed budget uniform floor",
+        "arXiv:2609.31535 distance domination complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/9/19/SCOPE-height-function-range-complete-bipartite--c645403cd639 concerns integer height functions, not discounted hitting support.",
+        "published-finding corpus query on the exact invariant returned no discounted-hitting complete-bipartite record.",
+        "arXiv:2609.31535v1 defines the invariant as a minimum-cardinality uniform-floor problem."
+      ],
+      "reasoning": "Group hitting probability is the same underlying terminating-walk potential after setting the termination probability to \\(1-\\lambda\\), but the claimed invariant additionally minimizes a target set subject to a simultaneous floor at every vertex. That optimization is not present in the older query literature.",
+      "searches": [
+        "discounted hitting domination complete bipartite graph exact formula",
+        "discounted hitting domination K_mn complete bipartite",
+        "group hitting probability minimum source set complete bipartite",
+        "web: \"discounted hitting domination\" \"complete bipartite\"; \"discounted hitting domination\" biclique"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record or web source located an exact table or formula for \\(\\delta_{\\lambda,\tau}(K_{m,n})\\).",
+        "The initiating paper reports exact network instances and exact family formulas only for spiders, stars, and complete graphs."
+      ],
+      "reasoning": "No known table/database found in the searches supplies the claimed parameter values. The embedded finite checks are therefore verification, not recomputation of a located table.",
+      "searches": [
+        "discounted hitting domination complete bipartite exact values table",
+        "delta lambda tau complete bipartite",
+        "published-finding corpus: discounted hitting domination complete bipartite graph exact formula"
+      ]
+    },
+    "rationale": "The initiating 2026 paper treats stars and complete graphs but not non-star complete bipartite graphs. published-finding corpus and web searches for the invariant, bicliques, equivalent group-hitting language, and possible broader implications found no statement covering the theorem. The 2024 GHP and 2014 random-walk-domination models have different optimization objectives and do not imply it.",
+    "residual_risks": [
+      "The new parameter is very recent, so unindexed follow-up notes could exist.",
+      "The theorem is an exact one-dimensional minimum rather than a closed elementary piecewise expression below \\(\tau=\\lambda\\)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same invariant and covers stars and complete graphs, but not non-star complete bipartite graphs.",
+        "evidence": "Corollary 6.7 states the star formula; Proposition 7.1 states the complete-graph formula; the full text has no “bipartite” occurrence.",
+        "identifier_or_url": "arXiv:2609.31535v1",
+        "material_read": "Full-text HTML: definition and hitting-potential sections; structural bounds; spider/star results; Section 7 complete-graph proposition and threshold remark.",
+        "method": "Full-text statement and proof inspection plus text search for bipartite/complete bipartite.",
+        "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+        "trigger": "Direct initiating source for the invariant and graph-family benchmarks."
+      },
+      {
+        "assessment": "Studies evaluation/ranking of prescribed target groups relative to a source node, not minimum-cardinality uniform-floor placement.",
+        "evidence": "The abstract and introduction define pairwise GHP and top-k target-set queries; no “complete bipartite” occurrence was found.",
+        "identifier_or_url": "doi:10.1109/TKDE.2023.3349164",
+        "material_read": "Full PDF first pages, problem definition, pairwise-query description, top-k query description, and search for complete bipartite/minimum.",
+        "method": "PDF text inspection with page rendering and statement comparison.",
+        "title": "Efficient Algorithms for Group Hitting Probability Queries on Large Graphs",
+        "trigger": "Closest prior formulation of the same terminating-walk hitting probability for target sets."
+      },
+      {
+        "assessment": "Uses fixed source budget and finite-horizon aggregate objectives, not the uniform discounted floor.",
+        "evidence": "The abstract states minimization of total finite-horizon hitting time or maximization of expected hit count for a fixed budget \\(k\\).",
+        "identifier_or_url": "arXiv:1302.4546",
+        "material_read": "Abstract and problem statements.",
+        "method": "Primary arXiv statement comparison.",
+        "title": "Random-walk domination in large graphs: problem definitions and fast solutions",
+        "trigger": "Named prior random-walk domination model cited by the initiating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f5f86f5d-861d-4545-9c4d-c8516ddc946e",
+  "value": {
+    "rationale": "Complete bipartite graphs are a canonical graph family immediately beyond the paper’s complete-graph and star benchmarks. The theorem replaces exponential subset search by a one-dimensional exact formula and reveals a genuine two-sided-placement phenomenon: at \\(K_{10,10}\\) with \\((\\lambda,\tau)=(3/5,3/10)\\), the unique optimal profile is \\((3,3)\\).",
+    "status": "PASS"
+  }
+}
