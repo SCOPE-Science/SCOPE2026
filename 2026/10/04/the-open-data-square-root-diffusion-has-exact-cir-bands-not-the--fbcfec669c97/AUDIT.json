@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "After equilibrium substitution the source SDE is exactly dK=(A-delta K)dt+sigma sqrt(K)dW, i.e. a CIR square-root diffusion. The inspected primary distribution literature gives its noncentral-chi-square transition law and Gamma stationary law. The Gamma moments reproduce the source's own limiting mean and variance. The source explicitly defines D[K] as E[K^2]-E[K]^2, so its normal half-width 1.96 D uses variance instead of standard deviation. The benchmark controls, stationary shape/scale, quantiles, and coverages were independently recomputed by the bundled standard-library checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gordy's full Federal Reserve paper states the square-root SDE, identifies its transition distribution as noncentral chi-square, and gives a Gamma stationary univariate law.",
+        "The 2014 journal version states that conditional finite-dimensional laws are multivariate noncentral chi-square and stationary laws are multivariate Gamma.",
+        "This broader theory establishes the distributional facts but does not analyze the Fan–Tao–Zhang–Fan–Cheng game or its printed 95% bands."
+      ],
+      "reasoning": "Classical CIR theory dominates any claim that the Gamma law itself is new. The accepted claim is instead the source-specific consequence: the published normal-variance bands are inconsistent with the exact law of the paper's own equilibrium SDE, and the benchmark exact interval can be stated explicitly.",
+      "searches": [
+        "\"Finite-Dimensional Distributions of a Square-Root Diffusion\" Gordy noncentral chi square stationary gamma",
+        "\"On the distribution of a discrete sample path of a square-root diffusion\" Gordy 2012",
+        "Cox Ingersoll Ross stationary gamma noncentral chi-square exact transition confidence interval",
+        "square-root diffusion CIR normal confidence interval variance standard deviation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023234",
+      "doi:10.17016/FEDS.2012.12",
+      "doi:10.1239/jap/1421763319"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source provides the moment formulas but not the exact transition or stationary law and explicitly assumes Normality.",
+        "Gordy provides the general CIR distribution law but no application to the data-sharing game or its uncertainty formula.",
+        "The closest indexed findings concerned unrelated Gamma-distribution, confidence-bound, and square-root-diffusion questions and do not imply the source-specific correction."
+      ],
+      "reasoning": "Neither source alone contains the accepted final statement: it requires recognizing the game equilibrium SDE as CIR, mapping its parameters, and comparing the exact state law and correct standard-deviation scaling against the paper's printed bands.",
+      "searches": [
+        "government enterprise open data stochastic differential game square root diffusion gamma distribution confidence interval",
+        "square-root diffusion CIR normal confidence interval variance standard deviation error open data stochastic differential game",
+        "\"Research on open and shared data from government-enterprise cooperation based on a stochastic differential game\" CIR normal distribution confidence interval variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The publisher full text repeats the Normal assumption and the band E[K] ± 1.96 D[K] after the Nash, Stackelberg, and cooperative moment formulas.",
+        "The source's moment derivation explicitly defines D[K] as E[K^2] - E[K]^2.",
+        "Exact-title and DOI searches returned the source and bibliographic mirrors but no erratum or correction of the distributional bands."
+      ],
+      "reasoning": "These searches cover the literal source, the exact disputed uncertainty formula, the standard CIR/Gamma alias of the printed SDE, and correction/erratum terminology. No located source-specific statement supplies the exact noncentral-chi-square/Gamma replacement or identifies the variance-versus-standard-deviation error.",
+      "searches": [
+        "\"Research on open and shared data from government-enterprise cooperation based on a stochastic differential game\" correction erratum",
+        "\"Research on open and shared data from government-enterprise cooperation based on a stochastic differential game\" \"normal distribution\" confidence interval",
+        "\"10.3934/math.2023234\" CIR gamma distribution",
+        "\"10.3934/math.2023234\" erratum correction confidence interval",
+        "\"10.3934/math.2023234\" \"confidence interval\"",
+        "\"Research on open and shared data\" CIR Gamma"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at the state equation and assumptions, Proposition 1 equilibrium controls, the Nash variance derivation and Normal-band statement, the corresponding Stackelberg and cooperative band statements, and the numerical parameter table.",
+        "The publisher record verifies publication on 7 December 2022 and MSC 91A23, 91A65.",
+        "For the benchmark, the printed equilibrium formulas and parameter table give X_N*=2.4, Y_N*=1.6, A_N=2.4."
+      ],
+      "reasoning": "The numerical correction is tied directly to the source's own equations and table values. No inference is made from a generic CIR parameterization without first matching the source notation.",
+      "searches": [
+        "DOI 10.3934/math.2023234 equilibrium state equation Proposition 1 variance confidence interval",
+        "DOI 10.3934/math.2023234 Proposition 2 normal distribution confidence interval",
+        "DOI 10.3934/math.2023234 Proposition 3 normal distribution confidence interval",
+        "DOI 10.3934/math.2023234 numerical parameters sigma 0.4 delta 0.1 omega 0.6"
+      ]
+    },
+    "rationale": "The exact CIR distribution theory is classical, so novelty is restricted to its application to the 2022/2023 data-sharing game and the resulting correction of that paper's uncertainty bands. The source derives moments but assumes Normality and repeats the variance-width band in all three game regimes. Exact-title, DOI, CIR/Gamma, variance-band, and correction searches found no published source-specific correction. Indexed mathematical findings returned distributional and Gamma results in unrelated problems, not this stochastic game.",
+    "residual_risks": [
+      "A non-indexed author note or later correction could contain the same source-specific observation.",
+      "The paper's simulation code was not available for inspection; a code-level band could in principle differ from the printed formulas.",
+      "The exact benchmark quantiles concern the Nash stationary law only; the other regimes require their own equilibrium value of A."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_BANDS_USE_WRONG_DISTRIBUTION_AND_VARIANCE_AS_WIDTH",
+        "evidence": "The source explicitly defines D[K] as a variance, assumes K is Normal, and then uses E[K] ± 1.96 D[K] as a 95% band in each game regime.",
+        "identifier_or_url": "doi:10.3934/math.2023234",
+        "material_read": "Open full PDF: model equation and hypotheses; Nash Proposition 1 and its proof of expectation and variance; the Nash Normal-band statement; Stackelberg equilibrium and repeated Normal-band statement; cooperative equilibrium and repeated Normal-band statement; comparative results and the numerical parameter table. Relevant PDF pages were visually inspected.",
+        "method": "Substituted the source's constant equilibrium controls into the state SDE, matched the resulting coefficients to the CIR form, then replayed the source's benchmark parameters and compared its printed band with exact Gamma quantiles.",
+        "title": "Research on open and shared data from government-enterprise cooperation based on a stochastic differential game",
+        "trigger": "Primary source defining the stochastic state equation and all three uncertainty-band claims."
+      },
+      {
+        "assessment": "BROADER_CIR_DISTRIBUTION_THEORY",
+        "evidence": "The paper states that CIR transitions are noncentral chi-square and that the stationary univariate square-root diffusion is Gamma.",
+        "identifier_or_url": "doi:10.17016/FEDS.2012.12",
+        "material_read": "Federal Reserve full screen-reader text: defining square-root SDE; theorem on the stationary multivariate Gamma law; statement and conditional moment-generating function for the noncentral-chi-square transition law; stationary univariate Gamma law and parameters.",
+        "method": "Mapped kappa=delta and theta=A/delta to the data-sharing state equation.",
+        "title": "On the Distribution of a Discrete Sample Path of a Square-Root Diffusion",
+        "trigger": "Primary full-text distribution theory for the exact square-root diffusion appearing in the source."
+      },
+      {
+        "assessment": "JOURNAL_VERSION_SUPPORTS_DISTRIBUTIONAL_IDENTIFICATION",
+        "evidence": "The journal abstract states conditional multivariate noncentral-chi-square and stationary multivariate Gamma laws for a square-root diffusion.",
+        "identifier_or_url": "doi:10.1239/jap/1421763319",
+        "material_read": "Publisher abstract, bibliographic record, and distribution statement; the corresponding full Federal Reserve version was inspected for the formulas.",
+        "method": "Checked that the journal result covers conditional noncentral-chi-square and stationary Gamma distributions.",
+        "title": "Finite-Dimensional Distributions of a Square-Root Diffusion",
+        "trigger": "Journal version of the square-root-diffusion distribution result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fbcfec66-9c97-49a2-990f-cb596bd1a595",
+  "value": {
+    "rationale": "The paper uses variance and its limiting value as a measure of risk and repeatedly attaches 95% bands to that risk analysis. For the published Nash benchmark the printed band is so wide that it extends below the nonnegative state space and has essentially 100% exact stationary coverage, whereas the exact Gamma 95% band is much narrower and asymmetric. Providing exact finite-time noncentral-chi-square and stationary Gamma bands directly repairs the model's uncertainty quantification without disturbing its equilibrium control analysis.",
+    "status": "PASS"
+  }
+}
