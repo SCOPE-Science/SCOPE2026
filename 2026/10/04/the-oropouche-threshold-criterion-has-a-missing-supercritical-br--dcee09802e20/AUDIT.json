@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the published closed form to the larger root of x^2-Sx+P. The split at S=2 gives an exhaustive threshold classification with boundary cases. An exact rational witness reconstructed from the paper’s primitive parameters has R0=2, negative Appendix factor, and zero residual in all four endemic equilibrium equations. The bundled checker replays these identities without floating-point assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "van den Driessche and Watmough 2002 establishes the general local threshold role of R0 but does not state the source-specific cycle decomposition or the missing S>2 branch.",
+        "No returned broader result specialized to the Peterson et al. three-cycle quantities or supplied the exact admissible endemic witness."
+      ],
+      "reasoning": "General next-generation theory is broader in model class but does not dominate this claim, because the new content is the exact algebraic correction to a particular published decomposition and the demonstration that the omitted branch is realizable in that model.",
+      "searches": [
+        "published-finding corpus: four compartment host vector next generation matrix squared eigenvalue threshold RFA RCH RFH",
+        "published-finding corpus: next generation matrix x^2-Sx+AC largest root threshold S>2 P<S-1 host vector cycles",
+        "Web: van den Driessche Watmough 2002 reproduction numbers sub-threshold endemic equilibria DOI"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00285-026-02422-1",
+      "pmid:42493628",
+      "doi:10.1016/S0025-5564(02)00108-6",
+      "published-finding corpus 2026/9/14/SCOPE021"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Peterson et al. explicitly prints the reproduction-number formula and then states that S>P+1 is the condition R0>1.",
+        "The exact witness satisfies the same paper’s Eq. (2) parametrization, has S=P=16/3 and R0=2, and therefore contradicts the claimed implication from a negative Appendix factor to R0<1."
+      ],
+      "reasoning": "The prior article supplies the formula from which the correction is derived but does not imply the corrected two-branch criterion; indeed it asserts the incompatible one-branch criterion. Other retrieved epidemic-threshold findings concern different matrices and models.",
+      "searches": [
+        "published-finding corpus: Oropouche RFA RCH RFH reproduction number threshold endemic equilibrium",
+        "published-finding corpus: recent 2025 2026 epidemic model threshold vaccination equilibrium stability 92D30",
+        "Web: \"RFA\" \"RCH\" \"RFH\" Oropouche reproduction number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Peterson et al. 2026 gives q=R0^2 as the larger root of x^2-Sx+AC and later identifies only AC<S-1 as R0>1.",
+        "The closest semantic hit was 2026/9/14/SCOPE021 on a different coupled-SEIR bracketing counterexample; it uses different objects and does not imply the Oropouche criterion."
+      ],
+      "reasoning": "The corrected statement is the complete sign classification of the larger root at one. Searches by the source notation and by the equivalent quadratic-root form did not return a prior statement for this model.",
+      "searches": [
+        "published-finding corpus: \"A novel mathematical model of seasonality in Oropouche virus transmission in Amazonas, Brazil\" R_FA R_CH R_FH R0 endemic equilibrium",
+        "published-finding corpus: Oropouche model missing supercritical branch S>2 AC threshold R0 appendix",
+        "Web: exact threshold expression \"R_{FA}+R_{CH}+R_{FH} > R_{CH}R_{FA}+1\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI/correction searches returned the original article and bibliographic mirrors but no correction or erratum.",
+        "The current local ledger and all available same-week snapshots were searched for the DOI, title, Oropouche, RFA/RCH/RFH, and the threshold aliases; no prior row covers the source or claim."
+      ],
+      "reasoning": "No database correction, table entry, or prior local finding resolves the Appendix equivalence or contains the witness.",
+      "searches": [
+        "published-finding corpus: Peterson Gandhi Slack Oropouche appendix endemic equilibrium R0 condition correction erratum",
+        "published-finding corpus: Oropouche endemic equilibrium R0=2 RFA=2 RCH=8/3 RFH=2/3",
+        "Web: \"10.1007/s00285-026-02422-1\" correction OR erratum OR corrigendum"
+      ]
+    },
+    "rationale": "Direct source inspection shows that Appendix A asserts the one-branch condition as equivalent to R0>1. Exact-title, DOI, notation, equivalent-quadratic, witness, correction/erratum, broader host-vector, semantic database, and local-ledger searches found no source that already states this missing-branch correction.",
+    "residual_risks": [
+      "A later correction may appear after the search date.",
+      "The witness establishes nonemptiness of the omitted branch but not a general endemic-equilibrium theorem throughout that branch."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source formula for R0 is internally consistent, but Appendix A equates S>P+1 with R0>1 and says a negative constant term corresponds to R0<1; this misses the S>2 branch.",
+        "evidence": "Eq. (2) defines the six beta rates; Section 3.1 gives R0; Appendix A rewrites alpha_0 with factor S-P-1 and identifies S>P+1 as the condition R0>1.",
+        "identifier_or_url": "doi:10.1007/s00285-026-02422-1",
+        "material_read": "Full HTML of the model parametrization, autonomous reduction, basic reproduction number section, and Appendix A equilibrium-existence calculation.",
+        "method": "Direct article HTML inspection and algebraic reconstruction of displayed equations.",
+        "title": "A novel mathematical model of seasonality in Oropouche virus transmission in Amazonas, Brazil",
+        "trigger": "Primary source with the three-cycle reproduction number and Appendix endemic-equilibrium calculation."
+      },
+      {
+        "assessment": "Provides general threshold context but neither the Oropouche cycle algebra nor the missing-branch correction.",
+        "evidence": "The abstract states local stability for R0<1 and instability for R0>1 in general compartmental models.",
+        "identifier_or_url": "doi:10.1016/S0025-5564(02)00108-6",
+        "material_read": "Abstract and bibliographic record describing the general R0 threshold theorem.",
+        "method": "PubMed/web bibliographic inspection.",
+        "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+        "trigger": "Canonical next-generation reference cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dcee0980-2e20-42b2-a8c3-47f446ad9a10",
+  "value": {
+    "rationale": "The correction changes the qualitative threshold partition, not merely notation. It identifies an entire supercritical regime omitted by the Appendix and proves that the regime is realizable under the source’s own transmission parametrization by an exact endemic state. This is directly relevant to interpretation of linked urban and sylvatic transmission cycles.",
+    "status": "PASS"
+  }
+}
