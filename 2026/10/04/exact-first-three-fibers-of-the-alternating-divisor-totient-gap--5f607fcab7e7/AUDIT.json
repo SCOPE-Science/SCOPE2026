@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For composite \\(n\\), the second-largest divisor is \\(n/p\\) for the least prime \\(p\\), and the remaining alternating tail is a nonempty sum of positive paired differences, hence at least \\(1\\). Writing \\(\\Delta=R+T\\) with \\(T=n(1-1/p)-\\varphi(n)\\) gives exact control. Prime powers have the closed form \\(\\Delta(p^a)=(p^{a-1}+(-1)^a)/(p+1)\\). If at least two distinct primes divide \\(n\\), the second-smallest prime \\(q\\) gives \\(T\\ge n(p-1)/(pq)\\ge p-1\\), hence \\(\\Delta\\ge p\\); equality at gap \\(2\\) then forces \\(n=2q\\). The packaged verifier independently confirms every equivalence through \\(200000\\) and matches the first thirty terms of OEIS A382545.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caragiu--Swieringa prove the inequality only for a super-increasing class and discuss prime powers, not the global low-gap classification.",
+        "Jaiswal's two-page proof establishes the inequality for all integers but gives no equality or near-equality classification.",
+        "No broader searched theorem was found that determines all \\(n\\) with \\(\\Delta(n)\\le2\\)."
+      ],
+      "reasoning": "The principal stronger-looking result is the full inequality theorem. It bounds the gap below by zero but does not determine when either inequality step is sharp, so it does not imply the stated fibers without new structural analysis.",
+      "searches": [
+        "ON THE ALTERNATING SUM-OF-DIVISORS Caragiu Swieringa chi phi",
+        "On two Conjectures by Atanassov alternating sum divisors Jaiswal",
+        "alternating sum of divisors totient gap zero one two classification"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.17654/0972555524006",
+      "OEIS:A071324:a071324.pdf",
+      "OEIS:A071324",
+      "OEIS:A382545"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inequality \\(\\chi(n)\\ge\\varphi(n)\\) alone cannot distinguish gap \\(0\\), \\(1\\), or \\(2\\).",
+        "Jaiswal's proof supplies the decomposition \\(n-n/p\\) plus a positive tail, but does not bound the Euler-product slack by the second-smallest prime or solve the equality conditions.",
+        "The new second-prime estimate \\(\\Delta\\ge p\\) for integers with at least two distinct prime factors is the step that forces the \\(2q\\) family and excludes such integers from the unit fiber."
+      ],
+      "reasoning": "Prior work supplies the baseline lower bound. The final claim is a sharp structural refinement requiring equality analysis in both the alternating tail and the Euler-product slack, plus the exact prime-power formula.",
+      "searches": [
+        "A382545 a(n)=A071324(n)-A000010(n)",
+        "Jaiswal theorem chi(n) >= phi(n) least prime divisor",
+        "Caragiu Swieringa least prime factor chi lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 Jaiswal note states and proves only the global nonnegativity inequality.",
+        "OEIS A382545 is the exact difference sequence but its formula section states only the prime zero identity.",
+        "published-finding corpus semantic searches returned no alternating-divisor/totient fiber theorem."
+      ],
+      "reasoning": "The same claim was searched as equality cases, fixed-gap fibers, the difference sequence \\(\\Delta=\\chi-\\varphi\\), and the prime-square/semiprime structural description.",
+      "searches": [
+        "alternating sum divisors equality chi(n)=phi(n) prime",
+        "chi(n) equals phi(n) iff prime alternating divisor sum",
+        "chi(n)-phi(n) equals 1 equals 2 alternating divisor sum",
+        "alternating divisor totient gap fibers prime squares semiprimes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A382545 is exactly \\(A071324(n)-A000010(n)\\) and lists initial values.",
+        "The current A382545 entry states \\(a(n)\\ge0\\) and \\(a(p)=0\\) for primes, but does not classify all zeros or the fibers at \\(1\\) and \\(2\\).",
+        "OEIS A071324 records \\(\\chi(n)\\ge\u000barphi(n)\\) but not the low-gap fibers."
+      ],
+      "reasoning": "The exact database object for the new invariant was inspected rather than relying on title searches; its tabulated values are compatible with the theorem but do not provide an infinite classification.",
+      "searches": [
+        "A382545 alternating divisor totient gap zero one two",
+        "site:oeis.org A071324 A000010 difference",
+        "A071324 A000010 difference first fibers equality"
+      ]
+    },
+    "rationale": "The known 2025 theorem proves only \\(\\chi(n)\\ge\\varphi(n)\\). The new claim determines the exact equality case and both first positive fibers of the gap. The exact gap database OEIS A382545 records nonnegativity, computed terms, and only the prime formula at zero; it does not state the three complete fibers. Targeted published-finding corpus and literature searches for equality, unit gap, gap two, prime squares, and the \\(2q\\) family did not locate an implication-equivalent theorem.",
+    "residual_risks": [
+      "An unindexed short note or database comment may have observed the same low-gap fibers without being surfaced by the targeted searches.",
+      "The 2025 inequality proof contains the first decomposition used here, so the strictness statement is close to that proof even though the equality and gap-one/gap-two classifications are not stated there.",
+      "No claim is made about any fixed gap larger than two."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the totient inequality for a super-increasing class and records prime-power formulas, but does not state the global equality case or the fibers at gaps one and two.",
+        "evidence": "The PDF states the open problem and the special-class consequence; the prime-power section gives the alternating prime-power expression.",
+        "identifier_or_url": "DOI:10.17654/0972555524006",
+        "material_read": "Publisher metadata and abstract; open-access PDF introduction, definition of χ, least-prime lower bound, Theorem 3 statement, and prime-power discussion.",
+        "method": "Open-access publisher HTML and PDF inspection.",
+        "title": "On the Alternating Sum-of-Divisors",
+        "trigger": "Middle-cohort focal paper on the same nonmultiplicative function and the totient inequality."
+      },
+      {
+        "assessment": "The note proves χ(n)≥φ(n) for all n but does not characterize equality or the first two positive gaps.",
+        "evidence": "Theorem 1 ends at nonnegativity after pairing the alternating tail; no fiber classification follows in the document.",
+        "identifier_or_url": "OEIS:A071324:a071324.pdf",
+        "material_read": "Entire two-page PDF, including Theorem 1 and its proof and Theorem 2.",
+        "method": "Full open-access PDF inspection.",
+        "title": "On two Conjectures by Atanassov on the Alternating sum-of-divisors function",
+        "trigger": "Most relevant later source because it resolves the global inequality."
+      },
+      {
+        "assessment": "The database records nonnegativity and \\(a(p)=0\\) for primes but does not state the complete zero, one, or two fibers.",
+        "evidence": "The formula section contains only the prime zero identity beyond the defining difference.",
+        "identifier_or_url": "OEIS:A382545",
+        "material_read": "Current entry name, comments, formula, example, cross-references, and listed initial terms.",
+        "method": "Database-page inspection.",
+        "title": "A382545",
+        "trigger": "Exact database sequence for the proposed gap."
+      },
+      {
+        "assessment": "The entry records χ(n)≥φ(n) and the prime value but not the exact low-gap spectrum.",
+        "evidence": "The formula section cites the inequality and \\(a(p)=p-1\\), with no classification of χ-φ.",
+        "identifier_or_url": "OEIS:A071324",
+        "material_read": "Current comments, links, formulas, examples, and cross-references.",
+        "method": "Database-page inspection.",
+        "title": "A071324",
+        "trigger": "Canonical database entry for χ."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f607fca-b7e7-43d1-8d49-7162d8dcbb76",
+  "value": {
+    "rationale": "The gap \\(\\Delta=\\chi-\\varphi\\) is the exact invariant created by the recently resolved Atanassov inequality and is independently maintained as OEIS A382545. Classifying the equality layer and the first two positive layers is the natural sharp next question after nonnegativity. The answer is structural rather than a table lookup: it separates primes, all prime squares, two isolated prime powers, and the infinite semiprime family \\(2q\\), and proves that no other factorization type occurs.",
+    "status": "PASS"
+  }
+}
