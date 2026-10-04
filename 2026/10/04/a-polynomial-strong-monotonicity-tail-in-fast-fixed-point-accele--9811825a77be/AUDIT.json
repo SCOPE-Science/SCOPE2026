@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Specializing the published FFP2 formulas to T=0 and G(x)=lambda x gives an exact two-state scalar recurrence. The proof establishes positivity, q_k=O(1/t_k), the scaled ratio limits, and a logarithmic product expansion with summable quadratic error. No finite computation is used to infer the infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.11105v1 develops NOD, a different strongly-monotone algorithm with accelerated linear complexity.",
+        "arXiv:2107.10107v1 studies a different inertial generalized forward-backward method."
+      ],
+      "reasoning": "Known linear rates for other strongly-monotone algorithms do not dominate this claim because they change the iteration. They instead clarify that the polynomial tail is a property of the unmodified anchored FFP2 recurrence, not of the problem class.",
+      "searches": [
+        "Nesterov accelerated monotone inclusion FFP2 condition number one quadratic polynomial convergence",
+        "Fast Fixed-Point method strong monotonicity restart linear convergence anchor polynomial tail",
+        "arXiv:2604.11105v1 strongly monotone operator acceleration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.14953v1",
+      "arXiv:2604.11105v1",
+      "arXiv:2107.10107v1",
+      "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0",
+      "2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748",
+      "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+      "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.2 of arXiv:2609.14953v1 gives general sublinear residual estimates but does not assert their sharpness on strongly monotone problems.",
+        "NOD uses a different oracle construction and does not specialize to the FFP2 recurrence."
+      ],
+      "reasoning": "An O(1/k) residual upper bound neither implies the exact exponent 1+nu/eta nor excludes faster convergence. Conversely, linear convergence of a different method cannot imply linear convergence of FFP2. The new statement requires solving the FFP2 scalar recurrence itself.",
+      "searches": [
+        "arXiv:2609.14953 Theorem 3.2 FFP2 O(1/k) residual strong monotone",
+        "arXiv:2604.11105 NOD linear convergence strongly monotone"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.14953v1: FFP2 recurrence and Theorem 3.2 were inspected in full text.",
+        "No retrieved record stated the asymptotic exponents -(nu/eta) and -(1+nu/eta) for this recurrence."
+      ],
+      "reasoning": "The source theorem upper-bounds residual quantities but does not identify a matching exact scalar exponent. The retrieved exact-rate records concern different methods such as reflected gradient, extragradient, Newton, or Aitken-Steffensen and therefore do not imply the stated FFP2 recurrence law.",
+      "searches": [
+        "fast fixed point FFP2 strongly monotone scalar quadratic polynomial rate nu eta k exponent",
+        "distributed fast fixed point scalar strongly monotone quadratic no linear convergence polynomial tail",
+        "Nguyen-Trung Necoara Tran-Dinh FFP2 scalar linear operator exact asymptotic rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source full text contains the FFP2 algorithm, parameter conditions, and general convergence theorem but no table or scalar closed form matching the claim.",
+        "No retrieved exact-rate database record matched the FFP2 algorithm and parameter law simultaneously."
+      ],
+      "reasoning": "The claim is not a recomputation of a reported table or benchmark. It is an analytic specialization and asymptotic solution of the published recurrence.",
+      "searches": [
+        "arXiv:2609.14953 FFP2 exact scalar recurrence strong monotonicity",
+        "FFP2 t_k z_k polynomial tail nu eta"
+      ]
+    },
+    "rationale": "The inspected FFP2 paper provides general sublinear residual bounds but not the exact scalar exponents or the conclusion that this admissible strongly monotone condition-number-one instance is not R-linear. Targeted semantic and full-text comparisons found nearby but non-implying algorithms; an older equivalent inertial recurrence under different notation remains the principal residual risk.",
+    "residual_risks": [
+      "An older inertial or anchored fixed-point recurrence written in different notation could contain an equivalent scalar asymptotic calculation.",
+      "The literature search cannot prove global absence; originality is limited to the inspected sources and targeted equivalence searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact recurrence used here and proves general sublinear residual bounds, but does not state the scalar strong-monotonicity tail or automatic R-linear behavior.",
+        "evidence": "arXiv:2609.14953v1, first public 2026-09-14.",
+        "identifier_or_url": "arXiv:2609.14953v1",
+        "material_read": "Assumption 3.2, the forward-backward residual definition, Lemma 3.5, the FFP2 algorithm and parameter conditions, Theorem 3.2, and searches for strong monotonicity, restart, and linear convergence.",
+        "method": "Full-text inspection of the public preprint.",
+        "title": "Distributed Fast Fixed-Point Algorithms for Composite Monotone Inclusions over Networks",
+        "trigger": "Primary source defining FFP2 and its convergence theorem."
+      },
+      {
+        "assessment": "Different algorithm tailored to strongly monotone operators; does not imply the FFP2 scalar recurrence law.",
+        "evidence": "arXiv:2604.11105v1.",
+        "identifier_or_url": "arXiv:2604.11105v1",
+        "material_read": "Abstract and stated complexity result.",
+        "method": "Public preprint inspection.",
+        "title": "NOD: Accelerating the Optimization of Smooth Strongly Monotone Operators",
+        "trigger": "Close comparison for linear acceleration under strong monotonicity."
+      },
+      {
+        "assessment": "Algorithmically distinct and not a statement of the FFP2 exact scalar asymptotics.",
+        "evidence": "arXiv:2107.10107v1.",
+        "identifier_or_url": "arXiv:2107.10107v1",
+        "material_read": "Abstract and algorithmic scope.",
+        "method": "Public preprint inspection.",
+        "title": "Accelerated proximal algorithms with a correction term for monotone inclusions",
+        "trigger": "Older inertial forward-backward comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9811825a-77be-4e1e-8837-ceadedeed390",
+  "value": {
+    "rationale": "The condition-number-one strongly convex witness isolates the anchor rather than ill-conditioning as the reason for sublinear behavior. Exact parameter-dependent exponents and ratio limits identify a concrete structural boundary and motivate restart or strong-monotonicity-aware modifications.",
+    "status": "PASS"
+  }
+}
