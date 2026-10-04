@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "A strict believed-public-announcement update necessarily removes every incoming arrow to at least one currently active false target. Because relations only shrink, that target can never return, so the active-target set strictly decreases at every strict stage. This proves stabilization within |T0| rounds. The directed-cycle witness with formula p and non-dead-end status removes exactly one new target per round and attains |W|.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Definition 5 shows that every update filters all agent relations solely by the current truth of the target state.",
+        "Proposition 3 proves stabilization by injectively charging strict stages to labelled arrows and gives a bound below the successor cardinal of the arrow set.",
+        "Lemma 6 uses finitely many propositional valuation types in a single-agent K45 generated model, not an all-model state-count invariant."
+      ],
+      "reasoning": "The source provides the update rule and two stabilization arguments, but neither exploits the fact that a strict target failure deletes all incoming arrows to that target at once. That observation yields the sharper finite invariant.",
+      "searches": [
+        "Yamada 2026 full text: Definition 5 believed public announcement",
+        "Yamada 2026 full text: Definition 8 transfinite iteration",
+        "Yamada 2026 full text: Proposition 3 stabilization proof by labelled arrows",
+        "Yamada 2026 full text: Lemma 6 single-agent K45 finite stabilization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.24006"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Charging strict updates to individual labelled arrows gives a generally much larger resource than charging them to targets.",
+        "The K45 lemma is structurally narrower and does not imply a sharp |W| bound for arbitrary finite models.",
+        "No prior current-ledger claim concerns arXiv:2609.24006 or finite believed-announcement stabilization."
+      ],
+      "reasoning": "The state-count theorem is not a mere numerical restatement of the source arrow bound: one strict round may erase arbitrarily many labelled arrows but necessarily consumes at least one entire target state.",
+      "searches": [
+        "primary-source implication check: labelled-arrow Proposition 3 versus target-state charging",
+        "primary-source implication check: single-agent K45 Lemma 6 versus arbitrary finite-state models",
+        "primary-source implication check: transfinite stabilization versus finite carrier bound",
+        "current cumulative ledger claim comparison through generation g000035"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed finding addressed a state-count stabilization bound for believed public announcements.",
+        "Targeted literature searches returned the 2026 source and general dynamic-epistemic material, but no active-target bound or sharp n-round cycle theorem."
+      ],
+      "reasoning": "The searches cover the source title and identifier together with the natural equivalent descriptions: finite stabilization, state bound, arrow bound, target deletion, and iterated believed announcements.",
+      "searches": [
+        "believed public announcement iteration stabilization finite model number of states sharp bound",
+        "Eventual Strong Eventual Public Announcements finite stabilization bound arrows states",
+        "arXiv 2609.24006 Proposition 3 finite model sharp bound",
+        "iterated believed public announcements target states stabilization",
+        "web literature search: believed public announcement stabilization finite model bound states",
+        "web literature search: iterated believed public announcement finite stabilization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact |W| or active-target stabilization theorem was located.",
+        "No checked source gives the directed-cycle family attaining one target deletion per round."
+      ],
+      "reasoning": "The accepted result is an exact finite bound and sharpness theorem rather than a table; searches targeted both the quantitative bound and its witness mechanism.",
+      "searches": [
+        "arXiv 2609.24006 finite state |W| stabilization",
+        "believed announcement active targets bound",
+        "public announcement directed cycle p not box bottom stabilization"
+      ]
+    },
+    "rationale": "The primary source counts labelled arrows in its general stabilization proof and uses propositional valuation types in a separate single-agent K45 lemma. It does not state the active-target invariant, the sharp |W| finite-state bound, or the cycle lower-bound family. Targeted published-finding and literature searches did not locate equivalent coverage.",
+    "residual_risks": [
+      "An equivalent target-deletion lemma may exist in older iterated-announcement or monotone network-pruning literature under different terminology.",
+      "Sharper bounds may hold under K45, KD45, or S5 frame assumptions; the sharpness witness here is deliberately only for the source's general-model stabilization proposition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: the source proves stabilization by labelled-arrow counting and a separate K45 finite argument, but does not state the active-target bound or sharp finite-state witness.",
+        "evidence": "The published update keeps exactly those arrows whose target satisfies the announcement; Proposition 3 charges strict stages to labelled arrows.",
+        "identifier_or_url": "arXiv:2609.24006",
+        "material_read": "Full arXiv text at Definition 4, Definition 5, Definition 8, Proposition 3 and its proof, and Lemma 6 on single-agent K45 finite stabilization.",
+        "method": "Direct statement and implication comparison followed by an independent target-set analysis of the published update rule.",
+        "title": "Eventual and Strong Eventual Notions in Public Announcements",
+        "trigger": "Primary recent source defining iterated believed public announcements and proving transfinite stabilization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "65b4b662-c65e-4bb9-8583-73948cd10934",
+  "value": {
+    "rationale": "The source explicitly motivates transfinite iteration and relies on stabilization in its main hierarchy results. For finite models, the accepted theorem replaces the labelled-arrow scale by a sharp linear state scale, independent of the number of agents. The exact witness shows the improvement is the best possible without additional frame assumptions.",
+    "status": "PASS"
+  }
+}
