@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Every symmetric unimodal integer law is reconstructed exactly as a convex mixture of centered discrete uniforms. Their variance/fourth-moment points satisfy q=(9v^2-v)/5. Strict convexity makes the chord between adjacent variance grid points the exact lower hull, with equality only for the adjacent mixture. The phase law follows from the exact cell width.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Navard--Seaman--Young characterize discrete unimodality and derive variance bounds, but their inspected sections do not optimize fourth moments.",
+        "The symmetric-unimodal skewness-kurtosis literature gives the continuous inequality kappa >= 9/5 with equality for a continuous uniform law."
+      ],
+      "reasoning": "Variance bounds and the continuous kurtosis theorem do not dominate the lattice fixed-variance problem. The integer support creates a discrete variance grid, so the sharp lower hull is piecewise affine in the fourth moment and can lie on either side of 9/5 after standardization.",
+      "searches": [
+        "DOI:10.1007/BF00774775",
+        "Klaassen Mokveld van Es symmetric unimodal kurtosis 9/5",
+        "symmetric unimodal skewness kurtosis set"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/BF00774775",
+      "DOI:10.1111/insr.70007",
+      "own-ledger:b795f1fe-f9ae-4f8d-b69d-4c9cd169f44e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior own result optimizes a tail probability for each threshold in the same symmetric-unimodal lattice class.",
+        "Semantic searches returned unrelated kurtosis records for Poisson-binomial or Gaussian-chaos laws, not the present distribution class and moment envelope."
+      ],
+      "reasoning": "Threshold-by-threshold tail maxima do not imply a minimum integrated fourth moment because the tail extremizer changes with threshold. The present claim instead fixes variance and identifies one adjacent-uniform mixture that minimizes the global fourth moment.",
+      "searches": [
+        "own-ledger:b795f1fe-f9ae-4f8d-b69d-4c9cd169f44e",
+        "semantic-search:symmetric unimodal lattice Gauss tail variance",
+        "semantic-search:discrete symmetric unimodal fourth moment variance lower envelope",
+        "semantic-search:kurtosis symmetric unimodal integer lattice 9/5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved source stated the adjacent centered-uniform chord formula for the minimum fourth moment at fixed variance.",
+        "Searches recovered the continuous 9/5 symmetric-unimodal bound and formulas for individual discrete-uniform kurtosis, but not the full lattice envelope."
+      ],
+      "reasoning": "The searches covered the distribution class, the fourth moment, kurtosis, discrete-uniform mixtures, and the continuous 9/5 benchmark. The missing statement is the convex-hull interpolation across the variance lattice together with its exact equality cases.",
+      "searches": [
+        "symmetric unimodal integer distribution kurtosis sharp variance discrete uniform mixture",
+        "discrete unimodal kurtosis lower bound symmetric integer",
+        "unimodal distribution fourth moment variance sharp 9/5 discrete",
+        "Khintchine mixture uniforms kurtosis unimodal discrete",
+        "\"discrete symmetric unimodal\" kurtosis",
+        "\"symmetric discrete unimodal\" \"fourth moment\"",
+        "\"integer-valued symmetric unimodal\" kurtosis",
+        "\"discrete uniform\" kurtosis symmetric unimodal lower bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved table or catalog contained the variance-cell interpolation or equality classification."
+      ],
+      "reasoning": "The theorem is symbolic for every positive variance and is proved from a convex-mixture representation, not inferred from a finite catalog.",
+      "searches": [
+        "discrete uniform kurtosis table unimodal",
+        "lattice kurtosis lower envelope variance",
+        "symmetric unimodal fourth moment discrete uniform adjacent"
+      ]
+    },
+    "rationale": "The inspected discrete-unimodality source develops convexity and variance bounds, while the symmetric-unimodal kurtosis literature gives the continuous 9/5 lower benchmark. Neither inspected or searched source states the variance-dependent lattice chord formula, adjacent-uniform equality classification, or scaled phase interval [-1/5,2/5].",
+    "residual_risks": [
+      "An equivalent lower-hull statement may exist in older discrete-unimodality or moment-problem literature under a different vocabulary.",
+      "The originality search was targeted rather than exhaustive over all monographs on discrete unimodality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "The paper defines standard lattice unimodality and develops convexity-based variance comparisons and upper bounds. No fixed-variance fourth-moment or kurtosis lower envelope, adjacent-uniform mixture theorem, or lattice phase correction appears in the inspected material.",
+        "identifier_or_url": "DOI:10.1007/BF00774775",
+        "material_read": "Full 12-page publisher-hosted PDF, with focused inspection of the introduction, Definition 2.1, Theorem 2.1, variance-dilation section, and variance-bound section.",
+        "method": "Compared the distribution class, convex representation ideas, optimized moment, and equality structures with the fourth-moment theorem.",
+        "title": "A characterization of discrete unimodality with applications to variance upper bounds",
+        "trigger": "Archive-era full primary source defining the discrete unimodality class and exploiting convexity for sharp moment-type bounds."
+      },
+      {
+        "assessment": "CONTINUOUS_COMPARATOR_NOT_COVERING",
+        "evidence": "The source states that symmetric continuous-unimodal kurtosis is at least 9/5, with equality only for a continuous uniform law. It does not contain a discrete integer-lattice variance grid, adjacent-uniform interpolation, or the order-1/v phase law.",
+        "identifier_or_url": "DOI:10.1111/insr.70007",
+        "material_read": "Full HTML, especially Section 2.3 on symmetric unimodal distributions and the 9/5 kurtosis boundary.",
+        "method": "Compared the continuous benchmark and equality law with the integer-lattice theorem.",
+        "title": "Inference via the Skewness-Kurtosis Set",
+        "trigger": "Full-text source restating the sharp continuous symmetric-unimodal kurtosis set and its equality case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ae755760-9b1a-48d7-9128-d885219c978c",
+  "value": {
+    "rationale": "The result gives the exact lattice analogue of a classical shape constraint on kurtosis. It identifies all extremizers, quantifies the first lattice correction, and shows that discretization produces a genuine phase oscillation around the continuous 9/5 benchmark.",
+    "status": "PASS"
+  }
+}
