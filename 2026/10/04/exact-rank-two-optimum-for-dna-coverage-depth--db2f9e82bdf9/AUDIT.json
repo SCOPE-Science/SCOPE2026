@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For a zero-free rank-two generator matrix with projective multiplicities \\(m_i\\), conditioning on the first projective class gives the exact identity \\(\\mathbb E=1+\\sum_i m_i/(n-m_i)\\). Zero columns are strictly dominated. The discrete first difference of \\(f(t)=t/(n-t)\\) is \\(n/((n-t-1)(n-t))\\), strictly increasing, so every imbalance of at least two is strictly improvable. This proves the balanced multiplicity formula and equality characterization. Exact exhaustive checks over \\(2\\le q\\le6\\) and \\(2\\le n\\le10\\) agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The MDS theorem gives the exact optimum when an MDS code exists; in dimension two this covers only \\(n\\le q+1\\).",
+        "The 2025 and 2026 Bertuzzo-Ravagnani-Yaakobi papers compute expectations for fixed code families but do not optimize all \\([n,2]_q\\) codes for \\(n>q+1\\)."
+      ],
+      "reasoning": "Known broader formulas evaluate a specified code or settle MDS-feasible parameters. They do not imply the optimizer structure once repeated projective directions are forced.",
+      "searches": [
+        "arXiv:2305.05656v1 MDS coverage-depth optimality",
+        "arXiv:2507.20639v1 optimal coverage depth small alphabets",
+        "arXiv:2603.06489v1 extended weight enumerator coverage depth",
+        "web: simplex code coverage depth optimal 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.20639v1",
+      "arXiv:2603.06489v1",
+      "arXiv:2305.05656v1",
+      "arXiv:2608.20152v1 abstract (generalized random access; dimension-three quasi-arcs, no rank-two full-recovery optimizer claim in the abstract)",
+      "semantic-index searches on coverage depth, [n,2]_q optimization, projective-line multiplicities, and simplex optimality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior MDS optimality yields E_opt\\([n,2]_q\\)=1+n/(n-1) only while \\(n\\le q+1\\).",
+        "The new formula agrees with that regime and extends to \\(n>q+1\\), where no rank-two MDS generator can have all projective directions distinct.",
+        "The 2026 paper explicitly leaves optimal small-field code selection open beyond known families."
+      ],
+      "reasoning": "The non-MDS \\(n>q+1\\) branch and the exact classification of balanced projective multiplicities are not corollaries of the cited prior results.",
+      "searches": [
+        "arXiv:2507.20639v1 Theorem 1, Theorem 3, Example 1, conclusions",
+        "arXiv:2603.06489v1 Theorem 2.2, Conjecture 3.2, conclusions",
+        "arXiv:2305.05656v1 Claim 2 and Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.06489v1 states the optimal coverage-depth problem and retains simplex optimality as Conjecture 3.2; no rank-two all-length theorem appears.",
+        "Focused semantic-index results were about unrelated dimension-two coding or projective-geometry problems, not expected full-rank sampling time."
+      ],
+      "reasoning": "The claim was compared under the aliases coverage depth, full-rank sampling time, projective-direction multiplicities, and rank-two linear codes. No equivalent published statement was located.",
+      "searches": [
+        "coverage depth optimal [n,2] q linear code projective line",
+        "balanced projective point multiplicities minimize expected spanning time rank two",
+        "web: rank two coverage depth DNA code 2026",
+        "arXiv:2603.06489v1 sections 2-3,8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No semantic-index hit described DNA coverage-depth optimization in rank two.",
+        "No web result located a table or database giving the displayed all-length formula or balanced-multiplicity equality characterization."
+      ],
+      "reasoning": "Database searches were performed on the exact optimization target and its finite-geometric reformulation; closest hits were scientifically distinct.",
+      "searches": [
+        "The Coverage Depth Problem in DNA Storage Over Small Alphabets simplex optimal",
+        "DNA coverage depth exact optimum [n,2]_q",
+        "web: projective line coverage depth code",
+        "web: E_opt [n,2] coverage depth code"
+      ]
+    },
+    "rationale": "The fresh 2025/2026 coverage-depth papers formulate the small-field optimization problem but do not give an all-length rank-two optimum; the 2026 paper still presents optimal code selection beyond MDS as open. The older MDS theorem covers only \\(n\\le q+1\\) in dimension two. Focused semantic-index and web searches found no matching theorem for \\(n>q+1\\) or the balanced projective-multiplicity classification.",
+    "residual_risks": [
+      "The balancing argument is elementary enough that an equivalent result could exist as folklore or in an unindexed source.",
+      "Search failure is not a proof of novelty; no claim of historical priority beyond the inspected sources is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines E_opt, evaluates simplex codes, gives only \\([7,3]_2\\) computational evidence, and leaves simplex optimality/further optimal-code determination open; does not contain the rank-two all-n theorem.",
+        "evidence": "Problem B asks for the minimum over all [n,k]_q codes; Section III conjectures simplex optimality; conclusions list determination of optimal codes as future work.",
+        "identifier_or_url": "arXiv:2507.20639v1",
+        "material_read": "HTML Sections II-III and VII, including Problem B, simplex formula, Example 1, and future work.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "The Coverage Depth Problem in DNA Storage Over Small Alphabets",
+        "trigger": "Primary recent source posing the small-field optimal coverage-depth problem."
+      },
+      {
+        "assessment": "Still states simplex optimality as conjectural and develops code-evaluation machinery; no rank-two all-length optimization theorem found.",
+        "evidence": "Conjecture 3.2 remains explicit; Section 8 again lists optimal-code characterization beyond known regimes as open.",
+        "identifier_or_url": "arXiv:2603.06489v1",
+        "material_read": "HTML Sections 2-4 and 8, including Theorem 2.2, Conjecture 3.2, and conclusions.",
+        "method": "Direct full-text HTML inspection and targeted searches for k=2, dimension 2, q+1, and balanced.",
+        "title": "The DNA Coverage Depth Problem: Duality, Weight Distributions, and Applications",
+        "trigger": "Later comprehensive source that could have subsumed the 2025 open problem."
+      },
+      {
+        "assessment": "Proves MDS optimality, which implies the rank-two formula only for \\(n\\le q+1\\); it does not address forced repeated projective directions for \\(n>q+1\\).",
+        "evidence": "Claim 2 compares arbitrary codes with an MDS code of the same length; dimension-two MDS codes require pairwise distinct projective directions and hence \\(n\\le q+1\\).",
+        "identifier_or_url": "arXiv:2305.05656v1",
+        "material_read": "Full-text HTML around the noiseless coding coverage-depth section, including Claim 2 and Theorem 2.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Cover Your Bases: How to Minimize the Sequencing Coverage in DNA Storage Systems",
+        "trigger": "Foundational result that might already imply the claim through MDS optimality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db2f9e82-bdf9-4431-841c-b1ac327e126c",
+  "value": {
+    "rationale": "Problem B is a natural optimization target in recent DNA-storage coding work. The theorem closes it completely for dimension two, including the non-MDS regime \\(n>q+1\\), and identifies every optimizer rather than only a construction or bound.",
+    "status": "PASS"
+  }
+}
