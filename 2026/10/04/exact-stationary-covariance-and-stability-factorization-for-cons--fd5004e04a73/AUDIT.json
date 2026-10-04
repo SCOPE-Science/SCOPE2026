@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The same-sample additive-noise correction gives \\(e_{t+1}=(1-a)e_t+a\\varepsilon_{t+1}\\) and \\(x_{t+1}=(1-s)x_t-se_t\\). The triangular eigenvalues give the exact boundary, and exact Lyapunov equations give the stationary covariance. The variance comparison with SGD and its strict sign are algebraic identities on the stated domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1905.10018v3, Sections 3–5",
+        "arXiv:2111.01040v1, corrected-momentum and parameter-choice sections",
+        "arXiv:1905.05920v1, Sections 2–3.2"
+      ],
+      "reasoning": "The broader papers prove nonconvex stationarity and variance-control results under adaptive or prescribed schedules. They do not determine the necessary-and-sufficient constant-parameter scalar stability boundary together with the stationary covariance.",
+      "searches": [
+        "STORM constant parameter quadratic stationary covariance",
+        "STORM+ corrected momentum quadratic stationary variance",
+        "hybrid stochastic gradient descent constant step recursive estimator"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.10018v1",
+      "arXiv:2111.01040v1",
+      "arXiv:1905.05920v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1905.10018v3 full text, corrected-momentum and estimator-error equations",
+        "arXiv:2111.01040v1 full text, corrected-momentum equation and adaptive parameter discussion",
+        "arXiv:1905.05920v1 full text, hybrid estimator and constant-step section"
+      ],
+      "reasoning": "The original STORM error identity retains a general sample-dependent correction term; the present additive-noise specialization makes that term vanish and then solves the invariant covariance exactly. STORM+ does not supply that specialization. The hybrid estimator has a second independent stochastic input, so its constant-step theorem does not imply the same stationary law.",
+      "searches": [
+        "Momentum-Based Variance Reduction STORM corrected momentum error tradeoff eta a",
+        "STORM+ corrected momentum learning rate momentum interplay",
+        "Hybrid Stochastic Gradient Descent independent xi zeta constant stepsize estimator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.10018v1",
+        "arXiv:2111.01040v1",
+        "arXiv:1905.05920v1"
+      ],
+      "reasoning": "The equivalent linear-system formulation uses iterate and estimator error. STORM's common sample makes additive noise cancel from the gradient difference; the earlier hybrid method has an independent unbiased-gradient sample and therefore a different covariance recursion.",
+      "searches": [
+        "STORM constant step scalar quadratic exact stability stationary variance recursive momentum",
+        "Momentum-Based Variance Reduction STORM quadratic eigenvalues constant parameters",
+        "STORM same-sample recursive momentum additive noise quadratic exact covariance",
+        "stochastic recursive momentum noise floor scalar quadratic STORM"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No STORM-specific exact stationary-covariance formula was identified in the focused published-result searches.",
+        "The closest scientific comparisons were deterministic momentum stability, stochastic scalar feedback, and other stochastic-quadratic recurrences."
+      ],
+      "reasoning": "Those closest results analyze different states or algorithms and do not contain the corrected-momentum error recursion needed to imply this covariance law.",
+      "searches": [
+        "STORM constant step scalar quadratic exact stability stationary variance recursive momentum",
+        "STORM same-sample recursive momentum additive noise quadratic exact covariance"
+      ]
+    },
+    "rationale": "The inspected STORM sources do not state the exact additive-noise stationary covariance or unchanged SGD stability interval. The closest earlier hybrid estimator uses an independent fresh-gradient sample and therefore does not imply the same-sample cancellation.",
+    "residual_risks": [
+      "Equivalent covariance formulas may exist in older linear stochastic-approximation or signal-processing literature without STORM terminology.",
+      "Sample-dependent curvature destroys the exact decoupling.",
+      "The result concerns the constant corrected-momentum template rather than the published adaptive schedule."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_STATIONARY_COVARIANCE.",
+        "evidence": "The source introduces the exact same-sample corrected-momentum template and motivates a learning-rate/momentum tradeoff, but does not state the additive-noise triangular factorization or stationary covariance.",
+        "identifier_or_url": "arXiv:1905.10018v1",
+        "material_read": "Open-access full HTML covering assumptions, momentum and variance reduction, the corrected-momentum equations, estimator-error recursion, and the adaptive STORM algorithm.",
+        "method": "Full-text inspection with targeted comparison of the same-sample update.",
+        "title": "Momentum-Based Variance Reduction in Non-Convex SGD",
+        "trigger": "Defining source for the corrected-momentum template."
+      },
+      {
+        "assessment": "DIRECT_FOLLOWUP_NOT_COVERING.",
+        "evidence": "The paper restates the recursion and emphasizes adaptive parameter choice but does not give a quadratic stationary-covariance theorem.",
+        "identifier_or_url": "arXiv:2111.01040v1",
+        "material_read": "Open-access full HTML covering the corrected-momentum definition, original STORM parameter choices, STORM+ adaptive choices, and main convergence theorem.",
+        "method": "Full-text inspection and targeted searches for quadratic stationary analysis.",
+        "title": "STORM+: Fully Adaptive SGD with Momentum for Nonconvex Optimization",
+        "trigger": "Direct follow-up centered on momentum and learning-rate adaptivity."
+      },
+      {
+        "assessment": "CLOSE_FORMULATION_WITH_DIFFERENT_NOISE_COUPLING.",
+        "evidence": "Its hybrid estimator uses a recursive-difference sample plus an independent unbiased-gradient sample. That differs from STORM's same-sample coupling and does not yield the autonomous additive-noise error recursion used here.",
+        "identifier_or_url": "arXiv:1905.05920v1",
+        "material_read": "Open-access full PDF, especially Sections 2 and 3.2 containing the hybrid estimator, independent sampling convention, and constant-stepsize theorem.",
+        "method": "Full-text PDF inspection with page-level visual verification of the estimator equation.",
+        "title": "Hybrid Stochastic Gradient Descent Algorithms for Stochastic Nonconvex Optimization",
+        "trigger": "Earlier closely related recursive estimator with constant-step analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd5004e0-4a73-4303-a52b-2edec81d66fe",
+  "value": {
+    "rationale": "The defining motivation is to reduce estimator error by corrected momentum while balancing momentum and learning rate. The exact benchmark shows unchanged step stability \\(0<s<2\\), strictly lower stationary iterate variance for \\(0<a<1\\), and the exact cost of reducing that floor: the memory eigenvalue \\(1-a\\) approaches one.",
+    "status": "PASS"
+  }
+}
