@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Under the source's fitting assumptions, adding the printed \\(H\\) and \\(R\\) equations gives \\(\\dot H+\\dot R=(\\delta+\\gamma)I\\). The source independently defines \\(I\\) as non-confirmed and \\(\\delta I\\) as the confirmation transition, so the model-consistent cumulative confirmation counter must satisfy \\(\\dot C=\\delta I\\). Integration gives the exact ratio. The numerical values are direct arithmetic from the published fitted parameters and initial conditions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He, Tang, and Rong (2020), DOI 10.3934/mbe.2020153, use a different discrete stochastic model and explicitly fit newly reported confirmed, recovered, and death flows rather than identifying a mixed recovered stock with cumulative confirmations.",
+        "General searches found other COVID-19 compartment models but no statement implying the exact Jiao–Huang correction factor."
+      ],
+      "reasoning": "Related data-fitting literature confirms that reported confirmation flows can be modeled separately, but it does not imply the exact identity for the specific SIHR transition graph.",
+      "searches": [
+        "\"cumulative confirmed\" SIHR \"gamma I\" \"delta I\"",
+        "\"cumulative confirmed cases\" epidemic model \"delta I\" hospitalized recovered",
+        "COVID SIHR natural recovery unconfirmed cumulative confirmed parameter fitting",
+        "\"A discrete stochastic model of the COVID-19 outbreak: Forecast and control\" confirmed recovered data"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2020431",
+      "doi:10.3934/mbe.2022195",
+      "doi:10.3934/mbe.2020153"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 paper supplies the source equations and the problematic plotted observable, but does not derive \\(\\dot C=\\delta I\\) as a separate reported-case counter.",
+        "The 2022 follow-up explicitly cites the 2020 model and repeats the same transition semantics, but its stated contribution is stochastic extinction/persistence and sensitivity of the stochastic reproduction threshold.",
+        "No inspected prior statement gives the exact increment ratio \\((\\delta+\\gamma)/\\delta\\) for the published Hubei fit."
+      ],
+      "reasoning": "The accepted claim is not a generic observation that compartment models require care: it is the exact source-specific incompatibility and correction law produced by the direct \\(I\\to R\\) recovery flow.",
+      "searches": [
+        "Jiao Huang 2020 SIHR cumulative confirmed natural recovery",
+        "Hou Lan Yuan Zhang 2022 SIHR cumulative confirmed observation",
+        "SIHR H+R cumulative confirmed direct recovery observation map"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text explicitly prints \\(\\dot R=\\gamma I+mH-\\mu R\\), labels \\(I\\) non-confirmed, and labels \\(\\delta\\) the confirmation rate.",
+        "The fitting section explicitly plots \\(H(t)+R(t)\\) against cumulative-confirmed data.",
+        "Searches by exact title, DOI, and plotted observable returned the source and bibliographic mirrors but no erratum or correction."
+      ],
+      "reasoning": "The natural aliases of the claim are observation-map error, cumulative-confirmed counter, direct recovery from unconfirmed infection, and the literal plotted quantity \\(H+R\\). The searches cover all of these formulations.",
+      "searches": [
+        "\"An SIHR epidemic model of the COVID-19 with general population-size dependent contact rate\" correction erratum cumulative confirmed",
+        "\"H(t)+R(t)\" cumulative SIHR COVID-19 Jiao Huang",
+        "\"10.3934/math.2020431\" H+R gamma",
+        "\"10.3934/math.2020431\" comment correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2020 open full text was inspected through the model definition, Section 3 fitting assumptions, revised cumulative-confirmed data, initial conditions, fitted parameters, and Figure 2 label.",
+        "The 2022 open full text was inspected through the reproduced SIHR equations and the explicit definitions of non-confirmed \\(I\\), confirmed \\(H\\), natural recovery \\(\\gamma\\), and confirmation rate \\(\\delta\\).",
+        "The 2022 full text contains no occurrence of the term 'cumulative' in the inspected searchable text and does not present an observation-map correction."
+      ],
+      "reasoning": "The comparison is equation-level and uses the actual full texts, not title similarity or numerical parameter matching.",
+      "searches": [
+        "DOI 10.3934/math.2020431 full text model equation fitting Figure 2 H(t)+R(t)",
+        "DOI 10.3934/mbe.2022195 full text SIHR non-confirmed confirmed natural recovery confirmation rate"
+      ]
+    },
+    "rationale": "The primary paper prints both ingredients of the inconsistency but does not distinguish the cumulative-confirmation counter from \\(H+R\\). A same-model stochastic follow-up repeats the compartment semantics but studies threshold dynamics rather than repairing the data observable. Exact-title, DOI, observable, and direct-recovery searches located no published correction or equivalent source-specific identity.",
+    "residual_risks": [
+      "A non-indexed author note or later correction could contain the same observation-map calculation.",
+      "A corrected refit could materially change all fitted parameters, so the same-trajectory value \\(63731.45\\) is not a substitute empirical forecast.",
+      "The exact interpretation of historical recovered-count reporting at the initial date does not affect the post-start derivative mismatch, but it can matter for how one initializes a newly refitted cumulative counter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OBSERVATION_MAP_INCOMPATIBLE_WITH_PRINTED_TRANSITIONS",
+        "evidence": "The source defines \\(I\\) as non-confirmed, \\(H\\) as confirmed, \\(\\gamma I\\) as direct natural recovery into \\(R\\), and \\(\\delta I\\) as confirmation into \\(H\\), yet labels \\(H+R\\) as cumulative confirmed in Figure 2.",
+        "identifier_or_url": "doi:10.3934/math.2020431",
+        "material_read": "Open full text through the model equations and compartment definitions, Section 3 fitting specialization, revised data, initial conditions, fitted parameters, Figure 2, and the stated endpoint forecast.",
+        "method": "Compared event semantics with the plotted observable and integrated the two exact derivative identities.",
+        "title": "An SIHR epidemic model of the COVID-19 with general population-size dependent contact rate",
+        "trigger": "Primary source whose Hubei fit compares \\(H+R\\) with cumulative-confirmed data."
+      },
+      {
+        "assessment": "SAME_TRANSITION_GRAPH_NO_OBSERVATION_CORRECTION_FOUND",
+        "evidence": "The follow-up again identifies \\(I\\) as non-confirmed, \\(H\\) as confirmed, \\(\\gamma\\) as natural recovery, and \\(\\delta\\) as confirmation, while focusing on stochastic threshold dynamics.",
+        "identifier_or_url": "doi:10.3934/mbe.2022195",
+        "material_read": "Open full text through the introduction, reproduced deterministic SIHR model, compartment definitions, stochastic extension, and numerical-study overview; searchable full text was also checked for cumulative-observable terminology.",
+        "method": "Compared the inherited transition graph and variable semantics with the observation correction.",
+        "title": "Threshold dynamics of a stochastic SIHR epidemic model of COVID-19 with general population-size dependent contact rate",
+        "trigger": "Closest same-model follow-up explicitly citing the 2020 SIHR system."
+      },
+      {
+        "assessment": "DIFFERENT_MODEL_SEPARATE_REPORTED_FLOWS",
+        "evidence": "The paper uses newly reported confirmed, recovered, death, and quarantine-release data in a different discrete stochastic model; it does not contain the Jiao–Huang SIHR correction.",
+        "identifier_or_url": "doi:10.3934/mbe.2020153",
+        "material_read": "Open full-text article sections describing data calibration and the reported-flow variables used in fitting.",
+        "method": "Checked whether its observation architecture already implied the source-specific identity.",
+        "title": "A discrete stochastic model of the COVID-19 outbreak: Forecast and control",
+        "trigger": "Contemporary COVID-19 calibration paper using reported confirmed and recovered flows separately."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b54330af-da6e-494c-b6a4-8aa00c089b9a",
+  "value": {
+    "rationale": "The source's least-squares calibration and its central cumulative-confirmed forecast use the affected observable. The discrepancy is not a cosmetic label: with the published parameters the wrong observable accumulates post-start cases about \\(10.0763\\%\\) faster on every fixed trajectory. The result gives an exact repair target—an added counter with inflow \\(\\delta I\\)—while clearly separating internal consistency from a new epidemiological fit.",
+    "status": "PASS"
+  }
+}
