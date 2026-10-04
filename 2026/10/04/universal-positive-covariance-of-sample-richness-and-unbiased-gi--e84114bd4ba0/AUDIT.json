@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Exact conditioning on a selected collision pair gives \\(\\operatorname{Cov}(K_n,\\widehat G_n)=2s_2A_n-(1+s_2)B_n\\). Under the size-biased category law, \\(B_n/A_n\\le s_2\\) because the factor \\((1-P)^{n-2}\\) is antitone in \\(P\\). This yields the strict positive lower bound and the stated equality cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbour treats the arbitrary-probability occupancy scheme and the distributions of the number of occupied boxes and exact-frequency counts.",
+        "Källberg--Leonenko--Seleznjev treat exact coincidences in discrete iid samples as generalized U-statistics for Rényi-type functionals."
+      ],
+      "reasoning": "These sources separately cover the two ingredients at a broader level, but their inspected results do not compare the two sample statistics by exact covariance. Neither source implies the positive sign without the additional finite-sample calculation and antitonic size-biased argument.",
+      "searches": [
+        "arXiv:0902.0879",
+        "arXiv:1103.4977"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0902.0879",
+      "arXiv:1103.4977"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior fixed-uniform occupancy result for richness versus exact-frequency counts applies only to equal box probabilities and does not yield the arbitrary-probability size-biased inequality.",
+        "Pairwise-independent occupancy results concern weakened independence assumptions and all-distinct probabilities rather than the iid richness/Gini--Simpson covariance.",
+        "Coincidence U-statistic asymptotics determine the behavior of the collision estimator alone, not its joint covariance with observed richness."
+      ],
+      "reasoning": "The arbitrary probability vector is essential: the proof requires weighting categories by their own probabilities and comparing a size-biased mean against an antitone transform. The equality classification also separates uniform laws from every nonuniform law for \\(n>2\\).",
+      "searches": [
+        "published occupancy frequency counts arbitrary probabilities",
+        "published discrete coincidence U-statistics Renyi entropy",
+        "uniform occupancy richness frequency-count covariance",
+        "pairwise-independent occupancy collision count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches located standard descriptions of richness and Simpson diversity and occupancy approximation papers, but no matching finite-sample covariance theorem.",
+        "No located source stated the size-biased formula \\(2s_2A_n-(1+s_2)B_n\\) or the sharp lower certificate \\(s_2(1-s_2)A_n\\)."
+      ],
+      "reasoning": "The searches cover ecological diversity language, occupancy language, pair-collision language, and multinomial-sample language. The originality assessment does not rely on failed search alone; it includes full-text comparison with the closest occupancy and coincidence-statistic sources.",
+      "searches": [
+        "species richness collision count covariance Simpson concentration occupancy",
+        "number of distinct species pair collision covariance",
+        "occupied boxes collision pairs covariance arbitrary probabilities",
+        "richness Simpson index covariance multinomial sample",
+        "\"covariance\" \"species richness\" \"Simpson\" multinomial",
+        "\"number of species\" \"Simpson index\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record matching the covariance identity or equality classification was located."
+      ],
+      "reasoning": "The claim is symbolic for every sample size and every finite nondegenerate categorical probability vector; it is not a recomputation of a finite occupancy table.",
+      "searches": [
+        "\"species richness\" \"collision count\" covariance",
+        "\"occupied boxes\" \"Simpson\" covariance",
+        "\"Gini-Simpson\" covariance richness",
+        "\"pair collision\" richness covariance"
+      ]
+    },
+    "rationale": "The closest inspected occupancy source studies distributional approximation for richness and frequency counts, while the closest coincidence source studies unbiased collision \\(U\\)-statistics and their asymptotics. Neither inspected statement gives the finite-sample richness/Gini--Simpson covariance identity, lower bound, or equality classification.",
+    "residual_risks": [
+      "Older ecological-diversity or finite-occupancy literature may contain the same covariance identity under abundance-count notation.",
+      "The proof uses elementary covariance algebra once the two statistics are paired; originality rests on the universal sign, quantitative lower bound, and equality classification rather than a new general inequality technique.",
+      "The finite-support restriction leaves a straightforward countable-support extension outside the accepted claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OCCUPANCY_DISTRIBUTION_APPROXIMATION_NOT_RICHNESS_COLLISION_COVARIANCE",
+        "evidence": "The paper studies translated-Poisson approximation for richness and frequency counts under arbitrary occupancy probabilities. The inspected material does not introduce the unbiased Simpson collision statistic or its covariance with richness.",
+        "identifier_or_url": "arXiv:0902.0879",
+        "material_read": "Full arXiv HTML introduction and theorem setup, including the arbitrary box probabilities, definitions of the number of occupied boxes and exact-frequency counts, and the listed Mathematics Subject Classification.",
+        "method": "Compared the statistics studied, probability assumptions, finite-sample versus approximation goals, and whether Simpson or pair-collision covariance is derived.",
+        "title": "Univariate approximations in the infinite occupancy scheme",
+        "trigger": "Archive-era primary probability source on arbitrary-probability occupancy and the number of occupied boxes."
+      },
+      {
+        "assessment": "COINCIDENCE_U_STATISTIC_NOT_JOINT_RICHNESS_THEOREM",
+        "evidence": "The paper gives unbiased exact-coincidence estimators for Rényi-type functionals and asymptotic theory. The inspected results do not study observed category richness or derive the covariance identity in the finding.",
+        "identifier_or_url": "arXiv:1103.4977",
+        "material_read": "Full arXiv HTML through the introduction and discrete-distribution section, including exact coincidence probability, the generalized U-statistic estimator, and its asymptotic-normality theorem.",
+        "method": "Compared the pair-coincidence target, estimator, joint statistics studied, and whether observed richness enters the analysis.",
+        "title": "Statistical Inference for Rényi Entropy Functionals",
+        "trigger": "Primary source treating exact discrete coincidences as generalized U-statistics and therefore directly covering the collision estimator ingredient."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e84114bd-4ba0-4e70-8473-982d21f74302",
+  "value": {
+    "rationale": "Richness and Gini--Simpson diversity are canonical complementary summaries of categorical diversity. The theorem supplies an exact finite-sample joint relationship valid under arbitrary category heterogeneity, with a strict universal sign and sharp equality structure. This is a motivated structural fact useful for interpreting joint fluctuations of two commonly reported diversity summaries.",
+    "status": "PASS"
+  }
+}
