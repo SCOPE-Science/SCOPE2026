@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "After dividing by one coefficient, the equal-magnitude hypothesis makes all normalized coefficients unimodular. The fixed rectangle Fourier transform is the bilinear polynomial 1+alpha z+beta w+gamma zw. With Z=alpha z, W=beta w and eta=gamma/(alpha beta), eta=1 factors into (1+Z)(1+W), giving only full row/column zeros. For eta!=1, the unit-modulus condition on W is equivalent to Z^2=eta^{-1}, yielding exactly the two unit-torus zeros (s,-s) and (-s,s). Their simultaneous membership in the two rotated root grids is equivalent to both cyclic orders being even. Explicit unimodular witnesses realize every stated count. The checker corroborates all witnesses for 2<=m,n<=40.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonami-Ghobber Theorem 23 classifies equality cases for the uncertainty minimum on Z_p x Z_p; it does not fix a four-point rectangle with equal coefficient magnitudes.",
+        "Delvaux-Van Barel's abstract describes maximal rank-deficient Kronecker-Fourier submatrices and stronger uncertainty bounds, without a unimodular-null-vector restriction."
+      ],
+      "reasoning": "Both sources have broader ambient group or matrix scope, but neither dominates the coefficient-restricted fixed-support statement. Global minimum-support classifications do not imply which Fourier-zero cardinalities remain possible after imposing equal coefficient magnitudes.",
+      "searches": [
+        "uncertainty equality finite abelian group four point rectangle Fourier support",
+        "finite abelian parallelogram support equal magnitude coefficients Fourier zero count",
+        "arXiv:1003.5060v2, Theorem 23 and surrounding Section 4",
+        "DOI:10.1016/j.laa.2007.05.009 official abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1003.5060v2",
+      "DOI:10.1016/j.laa.2007.05.009",
+      "KU Leuven TW477 official abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior uncertainty results optimize Fourier-support size over all coefficient vectors.",
+        "Prior Kronecker-Fourier results study rank deficiency without equal-modulus null-vector constraints.",
+        "New claim fixes both support geometry and coefficient magnitudes and classifies every possible zero count for all m,n>=2."
+      ],
+      "reasoning": "An unrestricted existence or rank-deficiency statement does not imply that a null vector can be chosen with four equal moduli, nor does it imply the parity pairing of the two nonfactorable torus zeros. No inspected implication subsumes the claim.",
+      "searches": [
+        "arXiv:1003.5060v2 Section 4 equality cases Z_p x Z_p",
+        "DOI:10.1016/j.laa.2007.05.009 rank-deficient submatrices Kronecker Fourier",
+        "phase-only parallelogram Fourier zero rigidity cyclic product groups"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1003.5060v1 studies Fourier-support minima and equality cases in finite Abelian groups.",
+        "DOI:10.1016/j.laa.2007.05.009 studies rank-deficient submatrices of Kronecker products of Fourier matrices.",
+        "The normalized zero equation is exactly the bilinear unit-torus equation 1+Z+W+eta ZW=0."
+      ],
+      "reasoning": "Searches covered phase-only, unimodular-bilinear, finite-torus, sparse-Fourier and roots-of-unity formulations. No located statement gives the five-value zero-count spectrum or the eta=1 versus eta!=1 classification.",
+      "searches": [
+        "phase-only four-point rectangle Fourier zeros finite abelian group unimodular coefficients",
+        "unimodular bilinear polynomial 1+a z+b w+c zw zeros roots of unity grid",
+        "bilinear trigonometric polynomial unimodular coefficients zero set finite torus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A prior exact computation for the F_3 rectangle gives unrestricted local zero counts 0,1,2,3,5.",
+        "A prior exact computation for the F_5 rectangle gives unrestricted local zero counts 0,1,2,3,4,5,9.",
+        "The new equal-magnitude theorem specializes those odd-prime cases to 0,1,p,2p-1 and extends to arbitrary cyclic products."
+      ],
+      "reasoning": "The closest fixed-support tables concern unrestricted coefficients and therefore cannot certify the phase-only spectrum; they actually display extra zero counts that the new rigidity argument excludes.",
+      "searches": [
+        "Exact Fourier-support spectrum on ternary affine parallelograms",
+        "Exact Fourier-support spectrum for four-point affine parallelograms over F_5",
+        "2x2 rectangle sparse Fourier transform unimodular coefficients zero set cyclic product"
+      ]
+    },
+    "rationale": "The inspected finite-Abelian uncertainty literature classifies global support minima or unrestricted rank-deficient Fourier submatrices. It does not state the phase-only fixed-rectangle zero-count spectrum or the cross-phase dichotomy. Prior fixed-support computations for unrestricted parallelogram coefficients over F_3 and F_5 do not imply the equal-magnitude classification; the present theorem covers all cyclic products Z_m x Z_n.",
+    "residual_risks": [
+      "The full Delvaux-Van Barel report was not retrievable during this review, so an equivalent special-case statement hidden in its body cannot be ruled out from the abstract alone.",
+      "Older sequence-design or Fourier-matroid literature may encode the same unimodular-null-vector classification under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new claim: it treats minimum-support equality cases, not the complete equal-magnitude zero spectrum on one rectangle.",
+        "evidence": "The paper defines the spectrum as Fourier support, gives Meshulam's function, and Theorem 23 classifies equality cases for Z_p x Z_p. The first page lists primary MSC 42A99.",
+        "identifier_or_url": "arXiv:1003.5060v2",
+        "material_read": "Full abstract and introduction; Section 4 through Theorem 23 and its proof for Z_p x Z_p; first-page classification metadata.",
+        "method": "Direct inspection of the arXiv PDF text and rendered first page.",
+        "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+        "trigger": "Closest harmonic-analysis source on Fourier-support minima and equality cases for finite product groups."
+      },
+      {
+        "assessment": "ABSTRACT_NOT_COVERING; full-text comparison remains a residual access risk.",
+        "evidence": "The abstract concerns maximal rank-deficient submatrices, rank-one block tilings and uncertainty inequalities; no equal-magnitude null-vector or cross-phase classification appears in the inspected material.",
+        "identifier_or_url": "DOI:10.1016/j.laa.2007.05.009",
+        "material_read": "Official KU Leuven abstract and journal abstract/metadata.",
+        "method": "Official repository and journal metadata inspection; the full report retrieval timed out and one bounded retry failed.",
+        "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+        "trigger": "The Fourier matrix of Z_m x Z_n is a Kronecker product, so this is the closest matrix-rank formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b51ecb17-79fe-45c4-a655-bbad790f6c0e",
+  "value": {
+    "rationale": "The four-point rectangle is the basic tensor support in two-dimensional finite Fourier analysis. Imposing equal coefficient magnitudes is a natural phase-only restriction, and it collapses the much richer unrestricted zero spectra to a universal parity-controlled list. The cross-phase invariant explains the mechanism and gives an all-modulus theorem with explicit witnesses, rather than a finite table or a routine parameter increment.",
+    "status": "PASS"
+  }
+}
