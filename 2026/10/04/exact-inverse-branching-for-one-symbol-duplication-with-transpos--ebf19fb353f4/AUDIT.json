@@ -1,0 +1,89 @@
+{
+  "correctness": {
+    "rationale": "A legal inverse deletion is exactly a repeated-symbol position. Two deletions yield the same parent exactly when the deleted positions lie in one constant run. This proves the pointwise formula. A run-length budget proves the maximum, and independent summation of run boundaries and singleton first runs proves the edge formula. Finite exhaustive replay independently checks the channel implementation and boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary work allows arbitrary duplicated-block length and proves asymptotic bounds for distance to a root.",
+        "A theorem about maximum root distance does not determine the one-step indegree distribution or edge count of the length-one subgraph."
+      ],
+      "reasoning": "Broader operation scope is not implication coverage: the inspected broad theorem controls a multi-step distance statistic, whereas the new theorem counts distinct immediate parents and sums those counts globally.",
+      "searches": [
+        "arXiv:2001.06242v1 main results and graph definitions",
+        "query: non-tandem duplication one symbol deletion inverse ambiguity",
+        "query: duplication with transposition graph edge count fixed copy length one"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.06242v1",
+      "DOI:10.1109/ISIT44484.2020.9174324",
+      "Published-result searches under parent, preimage, indegree, one-symbol, run, inverse-ball, and edge-count aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary definitions are premises reused here, but no inspected theorem converts them into the run formula.",
+        "The primary asymptotic root-distance bounds neither imply the exact pointwise indegree nor the exact edge count."
+      ],
+      "reasoning": "The new conclusion requires the deletion-collision/run argument and a separate global summation; neither follows as a corollary of the inspected prior statements.",
+      "searches": [
+        "arXiv:2001.06242v1 definition of duplication with transposition and parent/child graph",
+        "arXiv:2001.06242v1 main theorem on root distance",
+        "query: duplication with transposition parent preimage indegree exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2001.06242v1 defines parent/child and roots by indegree zero, but the inspected statements concern root distance rather than enumerating parents of a received word.",
+        "No inspected published-result hit matched the pointwise formula \\(|P(y)|=r(y)-s(y)\\) or its run-based aliases."
+      ],
+      "reasoning": "Parent count, preimage size, one-step ancestor count, and indegree are equivalent formulations of the new local invariant. The checked formulations did not produce a statement with the same hypotheses and conclusion.",
+      "searches": [
+        "query: duplication with transposition exact indegree run structure one symbol",
+        "query: one-symbol duplication with transposition distinct parents run count",
+        "query: transposition duplication inverse ball one step ancestor count",
+        "arXiv:2001.06242v1 text search: indegree; parent; one symbol; run"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected numerical table in the primary work concerns root-distance quantities, not local indegrees or graph-edge totals.",
+        "The binary specialization |E_{2,n}|=n2^n is not asserted to be a novel numerical sequence; the claim is the channel interpretation and all-q derivation."
+      ],
+      "reasoning": "No checked table or exact database entry supplied the same channel invariant. Numerical agreement with a familiar elementary sequence would not by itself cover the structural theorem.",
+      "searches": [
+        "arXiv:2001.06242v1 tabulated numerical results",
+        "query: duplication with transposition edge count indegree table",
+        "query: one symbol duplication transposition parent count"
+      ]
+    },
+    "rationale": "The closest inspected primary source defines the same mutation graph but studies root distance. Targeted equivalent-formulation and broader-coverage searches did not reveal the one-symbol inverse-degree law, extremizer classification, or all-q edge formula. Negative search is treated only as evidence, with residual risk stated.",
+    "residual_risks": [
+      "An unindexed thesis, note, or differently phrased derivation may contain the elementary length-one specialization.",
+      "Search failure is not treated as proof of novelty; originality is based on statement-level comparison with the closest inspected source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY_RELEVANT_NOT_COVERING",
+        "evidence": "The paper defines roots as indegree-zero vertices and then studies distance to roots. The inspected statements do not enumerate immediate parents for the length-one specialization or give the edge count derived here.",
+        "identifier_or_url": "arXiv:2001.06242v1",
+        "material_read": "Abstract; introduction; definition of duplication with transposition; graph parent/child and root definitions; main-results theorem statements; numerical-results context; targeted text searches for indegree, parent, one symbol, and run.",
+        "method": "Lawful open author/preprint text inspection and statement-level comparison.",
+        "title": "Duplication with transposition distance to the root for q-ary strings",
+        "trigger": "Direct primary source for the exact mutation operation and graph terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ebf19fb3-53f4-4593-a0ab-864f51f283c8",
+  "value": {
+    "rationale": "Immediate-parent multiplicity is the exact local list ambiguity and branching statistic of the mutation graph. The result gives a complete structural law, sharp worst case, equality family, and global edge count for every alphabet and source length in the atomic length-one regime; it is not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
