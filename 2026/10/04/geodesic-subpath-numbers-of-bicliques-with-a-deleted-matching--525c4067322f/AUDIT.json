@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The proof partitions all unordered pairs into surviving cross-part pairs, deleted matched pairs, same-side pairs in the first part, and same-side pairs in the second part. For a deleted pair, every geodesic has length three and the only forbidden middle choices are the other deleted matched pairs, giving \\((a-1)(b-1)-t+1\\). Same-side counts follow from common-neighbor loss. Summation yields the formula, and the optimization is the exact maximum of the concave quadratic \\(t(C-t)\\). The standalone breadth-first-search checker independently confirms 199 parameter cases for \\(3\\le a,b\\le8\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Knor et al. treat exact values for sequential joins, hypercubes, grids, and cacti, and explicitly leave matching deletion as a prospective bipartite direction.",
+        "The diameter-two theorem covers balanced complete bipartite graphs but not matching-deleted graphs, whose deleted endpoints have distance three."
+      ],
+      "reasoning": "The inspected broader theorems do not dominate the claim. The source's general upper bound is not an exact family formula, and the diameter-two theorem is inapplicable for every positive deletion size.",
+      "searches": [
+        "geodesic subpath number complete bipartite minus matching",
+        "geodesic subpath number complete multipartite exact",
+        "counting geodesics complete bipartite deleted matching"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.04907v2",
+      "DOI:10.1007/s00009-026-03159-3",
+      "2026/9/17/SCOPE-diameter-two-geodesic-subpath-extremum--d8fd04cc9d21",
+      "2026/9/20/SCOPE-boundary-tapered-geodesic-path-blowups--26120b82068c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2604.04907v2 states only that deleting a perfect matching may increase the invariant and asks for bipartite maximizers.",
+        "The exact diameter-two record applies to \\(K_{a,b}\\) itself but not to \\(G_{a,b,t}\\) for \\(t>0\\)."
+      ],
+      "reasoning": "The new statement supplies an exact interpolation and optimizer that are not logical consequences of the cited prior statements.",
+      "searches": [
+        "Counting geodesic paths in graphs perfect matching",
+        "Counting geodesic paths in graphs crown graph",
+        "geodesic subpath number complete bipartite graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.04907v2, concluding Problem 15 discussion",
+        "2026/9/17/SCOPE-diameter-two-geodesic-subpath-extremum--d8fd04cc9d21"
+      ],
+      "reasoning": "No returned record states the formula for \\(K_{a,b}\\) minus a matching. Crown-graph aliases likewise returned only different invariants or the diameter-two extremal theorem.",
+      "searches": [
+        "geodesic subpath number K_{a,b} minus a matching of size t exact formula",
+        "gpn crown graph K_{n,n} minus perfect matching geodesic subpath number",
+        "bipartite graph remove matching geodesic subpath number exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or indexed record for the claimed family was located."
+      ],
+      "reasoning": "The closest indexed records concern diameter-two extremality, path blow-ups, or different geodetic invariants; none tabulates or implies the matching-deletion formula.",
+      "searches": [
+        "crown graph geodesic subpath number",
+        "geodesic subpath number perfect matching",
+        "geodesic subpath number K_{a,b} matching deleted"
+      ]
+    },
+    "rationale": "The initiating paper explicitly proposes perfect-matching deletion as a potentially improving operation but does not give this matching-size formula or optimize the deletion size. Searches of the same invariant under crown, matching-deleted biclique, and arbitrary matching-size formulations found no covering result. The closest same-invariant result is restricted to diameter-two graphs and therefore excludes every \\(t>0\\) case here.",
+    "residual_risks": [
+      "An equivalent calculation may exist in shortest-path-counting literature under terminology not indexed as geodesic subpath number.",
+      "The broader fixed-order bipartite extremal problem remains open; this result makes no global maximality claim outside the matching-deletion family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper motivates the family but does not state the formula or optimize the matching-deletion size.",
+        "evidence": "The conclusion says removing a perfect matching may give a larger value and then asks to characterize bipartite maximizers.",
+        "identifier_or_url": "arXiv:2604.04907v2",
+        "material_read": "Definition of \\(\\operatorname{gpn}\\), exact-family overview, concluding discussion and Problem 15.",
+        "method": "Full-text HTML inspection.",
+        "title": "Counting geodesic paths in graphs",
+        "trigger": "Primary source introducing the invariant and explicitly suggesting perfect-matching deletion in balanced complete bipartite graphs."
+      },
+      {
+        "assessment": "Consistent with the arXiv source; no matching-deletion formula is stated.",
+        "evidence": "The journal text repeats the perfect-matching suggestion and open bipartite extremal problem.",
+        "identifier_or_url": "DOI:10.1007/s00009-026-03159-3",
+        "material_read": "Abstract, definition section, and displayed Problem 15 passage.",
+        "method": "Open-access journal HTML inspection.",
+        "title": "Counting Geodesic Paths in Graphs",
+        "trigger": "Journal version of the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "525c4067-322f-4712-81f6-b7fdc00602b0",
+  "value": {
+    "rationale": "The family is singled out explicitly by the initiating paper as a plausible improvement over balanced complete bipartite graphs. The theorem turns that suggestion into an exact formula, determines the best matching-deletion size for every \\(a,b\\ge3\\), and gives an infinite family of bipartite graphs that strictly improve on \\(K_{n,n}\\) for \\(n\\ge5\\). This is a natural structural step toward the stated bipartite extremal problem rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
