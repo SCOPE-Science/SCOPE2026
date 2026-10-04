@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For any feasible polynomial, the positive combination s T(1/2)+T(5/14) cancels the frequency-3 and frequency-4 coefficients and gives lambda <= (1+s)/(r+s)=2r. The displayed candidate factors as a positive scalar times (x+1)(x+r)^2(q-x), with q>1, proving global nonnegativity. Equality forces both contact values to vanish, and the interior contact is double; the resulting three linear equations have determinant 7(2r^2-r-1), which is nonzero for 0<r<1. The exact checker independently verifies every algebraic identity in Q[r]/(8r^3+4r^2-4r-1).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kolountzakis-Revesz give the general M(H) framework and exact cases for singleton supports, singleton complements, tails, odd indices, and even indices.",
+        "Krenedits-Revesz extend the general Caratheodory-Fejer framework to locally compact Abelian groups."
+      ],
+      "reasoning": "General frameworks do not by themselves evaluate arbitrary finite H. The inspected exact-case list does not dominate the two-element support {3,4}, and complement duality replaces it by the equally nonlisted complement.",
+      "searches": [
+        "Caratheodory Fejer M(H) H={3,4} exact 2 cos(2 pi/7)",
+        "Revesz dual extremal support {3,4} complement N2 exact table",
+        "arXiv:math/0302193 full-text inspection of Problem 3, Theorem 3, Lemma 1, Problem 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0302193v1",
+      "DOI:10.4153/CJM-2006-017-8",
+      "arXiv:1304.0071",
+      "DIMACS-TR-93-66"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:math/0302193, Theorem 3 covers H={n}, N2\\{n}, tails, all odd indices, and all even indices; Lemma 1 gives M(H)M(N2\\H)=2.",
+        "The source's fixed-cardinality Problem 5 treats extremal behavior over all |H|=n rather than giving every individual two-element value."
+      ],
+      "reasoning": "H={3,4} is neither a listed solved case nor the complement of one. A previously obtained value for the different support {2,4} does not imply this one: with the first harmonic distinguished, no integer-frequency automorphism fixing frequency 1 maps {2,4} to {3,4}.",
+      "searches": [
+        "arXiv:math/0302193 theorem cases singleton, singleton complement, tail, odd, even",
+        "arXiv:1304.0071 Caratheodory-Fejer locally compact Abelian groups",
+        "The least possible value at zero of some nonnegative cosine polynomials equivalent dual problems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0302193 defines M(H) as the supremum of the first cosine coefficient under global nonnegativity with higher support in H.",
+        "The equivalent positive-definite-sequence formulation has support contained in {0,±1,±3,±4} and asks for the maximum value at 1."
+      ],
+      "reasoning": "Searches were run in both trigonometric-polynomial and positive-definite-sequence language. No located source stated the exact value 2 cos(2 pi/7) for this support.",
+      "searches": [
+        "\"M({3,4})\" trigonometric polynomial Caratheodory Fejer",
+        "\"1+lambda cos x+b cos 3x+c cos 4x\" nonnegative",
+        "positive definite sequence support {0, plus or minus1, plus or minus3, plus or minus4} maximize coefficient at 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-match literature record located a table entry or formula for H={3,4}.",
+        "DIMACS TR 93-66 confirms an older duality-focused cosine-polynomial work, but its accessible abstract contains no small-support table."
+      ],
+      "reasoning": "The absence of an indexed exact match is not treated as a novelty proof; it is combined with full-text comparison against the closest problem-defining source and an explicit residual-risk statement.",
+      "searches": [
+        "support {3,4} Caratheodory Fejer exact",
+        "nonnegative trigonometric polynomial cos 3x cos 4x extremal",
+        "DIMACS TR 93-66 abstract and bibliographic record"
+      ]
+    },
+    "rationale": "The closest full-text source defines the same M(H) problem for arbitrary H and explicitly lists several solved support geometries, but not H={3,4}. Its complement duality does not reduce H={3,4} to one of the listed solved cases. Exact-form, positive-definite-sequence, cosine-polynomial, and dual-support searches did not locate this value. The principal residual risk is an older or unindexed occurrence, especially in the 1995 Revesz paper whose full text was not available for inspection.",
+    "residual_risks": [
+      "The full 1995 Revesz article was not accessible for statement-by-statement inspection.",
+      "An older result may be indexed under dual cosine-polynomial or number-theoretic terminology rather than Caratheodory-Fejer notation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the claimed numerical case: the displayed solved families do not include H={3,4}, and the duality does not reduce it to a displayed solved family.",
+        "evidence": "Problem 3 defines M(H); Theorem 3 lists singleton, singleton-complement, tail, odd, and even support cases; Lemma 1 states complement duality.",
+        "identifier_or_url": "arXiv:math/0302193v1; DOI 10.4153/CJM-2006-017-8",
+        "material_read": "Full preprint text, especially the definition of Phi(H) and M(H), Theorem 3's exact cases, Lemma 1 duality, and the fixed-cardinality Problem 5.",
+        "method": "Statement and implication comparison against H={3,4}, including its complement under the stated duality.",
+        "title": "On pointwise estimates of positive definite functions with given support",
+        "trigger": "Defines exactly the M(H) extremal quantity and is the closest problem-level source."
+      },
+      {
+        "assessment": "NOT_COVERING in the inspected material: it generalizes the framework rather than stating the H={3,4} value.",
+        "evidence": "The abstract describes extension of Caratheodory-Fejer type extremal problems to locally compact Abelian groups.",
+        "identifier_or_url": "arXiv:1304.0071",
+        "material_read": "Abstract and problem-level description.",
+        "method": "Compared the scope of the generalization with the concrete finite-support numerical claim.",
+        "title": "The Caratheodory-Fejer type extremal problem on locally compact Abelian groups",
+        "trigger": "Later generalization of the same extremal framework."
+      },
+      {
+        "assessment": "UNRESOLVED_SOURCE_RISK: accessible material establishes relevance and duality emphasis but is insufficient to exclude an internal small-support calculation.",
+        "evidence": "The abstract describes a duality theorem for nonnegative cosine-polynomial extremal problems but gives no H={3,4} statement.",
+        "identifier_or_url": "DIMACS TR 93-66; J. Fourier Anal. Appl. Special Issue (1995), 485-508",
+        "material_read": "DIMACS abstract and bibliographic record; full article text was not accessible.",
+        "method": "Checked the accessible abstract for a statement or table implying the exact sparse-support value.",
+        "title": "The least possible value at zero of some nonnegative cosine polynomials and equivalent dual problems",
+        "trigger": "Highly plausible older source on the same dual extremal technology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "917b17d3-814a-4ad6-97ff-d3d7a0b4ac49",
+  "value": {
+    "rationale": "Two allowed higher frequencies are the first genuinely interacting finite-support level beyond the solved singleton case. The specific adjacent pair {3,4} is a natural small test of the M(H) framework and of its fixed-cardinality questions. The result gives an exact sharp constant, a unique extremizer, and a compact contact/factorization certificate; it is not a mere numerical table entry or normalization check.",
+    "status": "PASS"
+  }
+}
