@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Summing the printed continuous SIAQR equations gives the exact identity g1+g2+g3+g4+g5=0, hence Caputo linearity yields exact population conservation. Equation (5.22) visibly uses R in its first recovery history sum but Q in its second and third recovery differences. For the invariant submodel I=A=Q=0, N=1, delta=omega=1/2, gamma=1/2, the exact solution is R(t)=E_{1/2}(-sqrt(t))=exp(t) erfc(sqrt(t)). Substitution into the printed m=2 recurrence leaves a nonzero total-population residual -0.49207893684378897699. The bundled checker reconstructs all coefficients directly from the displayed recurrence and independently reproduces the residual.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rihan and Alsakaji study a stochastic delay SIAQR model and establish a global positive solution for that different stochastic system; they do not contain the fractional recurrence at issue.",
+        "An independent exposition of Newton-polynomial Caputo stepping formulates a scalar history quadrature with the same scalar component function used throughout the interpolation history."
+      ],
+      "reasoning": "The broader literature covers SIAQR state-space analysis and Newton-polynomial fractional stepping separately. Neither inspected source implies or repairs the later article's Q-for-R substitution, so those works do not dominate the source-specific statement.",
+      "searches": [
+        "\"10.1016/j.rinp.2021.104658\" SIAQR positivity",
+        "\"10.1016/j.rinp.2021.104658\" global positive solution",
+        "\"Atangana-Seda numerical scheme\" Caputo polynomial interpolation",
+        "\"Atangana-Seda numerical scheme\" nonlinear circuit"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/25765299.2023.2209981",
+      "doi:10.1016/j.rinp.2021.104658",
+      "doi:10.1177/14613484231224611"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's continuous equations imply conservation, but the source does not compare that identity against its printed recovery recurrence.",
+        "Prior SIAQR work establishes positivity in a different stochastic-delay formulation rather than the conservation behavior of this fractional discretization.",
+        "No located result states the explicit gamma=1/2 conservation counterexample or its componentwise repair."
+      ],
+      "reasoning": "The continuous conservation law alone does not imply the accepted claim; the decisive step is statement-level comparison with equation (5.22) and evaluation of the exact recovery-history mismatch.",
+      "searches": [
+        "\"Fractional SIAQR model with time dependent infection rate\" invariant simplex",
+        "Caputo SIAQR time dependent infection positivity mass conservation",
+        "\"Fractional SIAQR model with time dependent infection rate\" numerical scheme PSA recovered",
+        "fractional SIAQR model well posedness positivity correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating full text prints g5 as the recovered-compartment field but places Q-history arguments into the second and third g5 differences of equation (5.22).",
+        "Searches by exact article identity, recovery-component aliases, and correction terminology did not locate an erratum or a statement of the conservation defect."
+      ],
+      "reasoning": "The claim is equivalent to a wrong-component substitution, a failure of componentwise specialization, or a failure of the exact population cancellation. The searches covered all three formulations rather than relying on title similarity alone.",
+      "searches": [
+        "\"10.1080/25765299.2023.2209981\" recovered numerical scheme g5",
+        "\"Fractional SIAQR model with time dependent infection rate\" g5 Q R recurrence",
+        "\"Fractional SIAQR model with time dependent infection rate\" correction erratum",
+        "Atangana-Seda SIAQR recovered recurrence Q R"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating full text was inspected at the model equations and the complete numerical recurrences. Equations (5.18)--(5.21) specialize the first four fields, while equation (5.22) alone switches the higher g5 history arguments to Q.",
+        "The article metadata verifies online publication on 16 May 2023 and primary MSC 92B05.",
+        "The independent Caputo numerical-method article was inspected at its scalar Volterra-history construction, where one component function f is used consistently."
+      ],
+      "reasoning": "The defect is tied to the exact displayed recurrence rather than inferred from an abstract, plot, or secondary transcription.",
+      "searches": [
+        "doi:10.1080/25765299.2023.2209981 equations 5.18 5.22",
+        "doi:10.1080/25765299.2023.2209981 SIAQR numerical solution",
+        "doi:10.1177/14613484231224611 numerical algorithm Caputo"
+      ]
+    },
+    "rationale": "Population conservation in compartmental models and componentwise history quadrature are established ideas and are not claimed as new. The original source-specific statement is that equation (5.22) substitutes Q for R in the higher recovery history corrections, and that this exact substitution breaks the motivating model's conservation identity by a large computable amount on an admissible fractional-order history. Exact DOI/title, component-alias, numerical-scheme, and correction searches located no published repair of this equation.",
+    "residual_risks": [
+      "The implementation used for the published figures is unavailable and may already contain the intended R-arguments.",
+      "A non-indexed author correction could exist outside the searched records.",
+      "The finding does not assess other indexing or coefficient issues in the numerical formula and does not claim a complete audit of the method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_RECOVERY_HISTORY_BREAKS_POPULATION_CONSERVATION",
+        "evidence": "Equation (5.22) uses g5(R) in its first sum but g5(Q) in both higher history differences; the exact gamma=1/2 witness produces a total-population defect of about -0.49207893684.",
+        "identifier_or_url": "doi:10.1080/25765299.2023.2209981",
+        "material_read": "Open full text covering the model assumptions, integer and Caputo SIAQR equations, component functions g1 through g5, existence/uniqueness setup, the complete Newton-polynomial component recurrences (5.18)--(5.22), numerical-simulation section, and conclusion.",
+        "method": "Summed the continuous component fields, compared each discrete component specialization, isolated the Q-for-R substitution in equation (5.22), and evaluated it on an exact invariant fractional submodel.",
+        "title": "Fractional SIAQR model with time dependent infection rate",
+        "trigger": "Primary source containing both the conserved five-compartment fractional model and the target recovery recurrence."
+      },
+      {
+        "assessment": "RELATED_SIAQR_CONTEXT_DIFFERENT_STOCHASTIC_DELAY_MODEL",
+        "evidence": "The article studies stochastic delay dynamics rather than the Caputo Newton-polynomial recurrence corrected here.",
+        "identifier_or_url": "doi:10.1016/j.rinp.2021.104658",
+        "material_read": "Open bibliographic/abstract material and accessible article metadata describing the stochastic-delay SIAQR system and its global positive solution result.",
+        "method": "Used only to compare object-level SIAQR context, not to infer whole-document non-coverage.",
+        "title": "Dynamics of a stochastic delay differential model for COVID-19 infection with asymptomatic infected and interacting people: Case study in the UAE",
+        "trigger": "Earlier SIAQR literature with the same compartment labels and a well-posedness focus."
+      },
+      {
+        "assessment": "COMPONENT_FUNCTION_REMAINS_FIXED_THROUGH_HISTORY",
+        "evidence": "The scalar construction applies the same f(t,y(t)) throughout the history quadrature; it provides no mechanism for replacing the recovery argument by a different compartment.",
+        "identifier_or_url": "doi:10.1177/14613484231224611",
+        "material_read": "Full web text of the numerical-algorithm section from the scalar Caputo equation through its Volterra representation and history interpolation.",
+        "method": "Checked whether standard scalar specialization changes the state variable inside higher history differences.",
+        "title": "An efficient numerical simulation of chaos dynamical behaviors for fractional-order Rössler chaotic systems with Caputo fractional derivative",
+        "trigger": "Independent exposition of the same Newton-polynomial family of Caputo history stepping."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "94f0c21e-42b3-4647-81a6-3a104fd5ef78",
+  "value": {
+    "rationale": "Exact total-population conservation is a central structural constraint of the closed SIAQR model. The printed recovery update violates it by nearly one half of the population on a simple exact fractional history, so the defect is not a cosmetic variable label in the displayed algorithm. The result supplies both an exact reproducibility diagnostic and a minimal componentwise repair while carefully withholding claims about unavailable simulation code.",
+    "status": "PASS"
+  }
+}
