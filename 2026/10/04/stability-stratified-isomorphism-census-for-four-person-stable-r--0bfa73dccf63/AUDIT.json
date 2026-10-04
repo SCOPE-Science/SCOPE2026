@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Every one of the \\(6^4=1296\\) labeled strict profiles is examined against all three perfect matchings. Canonical quotienting under all 24 relabelings gives \\(2,51,7,0\\) classes with \\(0,1,2,3\\) stable matchings, and an independent Burnside computation gives the same numbers. Two implementations of the stability test agree on every profile; the embedded verifier returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mertens 2015 states \\(p_4=26/27\\) and develops exact probability formulas, but the inspected text does not quotient profiles by relabeling or tabulate stability multiplicity by orbit.",
+        "Irving 1985 records the classical four-person cyclic obstruction with person 4 arbitrary and supplies an algorithmic existence test, not a complete isomorphism census.",
+        "Gusfield 1988 gives efficient representations and enumeration algorithms for stable assignments of a given instance, not the quotient census over all four-agent preference profiles."
+      ],
+      "reasoning": "These sources cover the underlying problem, solvability probability, classical obstruction, and per-instance enumeration machinery, but none of the inspected statements implies the 2/51/7 orbit refinement without a new exhaustive quotient calculation.",
+      "searches": [
+        "Small random instances of the stable roommates problem Mertens p4 exact",
+        "Irving stable roommates four person arbitrary obstruction",
+        "stable roommates all stable assignments Gusfield enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1502.06635",
+      "doi:10.1016/0196-6774(85)90033-1",
+      "doi:10.1137/0217048",
+      "OEIS:A356584"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mertens gives exactly 48 unsolvable labeled profiles through \\(p_4=26/27\\), but labeled margins do not determine how many relabeling classes they form.",
+        "Irving records a six-profile labeled obstruction family with a fixed three-cycle and arbitrary fourth-agent order. Combined with the new symmetry calculation, those six orders split into two orientation orbits that account for all failures.",
+        "The one- versus two-stable orbit split and automorphism distribution are not consequences of the known total 60 and solvability margin alone."
+      ],
+      "reasoning": "The final statement separates what follows from prior marginals from the additional quotient information. The 2/51/7 and orbit-size refinements require profile-level stability plus group-action analysis.",
+      "searches": [
+        "Mertens stable roommates p4 26/27 P[4] 25/1296",
+        "Gale Shapley Irving stable roommates size 4 person 4 arbitrary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned unrelated orbit-enumeration and finite-census records rather than a stable-roommates four-agent refinement.",
+        "Web searches for the exact 2/51/7 split, two unsolvable isomorphism classes, and four-agent Burnside stability refinement returned no matching source."
+      ],
+      "reasoning": "Searches used the object name, cardinality, isomorphism/relabeling language, stable-matching multiplicity, solvability, and Burnside/orbit terminology. No equivalent formulation of the final refined claim was located.",
+      "searches": [
+        "stable roommates four agents isomorphism classes solvable unsolvable number stable matchings 60",
+        "stable roommates four participants exactly two stable matchings orbit classification",
+        "stable roommates n=4 Burnside relabeling profile census stable matching count",
+        "Mertens p4 26/27 isomorphism refinement stable roommates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A356584 explicitly gives 60 relabeling orbits at cardinality four and a Burnside formula for the unrefined total.",
+        "The entry does not split those 60 orbits by number of stable matchings or orbit size within stability strata."
+      ],
+      "reasoning": "The database total is strong prior coverage and is used only as an external marginal check. The accepted claim is a strict refinement not present in the inspected table.",
+      "searches": [
+        "OEIS A356584 stable roommates 60",
+        "stable roommates isomorphism classes preference profiles OEIS"
+      ]
+    },
+    "rationale": "The known total of 60 unlabeled four-agent profiles and the known labeled solvability probability are treated as prior anchors. The accepted content is the stability-multiplicity refinement, orbit-size stratification, and two-class exhaustion of the unsolvable quotient; no checked source or published-finding corpus record states that refinement.",
+    "residual_risks": [
+      "An unindexed thesis, course note, software table, or supplementary data set may contain the same stability-stratified four-agent orbit census.",
+      "The result is a finite four-agent classification and should not be presented as a formula or trend for larger roommate markets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong prior coverage of labeled probabilities and small-instance formulas, but no inspected relabeling-class stability census.",
+        "evidence": "First submitted 2015-02-23; arXiv:1502.06635; journal P06034 (2015).",
+        "identifier_or_url": "arXiv:1502.06635",
+        "material_read": "ArXiv full-text HTML, especially the introduction and stable-permutation/probability sections; it states \\(p_4=26/27\\), exhibits solvable and unsolvable four-agent examples, and gives the size-four stable-permutation integrals.",
+        "method": "Lawful arXiv full-text HTML inspection.",
+        "title": "Small random instances of the stable roommates problem",
+        "trigger": "Direct exact small-instance analysis of random stable-roommates profiles, including size four."
+      },
+      {
+        "assessment": "Provides the exact classical obstruction family used as an anchor, not the complete stability-stratified quotient census.",
+        "evidence": "Journal of Algorithms 6 (1985), 577–595; DOI 10.1016/0196-6774(85)90033-1.",
+        "identifier_or_url": "doi:10.1016/0196-6774(85)90033-1",
+        "material_read": "PDF pages 577–578 and extracted text through the introductory size-four obstruction: agents 1,2,3 have cyclic lists ending in 4, while person 4 is arbitrary.",
+        "method": "Full-text PDF inspection with rendered-page screenshot for the relevant pages.",
+        "title": "An Efficient Algorithm for the “Stable Roommates” Problem",
+        "trigger": "Foundational algorithm paper that reproduces the classical four-person no-solution obstruction."
+      },
+      {
+        "assessment": "Covers the unrefined total of 60 exactly, so that total is not claimed as novel; it does not display the 2/51/7 stability refinement.",
+        "evidence": "OEIS A356584, entry by Zacharie Moughanim (2022; inspected current entry).",
+        "identifier_or_url": "OEIS:A356584",
+        "material_read": "Entry lines describing the relabeling action, Burnside formula, and the value 60 for cardinality four.",
+        "method": "Direct OEIS entry inspection.",
+        "title": "OEIS A356584",
+        "trigger": "Search revealed a direct table for stable-roommates profiles up to relabeling."
+      },
+      {
+        "assessment": "Per-instance structural enumeration, not an all-profile quotient census at four agents.",
+        "evidence": "SIAM Journal on Computing 17 (1988), 742–769.",
+        "identifier_or_url": "doi:10.1137/0217048",
+        "material_read": "Abstract and bibliographic page describing implicit representations and enumeration of stable assignments.",
+        "method": "SIAM abstract-page inspection.",
+        "title": "The Structure of the Stable Roommate Problem: Efficient Representation and Enumeration of All Stable Assignments",
+        "trigger": "Highly relevant primary source on enumerating all stable assignments of a fixed roommate instance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0bfa73dc-cf63-4fd2-8f9c-74e9198dd166",
+  "value": {
+    "rationale": "Four agents are the first strict roommate size where nonexistence occurs. A complete isomorphism classification at this boundary is a natural exact invariant: it shows precisely how solvability and solution multiplicity distribute across the 60 unlabeled instances, identifies the two failure types, and records all automorphism strata. This is more informative than the already-known labeled solvability probability or unrefined orbit total.",
+    "status": "PASS"
+  }
+}
