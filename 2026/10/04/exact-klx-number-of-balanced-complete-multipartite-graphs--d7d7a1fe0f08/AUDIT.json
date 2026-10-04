@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the DFS structure, establishes a universal middle-cut lower bound, evaluates the balanced cut exactly, and matches it with a cyclic Hamiltonian DFS construction. The embedded verifier independently checks the algebra on a broad finite grid and exhausts all structural DFS profiles in three nontrivial small cases; finite checks are explicitly not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bourotte et al. prove only the general inequality DTC(G) <= KLX(G), small-KLX characterizations, tree-width bounds, and fixed-parameter tractability in the inspected text.",
+        "No searched source supplied a stronger all-complete-multipartite exact KLX theorem."
+      ],
+      "reasoning": "The general lower bounds in the primary paper do not determine the exact quadratic value here, and the database search did not locate a theorem on a broader multipartite class that specializes to this claim.",
+      "searches": [
+        "published-finding corpus: depth first congestion complete multipartite exact",
+        "published-finding corpus: DFS traversal congestion Turan graph",
+        "Web: \"DFS tree congestion\" \"complete multipartite\"",
+        "Web: \"KLX\" \"Turán graph\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.24675",
+      "DOI:10.4230/LIPIcs.MFCS.2026.7",
+      "published-finding corpus:b27f97da8029"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Definition 2 of the primary paper defines KLX; Definition 5 and Proposition 6 give DFS-tree congestion as a lower bound.",
+        "The inspected primary paper does not derive complete-multipartite values; the closest database record is restricted to complete and complete bipartite graphs."
+      ],
+      "reasoning": "Neither source implies the balanced r-partite formula for r>=3,m>=2. The proof needs a new structural lemma for DFS trees of complete multipartite graphs plus an exact middle-cut optimization.",
+      "searches": [
+        "Primary paper arXiv:2606.24675 / DOI 10.4230/LIPIcs.MFCS.2026.7",
+        "published-finding corpus record b27f97da8029"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nearest KLX-specific published record is “Exact KLX numbers of complete and complete bipartite graphs” (record hash b27f97da8029).",
+        "The MFCS 2026 primary paper contains the KLX definition and general theory but full-text inspection returned no occurrence of “multipartite” or “complete graph”."
+      ],
+      "reasoning": "No searched equivalent formulation states an exact KLX formula for balanced complete multipartite graphs with at least three non-singleton parts.",
+      "searches": [
+        "published-finding corpus: KLX balanced complete multipartite graph",
+        "published-finding corpus: kissing loop crossing balanced complete multipartite",
+        "Web: \"KLX\" \"complete multipartite\" graph",
+        "Web: \"kissing loop crossing\" multipartite graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest database record b27f97da8029 explicitly reports exact KLX for cliques and bicliques only.",
+        "The present domain has r>=3 and m>=2, excluding both cliques (m=1) and bicliques (r=2)."
+      ],
+      "reasoning": "The closest exact database result covers boundary families but not the parameter range of the final claim.",
+      "searches": [
+        "published-finding corpus: KLX balanced complete multipartite graph",
+        "published-finding corpus: KLX Turan graph complete r-partite",
+        "published-finding corpus: KLX complete multipartite graphs"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches found the KLX introduction and a published exact result for cliques and bicliques, but no exact result for balanced complete multipartite graphs with r>=3,m>=2. The final claim is not a special case of those boundary formulas and requires a new DFS-branch structural argument.",
+    "residual_risks": [
+      "The full files behind published-finding corpus record b27f97da8029 were not retrievable through the web transport; comparison therefore uses its published title and summary.",
+      "Unindexed or very recent literature could contain an equivalent multipartite formula despite the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper develops the general KLX framework and low-KLX/FPT results but contains no complete-multipartite exact formula in the inspected text.",
+        "identifier_or_url": "arXiv:2606.24675; DOI:10.4230/LIPIcs.MFCS.2026.7",
+        "material_read": "Proceedings PDF pp. 2-4 and 10-13, including DFS comparability, Definition 2, Definition 5, Proposition 6, and Theorem 20; full-text searches for “multipartite” and “complete graph”.",
+        "method": "Direct lawful full-text PDF inspection.",
+        "title": "A Congestion Parameter for Depth-First Graph Traversals",
+        "trigger": "Primary source introducing the parameter and the relevant crossing/enveloping definitions."
+      },
+      {
+        "assessment": "PARTIAL_BOUNDARY_COVERAGE",
+        "evidence": "The record states exact results for cliques and bicliques. The final claim excludes those two boundary regimes by requiring r>=3 and m>=2.",
+        "identifier_or_url": "published-finding corpus:b27f97da8029",
+        "material_read": "Published published-finding corpus title and scientific summary returned by the database.",
+        "method": "Semantic database retrieval with multiple KLX/multipartite aliases.",
+        "title": "Exact KLX numbers of complete and complete bipartite graphs",
+        "trigger": "Closest semantic database match and strongest plausible overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d7d7a1fe-0f08-44fb-806c-c81009680888",
+  "value": {
+    "rationale": "Balanced complete multipartite (Turán) graphs are canonical dense graph families, and KLX was introduced in 2026 as an application-driven DFS congestion parameter. The result gives the first located exact non-boundary multipartite benchmark, identifies an optimal traversal, and isolates a reusable structural fact: in a complete multipartite graph every DFS branch is a terminal fan from one part. This is a motivated structural extension rather than a parameter substitution or isolated numerical computation.",
+    "status": "PASS"
+  }
+}
