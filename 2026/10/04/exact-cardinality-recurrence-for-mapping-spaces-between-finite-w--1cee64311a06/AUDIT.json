@@ -1,0 +1,122 @@
+{
+  "claim": "Let \\(P=A_1\\oplus\\cdots\\oplus A_h\\) and \\(Q=B_1\\oplus\\cdots\\oplus B_k\\) be nonempty finite weak-order \\(T_0\\)-spaces, with \\(|A_i|=r_i\\ge1\\) and \\(|B_j|=q_j\\ge1\\). Put \\(Q_0=0\\) and \\(Q_j=\\sum_{t=1}^j q_t\\). For \\(r\\ge1\\) and \\(x\\ge0\\), define\n\\[\na_j(r,x)=q_j\\big((x+1)^r-x^r\\big),\\qquad\nb_j(r,x)=(x+q_j)^r-x^r-a_j(r,x).\n\\]\nDefine two state counts \\(S_j^{(i)}\\) and \\(M_j^{(i)}\\): among order-preserving maps from the first \\(i\\) source levels, \\(S_j^{(i)}\\) counts those whose \\(i\\)-th source level has maximum occupied target level \\(j\\) and occupies exactly one point of \\(B_j\\), while \\(M_j^{(i)}\\) counts those occupying at least two points of \\(B_j\\). Initialize\n\\[\nS_j^{(1)}=a_j(r_1,Q_{j-1}),\\qquad M_j^{(1)}=b_j(r_1,Q_{j-1}).\n\\]\nFor \\(i\\ge2\\) and \\(1\\le j\\le k\\), write \\(x_{u,j}=Q_{j-1}-Q_u\\) for \\(u<j\\). Then\n\\[\nS_j^{(i)}=S_j^{(i-1)}+\\sum_{u<j}\\left(M_u^{(i-1)}a_j(r_i,x_{u,j})+S_u^{(i-1)}a_j(r_i,x_{u,j}+1)\\right),\n\\]\n\\[\nM_j^{(i)}=\\sum_{u<j}\\left(M_u^{(i-1)}b_j(r_i,x_{u,j})+S_u^{(i-1)}b_j(r_i,x_{u,j}+1)\\right).\n\\]\nConsequently,\n\\[\n|\\operatorname{Map}(P,Q)|=\\sum_{j=1}^k\\left(S_j^{(h)}+M_j^{(h)}\\right).\n\\]\nThus the exact number of continuous maps between arbitrary finite weak orders is computed by \\(2k\\) transfer states and \\(O(hk^2)\\) integer-arithmetic transitions.",
+  "correctness": {
+    "rationale": "For an order-preserving prefix map, every earlier source level maps below every image point of the immediately preceding source level. In a weak-order target, the common-upper-bound set of that preceding image is determined exactly by its maximum occupied target level and whether its top-level image is a singleton: a singleton contributes its unique point plus all higher levels, while a multiple top-level image permits only higher levels. The functions counted by a_j and b_j are respectively the maps using exactly one or at least two distinct points at the new maximum target level, so initialization, carry, and all u<j transitions are disjoint and exhaustive. The packaged independent brute-force enumerator agrees with the recurrence for all 225 ordered pairs of level compositions of total size at most four and for four larger anchors, but the proof, not the enumeration, establishes the unbounded theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Du–Hou, DOI 10.37236/2524, develops recurrence systems for P-partition generating functions of partially ordinal sums, not counts of maps into arbitrary weak-order targets with labeled antichain levels.",
+        "Pouzet–Zaguia, DOI 10.1016/j.disc.2006.05.038, gives weak-order structure and endomorphism lemmas for perpendicular orders but no broader map-enumeration theorem that specializes to the displayed recurrence."
+      ],
+      "reasoning": "The P-partition recurrence is broader in source-poset construction but concerns a different codomain and statistic, so it does not imply this map count. The closest structural weak-order source does not enumerate Hom(P,Q). No stronger published theorem located in the searches dominates the claim.",
+      "searches": [
+        "number of order-preserving maps between finite weak orders",
+        "homomorphism count weak orders ordinal sums antichains",
+        "endomorphism monoid cardinality finite weak orders",
+        "monotone maps complete multipartite posets count",
+        "poset homomorphisms lexicographic sums antichains enumeration",
+        "\"weak order\" \"order-preserving maps\" antichains ordinal sum count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0611156",
+      "doi:10.1016/j.disc.2006.05.038",
+      "doi:10.37236/2524",
+      "2026/9/18/SCOPE-weak-order-interval-endomorphism-dimensions--7fe56a124cd9",
+      "own-item:3ed4bcca-9e63-421b-84f1-2f9a53ede6d5",
+      "own-item:409e85b9-8f26-4e5c-9ef0-f08e9982f3f5",
+      "own-item:b2aba16f-33f8-48fa-8bc3-21f572b27593",
+      "own-item:3a228577-217e-47ba-aa9c-2de9261840fb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "3ed4bcca-9e63-421b-84f1-2f9a53ede6d5 treats mapping-space decomposition for complete height-two finite models.",
+        "409e85b9-8f26-4e5c-9ef0-f08e9982f3f5 gives the single cardinality 44 for Map(X_2,X_1) together with a core computation.",
+        "b2aba16f-33f8-48fa-8bc3-21f572b27593 gives the single cardinality 738 for Map(X_3,X_2) together with a core computation.",
+        "3a228577-217e-47ba-aa9c-2de9261840fb concerns homotopy nullity across unequal heights, not point counts."
+      ],
+      "reasoning": "The new recurrence specializes to the earlier point counts 44 and 738 and applies to all positive source and target level-size vectors. The prior special-case cardinalities, height-two decomposition, and homotopy-nullity theorem do not imply the arbitrary-height transfer formula, so the new claim is not subsumed by the checked prior items.",
+      "searches": [
+        "prior item 3ed4bcca-9e63-421b-84f1-2f9a53ede6d5",
+        "prior item 409e85b9-8f26-4e5c-9ef0-f08e9982f3f5",
+        "prior item b2aba16f-33f8-48fa-8bc3-21f572b27593",
+        "prior item 3a228577-217e-47ba-aa9c-2de9261840fb"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barmak–Minian, arXiv:math/0611156: finite T0 spaces correspond to posets and continuous maps are exactly order-preserving maps.",
+        "Pouzet–Zaguia, DOI 10.1016/j.disc.2006.05.038: finite weak orders are lexicographic sums of antichains, also called complete multipartite orders; the paper studies endomorphisms for perpendicularity."
+      ],
+      "reasoning": "These aliases identify the same objects and map notion as the claim. The inspected sources provide the representation and general endomorphism language but not the cardinality recurrence, so no equivalent formulation located in these searches covers the claim.",
+      "searches": [
+        "exact cardinality mapping space between arbitrary finite weak orders two-state recurrence",
+        "count continuous maps finite weak orders ordinal sums of antichains",
+        "count order preserving maps between complete multipartite posets transfer recurrence",
+        "\"complete multipartite poset\" homomorphisms",
+        "\"ordinal sum of antichains\" homomorphisms"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record: 2026/9/18/SCOPE-weak-order-interval-endomorphism-dimensions--7fe56a124cd9, titled 'Exact interval-endomorphism dimensions for finite weak orders'; its statement concerns global dimensions of interval endomorphism algebras, not the number of order-preserving maps.",
+        "No searched indexed record supplied a table or formula for arbitrary source and target level-size vectors."
+      ],
+      "reasoning": "Matching the object name is insufficient: the closest record computes a homological algebra invariant and has no implication to mapping-space cardinality. No exact database/table hit covered the recurrence.",
+      "searches": [
+        "finite topological space weak order Lefschetz number fixed point theorem self map",
+        "finite poset ordinal sum antichains Lefschetz zeta self maps",
+        "finite topological spaces mapping space sphere models",
+        "exact cardinality mapping space between arbitrary finite weak orders two-state recurrence",
+        "endomorphism count complete multipartite orders level sizes"
+      ]
+    },
+    "rationale": "Exact alias searches and primary-source inspection found the finite-space/order correspondence and structural results on weak-order endomorphisms, but no formula for the number of all maps between arbitrary weak orders and no equivalent two-state transfer recurrence. The closest indexed weak-order result concerns interval-endomorphism algebra dimensions, a different invariant. Previously established exact counts for height-two spaces and specific minimal-sphere-model pairs are strict special cases and do not imply the arbitrary-level recurrence.",
+    "residual_risks": [
+      "Poset-homomorphism and P-partition enumeration literature is broad; a semantically equivalent recurrence could exist under terminology not indexed by the searched aliases.",
+      "The Pouzet–Zaguia publisher landing page was not directly retrievable, although substantive indexed article text including definitions and endomorphism discussion was inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The paper establishes the finite-space/order framework and lists MSC 55P15, but it does not state an enumeration of all maps between arbitrary weak orders.",
+        "identifier_or_url": "arXiv:math/0611156",
+        "material_read": "Full-text preliminaries, including the specialization-order correspondence and the statement that maps of finite spaces are continuous iff order-preserving; title page and MSC classification were also inspected.",
+        "method": "Author-hosted full PDF and arXiv metadata.",
+        "title": "Minimal Finite Models",
+        "trigger": "Baseline finite-space/poset dictionary and verification that the topic lies in finite-space homotopy theory."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper studies which weak orders admit perpendicular linear orders. Its endomorphism statements do not give a map-count formula or the two-state transfer recurrence.",
+        "identifier_or_url": "doi:10.1016/j.disc.2006.05.038",
+        "material_read": "Indexed full-text introduction/definitions and endomorphism discussion, including the lexicographic-sum-of-antichains characterization; the DOI landing fetch was inaccessible, but substantive article text was available in the indexed source.",
+        "method": "Indexed scientific full-text extraction.",
+        "title": "Weak orders admitting a perpendicular linear order",
+        "trigger": "Same objects under the aliases weak orders and complete multipartite orders, with explicit attention to endomorphisms."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "The recurrence is for P-partition generating functions of partially ordinal sums, not for maps from arbitrary weak orders to arbitrary weak-order targets.",
+        "identifier_or_url": "doi:10.37236/2524",
+        "material_read": "Journal abstract and scope description.",
+        "method": "Open journal article metadata/abstract.",
+        "title": "Partially Ordinal Sums and P-partitions",
+        "trigger": "Potential broader recurrence for order-preserving enumerations on ordinal-sum constructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1cee6431-1a06-4d69-a306-1f66ed1a953c",
+  "value": {
+    "rationale": "The cardinality of a finite mapping space is a natural invariant and a necessary baseline for subsequent study of its specialization order, components, and core. The result compresses all extension information to two states per target level and computes every source/target weak-order pair in O(hk^2) transfer operations, including singleton and nonuniform levels. It unifies previously isolated exact counts such as 44 and 738 while producing arbitrary new instances without brute-force enumeration; this is a structural recurrence rather than a one-off table recomputation.",
+    "status": "PASS"
+  }
+}
