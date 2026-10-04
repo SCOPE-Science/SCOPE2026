@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Direct algebra gives M^T Q M=Q with Q positive definite exactly for tau sigma<4. Completing squares gives the exact minimum invariant energy on each projection boundary, so the strict sublevel is invariant and projection-free. The unit-determinant characteristic polynomial gives primitive m-th roots at tau sigma=4 sin^2(pi/m), proving exact period m. The embedded checker independently reproduces these identities and representative resonances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bailey--Gidel--Piliouras has broader game dimension but no nonnegativity projection boundary.",
+        "Lu--Yang arXiv:2307.03664 studies modern/extrapolated PDHG for LP, active-set identification, and local rates under convergent step conditions rather than the original Arrow--Hurwicz counterexample dynamics."
+      ],
+      "reasoning": "Broader unconstrained recurrence theory does not by itself specify when the constrained map remains forever in the unconstrained regime. The boundary minimization is the extra ingredient, and the later convergent LP theory concerns a different PDHG variant/parameter regime.",
+      "searches": [
+        "PDHG linear programming exact periodic cycle arbitrary small step sizes",
+        "PDHG unequal step sizes sharp projection free invariant neighborhood linear program",
+        "On the geometry refined rate PDHG linear programming active set identification"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/140963467",
+      "arxiv:1907.04392",
+      "arxiv:2307.03664",
+      "Current and prior local ledger generations through p0001_g000008",
+      "Targeted published-finding corpus semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 source's exact six-cycle is one isolated projected orbit at tau=sigma=1; it does not imply the all-initialization local threshold or arbitrarily-small-step resonances.",
+        "The 2019 alternating-gradient theorem implies conservation for the interior linear recurrence, but it has no projection geometry; deriving the constrained claim additionally requires the sharp minimization of that invariant on u=-1 and v=-1."
+      ],
+      "reasoning": "The final statement is not a restatement of the 2014 six-cycle. Its invariant component is covered by 2019 unconstrained theory, but the exact maximal projection-free sublevel and constrained periodic family are not stated there and require a separate sharp boundary argument.",
+      "searches": [
+        "Arrow Hurwicz primal dual hybrid gradient arbitrarily small constant steps exact periodic orbit",
+        "primal dual hybrid gradient exact periodic resonances 2 sin pi over m",
+        "He You Yuan counterexample unequal r s exact periodic cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "He--You--Yuan DOI 10.1137/140963467 gives the same constrained scalar LP and its projected PDHG recurrence, but only an exact six-cycle at r=s=1 plus finite-horizon tests for large r=s.",
+        "Bailey--Gidel--Piliouras arXiv:1907.04392 proves conserved energy and recurrence for unconstrained alternating gradient descent--ascent; its scalar energy specializes to the interior quadratic form used here."
+      ],
+      "reasoning": "The unconstrained invariant is prior art and is not claimed as original. The searched sources did not state the exact largest invariant-energy sublevel that stays inside the positive orthant, nor the resulting constrained PDHG resonance family.",
+      "searches": [
+        "Arrow Hurwicz primal dual hybrid gradient arbitrarily small constant steps exact periodic orbit",
+        "PDHG linear programming exact periodic cycle arbitrary small step sizes",
+        "He You Yuan PDHG counterexample sharp invariant neighborhood projection free",
+        "PDHG linear program alternating gradient conserved u squared plus h u v plus v squared"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches returned no published-finding corpus record matching the threshold c_*=min{tau,sigma}(1-tau sigma/4) or the resonance tau sigma=4 sin^2(pi/m) for the He--You--Yuan constrained example."
+      ],
+      "reasoning": "No exact database/table record located the same constrained invariant-neighborhood classification. Search failure is treated only as negative evidence, not as a proof of novelty.",
+      "searches": [
+        "He You Yuan PDHG counterexample sharp invariant neighborhood projection free",
+        "PDHG linear program alternating gradient conserved u squared plus h u v plus v squared",
+        "PDHG exact m cycle step product 4 sin squared pi over m"
+      ]
+    },
+    "rationale": "The 2014 source supplies the constrained recurrence and one six-cycle, while the 2019 alternating-gradient literature supplies the unconstrained conserved energy. The final claim explicitly excludes those covered pieces from its novelty claim and adds the sharp projection-boundary threshold plus the exact constrained resonance family. Targeted literature and published-finding corpus searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "An unindexed lecture note, thesis, or implementation note may have carried out the same two-dimensional boundary minimization.",
+      "The invariant itself is not original; only the sharp constrained projection-free threshold and its periodic consequences are claimed as the finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_FINAL_CLAIM",
+        "evidence": "The source derives the scalar projected recurrence, proves a six-cycle for r=s=1, and reports 1000-iteration tests for much larger r=s; it does not derive the invariant sublevel threshold or resonant m-cycle family.",
+        "identifier_or_url": "doi:10.1137/140963467",
+        "material_read": "Publisher-version full text, especially the PDHG definition and Section 3 counterexample.",
+        "method": "Full-text inspection of equations and surrounding discussion.",
+        "title": "On the Convergence of Primal-Dual Hybrid Gradient Algorithm",
+        "trigger": "Primary source defining the exact scalar counterexample and tiny-step nonconvergence claim."
+      },
+      {
+        "assessment": "BROADER_INTERIOR_DYNAMICS_PARTIALLY_COVERING",
+        "evidence": "It proves preservation of a quadratic energy in unconstrained bilinear games; after scalar specialization this is the same invariant used here. It does not analyze the positive-orthant projection boundary or compute the sharp safe sublevel.",
+        "identifier_or_url": "arxiv:1907.04392",
+        "material_read": "Full arXiv HTML sections describing conserved energy, boundedness, and recurrence for alternating gradient descent--ascent.",
+        "method": "Full-text theorem/equation inspection.",
+        "title": "Finite Regret and Cycles with Fixed Step-Size via Alternating Gradient Descent-Ascent",
+        "trigger": "Closest broader theory for the projection-free alternating linear recurrence."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_VARIANT_AND_QUESTION",
+        "evidence": "The paper studies active-set identification and refined convergence rates for modern PDHG under convergent step conditions, not the old non-extrapolated counterexample's conservative local dynamics.",
+        "identifier_or_url": "arxiv:2307.03664",
+        "material_read": "Abstract, algorithm description, contributions, and related-literature discussion from the open-access article page.",
+        "method": "Full webpage inspection.",
+        "title": "On the Geometry and Refined Rate of Primal-Dual Hybrid Gradient for Linear Programming",
+        "trigger": "Modern PDHG-for-LP literature potentially dominating a local geometric statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d7aa3f27-e56e-4a1a-8e43-3196f63c5f83",
+  "value": {
+    "rationale": "The threshold turns a published finite-horizon tiny-step warning into a rigorous, explicit local nonconvergence theorem for every stable product tau sigma<4, and the resonance family gives exact cycles with arbitrarily small steps. It also cleanly separates the conservative interior dynamics from projection effects in the canonical PDHG counterexample, a motivated boundary question rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
