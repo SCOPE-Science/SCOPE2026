@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The p=1 matrix is identity plus a path Laplacian, hence a nonsingular irreducible M-matrix whose inverse is strictly positive; constants are fixed, giving stochastic rows and exact range preservation. For every p>=2, the minimal n=p+1 penalty is rank one and Sherman-Morrison gives an explicit negative p-2 coordinate on a terminal step for every lambda>0. An affine nullspace perturbation yields strict positive increasing witnesses. Exact rational replay verifies the finite algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yamada and Jahra derive explicit order-one smoother weights and the standard matrix formula.",
+        "de Jong-Sakarya and McElroy derive finite-sample or exact HP weight representations.",
+        "Whittaker introduces the squared finite-difference graduation criterion, emphasizing third differences."
+      ],
+      "reasoning": "Those works provide formulas for individual orders. The accepted theorem compares all orders and proves a universal iff classification plus minimal witnesses, which is not implied merely by having explicit weight formulas.",
+      "searches": [
+        "Explicit formulas for the smoother weights of the Whittaker-Henderson graduation of order 1",
+        "The Econometrics of the Hodrick-Prescott Filter",
+        "Exact formulas for the Hodrick-Prescott filter",
+        "On a New Method of Graduation Whittaker"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/S0013091500077853",
+      "DOI:10.1080/03610926.2018.1476713",
+      "DOI:10.1162/REST_a_00523",
+      "DOI:10.1111/j.1368-423X.2008.00230.x",
+      "DOI:10.1021/ac034173t",
+      "DOI:10.1137/0726040",
+      "Published research-index searches under Whittaker-Henderson, Hodrick-Prescott, positive smoother, monotone data, and range-preservation aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Whittaker full text develops the third-difference penalty and its linear equations, not a cross-order range-preservation theorem.",
+        "The Yamada-Jahra author-uploaded full text gives the general WH definition and explicit p=1 formulas; no nonnegative/range-preservation classification was found in the inspected text.",
+        "The HP literature develops exact or asymptotic weight representations, which may expose negative coefficients but does not imply the stated all-p minimal-length theorem."
+      ],
+      "reasoning": "Prior formulas are inputs to, not implications of, the theorem. The p=1 conclusion uses M-matrix order structure, while the p>=2 conclusion uses the minimal-rank binomial penalty and an affine-nullspace perturbation.",
+      "searches": [
+        "DOI:10.1017/S0013091500077853 full text",
+        "DOI:10.1080/03610926.2018.1476713 author full text",
+        "DOI:10.1162/REST_a_00523 Hodrick Prescott representation",
+        "DOI:10.1111/j.1368-423X.2008.00230.x exact HP formulas"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published research-index record states that p=1 is the unique universally range-preserving Whittaker-Henderson order.",
+        "Searches under positive-smoother, monotone-data, and negative-weight aliases returned coefficient, spectral, or unrelated positivity results rather than the cross-order theorem."
+      ],
+      "reasoning": "Equivalent formulations include convex-hull preservation by the smoother matrix, positivity plus unit row sums, and failure of positivity on the monotone cone. The searches covered these aliases without finding a statement dominating the accepted classification.",
+      "searches": [
+        "Whittaker Henderson smoothing difference penalty positivity monotone data range preservation",
+        "Whittaker smoother negative values monotone data second differences",
+        "Whittaker Henderson smoothing M matrix positivity first difference",
+        "Bohlmann filter positivity row stochastic inverse M-matrix range preserving",
+        "Hodrick Prescott filter negative weights monotone data undershoot",
+        "Whittaker smoother hat matrix negative entries second difference"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The order-one explicit-formula paper is directly relevant and is treated as prior coverage of weight formulas.",
+        "HP sources explicitly represent the smoother as weighted averages and later pedagogical sources note negative weights, so negative coefficients alone are not claimed."
+      ],
+      "reasoning": "The new invariant is not an isolated coefficient sign: it is the all-lambda, all-order classification with the exact minimal sample size p+1 and a uniform symbolic witness for every p>=2.",
+      "searches": [
+        "Whittaker-Henderson order 1 smoother matrix positive entries positivity",
+        "Hodrick-Prescott negative weights smoother matrix exact formula",
+        "Whittaker Henderson monotone positivity preserving smoother"
+      ]
+    },
+    "rationale": "The literature already contains the Whittaker-Henderson normal equations, explicit order-one weights, and exact Hodrick-Prescott weight formulas; these are excluded from novelty. The accepted claim is the all-order range-preservation dichotomy and the minimal-length every-smoothing-strength obstruction for every p>=2. Required semantic-index and primary-literature searches did not locate an implication-equivalent theorem.",
+    "residual_risks": [
+      "The p=1 explicit-weight literature may make positivity an immediate corollary; that side is not claimed as a new formula.",
+      "An older graduation or positive-linear-operator source may state the same order dichotomy under different terminology.",
+      "The full text of Eilers 2003 was not inspected because the publisher required human verification after OA alternatives failed.",
+      "Weighted or irregular-grid Whittaker-Henderson variants are outside the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the classical graduation construction and third-difference penalty. It does not state the all-order range-preservation classification in the inspected material.",
+        "evidence": "The paper measures smoothness by squared third differences and balances this against squared departure from the observations; a contemporary biographical source records that the paper was read on 14 November 1919.",
+        "identifier_or_url": "DOI:10.1017/S0013091500077853",
+        "material_read": "Cambridge-hosted full PDF, including the opening motivation, third-difference smoothness penalty, normal equations, and conservation discussion.",
+        "method": "Lawful publisher full-text inspection.",
+        "title": "On a New Method of Graduation",
+        "trigger": "Foundational primary source for the finite-difference graduation criterion and earliest verified public presentation date."
+      },
+      {
+        "assessment": "COVERS the p=1 matrix and explicit smoother-weight formulas. Order-one positivity is therefore not asserted as a new formula; no cross-order iff range theorem was located.",
+        "evidence": "The paper writes the minimizer as (I+psi D_p^T D_p)^(-1)y and develops explicit p=1 weights. Searches of the full text found no nonnegative/range-preservation theorem.",
+        "identifier_or_url": "DOI:10.1080/03610926.2018.1476713",
+        "material_read": "Author-uploaded full text through the definition, matrix normal equation, difference matrix, main-results setup, and searchable complete text for positivity/range terminology.",
+        "method": "Public author-uploaded full-text inspection.",
+        "title": "Explicit formulas for the smoother weights of the Whittaker-Henderson graduation of order 1",
+        "trigger": "Closest source for the positive side of the theorem because it studies the p=1 smoother matrix entrywise."
+      },
+      {
+        "assessment": "COVERS weighted representations and finite-sample HP analysis, but the inspected material does not state the every-lambda minimal three-point monotone undershoot theorem or an all-order comparison.",
+        "evidence": "The abstract states that the HP transformation is represented as a symmetric weighted average plus boundary adjustments.",
+        "identifier_or_url": "DOI:10.1162/REST_a_00523",
+        "material_read": "Open repository abstract and representation summary; full publisher text was not required to establish that exact HP weight representations are prior.",
+        "method": "Institutional repository metadata and abstract inspection.",
+        "title": "The Econometrics of the Hodrick-Prescott Filter",
+        "trigger": "Direct p=2 literature with a finite-sample weighted-average representation."
+      },
+      {
+        "assessment": "COVERS modern penalized-least-squares Whittaker smoothing at abstract level. Full-text shape-property comparison remains an access risk.",
+        "evidence": "The abstract describes penalized least squares extending Whittaker ideas and the smoothing parameter tradeoff.",
+        "identifier_or_url": "DOI:10.1021/ac034173t",
+        "material_read": "Publisher abstract and bibliographic metadata only. Lawful OA searches did not recover full text; an authorized institutional attempt reached publisher human verification and was not bypassed.",
+        "method": "Abstract-level inspection after failed OA/full-text alternatives.",
+        "title": "A Perfect Smoother",
+        "trigger": "Widely cited Whittaker-smoother source that could plausibly discuss shape behavior."
+      },
+      {
+        "assessment": "COVERS numerical least-squares data smoothing and lists primary MSC 65D10. It studies a different polynomial-fitting smoother.",
+        "evidence": "The publisher lists MSC codes in the order 65D10, 65D25, 65S05.",
+        "identifier_or_url": "DOI:10.1137/0726040",
+        "material_read": "SIAM abstract, metadata, keywords, and MSC listing.",
+        "method": "Publisher metadata inspection.",
+        "title": "Efficient Methods for Data Smoothing",
+        "trigger": "Verification of numerical-analysis ownership for data smoothing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b1f399ec-57e6-4366-8700-f54c411c486b",
+  "value": {
+    "rationale": "Difference order is a central user choice in Whittaker-Henderson smoothing. The result gives a complete structural safety classification, proves failure at the smallest possible sample length and arbitrarily weak smoothing, and provides symbolic strict witnesses useful for diagnostics and for deciding when constrained smoothing is necessary.",
+    "status": "PASS"
+  }
+}
