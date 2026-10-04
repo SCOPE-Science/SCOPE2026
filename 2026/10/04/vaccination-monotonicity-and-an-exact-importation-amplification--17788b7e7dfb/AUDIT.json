@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the published equilibrium balances. The strict importation floor follows directly from the exposed balance; strict vaccination monotonicity follows from the source scalar equation \\(\\theta(I)=\\mu_0H(I)\\) with \\(H\\) strictly increasing; the limit follows by contradiction; and the amplification bound follows from \\(S^*<A_0/\\mu_0\\) and \\(\\theta(I^*)\\le\\theta(0)\\). The first-order asymptotic follows from the exact identity \\(I^*=I_{\\mathrm{imp}}/(1-\\ell^*)\\). A standalone replay checks the algebra numerically without being used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Witbooi (2021), DOI 10.1186/s13662-021-03488-5, proves positive infected thresholds in a related migration model.",
+        "Almarashi and McCluskey (2019), DOI 10.1007/s00285-019-01387-8, give a general small-immigration perturbation theorem around a disease-free equilibrium.",
+        "Sridevi and Reddy (2019), DOI 10.35940/ijrte.B1566.078219, study a different saturated-incidence SIR model with optimal vaccination.",
+        "Duve et al. (2023), DOI 10.3934/mbe.2024045, study a different malaria human–vector model with vaccination and infected immigration."
+      ],
+      "reasoning": "These papers establish that infected immigration creates endemic persistence and that vaccination can reduce burden, but none of the inspected models has the same equilibrium equation or yields the exact source-model upper bound and asymptotic coefficient.",
+      "searches": [
+        "\"infected immigration\" vaccination \"endemic equilibrium\" monotone",
+        "\"vaccination\" \"infected immigrants\" \"endemic equilibrium\" \"R0\"",
+        "\"immigration of infectives\" vaccination equilibrium amplification"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023411",
+      "doi:10.1186/s13662-021-03488-5",
+      "doi:10.1007/s00285-019-01387-8",
+      "doi:10.35940/ijrte.B1566.078219",
+      "doi:10.3934/mbe.2024045"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A lower threshold induced by immigration alone does not imply strict monotonicity in the susceptible vaccination rate.",
+        "A first-order derivative with respect to immigration at zero immigration does not imply the fixed-positive-importation comparison in \\(z\\).",
+        "Optimal-control or vaccine-coverage simulations in distinct models do not imply the exact identity \\(I^*=I_{\\mathrm{imp}}/(1-\\ell^*)\\) or the bound \\(\\ell^*<R_{\\mathrm{cl}}\\)."
+      ],
+      "reasoning": "The accepted result requires the specific algebraic coupling of vaccination, susceptible balance, and a nonincreasing contact function in the 2023 model; the closest prior statements leave those implications open.",
+      "searches": [
+        "Witbooi 2021 threshold infected immigrants vaccination comparison",
+        "Almarashi McCluskey 2019 vaccination infected immigration derivative",
+        "Sridevi Reddy 2019 equilibrium vaccination infected immigrants",
+        "Duve malaria vaccination infected immigration equilibrium coverage"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact-title and DOI searches return the 2023 source, whose equilibrium section gives uniqueness but not comparative statics in the vaccination parameter.",
+        "Searches using the equivalent language of an importation floor and equilibrium decomposition return general immigration models rather than the same formula."
+      ],
+      "reasoning": "The searches cover the literal source, vaccination sensitivity, the equilibrium-floor interpretation, and the algebraically equivalent local-transmission fraction formulation.",
+      "searches": [
+        "\"10.3934/math.2023411\" vaccination equilibrium immigration sensitivity",
+        "\"Control and elimination in an SEIR model\" \"vaccination rate\" equilibrium monotone",
+        "vaccination rate monotone endemic equilibrium infected immigration source-independent floor",
+        "E*=A1/[mu1(1-ell)] vaccination immigration epidemic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 full text gives \\(E^*=\\mu_2I^*/\\alpha\\), \\(S^*=A_0/(\\mu_0+\\theta E^*)\\), and the strictly increasing scalar right-hand side used in the proof.",
+        "The 2021 full text defines model-specific lower infected thresholds but has a different vaccination mechanism.",
+        "The 2019 Journal of Mathematical Biology article studies derivatives with respect to immigration, not vaccination at fixed positive immigration.",
+        "The 2019 SIR optimal-control paper and the 2023 malaria paper use different state structures and incidence mechanisms."
+      ],
+      "reasoning": "Full equations or theorem statements were inspected for the primary source and the closest plausible alternatives, so comparison is at statement and implication level rather than title level.",
+      "searches": [
+        "doi:10.3934/math.2023411 full equilibrium equations",
+        "doi:10.1186/s13662-021-03488-5 infected thresholds vaccination",
+        "doi:10.1007/s00285-019-01387-8 immigration perturbation theorem",
+        "doi:10.35940/ijrte.B1566.078219 model equations vaccination immigration",
+        "doi:10.3934/mbe.2024045 vaccination infected immigrants equilibrium"
+      ]
+    },
+    "rationale": "The primary paper proves uniqueness of the endemic equilibrium but does not state vaccination-rate monotonicity, the exact importation-floor decomposition, the closed-system reproduction upper bound, or the large-vaccination coefficient. Earlier immigration papers establish persistence or perturbation principles, and other vaccination-plus-immigration models establish related qualitative effects, but the inspected statements do not imply this source-specific theorem.",
+    "residual_risks": [
+      "A later unindexed note could independently derive the same source-specific comparative statics.",
+      "The broad qualitative statement that infected immigration prevents a disease-free equilibrium is established prior work and is not claimed as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_SOURCE_DOES_NOT_STATE_COMPARATIVE_STATICS",
+        "evidence": "The endemic proof establishes a unique intersection of a nonincreasing contact function with a strictly increasing scalar function, but does not compare intersections as the vaccination parameter changes.",
+        "identifier_or_url": "doi:10.3934/math.2023411",
+        "material_read": "Open full text through the model definition, reproduction quantity, endemic-equilibrium existence and uniqueness proof, local stability theorem, and conclusion.",
+        "method": "Reconstructed the equilibrium balances and isolated the dependence on the vaccination parameter.",
+        "title": "Control and elimination in an SEIR model for the disease dynamics of COVID-19 with vaccination",
+        "trigger": "Primary source for the exact model and endemic-equilibrium equation."
+      },
+      {
+        "assessment": "RELATED_FLOOR_DIFFERENT_VACCINATION_MECHANISM",
+        "evidence": "The paper proves positive infected thresholds from immigrant inflow; vaccination is represented through vaccinated newborn recruitment rather than a susceptible vaccination rate.",
+        "identifier_or_url": "doi:10.1186/s13662-021-03488-5",
+        "material_read": "Open full text including model equations, infected threshold levels, equilibrium discussion, measles vaccination application, and conclusion.",
+        "method": "Compared the lower infected thresholds and vaccination mechanism with the 2023 susceptible-vaccination model.",
+        "title": "An SEIR model with infected immigrants and recovered emigrants",
+        "trigger": "Same lead author and closely related SEIR immigration setting."
+      },
+      {
+        "assessment": "GENERAL_IMMIGRATION_RESULT_NOT_DOMINATING",
+        "evidence": "Its main theorem describes how a disease-free equilibrium moves as infected immigration is introduced; it does not vary a vaccination parameter at positive immigration.",
+        "identifier_or_url": "doi:10.1007/s00285-019-01387-8",
+        "material_read": "Full article text through the general model, implicit-function calculation, Theorems 4.4–4.6, and discussion.",
+        "method": "Compared its derivative with respect to immigration near zero against the present derivative-free monotonic comparison in vaccination at fixed positive immigration.",
+        "title": "The effect of immigration of infectives on disease-free equilibria",
+        "trigger": "General theorem on infected immigration and disease-free equilibria."
+      },
+      {
+        "assessment": "DIFFERENT_SIR_OPTIMAL_CONTROL_MODEL",
+        "evidence": "The paper studies a saturated-incidence SIR control problem and does not contain the 2023 SEIR scalar equilibrium equation or the claimed amplification identity.",
+        "identifier_or_url": "doi:10.35940/ijrte.B1566.078219",
+        "material_read": "Open full text including the saturated-incidence SIR equations, equilibrium/stability discussion, optimal-control formulation, and numerical conclusions.",
+        "method": "Compared state variables, incidence law, vaccination control, and equilibrium statements.",
+        "title": "Stability Analysis of an Epidemic Model with Infected Immigrants and Optimal Vaccination",
+        "trigger": "Plausible title combining infected immigration and vaccination."
+      },
+      {
+        "assessment": "RELATED_QUALITATIVE_RESULT_DIFFERENT_MODEL",
+        "evidence": "The paper states that infected influx leaves only endemic equilibria and studies vaccine coverage, but uses a human–vector system with a vaccinated compartment and does not imply the source-specific bound.",
+        "identifier_or_url": "doi:10.3934/mbe.2024045",
+        "material_read": "Open full text through the abstract, model formulation, human–vector equations, and equilibrium setup.",
+        "method": "Compared the vector-borne model structure and vaccination compartment with the 2023 direct-transmission SEIR model.",
+        "title": "A mathematical model for malaria disease dynamics with vaccination and infected immigrants",
+        "trigger": "Close later title explicitly combining vaccination and infected immigration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "17788b7e-7dfb-4b85-af95-7cc6e03f787c",
+  "value": {
+    "rationale": "The result separates the irreducible imported component from locally amplified infection, proves that vaccination reduces only the latter, converts the zero-inflow reproduction quantity into a quantitative amplification cap when it is below one, and supplies the exact leading residual above the floor at high vaccination. These statements directly sharpen intervention interpretation for the motivating model.",
+    "status": "PASS"
+  }
+}
