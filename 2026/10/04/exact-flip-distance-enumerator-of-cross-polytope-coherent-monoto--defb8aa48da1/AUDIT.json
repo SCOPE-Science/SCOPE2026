@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the flip graph to the published punctured ternary-grid model, proves a matching lower and constructive upper bound for every pair, isolates the only deleted-origin obstruction, and derives the generating polynomial by exact product counting. Differentiation gives the stated Wiener index. A standalone breadth-first-search verifier checks every pair and every coefficient for \\(m=2,3,4,5\\); those finite checks corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2002.00999 gives general bounds and graph-diameter results for monotone-path graphs.",
+        "arXiv:2504.20739 counts monotone paths by their own lengths and treats the cross-polytope explicitly."
+      ],
+      "reasoning": "Neither broader result implies the exact pairwise metric or distance distribution. The 2025 path-length sequence counts vertices by a path statistic, whereas the present enumerator counts ordered pairs by graph distance between coherent paths.",
+      "searches": [
+        "monotone path polytope cross-polytope flip distance exact pairwise distance",
+        "\"flip distance\" coherent monotone paths cross-polytope",
+        "\"pairwise distance\" signohedron monotone path polytope"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.01237",
+      "DOI:10.1007/s00454-023-00563-4",
+      "arXiv:2002.00999",
+      "DOI:10.1002/jgt.22725",
+      "arXiv:2504.20739"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Black--De Loera prove adjacency iff Taxi-Cab distance one and diameter \\(2(n-1)\\); their diameter proof only remarks that avoiding the origin is easy.",
+        "Juhnke--Poullot give cross-polytope monotone-path length counts but no occurrences of the terms flip distance, Taxi, or Wiener in the inspected full text."
+      ],
+      "reasoning": "Adjacency plus diameter does not determine all graph distances or their multiplicities. The new theorem resolves the deleted-origin issue exactly and then counts every ordered distance. The later length-distribution theorem is logically independent of pairwise flip distance.",
+      "searches": [
+        "arXiv:2102.01237 Theorem 1.1 Lemma 3.6",
+        "arXiv:2002.00999 monotone paths diameter",
+        "arXiv:2504.20739 cross-polytope coherent path length distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2102.01237, Theorem 1.1(f) and Lemma 3.6",
+        "No located source stated the punctured-ternary all-pairs metric with the opposite-unit exception."
+      ],
+      "reasoning": "The natural equivalent formulations are the signohedron 1-skeleton, the punctured ternary grid, and the coherent monotone-path flip graph. Searches across those aliases returned the primary adjacency/diameter theorem but not the stronger metric classification.",
+      "searches": [
+        "\"signohedron\" distance monotone path polytope",
+        "\"monotone path\" \"cross-polytope\" \"distance\" flip graph",
+        "\"punctured ternary cube\" graph distance",
+        "signohedron exact graph distance taxi cab monotone path polytope cross-polytope"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula or Wiener-index source was located for the signohedron or punctured ternary graph."
+      ],
+      "reasoning": "The proposed polynomial and Wiener formula were searched directly and through the graph alias. The search did not locate a table or database entry covering the statement.",
+      "searches": [
+        "\"Wiener index\" signohedron",
+        "\"3+4z+2z^2\" signohedron",
+        "punctured ternary cube graph metric {-1,0,1}^n origin removed",
+        "\"P_3\" Cartesian product \"vertex deleted\" distance Wiener",
+        "\"grid graph\" \"P3\" Wiener index deleted vertex",
+        "\"Cartesian product of paths\" Wiener index vertex deletion"
+      ]
+    },
+    "rationale": "The closest primary source gives the same vertex set, adjacency relation, and diameter, but does not state an all-pairs metric, the exceptional antipodal-unit classification, the complete distance enumerator, or the Wiener index. A later full-text treatment of path-length distributions on cross-polytopes studies a different statistic. Targeted semantic and exact-phrase searches found no covering result. Residual risk remains for an equivalent graph-theoretic formula under unrelated terminology.",
+    "residual_risks": [
+      "An unindexed graph-theory paper could state the same metric or generating polynomial for the graph obtained from the ternary Cartesian product by deleting its origin.",
+      "The general 2020 monotone-path paper was compared through its accessible abstract/metadata rather than every page; the much more directly relevant 2021 cross-polytope primary source was inspected in full at the theorem and proof locations governing this graph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the sign-vector bijection, adjacency criterion, and diameter; NOT_COVERING for the all-pairs metric, exceptional pair classification, distance enumerator, or Wiener index.",
+        "evidence": "Theorem 1.1(c),(e),(f) identifies nonzero sign vectors, gives \\(3^{n-1}-1\\) vertices and Taxi-Cab adjacency; Lemma 3.6 proves adjacency; the diameter proof only addresses a global extremum.",
+        "identifier_or_url": "arXiv:2102.01237",
+        "material_read": "Abstract, Theorem 1.1, sign-poset description, Lemma 3.6, and the proofs of the coherent-path and full flip-graph diameter statements.",
+        "method": "Full-text HTML inspection.",
+        "title": "Monotone Paths on Cross-Polytopes",
+        "trigger": "Primary source defining the exact coherent-path graph used by the theorem."
+      },
+      {
+        "assessment": "NOT_COVERING. It enumerates individual monotone paths by their length, rather than pairwise flip distances among coherent paths.",
+        "evidence": "Remark 3.6 counts coherent paths with a given number of nonzero sign coordinates; no inspected occurrence addresses pairwise flip distance.",
+        "identifier_or_url": "arXiv:2504.20739",
+        "material_read": "Introduction, positive-examples section, cross-polytope Remark 3.2, coherent-path Remark 3.6, and full-text searches for flip distance, Taxi, and Wiener.",
+        "method": "Full-text HTML inspection and in-document term search.",
+        "title": "Unimodality of the number of paths per length on polytopes: Examples, counterexamples, and a central limit theorem",
+        "trigger": "Later paper explicitly revisiting cross-polytope path enumeration."
+      },
+      {
+        "assessment": "NOT_COVERING in the inspected material: it supplies general bounds rather than this exact cross-polytope all-pairs metric.",
+        "evidence": "The abstract states bounds on numbers of paths and diameters in terms of polytope parameters, not an exact signohedron distance distribution.",
+        "identifier_or_url": "arXiv:2002.00999; DOI:10.1002/jgt.22725",
+        "material_read": "Abstract and bibliographic description of the monotone-path graph results.",
+        "method": "Open-access abstract/metadata inspection.",
+        "title": "Enumerative problems for arborescences and monotone paths on polytope graphs",
+        "trigger": "General prior work on monotone-path graph enumeration and diameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "defb8aa4-8da1-40c4-9519-31f50aa4cf32",
+  "value": {
+    "rationale": "The coherent-path graph is a natural reconfiguration object attached to a monotone path polytope and is linked in the source literature to pivot-path geometry. Moving from adjacency and diameter to the exact metric gives the full flip-cost profile, including an explicit distance enumerator, average distance, and Wiener index. The refinement is structural and dimension-uniform rather than a parameter substitution or a finite table computation.",
+    "status": "PASS"
+  }
+}
