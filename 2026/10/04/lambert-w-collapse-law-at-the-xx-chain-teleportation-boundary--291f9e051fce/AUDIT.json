@@ -1,0 +1,128 @@
+{
+  "claim": "For the antiferromagnetic two-qubit Heisenberg \\(XX\\) thermal channel of Yeo, let \\(\\eta=B_m/J\\in[0,1)\\), \\(x_\\eta=J/T_{\\mathrm{tel}}(\\eta)\\), and let \\(T_{\\mathrm{tel}}(\\eta)\\) be the unique positive temperature at which the standard teleportation fidelity equals the classical threshold \\(2/3\\). Then \\(x_\\eta\\) is the unique positive solution of\n\\[\n\\sinh x=\\cosh(\\eta x),\n\\]\nequivalently\n\\[\n\\tanh\\!\\left(\\frac{(1-\\eta)x}{2}\\right)=e^{-(1+\\eta)x}.\n\\]\nIf \\(W\\) is the principal Lambert function, then as \\(\\eta\\uparrow1\\),\n\\[\nx_\\eta\\sim\\frac{W\\!\\left(2(1+\\eta)/(1-\\eta)\\right)}{1+\\eta},\\qquad\n\\frac{T_{\\mathrm{tel}}(\\eta)}{J}\\sim\\frac{1+\\eta}{W\\!\\left(2(1+\\eta)/(1-\\eta)\\right)}\n\\sim\\frac{2}{W\\!\\left(4/(1-\\eta)\\right)}.\n\\]\nAt that same operational threshold, the source concurrence has the exact form\n\\[\nC_r(\\eta)=\\frac12-e^{-x_\\eta}-\\frac12e^{-2x_\\eta},\n\\]\nso \\(C_r(\\eta)\\to1/2\\) even though \\(T_{\\mathrm{tel}}(\\eta)\\to0\\). More sharply,\n\\[\n\\frac12-C_r(\\eta)\\sim\\frac12\\sqrt{(1-\\eta)\\,W\\!\\left(4/(1-\\eta)\\right)}.\n\\]\nThus, approaching the field-driven level crossing \\(B_m=J\\) from below, the temperature window in which the unprocessed thermal state is useful for standard teleportation collapses only logarithmically, while the concurrence left at the classical-fidelity boundary rises to one half.",
+  "correctness": {
+    "rationale": "The source equality sinh(x)=cosh(eta x) is exactly equivalent to tanh((1-eta)x/2)=exp(-(1+eta)x), which proves uniqueness. Endpoint rescaling inverts through Lambert W. The source concurrence simplifies exactly at the threshold, giving the stated limit and gap asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li and Xu study a magnetic-impurity XX chain and report that impurity plus field can raise critical temperatures without bound.",
+        "Qin, Tao, and Tian analyze an XXZ generalization and derive anisotropic fully entangled fractions.",
+        "The inspected broader results alter the Hamiltonian or teleportation task and do not state the accepted uniform-XX endpoint law."
+      ],
+      "reasoning": "A broader result covers the claim only if it contains the uniform XX specialization with the same endpoint asymptotic. That implication was not located; the impurity full text was unavailable and is retained as risk.",
+      "searches": [
+        "Magnetic field effects on the optimal fidelity of standard teleportation via the two qubits Heisenberg XX chain in thermal equilibrium",
+        "Teleportation via thermally entangled states of a two-qubit Heisenberg XXZ chain",
+        "Quantum teleportation via a two-qubit Heisenberg XY chain effects of anisotropy and magnetic field"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0205014",
+      "DOI:10.1103/PhysRevA.66.062312",
+      "MaRDI:Q1864746",
+      "arXiv:quant-ph/0312125",
+      "DOI:10.1088/1674-1137/32/9/007",
+      "DOI:10.1088/0305-4470/38/14/012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yeo proves the standard-protocol condition sinh(beta J)>cosh(beta B_m) and states that the critical teleportation temperature decreases with B_m.",
+        "Yeo's concurrence formula is (sinh(beta J)-1)/(cosh(beta B_m)+cosh(beta J)) in the relevant range.",
+        "The inspected XXZ paper cites Yeo and treats a more general anisotropy but does not derive the endpoint Lambert-W law.",
+        "The impurity paper's abstract concerns an altered Hamiltonian and does not state the uniform endpoint formula."
+      ],
+      "reasoning": "The source premises imply the accepted result only after factoring the threshold equation, proving uniqueness, rescaling the singular eta->1 root, inverting with Lambert W, and substituting the root into concurrence.",
+      "searches": [
+        "Primary full text arXiv:quant-ph/0205014 equations (3), (6), (7), Table I",
+        "Primary full text DOI:10.1088/1674-1137/32/9/007 equations (1)-(8)",
+        "arXiv:quant-ph/0312125 abstract critical temperatures magnetic impurity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The semantic search returned no result about the Yeo endpoint threshold; its closest high-ranked quantum hit was an unrelated PEPS obstruction.",
+        "Exact-phrase and formula searches returned the Yeo paper and broader teleportation literature but no Lambert-W endpoint law.",
+        "No located source stated that the threshold concurrence tends to one half as B_m/J approaches one."
+      ],
+      "reasoning": "Equivalent coverage would need to analyze the same threshold equation near B_m/J=1 or imply the same inverse-logarithmic temperature law and concurrence limit.",
+      "searches": [
+        "two-qubit Heisenberg XX chain teleportation critical temperature residual concurrence magnetic field B approaches J asymptotic",
+        "sinh beta J cosh beta B teleportation useful threshold Lambert W Heisenberg XX",
+        "residual concurrence Heisenberg XX teleportation magnetic field one half",
+        "Yeo 2002 teleportation thermally entangled state Heisenberg XX critical magnetic field asymptotic",
+        "residual concurrence 1/2 Heisenberg XX teleportation",
+        "sinh beta J cosh beta B_m teleportation critical temperature asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct source tabulates T_critical^(m)/J and C_r only for eta=0.1 through 0.9.",
+        "The final row is eta=0.9, T_critical^(m)/J=0.714112, C_r=0.223103.",
+        "No table value or exact database entry was located for the endpoint eta->1 or limiting C_r=1/2."
+      ],
+      "reasoning": "The finding is not a table recomputation: it gives an all-eta unique implicit solution and an endpoint asymptotic beyond the finite tabulated range.",
+      "searches": [
+        "arXiv:quant-ph/0205014 Table I critical temperature residual concurrence",
+        "Teleportation via thermally entangled state Heisenberg XX residual concurrence 0.9 0.223103",
+        "Tcritical B_m Heisenberg XX teleportation asymptotic"
+      ]
+    },
+    "rationale": "The direct paper gives an implicit threshold and finite table but not the endpoint Lambert-W law or concurrence limit. No covering semantic-database result or targeted published statement was located. An abstract-only magnetic-impurity extension remains an explicit residual risk.",
+    "residual_risks": [
+      "The full text of arXiv:quant-ph/0312125 was not accessible during this comparison; it may contain a related limiting calculation after removing the impurity.",
+      "The MaRDI record links arXiv:quant-ph/0205014 while displaying a later Physics Letters A publication record; the primary MSC nevertheless attaches to the linked mathematical work.",
+      "An equivalent endpoint analysis may exist in unindexed teleportation literature under different dimensionless parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies every premise but stops at the implicit threshold and finite table; no endpoint Lambert-W asymptotic or C_r->1/2 statement was located.",
+        "evidence": "The manuscript states F>2/3 iff sinh(beta J)>cosh(beta B_m), requires B_m<J, and tabulates the critical temperature and residual concurrence for eta=0.1,...,0.9.",
+        "identifier_or_url": "arXiv:quant-ph/0205014; DOI:10.1103/PhysRevA.66.062312",
+        "material_read": "Full arXiv text including the Hamiltonian, thermal state, equations (3)-(7), threshold discussion, and all nine rows of Table I.",
+        "method": "Open full-text manuscript inspection.",
+        "title": "Teleportation via thermally entangled state of a two-qubit Heisenberg XX chain",
+        "trigger": "Direct source of the Hamiltonian, thermal concurrence, standard-teleportation fidelity, threshold equation, and finite threshold table."
+      },
+      {
+        "assessment": "Studies a magnetic impurity plus external field and reports unbounded enhancement of critical temperatures. Whole-document noncoverage is not asserted.",
+        "evidence": "The abstract explicitly changes the model by adding magnetic impurity.",
+        "identifier_or_url": "arXiv:quant-ph/0312125",
+        "material_read": "Public abstract and bibliographic record; full text was not accessible in the available source path.",
+        "method": "Abstract-level inspection.",
+        "title": "Magnetic field effects on the optimal fidelity of standard teleportation via the two qubits Heisenberg XX chain in thermal equilibrium",
+        "trigger": "Closest later paper specifically about magnetic-field dependence of XX-chain teleportation fidelity."
+      },
+      {
+        "assessment": "Provides broader anisotropic formulas but no located endpoint analysis of the Yeo standard-protocol threshold or threshold-concurrence limit.",
+        "evidence": "Its equations (1)-(8) introduce anisotropy and a piecewise fully entangled fraction; the later section treats two-copy entanglement teleportation.",
+        "identifier_or_url": "DOI:10.1088/1674-1137/32/9/007",
+        "material_read": "Full four-page article, including the XXZ Hamiltonian, concurrence, critical-temperature equation, fully entangled fraction, zero-temperature cases, and teleportation section.",
+        "method": "Full article text and rendered-page inspection.",
+        "title": "Teleportation via thermally entangled states of a two-qubit Heisenberg XXZ chain",
+        "trigger": "Later anisotropic generalization citing the Yeo XX model."
+      },
+      {
+        "assessment": "The record lists primary MSC 81P68, followed by 82B10 and 82B20.",
+        "evidence": "The full-work URL is arXiv:quant-ph/0205014 and the MSC list begins with Quantum computation (81P68).",
+        "identifier_or_url": "MaRDI Q1864746",
+        "material_read": "Bibliographic title, full-work link to arXiv:quant-ph/0205014, keywords, and MSC list.",
+        "method": "Mathematical bibliographic metadata inspection.",
+        "title": "Mathematical bibliographic record for the Yeo XX thermal-teleportation work",
+        "trigger": "Primary MSC ownership verification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "291f9e05-1fce-44e0-ac10-479fbead080c",
+  "value": {
+    "rationale": "The source's main physical message is that concurrence and teleportation usefulness differ. The endpoint theorem quantifies that separation in the singular field limit: the operational temperature scale vanishes inverse-logarithmically while threshold concurrence approaches one half.",
+    "status": "PASS"
+  }
+}
