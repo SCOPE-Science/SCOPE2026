@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The graph identification, diameter-two general-position lemma, ordinary general-position upper/lower bounds, frozen maximum configurations (with n=2 handled separately), and explicit n-robot traversal were reconstructed from definitions. The argument is analytic and covers all integers n>=2 without relying on finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The concluding section of arXiv:2209.12631v1 asks for investigation of arbitrary line graphs rather than providing a general theorem covering them.",
+        "DOI 10.1016/j.dam.2025.10.041 gives 2 <= Mob_gp(G vee K_1) <= omega(G)+1 in the one-universal-vertex setting, not an equality theorem covering the target."
+      ],
+      "reasoning": "A broader theorem would need to determine all line graphs, all complete-tripartite line graphs, or all universal-vertex joins of prisms. The inspected sources do not.",
+      "searches": [
+        "\"arbitrary line graphs\" \"mobile general position\"",
+        "\"complete tripartite\" \"mobile general position\" line graph",
+        "\"universal vertex\" prism \"mobile general position\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.12631v1",
+      "doi:10.1017/S0004972723000102",
+      "arXiv:2505.00535v1",
+      "doi:10.1016/j.dam.2025.10.041"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2209.12631v1 proves Mob_gp(L(K_m))=m-2 for complete-graph line graphs.",
+        "arXiv:2505.00535v1 proves Mob_gp(K_n square K_2)=n.",
+        "DOI 10.1016/j.dam.2025.10.041 gives general join bounds but no monotonicity or equality that forces Mob_gp(K_1 vee (K_n square K_2))=n."
+      ],
+      "reasoning": "The target is neither L(K_m) nor merely K_n square K_2. Adding a universal vertex changes shortest paths and mobile feasibility, and the join bound leaves multiple possible values.",
+      "searches": [
+        "arXiv:2209.12631v1 Theorem line graph complete graph mobile general position",
+        "arXiv:2505.00535v1 K_n square K_2 mobile general position",
+        "doi:10.1016/j.dam.2025.10.041 join universal vertex mobile general position"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2209.12631v1 treats L(K_m), not L(K_{1,1,n}), and explicitly proposes arbitrary line graphs as an open direction.",
+        "arXiv:2505.00535v1 treats Cartesian products and joins but does not state the exact value for K_1 vee (K_n square K_2)."
+      ],
+      "reasoning": "The target was searched under both its line-graph form and its isomorphic universal-vertex prism form. No equivalent statement was located.",
+      "searches": [
+        "\"L(K_{1,1,n})\" \"mobile general position number\"",
+        "\"line graph of complete tripartite\" \"mobile general position\"",
+        "\"K_1\" \"K_n square K_2\" \"Mobgp\"",
+        "mobile general position K1 join K_n square K_2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed hits concerned complete-multipartite dual general position and connected mutual visibility of line/rook graphs, which are different parameters.",
+        "No indexed hit returned an exact mobile-general-position table or theorem for L(K_{1,1,n})."
+      ],
+      "reasoning": "The exact graph family, invariant, and isomorphic join form were each queried; closest records were non-equivalent invariants.",
+      "searches": [
+        "mobile general position L(K_{1,1,n}) complete tripartite line graph",
+        "mobile general position line graph complete tripartite K_{1,1,n}",
+        "Mobgp K1 vee K_n square K2 exact"
+      ]
+    },
+    "rationale": "The 2022 primary source treats line graphs of complete graphs and explicitly leaves arbitrary line graphs for future study. The 2025/2026 primary source treats the prism K_n square K_2 and gives only general bounds for adding a universal vertex. Targeted exact-form and alias searches found no source whose statement implies the exact theorem for L(K_{1,1,n}).",
+    "residual_risks": [
+      "An equivalent result may exist under a different naming convention or in literature not indexed by targeted searches.",
+      "The originality conclusion is bibliographic, not a formal proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It determines the mobile number for L(K_m) and explicitly proposes investigating arbitrary line graphs; it does not state the target K_{1,1,n} family.",
+        "identifier_or_url": "arXiv:2209.12631v1; doi:10.1017/S0004972723000102",
+        "material_read": "Abstract, definitions, complete-graph line-graph theorem/proof, and concluding open problems in the full preprint.",
+        "method": "Full-text inspection of the open preprint.",
+        "title": "Traversing a graph in general position",
+        "trigger": "Foundational source introducing the invariant and treating line graphs."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It gives Mob_gp(K_n square K_2)=n and general bounds for G vee K_1, but no exact theorem for K_1 vee (K_n square K_2).",
+        "identifier_or_url": "arXiv:2505.00535v1; doi:10.1016/j.dam.2025.10.041",
+        "material_read": "Definitions, Cartesian-product exact values including K_n square K_2, join section, and related open-problem discussion.",
+        "method": "Full-text/open-access article inspection.",
+        "title": "Moving through Cartesian products, coronas and joins in general position",
+        "trigger": "The target is K_1 vee (K_n square K_2), so both its product and join results are potentially dominating."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7ab33055-3509-44bf-8e1b-aaf3934f8ff7",
+  "value": {
+    "rationale": "The result answers a natural slice of the published arbitrary-line-graph direction, gives an exact infinite family, and identifies a structural effect not supplied by prior bounds: adjoining a universal vertex to K_n square K_2 preserves the mobile number n while increasing gp to n+1.",
+    "status": "PASS"
+  }
+}
