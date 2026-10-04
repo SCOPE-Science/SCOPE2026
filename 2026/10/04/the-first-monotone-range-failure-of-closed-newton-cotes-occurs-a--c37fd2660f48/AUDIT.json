@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The monotone-data cone is represented exactly by nonnegative increments and one slack variable, so linear optimization reduces to simplex vertices and yields the cumulative-weight criterion without approximation. Exact rational replay solves the defining moment system through n=13, reproduces the published n=12 coefficients, proves the first negative cumulative weight and exact defect, verifies a strict monotone witness, and proves all n=13 cumulative weights positive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "El-Mikkawy derives closed and open Cotes numbers from Lagrange functions and gives computational algorithms.",
+        "Sermutlu derives moment equations, lists exact high-order coefficients, and emphasizes negative coefficients and roundoff.",
+        "Newman's abstract describes monotone convergence of Newton-Cotes approximations for appropriate function classes, a different monotonicity notion."
+      ],
+      "reasoning": "Coefficient generation and convergence monotonicity do not by themselves determine positivity on the finite-dimensional cone of monotone samples. The new step is the exact simplex/cumulative-sum reduction and its application to the high-order coefficient sequence.",
+      "searches": [
+        "A unified approach to Newton-Cotes quadrature formulae",
+        "A close look at Newton-Cotes integration rules",
+        "Monotonicity of quadrature approximations Newton-Cotes",
+        "Exit criteria Newton-Cotes monotonicity quadrature"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/S0096-3003(02)00144-3",
+      "Results in Nonlinear Analysis 2 (2019), 48-60",
+      "DOI:10.1090/S0002-9939-1974-0330865-8",
+      "SIAM J. Numer. Anal. 14 (1977), 1145-1150",
+      "Published semantic-index records on generalized Romberg positive weights and symmetric three-point quadrature envelopes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "El-Mikkawy's accessible full text defines the closed rule from integrated Lagrange functions, proves symmetry of Cotes numbers, and provides algorithms; it does not state the monotone-sample cumulative criterion in the inspected material.",
+        "Sermutlu's full text states the moment equations and publishes coefficients through n=18 for even closed rules; the inspected text discusses negative weights as a roundoff issue, not range preservation.",
+        "The accessible Newman material is an abstract only and frames monotonicity as monotone convergence of quadrature approximations for function classes."
+      ],
+      "reasoning": "The prior coefficient formulas supply inputs but do not imply the accepted range theorem without a separate ordered-simplex argument. The Newman comparison remains a named access risk because its full text was not inspected in this run.",
+      "searches": [
+        "DOI:10.1016/S0096-3003(02)00144-3 full text",
+        "Sermutlu Newton-Cotes 19 points full text negative coefficients",
+        "DOI:10.1090/S0002-9939-1974-0330865-8 monotonicity quadrature",
+        "Newton Cotes positive linear functional monotone sequence cumulative weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact and semantic searches did not return a published statement identifying cumulative Cotes-number signs as the necessary-and-sufficient bounded-monotone-data criterion.",
+        "The closest published high-order coefficient source tabulates individual weights and discusses roundoff from negative coefficients, not the ordered data cone."
+      ],
+      "reasoning": "The claim can be phrased as positivity of a linear functional on the cone of nondecreasing vectors, as cumulative-weight positivity, or as range preservation for monotone tabulated data. Searches covered these aliases; no checked statement implied the n=12/n=13 classification.",
+      "searches": [
+        "closed Newton Cotes monotone data cumulative sums first failure 12 panels",
+        "Newton Cotes monotonicity preserving quadrature partial sums weights 12",
+        "closed Newton Cotes 13 point monotone data range preservation",
+        "Newton Cotes negative weights monotone samples nonnegative quadrature",
+        "closed Newton Cotes 12 panels cumulative weight negative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sermutlu's full-text Table 1 contains the exact n=12 weight vector used here.",
+        "The published table makes the defect computable but does not report its cumulative minimum or monotone-data range implication.",
+        "The n=13 rule was reconstructed independently from the defining moment equations because the inspected table restricts closed-rule tabulation to even n."
+      ],
+      "reasoning": "Known coefficient tables cover the raw data needed for part of the calculation. The accepted claim is not the table itself but the exact ordered-cone invariant, first-failure classification, sharp extremizers, and recovery at the next order.",
+      "searches": [
+        "closed Newton Cotes n=12 weights 1364651 9903168 87797136",
+        "Newton Cotes 13 point coefficients negative",
+        "Newton Cotes 14 point weights negative",
+        "Newton Cotes cumulative Cotes numbers"
+      ]
+    },
+    "rationale": "Published coefficient theory and the known appearance of negative high-order Newton-Cotes weights are explicitly excluded. The checked literature did not state the cumulative-weight characterization of the bounded monotone sample cone, the exact first failure at n=12, its sharp range defect, or the exceptional restoration at n=13. The main residual risk is older ordered-functional or quadrature-monotonicity literature using different terminology.",
+    "residual_risks": [
+      "An older theorem on positive linear functionals over monotone sequences may contain the cumulative-sum lemma in more abstract language.",
+      "The full Newman 1974 article was not recovered; only its abstract was inspected.",
+      "A historical Newton-Cotes coefficient table could make the n=12 defect arithmetically recoverable without highlighting the monotone-data interpretation.",
+      "No claim is made about the sign pattern for n>=14."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS generation and symmetry of Cotes numbers; the inspected material does not state bounded-monotone-sample range preservation or a cumulative-weight threshold.",
+        "evidence": "The paper defines the n+1 point closed rule, expresses each weight as an integrated Lagrange basis function, proves symmetric Cotes numbers, and supplies a MAPLE algorithm for their computation.",
+        "identifier_or_url": "DOI:10.1016/S0096-3003(02)00144-3",
+        "material_read": "Author-uploaded full text exposed in the accessible publication page, including the abstract, definition of closed Cotes numbers, Lagrange-function representation, symmetry relation, examples, and computational appendix.",
+        "method": "Public full-text inspection.",
+        "title": "A unified approach to Newton-Cotes quadrature formulae",
+        "trigger": "Direct primary source on closed Newton-Cotes weights and symmetry."
+      },
+      {
+        "assessment": "COVERS high-order coefficient tables, exact n=12 weights, negative coefficients, truncation error, and roundoff motivation. It does not state the cumulative-prefix criterion or monotone-data defect in the inspected text.",
+        "evidence": "Table 1 gives the n=12 coefficients with denominator 63063000 exactly as replayed here. The paper lists 2010 MSC 65D30, 65D32.",
+        "identifier_or_url": "Results in Nonlinear Analysis 2 (2019), 48-60",
+        "material_read": "Complete open PDF, including the introduction, moment equations, coefficient section, Table 1 through n=18, error discussion, and conclusions.",
+        "method": "Open-access PDF text and page inspection.",
+        "title": "A close look at Newton-Cotes integration rules",
+        "trigger": "Primary full-text source tabulating the high-order coefficients used in the first-failure comparison and verifying numerical-integration MSC ownership."
+      },
+      {
+        "assessment": "The abstract concerns monotone convergence of Newton-Cotes approximations for appropriate function classes, which is not the same statement as monotone sample-cone range preservation. Because full text was unavailable, it remains a residual terminology risk.",
+        "evidence": "The abstract states that convergence of general Newton-Cotes quadrature rules is monotone for an appropriate class of functions and mentions trapezoidal and Simpson rules.",
+        "identifier_or_url": "DOI:10.1090/S0002-9939-1974-0330865-8",
+        "material_read": "Abstract and bibliographic metadata only.",
+        "method": "Abstract-level inspection; full text was not recovered.",
+        "title": "Monotonicity of quadrature approximations",
+        "trigger": "Title-level alias risk because it explicitly combines Newton-Cotes and monotonicity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c37fd266-0f48-4ea3-b60b-9729b8714fbb",
+  "value": {
+    "rationale": "The distinction between negative individual quadrature weights and failure on monotone data is mathematically and numerically substantive. The first-failure order, exact 19.6% defect, strict witness, and immediate n=13 recovery give a natural finite boundary and a reusable cumulative-weight safety criterion for monotone tabulated data.",
+    "status": "PASS"
+  }
+}
