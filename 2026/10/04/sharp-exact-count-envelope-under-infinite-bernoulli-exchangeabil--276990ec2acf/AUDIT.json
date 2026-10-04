@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the exchangeable count law to a binomial mixture with fixed directing mean, computes exact tangent majorants from the maxima of f(p)/p and f(p)/(1-p), verifies central concavity by an explicit quadratic second-derivative certificate, proves least-majorant and greatest-minorant properties, and supplies exact one- or two-atom extremizers. An exact-rational checker independently replays the algebra and finite two-atom stress tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Misra--Singh--Harner Theorem 4.3 proves that equal-mean mixed binomials are uniformly more variable and convex-order larger than the fixed binomial.",
+        "Zaigraev--Kaniovski give sharp marginal-only bounds for at-least-k events over all finitely exchangeable Bernoulli vectors.",
+        "The published infinite-exchangeability record gives exact tail envelopes via one-dimensional hull geometry."
+      ],
+      "reasoning": "Convex order does not determine a single cell probability, and a tail envelope does not algebraically imply a point-mass envelope because extrema of adjacent tails need not be attained by the same directing law. A separate hull calculation is required.",
+      "searches": [
+        "CDC:196133 Stochastic comparisons of Poisson and binomial random variables with their mixtures",
+        "Zaigraev Kaniovski Exact bounds at least k successes exchangeable Bernoulli March 28 2010",
+        "published-record:829140c11a96"
+      ]
+    },
+    "checked_sources": [
+      "CDC:196133",
+      "DOI:10.1016/j.spl.2003.07.002",
+      "Zaigraev--Kaniovski preprint 2010-03-28",
+      "published-record:829140c11a96",
+      "published-record:0e59e4914c83",
+      "published-record:81d03613e25b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The tail-envelope theorem has a single tangent breakpoint for a monotone binomial tail; it does not yield the two-tangent point-mass formula.",
+        "The binomial-mixture identifiability record concerns recovery of finite mixing support, not extremal probabilities under one mean constraint.",
+        "The rare pairwise-independent Bernoulli classification uses a different dependence class and asymptotic regime."
+      ],
+      "reasoning": "None of the closest published statements specializes to or dominates the exact point-mass interval. In particular, subtracting separate sharp tail bounds cannot certify a point-mass extremum because their optimizers differ.",
+      "searches": [
+        "published-record:829140c11a96",
+        "published-record:0e59e4914c83",
+        "published-record:81d03613e25b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved result stated the three-piece upper envelope with breakpoints (k-1)/(n-1) and k/(n-1).",
+        "The closest semantic result was an infinitely-exchangeable tail envelope, not a point-mass envelope."
+      ],
+      "reasoning": "Searches covered exchangeability, mixed binomials, exact-count probabilities, concentration, and the explicit breakpoint form. The retrieved results optimize tails, compare distributions in stochastic orders, or study mixture identification.",
+      "searches": [
+        "infinitely exchangeable Bernoulli exact probability exactly k successes fixed marginal",
+        "binomial mixture exact point mass fixed mixing mean upper bound",
+        "exchangeable Bernoulli exactly k successes fixed mean concave envelope",
+        "mixture of binomials fixed mean maximum probability K equals k",
+        "de Finetti binomial mixture point probability extremal",
+        "\"mixed binomial\" \"(k-1)/(n-1)\"",
+        "\"exactly k successes\" \"infinitely exchangeable\" Bernoulli"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved exact table or database record contained the stated breakpoints or extremizing directing measures."
+      ],
+      "reasoning": "The claim is symbolic for every n, every interior k, and every mean mu; it is not inferred from a finite parameter catalog.",
+      "searches": [
+        "mixed binomial exact cell probability fixed mean table",
+        "exchangeable Bernoulli point mass maximum fixed marginal",
+        "binomial mixture probability exactly k fixed mean"
+      ]
+    },
+    "rationale": "The closest inspected mixed-binomial paper proves stochastic and convex-order comparisons, while the closest finite-exchangeable paper optimizes monotone tails. The closest published infinite-exchangeability result solves binomial tails through a different one-tangent envelope. None states the exact interior point-mass interval or its two breakpoints.",
+    "residual_risks": [
+      "An equivalent point-mass envelope may exist in older moment-problem or mixture literature under a different vocabulary.",
+      "The originality search was statement-focused and targeted rather than exhaustive across every pre-digital exchangeability reference."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper writes the mixed-binomial point probability as the same integral used here and proves variability/convex-order comparisons, but it does not optimize an individual mass over all mixing laws with fixed mean or state the two tangent breakpoints.",
+        "identifier_or_url": "CDC:196133 / DOI:10.1016/j.spl.2003.07.002",
+        "material_read": "Full 12-page paper, with focused inspection of the mixed-binomial definition, Lemma 4.1, Theorem 4.3, and remarks.",
+        "method": "Compared its equal-mean stochastic/variability order conclusions with the exact optimization of a single cell probability.",
+        "title": "Stochastic comparisons of Poisson and binomial random variables with their mixtures",
+        "trigger": "Primary full text on mixed binomial laws with the same mean as a fixed binomial."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its theorem treats P(K_n >= k) over all finitely exchangeable vectors with fixed marginal. It neither imposes infinite extendibility nor optimizes the nonmonotone event K_n = k.",
+        "identifier_or_url": "preprint dated 2010-03-28",
+        "material_read": "Full 8-page preprint, including the exchangeable parametrization, linear-programming formulation, theorem, and appendix proof.",
+        "method": "Compared event type, feasible class, constraints, and extremizers with the infinitely extendible exact-count problem.",
+        "title": "Exact bounds on the probability of at least k successes in n exchangeable Bernoulli trials as a function of correlation coefficients",
+        "trigger": "Closest full primary source on sharp event-probability optimization for exchangeable Bernoulli trials."
+      },
+      {
+        "assessment": "METHOD_RELATED_NOT_COVERING",
+        "evidence": "The record solves a monotone tail objective with one tangent breakpoint. It does not state the exact-count objective, the two breakpoints (k-1)/(n-1), k/(n-1), or the three-regime upper extremizer.",
+        "identifier_or_url": "published-record:829140c11a96",
+        "material_read": "Full published RESULT.md, including the main theorem, proof, strict extendibility gap, and limitations.",
+        "method": "Compared its binomial-tail hull geometry and extremizers with the binomial point-mass hull.",
+        "title": "Exact Bernoulli tail envelopes under infinite exchangeability",
+        "trigger": "Closest published result with the same de Finetti fixed-mean feasible class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "276990ec-2acf-402c-9512-78099e93e3ce",
+  "value": {
+    "rationale": "The probability of an exact count is a natural local concentration functional for exchangeable binary data and random-effects binomial models. The theorem gives the full feasible interval, explicit extremizers, and the exact narrow window in which iid sampling is optimal. Outside that window it quantifies a concrete way latent heterogeneity can increase a selected count probability.",
+    "status": "PASS"
+  }
+}
