@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The proof extends the normalized deficit continuously to the endpoints, uses the published equality classification to isolate the only interior critical zero, shows minimizing sequences concentrate there by monotonicity in p, and matches upper and lower first-order bounds through a balanced-split derivative and a mean-value expansion. The bundled numerical checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.04032 develops a different checkpoint recursion and exponent.",
+        "arXiv:2609.11788v1 concerns a recursive-composition Bellman kernel and exact dyadic phase/balanced splitting."
+      ],
+      "reasoning": "The adjacent papers cover broader questions about accelerated gradient-descent schedules, but their stated implications do not determine the sharp derivative of the scalar deficit quotient. Balanced splitting in a distinct Bellman program does not imply the present local stability constant.",
+      "searches": [
+        "Web: \"Optimal Recursive Composition and Dyadic Phase Laws for Gradient Descent with Predetermined Stepsizes\"",
+        "Web: \"Stronger Lower Bounds for (Non-)Anytime Acceleration of Gradient Descent\" silver inequality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.09152v1",
+      "https://yeyuhanyyh.github.io/gd-silver-rate/",
+      "arXiv:2609.04032",
+      "arXiv:2609.11788v1",
+      "published-finding corpus search results listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ye--Liu equation (52) yields a uniform normalized coefficient 1 in the ideal case.",
+        "Ye--Liu equality classification at the critical exponent identifies z=1/2 as the unique interior equality point.",
+        "The later recursive-composition paper states balanced optimality for a different composition kernel and a log-periodic phase law."
+      ],
+      "reasoning": "The source premises are sufficient to prove the new asymptotic, but the new conclusion is strictly stronger than the displayed unit-coefficient estimate: the exact first-order coefficient is about 3.24829. No inspected prior statement implies that coefficient or the convergence of minimizing splits for this quotient.",
+      "searches": [
+        "Primary full-text inspection: arXiv:2609.09152v1, Lemma B.8 and equation (52)",
+        "Related full-text inspection: arXiv:2609.04032",
+        "Related-source inspection: arXiv:2609.11788v1 abstract and detailed scientific summary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.09152v1, Lemma B.8 and equation (52)",
+        "No published-finding corpus hit among the closest returned records states the quotient limit or its constant."
+      ],
+      "reasoning": "The candidate is invariantly the first-order derivative, at the critical exponent, of the infimum of the quadratic-normalized silver deficit. The source gives a pointwise lower coefficient of one after normalization but does not optimize that coefficient or localize minimizers. Search variants using silver inequality, normalized slack, stability, and balanced split did not return an equivalent statement.",
+      "searches": [
+        "published-finding corpus: arXiv 2609.09152 silver inequality normalized slack balanced split first-order coefficient",
+        "published-finding corpus: Silver inequality z^p (1-z)^p z(1-z)^p quantitative stability",
+        "published-finding corpus: balanced split silver exponent normalized quadratic slack",
+        "Web: \"z^p+(1-z)^p\" \"silver\" optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus IDs: 2026/9/19/SCOPE-schur-concavity-product-profile-block-scale--c907c96c56a6, 2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f, 2026/9/21/SCOPE-power-exponential-product-local-instability--348ea42cbf67",
+        "The exact primary source arXiv:2609.09152 was inspected at the lemma and slack-estimate locations."
+      ],
+      "reasoning": "No exact database/table entry located by the searches reports the constant 8 log(2)(rho^{-1}+rho^{-2}) or the normalized-deficit limit. The closest returned published-finding corpus records concern unrelated sharp constants or split phenomena.",
+      "searches": [
+        "published-finding corpus: arXiv 2609.09152 silver inequality normalized slack balanced split first-order coefficient",
+        "published-finding corpus: Silver inequality z^p (1-z)^p z(1-z)^p quantitative stability",
+        "published-finding corpus: balanced split silver exponent normalized quadratic slack"
+      ]
+    },
+    "rationale": "The primary source gives the silver inequality and a unit-coefficient uniform slack estimate, but not the optimized normalized first-order coefficient or minimizer localization. Targeted database and literature searches found no equivalent or stronger implication; closely related papers address different recursions or kernels. A residual access risk for the full text of arXiv:2609.11788 is recorded.",
+    "residual_risks": [
+      "The full arXiv text of arXiv:2609.11788v1 was not retrievable through the available source path; its abstract and detailed scientific summary were inspected instead.",
+      "Search failure cannot prove global novelty; the PASS assessment rests on statement-level comparison with the primary and closely related literature, not on absence of matching keywords."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_PREMISES_VERIFIED_NOT_COVERING_CLAIM",
+        "evidence": "Lemma B.8 states the critical inequality with equality at 0, 1/2, 1. Equation (52) supplies coefficient 1 after normalization in the ideal case but does not optimize it.",
+        "identifier_or_url": "arXiv:2609.09152v1",
+        "material_read": "Full paper text around Appendix B.4, including Lemma B.8, its equality cases, equation (52), and the proof of the slack estimate; the rendered PDF page was visually inspected.",
+        "method": "Full-text and PDF-page inspection.",
+        "title": "Silver Rate Is (Almost) Optimal for Gradient Descent",
+        "trigger": "Primary source containing the exact silver inequality and slack estimate used by the candidate."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its principal recursion yields a different exponent and targeted full-text searches did not locate the candidate silver-deficit quotient or quantitative slack constant.",
+        "identifier_or_url": "arXiv:2609.04032",
+        "material_read": "Full HTML-rendered paper text and targeted searches for silver inequality, slack, and silver-ratio notation.",
+        "method": "Full-text inspection and in-document search.",
+        "title": "Stronger Lower Bounds for (Non-)Anytime Acceleration of Gradient Descent",
+        "trigger": "Earlier closely related checkpoint lower-bound paper cited by the primary source."
+      },
+      {
+        "assessment": "PLAUSIBLE_RELATED_DIFFERENT_STATEMENT_ACCESS_RISK",
+        "evidence": "The inspected material concerns balanced splitting for K(x,y)=(x+y+sqrt(x^2+6xy+y^2))/2 and the resulting phase law, not the normalized silver-deficit quotient.",
+        "identifier_or_url": "arXiv:2609.11788v1",
+        "material_read": "ArXiv abstract plus a detailed scientific summary describing the Bellman kernel, balanced optimality theorem, equality cases, and dyadic phase law; direct arXiv full-text retrieval returned an access error.",
+        "method": "Abstract and detailed secondary scientific rendering; bounded direct full-text retrieval attempt.",
+        "title": "Optimal Recursive Composition and Dyadic Phase Laws for Gradient Descent with Predetermined Stepsizes",
+        "trigger": "Later paper with silver exponent and balanced-splitting theorems, plausibly close to the candidate."
+      },
+      {
+        "assessment": "DATE_AND_CONTEXT_ONLY",
+        "evidence": "The page is dated 2026-09-07 and publicly states the silver-exponent result before the arXiv v1 posting.",
+        "identifier_or_url": "https://yeyuhanyyh.github.io/gd-silver-rate/",
+        "material_read": "Public author announcement title, date, and mathematical statement of the silver exponent.",
+        "method": "Web inspection.",
+        "title": "The Silver Rate Is (Almost) Tight",
+        "trigger": "Earliest verified public source of the primary result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9078715e-df8f-48a9-af1b-3e496d487481",
+  "value": {
+    "rationale": "The silver inequality is load-bearing in the primary paper’s perturbative recursion. The exact first-order normalized margin and asymptotic extremizer quantify the local stability budget at the critical exponent, which is a natural structural refinement that may sharpen perturbative bookkeeping; it is not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
