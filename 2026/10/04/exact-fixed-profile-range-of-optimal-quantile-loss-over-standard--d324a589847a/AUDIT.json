@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the minimized pinball loss exactly as a gap-linear functional, proves the lower endpoint through the cut-indicator cone and strict triangle inequality, and proves the upper endpoint by an exact covariance with the cell-averaged quantile score. The conditional-variance identity gives the closed-form upper constant, and equality conditions plus connectedness give the exact intervals. An exact-rational checker replays direct minimization, covariance identities, inequalities, equality cases, and boundary sequences from the embedded package.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gilat--Hill prove quantile minimization for the asymmetric absolute functional and sharp mean-to-quantile distance bounds.",
+        "Xue--Titterington give the p-folded-CDF representation of weighted mean absolute deviation from a p-quantile, including empirical/discrete discussion.",
+        "Steinwart--Christmann study self-calibration and variance bounds for conditional pinball-loss learning."
+      ],
+      "reasoning": "These papers cover the loss, its quantile minimizers, distributional representations, and learning-theoretic risk bounds. None of the inspected statements fixes an atom-probability partition and then optimizes the minimized loss relative to the parent standard deviation.",
+      "searches": [
+        "DOI:10.1111/j.1467-9574.1993.tb01424.x",
+        "DOI:10.1016/j.spl.2011.03.014",
+        "arXiv:1102.2101"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1111/j.1467-9574.1993.tb01424.x",
+      "DOI:10.1016/j.spl.2011.03.014",
+      "arXiv:1102.2101",
+      "DOI:10.1016/S0895-7177(01)00109-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Gilat--Hill theorem controls quantile location by a central first moment; it does not determine minimum check loss divided by standard deviation.",
+        "The Xue--Titterington identity represents weighted quantile deviation as folded-CDF area; it does not optimize support geometry or supply the profile-dependent standard-deviation constants.",
+        "The Steinwart--Christmann variance terminology refers to learning-theoretic excess-loss bounds, not variance of the response.",
+        "The mean/median absolute-deviation survey concerns deviation measures broadly but available descriptions do not state an arbitrary-tau fixed-profile attainable range."
+      ],
+      "reasoning": "Knowing the quantile minimizer or an integral representation of the minimized loss does not imply either extremal ratio after fixing the atom masses. The new claim requires the cut-indicator cone for the lower endpoint and the conditional projection of the quantile score for the upper endpoint.",
+      "searches": [
+        "Gilat Hill quantile-locating asymmetric absolute functional mean quantile",
+        "Xue Titterington p-folded CDF weighted mean absolute deviation p-quantile",
+        "Steinwart Christmann pinball variance bounds",
+        "mean and median absolute deviations standard deviation Pham-Gia Hung"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved publication stated the two-sided fixed-profile interval for minimum check loss divided by parent standard deviation.",
+        "Searches using pinball/check/asymmetric-absolute and median-absolute-loss aliases returned quantile-estimation, deviation, or unrelated variance results rather than the cut/projection constants."
+      ],
+      "reasoning": "The searches cover the standard statistical and machine-learning names of the loss, the fixed-mass constraint, and the variance normalization. The claimed lower endpoint is an extreme-ray statement for the monotone support cone, while the upper endpoint is a conditional-projection norm; neither was present in the closest retrieved formulations.",
+      "searches": [
+        "fixed probability profile quantile loss standard deviation sharp",
+        "minimum check loss variance finite discrete distribution",
+        "pinball loss fixed atoms support geometry",
+        "asymmetric absolute loss standard deviation probabilities",
+        "quantile locating functional variance discrete support",
+        "median absolute loss standard deviation fixed probabilities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved exact formula or table contained both the cumulative-cut lower constant and the cell-projection upper constant."
+      ],
+      "reasoning": "The result is symbolic for every positive finite probability profile and every quantile level, rather than a finite table or enumeration.",
+      "searches": [
+        "quantile loss standard deviation fixed discrete probability vector exact constant",
+        "weighted mean absolute deviation p-quantile standard deviation finite support",
+        "pinball risk discrete support prescribed probabilities sharp"
+      ]
+    },
+    "rationale": "The closest full primary sources define the same quantile-locating/check-loss functional and the weighted mean absolute deviation from a p-quantile, but they do not optimize its standard-deviation-normalized value over support locations at a prescribed atom profile. Targeted searches also found learning-theoretic pinball variance bounds, which concern excess-risk processes rather than the parent response variance.",
+    "residual_risks": [
+      "Older convex-loss, isotonic-cone, or finite-frequency dispersion literature may encode the same extremal geometry under abstract notation.",
+      "The Pham-Gia--Hung survey of mean and median absolute deviations was not available as a fully inspected lawful open text during this review; its indexed scope is retained as a residual comparison risk.",
+      "The Steinwart--Christmann full text was not required for a noncoverage claim because its indexed object is learning-theoretic excess loss; only abstract-level comparison is used."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_LOSS_DIFFERENT_EXTREMAL_PROBLEM",
+        "evidence": "The article proves that the asymmetric absolute functional is minimized precisely at p-quantiles and then bounds mean-to-quantile distance by the central absolute first moment. It does not normalize the minimized functional by standard deviation or fix a finite atom-probability profile.",
+        "identifier_or_url": "DOI:10.1111/j.1467-9574.1993.tb01424.x",
+        "material_read": "Complete five-page article, including both quantile-locator propositions, the auxiliary functional, the central first-moment theorem, equality example, and references.",
+        "method": "Compared the optimized functional, normalization, distribution constraints, equality cases, and final theorem statement.",
+        "title": "Quantile-locating functions and the distance between the mean and quantiles",
+        "trigger": "Archive-era primary source defining exactly the asymmetric absolute quantile-locating functional used in the theorem."
+      },
+      {
+        "assessment": "SAME_DISPERSION_FUNCTIONAL_NOT_FIXED_PROFILE_RANGE",
+        "evidence": "The manuscript derives an area representation for weighted mean absolute deviation from a p-quantile and discusses its risk interpretation. It does not give a variance-normalized support-geometry range for prescribed atom probabilities.",
+        "identifier_or_url": "DOI:10.1016/j.spl.2011.03.014",
+        "material_read": "Complete open author manuscript with focused inspection of the theoretical and empirical folded-CDF derivations and the generalized p-folded/MADp section.",
+        "method": "Matched the weighted loss to the check-loss normalization and compared the paper’s CDF-area identity with the fixed-profile standard-deviation optimization.",
+        "title": "The p-folded cumulative distribution function and the mean absolute deviation from the p-quantile",
+        "trigger": "Direct full-text source on the weighted mean absolute deviation from a p-quantile, which is a constant multiple of the minimized check loss."
+      },
+      {
+        "assessment": "LEARNING_THEORY_VARIANCE_NOT_RESPONSE_SD",
+        "evidence": "The variance bounds support empirical-risk learning-rate analysis for conditional quantiles. They are not bounds on minimum population pinball loss divided by the standard deviation of the response.",
+        "identifier_or_url": "arXiv:1102.2101 / DOI:10.3150/10-BEJ267",
+        "material_read": "Abstract and indexed theorem descriptions concerning self-calibration, excess pinball risk, variance bounds, and nonparametric learning rates.",
+        "method": "Compared what random quantity the variance bound controls and whether parent-response standard deviation or fixed atom profiles enter.",
+        "title": "Estimating conditional quantiles with the help of the pinball loss",
+        "trigger": "Potential terminology collision because the paper advertises pinball-loss “variance bounds.”"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d324a589-847a-4220-a610-14037faf06d0",
+  "value": {
+    "rationale": "Minimum pinball loss is the canonical scale attached to a quantile and is used in quantile regression and asymmetric risk measurement. For categorical or empirical distributions the probability profile can be fixed while numerical support values are conventional or design-dependent. The theorem gives the complete possible ratio to standard deviation, identifies both extremal mechanisms, and yields simple median/equal-frequency corollaries rather than a routine one-off inequality.",
+    "status": "PASS"
+  }
+}
