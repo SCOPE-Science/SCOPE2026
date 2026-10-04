@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The proof gives an exact expression for every initial boundary, an exact first-difference identity, a proof that the peak occurs before the recurrence region, and a convex-combination induction for all later boundaries. The real-boundary reduction is exact because the renewal sums are integer-valued. A standalone Fraction-based replay checks the algebra and recurrence for thousands of rational parameter pairs without relying on floating-point decisions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carlsson--Nerman proves the general Lorden renewal inequality but does not state a distribution-specific equality or maximizing boundary for {1,m}.",
+        "Lorden's repository abstract describes a uniform upper bound on mean excess, not an exact two-point envelope.",
+        "Chang's published abstract describes overshoot inequalities and moment bounds, not the present equality."
+      ],
+      "reasoning": "A general upper bound cannot imply the exact family-specific value or the complete argmax set without additional structure. The present recursion calculation supplies that missing structure.",
+      "searches": [
+        "Lorden bound exact sharp constant two-point positive increments",
+        "Lorden overshoot two-point increments exact supremum renewal",
+        "worst boundary expected overshoot two-point distribution renewal",
+        "DOI:10.2307/1427260"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.2307/1427260",
+      "DOI:10.1214/aoms/1177697092",
+      "DOI:10.1214/aoap/1177004913",
+      "DOI:10.1016/j.orl.2012.11.011",
+      "published-finding corpus:9d2c1e07f7b4",
+      "published-finding corpus:23381feacbe8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected pairwise-independence record obtains a counterexample by imposing higher-order dependence; it does not analyze mutually independent increments.",
+        "The inspected stationary renewal record optimizes Corr(A^r,R^r), not E[R_t] over deterministic boundaries.",
+        "The generic Lorden inequality supplies only an upper bound and does not determine the maximizer or the rare-long-jump exact limit."
+      ],
+      "reasoning": "None of the closest statements dominates the present theorem: the objects, dependence class, or objective differ, and their conclusions do not algebraically imply the exact formula here.",
+      "searches": [
+        "published-finding corpus:2026/9/20/SCOPE-pairwise-independent-lorden-overshoot-counterexample--9d2c1e07f7b4",
+        "published-finding corpus:2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8",
+        "rare long jump renewal overshoot scaling p=lambda/m"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved record stated the closed-form iid {1,m} uniform mean-overshoot constant or its maximizing boundary.",
+        "The exact theorem is not a reparameterization of the inspected stationary age/residual-life correlation result."
+      ],
+      "reasoning": "The claim fixes the increment law and optimizes a first-passage overshoot over all deterministic boundaries. Searches using overshoot, residual-life, two-point, and exact-constant terminology did not return an equivalent equality.",
+      "searches": [
+        "exact uniform mean overshoot iid two-point renewal support 1 m boundary",
+        "two-point renewal increments {1,m} maximal expected overshoot boundary exact",
+        "two-point renewal residual life maximum finite time exact formula",
+        "q^{k+1} overshoot renewal two point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table, catalog, or database entry of {1,m} uniform overshoot maxima was located in the retrieved results."
+      ],
+      "reasoning": "The result is a symbolic theorem for all integer m and all p in (0,1), not a recomputation of a finite published table.",
+      "searches": [
+        "exact uniform mean overshoot iid two-point renewal support 1 m boundary",
+        "worst-case expected excess over boundary for Bernoulli interarrival times 1 m",
+        "Bernoulli renewal overshoot two-point",
+        "sup overshoot two-point renewal Lorden"
+      ]
+    },
+    "rationale": "Targeted semantic and web searches did not locate the exact uniform constant, the maximizing boundary threshold, or the rare-long-jump limit for iid {1,m} increments. The inspected classical sources provide general inequalities rather than this equality, and the closest public related records concern different dependence assumptions or different stationary functionals.",
+    "residual_risks": [
+      "An equivalent elementary formula could be implicit in older lattice-renewal books or papers under different terminology.",
+      "The full text of Lorden's 1970 article was not inspected; only its institutional repository abstract and bibliographic record were available in this review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article proves the general renewal-function/Lorden inequality. It does not state the exact iid {1,m} overshoot supremum or identify a maximizing boundary.",
+        "identifier_or_url": "DOI:10.2307/1427260",
+        "material_read": "Full two-page article PDF.",
+        "method": "Read theorem, proof, and references.",
+        "title": "An Alternative Proof of Lorden's Renewal Inequality",
+        "trigger": "Primary archive source for the classical uniform renewal inequality."
+      },
+      {
+        "assessment": "NO_DECISIVE_COVERAGE_FOUND",
+        "evidence": "The repository describes a uniform upper bound on mean excess and related moment/tail bounds. Because the full article was not inspected, this source remains an explicit residual risk.",
+        "identifier_or_url": "DOI:10.1214/aoms/1177697092",
+        "material_read": "Institutional repository abstract and bibliographic record; full article not inspected.",
+        "method": "Compared the abstracted main result and scope with the present theorem.",
+        "title": "On Excess over the Boundary",
+        "trigger": "Foundational source for the mean-overshoot problem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper advertises moment-based bounds improving Lorden in an inventory setting; the retrieved material does not state the exact {1,m} uniform overshoot constant or argmax.",
+        "identifier_or_url": "DOI:10.1016/j.orl.2012.11.011",
+        "material_read": "Institutional bibliographic abstract and author-manuscript abstract/introduction excerpt.",
+        "method": "Compared stated moment-bound contribution with the exact two-point equality.",
+        "title": "New analytical bounds on the average undershoot in an infinite horizon (s,S) inventory system",
+        "trigger": "Later moment-bound refinement closely related to renewal undershoot/overshoot questions."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its two-point increments are only pairwise independent and use higher-order finite-field dependence to violate Lorden. It does not give the iid two-point uniform constant.",
+        "identifier_or_url": "published-finding corpus:9d2c1e07f7b4",
+        "material_read": "Complete public result text.",
+        "method": "Compared hypotheses, construction, boundary objective, and conclusion.",
+        "title": "Pairwise independence does not preserve Lorden's mean-overshoot bound",
+        "trigger": "Closest semantic result on two-point increments and Lorden's inequality."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It studies stationary Pearson correlation of age and residual-life powers, not finite-boundary mean overshoot in an ordinary renewal process.",
+        "identifier_or_url": "published-finding corpus:23381feacbe8",
+        "material_read": "Complete public result text.",
+        "method": "Compared random objects and optimized functionals.",
+        "title": "Sharp power-correlation range for stationary renewal age and residual life",
+        "trigger": "Closest semantic result on exact stationary renewal residual quantities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "54c32c8b-7bdc-4b47-92d1-677e09709725",
+  "value": {
+    "rationale": "The {1,m} law is the simplest nondegenerate lattice renewal family with a scalable rare long jump. Its exact uniform overshoot constant is a natural invariant directly refining a classical uniform-bound problem. The theorem also locates the worst boundary and shows a nonvanishing asymptotic gap from the generic second-moment bound under p=lambda/m, giving the exact formula structural rather than merely computational value.",
+    "status": "PASS"
+  }
+}
