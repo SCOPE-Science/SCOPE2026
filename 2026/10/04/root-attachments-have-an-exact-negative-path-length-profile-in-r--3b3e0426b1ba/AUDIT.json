@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The two conditional trees are coupled by changing only the parent of vertex j. The set of descendants of j is invariant under that change, so the total-path-length difference equals the final j-subtree size times the depth of the alternative parent and is strictly positive. Its expectation factors into n/j times the average predecessor depth, giving the exact local covariance. Harmonic telescoping gives the global formula, and the classical L2 path-length limit gives the correlation asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dobrow--Fill give detailed total-path-length limit and moment theory for the uniform recursive tree.",
+        "Bergeron--Flajolet--Salvy develop a general increasing-tree framework that treats path length and root degree as classical parameters.",
+        "The 2026 power-weight paper gives exact total-path-length innovation identities and variance recurrences for a larger weighted family."
+      ],
+      "reasoning": "These sources are broader in path-length theory or tree-family scope, but the inspected statements do not compare total path length with the distinguished root degree. The current claim requires conditioning on a specific root-attachment event and tracking its descendant subtree.",
+      "searches": [
+        "DOI:10.1017/S0963548399003855",
+        "DOI:10.1007/3-540-55251-0_2",
+        "arXiv:2610.00614"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/S0963548399003855",
+      "DOI:10.1007/3-540-55251-0_2",
+      "DOI:10.1239/jap/1339878805",
+      "arXiv:2610.00614"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier root-degree/leaf result has positive covariance and is driven by leaf survival; it does not imply the negative path-length profile.",
+        "The classical marginal root-degree law gives independent Bernoulli root attachments but not their covariance with a global depth functional.",
+        "Classical total-path-length limit theory gives marginal fluctuations but not the root-attachment conditional law.",
+        "The recent attachment-innovation decomposition concerns centered path-length fluctuations and does not state root-degree or root-attachment stochastic ordering."
+      ],
+      "reasoning": "Neither marginal theory determines the joint law. The new implication comes from a coupling that preserves the entire future descendant set while shifting every descendant depth by a common positive amount.",
+      "searches": [
+        "own random recursive tree root degree leaves covariance",
+        "classical recursive tree root degree distribution",
+        "classical recursive tree total path length",
+        "power-weight recursive tree attachment innovation total path length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record semantic searches returned unrelated tree extremal and random-walk results rather than a recursive-tree mixed-moment theorem.",
+        "Targeted web searches located classical papers on path length and root degree separately, but no source stating the local root-attachment covariance or stochastic order."
+      ],
+      "reasoning": "Queries covered mixed moments, covariance, root degree, individual root attachments, total/internal path length, and correlation aliases. The originality assessment additionally compares full primary texts rather than inferring novelty from search failure.",
+      "searches": [
+        "random recursive tree root degree total path length covariance exact harmonic",
+        "recursive tree root degree path length covariance attachment indicator",
+        "recursive tree total path length root degree correlation",
+        "\"random recursive tree\" \"root degree\" \"total path length\" covariance",
+        "\"random recursive tree\" \"root degree\" \"path length\"",
+        "\"recursive tree\" \"root degree\" covariance path length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or literature record matching the harmonic local covariance profile or the summed covariance formula was located."
+      ],
+      "reasoning": "The theorem is symbolic for every tree order and every insertion index and includes a stochastic-order strengthening; it is not a finite table or a recomputation of a known marginal.",
+      "searches": [
+        "\"Cov(root degree,total path length)\" recursive tree",
+        "\"root attachment\" \"total path length\" recursive tree",
+        "\"H_{j-1}\" root degree path length covariance",
+        "\"root degree\" \"internal path length\" random recursive tree"
+      ]
+    },
+    "rationale": "The closest inspected classical papers cover total path length and root degree separately. The closest current path-length paper gives martingale-innovation formulas but contains no root-degree or root-attachment covariance statement. No inspected source states the strict conditional stochastic ordering, the arrival-index covariance profile, or the monotone-transform consequence.",
+    "residual_risks": [
+      "Older recursive-tree or analytic-combinatorics literature may contain the same mixed first moment under a bivariate generating-function encoding.",
+      "The coupling is elementary once identified; originality rests on the exact root-attachment profile, stochastic-order formulation, and global consequence rather than on the classical marginal laws.",
+      "The 2026 power-weight paper was first posted after the current archive anchor and is used only as supporting comparison, not as the dated source anchor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "TOTAL_PATH_LENGTH_PRIOR_NOT_ROOT_DEGREE_JOINT_LAW",
+        "evidence": "The article develops total path length and its limiting distribution in detail. The inspected text does not introduce root degree as a joint statistic or state a covariance with root-attachment indicators.",
+        "identifier_or_url": "DOI:10.1017/S0963548399003855",
+        "material_read": "Full journal text, including the uniform recursive-tree construction, independent parent variables, exact mean, normalized L2 limit, moment recurrences, and the displayed second moment of the limit.",
+        "method": "Compared model definitions, statistics jointly studied, exact moments, and whether root degree or root-attachment indicators enter any theorem.",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Primary classical source on the exact object and total-path-length statistic."
+      },
+      {
+        "assessment": "PATH_LENGTH_AND_ROOT_DEGREE_SEPARATE_NOT_MIXED_COVARIANCE",
+        "evidence": "The paper gives separate generating functions for path length and root degree. The inspected sections do not state a mixed root-degree/path-length moment or covariance.",
+        "identifier_or_url": "DOI:10.1007/3-540-55251-0_2",
+        "material_read": "Full open paper, especially Section 5.1 on path length and Section 5.3 on root degree, including the recursive-tree specializations.",
+        "method": "Checked whether the two classical parameters are analyzed jointly or through a mixed bivariate generating function.",
+        "title": "Varieties of Increasing Trees",
+        "trigger": "Foundational increasing-tree source whose Section 5 treats both path length and root degree."
+      },
+      {
+        "assessment": "PATH_LENGTH_INNOVATIONS_NOT_ROOT_ATTACHMENT_COVARIANCE",
+        "evidence": "The paper studies total path length for deterministic attachment weights and recovers the uniform variance coefficient. The inspected text contains no root-degree statement, and searches found no root-degree or covariance formulation matching the accepted claim.",
+        "identifier_or_url": "arXiv:2610.00614",
+        "material_read": "Full experimental HTML introduction, contribution summary, model definition, depth representation, and full-text searches for root degree and covariance.",
+        "method": "Compared the attachment-level fluctuation decomposition with the root-attachment conditioning and joint statistic in the finding.",
+        "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+        "trigger": "Very recent same-statistic source with exact attachment-innovation identities, checked as a possible stronger coverage result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b3e0426-b1ba-4b0a-92d6-6e53709e7469",
+  "value": {
+    "rationale": "Root degree and total path length are canonical local and global summaries of random recursive trees. The result gives an exact insertion-time sensitivity law and a strong stochastic comparison, explaining mechanistically how direct root branching lowers global search cost. The linear covariance together with inverse-square-root-logarithmic correlation decay quantifies a natural scale-separation phenomenon.",
+    "status": "PASS"
+  }
+}
