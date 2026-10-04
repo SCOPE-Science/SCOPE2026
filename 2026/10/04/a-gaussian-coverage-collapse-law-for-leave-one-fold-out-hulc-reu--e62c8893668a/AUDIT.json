@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For iid Gaussian fold means, direct algebra gives the LOFO errors as scaled S-Z_i. Their exact covariance matrix has diagonal B-1 and off-diagonal B-2, so a one-factor Gaussian representation yields the displayed orthant integral. Orthogonal decomposition of the Gaussian vector into its mean and centered residual subspace yields an exact residual-extreme representation of coverage; Taylor expansion plus standard Gaussian maximum estimates proves the sharp asymptotic. The range identity proves the width formula samplewise. Numerical anchors are independently replayed by the embedded verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "G. P. Steck, Biometrika 49 (1962), 433-445 studies equicorrelated multivariate-normal orthant probabilities.",
+        "The HulC source treats independent estimators; the inspected main text does not provide a dependent-estimator theorem that dominates the final claim."
+      ],
+      "reasoning": "Steck's result is broader at the probability-calculation layer but does not encode the leave-one-fold-out data-reuse geometry or its samplewise width comparison. No inspected confidence-region source supplied a theorem whose statement directly subsumes the combined width-and-coverage claim.",
+      "searches": [
+        "published-finding corpus: leave-one-fold-out reuse Gaussian HulC confidence hull coverage collapse width shrinks overlapping estimators equicorrelated orthant",
+        "Web: equicorrelated Gaussian orthant probability HulC overlapping confidence interval"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.14577",
+      "doi:10.1093/jrsssb/qkad134",
+      "doi:10.1093/biomet/49.3-4.433",
+      "published-finding corpus 2026/9/21/SCOPE-exact-dependence-jackknife-pseudovalues-u-statistics--28a7e700bc55",
+      "published-finding corpus 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2105.14577, Section 2.1: B estimators are assumed independent; equation (3) gives the independent-estimator miscoverage expression; the conclusion again specifies independent subsamples.",
+        "Steck 1962 covers equicorrelated normal orthant probabilities as a general probability object."
+      ],
+      "reasoning": "The source HulC theorem cannot imply a result for these overlapping estimators because its independence hypothesis fails. Steck supplies a critical lemma-level calculation but not the statistical construction or the width-collapse comparison. Combining those ingredients with the exact LOFO affine geometry yields the final claim; no stronger inspected prior statement directly entails the full theorem.",
+      "searches": [
+        "arXiv:2105.14577 full text: independent estimators; independent subsamples; width",
+        "Steck 1962 equicorrelated normal orthant probabilities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2105.14577, Section 2.1, states that the univariate HulC begins with independent estimators and explicitly invokes their independence in Lemma 1.",
+        "No targeted search result stated a leave-one-fold-out HulC coverage formula or the samplewise width identity."
+      ],
+      "reasoning": "The final claim is not a rephrasing of the published HulC guarantee because its estimators are deliberately dependent. Searches included the natural aliases leave-one-out, leave-one-fold-out, overlapping, dependent, K-fold, confidence hull, and equicorrelated orthant.",
+      "searches": [
+        "published-finding corpus: HulC leave-one-fold-out overlapping estimators Gaussian coverage collapse convex hull",
+        "published-finding corpus: dependent HulC correlated estimators Gaussian orthant leave-one-fold-out",
+        "Web: \"HulC\" \"dependent estimators\"; \"HulC\" \"leave-one-out\"; \"HulC\" \"K-fold\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit for deletion dependence: 2026/9/21/SCOPE-exact-dependence-jackknife-pseudovalues-u-statistics--28a7e700bc55, concerning covariance of jackknife pseudo-values rather than confidence hull coverage.",
+        "Closest published-finding corpus confidence-related hit: 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91, concerning rank/conformal miscalibration under pairwise independence rather than HulC reuse."
+      ],
+      "reasoning": "The searched database did not contain a matching exact table, finite-B law, or equivalent leave-one-fold-out confidence-hull result. The closest records study different statistics and different dependence structures.",
+      "searches": [
+        "published-finding corpus: convex hull confidence interval overlapping K-fold means coverage Gaussian leave-one-out",
+        "published-finding corpus: independent subsample HulC overlapping split counterexample coverage"
+      ]
+    },
+    "rationale": "The direct HulC source explicitly requires independent estimators and does not cover the dependent LOFO construction. Targeted published-finding corpus and literature searches did not locate an equivalent LOFO confidence-hull law. Classical equicorrelated-normal orthant theory is credited as a proof ingredient rather than claimed as new.",
+    "residual_risks": [
+      "An older paper on dependent convex-hull confidence regions may contain the same Gaussian LOFO special case under different terminology.",
+      "The full text of Steck (1962) was not available in the inspected source, so the exact form of every formula in that article was not compared line by line; its general orthant scope is credited rather than treated as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source's validity argument requires independent estimators from disjoint batches; it does not state a leave-one-fold-out dependent reuse theorem.",
+        "evidence": "Section 2.1 states that the B estimators are independent, says they can be obtained by splitting into B batches, and explicitly uses independence in Lemma 1; the conclusion again says independent subsamples.",
+        "identifier_or_url": "arXiv:2105.14577",
+        "material_read": "Abstract; Section 2.1 including the independence setup, Lemma 1 and miscoverage formula; width discussion; conclusion.",
+        "method": "Full-text HTML inspection.",
+        "title": "The HulC: Confidence Regions from Convex Hulls",
+        "trigger": "Direct method source and strongest plausible source of prior coverage."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR: it covers the orthant-probability calculation class, but not the LOFO HulC mapping, samplewise width factor, or statistical coverage-collapse interpretation.",
+        "evidence": "Biometrika 49 (1962), 433-445; title and reference summaries identify general equicorrelated-normal orthant probabilities.",
+        "identifier_or_url": "doi:10.1093/biomet/49.3-4.433",
+        "material_read": "Bibliographic record and abstract-level/index description establishing scope as equicorrelated normal orthant probabilities.",
+        "method": "Bibliographic/source inspection; full article access was unavailable in the inspected source.",
+        "title": "Orthant probabilities for the equicorrelated multivariate normal distribution",
+        "trigger": "The reduced Gaussian vector is equicorrelated, so classical orthant theory could dominate the probability step."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e62c8893-668a-4e7a-a258-8500453ead95",
+  "value": {
+    "rationale": "Overlapping leave-one-fold-out reuse is a natural efficiency modification of sample splitting. The theorem shows a severe and counterintuitive calibration failure: every interval is B-1 times narrower than the disjoint-fold hull, yet coverage tends to zero at an explicit rate. This gives a useful structural warning about dependence in convex-hull inference rather than a routine recomputation.",
+    "status": "PASS"
+  }
+}
