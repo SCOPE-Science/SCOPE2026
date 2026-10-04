@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Each model equation has the form input flux minus an output flux depending only on that coordinate. Stationarity against arbitrary antiderivatives of the coordinate therefore gives the corresponding conditional expectation exactly. Conditional orthogonality yields the variance-speed identity for all five coordinates. For the nuclear endpoint, zero speed fixes P_N and P_2 and strict monotonicity of the Michaelis-Menten phosphorylation maps propagates constancy through P_1, P_0, and M. For the transcription endpoint, zero speed fixes M, injectivity of Hill repression fixes P_N, and the same propagation closes the loop. The exponential-memory formula follows by variation of constants on bounded complete trajectories. The packaged checker verifies the only algebraic certificate needed for the variance decomposition.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldbeter 1995 establishes the biochemical feedback mechanism and limit-cycle oscillation.",
+        "Padoan, Forni, and Sepulchre 2021 give the exact five equations and differential model-reduction analysis.",
+        "Forger and Kronauer 2002 analyze Goldbeter's five-variable clock by averaging and relate it to van der Pol models."
+      ],
+      "reasoning": "Existence of the limit cycle, mechanism-level time delays, model reduction, and approximate-manifold averaging do not implication-wise provide conditional input-flux regressions for every compact invariant measure or endpoint equality rigidity.",
+      "searches": [
+        "doi:10.1098/rspb.1995.0153",
+        "doi:10.1007/s00422-021-00888-4 Goldbeter",
+        "doi:10.1137/S0036139900373587 Goldbeter",
+        "Goldbeter circadian multiple phosphorylation nuclear transport limit cycle"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1098/rspb.1995.0153",
+      "pmid:8587874",
+      "url:https://models.cellml.org/e/4d",
+      "doi:10.1007/s00422-021-00888-4",
+      "doi:10.1137/S0036139900373587"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original abstract states that oscillation occurs only within ranges of degradation and nuclear-transport rates.",
+        "The 2021 full article studies limit-cycle model reduction rather than invariant statistical projections.",
+        "The 2002 paper's accessible abstract states an averaging-based approximate equivalence with van der Pol-type clock models."
+      ],
+      "reasoning": "Parameter ranges for oscillation and reduced-model equivalence do not imply the universal quantifier over all compact invariant probability measures. Even a global time-average transport balance would be only the constant-test special case of the accepted conditional nuclear law.",
+      "searches": [
+        "Goldbeter 1995 nuclear transport rate oscillation",
+        "Goldbeter 2021 balanced truncation circadian flux",
+        "Goldbeter averaging approximate manifolds 2002 circadian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Each calibration is equivalently a family of identities against arbitrary functions of one coordinate.",
+        "The nuclear law is equivalently E[P2|PN]=(k2/k1)PN and k1^2 Var(P2)-k2^2 Var(PN)=E[dot PN^2].",
+        "The transcription endpoint is equivalently the orthogonal projection of the Hill transcription flux onto the mRNA coordinate."
+      ],
+      "reasoning": "Searches covered conditional-expectation, flux-balance, time-average, nuclear-transport, variance, and derivative-speed formulations so a simple algebraic rewording was not treated as distinct.",
+      "searches": [
+        "Goldbeter stationary conditional flux input output",
+        "Goldbeter P2 PN conditional expectation nuclear transport",
+        "Goldbeter circadian variance speed derivative stationary",
+        "Goldbeter phosphorylation time average flux balance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected same-object source or indexed search result stated the five simultaneous state-slice flux calibrations.",
+        "No inspected source stated the equilibrium-rigid nuclear variance defect.",
+        "The curated model repository reproduces the equations but does not present the accepted stationary theorem."
+      ],
+      "reasoning": "The search targeted the exact object, its five-state phosphorylation chain, nuclear transport, conditional expectations, stationary fluxes, and variance identities.",
+      "searches": [
+        "Goldbeter 1995 circadian stationary flux balance nuclear transport conditional expectation",
+        "Goldbeter five variable circadian model invariant measure variance phosphorylation",
+        "Goldbeter model time average P2 PN nuclear transport",
+        "Goldbeter biological clock stationary moment flux variance"
+      ]
+    },
+    "rationale": "The original source and repository establish the mechanism and model, while the complete modern same-object treatment writes the exact equations and analyzes limit-cycle model reduction. That complete article contains no invariant-measure or average formulation under targeted full-text searches, and no relevant stationary variance theorem was located. The same-object averaging paper concerns approximate-manifold reduction and van der Pol equivalence rather than state-slice stationary flux calibration. The accepted result is not a claim about known oscillation existence or bifurcation ranges: it is the five simultaneous conditional flux laws, their exact variance residuals, and endpoint equality rigidity.",
+    "residual_risks": [
+      "The complete 1995 foundational paper was not securely readable in the inspected route.",
+      "The complete 2002 averaging article was access-limited.",
+      "Because the generator proof is concise, a related time-average or conditional-flux observation could remain in unindexed biochemical-oscillator literature.",
+      "No novelty is claimed for the five ODEs, the limit cycle, phosphorylation delay mechanism, parameter ranges for oscillation, or model-reduction results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the five-stage biological mechanism, limit-cycle interpretation, and importance of degradation and nuclear transport. No whole-document noncoverage assertion is made.",
+        "evidence": "The verified publication date is 22 September 1995; the abstract explicitly identifies multiple phosphorylation, negative transcription feedback, and nuclear transport as clock mechanisms.",
+        "identifier_or_url": "doi:10.1098/rspb.1995.0153",
+        "material_read": "PubMed/JSTOR bibliographic record and abstract; the complete article was not securely readable in the inspected route.",
+        "method": "Bibliographic and abstract-level implication comparison.",
+        "title": "A Model for Circadian Oscillations in the Drosophila Period Protein (PER)",
+        "trigger": "Foundational source and earliest-public-date anchor."
+      },
+      {
+        "assessment": "The repository reports that the implementation reproduces Figure 2 from the original publication and confirms the biological interpretation.",
+        "evidence": "The model is identified as a curated implementation of Goldbeter 1995 and is described as reproducing the published result.",
+        "identifier_or_url": "https://models.cellml.org/e/4d",
+        "material_read": "Model status, provenance, mechanism description, and original-paper citation.",
+        "method": "Model-provenance comparison.",
+        "title": "Goldbeter, 1995",
+        "trigger": "Curated reproducible implementation tied directly to the original paper."
+      },
+      {
+        "assessment": "Writes all five equations and studies nonlinear balanced truncation of the limit cycle. No invariant-measure or average statement was found; the variance match is confined to unrelated references.",
+        "evidence": "Equations 21a–21e are the five equations used in the proof; full-text searches returned no 'invariant measure' or 'average' matches.",
+        "identifier_or_url": "doi:10.1007/s00422-021-00888-4",
+        "material_read": "Complete open HTML article; specifically the Goldbeter equations and results section, plus document-wide searches for invariant measure, average, and variance.",
+        "method": "Full-text equation and implication comparison.",
+        "title": "Balanced truncation for model reduction of biological oscillators",
+        "trigger": "Complete open same-object mathematical source containing the exact five equations."
+      },
+      {
+        "assessment": "Uses averaging to connect Goldbeter's five-variable Drosophila clock to van der Pol-type circadian models; it does not expose the accepted conditional flux theorem in accessible material.",
+        "evidence": "The abstract explicitly states that Goldbeter's five-variable model is analyzed by averaging; its MSC list includes 37N25.",
+        "identifier_or_url": "doi:10.1137/S0036139900373587",
+        "material_read": "Accessible abstract, reference list, publication metadata, and MSC classification; complete article text was access-limited.",
+        "method": "Abstract/metadata implication comparison.",
+        "title": "Reconciling Mathematical Models of Biological Clocks by Averaging on Approximate Manifolds",
+        "trigger": "Close same-object mathematical treatment and dynamical-systems classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c8ce95f1-6109-4004-bdba-7fc3407c30c6",
+  "value": {
+    "rationale": "Goldbeter's clock is explicitly built as a five-stage biochemical flux loop in which phosphorylation and nuclear transport create the delay needed for circadian oscillation. The accepted result gives the full loop an exact stationary statistical structure rather than a single global balance: every stage's output flux is the state-slice conditional mean of its input, and every unexplained flux fluctuation is exactly coordinate speed. The two feedback endpoints are equality-rigid, so any genuine stationary oscillation must exhibit strict transcription and nuclear-transport fluctuation loss and cross both endpoint balance surfaces. The nuclear formula additionally links the biologically emphasized transport delay to an exact exponential memory and a simultaneous current-state projection, providing a direct consistency diagnostic for simulated or measured stationary clock trajectories.",
+    "status": "PASS"
+  }
+}
