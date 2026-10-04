@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each vertex v, phi_0 makes every vertex of the induced closed neighborhood N[v] have internal degree at least 3: the center has ambient degree at least 3, while each neighbor lies with v in exactly two triangles and therefore has v plus two distinct common neighbors inside N[v]. Thus N[v] has no removable vertex, so psi_n implies |N[v]|>n and hence deg(v)>=n. The genus inequality follows rigorously from the handshaking lemma, |V|>=n+1, and the standard orientable edge bound E<=3V-6+6g.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lockhart's Proposition 4 uses one low-degree vertex to create a small closed neighborhood with no removable vertex, proving only the planar case.",
+        "Lockhart's later construction moves to n-connected, n-representative triangulations but does not derive a necessary genus bound for arbitrary finite models.",
+        "Tent--Mohammadi formulate the removable-vertex axiomatization and model classification but do not treat pseudofinite approximants.",
+        "The standard Euler inequality supplies the external topological estimate needed after the new minimum-degree lemma."
+      ],
+      "reasoning": "The accepted theorem generalizes the local mechanism of the planar proof from the existence of a degree-at-most-5 vertex to a universal statement forced by psi_n, then converts it into a genus lower bound valid for every embedding.",
+      "searches": [
+        "arXiv:2603.23900 full PDF: removable vertices, Theorem 3 finite axiom scheme, Proposition 4 planar obstruction, Proposition 5 and Theorem 12 higher-genus approximants",
+        "arXiv:2503.02121v2 full PDF: Theorem 1.1, Definition 2.2 removable vertices, Definition 2.10 complete Farey theory",
+        "surface graph literature: Euler inequality E<=3V-6+6g for orientable genus g"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.23900",
+      "arXiv:2503.02121v2",
+      "Chambers, Surface embedded graphs (2017)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4 proves only nonexistence on the sphere; it does not state that psi_n forces minimum degree n or quantify higher genus.",
+        "Lockhart's constructed graphs are n-connected, but that is a sufficient property of one construction, not a necessary consequence stated for every finite model.",
+        "Tent--Mohammadi classify infinite models of the complete theory and do not imply a finite-genus lower bound.",
+        "No prior current-ledger finding concerns arXiv:2603.23900 or finite Farey approximants."
+      ],
+      "reasoning": "The new step is the universal closed-neighborhood obstruction at every vertex. That converts the local axiom psi_n into a global minimum-degree condition and then into a topological lower bound, yielding information not present in the source statements.",
+      "searches": [
+        "primary-source implication check: Proposition 4 planar obstruction versus all-genus minimum-degree lemma",
+        "primary-source implication check: n-connected construction versus necessary structure of arbitrary finite models",
+        "Tent--Mohammadi implication check: complete-theory axioms versus finite approximate-model genus",
+        "current cumulative ledger claim comparison through generation g000053"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding hit states a Farey finite-approximation genus lower bound or minimum-degree theorem.",
+        "Web searches returned Lockhart's paper, the underlying Farey model-theory paper, and general Farey graph material, but no quantitative genus barrier for finite models of the axiom scheme."
+      ],
+      "reasoning": "The searches cover the exact source title and identifier, the finite-model terminology, the local psi_n axiom, minimum degree, orientable genus, and the quadratic-growth formulation.",
+      "searches": [
+        "published-finding search: Farey graph pseudofinite genus lower bound minimum degree psi_n finite model",
+        "published-finding search: arXiv 2603.23900 genus lower bound finite models Farey graph",
+        "published-finding search: Farey graph finite approximants orientable genus quadratic",
+        "published-finding search: Tent Mohammadi Farey graph removable vertex finite model genus",
+        "published-finding search: Farey graph pseudofinite minimum degree psi_n",
+        "web literature: Pseudofiniteness of the Farey Graph genus lower bound finite model",
+        "web literature: Farey graph pseudofinite genus finite approximation minimum degree",
+        "web literature: Farey graph removable vertex psi_n genus",
+        "web literature: Farey graph orientable genus finite model"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked database entry gives the exact bound 1+ceil((n-6)(n+1)/12).",
+        "The primary source gives only the zero-genus exclusion for n>=6."
+      ],
+      "reasoning": "The relevant exact invariant is the minimum orientable genus compatible with the finite axiom depth. The theorem supplies a closed lower bound for that invariant, rather than a numerical table derived from examples.",
+      "searches": [
+        "published-finding search: Farey graph pseudofinite minimum degree psi_n",
+        "published-finding search: Farey finite approximant quadratic genus",
+        "web literature: Farey graph pseudofinite quadratic genus",
+        "web literature: Farey graph finite model minimum degree n removable vertex"
+      ]
+    },
+    "rationale": "The primary paper states and proves only the planar obstruction, then gives a higher-genus existence construction. It does not state the all-genus lower bound or the underlying minimum-degree lemma. The foundational axiomatization paper does not discuss finite approximate models or their genus. Targeted database and literature searches found no equivalent quantitative statement.",
+    "residual_risks": [
+      "The minimum-degree lemma is elementary once one notices that every closed neighborhood is non-removable, so an equivalent observation may exist informally without being indexed.",
+      "The quadratic lower bound is not claimed sharp; stronger inequalities may follow from additional structure forced by the two-triangles-per-edge axiom.",
+      "The source construction may have genus substantially above the lower bound, and no matching construction is provided."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG_PARTIAL_COVERAGE_BUT_NOT_THE_GENUS_BOUND.",
+        "evidence": "The source proves the planar obstruction by using a degree-at-most-5 vertex and then constructs higher-genus approximants, but does not state the universal minimum-degree or quadratic genus consequences.",
+        "identifier_or_url": "arXiv:2603.23900",
+        "material_read": "Full seven-page PDF, including Definition 7, Theorem 3, Proposition 4, Proposition 5, Lemmas 6--10, Theorem 11, and Theorem 12; the page containing the finite axiom scheme and planar obstruction was visually inspected.",
+        "method": "Direct reconstruction of the local neighborhood argument and implication comparison with the printed planar proof.",
+        "title": "Pseudofiniteness of the Farey Graph",
+        "trigger": "Primary recent source constructing finite models of deeper and deeper Farey axiom fragments."
+      },
+      {
+        "assessment": "FOUNDATIONAL_BACKGROUND_NOT_COVERING_FINITE_GENUS.",
+        "evidence": "The paper axiomatizes the complete Farey theory and defines removable vertices but does not study finite approximate models or genus growth.",
+        "identifier_or_url": "arXiv:2503.02121v2",
+        "material_read": "Full-text material at Theorem 1.1, Definition 2.2, Definition 2.10, and the model-classification section.",
+        "method": "Broader-coverage and axiom-consistency check.",
+        "title": "On the model theory of the Farey graph",
+        "trigger": "Underlying primary source for the Farey axiomatization and removable-vertex notion."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY.",
+        "evidence": "The notes record the standard inequality |E|<=3|V|-6+6g, with equality for triangulations under the usual hypotheses.",
+        "identifier_or_url": "Erin W. Chambers, lecture notes, 2017",
+        "material_read": "Euler-characteristic derivation of the bound for edges in a graph embedded on an orientable genus-g surface.",
+        "method": "Background theorem verification.",
+        "title": "Surface embedded graphs",
+        "trigger": "Standard topological graph inequality used in the genus calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "375ff736-db96-4834-ab5c-ff3be5d95306",
+  "value": {
+    "rationale": "Lockhart's pseudofiniteness theorem relies on higher-genus finite approximants but quantifies neither their necessary local density nor their topological cost. The accepted theorem shows that every finite model at axiom depth n has minimum degree at least n and therefore requires orientable genus on the order of n^2. This is a natural structural constraint on all approximation schemes and strictly strengthens the source's planar obstruction.",
+    "status": "PASS"
+  }
+}
