@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The source recurrences reduce exactly under \\(g_t=-G\\). DoG gives the displayed product, whose logarithm follows from the first two Taylor terms with a summable \\(j^{-3/2}\\) remainder. DoWG reduces to an autonomous scalar map for \\(p_t\\); the sign of \\(F(p)-p\\) is exactly the sign of \\(2-p^3-2p^2\\), yielding monotone convergence to the unique positive fixed point. The derivative there is strictly below one, which makes the multiplicative ratio errors summable and proves the geometric asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The DoWG paper proves convergence rates and a pointwise comparison to DoG but cautions that their later trajectories differ.",
+        "A later DAoG study describes DoWG as more aggressive than DoG and studies acceleration-versus-stability tradeoffs.",
+        "Those broader convergence and empirical observations do not imply the exact coherent-gradient growth class of either trajectory."
+      ],
+      "reasoning": "Rate theorems bound optimization error, while the present claim classifies the internal adaptive distance trajectory before hitting a distant minimizer. A pointwise step-size inequality does not produce the exact separation because each algorithm feeds its own past distances back into its denominator.",
+      "searches": [
+        "DoG constant gradient product one plus one over square root t startup growth",
+        "parameter-free optimizer coherent gradient distance growth DoWG",
+        "DAoG decayed adaptation over gradients DoWG larger steps instability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.12022v1",
+      "arXiv:2305.16284v1",
+      "DAoG, Artificial Intelligence Review, 2025"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The DoG paper supplies the exact step-size rule from which the product follows.",
+        "The DoWG paper supplies the distance-squared weighting and says its step size is pointwise larger, while warning that the algorithm trajectories differ after the first iteration.",
+        "The later DAoG literature remains qualitative about DoG/DoWG aggressiveness and stability rather than deriving this exact coherent-signal law."
+      ],
+      "reasoning": "The final result is not a restatement of pointwise dominance: it solves the self-coupled recurrences and proves different asymptotic trajectory classes on the same objective.",
+      "searches": [
+        "arXiv:2302.12022v1 DoG distance over gradients rapid growth distance estimate",
+        "arXiv:2305.16284v1 DoWG pointwise larger step than DoG trajectory",
+        "DoWG constant subgradient Tribonacci growth ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The DoG source defines the distance-over-root-sum-squared-gradient update and discusses rapid empirical growth of the distance estimate.",
+        "The DoWG source defines distance-squared gradient weighting and explicitly presents it as a more aggressive adaptation mechanism.",
+        "No inspected source states the limiting ratio as the positive root of the Tribonacci polynomial or the exact first-hit asymptotics."
+      ],
+      "reasoning": "Equivalent formulations include geometric growth of the DoWG distance estimate under a coherent signal, convergence of its multiplicative increment to a fixed constant, and a linear-in-log-distance startup time. The defining sources provide the ingredients but not these trajectory-level consequences.",
+      "searches": [
+        "DoWG constant subgradient exact growth ratio cubic startup distance estimator geometric growth",
+        "Distance over Weighted Gradients constant gradient asymptotic ratio 1.839286 cubic",
+        "DoWG versus DoG constant gradient startup hitting time logarithmic squared logarithmic",
+        "arXiv:2302.12022v1",
+        "arXiv:2305.16284v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record results concerned other adaptive step-size methods, quadratic stability frontiers, and accumulator dynamics rather than DoG or DoWG constant-subgradient trajectories.",
+        "No returned record stated a DoWG cubic fixed point, Tribonacci growth ratio, or the squared-logarithmic versus logarithmic hitting-time comparison."
+      ],
+      "reasoning": "The closest database matches use different adaptive quantities and update maps. Search absence is not treated as novelty proof; it supplements direct statement-level comparison with the defining sources.",
+      "searches": [
+        "DoWG constant subgradient exact growth ratio cubic startup distance estimator geometric growth",
+        "Distance over Weighted Gradients constant gradient asymptotic ratio 1.839286 cubic",
+        "DoWG versus DoG constant gradient startup hitting time logarithmic squared logarithmic",
+        "DoG constant gradient product one plus one over square root t startup growth",
+        "parameter-free optimizer coherent gradient distance growth DoWG",
+        "DoWG optimizer scalar quadratic exact dynamics distance estimate",
+        "DoG optimizer distance over gradients constant gradient exact dynamics parameter free"
+      ]
+    },
+    "rationale": "The defining papers give the two recurrences and motivate DoWG as a more aggressive adaptation of DoG, but the inspected material does not state the exact constant-subgradient product, the Tribonacci limiting ratio, or the resulting logarithmic versus squared-logarithmic first-hit separation. Focused published-record searches did not return an implication-equivalent result.",
+    "residual_risks": [
+      "An equivalent coherent-gradient calculation may exist in unindexed notes or implementation discussions.",
+      "The exact geometric constant is specific to the source DoWG weighting on the stated one-dimensional startup regime.",
+      "The result does not compare stochastic or post-hit optimization performance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_EXACT_CONSTANT_SUBGRADIENT_ASYMPTOTIC.",
+        "evidence": "The source states the DoG step rule and describes rapid distance growth empirically, but no exact product or first-hit asymptotic was located.",
+        "identifier_or_url": "arXiv:2302.12022v1",
+        "material_read": "Algorithm definition, distance and accumulated-gradient notation, surrounding analysis, and targeted full-text searches for constant-gradient and geometric-growth statements.",
+        "method": "Open-access paper inspection with direct equation and algorithm comparison.",
+        "title": "DoG is SGD's Best Friend: A Parameter-Free Dynamic Step Size Schedule",
+        "trigger": "Defining source for DoG and the initialization-distance mechanism."
+      },
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_TRIBONACCI_STARTUP_LAW.",
+        "evidence": "The source motivates and proves more aggressive pointwise adaptation but explicitly notes that differing trajectories complicate comparison; it does not state the solved constant-subgradient trajectory.",
+        "identifier_or_url": "arXiv:2305.16284v1",
+        "material_read": "Algorithm 1, the comparison with DoG, the discussion of larger steps and edge-of-stability behavior, and targeted full-text searches for constant-gradient, cubic, geometric, and fixed-ratio statements.",
+        "method": "Open-access full-paper inspection with direct recurrence comparison.",
+        "title": "DoWG Unleashed: An Efficient Universal Parameter-Free Gradient Descent Method",
+        "trigger": "Defining source for distance-squared weighting and the claimed faster adaptation mechanism."
+      },
+      {
+        "assessment": "LATER_COMPARATIVE_CONTEXT_NOT_COVERING_EXACT_CONSTANT_SUBGRADIENT_TRAJECTORIES.",
+        "evidence": "The study provides qualitative and empirical comparison and introduces a decayed method; it does not state the product, cubic fixed point, or exact hitting-time separation.",
+        "identifier_or_url": "Artificial Intelligence Review, 2025",
+        "material_read": "Public full-text sections describing DoWG as more aggressive than DoG, early acceleration, initialization sensitivity, and stability tradeoffs.",
+        "method": "Full-text web article inspection with targeted comparison to the final trajectory claim.",
+        "title": "DAoG: decayed adaptation over gradients for parameter-free step size control",
+        "trigger": "Later literature directly comparing DoG and DoWG aggressiveness and stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c80c9c33-0353-4c0a-9612-02cadb76bb9e",
+  "value": {
+    "rationale": "The speed at which the learned distance scale escapes a conservative initialization is the central adaptation mechanism of both methods, and the DoWG paper explicitly motivates its weighting as a way to adapt more aggressively. The exact trajectory separation quantifies that motivation on the canonical coherent signal: it changes the growth class and reduces the distance-scale startup cost from quadratic to linear in the logarithm of the unknown distance ratio. The result also explains why pointwise step-size comparison alone understates the feedback effect of the new weighting.",
+    "status": "PASS"
+  }
+}
