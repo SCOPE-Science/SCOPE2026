@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The Ehrhart-series identity is exact: multiplying lattice-point counts by \\(mn+1\\) gives \\(mtF'(t)+F(t)\\), and coefficient extraction gives the displayed two-term transform. For each nontrivial index, input log-concavity bounds the two neighboring output coefficients by scaled affine expressions \\(C_{i-1}\\) and \\(C_{i+1}\\); the exact identity \\(C_i^2-C_{i-1}C_{i+1}=m^2(h_i-h_{i-1})^2\\) then proves the output inequality. Boundary and trailing-zero cases are explicitly covered, and box preservation follows by finite induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wagner covers real-rooted numerator polynomials, a stronger input property than log-concavity.",
+        "Brändén–Ferroni–Jochemko cover ultra log-concavity, also stronger than ordinary log-concavity.",
+        "Liu–Tao–Xin in 2026 still describe ordinary log-concavity under Cartesian product as open."
+      ],
+      "reasoning": "No broader theorem located has hypotheses weak enough to imply the segment-factor result from mere log-concavity. Stronger-hypothesis theorems therefore do not dominate this claim.",
+      "searches": [
+        "Preservation of inequalities under Hadamard products ultra log-concavity Ehrhart",
+        "Total positivity of Hadamard products Wagner Ehrhart Cartesian product",
+        "h star log-concavity product interval lattice polytope"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.18794v1",
+      "arXiv:2307.10852v4",
+      "DOI:10.4171/EMSS/86",
+      "arXiv:2408.12386",
+      "Wagner, J. Math. Anal. Appl. 163 (1992), 459–483 (comparison theorem as cited and stated in the inspected modern primary sources)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu–Tao–Xin, Section 4.1 and concluding remarks, explicitly list ordinary log-concavity preservation as an open question.",
+        "Ferroni–Higashitani, Question 3.4(a), pose the same question and distinguish it from real-rootedness preservation.",
+        "Brändén–Ferroni–Jochemko prove the ultra-log-concave version but do not state ordinary log-concavity preservation."
+      ],
+      "reasoning": "The new theorem is a genuine partial solution of the published open problem: it treats every first factor satisfying ordinary log-concavity when the second factor is a segment, and by iteration every lattice box. It is neither a corollary of real-rootedness preservation nor of ultra log-concavity preservation because the input is not assumed to satisfy either stronger property.",
+      "searches": [
+        "Ehrhart Theory of the Join of Two Lattice Polytopes log-concavity Cartesian product",
+        "Examples and counterexamples in Ehrhart theory Question 3.4 Cartesian product",
+        "Preservation of inequalities under Hadamard products Ehrhart log-concavity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferroni–Higashitani Question 3.4(a) asks the general Cartesian-product preservation question.",
+        "Brändén–Ferroni–Jochemko formulate the same operation as a Hadamard product of polynomially interpolated generating functions and prove preservation for ultra log-concavity."
+      ],
+      "reasoning": "The claim was compared both in Ehrhart-language and in the equivalent Hadamard/Segre-series language. The strongest located preservation theorem assumes ultra log-concavity; the new statement assumes only ordinary log-concavity but fixes one geometric factor to a lattice segment.",
+      "searches": [
+        "Cartesian product lattice segment preserves log-concavity Ehrhart h star",
+        "Segre product h vector log-concavity Ehrhart interval",
+        "Hadamard product rational series log-concave numerator lattice polytope segment",
+        "Ferroni Higashitani log-concavity Cartesian product Ehrhart segment h star"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed record located stated the coefficient transform \\(g_i=(1+mi)h_i+(m(d+2-i)-1)h_{i-1}\\) or its box iteration.",
+        "Closest indexed Ehrhart records concerned unrelated fixed h-star vectors and inequalities, not Cartesian-product preservation."
+      ],
+      "reasoning": "Searches targeted the exact segment/box subclass and the adjacent-coefficient transform. No covering statement or table entry was found.",
+      "searches": [
+        "lattice box product h star log-concave",
+        "weighted adjacent transform Ehrhart h vector segment product",
+        "Averkov Cartesian product h star logconcavity interval lattice polytope"
+      ]
+    },
+    "rationale": "The inspected literature still records ordinary h-star log-concavity under Cartesian products as open, while located positive results impose stronger real-rootedness or ultra-log-concavity hypotheses. Searches targeted the segment, box, Hadamard/Segre, and exact-transform formulations and did not locate a statement implying the claim.",
+    "residual_risks": [
+      "A special-case preservation lemma equivalent to the displayed segment transform could exist in algebraic-combinatorics literature under different terminology and be poorly indexed.",
+      "Wagner’s 1992 paper was compared through the precise theorem statement reproduced in the inspected modern papers rather than by a complete line-by-line inspection of the original article; the stated theorem requires real-rootedness and therefore does not by itself cover ordinary log-concavity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states that real-rootedness is preserved, asks whether ordinary log-concavity is preserved, and again labels that question open in its concluding remarks; it does not give the segment coefficient transform or segment/box preservation theorem.",
+        "identifier_or_url": "arXiv:2606.18794v1",
+        "material_read": "Full-text portions covering the first page/MSC, Cartesian-product preliminaries, Section 4.1, and concluding remarks.",
+        "method": "Lawful open preprint/full-text reading.",
+        "title": "Ehrhart Theory of the Join of Two Lattice Polytopes",
+        "trigger": "Recent paper explicitly restating the Cartesian-product log-concavity problem and giving the current comparison framework."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Question 3.4(a) asks exactly whether ordinary h-star log-concavity survives Cartesian products; the preceding theorem covers only real-rooted inputs.",
+        "identifier_or_url": "arXiv:2307.10852v4; DOI:10.4171/EMSS/86",
+        "material_read": "Introduction, Cartesian-product preliminaries, and Section 3.1 including Theorem 3.3 and Question 3.4.",
+        "method": "Lawful arXiv full-text and PDF reading.",
+        "title": "Examples and counterexamples in Ehrhart theory",
+        "trigger": "Primary source of Question 3.4(a) and comparison with Wagner’s theorem."
+      },
+      {
+        "assessment": "STRONGER_HYPOTHESIS_ONLY",
+        "evidence": "The paper proves preservation of ultra log-concavity (and recovers Wagner’s real-rootedness result), not preservation from ordinary log-concavity. Thus it does not imply the present segment-factor theorem for a merely log-concave first factor.",
+        "identifier_or_url": "arXiv:2408.12386",
+        "material_read": "Introduction and ultra-log-concavity preservation theorem/proof summary.",
+        "method": "Lawful arXiv full-text reading.",
+        "title": "Preservation of inequalities under Hadamard products",
+        "trigger": "Potential broader theorem in the equivalent Hadamard-product formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5724d44a-c8d4-4139-975e-aa740958101e",
+  "value": {
+    "rationale": "The claim resolves a natural infinite subclass of an explicitly published open problem: every lattice segment is a preserving factor for ordinary Ehrhart h-star log-concavity, and iteration gives every lattice box. The result is structural rather than a fixed example, has a closed coefficient transform, and separates ordinary log-concavity from the stronger hypotheses used by prior preservation theorems.",
+    "status": "PASS"
+  }
+}
