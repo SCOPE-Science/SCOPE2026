@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For \\(n=2^a p\\), set \\(A=a+1\\) and \\(M=2^A-1\\). Cohen's Theorem 1 gives both prime-support and excess-valuation restrictions on \\(\\sigma(n)\\). For any \\(r\\mid M\\) with \\(r\\ne p\\), those restrictions force \\(r\\mid A\\), but with \\(d=\\operatorname{ord}_r(2)\\), LTE gives \\(v_r(M)=v_r(2^d-1)+v_r(A/d)>v_r(A)=v_r(\\tau(n))\\), a contradiction. Hence \\(M=p^c\\). If \\(d=\\operatorname{ord}_p(2)<A\\) and \\(m=A/d\\), then \\(Q=(2^A-1)/(2^d-1)\\) is a pure \\(p\\)-power with \\(v_p(Q)=v_p(m)\\), so \\(Q\\le m\\), while its geometric-sum form gives \\(Q>m\\); thus \\(d=A\\). Hence \\(A\\mid p-1\\). An odd prime \\(s\\mid p+1\\) would have to divide \\(A\\) by Cohen's support condition, and therefore \\(p-1\\), impossible. So \\(p+1=2^u\\); primality of \\(p\\) makes \\(u\\) prime and \\(\\operatorname{ord}_p(2)=u=A\\), giving \\(p=2^A-1\\) and \\(c=1\\). The converse is an even perfect number. The checker confirms the defining condition for \\(a\\le20\\) and odd primes \\(p\\le200000\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pollack–Pomerance, Prime-perfect numbers, Section 5.2: global superharmonic counting and prime-deficient subclasses",
+        "Pollack–Pomerance note that two-prime prime-perfect numbers are even perfect, but prime-perfectness is stricter than superharmonicity"
+      ],
+      "reasoning": "The later global bounds do not imply a structural classification of \\(2^a p\\). The prime-perfect two-prime theorem applies to a narrower class and cannot be used to infer that an arbitrary superharmonic \\(2^a p\\) is prime-perfect.",
+      "searches": [
+        "prime-deficient superharmonic 2^a p Pollack Pomerance",
+        "superharmonic 2^a p^b sigma divides n^k tau even perfect",
+        "prime-perfect numbers two distinct prime factors superharmonic"
+      ]
+    },
+    "checked_sources": [
+      "Cohen, Superharmonic numbers, Math. Comp. 78 (2009), 421–429, DOI 10.1090/S0025-5718-08-02147-9",
+      "Pollack and Pomerance, Prime-perfect numbers, Integers 12 (2012), 1417–1437, DOI 10.1515/integers-2012-0044",
+      "OEIS A152573",
+      "published-finding corpus searches for superharmonic two-prime, prime-odd-part, squarefree-odd-part, and prime-deficient aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cohen states that Callan's harmonic proof does not carry through to superharmonic numbers, although the same conclusion appears true",
+        "Pollack–Pomerance improve the superharmonic counting bound without giving a two-prime converse"
+      ],
+      "reasoning": "The final theorem is not a corollary of Cohen's Theorem 1 alone; it adds the order/LTE argument needed to eliminate the extra tau-supported factors. The later distribution theorem gives no implication at fixed prime support.",
+      "searches": [
+        "superharmonic two prime factors Cohen Callan Pomerance",
+        "superharmonic numbers even perfect two distinct",
+        "superharmonic prime odd part later literature"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cohen, Superharmonic numbers, Math. Comp. 78 (2009), Theorem 1 and the following paragraph",
+        "No indexed result returned an exact superharmonic \\(2^a p\\) classification; nearest hits concerned different harmonic variants."
+      ],
+      "reasoning": "The aliases prime odd part, squarefree odd part, two-prime support, and the explicit form \\(2^a p\\) were all searched. The primary paper itself distinguishes the unresolved superharmonic converse from the known harmonic classification.",
+      "searches": [
+        "superharmonic numbers two distinct prime factors even perfect Cohen conjecture",
+        "superharmonic prime odd part 2^a p even perfect",
+        "superharmonic squarefree odd part classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A152573 tabulates the smallest superharmonic number of each index and cites Cohen, but is not a classification by prime support",
+        "Cohen's tables enumerate counts and smallest-index examples, not all \\(2^a p\\)."
+      ],
+      "reasoning": "Known tables provide finite examples only. They neither state nor imply the unrestricted prime-odd-part theorem.",
+      "searches": [
+        "superharmonic numbers OEIS index Cohen",
+        "smallest superharmonic number with index OEIS",
+        "superharmonic 2^a p table"
+      ]
+    },
+    "rationale": "The foundational source explicitly identifies the full two-distinct-prime-factor classification as plausible but not obtained. The new theorem proves a natural infinite subfamily, and neither the inspected later distribution paper nor targeted database/web searches supplied an equivalent or stronger statement.",
+    "residual_risks": [
+      "An obscure later paper not surfaced by the targeted searches could conceivably contain the same special case; no such source was found.",
+      "The theorem deliberately does not address exponent b>1, so it should not be described as settling Cohen's full two-prime question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines superharmonic numbers, proves the prime-support/valuation criterion used here, and says the harmonic two-prime proof does not carry over although the analogous classification seems true. It does not state the prime-odd-part classification.",
+        "evidence": "Electronically published 2008-09-05; primary MSC 11A25. Theorem 1 gives the support/valuation condition; the paragraph following it identifies the two-prime gap.",
+        "identifier_or_url": "doi:10.1090/S0025-5718-08-02147-9",
+        "material_read": "Lawful open-access full PDF; title page, Section 2 through the two-prime discussion, Theorem 1 and its proof, and surrounding structural results.",
+        "method": "Full-text reading with rendered-page inspection.",
+        "title": "Superharmonic numbers",
+        "trigger": "Primary source for the object and the explicit two-distinct-prime-factor gap."
+      },
+      {
+        "assessment": "Strengthens global superharmonic counting bounds and introduces a prime-deficient subclass; it does not classify superharmonic integers of the form \\(2^a p\\).",
+        "evidence": "Section 5.2 defines the same superharmonic condition and proves a global upper bound; the introduction separately notes the narrower prime-perfect two-prime theorem.",
+        "identifier_or_url": "doi:10.1515/integers-2012-0044",
+        "material_read": "Full-text transcript, especially introduction and Section 5.2 on harmonic and superharmonic numbers.",
+        "method": "Full-text reading of the accessible author-hosted transcript.",
+        "title": "Prime-perfect numbers",
+        "trigger": "Later paper explicitly discussing superharmonic numbers and related prime-support classes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7faf554-cdef-4054-a464-98b39fa652e0",
+  "value": {
+    "rationale": "This is a complete classification of the canonical squarefree-odd-part slice of an explicitly identified structural gap. It is not a parameter tweak: when the odd exponent is one, tau(n)=2(a+1) has exactly one nontrivial exponent factor, making this the first layer where superharmonicity might differ from harmonicity. The theorem proves that it does not, and the order/LTE mechanism isolates why.",
+    "status": "PASS"
+  }
+}
