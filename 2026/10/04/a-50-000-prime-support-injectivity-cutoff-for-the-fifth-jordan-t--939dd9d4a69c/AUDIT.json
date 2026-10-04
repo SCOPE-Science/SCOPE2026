@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The collision reduction follows directly from the multiplicative formula for \\(J_5\\): after cancellation, the signed valuation vector of the factors \\(p^5-1\\) must vanish modulo \\(5\\). The deletion lemma is an immediate coordinate argument. The attached verifier checks exact factorizations for every prime \\(p\\le50000\\), primality of every displayed factor in the certified 64-bit range, and all four uniqueness-deletion rounds, which exhaust all \\(5133\\) candidate primes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.23901v1 Theorem 1.1 covers \\(k=3,4,6\\), not \\(k=5\\).",
+        "The same paper reports a \\(k=6\\) lower bound in the same largest-prime-factor metric, showing that this metric is mathematically motivated rather than an arbitrary slice."
+      ],
+      "reasoning": "A theorem covering all \\(k\\), or a stronger \\(k=5\\) cutoff, would subsume the claim; none was found in the inspected source or targeted searches.",
+      "searches": [
+        "On the noninjectivity of Jordan's totient functions Hang Fu J3 J4 J6 J5",
+        "Jordan totient noninjectivity k=5 computational lower bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.23901v1",
+      "OEIS:A059378",
+      "Targeted semantic literature searches for \\(J_5\\) collision and cutoff aliases",
+      "Targeted web searches for Jordan-totient noninjectivity at k=5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.23901v1 supplies the general necessary condition and algorithmic template, but no computed \\(k=5\\) instance.",
+        "Targeted semantic searches returned no result whose statement implies the \\(50000\\) cutoff."
+      ],
+      "reasoning": "The new content is the complete fifth-power factorization/deletion computation and its exact exhaustion of every prime up to \\(50000\\); the prior general method alone does not yield the numerical cutoff without this computation.",
+      "searches": [
+        "Jordan totient J5 primitive solution largest prime factor cutoff 100000",
+        "p^5-1 valuation vectors mod 5 Jordan totient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.23901v1, Section 2, equation (2.2) gives the equivalent fifth-power-ratio framework for general k.",
+        "No searched source stated the equivalent claim that every \\(J_5\\) collision has a prime factor exceeding \\(50000\\)."
+      ],
+      "reasoning": "The exact equivalent formulation checked was absence of a nonzero signed \\(\\{-1,0,1\\}\\)-valuation relation modulo \\(5\\) among the columns for primes at most \\(50000\\).",
+      "searches": [
+        "Jordan totient J_5 noninjective equal values primitive solution",
+        "J_5(m)=J_5(n) primitive collision fifth Jordan totient",
+        "Jordan totient function noninjective k=5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A059378 tabulates \\(J_5(n)\\) values and cites standard Jordan-totient references.",
+        "The entry does not state a largest-prime-factor collision cutoff or a valuation-elimination census."
+      ],
+      "reasoning": "A value table indexed by \\(n\\) does not imply the support cutoff, since the integers with all prime factors at most \\(50000\\) are unbounded.",
+      "searches": [
+        "OEIS A059378 Jordan function J_5",
+        "Jordan totient J5 table collisions"
+      ]
+    },
+    "rationale": "The motivating 2026 preprint treats \\(k=3,4,6\\) and explicitly develops a general algorithm, but its theorem does not cover \\(k=5\\). Targeted semantic and web searches for fifth-Jordan-totient collisions, injectivity, and prime-support cutoffs found no matching statement. The OEIS entry supplies values, not this support cutoff.",
+    "residual_risks": [
+      "An older or unindexed computation may have established a comparable or stronger \\(k=5\\) cutoff without searchable wording.",
+      "The cutoff is not claimed optimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the exact reduction used here and proves results only for \\(k=3,4,6\\); it does not contain the \\(k=5\\) cutoff.",
+        "evidence": "The source lists primary MSC 11Y70; Theorem 1.1 names only \\(k=3,4,6\\), while Algorithm 2.2 is stated for general \\(k\\).",
+        "identifier_or_url": "arXiv:2609.23901v1",
+        "material_read": "Abstract; Introduction and Theorem 1.1; Section 2 through Algorithm 2.4; Section 3 discussion of the general difficulty.",
+        "method": "Full arXiv HTML text inspection.",
+        "title": "On the noninjectivity of Jordan's totient functions",
+        "trigger": "Direct motivating source on Jordan-totient collisions and the same largest-prime-factor invariant."
+      },
+      {
+        "assessment": "Useful background table but not covering the support-collision claim.",
+        "evidence": "The entry tabulates values of \\(J_5(n)\\) and the multiplicative formula but no collision cutoff in terms of prime support.",
+        "identifier_or_url": "OEIS:A059378",
+        "material_read": "Entry definition, initial values, formula, references, and table link description.",
+        "method": "Direct web inspection.",
+        "title": "Jordan function J_5(n)",
+        "trigger": "Natural exact database for fifth Jordan totient values."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "939dd9d4-a69c-4018-a6f3-6ae8e2c976a4",
+  "value": {
+    "rationale": "The source's main theorem uses the same largest-prime-factor invariant to quantify how far collisions are excluded for other exponents, so extending that invariant to the untreated exponent \\(5\\) addresses a motivated gap. The result excludes every collision supported on the first \\(5133\\) primes, by a complete exact certificate, rather than checking a bounded range of integer arguments.",
+    "status": "PASS"
+  }
+}
