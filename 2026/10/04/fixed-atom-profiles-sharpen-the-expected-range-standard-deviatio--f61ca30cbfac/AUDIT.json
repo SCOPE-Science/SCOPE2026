@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The expected range has exact coefficients c_i obtained by subtracting the minimum atom probabilities from the maximum atom probabilities. Their sum is zero, so weighted Cauchy--Schwarz gives the claimed profile constant. The equality scores are consecutive cell averages of a strictly increasing function, hence define a valid unique ordered support. The global-gap identity is the exact Pythagorean error of replacing K_n' by its probability-cell averages.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Plackett is the classical global mean-range/standard-deviation source.",
+        "Kozyra--Rychlik give sharp bounds for centered L-statistics in Gini mean-difference units and explicitly cite Plackett as the first standard-deviation result.",
+        "Han--Wang--Wu give the global higher-order Gini versus standard-deviation inequality and the unrestricted quantile-score equality condition."
+      ],
+      "reasoning": "The unrestricted global theorem is stronger in domain but weaker in constant once a finite atom profile is imposed; it does not imply the profile-specific strict loss without the new projection calculation. The Gini-unit theory uses a different denominator and hence does not dominate the standard-deviation fixed-profile statement.",
+      "searches": [
+        "DOI:10.1093/biomet/34.1-2.120",
+        "DOI:10.1080/03610926.2015.1053937",
+        "arXiv:2508.10663"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1093/biomet/34.1-2.120",
+      "DOI:10.1080/03610926.2015.1053937",
+      "arXiv:2508.10663"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The global standard-deviation bound permits arbitrary distributions and supplies no prescribed-profile constant.",
+        "The Gini-unit L-statistics theorem normalizes by a different dispersion functional.",
+        "The prior fixed-profile expected-maximum result controls only the upper extreme relative to the mean, not the full range.",
+        "The prior fixed-profile Gini result is the excluded n=2 boundary case."
+      ],
+      "reasoning": "Neither the global range theorem nor the prior fixed-profile one-sided or pairwise results determines the all-n range score after conditioning on an arbitrary probability partition. The new statement requires the range-specific coefficient vector and its exact weighted projection norm.",
+      "searches": [
+        "Plackett expected range standard deviation",
+        "Han Wang Wu higher-order Gini standard deviation",
+        "Kozyra Rychlik L-statistics Gini mean difference",
+        "published expected maximum fixed probability profile",
+        "discrete Gini fixed atom profile variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searches returned global expected-range bounds, Gini-unit L-statistic bounds, and unrelated finite-support order-statistic problems, but not the fixed-profile constant.",
+        "No returned result stated that the maximizing support is affine in probability-cell averages of the unrestricted score."
+      ],
+      "reasoning": "These queries cover the order-statistic, higher-order-Gini, prescribed-frequency, variance-normalized, and support-geometry formulations of the result. The exact projection-deficit identity supplies an additional equivalence check against quantile-space formulations.",
+      "searches": [
+        "expected sample range fixed probability profile support locations exact",
+        "higher order Gini fixed atom probabilities support optimization",
+        "mean range standard deviation discrete distribution fixed probabilities",
+        "sample range variance finite support atom masses sharp",
+        "expected range order statistics prescribed probabilities support geometry",
+        "sample range standardized finite discrete distribution prescribed probabilities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record or table containing the cell-average constant or the positive atomization-deficit decomposition was returned."
+      ],
+      "reasoning": "The theorem is symbolic for every positive finite probability vector and every sample size at least three; it is not a finite census or table lookup.",
+      "searches": [
+        "fixed probability profile expected range standard deviation exact constant",
+        "finite support expected range variance atom probabilities",
+        "prescribed frequencies sample range standard deviation sharp"
+      ]
+    },
+    "rationale": "The closest full modern source gives the unrestricted higher-order-Gini/standard-deviation bound and its quantile extremizer. The closest full L-statistics source uses Gini mean difference rather than standard deviation and optimizes over unrestricted parent laws. No inspected or searched source states the prescribed-atom profile constant, equality geometry, or exact atomization deficit.",
+    "residual_risks": [
+      "Older projection-method literature for order statistics may contain an equivalent fixed-probability-partition specialization under different notation.",
+      "The full 1947 Plackett PDF could not be read without a publisher-side human verification step; it was therefore not used as a noncoverage certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GLOBAL_BOUND_NOT_FIXED_PROFILE",
+        "evidence": "The paper proves the unrestricted sharp GD_n/SD bound and identifies a continuous quantile-score extremizer. It does not prescribe a finite atom-probability vector or compute the cell-average projection loss.",
+        "identifier_or_url": "arXiv:2508.10663",
+        "material_read": "Full arXiv HTML with focused inspection of the quantile/covariance representation, Section 4.3, Proposition 1, its proof, and the empirical-estimation section.",
+        "method": "Compared domain restrictions, sharp constant, equality condition, quantile score, and treatment of discrete probability partitions.",
+        "title": "Higher-order Gini indices: An axiomatic approach",
+        "trigger": "Closest full source because it defines expected sample range as a higher-order Gini deviation and proves the global sharp comparison with standard deviation."
+      },
+      {
+        "assessment": "DIFFERENT_SCALE_AND_UNRESTRICTED_PROFILE",
+        "evidence": "The paper optimizes centered L-statistics in units of Gini mean difference over unrestricted parent distributions. It does not state a standard-deviation bound conditional on a prescribed atom-probability partition.",
+        "identifier_or_url": "DOI:10.1080/03610926.2015.1053937",
+        "material_read": "Full institutional text through the main theorem and proof, the literature survey identifying Plackett's range/SD result, and the special-case sections for order statistics and their differences.",
+        "method": "Compared the normalization, constraints on parent distributions, extremizer parametrization, and whether atom probabilities are fixed.",
+        "title": "Sharp bounds on the expectations of L-statistics expressed in the Gini mean difference units",
+        "trigger": "Highly relevant full L-statistics source covering sample ranges and sharp extremal distributions."
+      },
+      {
+        "assessment": "PARTIAL_ACCESS_CLASSICAL_GLOBAL_SOURCE",
+        "evidence": "The verified record is Biometrika 34 (1947), pages 120--122, published 1947-01-01. Kozyra--Rychlik explicitly describe Plackett as having precisely estimated the expected sample range in standard-deviation units.",
+        "identifier_or_url": "DOI:10.1093/biomet/34.1-2.120",
+        "material_read": "Verified Oxford bibliographic page and later primary-source description of its global sharp range result; the PDF itself required publisher-side human verification and was not read.",
+        "method": "Used only to establish the classical source, publication date, and global problem scope; no whole-document noncoverage conclusion was drawn.",
+        "title": "Limits of the Ratio of Mean Range to Standard Deviation",
+        "trigger": "Archive anchor and classical source for the global expected-range/standard-deviation problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f61ca30c-bfac-40cb-ba52-535d3e38462f",
+  "value": {
+    "rationale": "The result exactly solves a natural constrained version of a classical sharp order-statistic inequality and a modern higher-order Gini problem. For empirical or categorical distributions the mass profile is often fixed while numerical support values vary; the theorem gives the exact attainable optimum, a unique maximizing support geometry, and a quantitative loss relative to the unrestricted population bound.",
+    "status": "PASS"
+  }
+}
