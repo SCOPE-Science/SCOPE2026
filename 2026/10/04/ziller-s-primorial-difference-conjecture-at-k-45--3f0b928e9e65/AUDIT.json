@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For any gap d at stage k, shifting its left endpoint by tP_k for t=0,...,p_{k+1}-1 preserves every old-prime divisibility relation. At most two shifts are spoiled by divisibility of an endpoint by the new prime, and p_{k+1}>=3, so one shift survives and realizes the same consecutive gap at stage k+1. OEIS gives 308 distinct row-44 gaps, all positive even, with maximum 616; since exactly 308 positive evens are <=616, row 44 is exactly {2,4,...,616}. Persistence therefore proves N_min(45)>=616=h(44).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holt's cycle-of-gaps recursion supplies standard persistence machinery but does not state the Ziller k=45 threshold in the inspected source.",
+        "Brown 2024 gives general formulas for counts of fixed gaps and cites Ziller; searches within the full PDF found no occurrence of 616 or an index-45 result."
+      ],
+      "reasoning": "These are the main stronger or more general frameworks that could subsume the proof ingredient. They explain why persistence is not claimed as novel, while leaving the database-to-k=45 implication uncovered.",
+      "searches": [
+        "\"gaps persist\" primorial wheel sieve gap length",
+        "\"p-2\" copies gap cycle Eratosthenes sieve Holt",
+        "\"Distance between consecutive elements of the multiplicative group\" Ziller 616 45"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.01808v1",
+      "arXiv:1510.00743",
+      "DOI:10.7546/nntdm.2024.30.1.81-99",
+      "OEIS:A329815",
+      "OEIS:A331118",
+      "OEIS:A048670",
+      "MathDB: The primorial Jacobsthal lower-bound conjecture for missing differences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ziller's source explicitly labels the all-k pattern as an assumption suggested by computations through k=44.",
+        "The current MathDB page lists the conjecture as open and records no solution.",
+        "Brown's inspected full text treats fixed gap-count formulas, not the threshold implication at k=45."
+      ],
+      "reasoning": "The prior k<=44 computations do not logically include k=45. The new implication needs the persistence bridge plus the row-44 cardinality/maximum identity, which yields exactly the first uncomputed case.",
+      "searches": [
+        "Ziller primorial Jacobsthal lower-bound conjecture k>1 h(k-1) N_min(k)",
+        "MathDB primorial Jacobsthal lower-bound conjecture missing differences",
+        "Brown 2024 primorial gap counting formula Ziller"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2007.01808 states the conjecture and reports exhaustive results only for k<=44.",
+        "No exact search result stated N_min(45)>=616 or an equivalent k=45 verification."
+      ],
+      "reasoning": "The searches use the source notation, the exact target index, the exact Jacobsthal endpoint, and an equivalent persistence formulation.",
+      "searches": [
+        "\"N_min(45)\" primorial",
+        "\"h(44)\" 616 \"N_min\" primorial",
+        "\"On differences between consecutive numbers coprime to primorials\" 45",
+        "\"D(k)\" \"D(k+1)\" primorial differences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A329815 records A329815(44)=308 and identifies it as the number of distinct row-44 first differences.",
+        "OEIS A331118 records that its primitive first differences are necessarily even, that row length is A329815(n), and that the largest row term is A048670(n).",
+        "OEIS A048670 records h(44)=616 and h(45)=642."
+      ],
+      "reasoning": "The exact database values do not themselves state the k=45 conjecture case. The proof adds the implication from row-44 completeness through gap persistence.",
+      "searches": [
+        "OEIS A329815 row 44 308",
+        "OEIS A331118 primitive first differences row 44",
+        "OEIS A048670 term 44 616"
+      ]
+    },
+    "rationale": "The originality claim is narrowly the explicit k=45 verification of Ziller's conjecture, not the general wheel-persistence mechanism. Ziller reports exhaustive computation only through k=44. Exact searches for N_min(45), h(44)=616 in this conjecture, and the k=45 consequence found no indexed publication. The closest later full-text paper by Brown develops fixed-gap counting formulas but does not state the k=45 threshold, and a public problem page still lists the conjecture as open with no recorded solution.",
+    "residual_risks": [
+      "An unindexed note, private computation, or informal wheel-sieve observation may already record the same k=45 corollary.",
+      "The persistence mechanism is standard in wheel recursions, so originality is restricted to the explicit k=45 consequence rather than that lemma."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper gives the exact target conjecture and stops its exhaustive exploration at k=44; it does not state the k=45 consequence.",
+        "evidence": "arXiv:2007.01808v1, especially the introductory definitions and the paragraph reporting exhaustive exploration through k=44.",
+        "identifier_or_url": "arXiv:2007.01808v1",
+        "material_read": "Definitions 1.1 and 1.5, Lemmas 1.2-1.3, Proposition 1.8, the discussion of exhaustive computation through k=44, and the conjectural inequality.",
+        "method": "Full-text arXiv inspection.",
+        "title": "On differences between consecutive numbers coprime to primorials",
+        "trigger": "Primary source defining D(k), N_min(k), h(k), the computational frontier, and the conjecture."
+      },
+      {
+        "assessment": "The paper develops general formulas for fixed gap counts and cites Ziller, but the inspected text does not state N_min(45)>=616, the k=45 conjecture case, or an equivalent threshold result.",
+        "evidence": "Notes on Number Theory and Discrete Mathematics 30 (2024), 81-99.",
+        "identifier_or_url": "DOI:10.7546/nntdm.2024.30.1.81-99",
+        "material_read": "Full PDF sections 1-6, Equation (15), Proposition 4.1, conclusion, and appendices describing fixed-gap counts.",
+        "method": "Full-text PDF inspection, including page-image inspection.",
+        "title": "Distance between consecutive elements of the multiplicative group of integers modulo n",
+        "trigger": "Highly relevant later paper on exactly the same primorial unit-group gap object and citing Ziller."
+      },
+      {
+        "assessment": "Together the entries certify 308 distinct positive even row-44 gaps with maximum 616, hence every even gap through 616.",
+        "evidence": "A329815(44)=308; A048670(44)=616; A331118 states row length and maximum relations and evenness.",
+        "identifier_or_url": "OEIS:A329815; OEIS:A331118; OEIS:A048670",
+        "material_read": "Sequence definitions, row-length formula, parity comment, sequence values through row 44, and maximum-row-term relation.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A329815, A331118, and A048670",
+        "trigger": "Exact row-44 cardinality, parity, and maximum needed for the finite implication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f0b928e-9e65-4696-966f-787043a74317",
+  "value": {
+    "rationale": "The claim settles the first index immediately beyond the source paper's exhaustive frontier in an explicitly stated open conjecture. It does so by identifying a reusable propagation principle and a sharp row-cardinality argument, avoiding an infeasible direct enumeration of the 45th primorial residue system. The cutoff 616 is forced by h(44), not chosen arbitrarily, and the result clarifies exactly what additional information is needed to advance to k=46.",
+    "status": "PASS"
+  }
+}
