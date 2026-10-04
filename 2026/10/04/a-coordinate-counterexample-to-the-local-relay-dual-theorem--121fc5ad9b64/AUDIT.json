@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The original coordinate relay fusion frame is Parseval by the exact identity \\(\\sum_i|\\langle f,e_i\\rangle|^2=\\|f\\|^2\\). Each chosen local frame has operator \\(S_i=iI\\), and the local-dual energy is exactly \\(\\sum_i|\\langle f,e_i\\rangle|^2/i^2\\), whose value on \\(e_n\\) is \\(1/n^2\\); hence no positive lower bound exists. The repaired estimates follow from \\(\\|S_i^{-1}y\\|\\in[\\|y\\|/\\|S_i\\|,\\|S_i^{-1}\\|\\|y\\|]\\) and summation. No finite experiment is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 bridging paper defines common frame bounds for relay-local frame systems, but it does not state a local relay-dual correction.",
+        "The 2023 Banach-space extension explicitly imposes boundedness of families of nested g-frames in an analogous construction, which is compatible with but does not imply the present Hilbert-space theorem correction."
+      ],
+      "reasoning": "Later broader relay-frame work recognizes uniform local bounds in related constructions, but no inspected statement dominates the claim that the 2019 Theorem 3.10 is false as written or supplies this coordinate counterexample and explicit repaired bounds.",
+      "searches": [
+        "relay fusion frame local relay operators uniform bounds canonical local dual",
+        "Relay fusion frames in Banach spaces uniform bounded g-frames",
+        "Relay fusion frames and bridging results for fusion frames common local frame bounds"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1186/s13660-019-2181-9",
+      "doi:10.1016/j.jmaa.2020.124124",
+      "doi:10.1515/math-2022-0554",
+      "Semantic literature database searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proof itself uses extrema over the family \\(S_i\\), but the theorem assumes no uniform bounds.",
+        "The global relay-dual theorem uses one global frame operator, so its bounded inverse does not imply the missing family-uniform estimates in the local theorem.",
+        "The common-bound hypotheses in later relay-frame systems are additional assumptions and therefore do not make Theorem 3.10 valid as written."
+      ],
+      "reasoning": "Neither the global-dual result nor later common-bound constructions imply the literal local-dual theorem. The coordinate example satisfies the 2019 theorem's stated hypotheses and directly falsifies its conclusion.",
+      "searches": [
+        "Theorem 3.10 relay fusion frames local relay dual",
+        "common relay local frame bounds relay fusion frame system",
+        "bounded local g-frames relay fusion Banach"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2019 source defines the local relay dual by applying the inverse local frame operators and Theorem 3.10 asserts that the result is again an RFF.",
+        "The counterexample is equivalently a weighted-coordinate frame with weights \\(1/i\\), so the failure is exactly the loss of a uniform lower frame bound."
+      ],
+      "reasoning": "Searches covered local relay dual, inverse local frame operators, Bessel failure, and weighted-coordinate formulations. No checked result states the same counterexample or the same scalar necessity statement.",
+      "searches": [
+        "Relay fusion frames Theorem 3.10 local relay dual uniform frame bounds counterexample",
+        "Hong Li relay fusion frame local relay dual S_i inverse RFF theorem 3.10",
+        "relay fusion frame local dual unbounded frame operators fail Bessel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Five candidate-specific semantic literature searches returned no covering published finding; the nearest ranked records concerned unrelated frame or operator problems.",
+        "The publisher HTML was inspected at Definition 6, Theorem 3.10, its proof, Remark 3.11, and the metadata showing publication date and MSC."
+      ],
+      "reasoning": "The exact theorem and proof were checked in the primary source rather than inferred from snippets. Database searches did not reveal a published correction or duplicate finding.",
+      "searches": [
+        "10.1186/s13660-019-2181-9 Theorem 3.10 correction erratum",
+        "Semantic literature search for DOI 10.1186/s13660-019-2181-9 and Theorem 3.10"
+      ]
+    },
+    "rationale": "The checked primary and later relay-frame literature did not state this counterexample or the corrected local-dual theorem. The closest related later statements impose common or bounded local frame hypotheses rather than deriving the 2019 conclusion without them.",
+    "residual_risks": [
+      "An unindexed erratum, thesis, or informal note may already identify the missing uniformity.",
+      "The general two-sided uniform condition is presented only as a sufficient repair; a weaker condition may suffice for particular fixed relay fusion frames."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The theorem assumes only an RFF and arbitrary local frame operators, while the proof uses family-wide maxima/minima that need not be finite/positive.",
+        "evidence": "The displayed proof uses \\(\\max_i\\{\\|S_i^{-1}\\|^2\\beta\\}\\) for the upper estimate and \\(\\min_i\\{\\alpha/\\|S_i\\|^2\\}\\) for the lower estimate; Remark 3.11 says many local frames may be chosen.",
+        "identifier_or_url": "doi:10.1186/s13660-019-2181-9",
+        "material_read": "Definition 6; Section 3.2.1 global relay dual; Section 3.2.2 local relay dual; Theorem 3.10 and proof; Remark 3.11; publication metadata and MSC.",
+        "method": "Publisher full-text HTML.",
+        "title": "Relay fusion frames for Hilbert spaces",
+        "trigger": "Primary source containing the disputed local relay-dual theorem."
+      },
+      {
+        "assessment": "It recognizes common local frame bounds in relay-fusion-frame systems but does not cover the 2019 local relay-dual theorem correction.",
+        "evidence": "Its frame-system definition explicitly names common local frame bounds \\(\\lambda,\\mu\\).",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2020.124124",
+        "material_read": "Abstract, introductory framework, and the definition of relay fusion frame systems with common local frame bounds.",
+        "method": "Publisher full-text page.",
+        "title": "Relay fusion frames and bridging results for fusion frames",
+        "trigger": "Later work by the same authors on the same relay-fusion-frame framework."
+      },
+      {
+        "assessment": "The later theorem uses an explicit boundedness hypothesis for the family of local g-frames, consistent with the present uniformity issue but not covering the counterexample or repair.",
+        "evidence": "Theorem 4 assumes the local g-frames are \\(\\lambda,\\mu\\)-bounded.",
+        "identifier_or_url": "doi:10.1515/math-2022-0554",
+        "material_read": "Definition of Banach relay fusion frame and Theorem 4 on nested g-frame families.",
+        "method": "Publisher full-text HTML.",
+        "title": "Relay fusion frames in Banach spaces",
+        "trigger": "Later generalization by the same authors that could contain a broader correction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "121fc5ad-9b64-4519-b88e-7e777abb1465",
+  "value": {
+    "rationale": "The local relay dual is one of the source paper's advertised new duality constructions. The counterexample shows that this construction can fail even for a Parseval RFF with one-dimensional relay spaces, so the issue is structural rather than high-dimensional. The repair identifies the exact missing mechanism in the proof and gives explicit quantitative bounds; in the scalar coordinate model the uniform two-sided condition is also necessary.",
+    "status": "PASS"
+  }
+}
