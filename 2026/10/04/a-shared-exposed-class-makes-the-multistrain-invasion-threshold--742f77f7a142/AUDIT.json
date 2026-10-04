@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The source equations were reconstructed at the disease-free equilibrium. Only susceptible/diabetic-to-exposed incidence creates new infected individuals; progression from the exposed state into later infected states is transfer. The resulting next-generation matrix is rank one with the stated spectral radius. The full local-stability threshold follows because the infected block is Metzler, its real characteristic equation is strictly increasing at the spectral bound, its sign at zero is the sign of one minus the corrected reproduction number, and the disease-free demographic block has strictly negative eigenvalues. Exact rational replay checks the two-strain witness and its positive eigenvalue factor.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1371/journal.pone.0257512 uses separate exposed and infected states for each strain rather than one shared exposed state.",
+        "DOI:10.1007/s11538-022-01057-9 gives the general next-generation theorem but not this model-specific formula."
+      ],
+      "reasoning": "General multistrain and next-generation results do not dominate the claim. Separate exposed classes produce a different infection-type architecture, while the general theorem supplies the method but not the source-specific correction or threshold reversal.",
+      "searches": [
+        "multi-strain COVID exposed compartments reproduction number separate E_j I_j",
+        "next generation matrix multistrain SEIR spectral radius exposed compartments"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.28924/APJM/13-47",
+      "DOI:10.1007/s11538-022-01057-9",
+      "DOI:10.1371/journal.pone.0257512",
+      "Mathematical Biosciences 180 (2002), 29--48",
+      "Semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly places both exposed-to-strain-infectious and exposed-to-diabetic-infectious progression terms in its new-infection vector, then reports a maximum of square-root expressions.",
+        "The source model has one exposed equation but every strain-specific infectious class receives flow from that same exposed state.",
+        "The standard next-generation definition places only genuinely new infections in the new-infection part; progression among infected states belongs to the transfer part."
+      ],
+      "reasoning": "The source statement does not imply the new claim; it is contradicted by the exact two-strain witness. The general next-generation theorem does not itself supply the sum over every branch. Combining the published state equations with the correct split is necessary to obtain the rank-one additive expression.",
+      "searches": [
+        "DOI:10.28924/APJM/13-47 equations 3.8 theorem 3.4",
+        "10.28924/APJM/13-47 correction reproduction number",
+        "shared exposed compartment multiple strains basic reproduction number sum max next generation matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.28924/APJM/13-47, equations (2.1)--(2.7), (3.8), and Theorem 3.4.",
+        "DOI:10.1007/s11538-022-01057-9, next-generation definition separating new infection from infected-state transfer."
+      ],
+      "reasoning": "Queries covered the exact DOI, shared/common exposed-class terminology, additive versus max-square-root thresholds, and the possibility that exposed-to-infectious progression was counted as new infection. No located source states the same rank-one formula or the two-strain false-stability witness.",
+      "searches": [
+        "10.28924/APJM/13-47 shared exposed class R0 max square root sum strains",
+        "multi-strain epidemic common exposed compartment additive reproduction number",
+        "progression from exposed compartment counted as new infection next generation matrix error",
+        "reproduction number max sqrt strain shared exposed class theorem stability counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest semantically indexed result was titled “Universal coupled-SEIR reproduction-number bracketing is false: exact 2-patch E/I-churn counterexample”; it studies patch movement with separate E/I churn, not a common exposed class.",
+        "Exact-title and DOI web searches located the 2026 article and no correction or comment addressing equation (3.8)."
+      ],
+      "reasoning": "No exact database/table entry located in the searches contains the additive common-exposure threshold or the displayed rational counterexample. The nearest threshold result is implication-incomparable because its coupling mechanism and infected coordinates differ.",
+      "searches": [
+        "10.28924/APJM/13-47 shared exposed class R0 max square root sum strains",
+        "multi-strain epidemic common exposed compartment additive reproduction number",
+        "progression from exposed compartment counted as new infection next generation matrix error",
+        "reproduction number max sqrt strain shared exposed class theorem stability counterexample",
+        "10.28924/APJM/13-47 multistrain COVID diabetes reproduction number next generation matrix",
+        "\"Modeling and Optimal Control of a Multi-Strain Epidemic\" reproduction number",
+        "shared exposed compartment multiple strains basic reproduction number sum max next generation matrix",
+        "multi-strain epidemic common exposed compartment reproduction number sum over strains",
+        "square root reproduction number compartment progression counted as new infection next generation matrix"
+      ]
+    },
+    "rationale": "The closest source is the motivating paper itself, whose equation (3.8) uses a different next-generation split and a maximum of square roots. Standard next-generation references provide the transfer/new-infection rule but do not perform the source-specific all-strain calculation. A multistrain COVID model with separate exposed states has a different state architecture. Semantic searches over exact DOI/title, shared-exposed aliases, additive/max formulations, and next-generation splitting found no equivalent or stronger statement. The nearest indexed mathematical finding concerns patch-coupled SEIR movement and neither contains this shared-exposed structure nor implies the formula or counterexample.",
+    "residual_risks": [
+      "A non-indexed correction or comment could exist outside the searched sources.",
+      "The 2002 classical paper was not relied on through full text; the operative new-infection/transfer definition was checked in an open 2022 exposition that explicitly attributes it to the classical framework.",
+      "The result corrects the equations as printed and does not establish what alternative biological state architecture the authors may have intended."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; the paper states the differing max-square-root quantity and local-stability theorem rather than the additive rank-one threshold.",
+        "evidence": "The PDF identifies one exposed state, strain-specific infectious states, and one diabetic-infectious state; it places exposed-state progression terms in the displayed new-infection vector and states a maximum of strain-indexed square-root quantities in equation (3.8).",
+        "identifier_or_url": "DOI:10.28924/APJM/13-47",
+        "material_read": "PDF equations (2.1)--(2.7), disease-free equilibrium, section 3.2.1, equation (3.8), Theorem 3.4, and displayed Jacobian.",
+        "method": "Direct full-text equation comparison.",
+        "title": "Modeling and Optimal Control of a Multi-Strain Epidemic Applied to COVID-19 with an Underlying Chronic Disease Condition",
+        "trigger": "Exact motivating source and threshold statement."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING; it confirms the split between new infections and infected-state changes but does not analyze the 2026 model.",
+        "evidence": "The article defines the new-infection matrix by rates at which infected compartments produce genuinely new infections and treats residence or movement among infected states through the transfer matrix.",
+        "identifier_or_url": "DOI:10.1007/s11538-022-01057-9",
+        "material_read": "Open full text, section “The Next Generation Method”.",
+        "method": "Direct full-text methodological comparison.",
+        "title": "Why the Spectral Radius? An intuition-building introduction to the basic reproduction number",
+        "trigger": "Methodological check of the epidemiological F/V convention."
+      },
+      {
+        "assessment": "NOT_COVERING; it uses strain-indexed exposed states E_j and infected states I_j rather than one shared exposed state.",
+        "evidence": "The paper defines S_j, E_j, I_j, and R_j for each strain j.",
+        "identifier_or_url": "DOI:10.1371/journal.pone.0257512",
+        "material_read": "Open full text describing the model state variables.",
+        "method": "State-architecture comparison.",
+        "title": "Modelling and optimal control of multi strain epidemics, with application to COVID-19",
+        "trigger": "Plausible broader multistrain coverage."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING; classical framework, not a calculation for this model.",
+        "evidence": "The 2026 source cites the van den Driessche--Watmough method; the open 2022 exposition attributes the F/V construction and threshold theorem to this framework.",
+        "identifier_or_url": "Mathematical Biosciences 180 (2002), 29--48",
+        "material_read": "Bibliographic record and method attribution; no full-text passage was relied on for a source-specific comparison.",
+        "method": "Reference-level methodological check, supplemented by the open 2022 exposition.",
+        "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+        "trigger": "Classical next-generation threshold reference cited by the source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "742f77f7-a142-4073-a293-e4a942a0be4c",
+  "value": {
+    "rationale": "The correction changes a model-selection quantity used directly in a published local-stability theorem. For one strain the printed and corrected quantities cross one together, so the defect is easy to miss; with multiple branches the shared exposed class makes contributions additive, creating a genuine false-stability region. The explicit two-strain witness demonstrates a qualitative reversal, not a cosmetic normalization difference.",
+    "status": "PASS"
+  }
+}
