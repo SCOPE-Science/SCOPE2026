@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "PASS. For a full-spark excess-one synthesis matrix \\(F\\), the proof bijects duals with projections onto \\(z^\\perp\\), parameterizes those projections as \\(I-qz^*\\) with \\(z^*q=1\\), and reduces the objective exactly to \\(\\max_i b_i|q_i|\\). A sharp weighted triangle inequality gives the lower bound and its equality conditions force the unique vector \\(q_i=\\mu_*z_i/(a_i b_i)\\). The canonical criterion follows by comparison with the orthogonal projection. Exact rational replay verifies the displayed real counterexample and its strict coherence gap.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Christensen--Datta--Kim, DOI:10.1080/03081087.2019.1586825, Theorems 2.2--2.3, materially inspected in full.",
+        "Christensen--Powell--Xiao, DOI:10.1090/S0002-9939-2012-11256-0.",
+        "Aceska--Kaczanowski, DOI:10.1080/01630563.2022.2128818."
+      ],
+      "reasoning": "The closest broader Welch-type theorem assumes constant diagonal pairings and characterizes a universal lower-bound equality case; it does not solve fixed-frame minimization and cannot imply a unique noncanonical optimizer. General dual-pair parameterizations likewise do not optimize the off-diagonal maximum.",
+      "searches": [
+        "dual frame maximal cross coherence Welch bound canonical dual",
+        "optimal dual frames erasures cross Gramian coherence",
+        "oblique projection fixed range maximum off diagonal norm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.05613",
+      "DOI:10.1080/01630563.2022.2128818",
+      "DOI:10.1080/03081087.2019.1586825",
+      "DOI:10.1090/S0002-9939-2012-11256-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source conjecture would predict the opposite conclusion for any exclusive pair, so it cannot imply the new result.",
+        "The Welch-type dual-pair bound does not apply without its constant-diagonal hypothesis.",
+        "The general finite-dual-pair characterization supplies feasibility information, not this minimax solution."
+      ],
+      "reasoning": "The new claim is not a corollary or special case of the closest inspected results: its optimizer is generically noncanonical, whereas the inspected equality theorem identifies the canonical dual only under an extra hypothesis. The hyperplane proof derives a new frame-dependent optimum and uniqueness statement.",
+      "searches": [
+        "full spark n+1 frame unique Grassmannian dual",
+        "cross Gramian projection hyperplane dual frame minimax"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aceska--Kaczanowski, arXiv:2205.05613, Definition 34 and Conjecture 42.",
+        "No retrieved statement gave an excess-one hyperplane formula for the unique minimizer."
+      ],
+      "reasoning": "Searches used the frame-theoretic terminology of the source and the equivalent projection/cross-Gramian formulation. The motivating paper states canonicality under exclusivity as a conjecture rather than proving it, and the new theorem supplies an explicit counterexample.",
+      "searches": [
+        "exclusive Grassmannian pair canonical dual counterexample cross frame potential",
+        "codimension one frame Grassmannian dual cross Gramian max off diagonal unique dual",
+        "Cross Frame Potential Conjecture 42 exclusive Grassmannian pair",
+        "oblique projection fixed range minimize maximum off-diagonal frame dual",
+        "\"exclusive Grassmannian pair\" \"canonical dual\"",
+        "\"Conjecture 42\" \"Cross-Frame Potential\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact-value match was retrieved for the rational counterexample or its two coherence values.",
+        "The motivating paper contains examples and the conjecture, but not this frame or this minimizer formula."
+      ],
+      "reasoning": "Exact-value and conjecture-number searches were used to catch a tabulated or example-level prior occurrence. None of the retrieved records matched the stated frame or the exact minimizer.",
+      "searches": [
+        "\"2/5\" \"Grassmannian pair\" frame",
+        "\"3/7\" \"cross-Gramian\" dual frame",
+        "\"Conjecture 42\" frame Aceska Kaczanowski"
+      ]
+    },
+    "rationale": "PASS. The motivating 2022 paper explicitly states the opposite canonicality assertion as Conjecture 42. Full-text inspection of the closest 2019 dual-coherence paper shows an additional constant-diagonal hypothesis and therefore no implication to this fixed-frame minimization. General dual-pair feasibility results do not optimize the objective. Four semantic database queries, exact-value searches, conjecture-number searches, and oblique-projection terminology searches found no covering statement. Residual risk remains for obscure unindexed minimax-projection literature under different terminology.",
+    "residual_risks": [
+      "An obscure or unindexed result on Chebyshev minimization of oblique projections onto hyperplanes may contain an equivalent formula under non-frame terminology. No such statement was found in the searches performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it poses canonicality of exclusive Grassmannian pairs as a conjecture and does not derive the excess-one minimizer.",
+        "evidence": "Definition 34 minimizes maximal off-diagonal cross-Gramian magnitude; Conjecture 42 asserts that exclusivity should force the canonical dual.",
+        "identifier_or_url": "arXiv:2205.05613 / DOI:10.1080/01630563.2022.2128818",
+        "material_read": "Full preprint, including the cross-Gramian definitions, Definition 34, examples, and Conjecture 42.",
+        "method": "Direct full-text inspection.",
+        "title": "Cross-Frame Potential",
+        "trigger": "Primary source defining Grassmannian pairs and stating Conjecture 42."
+      },
+      {
+        "assessment": "NOT_COVERING: the maximal off-diagonal bound in Theorem 2.3 assumes constant diagonal pairings, while the present fixed-frame theorem does not; its optimizer can be noncanonical.",
+        "evidence": "Theorem 2.3 explicitly assumes that the diagonal pairings are constant and characterizes equality using the canonical dual.",
+        "identifier_or_url": "DOI:10.1080/03081087.2019.1586825",
+        "material_read": "Full 12-page article, especially Theorems 2.2 and 2.3 and Section 3.",
+        "method": "Direct full-text inspection.",
+        "title": "Equiangular frames and generalizations of the Welch bound to dual pairs of frames",
+        "trigger": "Closest prior theorem on maximum cross-coherence of dual frames."
+      },
+      {
+        "assessment": "NOT_COVERING for the present objective: it characterizes possible diagonal pairings rather than minimizing maximal off-diagonal cross-coherence.",
+        "evidence": "Its cited theorem gives existence of dual frames with prescribed diagonal pairings subject to a trace-sum condition.",
+        "identifier_or_url": "DOI:10.1090/S0002-9939-2012-11256-0",
+        "material_read": "Bibliographic record and the theorem as quoted and used in the inspected Christensen--Datta--Kim article.",
+        "method": "Implication comparison through the materially inspected citing theorem and bibliographic record.",
+        "title": "A note on finite dual frame pairs",
+        "trigger": "General finite dual-pair feasibility result cited by the closest prior article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0eaa1b43-9b33-49d7-bdbd-24d3184e8aa3",
+  "value": {
+    "rationale": "PASS. The theorem resolves an explicit published conjecture negatively and does so structurally: it classifies the unique Grassmannian dual for every full-spark excess-one frame and identifies exactly when that optimizer is canonical. Excess one is the first redundant regime, so the result is a natural complete boundary case rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
