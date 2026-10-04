@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Each time slice is a two-term polynomial in an L-th root of unity. It has either 0 or d zeros when both endpoints are occupied, with d zeros exactly on a good internal edge. Path components permit all internal edges to be good. A full odd cycle cannot make all L edges good because their root-of-unity ratios would multiply to -1, while L-1 good edges are attained by alternating signs. Summing slice supports yields the formula. The global minimum follows from the exact component contributions. Exhaustive integer replay checks all supports through N=12 and the global component formula for all parameter pairs through N=5000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krahmer-Pfander-Rashkov treat arbitrary windows but with general lower bounds and a sharper prime-order estimate rather than this exact fixed-window geometry.",
+        "Fernández-Galbis-Martínez characterize minimum-support extremals under their hypotheses.",
+        "Nicola gives all universal N-support extremals."
+      ],
+      "reasoning": "The generality of the prior frameworks does not dominate the exact formula: their conclusions do not determine the minimum when it is 2N or its dependence on occupied step-a paths and odd full cycles.",
+      "searches": [
+        "arXiv:math/0611493",
+        "doi:10.1155/2014/131459",
+        "arXiv:2204.14176",
+        "finite cyclic STFT window support two consecutive points uncertainty 2N"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0611493",
+      "doi:10.1155/2014/131459",
+      "arXiv:2204.14176",
+      "published-finding corpus semantic search over the actual queries recorded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For prime N, the earlier prime-cyclic bound already implies the 2N global lower bound for a two-point window; this special implication is explicitly excluded from the novelty claim.",
+        "Nicola's equality theorem covers the antipodal N-support extremals but does not imply the 2N fixed-window minimum for non-antipodal spacing or the formula for arbitrary S."
+      ],
+      "reasoning": "The accepted contribution is the exact prescribed-support formula and its composite-order consequences, not the already-covered prime special case or the universal equality classification.",
+      "searches": [
+        "arXiv:math/0611493",
+        "arXiv:2204.14176",
+        "2-sparse window short-time Fourier transform cyclic exact support lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krahmer-Pfander-Rashkov Proposition 4.1 gives the universal |supp V_g f|>=N bound and Proposition 4.3 gives a prime-cyclic support-size bound.",
+        "Nicola 2023 classifies exactly the equality case |supp V_g f|=N.",
+        "No published-finding corpus hit returned an STFT two-point-window support theorem."
+      ],
+      "reasoning": "The new statement fixes a specific sparse window and computes the optimum for every prescribed support S. Neither a support-size-only inequality nor a classification restricted to the universal equality value determines these values.",
+      "searches": [
+        "short-time Fourier transform two-point window delta_0 plus delta_a exact prescribed support formula cycles",
+        "STFT Z_N two point window delta0 deltaa support minimum gcd a N",
+        "Gabor transform sparse two-point window support exact cyclic orbit",
+        "short-time Fourier transform support fixed window two nonzero entries cyclic group",
+        "arXiv:math/0611493",
+        "doi:10.1155/2014/131459",
+        "arXiv:2204.14176"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected foundational paper includes numerical/generic-window investigations but no table indexed by supports S for the canonical two-point window.",
+        "The current/prior slot ledgers contain DFT-minor and Fourier-support results but no fixed-window STFT support formula."
+      ],
+      "reasoning": "No exact table or finite catalogue located in the checked sources contains the claimed all-N prescribed-support values.",
+      "searches": [
+        "short-time Fourier transform support fixed window two nonzero entries cyclic group",
+        "two-point Gabor window exact STFT support cyclic group prescribed support cycle graph"
+      ]
+    },
+    "rationale": "The claim was compared against the foundational fixed-window finite-group STFT paper, the 2014 localization/extremal paper, Nicola's complete classification of equality in the universal bound, targeted web searches, published-finding corpus semantic searches, and the current/prior slot ledgers. The closest prior statements cover the universal lower bound, prime support-size inequalities, or equality at support size N; none found gives the exact prescribed-support cycle formula or its composite-order 2N branch.",
+    "residual_risks": [
+      "A specialized two-sparse-window result may exist under different terminology or outside indexed sources.",
+      "The prime-order global 2N consequence is not new; novelty is confined to the exact prescribed-support formula and composite-order geometry."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest archive source. It gives universal and prime support-size bounds but not the claimed prescribed-support cycle formula.",
+        "evidence": "First public posting 2006-11-16; arXiv lists 42C15 among the subjects/MSC context.",
+        "identifier_or_url": "arXiv:math/0611493",
+        "material_read": "Abstract, introduction, Section 4 statements and proofs around Propositions 4.1-4.3 and the fixed-window discussion.",
+        "method": "Lawful arXiv full-text/PDF inspection.",
+        "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+        "trigger": "Foundational finite-group STFT uncertainty source and archive anchor."
+      },
+      {
+        "assessment": "Studies minimum-support extremals and periodicity, but no two-point prescribed-support cycle formula was found.",
+        "evidence": "Published 2014-02-13; Theorem 3 addresses minimum support under a support-size hypothesis.",
+        "identifier_or_url": "doi:10.1155/2014/131459",
+        "material_read": "Abstract, introduction, Theorem 3, Proposition 4, and surrounding definitions in the accessible full text.",
+        "method": "Publisher full-text inspection.",
+        "title": "Localization Operators and an Uncertainty Principle for the Discrete Short Time Fourier Transform",
+        "trigger": "Potential fixed-window/extremal overlap."
+      },
+      {
+        "assessment": "Completely classifies the N-support equality case; it therefore covers the antipodal equality branch but not the exact values above N for the fixed two-point window.",
+        "evidence": "The abstract states that |supp V_g f|=N iff the support is a coset of an order-N subgroup and identifies the corresponding extremals.",
+        "identifier_or_url": "arXiv:2204.14176",
+        "material_read": "Abstract, introduction/main theorem description, and definitions.",
+        "method": "Open-access arXiv/journal text inspection.",
+        "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+        "trigger": "Strong later coverage of equality in the universal STFT support bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7682ff5-d741-4699-a7ae-fca1ed68665f",
+  "value": {
+    "rationale": "Fixed-window STFT concentration is a natural refinement of the universal finite-group uncertainty principle. The canonical two-point window is the simplest nongeneric sparse window, and the theorem gives a closed all-N answer for every prescribed signal support, exposing an exact odd-cycle obstruction and the sharp antipodal/non-antipodal transition. This supplies a reusable benchmark for sparse-window Gabor localization rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
