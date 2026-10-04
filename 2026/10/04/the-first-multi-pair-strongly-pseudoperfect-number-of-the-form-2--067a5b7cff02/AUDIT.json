@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The divisor pairs of 2^a p are exactly (2^i,p2^{a-i}); subtracting an omitted union from the exact divisor sum gives a reversible equation M-A_I=p(1+B_I). The finite cutoff enumerates every possible mask for a<=11, which is exhaustive because a>=12 already forces n>11776. Direct divisor-sum checks confirm each surviving case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 theorem for 2^k p with a Mersenne prime proves such a number must be perfect, a different restricted branch.",
+        "The 2024 theorem is complete only when exactly two divisors (one complementary pair) are omitted."
+      ],
+      "reasoning": "No located stronger theorem classifies all strongly pseudoperfect 2^a p representations or implies the first multi-pair cutoff.",
+      "searches": [
+        "strongly pseudoperfect 2^a p classification omitted pairs 352 11776",
+        "first nonperfect strongly pseudoperfect 2^a p two omitted divisor pairs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.36068v1",
+      "INTEGERS 24 (2024), A61",
+      "targeted web search for 11776 and strong pseudoperfect terminology",
+      "current published-finding corpus corpus queries listed above",
+      "existing local ledger through generation g000009"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 one-pair formula is the |I|=1 specialization of the new mask equation, so that part is treated as prior coverage rather than novelty.",
+        "The 2026 paper's Mersenne-prime rigidity is the I=empty branch when p=2^{a+1}-1, but does not cover nonempty multi-pair masks."
+      ],
+      "reasoning": "The novelty claim is narrowed to the full-mask criterion beyond the known single-pair specialization and, most importantly, the exhaustive first multi-pair cutoff and uniqueness at 11776.",
+      "searches": [
+        "binary subset characterization strongly pseudoperfect numbers 2^a p",
+        "first nonperfect strongly pseudoperfect 2^a p two omitted divisor pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang--Zelinsky 2026 defines strong pseudoperfectness by complementary-pair closure and lists 352 with omitted pair (8,44).",
+        "Aryan et al. 2024 characterize the strongly 2-near-perfect 2^k p subcase, i.e. exactly one omitted pair."
+      ],
+      "reasoning": "The accepted theorem concerns arbitrary omitted-pair masks and isolates the first case requiring two pairs. Neither inspected source states the bit-mask iff criterion or the 11776 cutoff.",
+      "searches": [
+        "11776 strongly pseudoperfect 2^9 23 omitted pairs",
+        "first nonperfect strongly pseudoperfect 2^a p two omitted divisor pairs",
+        "binary subset characterization strongly pseudoperfect numbers 2^a p",
+        "strongly pseudoperfect 2^a p classification omitted pairs 352 11776"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang--Zelinsky 2026 Table 2 lists early even strongly pseudoperfect numbers through 420 and gives 352 with one solution omitting (8,44).",
+        "Aryan et al. 2024 Table 2 lists strongly 2-near-perfect numbers below one million; 11776 is not in that one-pair table."
+      ],
+      "reasoning": "The exact integer 11776 and its two omitted pairs were not found as an existing strongly pseudoperfect table entry in the inspected sources or targeted searches.",
+      "searches": [
+        "11776 strongly pseudoperfect 2^9 23 omitted pairs",
+        "strongly pseudoperfect 2^a p classification omitted pairs 352 11776"
+      ]
+    },
+    "rationale": "The exact cutoff and global bit-mask criterion were compared against the motivating 2026 paper, the 2024 complete one-pair classification, targeted web searches, the current corpus, and the existing local ledger. The closest located results concern different divisor-sum notions or only the one-pair subcase. Residual bibliographic risk is recorded.",
+    "residual_risks": [
+      "An unindexed or differently worded note could contain the same binary-mask criterion or the 11776 observation.",
+      "The claim does not assert a closed-form classification of all primes produced by the mask quotient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the binary-mask criterion and 11776 cutoff; covers the definition, 352 data, and Mersenne-prime branch.",
+        "evidence": "The paper defines complementary-pair representations, lists 352 with unique omitted pair (8,44), and states only a Mersenne-prime rigidity theorem for 2^k p.",
+        "identifier_or_url": "arXiv:2609.36068v1",
+        "material_read": "Definition, Theorems 5--6, restriction section, open questions, and even-example table.",
+        "method": "Statement-level and implication comparison with the accepted theorem.",
+        "title": "Strongly Pseudoperfect Numbers",
+        "trigger": "Motivating recent primary source and same object."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE only: exactly one omitted pair; does not cover two-or-more-pair representations or the 11776 cutoff.",
+        "evidence": "Its strong 2-near condition is sigma(n)-d-n/d=2n and its 2^k p characterization therefore specializes to one omitted complementary pair.",
+        "identifier_or_url": "INTEGERS 24 (2024), A61; DOI 10.5281/zenodo.12167628",
+        "material_read": "Abstract, definition of strongly 2-near perfect, Theorem 1 context, strongly-2-near table, Lemma 8 and Proposition 5 region.",
+        "method": "Compared defining equations and scope by number of omitted divisor pairs.",
+        "title": "On 2-near perfect numbers",
+        "trigger": "Direct predecessor classifying strongly 2-near-perfect 2^k p."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "067a5b7c-ff02-4b5e-ac71-96dd761636e7",
+  "value": {
+    "rationale": "The cutoff marks the first genuinely multi-pair behavior in the sparsest nontrivial two-prime-support slice, immediately beyond the previously classified strongly 2-near (one-pair) regime. The global binary criterion provides a reusable exact reduction, while the first-transition theorem is a natural finite invariant rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
