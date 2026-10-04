@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs \\(\\lambda_2=2\\operatorname{Cov}(Q(U),U)\\), conditions on the atom index, applies Cauchy--Schwarz, and computes \\(\\operatorname{Var}(\\mathbb E[U\\mid J])=(1-\\sum_i p_i^3)/12\\) exactly from total variance. Equality conditions are necessary and sufficient, and the atom-count corollary follows from strict convexity of \\(t^3\\). Random numerical checks were used only as stress tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miao--Ge--Peng DOI:10.7153/jmi-07-70 summarizes the cited Cerone--Dragomir empirical bounds as mean-absolute-deviation and support-range bounds.",
+        "The inspected Jones--Balakrishnan paper develops absolute-moment L-moment bounds but contains no matches for \"discrete\", \"atom\", or \"support\".",
+        "The 2019 La Haye--Zizler full text allows finite point-mass representations but its stated GMD--variance theorem remains the distribution-free \\(\\lambda_2\\le\\sigma/\\sqrt3\\)."
+      ],
+      "reasoning": "The broader published inequalities found either use the universal standard-deviation constant or control empirical Gini mean difference by mean absolute deviation or range. None of the inspected statements dominates the probability-sensitive factor \\(1-\\sum_i p_i^3\\).",
+      "searches": [
+        "web: Bounds for the Gini mean difference of an empirical distribution Cerone Dragomir 2006",
+        "web: Bounds for the weighted Gini mean difference of an empirical distribution Miao Ge Peng 2013",
+        "web: On absolute moment-based upper bounds for L-moments"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.14360v1",
+      "DOI:10.1007/s40300-019-00149-2",
+      "DOI:10.1016/j.spl.2024.110249",
+      "DOI:10.7153/jmi-07-70",
+      "DOI:10.1016/j.aml.2005.05.009",
+      "published-finding corpus 2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Papadatos Theorem 1.2 concerns \\(\\operatorname{Corr}(X_{{1:2}},X_{{2:2}})\\) for a uniform finite population and later poses fixed-probability-vector correlation questions.",
+        "The classical \\(\\lambda_2\\le\\sigma/\\sqrt3\\) follows from the new claim by dropping the strict finite-atomic factor, not conversely.",
+        "The later Miao--Ge--Peng summary of the 2006 empirical-Gini work records different upper bounds based on absolute deviation and support range."
+      ],
+      "reasoning": "Neither the finite-population correlation theorem nor the universal L-moment bound implies the cubic-mass refinement. The empirical-Gini literature is closely related, but the accessible statement summary does not supply the variance-sensitive claim.",
+      "searches": [
+        "arXiv:2205.14360v1 full text",
+        "DOI:10.1007/s40300-019-00149-2 full text",
+        "DOI:10.1016/j.spl.2024.110249 full text",
+        "DOI:10.7153/jmi-07-70 full text",
+        "DOI:10.1016/j.aml.2005.05.009 title/abstract and later-paper summary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2205.14360v1 contains no occurrence of \"Gini\" in the inspected full text.",
+        "Jones--Balakrishnan DOI:10.1016/j.spl.2024.110249 states \\(\\lambda_2=G/2\\) and the classical bound \\(\\lambda_2\\le\\sigma/\\sqrt3\\), while its introduction assumes a continuous distribution.",
+        "La Haye--Zizler DOI:10.1007/s40300-019-00149-2 gives the same classical variance bound and equality for a continuous uniform law."
+      ],
+      "reasoning": "The new statement is not a restatement of the classical bound: for every finite positive mass vector, \\(1-\\sum_i p_i^3<1\\), so the new constant is strictly smaller and is sharp at a different, mass-dependent equality geometry.",
+      "searches": [
+        "Gini mean difference variance finite support number atoms sharp bound discrete uniform equally spaced",
+        "second L-moment standard deviation finite support sharp inequality N atoms",
+        "lambda2 sigma discrete distribution N support points uniform lattice",
+        "web: \"Gini mean difference\" \"sum p_i^3\"",
+        "web: \"weighted Gini mean difference\" variance p_i"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus item was 2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4, concerning minimum--maximum correlation on three equally spaced atoms, not Gini mean difference or L-scale.",
+        "No returned published-finding corpus record stated the cubic-mass Gini--variance bound or its equality condition."
+      ],
+      "reasoning": "The closest indexed finite-discrete result optimizes a different correlation functional. It neither tabulates nor implies the present sharp Gini--variance ratio.",
+      "searches": [
+        "published-finding corpus: Gini mean difference variance finite support number atoms sharp bound discrete uniform equally spaced",
+        "published-finding corpus: second L-moment standard deviation finite support sharp inequality N atoms",
+        "published-finding corpus: lambda2 sigma discrete distribution N support points uniform lattice"
+      ]
+    },
+    "rationale": "The inspected sources give either the classical universal Gini--variance bound, range/absolute-deviation empirical bounds, or a different finite-population order-statistic correlation extremum. Searches found no statement of the cubic-mass sharp factor or its affine quantile-bin-midpoint equality geometry.",
+    "residual_risks": [
+      "The complete 2006 Cerone--Dragomir empirical-Gini article was not successfully recovered; an unindexed theorem there or in older inequality literature could reduce originality.",
+      "Search failure is not treated as proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 1.2 is about correlation of the two order statistics under uniform finite populations; the paper contains no Gini discussion and poses fixed-mass correlation optimization as a separate direction.",
+        "identifier_or_url": "arXiv:2205.14360v1",
+        "material_read": "Full 13-page arXiv text, including Theorem 1.2 and the concluding fixed-probability-vector discussion.",
+        "method": "Lawful arXiv full text with page inspection.",
+        "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+        "trigger": "Lead middle-cohort source and discrete-uniform extremal analogue."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article proves the classical \\(\\lambda_2\\le\\sigma/\\sqrt3\\) bound and discusses point masses, but no mass-vector cubic correction or finite-atom sharp factor appears in the inspected text.",
+        "identifier_or_url": "DOI:10.1007/s40300-019-00149-2",
+        "material_read": "Complete 10-page article text obtained through authorized institutional access.",
+        "method": "Full-text reading.",
+        "title": "The Gini mean difference and variance",
+        "trigger": "Closest standard-deviation/Gini literature."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper assumes a continuous distribution at the start, states \\(\\lambda_2\\le\\sigma/\\sqrt3\\), and contains no matches for discrete, atom, or support.",
+        "identifier_or_url": "DOI:10.1016/j.spl.2024.110249",
+        "material_read": "Open-access full PDF; introduction, core bound, and text searches for discrete/atom/support.",
+        "method": "Lawful OA full text with page inspection.",
+        "title": "On absolute moment-based upper bounds for L-moments",
+        "trigger": "Recent broader L-moment bound likely to dominate if applicable."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its summary of the earlier Cerone--Dragomir bounds uses mean absolute deviation and support range; its own weighted bounds do not state the present variance-sensitive cubic-mass inequality.",
+        "identifier_or_url": "DOI:10.7153/jmi-07-70",
+        "material_read": "Open full PDF, especially introduction and related-results sections.",
+        "method": "Lawful OA full text with page inspection.",
+        "title": "Bounds for the weighted Gini mean difference of an empirical distribution",
+        "trigger": "Later paper summarizing the older empirical-Gini bounds."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK",
+        "evidence": "Accessible material confirms sharp weighted empirical-Gini bounds but the later full-text summary describes MAD/range bounds rather than the new variance/mass factor. Full-text exclusion was not possible.",
+        "identifier_or_url": "DOI:10.1016/j.aml.2005.05.009",
+        "material_read": "Abstract/snippets and detailed later-paper summary; direct institutional retrieval returned an unrelated PDF and therefore was not used as scientific evidence.",
+        "method": "Web abstract/snippets plus citation-context comparison; failed full-text retrieval recorded as risk.",
+        "title": "Bounds for the Gini mean difference of an empirical distribution",
+        "trigger": "Plausible older paper with the same discrete object."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cc38c112-bff2-495b-a0a6-ae70856791f5",
+  "value": {
+    "rationale": "The probability-sensitive factor is a sharp structural refinement of a standard L-scale versus standard-deviation inequality for every finite mass vector, with an exact equality geometry and a sharp support-size corollary. It distinguishes discrete/quantized laws from the continuous sharp constant and gives the exact extremizer rather than a routine numerical improvement.",
+    "status": "PASS"
+  }
+}
