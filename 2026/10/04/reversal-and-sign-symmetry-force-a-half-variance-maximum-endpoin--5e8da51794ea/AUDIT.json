@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Under reversal the pair (M,S) has the same law as (S-m,S). Under global sign change it has the same law as (-m,-S). For odd g this gives E[M g(S)]=E[(S-m)g(S)] and E[M g(S)]=E[m g(S)], hence twice the first expectation equals E[S g(S)]. The covariance and range/drawdown identities are algebraic consequences. The iid correlation limit is separately justified by Donsker convergence plus maximal-moment uniform integrability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heinrich gives an equivalent formulation of Spitzer's identity for iid increments and attempts a cyclic-exchangeability extension; the public text includes a correction saying the proof needs independence.",
+        "Anis--Gharib derive variance formulas for maxima of partial sums of exchangeable variables.",
+        "Blanchet--Glynn study precise diffusion approximations and ladder-height expansions for maxima of iid random walks."
+      ],
+      "reasoning": "Spitzer-type results dominate the iid special case but do not supply the stated result for arbitrary dependent vectors with only reversal and global sign invariance. The current proof uses neither the Spitzer transform nor exchangeability.",
+      "searches": [
+        "DOI:10.1080/02331888508801852",
+        "DOI:10.2307/3213032",
+        "arXiv:math/0607121"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1080/02331888508801852",
+      "DOI:10.2307/3213032",
+      "arXiv:math/0607121",
+      "DOI:10.1214/105051606000000042"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Spitzer theory implies the iid corollary but assumes iid increments.",
+        "Heinrich's public full text explicitly carries a correction that the claimed cyclic-exchangeability proof needs independence.",
+        "Marginal formulas for the maximum under exchangeability do not imply a maximum-endpoint odd-transform identity under nonexchangeable reversal symmetry.",
+        "No own-ledger claim states a finite-horizon maximum-endpoint covariance identity."
+      ],
+      "reasoning": "The accepted domain contains dependent laws that are neither iid nor exchangeable, so stronger iid joint transforms and exchangeable maximum formulas do not cover the final theorem. The proof is direct from two involutions and remains valid on this broader class.",
+      "searches": [
+        "Spitzer joint distribution maximum terminal drawdown iid",
+        "cyclically exchangeable random variables Spitzer identity correction",
+        "variance maximum n-exchangeable random variables",
+        "own random walk maximum prior ledger"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned results on maximal inequalities, pairwise-independent walks, and path-range stability, but no maximum-endpoint half-variance theorem.",
+        "Web searches located Spitzer joint-transform literature and Brownian reflection results but no statement using only reversal and sign invariance."
+      ],
+      "reasoning": "The searches cover covariance, mixed moments, terminal endpoint, reversal symmetry, sign symmetry, and Spitzer aliases. Because iid Spitzer theory is stronger than the iid corollary, originality is assessed only for the weaker dependence class and odd-transform family.",
+      "searches": [
+        "random walk maximum terminal endpoint covariance half variance symmetric",
+        "reversal invariant increments maximum endpoint odd transform covariance",
+        "symmetric random walk maximum final position covariance",
+        "\"Cov(M_n,S_n)\" random walk",
+        "\"E[M_n S_n]\" Spitzer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record matching Cov(M,S)=Var(S)/2 under the two-involution hypothesis or E[M g(S)]=E[S g(S)]/2 for all odd g was located."
+      ],
+      "reasoning": "The finding is an all-dimension path-symmetry theorem, not a finite table or a special numerical covariance.",
+      "searches": [
+        "\"half variance\" \"random walk maximum\"",
+        "\"maximum endpoint covariance\" random walk",
+        "\"range\" \"odd\" endpoint covariance random walk",
+        "\"reversal invariant\" random walk maximum endpoint"
+      ]
+    },
+    "rationale": "The iid specialization is covered in principle by stronger classical Spitzer joint-distribution theory and is not claimed as novel. The surviving claim is the exact odd-transform identity under only reversal and sign symmetry, including dependent nonexchangeable increment vectors. The closest inspected attempt to weaken independence, Heinrich's cyclic-exchangeability extension, carries a correction stating that its proof actually needs independence.",
+    "residual_risks": [
+      "An older fluctuation-theory text may record the half-variance mixed moment as a symmetry corollary without using the same terminology.",
+      "The iid specialization is not original and is explicitly treated as prior-covered by Spitzer's stronger joint transform.",
+      "The novelty rests on isolating the minimal reversal-plus-sign hypothesis and the full odd-transform family rather than on a new maximum-distribution calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "IID_SPITZER_AND_CORRECTED_CYCLIC_EXTENSION_NOT_TWO_INVOLUTION_MIXED_MOMENT",
+        "evidence": "The paper's primary AMS classification is 60J15. Its public text states that the proposed cyclic-exchangeability proof works only for iid variables because independence is needed. No inspected statement gives the odd-transform maximum-endpoint identity under reversal plus sign symmetry.",
+        "identifier_or_url": "DOI:10.1080/02331888508801852",
+        "material_read": "Public author-uploaded full text, including the definition of cyclic exchangeability, the stated theorem, equations surrounding the maximum, and the posted correction on the proof.",
+        "method": "Compared the dependence assumptions and the exact object controlled by the paper with the two-involution mixed-moment identity.",
+        "title": "An elementary proof of Spitzer's identity",
+        "trigger": "Closest primary source because it studies Spitzer's identity and explicitly attempts weaker dependence assumptions."
+      },
+      {
+        "assessment": "MARGINAL_MAXIMUM_VARIANCE_NOT_ENDPOINT_COVARIANCE",
+        "evidence": "The inspected source advertises a variance formula for the maximum of partial sums of n-exchangeable variables. It does not state a maximum-endpoint covariance or an odd-transform identity.",
+        "identifier_or_url": "DOI:10.2307/3213032",
+        "material_read": "Publisher abstract, bibliographic record, and reference context describing a general variance formula for the maximum derived from Spitzer's result.",
+        "method": "Compared marginal maximum moments with the maximum-endpoint mixed moment and dependence class in the finding.",
+        "title": "On the variance of the maximum of partial sums of n-exchangeable random variables with applications",
+        "trigger": "Directly relevant older source on maxima under dependent exchangeable increments."
+      },
+      {
+        "assessment": "IID_ALL_TIME_MAXIMUM_ASYMPTOTICS_NOT_FINITE_REVERSAL_SYMMETRY_IDENTITY",
+        "evidence": "The manuscript is classified primary 60G50 and studies corrected diffusion approximations for iid random-walk maxima. The inspected material does not state the finite-horizon half-variance covariance or the weak-symmetry extension.",
+        "identifier_or_url": "arXiv:math/0607121 / DOI:10.1214/105051606000000042",
+        "material_read": "Public manuscript metadata, abstract, first-page classification, and introduction identifying the iid random walk and all-time maximum problem.",
+        "method": "Compared its iid ladder-height and all-time-maximum setting with the finite-horizon endpoint mixed moment here.",
+        "title": "Complete Corrected Diffusion Approximations for the Maximum of a Random Walk",
+        "trigger": "Archive-era primary 60G50 source on random-walk maxima and diffusion scaling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e8da517-94ea-4d2e-8743-276555a98553",
+  "value": {
+    "rationale": "The maximum, endpoint, drawdown, and range are canonical finite-horizon fluctuation statistics. The theorem exposes an exact structural relation that persists for dependent nonexchangeable paths, clarifying which part of the familiar iid joint behavior comes only from two elementary symmetries. The odd-transform extension provides a reusable family of mixed-moment identities rather than a single isolated covariance.",
+    "status": "PASS"
+  }
+}
