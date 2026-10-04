@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation gives \\(\\dot{\\mathcal E}=-a(x-v_1)(x-v_2)y^2-\\alpha\\beta u^2+A y\\sin\\theta\\). Invariance of \\(u^2/2\\) gives \\(\\langle uy\\rangle=\\beta\\langle u^2\\rangle\\); invariance of polynomial primitives gives the restoring-force mean law; support invariance proves strict controller dissipation when \\(A\\omega\\ne0\\). The bundled symbolic checker independently simplifies the algebraic identities to zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest published-record hits concerned Lorenz-84 and Rucklidge energy laws, with different vector fields and no implication for the cardiac memory controller.",
+        "The introducing article cites general delay and integro-differential stabilization literature but frames its proof through local characteristic equations rather than a global nonlinear storage law."
+      ],
+      "reasoning": "The checked broader literature does not dominate the claim by giving the same nonlinear source-specific identities as a corollary. General passivity theory remains a residual background risk and is disclosed rather than treated as absent.",
+      "searches": [
+        "Feedback Stabilization Applied to Heart Rhythm Dynamics energy identity control",
+        "cardiac pacemaker integro-differential control invariant measure energy dissipation",
+        "record:9ae03d7abd20",
+        "record:c0b25a458f15"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math12010158",
+      "doi:10.21203/rs.3.rs-2853196/v1",
+      "doi:10.1016/j.chaos.2011.05.009",
+      "record:9ae03d7abd20",
+      "record:c0b25a458f15",
+      "record:c0e67940f3c0",
+      "record:c5273aabd245"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "System (16) in the journal article contains the needed state equations but does not assert the invariant-measure consequences.",
+        "The earlier ETDF controller depends on delayed states and gains \\(R,K\\), so its statements do not imply identities for \\(\\dot u=y-\\beta u\\)."
+      ],
+      "reasoning": "The finding is derived from the published vector field but is not a restatement or parameter substitution of the source's local stability conditions. It adds a global recurrent-state power constraint and exact balance valid beyond the numerically displayed attractor.",
+      "searches": [
+        "doi:10.3390/math12010158",
+        "doi:10.21203/rs.3.rs-2853196/v1",
+        "doi:10.1016/j.chaos.2011.05.009"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 article defines \\(u(t)=\\int_0^t e^{-\\beta(t-s)}y(s)\\,ds\\) and \\(\\dot u=y-\\beta u\\), then analyzes local stability and numerical regularization; no stationary power theorem is stated.",
+        "The 2011 cardiac paper uses extended time-delayed feedback rather than the exponential-memory state."
+      ],
+      "reasoning": "No checked source supplied an equivalent invariant-measure statement for this controlled cardiac vector field. Abstract passive-filter language is related but does not state the source-specific cubic restoring-force mean law and complete nonlinear recurrent energy balance.",
+      "searches": [
+        "10.3390/math12010158 exponential memory control cardiac pacemaker energy balance",
+        "modified Van der Pol exponential memory feedback exact power balance",
+        "doi:10.3390/math12010158",
+        "doi:10.1016/j.chaos.2011.05.009"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-table or record hit returned the cardiac identity \\(\\langle uy\\rangle=\\beta\\langle u^2\\rangle\\) together with the model's nonlinear energy balance.",
+        "Closest records involve adaptive bioelectric conductance work or shifted-Erlang ENSO feedback, not this oscillator."
+      ],
+      "reasoning": "The relevant searches found analogies rather than a stored exact result for the same object and parameters.",
+      "searches": [
+        "10.3390/math12010158 exponential memory control cardiac pacemaker energy balance",
+        "record:c0e67940f3c0",
+        "record:c5273aabd245"
+      ]
+    },
+    "rationale": "The introducing article supplies the exact exponential-memory controlled vector field, local Routh-Hurwitz analysis, and numerical stabilization, but no invariant-measure power identity or nonlinear energy decomposition. The closest checked cardiac-control paper uses extended time-delayed feedback, a different controller. Research-record searches returned only analogous energy or memory laws for other systems. The claim is intentionally source-specific because abstract first-order-filter passivity is known background.",
+    "residual_risks": [
+      "The sign part of the controller identity is closely related to standard passivity of a stable first-order filter; an unlocated control-theory source may formulate an abstract version. The accepted claim is therefore limited to the exact source-specific invariant-measure identities, strictness under nonzero forcing, and nonlinear energy decomposition.",
+      "The result does not establish that the source's numerically observed stabilized orbit is unique or globally attracting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the system and local/numerical stabilization but does not cover the invariant-measure power laws.",
+        "evidence": "Equation (15) defines exponential memory of \\(y\\); System (16) gives \\(\\dot u=y-\\beta u\\) and feedback term \\(+\\alpha u\\) on the left side of the oscillator equation.",
+        "identifier_or_url": "doi:10.3390/math12010158",
+        "material_read": "Abstract; Sections 2–4 including Equations (6), (8), (12)–(16), parameter choices, and stabilization discussion.",
+        "method": "Full-text HTML inspection and statement-level comparison.",
+        "title": "Feedback Stabilization Applied to Heart Rhythm Dynamics Using an Integro-Differential Method",
+        "trigger": "Same controlled oscillator and exponential-memory state."
+      },
+      {
+        "assessment": "Establishes first-public date and same research program; no covering invariant-measure theorem located.",
+        "evidence": "Publicly posted 2023-07-04 under the listed DOI.",
+        "identifier_or_url": "doi:10.21203/rs.3.rs-2853196/v1",
+        "material_read": "Preprint title/abstract, posted-date evidence, and available control-system material.",
+        "method": "Author-uploaded preprint inspection.",
+        "title": "Feedback stabilization applied to heart rhythm dynamics with integro-differential equations method",
+        "trigger": "Earliest public version of the same work."
+      },
+      {
+        "assessment": "Uses extended time-delayed feedback, not the exponential-memory state; does not imply the new stationary identities.",
+        "evidence": "The paper explicitly identifies its method as extended time-delayed feedback and parameterizes it by delayed-state control variables.",
+        "identifier_or_url": "doi:10.1016/j.chaos.2011.05.009",
+        "material_read": "Abstract, model/control sections, and ETDF equations in the accessible full text.",
+        "method": "Full-text comparison of controller structure and claimed consequences.",
+        "title": "Chaos Control Applied to Heart Rhythm Dynamics",
+        "trigger": "Closest earlier control paper on the same cardiac oscillator family cited by the source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e05360c-62ce-4fb6-8d51-6eac6756755b",
+  "value": {
+    "rationale": "The source motivates the controller as a way to regularize a chaotic cardiac model, but its evidence is local and numerical. The exact recurrent-state laws provide a global nonlinear diagnostic: on every compact recurrent regime the memory channel extracts energy on average, strictly so for the forced setup, and the external forcing, nonlinear damping/excitation, and controller loss satisfy a closed balance. This can detect sign or implementation mistakes and constrains any claimed stabilized or chaotic recurrent response without requiring long-time Lyapunov calculations.",
+    "status": "PASS"
+  }
+}
