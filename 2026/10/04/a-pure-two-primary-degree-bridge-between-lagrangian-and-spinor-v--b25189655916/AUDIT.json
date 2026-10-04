@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The Lagrangian degree formula is independently read from the full Hiep--Tu preprint. Its Vandermonde factor is exactly 2^{binom(n,2)} times prod_{j=1}^{n-1} j!. The spinor top intersection is the shifted-staircase tableau count supplied by the strict-partition Schubert calculus and shifted hook formula, giving the stated factorial product. The quotient cancels term-for-term to 2^{binom(n,2)}. Legendre's formula then gives the two-adic corollary. The package checker replays both products and a separate shifted-hook computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kresch--Tamvakis compare quantum Gromov--Witten tables for corresponding orthogonal and Lagrangian Grassmannians, not the same-index projective degrees.",
+        "Purbhoo's abstract concerns a Wronski-map degree and a tableau bijection, not the two natural homogeneous projective degrees.",
+        "Van Geemen--Marrani identify the principal-minor image with a spinor variety in characteristic two; the inspected statement does not give the present complex degree ratio."
+      ],
+      "reasoning": "These are the strongest nearby structural links between the same families. Their maps, indices, or enumerative invariants differ from the claim.",
+      "searches": [
+        "\"Quantum cohomology of orthogonal Grassmannians\" Lagrangian corresponding invariants",
+        "\"A marvellous embedding of the Lagrangian Grassmannian\" shifted unshifted tableaux",
+        "\"Lagrangian Grassmannians and Spinor Varieties in Characteristic Two\" degree"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0306338",
+      "arXiv:math/0306337",
+      "arXiv:1612.09177",
+      "arXiv:math/0112261",
+      "doi:10.3842/SIGMA.2019.064",
+      "arXiv:1403.0984"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The characteristic-two image theorem does not imply a complex projective-degree quotient because it uses a different projective map and base characteristic.",
+        "The quantum-invariant correspondence concerns a shifted family and three-point invariants, not top powers of the two hyperplane classes.",
+        "The previously checked spinor-degree valuation result determines only the spinor sequence; it contains no Lagrangian degree comparison."
+      ],
+      "reasoning": "The current statement requires the Lagrangian product formula and an exact term-by-term comparison with the minimal spinor formula; none of the nearby results alone implies it.",
+      "searches": [
+        "Lagrangian Grassmannian spinor variety characteristic two principal minors",
+        "orthogonal Lagrangian Grassmannian quantum invariants involution",
+        "Lagrangian Grassmannian shifted staircase tableaux spinor degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned the characteristic-two relation and separate tableau literature, but no statement that the natural projective degrees differ by 2^{binom(n,2)}.",
+        "No retrieved source stated equality of the odd parts of the two degree sequences."
+      ],
+      "reasoning": "The queries cover the geometric statement, its exact exponent, and the equivalent ordinary-versus-shifted staircase enumeration language.",
+      "searches": [
+        "\"Lagrangian Grassmannian\" \"spinor variety\" projective degree ratio",
+        "\"degree of LG(n)\" \"spinor variety\"",
+        "\"2^{n(n-1)/2}\" \"Lagrangian Grassmannian\"",
+        "\"standard Young tableaux of staircase shape\" \"shifted standard Young tableaux\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Separate degree formulas and low-dimensional values are available, but no retrieved table paired the two sequences by the stated pure power of two."
+      ],
+      "reasoning": "The result is not a new finite table entry; it is the uniform quotient identity obtained after matching the two product formulas.",
+      "searches": [
+        "\"spinor variety\" degree factorial",
+        "\"Lagrangian Grassmannian\" degree formula factorial",
+        "\"LG(3)\" degree 16 spinor degree 2"
+      ]
+    },
+    "rationale": "Direct searches for a projective-degree ratio between Lagrangian and spinor varieties, for the equivalent pure two-primary statement, and for the matching staircase-tableau formulation did not locate the claimed identity. The closest geometric comparison is the 2019 characteristic-two principal-minor theorem, which concerns a different map and does not state the complex degree ratio. The main residual risk is that this short comparison of classical product formulas may appear in an unindexed older source.",
+    "residual_risks": [
+      "The identity is a short quotient of two classical product formulas, so an older unindexed source may contain it explicitly.",
+      "Only abstract-level material was available in the inspected Purbhoo comparison, so that source was not used to assert whole-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_SPINOR_SCHUBERT_PREMISE_NOT_DEGREE_RATIO",
+        "evidence": "The paper develops the orthogonal Pieri and Schubert structure and compares Gromov--Witten tables, but the inspected material does not state the same-index projective-degree ratio.",
+        "identifier_or_url": "arXiv:math/0306338",
+        "material_read": "Abstract, introductory definition of the maximal orthogonal Grassmannian, dimension and strict-partition Schubert-basis discussion, and the comparison theorem with the corresponding Lagrangian Grassmannian.",
+        "method": "Full-text PDF inspection of the relevant sections together with journal metadata.",
+        "title": "Quantum cohomology of orthogonal Grassmannians",
+        "trigger": "Primary archival source for the spinor variety's strict-partition Schubert calculus and slot ownership."
+      },
+      {
+        "assessment": "SUPPORTS_LAGRANGIAN_DEGREE_FORMULA_NOT_SPINOR_COMPARISON",
+        "evidence": "Proposition 2 gives deg(LG(n)) as M! divided by odd factorials times the product of 2j-2i, and gives deg(LG(3))=16.",
+        "identifier_or_url": "arXiv:1612.09177",
+        "material_read": "Full preprint around Section 5, Proposition 2, including the definition of the Pluecker degree and the displayed factorial/Vandermonde formula.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "An identity involving symmetric polynomials and the geometry of Lagrangian Grassmannians",
+        "trigger": "Direct source for the Pluecker degree product of the Lagrangian Grassmannian."
+      },
+      {
+        "assessment": "STRUCTURALLY_RELATED_BUT_DIFFERENT_MAP_AND_CHARACTERISTIC",
+        "evidence": "The paper states that in characteristic two the principal-minor image is a spinor variety; it does not state the complex Pluecker/half-spin degree quotient.",
+        "identifier_or_url": "doi:10.3842/SIGMA.2019.064",
+        "material_read": "Abstract and the discussion of the principal-minor map relating the Lagrangian Grassmannian to a spinor variety in characteristic two.",
+        "method": "Full-text web inspection of the relevant statement and bibliographic references.",
+        "title": "Lagrangian Grassmannians and Spinor Varieties in Characteristic Two",
+        "trigger": "Closest direct geometric relation between the two families."
+      },
+      {
+        "assessment": "POTENTIALLY_RELATED_NOT_DECISIVE",
+        "evidence": "The available abstract discusses a Wronski map and tableau bijections, not the two homogeneous projective degrees. Because full claim-level coverage was not established from the abstract alone, it remains a residual literature risk rather than evidence of absence.",
+        "identifier_or_url": "arXiv:1403.0984",
+        "material_read": "Abstract and bibliographic description only.",
+        "method": "Abstract-level inspection.",
+        "title": "A marvellous embedding of the Lagrangian Grassmannian",
+        "trigger": "Plausible tableau-based source because it relates Lagrangian geometry to shifted and unshifted staircase tableaux."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2518965-5916-4f22-b570-51ddebba5f73",
+  "value": {
+    "rationale": "The two families are equal-dimensional classical homogeneous varieties of types C and B/D, and later work exhibits a direct characteristic-two relation between them. The theorem shows that their natural complex projective degrees differ by no odd prime at all: the complete discrepancy is the explicit dyadic factor 2^{binom(n,2)}. This is a structural arithmetic bridge, not a finite recomputation, and it immediately transfers every odd-prime divisibility statement between the two degree sequences.",
+    "status": "PASS"
+  }
+}
