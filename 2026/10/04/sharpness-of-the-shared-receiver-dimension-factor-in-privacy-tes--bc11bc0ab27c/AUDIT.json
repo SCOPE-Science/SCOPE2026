@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary positive integers \\(M,d\\), the prescribed decoder basis images are mutually orthogonal and extend to unitaries on equal \\(Md\\)-dimensional spaces. The two explicit unit range vectors have inner product exactly \\(\\min\\{1,d/M\\}\\). Combined with the published upper bound, this proves equality. The packaged finite checker reconstructs the ranges for both sides of the \\(d=M\\) transition and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2016 privacy-test converse paper develops privacy tests but predates the shared-receiver decoder-placement estimate.",
+        "The 2026 quantum-capacity paper covers Bell-target placements with an upper bound but does not dominate the equality statement inspected here."
+      ],
+      "reasoning": "Broader privacy-test converse frameworks and the Bell-target analogue do not imply exact attainability unless an equality family is supplied. The constructed family provides that missing implication.",
+      "searches": [
+        "private communication overlap bound shared subsystem dimension key size saturation",
+        "arXiv 2609.32515 overlap d_C/M sharp tight",
+        "arXiv 2608.01308 decoder placement overlap sharp d^s/M",
+        "arXiv:1602.08898v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.32515v1",
+      "arXiv:2608.01308v1",
+      "arXiv:1602.08898v1",
+      "MSC2020 81P45 classification entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating privacy paper proves only \\(\\|PQ\\|\\le\\min\\{1,d_C/M\\}\\) at the inspected overlap lemma.",
+        "The earlier quantum-capacity paper proves the analogous upper inequality.",
+        "The new decoder construction produces range vectors whose overlap equals the upper bound for every \\(M,d\\)."
+      ],
+      "reasoning": "An upper bound alone does not imply its sharpness. The new construction supplies the reverse inequality for each dimension pair, so the exact extremal statement is strictly stronger than the inspected prior implications while remaining within their hypotheses.",
+      "searches": [
+        "arXiv:2609.32515v1 Lemma 3.2 shared receiver overlap",
+        "arXiv:2608.01308v1 shared-factor Bell-target overlap",
+        "Bell target projector overlap common receiver factor exact d over M tensor factor sharp private test"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.32515v1 states the decoded privacy-test upper bound with a shared subsystem.",
+        "arXiv:2608.01308v1 states the analogous Bell-target decoder-placement upper bound.",
+        "No inspected source stated an all-\\((M,d)\\) equality construction."
+      ],
+      "reasoning": "The present statement is not a reformulation of the upper bounds: it supplies matching lower constructions for every integer dimension pair, converting an inequality into an exact extremal value.",
+      "searches": [
+        "privacy test overlap shared receiver dimension d_C over M sharpness decoded privacy projections",
+        "maximally entangled projections overlap common subsystem d over M privacy test",
+        "Bell target projector overlap common receiver factor exact d over M tensor factor sharp private test",
+        "arXiv:2609.32515v1",
+        "arXiv:2608.01308v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic records returned unrelated sharpness results and no table or database entry for decoded privacy-test overlaps.",
+        "The current literature source gives a symbolic upper bound rather than an enumerated extremal table."
+      ],
+      "reasoning": "The claim is an analytic extremal theorem over arbitrary dimensions, not a recomputation of a finite database or known table.",
+      "searches": [
+        "mathematical physics recent quantum statistical mechanics exact finite size sharp rate dissipative mean field open systems entanglement capacity",
+        "quantum open systems exact convergence rate sharp lower bound Lindblad recent",
+        "quantum information exact optimizer classification recent 2026 capacity ensemble support sharpness",
+        "mathematical physics recent 2026 variational exact formula phase transition quantum",
+        "arXiv 2609.32515 overlap d_C/M sharp tight"
+      ]
+    },
+    "rationale": "The accepted novelty is only the all-\\((M,d)\\) equality construction and the resulting sharpness of the new shared-receiver privacy-test overlap estimate. The underlying privacy-test framework and both published upper bounds are prior work.",
+    "residual_risks": [
+      "Because the saturating construction is elementary finite-dimensional linear algebra, an equivalent projector identity may exist in older operator-algebra, tensor-network, or subfactor terminology not surfaced by the searches.",
+      "The originality claim therefore concerns explicit sharpness of the recent privacy-test overlap estimate, not priority for the underlying projection calculus."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_UPPER_BOUND_NOT_SHARPNESS",
+        "evidence": "The source states overlap at most \\(d_C/M\\) (capped by one) and derives the factor from the common receiver subsystem; the inspected material does not state equality or an all-dimension saturating decoder family.",
+        "identifier_or_url": "arXiv:2609.32515v1",
+        "material_read": "Abstract, decoded privacy-test overlap lemma and its proof, and discussion of the strong-converse argument and future exponent improvements.",
+        "method": "Primary arXiv text inspection.",
+        "title": "An exponential strong converse for private communication over degradable quantum channels",
+        "trigger": "Direct motivating source for the shared-receiver privacy-test overlap estimate."
+      },
+      {
+        "assessment": "ANALOGOUS_UPPER_BOUND_NOT_SHARPNESS",
+        "evidence": "The inspected appendix bounds shared-factor Bell-target projection overlap by the corresponding dimension factor but does not provide the present equality construction.",
+        "identifier_or_url": "arXiv:2608.01308v1",
+        "material_read": "Abstract and appendix statement/proof of the Bell-target decoder-placement overlap estimate.",
+        "method": "Primary arXiv text inspection.",
+        "title": "Sharp Quantum Capacity Thresholds: Exponential Strong Converses for Degradable and Antidegradable Channels",
+        "trigger": "The privacy paper explicitly adapts its signed-averaging and decoder-placement overlap mechanism from this work."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "It establishes privacy-test meta-converse methods but predates the shared-receiver decoder-placement overlap geometry considered here.",
+        "identifier_or_url": "arXiv:1602.08898v1",
+        "material_read": "Abstract and privacy-test converse description.",
+        "method": "Primary arXiv record inspection.",
+        "title": "Converse bounds for private communication over quantum channels",
+        "trigger": "Foundational privacy-test converse source and plausible earlier coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bc11bc0a-b27c-40a3-8cd5-4c488986b956",
+  "value": {
+    "rationale": "The result resolves whether the shared-dimension loss in a central new overlap lemma is genuine: it is exactly saturable for every dimension pair. This rules out any universal improvement of that local ingredient and isolates the need for additional channel, code, filter, or state structure in sharper strong-converse analyses. It is a motivated structural boundary, not a parameter-only recomputation.",
+    "status": "PASS"
+  }
+}
