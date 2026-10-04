@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Orthogonal diagonalization reduces the SPD system to independent scalar modes. For each mode the exact state matrix has trace \\(1+\\alpha-q[1+\\lambda(1-\\alpha)]\\) and determinant \\(\\alpha(1-q)\\). The three quadratic Schur inequalities reduce to two automatic positive terms and the single sharp bound \\(q<2(1+\\alpha)/[(1+\\alpha)+\\lambda(1-\\alpha)]\\). At equality \\(-1\\) is exactly a root. The verifier independently replays these identities and randomized boundary tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper gives a frequency-domain amplifier interpretation and recommends alpha and lambda from empirical cutoff-frequency sweeps.",
+        "Later Grokfast-comparison literature reports empirical stability differences but does not supply this closed-form quadratic boundary.",
+        "Classical heavy-ball and quadratic-stability records returned by semantic search use different state equations."
+      ],
+      "reasoning": "General momentum stability theory does not automatically imply this result because Grokfast adds an EMA residual to the current gradient before the optimizer. The exact source recurrence yields a different trace/determinant pair and a natural filter-gain interpretation.",
+      "searches": [
+        "Grokfast stability quadratic",
+        "Grokfast learning rate stability",
+        "GrokFast-EMA stability paper 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.20233v1",
+      "arXiv:2405.20233v2",
+      "arXiv:2504.17243"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source recurrence is exactly the EMA-plus-residual gradient used in the proof.",
+        "The source proves gradient filtering is equivalent to update filtering for linear optimizers, but does not close the loop with a quadratic Hessian.",
+        "The source documents defaults alpha=0.98, lambda=2.0 and recommends alpha in [0.8,0.99], lambda in [0.1,5]."
+      ],
+      "reasoning": "The source determines the open-loop filter. The accepted claim adds the missing closed-loop interaction with quadratic curvature; neither the filter transfer function nor the linear-optimizer equivalence alone implies the exact Schur boundary without this calculation.",
+      "searches": [
+        "Grokfast Algorithm 2 EMA lambda alpha filter",
+        "Grokfast Appendix linear optimizer filter equivalence",
+        "Grokfast recommended lambda alpha 0.8 0.99"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2405.20233v2 Algorithm 2 and Section 3 EMA impulse response",
+        "arXiv:2405.20233v2 Appendix A linear-filter equivalence",
+        "Focused published-record searches for Grokfast quadratic stability, learning-rate limits, Nyquist gain, and characteristic polynomials"
+      ],
+      "reasoning": "Equivalent statements include the exact Schur region of Grokfast-EMA plus gradient descent, the modal eigenvalue crossing at minus one, and the identity between the learning-rate ceiling and twice the reciprocal Nyquist gain. None appeared in the inspected source or returned records.",
+      "searches": [
+        "Grokfast scalar quadratic stability EMA gradient amplification",
+        "Grokfast exact stability threshold SGD EMA filter",
+        "low pass gradient amplification quadratic stability Grokfast",
+        "Grokfast Nyquist gain stability learning rate",
+        "Grokfast momentum scalar quadratic characteristic polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed comparison: population feedback curvature-stability thresholds in stochastic OSGM.",
+        "Closest indexed comparison: exact conditioning-dependent stability threshold for affine reflected gradient.",
+        "Closest indexed comparison: uniform real-root barrier for fixed-parameter heavy-ball acceleration.",
+        "Closest indexed comparison: sharp one-step objective frontier for scaled Polyak steps on SPD quadratics.",
+        "Closest indexed comparison: sharp stagewise-safe two-step Richardson frontier."
+      ],
+      "reasoning": "The closest indexed findings concern other quadratic step rules or feedback systems. No returned finding contains Grokfast, its EMA residual architecture, or the Nyquist-gain formula. Database absence is treated only as supporting evidence, not as a uniqueness proof.",
+      "searches": [
+        "Grokfast scalar quadratic stability EMA gradient amplification",
+        "Grokfast exact stability threshold SGD EMA filter",
+        "low pass gradient amplification quadratic stability Grokfast",
+        "Grokfast Nyquist gain stability learning rate",
+        "Grokfast momentum scalar quadratic characteristic polynomial"
+      ]
+    },
+    "rationale": "The defining Grokfast paper gives the EMA gradient amplifier, its frequency response, hyperparameter ranges, and equivalence results for linear optimizers, but its inspected full text contains no quadratic, eigenvalue, Schur-stability, or learning-rate-bound analysis. Focused semantic database searches returned only stability results for different methods. The new statement links the source filter directly to an exact Nyquist-gain stability ceiling.",
+    "residual_risks": [
+      "A similar closed-loop calculation may exist in unindexed control-oriented notes on gradient filtering.",
+      "The theorem is for plain gradient descent as the base optimizer; Adam-family bases have additional state.",
+      "The stability result does not establish or explain grokking itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_DIRECTLY_RELATED_NOT_COVERING_EXACT_QUADRATIC_STABILITY_BOUNDARY.",
+        "evidence": "The paper specifies the exact recurrence and frequency response used here, but no occurrence of quadratic or eigenvalue analysis was found and no Schur-stability or learning-rate ceiling is stated.",
+        "identifier_or_url": "arXiv:2405.20233v2",
+        "material_read": "Full open-access PDF sections covering Algorithm 2, filter design, EMA impulse response, hyperparameter ablations, the discussion distinguishing Grokfast from ordinary momentum, Appendix A transfer-function equivalence, and Appendix C implementation defaults.",
+        "method": "Full-text PDF inspection with visual inspection of the algorithm and discussion pages and targeted searches for stability, quadratic, eigenvalue, learning-rate, alpha, and lambda terms.",
+        "title": "Grokfast: Accelerated Grokking by Amplifying Slow Gradients",
+        "trigger": "Defining source for the EMA gradient amplifier, signal-processing interpretation, recommended hyperparameters, and linear-optimizer equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7aab8c6a-8924-43dd-9d62-6d14444ae9a1",
+  "value": {
+    "rationale": "Grokfast is explicitly designed as a frequency-selective gradient amplifier, and its source tunes \\(\\alpha\\) and \\(\\lambda\\) by cutoff frequency. The exact learning-rate ceiling therefore answers a natural safety question for the defining mechanism. The Nyquist identity explains why the source defaults can provide threefold DC amplification with little loss of quadratic stability, while another point inside the recommended range loses over one third of the vanilla margin. This is a structural design rule rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
