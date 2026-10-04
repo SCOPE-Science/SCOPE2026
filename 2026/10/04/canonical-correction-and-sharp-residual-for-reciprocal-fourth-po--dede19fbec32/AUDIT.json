@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The Binet substitution gives the exact identity \\(S_n=1024t^2F(t)\\) with \\(t=(17-12\\sqrt2)^n\\) and \\(F(t)=\\sum_{j\\ge0}\\rho^{2j}(1-t\\rho^j)^{-4}\\). Expanding \\(F\\) by the binomial theorem and inverting its analytic power series gives exact coefficients. Direct Binet expansions for \\(B_n^4-B_{n-1}^4\\) and \\(B_{2n-1}\\) show that the \\(t^{-1}\\) coefficient vanishes exactly only at \\(c=1/280\\). The constant and first correction then follow by coefficient subtraction. `verify.py` independently reconstructs these coefficients in \\(\\mathbb Q(\\sqrt2)\\).",
+    "risks": [
+      "The finite direct-tail computations do not prove the infinite claim; they are explicitly nonessential. The proof relies instead on local analyticity and exact coefficient identities."
+    ],
+    "sources": [
+      "arXiv:2609.31548v1 for the balancing recurrence, Binet formula, and source smooth approximant; exact derivation in RESULT.md and verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest published semantic result found is 'Sharp residual expansion for cubic reciprocal Fibonacci tails', published-finding corpus ID 2026/9/19/SCOPE-sharp-cubic-fibonacci-tail-expansion--aa232bc40569.",
+        "arXiv:2609.31548v1 is specifically quartic balancing-number tails and does not supply the new asymptotic."
+      ],
+      "reasoning": "The Fibonacci result establishes a related method on a different recurrence and reciprocal power. It neither specializes to balancing numbers nor implies the coefficient \\(1/280\\), the constant \\(11001\\sqrt2/2665600\\), or the first correction here.",
+      "searches": [
+        "On the infinite sum of reciprocals of the fourth powers of balancing numbers reciprocal fourth powers balancing numbers floor inverse sum",
+        "q-series expansion reciprocal balancing tail fourth power",
+        "published-finding corpus ID 2026/9/19/SCOPE-sharp-cubic-fibonacci-tail-expansion--aa232bc40569"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.31548v1",
+      "published-finding corpus:2026/9/19/SCOPE-sharp-cubic-fibonacci-tail-expansion--aa232bc40569",
+      "web exact-expression searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves \\(\\lfloor S_n^{-1}\\rfloor\\) using a smooth approximant, periodic rounding correction, and telescoping sandwich inequalities.",
+        "The source's bound \\(g_n\\le S_n^{-1}<g_n+1\\) does not determine a convergent residual relative to the smooth approximant because \\(g_n-g_n^{\\mathrm{sm}}\\) is periodic and nonconstant."
+      ],
+      "reasoning": "The published theorem does not imply bounded-residual uniqueness among all coefficients c, nor the limiting constant or first exponential correction. Those require matching the singular terms of the exact Binet-series expansion.",
+      "searches": [
+        "arXiv:2609.31548v1 Theorem 1.1; Proposition 3.1; Proposition 3.2; Section 4",
+        "B_n=6B_{n-1}-B_{n-2} reciprocal fourth powers inverse tail unique 1/280 coefficient bounded residual"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.31548v1, Sections 1-4 inspected in full HTML; the paper states the exact floor theorem and defines the smooth approximant with coefficient \\(1/280\\), but contains no occurrence of the terms 'asympt', 'bounded', or 'unique' for this residual claim.",
+        "Exact-constant web search returned the source paper or unrelated material, not the claimed residual constant."
+      ],
+      "reasoning": "No inspected statement is equivalent to bounded-residual uniqueness or to the exact limit and first correction. The source's floor sandwich only locates the inverse tail in a unit interval around a periodic integer correction.",
+      "searches": [
+        "balancing reciprocal fourth-power tail 1/280 unique coefficient bounded residual asymptotic",
+        "inverse reciprocal fourth powers balancing numbers asymptotic residual B_n^4-B_{n-1}^4 c B_{2n-1}",
+        "web: \"balancing numbers\" \"fourth powers\" reciprocal sum residual asymptotic",
+        "web: \"11001\" \"2665600\" balancing numbers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database/table hit matching the constant or the uniqueness formulation was found; the exact-expression searches surfaced arXiv:2609.31548v1 and unrelated results."
+      ],
+      "reasoning": "The new quantities are symbolic asymptotic coefficients, not a tabulated sequence entry found in the performed searches.",
+      "searches": [
+        "web: \"11001\" \"2665600\" balancing numbers",
+        "web: \"B_n^4\" \"B_{2n-1}\" 280 reciprocal",
+        "canonical coefficient 280 balancing numbers reciprocal fourth powers"
+      ]
+    },
+    "rationale": "Targeted semantic, exact-expression and web searches found the source floor theorem and a related Fibonacci residual expansion, but no balancing-number result asserting uniqueness of \\(1/280\\) from boundedness or the exact residual constants. The source full text was inspected and lacks the new asymptotic/uniqueness statements.",
+    "residual_risks": [
+      "Search cannot exclude an unindexed or differently phrased prior derivation. The closest known analogue uses the same broad Binet-series strategy for a different recurrence/power, so methodological similarity is not itself novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the accepted claim: the paper proves an exact floor identity and sandwich inequalities but does not state bounded-residual uniqueness, a residual limit, or the first exponential correction.",
+        "evidence": "arXiv:2609.31548v1, especially Theorem 1.1 and Sections 3-4.",
+        "identifier_or_url": "arXiv:2609.31548v1",
+        "material_read": "Abstract and Sections 1-4 in the arXiv HTML, including Theorem 1.1, the Binet identities, Propositions 3.1-3.2 and the proof of the main theorem.",
+        "method": "Direct full-text HTML inspection plus in-document searches for asymptotic, bounded, unique and the coefficient \\(1/280\\).",
+        "title": "On the infinite sum of reciprocals of the fourth powers of balancing numbers",
+        "trigger": "Exact same sequence, reciprocal power and \\(1/280\\) correction."
+      },
+      {
+        "assessment": "NOT_COVERING: it concerns Fibonacci numbers, reciprocal cubes and different normalizations/constants.",
+        "evidence": "The returned scientific summary states a cubic Fibonacci residual with coefficients in \\(\\mathbb Q(\\sqrt5)\\); it does not include balancing numbers or the \\(1/280\\) correction.",
+        "identifier_or_url": "published-finding corpus:2026/9/19/SCOPE-sharp-cubic-fibonacci-tail-expansion--aa232bc40569",
+        "material_read": "published-finding corpus title and scientific summary returned by semantic search.",
+        "method": "Semantic result comparison.",
+        "title": "Sharp residual expansion for cubic reciprocal Fibonacci tails",
+        "trigger": "Closest semantic match: reciprocal-tail residual expansion via a Binet-series identity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dede19fb-ec32-44f5-a18b-62ebd58c63dd",
+  "value": {
+    "rationale": "The result explains a structurally opaque feature of the new exact floor theorem: \\(1/280\\) is not merely sufficient for its inequalities but is the unique coefficient that removes the exponentially growing residual. The exact limiting offset and first correction quantify the smooth approximant and explain the scale on which its periodic rounding term operates. This is a natural refinement of the source theorem rather than an arbitrary finite computation.",
+    "risks": [
+      "The contribution is an asymptotic structural refinement, not a new all-n floor formula or a general theorem for every Lucas sequence."
+    ],
+    "sources": [
+      "arXiv:2609.31548v1, which introduces the \\(1/280\\) smooth approximant and exact floor formula."
+    ],
+    "status": "PASS"
+  }
+}
