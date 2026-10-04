@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For each prime \\(p\\le k\\), the proof determines the base-\\(p\\) carry pattern exactly. Writing \\(M=p^{r_p}Q\\) with \\(p\\nmid Q\\), the addition of \\(k\\) to \\(M-1\\) starts carrying at digit \\(\\nu_p(k)\\), propagates through digit \\(r_p-1\\), and stops at digit \\(r_p\\), giving exactly \\(r_p-\\nu_p(k)\\) carries. Kummer's theorem then gives the stated valuation. A separate divisibility argument proves that only \\(M\\) is \\(k\\)-smooth in the interval. The exact checker reproduces the valuation and deficiency claims for 119 values of \\(k\\), but the infinite claim rests on the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The classical good-binomial definition is that the least prime factor exceeds \\(k\\), equivalently \\(\\gcd(\\binom{N}{k},k!)=1\\).",
+        "The 1993 Erdős--Lacampagne--Selfridge work and later summaries concern the same deficiency notion but do not state the valuation formula for this 2026 construction.",
+        "No broader theorem identified in published-finding corpus specializes to the exact construction \\(M+k-1\\)."
+      ],
+      "reasoning": "Background results define goodness and study least prime factors, but they do not dominate the accepted claim. The accepted statement is a direct exact evaluation for the newly proposed M.",
+      "searches": [
+        "good binomial coefficient deficiency one Kummer theorem no carry",
+        "least prime factor binomial coefficient good deficiency",
+        "good binomial coefficient deficiency one counterexample construction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25042v1",
+      "https://mathworld.wolfram.com/GoodBinomialCoefficient.html",
+      "DOI:10.1090/S0025-5718-1993-1199990-6",
+      "published-finding corpus searches recorded in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.25042v1 asserts that the same coefficient is good, whereas the accepted theorem proves every prime \\(p\\le k\\) divides it.",
+        "The nearest published-finding corpus valuation hits concern Thue--Morse coefficients and generalized Domb sums, different objects and statements.",
+        "The standard goodness criterion converts any positive valuation at \\(p\\le k\\) into failure of goodness but does not itself provide those valuations."
+      ],
+      "reasoning": "The source claim does not cover the accepted theorem; it is contradicted by it. Background definitions supply only the interpretation of the positive valuations. No identified stronger prior result implies the exact formula.",
+      "searches": [
+        "Infinitely Many Binomial Coefficients of Deficiency One exact p-adic valuation Kummer M+k-1 choose k counterexample",
+        "good binomial coefficient gcd binomial k factorial Kummer carries",
+        "M product prime powers floor log k binomial valuation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus record matched the source title together with the construction \\(M+k-1\\) and the valuation formula.",
+        "Exact-title web searches with 'error', 'correction', and Kummer-carry terminology returned the source and announcement pages but no published correction.",
+        "The source arXiv page inspected remained arXiv:2609.25042v1."
+      ],
+      "reasoning": "The theorem was searched as an exact p-adic valuation, as a Kummer-carry correction, and as a statement that every prime at most k divides the proposed coefficient. These are equivalent consequences of the accepted formula; none was found in the checked records.",
+      "searches": [
+        "Infinitely Many Binomial Coefficients of Deficiency One Xu Zhang Kummer theorem carry error M+k-1",
+        "binomial deficiency one M_k Kummer carry valuation r_p v_p(k)",
+        "for M product p^{floor(log_p k)+1} valuation binomial M+k-1 choose k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld lists the standard goodness criterion and historical examples, not the proposed 2026 family or the exact valuation formula.",
+        "published-finding corpus returned no exact table or theorem for this construction.",
+        "The finite checker was created for this finding and is not used as novelty evidence."
+      ],
+      "reasoning": "Known example tables cannot imply the uniform valuation identity. The accepted contribution is the all-k formula and the resulting correction, not a finite recomputation.",
+      "searches": [
+        "M+k-1 good binomial coefficient deficiency one",
+        "binomial deficiency one M_k Kummer carry valuation r_p v_p(k)",
+        "Infinitely Many Binomial Coefficients of Deficiency One correction"
+      ]
+    },
+    "rationale": "The source paper claims the opposite conclusion for the same construction and does not contain the exact valuation formula. Targeted published-finding corpus and web searches using the source title, Kummer carries, the explicit construction, and the formula \\(r_p-\\nu_p(k)\\) found no prior correction or equivalent theorem. The nearest published-finding corpus hits concern unrelated binomial or p-adic valuation problems and do not imply this statement.",
+    "residual_risks": [
+      "A differently phrased or unindexed correction may exist outside the searched sources.",
+      "The 1993 primary article was not materially inspected in full text, so an older equivalent observation cannot be excluded absolutely; no such statement appeared in the checked summaries or searches.",
+      "The arXiv source may later be revised after the version inspected here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The deficiency-one lemma survives, but the no-carry argument reverses the effect of digits equal to p-1. The accepted exact carry count proves the constructed coefficient is never good.",
+        "evidence": "The source defines \\(M\\) with \\(r_p=\\lfloor\\log_p k\\rfloor+1\\) and claims \\(n=M+k-1\\) is good. Its Lemma 4.1 uses \\(M-1\\equiv p^{r_p}-1\\pmod{p^{r_p}}\\) and treats maximal digits as preventing carries; direct Kummer analysis gives the opposite.",
+        "identifier_or_url": "arXiv:2609.25042v1",
+        "material_read": "Complete arXiv HTML text, including Sections 1--5, Theorem 1.1, Lemma 3.1, Lemma 4.1, and the proof of the main theorem.",
+        "method": "Direct full-text inspection of definitions, construction, smoothness lemma, Kummer criterion, and claimed no-carry argument.",
+        "title": "Infinitely Many Binomial Coefficients of Deficiency One",
+        "trigger": "Primary source proposing the exact construction corrected here."
+      },
+      {
+        "assessment": "Supports the interpretation that any positive \\(p\\)-adic valuation for \\(p\\le k\\) rules out goodness.",
+        "evidence": "The page states that goodness is equivalent to \\(\\gcd(\\binom{N}{k},k!)=1\\) and cites Erdős--Lacampagne--Selfridge (1993).",
+        "identifier_or_url": "https://mathworld.wolfram.com/GoodBinomialCoefficient.html",
+        "material_read": "Full reference page.",
+        "method": "Direct inspection of the stated least-prime-factor and gcd criteria.",
+        "title": "Good Binomial Coefficient",
+        "trigger": "Independent check of the standard definition of goodness."
+      },
+      {
+        "assessment": "Relevant historical background but not used to prove correctness or originality of the exact valuation formula.",
+        "evidence": "The bibliographic record identifies the 1993 article and the same deficiency/least-prime-factor topic.",
+        "identifier_or_url": "DOI:10.1090/S0025-5718-1993-1199990-6",
+        "material_read": "Bibliographic metadata and secondary summaries; full article not materially inspected.",
+        "method": "Metadata and established reference summaries.",
+        "title": "Estimates of the Least Prime Factor of a Binomial Coefficient",
+        "trigger": "Original literature for good binomial coefficients and deficiency."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b1c9c762-9241-4076-a231-f3043075965e",
+  "value": {
+    "rationale": "The source paper presents its construction as an answer to a longstanding deficiency-one problem. Showing that the same construction is never good, and quantifying the failure by an exact p-adic formula for every small prime, materially changes the status of that claimed solution while preserving the valid deficiency-one component. This is a structural correction to a recent theorem, not a routine small counterexample or a finite-only check.",
+    "status": "PASS"
+  }
+}
