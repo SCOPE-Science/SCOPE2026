@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The normalized dynamics satisfy \\(r_{t+1}^2=r_t^2+z_t^2\\) and \\(z_{t+1}=(1-r_{t+1}^{-1})z_t\\). A direct telescoping comparison proves finite \\(r_\\infty\\); then \\(z_t\\to0\\), and \\(r_\\infty\\le1/2\\) is impossible for nonzero initialization. The exact ratio limit, one-step annihilation surface, transient-count bound, and both endpoint constructions follow from these recurrences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1908.10525v1 full text, two-stage convergence and accumulator bounds",
+        "arXiv:2011.12341v1 full text, sequential convergence and squared-gradient summability"
+      ],
+      "reasoning": "The broader results imply convergence and eventual descent, but their statements and proofs do not force a unique terminal step, do not exclude terminal values arbitrarily near both scalar stability edges, and do not give the explicit startup-count bound.",
+      "searches": [
+        "AdaGrad-Norm arbitrary hyperparameters no uniform linear rate scalar quadratic",
+        "AdaGrad-Norm finite transient expansion threshold eta L over two",
+        "AdaGrad-Norm strongly convex linear convergence terminal step"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1806.01811v1",
+      "arXiv:1908.10525v1",
+      "arXiv:2011.12341v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1806.01811v1 and JMLR full text, AdaGrad-Norm definition and arbitrary-hyperparameter convergence",
+        "arXiv:1908.10525v1 and PMLR full text, Stage I/II description, descent threshold, bounded accumulator, limiting constant",
+        "arXiv:2011.12341v1 full text, scalar AdaGrad definition, sequential convergence, and summability argument"
+      ],
+      "reasoning": "Prior results already support eventual convergence and a limiting accumulator, so those components are not claimed as new. They do not imply the sharp global endpoint attainability statements: approaching \\(2\\) requires a small-amplitude oscillatory construction near the half-threshold, while approaching \\(0\\) uses arbitrarily large normalized initialization. Together these show that the exact asymptotic factor has supremum one despite robust convergence, a boundary statement absent from the inspected prior theorems.",
+      "searches": [
+        "AdaGrad stepsizes sharp convergence b bounded arbitrary eta b0",
+        "Linear Convergence Adaptive Stochastic Gradient Descent bmax eta L over two",
+        "Sequential convergence AdaGrad scalar sum gradients squared finite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1806.01811v1",
+        "arXiv:1908.10525v1",
+        "arXiv:2011.12341v1"
+      ],
+      "reasoning": "The natural equivalent formulation is the parameter-free recurrence in normalized accumulator and iterate variables. The inspected sources analyze bounded accumulators and convergence, but do not classify the sharp closure of terminal effective steps or construct both stability-edge limits.",
+      "searches": [
+        "AdaGrad-Norm scalar quadratic terminal accumulator exact asymptotic contraction factor",
+        "AdaGrad-Norm self stabilizes effective stepsize below two scalar quadratic",
+        "AdaGrad-Norm terminal stepsize constant exact linear rate quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused semantic database searches returned no AdaGrad-Norm-specific exact terminal-step formula or endpoint phase table.",
+        "Nearest returned optimization findings concerned Polyak steps, adaptive spectral persistence, stochastic feedback, and other quadratic stability frontiers."
+      ],
+      "reasoning": "The nearest records use different algorithms and state spaces. None contains the AdaGrad-Norm cumulative-gradient denominator or implies the sharp terminal normalized-step interval.",
+      "searches": [
+        "AdaGrad-Norm scalar quadratic terminal accumulator exact asymptotic contraction factor",
+        "AdaGrad-Norm self stabilizes effective stepsize below two scalar quadratic",
+        "AdaGrad-Norm terminal stepsize constant exact linear rate quadratic",
+        "AdaGrad-Norm arbitrary hyperparameters no uniform linear rate scalar quadratic"
+      ]
+    },
+    "rationale": "The defining and follow-up AdaGrad-Norm papers cover convergence and qualitative two-stage stabilization but do not provide the sharp terminal-step endpoint classification or the no-uniform-rate construction.",
+    "residual_risks": [
+      "Equivalent endpoint constructions may exist in older adaptive-filter or stochastic-approximation literature without AdaGrad-Norm terminology.",
+      "Some components of the proof, including eventual descent after the half-threshold, are prior-covered; originality is restricted to the sharp terminal-step/rate classification and explicit transient count.",
+      "The scalar result does not classify shared-accumulator dynamics across multiple eigenmodes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_COVERS_ROBUST_CONVERGENCE_NOT_TERMINAL_PHASE.",
+        "evidence": "The paper defines \\(b_{t+1}^2=b_t^2+\\|G_t\\|^2\\) and uses the new accumulator in the update, and emphasizes robustness to arbitrary positive hyperparameters. The inspected text does not state a sharp terminal effective-step interval on scalar quadratics.",
+        "identifier_or_url": "arXiv:1806.01811v1",
+        "material_read": "Full JMLR PDF sections defining AdaGrad-Norm and stating the deterministic and stochastic convergence contributions.",
+        "method": "Open-access full-text inspection with page-level visual verification of the update and contribution statements.",
+        "title": "AdaGrad stepsizes: Sharp convergence over nonconvex landscapes",
+        "trigger": "Defining source for AdaGrad-Norm and arbitrary-hyperparameter robustness."
+      },
+      {
+        "assessment": "COVERS_TWO_STAGE_STABILIZATION_NOT_SHARP_ENDPOINTS.",
+        "evidence": "The paper proves bounded accumulation and linear convergence and notes that the effective stepsize approaches a constant. It does not classify that constant sharply over initial conditions, construct terminal steps near both scalar stability edges, or state the resulting nonuniform asymptotic factor.",
+        "identifier_or_url": "arXiv:1908.10525v1",
+        "material_read": "Full PMLR PDF sections on Stage I/II behavior, accumulator upper bounds, descent after the half-threshold, and asymptotic approach of the stepsize to a constant.",
+        "method": "Open-access full-text inspection with page-level visual verification.",
+        "title": "Linear Convergence of Adaptive Stochastic Gradient Descent",
+        "trigger": "Closest source on strong-convexity rates and two-stage AdaGrad-Norm stabilization."
+      },
+      {
+        "assessment": "COVERS_SEQUENTIAL_CONVERGENCE_NOT_RATE_PHASE.",
+        "evidence": "The paper proves convergence of the iterate sequence for smooth convex objectives but does not give the scalar quadratic terminal normalized-step phase portrait or sharp endpoint families.",
+        "identifier_or_url": "arXiv:2011.12341v1",
+        "material_read": "Full open-access PDF sections defining scalar AdaGrad-Norm, proving sequential convergence, and establishing finiteness of the accumulated squared gradients.",
+        "method": "Full-text PDF inspection with page-level visual verification.",
+        "title": "Sequential convergence of AdaGrad algorithm for smooth convex optimization",
+        "trigger": "Strong broad result on iterate convergence for scalar AdaGrad."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa4bf1ea-51f1-4fbf-a955-484f02ca0c75",
+  "value": {
+    "rationale": "AdaGrad-Norm is valued for hyperparameter robustness. The theorem shows exactly what that robustness means on the canonical strongly convex scalar mode: the algorithm self-stabilizes into \\(0<\\theta_\\infty<2\\), but the sharp endpoint constructions make the tail rate arbitrarily slow. This separates stability adaptation from rate calibration and gives a concrete finite bound on the potentially noncontractive startup.",
+    "status": "PASS"
+  }
+}
