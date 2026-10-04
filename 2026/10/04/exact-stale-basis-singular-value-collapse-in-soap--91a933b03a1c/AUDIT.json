@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For a constant gradient and frozen orthogonal basis, both SOAP EMAs converge entrywise to their constant-signal limits, so the stationary normalized coordinate is exactly \\(F_\\varepsilon(z)=z/(|z|+\\varepsilon)\\). For the \\(45^\\circ\\) family the stale update is \\(\\begin{bmatrix}p&r\\\\r&p\\end{bmatrix}\\), whose singular values are \\(p\\pm r\\); direct algebra gives the stated condition number and smallest singular value. Refreshing to the true eigenbasis diagonalizes the signal and gives the stated fresh spectrum. The general angle formula follows from the exact rotated off-diagonal entry.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper establishes an ideal Shampoo/Adafactor equivalence and explains SOAP as Adam in Shampoo's eigenspace.",
+        "The later study gives a broader empirical stale-preconditioner diagnosis and a stabilization recipe.",
+        "Nearby published-record results concern unrelated diagonal scaling, spectral filters, or quadratic optimization recurrences."
+      ],
+      "reasoning": "The ideal equivalence does not cover a stale eigenbasis because it assumes the appropriate preconditioner coordinates. The later empirical instability result does not imply the exact stationary singular-value spectrum or the epsilon-angle boundary derived here.",
+      "searches": [
+        "SOAP optimizer Shampoo Adam exact stationary gradient preconditioner spectrum",
+        "SOAP preconditioner freshness epsilon spectral rank collapse",
+        "SOAP optimizer 2x2 rotation stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2409.11321v1",
+      "arXiv:2607.20548v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 3 rotates the gradient, maintains Adam moments in the current basis, and refreshes eigenvectors only at the preconditioning frequency.",
+        "The 2026 study attributes observed loss spikes and divergence to stale gradient statistics and reports stabilization from real-time basis updates.",
+        "The later paper discusses epsilon as a numerical floor but does not derive an angle-dependent spectral threshold."
+      ],
+      "reasoning": "Prior work supplies the recurrence and the empirical motivation, but neither source's conclusions determine the stationary matrix singular values under a frozen wrong basis. The final claim requires solving that recurrence and diagonalizing the resulting normalized matrix.",
+      "searches": [
+        "arXiv:2409.11321v1 SOAP Algorithm 3 preconditioning frequency epsilon",
+        "arXiv:2607.20548v1 SOAP stale preconditioner current gradient epsilon",
+        "SOAP 2x2 stationary gradient preconditioner eigenbasis exact condition number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the Adam-in-eigenbasis recurrence with epsilon and intermittent eigenbasis updates.",
+        "The later source explicitly identifies stale preconditioners as a cause of large-batch SOAP instability and uses per-step current-gradient basis refresh.",
+        "Published-record searches returned no SOAP result stating a stationary rank-one update limit or the exact condition-number formula."
+      ],
+      "reasoning": "Equivalent formulations include noncommuting basis-error and epsilon limits, rank loss of the stationary update, and an \\(O(1/\u000barepsilon)\\) singular-value condition number under a canonical rotation. The inspected literature gives empirical and algorithmic freshness effects rather than these exact statements.",
+      "searches": [
+        "SOAP stale eigenbasis condition number singular value rank collapse epsilon",
+        "SOAP stationary gradient stale basis singular value collapse",
+        "arXiv:2409.11321v1",
+        "arXiv:2607.20548v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record matches included weighted-Jacobi scaling, two-coordinate Gauss-Seidel, row-coherence obstructions, spectral-filter distortion, and stagewise Richardson frontiers.",
+        "No returned record involved SOAP's frozen eigenbasis together with stationary Adam normalization and epsilon-dependent rank collapse."
+      ],
+      "reasoning": "The closest database records analyze different update maps and different scaling rules. Search absence is not treated as novelty proof; it is combined with statement-level inspection of both the defining SOAP paper and the later dedicated stale-preconditioner study.",
+      "searches": [
+        "SOAP optimizer Shampoo Adam exact stationary gradient preconditioner spectrum",
+        "SOAP optimizer quadratic exact dynamics preconditioning Shampoo eigenbasis Adam",
+        "SOAP optimizer 2x2 rotation stability",
+        "SOAP stale eigenbasis condition number singular value rank collapse epsilon",
+        "SOAP stationary gradient stale basis singular value collapse",
+        "SOAP preconditioner freshness epsilon spectral rank collapse",
+        "SOAP 2x2 stationary gradient preconditioner eigenbasis exact condition number"
+      ]
+    },
+    "rationale": "The defining SOAP paper specifies intermittent eigenbasis refresh and reports degradation with less frequent decompositions. A 2026 large-scale SOAP study diagnoses stale-preconditioner instability and repairs it using current-gradient per-step eigenbasis updates. Neither inspected source states the stationary two-dimensional rank-collapse law, its exact \\(1/\u000barepsilon\\) condition-number blow-up, or the half-saturation angle.",
+    "residual_risks": [
+      "A similar frozen-basis calculation may appear in unindexed implementation notes.",
+      "The result isolates one stationary spectral mechanism and does not establish that it is the unique cause of observed SOAP instability.",
+      "The canonical \\(45^\\circ\\) family is an exact stress test rather than a distributional model of practical basis errors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_STATIONARY_STALE_BASIS_SINGULAR_VALUE_LAW.",
+        "evidence": "The paper explicitly updates Adam moments in the rotated basis and refreshes eigenvectors intermittently, but gives no two-dimensional stationary rank-collapse theorem or epsilon-angle formula.",
+        "identifier_or_url": "arXiv:2409.11321v1",
+        "material_read": "Open-access full paper, including the ideal Shampoo/Adafactor equivalence, Algorithm 3, eigenvector update, implementation notes, and discussion of degradation with less frequent eigendecomposition.",
+        "method": "Full-text PDF inspection with visual inspection of the Algorithm 3 page and targeted statement comparison.",
+        "title": "SOAP: Improving and Stabilizing Shampoo using Adam",
+        "trigger": "Defining source for SOAP's eigenbasis, moment recurrences, epsilon denominator, and preconditioning frequency."
+      },
+      {
+        "assessment": "EMPIRICAL_STALENESS_DIAGNOSIS_NOT_COVERING_EXACT_STATIONARY_COLLAPSE.",
+        "evidence": "The paper reports stale-statistics oscillations and divergence and fixes them empirically, but does not state the exact \\(2\times2\\) singular spectrum, \\(1/\u000barepsilon\\) blow-up, or half-saturation angle.",
+        "identifier_or_url": "arXiv:2607.20548v1",
+        "material_read": "Open-access full paper around the SOAP primer and Sections 5.4.1-5.4.3, including the stale-preconditioner diagnosis, per-step current-gradient refresh, epsilon discussion, and reported loss-spike/divergence experiments.",
+        "method": "Full-text PDF inspection with targeted search for stale preconditioner, current gradient, and epsilon.",
+        "title": "SOAP, Muon, and Beyond: Pushing LLM Pretraining Scales",
+        "trigger": "Most directly relevant later work on SOAP instability from stale preconditioner statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "91a933b0-3a1c-4832-8439-16f23005dc81",
+  "value": {
+    "rationale": "Basis freshness is now a documented practical stability issue for SOAP, and epsilon is a documented numerical stability parameter. The result connects them quantitatively: it gives an exact singular-value collapse, an explicit \\(1/\u000barepsilon\\) conditioning law, and a sharp angle at which an off-diagonal stale coordinate reaches half of its saturated Adam normalization. These are natural spectral invariants of the optimizer's defining matrix update and provide a precise mechanism for why a seemingly small basis lag can matter.",
+    "status": "PASS"
+  }
+}
