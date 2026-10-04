@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "With Euclidean mirror maps and \\(e^{a_t}=\\dot b_t\\), the source first-order equations transform exactly under \\(s=e^{b_t}\\) to \\(x_s=(z_x-x)/s\\), \\((z_x)_s=-(\\mu x+z_\\lambda)\\), and \\((z_\\lambda)_s=z_x\\). Differentiation gives the invariant \\(I=sx-z_\\lambda\\) and the exact scalar equation \\(w_{ss}+(1+\\mu/s)w=I\\) for \\(w=sx\\). Shifting by the instantaneous equilibrium reduces the forcing to an integrable \\((s+\\mu)^{-3}\\) term, and the displayed energy inequality gives a uniform bound on \\(w\\). On \\(I=0\\), the oscillator energy has a strictly positive lower bound for every nonzero solution, which prevents \\(w\\to0\\) and proves exponent sharpness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves a generic squared-feasibility rate in the undamped setting and a stronger residual rate under additional friction/boundedness assumptions.",
+        "Attouch--Chbani--Fadili--Riahi use a directly second-order damped/extrapolated augmented-Lagrangian system with different state variables.",
+        "Zhao--Liao--He--Zhou--Li prove accelerated feasibility by Lyapunov analysis for a different primal-dual mirror flow."
+      ],
+      "reasoning": "General accelerated feasibility theorems do not imply the new exact position/lookahead invariant. The result is a structural specialization of the new ELR flow, not merely a restatement of a pre-existing rate theorem.",
+      "searches": [
+        "arXiv:2609.09454v2 full text",
+        "arXiv:2103.12675 full text",
+        "JMLR 24 (2023) Article 343 full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.09454v2",
+      "arXiv:2103.12675",
+      "JMLR:24:343"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source gives \\(\\|r\\|^2=O(e^{-b_t})\\) generically before adding the extra conditions used for \\(\\|r\\|=O(e^{-b_t})\\); it does not derive the zero-friction scalar strengthening.",
+        "TRIALS uses viscous damping, extrapolation, and temporal scaling directly in a second-order augmented-Lagrangian ODE rather than the coupled ELR lookahead equations.",
+        "The 2023 mirror-dynamics paper establishes nonergodic accelerated rates but does not contain the conserved scalar combination or the same reduced oscillator."
+      ],
+      "reasoning": "None of the inspected statements dominates the final claim. The decisive new implication is that the scalar ELR constraint mode gets the full residual exponent with zero Rayleigh friction, and that this exponent is sharp within the same mode.",
+      "searches": [
+        "arXiv:2609.09454v2 equations for primal/multiplier mirror flow and Theorem III.4",
+        "arXiv:2103.12675 TRIALS system and rate sections",
+        "JMLR 24 (2023) Article 343 accelerated mirror dynamics and contributions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-research record states the invariant \\(e^{b_t}x-z_\\lambda\\) or the reduced oscillator.",
+        "The closest database hits concern unrelated minimax feedback, reflected-gradient stability, and penalty extrapolation."
+      ],
+      "reasoning": "The searches covered the source flow name, scalar equality specialization, lookahead variables, conserved-quantity language, oscillator reduction, and the exact feasibility exponent. No statement-equivalent result was returned.",
+      "searches": [
+        "accelerated primal dual flow scalar equality constraint exact invariant lookahead e^b feasibility rate",
+        "Bregman Lagrangian primal dual scalar equality Coulomb oscillator exact solution",
+        "Euler Lagrange Rayleigh accelerated primal dual constraint oscillator invariant",
+        "accelerated ADMM flow equality constraint exact feasibility e^{-b} scalar"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact invariant, oscillator law, or scalar sharpness table was returned."
+      ],
+      "reasoning": "The finding is an analytic reduction of a differential system, not a recomputation of a numerical benchmark or stored table.",
+      "searches": [
+        "scalar ELR primal dual invariant e^b x z_lambda",
+        "forced oscillator accelerated primal dual equality constraint",
+        "undamped primal dual mirror feasibility e^{-b} exact"
+      ]
+    },
+    "rationale": "The primary 2026 paper supplies the coupled ELR mirror flow and generic Lyapunov rates but does not state this scalar conserved quantity, forced-oscillator reduction, or zero-friction full-exponent feasibility result. Two closest accelerated affine-constraint flow papers were inspected: one uses a distinct damped inertial augmented-Lagrangian system, and the other uses a different accelerated mirror architecture. Targeted published-research searches returned no equivalent invariant or scalar reduction.",
+    "residual_risks": [
+      "Older accelerated augmented-Lagrangian literature is broad, and an equivalent scalar calculation may appear under different state variables or time-rescaling notation.",
+      "The improvement is proved only for the scalar constraint-only Euclidean mode and does not imply a stronger generic theorem for coupled affine constraints."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the exact equations specialized in the finding but does not state the scalar invariant, forced-oscillator reduction, or zero-friction full-exponent feasibility rate.",
+        "evidence": "Lemma III.3 gives the primal and multiplier lookahead/mirror equations; Theorem III.4 gives the general dual-gap and feasibility rates and separates the stronger residual conclusion behind additional conditions.",
+        "identifier_or_url": "arXiv:2609.09454v2",
+        "material_read": "Full arXiv HTML portions covering the constrained model, augmented Bregman Lagrangians, Lemma III.3 first- and second-order flows, Rayleigh friction extension, and Theorem III.4; arXiv metadata for earliest public date and MSC classification.",
+        "method": "Full-text arXiv HTML and metadata inspection.",
+        "title": "Unifying Variational View of Accelerated Primal-Dual Methods",
+        "trigger": "Recent primary source defining the coupled ELR primal and multiplier mirror flows and their generic feasibility theorem."
+      },
+      {
+        "assessment": "Uses a distinct directly second-order inertial system and does not provide the ELR position/lookahead invariant.",
+        "evidence": "The displayed TRIALS equations couple positions, velocities, multiplier, viscous damping, extrapolation, and temporal scaling without the source paper's mirror lookahead state pair.",
+        "identifier_or_url": "arXiv:2103.12675",
+        "material_read": "Full arXiv text portions covering the affine constrained model, augmented Lagrangian, TRIALS system, roles of damping/extrapolation/time scaling, and rate-analysis sections.",
+        "method": "Full-text arXiv inspection.",
+        "title": "Fast Convergence of Dynamical ADMM via Time Scaling of Damped Inertial Dynamics",
+        "trigger": "Closest prior accelerated augmented-Lagrangian flow cited by the primary source."
+      },
+      {
+        "assessment": "Establishes accelerated feasibility for a different mirror-flow architecture but does not state the scalar invariant or forced oscillator used here.",
+        "evidence": "The paper presents its own APDMD/SAPDMD systems and \\(O(1/t^2)\\)-type accelerated convergence program, distinct from the new coupled ELR lookahead equations.",
+        "identifier_or_url": "JMLR:24:343",
+        "material_read": "Open-access PDF abstract, affine-constrained formulation, historical comparison, and contribution section describing accelerated feasibility and mirror dynamics; a rendered page was inspected.",
+        "method": "Open-access full-PDF text plus rendered-page inspection.",
+        "title": "Accelerated Primal-Dual Mirror Dynamics for Centralized and Distributed Constrained Convex Optimization Problems",
+        "trigger": "Closest full-text accelerated primal-dual mirror-flow predecessor for affine constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7f3ff0a6-6ecb-4a4b-9172-d18f6eac5add",
+  "value": {
+    "rationale": "The scalar equality constraint is the canonical feasibility mode of an affine primal--dual flow, and the source theorem explicitly distinguishes squared-feasibility from the stronger residual rate. The hidden invariant explains when that gap disappears without friction, gives an exact one-dimensional reduction, and proves that the resulting \\(e^{-b_t}\\) exponent is itself sharp. This identifies a concrete acceleration mechanism--position/lookahead cancellation rather than damping--that is useful for interpreting the new variational flow and for testing which parts of the generic Lyapunov assumptions are structural versus conservative.",
+    "status": "PASS"
+  }
+}
