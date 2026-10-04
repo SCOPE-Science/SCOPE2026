@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The pmf difference follows exactly from the three coefficients of a fixed-sum Bernoulli pair. Its generating polynomial is (z-1)^2 times the Poisson-binomial background polynomial, which is real-rooted with no positive roots; the real-rooted Descartes lemma gives exactly two coefficient sign changes. Telescoping and unimodality then yield the CDF and W1 identities, while TV, Kolmogorov, and stop-loss are direct exact consequences. The embedded rational checker replays all formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoeffding proves fixed-mean convex expectation extrema and develops finite-difference expectation algebra.",
+        "Wang proves Poisson-binomial unimodality and strong adjacent-mass inequalities.",
+        "Roos uses finite differences in exact Krawtchouk expansions and in total-variation approximation to a binomial law.",
+        "Yu gives relative-log-concavity/convex-order context and Sason studies Poisson-binomial total-variation approximation."
+      ],
+      "reasoning": "These sources supply surrounding tools and some individual ingredients, but none supplies a theorem whose stated conclusion is the exact signed mass transfer plus all four metric/stop-loss formulas. The new structural step is the two-positive-root coefficient-sign argument applied to the pair-transfer difference polynomial.",
+      "searches": [
+        "Hoeffding 1955 On the distribution of the number of successes independent trials convex function",
+        "Wang 1993 On the number of successes independent trials unimodal",
+        "Roos Krawtchouk expansion Poisson binomial total variation second difference",
+        "arXiv:1010.2043",
+        "arXiv:1301.7504"
+      ]
+    },
+    "checked_sources": [
+      "Hoeffding mimeograph series 128 / DOI:10.1214/aoms/1177728178",
+      "Statistica Sinica 3 (1993), 295-312",
+      "DOI:10.1137/S0040585X9797821X",
+      "arXiv:1010.2043",
+      "arXiv:1301.7504"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The stop-loss record is an asymptotic large-deviation heterogeneity result, not an exact one-step identity.",
+        "The rare-Bernoulli TV record is a first-order local asymptotic for a different product comparison.",
+        "The cumulant record controls skewness and kurtosis, not distribution metrics.",
+        "The own Gini result and own collision-entropy result are nonlinear functionals of pair balancing and do not imply the signed pmf crossing theorem."
+      ],
+      "reasoning": "None of the closest published or own statements dominates the final claim. In particular, qualitative convex order does not determine total variation, Kolmogorov distance, W1, or the number of pmf crossings.",
+      "searches": [
+        "precise stop-loss large deviations for Poisson-binomial sums",
+        "rare-event Bernoulli total variation under product perturbations",
+        "Poisson-binomial cumulant and effective-trial comparisons",
+        "Gini mean difference under Bernoulli pair balancing",
+        "collision entropy under fixed-sum Bernoulli pair balancing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned record stated a +,-,+ pmf difference for a fixed-sum pair transfer or the exact modal-mass W1 coefficient.",
+        "The closest records concern stop-loss large deviations, rare-product total variation, or cumulants rather than exact finite pair transfers."
+      ],
+      "reasoning": "The searches used majorization, T-transform, peakedness, mass crossing, total variation, Wasserstein, and second-difference language. This covers the main equivalent ways to formulate the claimed redistribution and metric identities.",
+      "searches": [
+        "Poisson binomial majorization two crossings pmf balancing",
+        "Bernoulli convolution majorization probability mass crossing two sign changes",
+        "Poisson binomial T transform density crossings",
+        "heterogeneous Bernoulli convolution two crossing theorem majorization",
+        "Poisson binomial peakedness majorization mass function crossing",
+        "Poisson binomial pair balancing total variation exact second difference background",
+        "Bernoulli parameter transfer Wasserstein distance Poisson binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula database record or finite table containing the metric coefficients or crossing structure was returned."
+      ],
+      "reasoning": "The result is symbolic for every Poisson-binomial background and every feasible fixed-sum pair transfer; it is not a recomputation of tabulated cases.",
+      "searches": [
+        "Poisson binomial pair transfer exact Wasserstein",
+        "Poisson binomial balancing Kolmogorov distance exact",
+        "Poisson binomial fixed sum mass crossing table"
+      ]
+    },
+    "rationale": "Hoeffding covers the qualitative convex-order effect and finite-difference expectation machinery; that part is explicitly not treated as original. Wang covers Poisson-binomial unimodality and Roos covers finite-difference binomial approximation. The inspected and searched sources do not state or dominate the exact two-crossing pmf law together with the one-crossing CDF and closed TV/Kolmogorov/W1/stop-loss transfer formulas.",
+    "residual_risks": [
+      "Classical total-positivity or Pólya-frequency literature may encode an equivalent two-crossing result without Poisson-binomial terminology.",
+      "The exact finite-difference identity itself is closely related to Hoeffding's classical pair-variation algebra; originality rests on the combined crossing and metric classification, not on the raw convolution identity alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROADER_ALGEBRA_NOT_COVERING_FINAL_CLAIM",
+        "evidence": "The text optimizes expectations of arbitrary functions and proves the equal-probability maximum for strictly convex functions. It supplies finite-difference machinery but does not state the +,-,+ pair-transfer pmf structure or the exact TV, Kolmogorov, W1, and stop-loss formulas as a distributional theorem.",
+        "identifier_or_url": "Hoeffding mimeograph series 128 / DOI:10.1214/aoms/1177728178",
+        "material_read": "Full text through the arbitrary-function setup, pair perturbation machinery, explicit second-difference expression, and convex-function theorem.",
+        "method": "Compared the exact pair-variation machinery and convex-order conclusion against the probability-mass crossing and metric statements.",
+        "title": "On the Distribution of the Number of Successes in Independent Trials",
+        "trigger": "Foundational fixed-mean Bernoulli-sum extremal paper and the strongest plausible prior implication source."
+      },
+      {
+        "assessment": "SHAPE_FRAMEWORK_NOT_COVERING",
+        "evidence": "The paper proves that the Poisson-binomial pmf increases then decreases and gives strengthened log-concavity-type inequalities. It does not analyze the signed difference created by one fixed-sum pair balancing step or derive exact distribution metrics for that step.",
+        "identifier_or_url": "Statistica Sinica 3 (1993), 295-312",
+        "material_read": "Full PDF with focused inspection of the introduction, probability-mass identities, and Theorem 2 proving unimodality and strong adjacent-mass inequalities.",
+        "method": "Compared its shape theorem and homogeneous-versus-heterogeneous discussion with the single pair-transfer crossing claim.",
+        "title": "On the Number of Successes in Independent Trials",
+        "trigger": "Primary full text proving shape properties of Poisson-binomial mass functions."
+      },
+      {
+        "assessment": "METRIC_FRAMEWORK_NOT_COVERING",
+        "evidence": "Roos expands a Poisson-binomial law around a binomial reference and bounds approximation errors. The inspected results do not give a fixed-sum pair-transfer difference, its crossing count, or its W1 and stop-loss identities.",
+        "identifier_or_url": "DOI:10.1137/S0040585X9797821X",
+        "material_read": "Full institutional text, including definitions of total variation/point metric, the Krawtchouk expansion, and the leading second-difference total-variation term.",
+        "method": "Compared its heterogeneous-to-binomial approximation with the exact comparison of two pair-related Poisson-binomial laws.",
+        "title": "Binomial Approximation to the Poisson Binomial Distribution: The Krawtchouk Expansion",
+        "trigger": "Closest full source explicitly combining Poisson-binomial finite differences with total-variation and point metrics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "952d735c-b8e8-460e-90dd-762c893df34f",
+  "value": {
+    "rationale": "A pair-balancing T-transform is the atomic operation behind majorization of Bernoulli parameter vectors. The theorem quantifies that atomic operation completely at the distribution level: a single central depletion band, two tail gains, one CDF crossing, exact metric costs, and a threshold-by-threshold stop-loss increment. The W1 coefficient is the modal mass of the remaining Bernoulli sum, connecting transport sensitivity directly to concentration.",
+    "status": "PASS"
+  }
+}
