@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The scalar updates follow directly from Ouyang et al. equation (1.12) plus the exact \\(w\\) and multiplier updates. The identity \\(y_{k+1}=mw_{k+1}\\) reduces the post-first-step dynamics to a \\(2\\times2\\) matrix. Its trace, determinant, discriminant, derivative identities, and the \\(r=1\\) factorization were algebraically reconstructed. The minimizer follows from monotonicity of the real roots, the increasing modulus \\(\\sqrt D\\) in the conjugate-root interval, and the unique trace crossing. The included checker independently reconstructs these formulas and passes deterministic exact and numerical checks. The result is explicitly limited to asymptotic spectral radius; no finite enumeration is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghadimi et al., arXiv:1306.2454, derives optimal penalty and relaxation parameters for ordinary ADMM on quadratic problems; its full-text update has no L-ADMM stabilization \\(\\eta\\).",
+        "GMRES-Accelerated ADMM for Quadratic Objectives, DOI 10.1137/16M1059941, accelerates the ordinary linear ADMM fixed-point iteration by Krylov methods, not by optimizing the source L-ADMM stabilization \\(\\eta\\).",
+        "Closest database record 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0 concerns a different degree-two extragradient polynomial."
+      ],
+      "reasoning": "Broader quadratic-ADMM parameter papers can dominate a scalar claim only if their optimized parameter family contains the extra linearization stabilization used here. The inspected ordinary-ADMM results optimize different parameters and therefore do not imply this stabilization-versus-penalty-ratio phase diagram.",
+      "searches": [
+        "preconditioned ADMM optimal parameters quadratic convergence factor",
+        "proximal ADMM optimal parameter quadratic spectral radius",
+        "Optimal parameter selection alternating direction method multipliers quadratic problems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.6607",
+      "DOI 10.1137/14095697X",
+      "DOI 10.1007/s10589-012-9519-2",
+      "arXiv:1306.2454",
+      "DOI 10.1109/TAC.2014.2354892",
+      "DOI 10.1137/16M1059941",
+      "Targeted mathematical-record searches for L-ADMM, linearized ADMM, proximal/stabilization parameter, spectral radius, critical damping, and quadratic parameter tuning"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ouyang et al. gives a sufficient general condition \\(\\eta\\ge L_G\\) for unaccelerated L-ADMM and notes tuning work, but does not minimize the exact scalar spectral radius.",
+        "BOSVS gives an adaptive BB-plus-linesearch rule for a quadratic imaging fidelity model, not a closed-form constant \\(\\eta\\) optimizer at fixed \\(\\rho\\).",
+        "Ghadimi et al. solves a different parameter-optimization problem for ordinary/relaxed ADMM; setting its parameters cannot reproduce the added linearization coefficient h."
+      ],
+      "reasoning": "The new claim is not merely a special numerical case of a stronger inspected theorem: its object is the source L-ADMM recurrence with an additional stabilization parameter, and its conclusion is a complete fixed-r minimizer over that parameter, including an instance-stable regime below the source's universal majorization bound.",
+      "searches": [
+        "Bregman operator splitting variable stepsize Barzilai Borwein linearized ADMM",
+        "linearized ADMM tuning eta Ouyang Chen Lan Pasiliao",
+        "ordinary ADMM quadratic optimal penalty Ghadimi Teixeira Shames Johansson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ouyang et al., arXiv:1401.6607, eq. (1.12), defines the same L-ADMM stabilization parameter and explicitly cites stepsize-tuning literature.",
+        "Chen et al., DOI 10.1007/s10589-012-9519-2, uses a Barzilai--Borwein estimate and line search rather than a constant-parameter spectral minimizer.",
+        "Closest database record 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56 optimizes a different forward-reflected-backward recurrence."
+      ],
+      "reasoning": "Aliases including linearized ADMM, L-ADMM, proximal/stabilization parameter, stepsize, critical damping, and spectral-radius tuning were searched. The inspected same-method literature tunes \\(\\eta\\) by sufficient bounds or adaptive BB/line-search rules; no implication-equivalent scalar phase diagram was located.",
+      "searches": [
+        "linearized ADMM scalar symmetric quadratic stabilization parameter exact spectral radius minimizer",
+        "L-ADMM scalar quadratic proximal coefficient eta rho exact convergence factor phase transition",
+        "linearized ADMM critical damping repeated eigenvalue proximal stepsize"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned database record stated the recurrence matrix \\(M(r,h)\\), the thresholds \\(r=1\\) and \\(r=(1+\\sqrt5)/2\\), or the piecewise minimizer \\(h_*(r)\\).",
+        "The nearest records were methodologically similar exact-rate studies for FRB, extragradient, Richardson, heavy-ball, and weighted Jacobi, all with different iteration polynomials.",
+        "The local ledger's earlier ADMM-related claims concern ordinary ADMM relaxation/penalty behavior, primal-dual linesearch, Douglas--Rachford transients, or restart phenomena; none contains the L-ADMM stabilization variable \\(\\eta\\)."
+      ],
+      "reasoning": "The exact formulas and both phase boundaries were compared against targeted database searches and the recoverable claims of the existing local ledger. No statement with the same algorithmic parameter and implication was found.",
+      "searches": [
+        "linearized alternating direction multiplier scalar quadratic optimal eta",
+        "linearized ADMM symmetric scalar quadratic optimal proximal parameter spectral radius exact",
+        "proximal stabilization parameter linearized ADMM exact convergence factor quadratic"
+      ]
+    },
+    "rationale": "Targeted searches and full-text inspection found literature on L-ADMM \\(\\eta\\) tuning by sufficient bounds or adaptive BB/line-search rules, and literature on exact parameter optimization for ordinary ADMM, but no source stating or implying the piecewise scalar \\(h_*(r)\\) phase diagram. The claim uses a parameter absent from the inspected ordinary-ADMM optimal-penalty formulas.",
+    "residual_risks": [
+      "An unindexed thesis, technical note, implementation document, or later preconditioned-ADMM spectral analysis could contain an equivalent scalar reduction.",
+      "Two MRI application papers cited by Ouyang et al. as \\(\\eta\\)-tuning precedents were identified bibliographically but not fully inspected; their titles and the primary paper's discussion suggest application-specific tuning rather than the exact scalar phase diagram, but this remains a literature risk.",
+      "A sufficiently general matrix-valued preconditioned-ADMM theorem could subsume the scalar formula without using the same terminology; no such implication was located in the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same \\(\\eta\\) parameter and gives \\(\\eta=L_G\\) or \\(\\eta\\ge L_G\\) as general choices for L-ADMM, but does not state the scalar spectral-radius minimizer or the \\(r=1\\) and golden-ratio phase boundaries.",
+        "evidence": "Equation (1.12) is the linearized \\(x\\)-update; the paper states that several works concern tuning \\(\\eta_t\\); Theorem 2.8 gives \\(\\eta\\ge L_G\\) for unpreconditioned L-ADMM.",
+        "identifier_or_url": "arXiv:1401.6607; DOI 10.1137/14095697X",
+        "material_read": "Full arXiv text around equations (1.9)--(1.14), the statement that prior works tune \\(\\eta_t\\), Algorithm 2 specialization, Theorems 2.5 and 2.8, and bibliography entries for cited tuning work.",
+        "method": "Compared the update, admissible general convergence choices, and stated tuning discussion against the claimed scalar recurrence and optimizer.",
+        "title": "An Accelerated Linearized Alternating Direction Method of Multipliers",
+        "trigger": "Primary source defining the exact L-ADMM update and stabilization parameter."
+      },
+      {
+        "assessment": "Uses a BB estimate and backtracking/linesearch for imaging problems; no exact fixed-r spectral phase diagram matching the claim was found.",
+        "evidence": "The full text defines delta_k by a BB Rayleigh quotient and then applies a line-search termination condition.",
+        "identifier_or_url": "DOI 10.1007/s10589-012-9519-2",
+        "material_read": "Open full text through the derivation of the split model, proximal/linearized update, Barzilai--Borwein curvature estimate, and linesearch description.",
+        "method": "Checked whether the paper derives a constant scalar spectral optimizer or a stronger formula implying \\(h_*(r)\\).",
+        "title": "Bregman operator splitting with variable stepsize for total variation image reconstruction",
+        "trigger": "Highly relevant same-family stepsize-tuning work by overlapping authors, explicitly treated as a linearized ADMM method in the primary source."
+      },
+      {
+        "assessment": "Optimizes ordinary/relaxed ADMM parameters and does not contain the added L-ADMM stabilization coefficient. Its results therefore do not imply the present stabilization-versus-penalty-ratio optimizer.",
+        "evidence": "The paper states that ordinary ADMM has a single algorithm parameter \\(\\rho\\), then separately adds relaxation \\(\\alpha\\); its quadratic recurrence is for exact \\(x\\)-subproblems rather than the linearized \\(x\\)-update.",
+        "identifier_or_url": "arXiv:1306.2454; DOI 10.1109/TAC.2014.2354892",
+        "material_read": "Full-text introduction, standard and relaxed ADMM updates, l2-regularized quadratic recurrence, and parameter-optimization discussion.",
+        "method": "Compared algorithmic degrees of freedom and implication: penalty \\(\\rho\\) and relaxation \\(\\alpha\\) versus L-ADMM stabilization \\(\\eta\\).",
+        "title": "Optimal parameter selection for the alternating direction method of multipliers (ADMM): quadratic problems",
+        "trigger": "Closest broad prior work deriving exact optimal ADMM parameters on quadratics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9ae77a2e-1a30-4b36-9e32-159b8e75e66b",
+  "value": {
+    "rationale": "The scalar quadratic is the minimal mode on which the interaction between augmented penalty and linearization stabilization can be isolated exactly. The result is not a routine restatement of the convergence condition: it identifies a three-regime optimum, a nontrivial golden-ratio boundary, a broad optimal plateau at the balanced penalty, and exact circumstances under which the universal majorization choice is conservative. These facts provide a sharp benchmark for tuning and for multi-mode generalizations, while the limitations explicitly prevent overclaiming matrix-wide optimality.",
+    "status": "PASS"
+  }
+}
