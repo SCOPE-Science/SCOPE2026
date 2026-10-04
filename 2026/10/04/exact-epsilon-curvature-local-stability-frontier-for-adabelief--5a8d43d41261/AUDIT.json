@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The exact recurrence gives \\(s_\\star=\\varepsilon/(1-\\beta_2)\\). Its Jacobian splits into \\(\\beta_2\\) and a second-order block with determinant \\(\\beta_1\\) and trace \\(1+\\beta_1-(1-\\beta_1)\\chi\\). Exact Jury conditions yield the strict frontier, while the discriminant yields the plateau.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "NeurIPS 2020 AdaBelief full paper, Algorithm 2 and Section 2.3",
+        "arXiv:2203.13273v1 equations reproducing AdaBelief epsilon placement",
+        "arXiv:2104.13790v1 strong-convexity modification"
+      ],
+      "reasoning": "The broader results cover general regret or adaptive-step behavior but do not imply a necessary-and-sufficient local quadratic stability boundary for the original constant-parameter recurrence.",
+      "searches": [
+        "AdaBelief epsilon stability learning rate",
+        "AdaBelief quadratic optimizer",
+        "FastAdaBelief strong convexity convergence",
+        "Aida AdaBelief epsilon adaptive stepsize range"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.07468v1",
+      "github:juntang-zhuang/Adabelief-Optimizer:AdaBelief.py@update_0.2.0",
+      "arXiv:2203.13273v1",
+      "arXiv:2104.13790v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "NeurIPS 2020 Algorithm 2 adds epsilon to the second-moment recurrence and after the square root.",
+        "NeurIPS 2020 Section 2.3 omits de-biasing for theoretical analysis.",
+        "The official implementation mutates the residual second-moment state with epsilon before square-root normalization.",
+        "arXiv:2203.13273v1 explicitly analyzes AdaBelief's epsilon placement as affecting adaptive-step ranges."
+      ],
+      "reasoning": "These sources determine the update and motivate epsilon sensitivity but do not imply the exact curvature ceiling, unit-root boundary, or complex-root plateau.",
+      "searches": [
+        "AdaBelief Algorithm 2 epsilon second moment bias correction",
+        "AdaBelief theoretical analysis omit bias correction bounded below",
+        "Aida AdaBelief epsilon placement adaptive stepsize suppression",
+        "official AdaBelief epsilon different role adaptive non-adaptive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2010.07468v1",
+        "arXiv:2203.13273v1",
+        "arXiv:2104.13790v1"
+      ],
+      "reasoning": "The equivalent linear-system formulation is the local iterate/first-moment block after the centered second-moment innovation vanishes to first order. None of the inspected sources states this characteristic polynomial or an equivalent necessary-and-sufficient condition.",
+      "searches": [
+        "AdaBelief scalar quadratic local stability epsilon exact Jacobian",
+        "AdaBelief epsilon deterministic quadratic instability momentum",
+        "AdaBelief fixed point local convergence quadratic epsilon",
+        "AdaBelief denominator collapses deterministic gradients epsilon stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused published-record searches returned no AdaBelief-specific exact local quadratic stability table or equivalent characteristic polynomial."
+      ],
+      "reasoning": "Closest retrieved results concerned other sharp stability frontiers. Search absence is not treated as proof of novelty, so a terminology risk remains.",
+      "searches": [
+        "AdaBelief scalar quadratic local stability epsilon exact Jacobian",
+        "AdaBelief epsilon deterministic quadratic instability momentum",
+        "AdaBelief fixed point local convergence quadratic epsilon",
+        "AdaBelief denominator collapses deterministic gradients epsilon stability"
+      ]
+    },
+    "rationale": "The inspected primary and follow-up sources discuss epsilon placement, general convergence, adaptive-step ranges, and strong-convexity schedules but not this exact scalar local Schur law.",
+    "residual_risks": [
+      "Equivalent local stability calculations may exist under generic Adam-type dynamical-systems terminology.",
+      "Modern libraries with separate second-moment and denominator epsilons have a different frontier.",
+      "The nonlinear attractor beyond local instability is not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_LOCAL_FRONTIER.",
+        "evidence": "The source fixes the recurrence used here and gives general convergence theory, but no deterministic quadratic local Schur calculation.",
+        "identifier_or_url": "arXiv:2010.07468v1; NeurIPS 2020 proceedings",
+        "material_read": "Algorithm 2, epsilon-placement note, Section 2.3 convergence assumptions, and reported hyperparameters; the algorithm page was visually inspected.",
+        "method": "Open-access full-text and PDF inspection.",
+        "title": "AdaBelief Optimizer: Adapting Stepsizes by the Belief in Observed Gradients",
+        "trigger": "Defining source and closest theoretical analysis."
+      },
+      {
+        "assessment": "MATCHES_SOURCE_EPSILON_CONVENTION.",
+        "evidence": "The implementation updates the residual second moment, mutates that state with epsilon before the square root, and adds epsilon again to the denominator.",
+        "identifier_or_url": "github:juntang-zhuang/Adabelief-Optimizer:AdaBelief.py@update_0.2.0",
+        "material_read": "Residual second-moment update and denominator construction.",
+        "method": "Public source-code inspection.",
+        "title": "Official AdaBelief Optimizer implementation",
+        "trigger": "Verify implementation of the accumulated-epsilon convention."
+      },
+      {
+        "assessment": "CLOSE_EPSILON_ANALYSIS_NOT_COVERING_FRONTIER.",
+        "evidence": "The paper identifies epsilon placement as affecting adaptive-step range but does not derive the scalar Jacobian, curvature threshold, or plateau.",
+        "identifier_or_url": "arXiv:2203.13273v1",
+        "material_read": "Equations reproducing AdaBelief and discussion of adaptive-step suppression.",
+        "method": "Open-access full-text inspection.",
+        "title": "A DNN Optimizer that Improves over AdaBelief by Suppression of the Adaptive Stepsize Range",
+        "trigger": "Closest follow-up specifically focused on epsilon placement."
+      },
+      {
+        "assessment": "DIFFERENT_STRONGLY_CONVEX_SCHEDULE.",
+        "evidence": "FastAdaBelief changes scheduling to obtain improved regret and does not state this constant-parameter local frontier.",
+        "identifier_or_url": "arXiv:2104.13790v1",
+        "material_read": "Abstract and accessible method description.",
+        "method": "Open-access inspection.",
+        "title": "FastAdaBelief: Improving Convergence Rate for Belief-based Adaptive Optimizers by Exploiting Strong Convexity",
+        "trigger": "Potential stronger strongly-convex coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a8d43d4-1261-423c-80de-da38faa3be19",
+  "value": {
+    "rationale": "The source ecosystem treats epsilon as task sensitive. The exact result shows that its placement controls local admissible curvature through \\(\\sqrt{\\varepsilon/(1-\\beta_2)}+\\varepsilon\\), while momentum creates an exact rate plateau. This is a structural tuning diagnostic rather than a routine restatement of convergence theory.",
+    "status": "PASS"
+  }
+}
