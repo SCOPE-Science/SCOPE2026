@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact monomial evaluation gives the complete restrictions of the Simpson difference and true-error functionals to \\(\\mathcal P_6\\). The kernel relation and missed-error law follow by linearity. The witness has a direct nonnegative factorization plus a positive constant, and exact-rational replay returns VERIFY_OK. The finite replay corroborates, rather than replaces, the analytic all-polynomial proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gonnet explicitly states that accidentally small differences between quadrature estimates can yield false small error estimates.",
+        "Plaskota explicitly states that standard adaptive Simpson may terminate too early and return a completely false result."
+      ],
+      "reasoning": "These broader reliability results cover the phenomenon but do not determine the first polynomial degree, the degree-six kernel, or its exact missed-error functional.",
+      "searches": [
+        "adaptive Simpson false small error estimate polynomial",
+        "adaptive quadrature accidental small difference polynomial exact blind spot",
+        "Increasing the Reliability of Adaptive Quadrature Using Explicit Interpolants false small estimate"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s00211-014-0684-3",
+      "arXiv:1006.3962v1",
+      "DOI:10.1145/321526.321537",
+      "Targeted semantic literature searches listed in the originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Plaskota's degree-ten example proves existence of premature termination but does not imply which lower degrees can or cannot fail.",
+        "Classical Richardson-corrected Simpson exactness through degree five explains the lower-degree nonfailure; that lower-bound component is treated as structurally prior rather than as the main novelty."
+      ],
+      "reasoning": "The prior facts do not imply the nontrivial degree-six null direction, the formula for the missed error on that direction, or the strictly positive witness. The final claim explicitly distinguishes the prior lower-degree exactness mechanism from the new degree-six classification.",
+      "searches": [
+        "Automatic integration using asymptotically optimal adaptive Simpson quadrature premature termination polynomial",
+        "Notes on the Adaptive Simpson Quadrature Routine premature convergence",
+        "adaptive Simpson corrected rule exact degree five"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest inspected primary source gives a different false-zero construction of degree ten that vanishes at all five sampled nodes.",
+        "The closest semantic result concerns sharp curvature envelopes for symmetric three-point rules, not equality of one-panel and two-half-panel Simpson estimates."
+      ],
+      "reasoning": "An implication-equivalent result would have to characterize the nullspace of the specific one-versus-two-panel difference on degree-six polynomials or imply the displayed positive witness. None of the inspected statements does so.",
+      "searches": [
+        "adaptive Simpson false zero error estimate degree six polynomial",
+        "adaptive Simpson S2 S1 equal nonzero true error polynomial",
+        "S2 = S1 Simpson polynomial degree 6",
+        "x^6 - 5/4 x^4 Simpson"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches returned no database record tabulating or stating the relation \\(4a_4+5a_6=0\\) with missed error \\(-a_6/21\\).",
+        "The closest database records concern other Simpson-rule sharp constants or Romberg weights."
+      ],
+      "reasoning": "The claimed exact low-degree classification was not found in the checked databases or source tables.",
+      "searches": [
+        "adaptive Simpson degree 6 blind spot",
+        "Simpson Richardson error estimator cancellation degree 6",
+        "adaptive Simpson polynomial false zero table"
+      ]
+    },
+    "rationale": "Premature termination and accidentally small adaptive-quadrature differences are already known and explicitly excluded from the novelty claim. Plaskota gives a degree-ten zero-at-all-samples failure. The accepted contribution is the complete degree-six false-zero kernel, exact missed-error functional, minimal-degree boundary, and strictly positive cancellation witness. Targeted semantic and literature searches found no implication-equivalent statement, with residual risk from the large older adaptive-quadrature literature.",
+    "residual_risks": [
+      "Older adaptive-quadrature literature is extensive, and an equivalent degree-six cancellation calculation may exist under different terminology.",
+      "The full text of the 1969 Lyness article was not accessible through the checked publisher route, so it was not used for a whole-document noncoverage claim.",
+      "The standard exactness-through-degree-five fact makes the lower-degree side of the boundary unsurprising; the substantive originality is the degree-six kernel, missed-error law, and strictly positive witness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the general possibility of premature termination and an explicit degree-ten all-sampled-zero example; DOES NOT STATE the complete degree-six kernel or positive cancellation witness.",
+        "evidence": "The article explicitly gives \\(f(x)=\\prod_{i=0}^4(x-i)^2\\) on \\([0,4]\\) as an extreme case where the standard method returns zero despite positive integral.",
+        "identifier_or_url": "DOI:10.1007/s00211-014-0684-3",
+        "material_read": "Open full-text sections covering the standard local rule, its stopping logic, the constant-sign fourth-derivative assumption, and the explicit premature-termination polynomial example.",
+        "method": "Lawful open publisher/PMC HTML full-text inspection.",
+        "title": "Automatic integration using asymptotically optimal adaptive Simpson quadrature",
+        "trigger": "Primary literature defining and analyzing the standard local adaptive Simpson procedure, including premature termination."
+      },
+      {
+        "assessment": "COVERS accidental-small-difference false error estimates in general; DOES NOT STATE the exact degree-six Simpson nullspace or witness.",
+        "evidence": "The paper states that accidentally small differences between approximations can produce a false small error estimate.",
+        "identifier_or_url": "arXiv:1006.3962v1",
+        "material_read": "Open arXiv full text covering the historical adaptive-Simpson mechanism and the error-estimation discussion of accidentally small differences.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "Increasing the Reliability of Adaptive Quadrature Using Explicit Interpolants",
+        "trigger": "Primary reliability study of adaptive quadrature and error-estimator failures."
+      },
+      {
+        "assessment": "Historically relevant but not used to justify a whole-document noncoverage conclusion.",
+        "evidence": "The publisher record identifies the 1969 adaptive-Simpson article and its quadrature/numerical-analysis indexing.",
+        "identifier_or_url": "DOI:10.1145/321526.321537",
+        "material_read": "Publisher metadata, index terms, references, and publication record; full article fetch was blocked by the publisher route during this review.",
+        "method": "Publisher metadata inspection.",
+        "title": "Notes on the Adaptive Simpson Quadrature Routine",
+        "trigger": "Historical source for adaptive Simpson stopping criteria."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5c0302be-c012-46d4-b3ab-0f615bb18d1e",
+  "value": {
+    "rationale": "The degree threshold is a natural invariant of the classical stopping test. The result upgrades a known qualitative failure into a sharp low-degree structural classification, separates node-missing from estimator-cancellation failures, and supplies an analytic strictly positive regression test with a 20 percent relative error despite a zero error signal.",
+    "status": "PASS"
+  }
+}
