@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The ordinary Veronese polar vector follows from the standard smooth polar-class formula after substituting c_j(TP^n)=binom(n+1,j)h^j and H=e h. Reindexing the closed vector as a_k=binom(N,k)e^(k-1)(e-1)^(N-k), the p-adic proof is exact: for p not dividing e, the endpoint a_N has valuation zero; for p dividing e, binom(N,k)=N/k*binom(N-1,k-1) gives nu_p(binomial)>=nu_p(N)-nu_p(k), and nu_p(k)<=k-1<=(k-1)nu_p(e). Thus every term has valuation at least nu_p(N), while k=1 attains equality. The bundled checker independently verifies the Chern-sum formula, gcd law, and ED-degree sum in large finite ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kohn gives the geometric interpretation of coisotropic degrees as polar degrees.",
+        "Later Segre--Veronese work gives broader formulas for polar degrees.",
+        "Quadratic-Veronese work gives the specialized multidegree 2^i binom(n+1,i+1)."
+      ],
+      "reasoning": "Broader polar-degree formulas contain the numerical input but do not themselves identify the gcd across every index. The new statement extracts and proves an exact global arithmetic invariant of the full vector.",
+      "searches": [
+        "Segre Veronese polar degrees formula Sodomaco",
+        "coisotropic hypersurfaces polar degrees Veronese",
+        "Veronese conormal multidegree quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1607.05932",
+      "doi:10.1016/j.jsc.2020.10.005",
+      "The geometry of SDP-exactness in quadratic optimization",
+      "claim-specific semantic literature searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The explicit polar formula does not visibly state the minimum valuation across indices.",
+        "The endpoint polar degrees alone show only that common primes must divide e and n+1; the exact exponent for every prime requires the valuation inequality across all intermediate binomial factors."
+      ],
+      "reasoning": "The proof uses an additional global p-adic minimization over the whole polar vector. The result is therefore a nontrivial arithmetic consequence rather than a restatement of one formula entry.",
+      "searches": [
+        "Veronese polar degree binomial e^i (e-1)",
+        "coisotropic degrees Veronese prime divisibility",
+        "all polar degrees Veronese common factor n+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searches returned sources for polar-degree formulas and neighboring coisotropic geometry but no gcd or common-prime theorem.",
+        "No located source stated that the common p-adic exponent is exactly nu_p(n+1) for primes p dividing the embedding degree."
+      ],
+      "reasoning": "These queries cover the exact invariant, its prime-wise formulation, and the equivalent geometric language of coisotropic hypersurface degrees.",
+      "searches": [
+        "\"gcd\" \"polar degrees\" Veronese",
+        "\"common divisor\" \"polar degrees\" Veronese",
+        "\"coisotropic\" Veronese \"gcd\" degree",
+        "\"common prime\" Veronese coisotropic degree",
+        "Veronese polar degrees arithmetic divisibility"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The quadratic polar vector and generic ED-degree sum provide exact calibration data.",
+        "No inspected table or formula source tabulates the gcd as a function of n and e."
+      ],
+      "reasoning": "The claim is not a new finite table entry: it is a uniform prime-wise theorem for all dimensions and embedding degrees.",
+      "searches": [
+        "quadratic Veronese polar degrees gcd",
+        "Veronese polar vector table degree",
+        "Veronese ED degree polar degrees"
+      ]
+    },
+    "rationale": "The inspected archival source identifies coisotropic degrees with polar degrees, and later Segre--Veronese work provides explicit polar-degree formulas. A quadratic-Veronese source gives the expected specialized polar vector. None of the inspected sources states the gcd of the complete Veronese polar vector, the exact common p-adic exponents, or the iff criterion for a prime to divide all coisotropic degrees. Claim-specific semantic searches likewise found no covering statement.",
+    "residual_risks": [
+      "The gcd theorem is a short consequence of an explicit classical-style polar formula, so an older unindexed source may contain it.",
+      "The literature inspection was targeted to the most relevant formula and coisotropic sources rather than an exhaustive search of all historical texts on polar classes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_COISOTROPIC_POLAR_INTERPRETATION_NOT_GCD_THEOREM",
+        "evidence": "The source identifies coisotropic-hypersurface degrees with polar degrees and is classified primarily in algebraic geometry; the inspected text does not state the common-divisor formula.",
+        "identifier_or_url": "arXiv:1607.05932",
+        "material_read": "ArXiv metadata plus the full-text abstract and introductory definitions, including the discussion of Chow, Hurwitz, higher associated, and coisotropic hypersurfaces and the statement that their degrees are polar degrees.",
+        "method": "Full-text HTML inspection.",
+        "title": "Coisotropic Hypersurfaces in Grassmannians",
+        "trigger": "Primary archival source for the geometric meaning and slot ownership of coisotropic hypersurface degrees."
+      },
+      {
+        "assessment": "BROADER_POLAR_FORMULA_NOT_COMMON_DIVISOR_CLASSIFICATION",
+        "evidence": "The source supplies explicit polar-degree data from which the ordinary Veronese specialization can be recovered, but the inspected material does not state the gcd or exact common prime exponents.",
+        "identifier_or_url": "doi:10.1016/j.jsc.2020.10.005",
+        "material_read": "The theorem and surrounding discussion giving explicit polar degrees for Segre--Veronese varieties and noting their earlier computation.",
+        "method": "Full-text web inspection of the relevant theorem.",
+        "title": "Wasserstein distance to independence models",
+        "trigger": "Later full-text source explicitly discussing polar degrees of Segre--Veronese varieties."
+      },
+      {
+        "assessment": "SUPPORTS_QUADRATIC_CALIBRATION_NOT_GENERAL_GCD",
+        "evidence": "The quadratic specialization gives polar coefficients 2^i binom(n+1,i+1), agreeing with the formula used here; no general gcd law was found in the inspected material.",
+        "identifier_or_url": "published web full text",
+        "material_read": "The displayed quadratic-Veronese conormal multidegree formula and its surrounding explanation.",
+        "method": "Web full-text inspection of the relevant formula.",
+        "title": "The geometry of SDP-exactness in quadratic optimization",
+        "trigger": "Independent calibration of the quadratic Veronese conormal multidegree."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f17b21fe-7f4c-40e8-b389-30ef57782bc1",
+  "value": {
+    "rationale": "Polar degrees simultaneously encode the generic tangency conditions represented by all coisotropic hypersurfaces of a projective variety. The theorem determines the exact universal divisibility shared by every one of these degrees for every Veronese embedding: common primes are controlled solely by the overlap between the embedding degree e and n+1, with exact exponents. This is a natural whole-vector arithmetic invariant that is not visible from isolated polar degrees and immediately decides when the complete polar vector is primitive.",
+    "status": "PASS"
+  }
+}
