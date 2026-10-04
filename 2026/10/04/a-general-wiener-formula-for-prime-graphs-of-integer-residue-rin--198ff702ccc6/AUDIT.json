@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For commutative unital rings, prime-graph adjacency is exactly zero product. The zero vertex makes every nonedge a distance-two pair. The number of ordered zero-product pairs is the exact gcd sum \\(\\sum_x\\gcd(x,n)\\), which factors as \\(\\prod p^{a-1}((a+1)p-a)\\). Removing the diagonal square-zero solutions \\(\\prod p^{\\lfloor a/2\\rfloor}\\) and halving gives the edge count. Direct substitution then yields the Hosoya and Wiener formulas. The derivation handles all primes and exponent boundaries, including \\(a=1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 paper states formulas only for six composite shapes and explicitly lists four unsolved families in its conclusion.",
+        "The 2025 polynomial/power-series prime-graph paper studies diameter and girth, not a Wiener formula for Z_n."
+      ],
+      "reasoning": "No inspected broader theorem subsumes arbitrary n; the closest later work changes the invariant and ring extension.",
+      "searches": [
+        "The Wiener Index of Prime Graph PG(Z_n) full text",
+        "W(PG(Z_{p^k})) k>3 prime graph",
+        "prime graph p^k q^h Wiener",
+        "Prime Graphs of Polynomials and Power Series Over Noncommutative Rings Wiener"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.29020/nybg.ejpam.v17i3.5166",
+      "DOI:10.1080/09728600.2022.2140088",
+      "DOI:10.11113/matematika.v30.n.663",
+      "DOI:10.1155/ijmm/5232935"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 formulas are recovered by specialization, but the paper does not state or prove a multiplicative all-n theorem and instead asks for higher exponents and more prime factors.",
+        "The 2022 survey predates the 2024 extensions and likewise contains only special cases/open questions."
+      ],
+      "reasoning": "The present theorem is not merely a restatement of a prior special case: its divisor-sum proof supplies a uniform result for every factorization and closes explicitly open parameter ranges.",
+      "searches": [
+        "2024 EJPAM Theorem 6 Theorem 7 Theorem 8 Theorem 9 Theorem 10 Theorem 11 conclusion open problems",
+        "2022 Wiener index graphs over rings survey prime graph questions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated an all-n prime-graph Wiener formula or the gcd/square-zero edge count.",
+        "Web searches repeatedly returned the 2024 special-case paper as the closest match, not a general formula."
+      ],
+      "reasoning": "The claim was searched both in prime-graph language and in equivalent zero-product/gcd-count language.",
+      "searches": [
+        "published-finding corpus: Wiener index prime graph Z_n arbitrary n general formula",
+        "published-finding corpus: prime graph Zn number of edges sum gcd(x,n) square zero solutions",
+        "Web: W(PG(Z_n)) general formula Wiener",
+        "Web: prime graph all n Wiener Z_n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no published finding matching the present formula.",
+        "No exact table or database source with the product formula was located."
+      ],
+      "reasoning": "The exact formula and its multiplicative factors were searched directly, with no coverage found.",
+      "searches": [
+        "published-finding corpus exact title The Wiener Index of Prime Graph PG(Z_n)",
+        "published-finding corpus W(PG(Z_{p^k})) k > 3",
+        "Web prime graph Z_n Wiener index 2025 general"
+      ]
+    },
+    "rationale": "The 2024 primary paper gives only the cases \\(p,p^2,p^3,pq,p^2q,p^2q^2,pqr\\) and explicitly lists four broader families as open. The displayed product formula covers arbitrary prime factorizations and therefore strictly dominates those cases. published-finding corpus and web searches for the all-\\(n\\) formula, divisor-sum form, gcd-sum form, and zero-product aliases found no matching published result. A 2025 prime-graph paper treats diameter/girth rather than Wiener index.",
+    "residual_risks": [
+      "An equivalent counting formula may exist under a different graph name and may not be indexed by prime-graph terminology.",
+      "The universal finite-ring annihilator-sum identity is elementary; novelty is claimed for its explicit all-n specialization to the named prime-graph Wiener problem, not for the abstract counting tautology by itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GAP_SOURCE_AND_SPECIAL_CASES",
+        "evidence": "The paper gives p^2, p^3, pq, pqr, p^2q, p^2q^2 formulas and explicitly asks for higher prime powers, mixed exponents, and arbitrary square-free products.",
+        "identifier_or_url": "DOI 10.29020/nybg.ejpam.v17i3.5166",
+        "material_read": "Full-text PDF sections covering the definition, Theorem 1, the special-case Wiener formulas, and the conclusion/open problems; pages containing the definition and conclusion were also visually inspected.",
+        "method": "Statement-by-statement implication comparison and specialization checks against the proposed product formula.",
+        "title": "The Wiener Index of Prime Graph PG(Z_n)",
+        "trigger": "Primary gap source and closest exact literature."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "The survey reports only earlier special cases and poses further prime-graph Wiener questions; no all-n formula is given.",
+        "identifier_or_url": "DOI 10.1080/09728600.2022.2140088",
+        "material_read": "Prime-graph section and conclusion/open-problem discussion.",
+        "method": "Comparison of listed cases and stated unanswered directions.",
+        "title": "Wiener index of graphs over rings: a survey",
+        "trigger": "Earlier survey of prime-graph Wiener results and open problems."
+      },
+      {
+        "assessment": "STRUCTURAL_NOT_COVERING",
+        "evidence": "The paper studies chromatic numbers for general Z_n, not Wiener indices.",
+        "identifier_or_url": "DOI 10.11113/matematika.v30.n.663",
+        "material_read": "Abstract and available indexed description of scope.",
+        "method": "Checked whether a distance/Wiener theorem for general n was claimed.",
+        "title": "Prime Graph of the Commutative Ring Z_n",
+        "trigger": "General-n structural paper on the same ring prime graph."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper focuses on strong-zero-divisor variants, diameter, and girth for polynomial/power-series rings, not the Wiener index of Z_n.",
+        "identifier_or_url": "DOI 10.1155/ijmm/5232935",
+        "material_read": "Abstract, introduction, preliminaries, and stated section scope.",
+        "method": "Checked the invariants and ring families treated after the 2024 paper.",
+        "title": "Prime Graphs of Polynomials and Power Series Over Noncommutative Rings",
+        "trigger": "Post-2024 prime-graph literature sanity check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "198ff702-ccc6-4dd1-aeb4-63d97c17c401",
+  "value": {
+    "rationale": "The result replaces a growing list of case-by-case distance-matrix formulas by one closed multiplicative expression for every Z_n. It directly answers all four open families stated in the 2024 primary source, includes the entire distance distribution via the Hosoya polynomial, and provides a short reusable counting mechanism rather than a one-off numerical extension.",
+    "status": "PASS"
+  }
+}
