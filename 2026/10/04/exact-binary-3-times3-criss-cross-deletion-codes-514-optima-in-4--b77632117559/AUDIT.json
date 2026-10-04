@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "All 512 binary 3-by-3 arrays and all nine row-column deletion choices are exhaustively evaluated from the definition. Two independent deletion implementations agree. Exact set packing over the 16 possible outputs proves the maximum is 4; a witness attains 4. Exhaustive four-clique enumeration gives 514 optima, and a verified 16-element channel-symmetry action partitions them into 46 classes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bitar et al. Theorem 11 states its cardinality bound for n at least 41.",
+        "Welter et al. studies multiple criss-cross deletions and general redundancy/constructions."
+      ],
+      "reasoning": "The broad published bounds do not imply this exact n=3 optimum-and-classification statement. The first source explicitly restricts its main cardinality theorem to n at least 41; the second addresses a broader error model but not a complete small binary census.",
+      "searches": [
+        "arXiv:2004.14740 Section V cardinality bound",
+        "arXiv:2102.02727 multiple criss-cross insertion deletion codes",
+        "criss-cross insertion deletion correcting code small parameter census"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2004.14740",
+      "DOI:10.1109/TIT.2021.3111450",
+      "arXiv:2102.02727",
+      "DOI:10.1109/TIT.2022.3152398"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper defines exactly the same channel but its Theorem 11 is for n at least 41.",
+        "The multiple-deletion paper provides asymptotic/general redundancy bounds, not the n=3 enumeration."
+      ],
+      "reasoning": "The new claim is neither a corollary nor a special numerical substitution into the inspected published theorems. Its upper bound and enumeration come from a complete finite computation specific to the 3-by-3 channel.",
+      "searches": [
+        "arXiv:2004.14740 full text Definition 1 and Theorem 11",
+        "arXiv:2102.02727 abstract and stated redundancy bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2004.14740 defines the same deletion balls and correction model.",
+        "No located public result stated the binary 3-by-3 exact maximum or census."
+      ],
+      "reasoning": "The equivalent formulation is pairwise disjoint sets of 2-by-2 arrays obtained by deleting one row and one column. Searches used both the authors' criss-cross terminology and this direct array-deletion formulation.",
+      "searches": [
+        "\"3x3\" \"criss-cross\" deletion code binary exact",
+        "\"3 x 3\" \"criss-cross deletion\" binary array code",
+        "binary 3 by 3 array one row one column deletion correcting code exact maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed finite-code hits concerned quinary single-deletion codes and other unrelated coding parameters; no matching 3-by-3 criss-cross table was returned."
+      ],
+      "reasoning": "Targeted searches for the parameter value, labeled optimum count, and symmetry-class count did not reveal a pre-existing exact table for this channel.",
+      "searches": [
+        "binary 3x3 criss-cross deletion correcting code maximum cardinality 4",
+        "criss-cross deletion code 514 optimal codes 46 symmetry classes",
+        "two dimensional deletion balls 3x3 binary arrays exact code"
+      ]
+    },
+    "rationale": "The inspected primary literature defines the channel and gives general bounds/constructions but does not state the exact binary 3-by-3 optimum or its complete classification. Targeted public and indexed searches did not locate an equivalent statement. Residual risk remains for an unindexed small-parameter computation.",
+    "residual_risks": [
+      "An older, unindexed, or unpublished exhaustive small-parameter computation could contain the same 3-by-3 census; none was located in the searches performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same (1,1) channel; Theorem 11 is explicitly for n at least 41 and does not cover the n=3 exact census.",
+        "evidence": "arXiv v5 lines corresponding to Definition 1, Lemma 7, and Theorem 11.",
+        "identifier_or_url": "arXiv:2004.14740",
+        "material_read": "Definitions, main-results summary, deletion-ball structure around Lemma 7, and Section V cardinality bound including Theorem 11",
+        "method": "lawful arXiv HTML full text",
+        "title": "Criss-Cross Insertion and Deletion Correcting Codes",
+        "trigger": "same channel and closest primary source"
+      },
+      {
+        "assessment": "Gives general redundancy bounds and constructions for multiple criss-cross insertions/deletions; no exact binary 3-by-3 census located.",
+        "evidence": "arXiv abstract states redundancy lower bound and existential construction.",
+        "identifier_or_url": "arXiv:2102.02727",
+        "material_read": "Abstract and public bibliographic summary",
+        "method": "arXiv abstract and institutional publication record",
+        "title": "Multiple Criss-Cross Insertion and Deletion Correcting Codes",
+        "trigger": "broader follow-up on the same family of synchronization errors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7763211-7559-4814-8640-89331adc916b",
+  "value": {
+    "rationale": "The result is a natural complete classification at the smallest square size whose deletion outputs retain two-dimensional 2-by-2 structure. It gives an exact benchmark for a modern synchronization-error model and shows that extremizers have 46 inequivalent channel-symmetry types rather than a unique template.",
+    "status": "PASS"
+  }
+}
