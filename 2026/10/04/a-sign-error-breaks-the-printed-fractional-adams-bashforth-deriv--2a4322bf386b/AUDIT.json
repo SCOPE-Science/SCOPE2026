@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Equations (4.3) and (4.4) are two exact evaluations of the same Volterra identity. Their subtraction necessarily produces a minus sign before the earlier-time integral, whereas the source prints a plus sign. For constant forcing the exact integrals are elementary, yielding the explicit difference-versus-sum formulas. Summing the printed increments at fixed terminal time gives a power sum whose leading term is proportional to 1/Delta, proving inconsistency for every 0<h<=1. The embedded verifier independently checks representative cases and the integer-order exact witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diethelm, Ford, and Freed derive a Caputo Adams method from the nonlocal Volterra equation and retain weighted contributions from all previous mesh nodes.",
+        "Their construction is general numerical-analysis prior art and does not discuss the Zhang et al. COVID article."
+      ],
+      "reasoning": "Broader theory already establishes the correct nonlocal structure, so no novelty is assigned to fractional Adams quadrature itself. It does not subsume the source-specific identification and exact consistency counterexample.",
+      "searches": [
+        "Caputo Adams-Bashforth subtract Volterra integrals history numerical method",
+        "\"A predictor-corrector approach for the numerical solution of fractional differential equations\" Adams history",
+        "fractional Adams-Bashforth Caputo history weights predictor corrector"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022234",
+      "doi:10.1023/A:1016592219341",
+      "ntrs:20020024453"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact-phrase search returned the motivating article itself with the plus-sign equation.",
+        "Standard fractional Adams literature supplies the correct methodological baseline but no identified statement correcting this particular DOI."
+      ],
+      "reasoning": "Prior numerical theory makes the sign error mathematically diagnosable, but it does not itself state the source-specific correction. The accepted claim adds the exact constant-forcing witness and mesh-refinement divergence for the printed parent relation.",
+      "searches": [
+        "\"By subtracting (4.4) from (4.3), we obtain\" fractional Adams",
+        "\"H h,1\" \"H h,2\" Adams Bashforth fractional",
+        "fractional Adams method constant forcing consistency Caputo"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full-text extraction prints the plus sign in equation (4.5) immediately after the words that equation (4.4) is subtracted from equation (4.3).",
+        "No exact-source search located an erratum or correction changing that numerical derivation."
+      ],
+      "reasoning": "Equivalent descriptions include a subtraction-sign error, a wrong Caputo-history increment, and failure on constant forcing. Searches covered the exact source and each of these aliases.",
+      "searches": [
+        "\"10.3934/math.2022234\" Adams-Bashforth sign",
+        "\"Dynamics of fractional order delay model of coronavirus disease\" numerical scheme correction",
+        "\"Equation (4.5)\" fractional Adams-Bashforth coronavirus",
+        "\"math.2022234\" erratum correction numerical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source text around pages 4225–4227 was inspected through the displayed Volterra identities, the sentence announcing subtraction, equation (4.5), interpolation equation (4.6), and the start of equation (4.7).",
+        "The Diethelm–Ford–Freed full preprint was inspected at the fractional predictor-corrector derivation, including the statement that the integration range begins at zero because of nonlocality and the history-weight formulas."
+      ],
+      "reasoning": "The comparison is equation-level: the sign discrepancy is visible before any interpolation approximation, and the standard source confirms that fractional Adams methods must respect the nonlocal Volterra history.",
+      "searches": [
+        "doi:10.3934/math.2022234 equations 4.3 4.4 4.5 Adams-Bashforth",
+        "doi:10.1023/A:1016592219341 fractional Adams predictor Volterra"
+      ]
+    },
+    "rationale": "Fractional Adams methods and Volterra-history quadrature are established prior art. The novelty claim is restricted to the source-specific correction: the 2021 COVID paper says it subtracts equations (4.3) and (4.4) but prints the opposite sign in equation (4.5), and the constant-forcing certificate proves that this parent recurrence cannot be a consistent fractional Adams scheme. Exact-source and alias searches did not locate a published correction of this step.",
+    "residual_risks": [
+      "No executable code was supplied in the inspected article, so the implementation used for the figures may differ from the printed recurrence.",
+      "A non-indexed author note could have corrected the sign without appearing in the searched records.",
+      "The finding does not audit every coefficient of equations (4.7)–(4.11); it isolates the earlier exact algebraic error that invalidates their printed derivation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_PARENT_RECURRENCE_HAS_WRONG_SIGN_AND_IS_INCONSISTENT",
+        "evidence": "The text says equation (4.4) is subtracted from equation (4.3) but displays the earlier-history integral with a plus sign.",
+        "identifier_or_url": "doi:10.3934/math.2022234",
+        "material_read": "Full-text material covering the Caputo Volterra equations (4.1)–(4.4), the subtraction step and equation (4.5), interpolation equation (4.6), the resulting compartment scheme beginning at equation (4.7), and the numerical-simulation section with Figures 1–2.",
+        "method": "Compared the two exact Volterra identities before interpolation, then tested the displayed parent recurrence on constant forcing and under fixed-horizon mesh refinement.",
+        "title": "Dynamics of fractional order delay model of coronavirus disease",
+        "trigger": "Primary source whose Section 4 derives and applies the claimed fractional Adams–Bashforth scheme."
+      },
+      {
+        "assessment": "STANDARD_METHOD_CONFIRMS_NONLOCAL_SIGNED_INCREMENT_STRUCTURE",
+        "evidence": "The standard derivation explicitly notes that fractional nonlocality keeps the integration range from the initial time and builds the predictor from the full history.",
+        "identifier_or_url": "doi:10.1023/A:1016592219341; ntrs:20020024453",
+        "material_read": "Full preprint sections defining the Caputo problem and deriving the predictor-corrector algorithm from the nonlocal Volterra representation; the fractional predictor uses weighted history over all preceding nodes.",
+        "method": "Compared the source-specific derivation with the standard Volterra-history construction and its integer-order limit.",
+        "title": "A Predictor-Corrector Approach for the Numerical Solution of Fractional Differential Equations",
+        "trigger": "Canonical primary reference for Adams-type numerical treatment of Caputo fractional equations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a4322bf-386b-45b2-968d-6d49c3c4b65f",
+  "value": {
+    "rationale": "The numerical method is used to visualize the article's central claims about fractional order and delay. The defect occurs before numerical approximation: an exact subtraction is printed with the wrong sign. The resulting parent recurrence fails the most basic constant-forcing consistency test and diverges under refinement, so identifying the error materially changes what the published numerical derivation can support. The claim is bounded so that unavailable simulation code is not over-interpreted.",
+    "status": "PASS"
+  }
+}
