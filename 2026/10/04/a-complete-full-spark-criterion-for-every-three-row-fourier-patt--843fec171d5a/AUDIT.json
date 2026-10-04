@@ -1,0 +1,105 @@
+{
+  "claim": "For integers \\(N\\ge 3\\) and \\(2\\le m\\le N-1\\), let \\(F_N=(\\omega^{rs})_{r,s\\in\\mathbb Z_N}\\) with \\(\\omega=e^{-2\\pi i/N}\\), and select the three rows \\(\\mathcal M=\\{0,1,m\\}\\). The resulting \\(3\\times N\\) harmonic frame is full spark if and only if \\(\\gcd(N,m)\\le 2\\) and \\(\\gcd(N,m-1)\\le 2\\); equivalently, it is full spark if and only if \\(\\mathcal M\\) is uniformly distributed over every divisor of \\(N\\).",
+  "correctness": {
+    "rationale": "Every singular minor is normalized to S_m(u)=S_m(v). If the common value is zero, three common N-th and m-th roots force gcd(N,m)>=3. If nonzero, conjugation gives u^(m-1)=v^(m-1)=a and exact cross-multiplication forces a=1, hence gcd(N,m-1)>=3. Converse subgroup witnesses are explicit. The packaged exact checker verifies the determinant identity, divisor equivalence, and thousands of witness cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full Spark Frames states that no general DFT characterization is available and gives only prime-power sufficiency.",
+        "Achanta et al. treat equally spaced rows and a single missing row from a consecutive block."
+      ],
+      "reasoning": "Neither broader theorem covers arbitrary composite N for the normalized three-row family; for m>3 the family is outside the principal Achanta structures.",
+      "searches": [
+        "published-finding corpus: cyclic Fourier matrix row set 0 1 k full spark criterion uniform distribution",
+        "Primary full text: Full Spark Frames, arXiv:1110.3548",
+        "Primary full text: Coprime Conditions for Fourier Sampling for Sparse Recovery, DOI:10.1109/SAM.2014.6882460"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1110.3548",
+      "DOI:10.1109/SAM.2014.6882460",
+      "DOI:10.1016/j.dsp.2016.07.008 (abstract/metadata only)",
+      "published-finding corpus semantic search results for six targeted queries",
+      "Own ledger generations g000001 through g000007"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own ledger contains the special case m=4 but no theorem for variable m.",
+        "Prior sources do not combine necessity with a proof of sufficiency for all {0,1,m}."
+      ],
+      "reasoning": "The new theorem strictly subsumes the prior m=4 finding and adds a complete two-parameter criterion; this is a meaningful extension, not a duplicate or special-case corollary.",
+      "searches": [
+        "Own ledger g000001..g000007 claims and embedded files",
+        "Primary source implication comparison against arXiv:1110.3548 and DOI:10.1109/SAM.2014.6882460"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states the gcd iff criterion or the equivalent divisor-uniformity theorem for {0,1,m}.",
+        "Alexeev–Cahill–Mixon define divisor-uniformity and prove necessity generally, but not sufficiency for this family."
+      ],
+      "reasoning": "The final claim was searched both in gcd language and in the equivalent uniform-distribution language; the closest literature supplies only one direction in general.",
+      "searches": [
+        "published-finding corpus: three-row harmonic frame {0,1,m} full spark gcd(N,m) gcd(N,m-1)",
+        "published-finding corpus: uniform distribution three row set 0 1 m divisors full spark Fourier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned records concerned unrelated Fourier concentration, Vandermonde rank, and other topics; none tabulated or classified the family."
+      ],
+      "reasoning": "No exact database/table surfaced that would subsume the claimed all-N,m criterion.",
+      "searches": [
+        "published-finding corpus: full spark Fourier harmonic frame three rows 0 1 5 roots of unity vanishing minors",
+        "published-finding corpus: vanishing Schur polynomial roots of unity three variables Fourier minors"
+      ]
+    },
+    "rationale": "Full-text comparison shows the foundational paper proves only general necessity and prime-power sufficiency and says the general characterization is absent. The Achanta conference paper treats arithmetic progressions and one-row-deleted consecutive blocks and explicitly leaves a necessity/sufficiency gap. Targeted published-finding corpus queries returned no matching two-parameter gcd theorem.",
+    "residual_risks": [
+      "A differently phrased or poorly indexed prior theorem may have escaped search.",
+      "The 2017 journal article was not directly inspected in full; its conference precursor was inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING final claim; supplies general necessity and prime-power sufficiency, explicitly lacks a general DFT characterization.",
+        "evidence": "The paper says it does not have a characterization for general DFT order and later notes general necessity plus a counterexample to unrestricted sufficiency.",
+        "identifier_or_url": "arXiv:1110.3548 / borisalexeev.com/pdf/spark.pdf",
+        "material_read": "Full-text PDF sections around Definition 7, Theorem 9, and the composite N=10 discussion; lines 815-818, 820-830, 976-998, 1239-1318 were inspected.",
+        "method": "Web full-text extraction plus PDF page inspection.",
+        "title": "Full Spark Frames",
+        "trigger": "Foundational source for divisor-uniformity and harmonic-frame full spark."
+      },
+      {
+        "assessment": "NOT_COVERING final claim; exact iff for arithmetic progressions and structured results for one-row-deleted consecutive sets, not the general {0,1,m} family.",
+        "evidence": "The paper explicitly says its broader deleted-row theorems do not provide a necessary-and-sufficient condition for all parameters.",
+        "identifier_or_url": "DOI:10.1109/SAM.2014.6882460",
+        "material_read": "Full four-page conference PDF, especially Theorems 3.1-3.4 and surrounding discussion on pages 2-3.",
+        "method": "Web full-text extraction plus PDF screenshots.",
+        "title": "Coprime Conditions for Fourier Sampling for Sparse Recovery",
+        "trigger": "Closest coprimeness/vanishing-sum treatment of structured DFT row sets."
+      },
+      {
+        "assessment": "POSSIBLE_RESIDUAL_RISK but no abstract-level indication of the exact two-parameter theorem.",
+        "evidence": "Abstract describes an alternative structured base set and coprimeness/vanishing-sum conditions; no {0,1,m} iff criterion is stated.",
+        "identifier_or_url": "DOI:10.1016/j.dsp.2016.07.008",
+        "material_read": "Metadata and abstract only; direct full text was not available in the retrieved sources.",
+        "method": "Web metadata/abstract inspection.",
+        "title": "The spark of Fourier matrices: Connections to vanishing sums and coprimeness",
+        "trigger": "Later journal continuation of the same research program."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "843fec17-1d5a-45ac-a8b7-e15f45bf2a66",
+  "value": {
+    "rationale": "The theorem gives a complete, elementary iff criterion for a natural infinite two-parameter family of three-row harmonic frames and proves that the standard divisor-uniformity necessity is sufficient throughout this family, including composite non-prime-power orders. The test reduces to two gcd computations and strictly generalizes the previously established m=4 case.",
+    "status": "PASS"
+  }
+}
