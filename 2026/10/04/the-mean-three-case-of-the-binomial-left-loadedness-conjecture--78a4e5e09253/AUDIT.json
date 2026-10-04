@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "At n=6 symmetry gives all three coefficients zero. For n>6, Simmons' theorem gives \\(\\alpha_1>0\\). The exact identity \\(\\Pr(X=6)/\\Pr(X=0)-1=(x-3)Q(x)/(80x^5)\\), with \\(x=n-3\\ge4\\) and \\(Q(x)=x^4+246x^3+333(x-4)^2+2448(x-4)+4140>0\\), gives \\(\\alpha_3<0\\). With only \\(\\alpha_2\\) between them, condition \\(L_1\\) follows for either sign of \\(\\alpha_2\\). Quantifiers and boundary n=6 are explicit; finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simmons' theorem, as restated by Perrin--Redside and by the 2022 source, gives only P(X<m)>P(X>m), which is alpha_1>0.",
+        "The source itself says its conjecture extends Simmons' inequality and still lists m=3 outside its proved ranges.",
+        "arXiv:2311.17885v2 concerns strong-large-deviation monotonicity for sample averages in ensemble prediction; its full text does not invoke the left-loaded binomial framework or the 2022 conjecture."
+      ],
+      "reasoning": "The classical stronger-looking tail comparison controls only the first coefficient. It does not imply alpha_3<=0, so it does not subsume left-loadedness at mean three without the new far-tail argument. A later paper with a plausibly overlapping title was also inspected and addresses a different asymptotic sample-average problem, so it does not dominate the fixed-mean binomial statement.",
+      "searches": [
+        "web: \"Simmons\" \"left-loaded\" binomial probability",
+        "web: \"Generalization of Simmons' theorem\" Perrin Redside Proposition 3.3 pdf",
+        "published-finding corpus: mean three binomial left-loaded Conjecture 4.1",
+        "arXiv:2311.17885v2 full-text tail-probability theorem and reference search"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.37190/0208-4147.00050",
+      "DOI:10.1016/j.spl.2006.09.006",
+      "DOI:10.1112/plms/s1-26.1.290",
+      "published-finding corpus 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda",
+      "published-finding corpus 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+      "arXiv:2311.17885v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Definition 1.2 gives L1 as a single sign change of alpha_i.",
+        "The source explicitly states known binomial ranges m in {1,2} and 4<=m<=n/3 before Conjecture 4.1.",
+        "For m=3, alpha_1>0 and alpha_3<0 force L1 regardless of alpha_2; this logical implication is not stated in the inspected source."
+      ],
+      "reasoning": "The source's theorem and Simmons' inequality do not already imply the candidate unless one supplies a far-tail sign. The new point-mass inequality supplies exactly that missing premise.",
+      "searches": [
+        "full text DOI:10.37190/0208-4147.00050 pages 134, 139-140",
+        "web: DOI 10.37190/0208-4147.00050 left-loaded binomial",
+        "web: \"On the monotonicity of tail probabilities\" left-loaded binomial conjecture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 source defines the same coefficients and states Conjecture 4.1, but its stated proved binomial ranges are m in {1,2} and 4<=m<=n/3.",
+        "No returned published-finding corpus record stated the mean-three left-loadedness result; the closest probability hits concerned different Bernoulli-tail functionals."
+      ],
+      "reasoning": "The candidate uses exactly the source notion of left-loadedness, so an equivalent result would have to imply the sign pattern or L2 partial sums for Bin(n,3/n). The retrieved records did not do so.",
+      "searches": [
+        "published-finding corpus: Bin(n,3/n) is left-loaded for every n>=6",
+        "web: \"left-loaded\" \"Bin(n, 3/n)\" probability",
+        "web: \"Conjecture 4.1\" \"left-loaded\" binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved indexed record or table stated the exact factorization for P(X=6)/P(X=0) in this family or used it to settle the source conjecture at m=3."
+      ],
+      "reasoning": "The claim is an infinite parameter theorem, not a finite table lookup. The factorization provides a uniform proof for all n>6.",
+      "searches": [
+        "web: \"P(X >= 6)\" binomial \"3/n\"",
+        "web: \"left-loadedness\" binomial probability Fokkink",
+        "published-finding corpus: Simmons inequality plus P(X=6)>P(X=0) binomial mean 3"
+      ]
+    },
+    "rationale": "The motivating full text explicitly leaves mean three outside its stated proved binomial ranges, while exact published-finding corpus and web searches for the family, the left-loadedness terminology, Conjecture 4.1, and the point-mass mechanism found no covering statement. Simmons' theorem supplies only the first coefficient, not the new far-tail sign. A later result under different terminology remains a residual search risk.",
+    "residual_risks": [
+      "A later or unindexed proof of the mean-three slice under terminology other than left-loadedness may exist; targeted statement and implication searches did not locate one.",
+      "The original 1894 Simmons body was not needed for the originality judgment; its exact inequality was independently restated in two inspected later sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for mean three; the paper explicitly lists proved binomial ranges that omit m=3.",
+        "evidence": "The text states L2 for m in {1,2}, L1 for 4<=m<=n/3, and then Conjecture 4.1 for n>=2m.",
+        "identifier_or_url": "DOI:10.37190/0208-4147.00050",
+        "material_read": "Full text, including Definition 1.2, Theorem 1.1, the binomial skewness discussion, and concluding Conjecture 4.1.",
+        "method": "Lawful repository full-text inspection, including rendered PDF pages.",
+        "title": "On the monotonicity of tail probabilities",
+        "trigger": "Defines left-loadedness and states the exact binomial conjecture."
+      },
+      {
+        "assessment": "SUPPORTING, NOT_COVERING.",
+        "evidence": "The abstract restates Simmons' theorem as P(X_m<m)>P(X_m>m) when 0<2m<n; it does not assert left-loadedness or the far-tail coefficient.",
+        "identifier_or_url": "DOI:10.1016/j.spl.2006.09.006",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Indexed abstract inspection.",
+        "title": "Generalization of Simmons' theorem",
+        "trigger": "Independent modern statement of the classical near-mean binomial inequality used in the proof."
+      },
+      {
+        "assessment": "PROVENANCE SUPPORT ONLY.",
+        "evidence": "The record confirms the 1894 article and DOI; the exact theorem statement was cross-checked in the 2007 and 2022 sources.",
+        "identifier_or_url": "DOI:10.1112/plms/s1-26.1.290",
+        "material_read": "Publisher bibliographic record and first-page availability metadata; theorem body was not relied on for originality comparison.",
+        "method": "Publisher record inspection.",
+        "title": "A New Theorem in Probability",
+        "trigger": "Original Simmons reference cited by the motivating paper."
+      },
+      {
+        "assessment": "NOT_COVERING; the paper studies eventual monotonicity of tails of sample averages for ensemble prediction and does not use the left-loaded binomial coefficients or cite the motivating conjecture.",
+        "evidence": "Its contribution summary places the tail theorem in a strong-large-deviation analysis of i.i.d. ensemble averages; searches of the full text found no Fokkink, Simmons, or left-loaded terminology.",
+        "identifier_or_url": "arXiv:2311.17885v2",
+        "material_read": "Full-text HTML abstract, introduction, contribution summary, and reference list searches for Fokkink, Simmons, and left-loaded terminology.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Are ensembles getting better all the time?",
+        "trigger": "A later paper advertises a new result on monotonicity of tail probabilities and therefore has a plausibly overlapping thesis despite a different application."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "78a4e5e0-9253-4ba8-93c8-72bd2f11174a",
+  "value": {
+    "rationale": "Mean three is not an arbitrary numerical slice: the source explicitly proves means one and two, then a different range beginning at mean four, making m=3 the isolated first missing integer-mean case of its stated binomial analysis. Settling all n>=6 closes that natural gap and immediately makes the source's convolution tail theorem available whenever the added binomial summand has mean three. The proof identifies a reusable endpoint mechanism rather than a finite computation.",
+    "status": "PASS"
+  }
+}
