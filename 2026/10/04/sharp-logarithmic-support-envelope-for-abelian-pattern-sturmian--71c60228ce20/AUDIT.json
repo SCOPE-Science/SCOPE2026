@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(N\\), the induced sum-incidence graph on two copies of \\(\\{0,\\ldots,N\\}\\) has \\(2N+2\\) vertices and, being a forest, at most \\(2N+1\\) edges. Every \\(d\\in D\\) with \\(d\\le N\\) contributes exactly \\(d+1\\) distinct edges, proving the weighted inequality. Substituting \\(N=d_n\\) yields \\(d_n\\ge\\sum_{j<n}(d_j+1)\\), and induction gives \\(d_n\\ge2^n-1\\); inversion gives the counting bound. Sharpness follows because \\(2^{n+1}-1>2(2^n-1)\\), so the cited Proposition 7.14 certifies forestness of the extremal support.",
+    "risks": [
+      "The proof depends on the cited source's forest characterization and sufficient-gap proposition; both were checked in the full text. No computational or asymptotic step is used."
+    ],
+    "sources": [
+      "arXiv:2609.28059v1, Theorem E",
+      "arXiv:2609.28059v1, Proposition 7.14"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.28059v1, Lemma 7.5 gives the weaker Sidon bound \\(\\binom{h}{2}\\le L-1\\) on length-\\(L\\) intervals and deduces zero upper Banach density.",
+        "arXiv:2609.28059v1, Proposition 7.14 gives a sufficient condition \\(d_{n+1}>2d_n\\) for forestness, not the necessary weighted prefix inequality."
+      ],
+      "reasoning": "The inspected paper contains the strongest directly relevant published structure found. Its stated density consequence is only Sidon-scale and its geometric-growth result is one-way. Neither statement dominates the exact necessary envelope proved here; conversely the new theorem does not subsume the paper's full forest characterization.",
+      "searches": [
+        "\\\"Abelian pattern Sturmian\\\" forest support density",
+        "\\\"r+s\\\" bipartite graph forest subset integers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28059v1 (full text, especially Sections 7.1-7.3)",
+      "doi:10.1017/etds.2013.51 (publisher metadata and abstract)",
+      "Targeted published-finding searches using the queries recorded in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem E supplies forestness; the new proof applies the forest edge bound to the square induced by labels \\(0,\\ldots,N\\), where each support value \\(d\\le N\\) contributes exactly \\(d+1\\) edges.",
+        "Lemma 7.5's Sidon consequence alone gives only \\(O(\\sqrt N)\\) local counting, so it does not imply the exact \\(O(\\log N)\\) envelope.",
+        "Proposition 7.14 certifies the extremal support \\(\\{2^n-1\\}\\) because \\(d_{n+1}=2d_n+1\\); it does not furnish the necessary lower bound for arbitrary forest supports."
+      ],
+      "reasoning": "The new implication is forest structure -> weighted prefix edge inequality -> exponential occurrence positions -> exact logarithmic occupancy. The closest source statements supply the premise and sharpness certificate but omit this implication chain.",
+      "searches": [
+        "Abelian pattern Sturmian logarithmic support 2^n-1",
+        "sum incidence forest weighted prefix Abelian pattern Sturmian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.28059v1, Theorem E: Abelian pattern Sturmian words are exactly characteristic words of infinite supports whose bipartite sum-incidence graph is a forest.",
+        "Targeted database searches returned no record stating the weighted prefix inequality, the exponential lower envelope, or the exact logarithmic counting envelope."
+      ],
+      "reasoning": "The new statement was searched both in word-complexity terminology and in the equivalent incidence-forest/support-growth formulation. The retrieved close records concern unrelated graph-forest or sparse-sequence problems and do not imply the claim.",
+      "searches": [
+        "Abelian pattern Sturmian logarithmic support 2^n-1",
+        "2609.28059 2^n-1 support forest prefix count",
+        "sum incidence forest weighted prefix Abelian pattern Sturmian",
+        "forest incidence graph support growth d_n 2^n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database record among the returned results contains an Abelian-pattern-Sturmian support census or the formula \\(d_n=2^n-1\\) as an extremal boundary.",
+        "The source paper's Example 7.15 uses \\(\\{3^j:j\\ge0\\}\\) as a positive example and \\(\\{2^j:j\\ge0\\}\\) as a Sidon non-example."
+      ],
+      "reasoning": "The finding is an infinite exact extremal law rather than a finite table lookup or recomputation. The source's examples do not tabulate or state the sharp prefix-occupancy envelope.",
+      "searches": [
+        "2609.28059 2^n-1 support forest prefix count",
+        "forest incidence graph support growth d_n 2^n"
+      ]
+    },
+    "rationale": "Targeted statement and implication searches, together with inspection of the source's Section 7, found the forest characterization, a weaker Sidon density consequence, and a one-way sufficient gap criterion, but not the exact weighted prefix inequality or its sharp logarithmic occupancy consequence.",
+    "residual_risks": [
+      "The edge-count argument is elementary enough that an equivalent support-growth consequence could exist under terminology from additive combinatorics or sum-graph theory that did not surface in targeted searches.",
+      "The 2013 paper was not used as decisive noncoverage evidence because only its publisher abstract was inspected."
+    ],
+    "risks": [
+      "An equivalent elementary consequence may exist under different sum-graph or additive-combinatorics terminology not surfaced by the targeted searches.",
+      "The 2013 paper was used only as background because its full text was not inspected for decisive noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the final exact envelope. The paper proves forestness as the characterization, derives Sidon/zero-density consequences, and gives a sufficient >2 growth condition, but does not state the necessary weighted-prefix bound or the sharp logarithmic support envelope.",
+        "evidence": "Theorem E appears at the end of Section 7.1; Lemma 7.5 states the Sidon and interval-square-root bound; Proposition 7.14 states the sufficient condition \\(d_{n+1}>2d_n\\); Example 7.15 uses powers of 3 and contrasts powers of 2.",
+        "identifier_or_url": "arXiv:2609.28059v1",
+        "material_read": "Full-text inspection of the abstract/MSC, Theorem 7.4, Lemma 7.5, Theorem E, Section 7.3, Proposition 7.14, Example 7.15, and the closing questions.",
+        "method": "Full-text inspection of the arXiv PDF.",
+        "title": "Abelian maximal pattern complexity and extremal words",
+        "trigger": "This is the recent primary-MSC source defining the extremal class and proving the incidence-forest characterization."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY. The abstract concerns recurrent aperiodic lower bounds and does not establish or rule out the incidence-forest support envelope; it is not used for a whole-document noncoverage claim.",
+        "evidence": "The publisher abstract describes lower bounds for recurrent aperiodic words and a binary characterization in that recurrent setting.",
+        "identifier_or_url": "doi:10.1017/etds.2013.51",
+        "material_read": "Publisher metadata and abstract.",
+        "method": "Publisher abstract inspection.",
+        "title": "Abelian maximal pattern complexity of words",
+        "trigger": "Foundational prior work on Abelian maximal pattern complexity cited by the 2026 source."
+      }
+    ],
+    "sources": [
+      "arXiv:2609.28059v1, full text of Sections 7.1-7.3",
+      "doi:10.1017/etds.2013.51, publisher metadata and abstract",
+      "Targeted published-finding searches recorded in the originality check objects"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "71c60228-ce20-4b47-9505-6cf75be40d8a",
+  "value": {
+    "rationale": "The source only extracts Sidon-scale sparsity and zero upper Banach density from the forest condition. The new theorem identifies the exact prefix occupancy envelope, upgrades the necessary sparsity from square-root scale to logarithmic scale, and supplies a single extremal support attaining the bound at every prefix scale. This gives a natural quantitative invariant of the newly characterized extremal dynamical class rather than an arbitrary finite slice.",
+    "risks": [
+      "The proof is short; its value lies in the sharp structural consequence and extremal characterization, not in technical depth. It does not classify all forest supports or address higher alphabets."
+    ],
+    "sources": [
+      "arXiv:2609.28059v1, Lemma 7.5 and Section 7.3",
+      "arXiv:2609.28059v1, Proposition 7.14"
+    ],
+    "status": "PASS"
+  }
+}
