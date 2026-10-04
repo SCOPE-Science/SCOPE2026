@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The F CDF is exactly reduced to a beta CDF at q_kappa=kappa*a/(kappa*a+b-1). Assuming an infimum of one half produces a lattice sequence. Discreteness yields four exhaustive subsequential regimes: both parameters fixed; fixed a with b to infinity; fixed b with a to infinity; or both to infinity. The first contradicts published pointwise strictness. The one-sided escape regimes converge to Gamma probabilities, and comparison with their kappa=1 limits plus strict positivity of the Gamma density gives a limit strictly above one half. If both parameters diverge, the exact standardized threshold gap grows at least as ((kappa-1)^2/(2*kappa^2))*min(a,b), so Chebyshev forces the beta CDF to one. Thus no sequence can approach one half. The exact-algebra checker returns VERIFY_OK; no finite computation is used to prove the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun–Hu–Sun, J. Inequal. Appl. 2024:5, concerns Gamma-family infima.",
+        "The lead F preprint distinguishes its mean-threshold problem from one-standard-deviation anti-concentration work."
+      ],
+      "reasoning": "Gamma-family and one-standard-deviation results address different objects or thresholds and do not dominate the two-parameter F-family strict infimum for each fixed kappa>1.",
+      "searches": [
+        "Gamma distribution infimum probability at mean kappa theorem",
+        "F distribution variation comparison one standard deviation",
+        "F-distribution mean probability infimum concentration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2409.09420v1, full preprint.",
+      "Sun–Hu–Sun, Journal of Inequalities and Applications 2024:5, DOI:10.1186/s13660-024-03081-w.",
+      "Public record for arXiv:2409.09420 reporting zero resolved citations when checked.",
+      "Published finding IDs returned by semantic overlap searches, including bd16316e417a, 04bd6407a2a1, and 883f5d776ec4; their statements concern different Gamma/approximation problems."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 gives infimum >=1/2 for kappa>1 and pointwise probability >1/2.",
+        "Remark 2.4 asks whether the infimum is strictly >1/2."
+      ],
+      "reasoning": "Pointwise strictness over an infinite parameter lattice does not imply a strict infimum. The present claim is exactly the missing uniform conclusion, established by showing every possible escaping sequence has limit strictly above one half (indeed one when both degrees diverge).",
+      "searches": [
+        "arXiv:2409.09420 Theorem 1.1 Remark 2.4",
+        "F distribution pointwise probability > 1/2 versus uniform infimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2409.09420v1, Theorem 1.1 and Remark 2.4",
+        "ResearchGate record for arXiv:2409.09420 reports no resolved citations at the time checked."
+      ],
+      "reasoning": "Queries covered the source title/identifier, the probability functional P(F <= kappa E F), the strict infimum, and the half-mass formulation. No equivalent theorem was located. The source itself explicitly labels the strict assertion as conjectural.",
+      "searches": [
+        "F-distribution Chvatal kappa greater than 1 inf probability half conjecture",
+        "2409.09420 conjecture proof F distribution inf kappa E[X]",
+        "\"A study on the F-distribution motivated by Chvatal's theorem\" conjecture",
+        "F distribution probability X <= kappa mean infimum kappa>1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2409.09420v1, Table 1 gives finite numerical searches only; Remark 2.4 immediately afterward says no proof is known.",
+        "No checked record supplied a table or exact formula proving a uniform positive gap."
+      ],
+      "reasoning": "The numerical table in the source cannot certify an infimum over unbounded degrees. The new proof is not a recomputation of the table; it treats all boundary regimes analytically.",
+      "searches": [
+        "2409.09420 strict infimum kappa > 1",
+        "A study on the F-distribution motivated by Chvatal theorem citations"
+      ]
+    },
+    "rationale": "The lead paper states the exact strict-infimum assertion as an unproved conjecture. Statement-level searches for the source identifier, the F mean-threshold functional, strict half-mass uniformity, and likely aliases found the source itself but no later proof. The new claim is not implied by the pointwise strict inequality: the proof adds a boundary classification that excludes vanishing gaps along all escaping parameter sequences.",
+    "residual_risks": [
+      "A later proof under substantially different terminology or in an unindexed source could exist despite the targeted searches.",
+      "The lead item appears as arXiv v1; absence of a resolved citation is supporting evidence only, not a proof of literature-wide novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves the non-strict bound and pointwise strictness, then explicitly states the strict infimum as unproved.",
+        "evidence": [
+          "Theorem 1.1: infimum is >=1/2 for kappa>1.",
+          "Remark 2.4: conjectures strict >1/2 and says a proof is unavailable."
+        ],
+        "identifier_or_url": "arXiv:2409.09420v1",
+        "material_read": "Abstract and MSC line; Theorem 1.1; Section 2.1 beta/Gamma reduction; Section 2.2; Table 1; Remark 2.4; references.",
+        "method": "Lawful open-access arXiv full text.",
+        "title": "A study on the F-distribution motivated by Chvátal's theorem",
+        "trigger": "Exact same probability functional and an explicit conjecture matching the proposed claim."
+      },
+      {
+        "assessment": "NOT_COVERING: treats Gamma laws, not the two-degree F family or the strict kappa>1 F infimum.",
+        "evidence": [
+          "Its main mean theorem concerns Gamma(shape,scale) and infimum 1/2 at the mean."
+        ],
+        "identifier_or_url": "DOI:10.1186/s13660-024-03081-w",
+        "material_read": "Abstract, introduction, theorem statements, and publication/classification metadata.",
+        "method": "Lawful publisher open-access HTML.",
+        "title": "The infimum values of two probability functions for the Gamma distribution",
+        "trigger": "Closest one-family analogue and a source used by the F paper at the kappa=1 boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e379600-1c5a-46cc-8dd9-1423633814d7",
+  "value": {
+    "rationale": "The result resolves an explicit published conjecture for the full integer-degree central F family and closes the only qualitative gap in the source theorem for fixed kappa>1. The distinction between pointwise strictness and a uniform strict infimum is mathematically substantive; the boundary classification supplies the missing compactness mechanism rather than a routine numerical extension.",
+    "status": "PASS"
+  }
+}
