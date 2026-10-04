@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The source equations were reconstructed term by term. Model (2.2), its generator, and the later ANN Euler update all give infected drift \\(\\phi E-(\\mu+\\gamma+\\phi_1)I\\); Section 6.1 alone adds \\(-\\beta SI/N\\). Algebraic summation gives target population drift \\(\\Lambda-\\mu N-\\phi_1I\\) and printed-Milstein drift \\(\\Lambda-\\mu N-\\phi_1I-\\beta SI/N\\). The bundled symbolic verifier reproduces both identities and an exact rational witness. Risk: no source code was available, so the figure-level consequence is conditional on implementation of the printed formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.3934/math.2023952 studies a different stochastic measles model under Lévy noise.",
+        "DOI 10.1140/epjp/s13360-024-05838-0 is the deterministic double-dose-vaccination predecessor cited by the 2026 source.",
+        "Neither inspected comparison supplies a theorem that would imply the source-specific Section 6.1 drift mismatch."
+      ],
+      "reasoning": "General facts about Milstein methods or measles models do not imply which term was printed in this particular discretization. The claim is a concrete source-specific consistency identity.",
+      "searches": [
+        "stochastic measles Lévy Milstein double-dose vaccination numerical scheme",
+        "Khan Din 2023 stochastic measles Lévy",
+        "Farhan et al. 2024 double-dose vaccination measles"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026761",
+      "doi:10.1140/epjp/s13360-024-05838-0",
+      "doi:10.3934/math.2023952",
+      "Official AIMS Mathematics article record",
+      "Public bibliographic indexes and exact-title/DOI correction searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target six-compartment drift has one incidence loss in \\(S\\) and the matching gain in \\(E\\), so incidence cancels from the total population balance.",
+        "The printed Milstein drift has a second incidence loss in \\(I\\), hence its total drift differs by exactly \\(-\\beta SI/N\\).",
+        "The article's own ANN Euler formula independently restores the target infected drift."
+      ],
+      "reasoning": "Prior general numerical-analysis results say a consistent discretization must match the target drift, but they do not already state this paper-specific defect. This finding does not claim a new general Milstein theorem; it diagnoses the published scheme.",
+      "searches": [
+        "measles population balance incidence transfer susceptible exposed infected Milstein",
+        "10.3934/math.2026761 population balance numerical scheme",
+        "10.3934/math.2026761 extra beta S I infected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.2026761: model (2.2) and the generator use infected drift \\(\\phi E-(\\mu+\\gamma+\\phi_1)I\\); Section 6.1 prints an additional \\(-\\beta SI/N\\).",
+        "The same article's later forward-Euler update for ANN data again uses the infected drift without the extra incidence term."
+      ],
+      "reasoning": "An equivalent formulation would have to identify the same first-order drift defect, or an algebraically equivalent failure of population-transfer balance, in this printed scheme. The searches located the source article but no correction or equivalent published statement.",
+      "searches": [
+        "exact article title + correction",
+        "DOI 10.3934/math.2026761 + correction/erratum/Milstein",
+        "measles Milstein extra incidence infected drift population balance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 6.1 explicitly lists the six Milstein updates, including the extra infected incidence loss.",
+        "The same paper's Table 2 reports a Milstein-scheme prediction error, while later text says the ANN dataset is generated with a separate forward-Euler scheme whose infected drift matches model (2.2)."
+      ],
+      "reasoning": "This is not a recomputation of a known numerical table. The equation-level comparison explains why the printed Milstein row is not a discretization of the stated SDE unless the displayed formula is corrected.",
+      "searches": [
+        "10.3934/math.2026761 Milstein Scheme MSE RMSE Table 2",
+        "10.3934/math.2026761 Section 6.1 infected update"
+      ]
+    },
+    "rationale": "Title/DOI, equation, alias, correction/erratum, related-measles, and broader database searches found no published result stating this exact source-specific Milstein drift defect or its population-balance consequence. Closest indexed epidemic results concern different objects and do not imply the claim. Absolute novelty cannot be proved by search; unindexed discussion remains a residual risk.",
+    "residual_risks": [
+      "No search proves absolute novelty; a later or unindexed correction could exist.",
+      "The author implementation is unavailable, so the claim is deliberately limited to the printed scheme and conditional implications for simulations.",
+      "The 2024 predecessor was not needed for the core negative comparison and was not used to assert whole-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SUPPORT_AND_NOT_COVERING: the article supplies all premises but does not identify or repair the extra infected incidence sink.",
+        "evidence": "The infected SDE drift lacks incidence; Section 6.1 adds \\(-\\beta SI/N\\); the later ANN Euler formula again lacks it.",
+        "identifier_or_url": "doi:10.3934/math.2026761",
+        "material_read": "Official metadata and openly indexed full-text material covering model (2.1), stochastic model (2.2), generator drift, Section 6.1 Milstein updates, the later ANN Euler updates, figure discussion, and Table 2.",
+        "method": "Equation-by-equation transcription and implication comparison.",
+        "title": "Stochastic analysis and ANN-based approximation of measles transmission dynamics under Lévy noise",
+        "trigger": "Primary source; exact object, numerical scheme, and claimed validation are all here."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: it motivates the deterministic transfer structure but does not imply the 2026 printed-Milstein inconsistency.",
+        "evidence": "The 2026 source explicitly attributes model (2.1) to this predecessor.",
+        "identifier_or_url": "doi:10.1140/epjp/s13360-024-05838-0",
+        "material_read": "Bibliographic record and source relationship; not relied on for a whole-document negative claim.",
+        "method": "Bibliographic and implication comparison.",
+        "title": "A novel physics-informed neural network approach to assess the impact of double-dose vaccination on measles transmission",
+        "trigger": "The 2026 article names this as the deterministic double-dose-vaccination predecessor."
+      },
+      {
+        "assessment": "NOT_DOMINATING: it studies a different measles compartmental system and does not establish the equation-level claim for the 2026 double-dose scheme.",
+        "evidence": "Different model and no located statement identifies the 2026 Section 6.1 defect.",
+        "identifier_or_url": "doi:10.3934/math.2023952",
+        "material_read": "AIMS metadata, abstract, model/figure descriptions, and indexed full-text fragments.",
+        "method": "Object and implication comparison.",
+        "title": "Stochastic analysis for measles transmission with Lévy noise: a case study",
+        "trigger": "Closest same-author earlier stochastic-measles source in the 2026 reference list and literature search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "055a1e49-ae06-4ba4-b93c-5a82a5e38916",
+  "value": {
+    "rationale": "The defect is structurally consequential rather than cosmetic: it changes the drift at first order wherever transmission occurs, breaks the model's internal population-transfer balance, and affects the numerical scheme presented to support extinction/persistence simulations and a reported method comparison. The correction is exact and minimal: delete one incidence term in the infected Milstein drift.",
+    "status": "PASS"
+  }
+}
