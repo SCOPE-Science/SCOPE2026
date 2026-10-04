@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Exact arithmetic over \\(\\mathbb Z_{169}\\) gives nonzero remainders for both printed component polynomials. The quotient-ring multiplication maps have image cardinalities \\(13^9\\) and \\(13^8\\), so the literal printed direct sum has \\(13^{17}\\) words. The proposed replacements factor \\(x^7-1\\) and \\(x^7+1\\), reduce to the printed polynomials modulo \\(13\\), and each generate a free \\(169^2\\)-word component. Exhaustive enumeration of all \\(28561\\) words per corrected component gives minimum distance \\(6\\); unit Gram determinants prove both components LCD, hence the additive direct sum is ACD with \\(13^8\\) words and is MDS.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source's Section 5 invokes Hensel lifting to pass from residue-field LCD MDS cyclic and negacyclic codes to prime-power rings.",
+        "DOI:10.3934/amc.2024041 gives the earlier residue-field parameter family, including the p=13 length-7 (7,13^4,6) case, but not the t=2 corrected lift."
+      ],
+      "reasoning": "General Hensel theory ensures appropriate lifts of coprime factors but does not cover the concrete claim that the published unchanged coefficients are not such lifts, nor does it provide this row's exact corrected coefficients and wrong-cardinality diagnosis.",
+      "searches": [
+        "Hensel lift correction generator polynomial cyclic negacyclic code Z_p^t Table",
+        "Conjucyclic Z_169 Table 1 13^17 13^8 Hensel correction"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3934/amc.2026.101089 publisher record, live Table 1, and full article text",
+      "DOI:10.3934/amc.2024041 public full-text tables",
+      "Published-research searches for the article title with correction/corrigendum and Hensel-lift terms",
+      "Published-research searches for the Z_169 specialization, printed component coefficients, corrected component coefficients, and 13^17 versus 13^8 cardinalities"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source claims an explicit prime-power-ring generator row; exact division shows its t=2 coefficients do not divide the required cyclic/negacyclic modulus polynomials.",
+        "The corrected factors explicitly multiply to x^7-1 and x^7+1 modulo 169 and reproduce the advertised t=2 parameters."
+      ],
+      "reasoning": "The new statement is not a corollary of the source's advertised row: it diagnoses a direct contradiction under the literal generator reading and supplies a concrete repair. It remains compatible with the paper's abstract existence theorem.",
+      "searches": [
+        "168 6 134 35 163 1 cyclic Z169 x^7-1",
+        "1 29 164 164 29 1 negacyclic Z169 x^7+1",
+        "Conjucyclic codes over the Gaussian integers Table 1 p=13 length 7 Z_169 generator polynomial Hensel lift"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.3934/amc.2026.101089 Table 1 gives the exact coefficient-pair string and labels it as a generator polynomial over the prime-power ring family.",
+        "No searched record states that these unchanged coefficients fail at t=2 or gives the two corrected Z_169 factors."
+      ],
+      "reasoning": "The searches covered the table wording, each component separately, and the concrete modulus-169 interpretation, so a correction phrased as a cyclic/negacyclic lifting issue rather than a conjucyclic issue was included.",
+      "searches": [
+        "Conjucyclic codes over the Gaussian integers Table 1 p=13 length 7 Z_169 generator polynomial Hensel lift",
+        "12+6x+4x^2+9x^3+7x^4+x^5 cyclic code Z_169",
+        "1+3x+8x^2+8x^3+3x^4+x^5 negacyclic Z_169"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The live publisher Table 1 still displays the p=13 length-7 row as (7,13^{4t},6) with the unchanged coefficient pairs.",
+        "No corrigendum or replacement table was located in focused searches."
+      ],
+      "reasoning": "A corrected publisher table or explicit erratum would directly cover this finding. The current table is still the uncorrected one, and no such correction was located.",
+      "searches": [
+        "Conjucyclic codes over the Gaussian integers corrigendum Hensel lift Table 1 p=13 length 7",
+        "Conjucyclic Z_169 Table 1 13^17 13^8 Hensel correction"
+      ]
+    },
+    "rationale": "The 2026 source explicitly presents the coefficient string as a generator polynomial row over the prime-power ring family, while the 2024/2025 predecessor gives the residue-field parameter family. Focused searches for the exact row, both printed and corrected polynomial coefficients, the Z_169 specialization, the 13^17 cardinality, and corrigendum terminology found no same-object correction. General Hensel-lifting theory explains why a lift should exist but does not supply or imply that the unchanged printed coefficients are a valid lift.",
+    "residual_risks": [
+      "The authors may have intended Table 1's integers only as residue-field representatives to be Hensel-lifted implicitly for each t; if so, the defect is an ambiguity or omitted lift rather than a failure of the abstract construction.",
+      "A very recent author correction not yet indexed by the searched sources could exist.",
+      "No claim is made that any other table row fails or that the general existence theorem is false."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY AFFECTED: Table 1's first p=13 row uses unchanged residue-field coefficients for the t-general generator string; its literal t=2 specialization fails, while the abstract lifting construction can still be repaired.",
+        "evidence": "Table 1 labels the row (7,13^{4t},6) over Z_{p^t}[i] and prints (12,1)(6,3)(4,8)(9,8)(7,3)(1,1)(0,0); Section 5 invokes Hensel lifting for prime-power-ring constructions.",
+        "identifier_or_url": "DOI:10.3934/amc.2026.101089",
+        "material_read": "Abstract; Sections 2, 3, 5, and 6; Notation 6; Table 1; Table 2; references.",
+        "method": "publisher metadata/table plus lawful full-text inspection",
+        "title": "Conjucyclic codes over the Gaussian integers",
+        "trigger": "Primary source containing the exact prime-power generator table and construction framework."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING: it gives the t=1 parameter set (7,13^4,6), not the t=2 Hensel-lift correction.",
+        "evidence": "Its Table 1 lists p=13, length 7, parameters (7,13^4,6), consistent with the residue-field baseline verified here.",
+        "identifier_or_url": "DOI:10.3934/amc.2024041",
+        "material_read": "Abstract and published tables, especially the p=13 length-7 parameter row.",
+        "method": "public full-text HTML/table inspection",
+        "title": "On additive conjucyclic codes over fields and rings of order p^2 using Gaussian integers",
+        "trigger": "Predecessor by the same authors containing the residue-field ACD MDS parameter family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3417c860-2626-416e-b285-f7c4a96241eb",
+  "value": {
+    "rationale": "The table advertises explicit ACD MDS generator polynomials for an infinite prime-power family. At the first nontrivial lift \\(t=2\\), the literal published row has the wrong module cardinality by a factor of \\(13^9\\), so it cannot instantiate its own advertised parameters. The corrected factors are small, exact, reproducible replacements that recover the intended code and preserve the paper's abstract existence result. This is a substantive correction to a concrete construction, not a cosmetic normalization or routine recomputation.",
+    "status": "PASS"
+  }
+}
