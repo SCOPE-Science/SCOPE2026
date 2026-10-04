@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The finite reciprocal magnitude is exactly the equal-spacing average of the exponential round-distance kernel. For fixed relative curvature below one, Euler–Maclaurin applies to a smooth kernel. The endpoint derivative jumps give \\(\\ell/6\\) at order \\(n^{-2}\\) and \\(\\ell(\\pi^2(1-\\kappa)-\\ell^2)/360\\) at order \\(n^{-4}\\). At the intrinsic endpoint the midpoint cusp invalidates that smooth step, so exact geometric sums are used instead; their expansions give the stated parity coefficients. A standalone replay checks the defining finite sums and both regimes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kodama–O’Hara study regular polygons and circular spaces as magnitude invariants and state the homogeneous finite-space formula.",
+        "Leinster–Willerton treat the full relative-curvature family and note common endpoint first and second derivatives, but their asymptotic variable is chiefly circumference rather than sample count.",
+        "Classical Euler–Maclaurin results cover generic trapezoidal errors but do not identify the geometric coefficients for this magnitude family."
+      ],
+      "reasoning": "The general magnitude and quadrature frameworks are broader in scope but do not by themselves imply the curvature-universal leading coefficient, the explicit curvature-sensitive fourth-order coefficient, or the singular intrinsic parity law without the geometric derivative calculation and separate endpoint analysis.",
+      "searches": [
+        "arXiv:2408.06091 magnitude circular metric regular polygon",
+        "arXiv:0908.1582 round metric circle equally spaced magnitude",
+        "magnitude equally spaced round circle curvature finite sampling error"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2408.06091v1",
+      "arXiv:2408.06091v6",
+      "arXiv:0908.1582v2",
+      "DOI:10.1007/s10711-012-9773-6",
+      "DOI:10.1080/01630569108816450",
+      "targeted public exact-phrase searches for magnitude sampling, round metrics, curvature, convergence rate, and intrinsic parity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The homogeneous formula determines each finite sample magnitude exactly once its distance row is known.",
+        "The 2012 circle section proves only that the denominator Riemann sums converge to the integral.",
+        "The round-metric section records \\(D_\\kappa\\) endpoint derivatives through second order and the continuum integral, but no finite-sample asymptotic coefficients."
+      ],
+      "reasoning": "Prior results reduce the problem to a concrete sum but do not state its asymptotic error. The new implication requires computing the third endpoint derivative, applying Euler–Maclaurin to the magnitude denominator, then isolating the non-smooth intrinsic endpoint and summing it exactly.",
+      "searches": [
+        "arXiv:2408.06091 Section 4 magnitude homogeneous regular polygon",
+        "arXiv:0908.1582 Section 4.1 circle Riemann sums",
+        "arXiv:0908.1582 Section 4.3 relative curvature circle magnitude"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected regular-polygon magnitude paper gives homogeneous finite formulas and identification results but no sample-count convergence expansion.",
+        "The inspected circle-magnitude paper gives equal-spacing Riemann sums and their continuum limit but no rate in the number of sample points.",
+        "Exact-phrase and alias searches did not locate the curvature-dependent fourth-order term or intrinsic parity split."
+      ],
+      "reasoning": "Equivalent formulations were sought in reciprocal magnitude, Riemann-sum error, trapezoidal sampling, regular-polygon magnitude, round-circle metrics, and even–odd intrinsic sampling language. The located literature supplies the endpoints of the comparison—finite sums and continuum integrals—but not the claimed quantitative bridge.",
+      "searches": [
+        "magnitude regular polygon convergence circle n^-2 Euclidean chord metric",
+        "finite equally spaced circle magnitude convergence rate regular polygon",
+        "round metric circle magnitude regular polygon Euler Maclaurin",
+        "intrinsic circle magnitude equally spaced points parity",
+        "\"magnitude\" circle sampling \"Euler-Maclaurin\"",
+        "\"magnitude\" \"relative curvature\" circle finite approximation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located table or formula tabulates sample-count bias coefficients for the round-metric circle family.",
+        "The closest regular-polygon search results concern Čech persistence, minimal fillings, area stability, or polygonal norms rather than magnitude sampling."
+      ],
+      "reasoning": "The exact quantities were searched both as magnitude differences and reciprocal-magnitude Riemann-sum errors. The returned regular-polygon records use different invariants, so their formulas do not imply this claim.",
+      "searches": [
+        "circle magnitude kappa metric equally spaced points convergence rate",
+        "magnitude circular metric curvature regular n-gon sampling",
+        "\"magnitude\" \"equally spaced\" circle error",
+        "\"magnitude\" \"regular polygon\" \"O(n^{-2})\""
+      ]
+    },
+    "rationale": "The inspected primary magnitude sources provide the finite homogeneous formula and the continuum round-circle limit, but no sample-count rate was located. Targeted searches across regular-polygon, round-metric, reciprocal-magnitude, Euler–Maclaurin, curvature, and parity formulations found no equivalent theorem. The originality claim is limited to the geometry-specific sampling coefficients and intrinsic endpoint transition, not to classical Euler–Maclaurin theory.",
+    "residual_risks": [
+      "Euler–Maclaurin error expansions are classical, so an equivalent calculation could occur in notes that discuss the Riemann sum without using magnitude terminology.",
+      "The 2024 arXiv work has evolved across versions; the current accessible revision was used for full-text comparison while the first-version date and primary MSC establish source ownership.",
+      "No claim is made that equal spacing is an optimal sampling design among all finite subsets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATES_NOT_COVERING",
+        "evidence": "The first public version is dated 2024-08-12 and has primary MSC 51F99. The current paper gives homogeneous magnitude formulas and regular-polygon identification results, but the inspected text contains no finite-to-continuum sample-count convergence analysis.",
+        "identifier_or_url": "arXiv:2408.06091",
+        "material_read": "Version-history metadata; current accessible full-text introduction; circular-space distance formulas; magnitude definitions; Proposition 4.3 and surrounding identification results; targeted searches for convergence, Riemann, and asymptotic language.",
+        "method": "Public arXiv metadata and HTML full-text inspection.",
+        "title": "Identification of circular spaces by magnitude and discrete Riesz energy / later expanded as Distinguishing regular polygons, cycle graphs, and circular metric spaces by the distance multiset and magnitude",
+        "trigger": "Middle-period source focused on regular polygons, circular metric spaces, and magnitude."
+      },
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "The paper explicitly writes the equal-spacing denominator as a Riemann sum and takes its limit, and later treats all relative curvatures. It does not state an asymptotic expansion in the number of sample points.",
+        "identifier_or_url": "arXiv:0908.1582v2; DOI:10.1007/s10711-012-9773-6",
+        "material_read": "Finite magnitude definition and Speyer formula; Section 4.1 Euclidean circle finite approximants and Riemann-sum limit; Section 4.3 relative-curvature distance formula, endpoint derivative facts, continuum magnitude formula, and stated large-circumference asymptotics.",
+        "method": "Public arXiv HTML full-text inspection.",
+        "title": "On the asymptotic magnitude of subsets of Euclidean space",
+        "trigger": "Foundational source defining circle magnitude through equally spaced finite approximants and extending the construction to round metrics."
+      },
+      {
+        "assessment": "GENERIC_QUADRATURE_NOT_COVERING",
+        "evidence": "The work concerns generic Riemann-sum approximation and Fourier coefficients, not metric magnitude or the round-circle curvature family; it does not supply the claimed geometric coefficients.",
+        "identifier_or_url": "DOI:10.1080/01630569108816450",
+        "material_read": "Bibliographic abstract and topic description.",
+        "method": "Public abstract inspection.",
+        "title": "Magnitude of Fourier coefficients and degree of approximation by Riemann sums",
+        "trigger": "Generic prior literature on rates for periodic Riemann sums located during alias search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bb4313f1-99bf-42b1-9f8e-9e9ae94e1607",
+  "value": {
+    "rationale": "The finite equal-spacing approximation is the foundational construction used to obtain circle magnitude, and regular polygons are a current model class for magnitude-based geometry. The theorem identifies a structural hierarchy in the discretization error: local normalization forces a curvature-universal leading term, ambient curvature appears one order later, and the intrinsic metric creates a parity phase change through antipodal non-smoothness. This gives a quantitative, reusable bridge between finite regular samples and continuum magnitude across a natural one-parameter geometric family.",
+    "status": "PASS"
+  }
+}
