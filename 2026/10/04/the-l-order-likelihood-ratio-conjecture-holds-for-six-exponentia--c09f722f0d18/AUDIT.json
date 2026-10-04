@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts all basic l-vectors at \\(n=6\\). Nonnegative directions are dimension-free in the source; negative directions with a zero reduce to the source \\(n\\le5\\) cases; the only full-support patterns have \\(p=3,4,5\\) positives. The \\(R(1)\\) case split follows from Lemma A.1, and the nonpositive-block case is exactly Lemma A.2 with (p-1,p-1)=(2,2),(3,3),(4,4). Linearity and the source reduction then yield likelihood-ratio order. The standalone verifier returned VERIFY_OK on algebraic identities and stress tests; finite checks are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 source explicitly says general n remains open after proving n<=5.",
+        "Wang–Zhao 2016 proves a sufficient d-larger condition, while the 2021 paper introduces l-order as a distinct order and still states the l-order implication as open beyond five."
+      ],
+      "reasoning": "A theorem for another sufficient hazard-vector order does not imply the l-order cone unless it contains that cone; the later source does not claim such coverage and instead poses the l-order conjecture. No located broader theorem states the \\(n=6\\) implication.",
+      "searches": [
+        "Web: \"Likelihood ratio ordering for parallel systems with exponential components\" n=6",
+        "Web: \"l-larger\" exponential components Wang Cheng",
+        "Wang–Zhao 2016 DOI:10.3103/S1066530716020058"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/03610926.2020.1866205",
+      "doi:10.3103/S1066530716020058",
+      "published-finding index published-finding index searches listed in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1 covers \\(n\\le5\\) only; Section 3 says general n remains open.",
+        "At \\(n=6\\) the source classification omits exactly the full-support negative patterns because they do not occur for \\(n\\le5\\).",
+        "Lemma A.2 nevertheless already contains the diagonal parameter pairs (2,2),(3,3),(4,4) needed to prove those directions."
+      ],
+      "reasoning": "The new result is not a special case of the published \\(n\\le5\\) theorem because dimension six introduces new full-support basic vectors. The proof supplies the missing implication by combining source lemmas in a new case split.",
+      "searches": [
+        "Full text DOI:10.1080/03610926.2020.1866205, Theorem 2.1, Section 3, Lemmas A.1-A.2",
+        "Web searches for later citations/solutions of the l-order conjecture",
+        "published-finding index candidate-specific searches"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang–Cheng define l-order by the basic-vector cone and explicitly reduce the conjecture to monotonicity of U in every l-vector direction; this is the equivalent formulation used in the proof.",
+        "The source proves \\(n\\le5\\) and states the general-n conjecture remains open."
+      ],
+      "reasoning": "The new theorem is not a renaming: it verifies the source-equivalent directional formulation for all basic vectors at \\(n=6\\), including three sign patterns absent at \\(n\\le5\\).",
+      "searches": [
+        "published-finding index: Wang Cheng l-order conjecture parallel systems exponential n=6 likelihood ratio",
+        "Web: \"l-order\" \"parallel systems\" exponential components six components likelihood ratio",
+        "DOI:10.1080/03610926.2020.1866205"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding index hit states the six-component l-order theorem or any of the three new full-support directional inequalities.",
+        "The publisher record states only the n<=5 theorem and gives the online date 2021-01-06."
+      ],
+      "reasoning": "The claim is a theorem about a continuous order cone, not a table lookup or recomputation. Database searches were used for overlap, not as novelty proof.",
+      "searches": [
+        "published-finding index: likelihood ratio ordering parallel systems exponential six components l-order",
+        "published-finding index: balanced l-vector (1,1,1,-1,-1,-1) exponential parallel systems",
+        "CrossRef/publisher title and DOI search"
+      ]
+    },
+    "rationale": "The primary source explicitly proves only \\(n\\le5\\) and leaves the general conjecture open; targeted published-finding index and web searches found no \\(n=6\\) statement. The argument covers genuinely new full-support six-coordinate basic directions rather than restating a five-coordinate case.",
+    "residual_risks": [
+      "A later or unindexed paper may contain the same \\(n=6\\) extension under different terminology; searches did not locate one.",
+      "The proof imports Wang–Cheng Lemmas A.1 and A.2 rather than reproving their lengthy analytic estimates; their full source proofs were inspected and the needed parameter cases were independently stress-tested numerically."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source does not cover n=6; it explicitly leaves general n open. Its Lemmas A.1 and A.2 provide exactly the sign/inequality facts used in the new n=6 proof.",
+        "evidence": "Definition of basic l-vectors and l-order; Theorem 2.1 \\(n\\le5\\); discussion saying general n is open; Lemma A.1 unique-zero/positive-decreasing property; Lemma A.2 nonnegativity for (2,2),(3,3),(4,4).",
+        "identifier_or_url": "doi:10.1080/03610926.2020.1866205",
+        "material_read": "Full author-hosted article: definitions, Theorem 2.1 proof, Discussion, Appendix Lemmas A.1-A.3 and the proof of Lemma A.2.",
+        "method": "Full-text inspection of the author-hosted PDF, including rendered-page inspection and line-level extraction.",
+        "title": "Likelihood ratio ordering for parallel systems with exponential components",
+        "trigger": "Primary source posing the l-order conjecture and proving n<=5."
+      },
+      {
+        "assessment": "It proves an arbitrary-dimensional implication under the d-larger order, not the later l-order conjecture; the 2021 source still formulates the latter as open beyond n=5.",
+        "evidence": "Abstract states d-larger sufficiency for general parallel systems.",
+        "identifier_or_url": "doi:10.3103/S1066530716020058",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Published abstract/record comparison.",
+        "title": "On likelihood ratio ordering of parallel systems with exponential components",
+        "trigger": "Potential broader prior sufficient order for arbitrary dimension."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c09f722f-0d18-4151-9bc9-2c312f1b5683",
+  "value": {
+    "rationale": "This closes the first dimension not covered by the published theorem for a named stochastic-order conjecture. The result identifies why n=6 is still accessible: the source Appendix already proves precisely the three diagonal P-inequalities needed for the new full-support directions. It is a structural extension, not a routine numerical increment.",
+    "status": "PASS"
+  }
+}
