@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "A perfect matching must have critical vector \\((1,1,1)\\). Its five vertex-edge pairs form a rooted primal spanning tree and its nine edge-triangle pairs form a rooted dual spanning tree disjoint from the primal tree; conversely every rooted tree-cotree decomposition gives such an acyclic matching. Exhaustive Prüfer enumeration over all 1296 primal spanning trees gives complementary dual cycle histogram \\(5:726,\\ 6:540,\\ 9:30\\), hence \\(7{,}140\\) tree-cotree decompositions and \\(428{,}400\\) rooted fields. The embedded verifier replays these counts and the uniform \\(28{,}560\\)-per-critical-edge tally.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eppstein arXiv:cs/0207082 gives a general decomposition of embedded graphs into a spanning tree, a dual spanning tree, and leftover edges.",
+        "Lutz arXiv:math/0506372 records the combinatorial uniqueness of the six-vertex triangulation of the real projective plane."
+      ],
+      "reasoning": "General tree-cotree existence explains the structural reduction but does not supply the exact number of decompositions for this triangulation or the cycle-length \\(5/6/9\\) histogram.",
+      "searches": [
+        "tree-cotree decomposition discrete Morse surface triangulation",
+        "arXiv:cs/0207082",
+        "arXiv:math/0506372"
+      ]
+    },
+    "checked_sources": [
+      "SLC:B48c",
+      "arXiv:cs/0207082",
+      "arXiv:math/0506372v1",
+      "arXiv:1405.3848v1",
+      "2026/9/9/SCOPE036",
+      "prior result 37184feb-716d-4eef-9ab2-0398b004e57c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1405.3848 gives one perfect matching and the boundary matrices of the standard complex.",
+        "arXiv:cs/0207082 gives general tree-cotree decomposition machinery.",
+        "Prior result 37184feb-716d-4eef-9ab2-0398b004e57c counts simplicial self-map contiguity classes on the same triangulation, not Morse matchings."
+      ],
+      "reasoning": "The new claim is not a corollary with a previously stated number: obtaining it requires an exhaustive exact count of all compatible primal/dual tree pairs on the specific triangulation. The prior self-map result is logically independent.",
+      "searches": [
+        "arXiv:1405.3848 Example 5 Example 7 the six-vertex real-projective-plane triangulation",
+        "arXiv:cs/0207082 tree-cotree",
+        "37184feb-716d-4eef-9ab2-0398b004e57c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Forman, SLC B48c, Section 4 exhibits one projective-plane gradient vector field with one critical cell in each dimension.",
+        "arXiv:1405.3848 states that the standard six-vertex projective plane has a \\(\\mathbf F_2\\)-perfect discrete Morse vector \\((1,1,1)\\) and displays one acyclic matching."
+      ],
+      "reasoning": "These sources establish the same notion of acyclic Hasse matching and perfection, but they provide existence examples rather than the complete count of all such matchings.",
+      "searches": [
+        "six vertex real projective plane discrete Morse matchings optimal perfect Morse vector fields tree cotree count",
+        "minimal triangulation RP2 perfect discrete Morse function exact number acyclic matchings",
+        "tree cotree decompositions six vertex projective plane triangulation 7140 428400",
+        "arXiv:1405.3848",
+        "SLC:B48c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed finding, 2026/9/9/SCOPE036, gives a six-vertex homology-torsion census and identifies the same projective-plane complex; it contains no discrete-Morse census.",
+        "Web searches for the exact numbers and for six-vertex projective-plane Morse matchings returned existence/examples but no exact matching table."
+      ],
+      "reasoning": "No inspected database or table contains the values \\(7{,}140\\), \\(428{,}400\\), the \\(726/540/30\\) distribution, or \\(28{,}560\\) per critical edge in this context.",
+      "searches": [
+        "six vertex real projective plane discrete Morse matchings optimal perfect Morse vector fields tree cotree count",
+        "minimal triangulation RP2 perfect discrete Morse function exact number acyclic matchings",
+        "tree cotree decompositions six vertex projective plane triangulation 7140 428400",
+        "2026/9/9/SCOPE036"
+      ]
+    },
+    "rationale": "The inspected literature gives the standard six-vertex triangulation, existence of a \\(\\mathbf F_2\\)-perfect matching, general discrete Morse theory, and general tree-cotree decompositions, but no complete census or the numerical cycle distribution. The nearest indexed result on the same complex is a homology-torsion census and does not imply the Morse-matching count.",
+    "residual_risks": [
+      "An unindexed software note, supplementary table, thesis, or older computational source could contain the same exact census.",
+      "The general tree-cotree reduction is classical; originality rests on the complete exact enumeration and refined cycle/critical-edge statistics for this canonical triangulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_THEORY_NOT_CENSUS",
+        "evidence": "The source exhibits one projective-plane vector field with one critical vertex, edge, and triangle; it does not count all fields on the six-vertex triangulation.",
+        "identifier_or_url": "SLC:B48c",
+        "material_read": "Section 4 text around the projective-plane example and the acyclic-gradient criterion.",
+        "method": "Full-text web copy and journal landing page.",
+        "title": "A User's Guide to Discrete Morse Theory",
+        "trigger": "Exact same discrete-gradient notion and an explicit real-projective-plane example."
+      },
+      {
+        "assessment": "EXACT_OBJECT_EXISTENCE_NOT_CENSUS",
+        "evidence": "It states that the six-vertex real-projective-plane matching has vector \\((1,1,1)\\) and is \\(\\mathbf F_2\\)-perfect, and supplies the standard facet/boundary data, but no enumeration of all perfect matchings.",
+        "identifier_or_url": "arXiv:1405.3848v1",
+        "material_read": "ArXiv HTML discussion of acyclic matchings and F-perfect vectors, Figure 1 description, Example 5, Example 7, and the displayed boundary matrices/facet rows.",
+        "method": "Primary full-text arXiv HTML.",
+        "title": "Frontiers of sphere recognition in practice",
+        "trigger": "Exact standard six-vertex projective-plane triangulation and discrete Morse matching."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_CENSUS",
+        "evidence": "The paper states combinatorial uniqueness of the six-vertex real-projective-plane triangulation and lists primary MSC 57Q15; it does not discuss this exact discrete-Morse state space.",
+        "identifier_or_url": "arXiv:math/0506372v1",
+        "material_read": "Primary arXiv HTML, especially the minimal-triangulation discussion and the statement that the six-vertex real projective plane triangulation is combinatorially unique.",
+        "method": "Primary full-text arXiv HTML.",
+        "title": "Triangulated Manifolds with Few Vertices: Combinatorial Manifolds",
+        "trigger": "Minimality and uniqueness of the six-vertex projective-plane triangulation and primary topology classification."
+      },
+      {
+        "assessment": "GENERAL_MECHANISM_NOT_NUMERICAL_COVERAGE",
+        "evidence": "The source supplies the general tree-cotree framework but no six-vertex real projective plane count or cycle distribution.",
+        "identifier_or_url": "arXiv:cs/0207082",
+        "material_read": "ArXiv abstract and author publication summary describing the spanning-tree/dual-spanning-tree/leftover-edge decomposition.",
+        "method": "Primary arXiv metadata plus author publication page.",
+        "title": "Dynamic Generators of Topologically Embedded Graphs",
+        "trigger": "Potential broader theorem dominating the tree-cotree portion of the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "13689776-755a-465e-addc-c646665e94e8",
+  "value": {
+    "rationale": "The six-vertex projective plane is the canonical minimal torsion surface triangulation and an explicit benchmark in discrete Morse literature. Counting its entire optimal gradient-field state space, with a structural tree-cotree bijection and refined cycle distribution, is a natural computational-topology invariant useful for testing random and optimization procedures; it is not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
