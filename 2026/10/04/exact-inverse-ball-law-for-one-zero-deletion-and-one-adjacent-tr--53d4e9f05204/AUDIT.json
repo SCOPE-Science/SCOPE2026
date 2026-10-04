@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the channel to unit insertion plus at most one adjacent unit transfer in the zero-gap vector, counts constructions with an explicit and exhaustive collision analysis, and optimizes the resulting exact formula. An independent direct string-level enumerator agrees pointwise for every received word through \\(n=10\\) and the support optimization is checked through \\(n=200\\). The computation corroborates rather than substitutes for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye–Ge gives forward-ball lower bounds and asymptotic code-size upper bounds; Wang–Vu–Tan gives correcting/list-decodable code results."
+      ],
+      "reasoning": "Neither a lower bound on forward ball size nor a list bound for a designed code determines an exact uncoded inverse degree, so these broader code-theoretic results do not subsume the claim.",
+      "searches": [
+        "arXiv:2507.04806 Section VII",
+        "DOI:10.1109/ITW54588.2022.9965921",
+        "arXiv:2301.11680"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/ITW54588.2022.9965921",
+      "arXiv:2301.11680",
+      "arXiv:2507.04806"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior zero-gap mechanics are used as the channel representation, but the parent-count collision analysis and optimization are not consequences stated by those works."
+      ],
+      "reasoning": "The new theorem requires deduplicating reverse insertion-transfer constructions and then optimizing their support pattern. The inspected prior results do not provide that enumeration or an equivalent implication.",
+      "searches": [
+        "Wang–Vu–Tan zero-gap/error-ball definitions",
+        "Wang–Vu–Tan list-decoding results",
+        "Ye–Ge forward ball bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched published-finding record stated the received-word parent count or the quadratic maximum. The primary full text uses the zero-gap representation but only for forward channel/code analysis."
+      ],
+      "reasoning": "Aliases such as inverse ball, preimage, parents, received-word degree, and list size were searched. The searched statements differ in quantifier direction: they start from a source/code, while the new theorem fixes the received word and counts all sources.",
+      "searches": [
+        "asymmetric Damerau Levenshtein channel exact inverse ball size one zero deletion one adjacent transposition received word",
+        "binary one 0-deletion one adjacent transposition maximum number of parents preimages exact formula",
+        "error ball inverse degree list size uncoded asymmetric deletion adjacent transposition",
+        "zero deletion adjacent transposition composition vector exact parent count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records included exact quinary single-deletion code size and asymptotic q-ary deletion-code redundancy results, all for different invariants/channels."
+      ],
+      "reasoning": "No exact table or database hit located the sequence \\(2,3,6,9,14,19,26,33,42\\) as inverse degrees for this channel, and no searched record gave the all-\\(n\\) closed form.",
+      "searches": [
+        "asymmetric Damerau Levenshtein channel exact inverse ball size one zero deletion one adjacent transposition received word",
+        "binary one 0-deletion one adjacent transposition maximum number of parents preimages exact formula",
+        "error ball inverse degree list size uncoded asymmetric deletion adjacent transposition"
+      ]
+    },
+    "rationale": "Targeted semantic searches, the foundational full text, and a later broader full-text treatment were compared at statement and implication level. The closest literature treats forward error balls and code list sizes, whereas the claim exactly enumerates uncoded parents of each fixed received word and identifies the worst cases. No inspected result implies the formula. Residual risk from unindexed or differently phrased prior work remains explicit.",
+    "residual_risks": [
+      "An unindexed thesis, unpublished computation, or differently phrased inverse-ball enumeration may exist. Search failure is not treated as proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The work defines forward balls of words under bounded zero-deletions and adjacent transpositions and studies correcting/list-decodable codes. It does not state an exact formula for the number of all source parents of a fixed received word, its maximum, or its extremizers.",
+        "identifier_or_url": "DOI:10.1109/ITW54588.2022.9965921; arXiv:2301.11680",
+        "material_read": "IEEE bibliographic/abstract record and the expanded arXiv full text, including the channel definitions, zero-gap representation, error balls, and list-decoding section.",
+        "method": "Statement-level comparison of the forward error-ball definition, zero-gap operations, and code-specific list-decoding results against the received-word inverse-degree claim.",
+        "title": "Codes for the Asymmetric Damerau–Levenshtein Distance / Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+        "trigger": "Same zero-deletion and adjacent-transposition channel, including the zero-gap representation and list decoding."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The relevant section lower-bounds forward error-ball sizes and derives asymptotic code-size upper bounds. Those statements do not determine the exact inverse preimage count of an arbitrary received word.",
+        "identifier_or_url": "arXiv:2507.04806",
+        "material_read": "Full PDF, especially the introductory definitions and Section VII on upper bounds for codes correcting deletions and asymmetric transpositions.",
+        "method": "Compared the direction of the ball being bounded, the quantified objects, and the consequence for code size with the new inverse received-word degree.",
+        "title": "On the Maximum Size of Codes Under the Damerau-Levenshtein Metric",
+        "trigger": "Later broad treatment with a section on deletions and asymmetric transpositions and explicit error-ball bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "53d4e9f0-5204-47e8-8935-ff4cb0f0265b",
+  "value": {
+    "rationale": "The inverse degree is the natural uncoded list-size/local-ambiguity invariant of this synchronization channel. The result gives an exact formula for every received word, a closed worst-case law, and a complete extremizer classification for all lengths, so it is structural rather than a narrow finite census.",
+    "status": "PASS"
+  }
+}
