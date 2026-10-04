@@ -1,0 +1,101 @@
+{
+  "claim": "Let \\(C\\sim\\operatorname{LKJ}_n(\\eta)\\) with \\(n\\ge 3\\), \\(\\eta>0\\), and \\(\\nu=n+2\\eta-1\\). For any three distinct off-diagonal entries, \\(\\mathbb E[C_{e_1}C_{e_2}C_{e_3}]=\\nu^{-2}\\) exactly when the three unordered edges form one triangle, and the expectation is \\(0\\) otherwise. Consequently the off-diagonal entries, although pairwise independent, are not three-wise independent, and \\(\\mathbb E\\,\\operatorname{tr}((C-I_n)^3)=n(n-1)(n-2)/\\nu^2\\). If \\(\\eta_n/n\\to\\theta\\in[0,\\infty)\\), then \\(n^{-1}\\mathbb E\\,\\operatorname{tr}((C-I_n)^3)\\to(1+2\\theta)^{-2}\\), the third centered moment of the corresponding Marchenko--Pastur limit.",
+  "correctness": {
+    "rationale": "The proof reconstructs the \\(3\\times3\\) LKJ conditional density exactly, proves its center is \\(C_{12}C_{13}\\), uses the published pairwise-independence theorem and exact second moment \\(1/(n+2\\eta-1)\\), and separately handles every nontriangle by diagonal-sign symmetry. The cubic trace is then an exact count of ordered triangles. No finite simulation is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The restricted-Wishart representation in arXiv:2608.04162v1 identifies LKJ matrices with Gaussian sample-correlation ensembles, so older sample-correlation moment theorems would be potentially dominating prior work.",
+        "The inspected modern C-vine moment paper doi:10.1016/j.jmva.2025.105519 derives first and second moments rather than a broader all-order moment formula covering this claim."
+      ],
+      "reasoning": "The searches targeted the broader Gaussian sample-correlation formulation, not only LKJ terminology. No all-order or third-order theorem found in the inspected material implied the stated triangle identity.",
+      "searches": [
+        "sample correlation E r12 r13 r23 independent Gaussian",
+        "\"joint moments\" \"sample correlation coefficients\" normal",
+        "\"product moments\" \"sample correlation coefficients\" normal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.04162v1",
+      "doi:10.1016/j.jmva.2025.105519",
+      "doi:10.1016/j.jmva.2009.04.008",
+      "2026/9/17/SCOPE-gaussian-moment-deficit-correlation-obstruction--31c741d42df0",
+      "2026/9/18/SCOPE-gaussian-magnitude-renyi2-total-correlation--4eebefe6d8fe",
+      "2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.04162v1 supplies pairwise independence, the variance \\(1/(n+2\\eta-1)\\), and the Marchenko--Pastur limit; none of these alone states the conditional identity that generates the triangle cumulant.",
+        "doi:10.1016/j.jmva.2025.105519 was inspected in full-text form for moment scope and explicit third-moment terminology; the article advertises first and second moments."
+      ],
+      "reasoning": "The new claim is not a corollary of pairwise independence alone: it depends on the nonzero conditional center inside a triangle. The closest prior results provide ingredients but not the stated third-order implication.",
+      "searches": [
+        "arXiv:2608.04162v1 pairwise independence higher-order dependence LKJ",
+        "doi:10.1016/j.jmva.2025.105519 first second moments random correlation matrices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.04162v1 proves pairwise independence of distinct off-diagonal entries but only notes that higher-order dependence remains.",
+        "doi:10.1016/j.jmva.2025.105519 presents first- and second-moment results for random correlation matrices and contains no third-moment theorem in the inspected text."
+      ],
+      "reasoning": "An equivalent result would determine the same three-entry product or an equivalent third cumulant. No such statement appeared in the focused searches or inspected primary texts.",
+      "searches": [
+        "LKJ triangle moment E C12 C13 C23",
+        "correlation matrix third joint moment LKJ off-diagonal triangle",
+        "\"third moment\" LKJ \"correlation matrix\"",
+        "\"E[C12 C13 C23]\" LKJ"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record searches returned adjacent elliptope and dependence results but no exact cubic trace or triangle-moment record.",
+        "Closest adjacent record: 2026/9/17/SCOPE-gaussian-moment-deficit-correlation-obstruction--31c741d42df0 concerns fixed-margin correlation compatibility, not LKJ third moments."
+      ],
+      "reasoning": "The exact numerical formula and its spectral-trace equivalent were both searched directly; no database/table result with the same object and implication was found.",
+      "searches": [
+        "trace cubic LKJ correlation matrix exact expectation",
+        "\"trace((C-I)^3)\" LKJ",
+        "\"cubic spectral moment\" elliptope correlation matrix"
+      ]
+    },
+    "rationale": "The motivating paper states pairwise independence and the presence of higher-order dependence but does not give the exact triangle third moment. The closest inspected 2026 moment paper is explicitly devoted to first and second moments. Focused literature and published-record searches did not locate an implication-equivalent triangle or cubic-trace formula.",
+    "residual_risks": [
+      "Older specialized literature on joint moments of Gaussian sample-correlation coefficients may contain an equivalent triangle identity under notation not surfaced by the focused searches.",
+      "The search evidence establishes no known coverage in the inspected sources; it is not a proof of global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides essential premises but does not state the exact third triangle moment or cubic-trace expectation.",
+        "evidence": "The paper lists primary MSC 60B20 and states exact pairwise independence; it separately remarks that higher-order dependence remains.",
+        "identifier_or_url": "arXiv:2608.04162v1",
+        "material_read": "Abstract and the sections/formulas giving the restricted-Wishart representation, pairwise independence, marginal variance, higher-order-dependence remark, and Marchenko--Pastur limit.",
+        "method": "Public preprint text inspected by statement and formula.",
+        "title": "Correlation Matrices in High Dimensions: The Elliptope as a Sample-Correlation Ensemble",
+        "trigger": "Direct motivating source for pairwise independence and the LKJ high-dimensional spectral law."
+      },
+      {
+        "assessment": "The paper derives first and second moments and does not state the triangle third moment or cubic-trace identity.",
+        "evidence": "The abstract and introduction explicitly describe first and second moments; full-text searches found no third-moment theorem.",
+        "identifier_or_url": "doi:10.1016/j.jmva.2025.105519",
+        "material_read": "Lawful open-access PDF abstract, introduction, moment sections, and full-text searches for third-moment terminology.",
+        "method": "Full PDF text and page images inspected.",
+        "title": "Random correlation matrices generated via partial correlation C-vines",
+        "trigger": "Closest recent primary paper devoted to moments of random correlation matrices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "955e3ffe-3131-4111-a244-bcb0ccea7575",
+  "value": {
+    "rationale": "The motivating source makes higher-order dependence the precise structural gap left after pairwise independence. The exact triangle cumulant identifies the first obstruction, localizes it graphically, and yields an exact cubic spectral moment that matches the third centered moment of the limiting Marchenko--Pastur law. This is a natural finite-dimensional statistic with direct use in network and spectral interpretations, rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
