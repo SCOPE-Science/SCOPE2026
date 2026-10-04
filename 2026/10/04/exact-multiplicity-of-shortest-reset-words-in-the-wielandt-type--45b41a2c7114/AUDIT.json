@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The reverse-preimage coordinate change is exact: b becomes identity and a copies one scheduled membership bit. The dependency graph is a q-cycle, so first-infection times are forced at 1+(m-1)p; harmful visits to the initial endpoint force b. This proves both the free-position count and independence. Exact BFS checks all coprime pairs through q=13 and symbolic checks extend through q=100.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gusev--Pribavkina prove the exact reset threshold and exhibit an optimal word, but the inspected Section 2 does not enumerate all optimal words.",
+        "Kisielewicz--Kowalski--Szykuła give generic shortest-reset-word algorithms and experiments, not a closed multiplicity formula for this two-parameter family."
+      ],
+      "reasoning": "The closest broader results solve the minimum-length problem or generic computation. Those statements do not imply the exact number of optimum words.",
+      "searches": [
+        "published-finding corpus: reset thresholds automata two cycle lengths number shortest synchronizing words",
+        "Web: \"Wielandt-type\" automaton shortest reset words",
+        "Web: \"Reset thresholds of automata with two cycle lengths\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1403.3992v1",
+      "DOI:10.1007/s10878-013-9682-0",
+      "published-finding corpus semantic search records for shortest reset-word multiplicity and W(q,q,p) aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.2 gives reset threshold (p-1)(q-1)+q-p and its proof gives one word of that length; it also states the unique reset target for shortest words.",
+        "The generic shortest-word algorithm paper does not contain a Wielandt match in its full-text search."
+      ],
+      "reasoning": "Knowing one shortest word and its length does not determine how many shortest words exist. The new reverse-preimage schedule proves a multiplicity not implied by the published threshold theorem.",
+      "searches": [
+        "Primary full text: arXiv:1403.3992v1 Section 2, Theorem 2.2 and proof",
+        "Web: Computing the shortest reset words of synchronizing automata Wielandt Gusev"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-finding corpus record states a count for shortest reset words of W(q,q,p).",
+        "The 2017 minimal-reset-word language literature concerns factor-minimal reset words and ideal languages, a different invariant from the number of minimum-length reset words."
+      ],
+      "reasoning": "The claim is invariant under reversing the shortest-word language only as a counting device; it is not the same as counting factor-minimal reset words. Targeted alias searches did not reveal an equivalent published formula.",
+      "searches": [
+        "published-finding corpus: W(q,q,p) reset word language",
+        "published-finding corpus: multiplicity shortest synchronizing words automata",
+        "Web: \"number of shortest reset words\" synchronizing automata",
+        "Web: \"shortest synchronizing words\" multiplicity automaton"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-formula searches returned no matching published-finding corpus finding.",
+        "The own ledger contains rank-profile and avoiding-threshold results for other classical synchronizing families, but no W(q,q,p) shortest-word multiplicity row."
+      ],
+      "reasoning": "No exact database hit or own-ledger row covers the formula or its equivalent shortest-word count.",
+      "searches": [
+        "published-finding corpus: \"2^{(p-1)(q-3)}\" synchronizing automata",
+        "published-finding corpus: \"(p-1)(q-3)\" reset words",
+        "published-finding corpus: \"Wielandt-type automata\" minimal reset words"
+      ]
+    },
+    "rationale": "The inspected primary source proves the reset threshold, shortest reset target, and one witness, but not the number of shortest words. Targeted published-finding corpus and web searches for the exact formula, family name, multiplicity terminology, and minimal-reset-word aliases found no covering result.",
+    "residual_risks": [
+      "A specialized paper using different terminology for optimum-word multiplicity could have been missed. The 2017 minimal-reset-word language literature is not equivalent because its minimality notion is factor-based rather than minimum-length-based."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same automaton, proves every shortest word resets to q-p+1, proves the threshold, and exhibits one shortest word; does not state a shortest-word multiplicity formula.",
+        "evidence": "arXiv HTML lines 50-121, especially the definition at 56-61 and Theorem 2.2 with proof at 77-94.",
+        "identifier_or_url": "arXiv:1403.3992v1",
+        "material_read": "Full HTML Section 2, including the definition, Lemma 1, Lemma 2, Theorem 2.2 and the start of the general n>q discussion.",
+        "method": "Direct full-text inspection of the lawful arXiv version.",
+        "title": "Reset thresholds of automata with two cycle lengths",
+        "trigger": "Defining source for W(q,q,p) and the exact reset threshold."
+      },
+      {
+        "assessment": "Provides generic algorithms and computational context; no family-specific multiplicity statement was located.",
+        "evidence": "Publisher article discusses exact shortest-word computation; full-text search returned no match for Wielandt.",
+        "identifier_or_url": "DOI:10.1007/s10878-013-9682-0",
+        "material_read": "Open-access article abstract/introduction and full-text keyword searches for Wielandt and Gusev.",
+        "method": "Publisher full-text search.",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Potential broader coverage via generic exact shortest-word computation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "45b41a2c-7114-484e-9df1-4d6753224224",
+  "value": {
+    "rationale": "Shortest reset length is the central extremal invariant of this classical two-parameter family. The exact multiplicity distinguishes rigid and highly degenerate optimum behavior without changing the threshold and exposes a simple scheduled-copy mechanism behind all optimum words. The formula is uniform in both coprime parameters and specializes to an explicit exponential multiplicity for the classical Wielandt automata.",
+    "status": "PASS"
+  }
+}
