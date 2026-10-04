@@ -1,0 +1,121 @@
+{
+  "claim": "Consider the preferred-orientation Kagome quantum graph of Baradaran and Exner with positive edge lengths \\(b=d-c\\) and \\(c\\) satisfying \\(b/c\\notin\\mathbb Q\\). For the high-energy universal spectral-probability constant determined by their asymptotic band criterion (3.13), set \\(q_0=\\sqrt{3/5}\\), \\(a(q)=2q-\\sqrt{4q^2+3}\\), \\(b_+(q)=2q+\\sqrt{4q^2+3}\\), \\(g(q)=3/q\\), and \\(e(q)=-(3+q^2)/(2q)\\) for \\(q>0\\). Define \\(h_<(q)=1+\\pi^{-1}(\\arctan e(q)+\\arctan b_+(q)-\\arctan a(q)-\\arctan g(q))\\) and \\(h_>(q)=1+\\pi^{-1}(\\arctan e(q)+\\arctan g(q)-\\arctan a(q)-\\arctan b_+(q))\\). Then the universal constant has the exact one-dimensional representation \\[P_\\mathrm{Kag}=\\frac{2}{\\pi}\\left(\\int_0^{q_0}\\frac{h_<(q)}{1+q^2}\\,dq+\\int_{q_0}^{\\infty}\\frac{h_>(q)}{1+q^2}\\,dq\\right)=0.639080422792129545\\ldots.\\] The reduction follows from the tangent half-angle factorization of the source's two-phase criterion: with \\(p=\\tan(x/2)\\) and \\(q=\\tan(y/2)\\), its sign is the sign of \\((3-p^2+4pq)(3-pq)(3+q^2+2pq)\\); the only positive-root ordering change occurs at \\(q=q_0\\).",
+  "correctness": {
+    "rationale": "The published two-phase criterion is transformed by p=tan(x/2), q=tan(y/2) into a polynomial sign condition with only a nonnegative omitted multiplier. For fixed q>0 the four roots are explicit; their ordering is proved, the sole crossover solves q^2=3/5, and integrating the standard-Cauchy conditional intervals gives the stated one-dimensional formula. The q<0 half follows from F(-p,-q)=F(p,q). The change from momentum to energy weighting preserves the limiting fraction by integration by parts. The standalone checker reproduces the integral and independently checks the original torus area numerically.",
+    "risks": [
+      "The full Floquet-to-high-energy reduction is taken from the primary source rather than re-proved.",
+      "The two-dimensional grid is only a numerical cross-check and is not used as proof."
+    ],
+    "sources": [
+      "arXiv:2106.16019v1, Sec. 3.2, Eqs. (3.12)-(3.13)",
+      "arXiv:1304.6028v1, Eqs. (3), (8), (13)"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Band--Berkolaiko proves that generic momentum-band density is a relative torus volume and gives an explicit integral for a different loop-with-edge example.",
+        "Its general theorem does not evaluate the Baradaran--Exner Kagome inequality or determine the breakpoint sqrt(3/5).",
+        "published-finding corpus's closest hits were on unrelated spectral problems rather than this Kagome probability."
+      ],
+      "reasoning": "The broader torus-volume theorem explains the ergodic mechanism but does not imply the specific one-dimensional evaluation without carrying out the new algebraic region analysis.",
+      "searches": [
+        "published-finding corpus: mathematical physics quantum graph magnetic flux flat band exact multiplicity compactly supported eigenfunctions",
+        "published-finding corpus: preferred orientation Kagome exact high energy band density analytic formula",
+        "Primary full text: Band and Berkolaiko, arXiv:1304.6028v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.16019v1 (full-text relevant section inspected)",
+      "arXiv:1304.6028v1 (full-text probability section inspected)",
+      "DOI:10.1007/s00023-023-01399-7 (abstract/bibliographic scope screen only; not used for a whole-document NOT_COVERING conclusion)",
+      "Published-results database searches listed in the four comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baradaran--Exner Eq. (3.13) defines the two-phase sign region and the text says the inequality gives no hope of direct solution, then evaluates its area numerically.",
+        "Band--Berkolaiko Eq. (13) identifies generic spectral probability with torus relative volume; its explicit Eq. (15) concerns a different loop-with-edge graph.",
+        "No inspected source states the polynomial factorization (3-p^2+4pq)(3-pq)(3+q^2+2pq) for the Kagome criterion."
+      ],
+      "reasoning": "The prior general theorem plus the Kagome criterion do not already contain the final statement as a stated corollary: the nontrivial missing step is the exact factorization and root-order integration of this particular two-dimensional region.",
+      "searches": [
+        "Primary full text: Baradaran and Exner, arXiv:2106.16019v1, Sec. 3.2",
+        "Primary full text: Band and Berkolaiko, arXiv:1304.6028v1, Sec. Probability to be in the spectrum",
+        "Web: exact title plus spectral probability exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-finding corpus item stated a preferred-orientation Kagome Cauchy/tangent-half-angle reduction.",
+        "Exact-number web searches did not locate the value 0.639080422... in relevant Kagome literature.",
+        "The motivating source reports only approximately 0.639081 from a two-dimensional area calculation."
+      ],
+      "reasoning": "The new statement is not a relabeling of the source's numerical area: it supplies an explicit conditional factorization, root partition, breakpoint, and one-dimensional formula. Search failure alone is not treated as proof of novelty.",
+      "searches": [
+        "published-finding corpus: Kagome preferred-orientation quantum graph tangent half-angle factorization spectral probability",
+        "published-finding corpus: Kagome 0.639080422792 Cauchy spectral probability",
+        "published-finding corpus: Baradaran Exner inequality 3.13 factorization 3-pq",
+        "Web: \"0.639080422\" Kagome quantum graph",
+        "Web: \"3-pq\" Kagome quantum graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper and later metadata/summary pages repeat only the approximate value near 0.639.",
+        "No retrieved exact-value table or database entry supplied the one-dimensional formula or higher-precision constant."
+      ],
+      "reasoning": "The value is not presented as a known-table lookup; the new contribution is the analytic reduction that produces it.",
+      "searches": [
+        "published-finding corpus: Baradaran Exner 0.639080422792 spectral fraction",
+        "Web: \"Kagome network with vertex coupling of a preferred orientation\" 0.639",
+        "Web: \"Kagome\" \"preferred orientation\" \"spectral probability\""
+      ]
+    },
+    "rationale": "The motivating primary source gives the same high-energy region but says the rewritten inequality is too complicated for an analytic solution and reports only a two-dimensional numerical area. The general Band--Berkolaiko theorem supplies torus-volume universality but not this region's explicit Cauchy reduction, root-order breakpoint, or one-dimensional quadrature. Multiple exact-constant and alias searches found no covering published-finding corpus or web result.",
+    "residual_risks": [
+      "An equivalent tangent-half-angle area reduction may exist under unrelated trigonometric-probability or Cauchy-rational-function terminology.",
+      "Later literature may quote an unpublished or non-indexed analytic evaluation not recovered by the searches.",
+      "The claim deliberately does not assert a named-constant closed form."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states the incommensurate value is about 0.639, gives Eq. (3.13), says the rewritten expression is complicated and is evaluated numerically, and reports torus area about 0.639081. It does not give the tangent-polynomial factorization, root ordering, breakpoint, or 1D integral.",
+        "identifier_or_url": "arXiv:2106.16019v1",
+        "material_read": "Abstract; Section 3.2 around equations (3.11)-(3.17), including the full text around (3.12)-(3.13).",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "Kagome network with vertex coupling of a preferred orientation",
+        "trigger": "Same object and exact high-energy spectral-probability constant."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves the generic torus-volume formula and evaluates a different loop-with-edge geometry. It does not contain the preferred-orientation Kagome criterion or the formula claimed here.",
+        "identifier_or_url": "arXiv:1304.6028v1",
+        "material_read": "Full arXiv HTML through the secular-equation and probability sections, especially equations (3), (8), (13), and the explicit example (15).",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "Universality of the momentum band density of periodic networks",
+        "trigger": "Potential broader theorem covering generic spectral probabilities on periodic quantum graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e84aa93f-6f68-419a-b790-81394a7df8c7",
+  "value": {
+    "rationale": "The spectral probability is a principal transport statistic of the motivating paper. The source's incommensurate value was obtained from a two-dimensional numerical area after stating that the inequality was analytically unwieldy. The new factorization reduces the region exactly to one-dimensional Cauchy quadrature, exposes a single algebraic transition at sqrt(3/5), improves reproducibility and precision, and creates a tractable starting point for rigorous bounds or further symbolic analysis.",
+    "risks": [
+      "The final integral has not been evaluated in a simpler named-constant form.",
+      "The result is specific to the published Kagome high-energy criterion and is not a general new universality theorem."
+    ],
+    "sources": [
+      "arXiv:2106.16019v1, Sec. 3.2, discussion after Eq. (3.13)",
+      "arXiv:1304.6028v1, general interpretation of band density as torus volume"
+    ],
+    "status": "PASS"
+  }
+}
