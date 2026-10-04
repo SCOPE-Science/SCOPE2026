@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For strict ternary length-two circular profiles, flow balance reduces the off-diagonal entries to three equal signed gaps. Quotienting only objective-preserving labels leaves 420 shape classes. For fixed positive gap \\(t\\), substitution \\(H_i=L_i+t\\) turns all adjacent rank inequalities into exact lower-bound difference constraints. The verifier computes their componentwise least nonnegative solution by longest-path closure for every shape and every \\(1\\le t\\le28\\); all shapes have optimum at most \\(86\\), while \\(t\\ge29\\) alone contributes at least \\(87\\). The unique worst shape has an independent direct lower bound \\(86\\), and the balanced matrix \\(\\begin{pmatrix}12&5&6\\\\0&13&15\\\\11&10&14\\end{pmatrix}\\) attains it and is replayed as an Eulerian circuit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2019 paper reports c3<=16 and derives general length upper bounds for its constructed sets.",
+        "The 2022 paper studies improved constructions and polynomial realization lengths, but the inspected text does not determine the exact maximum shortest length over all 30240 base rankings."
+      ],
+      "reasoning": "General feasibility and length upper bounds do not imply the sharp finite value 86. The present result solves the exact optimization over the entire smallest nontrivial repository.",
+      "searches": [
+        "f_3,2 30240 shortest realizing sequence length worst case",
+        "c3 16 rank modulation DNA string length q=3 ell=2",
+        "Improved Rank-Modulation Codes DNA shortest sequence q=3 ell=2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1708.02146v1",
+      "DOI:10.1109/TIT.2018.2829876",
+      "arXiv:2101.06033",
+      "DOI:10.1109/TIT.2022.3152392",
+      "DOI:10.1109/TIT.2026.3698044 metadata",
+      "DOI:10.1016/j.disc.2026.115253 metadata",
+      "Published-finding semantic searches listed in the named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 feasibility lemma implies the balance equations used in the reduction, so that reduction is explicitly treated as prior and not novel.",
+        "The 2019 Section VI defines len(pi), reports c3<=16 by computation, and proves only upper bounds for constructed families.",
+        "Available 2026 metadata describes enumeration and structure/distance topics; full texts were not available through the attempted lawful open routes."
+      ],
+      "reasoning": "The final claim is not a special case of the prior feasibility lemma: that lemma identifies feasible balanced vectors but does not optimize the integer profile sum over every ranking. The c3 bound is on maximum representative entry and yields only a coarse length bound. The inaccessible 2026 papers create residual risk but no decisive observed implication.",
+      "searches": [
+        "Full-text inspection: Rank-Modulation Codes for DNA Storage With Shotgun Sequencing, feasibility and Section VI string-length discussion",
+        "Full-text inspection: Improved Rank-Modulation Codes for DNA Storage With Shotgun Sequencing, q=3 ell=2 discussion",
+        "Metadata inspection: On Enumerating Feasible Permutations for Rank Modulation Codes in DNA Storage via Hyperplane Arrangements",
+        "Metadata inspection: Rank-modulation codes for DNA storage in shotgun sequencing: Structure and distance properties"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Raviv-Schwartz-Yaakobi defines len(pi) as the shortest realizing string length and gives a general upper-bound framework rather than an exact ternary window-two maximum.",
+        "No matching published-finding result was returned for the exact value 86 or its shortest-realization formulation."
+      ],
+      "reasoning": "The claim is invariant under wording changes such as shortest realizing sequence, minimum profile sum, and worst-case molecule length. The inspected sources do not state the exact maximum over the complete base repository.",
+      "searches": [
+        "ternary DNA profile rank modulation shortest string length q=3 ell=2 86",
+        "rank modulation DNA profile minimal realizing string length 86 feasible permutations",
+        "q=3 ell=2 shortest rank-modulation DNA"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic published-finding searches returned no entry on this exact DNA-profile shortest-length invariant.",
+        "The known table datum 30240 concerns the number of feasible rankings and is treated as prior art, not as part of the novelty claim."
+      ],
+      "reasoning": "No exact table or database result located the value 86 or the count 72 of worst-length rankings.",
+      "searches": [
+        "ternary DNA profile rank modulation shortest string length q=3 ell=2 86",
+        "rank modulation DNA profile minimal realizing string length 86 feasible permutations",
+        "f_3,2 30240 shortest realizing sequence length worst case",
+        "c3 16 rank modulation DNA string length q=3 ell=2"
+      ]
+    },
+    "rationale": "The foundational source defines shortest realizing length and treats it as important, but for the complete ternary window-two base repository it reports the known count \\(30240\\) and only a computer-derived representative-entry bound \\(c_3\\le16\\), not the exact worst shortest length. The inspected 2022 follow-up improves constructions without stating the all-ranking value \\(86\\). Exact-value and alias searches found no matching published finding. Two highly relevant 2026 papers were identified; available metadata was inspected but full text was not retrievable, so they remain an explicit residual risk.",
+    "residual_risks": [
+      "Full text of two highly relevant 2026 papers could not be inspected; an unadvertised exact shortest-length result in either would cover the claim.",
+      "An unindexed thesis, repository, or differently phrased finite computation could contain the value 86.",
+      "The balance reduction itself is prior via the foundational feasibility lemma and is not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the final exact value. It covers the model, the balance feasibility reduction, the count 30240, and reports c3<=16, but not max len(pi)=86 or the 72 extremizers.",
+        "evidence": "Section VI defines len(pi) and states a computer program found c3<=16; the base repository discussion reports 30240 feasible rankings.",
+        "identifier_or_url": "arXiv:1708.02146v1; DOI:10.1109/TIT.2018.2829876",
+        "material_read": "Feasibility lemma, q=3 ell=2 repository discussion, and Section VI definition and bounds for string length.",
+        "method": "Lawful open full-text PDF and public metadata.",
+        "title": "Rank-Modulation Codes for DNA Storage With Shotgun Sequencing",
+        "trigger": "Primary source defining feasibility and shortest realizing length for the same model."
+      },
+      {
+        "assessment": "NOT_COVERING in the inspected material for the exact all-ranking shortest-length maximum.",
+        "evidence": "The paper focuses on larger systematic and non-systematic constructions and improved realization lengths; no inspected statement gives the exact value 86.",
+        "identifier_or_url": "arXiv:2101.06033; DOI:10.1109/TIT.2022.3152392",
+        "material_read": "q=3 ell=2 comparison and construction/feasibility sections available in the open full text.",
+        "method": "Lawful open full-text PDF.",
+        "title": "Improved Rank-Modulation Codes for DNA Storage With Shotgun Sequencing",
+        "trigger": "Closest follow-up improving constructions and realization lengths."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK. Available descriptions concern enumeration via hyperplane arrangements, not shortest realizing length.",
+        "evidence": "IEEE TIT 72(8), 5490-5500 (2026), title explicitly concerns enumeration of feasible permutations.",
+        "identifier_or_url": "DOI:10.1109/TIT.2026.3698044",
+        "material_read": "Bibliographic metadata, title, venue, year, and available public descriptions; full text was not retrieved.",
+        "method": "Public bibliographic/search metadata; open full-text retrieval was unavailable in the attempted route.",
+        "title": "On Enumerating Feasible Permutations for Rank Modulation Codes in DNA Storage via Hyperplane Arrangements",
+        "trigger": "Highly relevant 2026 paper on exactly the same feasible-permutation space."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK. Title suggests structure and permutation distance, not the shortest-string invariant, but unseen full text could contain a finite length result.",
+        "evidence": "Discrete Mathematics 349(11), 115253 (2026).",
+        "identifier_or_url": "DOI:10.1016/j.disc.2026.115253",
+        "material_read": "Bibliographic metadata and title; DOI and unpaywall retrieval attempts did not provide readable full text.",
+        "method": "Public bibliographic metadata with bounded lawful-open retrieval attempts.",
+        "title": "Rank-modulation codes for DNA storage in shotgun sequencing: Structure and distance properties",
+        "trigger": "Highly relevant 2026 structural follow-up on the same model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9a35e7b2-0e23-4c24-8ed0-d9858250f6ef",
+  "value": {
+    "rationale": "Shortest realizing-string length is explicitly motivated as an important practical parameter in the foundational paper. The ternary window-two instance is the complete smallest nontrivial base repository, so its exact worst value \\(86\\) is a natural finite invariant. The result sharpens a coarse earlier representative-size bound, identifies exactly \\(72\\) extremal rankings, and supplies an explicit extremal profile and complete exact proof rather than merely recomputing the known count \\(30240\\).",
+    "status": "PASS"
+  }
+}
