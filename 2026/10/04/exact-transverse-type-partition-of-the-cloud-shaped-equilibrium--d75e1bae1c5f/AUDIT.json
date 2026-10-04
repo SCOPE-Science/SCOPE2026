@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "On each smooth sign quadrant, direct differentiation gives a Jacobian with characteristic polynomial \\(\\lambda(\\lambda^2-T)\\). Eliminating \\(x\\) from the equilibrium conic and \\(T=0\\) gives the two displayed sextics. Exact rational Sturm sequences prove each sextic has exactly two real roots and isolate them in the stated intervals; sign checks discard the root lying on the wrong sign branch in each case. Continuity and exact representative signs then classify all four smooth arcs. The bundled verifier replays the elimination and root counts without floating-point assumptions. The nondifferentiable axis points are explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Rössler and Lorenz–Stenflo published-finding corpus records concern different vector fields and different local/global bifurcation mechanisms.",
+        "The 2022 infinite-equilibria family article discusses stability intervals for other four-dimensional systems and cites the 2017 cloud-curve paper only as prior context.",
+        "The 2022 parabolic-equilibrium article performs a local equilibrium analysis for a different vector field and does not contain the present curve or sextics."
+      ],
+      "reasoning": "General techniques for linearizing equilibrium manifolds do not determine the sign function T on this nonsmooth cloud curve; the decisive content is the system-specific elimination and exact root partition.",
+      "searches": [
+        "published-finding corpus source id: 2026/9/18/SCOPE-boundary-polar-zeros-track-rossler-equilibria--6ecaba26fef5",
+        "published-finding corpus source id: 2026/9/20/SCOPE-lorenz-stenflo-weak-rotation-global-threshold--eb5a675405b5",
+        "web result: Development of a Family of Chaotic Systems with Infinite Equilibria and Its Application for Image Encryption, DOI 10.1155/2022/1250489",
+        "web result: A Three-Dimensional Autonomous System with a Parabolic Equilibrium, DOI 10.1155/2022/8362836"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2017/7138971",
+      "doi:10.1155/2022/1250489",
+      "doi:10.1155/2022/8362836",
+      "msc2020:37C10",
+      "2026/9/18/SCOPE-boundary-polar-zeros-track-rossler-equilibria--6ecaba26fef5",
+      "2026/9/20/SCOPE-lorenz-stenflo-weak-rotation-global-threshold--eb5a675405b5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 source gives the equilibrium locus but no Jacobian eigenvalues along it.",
+        "Later related papers study different infinite-equilibrium systems; their stability results do not specialize to x^2-|xy|+y^2=1 with the present y-dependent cofactor."
+      ],
+      "reasoning": "Knowing only that the equilibrium set is a closed curve does not determine whether the two transverse eigenvalues are real or imaginary, nor where they change type. Those implications require the explicit Jacobian and sextic root analysis supplied here.",
+      "searches": [
+        "doi:10.1155/2017/7138971",
+        "doi:10.1155/2022/1250489",
+        "doi:10.1155/2022/8362836"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.1155/2017/7138971, full text: Section 2 defines the vector field and curve x^2-|xy|+y^2=1; full-document search found no eigenvalue discussion and the only stability occurrence concerns the later antisynchronization controller.",
+        "No published-finding corpus hit returned the same vector field or an equivalent two-transition transverse-spectrum statement."
+      ],
+      "reasoning": "The claim is not a rephrasing of the paper’s curve equation or Lyapunov-exponent plots: it supplies an equilibrium-by-equilibrium linear spectrum and exact algebraic locations where the transverse type changes.",
+      "searches": [
+        "published-finding corpus query: Wang Pham Volos closed curve equilibrium cloud-shaped xdot z ydot -z(ay+b y^2+xz) zdot x^2-|xy|+y^2-1 transverse eigenvalues",
+        "published-finding corpus query: cloud-shaped equilibrium normal stability saddle center 10.1155/2017/7138971",
+        "web query: \"10.1155/2017/7138971\" stability equilibrium curve eigenvalues",
+        "web query: \"cloud-shaped curve equilibrium\" stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source’s tables and figures report chaotic parameter scans and Lyapunov information for trajectories, not a table of equilibrium-curve transverse types.",
+        "No database hit supplied the sextics P_+ or P_- or the transition coordinates E_+ and E_-."
+      ],
+      "reasoning": "The exact boundaries are not recoverable from the paper’s numerical attractor tables; they arise from an independent local linearization and algebraic elimination.",
+      "searches": [
+        "published-finding corpus query: equilibrium curve lambda zero plus minus square root normal hyperbolicity chaotic closed curve",
+        "web query: \"Wang\" \"Pham\" \"Volos\" \"cloud-shaped\" equilibrium stability",
+        "web query: \"closed curve equilibrium\" \"normal stability\" chaotic system"
+      ]
+    },
+    "rationale": "The introducing full text defines the cloud-shaped equilibrium curve and studies numerical dynamics but contains no eigenvalue computation or local-stability partition of that curve. Exact published-finding corpus and web searches using the DOI, equations, aliases, local-spectrum form, and transition terminology returned only different dynamical systems or the source itself. No located result implies the two sextic transition boundaries by specialization.",
+    "residual_risks": [
+      "Search coverage cannot exclude an obscure or poorly indexed derivation of the same local partition.",
+      "The related 2022 infinite-equilibria article was not available in full text during this run; its accessible material did not suggest same-system coverage, but it remains a minor literature-access risk.",
+      "The axis equilibria are nonsmooth and deliberately outside the claim, so a separate nonsmooth local analysis could add structure not captured here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper defines the equilibrium curve and numerical chaotic example but does not compute or classify the local transverse spectrum along the curve.",
+        "evidence": [
+          "Published 16 February 2017; Section 2 gives xdot=z, ydot=-z(ay+by^2+xz), zdot=x^2-|xy|+y^2-1 and the equilibrium curve x^2-|xy|+y^2=1.",
+          "Full-document search returned no occurrence of “eigenvalue”; the “stability” occurrence is in the antisynchronization-control proof rather than equilibrium analysis."
+        ],
+        "identifier_or_url": "doi:10.1155/2017/7138971",
+        "material_read": "Full open-access PDF, including the introduction, Section 2 system/equilibrium construction, parameter example, dynamics discussion, circuit section, control section, conclusion, and full-document keyword searches for stability and eigenvalues.",
+        "method": "Direct equation-level and implication comparison; page 2 was visually inspected in addition to extracted text.",
+        "title": "Dynamics, Circuit Design, and Synchronization of a New Chaotic System with Closed Curve Equilibrium",
+        "trigger": "Introducing paper for the exact vector field and the cloud-shaped equilibrium curve."
+      },
+      {
+        "assessment": "Relevant as broader context but not decisive coverage; the accessible material describes different four-dimensional families and does not state the present two-transition classification.",
+        "evidence": [
+          "The accessible abstract/introduction explicitly frames a new four-dimensional family with infinite equilibrium points and refers to earlier cloud-shaped systems as prior context."
+        ],
+        "identifier_or_url": "doi:10.1155/2022/1250489",
+        "material_read": "Search-accessible title, abstract, introductory comparison, and citation context.",
+        "method": "Statement-level comparison only; not used to assert absence from its unread full text.",
+        "title": "Development of a Family of Chaotic Systems with Infinite Equilibria and Its Application for Image Encryption",
+        "trigger": "Later article on closed-curve infinite equilibria that cites the 2017 source family and mentions equilibrium stability in other models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d75e1bae-1c5f-45dd-8757-57800d01a040",
+  "value": {
+    "rationale": "The result gives a complete local transverse-type map of the smooth part of a published nonisolated equilibrium curve at the parameter values used to exhibit chaos. It shows that the same curve contains both normally hyperbolic saddle segments and spectrally elliptic segments, and locates the two transition points exactly by algebraic equations rather than trajectory sampling. This is structurally useful for understanding which parts of the equilibrium continuum can seed local instability, for organizing continuation or basin studies, and for distinguishing equilibrium-manifold geometry from numerical attractor behavior. It is more informative than recomputing one eigenvalue table or one parameter scan.",
+    "status": "PASS"
+  }
+}
