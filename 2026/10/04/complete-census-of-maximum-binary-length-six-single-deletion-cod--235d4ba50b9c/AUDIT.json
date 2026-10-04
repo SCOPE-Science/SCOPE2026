@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The verifier reconstructs all \\(64\\) binary length-six words and their distinct one-deletion descendant sets, builds the complete compatibility graph, and exhaustively enumerates all maximal cliques with exact integer bitsets. It obtains \\(62,707\\) maximal cliques, maximum size \\(10\\), and exactly nine size-ten cliques. It then checks pairwise descendant disjointness for every maximum, recomputes their common four-word intersection, descendant-union sizes \\(26,28,28,28,30,30,30,30,32\\), identifies the unique 32-word descendant partition as \\(\\mathrm{VT}_0(6)\\), and exhausts the four reversal/complement transformations to obtain orbit sizes \\(2,2,2,1,1,1\\). A separate NetworkX maximal-clique implementation matched the same maximal-clique count and nine maxima.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.3390/e21121202 states that VT codes are optimal through block length ten and formulates the optimization as a maximum-independent-set problem.",
+        "The inspected body focuses on bounds, relaxations, and optimization formulations rather than all-maxima enumeration."
+      ],
+      "reasoning": "General optimality through length ten gives only clique numbers. It does not imply the number or structure of all maximum cliques at length six.",
+      "searches": [
+        "binary deletion code optimum n<=10 VT code maximum independent set",
+        "Nonasymptotic Upper Bounds on Binary Single Deletion Codes maximum independent set",
+        "single deletion code classification all optimal small length"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0207197v1",
+      "DOI:10.3390/e21121202",
+      "published-finding corpus:2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+      "published-finding corpus:2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+      "published-finding corpus:2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:math/0207197v1 gives one alternative optimum obtained from \\(\\mathrm{VT}_0(6)\\) by a two-for-two replacement.",
+        "The exhaustive package finds nine maxima, eight nonperfect, with three distinct nonperfect coverage levels and six natural symmetry orbits."
+      ],
+      "reasoning": "Existence of one alternative optimum does not imply completeness, unique perfectness, the universal core, the coverage histogram, or the orbit decomposition.",
+      "searches": [
+        "Sloane VT0(6) alternative optimum 111000 000111",
+        "optimal single deletion code n=6 all maximum codes",
+        "reversal complement deletion code equivalence length 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0207197v1 defines one-deletion correction by pairwise-disjoint descendant sets and equivalently by the deletion-confusability graph.",
+        "The same source states \\(A(6,1)=10\\) and gives a specific nonperfect replacement of two words in \\(\\mathrm{VT}_0(6)\\)."
+      ],
+      "reasoning": "The descendant-set, deletion-distance, and confusability-graph formulations were compared directly. Prior size and one example do not determine how many maxima exist, their common intersection, or their coverage distribution.",
+      "searches": [
+        "binary length six single deletion correcting code maximum ten exact census optimal codes",
+        "Varshamov Tenengolts VT_0(6) alternative optimum 111000 000111 classification",
+        "single deletion correcting code n=6 perfect nonperfect maximum equivalence reversal complement",
+        "Sloane arXiv:math/0207197 lines 46-54, 171-205"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sloane records the optimum sequence and the length-six local replacement example.",
+        "No retrieved table or published-finding corpus record reports nine labeled maxima, the four-word core, or the \\(26/28/30/32\\) coverage histogram."
+      ],
+      "reasoning": "A table of optimal sizes is not an extremizer census; the new claim classifies every optimizer in the exact length-six cell.",
+      "searches": [
+        "binary length six single deletion correcting code maximum ten exact census optimal codes",
+        "A(6,1) deletion code 10 binary",
+        "110100 001011 111000 000111 deletion code"
+      ]
+    },
+    "rationale": "The scalar optimum \\(A(6,1)=10\\) and the existence of at least one nonperfect optimum are prior. The accepted contribution is the complete nine-code census, universal four-word core, unique-perfect statement with exact nonperfect coverage histogram, and six-orbit decomposition under reversal and complement. The closest inspected sources do not imply these classification statements, and targeted published-finding corpus and web searches over exact parameters, replacement words, aliases, coverage, and equivalence formulations found no matching census.",
+    "residual_risks": [
+      "An obscure, unindexed, or unpublished finite enumeration may contain the same nine-code census.",
+      "The symmetry statement is intentionally restricted to reversal and global bit complement; no full-automorphism classification is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PRIOR_SIZE_AND_ONE_EXAMPLE_ONLY",
+        "evidence": "The source states size ten at length six and exhibits one nonperfect optimum, but it does not enumerate or classify all length-six maxima.",
+        "identifier_or_url": "arXiv:math/0207197v1",
+        "material_read": "Full arXiv HTML sections defining descendants and the confusability graph, the optimal-size sequence, VT codes, optimality discussion, and the explicit length-six replacement example.",
+        "method": "Lawful open full-text inspection.",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Foundational and exact small-length source for the same binary one-deletion problem."
+      },
+      {
+        "assessment": "BROADER_OPTIMALITY_NOT_COVERING_CENSUS",
+        "evidence": "The article says VT codes are optimal for block length at most ten and develops bounds; the inspected material does not state an all-maxima length-six classification.",
+        "identifier_or_url": "DOI:10.3390/e21121202",
+        "material_read": "Open full-text article sections on the maximum-independent-set formulation, optimization experiments, and conclusions.",
+        "method": "Lawful open full-text inspection.",
+        "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+        "trigger": "Later exact/bounding work using the same confusability graph and explicitly summarizing small-length VT optimality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "235d4ba5-0b9c-4790-a2ee-5d2a3cb762c0",
+  "value": {
+    "rationale": "Length six is the first small case singled out in the foundational survey where an optimal VT code admits an explicit same-size replacement producing a nonperfect optimum. Completing that observation into an exact all-maxima classification answers a natural structural question: it shows there are only nine optimizers, that perfectness is unique, that all nine share a nontrivial four-word core, and that the nonperfect optimizers fall into precise coverage and symmetry types. This is a canonical finite extremal classification rather than an arbitrary slice or a recomputation of the known scalar optimum.",
+    "status": "PASS"
+  }
+}
