@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The finite claim is a complete exhaustive theorem: all \\(2^n\\) binary words and every unordered pair are enumerated for each \\(4\\le n\\le9\\); eligibility is checked both by disjoint \\(\\mathcal D_2\\) balls and independently by longest-common-subsequence length; every \\(\\mathcal D_3\\) intersection is counted. The embedded verifier reproduces the six maxima, witnesses, \\(174216\\) pair checks, and \\(94949\\) eligible pairs. The tail \\(20\\) uses the actual stated hypotheses of arXiv:2111.04255v1 Theorem 4 and Proposition 5/Corollary 6, with \\(\\ell=t=3\\), so no finite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pham--Goyal--Kiah Theorem 4 gives \\(N(n,3,3)\\le20\\) for all lengths, while Proposition 5/Corollary 6 attain \\(20\\) only for \\(n\\ge10\\).",
+        "Gabrys--Yaakobi is the prior \\(\\ell=2\\) regime, not \\(\\ell=3\\).",
+        "F. Zhu, arXiv:2511.01071, studies intersections of three or more distinct deletion balls for list reconstruction rather than this two-center distance-constrained maximum."
+      ],
+      "reasoning": "The strongest broader theorem leaves the exact short values undetermined rather than implying them. Earlier and later neighboring results change either the center-distance regime or the number of centers.",
+      "searches": [
+        "Sequence Reconstruction Problem for Deletion Channels complete asymptotic solution diagonal ell=t exact",
+        "Sequence Reconstruction over the Deletion Channel Gabrys Yaakobi single deletion correcting",
+        "sequence reconstruction deletion channel list three centers intersection"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.04255v1",
+      "DOI:10.1109/TIT.2018.2800044",
+      "arXiv:2511.01071",
+      "published-finding index searches listed in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 paper explicitly reports prior exact knowledge only for \\(\\ell\\in\\{1,2\\}\\) and states the diagonal equality for \\(n\\ge4t-2\\).",
+        "At \\(t=3\\), the prior theorem begins at \\(n=10\\); it does not determine \\(n=4,5,6,7,8,9\\).",
+        "The exhaustive certificate gives exact strict inequalities \\(N(9,3,3)=15<20\\) and hence proves the published sufficient threshold is sharp in this case."
+      ],
+      "reasoning": "The present short-length values are not corollaries or special cases of the known tail equality. They fill precisely the parameter interval excluded by its hypothesis.",
+      "searches": [
+        "arXiv:2111.04255v1 Definition (1), Theorem 4, Proposition 5, Corollary 6",
+        "DOI:10.1109/TIT.2018.2800044 abstract and problem statement",
+        "arXiv:2511.01071 abstract and main problem statement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2111.04255v1 Definition (1) identifies the target as the maximum intersection of two deletion balls under a Levenshtein-distance lower bound.",
+        "For equal-length words and \\(\\ell=3\\), the distance condition is equivalent to disjoint length-\\(n-2\\) subsequence sets, which was also searched under common-subsequence and deletion-ball terminology."
+      ],
+      "reasoning": "The search covered the native notation, pairwise deletion-ball intersections, Levenshtein-distance language, and common-subsequence equivalents. No returned published finding states the six preasymptotic values.",
+      "searches": [
+        "N(n,3,3) sequence reconstruction deletion exact",
+        "three deletion reconstruction intersection binary exact n 8 n 9",
+        "maximum intersection three-deletion balls Levenshtein distance three",
+        "deletion reconstruction N(n,l,t) l=3 t=3 exact threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-finding-index searches for the exact \\(n=8\\) and \\(n=9\\) notation and the full numerical sequence returned no matching reconstruction result.",
+        "The closest returned IDs, 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea and 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c, concern deletion-code redundancy rather than deletion-ball intersection maxima."
+      ],
+      "reasoning": "No exact table was located. This is not used as a uniqueness proof; it supplements direct source inspection.",
+      "searches": [
+        "\"N(8,3,3)\" 11 deletion",
+        "\"N(9,3,3)\" 15 deletion",
+        "\"2,4,6,8,11,15\" deletion reconstruction"
+      ]
+    },
+    "rationale": "The closest full-text source defines exactly the same two-center deletion-reconstruction parameter and proves the diagonal tail only for \\(n\\ge4t-2\\). At \\(t=3\\), that leaves exactly \\(4\\le n\\le9\\), whose complete values are the present finite claim. Statement-level comparison and targeted alias searches did not locate these six values elsewhere. Negative search is treated only as supporting evidence; the main originality evidence is the explicit finite gap in the closest source.",
+    "residual_risks": [
+      "The six short values may appear in an unindexed computation, thesis, note, supplementary table, or later source using different notation.",
+      "The literature search cannot prove uniqueness of the result; originality is assessed from the closest full-text implication comparison plus alias searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_ONLY",
+        "evidence": "Defines the identical invariant, proves the universal upper bound and the diagonal equality only for \\(n\\ge4t-2\\), and does not state the finite values below that threshold for \\(t=3\\).",
+        "identifier_or_url": "arXiv:2111.04255v1",
+        "material_read": "Abstract, Introduction, Preliminaries/Definition (1), Theorem 4, Proposition 5, Corollary 6, and the lower-bound construction discussion.",
+        "method": "Open arXiv HTML full text; statement and implication comparison.",
+        "title": "Sequence Reconstruction Problem for Deletion Channels: A Complete Asymptotic Solution",
+        "trigger": "Exact same parameter \\(N(n,\\ell,t)\\) and strongest possible dominating source."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Studies the single-deletion-correcting-code regime corresponding to \\(\\ell=2\\), not the \\(\\ell=3\\) diagonal profile.",
+        "identifier_or_url": "DOI:10.1109/TIT.2018.2800044",
+        "material_read": "Abstract/problem statement and its role as summarized in the 2021 full text.",
+        "method": "Open bibliographic abstract plus cross-reference from the primary full text.",
+        "title": "Sequence Reconstruction over the Deletion Channel",
+        "trigger": "Closest earlier exact deletion-reconstruction work."
+      },
+      {
+        "assessment": "INAPPLICABLE_TO_CLAIM",
+        "evidence": "Its invariant is the intersection of \\(\\ell\\ge3\\) distinct deletion balls for list reconstruction, not the two-center maximum under \\(d_L(x,y)\\ge3\\).",
+        "identifier_or_url": "arXiv:2511.01071",
+        "material_read": "Abstract and main problem statement.",
+        "method": "Open arXiv record/full-text summary.",
+        "title": "Sequence Reconstruction over the Deletion Channel",
+        "trigger": "Recent paper with a nearly identical title and deletion-ball-intersection language."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6fda50f1-a93d-4c67-8aa7-9c23249f6c4a",
+  "value": {
+    "rationale": "This closes the entire preasymptotic interval for the first diagonal deletion-reconstruction case beyond the previously exact \\(\\ell\\in\\{1,2\\}\\) regimes. The invariant directly equals the worst-case number of ambiguous distinct reads; hence the profile gives the exact unique-reconstruction requirement \\(N(n,3,3)+1\\) at every admissible length. The strict value \\(N(9,3,3)=15<20\\) also proves that the published sufficient stabilization threshold \\(n=10\\) is sharp for \\(t=3\\).",
+    "status": "PASS"
+  }
+}
