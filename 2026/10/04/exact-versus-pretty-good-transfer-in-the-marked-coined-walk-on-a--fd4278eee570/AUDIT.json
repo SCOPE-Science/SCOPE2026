@@ -1,0 +1,114 @@
+{
+  "claim": "In the two-marked-vertex coined discrete-time walk on a star with \\(N\\ge2\\) external vertices analyzed by Štefaňák and Skoupý, let \\(s\\) and \\(r\\) be the marked sender and receiver leaves and let \\(\\omega=\\arccos((N-4)/N)\\). Their exact formula gives the sender-to-receiver fidelity after \\(2t\\) physical walk steps as \\(\\mathcal F_N(2t)=\\sin^4(\\omega t/2)\\), \\(t\\in\\mathbb Z_{\\ge0}\\). Exact perfect state transfer at an integer walk time occurs if and only if \\(N\\in\\{2,4,8\\}\\). The first exact transfer times are respectively \\(2,4,6\\) physical steps. For every other integer \\(N\\ge2\\), \\(\\omega/\\pi\\) is irrational, so exact perfect transfer never occurs, but the irrational rotation \\(t\\omega\\bmod 2\\pi\\) is dense and the same walk has pretty-good state transfer: for every \\(\\varepsilon>0\\) there is an integer \\(t\\) with \\(\\mathcal F_N(2t)>1-\\varepsilon\\). Thus the star model has a complete arithmetic dichotomy: three finite sizes have genuine discrete-time perfect transfer, while every other size has arbitrarily high fidelity but no exact unit-fidelity integer-time event.",
+  "correctness": {
+    "rationale": "From the exact source formula, \\(\\mathcal F_N(2t)=1\\) iff \\(\\omega t\\) is an odd multiple of \\(\\pi\\). Rational \\(\\omega/\\pi\\) makes \\(2\\cos\\omega\\) a rational algebraic integer, hence one of \\(-2,-1,0,1,2\\); substituting \\(2-8/N\\) gives exactly \\(N=2,4,8\\). All other integer sizes have irrational \\(\\omega/\\pi\\), and density of irrational rotations gives pretty-good transfer without equality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chan--Zhan 2023 develops a general spectral and number-theoretic theory of pretty-good transfer for a class of discrete-time walks.",
+        "The inspected Chan--Zhan text does not explicitly state the marked-search-star model classification.",
+        "The 2017 Štefaňák--Skoupý complete-bipartite extension says same-part dynamics reduces to the star case where perfect transfer is achieved, without an exceptional-size qualification."
+      ],
+      "reasoning": "A decisive coverage finding would require an explicit theorem applying the later general framework to this marked-coin search operator and yielding the same exception set. That implication was not located, so it is retained as a residual risk rather than ignored.",
+      "searches": [
+        "Pretty good state transfer in discrete-time quantum walks star graph Stefanak",
+        "Perfect state transfer in Grover walks star graph Stefanak Skoupy",
+        "state transfer projected transition matrices Stefanak star graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1608.00498",
+      "DOI:10.1103/PhysRevA.94.022301",
+      "arXiv:1610.03633",
+      "DOI:10.1007/s11128-017-1516-z",
+      "DOI:10.1088/1751-8121/acc4f5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 source states omega=arccos((N-4)/N), selects the closest integer to 2pi/omega, and gives F(2t)=sin^4(omega t/2).",
+        "The 2017 sequel preserves the star reduction but does not state the integer-time arithmetic condition.",
+        "The 2023 theory establishes general arccosine number-theoretic criteria in a different formal framework."
+      ],
+      "reasoning": "The source formula implies the claim only after adding the root-of-unity rationality argument and irrational-rotation density. The later general theory is potentially stronger, but no explicit model identification or same statement was found.",
+      "searches": [
+        "arXiv 1608.00498 equation 9 equation 11 equation 12 star fidelity",
+        "arXiv 1610.03633 star graph perfect state transfer same part",
+        "Chan Zhan 2023 pretty good discrete-time quantum walks arccos eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no record stating the exceptional set N={2,4,8} or the complementary pretty-good-transfer result.",
+        "Targeted web searches returned the 2016 source, its 2017 complete-bipartite extension, and later general discrete-time transfer theory, but no explicit star-size classification.",
+        "The 2016 source itself gives the exact eigenphase and fidelity formula needed for the classification."
+      ],
+      "reasoning": "The classification is not a wording match: it distinguishes exact integer-time attainment from a nearest-integer high-fidelity peak, which is the arithmetic issue left unresolved by the source's formula and prose.",
+      "searches": [
+        "star graph discrete-time quantum walk exact perfect state transfer integer time N 2 4 8 sin fourth arccos rational",
+        "Stefanak Skoupy star graph exact perfect state transfer only N 2 4 8 integer steps",
+        "coined quantum walk star graph perfect state transfer integer arithmetic Niven theorem",
+        "star graph pretty good state transfer discrete-time marked Grover coin"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or table of star sizes with unit-fidelity integer-time transfer was found.",
+        "The source plots N=100 and reports a first maximum at 22 physical steps, but does not classify exact attainment over N."
+      ],
+      "reasoning": "The exception set follows from an all-N algebraic argument, not from finite enumeration or reprinting a known table.",
+      "searches": [
+        "published-finding corpus star graph quantum walk N 2 4 8 perfect transfer",
+        "discrete-time star graph transfer fidelity integer steps exact table",
+        "1608.00498 N=2 N=4 N=8"
+      ]
+    },
+    "rationale": "The originality claim is restricted to the integer-time arithmetic classification and the resulting perfect-versus-pretty-good dichotomy for the exact source star model.",
+    "residual_risks": [
+      "The later Chan--Zhan framework may imply this classification after a nontrivial equivalence of walk models.",
+      "The primary 2016 physics paper uses PACS rather than MSC; slot ownership is supported by the same authors' sequel being indexed under MSC 81Q35.",
+      "No quantitative error-versus-time bound for pretty-good transfer is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the exact formula used here; prose alternates between 'perfect' for arbitrary N and '(almost) perfect' when the required continuous phase time is rounded to an integer.",
+        "evidence": "arXiv v1 is dated 2016-08-01. Equation (9) gives omega=arccos((N-4)/N); equation (12) gives F(2t)=sin^4(omega t/2).",
+        "identifier_or_url": "arXiv:1608.00498; DOI:10.1103/PhysRevA.94.022301",
+        "material_read": "Full star-graph section including the effective matrix, eigenvectors, equation (9) for omega, equations (10)--(12), the N=100 fidelity discussion, abstract, and conclusion.",
+        "method": "arXiv full-text and PDF page inspection.",
+        "title": "Perfect state transfer by means of discrete-time quantum walk search algorithms on highly symmetric graphs",
+        "trigger": "Archive-era direct source for the marked star walk."
+      },
+      {
+        "assessment": "States that same-part dynamics reduces to the star graph where perfect transfer is achieved; does not state the N={2,4,8} integer-time exception set.",
+        "evidence": "The MaRDI/zbMATH record classifies the work under quantum-graph/walk MSC 81Q35 among its mathematical-physics classifications.",
+        "identifier_or_url": "arXiv:1610.03633; DOI:10.1007/s11128-017-1516-z",
+        "material_read": "Abstract and bibliographic classification record.",
+        "method": "arXiv and MaRDI/zbMATH metadata inspection.",
+        "title": "Perfect state transfer by means of discrete-time quantum walk on complete bipartite graphs",
+        "trigger": "Direct sequel reusing the star dynamics."
+      },
+      {
+        "assessment": "General and highly relevant; no explicit specialization to the marked-search star operator or the N={2,4,8} classification was located.",
+        "evidence": "The paper characterizes pretty-good transfer through strong cospectrality and number-theoretic conditions on arccosines for its discrete-time walk class.",
+        "identifier_or_url": "DOI:10.1088/1751-8121/acc4f5",
+        "material_read": "Abstract, introduction, model definition, and general spectral/arccosine criteria shown in the accessible full text.",
+        "method": "Open journal full-text inspection.",
+        "title": "Pretty good state transfer in discrete-time quantum walks",
+        "trigger": "Later general theory that could dominate the pretty-good part of the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd4278ee-e570-4f58-95dc-9a6b156bac95",
+  "value": {
+    "rationale": "The result closes the exact integer-time question for every star size, distinguishes operational perfect transfer from arbitrarily-high fidelity, and reconciles the source's nearest-integer formula with its stronger abstract/conclusion wording. It is a complete natural classification rather than a small numerical refinement.",
+    "status": "PASS"
+  }
+}
