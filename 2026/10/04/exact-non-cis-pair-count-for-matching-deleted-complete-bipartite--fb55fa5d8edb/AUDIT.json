@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every maximal clique is a surviving edge or an isolated singleton. Every mixed maximal stable set is exactly one deleted matching pair; side stable sets meet every edge, and isolated singleton cliques meet every maximal stable set. For each deleted pair, exactly (a-1)(b-1)-(t-1) surviving edges avoid both endpoints. These exhaustive classifications prove the formula and its zero/one cases. An independent brute-force subset enumerator verified all a,b<=5 and all legal t, plus crown cases through n=6. The finite computation is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A known structural fact states that a connected CIS graph of clique number two is complete bipartite.",
+        "The foundational 2006 work supplies broad CIS necessary/sufficient conditions but no located matching-deletion count."
+      ],
+      "reasoning": "The connected triangle-free characterization can imply non-CIS for many positive-deletion connected cases, but it does not enumerate disjoint pairs and does not by itself cover the disconnected cases or the exact crown count. Thus it is broader in graph class but weaker for the claimed invariant.",
+      "searches": [
+        "bipartite CIS graphs characterization maximal clique stable set",
+        "connected CIS graph complete bipartite clique number 2",
+        "On graphs whose maximal cliques and stable sets intersect bipartite",
+        "CIS complete bipartite graph with a matching deleted classification",
+        "almost CIS matching-deleted complete bipartite P4",
+        "crown graph non-CIS pairs maximal clique maximal stable set"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.11289",
+      "DOI:10.1137/080723739",
+      "RUTCOR:RRR17-2006",
+      "ISGCI/GraphClasses CIS and almost-CIS entries",
+      "Targeted semantic-index searches for exact formula, matching-deletion classification, almost-CIS specialization, and crown specialization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu–Zang–Zhang proves almost CIS iff split with a unique split partition, covering the defect-one consequence.",
+        "Andrade–Boros–Gurvich develops general CIS conditions; targeted inspection found no complete-bipartite matching-deletion formula.",
+        "Tao–Yang–Zang proves coNP-completeness of general CIS recognition; its accessible primary metadata/abstract does not state a family enumeration."
+      ],
+      "reasoning": "Prior results imply or corroborate special consequences but do not imply the exact number of non-CIS pairs for every \\(a,b,t\\). The count requires identifying all mixed maximal stable sets and all disjoint surviving edges. The almost-CIS corollary is explicitly not claimed as separately novel.",
+      "searches": [
+        "A Characterization of Almost CIS Graphs unique non-CIS pair",
+        "On graphs whose maximal cliques and stable sets intersect complete bipartite",
+        "non-CIS pair count K_ab minus matching exact formula t((a-1)(b-1)-t+1)",
+        "CIS complete bipartite graph with a matching deleted classification",
+        "almost CIS matching-deleted complete bipartite P4",
+        "crown graph non-CIS pairs maximal clique maximal stable set",
+        "CIS complete bipartite graph minus a matching non-CIS pairs",
+        "number of non-CIS pairs complete bipartite matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2009 paper defines a non-CIS pair exactly as a disjoint maximal clique/maximal stable-set pair and characterizes the unique-pair case.",
+        "The 2026 preprint uses the same CIS definition with inclusion-maximal cliques and stable sets."
+      ],
+      "reasoning": "The terminology and maximality convention agree with the literature. The only direct equivalent formulation located for defect one is the global almost-CIS characterization; it implies the P4 corollary but not the general defect formula.",
+      "searches": [
+        "non-CIS pair count K_ab minus matching exact formula t((a-1)(b-1)-t+1)",
+        "CIS complete bipartite graph with a matching deleted classification",
+        "almost CIS matching-deleted complete bipartite P4",
+        "arXiv:2608.11289",
+        "DOI:10.1137/080723739"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Graph-class references list CIS and almost-CIS definitions and the 2009 almost-CIS theorem.",
+        "Semantic-index searches returned nearby complete-bipartite and crown-graph findings for unrelated invariants, but no CIS-pair count or matching-deletion classification."
+      ],
+      "reasoning": "No exact database/table entry located the function \\(t((a-1)(b-1)-t+1)\\), its crown specialization, or the full CIS boundary for \\(K_{a,b}-M_t\\). Search failure is not treated as a novelty proof; it is only one component of the comparison.",
+      "searches": [
+        "CIS graphs graphclasses",
+        "almost CIS graphs graphclasses",
+        "non-CIS pair count K_ab minus matching exact formula t((a-1)(b-1)-t+1)",
+        "CIS complete bipartite graph with a matching deleted classification",
+        "almost CIS matching-deleted complete bipartite P4",
+        "crown graph non-CIS pairs maximal clique maximal stable set",
+        "CIS complete bipartite graph minus a matching non-CIS pairs",
+        "number of non-CIS pairs complete bipartite matching"
+      ]
+    },
+    "rationale": "Targeted statement-level searches and inspection of the foundational CIS and almost-CIS literature found no exact enumeration of non-CIS pairs for a complete bipartite graph with a matching deleted. Known broader CIS structure recovers some zero/nonzero cases, and the 2009 almost-CIS theorem covers the defect-one consequence, but neither implies the exact defect count. The recent 2026 recognition paper full text was inaccessible, leaving a disclosed residual overlap risk rather than a fabricated whole-document exclusion.",
+    "residual_risks": [
+      "The full text of arXiv:2608.11289 could not be retrieved through the accessible primary/OA routes during this review, so an uninspected passage could in principle overlap the family result.",
+      "An unindexed older source might contain the same exact enumeration despite the targeted searches.",
+      "The defect-one specialization is already implied by the 2009 almost-CIS characterization and is included only as a consistency consequence, not as an independent novelty claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible primary material does not state the matching-deleted complete-bipartite enumeration. Whole-document noncoverage is not asserted because the full text was unavailable.",
+        "evidence": [
+          "arXiv:2608.11289, v1 timestamp 2026-08-11 16:13:39 UTC; primary MSC 05C69; abstract states CIS recognition is coNP-complete."
+        ],
+        "identifier_or_url": "arXiv:2608.11289",
+        "material_read": "Official arXiv abstract and submission metadata, including definition, coNP-completeness result, date, and MSC. Direct arXiv HTML/PDF and open-access full-text retrieval were attempted but unavailable in the accessible route; a secondary technical review was used only to understand the reduction outline, not to certify noncoverage.",
+        "method": "Primary metadata/abstract inspection plus bounded full-text access attempts.",
+        "title": "How Difficult Is It to Recognize CIS Graphs?",
+        "trigger": "Recent primary source settling general CIS recognition complexity and fixing the current terminology."
+      },
+      {
+        "assessment": "This source covers the statement that defect one is equivalent to the global almost-CIS condition; it corroborates the P4 specialization but does not give the all-parameter defect count.",
+        "evidence": [
+          "The paper defines a non-CIS pair as a disjoint maximal clique and maximal stable set and proves almost CIS iff split with a unique split partition."
+        ],
+        "identifier_or_url": "DOI:10.1137/080723739",
+        "material_read": "Abstract and author-uploaded/DIMACS full-text passages defining non-CIS pairs, Proposition 1 on split partitions, and the theorem characterizing almost-CIS graphs.",
+        "method": "Full-text reading of relevant theorem/definition passages and implication comparison.",
+        "title": "A Characterization of Almost CIS Graphs",
+        "trigger": "The new formula has a sharp defect-one consequence, so almost-CIS literature is directly implication-relevant."
+      },
+      {
+        "assessment": "The source supplies general necessary/sufficient CIS structure but no located exact non-CIS-pair count for the matching-deleted biclique family.",
+        "evidence": [
+          "RRR17-2006 defines CIS graphs and studies general structural conditions; targeted full-text search returned no “complete bipartite” occurrence."
+        ],
+        "identifier_or_url": "RUTCOR:RRR17-2006",
+        "material_read": "Author-uploaded full text was searched and relevant sections on CIS definitions, comb/anti-comb conditions, and recognition were inspected. A full-text search found no occurrence of the phrase “complete bipartite”.",
+        "method": "Full-text targeted search plus surrounding-section reading.",
+        "title": "On graphs whose maximal cliques and stable sets intersect",
+        "trigger": "Foundational structural source for CIS graphs and possible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fb55fa5d-8edb-4cb9-b9d1-e9bc05807512",
+  "value": {
+    "rationale": "The 2026 coNP-completeness result makes tractable exact CIS-certificate structure mathematically motivated. Deleting a matching is a canonical controlled perturbation of the basic CIS family K_{a,b}; the theorem gives a closed certificate count, a complete CIS stability boundary, and a cubic crown-graph specialization. This is a natural complete classification rather than an arbitrary finite slice, and the exact count contains information not supplied by mere recognition.",
+    "status": "PASS"
+  }
+}
