@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Direct exhaustive compatibility-graph computation proves the upper bounds and complete length-eight census. Two separate standard-library implementations reproduce the key counts; explicit witnesses prove attainability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Smagloy et al. define \\(DS_{s,q}(n)\\) and prove a general non-asymptotic upper bound; at \\(q=2,n=8\\) that bound is far above 5.",
+        "Sun--Ge improve asymptotic redundancy to \\(4\\log n+O(\\log\\log n)\\) for one deletion and up to one substitution."
+      ],
+      "reasoning": "Neither broader result implies the exact finite maximum or complete optimum classification.",
+      "searches": [
+        "Full-text inspection: Smagloy et al. 2020 definitions and bounds",
+        "Inspection: Sun--Ge 2024 abstract and related-work list"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2005.09352",
+      "DOI:10.1109/TIT.2023.3319088",
+      "arXiv:2403.11766",
+      "published-finding corpus closest hit: 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+      "published-finding corpus closest hit: 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+      "published-finding corpus closest hit: 2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 paper defines the same ball and parameter and gives general bounds/constructions, but no exact \\(n=7,8\\) values.",
+        "The 2024 paper addresses asymptotic constructions, not finite optimum enumeration."
+      ],
+      "reasoning": "The present claim requires a new exhaustive finite determination; it is not a corollary of the inspected bounds.",
+      "searches": [
+        "Smagloy et al. PDF lines defining B^{DS}_{t,s}, \\(DS_{s,q}(n)\\), and Theorem 4",
+        "Sun--Ge 2024 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated the binary 1D1S values at lengths 7 or 8.",
+        "Web exact-notation and channel-alias searches returned the general Smagloy et al. papers and later reconstruction work, not the claimed finite values/classification."
+      ],
+      "reasoning": "The searched aliases cover both the paper notation and descriptive channel names; no equivalent statement was located.",
+      "searches": [
+        "single-deletion single-substitution correcting code exact binary length 7 length 8 maximum size DS1,2",
+        "DS_{1,2}(8) binary deletion substitution code size 5",
+        "minimum blocklength four messages one deletion one substitution binary",
+        "one deletion one substitution binary exact small parameters",
+        "Web: \"DS_{1,2}(8)\"",
+        "Web: \"single-deletion single-substitution\" \"length 8\" binary",
+        "binary one deletion up to one substitution DS 1,2 7 equals 3 DS 1,2 8 equals 5 twelve optimal codes reversal complement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus exact-small records concerned quinary length-four single-deletion codes and binary length-eight separating systems, which are different compatibility relations."
+      ],
+      "reasoning": "No exact table covering this parameter pair was found.",
+      "searches": [
+        "published-finding corpus: exact binary length 7 length 8 deletion substitution",
+        "Web: exact small parameters single-deletion single-substitution"
+      ]
+    },
+    "rationale": "The primary and follow-up sources inspected give general bounds/constructions rather than these exact small values. Targeted published-finding corpus and web searches found no equivalent exact length-seven/eight classification; a residual unindexed-computation risk is retained.",
+    "residual_risks": [
+      "An older or unindexed computational table may contain one or both exact values without using the searched notation.",
+      "The classification count 12 is tied to the at-most-one-substitution convention used by Smagloy et al.; a paper using exactly-one substitution defines a different ball."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: defines the model and \\(DS_{s,q}(n)\\) and proves general bounds, but does not give the exact binary \\(n=7,8\\) values or optimum classification.",
+        "evidence": "The paper defines B^{DS}_{t,s}(x) as t deletions and at most s substitutions and \\(DS_{s,q}(n)\\) as the largest code size; Theorem 4 is a broad upper bound for n>6.",
+        "identifier_or_url": "arXiv:2005.09352; DOI:10.1109/TIT.2023.3319088",
+        "material_read": "ISIT 2020 full PDF, especially definitions/preliminaries and the non-asymptotic bound section.",
+        "method": "Direct full-text inspection.",
+        "title": "Single-Deletion Single-Substitution Correcting Codes",
+        "trigger": "Primary source defining the exact channel and extremal parameter."
+      },
+      {
+        "assessment": "NOT_COVERING: improves asymptotic redundancy for one deletion and up to one substitution, without stating the finite \\(n=7,8\\) maxima/classification.",
+        "evidence": "Abstract states a \\(4\\log n+O(\\log\\log n)\\) construction for the same error pattern.",
+        "identifier_or_url": "arXiv:2403.11766",
+        "material_read": "Abstract and related-work/reference material.",
+        "method": "Direct web full-text/metadata inspection.",
+        "title": "Binary Codes for Correcting Two Edits",
+        "trigger": "Later same-channel construction cited as improved prior work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "49b7ae77-7343-4a62-a9e1-45e78084690d",
+  "value": {
+    "rationale": "The result gives the exact operational threshold for carrying four binary messages under one deletion plus up to one substitution and completely classifies every optimum at the threshold, providing a natural finite benchmark rather than an arbitrary sample.",
+    "status": "PASS"
+  }
+}
