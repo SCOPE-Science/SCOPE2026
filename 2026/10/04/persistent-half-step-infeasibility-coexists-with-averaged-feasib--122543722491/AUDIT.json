@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The exact QP correction is reconstructed as the projection of \\(u=(0,-1)\\) onto the active linearized disk half-space. Exact algebra gives \\(x^+=ch\\), proves the corrected full iterate is strictly inside the disk, proves the next half-step is strictly outside, and yields a uniform contraction for \\(d_t=\\|h_t-u\\|^2\\). Induction and the contraction establish the quantified claim; the packaged exact-rational checker is supporting evidence only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source explicitly identifies averaged feasibility as open after proving only individual half-step infeasibility.",
+        "The 2025 CGM article is a single-step method and lacks OPCGM--Lipschitz's second QP."
+      ],
+      "reasoning": "General primal-method convergence results do not imply the exact two-QP disk trajectory derived here.",
+      "searches": [
+        "Primary full text arXiv:2609.32981v1",
+        "DOI:10.1007/s10107-025-02206-3",
+        "published-finding corpus: primal extragradient unit disk constant vector field average half-steps asymptotically feasible"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.32981v1",
+      "DOI:10.1007/s10107-025-02206-3",
+      "published-finding corpus targeted searches for OPCGM disk-witness averaged feasibility"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.5 proves only \\(g(x_{1/2})=\\eta^2/2>0\\).",
+        "Remark 4.6 asks whether the average becomes asymptotically feasible and cites numerical simulation.",
+        "The conclusion asks whether the half-step barrier extends to an averaged lower bound.",
+        "The 2025 predecessor is single-step."
+      ],
+      "reasoning": "No inspected statement implies the new full trajectory law; it resolves the source's explicitly unproved behavior on this witness and shows this witness cannot support a positive averaged-feasibility floor.",
+      "searches": [
+        "arXiv:2609.32981v1 full text: Algorithm 2, Theorem 4.5, Remarks 4.6--4.7, conclusion",
+        "DOI:10.1007/s10107-025-02206-3 full article",
+        "Targeted published-finding corpus OPCGM disk-witness queries"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.32981v1, Theorem 4.5 and Remarks 4.6--4.7",
+        "No targeted published-finding corpus hit stated the exact OPCGM disk trajectory or averaged-feasibility conclusion."
+      ],
+      "reasoning": "Searches covered the algorithm name, theorem number, disk witness, average, asymptotic feasibility, and boundary convergence; returned optimization records used different methods or recurrences.",
+      "searches": [
+        "published-finding corpus: OPCGM curved unit disk constant step averaged half-step feasibility Theorem 4.5",
+        "published-finding corpus: primal extragradient unit disk constant vector field average half-steps asymptotically feasible",
+        "published-finding corpus: OPCGM Theorem 4.5 canonical hard instance exact dynamics halfsteps converge boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching OPCGM record was returned.",
+        "The closest optimization records concerned normal-extragradient minimax and reflected-gradient stability."
+      ],
+      "reasoning": "The claim is an analytic trajectory classification, not a known-table recomputation.",
+      "searches": [
+        "published-finding corpus: OPCGM curved unit disk constant step averaged half-step feasibility Theorem 4.5",
+        "published-finding corpus: OPCGM Theorem 4.5 canonical hard instance exact dynamics halfsteps converge boundary"
+      ]
+    },
+    "rationale": "The primary paper proves only first-half-step infeasibility on this witness and explicitly leaves averaged feasibility open, with numerical evidence only. The new statement derives the complete trajectory and proves the averaged violation vanishes. The 2025 predecessor uses a different single-step method, and targeted published-finding corpus searches returned no equivalent claim.",
+    "residual_risks": [
+      "The source's numerical code may display the same trajectory numerically, but that would not imply the analytic contraction theorem.",
+      "A very recent unindexed note could conceivably contain an equivalent derivation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact dynamics and proves only the first-half-step obstruction; averaged behavior is explicitly left open and only numerically suggested.",
+        "evidence": "Theorem 4.5 gives the first-step violation; Remark 4.6 asks about asymptotic averaged feasibility; the conclusion repeats the averaged-lower-bound question.",
+        "identifier_or_url": "arXiv:2609.32981v1",
+        "material_read": "Full-text portions containing the classification, Algorithm 2, feasibility recursion, Theorem 4.5, Remarks 4.6--4.7, method comparison, and conclusion; rendered theorem and algorithm pages were also inspected.",
+        "method": "Full-text plus rendered-page inspection.",
+        "title": "Primal Methods for Constrained Variational Inequalities: Optimal Rates, Feasibility Trade-offs, and Lower Bounds",
+        "trigger": "Primary source defining OPCGM--Lipschitz and posing the averaged-feasibility question on the disk witness."
+      },
+      {
+        "assessment": "Studies single-step CGM rather than the two-QP OPCGM--Lipschitz dynamics and does not state this disk-witness averaging law.",
+        "evidence": "Its method projects a single velocity update onto local linearized constraints.",
+        "identifier_or_url": "DOI:10.1007/s10107-025-02206-3",
+        "material_read": "Open-access abstract, contributions, algorithm description, and conclusion.",
+        "method": "Publisher full-article web inspection.",
+        "title": "Primal methods for variational inequality problems with functional constraints",
+        "trigger": "Immediate predecessor cited for the purely primal CGM framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12254372-2491-4de8-aab8-e0374ffec603",
+  "value": {
+    "rationale": "The finding resolves the behavior of the exact canonical witness used to motivate an averaged-feasibility obstruction. It proves a structural separation: every queried half-step violates the curved constraint while averaging removes the obstruction at \\(O(T^{-1})\\). Hence this witness cannot establish a positive asymptotic averaged-feasibility lower bound, directly informing the source's lower-bound program.",
+    "status": "PASS"
+  }
+}
