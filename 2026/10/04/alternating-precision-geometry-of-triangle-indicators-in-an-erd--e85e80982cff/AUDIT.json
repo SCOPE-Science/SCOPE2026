@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Exact edge-set overlap yields C=nu(I+rA) with A the J(n,3) adjacency matrix. The covariance is positive definite because distinct triangle indicators are distinct multilinear monomials on a full-support Boolean cube. Permutation symmetry reduces the inverse to four distance classes, direct Johnson neighbor counts yield a four-equation system, and its explicit solution gives the claimed coefficients. Delta, Q, and B are strictly positive for all n>=6 and 0<p<1, so all precision and linear partial-correlation signs follow.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reinert--Röllin study the joint counts of edges, two-stars, and triangles and explicitly compute the aggregate covariance matrix.",
+        "Chatterjee studies triangle-count upper tails and partitions triangle triples by overlap with a fixed triple when controlling dependence."
+      ],
+      "reasoning": "Both sources cover broader or adjacent random-graph dependence questions, but neither their stated objects nor their inspected calculations invert the covariance of the complete individual-triangle indicator vector.",
+      "searches": [
+        "arXiv:0912.3425",
+        "arXiv:1003.3498"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0912.3425",
+      "arXiv:1003.3498",
+      "DOI:10.1239/jap/1276784898"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior descent-indicator finding concerns a tridiagonal covariance from a one-dependent permutation process, not a Johnson-scheme covariance on graph triangles.",
+        "The prior fixed-composition transition finding concerns local covariances in a random binary arrangement and has no random-graph motif vector.",
+        "Aggregate count covariances are sums of indicator covariances and do not determine the inverse of the full indicator covariance matrix."
+      ],
+      "reasoning": "Neither prior own finding nor the published aggregate-count formulas imply the four distance-class inverse. The new claim requires recognizing the complete indicator covariance as nu(I+rA), solving the Johnson-distance inverse system, and proving its sign factors.",
+      "searches": [
+        "own descent precision Fibonacci partial correlations",
+        "own fixed-composition run transition covariance",
+        "published edge triangle two-star covariance random graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The semantic-record searches returned no direct triangle-indicator precision theorem; the closest hits concerned unrelated covariance or graph-structure problems.",
+        "Web exact-phrase searches located standard triangle-count and Johnson-graph material but no all-triangle inverse-covariance or partial-correlation formula."
+      ],
+      "reasoning": "The queries cover indicator-vector, inverse-covariance, precision, partial-correlation, Johnson-graph, and overlap formulations. Search failure is not used as novelty proof; it is combined with full-text comparison against the direct random-graph sources.",
+      "searches": [
+        "Erdos Renyi triangle indicators covariance matrix precision inverse partial correlation",
+        "random graph triangle indicators Johnson graph covariance inverse",
+        "subgraph indicator covariance random graph triangle partial correlation",
+        "\"triangle indicators\" covariance random graph",
+        "\"triangle indicator\" covariance matrix \"random graph\"",
+        "\"triangle\" \"partial correlation\" Erdos Renyi graph indicators"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula matching b0,b1,b2,b3 or the three partial-correlation expressions was located."
+      ],
+      "reasoning": "The finding is a symbolic all-n, all-p family with a complete overlap-type classification, not a lookup or recomputation of a finite covariance table.",
+      "searches": [
+        "\"Johnson graph\" \"(I+tA)\" inverse",
+        "\"Johnson graph\" inverse adjacency matrix resolvent",
+        "triangle covariance inverse Johnson J(n,3)",
+        "triangle indicator precision overlap distance"
+      ]
+    },
+    "rationale": "The strongest directly inspected random-graph source computes covariances of aggregate edge/two-star/triangle counts, while the triangle upper-tail source uses overlap neighborhoods without inverse-covariance analysis. No searched source stated the all-triangle Johnson-distance precision coefficients or their alternating partial-correlation signs. The Johnson-scheme algebra itself is classical, so novelty is claimed only for this probabilistic specialization and interpretation.",
+    "residual_risks": [
+      "Classical association-scheme or distance-regular-graph literature may contain an equivalent resolvent formula for I+rA on J(n,3).",
+      "An older graphical-model treatment of subgraph indicators may have interpreted the same inverse signs statistically.",
+      "Only linear partial correlations are classified; nonlinear conditional dependence remains outside the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "AGGREGATE_COUNT_COVARIANCE_NOT_TRIANGLE_INDICATOR_PRECISION",
+        "evidence": "The source studies a three-dimensional count vector and computes its covariance entries. The inspected text contains no triangle-indicator inverse covariance, Johnson-distance precision coefficients, or partial-correlation theorem.",
+        "identifier_or_url": "arXiv:0912.3425",
+        "material_read": "Full arXiv HTML in the introduction, Section 5 on edge/two-star/triangle counts, and Section 5.1 on calculation of the covariance matrix.",
+        "method": "Compared the random variables indexed, covariance objects, overlap information, and whether a full individual-triangle inverse or partial correlations are derived.",
+        "title": "U-statistics and random subgraph counts: Multivariate normal approximation via exchangeable pairs and embedding",
+        "trigger": "Direct archive-era probability source on Bernoulli random-graph triangle counts and covariance calculations; its published version lists primary MSC 60F05."
+      },
+      {
+        "assessment": "OVERLAP_DEPENDENCE_FOR_TAILS_NOT_PRECISION",
+        "evidence": "The overlap partition confirms the local dependency geometry used in the covariance calculation, but the paper studies upper-tail probabilities of the total triangle count rather than inverse covariance of individual indicators.",
+        "identifier_or_url": "arXiv:1003.3498",
+        "material_read": "Full arXiv HTML through the introduction and the dependence construction where triples are split into sharing zero, one, or at least two vertices with a fixed triple.",
+        "method": "Compared the overlap classes and the statistical quantity studied.",
+        "title": "The missing log in large deviations for triangle counts",
+        "trigger": "Archive-era primary source on triangle counts that explicitly organizes dependence by how triples overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e85e8098-2cff-4682-b45b-ff9176843870",
+  "value": {
+    "rationale": "Triangle indicators are the primitive motif variables whose sum is the classical triangle count. The theorem gives their complete finite precision geometry and shows that sparse marginal dependence hides a nonlocal alternating pattern after linear adjustment. The sign classification by edge-sharing, vertex-sharing, and disjointness is natural, exact, and interpretable.",
+    "status": "PASS"
+  }
+}
