@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The published weight formula gives \\(p_{*,n}=W_*/(S_n+W_*)\\). Under Gaussian shift, the likelihood ratios reduce exactly to lognormal weights. For \\(0<\\beta<2\\), the standard-normal maximum law creates a strictly positive exponent gap \\(\\sqrt{2\\beta}-\\beta\\), forcing \\(W_*/S_n\\to0\\). For \\(\\beta>2\\), an explicit fractional moment \\(q=1-\\sqrt{(\\beta-2)/(2\\beta)}\\) and Markov's inequality make \\(S_n\\) polynomially smaller than \\(W_*\\) with high probability. At \\(\\delta_n=\\sqrt{2\\log n}\\), truncation at \\(W_i=n\\) has exact mean \\(1/2\\), vanishing normalized variance, and a vanishing probability of any discarded term, so \\(S_n/n\\to1/2\\); combining this with \\(W_*/n=\\exp(\\delta_n Z_*)\\) yields the Bernoulli critical limit. Boundary quantile logic is exact when calibration scores are finite. No finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chatterjee and Diaconis prove a general importance-sampling cutoff near \\(\\exp(D_{\\mathrm{KL}})\\) and do not attempt optimal error bounds.",
+        "Pournaderi, arXiv:2609.33456, gives finite-sample training-conditional bounds governed by chi-squared divergence and likelihood-ratio tail averages."
+      ],
+      "reasoning": "The general importance-sampling cutoff correctly predicts the KL scale and is explicitly acknowledged, but it neither dominates nor implies the exact weighted-conformal infinity probability at the Gaussian critical point. The 2026 training-conditional results control coverage error and clipping regimes, not this test-point atom.",
+      "searches": [
+        "conformal prediction covariate shift KL divergence sample size likelihood ratio degeneracy",
+        "The sample size required in importance sampling arXiv:1511.01437",
+        "Sharp training-conditional coverage for conformal prediction under covariate shift arXiv:2609.33456"
+      ]
+    },
+    "checked_sources": [
+      "Tibshirani, Barber, Candès and Ramdas, arXiv:1904.06019 / NeurIPS 2019.",
+      "Chatterjee and Diaconis, arXiv:1511.01437 / Annals of Applied Probability 2018.",
+      "Pournaderi, arXiv:2609.33456 (2026).",
+      "published-finding corpus semantic searches listed in the four originality checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tibshirani et al. provide the exact infinity mass and exponential-tilting example but no diverging-shift asymptotics.",
+        "Chatterjee and Diaconis show the KL sample-size scale and a source-weight max/sum diagnostic; their statements do not include an independent target draw or a conformal quantile.",
+        "The critical proof here uses the exact identity \\(\\mathbb E[W\\mathbf 1\\{W\\le n\\}]=1/2\\) at \\(\\delta=\\sqrt{2\\log n}\\), yielding \\(S_n/n\\to1/2\\) and then a Bernoulli limit for the test-point atom."
+      ],
+      "reasoning": "The subcritical/supercritical location of the threshold is consonant with known importance-sampling theory, so novelty is not claimed for KL as a generic overlap scale. The final claim survives because its exact object, event, and critical \\(1/2\\) law are not corollaries stated in the inspected prior results; deriving the critical law requires a Gaussian triangular-array calculation absent from those statements.",
+      "searches": [
+        "Gaussian exponential tilting conformal prediction phase transition KL log n",
+        "Tibshirani Barber Candes Ramdas weighted conformal exponential tilting Eq 8",
+        "Chatterjee Diaconis Theorem 1.1 Theorem 2.3 maximum weight sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tibshirani et al., arXiv:1904.06019, Eq. (6) assigns normalized test likelihood-ratio mass to the infinity atom.",
+        "Chatterjee and Diaconis, arXiv:1511.01437, Section 2 studies the maximum source importance weight divided by the source-weight sum."
+      ],
+      "reasoning": "The closest equivalent language is importance-weight degeneracy, but the prior diagnostic compares the maximum among source-sampled weights to their own sum. The final claim compares an independent target-sampled likelihood ratio to the source-weight sum and translates that event into the weighted-conformal infinity atom. No inspected source states the three-regime conformal law or the critical Bernoulli limit.",
+      "searches": [
+        "weighted conformal Gaussian covariate shift sqrt(2 log n) infinite quantile",
+        "importance weight dominates calibration sum conformal phase transition",
+        "lognormal likelihood ratio weighted conformal infinite interval",
+        "support overlap conformal abstention Gaussian shift",
+        "arXiv:1904.06019",
+        "arXiv:1511.01437"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus searches returned no finding whose statement contains the weighted-conformal test-point infinity atom, the threshold \\(D_{\\mathrm{KL}}=\\log n\\), and the critical limiting probability \\(1/2\\) together."
+      ],
+      "reasoning": "No exact database/table entry located the claimed Gaussian phase law. The closest published-finding corpus conformal hit concerns pairwise-independent rank miscalibration, a different object and implication.",
+      "searches": [
+        "weighted conformal Gaussian covariate shift sqrt(2 log n) infinite quantile",
+        "lognormal likelihood ratio weighted conformal infinite interval",
+        "weighted conformal test-point mass infinity likelihood ratio sum calibration weights",
+        "published-finding corpus search: Gaussian weighted conformal infinity atom critical 1/2"
+      ]
+    },
+    "rationale": "The primary weighted-conformal source supplies the infinity atom and exponential-tilting setup, while general importance-sampling work supplies the KL-scale cutoff. Statement-level comparison shows that neither inspected source gives the independent-target infinity-atom phase law or its exact Gaussian critical probability \\(1/2\\). published-finding corpus searches over conformal, likelihood-ratio, lognormal, overlap, and KL aliases found no equivalent or stronger published finding. The generic KL threshold is treated as prior-covered context rather than claimed novelty.",
+    "residual_risks": [
+      "Specialized triangular-array lognormal-sum or random-energy literature may contain the critical \\(S_n/n\\to1/2\\) identity under different terminology; no such source was located in the targeted searches.",
+      "General importance-sampling theory already covers the KL-scale sample-size cutoff, so any novelty claim must remain restricted to the weighted-conformal test-point atom, its exact Gaussian phase statement, and the critical \\(1/2\\) limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_OBJECT_NOT_CLAIM: it defines the normalized likelihood-ratio weights and the test mass at infinity and uses exponential tilting, but the inspected material does not state a growing Gaussian-shift phase transition or a critical \\(1/2\\) law.",
+        "evidence": "Equation (6) gives the test-point weight w(x)/(sum_i w(X_i)+w(x)); Corollary 1 places that mass at infinity in the weighted quantile; equation (8) uses exponential tilting.",
+        "identifier_or_url": "arXiv:1904.06019; NeurIPS 2019",
+        "material_read": "NeurIPS PDF pages 3-4, including model (5), weights (6), Corollary 1, and exponential-tilting example (8), plus the abstract.",
+        "method": "Direct full-text inspection of the primary PDF.",
+        "title": "Conformal Prediction Under Covariate Shift",
+        "trigger": "Defines the exact weighted-conformal object and is the most direct source for the infinity atom."
+      },
+      {
+        "assessment": "BROADER_SCALE_NOT_EXACT_CLAIM: it establishes the \\(\\exp(D_{\\mathrm{KL}})\\) sample-size cutoff and studies source-weight degeneracy, but does not state the weighted-conformal independent-target atom law or the critical Gaussian Bernoulli limit.",
+        "evidence": "Theorem 1.1 gives the \\(\\exp(D_{\\mathrm{KL}})\\) scale; Section 2 defines a maximum-source-weight over source-sum diagnostic; the authors explicitly say their purpose is matching sample-size order rather than optimal error bounds.",
+        "identifier_or_url": "arXiv:1511.01437",
+        "material_read": "Primary arXiv PDF abstract, Theorems 1.1-1.3, Section 2 definition of Q_n=max_i rho(X_i)/sum_i rho(X_i), Theorem 2.3, and surrounding discussion.",
+        "method": "Direct full-text inspection of the primary PDF.",
+        "title": "The Sample Size Required in Importance Sampling",
+        "trigger": "A broader result could dominate the claimed KL-scale overlap transition."
+      },
+      {
+        "assessment": "NOT_COVERING: it studies training-conditional coverage, chi-squared and likelihood-ratio tail functionals, clipping, and PAC calibration; it does not state the test-point infinity-atom phase or the Gaussian critical \\(1/2\\) law.",
+        "evidence": "The paper identifies chi-squared divergence and CVaR-type likelihood-ratio functionals as conditional-coverage scales and explicitly frames its object as conditional miscoverage of a weighted threshold.",
+        "identifier_or_url": "arXiv:2609.33456",
+        "material_read": "Abstract, introduction, related-work discussion, and setting through the definition of the weighted quantile and comparison with original weighted split conformal.",
+        "method": "Direct inspection of the accessible primary arXiv text.",
+        "title": "Sharp training-conditional coverage for conformal prediction under covariate shift",
+        "trigger": "Recent directly related work might give stronger weighted-conformal overlap results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43b486b0-600f-4c61-9514-9d1f1cc10886",
+  "value": {
+    "rationale": "The infinity atom is a built-in validity mechanism of weighted conformal prediction: when it exceeds the miscoverage budget, the method must return an infinite threshold. The theorem gives a sharp, interpretable overlap boundary for a canonical Gaussian shift, identifies the information scale \\(D_{\\mathrm{KL}}=\\log n\\), and resolves the exact critical behavior rather than merely showing instability. This is useful for diagnosing when additional source calibration data can or cannot prevent vacuous prediction under covariate shift, and it connects conformal abstention directly to a known importance-sampling overlap scale without reducing to a textbook restatement.",
+    "status": "PASS"
+  }
+}
