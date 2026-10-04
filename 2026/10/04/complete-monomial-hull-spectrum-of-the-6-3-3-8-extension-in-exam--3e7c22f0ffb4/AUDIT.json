@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The generator matrix is copied from Example 5.6 and reconstructed in \\(\\mathbb F_8\\) with \\(\\omega^3+\\omega+1=0\\). The original matrix has rank \\(3\\), Gram rank \\(2\\), and therefore hull dimension \\(1\\), agreeing with the source; its exhaustive \\(8^3\\)-word enumeration gives minimum distance \\(3\\). For an arbitrary monomial transform \\(GDP\\), the Euclidean Gram matrix is \\(GD^2G^T\\), so permutations are irrelevant to hull rank and a common coordinate scalar can be normalized away. The verifier exhausts all \\(7^5=16807\\) normalized diagonal scalings exactly and obtains hull counts \\(14685,2091,31,0\\) in dimensions \\(0,1,2,3\\), with explicit witnesses for the first three dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhowmick–Dalai–Mesnager prove general hull-increasing constructions and provide the concrete one-hull representative.",
+        "Chen develops general hull-variation methods and defines maximal hull dimension."
+      ],
+      "reasoning": "General existence and variation results do not determine whether this specific monomial class reaches hull dimension 2 or 3, nor how many normalized scaling parameters yield each dimension. The exhaustive finite classification is not implied by the cited general theorems.",
+      "searches": [
+        "monomial equivalence hull spectrum [6,3,3] GF8 code",
+        "Bhowmick Dalai Mesnager Example 5.6 hull variation",
+        "DOI:10.1007/s10623-025-01757-y",
+        "DOI:10.1109/TIT.2023.3234249"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2511.18779v1",
+      "DOI:10.1007/s10623-025-01757-y open-access full text",
+      "arXiv:2206.14516",
+      "DOI:10.1109/TIT.2023.3234249",
+      "published-finding corpus exact/alias searches for Example 5.6, [6,3,3]_8, diagonal scaling, monomial hull spectrum, and hull variation",
+      "Exact web searches for the numerical profile and maximal-hull phrasing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 5.6 certifies hull dimension 1 only for the unscaled representative.",
+        "The general hull-variation literature establishes that equivalent transformations can alter hull dimension, but does not force all dimensions up to the theoretical maximum for an arbitrary fixed code."
+      ],
+      "reasoning": "Neither the source construction nor the general hull-variation theory implies that dimension 2 is attainable while dimension 3 is impossible for this concrete code. Those two assertions are exactly what the exhaustive Gram-rank classification supplies.",
+      "searches": [
+        "Example 5.6 GF(8) [6,3,3] one-dimensional hull code diagonal scaling hull dimensions",
+        "monomial equivalence hull spectrum [6,3,3] GF8 code",
+        "arXiv:2511.18779v1",
+        "DOI:10.1109/TIT.2023.3234249"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source Example 5.6 states only that the displayed [6,3,3] code has a one-dimensional hull.",
+        "Chen 2023 introduces maximal hull dimension and hull variation under equivalent transformations, but the inspected metadata/abstract does not give this GF(8) example or its profile.",
+        "Focused published-finding corpus searches returned no record matching the same Example 5.6 code with a complete monomial hull spectrum."
+      ],
+      "reasoning": "The same invariant can be phrased as attainable hull dimensions under coordinate scaling, hull variation in the monomial class, or maximal hull dimension. Searches covered all of these formulations.",
+      "searches": [
+        "Example 5.6 GF(8) [6,3,3] one-dimensional hull code diagonal scaling hull dimensions",
+        "monomial equivalence hull spectrum [6,3,3] GF8 code",
+        "Bhowmick Dalai Mesnager Example 5.6 hull variation",
+        "arXiv:2511.18779v1",
+        "DOI:10.1109/TIT.2023.3234249"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source has no table enumerating coordinate-scaled hull dimensions for Example 5.6.",
+        "Exact numerical and parameter searches located no database or research-record entry with the profile 14685, 2091, 31 for this code."
+      ],
+      "reasoning": "An exact table of scaling classes or a recorded maximal hull dimension of 2 would directly cover the finite claim; none was found.",
+      "searches": [
+        "Example 5.6 GF(8) [6,3,3] one-dimensional hull code diagonal scaling hull dimensions",
+        "GF8 [6,3,3] near-MDS one-dimensional hull weight enumerator 1 7 84 189 231",
+        "14685 2091 31 GF8 hull code",
+        "[6,3,3] GF8 maximal hull dimension"
+      ]
+    },
+    "rationale": "The source paper states only that its displayed representative has one-dimensional hull, while Chen supplies the general maximal-hull invariant but not this example-specific classification. published-finding corpus and exact web searches under the example, parameters, monomial/hull-spectrum terminology, and the numerical profile located no prior statement of this complete profile or maximal hull dimension.",
+    "residual_risks": [
+      "An unindexed computation of the same code may have recorded its scaling-hull profile under a different generator or field labeling.",
+      "The normalized scaling counts do not quotient by the code’s monomial automorphism group, so they are parameter counts rather than counts of inequivalent codes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the complete monomial profile: the paper gives the displayed representative and its hull dimension, but not all coordinate scalings or the maximal hull dimension of its monomial class.",
+        "evidence": "Example 5.6 prints the [6,3,3] generator and states that it has a one-dimensional hull; the introduction cites Chen’s maximal-hull invariant as motivation.",
+        "identifier_or_url": "arXiv:2511.18779v1; DOI:10.1007/s10623-025-01757-y",
+        "material_read": "Introduction discussion of hull variation and maximal hull dimension; Proposition 5.1; Examples 5.4–5.7, especially the full generator and one-dimensional-hull statement in Example 5.6; conclusion.",
+        "method": "lawful public arXiv metadata and open-access publisher full-text reading",
+        "title": "On construction of linear (Euclidean) hull codes over finite extensions binary fields",
+        "trigger": "Primary source of the exact GF(8) generator and the strongest same-object coverage risk."
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND, not an exact treatment of the Example 5.6 GF(8) code.",
+        "evidence": "The abstract introduces maximal hull dimension and general methods for changing hull dimension under equivalence, without this example-specific finite profile.",
+        "identifier_or_url": "arXiv:2206.14516; DOI:10.1109/TIT.2023.3234249",
+        "material_read": "Abstract and bibliographic summary of the maximal hull dimension invariant and equivalent-code hull variation results.",
+        "method": "public arXiv abstract and bibliographic inspection",
+        "title": "On the Hull-Variation Problem of Equivalent Linear Codes",
+        "trigger": "Foundational source defining maximal hull dimension and the hull-variation problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3e7c22f0-ffb4-45d3-a930-551331c72dbf",
+  "value": {
+    "rationale": "Hull variation and maximal hull dimension are explicit motivating invariants in the source and in Chen’s foundational work. For the source’s concrete worked example, the full finite classification answers the natural question left open by the single displayed one-hull representative: LCD, one-hull, and two-hull equivalents all occur, but self-duality does not. The exact profile quantifies the entire normalized scaling torus and gives a reusable structural fingerprint of the example rather than an arbitrary subcase.",
+    "status": "PASS"
+  }
+}
