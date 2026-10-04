@@ -1,0 +1,120 @@
+{
+  "claim": "Let \\(G=K_{n_1,\\ldots,n_r}\\) be a finite simple complete multipartite graph with \\(r\\ge2\\), and let \\(t_j=|\\{i:n_i=j\\}|\\). For the Cody--Detore \\(3,2\\)-domination number, \\[\\gamma^3_2(G)=\\begin{cases}N,&\\text{if every }n_i=1,\\\\2,&\\text{if }r=2\\text{ or }t_2>0,\\\\3,&\\text{otherwise,}\\end{cases}\\] where \\(N=\\sum_i n_i\\). The minimum sets are completely classified: in the complete-graph case the unique minimum set is \\(V(G)\\); when \\(r=2\\), the minimum two-sets are exactly the cross-part pairs together with any whole part of order two; when \\(r\\ge3\\) and \\(t_2>0\\), they are exactly the whole parts of order two; and in the remaining case the minimum three-sets are exactly a whole part of order three, a \\(2+1\\) selection across two parts, or, only when \\(r=3\\), a transversal meeting all three parts. Consequently the number of minimum sets is respectively \\(1\\), \\(n_1n_2+t_2\\), \\(t_2\\), or \\[t_3+\\sum_i\\binom{n_i}{2}(N-n_i)+\\mathbf 1_{r=3}\\prod_i n_i.\\]",
+  "correctness": {
+    "rationale": "For an outside vertex in part \\(V_i\\), every relevant witness is a length-two geodesic. Exhausting whether the outside vertex is an endpoint or the middle gives the exact local criterion. Applying it to all set-size two and three occupancy profiles proves the value, classifies every minimum set, and gives the count. An independent adjacency-based exhaustive verifier agrees on all 87 complete-multipartite types through order 9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nuenay--Jamil define geodetic domination as simultaneous ordinary domination and geodetic coverage.",
+        "Iršič--Konvalinka define strong geodetic sets by fixing pairwise shortest paths whose union covers the graph and derive results for complete multipartite graphs.",
+        "These definitions use selected endpoints/pairwise path covers and do not allow exactly the endpoint-or-middle witness condition in Cody--Detore 3,2-domination."
+      ],
+      "reasoning": "The most plausible older shortest-path domination families have different logical requirements, so their complete-multipartite results do not imply this formula.",
+      "searches": [
+        "Web: geodesic domination complete multipartite graph",
+        "Web: strong geodetic complete multipartite",
+        "published-finding corpus: metric geodesic domination k 3 d 2 complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.04351",
+      "arXiv:1806.00302",
+      "arXiv:2408.13494",
+      "DOI:10.7151/dmgt.1803",
+      "published-finding corpus semantic index under six exact/alias queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cody--Detore prove general inequalities such as \\(\\gamma^k_d\\le\\alpha^k_d\\) but explicitly leave complete multipartite k,d-invariants as Question 6.1.",
+        "Iršič--Konvalinka's strong-geodetic optimization concerns covering by paths fixed between selected pairs, a different invariant.",
+        "Chandran et al. determine the general-position chromatic number of complete multipartite graphs, not a domination number."
+      ],
+      "reasoning": "None of the closest primary results has premises and a conclusion whose implication yields the displayed 3,2-domination formula or its minimum-set enumerator.",
+      "searches": [
+        "Primary full text arXiv:2601.04351, Definition 1.1, Proposition 2.1, Proposition 2.2, Question 6.1",
+        "Primary full text arXiv:1806.00302, definition and complete-multipartite section",
+        "Primary full text arXiv:2408.13494, complete-multipartite general-position coloring section"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cody--Detore Definition 1.1(4) gives the exact bounded-geodesic quantifiers used in the theorem.",
+        "No searched record stated the same complete-multipartite 3,2-domination classification or enumerator."
+      ],
+      "reasoning": "Aliases for the new invariant and descriptions by its defining shortest-path property were searched. The claim is about the same Cody--Detore invariant, not a renamed geodetic or strong-geodetic parameter.",
+      "searches": [
+        "published-finding corpus: 3,2-domination complete multipartite k,d-domination metric general position",
+        "published-finding corpus: Cody Detore 3,2-dominating complete multipartite",
+        "Web: \"3,2-dominating\" graph; \"k,d-dominating\" graph complete multipartite; metric general position domination complete multipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records concern dual general position, locating domination, strong Roman domination, or strong upper geodetic number, not Cody--Detore 3,2-domination.",
+        "No exact-value table or database record found in the searches contains the displayed case distinction."
+      ],
+      "reasoning": "Exact-parameter and defining-language searches were included to avoid relying only on title similarity. No table or indexed statement dominated the claim.",
+      "searches": [
+        "published-finding corpus: gamma^3_2 complete multipartite shortest path domination",
+        "published-finding corpus: shortest path contains vertex two set vertices complete multipartite domination",
+        "Web: complete bipartite k,d domination metric general position"
+      ]
+    },
+    "rationale": "The initiating 2026 paper defines the invariant and explicitly asks for complete multipartite k,d-invariants, but gives no such domination formula. Full-text comparison with the closest older geodetic, strong-geodetic, and general-position-coloring sources shows materially different definitions or invariants; published-finding corpus and web searches under exact and alias formulations found no covering statement.",
+    "residual_risks": [
+      "The Cody--Detore invariant is recent, so an equivalent unpublished or newly posted statement may not yet be indexed.",
+      "Older shortest-path domination terminology is broad; an equivalent result under an unrelated name could have escaped the searched aliases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: defines \\(\\gamma^k_d\\) and asks for complete multipartite k,d-invariants but does not state the present exact 3,2 formula.",
+        "evidence": "Definition 1.1(4); Proposition 2.1; Proposition 2.2; Question 6.1; arXiv v1 dated 2026-01-07.",
+        "identifier_or_url": "arXiv:2601.04351",
+        "material_read": "Definition 1.1(4), general domination inequalities in Section 2, and Question 6.1 in the open-questions section.",
+        "method": "Primary full-text PDF inspection plus arXiv version-history check.",
+        "title": "Metric general position extensions of classical graph invariants and perfection",
+        "trigger": "Defines the exact invariant and explicitly lists complete multipartite graphs in an open question."
+      },
+      {
+        "assessment": "NOT_COVERING: shortest paths are fixed between selected pairs to cover vertices; this differs from bounded geodesics containing an outside vertex and two members of D.",
+        "evidence": "Definition in Section 1 and Proposition 1.1.",
+        "identifier_or_url": "arXiv:1806.00302",
+        "material_read": "Definition of strong geodetic set, introductory complete-multipartite proposition, and complete-bipartite optimization discussion.",
+        "method": "Primary arXiv full-text inspection.",
+        "title": "Strong geodetic problem on complete multipartite graphs",
+        "trigger": "Same graph family and shortest-path language could plausibly dominate the new claim."
+      },
+      {
+        "assessment": "NOT_COVERING: determines a coloring number; it has no domination conclusion implying \\(\\gamma^3_2\\).",
+        "evidence": "Theorem 5.1.",
+        "identifier_or_url": "arXiv:2408.13494",
+        "material_read": "Section 5 and Theorem 5.1 on complete multipartite graphs.",
+        "method": "Primary PDF full-text inspection.",
+        "title": "Colouring a graph with position sets",
+        "trigger": "Same general-position metric family and an exact complete-multipartite theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: requires a set to be both geodetic and an ordinary dominating set, which is not the Cody--Detore bounded-geodesic condition.",
+        "evidence": "Definition in abstract and article metadata.",
+        "identifier_or_url": "DOI:10.7151/dmgt.1803",
+        "material_read": "Published definition/abstract and bibliographic record.",
+        "method": "Journal/DOAJ record inspection.",
+        "title": "On Minimal Geodetic Domination in Graphs",
+        "trigger": "Closest older terminology combining geodesics and domination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d5fe6eff-1a9f-4bdd-965b-14ea54017ac1",
+  "value": {
+    "rationale": "The initiating paper expressly asks for k,d-invariants of complete multipartite graphs. This theorem gives a complete exact answer for the first genuinely geodesic case (3,2), identifies sharp structural transitions at two parts and at parts of order two, and classifies/counts every optimum set rather than giving only the value. The result is a natural family-level solution to a stated research direction, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
