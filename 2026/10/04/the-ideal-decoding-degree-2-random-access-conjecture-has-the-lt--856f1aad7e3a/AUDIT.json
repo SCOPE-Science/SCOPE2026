@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Recovery completeness plus a direct tree-dual argument characterizes target nonrecovery as membership in an unmarked simple tree component in the large-\\(x\\) limit. Independent Poisson vertex and edge processes give the displayed exact finite-\\(k\\) survival probability. Its fixed-size component terms converge to the rooted-tree series, component-size tails are controlled by the no-mark factor, and \\(U_k(r)\\le e^{-ar}\\) gives dominated convergence in time. The tree function solves \\(u=e^{-ar-2(1-a)r(1-u)}\\), and a monotone change of variables yields exactly the LT degree-\\(2\\) integral. The standard-library verifier independently checks the finite-\\(k\\) integrated formula and the numerical KKT root.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2501.12274v2, Theorem 3 and Corollary 3: finite-\\(k\\) large-multiplicity graph expression and symmetric \\(p=P\\) specialization",
+        "arXiv:2601.07053v1: exact finite-parameter algorithms, small-k constructions, and other asymptotic bounds",
+        "arXiv:2605.10919v2: degree-distribution optimization under peeling"
+      ],
+      "reasoning": "The broader sources treat adjacent parts of the problem, but none derives the fixed positive weight-\\(1\\)-mass large-\\(k\\) limit for the ideal recovery-complete family. The 2025/2026 construction paper explicitly identifies unequal \\(p,P\\) optimization as future work.",
+      "searches": [
+        "recovery complete complete graph cycles random access expectation k to infinity",
+        "G_k(x,y) p1 p2 asymptotic random access expectation",
+        "Random Access in DNA Storage Algorithms Constructions Bounds asymptotic random access"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.10919v2",
+      "arXiv:2501.12274v2",
+      "arXiv:2601.07053v1",
+      "Exact-phrase and numerical-constant web searches for the stated conjecture",
+      "Research-database searches for LT/fully-symmetric, recovery-complete, marked-random-graph, and G_k(x,y) formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2501.12274v2: recovery completeness recovers cycles and repeated pair supports; Theorem 3 analyzes the large-x graph process",
+        "arXiv:2501.12274v2 conclusion: optimizing unequal vertex and edge probabilities is left as future research",
+        "arXiv:2605.10919v2, Section IV.D: \\(p_1\\approx0.15547\\), \\(p_2\\approx0.84453\\), \\(f\\approx0.7939\\), followed by the explicit conjecture"
+      ],
+      "reasoning": "The earlier graph theorem does not itself take the asymmetric large-k limit, and the LT theorem concerns binary peeling rather than ideal nonbinary cycle recovery. The new argument proves that the ideal decoder's extra cycle power affects only asymptotically negligible unmarked cyclic components, establishing the missing implication.",
+      "searches": [
+        "Making it to First G_k(x,y) asymptotic optimal ratio weight-1 weight-2 random access",
+        "random access DNA storage fully symmetric LT degree 2 ideal decoding conjecture 0.15547"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.10919v2, Section IV.D: degree-2 objective and explicit conjecture relating it to the ideal-decoded construction",
+        "arXiv:2501.12274v2, Sections 4.1–4.2: recovery-complete graph formulation",
+        "No matching research-database result stated the ideal-decoding/peeling asymptotic identity"
+      ],
+      "reasoning": "The searches covered the LT/fully-symmetric terminology, ideal versus peeling decoding, marked random-graph components, and weight-1/weight-2 support formulations. The same statement was not located under these aliases.",
+      "searches": [
+        "random access DNA storage fully symmetric LT degree 2 ideal decoding conjecture 0.15547",
+        "binary fully symmetric codes peeling ideal decoder same asymptotic degree 2",
+        "random graph marked component cycle random access DNA storage degree two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numerical constants are found in arXiv:2605.10919 only as the degree-2 peeling optimum and conjectured ideal limit",
+        "Research-database searches returned unrelated coding or random-graph records rather than an exact ideal-decoding entry"
+      ],
+      "reasoning": "The exact constants and ratio were searched directly. The only located primary occurrence states them on the LT side and then conjectures the ideal construction has the same limit; no table or database record supplied the missing proof.",
+      "searches": [
+        "0.793933 random access expectation DNA code",
+        "0.1554737 random access degree distribution LT DNA"
+      ]
+    },
+    "rationale": "Hofmeister–Bitar–Yaakobi explicitly label the equality of the ideal \\(G_k(x,y)\\) ratios and degree-\\(2\\) LT optimum as a conjecture. Boruchovsky et al. leave unequal vertex/edge probability optimization as future work. Searches of exact phrases, constants, aliases, graph formulations, and the implication between these papers found no proof of the conjecture.",
+    "residual_risks": [
+      "An equivalent local weak-limit or marked-random-graph proof may exist under terminology not surfaced by the searched coding-theory literature.",
+      "The theorem deliberately uses an iterated large-multiplicity then large-dimension limit; a different joint scaling can require an additional collision estimate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States the target as a conjecture and supplies the exact degree-2 objective and numerical optimum used only after the independent ideal-decoding limit is proved.",
+        "evidence": "Section IV.D gives \\(p_1\\approx0.15547\\), \\(p_2\\approx0.84453\\), objective \\(0.7939\\ldots\\), then conjectures that the ideal construction of the prior paper tends to those ratios and the same normalized expectation.",
+        "identifier_or_url": "arXiv:2605.10919v2",
+        "material_read": "Abstract; LT equivalence and Poissonized decoding-curve setup; asymptotic objective; strict convexity/KKT characterization; complete worked degree-2 example; conclusion.",
+        "method": "lawful public full-text reading",
+        "title": "Random Access Expectation in DNA Storage and Fountain Codes",
+        "trigger": "Primary recent source containing the degree-2 optimum and the explicit ideal-ratio conjecture."
+      },
+      {
+        "assessment": "Provides the cycle/repeated-edge recovery structure and finite-\\(k\\) large-\\(x\\) formula, but does not solve the asymmetric large-\\(k\\) optimization; the conclusion explicitly leaves \\(p,P\\) optimization open.",
+        "evidence": "Recovery completeness recovers vertices from two distinct columns on one pair support or from one column per edge of a cycle; Theorem 3 analyzes the graph process and the paper later specializes to p=P.",
+        "identifier_or_url": "arXiv:2501.12274v2",
+        "material_read": "Recovery-complete definition and construction; large-multiplicity \\(G_k(x,y)\\) setup; graph-process interpretation; Theorem 3; Corollary 3; conclusion and future-work discussion.",
+        "method": "lawful public full-text reading",
+        "title": "Making it to First: The Random Access Problem in DNA Storage",
+        "trigger": "The conjectured ideal-decoding construction and its graph recovery rules."
+      },
+      {
+        "assessment": "Covers finite-parameter computation and other bounds but not the recovery-complete weight-1/weight-2 large-k conjecture.",
+        "evidence": "Its conclusion emphasizes finite-k random-access computations and small-k constructions; the asymptotic results there concern different regimes and no recovery-complete formulation is present.",
+        "identifier_or_url": "arXiv:2601.07053v1",
+        "material_read": "Problem formulation; random-access algorithm/construction contributions; asymptotic statements; conclusion and listed open problems.",
+        "method": "lawful public full-text reading",
+        "title": "Random Access in DNA Storage: Algorithms, Constructions, and Bounds",
+        "trigger": "Plausible broader 2026 source on exact random-access expectations and asymptotics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "856f1aad-7e3a-4b47-ae03-56092ddf6568",
+  "value": {
+    "rationale": "The finding resolves an explicit 2026 conjecture linking the strongest known ideal-decoding degree-\\(2\\) construction to the LT peeling optimum. It gives a complete one-parameter asymptotic formula, identifies the unique optimal ratio, and explains structurally why ideal cycle recovery has no first-order advantage in this positive-mark regime. This closes a motivated gap rather than merely recomputing a numerical optimum.",
+    "status": "PASS"
+  }
+}
