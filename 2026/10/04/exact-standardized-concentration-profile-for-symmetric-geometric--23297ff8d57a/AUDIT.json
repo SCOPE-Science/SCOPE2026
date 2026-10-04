@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For each lattice band the central probability is obtained by exact geometric-tail summation. The threshold equation has the explicit solution \\(q_s=\\exp[-2\\operatorname{arsinh}(c/(\\sqrt2 s))]\\). Writing the complementary band infimum as \\(\\exp[-(2s-1)t_s]/\\cosh t_s\\) gives a derivative strictly below \\(-2t_s+2\\tanh t_s<0\\), so the first band is globally extremal. Endpoint inclusion is handled separately, proving nonattainment for the closed event and unique attainment for the open event. No finite computation is used to establish an infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bobkov-Marsiglietti-Melbourne obtain \\(M(X)\\le1/\\sqrt{1+2\\operatorname{Var}(X)}\\) for symmetric discrete log-concave laws, with equality for two-sided geometric laws, and Section 8 gives bounds for integer window lengths.",
+        "Zhang-Hu-Sun Proposition 2.2 concerns the full infinitely divisible class at small standardized radii, while Proposition 3.2 treats the symmetric geometric family only at \\(c=1\\)."
+      ],
+      "reasoning": "The broader-class results control different quantities. The largest-atom equality identifies the first-cell value but does not show that every later lattice band has larger standardized central mass; that global band comparison is the essential new step.",
+      "searches": [
+        "\"discrete Laplace\" concentration function variance",
+        "arXiv:2007.11030 symmetric two-sided geometric concentration function variance",
+        "arXiv:2310.03471 arbitrary epsilon symmetric geometric"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.03471v2",
+      "arXiv:2007.11030v2",
+      "DOI:10.1007/s10473-025-0211-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 source's proof specializes the lattice analysis to \\(c=1\\) and concludes only \\(1/\\sqrt3\\).",
+        "Proposition 8.3 of arXiv:2007.11030 supplies two-sided bounds on \\(Q(X;\\lambda)\\) for fixed integer \\(\\lambda\\); the bounds are not equalities for the varying standardized radius problem."
+      ],
+      "reasoning": "Substituting \\(c=1\\) into the new profile recovers the prior theorem, but the converse implication is unavailable. The fixed-window bounds also do not order the infinitely many variance-dependent lattice bands, so they do not imply the all-radius claim.",
+      "searches": [
+        "arXiv:2310.03471 Proposition 3.2 proof lattice bands",
+        "arXiv:2007.11030 Proposition 8.3 concentration functions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.03471 Proposition 3.2 states the symmetric-geometric result only at one standard deviation.",
+        "arXiv:2007.11030 defines Q(X;lambda) and treats fixed lambda; Section 8 does not state an optimization at radius c times the varying standard deviation."
+      ],
+      "reasoning": "The candidate statement varies both the family parameter and the physical interval width through the law's own variance. Neither the \\(c=1\\) proposition nor fixed-window concentration bounds are equivalent to that two-scale optimization.",
+      "searches": [
+        "two-sided geometric symmetric geometric arbitrary c standard deviations exact infimum central probability",
+        "symmetric geometric exact standardized concentration profile c variance",
+        "c/sqrt(c^2+2) two-sided geometric concentration probability",
+        "\"two-sided geometric\" \"standard deviations\" concentration",
+        "arXiv:2310.03471 Section 3.2",
+        "arXiv:2007.11030 Section 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact \\(c=1\\) value \\(1/\\sqrt3\\) appears in arXiv:2310.03471, Proposition 3.2.",
+        "No retrieved indexed record or source table stated \\(c/\\sqrt{c^2+2}\\) for arbitrary \\(c\\) in this family."
+      ],
+      "reasoning": "The new statement is a continuous all-radius formula, not a recomputation of a finite table or a known single parameter value.",
+      "searches": [
+        "c/sqrt(c^2+2) two-sided geometric concentration probability",
+        "\"symmetric geometric\" \"standard deviation\" \"sqrt3/3\" measure concentration",
+        "\"two-sided geometric\" variance concentration function"
+      ]
+    },
+    "rationale": "The closest primary source proves only the \\(c=1\\) symmetric-geometric infimum. A second highly relevant source gives largest-atom and fixed-integer-window concentration-function bounds for symmetric discrete log-concave laws, but not the standardized all-radius optimization. Exact semantic and web searches did not locate the stated profile or an implication that subsumes it.",
+    "residual_risks": [
+      "An equivalent all-radius identity may exist under discrete-Laplace terminology or in literature not indexed by the searches used here.",
+      "The published journal page was accessible mainly as metadata/abstract; the mathematical comparison used the complete lawful arXiv text of the same work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING beyond \\(c=1\\).",
+        "evidence": "Section 3.2 derives the symmetric geometric pmf and proves the infimum \\(1/\\sqrt3\\) at exactly one standard deviation; no arbitrary-radius theorem is stated in the inspected material.",
+        "identifier_or_url": "arXiv:2310.03471v2",
+        "material_read": "Abstract, introduction, Proposition 2.2, and Section 3.2 including Proposition 3.2 and its proof.",
+        "method": "Full-text HTML inspection of the lawful arXiv version.",
+        "title": "On the measure concentration of infinitely divisible distributions",
+        "trigger": "Same distribution family, same standardized central-mass functional, and the published \\(c=1\\) value."
+      },
+      {
+        "assessment": "NOT_COVERING the standardized family infimum.",
+        "evidence": "Theorem 1.1 treats the largest atom, while Proposition 8.3 treats \\(Q(X;\\lambda)\\) at fixed integer \\(\\lambda\\). Neither statement optimizes centered \\(c\\)-standard-deviation intervals over the symmetric geometric parameter.",
+        "identifier_or_url": "arXiv:2007.11030v2",
+        "material_read": "Introduction, Theorem 1.1, and all of Section 8 on concentration functions.",
+        "method": "Full-text HTML inspection of the lawful arXiv version.",
+        "title": "Concentration functions and entropy bounds for discrete log-concave distributions",
+        "trigger": "Two-sided geometric laws are equality cases for a symmetric variance-concentration inequality, creating a plausible stronger-coverage risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23297ff8-d57a-42ec-aee0-88d71f43eee3",
+  "value": {
+    "rationale": "The source explicitly treats one standard deviation as a distinguished concentration scale and computes only that point for the symmetric geometric family. The new theorem replaces that isolated value by the exact standardized concentration profile for every positive radius, distinguishes open from closed endpoint behavior, and proves the structural fact that the first lattice contact is always globally extremal. This is a natural complete classification of the scale parameter, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
