@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The optimizer-state equilibrium manifold is explicit. On the inactive-max branch the full Jacobian has eigenvalues \\(1\\), \\(\\beta_2\\), and the roots of \\(r^2-(1+\\beta_1-c)r+\\beta_1\\). Exact Jury conditions give the memory threshold, the boundary factors as \\((r+1)(r+\\beta_1)\\), and the negative-discriminant interval gives the exact \\(\\sqrt{\\beta_1}\\) position-momentum plateau. The retained-memory eigenvalue \\(1\\) is correctly treated as tangential rather than silently declared stable.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper explains the running maximum as long-term memory and proves online regret bounds with a decaying theoretical step schedule.",
+        "The correction paper addresses hyperparameter handling in regret telescoping and proposes AdamX."
+      ],
+      "reasoning": "Global regret guarantees and monotone learning rates do not determine constant-step local state stability. The present theorem retains the optimizer memory as a state variable and resolves its local spectral effect exactly.",
+      "searches": [
+        "AMSGrad convergence long term memory non increasing step size",
+        "AMSGrad convergence proof hyperparameter correction",
+        "AMSGrad constant step quadratic convergence"
+      ]
+    },
+    "checked_sources": [
+      "openreview:ryQu7f-RZ",
+      "public-date-evidence:pytorch-forum-11338-2",
+      "arXiv:1904.09237",
+      "arXiv:1904.03590v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source states that AMSGrad normalizes by the maximum of all past second moments and calls this long-term memory.",
+        "The source notes constant first-moment coefficients are typical in practice and uses constant steps in neural-network experiments.",
+        "The correction source reproduces the exact recurrence including \\(\\widehat v_t=\\max(\\widehat v_{t-1},v_t)\\)."
+      ],
+      "reasoning": "These formulas are premises for the new calculation, but the published conclusions stop at learning-rate monotonicity and regret. They do not state the optimizer-state equilibrium manifold, its neutral tangent direction, or the memory-dependent transverse spectrum.",
+      "searches": [
+        "AMSGrad maximum all v_t normalization long term memory",
+        "AMSGrad Algorithm 2 max hat v constant beta1 practical",
+        "AMSGrad corrected proof Algorithm 1 max v"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "openreview:ryQu7f-RZ / arXiv:1904.09237, AMSGrad Section 4 and Algorithm 2",
+        "arXiv:1904.03590v1, reproduced AMSGrad algorithm and corrected convergence discussion",
+        "Focused published-record searches for frozen maxima, Jacobians, local spectra, heavy-ball equivalences, and memory-dependent thresholds"
+      ],
+      "reasoning": "Equivalent forms include normal stability of a continuum of memory-indexed equilibria, a heavy-ball polynomial whose effective step is selected by the retained maximum, and a sharp threshold on the stored maximum itself. No inspected AMSGrad statement gives these forms.",
+      "searches": [
+        "AMSGrad frozen maximum second moment local spectrum scalar quadratic equilibrium continuum",
+        "AMSGrad history selected local stability threshold max v quadratic momentum",
+        "AMSGrad fixed maximum preconditioner heavy ball characteristic polynomial quadratic",
+        "AMSGrad inactive max branch Jacobian scalar quadratic",
+        "AMSGrad long term memory local rate plateau sqrt beta1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result concerns a generic heavy-ball real-root barrier.",
+        "Other closest results concern OSGM feedback thresholds, AdOGD persistence, Polyak objective monotonicity, and Nesterov transients."
+      ],
+      "reasoning": "The closest findings use different update maps. The heavy-ball record can compare a fixed quadratic polynomial once a coefficient is chosen, but it does not imply that AMSGrad has a neutral maximum-memory manifold or identify the sharp threshold in the historical state variable.",
+      "searches": [
+        "AMSGrad frozen maximum second moment local spectrum scalar quadratic equilibrium continuum",
+        "AMSGrad history selected local stability threshold max v quadratic momentum",
+        "AMSGrad fixed maximum preconditioner heavy ball characteristic polynomial quadratic",
+        "AMSGrad inactive max branch Jacobian scalar quadratic",
+        "AMSGrad long term memory local rate plateau sqrt beta1"
+      ]
+    },
+    "rationale": "The defining AMSGrad source motivates long-term memory and monotone coordinate learning rates, and the 2019 correction repairs global regret arguments. The inspected sources and focused published-record searches do not state a fixed-memory equilibrium manifold, a sharp memory-state stability threshold, or the exact damping plateau.",
+    "residual_risks": [
+      "A local quadratic linearization may exist in unindexed optimizer notes under heavy-ball terminology.",
+      "The exact original OpenReview posting timestamp was not exposed by the inspected metadata; 2017-12-19 is the earliest exact-dated public-availability evidence located.",
+      "The theorem is scalar and local, and does not predict the memory level selected by a standard-initialized trajectory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_MEMORY_MECHANISM_NOT_COVERING_LOCAL_MEMORY_SPECTRUM.",
+        "evidence": "The paper states that AMSGrad keeps the maximum of all past second moments and uses it for normalization to make learning rates nonincreasing. It does not analyze the constant-step scalar quadratic state manifold or its local characteristic polynomial.",
+        "identifier_or_url": "openreview:ryQu7f-RZ / arXiv:1904.09237",
+        "material_read": "Full open-access text through the adaptive-method preliminaries, Adam nonconvergence discussion, AMSGrad Section 4, Algorithm 2, theorem statement, and experiment settings.",
+        "method": "Full-text HTML inspection with targeted searches for the running maximum, constant momentum, and constant-step use.",
+        "title": "On the Convergence of Adam and Beyond",
+        "trigger": "Defining AMSGrad source and direct source of the maximum-memory mechanism."
+      },
+      {
+        "assessment": "GLOBAL_PROOF_CORRECTION_NOT_COVERING_LOCAL_FROZEN_MEMORY_DYNAMICS.",
+        "evidence": "The correction reproduces the exact max-memory recurrence but studies regret inequalities and hyperparameter schedules rather than local autonomous quadratic spectra.",
+        "identifier_or_url": "arXiv:1904.03590v1",
+        "material_read": "Full open-access text covering the reproduced AMSGrad Algorithm 1, the identified proof issue, the revised convergence theorem, and AdamX modification.",
+        "method": "Full-text HTML inspection.",
+        "title": "On the Convergence Proof of AMSGrad and a New Version",
+        "trigger": "Closest direct theoretical correction that could dominate an AMSGrad stability statement."
+      },
+      {
+        "assessment": "DATE_EVIDENCE_ONLY.",
+        "evidence": "This establishes that the OpenReview AMSGrad source was publicly accessible no later than 2017-12-19; it is not used for any scientific claim.",
+        "identifier_or_url": "pytorch-forum:11338/2",
+        "material_read": "Public post timestamped 2017-12-19 that links OpenReview ryQu7f-RZ and explicitly names AMSGrad.",
+        "method": "Direct public page inspection.",
+        "title": "Public dated evidence for the AMSGrad OpenReview source",
+        "trigger": "Verify an exact pre-arXiv public-availability date for the ICLR 2018 source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fffdf083-adda-4abf-b36b-68d9d77095f3",
+  "value": {
+    "rationale": "AMSGrad was introduced specifically to retain long-term second-moment memory. The theorem quantifies a structural consequence of that defining state variable: it creates a continuum of equilibria whose transverse stability and local damping are selected by the stored historical maximum. The sharp threshold and rate plateau distinguish too little, intermediate, and excessive memory, giving a natural diagnostic rather than a routine reformulation of a fixed heavy-ball method.",
+    "status": "PASS"
+  }
+}
