@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For three candidates without pairwise ties, the Kemeny correspondence is determined by the majority tournament: a transitive tournament yields its Condorcet winner, while a cycle yields the candidate defeated on a minimum-margin edge, uniquely when that edge is uniquely weakest. Odd electorates give odd margins, so every strict positive-margin gap is at least two. A unilateral report changes each pairwise margin by at most two, and a voter sincerely preferring the target candidate already supports the target against the truthful winner. The complete case analysis therefore rules out a preferred singleton endpoint. Two independent Kemeny implementations agree on every anonymous odd-electorate profile through seventeen voters and find zero profitable singleton-to-singleton changes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al. 2012 distinguish strategic from non-strategic Kemeny boundaries and analyze robustness to strategic voting.",
+        "Wang, Cuff, and Kulkarni's longer manuscript gives a detailed three-candidate pivotal/strategic boundary table and Theorem 1 on Kendall-distance-two boundaries.",
+        "Brandt, Matthäus, and Saile note that with three candidates Kemeny agrees with maximin, Young, Schulze, ranked pairs, split cycle, and Dodgson in the relevant strict setting, while their compilation concerns other voting paradoxes."
+      ],
+      "reasoning": "The broader literature establishes strategic susceptibility and a detailed boundary geometry. Those facts do not themselves assert that odd-electorate profitable manipulations cannot have singleton Kemeny winner sets at both endpoints; the parity argument supplies the additional implication.",
+      "searches": [
+        "Condorcet methods less susceptible strategic voting Kemeny three candidates",
+        "Condorcet voting methods avoid paradoxes strategic voting Kemeny Allerton 2012",
+        "minimal voting paradoxes Kemeny three candidates maximin unique winner"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/Allerton.2012.6483218",
+      "https://www.princeton.edu/~cuff/publications/wang_strategic_voting.pdf",
+      "doi:10.1177/09516298221122104"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang-Cuff-Kulkarni allow randomized handling of tied candidates and explicitly analyze profiles on or near decision boundaries.",
+        "Their Theorem 1 says strategic voting is possible at a boundary exactly for distance-two winning rankings; it does not separate odd from even electorates or singleton from tied Kemeny correspondences.",
+        "The parity proof here uses that one ballot moves a pairwise margin by two while distinct positive odd margins differ by at least two; that argument is not stated in the inspected prior source."
+      ],
+      "reasoning": "The prior theorem identifies which geometric boundaries can be strategic, whereas the present theorem identifies which correspondence endpoints cannot both be singleton. Neither statement logically substitutes for the other without an additional discrete-parity argument. Residual corollary risk is disclosed.",
+      "searches": [
+        "Wang Cuff Kulkarni Kemeny boundary Kendall distance 2 strategic voting",
+        "three candidate Kemeny maximin equivalence minimal voting paradoxes",
+        "Kemeny strategic boundary tie random winner three candidates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic repository searches returned no published finding matching singleton-to-singleton Kemeny manipulation or the odd-margin obstruction.",
+        "General web searches with unique-winner, odd-electorate, singleton, and pairwise-margin aliases returned the Wang-Cuff-Kulkarni boundary paper as the closest direct source rather than an equivalent theorem.",
+        "The 2013 Wang-Cuff-Kulkarni manuscript states that three-candidate Kemeny manipulation occurs only at boundaries between winning rankings at Kendall distance two, but it does not state the singleton-endpoint localization theorem."
+      ],
+      "reasoning": "The search space included the canonical Kemeny-Young name, the equivalent three-candidate maximin context, unique-winner and singleton terminology, odd electorate parity, and pairwise-margin/weakest-edge language. The nearest statement is a boundary classification, not an endpoint theorem.",
+      "searches": [
+        "three-candidate Kemeny unique winner unilateral manipulation odd voters tie-independent singleton strategyproofness",
+        "Kemeny Young singleton winner correspondence manipulation pairwise margins weakest edge three candidates",
+        "Condorcet Kemeny unique outcome strategic voting odd electorate tie boundary",
+        "\"Kemeny-Young\" \"unique winner\" manipulation",
+        "\"Kemeny\" \"odd number of voters\" strategic voting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Wang-Cuff-Kulkarni Table 4 is the closest tabulation inspected; it lists pivotal and strategic voter types by optimal and runner-up rankings, but does not tabulate odd-electorate singleton endpoint pairs.",
+        "No inspected database or published table gives the zero count for profitable singleton-to-singleton moves in odd electorates.",
+        "The embedded finite census is generated from all anonymous profiles rather than copied from a published table."
+      ],
+      "reasoning": "The new finite replay is used only as a stress test. The scientific claim is a general parity theorem, so absence of an exact table is supporting originality evidence rather than the proof.",
+      "searches": [
+        "\"Kemeny\" singleton manipulation table three candidates",
+        "\"Kemeny\" unique winner odd electorate",
+        "\"maximin\" three candidates manipulation unique winner strategyproof"
+      ]
+    },
+    "rationale": "The closest prior work classifies strategic Kemeny boundaries for three candidates, including the fact that manipulable boundaries separate rankings at Kendall distance two. The new claim is narrower in tie treatment but sharper in endpoint structure: for odd electorates no profitable unilateral move can have singleton Kemeny winner sets at both endpoints. The inspected sources and targeted semantic searches did not state this parity-based localization result.",
+    "residual_risks": [
+      "The detailed strategic-voter table in Wang-Cuff-Kulkarni is close prior art and may make the new theorem derivable as an unstated discrete corollary.",
+      "An unindexed voting-theory note or treatment of the equivalent three-candidate maximin rule may state the singleton-endpoint property explicitly.",
+      "The theorem does not address even electorates, arbitrary resolute tie-breaking at tied correspondence profiles, coalitional manipulation, or four or more candidates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the strategic/non-strategic Kemeny boundary picture but does not state the odd-electorate singleton-to-singleton impossibility.",
+        "evidence": "Presented at the 50th Annual Allerton Conference, whose recorded dates are 1-5 October 2012; DOI 10.1109/Allerton.2012.6483218.",
+        "identifier_or_url": "doi:10.1109/Allerton.2012.6483218",
+        "material_read": "Full three-page author-hosted conference paper, including the strategic-voting section and the Kemeny boundary discussion.",
+        "method": "Full-PDF text inspection plus rendered-page inspection.",
+        "title": "Condorcet voting methods avoid the paradoxes of voting theory",
+        "trigger": "Earliest directly relevant public source by the same research line, focused on Condorcet and Kemeny strategic voting."
+      },
+      {
+        "assessment": "Proves that strategic Kemeny boundaries are exactly distance-two boundaries and models tie handling, but does not state the parity-sensitive singleton endpoint theorem.",
+        "evidence": "Author-hosted manuscript; Kemeny definition at pp. 5-7 and Theorem 1 on p. 7 in the inspected copy.",
+        "identifier_or_url": "https://www.princeton.edu/~cuff/publications/wang_strategic_voting.pdf",
+        "material_read": "Full manuscript with detailed inspection of Sections 2 and 3, especially the Kemeny score representation, Lemma 1, Table 4, and Theorem 1.",
+        "method": "Full-PDF text inspection plus rendered-page inspection of the Kemeny boundary theorem page.",
+        "title": "Condorcet Methods are Less Susceptible to Strategic Voting",
+        "trigger": "Closest full-length primary source on exactly three-candidate Kemeny manipulation."
+      },
+      {
+        "assessment": "Notes three-candidate equivalence of Kemeny with maximin and several other Condorcet rules and studies other paradoxes, not unilateral misreport localization.",
+        "evidence": "Politics, Philosophy & Economics 21 (2022), DOI 10.1177/09516298221122104.",
+        "identifier_or_url": "doi:10.1177/09516298221122104",
+        "material_read": "Full accessible article sections on methodology, Kemeny's method, Table 2, and the three-candidate discussion.",
+        "method": "Publisher full-HTML inspection.",
+        "title": "Minimal voting paradoxes",
+        "trigger": "Systematic later compilation for Kemeny and related Condorcet rules under unique-winner restrictions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "49d1d1b6-332f-429a-a53b-090d367cfdbd",
+  "value": {
+    "rationale": "Kemeny-Young is a canonical Condorcet method, and manipulation is a central design concern. The theorem localizes every profitable unilateral manipulation in odd three-candidate electorates to the tie locus of the underlying Kemeny correspondence. This is a structural explanation—based on the exact two-unit ballot effect and odd-margin spacing—of why tie handling is indispensable in the smallest nontrivial Kemeny incentive problem, rather than a routine finite census.",
+    "status": "PASS"
+  }
+}
