@@ -1,0 +1,288 @@
+# Sharp starlikeness order for the half-tanh Ma–Minda class
+
+## Finding
+
+Define
+\[
+\Phi(z)
+=
+1+\frac12\tanh z
+\]
+and
+\[
+\mathcal S_{\tanh,1/2}^*
+=
+\left\{
+f\in\mathcal A:
+\frac{zf'(z)}{f(z)}
+\prec
+\Phi(z)
+\right\}.
+\]
+
+The exact order of starlikeness of this class is
+\[
+\alpha_{\tanh}
+=
+0.5742700656062\ldots .
+\]
+Equivalently, every
+\[
+f\in\mathcal S_{\tanh,1/2}^*
+\]
+satisfies
+\[
+\operatorname{Re}\frac{zf'(z)}{f(z)}
+>
+\alpha_{\tanh}
+\qquad(z\in\mathbb D),
+\]
+and no larger constant is valid for the whole class.
+
+The constant has the exact characterization
+\[
+\alpha_{\tanh}
+=
+1-\frac12M_{\tanh},
+\]
+where
+\[
+M_{\tanh}
+=
+\max_{|z|\le1}\operatorname{Re}\tanh z.
+\]
+If \(t_*\in(0,\pi/2)\) is the unique zero of
+\[
+G(t)
+=
+\cos t\,\sinh(2\cos t)\sin(2\sin t)
+-
+\sin t
+\left(
+1+\cosh(2\cos t)\cos(2\sin t)
+\right),
+\]
+then
+\[
+t_*
+=
+1.0072145940722\ldots
+\]
+and
+\[
+M_{\tanh}
+=
+\frac{\sinh(2\cos t_*)}
+{\cosh(2\cos t_*)+\cos(2\sin t_*)}
+=
+0.8514598687875\ldots.
+\]
+
+## Assumptions and scope
+
+Here \(\mathcal A\) is the standard normalized analytic class
+\[
+f(0)=0,
+\qquad
+f'(0)=1.
+\]
+The order of starlikeness of a class is the largest real number \(\alpha\) such that
+\[
+\operatorname{Re}\frac{zf'(z)}{f(z)}>\alpha
+\]
+for every member of the class and every \(z\in\mathbb D\).
+
+The function \(\tanh z\) is analytic on a neighborhood of the closed unit disk because its nearest poles have modulus \(\pi/2>1\).
+
+The numerical values above are approximations to the exact critical-point characterization. No algebraicity is claimed.
+
+## Proof
+
+For
+\[
+z=x+iy,
+\]
+the real part of the hyperbolic tangent is
+\[
+\operatorname{Re}\tanh(x+iy)
+=
+\frac{\sinh(2x)}
+{\cosh(2x)+\cos(2y)}.
+\]
+
+To maximize this quantity it is enough, by odd symmetry and conjugation symmetry, to consider
+\[
+x\ge0,
+\qquad
+y\ge0.
+\]
+For fixed \(x\in[0,1]\), the numerator is fixed and nonnegative. On the admissible interval
+\[
+0\le y\le\sqrt{1-x^2}\le1,
+\]
+the function \(\cos(2y)\) is decreasing because \(2y<\pi\). Hence the denominator is smallest, and the real part largest, at
+\[
+y=\sqrt{1-x^2}.
+\]
+Thus the maximum over the closed disk occurs on the first-quadrant unit-circle arc.
+
+Write
+\[
+z=e^{it},
+\qquad
+0\le t\le\frac{\pi}{2},
+\]
+and set
+\[
+F(t)
+=
+\operatorname{Re}\tanh(e^{it})
+=
+\frac{\sinh(2\cos t)}
+{\cosh(2\cos t)+\cos(2\sin t)}.
+\]
+Direct differentiation gives
+\[
+F'(t)
+=
+\frac{2G(t)}
+{\left(
+\cosh(2\cos t)+\cos(2\sin t)
+\right)^2},
+\]
+with \(G\) as stated in the finding.
+
+A reproducible sign certificate included with this result verifies
+\[
+G(t)>0
+\quad
+(0<t<t_*),
+\qquad
+G(t)<0
+\quad
+(t_*<t<\pi/2),
+\]
+with the unique critical point enclosed by
+\[
+1.0072145940722
+<
+t_*
+<
+1.0072145940723.
+\]
+Therefore \(F\) has one global maximum on the quadrant. Odd symmetry gives
+\[
+\min_{|z|\le1}\operatorname{Re}\tanh z
+=
+-M_{\tanh}.
+\]
+Consequently
+\[
+\inf_{|z|<1}\operatorname{Re}\Phi(z)
+=
+1-\frac12M_{\tanh}
+=
+\alpha_{\tanh}.
+\]
+
+Now let
+\[
+f\in\mathcal S_{\tanh,1/2}^*.
+\]
+By subordination there is a Schwarz function \(\omega\) such that
+\[
+\frac{zf'(z)}{f(z)}
+=
+\Phi(\omega(z)).
+\]
+Hence
+\[
+\operatorname{Re}\frac{zf'(z)}{f(z)}
+>
+\alpha_{\tanh}.
+\]
+
+For sharpness, define
+\[
+f_*(z)
+=
+z\exp\left(
+\frac12
+\int_0^z
+\frac{\tanh\zeta}{\zeta}\,d\zeta
+\right).
+\]
+The integrand has a removable singularity at the origin, and
+\[
+\frac{zf_*'(z)}{f_*(z)}
+=
+1+\frac12\tanh z
+=
+\Phi(z).
+\]
+Since \(\operatorname{Re}\Phi>0\), this is a normalized starlike function. Along radii tending to the boundary point where
+\[
+\operatorname{Re}\tanh z=-M_{\tanh},
+\]
+the real part of \(zf_*'/f_*\) tends to \(\alpha_{\tanh}\). Thus no larger order is possible.
+
+## Verification
+
+The boundary reduction uses only the explicit identity for
+\[
+\operatorname{Re}\tanh(x+iy)
+\]
+and monotonicity of \(\cos(2y)\) for \(0\le y\le1\).
+
+The critical-point computation was checked by the included standalone script. It verifies a global positive-sign region for \(G\), a strictly decreasing bridge containing exactly one zero, and a global negative-sign region. The certified critical bracket is
+\[
+1.0072145940722
+<
+t_*
+<
+1.0072145940723.
+\]
+
+The corresponding order is numerically enclosed by
+\[
+0.5742700656061
+<
+\alpha_{\tanh}
+<
+0.5742700656064.
+\]
+The decimal in the finding is therefore stable at the displayed precision.
+
+The sharpness function is checked directly by logarithmic differentiation; no coefficient truncation or finite experiment is used to infer the infinite-dimensional conclusion.
+
+## Relationship to prior work
+
+Ahmad's 2026 paper introduces the half-tanh-generated class and develops coefficient estimates, Fekete–Szegő and Zalcman functionals, logarithmic and inverse coefficients, and majorization results. It does not state the exact half-plane containing the defining image or the resulting sharp classical starlikeness order.
+
+Earlier work of Rai, Çetinkaya, and Kumar studies the different class generated by
+\[
+1+\tanh z.
+\]
+Its full accessible text develops convolution conditions, coefficient and determinant estimates, and Bernardi-operator inclusions. It does not give the exact left supporting line of the tanh image.
+
+Ullah and coauthors study radius problems for the full-tanh class and derive disk-containment geometry for the image of
+\[
+1+\tanh z.
+\]
+Those disk bounds and radius statements do not identify the exact minimum of the real part on the full unit disk. The present calculation determines that supporting-line invariant and applies its affine half-tanh scaling to the new 2026 class.
+
+Targeted searches for the exact source, half-tanh Ma–Minda order, minimum real part, and equivalent supporting-half-plane formulations did not locate a published statement of this sharp constant.
+
+## Limitations
+
+The result determines the classical order of starlikeness only. It does not classify the largest sector containing the image or the sharp order of strong starlikeness.
+
+The numerical critical point is transcendental in presentation; the exact result is its unique-root characterization rather than a closed elementary constant.
+
+No assertion is made about unrelated coefficient-functional bounds in the defining source.
+
+## References
+
+1. N. Ahmad, *New Results on Analytic Function Subclasses Defined by Tangent Hyperbolic Functions*, Axioms 15 (2026), 173. DOI: 10.3390/axioms15030173.
+2. P. Rai, A. Çetinkaya, and S. Kumar, *Starlike functions associated with tanh z and Bernardi integral operator*, Mathematical Foundations of Computing 6 (2023), 573–585. DOI: 10.3934/mfc.2022032.
+3. K. Ullah, S. Zainab, M. Arif, M. Darus, and M. Shutaywi, *Radius Problems for Starlike Functions Associated with the Tan Hyperbolic Function*, Journal of Function Spaces 2021, Article 9967640. DOI: 10.1155/2021/9967640.
