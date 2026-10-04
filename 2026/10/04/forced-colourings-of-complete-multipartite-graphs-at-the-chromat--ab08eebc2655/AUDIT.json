@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "A complete \\(r\\)-partite graph using exactly \\(r\\) colours has one colour per part. Necessity follows because fewer than \\(r-1\\) seeded parts expose at most \\(r-2\\) neighbour colours to every uncoloured vertex, so forcing cannot start. Sufficiency follows because an unseeded part, if unique, immediately sees all \\(r-1\\) other colours; once it is seeded, every remaining vertex sees all colours except its own. Counting nonempty subsets in seeded parts gives the generating polynomial, and replacing subset weights by the exact random-assignment weights gives the probability polynomial. The verifier exhaustively agrees on 224608 partial assignments across all 23 multipartite isomorphism types through order six.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Farr's Theorem 7 gives \\(\\operatorname{FC}_2\\) for bipartite graphs and therefore covers only the formal \\(r=2\\) boundary of the present formula.",
+        "The same paper states general hardness for fixed \\(\\lambda\\ge3\\) but does not derive the complete-multipartite closed form."
+      ],
+      "reasoning": "The known bipartite theorem is a boundary specialization, not a stronger theorem on the new \\(r\\ge3\\) domain. General definitions, inequalities, and complexity results do not imply the explicit characterization or enumerators proved here.",
+      "searches": [
+        "arXiv:2609.17108v1 full text: forcing definition and Theorem 7",
+        "forced colouring polynomial complete multipartite graph chromatic number"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.17108v1",
+      "arXiv:2406.15746v1",
+      "DOI:10.1007/978-3-031-86319-6_18",
+      "DOI:10.1137/050641594",
+      "semantic record 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 7 in arXiv:2609.17108v1 treats bipartite graphs with two colours; the present theorem starts at three parts and three colours.",
+        "The forcing chromatic number literature studies unique determination from a precolouring, not Farr's iterative local forcing probability polynomial."
+      ],
+      "reasoning": "Neither prior statement implies the new theorem: one is confined to the two-colour bipartite boundary, while the other concerns a different invariant. The present claim is deliberately restricted to \\(r\\ge3\\) so the known boundary case is not presented as new.",
+      "searches": [
+        "arXiv:2609.17108v1 Theorem 7",
+        "SIAM J. Comput. 37 (2007), forcing chromatic number abstract",
+        "partial coloring forces complete multipartite graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.17108v1 defines local forcing by the presence of all but one available colour in a vertex neighbourhood.",
+        "No returned record stated a complete-tripartite or arbitrary complete-multipartite chromatic-palette formula; the closest same-invariant record was 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd."
+      ],
+      "reasoning": "The searches covered British and American spelling, the probability-polynomial name, the partial-assignment formulation, and the first non-bipartite family name. None supplied an equivalent statement for complete multipartite graphs with \\(r\\ge3\\) and \\(\\lambda=r\\).",
+      "searches": [
+        "forced colouring function complete multipartite chi colors r partite",
+        "forced coloring polynomial complete tripartite graph",
+        "partial r-assignment forcing complete multipartite graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed same-invariant item: 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd.",
+        "Other high-ranked complete-multipartite records concerned different invariants, including odd colouring, proper conflict-free colouring, and interval-sandwich representations."
+      ],
+      "reasoning": "No exact database/table entry found in the checked semantic records contains the claimed forcing characterization or polynomial for this graph/palette regime.",
+      "searches": [
+        "forced colouring function complete multipartite chi colors r partite",
+        "complete multipartite forced colouring minimal colour",
+        "forced coloring function complete multipartite r colors"
+      ]
+    },
+    "rationale": "The closest inspected primary paper gives an exact two-colour bipartite theorem but no complete-multipartite theorem for \\(r\\ge3\\). Focused semantic and web searches for the same object, graph family, palette regime, and equivalent partial-assignment formulation found no covering statement. The closest indexed exact forced-colouring result concerns maximum-degree-two graphs with three colours, which does not imply the present dense-family theorem.",
+    "residual_risks": [
+      "An older equivalent complete-multipartite statement may exist under terminology not surfaced by the checked forced-colouring, forcing-chromatic, or partial-assignment aliases.",
+      "The earlier 2024 graph-polynomial paper was checked through its abstract/bibliographic material rather than a page-by-page full-text novelty audit; the 2026 primary paper was the full-text source inspected in detail."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the \\(r\\ge3\\) complete-multipartite chromatic-palette claim. It covers the \\(r=2\\) bipartite boundary and supplies the definitions used here.",
+        "evidence": "The paper states that Section 3 includes an expression for bipartite graphs when \\(\\lambda=2\\); Theorem 7 gives that expression. No complete-multipartite theorem was found in the inspected full text.",
+        "identifier_or_url": "arXiv:2609.17108v1",
+        "material_read": "Full-text relevant sections: introduction and definitions, forcing definition, Section 3 around Theorem 7, and the paper's scope summary; PDF search for multipartite terminology.",
+        "method": "Lawful arXiv full text with visual inspection of the forcing-definition and Theorem-7 pages.",
+        "title": "The forced colouring function of a graph",
+        "trigger": "Primary source defining the invariant and containing the nearest exact family theorem."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY in the material inspected; no complete-multipartite forcing formula was surfaced.",
+        "evidence": "The abstract describes new polynomials based on partial colourings and basic properties, not an exact complete-multipartite evaluation.",
+        "identifier_or_url": "arXiv:2406.15746v1 / DOI:10.1007/978-3-031-86319-6_18",
+        "material_read": "Abstract, bibliographic record, and the 2026 paper's description of this work's role.",
+        "method": "Open arXiv and institutional bibliographic records.",
+        "title": "Graph polynomials: some questions on the edge",
+        "trigger": "Earlier work identified by the 2026 paper as introducing the partial-colouring polynomial family."
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT: unique determination of a chromatic colouring from a precoloured set, not Farr's iterative local forcing polynomial.",
+        "evidence": "The abstract defines the forcing chromatic number as the smallest number of precoloured vertices that uniquely determine an \\(s\\)-colouring.",
+        "identifier_or_url": "DOI:10.1137/050641594",
+        "material_read": "Abstract and invariant definition.",
+        "method": "Publisher abstract indexed on the web.",
+        "title": "On the Computational Complexity of the Forcing Chromatic Number",
+        "trigger": "Alias-risk check for older graph-colouring literature using the word forcing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab08eebc-2655-428d-ae2f-d85c2cefb351",
+  "value": {
+    "rationale": "The forced-colouring function is a recently developed graph polynomial whose evaluation is generally #P-hard for fixed palettes of at least three colours. The theorem gives a complete structural characterization, full size enumerator, probability polynomial, and minimum forcing-domain size on all complete multipartite graphs in the natural chromatic-palette regime \\(r\\ge3\\). This is a broad classical family and a meaningful exact tractable case rather than an isolated numerical computation.",
+    "status": "PASS"
+  }
+}
