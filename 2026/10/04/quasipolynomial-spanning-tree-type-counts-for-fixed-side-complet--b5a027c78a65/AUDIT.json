@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof is exact and all quantifiers are explicit: \\(d\\ge2\\) is fixed and \\(m>d\\). The larger-side leaf deletion is intrinsic because the bipartition sizes differ; it yields a connected core with \\(1\\le k\\le d-1\\) via \\(\\sum_{v\\notin A}(\\deg(v)-1)=d-1\\). Every expansion is a weak \\(d\\)-composition, and core recovery shows that isomorphism is exactly an automorphism-orbit relation. Faithfulness of the core action is proved from the absence of four-cycles. Burnside gives the coefficient formula, standard root-of-unity partial fractions give quasipolynomiality, and orbit-stabilizer plus the published labelled-core count gives the leading coefficient. The embedded checker independently validates Burnside against literal orbit construction and brute-force tree enumeration in nontrivial small cases; finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson--Nochumson arXiv:2602.06867v2 states lower and upper bounds for \\(I_{a,b}\\), not an exact count.",
+        "Yan--Zhang arXiv:2609.30201v1 proves \\(\\tau_{\\mathrm{iso}}(K_{d,n-d})=A_dn^{d-1}+O_d(n^{d-2})\\); the error term does not determine exact residue classes.",
+        "Van den Boomen (2009) reports Mohr only for \\(d=2,3\\) and supplies \\(d=4\\) herself."
+      ],
+      "reasoning": "The general bounds are broader in allowing both sides to vary, and the extremal theorem is broader in host graphs, but neither logically determines the exact fixed-d coefficient sequence. The old exact formulas have narrower d and are subsumed, not contradicted.",
+      "searches": [
+        "An extremal theorem for non-isomorphic spanning trees complete bipartite tau_iso",
+        "Counting Isomorphism Classes of Spanning Trees of Complete Bipartite Graphs Johnson Nochumson",
+        "Web: \"I(K_{s,t})\" spanning trees isomorphism",
+        "Web: \"K_{5,t}\" \"non-isomorphic spanning trees\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.30201v1",
+      "arXiv:2602.06867v2",
+      "J. van den Boomen, Non-isomorphic spanning trees of graphs, Master Thesis, July 2009",
+      "A. Mohr, Partitioning the labeled spanning trees of an arbitrary graph into isomorphism classes, Master thesis, 2008 (bibliographic record only, as cited by van den Boomen)",
+      "Published-finding semantic-index hits returned by the listed fixed-side, quasipolynomial, and Burnside queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yan--Zhang Claim 0.3 states that all but \\(O_d(m^{d-2})\\) leaf vectors have trivial stabilizer; it does not evaluate the nontrivial-stabilizer vectors exactly.",
+        "Johnson--Nochumson prove realizability of degree-partition pairs and bounds, which do not identify isomorphism multiplicities exactly.",
+        "The historical formulas terminate at side size four in the inspected thesis."
+      ],
+      "reasoning": "The exact theorem requires a new implication step: retain every finite core, identify expansions with automorphism orbits of weak compositions, and apply cycle-index/Burnside enumeration. The prior asymptotic deliberately suppresses precisely those stabilizer contributions. Thus the exact all-m sequence is not a corollary of the stated prior results without additional argument.",
+      "searches": [
+        "arXiv:2609.30201v1 Section 5.1 complete bipartite graph",
+        "arXiv:2602.06867v2 Main Results",
+        "Van den Boomen 2009 Chapter 4 Bipartite graphs",
+        "Web: complete bipartite spanning tree isomorphism classes eventual quasipolynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yan--Zhang arXiv:2609.30201v1, Proposition 5.1 and Section 5.1: exact core/leaf setup followed by an asymptotic treatment of stabilizers.",
+        "Van den Boomen (2009), Chapter 4: exact formulas are stated for \\(K_{2,t}\\), \\(K_{3,t}\\), and \\(K_{4,t}\\); no arbitrary fixed-side theorem is stated."
+      ],
+      "reasoning": "The rational core sum, quasipolynomial statement, and residue-period bound are equivalent consequences of exact Burnside counting, but none of the inspected sources formulates that exact general structure. Small-d residue formulas are special cases and are explicitly excluded from the originality claim.",
+      "searches": [
+        "complete bipartite spanning tree types Burnside quasipolynomial period lcm",
+        "fixed side complete bipartite spanning tree type quasipolynomial",
+        "Web: \"complete bipartite\" \"non-isomorphic spanning trees\" quasipolynomial",
+        "Web: \"non-isomorphic spanning trees\" \"complete bipartite\" generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed published-finding hit returned a table or theorem covering arbitrary fixed \\(d\\).",
+        "Van den Boomen gives \\(K_{4,t}\\) values \\(28,45,73,105,152\\) for \\(t=5,\\ldots,9\\); the checker reproduces them.",
+        "The Johnson--Nochumson 2026 talk/paper supplies bounds, not a database of exact values for arbitrary fixed \\(d\\)."
+      ],
+      "reasoning": "Known small-d tables validate special cases but do not dominate the claim. The package checker is verification evidence and is not used as a novelty argument.",
+      "searches": [
+        "exact number isomorphism classes spanning trees K_{3,n} complete bipartite",
+        "non-isomorphic spanning trees complete bipartite fixed part quasipolynomial",
+        "Web: Counting Unlabeled Spanning Trees of Complete Bipartite Graphs",
+        "Van den Boomen 2009 Chapter 4 K4,t table"
+      ]
+    },
+    "rationale": "The searched and inspected literature contains the bounded-core asymptotic method, general lower/upper bounds, and exact formulas only for fixed sides \\(d=2,3,4\\). No inspected source states or implies as a published theorem the exact general-\\(d\\) Burnside core sum or the consequent quasipolynomiality for every \\(m>d\\). The new step is to retain all core stabilizers exactly rather than discard repeated leaf multiplicities as a lower-order error.",
+    "residual_risks": [
+      "The 2008 Mohr thesis itself was not directly inspected. Van den Boomen explicitly reports only Mohr's \\(K_{2,t}\\) and \\(K_{3,t}\\) formulas before deriving \\(K_{4,t}\\), which lowers but does not eliminate the archival risk of an unreported general statement.",
+      "Search failure is not treated as novelty proof; acceptance rests on statement-level comparison with the most relevant recent full texts and the historical exact-formula thesis.",
+      "The actual minimal quasipolynomial period may be a proper divisor of \\(\\operatorname{lcm}(1,\\ldots,d)\\); the claim asserts only divisibility."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the bounded core and leaf-vector decomposition and the leading asymptotic, but no exact Burnside sum or quasipolynomial theorem.",
+        "evidence": "Section 5.1 counts labelled cores as \\(d^{k-1}k!S(d-1,k)\\), counts all leaf vectors by stars and bars, and treats equal-coordinate vectors only as an \\(O_d(m^{d-2})\\) exceptional set.",
+        "identifier_or_url": "arXiv:2609.30201v1",
+        "material_read": "Abstract, Proposition 5.1, and the full Section 5.1 proof including Claims 0.1--0.3 and the labelled-core count.",
+        "method": "Full rendered preprint text inspection.",
+        "title": "An extremal theorem for non-isomorphic spanning trees",
+        "trigger": "Initiating recent source and closest statement about the number of spanning-tree types in fixed-side complete bipartite graphs."
+      },
+      {
+        "assessment": "Studies the same invariant for \\(K_{a,b}\\) but does not provide an exact fixed-side formula.",
+        "evidence": "The abstract and introduction explicitly describe lower and upper bounds for \\(I_{a,b}\\).",
+        "identifier_or_url": "arXiv:2602.06867v2",
+        "material_read": "Abstract, introduction, and main-results section establishing degree-partition realizability and lower/upper bounds.",
+        "method": "Full rendered preprint text inspection.",
+        "title": "Counting Isomorphism Classes of Spanning Trees of Complete Bipartite Graphs",
+        "trigger": "Most directly titled recent primary source on the exact host family."
+      },
+      {
+        "assessment": "Covers exact fixed sides \\(d=2,3,4\\) but states no arbitrary fixed-\\(d\\) quasipolynomial or core-cycle-index formula.",
+        "evidence": "Chapter 4 says Mohr proved \\(K_{2,t}\\) and \\(K_{3,t}\\); Section 4.2 derives \\(K_{4,t}\\); the table gives \\(28,45,73,105,152\\) for \\(t=5,\\ldots,9\\).",
+        "identifier_or_url": "J. van den Boomen, Radboud University Nijmegen, Master Thesis, July 2009",
+        "material_read": "Thesis metadata, Chapter 4 introduction, Theorem 4.7, Section 4.2, the \\(K_{4,t}\\) value table, and references identifying Mohr (2008).",
+        "method": "Public text inspection.",
+        "title": "Non-isomorphic spanning trees of graphs",
+        "trigger": "Search exposed historical exact complete-bipartite formulas that could cover small fixed sides or a general statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5a027c7-8a65-443a-9e8c-9e98d5c40b09",
+  "value": {
+    "rationale": "This is a motivated exact refinement of the fixed-side complete-bipartite baseline in a new extremal spanning-tree theorem. It replaces an asymptotic error term by a uniform exact cycle-index formula, explains the residue-class behavior of known fixed sides \\(d=2,3,4\\), and gives an explicit finite computation scheme for every fixed \\(d\\). The contribution is structural and all-order, not a small numerical increment.",
+    "status": "PASS"
+  }
+}
