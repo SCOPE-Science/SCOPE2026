@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The disease-free SDE linearization is geometric Brownian motion with exponent \\(a-\\sigma^2/2\\). Substitution into the published BIM weight gives the stated positive iid multiplier. Expanding its expected logarithm with exact half-normal moments yields the displayed coefficients; an integrable fourth-derivative bound justifies the remainder, and strict monotonicity in \\(a\\) gives the nearby unique threshold root. The specialization satisfies the source convergence hypothesis \\(F_2/S=\\sigma/K\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Wang–Dai, arXiv:2308.05287 / DOI 10.1007/s10092-024-00606-z, proves extinction and persistence preservation for every step size for a different logarithmic Milstein-type SIS scheme.",
+        "Yang–Huang, DOI 10.1007/s11075-023-01617-7, studies extinction preservation for another positivity-preserving explicit SIS scheme.",
+        "The motivating BIM paper proves fixed-finite-time mean-square convergence and arbitrary-step domain invariance, not equality of its fixed-step almost-sure transverse exponent with the SDE exponent."
+      ],
+      "reasoning": "Broader literature establishes that long-time dynamics preservation can be designed and proved, but those results concern different discretizations and do not dominate the source-specific BIM calculation. Fixed-time strong convergence does not imply equality of fixed-step infinite-time Lyapunov exponents.",
+      "searches": [
+        "balanced implicit methods dynamic consistency long-time stability threshold stochastic epidemic",
+        "An unconditional boundary and dynamics preserving scheme for the stochastic epidemic model",
+        "Strong convergence and extinction of positivity preserving explicit scheme for the stochastic SIS epidemic model"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00285-026-02392-4",
+      "doi:10.14232/ejqtde.2019.1.14",
+      "arxiv:2308.05287",
+      "doi:10.1007/s10092-024-00606-z",
+      "doi:10.1007/s11075-023-01617-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schurz–Tosun (2019) proves sufficient disease-free stochastic stability conditions for the exact SIS system and presents BIM (4.10), while explicitly omitting further quantitative analysis of that numerical algorithm in the model paper.",
+        "Schurz–Tosun (2026) supplies the convergence theorem on fixed finite intervals and the same balancing weight, but no implication from that theorem fixes a finite-step infinite-time exponent.",
+        "The different dynamics-preserving schemes show that exact threshold preservation is an additional property, not a formal corollary of positivity or finite-time convergence."
+      ],
+      "reasoning": "None of the inspected prior statements implies the new claim. The continuous exact stability result concerns the SDE; finite-time convergence concerns vanishing step size on fixed horizons; and competing dynamics-preserving schemes use different update maps.",
+      "searches": [
+        "Stability of stochastic SIS model with disease deaths and variable diffusion rates balanced implicit method",
+        "10.14232/ejqtde.2019.1.14",
+        "stochastic SIS numerical scheme reproduces extinction persistence any step size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source was inspected in full at DOI 10.1007/s00285-026-02392-4, especially SIS equations (39)–(45) and the conclusion.",
+        "The same-model 2019 paper DOI 10.14232/ejqtde.2019.1.14 was inspected at its stochastic SIS model, disease-free stability section, BIM (4.10), and convergence appendix.",
+        "Closest published published-finding corpus records returned by the alias searches concerned unrelated dengue switching, coupled-SEIR thresholds, and generic stochastic/numerical stability rather than this BIM multiplier."
+      ],
+      "reasoning": "No inspected source states an equivalent expected-log multiplier formula or the order-square-root displacement for this BIM. The exact source and predecessor cover the model and method but not the claimed finite-step local threshold asymptotic.",
+      "searches": [
+        "10.1007/s00285-026-02392-4",
+        "balanced implicit method SIS stochastic epidemic finite-step Lyapunov exponent disease-free threshold",
+        "BIM stochastic SIS disease-free equilibrium numerical invasion threshold absolute Brownian increments",
+        "balanced implicit SIS Lyapunov threshold sqrt(h)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-title and DOI searches located the motivating article and bibliographic mirrors but no table or database entry containing the claimed multiplier or threshold expansion.",
+        "The current private ledger was searched for the DOI, exact title, balanced-implicit aliases, and finite-step Lyapunov-threshold aliases; no overlapping source or claim was found."
+      ],
+      "reasoning": "The claim is a derived analytic invariant of the source equations rather than a tabulated numerical value. No inspected exact-source record or existing private finding supplied it.",
+      "searches": [
+        "Numerical Analysis of BIMs for Stochastic SIR and SIS Models with Variable Contact Diffusion Rates threshold Lyapunov",
+        "10.1007/s00285-026-02392-4",
+        "square-root step-size bias balanced implicit SIS Lyapunov threshold"
+      ]
+    },
+    "rationale": "Exact-source, alias, implication, and dynamics-preserving searches found the motivating BIM analysis, its 2019 same-model predecessor, and different SIS schemes preserving extinction or persistence, but no inspected source stating or implying the source-specific expected-log multiplier or its square-root threshold displacement.",
+    "residual_risks": [
+      "Search coverage cannot establish universal absence from all numerical-SDE literature.",
+      "The motivating paper’s phrase dynamic consistency is broad; this finding identifies a precise fixed-step local threshold limitation and does not invalidate its finite-time convergence theorem.",
+      "The result is specialized to \\(F_1\\equiv0\\) and \\(F_2(S,I)=\\sigma S/K\\) and does not imply a general mismatch for all diffusion functions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the update from which the multiplier follows and proves fixed-finite-time convergence, but does not state the finite-step transverse Lyapunov exponent or its threshold asymptotic.",
+        "evidence": "DOI 10.1007/s00285-026-02392-4; published 2026-05-14; MSC list begins 92D30.",
+        "identifier_or_url": "doi:10.1007/s00285-026-02392-4",
+        "material_read": "Full open-access HTML; Introduction, Section 4 equations (39)–(45), Theorems 11–12, simulations, conclusion, and MSC metadata.",
+        "method": "Full-text equation and theorem inspection.",
+        "title": "Numerical Analysis of BIMs for Stochastic SIR and SIS Models with Variable Contact Diffusion Rates",
+        "trigger": "Exact motivating source defining the SIS model, BIM weight, convergence theorem, and dynamic-consistency claim."
+      },
+      {
+        "assessment": "Provides exact-system stability results and the same BIM form, but no finite-step expected-log threshold or square-root displacement.",
+        "evidence": "EJQTDE 2019 No. 14, DOI 10.14232/ejqtde.2019.1.14.",
+        "identifier_or_url": "doi:10.14232/ejqtde.2019.1.14",
+        "material_read": "Primary open-access PDF pages covering the stochastic model, disease-free stability, BIM (4.10), discussion of omitted quantitative numerical analysis, and convergence appendix.",
+        "method": "Full-text PDF inspection including equation-level review.",
+        "title": "Stability of stochastic SIS model with disease deaths and variable diffusion rates",
+        "trigger": "Same SIS family and earlier use of the balanced implicit method."
+      },
+      {
+        "assessment": "Proves any-step extinction and persistence preservation for a different logarithmic Milstein-type method; it does not cover the balanced implicit update analyzed here.",
+        "evidence": "arXiv:2308.05287; DOI 10.1007/s10092-024-00606-z.",
+        "identifier_or_url": "arxiv:2308.05287; doi:10.1007/s10092-024-00606-z",
+        "material_read": "Primary arXiv abstract and publication metadata.",
+        "method": "Primary preprint abstract plus bibliographic cross-check.",
+        "title": "An unconditional boundary and dynamics preserving scheme for the stochastic epidemic model",
+        "trigger": "Closest retrieved literature explicitly targeting extinction/persistence preservation for SIS discretization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "168b7afa-dfef-49ad-b234-a8ceeeb2fd0d",
+  "value": {
+    "rationale": "The disease-free invasion/extinction threshold is a central long-time qualitative quantity in epidemic simulation. The source explicitly motivates BIMs by dynamic consistency, while the calculation shows an order-square-root fixed-step shift within the paper's own convergence class. This distinguishes finite-h long-time behavior from fixed-horizon convergence and quantifies the leading correction, a structurally meaningful numerical-analysis fact rather than a parameter-table recomputation.",
+    "status": "PASS"
+  }
+}
