@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Diagonalizing the SPD Hessian reduces the published iteration exactly to \\(u_{k+1}=(1+m-s)u_k-mu_{k-1}\\), with \\(m=\\alpha-\\theta\\lambda\\) and \\(s=\\beta\\lambda\\). The necessary-and-sufficient quadratic Jury conditions give \\(-1<m<1\\) and \\(0<s<2(1+m)\\). For \\(0\\le\\alpha<1\\), requiring this over all \\(\\lambda\\in[\\mu,L]\\) reduces exactly to \\(L(\\beta+2\\theta)<2(1+\\alpha)\\). Root-product and discriminant arguments prove the complete modewise rate optimum, including the one-update cancellation at \\(m=0,s=1\\). The packaged checker independently reconstructs these identities and characteristic-root spot checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025/2026 primary source proves sufficient convergence on strongly quasiconvex/nonconvex settings under restrictions involving \\(\u0007lpha,\theta,\beta,L\\), not a necessary-and-sufficient quadratic spectral criterion.",
+        "Attouch--Chbani--Fadili--Riahi use Hessian-driven damping through gradient differences but with different inertial recurrences and coefficient schedules.",
+        "The closest exact database result is a real-root barrier for classical heavy ball over an SPD spectral interval and has no Hessian-correction parameter."
+      ],
+      "reasoning": "Broad convergence results for different inertial schemes do not imply the specific characteristic polynomial of the constant-parameter method studied here. The primary theorem is sufficient over a broader function class and therefore does not dominate a sharp quadratic classification outside its proof range.",
+      "searches": [
+        "arXiv:2506.15632v1 full text: heavy-ball Hessian-correction algorithm, main convergence theorem, parameter discussion",
+        "arXiv:1907.10536v2 full text: gradient-difference Hessian damping and strongly-convex spectral discussion",
+        "Published research database record 5f3230b80158"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.15632v1",
+      "DOI:10.1007/s00245-026-10406-2",
+      "arXiv:1907.10536v2",
+      "DOI:10.1007/s10107-020-01591-1",
+      "published research database record 5f3230b80158"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source's theorem requires, for positive momentum, \\(\theta<\u0007lpha/(L\\sqrt3)\\), so its sufficient region cannot reach the isotropic cancellation point \\(\theta=\u0007lpha/L\\).",
+        "The source provides no exact quadratic spectral-radius or one-step-annihilation theorem.",
+        "The older Hessian-damping paper's inspected strongly-convex spectral discussion concerns a different discrete system.",
+        "The classical-heavy-ball exact record corresponds to a family without the gradient-difference Hessian correction."
+      ],
+      "reasoning": "No inspected prior statement implies both the exact global SPD stability budget and the modewise optimal/cancellation law. The result is not merely a corollary of the primary sufficient theorem because its exact cancellation point lies outside that theorem's positive-momentum proof range.",
+      "searches": [
+        "arXiv:2506.15632v1 algorithm and Theorem 15 parameter region",
+        "arXiv:2506.15632v1 discussion of \\(\u0007lpha\\) momentum, \\(\theta\\) Hessian correction, and \\(\beta\\) step size",
+        "arXiv:1907.10536v2 gradient-difference Hessian-damping algorithms",
+        "Published research database record 5f3230b80158 complete summary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2506.15632v1 gives the same constant-parameter heavy-ball Hessian-correction update.",
+        "No inspected database record states the exact effective momentum \\(m=\u0007lpha-\theta\\lambda\\) together with the derived stability budget and rate optimum.",
+        "The nearest classical-heavy-ball record studies fixed-parameter heavy ball without any Hessian-correction term."
+      ],
+      "reasoning": "Searches used the method name and aliases, gradient-difference implementation, scalar/SPD quadratic geometry, effective momentum, exact Schur stability, spectral radius, and one-step cancellation. The only close exact result belongs to the uncorrected heavy-ball family.",
+      "searches": [
+        "Published research database: Hessian-driven heavy ball quadratic exact spectral radius momentum cancellation theta beta",
+        "Published research database: heavy ball Hessian correction effective momentum alpha minus a theta scalar quadratic",
+        "Published research database: gradient difference heavy ball exact stability L(beta+2theta) 2(1+alpha)",
+        "Web literature: Hessian correction heavy ball quadratic spectral radius momentum cancellation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching record returned the formula \\(L(\beta+2\theta)<2(1+\u0007lpha)\\).",
+        "No matching record returned the one-update condition \\(\theta=\u0007lpha/\\lambda,\\ \beta=1/\\lambda\\).",
+        "The closest returned optimization record 5f3230b80158 concerns uncorrected heavy ball."
+      ],
+      "reasoning": "The result is an analytic phase classification of a newly parameterized algorithm, not a recomputation of a numerical table or stored benchmark.",
+      "searches": [
+        "Published research database: Hessian corrected heavy ball beta plus 2 theta stability SPD quadratic",
+        "Published research database: Hessian-driven heavy ball one-step termination theta alpha over curvature",
+        "Published research database: 2506.15632 quadratic exact stability"
+      ]
+    },
+    "rationale": "The recent primary paper defines the Hessian-corrected heavy-ball method and proves broad sufficient convergence conditions but does not state an exact SPD spectral phase diagram or matched-curvature cancellation law. The foundational Hessian-damping source uses different discrete dynamics. Targeted database searches for the effective-momentum formula, exact stability budget, and one-step cancellation returned no equivalent statement. The closest heavy-ball database result omits Hessian correction.",
+    "residual_risks": [
+      "The inertial-optimization literature is extensive, and an equivalent scalar calculation may exist under different gradient-difference or Hessian-damping notation.",
+      "The modewise cancellation identity is elementary once the quadratic recurrence is written; originality rests on the complete exact stability/rate phase and its interpretation for the recent constant-parameter method.",
+      "No claim is made that the matched-curvature choice is minimax-optimal on a nontrivial spectral interval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the analyzed method and gives broad sufficient convergence conditions, but no exact SPD spectral stability budget or matched-curvature cancellation result was found.",
+        "evidence": "The method uses a momentum displacement minus a gradient-difference correction before the gradient step; the theorem imposes \\(\theta<\u0007lpha/(L\\sqrt3)\\) for positive momentum.",
+        "identifier_or_url": "arXiv:2506.15632v1 / DOI:10.1007/s00245-026-10406-2",
+        "material_read": "Full-text portions containing the algorithm definition, the strongly-quasiconvex convergence theorem and its parameter inequalities, the parameter-role discussion, and publication/classification metadata.",
+        "method": "Full-text article inspection with targeted in-document searches for quadratic, spectral, and one-step statements.",
+        "title": "Heavy Ball and Nesterov Accelerations with Hessian-Driven Damping for Nonconvex Optimization",
+        "trigger": "Recent primary source defining the exact heavy-ball Hessian-correction iteration."
+      },
+      {
+        "assessment": "Establishes the broader Hessian-damping idea but studies different discrete recurrences and does not state the constant-parameter phase diagram derived here.",
+        "evidence": "The paper explicitly replaces Hessian-vector damping by gradient differences; its strongly-convex spectral analysis is attached to a different inertial scheme.",
+        "identifier_or_url": "arXiv:1907.10536v2 / DOI:10.1007/s10107-020-01591-1",
+        "material_read": "Full-text portions defining gradient-difference inertial algorithms and the later strongly-convex spectral/rate discussion.",
+        "method": "Full-text preprint inspection.",
+        "title": "First-order optimization algorithms via inertial systems with Hessian driven damping",
+        "trigger": "Foundational literature on implementing Hessian-driven damping by gradient differences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d7ec7c84-f6a5-44b7-a857-7d865dcd40c7",
+  "value": {
+    "rationale": "The primary method introduces Hessian correction as an acceleration mechanism, so understanding what that parameter does on the canonical SPD model is a natural design question. The finding gives a complete answer: correction subtracts curvature times \\(\\theta\\) from momentum, can exactly cancel inertia at a selected curvature, and consumes twice its coefficient in the sharp global stability budget. The one-update isotropic case and the full modewise rate law are structural parameter-design facts, not arbitrary finite computations, and they explain both the potential benefit and the stability cost of Hessian-driven damping.",
+    "status": "PASS"
+  }
+}
