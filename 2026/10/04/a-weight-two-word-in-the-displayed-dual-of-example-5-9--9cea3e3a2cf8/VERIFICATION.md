@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It reconstructs the displayed original and dual over \(\mathbb F_2\), using cyclic shifts modulo \(31\) and \(9\) and the source binary Gray ordering. It obtains ranks \(29\) and \(20\), verifies every cross inner product is zero, and confirms combined rank \(48\), hence hull dimension \(1\).
+# Independent mathematical audit
 
-It verifies membership of the explicit word
-\[
-(0\mid\xi_2(1+x)),
-\]
-whose Gray weight is \(2\), and checks that none of the \(49\) binary unit vectors belongs to the dual. Finally it exhausts all \(2^{20}\) dual words and finds exactly \(36\) words of weight \(2\). Successful replay prints `VERIFY_OK`.
+## correctness
+
+PASS
+
+Using the source's ring action and Gray map, the printed dual generators satisfy \(\xi_2\star g_2+x(\xi_2\star g_2)+g_1=(0\mid\xi_2(1+x))\), whose binary Gray image has weight two. An independent exact reconstruction of all cyclic-shift row spaces verified dimensions 29 and 20 for the displayed original and dual, all cross inner products zero, combined rank 48, hull dimension one, membership of the explicit word at Gray coordinates 41 and 42, absence of every unit vector, and exactly 36 weight-two dual words. Thus the displayed dual has minimum distance exactly two. Substitution into the source's Theorem 5.4 gives the displayed-data branch \([[49,19,2;28]]_2\).
+
+## originality
+
+PASS
+
+The primary 2026 article was freshly inspected in the PDF at Example 5.9: it prints the same dual generator, labels its Gray image \([49,20,9]\), and states \([[49,19,9;28]]\). The exact weight-two identity contradicts that displayed-object distance. Fresh Resultary and exact parameter/correction searches did not locate an earlier public correction. Earlier hull-based EAQECC papers concern different code families and do not determine this generator's minimum distance.
+
+## value
+
+PASS
+
+The correction changes a worked classical minimum distance from 9 to 2 and propagates to the paper's displayed EAQECC branch, removing the claimed distance-nine error-correction performance for that example. A two-line symbolic witness plus a complete exact reconstruction makes the issue readily verifiable while leaving the general hull theorem untouched. This is a substantive published-example correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

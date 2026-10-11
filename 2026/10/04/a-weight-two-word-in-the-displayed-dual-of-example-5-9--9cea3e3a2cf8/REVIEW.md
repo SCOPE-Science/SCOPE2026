@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The printed dual generators satisfy
-\[
-\xi_2\star g_2+x(\xi_2\star g_2)+g_1=(0\mid\xi_2(1+x)).
-\]
-The source Gray map sends \(\xi_2\) to \((0,1)\), so this is a binary weight-\(2\) word. Exact reconstruction gives a rank-\(20\) dual, excludes every weight-\(1\) vector, and exhausts all \(2^{20}\) words, finding exactly \(36\) of weight \(2\). The rank-\(29\) original and rank-\(20\) dual are cross-orthogonal, and their combined rank gives hull dimension \(1\).
+PASS
 
-## Originality
+Using the source's ring action and Gray map, the printed dual generators satisfy \(\xi_2\star g_2+x(\xi_2\star g_2)+g_1=(0\mid\xi_2(1+x))\), whose binary Gray image has weight two. An independent exact reconstruction of all cyclic-shift row spaces verified dimensions 29 and 20 for the displayed original and dual, all cross inner products zero, combined rank 48, hull dimension one, membership of the explicit word at Gray coordinates 41 and 42, absence of every unit vector, and exactly 36 weight-two dual words. Thus the displayed dual has minimum distance exactly two. Substitution into the source's Theorem 5.4 gives the displayed-data branch \([[49,19,2;28]]_2\).
 
-PASS. The article states \([49,20,9]_2\) and \([[49,19,9;28]]_2\), but no public correction was found. Searches using the DOI, title, Example 5.9, both disputed parameter strings, corrected distance, and erratum terminology found no prior same-object statement. Related hull-based EAQECC literature concerns other code families.
+## originality
 
-## Value
+PASS
 
-PASS. Changing the dual distance from \(9\) to \(2\) invalidates the distance-\(9\) conclusion of a worked EAQECC example and its stated performance comparison for that displayed construction. The correction is backed by a short symbolic witness and a complete finite reconstruction.
+The primary 2026 article was freshly inspected in the PDF at Example 5.9: it prints the same dual generator, labels its Gray image \([49,20,9]\), and states \([[49,19,9;28]]\). The exact weight-two identity contradicts that displayed-object distance. Fresh Resultary and exact parameter/correction searches did not locate an earlier public correction. Earlier hull-based EAQECC papers concern different code families and do not determine this generator's minimum distance.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The correction changes a worked classical minimum distance from 9 to 2 and propagates to the paper's displayed EAQECC branch, removing the claimed distance-nine error-correction performance for that example. A two-line symbolic witness plus a complete exact reconstruction makes the issue readily verifiable while leaving the general hull theorem untouched. This is a substantive published-example correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
