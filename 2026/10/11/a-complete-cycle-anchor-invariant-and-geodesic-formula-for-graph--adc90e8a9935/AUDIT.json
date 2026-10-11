@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For equal cycle evaluations the half-difference of ±1 orientation cochains is a cocycle with zero integrals, hence an integer vertex gradient h. Every X-directed edge has drop 0 or 1; identical cycle signatures fix every oriented directed cycle in X and Y. Legal flexes never touch its cyclic vertices, giving the necessary common anchor. At a positive maximum potential the induced set has no incoming external arcs and no directed cycle (all cyclic vertices have normalized h=0), so it contains a global source that can be flexed to decrease h by one. The dual negative minimum yields a global sink that increases h by one. Iteration gives Y; per-vertex signed flip counts give matching ℓ1 lower bound, optimized by a median when no cycles, or anchored by their common level. No infinite inference is drawn from the 62,804 finite orientation-pair checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aichholzer et al §2.6 explicitly contracts every directed cycle, assumes resulting c-orientations acyclic, and fixes a root for Theorem 10: https://link.springer.com/article/10.1007/s00453-020-00751-1",
+        "Propp abstract covers fixed-circulation lattices: https://arxiv.org/abs/math/0209005"
+      ],
+      "reasoning": "The stronger classical algorithm handles acyclic c-orientations after contracting frozen cycles. A contraction allows supervertex moves that cannot be implemented by a single flex of a cyclic vertex in the original graph. The cycle-anchor obstruction and the original Flex(G) geodesic are therefore not supplied by its stated theorems, though earlier lattice technology supplies the acyclic case.",
+      "searches": [
+        "graph orientation c-orientation source-to-sink sink-to-source reversals recurrent cyclic vertices unflippable split of c-orientation classes",
+        "https://link.springer.com/article/10.1007/s00453-020-00751-1",
+        "https://arxiv.org/abs/math/0209005"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s41468-026-00235-1",
+      "https://link.springer.com/article/10.1007/s00453-020-00751-1",
+      "https://arxiv.org/abs/math/0209005",
+      "https://www.mdpi.com/2227-7390/4/2/39",
+      "https://arxiv.org/abs/1902.06103",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v32i4p26"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kozlov 2026 explicitly asks Question 2 for algebraic invariant completing the signature: https://link.springer.com/article/10.1007/s41468-026-00235-1",
+        "Aichholzer et al 2021 §2.6 contracts cyclic regions before Theorem 10 on acyclic c-orientations: https://link.springer.com/article/10.1007/s00453-020-00751-1",
+        "Aichholzer Theorem 6 requires special fixed-root vertex flips and translates cyclic cases through contraction: https://link.springer.com/article/10.1007/s00453-020-00751-1"
+      ],
+      "reasoning": "Proposition 7.2 of Kozlov proves only that one flex preserves signature; Fig. 18 disproves sufficiency. The new additional invariant is constant-h on *all* cyclic vertices, and constructive extrema flips prove it sufficient. Fixed-root acyclic lattice theorems cover C empty but do not by themselves assert reachability when C has disjoint frozen components. The distance formula matches known acyclic mechanisms but adds a precise necessary-and-sufficient cyclic case.",
+      "searches": [
+        "Dmitry Kozlov 2026 Flex complexes of graphs Question 2 graph signature insufficient connected component classification cyclic anchors fixed source sink orientations potential geodesic",
+        "complete classification connected components flex complexes orientations same graph signature directed cyclic vertices potential differences restriction constant shortest flip distance sum absolute",
+        "graph orientation c-orientation source-to-sink sink-to-source reversals recurrent cyclic vertices unflippable split of c-orientation classes",
+        "https://link.springer.com/article/10.1007/s41468-026-00235-1",
+        "https://link.springer.com/article/10.1007/s00453-020-00751-1",
+        "https://arxiv.org/abs/math/0209005"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kozlov 2026 explicitly asks Question 2 for algebraic invariant completing the signature: https://link.springer.com/article/10.1007/s41468-026-00235-1",
+        "Toric posets identify source-to-sink classes of acyclic orientations only: https://www.mdpi.com/2227-7390/4/2/39"
+      ],
+      "reasoning": "Signature equals c-orientation circulation data. The classical click-equivalence and toric-poset formulations concern acyclic orientations. A cyclic directed component is pointwise unflippable in original Flex(G), and the relative values of h on all cyclic vertices give an additional invariant, not simply a rephrasing of the acyclic classification.",
+      "searches": [
+        "Dmitry Kozlov 2026 Flex complexes of graphs Question 2 graph signature insufficient connected component classification cyclic anchors fixed source sink orientations potential geodesic",
+        "Kozlov Flex(G) components cycle anchor integer vertex potential directed cycles source sink flipping median L1 exact distance",
+        "https://arxiv.org/abs/math/0209005",
+        "https://www.mdpi.com/2227-7390/4/2/39"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest hit 2026/10/4/SCOPE-exact-flip-distance-enumerator-of-cross-polytope-coherent-monoto--defb8aa48da1 concerns a different cross-polytope path flip graph.",
+        "published-finding corpus nearest 2026/10/4/SCOPE-the-directed-hom-complex-operatorname-hom-overrightarrow-c-3-r-9--879b51cbdd1a concerns a directed Hom complex, not Flex(G).",
+        "Kozlov §8 enumerates graph-family flex numbers, and §9 still asks classification: https://link.springer.com/article/10.1007/s41468-026-00235-1"
+      ],
+      "reasoning": "The claim covers every finite connected graph and any pair of orientations; a table of family-level component counts cannot imply this exact reachability/geodesic rule, and no exact encoded orientation-pair table or generalized formula was identified.",
+      "searches": [
+        "complete classification connected components flex complexes orientations same graph signature directed cyclic vertices potential differences restriction constant shortest flip distance sum absolute",
+        "Kozlov Flex(G) components cycle anchor integer vertex potential directed cycles source sink flipping median L1 exact distance",
+        "Dmitry Kozlov 2026 Flex complexes of graphs Question 2 graph signature insufficient connected component classification cyclic anchors fixed source sink orientations potential geodesic",
+        "graph orientation c-orientation source-to-sink sink-to-source reversals recurrent cyclic vertices unflippable split of c-orientation classes"
+      ]
+    },
+    "rationale": "Full mathematical implication comparison found the novelty at frozen vertices of arbitrary directed cycles, rather than the previously known acyclic/contracted c-orientation lattice. Kozlov explicitly asks for a complete augmentation of signature; the cycle-anchor potential gives an if-and-only-if answer and an explicit all-orientations exact distance. Two original-graph cycles at distinct potential levels are disconnected despite identical signatures; contraction changes the move relation. Published comparable results were compared on hypotheses and reductions; uninspected older sources remain a stated residual risk.",
+    "residual_risks": [
+      "Propp 2002/2025 original full-text PDF was not accessible in this inspection; the cited theorem and abstract were compared and do not alone decide whether an uninspected lemma implicitly implies the cyclic criterion.",
+      "Some earlier language of c-orientations and chip-firing might contain an unindexed algebraically equivalent reformulation.",
+      "The result is a new original-graph cyclic reachability and geodesic theorem; the acyclic case by itself is not claimed novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the operation being classified; proves only one-way signature invariance; supplies same-signature disconnected example; expressly asks for augmented complete invariant, and does not state cyclic-anchor potential criterion or exact all-orientations distance.",
+        "evidence": [
+          "Original §1.2 specifies legal source/sink reversal, §§7/9 Proposition 7.2 and Question 2: https://link.springer.com/article/10.1007/s41468-026-00235-1"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s41468-026-00235-1",
+        "material_read": "Full accessible HTML article, §§1–2 on flex definitions, §7 on signed 1-cochain and Proposition 7.2, Fig. 18 and §9 Question 2; introductory summary of §§5–6 and tables also examined.",
+        "method": "Read original full-text HTML with section searches and adjacent material, compared conditions and conclusions.",
+        "title": "Flex complexes of graphs",
+        "trigger": "Original 2026 research object, its exact graph signature invariant and open component-classification Question 2."
+      },
+      {
+        "assessment": "Strong earlier acyclic c-orientation shortest-path algorithm and distributive-lattice coverage; cycle contraction is used before its root-fixed acyclic vertex-flip theorem. Does not state the extra obstruction from relative potential on different frozen original directed cycles, nor unrestricted original flex distance with such components. Acyclic branch is recognized as classically covered.",
+        "evidence": [
+          "§2.6 cycle contraction and fixed-root vertex operation; Theorem 10 acyclic hypothesis: https://link.springer.com/article/10.1007/s00453-020-00751-1"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-020-00751-1",
+        "material_read": "Full accessible HTML §2.5–2.6 defining cycle signature, fixed-root vertex flips and directed-cycle contraction; Theorems 4 and 6; §5 Lemma 2 and Theorem 10 proof.",
+        "method": "Read theorem statements and mathematical hypotheses, checked equivalence of edge signatures and divergence of the move sets on original cyclic vertices.",
+        "title": "Flip Distances Between Graph Orientations",
+        "trigger": "Potential dominating c-orientation and flip-distance theorem."
+      },
+      {
+        "assessment": "Lattice structure applies after treating directed cycles and designated root; its general formulation might offer an alternate derivation, so older uninspected original text remains a risk. No precise theorem covering original-graph frozen cycle anchors or the displayed geodesic was identified.",
+        "evidence": [
+          "Propp abstract: https://arxiv.org/abs/math/0209005",
+          "Citation and theorem scope in Aichholzer et al §2.6: https://link.springer.com/article/10.1007/s00453-020-00751-1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0209005",
+        "material_read": "Full publicly accessible abstract and bibliographic information; cited Theorem 1 characterization as represented in Aichholzer et al §2.6; original PDF retrieval did not succeed.",
+        "method": "Abstract plus the precise downstream theorem statement; did not infer absence from inaccessible original pages.",
+        "title": "Lattice structure for orientations of graphs",
+        "trigger": "Classical possible broader lattice theorem for orientations of fixed cycle circulations."
+      },
+      {
+        "assessment": "Studies equivalence under source-to-sink transformations among *acyclic* orientations, and does not decide disconnected cyclic strata or their shortest flex paths.",
+        "evidence": [
+          "Abstract and introductory definitions: https://www.mdpi.com/2227-7390/4/2/39"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/4/2/39",
+        "material_read": "Publisher full-text abstract and definitions in the introduction concerning equivalence of acyclic orientations.",
+        "method": "Read relevant named orientation class and hypotheses.",
+        "title": "Morphisms and Order Ideals of Toric Posets",
+        "trigger": "Search for equivalent source-to-sink flip equivalence formulations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "adc90e8a-9935-4527-bfaa-86d9e3f8852c",
+  "value": {
+    "rationale": "Kozlov explicitly poses the component-classification problem as Question 2 after exhibiting a failure of signature alone. The cycle-anchor potential supplies an all-graph complete new algebraic invariant, detects equal-signature disconnected orientations and computes exact shortest source/sink flip sequences without collapsing frozen cyclic components. This is a structural solution to a motivated topology problem, not merely tabulation or arbitrary parameter slicing.",
+    "status": "PASS"
+  }
+}
