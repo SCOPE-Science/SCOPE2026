@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The induced-map norm and pointwise action follow from the established universal property. The finite-dimensional free-lattice identification with continuous functions, and the displayed norm tested in one supporting direction, rigorously bound localized bump norms. Pairwise disjoint bumps are weakly null; every compact operator kills them in norm. Testing their images at dual norm-one functionals yields the full lower essential-norm bound. A two-dimensional restriction transfers it to all Banach domains. Rank at most one factors through a two-dimensional lattice. These steps cover both \(p<\infty\) and \(p=\infty\); no experimental extrapolation is made.
+
+**Originality — PASS, subject to the stated literature risks.** The directly inspected Oikhberg–Taylor–Tradacete–Troitsky paper supplies the universal construction, the finite-dimensional continuous-function model and weak-compactness observations, but no equivalently quantified compact-distance theorem was identified. General exact essential norms of composition operators on ordinary \(C(K)\) spaces are not automatically norm-preserving after transfer to \(\mathrm{FBL}^{(p)}\) when \(p<\infty\). Targeted searches for equivalent formulations, rank thresholds, stronger covering theorems and exact operator ideal tables found no covering statement. A formulation not using free-lattice vocabulary could still exist.
+
+**Mathematical value — PASS.** The theorem provides the complete essential-norm classification of canonical induced maps uniformly over all Banach domains, all targets and all \(p\)-convexity parameters. It shows a sharp and non-perturbative rank-one/rank-two transition, gives flat approximation-number profiles, and demonstrates failure of operator-norm continuity for this natural functor. The key phenomenon is invisible at the level of the finite-dimensional inducing maps themselves.
+
+The claim is limited to real free lattices and induced homomorphisms. Weak compactness and other operator-ideal distances are not classified. The principal novelty risk is a differently formulated result in the existing composition-operator literature; this would need independent bibliographic assessment.
+
+Same-model review: passed. Independent audit: not yet performed.
