@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Theorem 3.1 of arXiv:1505.04672v1 yields F/L=E q(U²)^(d-1), U~Beta(d,n-d+1), after binomial/Beta normalization. Multiplying by U² tilts to Beta(d+2,n-d+1). The sinc-square-root kernel q is strictly convex on [0,1] by its cosine integral and positive second derivative; hence the secant deficit h=(1-q^(d-1))/z is strictly decreasing. Beta stochastic ordering gives strict R_(n+1)>R_n; bounded convergence gives limit and the n=d+1 simplex gives the sharp other endpoint. Analytic quantifiers include all dimensions at least two and sample sizes at least dimension plus one, and both strictness/equality conditions. An executed 144-case 55-digit verifier supplements but does not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonnet et al., arXiv:1703.02321v1, Theorem 8: strict increase of unscaled expected facet counts; not an ordering of (n+1)(n+2) times the relative deficit.",
+        "Kabluchko, arXiv:1901.10528v4, §2: exact expected f-vector in halfsphere, no all-n sharp normalized-error ordering claimed."
+      ],
+      "reasoning": "Unscaled monotonicity in the broader 2017 model does not imply monotonicity of the rescaled error to a finite limiting value: multiplication by a growing quadratic weight can reverse the order. The 2019 all-face exact formula is pointwise and not a proved ordering of its normalized deficit.",
+      "searches": [
+        "strict monotonicity expected number facets spherical convex hull n independent uniformly distributed points on hemisphere all d",
+        "arxiv:1703.02321v1 Theorem 8",
+        "arxiv:1901.10528v4 §2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1505.04672v1",
+      "arxiv:1703.02321v1",
+      "arxiv:1901.10528v4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bárány–Hug–Reitzner–Schneider, arXiv:1505.04672v1, Theorem 3.1: exact facet expectation integral; Lemma 4.1: leading second-order asymptotic only.",
+        "Bonnet et al., arXiv:1703.02321v1, Theorem 8: strict increase of unscaled expected facet counts; not an ordering of (n+1)(n+2) times the relative deficit.",
+        "Kabluchko, arXiv:1901.10528v4, §2: exact expected f-vector in halfsphere, no all-n sharp normalized-error ordering claimed."
+      ],
+      "reasoning": "2015 provides the starting identity and asymptotics; 2017 provides only strict raw facet-count increase; 2019 provides explicit F_n. The present claim asserts strictly ordered ((n+1)(n+2))(1-F_n/L) across every pair of consecutive sample sizes, plus sharp endpoint constants. Those propositions are neither stated in these inspected texts nor logical consequences of the quoted unscaled monotonicity and asymptotic alone; the additional curvature/tilting argument is essential.",
+      "searches": [
+        "arxiv:1505.04672v1 Theorem 3.1 Lemma 4.1",
+        "arxiv:1703.02321v1 Theorem 8",
+        "arxiv:1901.10528v4 §2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bárány–Hug–Reitzner–Schneider, arXiv:1505.04672v1, Theorem 3.1: exact facet expectation integral; Lemma 4.1: leading second-order asymptotic only.",
+        "Kabluchko, arXiv:1901.10528v4, §2: exact expected f-vector in halfsphere, no all-n sharp normalized-error ordering claimed."
+      ],
+      "reasoning": "Equivalent formulations include normalized relative convergence bias, beta-weighted sinc secant deficit, and the resulting all-n facet envelope. The 2015 integral transforms exactly into a beta expectation, but its published expansion is an asymptotic relation, not a strict finite-n ordering. The 2019 formula gives values without asserting this monotonic inequality.",
+      "searches": [
+        "hemisphere random polytope normalized facet expectation deficit (n+1)(n+2) increasing n sharp two-sided finite n",
+        "beta-weighted sinc deficit normalized monotone inequality random spherical hull facet number rate",
+        "strictly increasing rescaled error in expected facets for random points in halfsphere Poisson zero polytope convergence",
+        "arxiv:1505.04672v1 Theorem 3.1 Lemma 4.1",
+        "arxiv:1901.10528v4 §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2019 work has finite tables and exact combinatorial expressions for expected face counts, which numerically determine the same raw expectations.",
+        "No comparison located for strict increase of the renormalized deficit with the optimal two endpoints."
+      ],
+      "reasoning": "A finite exact table cannot imply the asserted all-integer ordering and both globally optimal constants. Individual explicit formulas determine each quantity but do not make a proved inequality identical to a table lookup.",
+      "searches": [
+        "hemisphere random polytope normalized facet expectation deficit (n+1)(n+2) increasing n sharp two-sided finite n",
+        "arxiv:1901.10528v4 expected f-vector tables"
+      ]
+    },
+    "rationale": "The inspected sources cover the unscaled facet integral, its quadratic-order leading term, unscaled monotonicity, and exact count expressions; they do not state the separate strictly increasing normalized deficit or its sharp universal two-sided finite-n constants. The beta-tilted strictly decreasing secant-slope argument proves a parameter-order relation not immediate from prior pointwise formulas. Historical priority remains uncertain.",
+    "residual_risks": [
+      "Unindexed or older special-function work may have the same monotone beta-tilt inequality in equivalent guise.",
+      "A full independent literature audit may identify an earlier derivation; retrieved and inspected texts cannot prove global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers input integral and asymptotic only; no normalized-deficit monotonicity theorem observed",
+        "evidence": "Theorem 3.1 equations (3)–(4); Lemma 4.1 leading quadratic-order coefficient.",
+        "identifier_or_url": "https://arxiv.org/html/1505.04672v1",
+        "material_read": "Full accessible HTML, notably definitions, Theorem 3.1, Lemma 4.1, proofs and concluding remarks",
+        "method": "Read open-access primary manuscript and checked displayed formulas against beta normalization",
+        "title": "Random points in halfspheres",
+        "trigger": "Same geometric probability model and exact expected facet functional"
+      },
+      {
+        "assessment": "Unscaled facet monotonicity explicitly known; does not cover growth of scaled deficit or sharp finite-n envelope",
+        "evidence": "Theorem 8 and related classes of beta-prime/Cauchy laws.",
+        "identifier_or_url": "https://arxiv.org/html/1703.02321v1",
+        "material_read": "Full accessible HTML, including hypotheses, Theorem 8 and its proof",
+        "method": "Compared ordered quantities and distribution parameter ranges in main theorem",
+        "title": "Monotonicity of facet numbers of random convex hulls",
+        "trigger": "Strong published raw-count monotonicity for halfsphere via Euclidean projection"
+      },
+      {
+        "assessment": "Gives exact individual expected f-vector but no comparable monotonic normalized error or optimally sharp two-sided bound stated",
+        "evidence": "Section 2 expected f-vector formulas and tables.",
+        "identifier_or_url": "https://arxiv.org/html/1901.10528v4",
+        "material_read": "Full accessible HTML including statements, section on halfsphere f-vectors and accompanying tables",
+        "method": "Compared published finite-size closed forms and asymptotics with global order claim",
+        "title": "Expected f-vector of the Poisson Zero Polytope and Random Convex Hulls in the Half-Sphere",
+        "trigger": "Later exact all-face formula might dominate the finite-n statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "50c3a133-051f-4dd9-b313-0ea5b39a8731",
+  "value": {
+    "rationale": "A finite limiting mean facet number has a natural quadratic-order sampling bias. Prior work identifies its leading asymptotic, but the result supplies an exact all-sample-size shape law for its scale-corrected error and two best constants. At n=d+1 the lower bound is attained; at infinite sample size the upper coefficient is optimal. These are mathematically meaningful global quantitative bounds beyond numerical evaluation.",
+    "status": "PASS"
+  }
+}
