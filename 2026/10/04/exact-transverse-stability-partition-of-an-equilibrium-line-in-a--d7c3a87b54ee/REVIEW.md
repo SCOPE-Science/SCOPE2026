@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Substitution gives the full equilibrium line on \(b=1/c\). The Jacobian determinant factors exactly as \(\lambda(\lambda+a)(\lambda^2+(c-1)\lambda+\xi^2-c)\). With \(a>0\), the sign of the quadratic pair's sum \(1-c\) and product \(\xi^2-c\) gives the complete transverse classification. The packaged symbolic checker verifies the factorization and the source-parameter counterexample exactly. The statement that no individual line point is asymptotically stable follows immediately because arbitrarily nearby distinct equilibria never converge to it.
+## correctness
 
-## Originality
-PASS. The 2021 primary full text was inspected directly. It contains the vector field, the same equilibrium line and unfactored characteristic polynomial, a different stated Routh–Hurwitz condition, and the two numerical convergence examples, but not the factorization or the resulting exact transverse partition. Exact-title, exact-parameter, factorization, normal-stability, and citation searches found no inspected same-system correction. Semantic database searches returned only results for different vector fields. Residual risk remains for unindexed work or an equivalent result under a non-obvious transformation.
+PASS
 
-## Value
-PASS. The source explicitly uses equilibrium stability to interpret a system with a line of equilibria. The exact factorization both corrects that stability analysis and reconciles the source's own numerical examples: its first reported limiting point violates the published inequality yet lies in the true attracting region. The result also identifies the exact transition locations \(|\xi|=\sqrt c\) and the qualitative change at \(c=1\), providing a reusable analytic description of the line rather than a single numerical check.
+Direct substitution gives the equilibrium line and direct Jacobian expansion gives the exact factorization. The quadratic pair has sum \(1-c\) and product \(\xi^2-c\), yielding the full transverse partition. At the published slice \((a,c)=(2,8/3)\), \(\xi=0\) has one positive eigenvalue although the source inequality accepts it; the reported convergent coordinates lie in the true attracting region. The frozen symbolic verifier was read and reconstructs these identities exactly.
 
-The result does not address global basins or the hyperchaotic regimes away from \(b=1/c\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The open primary article was inspected at the system/equilibrium-line level. It gives the same flow, the equilibrium line and numerical convergent trajectories while its broader analysis concerns hyperchaos, bifurcations and synchronization. Resultary returned no distinct same-system correction or equivalent factorization.
+
+## value
+
+PASS
+
+This replaces an invalid published stability condition on an equilibrium continuum with a complete exact transverse partition and explains the paper's own convergent examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

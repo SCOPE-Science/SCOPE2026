@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The open-access primary article was inspected directly for the exact vector field, equilibrium line, characteristic polynomial, Equation (7), the two reported convergent line-equilibrium trajectories, and the publication date.
+# Independent mathematical audit
 
-`artifacts/verify_line_equilibria.py` reconstructs the vector field and Jacobian symbolically, verifies the equilibrium-line substitution, factors the characteristic polynomial exactly, checks the source-parameter counterexample at \(\xi=0\), and verifies that both rounded limiting coordinates reported in the source satisfy \(\xi^2>8/3\). The recorded checker output ends in `VERIFY_OK`.
+## correctness
 
-The checker verifies algebra only. The sum/product sign classification, normal-hyperbolicity interpretation, and originality/value judgments are supplied analytically in the accompanying files. No numerical integration is used as proof, and no independent audit has been performed.
+PASS
+
+Direct substitution gives the equilibrium line and direct Jacobian expansion gives the exact factorization. The quadratic pair has sum \(1-c\) and product \(\xi^2-c\), yielding the full transverse partition. At the published slice \((a,c)=(2,8/3)\), \(\xi=0\) has one positive eigenvalue although the source inequality accepts it; the reported convergent coordinates lie in the true attracting region. The frozen symbolic verifier was read and reconstructs these identities exactly.
+
+## originality
+
+PASS
+
+The open primary article was inspected at the system/equilibrium-line level. It gives the same flow, the equilibrium line and numerical convergent trajectories while its broader analysis concerns hyperchaos, bifurcations and synchronization. Resultary returned no distinct same-system correction or equivalent factorization.
+
+## value
+
+PASS
+
+This replaces an invalid published stability condition on an equilibrium continuum with a complete exact transverse partition and explains the paper's own convergent examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
