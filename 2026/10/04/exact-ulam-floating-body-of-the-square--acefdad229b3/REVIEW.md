@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof starts from the published support-point characterization and then exhausts the two possible cap combinatorics in one normal-direction octant. Exact fiber integration gives the trapezoid barycenter; the triangle centroid gives the second regime. The transition points and normal ranges agree exactly. The boundary pieces are therefore genuine support-point loci, not numerical fits. Green's formula yields the area profile, and a separate centroid identity proves the complement scaling above half-area. The packaged checker independently replays cap areas, barycenters, conic identities, boundary area, and scaling.
+PASS
 
-## Originality
+Using the published cap-barycenter support characterization, normals proportional to \((1,m)\) with \(0\le m\le1\) exhaust one octant. For \(m\le\delta/2\), direct vertical-fiber integration of the trapezoid gives \(\bar x=1-\delta/4-m^2/(3\delta)\) and \(\bar y=2m/(3\delta)\), which eliminate to the parabola. For \(m\ge\delta/2\), the right-triangle centroid gives \((1-\bar x)(1-\bar y)=2\delta/9\). Green's formula over eight symmetric sectors yields the stated logarithmic area exactly. For \(\delta>2\), the centroid identity for a cap and its complementary opposite cap gives the homothety factor \((4-\delta)/\delta\). Independent numerical cap integration and boundary-area reconstruction agree with the formulas at multiple levels, while the analytic integrations establish all levels.
 
-PASS with residual terminology risk. The primary Ulam-body paper was inspected at the definition, support characterization, main results, and full-text term level; it has no square, rectangle, or polygon specialization. The original metronoid paper and the later average-quantile framework were likewise inspected and do not state the conic boundary or exact area. published-finding corpus and web searches covered Ulam floating bodies, metronoids, average-quantile sets, zonoid trimming, square/rectangle aliases, and the distinctive parabola–hyperbola structure. No equivalent or stronger covering statement was located.
+## originality
 
-## Value
+PASS
 
-PASS. This computes a recent convex-geometric transform exactly on the canonical planar polytope. The result exposes the full phase change in cap combinatorics, produces a piecewise-conic smooth boundary, gives an exact area profile and asymptotic deficit, and provides a benchmark for general structural and numerical work on Ulam bodies and metronoids.
+Originality passes for the explicit square specialization. Huang--Slomka--Werner prove the general cap-barycenter support characterization and a general complement relation for centered bodies; those premises are prior and are not claimed as new. Their inspected full text contains no square/rectangle/polygon example giving the conic boundary or area law. The earlier metronoid paper and later sublinear-expectation treatment likewise provide the general construction rather than this explicit canonical polygon calculation.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The square is the canonical nonsmooth planar test body for a floating/metronoid transform whose literature is largely structural and asymptotic. An exact all-level boundary and area profile exposes how polygonal cap geometry changes regime and supplies a benchmark for numerical, affine, and asymptotic studies. Affine equivariance immediately extends the computation to parallelograms, so the result is more than a decorative single-parameter integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

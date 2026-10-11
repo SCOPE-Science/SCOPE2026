@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,50 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For \(0<\delta\le2\), normals are reduced by square symmetry to directions proportional to \((1,m)\) with \(0\le m\le1\).
+## correctness
 
-If \(m\le\delta/2\), the cap is the trapezoid
-\[
--1\le y\le1,
-\qquad
-1-\frac\delta2-my\le x\le1.
-\]
-Its area is \(\delta\), and direct integration gives
-\[
-\bar x=1-\frac\delta4-\frac{m^2}{3\delta},
-\qquad
-\bar y=\frac{2m}{3\delta}.
-\]
-Eliminating \(m\) gives the parabolic boundary equation.
+PASS
 
-If \(m\ge\delta/2\), the cap is a right triangle at \((1,1)\). With \(d=\sqrt{2\delta m}\), its side intercepts yield centroid
-\[
-\bar x=1-\frac d3,
-\qquad
-\bar y=1-\frac{d}{3m},
-\]
-and therefore
-\[
-(1-\bar x)(1-\bar y)=\frac{2\delta}{9}.
-\]
+Using the published cap-barycenter support characterization, normals proportional to \((1,m)\) with \(0\le m\le1\) exhaust one octant. For \(m\le\delta/2\), direct vertical-fiber integration of the trapezoid gives \(\bar x=1-\delta/4-m^2/(3\delta)\) and \(\bar y=2m/(3\delta)\), which eliminate to the parabola. For \(m\ge\delta/2\), the right-triangle centroid gives \((1-\bar x)(1-\bar y)=2\delta/9\). Green's formula over eight symmetric sectors yields the stated logarithmic area exactly. For \(\delta>2\), the centroid identity for a cap and its complementary opposite cap gives the homothety factor \((4-\delta)/\delta\). Independent numerical cap integration and boundary-area reconstruction agree with the formulas at multiple levels, while the analytic integrations establish all levels.
 
-Green integration over one octant gives
-\[
-I_1=\frac13-\frac{2\delta}{27},
-\qquad
-I_2=\frac23-\frac\delta3+\frac{2\delta}{9}\log\!\left(\frac\delta2\right),
-\]
-so the full area is \(4(I_1+I_2)\).
+## originality
 
-For \(\delta>2\), complementary caps in a zero-centroid centrally symmetric square give
-\[
-M_\delta(Q)=\frac{4-\delta}{\delta}M_{4-\delta}(Q).
-\]
+PASS
 
-The decoded package's `verify.py` was replayed before packaging and returned:
+Originality passes for the explicit square specialization. Huang--Slomka--Werner prove the general cap-barycenter support characterization and a general complement relation for centered bodies; those premises are prior and are not claimed as new. Their inspected full text contains no square/rectangle/polygon example giving the conic boundary or area law. The earlier metronoid paper and later sublinear-expectation treatment likewise provide the general construction rather than this explicit canonical polygon calculation.
 
-`VERIFY_OK square Ulam body boundary and area`
+## value
 
-The numerical replay is a consistency check and is not used to prove the continuum of normal directions or levels.
+PASS
+
+The square is the canonical nonsmooth planar test body for a floating/metronoid transform whose literature is largely structural and asymptotic. An exact all-level boundary and area profile exposes how polygonal cap geometry changes regime and supplies a benchmark for numerical, affine, and asymptotic studies. Affine equivariance immediately extends the computation to parallelograms, so the result is more than a decorative single-parameter integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
