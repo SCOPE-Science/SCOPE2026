@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The signal quotient is identified with the nonzero future null cone in the four-real-dimensional Hermitian space. A rank-three measurement operator has a one-dimensional kernel, so every fiber is a line parallel to one Hermitian direction. The line--cone intersection is governed by one quadratic equation whose second root has time coordinate \(-t\|\tau n-w\|^2/q\), where \(q=4\det H\). Its sign gives the three regimes exactly. The null case is handled separately and has one exceptional projective direction. Lower measurement rank is excluded by the sharp complex PR-ae lower bound.
+## correctness
 
-## Originality
-PASS. The 2019 almost-everywhere paper establishes the sharp count of three measurements in \(\mathbb C^2\) and asks for conditions, but the inspected text does not classify every triple. The 2016 generalized-phase-retrieval paper already implies the positive-determinant full-PR branch, so that part is treated as prior input rather than new content. The surviving contribution is the exact PR-ae threshold at determinant zero, the negative-determinant failure regime, and generic fiber cardinality. Targeted semantic and exact-phrase searches under Hermitian-kernel, Bloch-sphere, generalized-phase-retrieval, and qubit-tomography formulations found no statement covering that trichotomy.
+PASS
 
-## Value
-PASS. Three is the sharp minimum number of arbitrary Hermitian measurements for PR-ae in complex dimension two. Classifying all triples at that boundary is therefore a natural structural problem, and the determinant sign gives a complete, coordinate-free answer with an explicit description of the exceptional and ambiguous fibers.
+The Lorentz-cone proof is correct. Rank below three leaves at most two independent real measurements and violates the sharp complex PR-ae lower bound. At rank three the kernel is one-dimensional. Along a kernel line through a future null point, the cone equation has the original root and one explicit second root. A positive determinant makes the second root lie on the past cone; a negative determinant makes it another future point except on a proper tangency set of directions; determinant zero gives a rank-one semidefinite kernel and collapses exactly one complex signal line to the zero measurement. These cases give respectively full PR, PR-ae but not PR, and generic two-to-one failure.
 
-## Closest literature and limitations
-The closest source is arXiv:1909.08874, which proves the sharp minimum and constructs examples. arXiv:1605.08034 supplies the global phase-retrieval kernel criterion and therefore covers the positive-determinant branch. arXiv:2109.14522 studies global injectivity and stability rather than the almost-everywhere boundary. The result here is confined to complex dimension two and arbitrary Hermitian triples; an unindexed low-dimensional observation under different terminology remains a residual priority risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes for the complete trichotomy. Huang--Rong--Wang--Xu prove the sharp three-measurement lower bound and existence of three-measurement PR-ae systems in complex dimension two. Wang--Xu's general kernel criterion already implies the positive-determinant full-PR branch. The inspected general results do not state that every rank-three triple with a rank-one semidefinite kernel is PR-ae but not PR, nor that every indefinite kernel gives generic two-point fibers. Those boundary and negative-determinant branches are the new content of the final claim.
+
+## value
+
+PASS
+
+Three measurements are the exact minimum for complex almost-everywhere generalized phase retrieval in dimension two. Classifying every triple at that boundary, including the semidefinite exceptional line and the generic multiplicity in the indefinite regime, is a natural structural completion of the sharp measurement-count theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal statement is proved analytically by identifying \(\mathbf H_2(\mathbb C)\) with Pauli coordinates \((t,r)\) and the rank-one positive semidefinite matrices with the future null cone \(t>0\), \(t^2=\|r\|^2\).
+# Independent mathematical audit
 
-For a rank-three measurement operator, let its kernel generator have coordinates \((\tau,w)\), and put
-\[
-q=\tau^2-\|w\|^2=4\det H.
-\]
-For an input cone point \((t,tn)\), \(t>0\), \(\|n\|=1\), the fiber line meets the null cone where
-\[
-s\Bigl(2t(\tau-n\cdot w)+sq\Bigr)=0.
-\]
-When \(q\ne0\), the time coordinate of the only possible second intersection is
-\[
-t_*=-\frac{t\,\|\tau n-w\|^2}{q}.
-\]
-Thus \(q>0\) places the second algebraic point on the past cone, while \(q<0\) places it on the future cone except at the tangent set \(\tau=n\cdot w\). When \(q=0\), the equation is linear in \(s\) after the known root is factored out, and a second intersection is possible only in the unique null direction of the kernel generator.
+## correctness
 
-The bundled `verify.py` uses exact rational arithmetic to replay these identities on rational unit Bloch directions and checks canonical kernel representatives of all three signs. A successful run prints
+PASS
 
-`VERIFY_OK regimes=3 rational_directions=25`
+The Lorentz-cone proof is correct. Rank below three leaves at most two independent real measurements and violates the sharp complex PR-ae lower bound. At rank three the kernel is one-dimensional. Along a kernel line through a future null point, the cone equation has the original root and one explicit second root. A positive determinant makes the second root lie on the past cone; a negative determinant makes it another future point except on a proper tangency set of directions; determinant zero gives a rank-one semidefinite kernel and collapses exactly one complex signal line to the zero measurement. These cases give respectively full PR, PR-ae but not PR, and generic two-to-one failure.
 
-The checker is supplementary. Finite samples are not used to establish the all-triples theorem, and the theorem makes no assertion about higher dimensions or about additional positivity constraints on the measurement matrices.
+## originality
+
+PASS
+
+Originality passes for the complete trichotomy. Huang--Rong--Wang--Xu prove the sharp three-measurement lower bound and existence of three-measurement PR-ae systems in complex dimension two. Wang--Xu's general kernel criterion already implies the positive-determinant full-PR branch. The inspected general results do not state that every rank-three triple with a rank-one semidefinite kernel is PR-ae but not PR, nor that every indefinite kernel gives generic two-point fibers. Those boundary and negative-determinant branches are the new content of the final claim.
+
+## value
+
+PASS
+
+Three measurements are the exact minimum for complex almost-everywhere generalized phase retrieval in dimension two. Classifying every triple at that boundary, including the semidefinite exceptional line and the generic multiplicity in the indefinite regime, is a natural structural completion of the sharp measurement-count theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
