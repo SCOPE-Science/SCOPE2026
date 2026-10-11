@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For positive noise, a constant Itô equilibrium must have zero diffusion coefficient. The printed diffusion vector is
-\[
-\sigma(x,y,z)^{\mathsf T},
-\]
-so only the origin can be a point equilibrium; \((1,1,1)\) cannot be one. On the invariant face \(Y=Z=0\), the enterprise-\(A\) equation is exact geometric Brownian motion, and its lognormal distribution has positive probability above \(1\) at every positive time from every \(x_0\in(0,1)\). The deterministic source parameters also give drift \(3.8>0\) at the all-join corner after \(1-x\) is deleted.
+PASS
 
-## Originality
+A constant Itô solution must have zero diffusion coefficient, so with common nonzero noise \(\sigma(x,y,z)\) only the origin qualifies. The face \(Y=Z=0\) is invariant and gives \(dX=-k_A X\,dt+\sigma X\,dW\), hence a lognormal solution with \(P(X_t>1)>0\) for every \(X_0\in(0,1)\), \(t>0\), \(\sigma>0\). For the paper's values \(\pi=30,r_A=1/6,u=0.6,a=2\), \(k_A=6/5\) and the modified A-drift at all-join is \(19/5\), not zero. A fresh numerical replay also reproduced the package's illustrative escape probability \(0.1957956706626627\).
 
-PASS. The primary source contains the missing-boundary-factor step and the conflicting all-join stability claim but does not identify the state-space failure. Broader stochastic-replicator theory establishes simplex-invariance requirements but does not derive this source-specific contradiction or escape law. Exact-title, DOI, correction, equilibrium, and multiplicative-noise searches found no published repair of the 2024 equations.
+## originality
 
-## Value
+PASS
 
-PASS. The defect is structurally consequential: the stochastic variables cease to be valid strategy probabilities and the paper's central all-join stochastic equilibrium does not exist for the printed SDE. Any probability-consistent replacement changes the model and requires a new stability analysis, so this directly affects the interpretation of the stochastic theory and simulations.
+The defining 2024 article was reread at the exact model equations. It explicitly treats the three state variables as joining probabilities, removes the three logistic boundary factors on the stated ground that those factors are nonnegative, then adds multiplicative Gaussian noise and later describes the all-join corner as stable. The printed stochastic equations themselves contradict those interpretations. Fresh searches of the article title/DOI plus correction and erratum terms, and a Resultary semantic search on the source-specific defect, found no published correction or equivalent diagnosis.
 
-## Closest literature and limitations
+## value
 
-The primary source is Lu et al. (2024), DOI 10.3934/math.2024452. Benaïm, Hofbauer, and Sandholm (2008), DOI 10.1080/17513750801915269, provide a general stochastic-replicator framework on an invariant simplex. Liang et al. (2022), DOI 10.1002/acs.3301, study related stochastic replicator stability.
+PASS
 
-The finding concerns the published equations. Undocumented code may have imposed a different state constraint. The suggested boundary-vanishing equation is a repair target, not a claim that the source's stability results survive.
+The defect affects both the probabilistic state-space interpretation and the paper's headline stochastic-stability conclusion. Exhibiting the exact invariant-face escape mechanism and the nonzero all-join drift is a substantive source correction, not a cosmetic notation complaint or routine numerical check.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

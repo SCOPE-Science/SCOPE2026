@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,35 +18,25 @@
   "schema_version": 1
 }
 ---
-The general checks are analytic.
 
-For the printed stochastic equations with \(\sigma>0\), a constant solution requires the diffusion vector
-\[
-\sigma(x,y,z)^{\mathsf T}
-\]
-to vanish. Hence only \((0,0,0)\) can be a point equilibrium.
+# Independent mathematical audit
 
-On \(Y=Z=0\), the enterprise-\(A\) equation reduces to
-\[
-dX_t=-k_A X_t\,dt+\sigma X_t\,dW_t,
-\qquad
-k_A=\frac12ua^2,
-\]
-with exact solution
-\[
-X_t=x_0\exp\!\left[\left(-k_A-\frac{\sigma^2}{2}\right)t+\sigma W_t\right].
-\]
-Its normal upper tail gives a strictly positive probability that \(X_t>1\) for every \(x_0\in(0,1)\), \(\sigma>0\), and \(t>0\).
+## correctness
 
-The bundled checker independently verifies the source-parameter arithmetic
-\[
-k_A=1.2,\qquad
-\pi r_A-k_A=3.8,
-\]
-and evaluates the illustrative escape probability
-\[
-\Pr(X_{0.05}>1)\approx0.1957956707
-\]
-for \(x_0=0.8\) and \(\sigma=2\).
+PASS
 
-Finite computation is not used to prove noninvariance or the equilibrium obstruction.
+A constant Itô solution must have zero diffusion coefficient, so with common nonzero noise \(\sigma(x,y,z)\) only the origin qualifies. The face \(Y=Z=0\) is invariant and gives \(dX=-k_A X\,dt+\sigma X\,dW\), hence a lognormal solution with \(P(X_t>1)>0\) for every \(X_0\in(0,1)\), \(t>0\), \(\sigma>0\). For the paper's values \(\pi=30,r_A=1/6,u=0.6,a=2\), \(k_A=6/5\) and the modified A-drift at all-join is \(19/5\), not zero. A fresh numerical replay also reproduced the package's illustrative escape probability \(0.1957956706626627\).
+
+## originality
+
+PASS
+
+The defining 2024 article was reread at the exact model equations. It explicitly treats the three state variables as joining probabilities, removes the three logistic boundary factors on the stated ground that those factors are nonnegative, then adds multiplicative Gaussian noise and later describes the all-join corner as stable. The printed stochastic equations themselves contradict those interpretations. Fresh searches of the article title/DOI plus correction and erratum terms, and a Resultary semantic search on the source-specific defect, found no published correction or equivalent diagnosis.
+
+## value
+
+PASS
+
+The defect affects both the probabilistic state-space interpretation and the paper's headline stochastic-stability conclusion. Exhibiting the exact invariant-face escape mechanism and the nonzero all-join drift is a substantive source correction, not a cosmetic notation complaint or routine numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

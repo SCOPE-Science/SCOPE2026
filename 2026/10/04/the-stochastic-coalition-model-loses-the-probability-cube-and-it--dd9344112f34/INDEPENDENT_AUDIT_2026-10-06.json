@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:47:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ee1733f08c5ac47d1e8aa5e39435cf0be5429f50",
+        "verify.py blob f37dbb1ebdf72ddf04d360e7dbed3c4fcf041a32",
+        "DOI:10.3934/math.2024452 printed equations",
+        "fresh geometric-Brownian-motion and parameter arithmetic"
+      ],
+      "rationale": "A constant Itô solution must have zero diffusion coefficient, so with common nonzero noise \\(\\sigma(x,y,z)\\) only the origin qualifies. The face \\(Y=Z=0\\) is invariant and gives \\(dX=-k_A X\\,dt+\\sigma X\\,dW\\), hence a lognormal solution with \\(P(X_t>1)>0\\) for every \\(X_0\\in(0,1)\\), \\(t>0\\), \\(\\sigma>0\\). For the paper's values \\(\\pi=30,r_A=1/6,u=0.6,a=2\\), \\(k_A=6/5\\) and the modified A-drift at all-join is \\(19/5\\), not zero. A fresh numerical replay also reproduced the package's illustrative escape probability \\(0.1957956706626627\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stochastic replicator theory supplies standard boundary-invariance intuition, but the source changed the vector field before adding noise.",
+          "The publisher page currently exposes the article without an erratum/correction notice addressing the missing boundary factors or the claimed all-join stochastic equilibrium."
+        ],
+        "reasoning": "General theory does not substitute for checking this source-specific printed system and its numerical parameterization.",
+        "searches": [
+          "Current AIMS article page for DOI:10.3934/math.2024452",
+          "general stochastic evolutionary-game and stochastic replicator literature cited by the source"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2024452 full primary PDF",
+        "current AIMS article page",
+        "Resultary source-specific semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source itself asserts that deleting \\(1-x,1-y,1-z\\) does not affect strategic equilibrium, but at \\((1,1,1)\\) the modified deterministic drift is generally nonzero.",
+          "The exact one-dimensional solution on \\(Y=Z=0\\) has a lognormal distribution with positive mass above one for every positive time, noise level and interior initial condition."
+        ],
+        "reasoning": "These implications are contrary to, rather than contained in, the source's stated equilibrium/stability conclusions.",
+        "searches": [
+          "Lu et al. 2024 full primary PDF, especially the page introducing equations (3.1)–(3.6) and the later stability conclusion",
+          "audited invariant-face geometric-Brownian-motion calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original replicator-style variables are probabilities in the unit cube, while the modified drift has only the factors \\(x,y,z\\), not \\(x(1-x),y(1-y),z(1-z)\\).",
+          "With nonzero multiplicative diffusion, a constant Itô solution requires every diffusion coefficient to vanish; on the invariant face \\(Y=Z=0\\), \\(X\\) is geometric Brownian motion."
+        ],
+        "reasoning": "The submitted statement is the exact stochastic-invariance/equilibrium diagnosis of the source's printed equations, not a rephrasing of its stability claims.",
+        "searches": [
+          "Lu et al., DOI:10.3934/math.2024452, deterministic equations and stochastic equations (3.1)–(3.6)",
+          "Resultary semantic query: stochastic coalition pollution control probability cube all-join equilibrium missing boundary factor multiplicative noise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published Resultary finding or publisher correction with this source-specific diagnosis was located."
+        ],
+        "reasoning": "No numerical database is relevant; the search was for an existing correction or theorem about the printed model.",
+        "searches": [
+          "Resultary semantic search on DOI/title/model defect",
+          "publisher correction/erratum search"
+        ]
+      },
+      "rationale": "The defining 2024 article was reread at the exact model equations. It explicitly treats the three state variables as joining probabilities, removes the three logistic boundary factors on the stated ground that those factors are nonnegative, then adds multiplicative Gaussian noise and later describes the all-join corner as stable. The printed stochastic equations themselves contradict those interpretations. Fresh searches of the article title/DOI plus correction and erratum terms, and a Resultary semantic search on the source-specific defect, found no published correction or equivalent diagnosis.",
+      "residual_risks": [
+        "Undocumented simulation code could have implemented different equations, but the theorem concerns the published equations only.",
+        "A later unindexed correction could exist outside the publisher and searched literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_MODEL_DOES_NOT_PRESERVE_PROBABILITY_CUBE_OR_ALL_JOIN_EQUILIBRIUM",
+          "evidence": "The source explicitly deletes the boundary factors, uses diffusion terms proportional to \\(x,y,z\\), and nevertheless reasons with \\(x(t)\\in[0,1]\\) and the all-join corner.",
+          "identifier_or_url": "DOI:10.3934/math.2024452",
+          "material_read": "Full open primary PDF around the strategy-probability definition, the deletion of the three logistic factors, equations (3.1)–(3.6), and the later statement that \\((1,1,1)\\) is evolutionarily stable under stochastic interference; the key model and conclusion pages were visually inspected.",
+          "method": "Direct equation, state-space and stochastic-equilibrium consistency check.",
+          "title": "Stochastic evolution game analysis of the strategic coalition of enterprise pollution control",
+          "trigger": "Defining primary source for the exact stochastic equations and the claimed all-join equilibrium."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.3934/math.2024452 full primary PDF",
+        "current AIMS article page",
+        "Resultary source-specific semantic search"
+      ],
+      "rationale": "The defect affects both the probabilistic state-space interpretation and the paper's headline stochastic-stability conclusion. Exhibiting the exact invariant-face escape mechanism and the nonzero all-join drift is a substantive source correction, not a cosmetic notation complaint or routine numerical check.",
+      "residual_risks": [
+        "Undocumented simulation code could have implemented different equations, but the theorem concerns the published equations only.",
+        "A later unindexed correction could exist outside the publisher and searched literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/math.2024452 full primary PDF",
+    "current AIMS article page",
+    "Resultary source-specific semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the printed stochastic coalition system with \\(\\sigma>0\\), the only constant Itô equilibrium is the origin, the probability cube \\([0,1]^3\\) is not forward invariant, and the claimed all-join point \\((1,1,1)\\) is not an equilibrium even in the source's modified deterministic drift for its published numerical parameters.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Undocumented simulation code could have implemented different equations, but the theorem concerns the published equations only.",
+    "A later unindexed correction could exist outside the publisher and searched literature.",
+    "The result does not analyze a repaired stochastic replicator model with boundary factors restored."
+  ]
+}
