@@ -1,51 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Positive-affine invariance reduces the problem to a compact ordered
-mean-zero, variance-one support set. On every stratum with fixed adjacent
-collision blocks, an interior extremum of the third moment satisfies a
-quadratic Lagrange equation. Hence an extremum cannot have three or more
-distinct support levels. Iterating to the boundary leaves only two-level
-contiguous coarsenings.
+PASS
 
-A two-level coarsening with lower mass \(P\) has skewness
-\[
-\frac{2P-1}{\sqrt{P(1-P)}},
-\]
-which is strictly increasing in \(P\). The first and last admissible cuts
-therefore give the exact infimum and supremum. Connectedness of the strict
-support cone fills every intermediate value. The sampling corollary follows
-from the standard exact covariance identity.
+After positive-affine normalization to weighted mean zero and variance one, any interior extremum of the third central moment on a stratum with at least three distinct support levels would satisfy a quadratic stationarity equation at every distinct level, which is impossible at three or more points unless the multiplier system degenerates; the mean and variance constraint gradients are independent on every nondegenerate stratum. Hence a global extremum descends to a two-level boundary. A cut after index \(j\) has lower mass \(P_j\) and skewness \(g(P_j)=(2P_j-1)/\sqrt{P_j(1-P_j)}\). Since \(g\) is strictly increasing, the closure extrema are attained at the first and last cuts, giving \(g(p_1)\) and \(g(1-p_m)\). Strict support makes both bounds unattained, while connectedness and continuity give the full open interval. The two-point case and \(\operatorname{Cov}(\bar X,S^2)=\mu_3/n\) corollary are standard exact identities and are consistent with the inspected verifier.
 
-## Originality
+## originality
 
-PASS, with a residual older moment-space literature risk. The complete
-Shanmugam paper was inspected. It derives the sample-mean/sample-variance
-covariance and correlation formulas and tabulates many named distributions,
-but it does not optimize the parent skewness over support locations at fixed
-atom probabilities.
+PASS
 
-Searches for fixed probability vectors, support geometry, finite discrete
-skewness bounds, and standardized third-moment optimization did not return the
-endpoint-mass interval. The closest semantic database hits concern
-Poisson-binomial cumulants or unrelated support optimization problems.
+The statistical literature inspected gives the covariance/correlation relation between sample mean and sample variance in terms of population moments, but does not classify the attainable standardized third moment when the discrete atom masses are fixed and support locations vary. Current Resultary and web searches under fixed-probability-profile, moment-space, support-location and standardized-third-moment formulations found no equivalent endpoint-mass theorem. The sampling covariance statement is prior background; originality rests on the exact support-geometry range and sign classification.
 
-The Zhang and Sen papers are directly relevant to the sampling identity and
-the role of skewness, but available evidence does not indicate a fixed-profile
-support extremum in either work.
+## value
 
-## Value
+PASS
 
-PASS. Skewness is one of the basic standardized shape parameters, yet for a
-fixed categorical probability profile its dependence on the numerical labels
-is usually treated as arbitrary. The theorem gives a complete geometric
-classification: only the endpoint masses determine the sharp range, and a
-majority endpoint forces the sign for every possible ordered coding. The
-sample-mean/sample-variance corollary turns this into an exact support-robust
-sign criterion for a classical pair of statistics.
+The theorem gives a complete exact range for a standard shape invariant under a natural fixed-probability constraint and turns it into an exact sign classification for a classical sampling covariance. The dependence only on the two endpoint masses is structural and reusable, not a finite numerical optimization.
 
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK bound_checks=60000 boundary_checks=60000 two_point_checks=4950 covariance_checks=9 sign_checks=30000`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

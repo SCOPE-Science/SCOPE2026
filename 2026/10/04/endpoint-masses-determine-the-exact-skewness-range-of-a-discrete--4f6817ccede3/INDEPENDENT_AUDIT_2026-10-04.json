@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:08:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e2405e0a6d7c7e20d14d58c86fb7ddc041e3cbd0",
+        "assigned verify_fixed_profile_skewness.py blob 44308a4aef59d77c6a7ab9e14b90ecd3103f90d4",
+        "Shanmugam 2008 DOI 10.22237/jmasm/1225512300"
+      ],
+      "rationale": "After positive-affine normalization to weighted mean zero and variance one, any interior extremum of the third central moment on a stratum with at least three distinct support levels would satisfy a quadratic stationarity equation at every distinct level, which is impossible at three or more points unless the multiplier system degenerates; the mean and variance constraint gradients are independent on every nondegenerate stratum. Hence a global extremum descends to a two-level boundary. A cut after index \\(j\\) has lower mass \\(P_j\\) and skewness \\(g(P_j)=(2P_j-1)/\\sqrt{P_j(1-P_j)}\\). Since \\(g\\) is strictly increasing, the closure extrema are attained at the first and last cuts, giving \\(g(p_1)\\) and \\(g(1-p_m)\\). Strict support makes both bounds unattained, while connectedness and continuity give the full open interval. The two-point case and \\(\\operatorname{Cov}(\\bar X,S^2)=\\mu_3/n\\) corollary are standard exact identities and are consistent with the inspected verifier.",
+      "residual_risks": [
+        "The theorem fixes the atom masses and varies only ordered support locations; it does not optimize jointly over masses.",
+        "The argument uses closure strata with coincident support values, so the strict-support conclusion is necessarily an open range rather than a closed one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shanmugam derives the sample mean/variance correlation from population skewness and kurtosis and treats named distributions.",
+          "Sen studies the interrelation between sample mean and variance and moment inequalities, not fixed atom-mass support geometry.",
+          "No inspected broader theorem specialized to the exact endpoint-mass interval."
+        ],
+        "reasoning": "The broader statistical results treat a fixed parent law or general moment identities and do not imply the geometric optimization over support positions.",
+        "searches": [
+          "Shanmugam 2008 full article, DOI 10.22237/jmasm/1225512300",
+          "Sen 2012 DOI 10.1080/00031305.2012.695960",
+          "web searches for discrete fixed-weight moment-space bounds"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.22237/jmasm/1225512300",
+        "DOI 10.1080/00031305.2012.695960",
+        "Resultary current published-finding search",
+        "web fixed-weight skewness searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior covariance identity transfers the sign of the third central moment to the sampling covariance, but supplies no bound on that third moment under fixed masses.",
+          "The assigned Lagrange/stratification argument is the missing implication."
+        ],
+        "reasoning": "The sampling corollary is covered background, while the scientific claim about the exact skewness range is not implied by the inspected prior results.",
+        "searches": [
+          "Shanmugam covariance identity versus the assigned support-range theorem",
+          "general skewness definitions versus the fixed-mass extremal problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is equivalent to an optimization of the standardized third central moment over an ordered fixed-weight support modulo positive affine transformations.",
+          "No located source states that only the two endpoint masses determine the exact range."
+        ],
+        "reasoning": "Moment-space and fixed-weight-support formulations were searched; the known sample-mean/sample-variance identities do not determine the support-location range.",
+        "searches": [
+          "Resultary: fixed probability masses ordered support exact skewness range endpoint masses standardized third moment discrete law sample mean variance covariance",
+          "web: fixed probability profile skewness support locations discrete distribution standardized third moment endpoint masses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-result published finding or table was retrieved."
+        ],
+        "reasoning": "There is no canonical finite database for this invariant; the exact search targeted the theorem statement and its moment-space aliases.",
+        "searches": [
+          "Resultary current corpus query for fixed-mass skewness endpoint range",
+          "web exact searches for endpoint masses and standardized third moment"
+        ]
+      },
+      "rationale": "The statistical literature inspected gives the covariance/correlation relation between sample mean and sample variance in terms of population moments, but does not classify the attainable standardized third moment when the discrete atom masses are fixed and support locations vary. Current Resultary and web searches under fixed-probability-profile, moment-space, support-location and standardized-third-moment formulations found no equivalent endpoint-mass theorem. The sampling covariance statement is prior background; originality rests on the exact support-geometry range and sign classification.",
+      "residual_risks": [
+        "A classical moment-space or optimal-design theorem may encode the same extremal fact in a different language and be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAMPLING_IDENTITY_BACKGROUND_NOT_FIXED_MASS_RANGE",
+          "evidence": "The paper gives \\(\\operatorname{Cov}(\\bar X,S^2)=\\mu_3/n\\) and distribution-specific correlation formulas but no optimization over fixed discrete masses and support positions.",
+          "identifier_or_url": "https://doi.org/10.22237/jmasm/1225512300",
+          "material_read": "complete accessible primary article, including the covariance identity and the skewness/kurtosis correlation formula",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Correlation between the Sample Mean and Sample Variance",
+          "trigger": "direct prior formula connecting sample mean/variance covariance to the third central moment"
+        },
+        {
+          "assessment": "MOMENT_RELATIONSHIP_NOT_SUPPORT_GEOMETRY",
+          "evidence": "The work studies correlation, conditional expectation and skewness-kurtosis inequalities rather than an exact fixed-weight discrete support range.",
+          "identifier_or_url": "https://doi.org/10.1080/00031305.2012.695960",
+          "material_read": "primary abstract and bibliographic statement of scope",
+          "method": "primary-source scope inspection",
+          "title": "On the Interrelation Between the Sample Mean and the Sample Variance",
+          "trigger": "later primary literature on the same sample-statistic relationship"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shanmugam 2008",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The theorem gives a complete exact range for a standard shape invariant under a natural fixed-probability constraint and turns it into an exact sign classification for a classical sampling covariance. The dependence only on the two endpoint masses is structural and reusable, not a finite numerical optimization.",
+      "residual_risks": [
+        "The main value is the exact fixed-weight geometry rather than a new sampling identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem fixes the atom masses and varies only ordered support locations; it does not optimize jointly over masses.",
+    "The argument uses closure strata with coincident support values, so the strict-support conclusion is necessarily an open range rather than a closed one.",
+    "A classical moment-space or optimal-design theorem may encode the same extremal fact in a different language and be poorly indexed.",
+    "The main value is the exact fixed-weight geometry rather than a new sampling identity."
+  ]
+}
