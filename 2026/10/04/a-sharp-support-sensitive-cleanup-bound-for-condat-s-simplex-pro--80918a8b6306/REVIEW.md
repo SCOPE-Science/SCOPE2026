@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is restricted to the step-4 comparison count of Condat's published Fig. 2 pseudocode. The upper bound follows from a monotone integer invariant: every nonterminal cleanup pass removes at least one candidate and the terminal list has \(K\) elements. The \(K=1\) case is proved separately from the reset inequality. For \(K\ge2\), the equality family is explicit; its threshold recurrence forces exactly one deletion per pass until \(K\) candidates remain. Exact-rational replay checks the construction over a broad finite grid without substituting for the analytic proof.
+## correctness
 
-## Originality
-PASS with residual risk. Condat's 2014 preprint already states \(O(N^2)\) worst-case complexity and explicitly gives a transformed adversarial sequence for the proposed algorithm, so neither quadratic behavior nor the existence of an adversary is claimed here. The reviewed source does not give the sharp support-conditioned maximum \(T_{N,K}\), and its complexity table reports only the coarse proposed-algorithm bound. Targeted published-finding corpus searches did not return an implication-equivalent finding. A 2026 weighted dynamic-threshold preprint is highly relevant and studies the same add/reset/remove mechanism; its accessible abstract does not state this support-conditioned formula, but the full text was unavailable through the lawful route checked, so equivalence there remains the principal risk.
+PASS
 
-## Value
-PASS. The final support size \(K\) is a natural quantity already tracked by the source algorithm and used in the same paper's complexity table for other methods. The exact law shows a nontrivial structural discontinuity: support one is forced to a singleton cleanup state, whereas support two already attains the full quadratic leading order. This refines a coarse worst-case label into a sharp sparsity-sensitive statement useful for adversarial testing and for understanding when the reset refinement can or cannot eliminate long cleanup phases.
+For every nonterminal cleanup pass the candidate set strictly shrinks and the terminal set has size \(K\), so pass sizes are bounded by \(N,N-1,\ldots,K\). For \(K=1\), the maintained threshold lower-bound invariant forces reset to the unique active coordinate when it is encountered, so cleanup starts from a singleton. For \(K\ge2\), the stated rational recurrence has positive decreasing threshold increments and orders the prefix values so that exactly one prefix entry is removed per pass before the final \(K\)-element terminal pass. Independent exact-rational replay on boundary and interior \(N,K\) pairs reproduced the claimed pass-size sequence and count. The finite bundled verifier is corroborative, not the universal proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The final support-sensitive complexity statement is not stated in Condat or the later weighted dynamic-threshold paper. Condat gives the removal-loop invariant and quadratic worst case, while Liu–Xie–Yang analyze reset/removal dynamics, construct quadratic families, and prove a gap condition for long bounded-deletion phases. Neither source gives the sharp final-support-conditioned maximum \(\sum_{s=K}^{N}s\), the singleton-support collapse, or equality for every \(2\le K\le N\).
+
+## value
+
+PASS
+
+The exact support-conditioned maximum is a natural algorithmic complexity invariant: it refines a known quadratic worst case, exposes a genuine \(K=1\) structural discontinuity, and supplies sharp examples for every final support size rather than a single adversary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

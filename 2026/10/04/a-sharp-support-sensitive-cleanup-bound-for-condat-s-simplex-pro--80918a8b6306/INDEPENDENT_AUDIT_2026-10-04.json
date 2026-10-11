@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:27:24.564554Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md tree f87afbc8c90919932dbba66db71c738664b242e3",
+        "Condat Fig. 2 and invariant",
+        "audited verify.py blob 43b4d4e9139ed6f1ecb6a044ff67fde1e0133ab5"
+      ],
+      "rationale": "For every nonterminal cleanup pass the candidate set strictly shrinks and the terminal set has size \\(K\\), so pass sizes are bounded by \\(N,N-1,\\ldots,K\\). For \\(K=1\\), the maintained threshold lower-bound invariant forces reset to the unique active coordinate when it is encountered, so cleanup starts from a singleton. For \\(K\\ge2\\), the stated rational recurrence has positive decreasing threshold increments and orders the prefix values so that exactly one prefix entry is removed per pass before the final \\(K\\)-element terminal pass. Independent exact-rational replay on boundary and interior \\(N,K\\) pairs reproduced the claimed pass-size sequence and count. The finite bundled verifier is corroborative, not the universal proof.",
+      "residual_risks": [
+        "The result counts only step-4 comparisons in exact arithmetic and depends on Condat’s precise ordering/strictness semantics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Condat proves the threshold invariant and removal-loop termination.",
+          "The 2026 paper proves a weighted generalization, quadratic constructions, and a necessary super-exponential gap condition for long bounded-deletion phases."
+        ],
+        "reasoning": "Those results are broader algorithmically but do not dominate the exact support-sensitive extremal count for Condat’s unweighted simplex algorithm.",
+        "searches": [
+          "Condat 2014/2016 algorithm and worst-case analysis",
+          "Liu–Xie–Yang 2026 Dynamic-Threshold Algorithms, Theorems 4, 7, and 8"
+        ]
+      },
+      "checked_sources": [
+        "Optimization Online 4498 / HAL-01056171",
+        "arXiv:2608.00740v2",
+        "Resultary published-result search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The monotone active-set decrease gives the upper bound once terminal support \\(K\\) is fixed, but neither source supplies sharpness for every \\(K\\) or the structural \\(K=1\\) collapse.",
+          "The audited rational family realizes pass sizes \\(N,N-1,\\ldots,K\\) for every admissible pair."
+        ],
+        "reasoning": "Prior work supplies one ingredient of the upper bound, but not the full sharp theorem; the equality family and singleton discontinuity prevent the final claim from being a mere restatement.",
+        "searches": [
+          "Condat Fig. 2 removal rule plus correctness argument",
+          "Liu–Xie–Yang Algorithm 1 and removal analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned no equivalent Condat support-conditioned theorem among the ranked published findings.",
+          "Condat states finite termination and quadratic worst case; the weighted paper studies removal passes but not the same exact \\(N,K\\) count."
+        ],
+        "reasoning": "The closest aliases are active-set removal passes, element examinations, and support size; the inspected statements do not coincide with the audited sharp formula.",
+        "searches": [
+          "Resultary: Condat simplex projection support-conditioned exact cleanup comparison count dynamic threshold reset removal",
+          "Condat HAL-01056171 / Optimization Online 4498",
+          "Liu–Xie–Yang arXiv:2608.00740v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact \\(N,K\\) table/formula was found; the later paper reports complexity orders and example examination counts for different reset/no-reset constructions."
+        ],
+        "reasoning": "The audited theorem is an all-parameter extremal law, not a finite table recomputation.",
+        "searches": [
+          "Resultary exact semantic search on \\(T_{N,K}\\) support-conditioned cleanup cost",
+          "Liu–Xie–Yang complexity tables"
+        ]
+      },
+      "rationale": "The final support-sensitive complexity statement is not stated in Condat or the later weighted dynamic-threshold paper. Condat gives the removal-loop invariant and quadratic worst case, while Liu–Xie–Yang analyze reset/removal dynamics, construct quadratic families, and prove a gap condition for long bounded-deletion phases. Neither source gives the sharp final-support-conditioned maximum \\(\\sum_{s=K}^{N}s\\), the singleton-support collapse, or equality for every \\(2\\le K\\le N\\).",
+      "residual_risks": [
+        "The sharp upper bound itself is an immediate counting consequence of Condat’s removal invariant; originality rests materially on the every-support equality construction and the singleton-support discontinuity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_INGREDIENT_NOT_FINAL",
+          "evidence": "The source proves the algorithmic invariants and \\(O(N^2)\\) worst case but does not state the final-support-conditioned sharp maximum.",
+          "identifier_or_url": "HAL-01056171 / https://optimization-online.org/2014/08/4498/",
+          "material_read": "Full preprint material covering Fig. 2, threshold invariant, removal-loop termination, complexity table, and quadratic adversary discussion.",
+          "method": "Open full-text inspection.",
+          "title": "Fast Projection onto the Simplex and the l1 Ball",
+          "trigger": "Primary source for the exact algorithm, threshold invariant, and worst-case context."
+        },
+        {
+          "assessment": "RELATED_STRONGER_FRAMEWORK_NOT_COVERING",
+          "evidence": "The paper gives quadratic examples and a necessary gap law for long removal phases, but not the audited exact support-conditioned Condat count or all-\\(K\\) equality family.",
+          "identifier_or_url": "arXiv:2608.00740v2",
+          "material_read": "Pages 1–24 through the complete reset/removal complexity analysis, including Algorithms 1–2 and Theorems 4–9.",
+          "method": "Authorized full-text retrieval after ordinary arXiv full-text route failed.",
+          "title": "Dynamic-Threshold Algorithms for the Continuous Quadratic Knapsack Problem: Reset Mechanisms and Complexity",
+          "trigger": "Closest later source analyzing the same reset/removal mechanism and long quadratic removal phases."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Condat complexity table",
+        "Liu–Xie–Yang removal-complexity analysis"
+      ],
+      "rationale": "The exact support-conditioned maximum is a natural algorithmic complexity invariant: it refines a known quadratic worst case, exposes a genuine \\(K=1\\) structural discontinuity, and supplies sharp examples for every final support size rather than a single adversary.",
+      "residual_risks": [
+        "It does not claim typical running time or a whole-algorithm operation count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Optimization Online 4498 / HAL-01056171",
+    "arXiv:2608.00740v2",
+    "Resultary published-result search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic and Condat Fig. 2 semantics only.",
+    "The formula counts cleanup examinations, not first-pass, buffering, thresholding, or memory cost."
+  ],
+  "residual_risks": [
+    "The sharp upper bound itself is an immediate counting consequence of Condat’s removal invariant; originality rests materially on the every-support equality construction and the singleton-support discontinuity."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING_INGREDIENT_NOT_FINAL",
+      "evidence": "The source proves the algorithmic invariants and \\(O(N^2)\\) worst case but does not state the final-support-conditioned sharp maximum.",
+      "identifier_or_url": "HAL-01056171 / https://optimization-online.org/2014/08/4498/",
+      "material_read": "Full preprint material covering Fig. 2, threshold invariant, removal-loop termination, complexity table, and quadratic adversary discussion.",
+      "method": "Open full-text inspection.",
+      "title": "Fast Projection onto the Simplex and the l1 Ball",
+      "trigger": "Primary source for the exact algorithm, threshold invariant, and worst-case context."
+    },
+    {
+      "assessment": "RELATED_STRONGER_FRAMEWORK_NOT_COVERING",
+      "evidence": "The paper gives quadratic examples and a necessary gap law for long removal phases, but not the audited exact support-conditioned Condat count or all-\\(K\\) equality family.",
+      "identifier_or_url": "arXiv:2608.00740v2",
+      "material_read": "Pages 1–24 through the complete reset/removal complexity analysis, including Algorithms 1–2 and Theorems 4–9.",
+      "method": "Authorized full-text retrieval after ordinary arXiv full-text route failed.",
+      "title": "Dynamic-Threshold Algorithms for the Continuous Quadratic Knapsack Problem: Reset Mechanisms and Complexity",
+      "trigger": "Closest later source analyzing the same reset/removal mechanism and long quadratic removal phases."
+    }
+  ]
+}
