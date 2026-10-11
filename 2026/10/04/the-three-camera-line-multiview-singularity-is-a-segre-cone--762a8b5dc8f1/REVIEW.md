@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof starts from the published prime maximal-minor description and performs only projective normalization, dehomogenization, invertible column operations, and an invertible linear coordinate change. The three resulting equations are the generic \(2\times2\) minors of a \(3\times2\) matrix. The packaged exact symbolic replay verifies every determinant identity and the coordinate inverse. The dimension, tangent dimension, Hilbert series, and multiplicity then follow from the Segre-cone description.
+## correctness
 
-## Originality
-**PASS.** The closest literature proves that the three-camera line multiview variety has one singular point and characterizes singular points by rank one. Full-text inspection of that smoothness paper does not state the local Segre-cone type or multiplicity, and the later ideal/Gröbner paper has no searchable discussion of singularity, multiplicity, or Segre local geometry. Exact-formulation searches did not surface the claimed local classification. Residual risk remains that an unindexed source records the same short local normal form.
+PASS
 
-## Value
-**PASS.** The unique singular point is a geometrically forced boundary configuration already relevant to reconstruction and Euclidean-distance computations. The local isomorphism supplies an exact normal form and invariant package—multiplicity \(3\), embedding/tangent dimension \(6\), and Hilbert series \((1+2t)/(1-t)^4\)—that is not contained in the prior singular-locus statement. This is a structural refinement of a natural singularity, not an arbitrary slice.
+Projective changes normalize the three centers and a standard affine chart puts the unique rank-one point at the origin. In six independent affine coordinates, the four source maximal minors transform so that three are exactly the \(2\times2\) minors of a generic \(3\times2\) matrix and the fourth is their linear combination. A fresh SymPy reconstruction verified all determinant identities and the invertible coordinate substitution. The rank-one cone has dimension four, tangent space all six ambient directions at its vertex, Hilbert series \((1+2t)/(1-t)^4\), and degree/multiplicity three; its projective Segre base is smooth, so the cone is singular only at the vertex.
 
-## Closest literature and limitations
-Kileel (arXiv:1611.05947) supplies the three-camera LLL maximal-minor presentation. Breiding--Rydell--Shehu--Torres (arXiv:2203.01694) supply the singular-locus theorem and unique-singular-point statement. Breiding--Duff--Gustafsson--Rydell--Shehu (arXiv:2303.02066) supply later global ideal and Gröbner results. The result here applies only to three cameras with linearly independent centers and makes no claim about degenerate collinear-center arrangements. Its novelty is the explicit local Segre-cone classification and immediate local invariants, not the existence of the singular point or generic determinantal theory.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Kileel's three-camera theorem gives the global maximal-minor ideal, and Breiding–Rydell–Shehu–Torres were materially reread in full around Theorem 3.1 and Corollary 3.2: for three noncollinear centers the line multiview variety has a unique singular point characterized by rank one. Those sources do not state the completed local ring, tangent dimension, multiplicity, or analytic identification of that singularity with the affine cone over the Segre \(\mathbb P^2\times\mathbb P^1\). Fresh Resultary and line-multiview-ideal searches found no distinct earlier exact local-normal-form statement.
+
+## value
+
+PASS
+
+The prior literature locates the exceptional three-camera singularity but leaves its local geometry unnamed. Identifying it with a classical Segre determinantal cone immediately supplies tangent, multiplicity and singularity-theoretic information relevant to local conditioning and algebraic geometry. This is a natural local classification rather than a coordinate renaming alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
