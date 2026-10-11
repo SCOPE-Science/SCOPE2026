@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:17:06.501468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The equilibrium and characteristic polynomial agree with direct linearization. On \\(K=bc(bc-ad)>0\\), the center pair is \\(\\pm i\\omega\\) and the transverse eigenvalue is \\(-d\\). Applying the standard quadratic Hopf/center-manifold normal-form formula to the shifted bilinear terms yields the displayed factorization of \\(\\ell\\); all denominator factors and the polynomial \\(P\\) are positive, while \\(z_0^2-\\omega^2=abc/d\\), giving \\(\\operatorname{sgn}\\ell=-\\operatorname{sgn}(abc(b^2-d^2))\\). I independently recomputed the source parameter case exactly, obtaining \\(\\omega=10\\sqrt{1095}/13\\) and the stated positive coefficient, and checked several additional rational parameter choices against the claimed sign law. Thus the source's linear 'center' condition is generically a weak-focus condition, with the exceptional surfaces correctly excluded.",
+      "risks": [
+        "The cubic focal coefficient vanishes on \\(a=0\\) or \\(b^2=d^2\\); those surfaces require higher-order analysis."
+      ],
+      "sources": [
+        "assigned RESULT.md blob f872993f44718e90eabd0372562887332fbfd7af",
+        "verify.py blob ff1b485... at the assigned tree",
+        "Liu–Wu–Fu, DOI 10.3390/math10244682",
+        "standard Hopf first-Lyapunov/center-manifold coefficient formula"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General normal-form theory applies to arbitrary vector fields but does not mechanically produce this system's factorization or identify the source's parameter point as repelling without the calculation."
+        ],
+        "reasoning": "The source-specific exact simplification is additional mathematical content.",
+        "searches": [
+          "Liu–Wu–Fu 2022 full article",
+          "standard Hopf normal-form references such as Kuznetsov"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/math10244682",
+        "Kuznetsov, Elements of Applied Bifurcation Theory",
+        "current Resultary same-system search",
+        "assigned verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (5) establishes only the linear spectrum; purely imaginary eigenvalues do not imply a nonlinear center.",
+          "The audited coefficient decides the nonlinear radial drift and contradicts the source's generic center label at its own two-scroll parameter set."
+        ],
+        "reasoning": "The result is not implied by the source's linear calculation; it corrects it.",
+        "searches": [
+          "claim-versus-source equation (5) and generic Hopf formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source labels the equilibrium a center solely from its linear spectrum.",
+          "No current Resultary or web hit supplied the audited factorization or sign classification."
+        ],
+        "reasoning": "Equivalent formulations as a center-manifold focus coefficient, first Lyapunov coefficient, and nonlinear correction to the nominal center were searched.",
+        "searches": [
+          "Resultary: three-dimensional scroll system weak focus first Lyapunov coefficient ay-yz -bz+xz cx+xy-dz",
+          "web: exact vector field with weak focus / first Lyapunov coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No tabulated focal coefficient or same-system database result was found."
+        ],
+        "reasoning": "This is an analytic local classification, not a lookup.",
+        "searches": [
+          "current Resultary same-system search",
+          "searches by exact equations and source DOI"
+        ]
+      },
+      "rationale": "The full primary article was inspected. It derives exactly the same equilibrium and characteristic factorization and then states that \\(S_3\\) 'is a center' when \\(bc(bc-ad)>0\\), but it performs no center-manifold or focal-value calculation. Targeted searches using the vector field, the condition \\(bc(bc-ad)>0\\), and weak-focus/first-Lyapunov terminology found no published same-system nonlinear classification. Generic Hopf theory supplies the computational framework but not the source-specific factorized coefficient or correction.",
+      "residual_risks": [
+        "A same-system focal calculation could exist in later engineering literature under different terminology; targeted searches found no specific candidate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the nonlinear center-manifold classification.",
+          "evidence": "The article states from equation (5) that \\(S_3\\) is a center when \\(bc(bc-ad)>0\\), while providing no focal-value computation; at \\((5,50,-6,13)\\) it reports \\(-13,\\pm25.4544i\\).",
+          "identifier_or_url": "https://doi.org/10.3390/math10244682",
+          "material_read": "Full accessible article sections on the system, equilibria, Jacobians, characteristic equations, parameter examples, and conclusions.",
+          "method": "Primary statement comparison.",
+          "title": "Dynamical Analysis of a One- and Two-Scroll Chaotic System",
+          "trigger": "Primary source introducing the exact vector field and nominal-center statement."
+        },
+        {
+          "assessment": "Valid algebraic certificate.",
+          "evidence": "The exact source-parameter coefficient is positive and several independent rational tests agree with the claimed sign factor.",
+          "identifier_or_url": "verify.py at the assigned tree",
+          "material_read": "Complete source.",
+          "method": "Line-by-line inspection plus independent SymPy reconstruction.",
+          "title": "Assigned verify.py",
+          "trigger": "Critical exact normal-form computation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correctly distinguishing a nonlinear center from a weak focus is a substantive local-dynamics issue, and the theorem supplies a generic sign criterion plus an exact correction at the source's own highlighted parameter set. It prevents a false qualitative classification while leaving the reported remote chaotic attractor claims appropriately untouched.",
+      "risks": [
+        "The result is local; it does not determine global attractor existence or basin geometry."
+      ],
+      "sources": [
+        "primary source's nominal-center assertion",
+        "assigned factorized focal coefficient"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local near \\(S_3\\) only.",
+    "Exceptional surfaces \\(a=0\\) and \\(b^2=d^2\\) are not classified.",
+    "No claim is made about global chaotic/two-scroll attractors."
+  ],
+  "schema_version": 1
+}

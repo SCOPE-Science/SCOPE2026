@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,44 +19,24 @@
 }
 ---
 
-The verification reconstructs the nonlinear local calculation from the published vector field.
+# Independent mathematical audit
 
-Checks performed:
+## correctness
 
-1. At \((a,b,c,d)=(5,50,-6,13)\), the shifted equilibrium is
-\[
-S_3=\left(50,0,-\frac{300}{13}\right).
-\]
+PASS
 
-2. The exact shifted Jacobian is formed and its characteristic polynomial is checked to factor as
-\[
-(\lambda+13)\left(\lambda^2+\frac{109500}{169}\right),
-\]
-so
-\[
-\omega=\frac{10\sqrt{1095}}{13}.
-\]
+The equilibrium and characteristic polynomial agree with direct linearization. On \(K=bc(bc-ad)>0\), the center pair is \(\pm i\omega\) and the transverse eigenvalue is \(-d\). Applying the standard quadratic Hopf/center-manifold normal-form formula to the shifted bilinear terms yields the displayed factorization of \(\ell\); all denominator factors and the polynomial \(P\) are positive, while \(z_0^2-\omega^2=abc/d\), giving \(\operatorname{sgn}\ell=-\operatorname{sgn}(abc(b^2-d^2))\). I independently recomputed the source parameter case exactly, obtaining \(\omega=10\sqrt{1095}/13\) and the stated positive coefficient, and checked several additional rational parameter choices against the claimed sign law. Thus the source's linear 'center' condition is generically a weak-focus condition, with the exceptional surfaces correctly excluded.
 
-3. The quadratic bilinear form corresponding to \((-YZ,XZ,XY)\) is built directly. A center eigenvector \(q\) and adjoint eigenvector \(p\) are solved exactly and normalized by \(q_3=1\) and \(\langle p,q\rangle=1\).
+## originality
 
-4. The standard cubic center-manifold focal expression
-\[
-\frac{1}{2\omega}\operatorname{Re}\left\langle p,
--2B\!\left(q,A^{-1}B(q,\bar q)\right)
-+B\!\left(\bar q,(2i\omega I-A)^{-1}B(q,q)\right)
-\right\rangle
-\]
-is evaluated with exact symbolic arithmetic. The result is
-\[
-\ell=\frac{51590875683243\sqrt{1095}}{7747903716039146000}>0.
-\]
+PASS
 
-5. The independent sign factor at the same parameter set,
-\[
--abc(b^2-d^2),
-\]
-is checked to be positive, agreeing with the general factorization.
+The full primary article was inspected. It derives exactly the same equilibrium and characteristic factorization and then states that \(S_3\) 'is a center' when \(bc(bc-ad)>0\), but it performs no center-manifold or focal-value calculation. Targeted searches using the vector field, the condition \(bc(bc-ad)>0\), and weak-focus/first-Lyapunov terminology found no published same-system nonlinear classification. Generic Hopf theory supplies the computational framework but not the source-specific factorized coefficient or correction.
 
-The bundled `verify.py` requires Python with SymPy and prints `VERIFY_OK` when all exact checks pass.
+## value
 
-Limits: the checker verifies the source parameter example and the local normal-form calculation. It does not integrate trajectories, classify the remote two-scroll attractor, or resolve the exceptional cubic-degenerate surfaces \(a=0\) and \(b^2=d^2\).
+PASS
+
+Correctly distinguishing a nonlinear center from a weak focus is a substantive local-dynamics issue, and the theorem supplies a generic sign criterion plus an exact correction at the source's own highlighted parameter set. It prevents a false qualitative classification while leaving the reported remote chaotic attractor claims appropriately untouched.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
