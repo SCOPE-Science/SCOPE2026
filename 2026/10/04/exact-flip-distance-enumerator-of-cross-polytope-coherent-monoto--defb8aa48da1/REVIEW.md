@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published adjacency model turns the problem into the punctured ternary grid. The proof supplies a shortest origin-avoiding coordinate path in every case except opposite unit vectors, proves that those pairs cannot have distance two, and constructs a four-step path. The generating polynomial follows from independent-coordinate counting plus the exact correction of the exceptional ordered pairs. The Wiener formula is the derivative at \(z=1\), divided by two.
+## correctness
 
-The standalone verifier reconstructs graph distances by breadth-first search for \(m=2,3,4,5\) and checks the pointwise formula, the full distance histogram, and the Wiener index. These computations are finite corroboration; the arbitrary-dimensional conclusion rests on the proof above.
+PASS
 
-## Originality
-PASS. The closest primary paper proves the nonzero sign-vector model, Taxi-Cab adjacency, and the diameter, but does not state the exact pairwise metric or its distance enumerator. A later full-text paper on cross-polytope path-length distributions addresses the length of each monotone path rather than the number of flips between pairs of coherent paths. Targeted searches over the signohedron, coherent-path flip graph, punctured ternary grid, exact polynomial, and Wiener-index formulations found no covering statement.
+Every edge changes one ternary coordinate by one unit, giving the ambient \(\ell_1\) lower bound. If a target-only coordinate exists, or a common support coordinate keeps its sign, that coordinate anchors an ambient geodesic away from the deleted origin. If equal supports have all signs reversed and support size at least two, two supported coordinates can alternate as anchors. Only opposite unit vectors force every two-step ambient geodesic through the deleted origin; bipartiteness excludes distance three and an explicit four-edge detour exists. Removing origin-endpoint pairs from the full ternary-cube product enumerator and moving exactly \(2m\) ordered pairs from degree two to degree four gives the stated polynomial. Differentiation at one gives the Wiener index. The inspected BFS verifier exhausts dimensions \(m=2,3,4,5\) as a consistency check, not as the infinite proof.
 
-Residual risk remains that an equivalent graph calculation exists under unrelated graph-product terminology. No claim of exhaustive bibliographic uniqueness is made.
+## originality
 
-## Value
-PASS. The result gives a complete distance profile of a natural polyhedral reconfiguration graph whose prior treatment stopped at adjacency and diameter. It quantifies every pairwise coherent-path flip cost and gives exact global statistics, which are natural invariants for the same graph studied in connection with monotone paths and pivot geometry.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Black--De Loera's full primary theorem identifies coherent monotone paths with nonzero ternary sign vectors and adjacency with taxicab distance one, and computes the diameter. It does not state the exact all-pairs metric, the unique exceptional pair type, the distance enumerator, or the Wiener index in the inspected text. Resultary's direct exact hit is the audited theorem, with no earlier covering finding.
+
+## value
+
+PASS
+
+Once the coherent-path graph is known, its exact all-pairs metric is the natural next structural invariant. Identifying a single exceptional geodesic type yields a closed distance distribution and Wiener index in every dimension, information not contained in the known diameter alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:43:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at blob 8c4d31c83a720102d4af5527641e5905d63c0152",
+        "assigned verifier.py at blob d01890f27bb63031688bda4166894e20e79e02fe",
+        "Black--De Loera full primary text",
+        "independent origin-avoidance and enumerator reconstruction"
+      ],
+      "rationale": "Every edge changes one ternary coordinate by one unit, giving the ambient \\(\\ell_1\\) lower bound. If a target-only coordinate exists, or a common support coordinate keeps its sign, that coordinate anchors an ambient geodesic away from the deleted origin. If equal supports have all signs reversed and support size at least two, two supported coordinates can alternate as anchors. Only opposite unit vectors force every two-step ambient geodesic through the deleted origin; bipartiteness excludes distance three and an explicit four-edge detour exists. Removing origin-endpoint pairs from the full ternary-cube product enumerator and moving exactly \\(2m\\) ordered pairs from degree two to degree four gives the stated polynomial. Differentiation at one gives the Wiener index. The inspected BFS verifier exhausts dimensions \\(m=2,3,4,5\\) as a consistency check, not as the infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source gives the graph model and a diameter theorem.",
+          "No inspected broader result supplies the all-pairs punctured-grid metric or its generating polynomial."
+        ],
+        "reasoning": "The diameter does not imply the exact distances or their distribution.",
+        "searches": [
+          "Black--De Loera coherent-path graph",
+          "general enumerative monotone-path literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.01237",
+        "DOI:10.1007/s00454-023-00563-4",
+        "arXiv:2002.00999",
+        "arXiv:2504.20739",
+        "Resultary coherent-path metric query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adjacency supplies a lower bound by ambient \\(\\ell_1\\) distance; the new argument classifies precisely when an ambient geodesic can avoid the deleted origin.",
+          "Only opposite unit vectors require the two-edge detour, after which product enumeration gives the complete distance polynomial."
+        ],
+        "reasoning": "The final metric and enumerator require an additional global shortest-path argument beyond the prior adjacency and diameter results.",
+        "searches": [
+          "Black--De Loera adjacency theorem",
+          "audited origin-avoidance geodesic classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Black--De Loera give the sign-vector vertex set, adjacency iff taxicab distance one, and diameter \\(2(n-1)\\).",
+          "The later path-length enumeration concerns the length of individual monotone paths, not pairwise flip distances between coherent paths."
+        ],
+        "reasoning": "The coherent-path flip graph is exactly the punctured Cartesian ternary grid; this graph formulation makes the metric comparison precise.",
+        "searches": [
+          "Black--De Loera, arXiv:2102.01237 / DOI:10.1007/s00454-023-00563-4",
+          "Athanasiadis--De Loera--Zhang, arXiv:2002.00999",
+          "Juhnke--Poullot, arXiv:2504.20739",
+          "Resultary query: cross polytope coherent monotone paths flip distance ternary sign vectors Wiener index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the audited finding as the exact direct match; no older exact table/formula was located."
+        ],
+        "reasoning": "The finite graph family is not represented by a standard database entry found in the search.",
+        "searches": [
+          "Resultary published-finding corpus for cross-polytope coherent-path metrics",
+          "targeted searches under punctured ternary cube, signohedron, distance enumerator, and Wiener index"
+        ]
+      },
+      "rationale": "Black--De Loera's full primary theorem identifies coherent monotone paths with nonzero ternary sign vectors and adjacency with taxicab distance one, and computes the diameter. It does not state the exact all-pairs metric, the unique exceptional pair type, the distance enumerator, or the Wiener index in the inspected text. Resultary's direct exact hit is the audited theorem, with no earlier covering finding.",
+      "residual_risks": [
+        "An unindexed graph-theory treatment of a punctured ternary Cartesian power could contain an equivalent metric or Wiener polynomial under unrelated terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GRAPH_MODEL_AND_DIAMETER_PRIOR_ALL_PAIRS_METRIC_NOT_STATED",
+          "evidence": "The source identifies coherent paths with nonzero ternary vectors and adjacent paths with taxicab distance one, then computes the diameter; the complete pairwise metric and enumerator are not stated in the inspected theorem.",
+          "identifier_or_url": "arXiv:2102.01237; DOI:10.1007/s00454-023-00563-4",
+          "material_read": "Full accessible arXiv HTML around the coherent-path encoding, adjacency characterization, and diameter theorem.",
+          "method": "Primary full-text statement and implication comparison.",
+          "title": "Monotone Paths on Cross-Polytopes",
+          "trigger": "Primary source for the exact sign-vector model and coherent-path adjacency theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Black--De Loera",
+        "Athanasiadis--De Loera--Zhang",
+        "Juhnke--Poullot",
+        "Resultary search"
+      ],
+      "rationale": "Once the coherent-path graph is known, its exact all-pairs metric is the natural next structural invariant. Identifying a single exceptional geodesic type yields a closed distance distribution and Wiener index in every dimension, information not contained in the known diameter alone.",
+      "residual_risks": [
+        "An unindexed graph-theory treatment of a punctured ternary Cartesian power could contain an equivalent metric or Wiener polynomial under unrelated terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2102.01237",
+    "DOI:10.1007/s00454-023-00563-4",
+    "arXiv:2002.00999",
+    "arXiv:2504.20739",
+    "Resultary coherent-path metric query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For coherent monotone paths on the oriented cross-polytope, flip distance is ambient ternary \\(\\ell_1\\) distance except for opposite unit sign vectors, whose distance is four; hence the complete ordered distance enumerator is \\((3+4z+2z^2)^m-2(1+2z)^m+1+2m(z^4-z^2)\\) and the Wiener index is \\(4m9^{m-1}-2m3^{m-1}+2m\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed graph-theory treatment of a punctured ternary Cartesian power could contain an equivalent metric or Wiener polynomial under unrelated terminology."
+  ]
+}
