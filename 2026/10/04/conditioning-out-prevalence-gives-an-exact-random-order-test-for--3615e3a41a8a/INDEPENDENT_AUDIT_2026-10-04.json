@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:06:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on \\(M_k=m\\), every binary relevance vector has probability \\(p^m(1-p)^{k-m}\\), hence the conditional law is exactly uniform and independent of \\(p\\). Independent enumeration for all \\(k\\le8\\) verified the submitted closed conditional-mean formula exactly. The source paper's online variance formula has leading term \\(5p^3(1-p)/k\\). Independently expanding the linear Hoeffding projection gives coefficients \\(c_{i,k}=p+(1-p)/i+p(H_k-H_i)\\); their normalized squared sum tends to 5. Differentiating the centering baseline contributes the projection on the total count, and the squared residual coefficients tend to 1, yielding the stated adjusted variance and the \\(4+1\\) split. Standard triangular-array Lindeberg plus negligibility of the degenerate quadratic remainder gives the two CLTs.",
+      "risk": "The asymptotic claims require fixed interior \\(p\\in(0,1)\\); boundary/sparse regimes need separate scaling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior AP random-ranking work supplies baselines and variance, not the submitted nuisance-eliminating conditional inference and 4+1 variance decomposition."
+        ],
+        "reasoning": "No checked broader AP theorem implies the full final claim.",
+        "searches": [
+          "DOI 10.15559/26-VMSTA298 full text",
+          "Bestgen 2015 exact expected random AP baseline"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.15559/26-VMSTA298",
+        "arXiv:2511.02571",
+        "Bestgen 2015 random-AP baseline literature",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniformity given the total is elementary from Bernoulli exchangeability, but the source does not state the test; more importantly its published online variance 5 is transformed by estimating/conditioning prevalence into the new residual variance 1."
+        ],
+        "reasoning": "The exact-test construction alone is close to textbook conditioning, but the complete theorem includes a nontrivial asymptotic projection result not covered by the source.",
+        "searches": [
+          "DOI 10.15559/26-VMSTA298 Theorems 1--2 and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's offline model uses uniform locations conditional on a fixed relevant count, and its online model has the same Bernoulli ingredients, but it does not condition the online law or state the adjusted CLT.",
+          "The source explicitly says building a statistical test is left for future research."
+        ],
+        "reasoning": "The randomization mechanism is a natural bridge between source models, while the variance split is an additional asymptotic theorem.",
+        "searches": [
+          "Manzhos--Ianevych--Melnyk, DOI 10.15559/26-VMSTA298, Sections 2, 4, 5, 7",
+          "Resultary query: AP@k conditional on total relevant random ranking exact test prevalence variance split CLT"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact conditional p-value table or adjusted-variance table was found."
+        ],
+        "reasoning": "The exact test is defined by a finite uniform conditional law, and the CLT is analytic rather than table-derived.",
+        "searches": [
+          "Resultary AP@k searches",
+          "source numerical tables"
+        ]
+      },
+      "rationale": "Manzhos--Ianevych--Melnyk provide exact offline and online expectation/variance formulas and explicitly leave statistical testing for future work. Their offline model makes the fixed-count uniform ordering visible, but the exact online conditional randomization test, the conditional baseline in the online normalization, and especially the plug-in CLT with variance reduction from 5 to 1 are not stated there. Resultary searches found no equivalent AP@k conditional-test or variance-split theorem.",
+      "residual_risks": [
+        "General conditional-inference theory makes the nuisance elimination concept classical; the AP-specific conditional baseline and variance-split theorem were not found in the checked ranking literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE",
+          "evidence": "The paper defines fixed-count SWOR and Bernoulli SWR models, gives exact expectations/variances, assumes known \\(p\\) online, and explicitly leaves statistical testing for future research.",
+          "identifier_or_url": "DOI:10.15559/26-VMSTA298; arXiv:2511.02571",
+          "material_read": "Full open journal HTML, especially Sections 2, 4, 5, 7 and theorem proofs surrounding the expectation/variance formulas.",
+          "method": "lawful open full text",
+          "title": "Average precision at cutoff k under random rankings: expectation and variance",
+          "trigger": "Direct source for both fixed-count and Bernoulli AP@k random-ranking models."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result converts an existing random-ranking benchmark into an exact finite-sample, prevalence-free test and quantifies precisely how much asymptotic fluctuation is attributable to estimating/conditioning out prevalence. That addresses the source paper's explicit testing gap and supplies a practically interpretable variance decomposition.",
+      "risk": "The finite exact-test principle is elementary once exchangeability is noticed; the stronger value rests on the AP-specific baseline and asymptotic 4+1 decomposition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under the i.i.d. Bernoulli-\\(p\\) random-ranking model for online \\(AP@k\\), conditioning on the observed total \\(M_k=m\\) makes the relevance pattern uniform over all \\(\\binom{k}{m}\\) binary strings and therefore gives an exact nuisance-free randomization test for unusually early relevant items. The conditional mean is \\[\\eta_{k,m}=\\frac{mH_k}{k^2}+\\frac{m(m-1)(k-H_k)}{k^2(k-1)},\\] and for fixed \\(p\\in(0,1)\\) the known-prevalence CLT has asymptotic variance \\(5p^3(1-p)\\), whereas centering by the plug-in conditional baseline reduces it to \\(p^3(1-p)\\), giving an exact asymptotic variance split \\(4+1\\).",
+  "limitations": [
+    "The CLTs are for fixed \\(p\\in(0,1)\\), not sparse or boundary prevalence.",
+    "The exact conditional test is conditional on the observed total and targets order effects, not prevalence itself."
+  ],
+  "schema_version": 1
+}
