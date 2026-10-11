@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:53:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verifier.py at source tree 1b1e0f76e23ef826c8c7ce5db94d686fc098ec82",
+        "arXiv:2507.01046v4"
+      ],
+      "rationale": "Summing the exact six compartment equations gives \\(T'=b-\\delta T\\). At \\(\\xi=0\\), summing the three noncompliant equations gives \\(X'=(q(T-X)-(\\nu+\\delta))X\\). At equality, with \\(Y=T-K=Y_0e^{-\\delta t}\\), this is \\(X'=q(Y-X)X\\); the exact equation for \\(1/X\\) has an exponentially convergent integrating factor and yields \\(tX\\to1/q\\) for every \\(X_0>0\\), including the explicit invariant slice \\(X=X_0/(1+qX_0t)\\) when \\(T_0=K\\). For \\(R_D<1\\), the infection subsystem is eventually dominated by a Hurwitz Metzler matrix, so infected classes decay exponentially; the recovered classes are stable linear equations with exponentially decaying forcing. The stated limits for \\(S^*\\) and \\(K-S\\) then follow from the exact population identities. For \\(R_D>1\\), the positive disease eigenvalue gives instability. The package verifier's rational example independently matches the zero behavioral eigenvalue, negative disease eigenvalues, and reciprocal solution, but the proof is analytic rather than experimental.",
+      "residual_risks": [
+        "The simultaneous disease-critical case \\(R_D=1\\) is outside the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational source derives the same disease-free states and strict local stability regimes and separately treats stochastic asymptotics.",
+          "No inspected theorem treats the deterministic behavioral threshold equality with a sharp \\(1/t\\) rate."
+        ],
+        "reasoning": "The broader epidemiological stability results do not mechanically imply the center-direction asymptotic at a nonhyperbolic threshold.",
+        "searches": [
+          "Christian Parkinson and Weinan Wang, A Compartmental Model for Epidemiology with Human Behavior and Stochastic Effects, arXiv:2507.01046v4",
+          "Chloe Ngo, Christian Parkinson and Weinan Wang, Optimal Control of an SIR Model with Noncompliance as a Social Contagion, arXiv:2509.09075"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.01046v4",
+        "DOI:10.1016/j.mbs.2025.109588",
+        "arXiv:2509.09075",
+        "Resultary semantic query: critical noncompliance threshold equality one over t decay SIR behavioral reproduction ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's next-generation theorem gives local asymptotic stability below threshold and instability above threshold, but is silent at the zero-eigenvalue equality.",
+          "The assigned aggregation and reciprocal integration determine the equality dynamics and sharp constant \\(1/q\\)."
+        ],
+        "reasoning": "The final critical law requires an additional nonhyperbolic reduction and is not mechanically implied by the strict-threshold source statements.",
+        "searches": [
+          "arXiv:2507.01046v4 strict threshold theorem versus the assigned reciprocal identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.5 in the deterministic source invokes the standard next-generation stability theorem only for \\(\\mathscr R_0<1\\) and \\(\\mathscr R_0>1\\), and its fully compliant case uses the strict inequality \\(b/\\delta<(\\delta+\\nu)/\\mu\\).",
+          "At behavioral equality the linear behavioral eigenvalue is zero, so the audited polynomial decay is not a reformulation of the source's hyperbolic stability result."
+        ],
+        "reasoning": "The equality case was searched both as a critical behavioral reproduction-ratio problem and as the equivalent scalar noncompliance equation \\(X'=q(Y-X)X\\) with exponentially decaying forcing.",
+        "searches": [
+          "arXiv:2507.01046v4, Theorem 2.5 and the fully compliant disease-free equilibrium",
+          "arXiv:2509.09075, noncompliance reproductive-ratio stability analysis",
+          "Resultary semantic query: critical noncompliance threshold equality one over t decay SIR behavioral reproduction ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact critical-rate entry was located; the source theorem explicitly stops at strict inequalities."
+        ],
+        "reasoning": "This is not a tabulated invariant; the relevant exact comparison is the missing equality case of the source's threshold theorem.",
+        "searches": [
+          "Resultary published-finding corpus: critical noncompliance / behavioral-threshold queries",
+          "arXiv:2507.01046v4 theorem-level comparison"
+        ]
+      },
+      "rationale": "The primary deterministic noncompliance paper analyzes the fully compliant disease-free equilibrium only under strict behavioral subthreshold/superthreshold inequalities; the equality case has a zero behavioral eigenvalue and is not covered by its local-stability theorem. The later controlled model likewise advertises reproductive-ratio stability analysis but no inspected result supplies the exact critical reciprocal law or the full six-compartment asymptotic. Published-finding search located the audited result but no earlier equivalent or stronger critical-threshold theorem.",
+      "residual_risks": [
+        "Reciprocal decay at scalar transcritical/logistic thresholds is classical; originality is limited to closing this model's omitted equality case with the exact full-state asymptotic.",
+        "The claim excludes the simultaneous disease-critical case \\(R_D=1\\)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICT_THRESHOLD_ANALYSIS_NOT_CRITICAL_EQUALITY",
+          "evidence": "The theorem applies local asymptotic stability for reproduction number below one and instability above one; the fully compliant behavioral condition is strict, leaving equality outside the theorem.",
+          "identifier_or_url": "arXiv:2507.01046v4; DOI:10.1016/j.mbs.2025.109588",
+          "material_read": "Full accessible arXiv HTML around Proposition 2.4, Theorem 2.5, the strict fully compliant threshold, and the later asymptotic/stochastic discussion.",
+          "method": "Direct theorem-boundary and equation comparison.",
+          "title": "A Compartmental Model for Epidemiology with Human Behavior and Stochastic Effects",
+          "trigger": "Primary source for the same six-compartment deterministic model, disease-free equilibria, and behavioral stability threshold."
+        },
+        {
+          "assessment": "ADJACENT_CONTROL_FRAMEWORK_NOT_CRITICAL_RATE",
+          "evidence": "The paper derives reproductive ratios and stability analysis but no inspected statement gives the critical \\(1/t\\) asymptotic.",
+          "identifier_or_url": "arXiv:2509.09075",
+          "material_read": "Accessible primary abstract and model/stability scope.",
+          "method": "Scope and implication comparison.",
+          "title": "Optimal Control of an SIR Model with Noncompliance as a Social Contagion",
+          "trigger": "Later same-model/control paper with the adjusted noncompliance transmission parameter."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2507.01046v4",
+        "arXiv:2509.09075"
+      ],
+      "rationale": "The result closes a genuine nonhyperbolic boundary left open by the source's strict threshold classification and supplies the sharp algebraic constant governing noncompliance persistence. Because that center-direction tail controls the asymptotic approach of two epidemiologically meaningful susceptible compartments, it is a motivated threshold theorem rather than an arbitrary scalar exercise.",
+      "residual_risks": [
+        "Reciprocal decay at scalar transcritical/logistic thresholds is classical; originality is limited to closing this model's omitted equality case with the exact full-state asymptotic.",
+        "The claim excludes the simultaneous disease-critical case \\(R_D=1\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2507.01046v4",
+    "DOI:10.1016/j.mbs.2025.109588",
+    "arXiv:2509.09075",
+    "Resultary semantic query: critical noncompliance threshold equality one over t decay SIR behavioral reproduction ratio"
+  ],
+  "disposition": "passed",
+  "final_claim": "At the exact behavioral threshold \\(Kq/(\\nu+\\delta)=1\\) with \\(\\xi=0\\), every solution with positive initial noncompliant mass satisfies \\(tX(t)\\to1/q\\). If the disease threshold also satisfies \\(R_D<1\\), the fully compliant disease-free equilibrium is globally asymptotically stable, disease and recovered compartments decay exponentially, and \\(tS^*(t)\\to t(K-S(t))\\to1/q\\); if \\(R_D>1\\), the equilibrium is unstable.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Reciprocal decay at scalar transcritical/logistic thresholds is classical; originality is limited to closing this model's omitted equality case with the exact full-state asymptotic.",
+    "The claim excludes the simultaneous disease-critical case \\(R_D=1\\)."
+  ]
+}

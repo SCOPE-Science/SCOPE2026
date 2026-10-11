@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-Summing the source equations gives the closed two-variable critical reduction \(Y'=-\delta Y\), \(X'=q(Y-X)X\). The reciprocal variable \(U=1/X\) satisfies a first-order linear equation, yielding the exact formula and \(tX(t)\to1/q\). Under \(\mathcal R_D<1\), the infection block is eventually dominated by a Hurwitz Metzler matrix and therefore decays exponentially; the recovered block follows by the same comparison with exponentially decaying forcing. This makes \(S^*=X+o(1/t)\) and \(S=K-X+o(1/t)\). The bundled exact-rational check confirms a concrete critical parameter point and invariant-slice solution.
+## correctness
 
-## Originality — PASS
-Both recent primary ODE sources were inspected at the model equations, disease-free equilibria, theorem statements, and proof conditions. The Parkinson--Wang theorem uses strict behavioral inequalities and its proof requires a strictly positive sixth eigenvalue; equality makes that eigenvalue zero. The Ngo--Parkinson--Wang theorem also uses strict behavioral ratios and explicitly calls the aggregate compliance dynamics SIS-type. Searches by arXiv identifier, theorem boundary, equality formula, algebraic-decay alias, and full-state implication found no source-specific equality closure or \(tN^*(t)\to1/q\) result. The closest database hits concern critical decay in unrelated systems, not these epidemic models.
+PASS
 
-## Value — PASS
-The missing equality is the exact behavioral-control threshold singled out by the papers. Linear threshold theory is inconclusive there because of the zero eigenvalue, so deciding stability requires nonlinear analysis. The result closes that boundary, quantifies the critical slowing with a sharp universal coefficient, and shows a nontrivial rate separation: behavior relaxes algebraically while infection and recovery remain exponentially damped. This distinguishes a practically slow near-control-boundary clearance regime from the exponential behavior in the strict subcritical case.
+Summing the exact six compartment equations gives \(T'=b-\delta T\). At \(\xi=0\), summing the three noncompliant equations gives \(X'=(q(T-X)-(\nu+\delta))X\). At equality, with \(Y=T-K=Y_0e^{-\delta t}\), this is \(X'=q(Y-X)X\); the exact equation for \(1/X\) has an exponentially convergent integrating factor and yields \(tX\to1/q\) for every \(X_0>0\), including the explicit invariant slice \(X=X_0/(1+qX_0t)\) when \(T_0=K\). For \(R_D<1\), the infection subsystem is eventually dominated by a Hurwitz Metzler matrix, so infected classes decay exponentially; the recovered classes are stable linear equations with exponentially decaying forcing. The stated limits for \(S^*\) and \(K-S\) then follow from the exact population identities. For \(R_D>1\), the positive disease eigenvalue gives instability. The package verifier's rational example independently matches the zero behavioral eigenvalue, negative disease eigenvalues, and reciprocal solution, but the proof is analytic rather than experimental.
 
-## Closest literature and limitations
-The closest literature is the two recent ODE papers themselves. The 2023 reaction--diffusion predecessor establishes decay under strict sufficient conditions and the 2022 SIAR paper uses a different compartment structure. Generic SIS theory contains the scalar critical \(1/t\) mechanism, so no claim is made that algebraic critical decay is new in general. The accepted claim is restricted to the equality closure and full-six-compartment asymptotic profile under fixed controls.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary deterministic noncompliance paper analyzes the fully compliant disease-free equilibrium only under strict behavioral subthreshold/superthreshold inequalities; the equality case has a zero behavioral eigenvalue and is not covered by its local-stability theorem. The later controlled model likewise advertises reproductive-ratio stability analysis but no inspected result supplies the exact critical reciprocal law or the full six-compartment asymptotic. Published-finding search located the audited result but no earlier equivalent or stronger critical-threshold theorem.
+
+## value
+
+PASS
+
+The result closes a genuine nonhyperbolic boundary left open by the source's strict threshold classification and supplies the sharp algebraic constant governing noncompliance persistence. Because that center-direction tail controls the asymptotic approach of two epidemiologically meaningful susceptible compartments, it is a motivated threshold theorem rather than an arbitrary scalar exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

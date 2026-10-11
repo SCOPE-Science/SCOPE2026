@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Define \(q=\mu^*-\mu\), \(K=b/\delta\), total population \(T\), and total noncompliant population \(X\). Direct summation of the six source equations gives
-\[
-T'=b-\delta T,
-\qquad
-X'=\bigl(q(T-X)-(\nu+\delta)\bigr)X.
-\]
-On \(qK=\nu+\delta\), the substitution \(Y=T-K\) gives \(Y'=-\delta Y\) and \(X'=q(Y-X)X\). The reciprocal \(U=1/X\) then obeys the linear equation used in `RESULT.md`, from which \(tX(t)\to1/q\) follows exactly.
+# Independent mathematical audit
 
-For the exact rational check in `verifier.py`, take \(b=\delta=\beta=\gamma=\nu=1\), \(q=2\), \(\alpha=1/2\), \(\eta=0\), \(T(0)=K=1\), and \(X(0)=1/4\). Then the behavioral ratio is exactly one, the disease ratio is \(1/8\), and
-\[
-X(t)=\frac1{4+2t}
-\]
-solves \(X'=-2X^2\) exactly. The script checks the derivative identity at rational test times only as a replay of this closed-form identity; the general theorem is established by the analytic derivation, not by finite sampling.
+## correctness
 
-The infection comparison matrix tends to an upper-triangular Hurwitz matrix when \(\mathcal R_D<1\), while the recovered comparison matrix tends to another Hurwitz matrix. The proof in `RESULT.md` records the explicit dominating matrices and the resulting exponential decay limits.
+PASS
+
+Summing the exact six compartment equations gives \(T'=b-\delta T\). At \(\xi=0\), summing the three noncompliant equations gives \(X'=(q(T-X)-(\nu+\delta))X\). At equality, with \(Y=T-K=Y_0e^{-\delta t}\), this is \(X'=q(Y-X)X\); the exact equation for \(1/X\) has an exponentially convergent integrating factor and yields \(tX\to1/q\) for every \(X_0>0\), including the explicit invariant slice \(X=X_0/(1+qX_0t)\) when \(T_0=K\). For \(R_D<1\), the infection subsystem is eventually dominated by a Hurwitz Metzler matrix, so infected classes decay exponentially; the recovered classes are stable linear equations with exponentially decaying forcing. The stated limits for \(S^*\) and \(K-S\) then follow from the exact population identities. For \(R_D>1\), the positive disease eigenvalue gives instability. The package verifier's rational example independently matches the zero behavioral eigenvalue, negative disease eigenvalues, and reciprocal solution, but the proof is analytic rather than experimental.
+
+## originality
+
+PASS
+
+The primary deterministic noncompliance paper analyzes the fully compliant disease-free equilibrium only under strict behavioral subthreshold/superthreshold inequalities; the equality case has a zero behavioral eigenvalue and is not covered by its local-stability theorem. The later controlled model likewise advertises reproductive-ratio stability analysis but no inspected result supplies the exact critical reciprocal law or the full six-compartment asymptotic. Published-finding search located the audited result but no earlier equivalent or stronger critical-threshold theorem.
+
+## value
+
+PASS
+
+The result closes a genuine nonhyperbolic boundary left open by the source's strict threshold classification and supplies the sharp algebraic constant governing noncompliance persistence. Because that center-direction tail controls the asymptotic approach of two epidemiologically meaningful susceptible compartments, it is a motivated threshold theorem rather than an arbitrary scalar exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
