@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic: a zero-labeled vertex in part \(X_i\) sees exactly \(T-t_i\) vertices labeled \(2\), which yields the four exhaustive structural regimes.
+# Independent mathematical audit
 
-The included checker does not use the structural classification when deciding a function. It constructs the complete multipartite graph from part labels, directly counts adjacent \(2\)-labels for every zero-labeled vertex, and records the weight of every valid ternary labeling. It then compares every coefficient with the closed formula and compares the smallest observed weight with the closed minimum formula.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-multipartite_types_checked = 87
-ternary_labelings_checked = 748341
-orders = 2..9
-all polynomial coefficients matched
-minimum-weight formula matched
-```
+For a zero vertex in part i, the number of neighboring label-2 vertices is exactly T minus t_i, so the perfect-Roman condition is equivalent to T minus t_i equaling 1 on every zero-containing part. This yields four exhaustive and disjoint regimes: zero-free; T=1; T=2 with the two label-2 vertices in distinct parts; and T at least 3 with exactly one zero-containing part carrying T-1 label-2 vertices and exactly one label-2 vertex outside it. Counting the independent residual 0/1 choices in these regimes gives the displayed polynomial, and minimizing each regime yields min of N, the smallest part plus 1, and N minus the two largest parts plus 4; the T-at-least-3 regime is never smaller. The inspected verifier independently enumerates every ternary labeling for every nondecreasing multipartite type of total order 2 through 9 and matches every coefficient and the minimum formula.
 
-The exhaustive computation is finite corroboration only; the all-orders theorem follows from the proof.
+## originality
+
+PASS
+
+The 2019 paper gives a linear-time algorithm for the minimum perfect-Roman weight on cographs, a class containing complete multipartite graphs, but it does not provide a closed complete-multipartite formula or count all feasible functions by weight. The 2024 enumeration paper studies pointwise-minimal perfect Roman dominating functions and parameterized enumeration rather than the polynomial counting every feasible function. Targeted Resultary searches found many exact complete-multipartite polynomials for other Roman-domination variants, but no perfect-Roman all-function polynomial. The full weight enumerator is strictly richer than the already algorithmically computable minimum and is not implied by the cited enumeration output object.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical graph family, and the full feasible-function weight distribution is a natural refinement of the known minimum problem. The exact structural classification and polynomial recover every coefficient for arbitrary part sizes and can support later probabilistic, extremal, or enumeration questions; this is more than a finite table or a minimum-only specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

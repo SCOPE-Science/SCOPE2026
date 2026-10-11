@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:21:21.298112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 789604735e9eebcae8ef76c294f55c572542e9d0",
+        "assigned verify.py blob 7ec44dce16a56709bfab898c60bed847f3208a45",
+        "Banerjee--Keil--Pradhan, DOI:10.1016/j.tcs.2019.08.017",
+        "Mann--Fernau, DOI:10.3390/a17120576"
+      ],
+      "rationale": "For a zero vertex in part i, the number of neighboring label-2 vertices is exactly T minus t_i, so the perfect-Roman condition is equivalent to T minus t_i equaling 1 on every zero-containing part. This yields four exhaustive and disjoint regimes: zero-free; T=1; T=2 with the two label-2 vertices in distinct parts; and T at least 3 with exactly one zero-containing part carrying T-1 label-2 vertices and exactly one label-2 vertex outside it. Counting the independent residual 0/1 choices in these regimes gives the displayed polynomial, and minimizing each regime yields min of N, the smallest part plus 1, and N minus the two largest parts plus 4; the T-at-least-3 regime is never smaller. The inspected verifier independently enumerates every ternary labeling for every nondecreasing multipartite type of total order 2 through 9 and matches every coefficient and the minimum formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cograph algorithm computes a minimum-weight PRDF but not the full distribution.",
+          "The enumeration paper's object is pointwise-minimal PRDFs, not all feasible PRDFs by weight."
+        ],
+        "reasoning": "Broader algorithmic coverage of optimization and minimal-object enumeration does not dominate the submitted all-function polynomial.",
+        "searches": [
+          "Banerjee--Keil--Pradhan, DOI:10.1016/j.tcs.2019.08.017",
+          "Mann--Fernau, DOI:10.3390/a17120576"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.tcs.2019.08.017",
+        "DOI:10.3390/a17120576",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Computability of the optimum does not imply coefficients counting all feasible functions.",
+          "Enumeration of pointwise-minimal functions does not determine nonminimal feasible-function counts."
+        ],
+        "reasoning": "The partwise condition T minus t_i equals 1 and the four-regime count supply genuinely additional information.",
+        "searches": [
+          "statement comparison with the 2019 cograph dynamic algorithm",
+          "statement comparison with the 2024 minimal-PRDF enumeration framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Returned complete-multipartite Resultary records concern Roman, weak Roman, restrained Roman, total Roman, and other distinct variants.",
+          "No exact perfect-Roman all-function enumerator was located."
+        ],
+        "reasoning": "The search included polynomial, generating-function, all-function, feasible-labeling, and complete-multipartite aliases.",
+        "searches": [
+          "Resultary: perfect Roman domination polynomial complete multipartite graph all functions weight enumerator",
+          "literature search: perfect Roman complete multipartite generating function weight enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published Resultary entry with the same perfect-Roman polynomial was returned."
+        ],
+        "reasoning": "The finite verifier is only corroborative; the submitted formula is symbolic for arbitrary part sizes.",
+        "searches": [
+          "Resultary semantic search for the exact polynomial and minimum formula"
+        ]
+      },
+      "rationale": "The 2019 paper gives a linear-time algorithm for the minimum perfect-Roman weight on cographs, a class containing complete multipartite graphs, but it does not provide a closed complete-multipartite formula or count all feasible functions by weight. The 2024 enumeration paper studies pointwise-minimal perfect Roman dominating functions and parameterized enumeration rather than the polynomial counting every feasible function. Targeted Resultary searches found many exact complete-multipartite polynomials for other Roman-domination variants, but no perfect-Roman all-function polynomial. The full weight enumerator is strictly richer than the already algorithmically computable minimum and is not implied by the cited enumeration output object.",
+      "residual_risks": [
+        "A graph-polynomial paper using different terminology for all perfect-Roman functions may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMUM_ALGORITHM_NOT_WEIGHT_ENUMERATOR",
+          "evidence": "The source computes minimum weight but does not count all perfect-Roman functions by weight.",
+          "identifier_or_url": "DOI:10.1016/j.tcs.2019.08.017",
+          "material_read": "Primary open-archive material including the cograph algorithm section and problem scope.",
+          "method": "Lawful open primary full-text web inspection.",
+          "title": "Perfect Roman domination in graphs",
+          "trigger": "Strongest earlier algorithmic source because complete multipartite graphs are cographs."
+        },
+        {
+          "assessment": "DIFFERENT_ENUMERATION_OBJECT",
+          "evidence": "The paper enumerates pointwise-minimal perfect-Roman functions rather than every feasible labeling by weight.",
+          "identifier_or_url": "DOI:10.3390/a17120576",
+          "material_read": "Accessible primary article material on its enumeration target and structured-class algorithmic results; a repeat page fetch was rate-limited after the initial material was retrieved.",
+          "method": "Lawful open publisher-page inspection.",
+          "title": "Perfect Roman Domination: Aspects of Enumeration and Parameterization",
+          "trigger": "Closest prior work explicitly about enumeration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Banerjee--Keil--Pradhan",
+        "Mann--Fernau"
+      ],
+      "rationale": "Complete multipartite graphs are a canonical graph family, and the full feasible-function weight distribution is a natural refinement of the known minimum problem. The exact structural classification and polynomial recover every coefficient for arbitrary part sizes and can support later probabilistic, extremal, or enumeration questions; this is more than a finite table or a minimum-only specialization.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1016/j.tcs.2019.08.017",
+    "DOI:10.3390/a17120576",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only connected complete multipartite graphs are covered.",
+    "The minimum formula is a corollary of the stronger polynomial statement and should not be presented as the sole novelty.",
+    "The exhaustive verifier stops at total order 9."
+  ],
+  "residual_risks": [
+    "A graph-polynomial paper using different terminology for all perfect-Roman functions may be unindexed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MINIMUM_ALGORITHM_NOT_WEIGHT_ENUMERATOR",
+      "evidence": "The source computes minimum weight but does not count all perfect-Roman functions by weight.",
+      "identifier_or_url": "DOI:10.1016/j.tcs.2019.08.017",
+      "material_read": "Primary open-archive material including the cograph algorithm section and problem scope.",
+      "method": "Lawful open primary full-text web inspection.",
+      "title": "Perfect Roman domination in graphs",
+      "trigger": "Strongest earlier algorithmic source because complete multipartite graphs are cographs."
+    },
+    {
+      "assessment": "DIFFERENT_ENUMERATION_OBJECT",
+      "evidence": "The paper enumerates pointwise-minimal perfect-Roman functions rather than every feasible labeling by weight.",
+      "identifier_or_url": "DOI:10.3390/a17120576",
+      "material_read": "Accessible primary article material on its enumeration target and structured-class algorithmic results; a repeat page fetch was rate-limited after the initial material was retrieved.",
+      "method": "Lawful open publisher-page inspection.",
+      "title": "Perfect Roman Domination: Aspects of Enumeration and Parameterization",
+      "trigger": "Closest prior work explicitly about enumeration."
+    }
+  ]
+}
