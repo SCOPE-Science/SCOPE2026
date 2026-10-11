@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:21:04.492813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "P. Ghosh and T. K. Samanta, Generalized atomic subspaces for operators in Hilbert spaces, Mathematica Bohemica 147 (2022), Theorem 3.4",
+        "Assigned RESULT.md at tree 52097fea898217eb0bc3cfe5aeda76511fbda7f0"
+      ],
+      "rationale": "Condition (I) in the published theorem says that for every \\(f\\), the unweighted coefficient sequence lies in the Hilbert direct sum; it does not state a uniform Bessel constant. Define the everywhere-defined linear analysis operator \\(Uf=(\\Lambda_jP_{W_j}f)_j\\). Coordinatewise convergence plus boundedness of every coordinate operator shows that a convergent graph sequence has the claimed limit, so the closed graph theorem makes \\(U\\) bounded and supplies the uniform constant \\(B_0=\\|U\\|^2\\). Writing \\(a_j=\\|\\Lambda_jP_{W_j}f\\|^2\\), the resolution identity gives \\(\\|f\\|^2=\\sum_j v_j a_j\\). Cauchy-Schwarz yields \\(\\|f\\|^4\\le(\\sum_j a_j)(\\sum_j v_j^2a_j)\\le B_0\\|f\\|^2\\sum_jv_j^2a_j\\), hence the lower bound \\(1/B_0\\). With \\(M=\\sup_jv_j\\), \\(v_j^2\\le Mv_j\\) gives the upper bound \\(M\\). The scalar one-atom and two-atom constructions attain or approach both constants and force \\(MB_0\\ge1\\); an independent scalar calculation reproduced the advertised upper sharpness formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader frame literature defines and manipulates g-fusion/Bessel bounds but does not supply the audited correction to this theorem's pointwise hypothesis.",
+          "The source's neighboring Theorems 3.1–3.3 assume an already valid g-fusion frame."
+        ],
+        "reasoning": "Standard frame theory supplies tools but does not make the defective statement valid without the closed-graph argument.",
+        "searches": [
+          "Ghosh–Samanta full 22-page primary PDF",
+          "K-g-fusion frames in Hilbert spaces, J. Inequalities Appl. 2020",
+          "Continuous generalized atomic subspaces for operators in Hilbert spaces, 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.21136/MB.2021.0130-20",
+        "https://arxiv.org/abs/2102.01965",
+        "https://doi.org/10.1186/s13660-020-02320-0",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published proof uses the point-dependent \\(A\\) globally without proving uniformity.",
+          "The audited analysis operator has a closed graph precisely because every coordinate is bounded and the direct-sum value is assumed to exist for every \\(f\\)."
+        ],
+        "reasoning": "The missing uniform Bessel estimate is not implied by the source proof as written; the closed graph theorem supplies a substantive repair, after which the sharp constants require additional inequalities and extremizers.",
+        "searches": [
+          "Direct line-by-line comparison with Ghosh–Samanta Theorem 3.4",
+          "Comparison with standard g-fusion frame definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No published erratum or equivalent closed-graph repair was located.",
+          "The original theorem's literal condition (I) is pointwise and its proof treats the parameter as uniform."
+        ],
+        "reasoning": "The repair is a functional-analytic uniform-boundedness step absent from the source, not a change of notation.",
+        "searches": [
+          "Resultary query: g-fusion frame resolution identity closed graph theorem sharp bounds Ghosh Samanta Theorem 3.4",
+          "Web search: closed graph g-fusion frame square summable",
+          "Web search: pointwise g-fusion resolution of identity frame"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounds are universal over all Hilbert-space examples satisfying the literal hypotheses."
+        ],
+        "reasoning": "Database/table coverage is inapplicable.",
+        "searches": [
+          "No finite database/table; theorem/proof comparison and sharp scalar extremizers"
+        ]
+      },
+      "rationale": "The primary Theorem 3.4 contains a quantifier defect: its condition (I) allows the displayed constant \\(A\\) to depend on \\(f\\), while the proof immediately uses \\(A\\) as if it were uniform. The audited closed-graph argument repairs exactly that gap and then derives optimal frame bounds in terms of the intrinsic quantities \\(B_0\\) and \\(M\\). Related \\(K\\)-g-fusion and continuous g-atomic papers assume established Bessel/frame bounds rather than proving this pointwise-to-uniform repair with the same sharp constants. Targeted Resultary and web searches did not locate a prior correction or the \\(1/B_0,M\\) optimal universal bounds.",
+      "residual_risks": [
+        "An unpublished erratum or later citation may have noticed the same quantifier issue without being indexed.",
+        "Authorized institutional retrieval of the journal DOI returned no verified PDF, but the same primary article was available completely from DML-CZ, so there is no access gap for the focal source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFECTIVE_SOURCE_NOT_COVERING_REPAIR",
+          "evidence": "Theorem 3.4 states 'for all \\(f\\) there exists \\(A>0\\)' but its proof later uses \\(A\\) as a uniform constant; no closed-graph justification or optimal \\(B_0,M\\) bounds are provided.",
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/151011/MathBohem_147-2022-3_4.pdf",
+          "material_read": "Complete public 22-page primary PDF, with Theorems 3.1–3.4 and the proof of Theorem 3.4 inspected; page image verified.",
+          "method": "Lawful DML-CZ full-text inspection.",
+          "title": "Generalized atomic subspaces for operators in Hilbert spaces",
+          "trigger": "Direct source of the literal theorem being repaired."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "It assumes frame bounds and proves structural properties; it does not repair the pointwise hypothesis of Ghosh–Samanta Theorem 3.4.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-020-02320-0",
+          "material_read": "Open full web text around definitions and frame-bounds theorems.",
+          "method": "Lawful open-access full-text inspection.",
+          "title": "K-g-fusion frames in Hilbert spaces",
+          "trigger": "Broader nearby frame theory that could have supplied the missing uniformization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ghosh–Samanta complete primary PDF"
+      ],
+      "rationale": "Repairing a published sufficient criterion whose proof silently assumes a stronger quantifier is mathematically motivated, and the repaired theorem identifies the best universal frame constants from the available data rather than merely correcting prose. The scalar extremizers show the bounds cannot be improved from \\(B_0\\) and \\(M\\) alone.",
+      "residual_risks": [
+        "Individual systems can of course have better frame bounds than the universal \\(1/B_0\\) and \\(M\\) estimates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.21136/MB.2021.0130-20",
+    "https://arxiv.org/abs/2102.01965",
+    "https://doi.org/10.1186/s13660-020-02320-0",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The optimality is universal relative to the summary parameters \\(B_0\\) and \\(M\\), not a claim that every instance has those exact optimal frame bounds.",
+    "The result repairs the literal quantification of Theorem 3.4 rather than asserting a new definition of g-fusion frame."
+  ],
+  "residual_risks": [
+    "An unpublished erratum or later citation may have noticed the same quantifier issue without being indexed.",
+    "Authorized institutional retrieval of the journal DOI returned no verified PDF, but the same primary article was available completely from DML-CZ, so there is no access gap for the focal source."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DEFECTIVE_SOURCE_NOT_COVERING_REPAIR",
+      "evidence": "Theorem 3.4 states 'for all \\(f\\) there exists \\(A>0\\)' but its proof later uses \\(A\\) as a uniform constant; no closed-graph justification or optimal \\(B_0,M\\) bounds are provided.",
+      "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/151011/MathBohem_147-2022-3_4.pdf",
+      "material_read": "Complete public 22-page primary PDF, with Theorems 3.1–3.4 and the proof of Theorem 3.4 inspected; page image verified.",
+      "method": "Lawful DML-CZ full-text inspection.",
+      "title": "Generalized atomic subspaces for operators in Hilbert spaces",
+      "trigger": "Direct source of the literal theorem being repaired."
+    },
+    {
+      "assessment": "RELATED_NOT_COVERING",
+      "evidence": "It assumes frame bounds and proves structural properties; it does not repair the pointwise hypothesis of Ghosh–Samanta Theorem 3.4.",
+      "identifier_or_url": "https://doi.org/10.1186/s13660-020-02320-0",
+      "material_read": "Open full web text around definitions and frame-bounds theorems.",
+      "method": "Lawful open-access full-text inspection.",
+      "title": "K-g-fusion frames in Hilbert spaces",
+      "trigger": "Broader nearby frame theory that could have supplied the missing uniformization."
+    }
+  ]
+}
