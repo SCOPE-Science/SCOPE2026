@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:00:23.248896Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f96a4874b152f7bfa72d6b0c42129eb2f7cfb606",
+        "verify_near_square.py blob 9aee0be6f6ccfe13f4295c2f0fcc227beb9bddea",
+        "fresh independent color-preserving bipartite enumeration through e=5",
+        "Barmak--Minian minimal-model criterion"
+      ],
+      "rationale": "The proof reconstructs. For n=k^2-d with k>=d+1, the Barmak--Minian minimum-size condition gives 2k+2 points. Writing the two level sizes as p=k-r+1 and q=k+r+1 yields feasibility exactly when r^2<=d. The required Hasse-edge count is (k+1)^2-d, so the complement in K_{p,q} has exactly e=d-r^2 edges. The threshold k>=d+1 gives p>e and q>e; hence any such missing-edge pattern is supported on a bounded set of vertices, its ambient isolated complement is canonical, the retained Hasse graph stays connected with no degree-one beat points, and color-preserving isomorphism of the missing graph is exactly order isomorphism for that level orientation. The balanced r=0 case contributes b_d and every r>0 contributes two orientations. Fresh independent enumeration reproduced b_0 through b_5 as 1,1,3,6,16,34 and the resulting stabilized counts 1,3,5,12,30,68. The finite counts corroborate the all-d symbolic argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational result is broader in topological-space input but does not give the square-deficit multiplicity law.",
+          "The 2024 wedge-sphere paper concerns other wedge types and recalls the bouquet background rather than enumerating these homeomorphism classes."
+        ],
+        "reasoning": "No inspected broader theorem supplies the stabilized orbit count.",
+        "searches": [
+          "Barmak--Minian, Minimal Finite Models, arXiv:math/0611156; Journal of Homotopy and Related Structures 2 (2007), 127--140",
+          "Das--Mawiong, Minimal Finite Model of Wedge Sum of Spheres, arXiv:2405.13385"
+        ]
+      },
+      "checked_sources": [
+        "Barmak--Minian, Minimal Finite Models, arXiv:math/0611156; Journal of Homotopy and Related Structures 2 (2007), 127--140",
+        "Barmak, Algebraic Topology of Finite Topological Spaces and Applications, LNM 2032 (2011), Section 3.3",
+        "Das--Mawiong, Minimal Finite Model of Wedge Sum of Spheres, arXiv:2405.13385",
+        "Resultary query: minimal finite models bouquet circles fixed deficit square multiplicity bipartite graph count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=k^2-d, minimum size forces level offsets r with r^2<=d and exactly e=d-r^2 missing relations.",
+          "Once k>=d+1, both levels exceed the support size of any e-edge missing graph, so isolated ambient vertices stabilize and homeomorphism classes are exactly the color-preserving b_e orbits; unequal level orientations contribute twice."
+        ],
+        "reasoning": "These stabilization and orbit-count steps are additional combinatorics not stated by the prior minimality criterion.",
+        "searches": [
+          "Barmak--Minian, Minimal Finite Models, arXiv:math/0611156; Journal of Homotopy and Related Structures 2 (2007), 127--140",
+          "independent missing-edge support/orbit reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior characterization determines which height-one finite spaces can be minimal models but does not count their isomorphism classes at each near-square rank.",
+          "The audited missing-edge graph with ordered color classes is an equivalent encoding only after fixing a near-square feasible level pair and proving the support-stability bound."
+        ],
+        "reasoning": "The final counting theorem is not merely another notation for the Barmak--Minian size/edge criterion.",
+        "searches": [
+          "Barmak--Minian, Minimal Finite Models, arXiv:math/0611156; Journal of Homotopy and Related Structures 2 (2007), 127--140",
+          "Barmak, Algebraic Topology of Finite Topological Spaces and Applications, LNM 2032 (2011), Section 3.3",
+          "Resultary query: minimal finite models bouquet circles fixed deficit square multiplicity bipartite graph count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked prior database result supplied the formula or its initial stabilized multiplicities.",
+          "The auxiliary numbers b_e are separately defined graph-isomorphism counts rather than claimed as a pre-existing table."
+        ],
+        "reasoning": "The exact database check found only the audited result; novelty rests primarily on the source comparison and new orbit reduction.",
+        "searches": [
+          "Resultary query: minimal finite models bouquet circles fixed deficit square multiplicity bipartite graph count",
+          "targeted searches for the sequence 1,3,5,12,30,68 as near-square bouquet model multiplicities"
+        ]
+      },
+      "rationale": "Originality passes. Barmak--Minian give the foundational all-graph characterization of minimal finite models and, for bouquets of circles, determine the minimum number of points and the necessary edge count; their examples include the three models of the rank-three bouquet and the later book notes uniqueness exactly at square rank. Those structural premises do not enumerate homeomorphism classes in fixed square-deficit families. The audited theorem adds the missing-edge orbit reduction, proves a uniform stabilization threshold, and expresses the stable multiplicity by color-preserving bipartite graph isomorphism counts. Resultary search found no prior formula of this form.",
+      "residual_risks": [
+        "An older enumeration of homeomorphism classes near square ranks could exist outside the terminology of square deficit or missing-edge bipartite graphs, although direct full-text and semantic searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_PREMISE_NOT_NEAR_SQUARE_ISOMORPHISM_COUNT",
+          "evidence": "The source characterizes minimal models but does not state the fixed-deficit stabilization or the bipartite missing-edge orbit formula.",
+          "identifier_or_url": "arXiv:math/0611156; Journal of Homotopy and Related Structures 2 (2007), 127--140",
+          "material_read": "Complete relevant primary full text, including the bouquet-of-circles minimal-cardinality/edge criterion and examples; the relevant theorem and example pages were inspected.",
+          "method": "lawful open-access primary full text/PDF",
+          "title": "Minimal Finite Models",
+          "trigger": "Foundational classification theorem for minimal finite models of graphs and bouquets."
+        },
+        {
+          "assessment": "DIFFERENT_WEDGE_FAMILIES",
+          "evidence": "The accessible statement addresses wedges involving two-spheres rather than counting near-square minimal models of large circle bouquets.",
+          "identifier_or_url": "arXiv:2405.13385",
+          "material_read": "Primary abstract/current record describing the wedge-of-spheres models and its reliance on Barmak's bouquet results.",
+          "method": "lawful open primary record",
+          "title": "Minimal Finite Model of Wedge Sum of Spheres",
+          "trigger": "Recent finite-model work on wedge spaces and possible updated coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Barmak--Minian, Minimal Finite Models, arXiv:math/0611156; Journal of Homotopy and Related Structures 2 (2007), 127--140",
+        "Barmak, Algebraic Topology of Finite Topological Spaces and Applications, LNM 2032 (2011), Section 3.3",
+        "Das--Mawiong, Minimal Finite Model of Wedge Sum of Spheres, arXiv:2405.13385",
+        "Resultary query: minimal finite models bouquet circles fixed deficit square multiplicity bipartite graph count"
+      ],
+      "rationale": "The number of homeomorphism classes is a natural refinement of minimum cardinality for finite models. The theorem explains a genuine stabilization phenomenon near square bouquet ranks, recovers the known unique square case, and packages every fixed deficit into a finite graph-isomorphism invariant. This is a motivated structural enumeration rather than an arbitrary small census.",
+      "residual_risks": [
+        "The threshold k>=d+1 is sufficient rather than proved optimal, and no closed form for b_e is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older enumeration of homeomorphism classes near square ranks could exist outside the terminology of square deficit or missing-edge bipartite graphs, although direct full-text and semantic searches did not locate one.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

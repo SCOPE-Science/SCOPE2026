@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the published classification of minimal finite models of bouquets of circles. For \(n=k^2-d\) with \(k\ge d+1\), it proves that every minimal model has \(2k+2\) points, parameterizes the two level sizes by \(k-r+1\) and \(k+r+1\), derives the exact missing-edge number \(d-r^2\), and proves that every such missing-edge pattern remains connected. The orbit argument is exact because each missing graph uses at most its edge count many vertices on either color class and the ambient color classes are larger than that edge count. The verifier independently checks the first bipartite orbit counts and several concrete bouquet ranks.
+## correctness
 
-Risk: the theorem relies on the Barmak--Minian classification exactly as stated for connected height-one finite \(T_0\)-spaces; that source was read in full around the relevant theorem and uniqueness discussion.
+PASS
 
-## Originality
-PASS. The closest primary source gives the general cardinality/edge criterion, the three-model example at rank \(3\), and the uniqueness criterion “unique iff the rank is a square.” It does not state an exact multiplicity formula for non-square ranks, a fixed-deficit stabilization theorem, or the reduction to the edge-count sequence of color-preserving bipartite graphs. The 2011 book repeats and proves the uniqueness criterion but likewise stops before multiplicity enumeration. A 2024 wedge-sum paper studies different mixed-dimensional wedges and does not supply the present formula.
+The proof reconstructs. For n=k^2-d with k>=d+1, the Barmak--Minian minimum-size condition gives 2k+2 points. Writing the two level sizes as p=k-r+1 and q=k+r+1 yields feasibility exactly when r^2<=d. The required Hasse-edge count is (k+1)^2-d, so the complement in K_{p,q} has exactly e=d-r^2 edges. The threshold k>=d+1 gives p>e and q>e; hence any such missing-edge pattern is supported on a bounded set of vertices, its ambient isolated complement is canonical, the retained Hasse graph stays connected with no degree-one beat points, and color-preserving isomorphism of the missing graph is exactly order isomorphism for that level orientation. The balanced r=0 case contributes b_d and every r>0 contributes two orientations. Fresh independent enumeration reproduced b_0 through b_5 as 1,1,3,6,16,34 and the resulting stabilized counts 1,3,5,12,30,68. The finite counts corroborate the all-d symbolic argument.
 
-Residual risk: a detailed enumeration may exist in non-indexed lecture notes or unpublished discussions not found in the searches. No inspected source implied the theorem.
+## originality
 
-## Value
-PASS. The published theory explicitly notes that bouquets may admit many minimal models and singles out uniqueness as a structural issue. The finding resolves the next natural enumeration layer for every fixed distance below a square: it converts an infinite family of topological classification problems into one finite bipartite-graph count, proving stabilization and giving exact multiplicities such as \(3,5,12,30,68\). This is a reusable classification principle rather than an isolated census.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Originality passes. Barmak--Minian give the foundational all-graph characterization of minimal finite models and, for bouquets of circles, determine the minimum number of points and the necessary edge count; their examples include the three models of the rank-three bouquet and the later book notes uniqueness exactly at square rank. Those structural premises do not enumerate homeomorphism classes in fixed square-deficit families. The audited theorem adds the missing-edge orbit reduction, proves a uniform stabilization threshold, and expresses the stable multiplicity by color-preserving bipartite graph isomorphism counts. Resultary search found no prior formula of this form.
+
+## value
+
+PASS
+
+The number of homeomorphism classes is a natural refinement of minimum cardinality for finite models. The theorem explains a genuine stabilization phenomenon near square bouquet ranks, recovers the known unique square case, and packages every fixed deficit into a finite graph-isomorphism invariant. This is a motivated structural enumeration rather than an arbitrary small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
