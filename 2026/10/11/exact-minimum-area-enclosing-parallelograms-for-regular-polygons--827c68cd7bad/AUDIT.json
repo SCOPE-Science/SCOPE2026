@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Rote's full proof of the classical edge-contact lemma shows that a minimum enclosing parallelogram may be chosen with one side from each opposite pair containing an edge of the input polygon. For fixed side directions its area is the product of the two perpendicular widths divided by the sine of their angle. Regular polygons have one constant edge-normal width, equal to twice the apothem for even side count and to the apothem plus circumradius for odd side count. The maximum sine in the discrete side-direction lattice is exactly the stated three-case value, giving the formula.",
+    "risks": [
+      "The original 1994 technical report was not materially retrievable; the structural lemma was checked in Rote's later complete proof, which explicitly attributes it to the original report.",
+      "Finite computation is diagnostic only."
+    ],
+    "sources": [
+      "arXiv:1905.11203",
+      "DOI:10.1145/220279.220338"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aggarwal--Chang--Yap solve the broader algorithmic problem of a minimum-area convex k-gon circumscribing a convex polygon, without a parallelogram constraint.",
+        "Rote proves the general minimum-enclosing-parallelogram structural reduction and algorithm but does not state a regular-polygon closed form."
+      ],
+      "reasoning": "A general algorithm is framework rather than statement-level coverage of the closed regular-family formula; the unconstrained k-gon optimum is a different feasible class.",
+      "searches": [
+        "regular polygon minimum area enclosing parallelogram exact",
+        "\"Minimum area circumscribing polygons\" 1985 regular polygon",
+        "\"minimum area circumscribing polygons\" parallelogram",
+        "minimum enclosing parallelogram convex polygon edge contact lemma"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/BF01898354",
+      "ICSI TR-94-036",
+      "DOI:10.1145/220279.220338",
+      "arXiv:1905.11203",
+      "DOI:10.1090/S0002-9939-02-06404-3",
+      "Indexed literature searches under enclosing/circumscribed parallelogram and regular-polygon aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rote's Lemma 6 gives existence of an optimum with two adjacent edge contacts; it leaves the side-direction optimization to the input polygon.",
+        "The 1985 k-gon algorithm permits arbitrary convex quadrilaterals, so its optimum need not be a parallelogram.",
+        "No inspected source states the residue-class sine maxima or the resulting regular-family formula."
+      ],
+      "reasoning": "The prior edge-contact theorem is a critical premise but does not itself imply the displayed values without the regular-polygon width calculation and the arithmetic optimization of edge-direction angles.",
+      "searches": [
+        "DOI:10.1007/BF01898354 minimum area circumscribing polygons",
+        "DOI:10.1145/220279.220338 minimal enclosing parallelogram",
+        "arXiv:1905.11203 Lemma 6 smallest enclosing parallelogram",
+        "regular polygon minimum enclosing parallelogram modulo four"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Minimum enclosing parallelogram, smallest enclosing parallelogram, and circumscribed parallelogram were all searched.",
+        "The closest indexed regular-polygon records concern inscribed rectangles, Banach--Mazur distance, symmetry measures, or covering radii rather than an enclosing-parallelogram area."
+      ],
+      "reasoning": "The claim can be phrased algorithmically, as a circumscription problem, or as a width optimization, so the search covered these aliases rather than relying on title matching.",
+      "searches": [
+        "regular polygon minimum area enclosing parallelogram exact",
+        "regular n-gon circumscribed parallelogram area",
+        "minimum area parallelogram containing regular polygon",
+        "minimum area rectangle parallelogram regular odd polygon",
+        "\"regular polygon\" \"smallest enclosing parallelogram\" modulo 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact-value table or cosine fingerprint matching the three branches was located.",
+        "Search hits for regular polygons and parallelograms instead concerned golden rectangles, inscribed rectangles, or generic area formulas."
+      ],
+      "reasoning": "Formula fingerprints were used only as a supplement to the full structural-source comparison.",
+      "searches": [
+        "\"regular polygon\" \"minimal enclosing parallelogram\" \"cos(pi/n)\"",
+        "\"regular pentagon\" \"minimal enclosing parallelogram\"",
+        "\"regular hexagon\" \"minimal enclosing parallelogram\"",
+        "\"regular polygon\" parallelogram \"cos^3\""
+      ]
+    },
+    "rationale": "The closest exact-problem literature gives general algorithms and the edge-contact reduction, not the regular-polygon formula. The older minimum circumscribing-k-gon paper optimizes over arbitrary convex k-gons and therefore does not imply the parallelogram-constrained value. Candidate-specific database searches under regular-polygon, enclosing/circumscribed parallelogram, pentagon/hexagon and cosine-formula aliases found no statement of the all-n three-branch evaluation.",
+    "residual_risks": [
+      "The inaccessible 1994 report may contain a regular-polygon example not reproduced by later sources.",
+      "An unindexed computational-geometry note may contain the same short regular-family specialization.",
+      "No claim is made about minimum-perimeter parallelograms or every equality contact pattern."
+    ],
+    "risks": [
+      "The 1994 primary report was not accessible in full text in this run and could contain an unindexed regular-polygon example.",
+      "The remaining trigonometric optimization is short after the classical reduction, so an older note may contain the same specialization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRUCTURAL_REDUCTION_NOT_REGULAR_FAMILY_FORMULA",
+        "evidence": "Lemma 6 states that a smallest enclosing parallelogram can be chosen with one side in each opposite pair touching an edge. The paper gives the algorithm and optimality certificates but no all-regular-n trigonometric evaluation.",
+        "identifier_or_url": "arXiv:1905.11203",
+        "material_read": "Full public PDF, especially Lemmas 1--4, Lemma 6, Appendix A, and Appendix C; page image for the conjugate-pair optimality lemma was also inspected.",
+        "method": "Lawful open full-text inspection.",
+        "title": "The Largest Contained Quadrilateral and the Smallest Enclosing Parallelogram of a Convex Polygon",
+        "trigger": "Complete later treatment of the exact enclosing-parallelogram problem and the structural lemma required by the proof."
+      },
+      {
+        "assessment": "PRIMARY_ACCESS_LIMIT_WITH_LATER_MATERIAL_VERIFICATION",
+        "evidence": "The report is bibliographically recorded in 1994 and the conference version in 1995. Rote explicitly attributes the edge-contact lemma to this source. No claim that the inaccessible primary full text is noncovering is made.",
+        "identifier_or_url": "ICSI TR-94-036; DOI:10.1145/220279.220338",
+        "material_read": "Bibliographic records, publication/event metadata, and the later source's explicit attribution to the original Lemma 1; direct full-text retrieval of the primary report and ACM copy failed.",
+        "method": "Bounded open-access and DOI retrieval attempts, followed by comparison through the later complete proof.",
+        "title": "On Finding a Minimal Enclosing Parallelogram / Minimal Enclosing Parallelogram with Application",
+        "trigger": "Original source of the exact minimum-enclosing-parallelogram algorithm and edge-contact lemma."
+      },
+      {
+        "assessment": "BROADER_KGON_PROBLEM_DIFFERENT_FEASIBLE_CLASS",
+        "evidence": "The source minimizes over arbitrary convex k-gons circumscribing the input; the accepted theorem minimizes over parallelograms, a constrained quadrilateral class.",
+        "identifier_or_url": "DOI:10.1007/BF01898354",
+        "material_read": "Public abstract, bibliographic metadata, and statement of the algorithmic scope; an author-uploaded full-text record was located but not textually readable here.",
+        "method": "Public metadata and bounded full-text availability check.",
+        "title": "Minimum area circumscribing polygons",
+        "trigger": "Earlier broad circumscription algorithm that could dominate a special regular-polygon enclosure calculation."
+      }
+    ],
+    "sources": [
+      "DOI:10.1007/BF01898354",
+      "DOI:10.1145/220279.220338",
+      "arXiv:1905.11203"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "827c68cd-7bad-4850-8670-96678f1a15c3",
+  "value": {
+    "rationale": "Minimum enclosing parallelograms are a classical optimization primitive with dedicated algorithms. Regular polygons are the natural symmetric benchmark family. The theorem gives the exact answer for every side count, not a small-case table, and reveals three distinct arithmetic second-order convergence laws toward the disk's circumscribed square.",
+    "risks": [
+      "The result specializes a known structural lemma, so its value lies in the complete closed evaluation and arithmetic profile rather than a new general algorithm."
+    ],
+    "sources": [
+      "DOI:10.1145/220279.220338",
+      "arXiv:1905.11203"
+    ],
+    "status": "PASS"
+  }
+}
