@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:59:01.755215Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 4eac3de016e16dae0eaba2ac53b6bdef142bb804",
+        "verify_incidence.py blob b5d460e28e922147ba96a69f79d4f699e4e658d1",
+        "independent trace/multiplicity and shifted-spectrum reconstruction"
+      ],
+      "rationale": "The inspected exact checker reconstructs all 85 source line equations over \\(\\mathbf Q(\\sqrt[4]2,\\sqrt[4]3,i)\\), tests every pair by a symbolic \\(4\\times4\\) determinant, and obtains a 20-regular graph with 850 edges. Its integer adjacency arithmetic verifies the square-free annihilating polynomial \\((z-20)(z-3)(z+1)(z+3)(z+5)(z+9)\\) and traces \\(85,0,1700,3180,210644,2821740\\). Independently solving the resulting multiplicity equations reproduces \\((1,46,6,16,10,6)\\); shifting by \\(-3\\) gives rank 39 and inertia \\((1,38,46)\\). The common-neighbor census \\(530\\) edges with three common neighbors and \\(320\\) with none gives 530 triangles. The computation is exhaustive for all \\(\\binom{85}{2}\\) line pairs and uses exact number-field arithmetic.",
+      "residual_risks": [
+        "Completeness of the 85-line list is taken from Yu--Zhu's source theorem rather than reproved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General line-configuration and Picard-rank results for the surface do not determine the graph spectrum.",
+          "No broader checked theorem was found making the incidence graph strongly regular or otherwise forcing the claimed six-eigenvalue decomposition."
+        ],
+        "reasoning": "The spectrum requires the explicit 85-line incidence matrix, not only the Néron--Severi rank.",
+        "searches": [
+          "Yu--Zhu, A smooth quintic surface with 85 lines and Picard number 43, arXiv:2609.26862v1",
+          "Resultary query: 85 line incidence graph Yu Zhu quintic integral spectrum 20 regular rank 39",
+          "exact searches for the Yu--Zhu surface with incidence graph, characteristic polynomial and rank 39"
+        ]
+      },
+      "checked_sources": [
+        "Yu--Zhu, A smooth quintic surface with 85 lines and Picard number 43, arXiv:2609.26862v1",
+        "Resultary query: 85 line incidence graph Yu Zhu quintic integral spectrum 20 regular rank 39",
+        "exact searches for the Yu--Zhu surface with incidence graph, characteristic polynomial and rank 39"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published rank condition only says the eigenvalue 3 of the adjacency matrix has multiplicity 46.",
+          "The annihilating polynomial and six traces identify every remaining eigenvalue and multiplicity and also imply connectedness."
+        ],
+        "reasoning": "The spectral theorem is not a corollary of the previously reported rank alone.",
+        "searches": [
+          "Yu--Zhu primary record",
+          "exact determinant incidence reconstruction",
+          "trace/Vandermonde spectral reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior object is the same 85-line configuration on \\(X_{-1/8}\\).",
+          "Rank 39 of the shifted intersection matrix determines only the nullity 46, not the five nonzero adjacency eigenvalues and their multiplicities."
+        ],
+        "reasoning": "The incidence-spectrum and line-intersection-matrix formulations are equivalent after shifting by line self-intersection \\(-3\\), but the prior rank is only a coarse invariant.",
+        "searches": [
+          "Yu--Zhu, A smooth quintic surface with 85 lines and Picard number 43, arXiv:2609.26862v1",
+          "Resultary query: 85 line incidence graph Yu Zhu quintic integral spectrum 20 regular rank 39",
+          "exact searches for the Yu--Zhu surface with incidence graph, characteristic polynomial and rank 39"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the present spectrum as the exact same-object hit and a different 64-line Schur configuration as the nearest analogue.",
+          "No checked external table supplied this graph's spectrum."
+        ],
+        "reasoning": "Database evidence supports, but does not by itself establish, originality.",
+        "searches": [
+          "Resultary query: 85 line incidence graph Yu Zhu quintic integral spectrum 20 regular rank 39",
+          "exact searches for the Yu--Zhu surface with incidence graph, characteristic polynomial and rank 39"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. Yu--Zhu's primary record establishes the 85-line surface and Picard computation; the audited source package records their reported line-intersection-matrix rank 39. Fresh Resultary and exact searches found no external statement of the 20-regular incidence graph, integral adjacency spectrum, common-neighbor census, characteristic polynomial, or inertia. The new spectral decomposition strictly refines the rank datum.",
+      "residual_risks": [
+        "The Yu--Zhu full text was not independently inspectable in this run. The primary abstract and public previews were read, and one authorized institutional retrieval attempt returned an unavailable/invalid worker error without retry.",
+        "An unpublished computer computation of the full 85-line graph could predate the audited calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_OBJECT_SOURCE; NO_ACCESSIBLE_SPECTRAL_STATEMENT",
+          "evidence": "The accessible primary material describes the 85-line surface and Picard structure but exposes no incidence-spectrum theorem; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "arXiv:2609.26862v1",
+          "material_read": "Primary abstract and public paper previews establishing the 85-line pencil and Picard-number result. Direct full-text retrieval was unavailable; one authorized institutional attempt returned unavailable/invalid.",
+          "method": "lawful primary/public preview plus bounded authorized access attempt, no retry",
+          "title": "A smooth quintic surface with 85 lines and Picard number 43",
+          "trigger": "Defining primary source for the exact 85-line configuration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yu--Zhu, A smooth quintic surface with 85 lines and Picard number 43, arXiv:2609.26862v1",
+        "Resultary query: 85 line incidence graph Yu Zhu quintic integral spectrum 20 regular rank 39",
+        "exact searches for the Yu--Zhu surface with incidence graph, characteristic polynomial and rank 39"
+      ],
+      "rationale": "The line incidence matrix is central to the source's Picard computation. Replacing a bare rank report by the complete integral spectrum, inertia, regularity, connectivity and triangle/common-neighbor data gives substantially finer structure of a distinguished extremal line configuration and supplies exact invariants useful for future geometric or combinatorial analysis.",
+      "residual_risks": [
+        "The theorem is specific to the special member \\(X_{-1/8}\\) and does not classify the incidence spectra of the full pencil."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Yu--Zhu full text was not independently inspectable in this run. The primary abstract and public previews were read, and one authorized institutional retrieval attempt returned an unavailable/invalid worker error without retry.",
+    "An unpublished computer computation of the full 85-line graph could predate the audited calculation.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
