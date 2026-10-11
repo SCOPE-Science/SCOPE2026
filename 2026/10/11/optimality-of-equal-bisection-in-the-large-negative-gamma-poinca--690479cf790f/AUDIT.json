@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "On the full-step exceedance set the positive part is removed exactly. Weighted convexity and the substep thresholds give the recurrence coefficient without approximation. The exponent identity and the strict-convexity/Jensen minimization cover every finite positive proportional partition in the stated parameter range.",
+    "risks": [
+      "The theorem is intentionally restricted to the weighted-convexity proportional-subdivision recurrence and does not certify unrelated proof schemes."
+    ],
+    "sources": [
+      "arXiv:2610.04259v1, Section 4, equations (4.9)--(4.12)"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.04259v1, Theorem 4.1 gives a global bound of order 8^{|gamma|}; Section 5.1 gives only a linear lower bound for the least global constant.",
+        "arXiv:2507.00842v1 develops the broader nonlocal family and Poincare question but not the large-negative-parameter subdivision recurrence."
+      ],
+      "reasoning": "The broader global theorems do not imply which finite proportional subdivision minimizes the threshold-surplus term. The claim is a method-level optimization inside the later proof, not a corollary of the global Poincare estimate.",
+      "searches": [
+        "arXiv 2610.04259 sharp Poincare nonlocal nonconvex gamma subdivision bisection constant",
+        "Poincare constant gamma tends minus infinity nonlocal nonconvex functionals method barrier"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04259v1",
+      "arXiv:2507.00842v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2610.04259v1, equation (4.12) has coefficient 2^{|gamma|}, while the proof line corresponding to equation (4.12) inserts the two half-step thresholds before the full-step threshold is subtracted.",
+        "arXiv:2507.00842v1, Section 8, poses and studies nonlocal Poincare questions but does not contain the later Section 4 iteration."
+      ],
+      "reasoning": "Neither inspected prior source implies optimality over all finite proportional subdivisions. The new proof uses the full-step subtraction and then solves the resulting finite-partition convex minimization.",
+      "searches": [
+        "arXiv 2610.04259 sharp Poincare nonlocal nonconvex gamma subdivision bisection constant",
+        "nonlocal nonconvex functional gamma negative Poincare dyadic subdivision optimal bisection",
+        "Poincare constant gamma tends minus infinity nonlocal nonconvex functionals method barrier",
+        "Dai Yang Yuan Zhao Lemma 4.4 bisection 2^{|gamma|}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.04259v1, Lemma 4.4 gives only the equal-bisection recurrence with coefficient 2^{|gamma|}.",
+        "No returned publication-index record stated the coefficient sum t_i^{gamma+1}-1 or its partition minimum."
+      ],
+      "reasoning": "Searches covered dyadic/bisection terminology, proportional subdivision, weighted convexity, and the equivalent threshold-surplus formula. The focal statement is weaker and no equivalent published formulation was located.",
+      "searches": [
+        "nonlocal nonconvex functional gamma negative Poincare dyadic subdivision optimal bisection",
+        "weighted convexity subdivision sum t_i^{gamma+1} nonlocal Poincare",
+        "two-piece split t gamma+1 bisection optimal exponential 2^{|gamma|}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source-ID and exact-lemma searches returned the focal 2026 paper as the relevant same-object source and no separate exact coefficient result."
+      ],
+      "reasoning": "The exact source identifier, author names, lemma number, and coefficient were queried. No database/table entry or separate result covering the final claim was located.",
+      "searches": [
+        "arXiv 2610.04259 sharp Poincare nonlocal nonconvex gamma subdivision bisection constant",
+        "Dai Yang Yuan Zhao Lemma 4.4 bisection 2^{|gamma|}"
+      ]
+    },
+    "rationale": "The focal source states the bisection recurrence with coefficient 2^{|gamma|} and does not state the retained-threshold improvement or the finite-partition minimization. The motivating 2025 source does not contain this recurrence. Targeted semantic and exact-form searches found no statement implying the final claim.",
+    "residual_risks": [
+      "The coefficient minimization is elementary enough that an equivalent observation could exist implicitly in older inequality literature under terminology not recovered by the targeted searches.",
+      "The originality claim is limited to the stated recurrence optimization; no claim is made that all possible proof methods have exponential loss."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Lemma 4.4 states coefficient 2^{|gamma|} for equal bisection; no finite-partition optimization is stated. Theorem 4.1 and Proposition 5.1 concern global constants rather than optimality of the recurrence subdivision.",
+        "identifier_or_url": "arXiv:2610.04259v1",
+        "material_read": "Introduction; Section 4 including Theorem 4.1, definitions (4.9)--(4.11), Lemma 4.4 and its proof, and the iteration (4.15)--(4.17); Section 5.1 including Proposition 5.1.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Sharp Poincaré Inequalities for Families of Nonlocal Nonconvex Functionals",
+        "trigger": "Same object and exact recurrence used by the claim."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article develops the nonlocal family and motivating inequalities but predates and does not contain the focal large-negative-parameter halving recurrence or its subdivision coefficient.",
+        "identifier_or_url": "arXiv:2507.00842v1",
+        "material_read": "Introduction and Section 8 on inequalities and the nonlocal Poincare problem.",
+        "method": "Full-text conceptual and implication comparison.",
+        "title": "Characterizations of the Sobolev norms and the total variation via nonlocal functionals, and related problems",
+        "trigger": "Motivating predecessor explicitly cited by the focal paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "690479cf-790f-49fd-8c8e-68d9091f01f1",
+  "value": {
+    "rationale": "The focal paper explicitly contrasts an exponential constructive upper dependence with a linear lower bound as gamma tends to negative infinity. Proving the exact best threshold-surplus coefficient over every finite proportional subdivision identifies a genuine structural bottleneck and rules out a natural family of routine recurrence refinements.",
+    "risks": [
+      "The result does not by itself improve the global 8^{|gamma|} asymptotic because other terms in the proof also have exponential parameter dependence."
+    ],
+    "sources": [
+      "arXiv:2610.04259v1, Theorem 4.1 and Section 5.1"
+    ],
+    "status": "PASS"
+  }
+}
