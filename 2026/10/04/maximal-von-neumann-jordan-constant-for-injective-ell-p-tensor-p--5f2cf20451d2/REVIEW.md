@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof was reconstructed from the definitions and checked at every normalization step. The explicit two-point transform has the required endpoint norms, Riesz--Thorin gives the factor \(2^{1/p}\), the \(\ell_p^2\)-to-\(\ell_q^2\) comparison supplies \(2^{1/q-1/p}\), and the normalized transform/reflection pair attains both sum and difference norms equal to \(2\). The argument covers the stated endpoint exponents and uses no finite experiment as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest source is arXiv:2609.37503v1, whose finite-dimensional injective classical result assumes \(p^{-1}+q^{-1}\le1\). Statement-level searches over operator-space, uniformly non-square, Walsh--Hadamard, and classical sequence-space formulations found no implication covering the strictly larger condition \(\max\{p,q\}\ge2\). The principal residual risk is an older equivalent operator-square result hidden under different terminology.
+PASS
 
-## Value
-PASS. The claim materially enlarges the natural parameter region for a newly studied exact tensor-product invariant and reduces the remaining finite-dimensional classical injective question to \(1\le p,q<2\). The explicit \(2\times2\) witness is structural and reusable, not a routine recomputation.
+By symmetry take p>=q, so the hypothesis gives p>=2. The two-point transform H(a,b)=(a+b,a-b) has exact norms 1 from ell_1^2 to ell_infinity^2 and sqrt(2) from ell_2^2 to itself. Riesz--Thorin with theta=2/p gives ||H|| from ell_{p'}^2 to ell_p^2 at most 2^(1/p); the exact two-dimensional norm comparison to ell_q multiplies by 2^(1/q-1/p), and a coordinate vector attains the resulting bound 2^(1/q). Hence A=2^(-1/q)H has norm one. Composing A with the coordinate reflection gives another norm-one B; coordinate vectors and the triangle inequality show ||A+B||=||A-B||=2. The VNJ quotient is therefore 2, matching the universal upper bound. The coordinate two-dimensional subspaces are isometric for the injective norm, so the witness extends to all m,n>=2. The proof includes p=2 and p=infinity endpoints and requires no numerical extrapolation.
 
-Closest literature: Zhang--Xu--Liu--Li, arXiv:2609.37503v1. Limitation: the square \(1\le p,q<2\) is not settled here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes with a material same-paper access risk. The current primary abstract confirms that the source obtains explicit finite-dimensional classical sequence-space results and operator-space extremal conditions. The audited package states the source's displayed injective classical region as 1/p+1/q<=1 and proves the larger max{p,q}>=2 region by an explicit two-point Walsh--Hadamard witness. Targeted web and Resultary searches found no external statement of that broader region. Because the focal full manuscript could not be independently read, no whole-document noncoverage claim is made and this remains the principal residual risk.
+
+## value
+
+PASS
+
+The result gives an exact finite-dimensional geometric constant on a canonical tensor family and materially enlarges the sufficient exponent region quoted from a very recent focal source. The explicit two-coordinate extremal operator explains the mechanism and supplies a natural sharp baseline for the still-unsettled square p,q<2. This is a motivated exact invariant rather than an arbitrary parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

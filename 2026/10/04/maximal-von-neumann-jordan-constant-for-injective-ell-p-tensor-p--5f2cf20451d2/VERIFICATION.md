@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked directly from the norm definitions.
+# Independent mathematical audit
 
-1. After swapping factors if necessary, the larger exponent satisfies \(p\ge q\) and \(p\ge2\).
-2. The two-point transform \(H(a,b)=(a+b,a-b)\) has exact norms \(1\) from \(\ell_1^2\) to \(\ell_\infty^2\) and \(\sqrt2\) on \(\ell_2^2\).
-3. Riesz--Thorin with \(\theta=2/p\) yields \(\|H\|_{\ell_{p'}^2\to\ell_p^2}\le2^{1/p}\).
-4. The exact two-dimensional embedding estimate \(\|z\|_q\le2^{1/q-1/p}\|z\|_p\) gives \(\|H\|_{\ell_{p'}^2\to\ell_q^2}\le2^{1/q}\).
-5. Each coordinate vector attains \(2^{1/q}\), so the normalized operator \(A=2^{-1/q}H\) has norm \(1\).
-6. With the coordinate reflection \(R(a,b)=(a,-b)\) and \(B=AR\), both \(A\) and \(B\) have norm \(1\), while coordinate vectors show \(\|A+B\|=\|A-B\|=2\).
-7. Substitution into the von Neumann--Jordan quotient gives exactly \(2\); the universal upper bound gives equality.
-8. Coordinate embeddings preserve the injective tensor norm, so the two-dimensional witness extends to all \(m,n\ge2\).
+## correctness
 
-No computation is needed beyond these exact identities. No assertion is made for \(1\le p,q<2\). Direct comparison with the focal source was performed at the statement-and-implication level; the remaining originality risk is terminological coverage in older literature.
+PASS
+
+By symmetry take p>=q, so the hypothesis gives p>=2. The two-point transform H(a,b)=(a+b,a-b) has exact norms 1 from ell_1^2 to ell_infinity^2 and sqrt(2) from ell_2^2 to itself. Riesz--Thorin with theta=2/p gives ||H|| from ell_{p'}^2 to ell_p^2 at most 2^(1/p); the exact two-dimensional norm comparison to ell_q multiplies by 2^(1/q-1/p), and a coordinate vector attains the resulting bound 2^(1/q). Hence A=2^(-1/q)H has norm one. Composing A with the coordinate reflection gives another norm-one B; coordinate vectors and the triangle inequality show ||A+B||=||A-B||=2. The VNJ quotient is therefore 2, matching the universal upper bound. The coordinate two-dimensional subspaces are isometric for the injective norm, so the witness extends to all m,n>=2. The proof includes p=2 and p=infinity endpoints and requires no numerical extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with a material same-paper access risk. The current primary abstract confirms that the source obtains explicit finite-dimensional classical sequence-space results and operator-space extremal conditions. The audited package states the source's displayed injective classical region as 1/p+1/q<=1 and proves the larger max{p,q}>=2 region by an explicit two-point Walsh--Hadamard witness. Targeted web and Resultary searches found no external statement of that broader region. Because the focal full manuscript could not be independently read, no whole-document noncoverage claim is made and this remains the principal residual risk.
+
+## value
+
+PASS
+
+The result gives an exact finite-dimensional geometric constant on a canonical tensor family and materially enlarges the sufficient exponent region quoted from a very recent focal source. The explicit two-coordinate extremal operator explains the mechanism and supplies a natural sharp baseline for the still-unsettled square p,q<2. This is a motivated exact invariant rather than an arbitrary parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
