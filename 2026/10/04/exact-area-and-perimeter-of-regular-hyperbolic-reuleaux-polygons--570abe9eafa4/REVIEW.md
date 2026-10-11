@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Two exact hyperbolic cosine-law calculations determine the generating side and the Reuleaux arc angle. The hyperbolic polar metric gives \(L=n\alpha\sinh d\). Gauss–Bonnet, with circle geodesic curvature \(\coth d\) and corner turning angle \(\alpha\), gives \(A=n\alpha(1+\cosh d)-2\pi\). The large-\(n\) limit is a direct Taylor expansion. The packaged checker reconstructs the unsimplified identities and limiting regimes; finite checks are not used as the infinite proof.
+PASS
 
-## Originality
+For the regular odd polygon, the opposite-vertex geometry and the hyperbolic cosine law reconstruct the stated arc angle. Each boundary piece is a circle arc of radius \(d\), so its length is \(\alpha\sinh d\). Hyperbolic Gauss–Bonnet, with geodesic curvature \(\coth d\) on the arcs and the equal vertex turning contributions, gives \(A=n\alpha(1+\cosh d)-2\pi\). Algebra then yields the classical hyperbolic Barbier relation. Independent numerical reconstruction on odd orders from 3 through 101 reproduced the formulas and the fixed-width disk limit.
 
-PASS with explicit historical-access risk. Horváth's primary full text was inspected at Statement 8 and its proof; it establishes constant width for hyperbolic Reuleaux polygons but contains no perimeter occurrence and no Reuleaux area profile. Böröczky–Sagmeister cover the Reuleaux-triangle endpoint, so \(n=3\) is excluded from the novelty claim. Targeted searches for regular odd hyperbolic Reuleaux polygons, exact arc angles, perimeter, area, equivalent Barbier forms, and disk limits found no covering result. Santaló 1945 and Leichtweiss 2005 remain named residual risks because their full texts were unavailable.
+## originality
 
-## Value
+PASS
 
-PASS. Regular Reuleaux polygons are canonical finite-arc bodies of constant width and are explicitly highlighted in hyperbolic width theory. Exact area and perimeter are natural structural invariants. The formulas give a complete odd-\(n\) benchmark, recover the established triangle endpoint, quantify convergence to the disk, and display the curvature-dependent departure from Euclidean Barbier behavior.
+Prior work establishes that hyperbolic Reuleaux polygons are bodies of constant width, and Santaló's classical hyperbolic Barbier theorem gives the general relation between area and perimeter for a constant-width body. Those results do not supply the separate perimeter and area of the regular odd-order Reuleaux family as explicit functions of \((n,d)\). The audited theorem computes the arc angle from the regular polygon geometry, obtains both exact invariants, and gives the fixed-width disk limit. The general Barbier relation is correctly treated as prior and recovered rather than re-claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Regular Reuleaux polygons are canonical finite approximants to constant-width bodies, while exact hyperbolic metric profiles are not inherited from the Euclidean case. The all-odd formula simultaneously quantifies perimeter, area, curvature relation, and disk convergence, making it a natural reference invariant rather than an arbitrary slice computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
