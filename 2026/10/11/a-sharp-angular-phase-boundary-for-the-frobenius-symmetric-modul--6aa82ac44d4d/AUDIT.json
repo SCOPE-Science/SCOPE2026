@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For each nonzero 2x2 matrix the positive square-root formula follows directly from Cayley-Hamilton including singular endpoint det=0. For A=a[[x,0],[sqrt(1-x²),0]] and B=at E22 it yields explicit symmetric moduli; trace-square reduction produces an exact polynomial identity verified by a standalone stdlib checker. The factorization gives all endpoint and interior signs, and the threshold root is unique because its quadratic sign factor strictly decreases on t>=0. Exact rational witness has gap 27/85. The claim is limited to this canonical real family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bourin–Lee gives universal norm factor sqrt(2), without this signed-defect classification.",
+        "Zhang gives c_2^sym(m,2)>1 but no rank-one-plus-corner all-parameters formula in the read material."
+      ],
+      "reasoning": "A generic upper bound or an unrestricted existence result cannot settle which parameters within this restricted orthogonal-support pair yield positive, zero, or negative defect. Conversely the present theorem makes no optimal unrestricted-constant assertion.",
+      "searches": [
+        "arXiv:2602.19607v1 §§2,6",
+        "arXiv:2603.01046v1 §8 Theorem 8.1 and Example 8.2",
+        "published-finding corpus: norm of (|A+B|+|(A+B)*|)/2 exceeds norm of (|A|+|A*|+|B|+|B*|)/2 Schatten 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.19607v1",
+      "arXiv:2603.01046v1",
+      "arXiv:2602.01463v3",
+      "Relevant published semantic records on polar-wandering symmetric moduli and ordinary modulus median bounds; both concern different spectral comparisons."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang §8: two invertible matrices yield a single p=2 violation in M2, settling general subadditivity failure and n=2 sharpness.",
+        "The 2602.01463 quadratic symmetric modulus is sqrt((|Z|²+|Z*|²)/2), mathematically distinct from the arithmetic mean."
+      ],
+      "reasoning": "The new claim expressly excludes the previously covered general failure and only proves the non-implied exact sign and sharp angle threshold for two rank-one orthogonal-input-support summands. Earlier quadratic modulus domination does not transfer by equality to the arithmetic symmetric-modulus defect.",
+      "searches": [
+        "arXiv:2603.01046v1 §8 lines 1308–1327",
+        "arXiv:2602.01463v3 §2",
+        "published-finding corpus: Bourin Lee symmetric modulus inequality counterexample Schatten 2 dimension two and two summands"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact difference is t(1-x²)(2x-1-2xt-t²)/(1+2xt+t²); equivalently sign crossing at t=sqrt(x²+2x-1)-x for 1/2<x<1.",
+        "Zhang Example 8.2 already proves failure at p=2 using two invertible, not orthogonal-support rank-one, matrices."
+      ],
+      "reasoning": "Keywords rank-one, orthogonal supports, angular/coupling transition, and 2x2 Frobenius defect were searched. The published invertible counterexample does not imply a phase classification or violation under orthogonal-input-support and rank-one restrictions.",
+      "searches": [
+        "published-finding corpus: Frobenius symmetric modulus triangle defect for rank-one matrices with orthogonal right supports two by two angle threshold positive diagonal projection 2026",
+        "Web: \"Frobenius\" \"symmetric modulus\" \"rank-one\" \"orthogonal\" 2026",
+        "arXiv:2603.01046v1 §8.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary Example 8.2 lists one full-rank numerical witness, not a sign table over the proposed real parameters.",
+        "No exact matching classified parametric table was returned from the semantic record search."
+      ],
+      "reasoning": "The result is an exact continuum phase diagram; the inspected explicit matrices from the most relevant primary paper are not members of the rank-one family.",
+      "searches": [
+        "published-finding corpus: arithmetic symmetric modulus orthogonal column matrices rank-one positive diagonal sum Frobenius triangle exact phase diagram",
+        "Web: \"operator symmetric modulus\" \"rank one\" \"orthogonal\" Frobenius inequality",
+        "arXiv:2603.01046v1 Example 8.2"
+      ]
+    },
+    "rationale": "The overall Frobenius failure and n=2 threshold are ALREADY covered by Zhang arXiv:2603.01046v1 Example 8.2, which uses two invertible matrices. The distinct claimed result is a full angular/weight sign classification under the structural restriction rank-one A,B, B positive corner projection, and |A||B|=0. Full relevant Section 8 and the Bourin-Lee primary paper and quadratic-modulus paper were inspected and did not state or imply the threshold x=1/2 or the exact two-variable defect. Index searches cannot prove absolute novelty.",
+    "residual_risks": [
+      "An unindexed equivalently parameterized rank-one computation could exist.",
+      "No claim is made about unrestricted optimal constants or all orthogonal-right-support pairs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains universal sqrt(2) inequality, not the rank-one orthogonal-support parameter defect and cutoff.",
+        "evidence": [
+          "Sections 2 and 6; p=2 question at §6."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.19607v1",
+        "material_read": "Full HTML, especially Sections 1, 2, and 6, including Corollary 2.5 and concluding question.",
+        "method": "Read primary source HTML text, definitions, bounds, and statement of open question.",
+        "title": "Triangle inequalities for the operator symmetric modulus",
+        "trigger": "Same symmetric-modulus expression and original Schatten question; primary MSC 47A30."
+      },
+      {
+        "assessment": "Covers generic Frobenius failure, n=2 minimality; does not cover the distinct two-parameter sign law for rank-one orthogonal-input-support pairs.",
+        "evidence": [
+          "§8 Example 8.2 uses invertible 2x2 A,B (both determinant magnitude 1); neither is rank one."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.01046v1",
+        "material_read": "Full HTML relevant Sections 1.4 and 8, especially Theorem 8.1, Example 8.2, and its exact displayed matrices.",
+        "method": "Read original complete Section 8 source text and compare the actual matrices and implications.",
+        "title": "Operator symmetric moduli and sharp triangle inequalities",
+        "trigger": "Direct c_p^sym(m,n) optimization and explicit Frobenius counterexample, strongest plausible covering source."
+      },
+      {
+        "assessment": "Quadratic symmetric modulus is not the arithmetic symmetric modulus; no implication for the claimed exact arithmetic sign law.",
+        "evidence": [
+          "Definition of quadratic modulus and Section 2 proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.01463v3",
+        "material_read": "Full HTML including introduction and Section 2 theorem and examples.",
+        "method": "Inspect modulus definitions and read relevant proof and examples.",
+        "title": "An operator triangle inequality for the quadratic symmetric modulus",
+        "trigger": "Same authors and a potentially stronger Thompson-type triangle inequality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6aa82ac4-4d4d-4682-8432-ee762fae4a3a",
+  "value": {
+    "rationale": "The motivating 2026 literature gives only an unstructured full-rank Frobenius counterexample, whereas the natural minimal structured orthogonal-input-support rank-one plus positive projection family has a complete stability/instability boundary. The exact squared defect quantifies the transition and gives a sharp geometric 60-degree onset, with a genuine positive-coupling interval and reversal as coupling increases. This answers a structural question not resolved by generic non-subadditivity, without asserting the global optimal constant.",
+    "status": "PASS"
+  }
+}
