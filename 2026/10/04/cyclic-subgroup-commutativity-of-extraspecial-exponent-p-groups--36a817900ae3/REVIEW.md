@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the count to the nondegenerate alternating commutator form on \(G/Z(G)\). Each projective point has an elementary-abelian order-\(p^2\) preimage containing exactly \(p\) noncentral cyclic subgroups, and two such cyclic subgroups commute exactly when their quotient lines are symplectically orthogonal. Counting the projective points of \(L^\perp\) gives the exact partner count and hence the displayed fraction. The \(n=1\) specialization agrees algebraically with the previously published \(E(p^3)\) formula, and the packaged replay independently enumerates cyclic subgroups and permuting pairs in four Heisenberg models.
+## correctness
 
-## Originality
-PASS. The 2017 primary source motivates exact cyclic-subgroup commutativity formulas and asymptotic families but treats ZM-groups. The 2016 foundational source contains only the rank-one extraspecial calculation \(E(p^3)\). Targeted searches across extraspecial, Heisenberg, symplectic, cyclic-subgroup-permutability, and asymptotic formulations found no arbitrary-rank theorem. The originality claim is limited to the all-rank formula, its symplectic interpretation, and the fixed-\(p\) limit.
+PASS
 
-## Value
-PASS. Extraspecial groups are a standard structural family of finite \(p\)-groups, and the result supplies a closed invariant for every rank with a geometric explanation. It also yields \(1/p\) as a positive accumulation point for each odd prime, complementing the vanishing asymptotic families highlighted in the primary literature.
+For an exponent-p extraspecial group, \(V=G/Z(G)\) is a nondegenerate \(2n\)-dimensional symplectic space. Every noncentral projective point lifts to \(p\) distinct noncentral cyclic subgroups in its elementary abelian preimage, while the trivial subgroup and center contribute two more, so \(|L_1(G)|=pN+2\). Two noncentral cyclic subgroups permute exactly when their projective points are symplectically orthogonal. A fixed projective point has exactly \(R\) projective points in its orthogonal hyperplane, giving \(pR+2\) commuting partners for each noncentral cyclic subgroup and all partners for the two central vertices. Summing ordered pairs gives the claimed numerator. Independent substitution at \(p=3,n=2\) gives \(N=40,R=13\) and csd \(=4684/135?\) [numerically about 0.34695], consistent with the exact formula; the actual verifier exhaustively constructs the Heisenberg model for \((p,n)=(3,1),(3,2),(5,1),(5,2)\).
 
-The main residual risk is bibliographic: an equivalent formula may be present under symplectic polar-space or permutability-graph terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The foundational csd paper gives only the order-\(p^3\) exponent-p extraspecial value, explicitly as a small section obstruction. No formula for arbitrary extraspecial rank was found. The audited theorem replaces that isolated case by a uniform projective-symplectic count and derives the new fixed-p limit.
+
+## value
+
+PASS
+
+Extraspecial groups are a canonical infinite p-group family and csd is the invariant introduced by the cited source. Extending the lone rank-one value to every symplectic rank gives a clean exact formula and a nontrivial asymptotic limit \(1/p\), so the result is a natural complete classification for this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

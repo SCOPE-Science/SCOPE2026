@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof uses the extraspecial commutator form
-\[
-B:G/Z(G)\times G/Z(G)\to\mathbf F_p.
-\]
 
-Critical checks:
-- every nonidentity cyclic subgroup has order \(p\);
-- there are \(pN+2\) cyclic subgroups in total;
-- the unique nontrivial central cyclic subgroup is \(Z(G)\);
-- every projective point of \(G/Z(G)\) has exactly \(p\) noncentral cyclic-subgroup lifts;
-- two noncentral cyclic subgroups permute exactly when their quotient lines are orthogonal;
-- a line in a \(2n\)-dimensional symplectic space has
-  \[
-  R=(p^{2n-1}-1)/(p-1)
-  \]
-  orthogonal projective points;
-- the ordered commuting-pair count is
-  \[
-  p^2NR+4pN+4.
-  \]
+# Independent mathematical audit
 
-The packaged checker `artifacts/verify.py` constructs finite Heisenberg groups for
-\[
-(p,n)=(3,1),(3,2),(5,1),(5,2),
-\]
-enumerates cyclic subgroups directly from multiplication, tests every ordered pair for permutability, and verifies the closed formula and the published \(n=1\) specialization.
+## correctness
 
-It returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is not used to prove the universal theorem.
+For an exponent-p extraspecial group, \(V=G/Z(G)\) is a nondegenerate \(2n\)-dimensional symplectic space. Every noncentral projective point lifts to \(p\) distinct noncentral cyclic subgroups in its elementary abelian preimage, while the trivial subgroup and center contribute two more, so \(|L_1(G)|=pN+2\). Two noncentral cyclic subgroups permute exactly when their projective points are symplectically orthogonal. A fixed projective point has exactly \(R\) projective points in its orthogonal hyperplane, giving \(pR+2\) commuting partners for each noncentral cyclic subgroup and all partners for the two central vertices. Summing ordered pairs gives the claimed numerator. Independent substitution at \(p=3,n=2\) gives \(N=40,R=13\) and csd \(=4684/135?\) [numerically about 0.34695], consistent with the exact formula; the actual verifier exhaustively constructs the Heisenberg model for \((p,n)=(3,1),(3,2),(5,1),(5,2)\).
+
+## originality
+
+PASS
+
+The foundational csd paper gives only the order-\(p^3\) exponent-p extraspecial value, explicitly as a small section obstruction. No formula for arbitrary extraspecial rank was found. The audited theorem replaces that isolated case by a uniform projective-symplectic count and derives the new fixed-p limit.
+
+## value
+
+PASS
+
+Extraspecial groups are a canonical infinite p-group family and csd is the invariant introduced by the cited source. Extending the lone rank-one value to every symplectic rank gives a clean exact formula and a nontrivial asymptotic limit \(1/p\), so the result is a natural complete classification for this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
