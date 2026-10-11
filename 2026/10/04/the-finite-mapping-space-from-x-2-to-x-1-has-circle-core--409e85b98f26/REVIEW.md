@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The \(44\)-map count is derived by an explicit complete classification of the middle-level image. Independently, the supplied verifier enumerates all \(4^6\) set maps, filters exactly the order-preserving maps, and checks every one of the \(40\) beat-point deletions against the full current survivor set. The final four points are exactly the constant maps, have the target order \(X_1\), and have no beat points. The Stong reduction theorem therefore yields the claimed strong deformation retract and core.
+## correctness
 
-## Originality
-**PASS.** The closest inspected primary literature gives the canonical finite sphere models, the compact-open/pointwise function-space structure, general beat-point/core theory, and a general Möbius-function formula for hom-posets. None of those inspected statements computes this \(44\)-point function space or its core. Exact-object and exact-count searches produced no matching indexed finding. Earlier related work controlling only map homotopy classes does not imply the topology or core of the full mapping space.
+PASS
 
-Residual risk: a non-indexed older small-example calculation could use different terminology and contain the same result.
+Independent exhaustive filtering of all 4^6 set maps reproduces exactly 44 order-preserving maps. The full pointwise order was rebuilt and each of the 40 certificate deletions was independently checked against the current induced poset: 20 up-beat and 20 down-beat deletions. The exact survivors are the four constant maps, whose inherited order is the target X1. The package's analytic 8+18+18 map count independently agrees.
 
-## Value
-**PASS.** This is a natural calculation on the canonical minimal finite models \(X_2\) and \(X_1\). It demonstrates that the apparently trivial fact of there being one homotopy class of maps does not make the finite function space contractible: its core is the minimal finite circle itself. The explicit finite certificate makes the phenomenon directly reproducible and useful as a test case for mapping-space calculations.
+## originality
 
-## Closest literature and limitations
-Barmak–Minian provide the minimal finite sphere models and beat-point/core machinery; May provides the compact-open function-space order; Speed studies the Möbius function of the general hom-poset. The present theorem is restricted to \(X_2\to X_1\) and does not assert a family theorem for \(X_n\to X_m\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A broad cross-height theorem already implies that every direct map X2 to X1 is null-homotopic, and a general weak-order recurrence can recover the number of maps, but neither implies that the connected mapping space is noncontractible with core exactly X1. Speed's complete Hom-poset paper concerns the Mobius function rather than cores. The exact core is therefore a genuinely additional finite-space invariant.
+
+## value
+
+PASS
+
+This smallest adjacent-sphere example cleanly separates map-homotopy nullity from the topology of the whole function space: all maps lie in one homotopy class, yet the mapping space has a noncontractible circle core. That is a natural exact boundary fact, not an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

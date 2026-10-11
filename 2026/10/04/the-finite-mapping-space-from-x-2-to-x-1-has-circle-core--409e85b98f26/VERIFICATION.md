@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The package contains `beat_certificate.json` and a standard-library verifier, `verify.py`.
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python3 verify.py`
+PASS
 
-The verifier reconstructs the source and target weak orders, enumerates all \(4^6=4096\) set maps, and checks which are order-preserving. It verifies that there are exactly \(44\) such maps. It then replays every certified deletion against the complete surviving pointwise poset and checks the defining unique-minimal-upper or unique-maximal-lower condition for a Stong beat point.
+Independent exhaustive filtering of all 4^6 set maps reproduces exactly 44 order-preserving maps. The full pointwise order was rebuilt and each of the 40 certificate deletions was independently checked against the current induced poset: 20 up-beat and 20 down-beat deletions. The exact survivors are the four constant maps, whose inherited order is the target X1. The package's analytic 8+18+18 map count independently agrees.
 
-After all \(40\) deletions, the verifier checks that the survivors are exactly the four constant maps, that their induced order is precisely \(X_1\), and that no survivor is a beat point. The expected final output is:
+## originality
 
-`VERIFY_OK maps=44 deletions=40 up=20 down=20 core=4`
+PASS
 
-The computation is exhaustive for this finite pair. It does not verify or claim a parameterized theorem for other finite sphere models.
+A broad cross-height theorem already implies that every direct map X2 to X1 is null-homotopic, and a general weak-order recurrence can recover the number of maps, but neither implies that the connected mapping space is noncontractible with core exactly X1. Speed's complete Hom-poset paper concerns the Mobius function rather than cores. The exact core is therefore a genuinely additional finite-space invariant.
+
+## value
+
+PASS
+
+This smallest adjacent-sphere example cleanly separates map-homotopy nullity from the topology of the whole function space: all maps lie in one homotopy class, yet the mapping space has a noncontractible circle core. That is a natural exact boundary fact, not an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
