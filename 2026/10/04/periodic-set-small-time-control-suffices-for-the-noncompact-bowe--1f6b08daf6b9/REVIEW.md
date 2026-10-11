@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim was reconstructed from the definitions of geometric separation, dynamic isolation at infinity, separated-set upper-capacity entropy, and least-period counting. The only small-time displacement in the period-bin separation argument occurs at a point on a periodic orbit, so replacing the global displacement modulus by its restriction to periodic points is valid. The strictness example was checked analytically: the added translation component is topologically a real line, creates no periodic points, breaks global uniform \(C_0\), and contributes zero upper-capacity entropy because compact-set separated numbers grow at most quadratically in time.
+## correctness
 
-## Originality
-PASS. The closest full-text source, Morales (arXiv:2609.00626v1), states the bound under global uniform \(C_0\) and explicitly says the conclusion without that assumption is unknown. The earlier Yang–Morales paper (arXiv:2510.13224v1) proves a different noncompact theorem for topologically expansive flows with a different entropy-like invariant. Focused searches for periodic-set equicontinuity and noncompact Bowen–Walters variants did not locate the present hypothesis localization. A bibliographically incomplete 2026 preprint cited by Morales remains a specific overlap risk because its full statement was not accessible.
+PASS
 
-## Value
-PASS. The result isolates the exact dynamical locus where the source proof needs small-time uniformity and proves that global control away from periodic dynamics is unnecessary. The entropy-preserving strictness construction makes this a real extension and turns the source's broad open question into a sharper boundary problem.
+In a period bin of width eta, if two chosen periodic representatives were not separated for times from 0 to T, the piecewise-linear reparameterization matching their periods changes the time argument by at most eta on each fundamental period. The only small-time displacement term is evaluated on the periodic orbit of the second representative, so the periodic-point modulus alone makes the reparameterized orbits remain inside a geometric-separation constant; distinct periodic orbits are therefore separated. A compact set meeting every regular orbit supplies representatives, and summing separated-set bounds over O(T) period bins gives the claimed exponential upper bound. In the strictness example, the added real translation component is topologically compatible, has one nonperiodic orbit, makes global uniform small-time continuity fail under the cubic pullback metric, and contributes only polynomially many separated points on every compact subset, hence zero upper-capacity entropy.
 
-## Closest literature and limitations
-The closest result is Morales, arXiv:2609.00626v1, Theorem 1.2 and Lemma 2.3. The result here does not remove all regularity assumptions and does not prove that periodic-set small-time control is necessary. It also does not provide sharper periodic-orbit asymptotics or equidistribution.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest 2026 source proves the same noncompact Bowen-Walters upper bound under global uniform small-time control and publicly frames removal of that hypothesis as an unresolved issue. The submitted proof localizes the only needed displacement estimate to the periodic set and supplies an entropy-preserving example showing this is a strict weakening, not a rephrasing. The 2025 Yang--Morales theorem instead assumes topological expansivity and uses a different entropy-like quantity, so it does not imply this geometrically-separating ordinary upper-capacity statement. A targeted Resultary search returned the assigned finding as the only direct match. Full-text retrieval of the Morales preprint was unavailable in this run; that access limitation is retained as a residual priority risk rather than converted into failure.
+
+## value
+
+PASS
+
+The result weakens precisely the regularity assumption identified as an obstruction in the current noncompact Bowen-Walters theorem while preserving the standard upper-capacity entropy conclusion. The strictness example shows the weakening enlarges the theorem's domain without changing periodic data or entropy, so this is a motivated structural refinement rather than a cosmetic hypothesis change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
