@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "On every reset-free leg with initial voltage below the constant-drive equilibrium, voltage is a strictly increasing coordinate. Solving the threshold equation as a function of voltage shows that increasing the initial threshold adds the strictly positive factor \\(((V-v)/(V-u))^{1/\\tau}\\) times the threshold increment at every finite voltage. Hence the first sign-changing threshold crossing, if it exists, occurs at strictly larger voltage. The reset sends a crossing at voltage \\(r\\) to \\((0,r+\\Delta)\\), so constant forcing lets the one-leg comparison iterate on the reset section. This proves strict ordering of corresponding reset voltages and the finite spike-count monotonicity. Grazing contacts are excluded exactly as in the source reset definition. No numerical experiment substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2012 Meng--Huguet--Rinzel paper introduces the dynamic-threshold reduced model and threshold increment after a spike, but the accessible primary-source material inspected does not state this initial-threshold spike-count ordering.",
+        "Generic adaptive-threshold and integrate-and-fire search results discuss adaptation, firing rates, or stochastic firing statistics rather than an implication-equivalent reset-count theorem for this hybrid system."
+      ],
+      "reasoning": "A broader comparison theorem would cover the claim even without matching the model name. Searches therefore included generic adaptive-threshold, integrate-and-fire, constant-current, reset, event-map, and order-comparison terminology. No stronger theorem implying the claim was located in the bounded search.",
+      "searches": [
+        "Published findings index query: autonomous integrate-and-fire dynamic threshold reset spike count order comparison",
+        "Web: \"dynamic threshold\" \"constant current\" reset threshold model theorem",
+        "Web: \"adaptive threshold\" \"constant input\" \"spike count\" neuron reset",
+        "Web: \"threshold increment\" \"initial threshold\" spike count neuron"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.32842v1",
+      "doi:10.3934/dcds.2012.32.2729",
+      "Published-finding IDs 2026/9/18/SCOPE-exact-first-integral-memory-blowup-dichotomy--7383b48da300, 2026/9/18/SCOPE-sharp-recovery-diffusion-threshold-fitzhugh-nagumo-barriers--9fc4488cfb37, 2026/10/4/SCOPE-exact-hopf-threshold-recurrence-law-for-the-tuned-collector-chao--f0b4d2522dc9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.14 of arXiv:2609.32842v1 proves only that zero resets for a lower initial threshold imply zero resets for a higher one.",
+        "Conjecture 4.16 explicitly asks for the all-count monotonicity and identifies conditions analogous to the present voltage restriction as potentially necessary.",
+        "The present proof supplies a new induction step: ordered reset voltages imply ordered post-reset thresholds, and constant forcing removes absolute-time phase dependence."
+      ],
+      "reasoning": "The source zero-reset result does not imply the finite-count theorem because a reset destroys the original state order. The constant-drive event-map argument restores an order on the reset section and therefore extends the statement beyond what the prior proposition proves.",
+      "searches": [
+        "arXiv:2609.32842v1 Proposition 4.14 Lemma 4.15 Conjecture 4.16",
+        "doi:10.3934/dcds.2012.32.2729 dynamic threshold reset steady current",
+        "Web: \"V-theta\" reset Meng Huguet Rinzel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.32842v1 states Proposition 4.14 only for zero resets and states the general count-ordering as Conjecture 4.16.",
+        "No returned published-finding record or web result stated the constant-drive reset-voltage ordering or its finite-count consequence."
+      ],
+      "reasoning": "The candidate is not merely a rephrasing of the source zero-reset proposition: the proof compares every successive reset voltage and uses the autonomous reset section to iterate that comparison. Searches included the exact conjecture language, dynamic-threshold aliases, constant-current terminology, and reset-count formulations.",
+      "searches": [
+        "Published findings index query: Meng-Huguet-Rinzel neuron constant input initial threshold spike count monotone resets",
+        "Published findings index query: hybrid neuron dynamic threshold constant current number of spikes initial threshold monotonicity",
+        "Published findings index query: Conjecture 4.16 spike count nonincreasing initial threshold constant forcing",
+        "Web: \"number of spikes is a non-increasing function\" threshold neuron",
+        "Web: \"at most n resets\" \"initial threshold\" neuron"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The currently checked published-claim record contains two findings, on toral generators and normal-operator asymptotic expansivity, neither involving hybrid neurons.",
+        "The earlier published-claim comparison surfaced unrelated coarse-recurrence and grazing-return claims; none states or implies the MHR spike-count ordering.",
+        "The closest published-finding-index hits were unrelated recurrence, memory, and threshold results rather than this model or implication."
+      ],
+      "reasoning": "Exact database and prior-record checks found no duplicate or stronger stored statement. Partitioning is not treated as a uniqueness proof; the conclusion is only that no overlap was found in the checked accessible records.",
+      "searches": [
+        "Current published-claim record check: neuron, threshold, spike, reset, Meng, Huguet, Rinzel",
+        "Earlier published-claim record check: neuron, threshold, spike, reset, Meng, Huguet, Rinzel",
+        "Published findings index query: Subthreshold oscillations and spiking in hybrid neuron models with a dynamic threshold Conjecture 4.16",
+        "Published findings index query: constant forcing MHR hybrid neuron monotone spike count initial threshold reset voltage",
+        "Published findings index query: event map reset voltage monotonic in initial threshold dynamic threshold neuron constant current"
+      ]
+    },
+    "rationale": "The motivating paper leaves general spike-count monotonicity as Conjecture 4.16 after proving only the zero-spike case. The accepted claim proves a nontrivial autonomous subfamily by an event-map ordering that is not supplied by that proposition. Targeted searches of the model name, conjecture, dynamic-threshold aliases, constant-current formulations, generic adaptive-threshold literature, the published findings index, and prior published-claim records found no implication-equivalent statement.",
+    "residual_risks": [
+      "An implication-equivalent monotonicity theorem may exist in older adaptive-threshold or integrate-and-fire literature under terminology not surfaced by the bounded searches.",
+      "The complete 2012 article PDF was unavailable for complete reading; only publisher material and detailed indexed excerpts were available, so whole-document noncoverage is not asserted for that paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves only the zero-reset comparison and explicitly leaves arbitrary spike-count monotonicity open. It does not contain the constant-drive reset-voltage induction proved here.",
+        "evidence": "arXiv:2609.32842v1, equations (5)--(8), Proposition 4.14, Lemma 4.15, Conjecture 4.16, and the following discussion.",
+        "identifier_or_url": "arXiv:2609.32842v1",
+        "material_read": "ArXiv metadata and the primary PDF portions containing the model equations and reset rule, the finite-spike partition, Proposition 4.14, Lemma 4.15, Conjecture 4.16, and the discussion.",
+        "method": "Primary arXiv abstract page plus direct PDF inspection of the relevant pages.",
+        "title": "Subthreshold oscillations and spiking in hybrid neuron models with a dynamic threshold",
+        "trigger": "This is the motivating source and contains the exact open spike-count monotonicity conjecture."
+      },
+      {
+        "assessment": "The inspected material gives the model mechanism but no reset-count ordering theorem equivalent to the accepted claim. Because the complete archived PDF was not read, this source remains an explicit residual originality risk rather than evidence of whole-document noncoverage.",
+        "evidence": "DOI 10.3934/dcds.2012.32.2729; publisher page and indexed excerpts on the V-theta reset mechanism.",
+        "identifier_or_url": "doi:10.3934/dcds.2012.32.2729",
+        "material_read": "Publisher metadata/abstract and detailed indexed primary-text excerpts describing the dynamic-threshold V-theta model, post-spike threshold increment, and steady-current phasic behavior. A repository copy of the complete PDF was unavailable during source inspection.",
+        "method": "Primary publisher page and indexed full-text excerpts; bounded attempt to access an institutional repository copy.",
+        "title": "Type III excitability, slope sensitivity and coincidence detection",
+        "trigger": "This is the primary source for the reduced dynamic-threshold model cited by the 2026 paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "25060b90-e607-4bb1-a79f-12d4456030ed",
+  "value": {
+    "rationale": "The result resolves the source paper's full finite spike-count monotonicity question on the natural tonic-drive subfamily, exactly the regime central to Type III phasic firing. It identifies a structural reason the autonomous case is tractable: reset voltages inherit strict threshold order, and autonomy lets that order survive successive resets. It also shows that the source's suggested inequality \\(f(v)>v\\) is unnecessary in this regime. This is more than a zero-spike restatement or a numerical observation and isolates the forcing phase, rather than the reset itself, as the obstruction to the same induction for nonconstant inputs.",
+    "status": "PASS"
+  }
+}
