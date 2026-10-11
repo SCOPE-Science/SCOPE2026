@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic for unequal positive integer exponents.
+# Independent mathematical audit
 
-It verifies the beta constants, exact stationary mixed moments from arbitrary rational finite-support interarrival laws, deterministic lower-endpoint equality, and the two-sided correlation inequalities over a large randomized family.
+## correctness
 
-The checker also constructs two-point size-biased interval laws and converts them back to genuine two-point interarrival laws by inverse size biasing. Along the explicit rare-large family it confirms convergence toward the upper endpoint.
+PASS
 
-Finite integer-power checks do not establish the real-exponent theorem; the universal proof in `RESULT.md` uses only monotonicity, covariance decomposition, Cauchy--Schwarz, and continuity.
+At stationarity \((A,R)=(UL,(1-U)L)\) with \(U\) uniform and independent of the size-biased interval length \(L\). Expanding moments gives the displayed covariance decomposition into a nonnegative term \(B(r+1,s+1)\operatorname{Cov}(L^r,L^s)\) plus the fixed negative split term, and the analogous variance decompositions. Monotonicity of both powers of \(L\) gives nonnegative covariance, proving the lower bound; equality forces both transformed variances of \(L\) to vanish and hence deterministic \(L\). For a positive covariance, discarding the negative mean term and using Cauchy--Schwarz gives the strict upper constant. A two-point \(L\) makes \(L^r,L^s\) perfectly correlated; choosing its rare large atom makes squared means negligible relative to variances, reaching the upper endpoint in the limit. Size-bias inversion produces a valid two-point interarrival law, and continuity fills the interval.
 
-Independent audit has not been performed.
+## originality
 
-Replay result: `VERIFY_OK random_bound_checks=33471 deterministic_endpoint_checks=42 upper_path_checks=42`.
+PASS
+
+The strongest directly relevant published SCOPE predecessor gives the complete equal-power interval and explicitly lists unequal powers as outside its scope. Classical stationary-renewal and Schur-constant papers give the radial-uniform representation, ordinary linear correlation, and joint moments but no located sharp distribution-free unequal-power range. The audited proof needs a genuinely two-transform covariance argument because the equal-power one-parameter moment ratio no longer exists.
+
+## value
+
+PASS
+
+Age and residual life are canonical renewal variables, and the equal-power range was already singled out as a natural solved case. Completing the unequal-power problem with exact endpoints, equality/nonattainment behavior and full interval realization is a natural structural extension with reusable dependence bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

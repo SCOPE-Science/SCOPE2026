@@ -1,28 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stationary representation
-\[
-(A,R)=(UL,(1-U)L)
-\]
-with \(U\) uniform and independent of the size-biased interval \(L\) gives exact mixed moments. The covariance splits into a nonnegative comonotone scale term and a negative uniform-split term. The transformed variances split analogously.
+PASS
 
-Those decompositions give the lower endpoint by discarding nonnegative scale variance and covariance, with equality only for deterministic \(L\). They give the strict upper endpoint by discarding the negative mean product and retaining only the common-scale covariance, followed by Cauchy--Schwarz. A rare-large two-point size-biased interval makes both mean penalties negligible and has perfect correlation between its two powers, proving sharpness of the upper endpoint. Continuity of the two-point family fills the interval.
+At stationarity \((A,R)=(UL,(1-U)L)\) with \(U\) uniform and independent of the size-biased interval length \(L\). Expanding moments gives the displayed covariance decomposition into a nonnegative term \(B(r+1,s+1)\operatorname{Cov}(L^r,L^s)\) plus the fixed negative split term, and the analogous variance decompositions. Monotonicity of both powers of \(L\) gives nonnegative covariance, proving the lower bound; equality forces both transformed variances of \(L\) to vanish and hence deterministic \(L\). For a positive covariance, discarding the negative mean term and using Cauchy--Schwarz gives the strict upper constant. A two-point \(L\) makes \(L^r,L^s\) perfectly correlated; choosing its rare large atom makes squared means negligible relative to variances, reaching the upper endpoint in the limit. Size-bias inversion produces a valid two-point interarrival law, and continuity fills the interval.
 
-## Originality
+## originality
 
-PASS. The full Nair--Sankaran paper was inspected. It gives the stationary Schur-constant joint law and the ordinary linear correlation formula, but no unequal-power range.
+PASS
 
-The closest published theorem gives the sharp range only for equal powers \(\operatorname{Corr}(A^r,R^r)\) and explicitly lists unequal powers as outside its scope. Its one-ratio reduction depends on the equal transformed variances and does not imply the asymmetric result.
+The strongest directly relevant published SCOPE predecessor gives the complete equal-power interval and explicitly lists unequal powers as outside its scope. Classical stationary-renewal and Schur-constant papers give the radial-uniform representation, ordinary linear correlation, and joint moments but no located sharp distribution-free unequal-power range. The audited proof needs a genuinely two-transform covariance argument because the equal-power one-parameter moment ratio no longer exists.
 
-Targeted semantic and web searches for mixed powers, unequal powers, stationary renewal correlation, and Schur-constant power transforms did not return the two-parameter endpoint formulas.
+## value
 
-## Value
+PASS
 
-PASS. Unequal transforms are natural in asymmetric reliability and renewal summaries, where elapsed time and remaining time need not be measured on the same scale. The theorem completes the sharp distribution-free correlation picture beyond the diagonal equal-power case and identifies exact extremizers with a simple probabilistic mechanism: deterministic spacing maximizes the negative split effect, while rare large intervals make common-scale variation dominate.
+Age and residual life are canonical renewal variables, and the equal-power range was already singled out as a natural solved case. Completing the unequal-power problem with exact endpoints, equality/nonattainment behavior and full interval realization is a natural structural extension with reusable dependence bounds.
 
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Replay: `VERIFY_OK random_bound_checks=33471 deterministic_endpoint_checks=42 upper_path_checks=42`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
