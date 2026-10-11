@@ -1,15 +1,21 @@
-# Review of “A square-root step-size bias in the balanced implicit SIS invasion threshold”
+# Independent mathematical audit
 
-## Correctness
-PASS. The source equations give the exact disease-free linear SDE and the BIM weight. For \\(F_1\\equiv0\\) and \\(F_2(S,I)=\\sigma S/K\\), condition (45) is satisfied because \\(F_2/S=\\sigma/K\\). The BIM linearization is scalar with a positive iid multiplier, so its almost-sure exponent is the expected log multiplier divided by \\(h\\). The half-normal moments and Taylor coefficients were reconstructed independently, with an integrable fourth-derivative domination for the remainder. The sign and threshold expansion follow from strict monotonicity in \\(a\\).
+## correctness
 
-## Originality
-PASS. Exact-title, DOI, formula-alias, finite-step Lyapunov-threshold, and dynamics-preserving searches were compared by statement and implication. The 2026 motivating paper proves arbitrary-step invariance and fixed-finite-time mean-square convergence but does not derive this finite-step transverse exponent or its \\(O(\\sqrt h)\\) threshold displacement. The 2019 same-model paper uses the same BIM but leaves quantitative long-time numerical analysis to earlier numerical-method work and does not state this source-specific threshold expansion. Dedicated dynamics-preserving SIS schemes prove threshold behavior for different algorithms rather than implying the present BIM calculation.
+PASS
 
-## Value
-PASS. Disease-free invasion/extinction thresholds are a central long-time qualitative property of epidemic discretizations, and the source explicitly frames its BIM analysis in terms of dynamic consistency. The square-root threshold shift identifies a structural effect of the absolute-value balancing term inside an admissible convergence-class specialization. It cleanly separates fixed-time convergence from exact finite-step preservation of a long-time local threshold and gives the leading correction needed to quantify that distinction.
+The disease-free transverse SDE is exactly dJ=aJ dt-\sigma J dW, hence its almost-sure exponent is a-\sigma^2/2. Differentiating the frozen BIM update at (K,0) with F_1=0 and F_2=\sigma S/K gives the positive iid multiplier M_h(Z)=[1+(c+a)h+\sigma\sqrt h(|Z|-Z)]/[1+ch+\sigma\sqrt h|Z|]. With \varepsilon=\sqrt h, n=\sigma(|Z|-Z), d=\sigma|Z|, the exact Gaussian moments E n=E d=\sigma\sqrt{2/\pi}, E n^2=2\sigma^2, E d^2=\sigma^2, E n^3=8\sigma^3\sqrt{2/\pi}, and E d^3=2\sigma^3\sqrt{2/\pi} yield E log M_h=(a-\sigma^2/2)\varepsilon^2+\sqrt{2/\pi}\sigma(2\sigma^2-a)\varepsilon^3+O(\varepsilon^4). Uniform fourth-derivative domination near the threshold justifies expectation of the remainder. Strict monotonicity in a then gives the unique local zero a_h=\sigma^2/2-(3/2)\sqrt{2/\pi}\sigma^3\sqrt h+O(h). The finite checker was used only as algebraic corroboration.
 
-## Closest literature and limitations
-The closest source is the 2026 Schurz–Tosun BIM analysis itself; the 2019 Schurz–Tosun paper supplies the same SIS family and BIM form; Liu–Wang–Dai (2024, arXiv:2308.05287) is the closest retrieved comparison explicitly preserving SIS extinction and persistence for any step size, but it uses a different scheme. The claim is local, linear, specialized, and asymptotic in \\(h\\); it does not address global nonlinear stability.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives statement-level comparison. The open-access Schurz–Tosun paper supplies the exact BIM and proves invariance plus fixed-finite-horizon mean-square convergence of order 1/2, but it does not compute the fixed-step almost-sure transverse Lyapunov exponent or the square-root step-size displacement of the invasion threshold. A different dynamics-preserving SIS discretization in Liu–Wang–Dai is designed to reproduce extinction/persistence for every step and therefore does not imply the bias of this BIM. Fresh Resultary search found no source-specific equivalent.
+
+## value
+
+PASS
+
+The calculation isolates a mathematically meaningful discrepancy between fixed-finite-time convergence and an infinite-time invasion threshold in the exact BIM used by the source. The \sqrt h law gives a quantitative boundary and a nonempty stability-mismatch interval, rather than a cosmetic local truncation error.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
