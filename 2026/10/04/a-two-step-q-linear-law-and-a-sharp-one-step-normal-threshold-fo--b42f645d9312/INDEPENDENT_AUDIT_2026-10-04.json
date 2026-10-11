@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:10:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact short-step identities were reconstructed. With \\(n=ux^2\\), one curvature-matched step gives \\(x^+=x(1+2n-2x^2/a)\\) and \\(n^+=x^4(4/a-4u)+O(x^6)\\); an independent symbolic expansion reproduces these coefficients exactly. A second short step therefore resets the leading normal coefficient to \\(4/a\\). At a pre-Polyak state \\(n=cx^4+O(x^6)\\), expanding the exact Polyak step gives \\(X=3x/4+O(x^3)\\) and \\(N=(7/16-ac/8)x^2+O(x^4)\\); substituting \\(c=4/a\\) returns to a bounded parabolic wedge and yields the Q-factor. With one short step, \\(c=4/a-4u+O(x^2)\\), hence the affine multiplier \\(8a/9\\) and the threshold \\(a=9/8\\). The summable \\(O(x_m^2)\\) perturbation closes the attracting case.",
+      "risk": "The theorem is local and tied to \\(h=1/(2a)\\); the one-step threshold is for the scaled normal mode, not a global convergence iff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original theorem gives near-linear complexity under fourth-order growth with block length chosen in its generic analysis; it does not imply that two short steps suffice for this nonconvex family at every \\(a>0\\).",
+          "The follow-up assumes convexity for its theorem, whereas \\(f_a\\) has the nonconvex Rosenbrock ravine geometry near relevant regions."
+        ],
+        "reasoning": "The broad convergence theorems do not dominate the exact model-specific two-step law or one-step bifurcation.",
+        "searches": [
+          "Davis--Drusvyatskiy--Jiang, Math. Programming 2025 / arXiv:2409.19791",
+          "Davis--Drusvyatskiy arXiv:2604.13393"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.19791",
+        "DOI:10.1007/s10107-025-02290-5",
+        "arXiv:2604.13393v1",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work supplies the algorithm and benchmark but not the exact model recurrence.",
+          "The audited threshold requires expanding the normal mode through the short/Polyak composition and is not an immediate specialization of the generic theorem."
+        ],
+        "reasoning": "The exact constants \\(3/4\\), \\(8a/9\\), and \\(9/8\\) arise from a new local calculation rather than a parameter substitution into a prior bound.",
+        "searches": [
+          "arXiv:2409.19791 Algorithm 1 and Rosenbrock example",
+          "arXiv:2604.13393"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2025 paper states the general epoch algorithm and Rosenbrock experiment with \\(K=100\\), not the audited fixed-block dynamics.",
+          "The 2026 note publicly shows the \\(a=1/2\\)-equivalent nonconvex quartic numerically with one-step alternation, not the exact threshold."
+        ],
+        "reasoning": "No equivalent recurrence or threshold statement was located under GDPolyak, Rosenbrock, ravine-normal, or block-length terminology.",
+        "searches": [
+          "arXiv:2409.19791 full text, Rosenbrock/GDPolyak sections",
+          "arXiv:2604.13393 abstract and public figure material",
+          "Resultary search: GDPolyak Rosenbrock two short steps 3/4 9/8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only numerical benchmark curves were located, with no exact parameter table of Q-factors or thresholds."
+        ],
+        "reasoning": "The claim is an analytic all-parameter local law; finite replay values are not a source database.",
+        "searches": [
+          "Resultary optimization corpus search",
+          "public numerical figures in arXiv:2409.19791 and 2604.13393"
+        ]
+      },
+      "rationale": "The Davis--Drusvyatskiy--Jiang primary paper introduces GDPolyak, uses the Rosenbrock example \\(a=10\\), and illustrates it with \\(K=100\\); its generic theorem does not state the exact fixed-\\(K=2\\) Q-factor or the \\(9/8\\) one-step normal threshold. The 2026 follow-up gives a different Lyapunov analysis under convexity and public figures include a one-step nonconvex quartic baseline equivalent to \\(a=1/2\\), but no checked source states the parameter-wide exact recurrence.",
+      "residual_risks": [
+        "Formula-level full text of the April 2026 follow-up was not obtained through the primary arXiv interface in this run; exact overlap hidden in the body remains a bounded literature risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_DYNAMICS",
+          "evidence": "The source alternates \\(K\\) short steps and a Polyak step and demonstrates the \\(a=10\\) benchmark, but does not state the fixed-two-step \\(3/4\\) law or \\(9/8\\) threshold.",
+          "identifier_or_url": "arXiv:2409.19791 / DOI:10.1007/s10107-025-02290-5",
+          "material_read": "Full arXiv PDF at Algorithm 1, the introductory Rosenbrock discussion, Figure 2 and its \\(K=100\\), stepsize \\(0.0125\\) specification, plus the stated generic rate.",
+          "method": "lawful arXiv full text",
+          "title": "Gradient descent with adaptive stepsize converges (nearly) linearly under fourth-order growth",
+          "trigger": "Primary source of GDPolyak and the quartic Rosenbrock benchmark."
+        },
+        {
+          "assessment": "RELATED_NUMERICAL_NOT_COVERING",
+          "evidence": "The public material reports the baseline but no exact normal-mode recurrence or sharp \\(a\\)-threshold.",
+          "identifier_or_url": "arXiv:2604.13393v1",
+          "material_read": "Primary abstract plus publicly rendered figure captions showing GDPolyak with stepsize 1 and block length 1 on \\(g(v,u)=\\tfrac12(v+u^2)^2+u^4\\).",
+          "method": "arXiv abstract plus public rendered figure material",
+          "title": "A short proof of near-linear convergence of adaptive gradient descent under fourth-order growth and convexity",
+          "trigger": "Recent follow-up with a one-step numerical baseline on a closely related quartic."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact dynamical explanation for why a tiny fixed block can work on the canonical quartic ravine, identifies a sharp one-step stability boundary, and separates that failure from the robust two-step mechanism. Exact local laws and stability thresholds for a standard benchmark are natural, reusable facts for adaptive first-order-method analysis.",
+      "risk": "The result is model-specific and local rather than a new general convergence theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the quartic Rosenbrock family \\(f_a(x,y)=x^4+a(y-x^2)^2\\) with curvature-matched short step \\(h=1/(2a)\\), two short gradient steps followed by one Polyak step have local Q-linear factor \\(3/4\\) for every \\(a>0\\); with one short step the scaled normal coordinate obeys \\(u_{m+1}=(8a/9)u_m-1/9+O(x_m^2)\\), so its sharp attraction threshold is \\(a<9/8\\).",
+  "limitations": [
+    "The theorem does not claim global convergence or optimality of the chosen short stepsize.",
+    "Numerical replay is supporting evidence only."
+  ],
+  "schema_version": 1
+}
