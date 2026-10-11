@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:58:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formula follows correctly from the known classification and standard counting. Tóth–Waldhauser's Theorem 4.7 identifies the polymorphism-homogeneous finite abelian groups exactly as those with homocyclic Sylow subgroups. A homocyclic group of order \\(p^a\\) is \\((\\mathbb Z/p^{a/m}\\mathbb Z)^m\\) for a divisor \\(m\\mid a\\), and its automorphism group is the corresponding general linear group over \\(\\mathbb Z/p^{a/m}\\mathbb Z\\), giving the stated reciprocal mass. Dividing by the classical Hall–Cohen–Lenstra exact-order reciprocal-automorphism mass yields the displayed density. The \\(m=1\\) term is the finite product tending to the claimed infinite product, while every other divisor contributes at most an exponentially small remainder. Sylow factorization gives the general-order product.",
+      "risks": [
+        "The finite verifier is only a consistency replay; the universal statement rests on the symbolic mass calculation."
+      ],
+      "sources": [
+        "Tóth–Waldhauser, arXiv:2007.04405 / DMTCS 23(2), Theorem 4.7.",
+        "Majumder, arXiv:1407.3066, the Cohen–Lenstra reciprocal-automorphism mass identity.",
+        "Frozen RESULT.md blob 2c722773c6b36609f6c7454a4be8ac14d7aa5a64 and verify.py blob 552c4c43743b040613aca6be87a2722908840978."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.7 is a full structural classification of the property over all finite abelian groups.",
+          "Majumder states the classical generating identity for the total inverse-automorphism mass of all finite abelian p-groups."
+        ],
+        "reasoning": "Together these stronger general results already determine the submitted labeled density by routine specialization.",
+        "searches": [
+          "arXiv:2007.04405 Theorem 4.7 finite Abelian groups homocyclic",
+          "arXiv:1407.3066 weighted sum inverse automorphism all finite Abelian p-groups"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: polymorphism-homogeneous finite abelian groups homocyclic labeled density automorphism mass",
+        "arXiv:2007.04405 / DOI:10.46298/dmtcs.6904",
+        "arXiv:1407.3066"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior classification fixes the allowed types to homocyclic Sylow factors.",
+          "Prior mass theory fixes the denominator.",
+          "Orbit-stabilizer gives each labeled isomorphism type weight proportional to the inverse automorphism order."
+        ],
+        "reasoning": "These ingredients imply the displayed quotient and its product factorization without any additional structural lemma. The fixed-prime limit then follows from the cyclic term plus an elementary exponentially small remainder.",
+        "searches": [
+          "Tóth–Waldhauser Theorem 4.7",
+          "Majumder arXiv:1407.3066",
+          "Standard orbit-stabilizer for labeled group laws and the standard order of \\(\\operatorname{GL}_m(\\mathbb Z/p^e\\mathbb Z)\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tóth–Waldhauser Theorem 4.7 gives the exact same qualifying isomorphism types: every Sylow subgroup is homocyclic.",
+          "Resultary returned no exact density statement, but absence of exact wording is not relevant because the prior classification determines the numerator types completely."
+        ],
+        "reasoning": "The labeled proportion is simply the reciprocal-automorphism mass of the already classified types divided by the standard reciprocal-automorphism mass of all types.",
+        "searches": [
+          "Resultary: polymorphism-homogeneous finite abelian groups homocyclic labeled density automorphism mass",
+          "Web: homocyclic polymorphism-homogeneous Sylow Theorem 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact density table was returned.",
+          "No exact-table hit is needed for the coverage decision because the result is algebraically forced by the classification and mass identity."
+        ],
+        "reasoning": "This is not an independently unknown table entry; the numbers are a direct recomputation from established structural and mass formulas.",
+        "searches": [
+          "Resultary: polymorphism-homogeneous finite abelian groups homocyclic labeled density automorphism mass",
+          "Resultary: fixed-point-free automorphisms finite abelian groups"
+        ]
+      },
+      "rationale": "The final claim is mechanically implied by two established ingredients plus routine orbit-stabilizer arithmetic: the prior classification already says exactly which finite abelian groups qualify, and the Hall–Cohen–Lenstra mass already gives the reciprocal-automorphism normalization at each order. Restricting that mass to the finitely many homocyclic types and taking the quotient is not a new nonstandard theorem. Exact wording or the final simplified divisor sum need not appear in prior literature for implication-level coverage.",
+      "residual_risks": [
+        "No bibliographic uncertainty affects this rejection: implication-level coverage is already decisive from the two primary prior results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRUCTURAL_COVERAGE",
+          "evidence": [
+            "Theorem 4.7 states polymorphism-homogeneity if and only if every Sylow subgroup is homocyclic."
+          ],
+          "identifier_or_url": "arXiv:2007.04405; DOI:10.46298/dmtcs.6904",
+          "material_read": "Full-text theorem material around Theorem 4.7, including the equivalence with each Sylow subgroup being homocyclic.",
+          "method": "Lawful public full-text inspection.",
+          "title": "Polymorphism-homogeneity and universal algebraic geometry",
+          "trigger": "Exact primary classification of finite abelian groups for the property being counted."
+        },
+        {
+          "assessment": "DECISIVE_MASS_NORMALIZATION",
+          "evidence": [
+            "The paper states the weighted sum over all finite abelian p-groups by inverse automorphism order."
+          ],
+          "identifier_or_url": "arXiv:1407.3066",
+          "material_read": "Primary arXiv abstract stating the Cohen–Lenstra inverse-automorphism weighted-sum identity.",
+          "method": "Lawful public arXiv inspection.",
+          "title": "An elementary proof of a power series identity for the weighted sum of all finite abelian p-groups",
+          "trigger": "Classical normalization used verbatim in the submitted density calculation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The density is a natural statistic, but under the audit's value bar a narrow exact invariant must not be mechanically implied by established data. Here the entire answer is obtained by standard orbit-stabilizer weighting of an existing classification followed by division by a classical mass identity; the asymptotic is an immediate extraction of the cyclic term. Correctness and a neat closed form do not turn that routine synthesis into an independently valuable mathematical gap.",
+      "risks": [
+        "The formula may still be useful expository bookkeeping, but that does not meet the required scientific-value threshold for an accepted finding."
+      ],
+      "sources": [
+        "Tóth–Waldhauser Theorem 4.7.",
+        "Hall–Cohen–Lenstra mass identity as recorded by Majumder."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For labeled abelian group laws of order \\(p^a\\), the polymorphism-homogeneous proportion is the displayed divisor sum, it converges at fixed prime to \\(\\prod_{j\\ge2}(1-p^{-j})\\), and the general-order proportion factors over primes.",
+  "limitations": [
+    "The scientific rejection is due to originality and value, not correctness.",
+    "The result counts labeled laws under the relabeling-induced reciprocal-automorphism weighting."
+  ],
+  "schema_version": 1
+}
