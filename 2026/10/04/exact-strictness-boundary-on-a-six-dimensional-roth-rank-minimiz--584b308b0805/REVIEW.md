@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the entire cell by an explicit Sylvester gauge to \(\operatorname{diag}(\tau,0,\kappa)\), proves the three possible values of \(\alpha\) by direct rank arguments, and obtains \(\gamma\) from Roth's zero-case equivalence plus the explicit rank-one normalized witness. The argument is characteristic-free. `verify.py` independently exhausts the effective residual variables over four prime fields and checks the normalized intertwiner matrix.
+## correctness
 
-## Originality
-PASS with stated residual risk. The 7 September 2026 primary source proves only the normalized point and explicitly names precise strictness characterization as a remaining problem. Searches of published-finding corpus and the web using the exact Jordan type, the \(\alpha,\gamma\) notation, diagonal perturbations, and Roth rank minimization found no equivalent or stronger cell classification. Ferrante--Wimmer's sufficient spectral theorem does not cover this Jordan type. The full 2013 article was not openly available in the inspected sources, so an equivalent unstated observation there remains a residual risk.
+PASS
 
-## Value
-PASS. The result is a complete, invariantly motivated classification on \(\operatorname{Diag}_3(K)+\operatorname{im}\delta_A\), not an arbitrary parameter slice. It identifies a sharp algebraic boundary between equality and strictness and shows the recent counterexample is generic on this cell; over finite fields it also gives the exact strict count \(q^4(q-1)^2\).
+The reduction modulo the Sylvester commutator is correct. For \(A=J_2(0)\oplus J_1(0)\), \(AX-XA\) has exactly the four effective entries used in the proof, so every matrix in the assigned cell is equivalent for both minima to \(\operatorname{diag}(\tau,0,\kappa)\), with \(\tau=a+b\) and \(\kappa=c\). If \(\tau\kappa\ne0\), the first/second/third column dependence argument forces Sylvester residual rank at least two, while \(X=0\) gives rank two. The zero and one-nonzero cases give ranks zero and one. Roth's theorem identifies the common zero case for \(\gamma\), and the displayed invertible \(P_0\) gives a rank-one intertwiner defect after normalization whenever both invariants are nonzero. The finite-field strict count \(q^4(q-1)^2\) follows from three free off-diagonal entries, \(q(q-1)\) choices with \(a+b\ne0\), and \(q-1\) nonzero choices of \(c\).
 
-## Closest literature and limitations
-Closest is Shi--Zhang--Zhang, arXiv:2609.07113v1, which supplies the normalized point \(C=\operatorname{diag}(1,0,1)\) and the explicit rank-one intertwiner. The present result does not classify the three remaining quotient coordinates \(c_{21},c_{23},c_{31}\), and makes no arbitrary-field dimensional-minimality claim.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete Shi--Zhang--Zhang primary paper proves only the normalized point \(C=\operatorname{diag}(1,0,1)\), with \(\alpha=2\) and \(\gamma=1\), and closes by naming a more precise characterization of strictness as a natural remaining problem. The audited theorem classifies a six-dimensional linear cell containing that point and gives its exact equality/strictness boundary over every field. Resultary returned the assigned finding as the exact hit and no implication-equivalent prior classification. Ferrante--Wimmer supplies sufficient spectral equality conditions, but the repeated zero Jordan type here is outside those hypotheses.
+
+## value
+
+PASS
+
+The theorem resolves a natural local classification problem raised by the first minimal counterexample: it shows the phenomenon occupies a Zariski-open locus in a natural commutator cell rather than an isolated point, identifies the exact equality boundary, and gives a finite-field density count. This is a structural boundary result, not a mere re-evaluation of the original example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
