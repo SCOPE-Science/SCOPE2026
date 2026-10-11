@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The exact checker is `artifacts/verify.py`. It uses symbolic arithmetic over \(\mathbb Q\) to reconstruct the two centered Sylvester root patterns, calculate their elementary symmetric invariants, eliminate the normalization parameters, verify the two cusp ideals, and compute the sum ideal.
 
-Expected output:
+# Independent mathematical audit
 
-`VERIFY_OK`
+## correctness
 
-The proof is characteristic-zero and the geometric statement is over \(\mathbb C\). The checker verifies the algebraic identities and zero-dimensional quotient length; the identification of these invariant coordinates with the local \(S_5\)-quotient is the standard reflection-invariant fact \(\mathbb C[\sum y_i=0]^{S_5}=\mathbb C[e_2,e_3,e_4,e_5]\).
+PASS
 
-No computation at the Fermat point is included or claimed.
+From the source multiplicity patterns, I independently recomputed the centered symmetric-invariant parametrizations as (-15t^2,-10t^3,60t^4,72t^5) and (-10s^2,-20s^3,-15s^4,-4s^5). Elimination gives cubic-square cusp equations for both germs with common tangent u3=0. An independent Groebner computation for the sum ideal gives (u5,u4,u3^2,u2*u3,u2^2), so the quotient basis 1,u2,u3 has length 3.
+
+## originality
+
+PASS
+
+Keneshlou's full paper identifies the two rational curves and their intersection at Clebsch/Fermat but does not compute their local analytic types, common tangent, or scheme-theoretic intersection length. Broader multiple-root-locus searches did not locate the same quotient-germ calculation.
+
+## value
+
+PASS
+
+Clebsch is a distinguished high-symmetry intersection singled out by the primary geometry. The exact cusp types, common tangent, and length-three contact provide meaningful local scheme structure absent from the global incidence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

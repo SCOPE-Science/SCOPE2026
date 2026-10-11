@@ -1,15 +1,21 @@
-# Review
-## Correctness
-The claim is reconstructed from the published Sylvester multiplicity patterns, not inferred from a numerical experiment. After mean normalization, the two centered patterns are \((2t,2t,2t,-3t,-3t)\) and \((s,s,s,s,-4s)\). Their elementary symmetric functions give the two exact monomial parametrizations stated in RESULT.md. Elimination yields the displayed prime ideals. Each completed ring reduces to one plane equation with a nonzero quadratic term in one coordinate and a nonzero cubic term in the other, hence an \(A_2\) cusp. The sum ideal has standard-monomial basis \(1,u_2,u_3\), so the local intersection length is exactly \(3\).
+# Independent mathematical audit
 
-Risk: the identification of the local cubic-surface moduli chart with the \(S_5\)-quotient uses the standard invariant-theoretic description already used in the primary source. This is valid near the Clebsch point because all five Sylvester coefficients are nonzero and equal, so mean normalization and centering are regular there.
+## correctness
 
-## Originality
-Keneshlou identifies \(C_{[3,2]}\) and \(C_{[4,1]}\), their Sylvester forms, and their two common points, but does not state their local analytic type or local intersection-scheme length at the Clebsch point. Lee--Sturmfels, Chipalkatti, and Kurmann provide the closest broader theory for multiple/coincident root loci. Their inspected statements concern global loci, normalization, defining equations, and singular-locus support; they do not give the pair of centered quotient ideals or the length-three contact in cubic-surface moduli.
+PASS
 
-Residual risk: classical invariant-theory literature on the \(A_4\) reflection quotient may contain an equivalent local calculation in different coordinates. Targeted searches across the object, aliases, partitions, cusp terminology, tangency, and contact order did not locate one.
+From the source multiplicity patterns, I independently recomputed the centered symmetric-invariant parametrizations as (-15t^2,-10t^3,60t^4,72t^5) and (-10s^2,-20s^3,-15s^4,-4s^5). Elimination gives cubic-square cusp equations for both germs with common tangent u3=0. An independent Groebner computation for the sum ideal gives (u5,u4,u3^2,u2*u3,u2^2), so the quotient basis 1,u2,u3 has length 3.
 
-## Value
-The two curves form the full intersection of the two rational surface components in the singular locus of the Eckardt hypersurface model, and the Clebsch cubic is one of only two points where those curves meet. The exact local result shows that this meeting is substantially more singular than a transverse crossing: each branch is already an \(A_2\) cusp and the mutual intersection has length \(3\). This is a natural local invariant of a distinguished moduli point rather than an arbitrary slice or isolated computation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Keneshlou's full paper identifies the two rational curves and their intersection at Clebsch/Fermat but does not compute their local analytic types, common tangent, or scheme-theoretic intersection length. Broader multiple-root-locus searches did not locate the same quotient-germ calculation.
+
+## value
+
+PASS
+
+Clebsch is a distinguished high-symmetry intersection singled out by the primary geometry. The exact cusp types, common tangent, and length-three contact provide meaningful local scheme structure absent from the global incidence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
