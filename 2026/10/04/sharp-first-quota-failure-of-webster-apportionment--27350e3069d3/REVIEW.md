@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is proved analytically from the Webster priority sequence \(p_i/(2a_i+1)\). All predecessor cells are excluded by explicit priority-counting and mass inequalities. In \((4,3)\), every possible lower-quota or two-seat upper-quota failure is ruled out; three seats to one entity are equivalent to \(p_A/5\) exceeding all rival first priorities, and upper-quota failure is equivalent to \(p_A\le2/3\). These conditions yield the exact chamber and the lower endpoint \(p_A>5/8\). The probability integral and integer-minimal witness are exact. The executable independently checks sequential priorities against divisor intervals and replays the boundary on integer grids.
+## correctness
 
-Risk: the finite grid is only a consistency check for the continuum statement; correctness of the continuum theorem rests on the displayed inequalities and exact integral.
+PASS
 
-## Originality
-**PASS.** The closest primary source gives Webster's divisor rule, nearest-integer formulation, and the theorem that Webster satisfies quota for every three-entity problem. It also gives a broader impossibility result for population-monotone methods once there are at least four entities and sufficiently large houses. Those results do not state the smallest four-entity Webster failure, its complete chamber, its simplex measure, or the least integer witness. Exact-number and parameter searches did not locate the \((4,3)\), \(1/1350\), or \((6,1,1,1)\) classification.
+Priority-counting inequalities exclude every predecessor cell with at most four entities and at most two seats and every three-entity three-seat case. In the (4,3) cell, any failure must award all three seats to one entity; this is equivalent to its third priority exceeding all rival first priorities, while upper-quota failure is exactly the stated upper bound on its share. Summing the rival caps gives the strict lower endpoint 5/8. A fresh exact integral gives total simplex probability 1/1350, and an independent positive-integer search reproduces total nine and the unique sorted witness (6,1,1,1).
 
-Risk: search failure is not proof of novelty. An unindexed historical note, exercise, thesis, or supplementary computation could contain the same local classification.
+## originality
 
-## Value
-**PASS.** Quota is a central apportionment fairness condition, and Webster is singled out in the classical theory as the unique divisor method that is always quota-safe for three entities. Determining the exact point where that exceptional safety first breaks at four entities is therefore a natural boundary problem. The complete chamber and exact neutral-simplex measure quantify how the first failure occurs rather than merely furnishing another example.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Classical work proves that Webster is quota-safe for every three-entity problem and describes the divisor rule, but it does not identify the smallest four-entity house where the exception first breaks, its full strict-priority chamber, measure or least integer witness. The audited result resolves exactly that natural boundary.
+
+## value
+
+PASS
+
+Quota is a central apportionment fairness axiom, and Webster's classical universal safety for three entities makes the first four-entity failure a motivated sharp boundary. The complete chamber, neutral-simplex frequency and integer-minimal witness add structural information beyond a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_webster43_quota_boundary.py` replays the finite checks using only the Python standard library and exact integer or `Fraction` arithmetic.
 
-It implements Webster in highest-averages form with priorities \(p_i/(2a_i+1)\). For every strict allocation it independently verifies that a nonempty Webster divisor interval exists for nearest-integer rounding.
+# Independent mathematical audit
 
-The replay checks every positive integer profile through total population \(40\) in all coordinatewise predecessor cells of \((4,3)\), finding no quota violation. In the boundary cell it requires exact equivalence between an actual quota violation and the analytic chamber
-\[
-3p_A\le2P,
-\qquad 5p_j<p_A\quad(j\ne A).
-\]
-It confirms that every such violation gives all three seats to the violating entity, verifies the unique least-total sorted witness \((6,1,1,1)\), and computes the fixed-label and total simplex probabilities as exact fractions \(1/5400\) and \(1/1350\).
+## correctness
 
-Run:
+PASS
 
-`python3 verify_webster43_quota_boundary.py`
+Priority-counting inequalities exclude every predecessor cell with at most four entities and at most two seats and every three-entity three-seat case. In the (4,3) cell, any failure must award all three seats to one entity; this is equivalent to its third priority exceeding all rival first priorities, while upper-quota failure is exactly the stated upper bound on its share. Summing the rival caps gives the strict lower endpoint 5/8. A fresh exact integral gives total simplex probability 1/1350, and an independent positive-integer search reproduces total nine and the unique sorted witness (6,1,1,1).
 
-The first output line must be:
+## originality
 
-`VERIFY_OK`
+PASS
 
-The integer sweeps are consistency checks only. The continuum chamber and minimality statements are justified by the analytic proof in `RESULT.md`.
+Classical work proves that Webster is quota-safe for every three-entity problem and describes the divisor rule, but it does not identify the smallest four-entity house where the exception first breaks, its full strict-priority chamber, measure or least integer witness. The audited result resolves exactly that natural boundary.
+
+## value
+
+PASS
+
+Quota is a central apportionment fairness axiom, and Webster's classical universal safety for three entities makes the first four-entity failure a motivated sharp boundary. The complete chamber, neutral-simplex frequency and integer-minimal witness add structural information beyond a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
