@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every labeled tournament through order \(6\) is exhausted. The uncovered set is independently computed from covering and two-step reachability. The minimal covering set is independently computed from full internal/external stability and from minimal external stability with direct internal-stability replay. Both implementations agree everywhere. All \(240\) strict tournaments are canonicalized under every relabeling, and the representative's automorphisms and external covering witnesses are checked directly.
+## correctness
 
-Risk: the theorem is finite and does not extrapolate beyond the tested order.
+PASS
 
-## Originality
-**PASS.** The inclusion \(MC\subseteq UC^{\infty}\) and disparity index \(6\) are explicitly prior. The closest exhaustive publication reports the threshold but not the exact \(240\) labeled count, the unique isomorphism class, the automorphism group, or the universal full-set uncovered fixed point. Searches by names, aliases, parameters, exact count, probability, and quotient formulation did not locate those stronger statements.
+Independent all-32768 enumeration reproduced the full histogram: 20240 equal (3,3), 6144 equal (1,1), 4704 equal (5,5), 1440 equal (6,6), and 240 strict (3,6). Canonicalization gives one strict class, encoding 1332, orbit size 240 and stabilizer order 3.
 
-Risk: unpublished data from the earlier exhaustive computation could contain the same threshold-layer census.
+## originality
 
-## Value
-**PASS.** The iterated uncovered set and minimal covering set are two canonical refinements of the same covering relation, one based on repeated elimination and the other on stability. Their first known separation is therefore a natural structural boundary. The result explains that boundary sharply: iteration is completely inert on every strict case, while stability collapses the tournament to a single directed 3-cycle, and only one unlabeled obstruction exists.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The published exhaustive disparity study gives \(d(MC,UC^\infty)=6\), not the 240-case/one-class strict layer.
+
+## value
+
+PASS
+
+The theorem identifies the unique finite obstruction at the first disparity order and shows the uncovered operator fixes all six vertices while MC selects a three-vertex core.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
