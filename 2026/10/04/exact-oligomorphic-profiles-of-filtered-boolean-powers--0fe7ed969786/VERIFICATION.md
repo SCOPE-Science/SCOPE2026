@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,37 +19,24 @@
 }
 ---
 
-The proof is deductive. The checker validates the finite-group arithmetic and the main numerical specialization.
+# Independent mathematical audit
 
-For a supplied finite permutation group \(G\curvearrowright A\), `verify.py` computes \(q_k=|A^k/G|\) in two independent ways: direct orbit enumeration on \(A^k\), and Burnside's formula
-\[
-q_k=\frac1{|G|}\sum_{g\in G}|\operatorname{Fix}_A(g)|^k.
-\]
-It checks agreement for a nontrivial symmetric-group action in several arities.
+## correctness
 
-It then implements signed Stirling inversion and verifies that
-\[
-b_k=\sum_{j=1}^k {k\brace j}a_j
-\]
-is inverted by
-\[
-a_k=\sum_{j=1}^k s(k,j)b_j.
-\]
+PASS
 
-For Mayr–Ruškuc's Example 1.2, where \(|A|=2\), \(G\) is trivial, and \(r=2\), the checker verifies
-\[
-b_k=2^{2^k-2}
-\]
-for \(k\le6\), obtaining
-\[
-1,4,64,16384,1073741824,4611686018427387904,
-\]
-and the injective counts
-\[
-1,3,54,16038,1073580048,4611686002322639760.
-\]
-It also directly counts the abstract support supersets for each tested \(q_k,r\).
+A tuple is a locally constant map from Cantor space into \(A^k\); composing pointwise with the diagonal \(G\)-orbit map gives a finite nonempty support of orbit types. Mayr--Ruškuc's semidirect automorphism decomposition shows this support is invariant. Conversely, equal supports determine clopen partitions with the same marked-point incidences; Cantor clopen homogeneity gives a homeomorphism fixing the filtering points and matching the parts, and a finite clopen refinement supports a continuous local \(G\)-valued gauge that maps the tuple values pointwise while being compatible at each marked point. Thus support equality is exactly automorphism equivalence. For \(r\ge1\), exactly the \(r\) required marked orbit types must be present and every superset is realizable, giving \(2^{q_k-r}\); for \(r=0\), the support must merely be nonempty, giving \(2^{q_k}-1\). Signed Stirling inversion then converts all-tuple to injective profiles. Fresh arithmetic independently reproduced the packaged Example 1.2 values through \(k=6\).
 
-Running the script prints `VERIFY_OK`.
+## originality
 
-These finite checks do not prove that support sets classify tuple orbits. That infinite step is proved in `RESULT.md` from the semidirect automorphism theorem and the homogeneity of finite clopen partitions of Cantor space with finitely many marked points.
+PASS
+
+The focal 2024 paper proves the automorphism semidirect decomposition and \(\omega\)-categoricity but does not state an exact oligomorphic profile. The older Apps paper studies \(\aleph_0\)-categorical finite extensions of Boolean powers through topological permutation systems, again without the submitted tuple-support count in the inspected material. Focused Resultary and web searches over Boolean powers, oligomorphic profiles, tuple orbits, and automorphism counts found no equivalent \(2^{q_k-r}\) theorem. A published SCOPE record with the numerical sequence \(2^{2^k-2}\) concerns a different random-distributive-lattice structure and only coincides with one specialization.
+
+## value
+
+PASS
+
+The source's main qualitative conclusion is \(\omega\)-categoricity, whose quantitative refinement is precisely the oligomorphic tuple-orbit profile. The theorem gives that profile in closed form for every arity from the finite action \(G\curvearrowright A^k\), plus injective and asymptotic consequences. This is a natural structural classification of a canonical family rather than an arbitrary count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

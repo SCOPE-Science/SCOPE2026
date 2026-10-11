@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a tuple \(\bar f\), the image of the locally constant map \(x\mapsto \operatorname{Aut}(A)\cdot\bar f(x)\) is invariant under both factors in Mayr–Ruškuc's semidirect automorphism decomposition: the Cantor homeomorphism factor only reparametrizes the map and the local gauge factor stays inside each diagonal finite-algebra orbit. Conversely, equal supports give clopen partitions with identical marked-point incidence. Piecewise Cantor homeomorphisms match those partitions while fixing the filtering points; after that, a finite clopen refinement supports a continuous local automorphism gauge mapping the exact tuple values pointwise, chosen to be the identity near each filtering point. Thus support equality is exactly automorphism equivalence. Every support containing the \(r\) required diagonal orbits is realizable by a finite clopen partition, yielding \(2^{q_k-r}\). Burnside's lemma and Stirling inversion give the remaining formulas.
+## correctness
 
-The asymptotic follows because the identity element of \(G\) contributes \(|A|^k\) in Burnside's formula while every nonidentity automorphism fixes at most \(\lambda<|A|\) points. The checker verifies the finite-group orbit arithmetic and the Example 1.2 specialization, but the proof is deductive and does not rely on bounded computation.
+PASS
 
-## Originality
-PASS with residual folklore risk. Mayr–Ruškuc explicitly prove the automorphism decomposition, removal of repeated filtering orbits, and \(\omega\)-categoricity, but targeted inspection of the paper did not locate an exact tuple-orbit count. Macintyre–Rosenstein and Apps give broader qualitative categoricity/Boolean-power structure results; available full-text/abstract searches did not locate the support-set classification or \(2^{q_k-r}\) formula. published-finding corpus searches under filtered Boolean powers, Boolean-power orbit profiles, Macintyre–Rosenstein, and finite Mal'cev Boolean powers returned no equivalent record. The closest numerical published-finding corpus item is the random distributive lattice formula \(2^{2^k-2}\), which coincides with one specialization here but concerns a different structure and does not imply the general finite-action formula.
+A tuple is a locally constant map from Cantor space into \(A^k\); composing pointwise with the diagonal \(G\)-orbit map gives a finite nonempty support of orbit types. Mayr--Ruškuc's semidirect automorphism decomposition shows this support is invariant. Conversely, equal supports determine clopen partitions with the same marked-point incidences; Cantor clopen homogeneity gives a homeomorphism fixing the filtering points and matching the parts, and a finite clopen refinement supports a continuous local \(G\)-valued gauge that maps the tuple values pointwise while being compatible at each marked point. Thus support equality is exactly automorphism equivalence. For \(r\ge1\), exactly the \(r\) required marked orbit types must be present and every superset is realizable, giving \(2^{q_k-r}\); for \(r=0\), the support must merely be nonempty, giving \(2^{q_k}-1\). Signed Stirling inversion then converts all-tuple to injective profiles. Fresh arithmetic independently reproduced the packaged Example 1.2 values through \(k=6\).
 
-## Value
-PASS. This turns a qualitative oligomorphicity theorem into a closed profile controlled by the finite permutation action \(\operatorname{Aut}(A)\curvearrowright A\). It supplies both all-tuple and injective-tuple profiles, gives a transparent classification invariant for individual tuple orbits, and shows that the asymptotic orbit growth recovers \(|A|\) and \(|\operatorname{Aut}(A)|\). The result applies uniformly to the paper's filtered Boolean powers rather than to an isolated finite example.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The focal 2024 paper proves the automorphism semidirect decomposition and \(\omega\)-categoricity but does not state an exact oligomorphic profile. The older Apps paper studies \(\aleph_0\)-categorical finite extensions of Boolean powers through topological permutation systems, again without the submitted tuple-support count in the inspected material. Focused Resultary and web searches over Boolean powers, oligomorphic profiles, tuple orbits, and automorphism counts found no equivalent \(2^{q_k-r}\) theorem. A published SCOPE record with the numerical sequence \(2^{2^k-2}\) concerns a different random-distributive-lattice structure and only coincides with one specialization.
+
+## value
+
+PASS
+
+The source's main qualitative conclusion is \(\omega\)-categoricity, whose quantitative refinement is precisely the oligomorphic tuple-orbit profile. The theorem gives that profile in closed form for every arity from the finite action \(G\curvearrowright A^k\), plus injective and asymptotic consequences. This is a natural structural classification of a canonical family rather than an arbitrary count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
