@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The critical identity is that any suffix acts by union of contributor rows:
-\[
-(\mathsf U_{\vec S}\mathcal V)_a
-=
-\bigcup_{q\in\operatorname{see}_a(\vec S)}V_q.
-\]
-This follows by induction because every resolution update replaces participant rows by their union.
+# Independent mathematical audit
 
-For a history \(\vec P.B.\vec S\), the checker independently computes the views of the full history and of the history with \(B\) deleted. It then verifies the closed-form criterion
-\[
-Q_a\cap B=\varnothing
-\quad\text{or}\quad
-U_B\subseteq F_a.
-\]
+## correctness
 
-`verify.py` exhaustively tests all nonempty groups on up to four agents with every prefix and suffix of length at most two. It also verifies the immediate equal-view criterion and immediate repetition.
+PASS
 
-For the all-model necessity direction, the proof uses the explicit model \(W=\{0,1\}^A\), with base relation \({\sim}_c\) given by equality on coordinate \(c\). Intersections indexed by distinct subsets of \(A\) are distinct, so a changed final view necessarily changes a current accessibility relation in some epistemic model.
+Each resolution update replaces every participant row by the union of participant views and leaves other rows fixed; these maps preserve componentwise unions. Therefore the suffix acts on an arbitrary input view tuple by taking the union over the contributor indices computed from singleton initial views. Applying this once to the prefix tuple and once after the occurrence \(B\) gives exactly \(F_a\) versus either \(F_a\) or \(F_a\cup U_B\), proving the criterion. If views differ, a coordinate-equality Kripke model makes distinct contributor index sets induce distinct intersection relations, proving model-independent necessity. For an empty suffix, the condition reduces to equality of participant views. Greedy deletion of immediately redundant events preserves the entire current view tuple, and every retained event strictly raises \(\sum_a |V_a|\) from \(n\) toward at most \(n^2\), giving the compression bound. The inspected verifier exhausts all groups with up to four agents for short prefixes/suffixes as a consistency check.
 
-The finite enumeration is a consistency check only. The general theorem is proved symbolically.
+## originality
 
-## Limits
+PASS
 
-The verification concerns final current accessibility relations. It does not claim that deleting a relation-redundant event preserves the full history-sensitive asynchronous semantics.
+Balbiani--van Ditmarsch--Lerouvillois introduce the exact asynchronous-resolution history semantics and the view recursion needed here, while older gossip work treats different pairwise call models and redundancy notions. Neither the inspected primary material nor Resultary supplied the arbitrary-occurrence prefix/suffix current-relation deletion criterion or the resulting \(n(n-1)\) view-state compression bound.
+
+## value
+
+PASS
+
+The exact test answers the natural operational question of whether an arbitrary earlier group resolution can be deleted without changing the final current knowledge relations, not merely whether a final repetition is locally uninformative. The finite compression bound is a useful global consequence and the scope distinction from history-sensitive equivalence is clearly maintained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

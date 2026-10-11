@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:43:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at blob 86d2089bf05e28565dc04289fd10cad43e2f9fc2",
+        "assigned verify.py at blob 251b28db9d8f5c1efd1bd55968c0c6d80de0b3f3",
+        "Balbiani--van Ditmarsch--Lerouvillois semantics",
+        "independent union-linear suffix reconstruction"
+      ],
+      "rationale": "Each resolution update replaces every participant row by the union of participant views and leaves other rows fixed; these maps preserve componentwise unions. Therefore the suffix acts on an arbitrary input view tuple by taking the union over the contributor indices computed from singleton initial views. Applying this once to the prefix tuple and once after the occurrence \\(B\\) gives exactly \\(F_a\\) versus either \\(F_a\\) or \\(F_a\\cup U_B\\), proving the criterion. If views differ, a coordinate-equality Kripke model makes distinct contributor index sets induce distinct intersection relations, proving model-independent necessity. For an empty suffix, the condition reduces to equality of participant views. Greedy deletion of immediately redundant events preserves the entire current view tuple, and every retained event strictly raises \\(\\sum_a |V_a|\\) from \\(n\\) toward at most \\(n^2\\), giving the compression bound. The inspected verifier exhausts all groups with up to four agents for short prefixes/suffixes as a consistency check.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source supplies the union-based update algebra but not the inspected arbitrary deletion formula.",
+          "Pairwise gossip redundancy bounds do not imply the group-resolution prefix/suffix criterion."
+        ],
+        "reasoning": "The exact criterion depends on contributor propagation through an arbitrary suffix, not only on whether the deleted event is informative when it occurs.",
+        "searches": [
+          "Balbiani--van Ditmarsch--Lerouvillois current-view semantics",
+          "classical pairwise gossip redundancy literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31855",
+        "DOI:10.4204/EPTCS.447.5",
+        "DOI:10.1007/s00454-015-9666-1",
+        "DOI:10.1007/978-3-319-69131-2_6",
+        "Resultary asynchronous-resolution redundancy query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The suffix contributor sets make its action linear over set union, yielding a necessary-and-sufficient final-view test.",
+          "A coordinate-equality epistemic model proves that any changed contributor index set can be detected at the current accessibility-relation level."
+        ],
+        "reasoning": "The final iff and compression statement require additional algebra beyond the source's basic semantics.",
+        "searches": [
+          "source union-update recursion versus audited suffix-linearization formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 source defines histories and view updates and distinguishes current views from history-sensitive indistinguishability.",
+          "Older gossip sources analyze pairwise calls, information gain, reachability, or metric composition rather than this arbitrary-group asynchronous-resolution semantics.",
+          "Resultary's leading matches did not contain the exact prefix/suffix criterion."
+        ],
+        "reasoning": "For current relations, a history is represented by its tuple of contributor-index sets; every suffix acts by componentwise union according to its singleton-input contributor views.",
+        "searches": [
+          "Balbiani--van Ditmarsch--Lerouvillois, arXiv:2606.31855 / DOI:10.4204/EPTCS.447.5",
+          "Brouwer--Draisma--Frenk, DOI:10.1007/s00454-015-9666-1",
+          "van Ditmarsch--Kokkinis--Stockmarr, DOI:10.1007/978-3-319-69131-2_6",
+          "Resultary query: asynchronous resolutions redundancy final views current accessibility relation Balbiani Ditmarsch Lerouvillois"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-semantics theorem or database entry with the displayed criterion or the \\(n(n-1)\\) compression bound was located."
+        ],
+        "reasoning": "This is a theorem about a new dynamic-epistemic semantics rather than a tabulated invariant.",
+        "searches": [
+          "Resultary asynchronous-resolution redundancy query",
+          "targeted searches for redundant resolution, view equality, and current relation preservation"
+        ]
+      },
+      "rationale": "Balbiani--van Ditmarsch--Lerouvillois introduce the exact asynchronous-resolution history semantics and the view recursion needed here, while older gossip work treats different pairwise call models and redundancy notions. Neither the inspected primary material nor Resultary supplied the arbitrary-occurrence prefix/suffix current-relation deletion criterion or the resulting \\(n(n-1)\\) view-state compression bound.",
+      "residual_risks": [
+        "The complete primary paper was not materially reread end to end in this run; a later section may contain a related special redundancy observation.",
+        "The theorem concerns final current accessibility relations, not the stronger history-sensitive semantics, and should not be advertised as preserving the latter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "VIEW_RECURSION_PRIOR_ARBITRARY_OCCURRENCE_REDUNDANCY_CRITERION_NOT_LOCATED",
+          "evidence": "The source supplies the recursive view machinery used by the proof and motivates redundancy questions, but no inspected statement gives the prefix/suffix iff test.",
+          "identifier_or_url": "arXiv:2606.31855; DOI:10.4204/EPTCS.447.5",
+          "material_read": "Accessible primary abstract and public full-text preview covering history/view semantics and the distinction between views and history-sensitive relations.",
+          "method": "Same-semantics statement and implication comparison.",
+          "title": "Resolving Asynchronous Distributed Knowledge",
+          "trigger": "Defining primary source for the exact history/view semantics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Balbiani--van Ditmarsch--Lerouvillois",
+        "classical gossip literature",
+        "Resultary search"
+      ],
+      "rationale": "The exact test answers the natural operational question of whether an arbitrary earlier group resolution can be deleted without changing the final current knowledge relations, not merely whether a final repetition is locally uninformative. The finite compression bound is a useful global consequence and the scope distinction from history-sensitive equivalence is clearly maintained.",
+      "residual_risks": [
+        "The complete primary paper was not materially reread end to end in this run; a later section may contain a related special redundancy observation.",
+        "The theorem concerns final current accessibility relations, not the stronger history-sensitive semantics, and should not be advertised as preserving the latter."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2606.31855",
+    "DOI:10.4204/EPTCS.447.5",
+    "DOI:10.1007/s00454-015-9666-1",
+    "DOI:10.1007/978-3-319-69131-2_6",
+    "Resultary asynchronous-resolution redundancy query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For an occurrence \\(B\\) in an asynchronous-resolution history \\(\\vec P.B.\\vec S\\), deletion preserves every final current accessibility relation in every underlying model exactly when, for each final agent, either its suffix contributor set misses \\(B\\) or the prefix union contributed by \\(B\\) is already contained in its deletion-side final contributor union; immediate redundancy is equivalent to equality of all participant views, and every history has a current-relation-equivalent subhistory of length at most \\(n(n-1)\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete primary paper was not materially reread end to end in this run; a later section may contain a related special redundancy observation.",
+    "The theorem concerns final current accessibility relations, not the stronger history-sensitive semantics, and should not be advertised as preserving the latter."
+  ]
+}

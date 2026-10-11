@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published recursion implies that a resolution group replaces every participant's current view by the union of all participant views. These updates preserve componentwise unions, so any suffix is exactly a contributor map: the final view of agent \(a\) is the union of the prefix views indexed by \(\operatorname{see}_a\) of the suffix.
+PASS
 
-This gives the exact formula with and without the chosen occurrence. Equality of final views is sufficient for equality of current accessibility relations in every model. Necessity is proved by the explicit coordinate-equality model on \(\{0,1\}^A\), in which different index sets yield different intersections of base equivalence relations.
+Each resolution update replaces every participant row by the union of participant views and leaves other rows fixed; these maps preserve componentwise unions. Therefore the suffix acts on an arbitrary input view tuple by taking the union over the contributor indices computed from singleton initial views. Applying this once to the prefix tuple and once after the occurrence \(B\) gives exactly \(F_a\) versus either \(F_a\) or \(F_a\cup U_B\), proving the criterion. If views differ, a coordinate-equality Kripke model makes distinct contributor index sets induce distinct intersection relations, proving model-independent necessity. For an empty suffix, the condition reduces to equality of participant views. Greedy deletion of immediately redundant events preserves the entire current view tuple, and every retained event strictly raises \(\sum_a |V_a|\) from \(n\) toward at most \(n^2\), giving the compression bound. The inspected verifier exhausts all groups with up to four agents for short prefixes/suffixes as a consistency check.
 
-The immediate-repetition corollary and the \(n(n-1)\) compression bound follow directly. Exhaustive finite replay agrees with every step.
+## originality
 
-## Originality
+PASS
 
-PASS. The primary paper explicitly leaves redundant resolutions as future work. It gives the view recursion and notes that equal views do not imply history equivalence, but it does not supply an arbitrary-occurrence deletion criterion.
+Balbiani--van Ditmarsch--Lerouvillois introduce the exact asynchronous-resolution history semantics and the view recursion needed here, while older gossip work treats different pairwise call models and redundancy notions. Neither the inspected primary material nor Resultary supplied the arbitrary-occurrence prefix/suffix current-relation deletion criterion or the resulting \(n(n-1)\) view-state compression bound.
 
-Pairwise gossip literature contains notions of redundant or productive calls, stuttering results, and sharp bounds for ordinary telephone calls. Those results are not the same statement: the accepted theorem treats arbitrary resolution groups, separates prefix and suffix effects, and gives a necessary-and-sufficient model-independent test for preservation of the 2026 semantics' current accessibility relations.
+## value
 
-## Value
+PASS
 
-PASS. The result turns an explicitly posed semantic redundancy question into a finite set-theoretic test. It can detect a resolution that was informative when executed but becomes irrelevant to the final current relation state because later resolutions subsume its contribution. The contributor factorization also yields a finite compression bound for arbitrary asynchronous resolution histories. This is useful for state-space reduction and clarifies the exact distinction between current information and remembered event history.
+The exact test answers the natural operational question of whether an arbitrary earlier group resolution can be deleted without changing the final current knowledge relations, not merely whether a final repetition is locally uninformative. The finite compression bound is a useful global consequence and the scope distinction from history-sensitive equivalence is clearly maintained.
 
-## Closest literature and limitations
-
-Balbiani, van Ditmarsch, and Lerouvillois (2026) are the closest source and explicitly pose redundancy as future work. Brouwer, Draisma, and Frenk (2015) give a sharp irredundant-length theorem for pairwise ordinary gossip. Van Ditmarsch, Kokkinis, and Stockmarr (2017) study redundant calls in pairwise gossip protocols.
-
-The present theorem is deliberately about current accessibility relations, not full asynchronous history semantics. A history-sensitive formula may still distinguish two histories whose current relation tuples agree.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
