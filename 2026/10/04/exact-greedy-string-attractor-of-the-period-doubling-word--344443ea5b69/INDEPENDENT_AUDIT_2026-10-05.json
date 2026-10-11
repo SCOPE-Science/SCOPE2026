@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The morphic induction is sound. The blocks \\(P_k=\\mu^k(1)\\) and \\(Q_k=\\mu^k(0)\\) have length \\(2^k\\) and differ only in their final bit. If \\(L=2^k\\), every prefix from length \\(L\\) through \\(2L-1\\) is \\(P_k\\) followed by a prefix of a second copy of \\(P_k\\), so the current dyadic endpoint set remains an attractor: factors are either already represented in the first block, cross the selected boundary position, or can be shifted into the first block. At length \\(2L\\), the suffix \\(Q_k\\) occurs uniquely. Every interior length-\\(L\\) window is a cyclic rotation of \\(P_k\\), hence has the same one-count as \\(P_k\\), whereas \\(Q_k\\) differs by one bit; therefore the suffix is the only occurrence and avoids the old attractor. This forces the next greedy endpoint \\(2L-1\\). Independent finite replay through 128 characters and 13 dyadic levels agrees but is not used as the infinite proof.",
+      "risks": [
+        "The statement is specific to the stated period-doubling morphism and greedy endpoint rule."
+      ],
+      "sources": [
+        "RESULT.md blob 2b6b085a80e517477e85508a2642569ca44132f6",
+        "verify.py blob e15e4fdba139e759e9975aca1ed6395ba8c8ecf4",
+        "Schaeffer--Shallit, arXiv:2012.06840"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source proves only a general O(log n) greedy bound and separately a constant optimum for period-doubling prefixes.",
+          "The later source classifies all smallest size-two attractors, not the greedy process."
+        ],
+        "reasoning": "Neither broader theorem specifies which endpoints the greedy algorithm chooses or when each new endpoint is forced.",
+        "searches": [
+          "Schaeffer--Shallit arXiv:2012.06840 greedy section and period-doubling theorem",
+          "Banbara et al. DOI:10.4230/LIPIcs.CPM.2026.33"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.06840",
+        "DOI:10.1016/j.jcta.2024.105936",
+        "DOI:10.4230/LIPIcs.CPM.2026.33",
+        "arXiv:2602.16152",
+        "Resultary exact-position/greedy searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: optimum attractor size two and general logarithmic greedy upper bound. Final: exact greedy endpoints 0,1,3,7,... for every prefix length."
+        ],
+        "reasoning": "Knowing an upper bound and the unrelated minimum optimum does not imply the exact greedy first-failure sequence; the unique-suffix morphic argument is additional content.",
+        "searches": [
+          "Statement comparison with arXiv:2012.06840 and DOI:10.4230/LIPIcs.CPM.2026.33"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit stated the same greedy set; closest indexed SCOPE work concerns minimum attractors of different automatic words.",
+          "The direct source's greedy section gives a general bound rather than this exact trajectory."
+        ],
+        "reasoning": "Exact endpoint positions, the nested greedy set and the first-failure lengths are equivalent formulations; none was located in prior work.",
+        "searches": [
+          "Resultary: period doubling greedy string attractor exact greedy positions",
+          "period-doubling greedy string attractor powers of two minus one",
+          "minimal novel factor period doubling greedy endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact known tables/classifications concern minimum attractors, not the cumulative greedy endpoint set."
+        ],
+        "reasoning": "A table of optimal size-two pairs does not determine a nested online greedy trajectory.",
+        "searches": [
+          "Resultary exact period-doubling greedy-position query",
+          "2026 smallest-attractor classification for period-doubling words"
+        ]
+      },
+      "rationale": "Schaeffer--Shallit define the greedy attractor process and prove a general logarithmic bound, while their period-doubling result concerns minimum attractors of size two. The 2026 Banbara et al. paper completely classifies minimum-cardinality attractors for the same period-doubling words, but that per-word optimum is a different invariant and does not determine the cumulative greedy trajectory. Fresh Resultary and exact-position searches did not locate the powers-of-two-minus-one greedy set. The submitted morphic obstruction is therefore not implied by the closest prior theorems.",
+      "residual_risks": [
+        "An unindexed note may contain the same elementary morphic observation under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_BACKGROUND_NOT_COVERING",
+          "evidence": [
+            "The paper gives period-doubling optimum size two and a general greedy O(log n) estimate, not the exact greedy endpoint set."
+          ],
+          "identifier_or_url": "arXiv:2012.06840",
+          "material_read": "Period-doubling minimum-attractor theorem and the section defining greedy string attractors, minimal-novel-factor behavior and the general logarithmic bound.",
+          "method": "Lawful open full-text inspection.",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "Direct source for both the greedy rule and period-doubling attractor results."
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "The paper classifies the two minimum position pairs for each dyadic word; it does not analyze the cumulative greedy set."
+          ],
+          "identifier_or_url": "DOI:10.4230/LIPIcs.CPM.2026.33 / arXiv:2602.16152",
+          "material_read": "Abstract/introduction and stated complete period-doubling smallest-attractor classification.",
+          "method": "Open-access LIPIcs/arXiv inspection.",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+          "trigger": "Most relevant later work on the same finite period-doubling words."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a canonical sharp separation between the online greedy invariant and the true optimum on a standard automatic word: greedy size is exactly \\(\\lfloor\\log_2 n\\rfloor+1\\) while optimum is constantly two. The all-length structural formula is a meaningful benchmark for greedy string-attractor theory, not a finite table extension.",
+      "risks": [],
+      "sources": [
+        "Schaeffer--Shallit arXiv:2012.06840",
+        "Banbara et al. DOI:10.4230/LIPIcs.CPM.2026.33"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific to the standard period-doubling morphism and Schaeffer--Shallit greedy endpoint rule.",
+    "Public scientific files were scanned and contain no flagged C0 controls or operational/platform language."
+  ],
+  "schema_version": 1
+}
