@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and covers every pair of positive integers \(m,n\). The executable check is independent finite corroboration.
+# Independent mathematical audit
 
-`verify.py` constructs every binary relation between \(C_m\) and \(C_n\) for \(1\le m,n\le4\). For each relation it tests source totality, forward confluence, and backward confluence directly from the quantified definitions. It separately computes every nonempty row minimum and maximum and tests the proposed endpoint criterion. The predicates agree for every relation in the tested range.
+## correctness
 
-For every tested pair \((m,n)\), the checker also verifies the existence threshold \(m\le n\), the weighted endpoint-sum count, minimum size \(m\), maximum size \(m(n-m+1)\), uniqueness of the maximum relation, and exactly \(\binom{n}{m}\) minimum-size relations.
+PASS
 
-Running the packaged checker prints `VERIFY_OK`. The exhaustive finite computation is not used to prove the general theorem; the proof in `RESULT.md` establishes all claims for arbitrary positive \(m,n\).
+For nonempty rows \(R_i\) and \(R_j\) with \(i<j\), forward confluence is equivalent to \(\max R_i<\max R_j\): the later maximum witnesses every earlier element, while failure at the earlier maximum is decisive. Backward confluence is equivalently \(\min R_i<\min R_j\). Hence total expansiveness is exactly strict increase of both endpoint sequences. The existence condition \(m\le n\), the minimum-size functional relations counted by \(\binom{n}{m}\), and the maximum \(m(n-m+1)\) with interval rows follow from the available slack in the two strict endpoint sequences. A fresh exhaustive replay for all relations with \(m,n\le3\) reproduced the endpoint criterion, zero counts for \(m>n\), and all size extrema.
 
-## Limits
+## originality
 
-No assertion is made for branching frames, clustered preorders, reflexive-chain conventions, or relations that are not source-total.
+PASS
+
+Fernández-Duque introduces expansive relations as the forward-and-backward-confluent morphism notion and develops their closure and selection machinery, but complete inspection of the primary paper found no finite-chain normal form, size extremals, or exact relation count. Rowwise expansiveness on chains is a strict analogue of the classical Egli-Milner subset relation, so the endpoint proof is order-theoretically natural; nevertheless, the inspected powerdomain literature does not state the all-relation census or extremal formulas between chains. Current Resultary and web searches found no prior exact classification.
+
+## value
+
+PASS
+
+Expansive relations are a central morphism notion in the current finite-model construction, and strict chains are the canonical test objects. A complete all-relation normal form, exact count, existence threshold, and sharp cardinality extrema provide a natural finite invariant and usable search-space description even though the proof is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
