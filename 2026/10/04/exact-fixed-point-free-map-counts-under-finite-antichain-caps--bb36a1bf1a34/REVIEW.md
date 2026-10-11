@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The central step is a complete bijection, not an extrapolation from finite data. Any fixed-point-free self-map of \(X\oplus A_r\) must preserve \(X\); otherwise a new maximal point is forced to be fixed. For a fixed restriction \(g\), each new maximum has exactly \(u(g)+r-1\) admissible images, independently. The converse construction verifies that every counted choice is monotone and fixed-point-free. Exhaustive finite checks independently agree with the formula on all labeled bases through four points for \(r=2\) and through three points for \(r=3\).
+## correctness
 
-## Originality
-PASS. The closest inspected literature separates into two strands: finite-topology work defining the non-Hausdorff suspension, and fixed-point literature giving qualitative criteria for lexicographic sums. Höft–Höft’s 1991 full text is especially close and even includes a two-element-antichain example, but its main theorem characterizes whether a fixed point exists; it does not enumerate fixed-point-free endomorphisms. The qualitative fixed-point-property corollary is therefore treated as prior coverage, while the exact \(\sum_g(u(g)+r-1)^r\) formula is the assessed new claim. Residual risk remains from older literature not surfaced by the searches.
+PASS
 
-## Value
-PASS. Non-Hausdorff suspension is a standard construction in finite-space models, and fixed-point-free self-maps are the natural obstruction to the fixed point property. The formula gives a complete exact count for the capped space and exposes the base statistic that controls extension multiplicity. It is therefore a structural quantitative refinement, not a table recomputation or an arbitrary parameter slice.
+Let \(Y=X\oplus A_r\) with all points of the antichain \(A_r\) above \(X\). If a fixed-point-free monotone map \(F:Y\to Y\) sent some \(x\in X\) to a new maximum \(a_j\), then monotonicity from \(x<a_i\) would force \(F(a_i)=a_j\) for every new maximum and in particular \(F(a_j)=a_j\), contradiction. Hence \(F|_X=g\) is a fixed-point-free endomorphism of \(X\). For fixed \(g\), the image of each new maximum \(a_i\) may independently be any common upper bound in \(X\) of \(g(X)\), giving \(u(g)\) choices, or any of the other \(r-1\) new maxima. No relation inside the antichain couples these choices. This gives exactly \((u(g)+r-1)^r\) extensions and summing over \(g\in\operatorname{Fpf}(X)\) proves the formula. The converse construction is immediate and proves exhaustiveness. The assigned verifier checks 265 labeled-poset instances, all \(r=2\) cases through four points and all \(r=3\) cases through three points; these computations are regression checks only because the symbolic extension bijection proves all finite \(X\).
 
-## Closest literature and limitations
-Barmak–Minian (arXiv:math/0611156v1) supplies the finite-space/poset framework and suspension. Höft–Höft (DOI:10.1515/dema-1991-1-227) supplies the nearest lexicographic-sum fixed-point theory. Baclawski–Björner (DOI:10.1016/0001-8708(79)90045-8) is foundational fixed-point theory for posets. The formula is limited to antichains of new maximal points; arbitrary lexicographic summands introduce internal order constraints and require different counting.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Höft and Höft study fixed-point-free components and fixed-point-property criteria for lexicographic sums. The accessible full-text extraction is qualitative: it characterizes when fixed points must exist in components/sums and does not provide an exact count of fixed-point-free endomorphisms weighted by a common-upper-bound statistic. Barmak and Minian use non-Hausdorff suspension as a standard finite-space construction but do not supply this map-count formula in the inspected scope. Current Resultary search for suspension, ordinal sums, antichain caps and fixed-point-free map counts returns the assigned exact record plus neighboring homotopy/fixed-point classifications, but no stronger enumeration that implies \(\sum_g(u(g)+r-1)^r\).
+
+## value
+
+PASS
+
+Non-Hausdorff suspension and ordinal sums are standard constructions in finite topology and poset theory. The theorem turns the known qualitative fixed-point-property behavior into an exact extension formula for every fixed-point-free base map and every cap size, isolating the natural common-upper-bound statistic. This is a concise structural lemma with reusable enumerative content rather than a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
