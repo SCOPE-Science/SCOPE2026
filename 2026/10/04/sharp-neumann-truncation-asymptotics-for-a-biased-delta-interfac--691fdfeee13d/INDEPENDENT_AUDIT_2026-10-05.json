@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:50:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "P. Exner, On the spectrum of leaky surfaces with a potential bias, arXiv:1701.06288 / EMS 2018; primary full PDF inspected, including the transverse operator, Lemma 3.1 and Remark 3.2(b).",
+        "P. Exner and K. Yoshitomi, Asymptotics of eigenvalues of the Schrödinger operator with a strong delta-interaction on a loop, arXiv:math-ph/0103029 / Journal of Geometry and Physics 41 (2002); symmetric strong-coupling interval estimate compared.",
+        "P. Exner and S. Vugalter, On the existence of bound states in asymmetric leaky wires, arXiv:1505.02347; asymmetric transverse threshold background compared.",
+        "Resultary semantic search: delta interaction biased interface Neumann truncation finite interval asymptotic critical resonance.",
+        "Assigned RESULT.md, VERIFICATION.md and artifacts/verify_asymptotics.py at exact tree 75b096b3c1b6fc6ca3dd141e5cbbe9bc67136d2c.",
+        "Fresh independent bisection replay of the exact scalar root equation in three subcritical and two critical parameter cases."
+      ],
+      "rationale": "Continuity and the delta jump condition give the exact monotone scalar equation k_d tanh(k_d d)+q_d tanh(q_d d)=alpha. Subcritically, expanding at the unique full-line root a and using b>a shows k_d-a=(2ab/alpha)e^(-2ad)(1+o(1)), which converts to the stated energy coefficient. At criticality, the root equation first forces k_d d to zero and y_d d=O(e^(-2alpha d)); expanding both tanh terms in y=k_d^2 yields y(d+1/(2alpha))=2alpha e^(-2alpha d)(1+o(1)). Independent numerical roots reproduced the subcritical rescaled constants within about 0.6 percent or better and the critical constants to better than 1e-6 in the tested cases.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The surface theorem is broader geometrically but intentionally uses only a coarse transverse bound.",
+          "Exner–Yoshitomi treats a different symmetric transverse setting and supplies exponential enclosures rather than the biased coefficient and threshold-resonance law."
+        ],
+        "reasoning": "Broader spectral settings do not determine the sharp one-dimensional biased truncation coefficient.",
+        "searches": [
+          "Exner leaky-surface spectral theorem",
+          "Exner–Yoshitomi strong delta-interaction asymptotics",
+          "General point-interaction finite-volume literature"
+        ]
+      },
+      "checked_sources": [
+        "P. Exner, On the spectrum of leaky surfaces with a potential bias, arXiv:1701.06288 / EMS 2018; primary full PDF inspected, including the transverse operator, Lemma 3.1 and Remark 3.2(b).",
+        "P. Exner and K. Yoshitomi, Asymptotics of eigenvalues of the Schrödinger operator with a strong delta-interaction on a loop, arXiv:math-ph/0103029 / Journal of Geometry and Physics 41 (2002); symmetric strong-coupling interval estimate compared.",
+        "P. Exner and S. Vugalter, On the existence of bound states in asymmetric leaky wires, arXiv:1505.02347; asymmetric transverse threshold background compared.",
+        "Resultary semantic search: delta interaction biased interface Neumann truncation finite interval asymptotic critical resonance.",
+        "Assigned RESULT.md, VERIFICATION.md and artifacts/verify_asymptotics.py at exact tree 75b096b3c1b6fc6ca3dd141e5cbbe9bc67136d2c.",
+        "Fresh independent bisection replay of the exact scalar root equation in three subcritical and two critical parameter cases."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing only that the error is exponentially small does not determine the exponent, coefficient or the change of scaling at the threshold resonance.",
+          "The audited exact matching equation k tanh(kd)+sqrt(V0+k^2)tanh(d sqrt(V0+k^2))=alpha permits a first-order root expansion subcritically and a separate y=k^2 expansion at criticality."
+        ],
+        "reasoning": "The theorem quantifies and splits a behavior that the source notes qualitatively but does not calculate.",
+        "searches": [
+          "Exner exact transverse model and rough Lemma 3.1 bound",
+          "Remark 3.2(b) stating only exponential smallness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source explicitly distinguishes its rough d^{-1} estimate from the true exponential Neumann-boundary error.",
+          "No source located states the displayed coefficients or the critical (d+1/(2alpha))^{-1} prefactor."
+        ],
+        "reasoning": "Energy-shift asymptotics and the displacement of the unique positive root k_d of the matching equation are equivalent formulations.",
+        "searches": [
+          "Resultary: delta interaction biased interface Neumann truncation finite interval asymptotic critical resonance",
+          "Exner arXiv:1701.06288 Lemma 3.1 and Remark 3.2(b)",
+          "Searches for finite-volume delta-bound-state exponential shift and threshold resonance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact formula/table matching either coefficient was located."
+        ],
+        "reasoning": "The result is an asymptotic theorem for continuous parameters, not a finite table.",
+        "searches": [
+          "Resultary exact coefficient searches for 4a^2b/alpha and the critical two-alpha prefactor",
+          "Web searches for critical Neumann delta-interface resonance asymptotics"
+        ]
+      },
+      "rationale": "Exner's Lemma 3.1 gives only a coarse O(d^{-1}) lower estimate for the finite Neumann transverse energy and immediately remarks that the actual Neumann error is exponentially small. It does not state the biased leading coefficient, and it does not analyze the critical threshold resonance where an extra inverse-length prefactor appears. The audited scalar root expansion therefore sharpens an explicitly identified source gap.",
+      "residual_risks": [
+        "A solvable-model or point-interaction calculation not indexed by the searched terminology could contain an equivalent scalar asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ROUGH BOUND AND QUALITATIVE EXPONENTIAL REMARK; SHARP COEFFICIENTS ABSENT",
+          "evidence": "Remark 3.2(b) explicitly says the Lemma 3.1 estimate is rough and the Neumann-boundary error is exponentially small, without giving the audited subcritical coefficient or critical resonance prefactor.",
+          "identifier_or_url": "arXiv:1701.06288; DOI:10.4171/186-1/8",
+          "material_read": "Primary full PDF around the transverse full-line model, Lemma 3.1 and Remark 3.2(b), including rendered-page inspection.",
+          "method": "Open primary PDF text and page image.",
+          "title": "On the spectrum of leaky surfaces with a potential bias",
+          "trigger": "Exact source for the finite-Neumann transverse operator and the claimed gap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "P. Exner, On the spectrum of leaky surfaces with a potential bias, arXiv:1701.06288 / EMS 2018; primary full PDF inspected, including the transverse operator, Lemma 3.1 and Remark 3.2(b).",
+        "P. Exner and K. Yoshitomi, Asymptotics of eigenvalues of the Schrödinger operator with a strong delta-interaction on a loop, arXiv:math-ph/0103029 / Journal of Geometry and Physics 41 (2002); symmetric strong-coupling interval estimate compared.",
+        "P. Exner and S. Vugalter, On the existence of bound states in asymmetric leaky wires, arXiv:1505.02347; asymmetric transverse threshold background compared.",
+        "Resultary semantic search: delta interaction biased interface Neumann truncation finite interval asymptotic critical resonance.",
+        "Assigned RESULT.md, VERIFICATION.md and artifacts/verify_asymptotics.py at exact tree 75b096b3c1b6fc6ca3dd141e5cbbe9bc67136d2c.",
+        "Fresh independent bisection replay of the exact scalar root equation in three subcritical and two critical parameter cases."
+      ],
+      "rationale": "The result turns an explicitly qualitative source remark into sharp finite-volume asymptotics and identifies a genuine threshold change caused by the zero-energy resonance. That distinction is directly relevant to spectral bracketing and truncation-error estimates near critical bias.",
+      "residual_risks": [
+        "A solvable-model or point-interaction calculation not indexed by the searched terminology could contain an equivalent scalar asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the biased one-dimensional delta-interface transverse operator with Neumann truncation, the subcritical ground-state energy shift has exact leading coefficient (4a^2b/alpha)e^(-2ad), while at the critical bias V0=alpha^2 the shift is asymptotic to 2alpha e^(-2alpha d)/(d+1/(2alpha)), revealing a distinct resonance prefactor.",
+  "limitations": [
+    "The subcritical coefficient excludes the unbiased symmetric endpoint V0=0.",
+    "No explicit uniform remainder or full three-dimensional geometric error is claimed.",
+    "A solvable-model or point-interaction calculation not indexed by the searched terminology could contain an equivalent scalar asymptotic."
+  ],
+  "schema_version": 1
+}
