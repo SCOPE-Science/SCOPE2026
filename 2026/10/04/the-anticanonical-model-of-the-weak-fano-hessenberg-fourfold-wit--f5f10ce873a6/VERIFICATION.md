@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker `artifacts/verify.py` uses symbolic arithmetic over \(\mathbb Z[\lambda_1,\lambda_2,\lambda_3,\lambda_4]\). It verifies:
+# Independent mathematical audit
 
-- the determinant condition for \(P\cap SP\ne0\) in Plücker coordinates;
-- the three singular parameters of the pencil of quadrics and the factorization separating those parameters;
-- the six affine quadratic normal forms through nonvanishing Hessian determinants, uniformly under pairwise distinct eigenvalues;
-- the anticanonical weight identity \(\xi_h=2\varpi_1+\varpi_2\);
-- the localization consistency check \((-K_X)^4=192\).
+## correctness
 
-The saved output `artifacts/verify.out` ends with `VERIFY_OK`. The checker establishes the exact algebraic identities used in the proof. The birational statements additionally use the incidence argument, normal/Gorenstein properties of a nodal complete intersection and its projective-line bundle, and the absence of exceptional divisors for a small resolution. Literature originality is assessed separately and is not certified by the checker.
+PASS
+
+The Hessenberg condition reduces to existence of a hyperplane containing \(P+SP\), equivalently \(P\cap SP\ne0\). In Plücker coordinates this is the Grassmannian quadric together with the determinant quadric. Their pencil has exactly three singular members, each with a two-dimensional coordinate kernel, giving exactly six base-locus singular points. On every coordinate chart the transverse quadratic form is nondegenerate, so all six are ordinary double points. The exceptional fibers over the invariant two-planes are exactly \(\mathbb P^1\times\mathbb P^1\), hence the birational map is small. Abe--Fujita--Zeng identify the anticanonical line bundle with the Hessenberg weight; here it is \(2\varpi_1+\varpi_2\), which descends to the partial flag target and is ample there. Normal Gorensteinness plus smallness gives crepancy. A fresh symbolic reconstruction independently verified the determinant identity and the factorization needed for the node test; the bundled checker also verifies all six Hessians and the localization value \(192\).
+
+## originality
+
+PASS
+
+The primary weak-Fano paper explicitly singles out \(h=(3,3,4,4)\) and computes the anticanonical line bundle, but it does not identify the resulting contraction, nodal base, singular-line bundle, or exceptional surfaces. Resultary and alias searches located no prior theorem giving this birational model.
+
+## value
+
+PASS
+
+Identifying the anticanonical model of a natural weak-Fano Hessenberg variety, including its exact singular strata and small crepant resolution, is a motivated birational-geometric result and materially refines the prior classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
