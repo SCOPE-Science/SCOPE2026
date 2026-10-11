@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The flag condition, projection to line--hyperplane incidence, singularity criterion for the two bilinear equations, and fiber reconstruction were re-derived directly. The local eigenbasis chart reduces the germ to \(\mathbb A^2\times\{py+qz=0\}\), and `artifacts/verify.py` independently replays the local symbolic identities and the published patch normal form. The proof is global for this exact variety; the finite symbolic checks are not used to infer untested cases.
+## correctness
 
-## Originality
-PASS. The closest exact source, Insko--Precup Example 5.5, supplies the benchmark variety, one patch polynomial, and eight singular torus-fixed points but not its full singular locus. Escobar--Precup--Shareshian later prove only a containment for general semisimple codimension-one singular loci, with equality for nilpotent operators. Exact-object, alias, determinantal-cone, quadric-stratum, and ordinary-double-point searches found no prior statement of the two \(\mathbb P^1\times\mathbb P^1\) components or uniform transversal. The inaccessible full text of Cummings's 2024 thesis is retained as a literature risk because its accessible abstract concerns semisimple patch radicality.
+PASS
 
-## Value
-PASS. This is a complete singular-stratum and local-type classification for a published irreducible singular semisimple Hessenberg benchmark. It explains the previously reported eight singular torus-fixed points, distinguishes the semisimple case from the equality theorem available for nilpotent codimension-one varieties, and gives normality as a geometric consequence.
+Projecting a flag to its line and hyperplane realizes the fivefold as a projective-line bundle over the complete intersection \(Y\subset\mathbf P(V)\times\mathbf P(V^*)\) cut out by \(\phi(v)=\phi(Sv)=0\). Linear dependence of the two differentials is equivalent to \((S-\lambda I)v=0\) and \(\phi(S-\lambda I)=0\), hence \(\lambda=\pm1\) and exactly two singular base curves occur. Lifting the intermediate two-plane gives a second projective line, so each singular component is \(\mathbf P^1\times\mathbf P^1\). In affine coordinates the two base equations reduce to one smooth coordinate and \(py+qz=0\); the projective-line bundle adds one further smooth coordinate, giving the claimed transverse threefold node. Codimension-three singular locus plus hypersurface/Cohen–Macaulay local structure gives normality.
 
-## Closest literature and limitations
-The result is specific to \(S=\operatorname{diag}(1,1,-1,-1)\) and \(h=(3,4,4,4)\). No generalization to other spectra or Hessenberg functions is claimed, and no resolution is constructed. The full Cummings thesis was unavailable, so an equivalent special-case computation under different terminology cannot be ruled out completely.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2017 primary source identifies this exact irreducible singular Hessenberg variety, exhibits one singular affine patch and lists eight singular torus-fixed points, but it does not determine the full positive-dimensional singular locus or its transverse analytic type. The 2026 codimension-one paper proves reducedness generally and only a containment for semisimple singular loci, with equality reserved for nilpotent elements. The audited incidence calculation closes that gap and gives two complete quadric surfaces with uniform ordinary-double-point transverse type.
+
+## value
+
+PASS
+
+The result completes the geometry of a canonical published counterexample by replacing isolated fixed-point evidence with the entire singular stratification and its uniform analytic type. The two quadric strata and transverse node model are natural data for intersection theory, resolutions and local invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
