@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:13:41.147986Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d4511779ff309a6f0930dc3f5b794f8edbccc4e9",
+        "assigned artifacts/verify.py blob 136a5b622d959109ce03ae6ceffb2f5709bedb94",
+        "de Bondt--Don--Zantema, arXiv:1609.06853v5, Theorem 3"
+      ],
+      "rationale": "The displayed seven-state transition maps match the specialization of the source construction. An independent exact subset-BFS replay gives first singleton distance 32 for both alphabets. For {a,e} it gives 331776 shortest words, all to state 4; for {a,b,e} it gives 663552 to state 3 and 663552 to state 4, total 1327104. The inspected package verifier implements the same complete shortest-path recurrence over the finite power automaton and replays the published length-32 witness. Thus the factor-four multiplicity statement is exhaustive, not sampled.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives an all-n threshold construction and a global small-state census only through n<=6.",
+          "Nearby Resultary findings concern other automata or different reset invariants."
+        ],
+        "reasoning": "The broader threshold theorem does not determine multiplicity at n=7.",
+        "searches": [
+          "arXiv:1609.06853v5",
+          "related Resultary synchronizing-automaton census records"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1609.06853v5",
+        "DOI:10.1016/j.ic.2020.104614",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing reset threshold 32 and one witness does not determine how many optimal words exist.",
+          "The two equal thresholds do not imply the factor-four multiplicity ratio or target-state split."
+        ],
+        "reasoning": "The shortest-path count over the optimal subset DAG supplies genuinely additional information.",
+        "searches": [
+          "Statement comparison with Theorem 3 of arXiv:1609.06853v5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source fixes the same automata and reset threshold.",
+          "No inspected source states the target-resolved shortest-word counts or factor-four comparison."
+        ],
+        "reasoning": "Shortest synchronizing words and shortest reset words were searched as aliases.",
+        "searches": [
+          "Resultary: seven-state fixed-alphabet synchronizing automaton shortest reset multiplicity de Bondt Don Zantema",
+          "web: A^{-cd} A^{-bcd} shortest reset words multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact published count/table for these automata was located."
+        ],
+        "reasoning": "The exact integer counts were independently recomputed from the complete power automata.",
+        "searches": [
+          "Resultary and web searches for 331776, 1327104, 663552 with synchronizing automata"
+        ]
+      },
+      "rationale": "The primary Theorem 3 was inspected through the construction and threshold proof. It states the same reset threshold for the three-letter restriction and notes the two-letter restriction has the same threshold, but it does not enumerate shortest words at seven states. Targeted Resultary and web searches for shortest-reset multiplicity, the exact family, and the exact counts found no prior equivalent enumeration.",
+      "residual_risks": [
+        "An unindexed computational enumeration could contain the same seven-state counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THRESHOLD_NOT_MULTIPLICITY",
+          "evidence": "The source determines optimum length but not the number or target distribution of optimum words for n=7.",
+          "identifier_or_url": "arXiv:1609.06853v5; DOI:10.1016/j.ic.2020.104614",
+          "material_read": "Primary full-text Theorem 3, transition table, proof of the three-letter threshold and the note that the two-letter restriction has the same threshold; small-state census scope was also inspected.",
+          "method": "Lawful open arXiv full-text inspection.",
+          "title": "Slowly synchronizing automata with fixed alphabet size",
+          "trigger": "Exact source construction for both restricted automata."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "de Bondt--Don--Zantema"
+      ],
+      "rationale": "The source explicitly studies how alphabet size changes slow synchronization and uses finite census data for critical small automata. At the first state count beyond that census, the exact comparison isolates an effect invisible to reset threshold: adding one letter preserves optimum length but quadruples optimum-word multiplicity and adds an optimum target. This is a motivated finite invariant under the stated value standard.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1609.06853v5",
+    "DOI:10.1016/j.ic.2020.104614",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite statement for n=7 only.",
+    "No all-n multiplicity formula or syntactic classification of shortest words is claimed."
+  ],
+  "residual_risks": [
+    "An unindexed computational enumeration could contain the same seven-state counts."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "THRESHOLD_NOT_MULTIPLICITY",
+      "evidence": "The source determines optimum length but not the number or target distribution of optimum words for n=7.",
+      "identifier_or_url": "arXiv:1609.06853v5; DOI:10.1016/j.ic.2020.104614",
+      "material_read": "Primary full-text Theorem 3, transition table, proof of the three-letter threshold and the note that the two-letter restriction has the same threshold; small-state census scope was also inspected.",
+      "method": "Lawful open arXiv full-text inspection.",
+      "title": "Slowly synchronizing automata with fixed alphabet size",
+      "trigger": "Exact source construction for both restricted automata."
+    }
+  ]
+}
