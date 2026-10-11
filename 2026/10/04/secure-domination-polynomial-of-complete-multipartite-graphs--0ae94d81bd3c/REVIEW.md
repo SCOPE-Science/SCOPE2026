@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces domination in a complete multipartite graph to the number of represented parts. For support at least three, any attack can be answered while retaining at least two represented parts. For exactly two represented parts, the only possible failure occurs when the attacked part has at least two omissions and the opposite represented part contains exactly one guard; this gives the two symmetric conditions. A one-part dominating set must be a whole part, and its security is handled separately. Exhaustive direct definition checks agree with the characterization and polynomial on all 128 multipartite types through order \(10\), totaling 64,916 subset checks.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The 2004 full text of *Finite Order Domination in Graphs* gives parameter values for complete bipartite graphs and explicitly cites the earlier one-move value, but it does not enumerate all secure dominating sets; its conclusion still lists broader complete multipartite higher-order parameter values as future scope. Later literature describes the 2003 foundational result as giving exact secure domination numbers for complete multipartite graphs. The 2022 secure-domination-polynomial paper treats cycles. Targeted semantic and literal searches found no equivalent all-set classification or complete-multipartite polynomial. The inaccessible full text of the 2003 source remains a named risk rather than being used as negative evidence.
+PASS
 
-## Value
-PASS. The secure domination number for this family is classical, but a minimum parameter discards almost all feasible guard configurations. The support theorem classifies every secure configuration and converts it into a closed coefficient enumerator for a named graph polynomial. The two-part obstruction is structural and reusable, and the formula simultaneously gives every cardinality count instead of a routine recomputation of the known minimum.
+The support classification follows directly from complete-multipartite adjacency. A set meeting at least three parts is secure because replacing one defender can remove at most one occupied part and leaves at least two. For support \(\{i,j\}\), an omitted vertex in part \(i\) can be defended from part \(j\); if only one vertex of \(j\) is selected, the exchange remains dominating exactly when it fills part \(i\), giving \(t_i\le1\) or \(s_j\ge2\), and symmetrically for \(j\). A one-part dominating set must equal that whole part, and security is exactly the stated singleton exception. The polynomial is the disjoint support count with inclusion-exclusion over the two one-defender obstructions. A fresh direct brute-force replay on representative part profiles through order five matched the criterion for every subset; the unrestricted theorem rests on the symbolic argument.
 
-## Closest literature and limitations
-The closest inspected full text is Burger et al. (2004), which treats higher-order secure domination and complete bipartite parameter values. The foundational 2003 source is highly relevant but was not available in full text from the located lawful sources. The 2022 polynomial paper is a direct invariant comparison but only for cycles. The theorem does not concern secure total domination, co-secure domination, or simultaneous-attack security.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Prior secure-domination literature establishes the invariant and minimum secure-domination values for complete multipartite graphs, while finite-order domination develops higher-order variants and complete-bipartite parameter values. The inspected accessible material does not enumerate all secure dominating sets or give a size polynomial for arbitrary complete multipartite graphs. Current Resultary search returned the assigned record as the exact same-invariant hit and only neighboring domination variants otherwise. The inaccessible full body of the 2003 foundational paper remains an explicit bibliographic risk rather than being treated as automatic failure.
+
+## value
+
+PASS
+
+Secure domination is an established robustness refinement of domination, and complete multipartite graphs are a canonical family. An exact iff classification of every secure set and the full cardinality polynomial are natural reusable refinements of the known minimum parameter, not a small finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

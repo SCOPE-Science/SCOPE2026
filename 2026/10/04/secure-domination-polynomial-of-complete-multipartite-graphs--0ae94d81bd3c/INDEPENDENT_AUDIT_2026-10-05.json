@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:08:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob fef5756ae4abfb98f3464056bcd748c0a33661ee",
+        "assigned verify.py blob c4c3470092cad0264547bf99e58fd0914abe4a0d",
+        "Burger et al., Finite Order Domination in Graphs, JCMCC 49 (2004)",
+        "Cockayne--Favaron--Mynhardt, Secure domination, weak Roman domination and forbidden subgraphs, BICA 39 (2003)"
+      ],
+      "rationale": "The support classification follows directly from complete-multipartite adjacency. A set meeting at least three parts is secure because replacing one defender can remove at most one occupied part and leaves at least two. For support \\(\\{i,j\\}\\), an omitted vertex in part \\(i\\) can be defended from part \\(j\\); if only one vertex of \\(j\\) is selected, the exchange remains dominating exactly when it fills part \\(i\\), giving \\(t_i\\le1\\) or \\(s_j\\ge2\\), and symmetrically for \\(j\\). A one-part dominating set must equal that whole part, and security is exactly the stated singleton exception. The polynomial is the disjoint support count with inclusion-exclusion over the two one-defender obstructions. A fresh direct brute-force replay on representative part profiles through order five matched the criterion for every subset; the unrestricted theorem rests on the symbolic argument.",
+      "residual_risks": [
+        "The theorem is specific to ordinary secure domination on complete multipartite graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higher-order secure domination is a broader framework, but the inspected statements give parameter values and do not imply the all-cardinality ordinary-secure set distribution."
+        ],
+        "reasoning": "A broader definition does not mechanically supply this family-specific enumerator.",
+        "searches": [
+          "Burger et al., Finite Order Domination in Graphs",
+          "current secure-domination literature search"
+        ]
+      },
+      "checked_sources": [
+        "Burger et al. 2004",
+        "Cockayne--Favaron--Mynhardt 2003",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A minimum cardinality does not determine which larger subsets are secure or their count by size."
+        ],
+        "reasoning": "The polynomial requires the additional exchange classification.",
+        "searches": [
+          "known secure-domination number of complete multipartite graphs versus full support classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior sources use the identical one-move defender notion.",
+          "The previously reported complete-multipartite result is a minimum-number statement rather than an all-set enumerator."
+        ],
+        "reasoning": "The audited support criterion refines the same invariant from one minimum number to every feasible subset.",
+        "searches": [
+          "Resultary query: secure domination polynomial complete multipartite graphs all secure dominating sets",
+          "Cockayne--Favaron--Mynhardt 2003 secure-domination metadata",
+          "Burger et al. 2004 finite-order domination source"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent prior all-coefficient complete-multipartite secure-domination table or theorem was retrieved."
+        ],
+        "reasoning": "Search absence is corroborative only.",
+        "searches": [
+          "Resultary current semantic search for secure-domination complete-multipartite polynomial/enumerator"
+        ]
+      },
+      "rationale": "Prior secure-domination literature establishes the invariant and minimum secure-domination values for complete multipartite graphs, while finite-order domination develops higher-order variants and complete-bipartite parameter values. The inspected accessible material does not enumerate all secure dominating sets or give a size polynomial for arbitrary complete multipartite graphs. Current Resultary search returned the assigned record as the exact same-invariant hit and only neighboring domination variants otherwise. The inaccessible full body of the 2003 foundational paper remains an explicit bibliographic risk rather than being treated as automatic failure.",
+      "residual_risks": [
+        "The inaccessible 2003 full text could contain a stronger structural lemma not exposed by current metadata.",
+        "An older all-set enumeration may exist under guard-exchange terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARAMETER_COVERAGE_NOT_ALL_SET_ENUMERATOR",
+          "evidence": "The accessible source material treats domination parameters and higher-order security, not an all-set polynomial for arbitrary complete multipartite graphs.",
+          "identifier_or_url": "JCMCC 49 (2004), 159-175",
+          "material_read": "public article page, abstract, and searchable source material describing generalized secure domination and graph-family parameter values",
+          "method": "primary-source web inspection",
+          "title": "Finite Order Domination in Graphs",
+          "trigger": "closest accessible primary source covering secure domination and multipartite parameter values"
+        },
+        {
+          "assessment": "FOUNDATIONAL_SOURCE_ACCESS_RISK",
+          "evidence": "The known complete-multipartite coverage is the minimum parameter; inaccessible full text is retained as residual risk.",
+          "identifier_or_url": "BICA 39 (2003), 87-100",
+          "material_read": "public bibliographic metadata and later-source descriptions; complete primary body was not accessible in this run",
+          "method": "primary-source metadata comparison with access limitation",
+          "title": "Secure domination, weak Roman domination and forbidden subgraphs",
+          "trigger": "foundational source and reported complete-multipartite minimum result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "foundational secure-domination literature",
+        "assigned RESULT/verifier"
+      ],
+      "rationale": "Secure domination is an established robustness refinement of domination, and complete multipartite graphs are a canonical family. An exact iff classification of every secure set and the full cardinality polynomial are natural reusable refinements of the known minimum parameter, not a small finite computation.",
+      "residual_risks": [
+        "The proof is elementary because multipartite adjacency is rigid."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is specific to ordinary secure domination on complete multipartite graphs.",
+    "The inaccessible 2003 full text could contain a stronger structural lemma not exposed by current metadata.",
+    "An older all-set enumeration may exist under guard-exchange terminology.",
+    "The proof is elementary because multipartite adjacency is rigid."
+  ]
+}
