@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:42:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen tree",
+        "Jokar, arXiv:2207.09053, Proposition 2.3 and Conjecture 2.5",
+        "Grönwall 1913 maximal-order theorem"
+      ],
+      "rationale": "Jokar’s necessary condition gives k <= sigma(L_k)/L_k. Grönwall’s maximal-order theorem gives sigma(n)/n <= (e^gamma+epsilon) log log n eventually. Along unbounded admissible k, L_k must tend to infinity because any fixed finite set of integers has bounded abundancy index. Combining and passing to the liminf yields the constant e^{-gamma}; the explicit double-exponential form follows by choosing epsilon to match any requested loss and exponentiating twice. No finite table is used.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Together these broader, pre-existing facts apply to every k-layered n and every sufficiently large n, respectively."
+        ],
+        "reasoning": "Their conjunction already dominates the claimed lower growth for the minimum L_k; no extra k-layered structure is used.",
+        "searches": [
+          "Jokar 2022 necessary condition",
+          "classical maximal-order theorem for sigma(n)/n"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.09053",
+        "Grönwall, Trans. AMS 14 (1913)",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "k <= sigma(L_k)/L_k <= (e^gamma+epsilon)log log L_k eventually."
+        ],
+        "reasoning": "Solving this inequality is exactly the final theorem, so the claim is a short corollary of known results.",
+        "searches": [
+          "Jokar Proposition 2.3(iii) + Grönwall 1913"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary’s top exact hit is the assigned record; no independent duplicate was found.",
+          "Jokar states sigma(n)>=kn for k-layered n.",
+          "Grönwall supplies the eventual upper envelope (e^gamma+o(1)) log log n."
+        ],
+        "reasoning": "The liminf statement and the explicit double-exponential inequality are equivalent reformulations of the same direct comparison.",
+        "searches": [
+          "Resultary: smallest k-layered number double exponential lower bound Gronwall abundancy sigma(n)/n log log n",
+          "Jokar arXiv:2207.09053",
+          "Grönwall maximal order sigma(n)/n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite tables contain only small values and do not establish the asymptotic."
+        ],
+        "reasoning": "The database/table check is not the coverage mechanism; the decisive coverage is theorem implication.",
+        "searches": [
+          "OEIS A355757 and Jokar small-k table"
+        ]
+      },
+      "rationale": "The quantitative claim is already implication-level covered by two pre-existing statements: Jokar’s published necessary inequality for every k-layered number and Grönwall’s classical maximal-order theorem. The entire proof is their direct asymptotic combination, so absence of the exact displayed liminf in the k-layered paper does not make the result original under the audit implication rule.",
+      "residual_risks": [
+        "The exact liminf wording may be unpublished elsewhere, but implication-level coverage is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING ingredient; combined with Grönwall it implies the audited claim.",
+          "evidence": "Proposition 2.3(iii) states sigma(n)>=kn; Conjecture 2.5 concerns the smallest k-layered size.",
+          "identifier_or_url": "arXiv:2207.09053",
+          "material_read": "Paper text around Proposition 2.3, Remark 2.4, and Conjecture 2.5, including sigma(n)>=kn and the informal exponential-growth conjecture.",
+          "method": "Open-access/arXiv paper copy and indexed full-text rendering.",
+          "title": "On k-layered numbers",
+          "trigger": "Exact source of the least-k-layered conjecture and necessary abundancy inequality."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Jokar 2022",
+        "Grönwall 1913"
+      ],
+      "rationale": "Although not original, the consequence is mathematically informative: it exposes that any existing least k-layered representatives obey a far stronger lower-growth constraint than the source’s informal exponential phrasing. The rejection is originality, not lack of relevance.",
+      "residual_risks": [
+        "It remains only a lower bound and says nothing about existence for all k."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the least existing k-layered integer L_k, liminf along existing levels of log log L_k divided by k is at least e^{-gamma}, equivalently L_k is eventually at least double-exponential with exponent (e^{-gamma}-epsilon)k.",
+  "limitations": [
+    "The claim is only along k for which a k-layered integer exists.",
+    "No matching upper bound or existence theorem for all k is claimed."
+  ],
+  "schema_version": 1
+}
