@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The explicit frequency set has \(2p\) distinct characters. After blockwise Hadamard and Fourier unitaries, the evaluation matrix becomes \(\mathcal T=\begin{pmatrix}I&K\\0&I-K\end{pmatrix}\) with \(\|K\|^2=(p+1)/(2p)\le2/3\). The Neumann bound makes \(I-K\) invertible, and the displayed block-norm estimates give \(\rho(E_p,B_p)<251\). The universal proof is analytic; finite checks are auxiliary.
+## correctness
 
-## Originality
-PASS. The closest primary source is Ferguson–Mayeli–Sothanaphan, arXiv:1904.04487. It introduces this exact family, notes that its three translated fibers have no simultaneous basis, and states that boundedness of the condition number independent of \(p\) was unknown. Searches for the exact family, equivalent simultaneous-basis language, and broader finite multi-tiling/Riesz statements found no covering result. The own ledger contains related finite-group results but not this claim.
+PASS
 
-## Value
-PASS. The claim resolves the source’s explicit boundedness uncertainty for the family and disproves the proposed necessity of the simultaneous-fiber-basis hypothesis in this instance. The construction also identifies a reusable two-channel mechanism: frequency-dependent fiber characters can replace a single simultaneous fiber basis.
+The rowwise two-point Hadamard transform separates the all-zero-character columns into the plus channel and sends the second frequency column at each \(t\) to exactly one exceptional plus row and otherwise to the minus channel. This gives the block operator \(\mathcal T=\begin{pmatrix}I&K\\0&I-K\end{pmatrix}\) with \(\|K\|^2=(p+1)/(2p)\le2/3\). Since \(\|K\|<1\), the inverse exists, and the stated norm bounds give squared condition number at most \((380+152\sqrt6)/3\approx250.774<251\). The actual verifier was inspected; it checks the channel assignment and exact endpoint arithmetic on representative odd primes, while the proof of the uniform theorem is analytic.
 
-## Closest literature and limitations
-The primary source’s general theorem supplies uniform bounds only under a simultaneous-basis hypothesis. The new construction lies outside that hypothesis. The constant \(251\) is not optimized, and the argument does not remove the hypothesis from the theorem in full generality. Search coverage cannot rule out differently indexed later work.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary source introduces this exact family, proves that its fibers admit no simultaneous exponential basis, and explicitly says it is unknown whether the Riesz ratio stays bounded independently of \(p\). The audited construction answers that stated question with a concrete uniform bound; no stronger covering theorem or later exact-family result was found.
+
+## value
+
+PASS
+
+The result directly resolves a concrete obstruction family singled out in the defining paper and shows that the simultaneous-fiber-basis condition is not necessary for uniformly bounded Riesz behavior. An explicit universal constant is a natural quantitative answer, even though it is not optimized.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

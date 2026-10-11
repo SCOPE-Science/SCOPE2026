@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:39:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 1afde7f067c141982c22e67c98d9ededeb91990e",
+        "Ferguson--Mayeli--Sothanaphan, arXiv:1904.04487, full primary text"
+      ],
+      "rationale": "The rowwise two-point Hadamard transform separates the all-zero-character columns into the plus channel and sends the second frequency column at each \\(t\\) to exactly one exceptional plus row and otherwise to the minus channel. This gives the block operator \\(\\mathcal T=\\begin{pmatrix}I&K\\\\0&I-K\\end{pmatrix}\\) with \\(\\|K\\|^2=(p+1)/(2p)\\le2/3\\). Since \\(\\|K\\|<1\\), the inverse exists, and the stated norm bounds give squared condition number at most \\((380+152\\sqrt6)/3\\approx250.774<251\\). The actual verifier was inspected; it checks the channel assignment and exact endpoint arithmetic on representative odd primes, while the proof of the uniform theorem is analytic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem requires a simultaneous basis for the fibers and therefore does not apply to this example.",
+          "No broader checked theorem supplies a basis or a uniform constant for the exceptional family."
+        ],
+        "reasoning": "The audited result lies precisely outside the hypothesis of the strongest directly relevant prior theorem.",
+        "searches": [
+          "Ferguson--Mayeli--Sothanaphan finite multi-tiling theorem",
+          "related finite spectral/Riesz results returned by Resultary"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.04487",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source leaves boundedness open; the audited proof constructs an explicit basis and bounds its condition number uniformly."
+        ],
+        "reasoning": "The final claim is not a corollary of the source theorem because the source explicitly identifies this family as outside its simultaneous-basis mechanism.",
+        "searches": [
+          "arXiv:1904.04487 unresolved-family statement versus audited block-triangular construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary exact hit is the assigned theorem; other retrieved Riesz results concern different families.",
+          "The primary paper explicitly says it does not know whether \\(\\rho(E_p)\\) is uniformly bounded."
+        ],
+        "reasoning": "Equivalent formulations as a uniform condition-number bound, uniform Riesz ratio, or failure of necessity of simultaneous fiber bases were compared.",
+        "searches": [
+          "Resultary: uniform Riesz bound no simultaneous fiber basis F2^2 Zp Ferguson Mayeli Sothanaphan",
+          "arXiv:1904.04487 exact-family discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database or parameter table contains a pre-existing uniform constant for this family."
+        ],
+        "reasoning": "This is an all-prime analytic bound, so finite tables would not imply it.",
+        "searches": [
+          "Resultary exact-family search"
+        ]
+      },
+      "rationale": "The closest primary source introduces this exact family, proves that its fibers admit no simultaneous exponential basis, and explicitly says it is unknown whether the Riesz ratio stays bounded independently of \\(p\\). The audited construction answers that stated question with a concrete uniform bound; no stronger covering theorem or later exact-family result was found.",
+      "residual_risks": [
+        "A later unindexed resolution of the same exact family could exist; none was found in the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING; it supplies the open problem.",
+          "evidence": "The source proves no simultaneous fiber basis exists and states that uniform boundedness of \\(\\rho(E_p)\\) is unknown.",
+          "identifier_or_url": "arXiv:1904.04487",
+          "material_read": "Full primary HTML around the finite multi-tiling theorem, the three-fiber counterexample to simultaneous bases, and the paragraph asking whether its Riesz ratio is uniformly bounded.",
+          "method": "Open full-text inspection.",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "Exact family and explicit unresolved boundedness question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ferguson--Mayeli--Sothanaphan 2019"
+      ],
+      "rationale": "The result directly resolves a concrete obstruction family singled out in the defining paper and shows that the simultaneous-fiber-basis condition is not necessary for uniformly bounded Riesz behavior. An explicit universal constant is a natural quantitative answer, even though it is not optimized.",
+      "residual_risks": [
+        "The bound is family-specific and nonsharp."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Ferguson--Mayeli--Sothanaphan family \\(E_p\\subset \\mathbb F_2^2\\times\\mathbb Z_p\\), although its three fibers have no simultaneous exponential basis, the explicit frequency set \\(B_p\\) in the record is an exponential basis with \\(\\rho(E_p,B_p)<251\\) for every odd prime \\(p\\ge3\\); hence \\(\\rho(E_p)<251\\) uniformly.",
+  "limitations": [
+    "The constant \\(251\\) is not claimed optimal.",
+    "The argument is specific to this three-fiber family and does not remove the simultaneous-basis hypothesis from the general multi-tiling theorem."
+  ],
+  "schema_version": 1
+}
