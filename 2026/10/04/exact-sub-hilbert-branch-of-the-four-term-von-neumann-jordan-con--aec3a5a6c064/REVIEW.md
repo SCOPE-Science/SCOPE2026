@@ -1,18 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(1<q<2\), the proof uses the correct conjugate Clarkson exponent \(r=q/(q-1)\) and the sharp two-coordinate comparison from \(\ell_r^2\) to \(\ell_2^2\). The powers simplify because \((r-1)/r=1/q\), giving the exact two-term square-sum bound. Applying this bound twice produces the claimed four-term upper bound. Distinct coordinate unit vectors have disjoint support and attain equality in every term. The endpoint \(q=1\) is proved directly by the triangle inequality.
+## correctness
 
-Risk: an incorrect Clarkson normalization would change the constant. This was checked algebraically from the standard conjugate-exponent form and against the disjoint-support equality case.
+PASS
 
-## Originality
-PASS. The closest source, arXiv:2110.15741v2, defines the same four-term constant and its Example 3.1 computes the \(\ell_q\) value for \(q\ge2\). The inspected full text does not give the complementary \(1\le q<2\) branch. Searches by notation, formula shape, verbal aliases, exponent range and Clarkson terminology found no equivalent or stronger statement. The published \(q\ge2\) expression does not imply the sub-Hilbert formula; the two branches merely agree at the nonclaimed boundary \(q=2\).
+For \(1<q<2\), set \(r=q/(q-1)>2\). Clarkson's sharp inequality and the two-coordinate norm comparison \(A^2+B^2\le2^{1-2/r}(A^r+B^r)^{2/r}\) combine to give \(\|u+v\|_q^2+\|u-v\|_q^2\le2(\|u\|_q^q+\|v\|_q^q)^{2/q}\). Applying this first to \(u=\lambda x,v=(1-\lambda)y\) and then to \(u=x,v=y\) yields the claimed upper bound. Distinct coordinate unit vectors have disjoint supports and attain equality in both bounds. The endpoint \(q=1\) follows separately from the triangle inequality and the same witness; \(\lambda=0,1\) are included without singularity.
 
-Risk: search cannot rule out differently notated or poorly indexed prior work. This remains the principal originality risk.
+## originality
 
-## Value
-PASS. Exact values on classical \(\ell_q\) spaces are the natural first test for this geometric constant. Filling the entire complementary exponent range gives a coherent model-space profile, not a one-off parameter computation, and the disjoint-support extremizer exposes the geometry responsible for the sub-Hilbert branch.
+PASS
 
-Risk: the theorem does not classify all extremizers and does not extend to general Banach lattices; those are explicitly outside scope.
+The complete defining paper was inspected at the definition and Example 3.1. Its \(\ell_q\) calculation explicitly assumes \(q\ge2\); it does not give the complementary sub-Hilbert branch. The audited theorem closes that natural exponent range with a different Clarkson-conjugate argument and sharp disjoint-support extremizers. Resultary and targeted notation/formula searches found no equivalent \(1\le q<2\) statement.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The claim completes the exact \(\ell_q\) evaluation of a published Banach-space invariant across the natural exponent transition at two and identifies sharp extremizers throughout the missing branch. A complete exponent branch of a standard geometric family is a motivated exact invariant, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

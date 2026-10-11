@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed symbolically from the stated inequalities rather than inferred from numerical sampling.
+# Independent mathematical audit
 
-For \(1<q<2\), set \(r=q/(q-1)\). The standard Clarkson inequality is
-\[
-\|u+v\|_q^r+\|u-v\|_q^r\le2\bigl(\|u\|_q^q+\|v\|_q^q\bigr)^{r-1}.
-\]
-Together with
-\[
-A^2+B^2\le2^{1-2/r}(A^r+B^r)^{2/r},
-\]
-it yields the factor \(2\) and exponent \(2/q\) exactly. Both applications used in the result were checked with their stated normalizations.
+## correctness
 
-For distinct coordinate unit vectors, the two weighted norms both equal \(\bigl(\lambda^q+(1-\lambda)^q\bigr)^{1/q}\), while the two unweighted norms both equal \(2^{1/q}\). Substitution gives the claimed value exactly.
+PASS
 
-For \(q=1\), the proof is independent: the two weighted norms are at most \(1\) and the two unweighted norms are at most \(2\), with equality for the same disjoint coordinate pair.
+For \(1<q<2\), set \(r=q/(q-1)>2\). Clarkson's sharp inequality and the two-coordinate norm comparison \(A^2+B^2\le2^{1-2/r}(A^r+B^r)^{2/r}\) combine to give \(\|u+v\|_q^2+\|u-v\|_q^2\le2(\|u\|_q^q+\|v\|_q^q)^{2/q}\). Applying this first to \(u=\lambda x,v=(1-\lambda)y\) and then to \(u=x,v=y\) yields the claimed upper bound. Distinct coordinate unit vectors have disjoint supports and attain equality in both bounds. The endpoint \(q=1\) follows separately from the triangle inequality and the same witness; \(\lambda=0,1\) are included without singularity.
 
-The nonclaimed boundary \(q=2\) simplifies to \(1\), matching the Hilbert-space parallelogram identity and the directly relevant published branch. No finite computation is used to justify an infinite-dimensional or all-parameter assertion.
+## originality
+
+PASS
+
+The complete defining paper was inspected at the definition and Example 3.1. Its \(\ell_q\) calculation explicitly assumes \(q\ge2\); it does not give the complementary sub-Hilbert branch. The audited theorem closes that natural exponent range with a different Clarkson-conjugate argument and sharp disjoint-support extremizers. Resultary and targeted notation/formula searches found no equivalent \(1\le q<2\) statement.
+
+## value
+
+PASS
+
+The claim completes the exact \(\ell_q\) evaluation of a published Banach-space invariant across the natural exponent transition at two and identifies sharp extremizers throughout the missing branch. A complete exponent branch of a standard geometric family is a motivated exact invariant, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
