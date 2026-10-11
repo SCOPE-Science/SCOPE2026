@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,39 +19,24 @@
 }
 ---
 
-The proof was replayed from the actual package artifact `verify.py`.
+# Independent mathematical audit
 
-The symbolic check constructs
-\[
-n_i=s(q-1)q^{\ell-i-1}
-\]
-and
-\[
-d_i=\sum_{j=\ell-i}^{\ell-1}n_j-\mathbf 1_{\{2i\ge\ell\}},
-\]
-verifies strict increase of the degree sequence, and reconstructs \((q,\ell,s)\) from the unlabeled degree classes.
+## correctness
 
-The profile grid uses ten prime-power residue orders, every nilpotency length from \(3\) through \(8\), and ideal sizes from \(1\) through \(6\). The checker also constructs ideal-based graphs directly for several rings \(\mathbb Z/p^N\mathbb Z\) and reconstructs the parameters from actual adjacency lists.
+PASS
 
-Finally, it directly checks the sharp length-two collision between
-\[
-\Gamma_0(\mathbb Z/9\mathbb Z)
-\quad\text{and}\quad
-\Gamma_{(4)}(\mathbb Z/8\mathbb Z).
-\]
+For quotient valuation \(i\), the lifted layer has size \(|I|(q-1)q^{\ell-i-1}\), and two layers are adjacent exactly when their valuations sum to at least \(\ell\). The degree formula is strictly increasing with valuation because each new layer contributes at least two vertices while the loop-exclusion correction changes by at most one. Hence the unlabeled degree classes recover \(\ell\); consecutive class-size ratios recover \(q\); the last class gives \(|I|\). Conversely the triple fixes every layer size and every threshold adjacency. The \(\ell=2\) graph is exactly \(K_{|I|(q-1)}\), and the two stated \(K_2\) examples verify sharpness. The actual frozen verifier was read and checks symbolic profiles plus direct modular-ring graphs; those checks corroborate rather than replace the valuation proof.
 
-Exact output:
+## originality
 
-```text
-VERIFY_OK
-symbolic_profiles_checked=360
-actual_Zmod_case=(2, 3, 3, 3, 1, (2, 3, 1))
-actual_Zmod_case=(2, 4, 3, 6, 2, (2, 3, 2))
-actual_Zmod_case=(2, 5, 4, 14, 2, (2, 4, 2))
-actual_Zmod_case=(3, 3, 3, 8, 1, (3, 3, 1))
-actual_Zmod_case=(3, 4, 3, 24, 3, (3, 3, 3))
-actual_Zmod_case=(3, 4, 4, 26, 1, (3, 4, 1))
-length_two_collision=Gamma_0(Z9)=Gamma_(4)(Z8)=K2
-```
+PASS
 
-The finite calculations are corroborative only. The arbitrary finite chain-quotient theorem is established by the symbolic valuation and degree-class proof.
+The closest full primary paper on chained quotients was inspected through its structural, diameter and girth theorems; it does not state reconstruction of nilpotency length, residue-field order and ideal cardinality from the abstract graph. The foundational ideal-based graph paper studies relation to the ordinary graph and complete/complete-bipartite cases. Resultary search found related chain-ring graph invariants but no stronger ideal-based isomorphism classification. The inaccessible dissertation is retained as a concrete residual risk rather than treated as non-covering evidence.
+
+## value
+
+PASS
+
+This is a natural complete isomorphism classification for a canonical algebraic graph family, and the exact \(\ell=2\) collision isolates the sharp boundary where quotient and ideal parameters cease to be separately visible. The result recovers genuinely ideal-specific information, namely \(|I|\), rather than merely restating the ordinary quotient graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
