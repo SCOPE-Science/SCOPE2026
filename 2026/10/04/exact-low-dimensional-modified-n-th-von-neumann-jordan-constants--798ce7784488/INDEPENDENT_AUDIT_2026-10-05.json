@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:40:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 93585a08280332a86f5a9325dc85c4f3bb3975f7",
+        "assigned verify.py blob d4e028bcabbbaba90b49301e21cd0d208d11ed18",
+        "independent exact Fraction/Rademacher enumeration through n=8",
+        "Ciesielski--Płuciennik, arXiv:1811.01652 / Banach J. Math. Anal. 14 (2020)"
+      ],
+      "rationale": "Convexity of every squared-norm summand on the product of square unit balls permits a maximizer at product extreme points \\((\\pm1,\\pm1)\\), all of which lie on the sphere. Introducing a global auxiliary sign converts the original half-cube average to a full Rademacher average. For a sign pattern with \\(k\\) equal coordinate parities, the two coordinate sums are \\(A+B\\) and \\(A-B\\); the identity \\(\\max\\{(A+B)^2,(A-B)^2\\}=A^2+B^2+2|AB|\\), plus independence, gives exactly \\(1+(2/n)a_ka_{n-k}\\). The parity maximization follows from \\(a_{2q-1}=a_{2q}\\) and the strict log-concavity ratio \\(c_{q+1}/c_q=(2q+1)/(2q)\\); Stirling gives the limit. An independent exact enumeration over all vertex sign patterns through \\(n=8\\) reproduced values \\(2,5/3,7/4,8/5,7/4,23/14,109/64\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At \\(p=\\infty\\) the source obtains value \\(n\\) only under \\(m\\ge2^{n-1}\\). For \\(m=2\\), this hypothesis fails once \\(n\\ge3\\)."
+        ],
+        "reasoning": "The published high-dimensional theorem is genuinely inapplicable to the fixed low-dimensional regime and therefore does not dominate the audited all-n square-plane profile.",
+        "searches": [
+          "Ciesielski--Płuciennik full article, theorems for \\(\\ell_m^p\\)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.01652",
+        "DOI:10.1007/s43037-019-00033-1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's dimension requirement grows exponentially with n, while the audited result fixes dimension two and has a bounded asymptotic limit rather than value n."
+        ],
+        "reasoning": "The qualitative difference shows the low-dimensional theorem is not a parameter substitution into the prior formula; the new vertex/random-walk optimization is required.",
+        "searches": [
+          "arXiv:1811.01652 sequence-space formula and dimension hypothesis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper uses the same upper modified constant and sequence-space notation.",
+          "No checked source gives the random-walk product formula for the fixed square plane."
+        ],
+        "reasoning": "Formulations via sign averages on square vertices, Rademacher sums, or the modified n-th constant were compared as equivalent.",
+        "searches": [
+          "Resultary: modified n-th von Neumann Jordan constant l_infinity^2 low dimension exact upper modified",
+          "arXiv:1811.01652"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact-value table or formula for all n in \\(\\ell_\\infty^2\\) was located."
+        ],
+        "reasoning": "Nearby indexed results concern other von Neumann--Jordan variants or different spaces.",
+        "searches": [
+          "Resultary exact low-dimensional modified-constant search",
+          "web exact searches using \\(1+2/\\pi\\), \\(\\ell_\\infty^2\\), and modified n-th von Neumann--Jordan terminology"
+        ]
+      },
+      "rationale": "Ciesielski--Płuciennik define this exact modified constant and derive sequence-space formulas, including \\(\\ell_m^\\infty\\), but the full inspected article's value \\(n\\) at \\(p=\\infty\\) requires the high-dimensional regime \\(m\\ge2^{n-1}\\). For fixed \\(m=2\\), that does not cover \\(n\\ge3\\). Targeted Resultary search returned the audited record itself as the direct low-dimensional hit and no prior exact formula with the bounded limit \\(1+2/\\pi\\).",
+      "residual_risks": [
+        "An unindexed low-dimensional Banach-space computation could contain the same Rademacher formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_HIGH_DIMENSION_ONLY",
+          "evidence": "The \\(p=\\infty\\) exact value n is proved in the regime \\(m\\ge2^{n-1}\\), leaving fixed \\(m=2\\) uncovered for n at least 3.",
+          "identifier_or_url": "arXiv:1811.01652; DOI:10.1007/s43037-019-00033-1",
+          "material_read": "Full accessible publisher article, including the definition and the \\(\\ell_m^p\\) exact formulas with their dimension hypotheses.",
+          "method": "Open full-text publisher inspection.",
+          "title": "On some modifications of n-th von Neumann--Jordan constant for Banach spaces",
+          "trigger": "Defining primary paper and closest exact sequence-space theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ciesielski--Płuciennik 2020",
+        "assigned exact calculation"
+      ],
+      "rationale": "The square plane is the canonical two-dimensional non-Hilbert \\(\\ell_\\infty\\) space, and the result fills exactly the fixed-dimension regime excluded from the existing high-dimensional formula. The all-n formula and its finite non-Hilbert limit give a natural benchmark for how modified n-th constants behave when dimension does not grow with n.",
+      "residual_risks": [
+        "No classification of all maximizing tuples is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the real square plane \\(\\ell_\\infty^2\\), the upper modified \\(n\\)-th von Neumann--Jordan constant is \\(1+(2/n)\\max_{0\\le k\\le n}a_ka_{n-k}\\), with the stated parity formulas and limit \\(1+2/\\pi\\), where \\(a_r\\) is the mean absolute displacement of an \\(r\\)-step simple random walk.",
+  "limitations": [
+    "Real two-dimensional \\(\\ell_\\infty\\) only.",
+    "Only the upper modified constant is evaluated; no claim is made for unmodified or lower constants."
+  ],
+  "schema_version": 1
+}

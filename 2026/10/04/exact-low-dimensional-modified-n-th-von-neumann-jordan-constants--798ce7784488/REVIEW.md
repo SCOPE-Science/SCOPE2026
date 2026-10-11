@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces the sphere supremum to square vertices by convexity, converts the vertex problem to an exact Rademacher expectation, and optimizes the resulting product using an explicit log-concave sequence. Every quantifier is over integers \(n\ge2\) in the real plane \(\ell_\infty^2\). The bundled exact checker exhausts all vertex sign patterns through \(n=8\) and checks the closed/parity formulas through \(n=12\); this is supplementary to the symbolic proof.
+## correctness
 
-## Originality
-**PASS.** The closest primary source defines the invariant and gives exact high-exponent formulas only with the dimension condition \(m\ge2^{n-1}\), including its \(p=\infty\) extension. That does not cover \(m=2\) for \(n\ge3\). published-finding corpus, web, alias, parameter, and own-ledger searches found no equivalent or stronger fixed-plane statement. Residual risk remains for obscure or unindexed literature.
+PASS
 
-## Value
-**PASS.** The result gives a complete all-order profile in the smallest nontrivial nonsmooth sequence space and exposes strong dimension dependence: the fixed plane converges to \(1+2/\pi\), whereas the covered high-dimensional endpoint has value \(n\). This is a natural exact benchmark rather than an arbitrary finite slice.
+Convexity of every squared-norm summand on the product of square unit balls permits a maximizer at product extreme points \((\pm1,\pm1)\), all of which lie on the sphere. Introducing a global auxiliary sign converts the original half-cube average to a full Rademacher average. For a sign pattern with \(k\) equal coordinate parities, the two coordinate sums are \(A+B\) and \(A-B\); the identity \(\max\{(A+B)^2,(A-B)^2\}=A^2+B^2+2|AB|\), plus independence, gives exactly \(1+(2/n)a_ka_{n-k}\). The parity maximization follows from \(a_{2q-1}=a_{2q}\) and the strict log-concavity ratio \(c_{q+1}/c_q=(2q+1)/(2q)\); Stirling gives the limit. An independent exact enumeration over all vertex sign patterns through \(n=8\) reproduced values \(2,5/3,7/4,8/5,7/4,23/14,109/64\).
 
-## Closest literature and limitations
-The closest source is Ciesielski--Płuciennik, arXiv:1811.01652 / doi:10.1007/s43037-019-00033-1. No classification of every maximizing tuple is claimed. Search completeness cannot exclude an obscure independent occurrence.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ciesielski--Płuciennik define this exact modified constant and derive sequence-space formulas, including \(\ell_m^\infty\), but the full inspected article's value \(n\) at \(p=\infty\) requires the high-dimensional regime \(m\ge2^{n-1}\). For fixed \(m=2\), that does not cover \(n\ge3\). Targeted Resultary search returned the audited record itself as the direct low-dimensional hit and no prior exact formula with the bounded limit \(1+2/\pi\).
+
+## value
+
+PASS
+
+The square plane is the canonical two-dimensional non-Hilbert \(\ell_\infty\) space, and the result fills exactly the fixed-dimension regime excluded from the existing high-dimensional formula. The all-n formula and its finite non-Hilbert limit give a natural benchmark for how modified n-th constants behave when dimension does not grow with n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
