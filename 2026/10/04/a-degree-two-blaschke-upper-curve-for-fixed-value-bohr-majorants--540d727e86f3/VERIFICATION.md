@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,107 +19,24 @@
 }
 ---
 
-Set
-\[
-s=\sqrt{\rho}
-\]
-and
-\[
-B_\rho(z)
-=
-\left(
-\frac{z-s}{1-sz}
-\right)^2.
-\]
-The coefficient expansion is
-\[
-B_\rho(z)
-=
-\rho
-+
-\sum_{n\ge1}
-s^{n-2}(1-\rho)
-\left(
-n(1-\rho)-(1+\rho)
-\right)z^n.
-\]
+# Independent mathematical audit
 
-For
-\[
-0<\rho\le1/3,
-\]
-the coefficient of \(z\) is negative and every coefficient from degree two onward is nonnegative. Hence
-\[
-M B_\rho(r)
-=
-\left(
-\frac{r-s}{1-sr}
-\right)^2
-+
-4s(1-s^2)r.
-\]
+## correctness
 
-Subtracting
-\[
-P_\rho(r)
-=
-s^2+\frac{(1-s^4)r}{1-s^2r}
-\]
-gives
-\[
-M B_\rho(r)-P_\rho(r)
-=
--
-\frac{
-r(1-s^2)Q_s(r)
-}{
-(1-rs)^2(1-rs^2)
-},
-\]
-where
-\[
-Q_s(r)
-=
-4s^5r^3
-+
-(-6s^4-4s^3+2s^2)r^2
-+
-(7s^2-2s-1)r
-+
-(1-s)^2.
-\]
+PASS
 
-The endpoint values satisfy
-\[
-Q_s(1/3)>0,
-\qquad
-Q_s(1)<0.
-\]
-Moreover, \(Q_s'\) is convex in \(r\), and its two endpoint values are strictly negative throughout
-\[
-0<s\le1/\sqrt3.
-\]
-Therefore \(Q_s\) is strictly decreasing on \([1/3,1]\) and has exactly one zero there.
+Expanding \(B_\rho(z)=((z-s)/(1-sz))^2\), \(s=\sqrt\rho\), gives \(c_n=s^{n-2}(1-\rho)[n(1-\rho)-(1+\rho)]\). For \(0<\rho\le1/3\), only \(c_1\) is negative, so the majorant equals the ordinary value with the linear coefficient reflected. The displayed rational defect has positive denominator on \(0<r<1\), reducing the comparison to the cubic \(Q_s\). Its endpoint signs and the negativity of its convex derivative at both endpoints imply strict decrease and a unique root in \((1/3,1)\). Independent high-precision evaluation of the \(\rho=1/3\) exact cubic gave the unique in-interval root \(0.727436801449823845\ldots\), matching the record. Brevig's corollary supplies the lower bound \(R_*(\rho)\ge1/3\).
 
-For every radius above that zero, the explicit admissible Blaschke product violates the comparison. This proves the upper bound without numerical experimentation.
+## originality
 
-At
-\[
-\rho=1/3,
-\]
-the zero equation reduces exactly to
-\[
-2\sqrt3\,r^3
--
-6\sqrt3\,r^2
-+
-(18-9\sqrt3)(r+1)
-=
-0.
-\]
-Its unique root in \((1/3,1)\) evaluates to
-\[
-0.727436801449824\ldots .
-\]
+PASS
 
-The decimal is not used as a certificate; the exact cubic and monotonicity proof are the certificate.
+Brevig's primary note proves the lower comparison through \(\max(\rho,1/3)\) and explicitly asks for the largest radius at each fixed \(0<\rho<1\). It does not contain the squared-automorphism cubic obstruction. Resultary returned the current record as the only exact fixed-value degree-two upper-curve hit.
+
+## value
+
+PASS
+
+The source poses the fixed-value radius as a concrete open problem. A simple explicit inner family gives a computable upper curve throughout the natural low-value regime and a nontrivial exact endpoint at \(\rho=1/3\), materially narrowing the admissible range without claiming a full solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
