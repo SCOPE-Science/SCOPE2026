@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:55:50.898777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 0a3a9db39c1b5a25689726265c13de5639ba75d9",
+        "independent exact group-action replay",
+        "Lemire, arXiv:2609.30482v1, Section 7.3, Proposition 7.6 and Corollary 7.7"
+      ],
+      "rationale": "The numerical invariants check exactly. From Lemire's nine ray orbits and printed stabilizers, orbit--stabilizer gives sizes \\(20,60,40,10,30,20,40,60,120\\), summing to \\(400\\). I independently reconstructed the eight maximal-cone representatives from Section 7.3 and enumerated all \\(240\\) signed coordinate permutations in \\(\\operatorname{Aut}(A_4)\\cong S_5\\times C_2\\); every representative has trivial stabilizer and the eight orbits are disjoint, hence there are \\(1920\\) maximal cones. Standard smooth complete toric facts then give \\(\\rho=400-4=396\\), Euler characteristic \\(1920\\), vanishing odd Betti numbers and, by Poincare duality, \\((1,396,1126,396,1)\\).",
+      "residual_risks": [
+        "The computation concerns Lemire's specific split toric Demazure model, not an arithmetic quotient or its cohomology ring."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemire gives the explicit smooth fan construction, eight maximal-cone orbits, nine ray-orbit representatives, and ray stabilizers."
+        ],
+        "reasoning": "The source constructs the object and provides ingredients, but does not supply a theorem already stating the audited totals; checking the eight cone stabilizers is additional finite geometry.",
+        "searches": [
+          "Nicole Lemire, arXiv:2609.30482v1, Section 7.3",
+          "Cox--Little--Schenck, Toric Varieties, standard divisor and cohomology facts"
+        ]
+      },
+      "checked_sources": [
+        "Lemire arXiv:2609.30482v1 relevant primary pages",
+        "Resultary model/invariant query",
+        "web numerical searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ray count follows quickly from printed stabilizers, whereas the \\(1920\\) maximal-cone count requires verifying trivial stabilizers for all eight representatives; the Betti vector then follows from standard toric identities."
+        ],
+        "reasoning": "This is a finite invariant extraction from a newly explicit fan, not a theorem already present verbatim or as a single stated corollary in the primary source.",
+        "searches": [
+          "statement-level comparison to Proposition 7.6 and Corollary 7.7 of arXiv:2609.30482v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Only the audited record matched the full numerical profile."
+        ],
+        "reasoning": "No equivalent statement of the same additive cohomological invariants was found.",
+        "searches": [
+          "Resultary: A4 Demazure model Betti numbers rays maximal cones Picard rank",
+          "web: \"A_4\" Demazure model 400 rays 1920 maximal cones"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent database/table with this profile was found."
+        ],
+        "reasoning": "The numbers are not a recomputation of an existing tabulated invariant.",
+        "searches": [
+          "Resultary exact numerical/model query",
+          "web numerical searches 400 1920 396 1126 Lemire"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives at the level of the claimed numerical profile. Lemire constructs the model, states eight maximal-cone orbits, and gives the nine ray orbits with stabilizers, but does not state the total ray count, the maximal-cone orbit sizes, Picard rank, Euler characteristic, or Betti vector. The nontrivial missing step is the stabilizer computation for all eight maximal-cone representatives. Searches for the model name together with the numerical invariants returned only the audited finding and no earlier computation.",
+      "residual_risks": [
+        "Because the full fan is explicit in Lemire, the invariants are in principle computable from prior data; the originality is the exact extraction, not a new construction of the model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_NEARBY_NOT_NUMERICALLY_COVERING",
+          "evidence": "Proposition 7.6 states eight maximal-cone orbits and Corollary 7.7 gives the ray-orbit stabilizers; the inspected pages do not state 400 rays, 1920 maximal cones, Picard rank 396, or the Betti vector.",
+          "identifier_or_url": "arXiv:2609.30482v1",
+          "material_read": "Introduction and Section 7.3, especially pp. 29-33 containing the smooth subdivisions, eight maximal-cone orbits, nine ray orbits and stabilizers.",
+          "method": "authorized institutional full-text retrieval after arXiv/OA full-text access attempts failed",
+          "title": "Demazure Models of Algebraic Tori in Dimension 4",
+          "trigger": "Primary construction of the exact model."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lemire primary construction and its stated cohomological motivation",
+        "independent exact orbit calculation"
+      ],
+      "rationale": "The Betti vector, Picard rank and torus-fixed-point count are canonical additive invariants of a newly constructed named smooth projective toric fourfold. Lemire explicitly identifies further cohomological study as a natural direction. Computing the complete numerical profile is therefore a motivated exact invariant calculation, not an arbitrary parameter slice, even though the final toric deductions are standard once the fan counts are known.",
+      "residual_risks": [
+        "The result is additive only: it does not compute the cohomology or Chow ring, intersection form, or equivariant structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The computation concerns Lemire's specific split toric Demazure model, not an arithmetic quotient or its cohomology ring.",
+    "Because the full fan is explicit in Lemire, the invariants are in principle computable from prior data; the originality is the exact extraction, not a new construction of the model.",
+    "The result is additive only: it does not compute the cohomology or Chow ring, intersection form, or equivariant structure."
+  ],
+  "schema_version": 1
+}

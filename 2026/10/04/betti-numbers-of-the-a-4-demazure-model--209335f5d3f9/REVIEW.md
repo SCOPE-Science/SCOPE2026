@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source supplies the exact nine ray-orbit classes, their stabilizers, and eight explicit maximal-cone orbit representatives for the smooth projective fan. Orbit--stabilizer with \(|\operatorname{Aut}(A_4)|=240\) gives \(400\) rays. Exhaustive exact enumeration of all signed coordinate permutations verifies trivial stabilizer for each of the eight maximal-cone representatives, hence \(1920\) maximal cones. The standard toric divisor sequence gives Picard rank \(396\); smooth projective toric cohomology and Poincaré duality then force the Betti tuple \((1,396,1126,396,1)\).
+## correctness
 
-## Originality
-**PASS.** The primary full text was inspected at the statement level. It constructs the model and provides the orbit data but does not state the total ray count, maximal-cone count, Picard rank, Euler characteristic, or Betti profile. Exact-model, exact-number, cohomology, Picard, and equivalent-formulation searches did not locate a covering statement. General toric formulas do not imply the numerical values until the new fan's orbit data are counted.
+PASS
 
-## Value
-**PASS.** These are the complete additive cohomological ranks of a newly constructed smooth projective compactification central to the source's four-dimensional torus program. The paper itself identifies cohomological invariants and Chow groups of the explicit models as promising next objects of study, so the full Betti profile and Picard rank are naturally motivated structural invariants.
+The numerical invariants check exactly. From Lemire's nine ray orbits and printed stabilizers, orbit--stabilizer gives sizes \(20,60,40,10,30,20,40,60,120\), summing to \(400\). I independently reconstructed the eight maximal-cone representatives from Section 7.3 and enumerated all \(240\) signed coordinate permutations in \(\operatorname{Aut}(A_4)\cong S_5\times C_2\); every representative has trivial stabilizer and the eight orbits are disjoint, hence there are \(1920\) maximal cones. Standard smooth complete toric facts then give \(\rho=400-4=396\), Euler characteristic \(1920\), vanishing odd Betti numbers and, by Poincare duality, \((1,396,1126,396,1)\).
 
-## Closest literature and limitations
-The closest source is Lemire, arXiv:2609.30482v1, especially Section 7.3, Proposition 7.6, and Corollary 7.7. Earlier work cited there gives general Demazure-model constructions, root-polytope triangulations, and dimension-three comparison models, but not these invariants of the newly constructed \(Y(A_4)\). The present calculation does not determine the cohomology ring, Chow ring, intersection pairing, \(K\)-groups, or quotient cohomology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives at the level of the claimed numerical profile. Lemire constructs the model, states eight maximal-cone orbits, and gives the nine ray orbits with stabilizers, but does not state the total ray count, the maximal-cone orbit sizes, Picard rank, Euler characteristic, or Betti vector. The nontrivial missing step is the stabilizer computation for all eight maximal-cone representatives. Searches for the model name together with the numerical invariants returned only the audited finding and no earlier computation.
+
+## value
+
+PASS
+
+The Betti vector, Picard rank and torus-fixed-point count are canonical additive invariants of a newly constructed named smooth projective toric fourfold. Lemire explicitly identifies further cohomological study as a natural direction. Computing the complete numerical profile is therefore a motivated exact invariant calculation, not an arbitrary parameter slice, even though the final toric deductions are standard once the fan counts are known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

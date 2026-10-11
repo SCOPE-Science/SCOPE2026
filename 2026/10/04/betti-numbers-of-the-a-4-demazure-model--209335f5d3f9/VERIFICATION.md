@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact verifier uses the coordinate realization of \(A_4\) in the sum-zero sublattice of \(\mathbf Z^5\). It enumerates the \(240\) elements of
-\[
-S_5\times C_2
-\]
-as coordinate permutations followed optionally by global sign change.
+# Independent mathematical audit
 
-The nine ray representatives are generated from the source formula for \(s_{I,J}\) together with \(v_1,v_2,v_3\). The script checks their orbit sizes to be
-\[
-20,60,40,10,30,20,40,60,120,
-\]
-checks that these nine orbits are pairwise disjoint, and verifies that the total number of rays is \(400\).
+## correctness
 
-The eight maximal-cone representatives are encoded from the explicit subdivisions printed immediately before Proposition 7.6. For every representative the script checks all \(240\) group elements and finds stabilizer order \(1\). It also verifies that the eight cone orbits are distinct. Thus the number of maximal cones is exactly
-\[
-8\cdot240=1920.
-\]
+PASS
 
-Finally, the script checks
-\[
-400-4=396
-\]
-and
-\[
-1920-(1+396+396+1)=1126.
-\]
-The saved output ends in `VERIFY_OK`.
+The numerical invariants check exactly. From Lemire's nine ray orbits and printed stabilizers, orbit--stabilizer gives sizes \(20,60,40,10,30,20,40,60,120\), summing to \(400\). I independently reconstructed the eight maximal-cone representatives from Section 7.3 and enumerated all \(240\) signed coordinate permutations in \(\operatorname{Aut}(A_4)\cong S_5\times C_2\); every representative has trivial stabilizer and the eight orbits are disjoint, hence there are \(1920\) maximal cones. Standard smooth complete toric facts then give \(\rho=400-4=396\), Euler characteristic \(1920\), vanishing odd Betti numbers and, by Poincare duality, \((1,396,1126,396,1)\).
 
-Inputs not re-proved by the finite script are the source theorem that the displayed fan is smooth, projective, and complete, and the standard toric facts connecting rays and maximal cones to Picard rank and cohomology.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives at the level of the claimed numerical profile. Lemire constructs the model, states eight maximal-cone orbits, and gives the nine ray orbits with stabilizers, but does not state the total ray count, the maximal-cone orbit sizes, Picard rank, Euler characteristic, or Betti vector. The nontrivial missing step is the stabilizer computation for all eight maximal-cone representatives. Searches for the model name together with the numerical invariants returned only the audited finding and no earlier computation.
+
+## value
+
+PASS
+
+The Betti vector, Picard rank and torus-fixed-point count are canonical additive invariants of a newly constructed named smooth projective toric fourfold. Lemire explicitly identifies further cohomological study as a natural direction. Computing the complete numerical profile is therefore a motivated exact invariant calculation, not an arbitrary parameter slice, even though the final toric deductions are standard once the fan counts are known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
