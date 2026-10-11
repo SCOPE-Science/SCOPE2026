@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:05:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d072b498ba66c66ff634fe17c78a24ffa13cb4ef",
+        "assigned verify_cayley_tree_precision.py blob ee577eefd7ab9c6949074e944c4bdc459a638c0f",
+        "Burton--Pemantle, arXiv:math/0404048, transfer-impedance determinant theorem",
+        "fresh exact rational grounded inversions at n=6 and n=7"
+      ],
+      "rationale": "The covariance and grounded inverse formulas are correct. The transfer-current kernel for the uniform spanning tree of \\(K_n\\) is \\(K=n^{-1}B^{\\mathsf T}B\\), so determinantal two-edge marginals give variance \\(2(n-2)/n^2\\), covariance \\(-1/n^2\\) for incident distinct edges, and zero covariance for disjoint edges. This is exactly \\(n^{-2}L_{L(K_n)}\\). The unsigned-incidence identities reduce the line-graph Laplacian to two nonzero eigenspaces, and the displayed pseudoinverse followed by the standard grounding identity gives all six precision orbits. Substitution into the precision normalization gives the six partial-correlation formulas. The actual package checker enumerates Prüfer trees through \\(n=7\\) and verifies every grounded product exactly through \\(n=12\\). Independently, I rebuilt the rational grounded covariance and inverted it exactly at \\(n=6,7\\), obtaining the stated diagonal classes and entrywise positivity. The finite checks are supplementary; the universal proof is the transfer-current and exact incidence-matrix calculation.",
+      "residual_risks": [
+        "The partial correlations are linear least-squares partial correlations, not nonlinear conditional correlations.",
+        "The result is specific to the complete host graph after one coordinate is grounded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burton--Pemantle covers arbitrary finite host graphs at the level of all edge marginals.",
+          "Grounded inverse entries are obtained from any Laplacian pseudoinverse by subtracting the grounded row and column."
+        ],
+        "reasoning": "These ingredients are broader than the complete-graph specialization and leave only routine orbit substitution.",
+        "searches": [
+          "Burton--Pemantle finite-dimensional UST marginal theorem",
+          "standard grounded-Laplacian pseudoinverse identity",
+          "standard Johnson/line-graph incidence decomposition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0404048",
+        "Resultary current published-finding corpus",
+        "classical line-graph/grounded-Laplacian identities used explicitly in the audited proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first implication is one determinant/covariance substitution.",
+          "The second is a two-eigenspace inverse followed by checking whether retained edges meet the grounded edge and one another."
+        ],
+        "reasoning": "No additional nonstandard probabilistic or spectral lemma is required.",
+        "searches": [
+          "transfer-current determinant on K_n versus covariance line-graph formula",
+          "line-graph Laplacian plus grounding identity versus six precision classes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The transfer-current determinant gives the same edge-inclusion process, not merely an analogous random-tree model.",
+          "For the complete graph its kernel entries are determined by the oriented edge-incidence inner products, which are 2 on the diagonal, ±1 for incident edges, and 0 for disjoint edges."
+        ],
+        "reasoning": "The published determinantal process and the audited covariance formulation are equivalent after direct substitution.",
+        "searches": [
+          "Resultary query: uniform Cayley tree edge indicator covariance precision grounded line graph partial correlations",
+          "Burton--Pemantle arXiv:math/0404048, Theorem 1.1 transfer-impedance determinant",
+          "classical identification L(K_n)=J(n,2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier separately indexed six-orbit table was retrieved."
+        ],
+        "reasoning": "The absence of a verbatim table does not establish originality because the stronger prior theorem and standard inversion imply it mechanically.",
+        "searches": [
+          "Resultary exact-title query: Grounded precision geometry of uniform Cayley-tree edge indicators",
+          "Resultary semantic query for Cayley-tree precision and partial correlations"
+        ]
+      },
+      "rationale": "The novelty-bearing formulas are a routine same-object specialization of stronger published machinery. Burton and Pemantle's transfer-impedance theorem gives every finite-dimensional marginal of a uniform spanning tree from the transfer-current matrix. On \\(K_n\\), inserting \\(L_{K_n}^{+}=n^{-1}(I-n^{-1}J)\\) makes the kernel \\(n^{-1}B^{\\mathsf T}B\\), so the entire covariance matrix follows immediately from whether two edges meet. After that identification, the remaining claim is an elementary inversion of a grounded Laplacian of the classical line graph \\(L(K_n)=J(n,2)\\): the unsigned incidence identities printed in the audited proof already diagonalize the matrix, and the standard grounded-pseudoinverse identity gives the precision entries. Thus the exact orbit values and their normalized partial correlations are mechanically implied by a published same-object determinantal theorem plus standard Laplacian linear algebra, even though I did not locate these six numbers printed verbatim.",
+      "residual_risks": [
+        "A statistics source might print the precision formulas explicitly, but explicit prior printing is unnecessary for this implication-based rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_GENERAL_MARGINAL_COVERAGE",
+          "evidence": "The theorem gives joint probabilities of arbitrary finite edge sets by a determinant of the transfer-current matrix; specializing that matrix to K_n yields the audited covariance immediately.",
+          "identifier_or_url": "arXiv:math/0404048",
+          "material_read": "primary full text at the transfer-impedance theorem and its finite-graph setup, with the theorem page visually inspected",
+          "method": "primary PDF full-text targeted inspection with page verification",
+          "title": "Local Characteristics, Entropy and Limit Theorems for Spanning Trees and Domino Tilings via Transfer-Impedances",
+          "trigger": "same uniform-spanning-tree edge process and decisive marginal theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Burton--Pemantle transfer-current theorem",
+        "assigned RESULT.md and exact verifier"
+      ],
+      "rationale": "The negative full-order partial correlations are an attractive interpretation, but after the known UST kernel is specialized to \\(K_n\\), the rest is a short textbook matrix inversion on a two-class association graph. The result introduces no new dependence theorem, boundary phenomenon, or difficult exact invariant beyond what the prior determinantal law and standard Laplacian algebra already encode. Under the common value bar, convenience of an explicit table is not enough to make this routine specialization independently valuable.",
+      "residual_risks": [
+        "The table can still be pedagogically useful for illustrating the distinction between marginal and linear partial correlation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The partial correlations are linear least-squares partial correlations, not nonlinear conditional correlations.",
+    "The result is specific to the complete host graph after one coordinate is grounded.",
+    "A statistics source might print the precision formulas explicitly, but explicit prior printing is unnecessary for this implication-based rejection.",
+    "The table can still be pedagogically useful for illustrating the distinction between marginal and linear partial correlation."
+  ]
+}
