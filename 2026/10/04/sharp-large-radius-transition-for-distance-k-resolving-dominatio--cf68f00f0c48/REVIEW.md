@@ -1,12 +1,21 @@
-# Review of Sharp large-radius transition for distance-\(k\) resolving domination of balanced spiders
+# Independent mathematical audit
 
-## Correctness
-PASS. A resolving set must meet at least \(q-1\) arms, while one noncentral landmark on each of \(q-1\) arms resolves the balanced spider, so the metric dimension is \(q-1\) with the stated basis structure. When \(k\le L\), every metric basis leaves one arm without a landmark and its leaf is at distance at least \(L+1\), forcing one additional vertex. For \(k\ge\lceil L/2\rceil\), one carefully placed landmark on every arm distance-\(k\) dominates the whole spider, proving the \(q\) plateau. For \(k\ge L+1\), depth-one landmarks on \(q-1\) arms already dominate the omitted leaf, proving the drop to \(q-1\). In the stabilized regime the omitted leaf is the only possible domination bottleneck, yielding the exact depth threshold and counting formula. Direct exhaustive tests match all statements on the tested grid.
+## correctness
 
-## Originality
-PASS. The primary 2021 all-\(k\) paper gives general bounds, exact path and cycle values, and only the diameter-level guarantee for equality with metric dimension; targeted full-text searches found no spider or subdivided-star result. The earlier distance-\(2\) paper treats stars, paths, complete graphs, and friendship graphs and explicitly poses further distance-\(k\) determinations as open work; its inspected full text also contains no spider or subdivision theorem. Targeted web and published-results searches for distance-\(k\) resolving domination of spiders and subdivided stars found no equivalent phase transition, metric-basis depth criterion, or minimum-set count.
+PASS
 
-## Value
-PASS. Balanced spiders are canonical trees with one branching vertex and arbitrary arm length. The theorem identifies the exact stabilization radius at which the combined parameter becomes the metric dimension, improving the general diameter guarantee from \(2L\) to the sharp threshold \(L+1\), and it quantifies the entire optimum family after stabilization. The one-extra-landmark plateau for \(\lceil L/2\rceil\le k\le L\) also isolates a clean interaction between metric resolution and distance domination rather than merely recomputing either constituent parameter.
+Any resolving set for a balanced spider must place a noncentral landmark on at least \(q-1\) arms, and one arbitrary noncentral landmark on each of \(q-1\) arms already resolves the tree. For \(\lceil L/2\rceil\le k\le L\), every size-\(q-1\) resolving set leaves one arm whose leaf is at distance at least \(L+1>k\), while one depth-\(L-k\) landmark per arm (and depth one at \(k=L\)) gives a resolving dominating set of size \(q\). For \(k\ge L+1\), depth-one landmarks on any \(q-1\) arms attain the metric dimension. For an arbitrary minimum basis the omitted leaf is at distance \(L+\min d_i\), giving the exact depth criterion and the stated count. The inspected verifier directly checks definitions for \(3\le q\le5\), \(2\le L\le5\), including all smaller candidate sizes and all minimum-set counts; the finite computation corroborates the symbolic proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete 2021 distance-k resolving-domination paper was inspected. It proves the general stabilization \(\gamma_k^r(G)=\dim(G)\) once \(k\) reaches the graph diameter and gives path/cycle formulas, but no spider or subdivided-star treatment was located. The submitted balanced-spider theorem sharpens stabilization from diameter \(2L\) to the exact threshold \(L+1\) and classifies/counts every minimum set thereafter. Resultary search for balanced spiders and distance-k resolving domination returned no earlier equivalent theorem.
+
+## value
+
+PASS
+
+Balanced spiders are a canonical tree family and give a clean example where the general diameter stabilization bound is far from sharp. The exact transition, complete metric-basis compatibility criterion, and minimum-set enumeration provide a natural structural benchmark for the combined domination/resolvability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
