@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:38:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "Antony et al., arXiv:2402.18984, total-burning section and Theorem 5.7"
+      ],
+      "rationale": "For any graph \\(H\\) with at least two vertices, \\(b(H)=2\\) exactly when some vertex has at most one nonneighbor. For a vertex-node \\(v\\) in \\(T(G)\\), the nonneighbor count is \\((n-1-d(v))+(m-d(v))\\); connectivity rules out the only case with one missing neighbor but no nonincident edge, forcing \\(v\\) to be universal and leaving at most one edge not incident with it, i.e. a star or star plus one leaf-edge. An edge-node has at least \\(n-2\\) nonneighbor vertex-nodes, so it gives only \\(n\\le3\\), already contained in the listed families. Sufficiency is immediate, and the consequence for \\(b(G)=2\\) follows from the published bound \\(b(G)\\le b_T(G)\\le b(G)+1\\).",
+      "residual_risks": [
+        "The auxiliary Graph Atlas stress test described in the record had no verifier path in the inspected package; correctness does not rely on it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked prior work treats general bounds and total-burning questions, not the first-layer classification."
+        ],
+        "reasoning": "No broader checked theorem determines exactly which original graphs make the total graph two-burnable.",
+        "searches": [
+          "Antony et al. total-burning results",
+          "Moghbel total burning dissertation context"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.18984",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sandwich bounds only restrict \\(b_T\\) to one of two adjacent values when \\(b=2\\); they do not identify the equality family."
+        ],
+        "reasoning": "The audited nonneighbor count is an additional structural argument, not a corollary of the inequality alone.",
+        "searches": [
+          "Theorem 5.7 in arXiv:2402.18984 versus the two-round neighborhood criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching prior classification surfaced in Resultary.",
+          "The primary source gives the general bound but not the star/star-plus-edge iff."
+        ],
+        "reasoning": "Equivalent formulations via a dominating closed neighborhood in the total graph or at-most-one nonneighbor were compared.",
+        "searches": [
+          "Resultary: total burning number two total graph stars extra edge",
+          "Antony et al. arXiv:2402.18984"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table or known-graph database gives the all-order classification."
+        ],
+        "reasoning": "The theorem is symbolic for arbitrary connected graphs, not a census fact.",
+        "searches": [
+          "Resultary graph-burning corpus"
+        ]
+      },
+      "rationale": "The primary total-burning paper defines \\(b_T(G)=b(T(G))\\) and proves only the general one-step sandwich \\(b(G)\\le b_T(G)\\le b(G)+1\\). Targeted Resultary searching did not locate the exact \\(b_T=2\\) classification. The audited neighborhood count supplies the missing iff.",
+      "residual_risks": [
+        "A terminology-mismatched later paper on “total graph source vertices” appears to use a different parameter; this remains a literature-comparison risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING only.",
+          "evidence": "It proves \\(b(G)\\le b_T(G)\\le b(G)+1\\) but does not classify the \\(b_T=2\\) layer.",
+          "identifier_or_url": "arXiv:2402.18984",
+          "material_read": "Full primary PDF total-burning section, including the definition of total burning and Theorem 5.7; relevant PDF pages were visually inspected.",
+          "method": "Open-access PDF full-text plus page inspection.",
+          "title": "Graph Burning: Bounds and Hardness",
+          "trigger": "Primary total-burning source and strongest directly relevant bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Antony et al. 2024",
+        "total-burning literature"
+      ],
+      "rationale": "This is a complete structural classification of the first nontrivial value of a recently studied graph invariant and exactly resolves the equality split inside the natural \\(b(G)=2\\) layer. Its short proof does not make the boundary arbitrary.",
+      "residual_risks": [
+        "No conclusions are made for \\(b_T\\ge3\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every connected finite simple graph \\(G\\) of order at least two, \\(b(T(G))=2\\) exactly when \\(G\\) is a star or a star with exactly one added edge between two leaves; consequently these are exactly the graphs in the layer \\(b(G)=2\\) for which total burning does not increase the burning number.",
+  "limitations": [
+    "Only the first nontrivial total-burning layer is classified.",
+    "The result does not classify equality \\(b_T=b\\) for larger burning number."
+  ],
+  "schema_version": 1
+}

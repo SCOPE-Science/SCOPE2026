@@ -1,27 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces \(b_T(G)=2\) to the exact criterion that some vertex of \(T(G)\) has at most one nonneighbor. For a vertex-node \(v\), the nonneighbor count is exactly
-\[
-(n-1-d_G(v))+(|E(G)|-d_G(v)).
-\]
-Connectivity rules out the only apparent exceptional case in which \(v\) has one nonneighbor but every edge is incident with \(v\). This forces a universal vertex with at most one edge among its leaves. For an edge-node, at least \(n-2\) vertex-nodes are nonneighbors, forcing \(n\le3\), and those connected cases are already in the classified families. Sufficiency follows from the center vertex-node having zero or one nonneighbor.
+## correctness
 
-The auxiliary exhaustive check of connected Graph Atlas types through seven vertices found no counterexample. It is corroborative only.
+PASS
 
-## Originality
-PASS with residual search risk. Moghbel's total-burning discussion motivates characterizing graphs with a prescribed value but does not supply the \(k=2\) classification. Antony et al. prove the broader inequality \(b(G)\le b_T(G)\le b(G)+1\) and leave equality-class questions open; that theorem does not imply which graphs in the layer \(b(G)=2\) attain \(b_T(G)=2\).
+For any graph \(H\) with at least two vertices, \(b(H)=2\) exactly when some vertex has at most one nonneighbor. For a vertex-node \(v\) in \(T(G)\), the nonneighbor count is \((n-1-d(v))+(m-d(v))\); connectivity rules out the only case with one missing neighbor but no nonincident edge, forcing \(v\) to be universal and leaving at most one edge not incident with it, i.e. a star or star plus one leaf-edge. An edge-node has at least \(n-2\) nonneighbor vertex-nodes, so it gives only \(n\le3\), already contained in the listed families. Sufficiency is immediate, and the consequence for \(b(G)=2\) follows from the published bound \(b(G)\le b_T(G)\le b(G)+1\).
 
-Focused searches for the exact value, total-graph formulation, equality formulation, star formulation, and the classified structure did not locate an equivalent theorem. The closest indexed prior-result hit concerned threshold-two burning, a different activation model.
+## originality
 
-A 2025 article by Komala and Mary reports a star value under “total graph source vertex” terminology that disagrees with the standard total-graph burning calculation. Since the center vertex-node of a star is universal in \(T(G)\), the standard parameter satisfies \(b_T(G)=2\). The 2025 statement therefore does not imply the accepted classification, but its terminology mismatch remains a literature-comparison risk.
+PASS
 
-## Value
-PASS. The result gives a complete structural classification at the first nontrivial value of total burning, directly addressing a published characterization direction. It also sharpens the known one-step inequality on the full \(b(G)=2\) layer by deciding exactly which connected graphs attain equality and which attain the upper value.
+The primary total-burning paper defines \(b_T(G)=b(T(G))\) and proves only the general one-step sandwich \(b(G)\le b_T(G)\le b(G)+1\). Targeted Resultary searching did not locate the exact \(b_T=2\) classification. The audited neighborhood count supplies the missing iff.
 
-## Closest literature and limitations
-The closest structural result is Antony et al.'s inequality \(b(G)\le b_T(G)\le b(G)+1\); the present theorem supplies the missing equality split at \(b(G)=2\). Moghbel's dissertation is the motivating source for total burning and its characterization problem.
+## value
 
-The result does not address \(b_T(G)=k\) for \(k\ge3\). Novelty is supported by targeted searches rather than by any claim of exhaustive bibliographic coverage.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+This is a complete structural classification of the first nontrivial value of a recently studied graph invariant and exactly resolves the equality split inside the natural \(b(G)=2\) layer. Its short proof does not make the boundary arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
