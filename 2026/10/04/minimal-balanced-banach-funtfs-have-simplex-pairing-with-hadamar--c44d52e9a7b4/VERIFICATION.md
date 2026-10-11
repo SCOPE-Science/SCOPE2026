@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof checks the following chain.
+## correctness
 
-1. Tightness implies the synthesis map is onto, so the vectors span the \(n\)-dimensional space.
-2. Vector balance rules out \(N=n\), yielding \(N\ge n+1\).
-3. At \(N=n+1\), trace gives \(\lambda=(n+1)/n\).
-4. The pairing matrix \(A\) satisfies \(A^2=\lambda A\), has rank \(n\), and has the all-ones vector as both its left and right null vector. This forces \(A/\lambda=I-(n+1)^{-1}\mathbf 1\mathbf 1^{\mathsf T}\).
-5. For a normalized real Hadamard matrix of order \(n+1\), deleting the first row gives a sign matrix \(S\) with \(S\mathbf1=0\) and \(SS^{\mathsf T}=(n+1)I\). The vectors \(s_j/n\) and functionals \(s_j^{\mathsf T}\) therefore satisfy the Banach unit-norm, balance, and tightness equations.
+PASS
 
-The standalone `verify.py` replays the Hadamard identities for Sylvester orders \(4,8,16,32,64,128,256\) using exact arithmetic. Its expected terminal line is `VERIFY_OK sylvester_cases=7 r_range=2..8`.
+Tightness gives a surjective synthesis map \(T\), so \(N\ge n\); balance \(T\mathbf1=0\) rules out \(N=n\), hence \(N\ge n+1\). At equality, trace gives \(\lambda=(n+1)/n\). The pairing matrix \(A=\Phi T\) obeys \(A^2=\lambda A\), has rank n and has \(\mathbf1\) as both left and right kernel generator. Therefore \(A/\lambda\) is the projection onto \(\mathbf1^\perp\) along \(\mathbf1\), namely \(I-(n+1)^{-1}\mathbf1\mathbf1^T\), forcing diagonal 1 and off-diagonal \(-1/n\). For a normalized Hadamard matrix of order n+1, deleting its first row gives a sign matrix S with \(S\mathbf1=0\), \(SS^T=(n+1)I\); columns scaled by 1/n in \(\ell_1^n\) with their sign functionals satisfy all unit-norm, norming, balance and tightness conditions. Exact Sylvester instances were independently replayed.
 
-The script verifies representative finite instances only. It does not replace the universal linear-algebra proof, and it does not test Hadamard existence outside the Sylvester family.
+## originality
+
+PASS
+
+The direct motivating Cheng–Heil source was inspected at the balanced-FUNTF definition and its open Question 2.21. It asks balanced existence in real \(\ell_1^n\) but does not state the sharp universal lower bound, the equality-case simplex pairing matrix, or the Banach Hadamard realization. Searches under balanced FUNTF/Hadamard/simplex terminology and Resultary found no prior theorem with this combination. Hilbert-space balanced-frame and Hadamard-frame constructions do not automatically provide Banach norming pairs or the equality rigidity.
+
+## value
+
+PASS
+
+The result resolves the sharp minimum-length edge of an explicit balanced Banach-FUNTF existence problem, completely classifies the pairing matrix at equality, and gives infinitely many sharp \(\ell_1^n\) realizations. The equality rigidity is reusable independently of Hadamard existence and is more than a routine dimension count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
