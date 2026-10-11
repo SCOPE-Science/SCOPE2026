@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For \\(h_\\varepsilon=r+\\varepsilon u+\\varepsilon^2v+o_{C^2}(\\varepsilon^2)\\) and \\(\\rho=h+h\\prime\\prime\\), the curvature formula yields \\(\\Omega_R=\\int f_R(\\rho)\\) and exact area variation forces \\(r\\int v=-\\frac12\\int u(u+u\\prime\\prime)\\). Taylor expansion gives the stated \\(Q_{R,r}\\). Direct differentiation yields \\(f_R\\prime/f_R=(2R-3r)/(3r(R-r))\\), \\(f_R\\prime\\prime/f_R=-2R^2/[9r^2(R-r)^2]\\). Orthogonality of Fourier modes gives eigen-coefficients \\(C_k=[-f_R\\prime\\prime-f_R\\prime/(r(k^2-1))]/2\\); their monotonicity proves sharpness and the transition, while normalized cosine support paths realize every fixed mode with precisely preserved area and valid \\(0<\\rho<R\\). The standard-library finite checker independently reproduced the predicted coefficients and monotonicity; finite quadrature alone is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Artstein-Avidan--Chor, arxiv:2505.19172, Theorem 3: global maximizer of c-affine area over all ball-bodies is the disk of radius \\(2R/3\\) in dimension two.",
+        "Werner--Yalikun, arxiv:2512.19836, sections 2--3: definitions and inequalities for broader \\(L_p\\) relative surface-area functionals, with no fixed-area quadratic spectral theorem.",
+        "Artstein-Avidan--Florentin, arxiv:2505.09200, support-radius duality identifies \\(R-(h+h\\prime\\prime)\\) as complementary curvature radius."
+      ],
+      "reasoning": "The global unconstrained bound has no fixed-area Hessian constant at arbitrary \\(0<r<R\\); it cannot decide which Fourier modes minimize the area-constrained quadratic Rayleigh quotient. General \\(L_p\\) inequalities likewise do not specify the spectral optimizer or phase transition for this fixed \\(p=1\\) integral. Curvature duality supplies premises, not the asserted sharp spectrum.",
+      "searches": [
+        "c-affine surface area relative affine surface area ball bodies 2505.19172 stability",
+        "pointwise maximum r=2/3 c-affine area quantitative stability disk",
+        "relative affine surface area R-ball convex planar support function Fourier second variation local isoperimetric stability spectral gap disk",
+        "arxiv:2512.19836",
+        "arxiv:2505.09200"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2504.15488v1",
+      "arxiv:2505.19172v1",
+      "arxiv:2512.19836v1",
+      "arxiv:2505.09200v1",
+      "arxiv:2607.13714 (abstract only)",
+      "Published spherical Alexandrov--Fenchel Hessian research record",
+      "Published planar fractional-perimeter stability research record",
+      "Published Gaussian-torsion fixed-perimeter Hessian research record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schütt--Werner--Yalikun, arxiv:2504.15488, Theorem 1 defines the first-order floating-body coefficient as relative affine surface area; the theorem neither constrains area nor computes second variation.",
+        "Artstein-Avidan--Chor, arxiv:2505.19172, Theorems 3 and 6 and their proofs give the global unconstrained maximum and curvature complementary duality; the sharp fixed-area Fourier Hessian is a different statement.",
+        "The present result needs the exact area constraint \\(r\\int v=-\\tfrac12\\int u(u+u\\prime\\prime)\\) and then Parseval plus sharp wave-number analysis, neither furnished by the aforementioned global inequalities."
+      ],
+      "reasoning": "The current theorem follows from the published curvature-integral definition plus a new constrained second-variation computation, not by restricting an existing claimed theorem. A global optimum at \\(2R/3\\) supplies one distinguished radius but does not imply a positive sharp constrained Hessian at all radii or the nonattainment of its high-frequency infimum.",
+      "searches": [
+        "c-affine surface area relative affine surface area ball bodies 2505.19172 stability",
+        "area-preserving perturbations circle support function curvature radius Fourier Hessian c-affine isoperimetric inequality",
+        "pointwise maximum r=2/3 c-affine area quantitative stability disk",
+        "R-ball convex body relative affine perimeter local Hessian disk radius curvature perturbation exact",
+        "arxiv:2504.15488",
+        "arxiv:2505.19172"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining functional is exactly \\(\\int_{\\partial K}(\\kappa-1/R)^{1/3}ds\\) in arxiv:2504.15488, Theorem 1 and Definition 2; it becomes \\(\\int f_R(h+h\\prime\\prime)\\,d\\theta\\) in normal angle.",
+        "The complete arxiv:2505.19172 source discusses global c-affine area extremizers and dual radius identities, not the fixed-area normal-angle Fourier Hessian."
+      ],
+      "reasoning": "The same quantity has the names relative affine surface area and c-affine surface area, and the same planar support-radius formulation follows by the Gauss-map change of variables. Comparison covered those exact aliases and the Fourier-support representation. The coefficient and sharp mode-selection assertions are not stated in the inspected originals.",
+      "searches": [
+        "area-preserving perturbations circle support function curvature radius Fourier Hessian c-affine isoperimetric inequality",
+        "second variation c affine surface area ball bodies sharp quadratic curvature variance spectral transition radius 2/3",
+        "relative affine perimeter Schutt Werner Yalikun eigenvalue n=2 elliptic perturbation curvature normalized",
+        "arxiv:2504.15488",
+        "arxiv:2505.19172",
+        "Hessian spectrum of c-affine surface area under fixed enclosed area disk Fourier eigenvalues",
+        "relative affine area ball-convex bodies stability at disk radius two thirds curvature radius perturbation",
+        "Schutt Werner Yalikun affine perimeter spectral second variation eigenvalues area constraint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published sharp Hessian for spherical Alexandrov--Fenchel deficits concerns geodesic hyperspheres and curvature-integral quotients; its coefficient depends on spherical curvature and indices, not the relative affine area integral.",
+        "A planar fractional-perimeter Hausdorff stability theorem controls a nonlocal perimeter functional, not the planar relative affine surface-area Hessian.",
+        "A Gaussian-torsion fixed-perimeter Hessian is a PDE energy with a different kernel; it does not imply the coefficient or threshold of this curvature-radius local functional."
+      ],
+      "reasoning": "The closest retrieved research records were compared by their functionals, constraints and resulting implications rather than by matching the word Hessian. None tabulates the \\(C_k(R,r)\\) coefficients or the degree-two/all-degree/high-frequency switch for this relative affine integrand. Coverage outside the searched corpus remains a possibility.",
+      "searches": [
+        "second variation c affine surface area ball bodies sharp quadratic curvature variance spectral transition radius 2/3",
+        "relative affine perimeter Schutt Werner Yalikun eigenvalue n=2 elliptic perturbation curvature normalized",
+        "pointwise maximum r=2/3 c-affine area quantitative stability disk",
+        "relative affine surface area R-ball convex planar support function Fourier second variation local isoperimetric stability spectral gap disk",
+        "R-ball convex body relative affine perimeter local Hessian disk radius curvature perturbation exact",
+        "Lp relative affine surface area circle disk local stability second variation fixed area mode",
+        "Hessian spectrum of c-affine surface area under fixed enclosed area disk Fourier eigenvalues",
+        "relative affine area ball-convex bodies stability at disk radius two thirds curvature radius perturbation",
+        "Schutt Werner Yalikun affine perimeter spectral second variation eigenvalues area constraint"
+      ]
+    },
+    "rationale": "Exact source functional is inherited from the first 2025 ball-floating-body paper, and the unconstrained maximizing disk radius from the May 2025 isoperimetric paper. Those results and the broader L_p generalization do not imply the fixed-area sharp curvature-radius Hessian, complete Fourier spectrum or an unattained high-frequency phase. Actual searches and closest published research records concern different functionals/constraints, with meaningful unindexed literature risk explicitly retained.",
+    "residual_risks": [
+      "Unindexed classical second-variation or affine differential-geometric literature may contain an equivalent formulation or stronger fixed-area result.",
+      "The full paper arxiv:2607.13714 could not be accessed for complete comparison; its abstract concerns a different relative surface-area derivative, but additional implications cannot be excluded.",
+      "Some historical fixed-curvature integral inequalities have not been exhaustively inspected; the claim should receive independent literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact functional and establishes its floating-body interpretation; does not assert the constrained Fourier Hessian or sharp spectral phase diagram.",
+        "evidence": [
+          "arxiv:2504.15488v1, Theorem 1, Definition 2; first public 2025-04-21"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/391020533_Floating_bodies_for_ball-convex_bodies",
+        "material_read": "Author-provided full text, introductory statement, Section 2 Theorem 1 and Definition 2, proof portions and mathematical references.",
+        "method": "Open-access text rendition of original arXiv first version",
+        "title": "Floating bodies for ball-convex bodies",
+        "trigger": "Original introduction and normalization of the exact relative affine integral"
+      },
+      {
+        "assessment": "Global maximizer at radius \\(2R/3\\) and duality facts established, but no area-constrained second variation or Fourier-eigenvalue minimization.",
+        "evidence": [
+          "arxiv:2505.19172v1, Theorem 3 and Theorem 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.19172",
+        "material_read": "Full accessible original manuscript: definitions, Theorems 3, 5--7, proofs and complementary-curvature appendix.",
+        "method": "Lawfully accessible open manuscript rendering, compared exact statements",
+        "title": "Some inequalities of isoperimetric type for the c-affine surface area",
+        "trigger": "Same functional, global disk extremizer at precisely the proposed spectral threshold"
+      },
+      {
+        "assessment": "Defines L_p relative surface areas and entropy inequalities; no sharp area-constrained quadratic mode-selection result for relative affine area.",
+        "evidence": [
+          "arxiv:2512.19836v1, MSC primary 52A20, section 2 and section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.19836v1",
+        "material_read": "Full online HTML available; inspected Introduction and sections 2--3 and statements of inequalities.",
+        "method": "Original arXiv HTML manuscript",
+        "title": "Ball-convex bodies and L_p relative surface areas",
+        "trigger": "Same class, extension of the studied integral to wider curvature-functionals"
+      },
+      {
+        "assessment": "Gives geometric support complementarity, used as a premise; does not imply the new Hessian bound.",
+        "evidence": [
+          "arxiv:2505.09200v1, support and curvature-radius duality"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.09200v1",
+        "material_read": "Online original HTML: support-function complementarity and principal-radius identities.",
+        "method": "Original arXiv HTML manuscript",
+        "title": "An in-depth study of ball-bodies",
+        "trigger": "Geometric realizability of support perturbations with \\(0<\\rho<R\\)"
+      },
+      {
+        "assessment": "Adjacent relative surface-area derivative could hide a relevant comparison; no full-text absence-of-overlap claim is made.",
+        "evidence": [
+          "arxiv:2607.13714, 2026-07-15 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.13714",
+        "material_read": "ArXiv bibliographic record and abstract only; full source not obtained through available open-access routes.",
+        "method": "Abstract-level inspection; no assessment of unseen theorem bodies or appendices",
+        "title": "Illumination bodies for ball-convex bodies",
+        "trigger": "Related current surface functional on identical ball-convex objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8045fc24-7c1a-4501-bf7a-16a581f18031",
+  "value": {
+    "rationale": "The sharp local Hessian is a stability invariant for a newly studied geometric functional. The exact eigenmode transition at the already natural unconstrained extremal radius is mathematically structural, and the high-frequency nonattainment distinguishes the two regimes. It provides the complete infinitesimal area-constrained spectral description at every admissible disk radius, not a routine numerical approximation or arbitrary slice.",
+    "status": "PASS"
+  }
+}
