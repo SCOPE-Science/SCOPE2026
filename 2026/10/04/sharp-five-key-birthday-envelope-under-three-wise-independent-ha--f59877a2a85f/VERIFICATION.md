@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-It verifies the occupancy table
-\[
-(T_2,T_3)\in
-\{(0,0),(1,0),(2,0),(3,1),(4,1),(6,4),(10,10)\},
-\]
-the two pointwise certificates
-\[
-\frac12T_2-T_3\le I
-\]
-and
-\[
-I\le T_2-\frac9{10}T_3,
-\]
-and the normalization, nonnegativity, and required pair/triple collision
-moments of every endpoint formula over a large symbolic range of \(q\).
+## correctness
 
-For small alphabets the checker explicitly enumerates every one of the
-\(q^5\) five-coordinate output vectors, assigns its probability from the
-occupancy-symmetric endpoint law, and checks every one of the ten
-three-coordinate marginals. Each of the \(q^3\) ordered outputs has probability
-exactly \(1/q^3\).
+PASS
 
-The checker also tests a midpoint convex mixture of the two endpoints.
+Symmetrization preserves three-wise independence and the all-distinct event, reducing the law to seven occupancy partitions. Three-wise independence fixes \(E[T_2]=10/q\) and \(E[T_3]=10/q^2\). Direct inspection of all seven types proves the two pointwise collision-indicator inequalities that yield the upper and lower bounds. The three displayed endpoint mass systems are nonnegative on their stated ranges, sum to one and satisfy both fixed moments. Uniform random labeling of blocks by distinct symbols makes every ordered triple exactly uniform, and convex mixtures fill the entire interval. The inspected verifier checks the symbolic inequalities, formulas through \(q=2000\) and explicit joint laws for \(q=5,\ldots,9\); an independent replay checked all endpoint moments over a separate parameter range.
 
-Finite enumeration is not used to infer the universal theorem; it replays the
-closed formulas and the symmetry-to-independence argument.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK certificate_checks=14 formula_checks=3992 explicit_joint_cases=15 triple_marginal_checks=57750`.
+Benjamini–Gurel-Gurevich–Peled provide a general extremal and moment-problem framework for \(k\)-wise-independent Boolean distributions, while Pătraşcu–Thorup motivate five-key phenomena in a particular three-independent hashing scheme. A published Resultary theorem gives the all-distinct envelope under pairwise-independent uniforms using only the pair-collision moment. None of these inspected results states the generic five-key, \(q\)-ary, three-wise-independent birthday interval or its endpoint occupancy mixtures.
+
+## value
+
+PASS
+
+Five keys are the first size at which the occupancy geometry under three-wise independence has enough structure to exhibit the submitted new endpoint types. The theorem gives the complete attainable birthday interval, exact extremizers and a sharp positivity threshold at \(q=10\), providing a natural finite benchmark for what limited independence alone can guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
