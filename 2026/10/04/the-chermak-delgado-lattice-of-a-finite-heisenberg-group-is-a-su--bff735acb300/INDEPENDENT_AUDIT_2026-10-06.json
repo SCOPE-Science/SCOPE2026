@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:37:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a77b30dd05aa899303c85f873506ae30b07fb6a7",
+        "assigned artifacts/verify.py blob e07c8410e0b7718a81d1b030cad2d9144fe08f5b",
+        "Cocke--McCulloch, DOI:10.1007/s00013-024-02015-8",
+        "Allen--La Luz--Majewicz--Zyman, DOI:10.1080/00927872.2025.2467197"
+      ],
+      "rationale": "The commutator induces the standard nondegenerate \\(\\mathbb F_q\\)-symplectic form on \\(V=H_n(q)/Z\\). For any subgroup \\(K\\ge Z\\), its image \\(U\\) is an \\(\\mathbb F_p\\)-subspace and its centralizer depends only on the \\(\\mathbb F_q\\)-span \\(S=\\langle U\\rangle_q\\), giving \\(|C_G(K)|=q^{1+2n-\\dim_q S}\\). Writing \\(q=p^f\\), \\(s=\\dim_p U\\), \\(d=\\dim_qS\\), one gets \\(m_G(K)=q^{2n+2}p^{s-fd}\\le q^{2n+2}\\), with equality exactly when \\(U\\) is already \\(\\mathbb F_q\\)-linear. Adjoining \\(Z\\) only increases the measure, so these are all maximizers. Every \\(\\mathbb F_q\\)-subspace occurs as a centralizer via symplectic orthogonal complement, proving both lattice identifications. For \\(q=p\\), every subgroup above \\(Z\\) has field-linear image, giving \\(\\mathcal{CD}(G)=[G/Z]\\) and hence full-lattice monotonicity by the known criterion; for \\(f>1\\), the subgroup with image \\(\\mathbb F_p v\\) gives a strict measure drop and disproves monotonicity. The inspected verifier exhaustively checks additive subspaces for \\((n,q)=(2,2),(2,3),(1,4)\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general monotonicity theorems become applicable only after the audited result identifies the full maximizer lattice.",
+          "The prior Heisenberg examples either have quotient dimension two or use a different coefficient ring and do not state \\(L_{2n}(q)\\)."
+        ],
+        "reasoning": "No checked broader theorem gives the full higher-rank finite-field lattice classification.",
+        "searches": [
+          "Cocke--McCulloch 2024",
+          "Brewster--Hauck--Wilcox quasi-antichain work",
+          "Allen--La Luz--Majewicz--Zyman 2025"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00013-024-02015-8",
+        "DOI:10.1080/00927872.2025.2467197",
+        "Brewster--Hauck--Wilcox 2014",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general criteria do not determine \\(\\mathcal{CD}(H_n(q))\\); that requires the symplectic centralizer and subfield-linearity computation.",
+          "The rank-one quasi-antichain example does not imply that higher \\(n\\) yields the full projective subspace lattice."
+        ],
+        "reasoning": "The audited symplectic calculation supplies the missing same-family structure needed before the prior criteria can be applied.",
+        "searches": [
+          "Cocke--McCulloch Theorems A and B plus their unitriangular example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cocke--McCulloch explicitly recover a quasi-antichain for the \\(3\\times3\\) unitriangular group over \\(GF(p^a)\\), which is the \\(n=1\\) boundary case.",
+          "Their Theorem A says full subgroup-lattice monotonicity is equivalent to \\(\\mathcal{CD}(G)=[G/Z]\\), and Theorem B gives the centralizer-lattice criterion.",
+          "The pseudocentralizer paper's abstract concerns the mod-\\(p^n\\) Heisenberg group and its maximum measure, a different ring family."
+        ],
+        "reasoning": "Finite-field Heisenberg groups, symplectic quotients and inverse-image subspace lattices were compared against both Chermak--Delgado and centralizer formulations.",
+        "searches": [
+          "Resultary: Chermak Delgado lattice finite Heisenberg group finite field subspace lattice centralizer lattice",
+          "DOI:10.1007/s00013-024-02015-8 full open article",
+          "DOI:10.1080/00927872.2025.2467197",
+          "searches for finite Heisenberg group Chermak--Delgado lattice and subspace lattice"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the direct exact semantic hit; no earlier published-result entry with the full \\(L_{2n}(q)\\) identification was returned."
+        ],
+        "reasoning": "The Gaussian-binomial count is a consequence of the lattice identification; no separate table was found to cover it.",
+        "searches": [
+          "Resultary exact Heisenberg/Chermak--Delgado query"
+        ]
+      },
+      "rationale": "Cocke--McCulloch's complete open article gives the general monotonicity criteria and discusses the three-dimensional unitriangular group over \\(GF(p^a)\\), whose centralizer/Chermak--Delgado lattice is only the rank-one quasi-antichain of width \\(p^a+1\\). The 2025 pseudocentralizer paper treats a different mod-\\(p^n\\) Heisenberg family and advertises the maximal measure, not the full field-Heisenberg lattice. Targeted searches for higher finite-field Heisenberg centralizer/Chermak--Delgado lattices found no published subspace-lattice theorem. A current faculty research page explicitly lists the Chermak--Delgado lattice of finite Heisenberg groups as an active project, so possible unpublished overlap is retained as a residual risk.",
+      "residual_risks": [
+        "A faculty research page lists the Chermak--Delgado lattice of finite Heisenberg groups as an active project, so an unpublished or not-yet-indexed overlapping manuscript may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CRITERIA_AND_RANK_ONE_BOUNDARY_NOT_HIGHER_RANK_LATTICE",
+          "evidence": "The source handles the dimension-two quotient as a quasi-antichain but does not state the higher \\(L_{2n}(q)\\) subspace lattice.",
+          "identifier_or_url": "DOI:10.1007/s00013-024-02015-8",
+          "material_read": "Complete open primary article sections containing Theorems A and B, the centralizer/Chermak--Delgado quasi-antichain classification, and the \\(3\\times3\\) unitriangular group over \\(GF(p^n)\\).",
+          "method": "Open-access primary full-text inspection.",
+          "title": "The Chermak--Delgado measure as a map on posets",
+          "trigger": "Strongest primary source for the monotonicity criteria and a finite-field unitriangular example."
+        },
+        {
+          "assessment": "DIFFERENT_RING_HEISENBERG_MEASURE_RESULT",
+          "evidence": "The accessible statement gives a maximal measure for a mod-\\(p^n\\) family, not the finite-field higher-rank lattice classification.",
+          "identifier_or_url": "DOI:10.1080/00927872.2025.2467197",
+          "material_read": "Primary abstract and bibliographic scope describing a new proof of the known maximum-measure result for the mod-\\(p^n\\) Heisenberg group.",
+          "method": "Primary abstract comparison.",
+          "title": "Pseudocentralizers and the pseudo Chermak--Delgado lattice of a finite group",
+          "trigger": "Recent paper explicitly mentioning Heisenberg groups and Chermak--Delgado measure."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cocke--McCulloch 2024",
+        "finite-group Chermak--Delgado literature",
+        "recent Heisenberg measure work"
+      ],
+      "rationale": "The finite Heisenberg groups are canonical class-two groups, and the Chermak--Delgado lattice is a standard structural invariant. Identifying it uniformly with the full finite-field subspace lattice, plus the exact prime-versus-prime-power monotonicity transition, gives a natural complete family classification extending the known rank-one quasi-antichain picture.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the finite Heisenberg group \\(H_n(q)\\), the centralizer lattice and Chermak--Delgado lattice are exactly the inverse images of the \\(\\mathbb F_q\\)-subspaces of \\(H_n(q)/Z\\), hence are canonically \\(L_{2n}(q)\\); the maximal Chermak--Delgado measure is \\(q^{2n+2}\\). The measure is increasing on the centralizer lattice for every \\(q\\), and on the full subgroup lattice exactly when \\(q\\) is prime.",
+  "limitations": [
+    "The group is the standard finite Heisenberg group over the finite field \\(\\mathbb F_q\\).",
+    "The statement does not classify Chermak--Delgado lattices of arbitrary class-two or ring-Heisenberg groups."
+  ],
+  "schema_version": 1
+}
