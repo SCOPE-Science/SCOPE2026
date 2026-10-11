@@ -1,11 +1,21 @@
-# Same-model review
-## Correctness
-PASS. The cover relations were reconstructed from the cited primary figure, the complete self-map set was re-enumerated, and every claimed proper fixed set has an explicit beat-point dismantling certificate that is replayed by the included verifier. The identity is forced by fixing all nine points, and the cited primary source supplies the noncontractibility of \(R\).
+# Independent mathematical audit
 
-## Originality
-PASS. Cianci--Ottina classify the nine-point object; Rival and later fixed-point literature establish fixed-point properties; Szymik records selection-map/universal fixed-point behavior. None of the inspected statements gives the topology of every fixed-point subspace, the 210-set census, or the assertion that every nonidentity fixed set is contractible. The closest own record concerns homotopy components of the self-map space, not fixed-set topology. Full Rival 1976 text remained unavailable and is retained as a residual risk.
+## correctness
 
-## Value
-PASS. For the minimal homotopically trivial noncontractible finite space, the result gives a natural complete fixed-set classification and identifies a sharp boundary: only the identity preserves the noncontractible obstruction in its fixed set. This is stronger than fixed-point existence and materially different from a routine recount of self-maps.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The finite claim was freshly reconstructed from the stated 13 covers. Their transitive closure yields exactly 12,575 order-preserving self-maps. The fresh independent replay found exactly 210 distinct fixed masks and the size distribution \((3493,4877,2909,1013,234,41,5,2,1)\). Every proper realized fixed subset admits a valid sequence of up- or down-beat deletions to one point, while the full nine-point fixed set occurs only for the identity and has no beat point; Cianci--Ottina supply the external premise that the full space is noncontractible. Order reversal preserves monotone-map counts and swaps up/down beat points, proving the dual statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with the Rival access limitation explicit. Cianci--Ottina's full primary paper identifies the nine-point minimal homotopically trivial noncontractible space and supplies the beat-point/topological framework. Rival and later fixed-point literature establish fixed-point phenomena for the same poset, but no accessible source or Resultary hit states the complete 12,575-map fixed-set census or that every nonidentity fixed set is contractible.
+
+## value
+
+PASS
+
+The poset is the smallest known homotopically trivial noncontractible finite space and a classical fixed-point example. Determining the topology of every realized fixed set sharpens the fixed-point property in a canonical extremal object and yields a complete finite classification rather than a single ad hoc map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
