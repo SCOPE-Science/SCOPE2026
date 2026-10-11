@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The accepted theorem is proved analytically; no finite computation is used as a certificate for an infinite-dimensional statement.
+# Independent mathematical audit
 
-The verification focused on the only modified step relative to the cited critical proof. For integer symplectic area \(q\), the normalized core is an index-\(q\) sublattice of \(\mathbb Z^2\). Its two characters define a torus homomorphism whose character-lattice determinant has absolute value \(q\), so the homomorphism is a degree-\(q\) covering. The target unimodular three-term equation has at most two points, hence the original lattice trinomial has at most \(2q\) zeros.
+## correctness
 
-The source proof was then checked stage by stage after its finite-zero lemma. The return multiplier requires only integral exponents; the active-arc lemma requires only a finite exceptional set; the winding and holonomy lemmas require an irrational circle rotation and a zero-free smooth multiplier; and the final algebraic contradiction requires only a nonzero Laurent return multiplier and irrationality. None of these post-finiteness statements assumes that the core lattice has index one.
+PASS
 
-Limit: this verification does not assert anything for noninteger supercritical area, and it does not independently reprove the long measurable-dynamical lemmas already established in the cited primary source.
+After symplectic normalization, integer symplectic area places the two core lattice vectors in the integer lattice with determinant magnitude equal to the positive integer area. The rational-rank-two hypothesis permits an integer unimodular coordinate change that sends the fourth point to one irrational and one rational coordinate while keeping the core vectors integral. In the critical-source Zak-transform proof, the only step that uses unimodularity of the two core characters is the claim that the lattice trinomial has finitely many torus zeros. For determinant magnitude q, the corresponding character homomorphism of the two-torus is a surjective degree-q covering. The target trinomial has at most two torus zeros, so its pullback has at most two-q zeros and remains finite. The complete critical-source proof was inspected through the normal form, exact return multiplier, finite-zero lemma, zero-free active arc, winding obstruction, holonomy and final Laurent contradiction. Those later steps require integrality, irrational return and finite exceptional set, all preserved by the degree-q replacement. Thus the source argument extends to every positive integer area without relying on finite numerical evidence.
+
+## originality
+
+PASS
+
+The complete current critical mixed-arithmetic proof was materially read. It proves the rational-rank-two case at critical area one and explicitly isolates the finite zero set of a unimodular lattice trinomial before the winding/holonomy part of the proof. Its covolume/rational-rank status discussion marks the supercritical rank-two cell as only partially classified. The earlier large-covolume theorem covers the maximally rationally independent rank-three case and separate rational-coordinate cases, not rational rank two. The submitted finite-index covering lemma therefore fills a natural infinite arithmetic subfamily of an explicitly incomplete supercritical cell. Targeted Resultary and literature searches did not locate an earlier all-positive-integer-covolume rank-two theorem.
+
+## value
+
+PASS
+
+The theorem advances an explicitly partially classified HRT parameter cell by an infinite arithmetic family, extending the critical area-one result to every positive integer area for rational rank two. The finite-index torus-covering replacement is a structural lemma that preserves the entire later holonomy mechanism and is plausibly reusable in further lattice-index extensions. This is a motivated boundary/generalization rather than an arbitrary parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

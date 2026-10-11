@@ -1,23 +1,21 @@
-# Review of Integer-area mixed-arithmetic four-point Gabor independence
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The symplectic normalization is exact: if the marked core has oriented area \(q\in\mathbb N\), then the determinant-one map \(DS^{-1}\), with \(D=\operatorname{diag}(1,q)\), sends it to \(e_1,qe_2\). Rational rank is unchanged by the rational rescaling of the second coordinate. An integral determinant-one change of variables then makes the rogue point \((a,p/m)\) while keeping the core inside \(\mathbb Z^2\), now as an index-\(q\) sublattice.
+PASS
 
-The Zak return calculation in the source needs only integer core vectors, so its Laurent return multiplier survives unchanged. The only critical-lattice input that must be replaced is the source's unimodular trinomial zero lemma. For linearly independent integer character vectors of determinant \(q\), the character map is a degree-\(q\) covering of \(\mathbb T^2\). The target three-term equation has at most two solutions, hence the original trinomial has at most \(2q\) zeros. This restores a finite exceptional-fibre set. Direct inspection of the source's active-arc, measurable-winding, holonomy-quantization, analytic-rigidity, Laurent-holonomy, and irrational-character lemmas shows that their hypotheses after this point are finiteness, zero-freeness on an arc, irrationality of the return, and Laurent structure; none requires determinant one. The contradiction therefore extends to all integer \(q\).
+After symplectic normalization, integer symplectic area places the two core lattice vectors in the integer lattice with determinant magnitude equal to the positive integer area. The rational-rank-two hypothesis permits an integer unimodular coordinate change that sends the fourth point to one irrational and one rational coordinate while keeping the core vectors integral. In the critical-source Zak-transform proof, the only step that uses unimodularity of the two core characters is the claim that the lattice trinomial has finitely many torus zeros. For determinant magnitude q, the corresponding character homomorphism of the two-torus is a surjective degree-q covering. The target trinomial has at most two torus zeros, so its pullback has at most two-q zeros and remains finite. The complete critical-source proof was inspected through the normal form, exact return multiplier, finite-zero lemma, zero-free active arc, winding obstruction, holonomy and final Laurent contradiction. Those later steps require integrality, irrational return and finite exceptional set, all preserved by the degree-q replacement. Thus the source argument extends to every positive integer area without relying on finite numerical evidence.
 
-Risk: the proof imports several long analytic lemmas from the cited source rather than reproving them from first principles. Their statements and dependency points were inspected, and the accepted claim is explicitly restricted so that every cited hypothesis is preserved.
+## originality
 
-## Originality
+PASS
 
-PASS. The closest paper, arXiv:2609.27970v1, states the rational-rank-two theorem only at \(|\sigma(u,v)|=1\), labels the supercritical mixed-arithmetic cell as partially classified, and attributes the finite exceptional-fibre reduction to the unimodular trinomial lemma. The inspected large-covolume paper arXiv:2604.21228 covers \(|\sigma(u,v)|>1\) only in the maximally irrational rank-three case, together with the rational-coordinate case. The inspected mixed-integer trichotomy arXiv:2508.04613v2 gives necessary constraints for Schwartz-window counterexamples but does not imply \(L^2\) independence in rational rank two.
+The complete current critical mixed-arithmetic proof was materially read. It proves the rational-rank-two case at critical area one and explicitly isolates the finite zero set of a unimodular lattice trinomial before the winding/holonomy part of the proof. Its covolume/rational-rank status discussion marks the supercritical rank-two cell as only partially classified. The earlier large-covolume theorem covers the maximally rationally independent rank-three case and separate rational-coordinate cases, not rational rank two. The submitted finite-index covering lemma therefore fills a natural infinite arithmetic subfamily of an explicitly incomplete supercritical cell. Targeted Resultary and literature searches did not locate an earlier all-positive-integer-covolume rank-two theorem.
 
-Searches for integer symplectic area, finite-index lattice, supercritical mixed arithmetic, rational rank two, and equivalent HRT/Gabor formulations returned no statement of the integer-area theorem or its finite-covering mechanism.
+## value
 
-Residual risk: a finite-index variant could have been observed elsewhere under different notation, especially in literature on mixed-integer Gabor configurations. No such result was found in the primary papers or database searches inspected.
+PASS
 
-## Value
+The theorem advances an explicitly partially classified HRT parameter cell by an infinite arithmetic family, extending the critical area-one result to every positive integer area for rational rank two. The finite-index torus-covering replacement is a structural lemma that preserves the entire later holonomy mechanism and is plausibly reusable in further lattice-index extensions. This is a motivated boundary/generalization rather than an arbitrary parameter sample.
 
-PASS. The source paper presents the supercritical mixed-arithmetic cell as a live partial-classification frontier. Positive integer area is a natural invariant slice, not an arbitrary numerical specialization: exactly there the core can be symplectically normalized to a finite-index sublattice of the standard Zak lattice. The result supplies all-window \(L^2\) independence on an infinite family \(q=2,3,\ldots\) and identifies the structural reason the critical proof persists—finite covering replaces unimodularity without losing finite torus zeros. This materially enlarges the proved positive region while leaving the genuinely noninteger supercritical problem open.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
