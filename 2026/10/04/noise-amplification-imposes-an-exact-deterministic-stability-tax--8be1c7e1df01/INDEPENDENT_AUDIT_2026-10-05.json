@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:52:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Xie, Yuan, Zhu and Sugiyama, Positive-Negative Momentum: Manipulating Stochastic Gradient Noise to Improve Generalization, arXiv:2103.17182 / ICML 2021; complete primary arXiv HTML inspected around the PNM recurrence, noise-amplitude normalization and Theorem 1.",
+        "Ranger21, arXiv:2106.13731; later reuse context checked without treating it as stability theory.",
+        "Resultary semantic searches for PNM deterministic quadratic stability, characteristic roots and Schur boundaries.",
+        "Assigned RESULT.md and numerical transcription verifier at source tree d5c67def7edc0a36abdd12d093f9fc99bbb95cf4.",
+        "Fresh independent symbolic Schur-reduction algebra for the modal cubic."
+      ],
+      "rationale": "Diagonalizing the SPD Hessian gives the exact three-state scalar matrix and cubic characteristic polynomial in the package. Independent symbolic Schur reduction reproduces \\(1+u+v=a/(1+\\beta)>0\\) and shows that the active condition is \\(a<2(1-\\beta)/(1+2\\beta_0)\\), while the \\(|v|<1\\) constraint is weaker. Substituting \\(a=\\eta_0(1-\\beta)h\\) cancels \\(\\beta=\\beta_1^2\\). At equality the polynomial has root \\(-1\\); above it a real root lies below \\(-1\\). The base-rate formula follows from the source noise normalization and decreases from \\(2\\) to \\(\\sqrt2\\). The standard positive-learning-rate domain is essential: zero learning rate is not claimed stable.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stochastic theorem applies more broadly to smooth noisy objectives but only under a conservative sufficient step prescription.",
+          "Ranger21 demonstrates practical reuse but supplies no exact PNM quadratic root analysis."
+        ],
+        "reasoning": "Broader application scope does not imply the exact deterministic stability frontier.",
+        "searches": [
+          "Xie et al. stochastic convergence theorem",
+          "Ranger21 later PNM reuse"
+        ]
+      },
+      "checked_sources": [
+        "Xie, Yuan, Zhu and Sugiyama, Positive-Negative Momentum: Manipulating Stochastic Gradient Noise to Improve Generalization, arXiv:2103.17182 / ICML 2021; complete primary arXiv HTML inspected around the PNM recurrence, noise-amplitude normalization and Theorem 1.",
+        "Ranger21, arXiv:2106.13731; later reuse context checked without treating it as stability theory.",
+        "Resultary semantic searches for PNM deterministic quadratic stability, characteristic roots and Schur boundaries.",
+        "Assigned RESULT.md and numerical transcription verifier at source tree d5c67def7edc0a36abdd12d093f9fc99bbb95cf4.",
+        "Fresh independent symbolic Schur-reduction algebra for the modal cubic."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper fixes the recurrence and normalization, so the characteristic matrix can be derived from it.",
+          "However, its theorem gives \\(\\eta_0=\\min\\{1/(2L),C/\\sqrt{t+1}\\}\\) as a sufficient stochastic prescription and does not identify the exact deterministic boundary."
+        ],
+        "reasoning": "The cubic characteristic polynomial, Schur reduction, active \\(-1\\) crossing and exact independence from \\(\\beta_1\\) require additional analysis.",
+        "searches": [
+          "Xie et al. Algorithm 2 and normalized learning-rate discussion",
+          "Xie et al. Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No same-object Resultary theorem was returned.",
+          "The source Theorem 1 is stochastic and sufficient, not an exact Schur characterization."
+        ],
+        "reasoning": "Modal Schur stability, spectral radius below one and a maximum stable normalized/base learning rate are equivalent forms of the deterministic claim.",
+        "searches": [
+          "Resultary: Positive-Negative Momentum exact deterministic quadratic stability Schur boundary",
+          "Xie et al. arXiv:2103.17182 searches for quadratic, spectral radius, stability and characteristic polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned records concern other momentum, reflected-gradient or proximal methods, not PNM's interleaved two-stream recurrence."
+        ],
+        "reasoning": "The absence supplements direct inspection of the defining paper; it is not by itself novelty proof.",
+        "searches": [
+          "Resultary exact PNM stability queries"
+        ]
+      },
+      "rationale": "The defining paper states the same interleaved PNM recurrence, controls noise through \\(\\beta_0\\), normalizes the learning rate by the noise amplitude and proves a sufficient stochastic convergence theorem. It does not state an exact deterministic quadratic spectral boundary, the cancellation of \\(\\beta_1\\), or the noise-amplification/stability tradeoff. Resultary returned stability results for other methods but no PNM covering theorem.",
+      "residual_risks": [
+        "An equivalent root calculation may exist in unindexed implementation notes or informal optimizer analyses.",
+        "The theorem concerns deterministic linear stability, not stochastic mean-square stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING RECURRENCE AND STOCHASTIC SUFFICIENT BOUND, NOT EXACT DETERMINISTIC SCHUR FRONTIER",
+          "evidence": "The paper normalizes by \\(\\sqrt{(1+\\beta_0)^2+\\beta_0^2}\\) and gives a stochastic sufficient rate; no inspected statement gives the audited spectral threshold.",
+          "identifier_or_url": "arXiv:2103.17182; PMLR 139 (2021)",
+          "material_read": "Complete primary arXiv HTML around equations (6)–(10), Algorithm 2, noise-variance factor, normalized learning-rate discussion and Theorem 1.",
+          "method": "Open primary full-text inspection.",
+          "title": "Positive-Negative Momentum: Manipulating Stochastic Gradient Noise to Improve Generalization",
+          "trigger": "Defining source for the exact recurrence and learning-rate normalization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xie, Yuan, Zhu and Sugiyama, Positive-Negative Momentum: Manipulating Stochastic Gradient Noise to Improve Generalization, arXiv:2103.17182 / ICML 2021; complete primary arXiv HTML inspected around the PNM recurrence, noise-amplitude normalization and Theorem 1.",
+        "Ranger21, arXiv:2106.13731; later reuse context checked without treating it as stability theory.",
+        "Resultary semantic searches for PNM deterministic quadratic stability, characteristic roots and Schur boundaries.",
+        "Assigned RESULT.md and numerical transcription verifier at source tree d5c67def7edc0a36abdd12d093f9fc99bbb95cf4.",
+        "Fresh independent symbolic Schur-reduction algebra for the modal cubic."
+      ],
+      "rationale": "The source explicitly motivates its normalization as avoiding retuning while \\(\\beta_0\\) changes. The exact quadratic theorem quantifies the deterministic cost of that same control knob, including the practically used \\(\\beta_0=1\\) setting and the unexpected cancellation of \\(\\beta_1\\), making it a natural optimizer-stability benchmark.",
+      "residual_risks": [
+        "An equivalent root calculation may exist in unindexed implementation notes or informal optimizer analyses.",
+        "The theorem concerns deterministic linear stability, not stochastic mean-square stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Positive-Negative Momentum on a deterministic SPD quadratic with positive constant learning rate, a curvature mode \\(h\\) is Schur stable exactly when \\(\\eta_0h<2/(1+2\\beta_0)\\); hence full stability is governed by the top curvature, is independent of \\(\\beta_1\\), and the source normalization still leaves the stated monotone stability tax as noise amplification grows.",
+  "limitations": [
+    "Positive constant learning rate, deterministic SPD quadratics and source regime \\(\\beta_0\\ge0\\), \\(0\\le\\beta_1<1\\) only.",
+    "No stochastic mean-square or nonlinear-global stability statement is made.",
+    "An equivalent root calculation may exist in unindexed implementation notes or informal optimizer analyses.",
+    "The theorem concerns deterministic linear stability, not stochastic mean-square stability."
+  ],
+  "schema_version": 1
+}
