@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_popular_rankmax_boundary.py` is an exact finite replay using only the Python standard library.
 
-Popularity is computed twice:
-1. direct head-to-head majority comparison against every perfect matching;
-2. the strict-list structural characterization using first-choice posts and each applicant's most-preferred non-first-choice post.
+# Independent mathematical audit
 
-Rank-maximality is computed twice:
-1. direct lexicographic comparison of rank signatures;
-2. an independent exact steep-base integer objective with base \(n+1\).
+## correctness
 
-The verifier exhausts all \(4\) complete strict \(2\times2\) profiles and all \(216\) complete strict \(3\times3\) profiles. It confirms:
-- \(R(I)=P(I)\) for every \(2\times2\) profile;
-- exactly \(138\) three-applicant profiles with \(R(I)=P(I)\);
-- exactly \(72\) with \(R(I)\subsetneq P(I)\);
-- exactly \(6\) with \(P(I)=\varnothing\);
-- those six are exactly the identical-preference profiles.
+PASS
 
-It also checks all \(24\) perfect matchings of the displayed \(4\times4\) witness and confirms four rank-maximal matchings of common signature \((2,1,1,0)\), exactly two of which are popular.
+The definitions of popularity and lexicographic rank maximality are applied to the same perfect-matching set. Independent exhaustive reconstruction in this audit reproduced the complete three-agent census: 138 profiles with equality of the rank-maximal and popular sets, 72 with the rank-maximal set a proper subset of the popular set, and 6 profiles with no popular matching, exactly the six identical-order profiles. The displayed four-agent witness was also checked from the actual package code: its best rank signature is \((2,1,1,0)\), it has four rank-maximal matchings and exactly two popular matchings, with the latter a proper subset. The package verifier additionally compares direct majority voting against the Abraham--Irving--Kavitha--Mehlhorn characterization and two independent rank-maximal encodings.
 
-Run:
+## originality
 
-`python3 verify_popular_rankmax_boundary.py`
+PASS
 
-The first output line must be:
+The foundational popular-matching paper explicitly notes that rank-maximal matchings need not be popular and supplies the strict-list characterization used by the verifier, but it does not identify the smallest balanced complete market where the conflict occurs or give the complete three-agent relation census. Later work studies popularity within the rank-maximal class and dynamic versions, again without the sharp four-agent boundary. Targeted Resultary and web searches found no prior exact small-market classification.
 
-`VERIFY_OK`
+## value
 
-No larger-market universal statement is inferred from the finite computations.
+PASS
+
+Rank maximality and popularity are two standard, competing optimality notions in one-sided allocation. Locating their first possible conflict and completely resolving every smaller market gives a natural finite cutoff with a reproducible exact census, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

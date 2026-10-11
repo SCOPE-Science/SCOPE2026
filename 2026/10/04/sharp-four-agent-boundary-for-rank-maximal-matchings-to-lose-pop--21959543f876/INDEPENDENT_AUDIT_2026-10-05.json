@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:39:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 37cde5f2ad741e82fd79a8e20a2209ac576534ac",
+        "assigned verify_popular_rankmax_boundary.py blob eafe92f111d74d057d2f893998573dfba6e00d3d",
+        "Abraham--Irving--Kavitha--Mehlhorn, Popular Matchings, DOI:10.1137/06067328X",
+        "Nasre et al., Rank-Maximal Matchings -- Structure and Algorithms"
+      ],
+      "rationale": "The definitions of popularity and lexicographic rank maximality are applied to the same perfect-matching set. Independent exhaustive reconstruction in this audit reproduced the complete three-agent census: 138 profiles with equality of the rank-maximal and popular sets, 72 with the rank-maximal set a proper subset of the popular set, and 6 profiles with no popular matching, exactly the six identical-order profiles. The displayed four-agent witness was also checked from the actual package code: its best rank signature is \\((2,1,1,0)\\), it has four rank-maximal matchings and exactly two popular matchings, with the latter a proper subset. The package verifier additionally compares direct majority voting against the Abraham--Irving--Kavitha--Mehlhorn characterization and two independent rank-maximal encodings.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The known algorithms and incompatibility observations do not imply the exact minimum market size or the full profile counts."
+        ],
+        "reasoning": "No checked broader theorem specializes to the claimed finite boundary.",
+        "searches": [
+          "Abraham et al. 2005/2007 full paper",
+          "Nasre et al. Rank-Maximal Matchings -- Structure and Algorithms",
+          "dynamic rank-maximal/popular matching literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1137/06067328X",
+        "Nasre et al. Rank-Maximal Matchings -- Structure and Algorithms",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those results permit efficient testing but do not imply that every solvable size-three profile has rank-maximal set contained in the popular set.",
+          "A generic statement that the two notions can differ does not determine the sharp first market size."
+        ],
+        "reasoning": "The finite classification supplies new implication-level information.",
+        "searches": [
+          "Abraham et al. strict-list characterization",
+          "rank-maximal matching structure literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abraham et al. define global popularity and state that rank-maximal matchings are not necessarily popular.",
+          "Their paper gives a three-applicant no-popular example, but no theorem that all solvable three-agent complete balanced instances have every rank-maximal matching popular."
+        ],
+        "reasoning": "The comparison distinguished global popularity from the later notion of a matching that is popular only among rank-maximal matchings.",
+        "searches": [
+          "Resultary: rank-maximal popular matching smallest balanced complete strict market four agents three-agent census",
+          "web: rank-maximal popular matching four applicants",
+          "DOI:10.1137/06067328X full author PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior Resultary record with the \\(n=3\\) census or the four-agent minimal witness was returned."
+        ],
+        "reasoning": "The audited exhaustive census itself is the exact finite database assertion.",
+        "searches": [
+          "Resultary exact rank-maximal/popular small-market query"
+        ]
+      },
+      "rationale": "The foundational popular-matching paper explicitly notes that rank-maximal matchings need not be popular and supplies the strict-list characterization used by the verifier, but it does not identify the smallest balanced complete market where the conflict occurs or give the complete three-agent relation census. Later work studies popularity within the rank-maximal class and dynamic versions, again without the sharp four-agent boundary. Targeted Resultary and web searches found no prior exact small-market classification.",
+      "residual_risks": [
+        "An unindexed teaching example or thesis could contain the same four-agent witness, although no checked source supplies the complete minimality census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CHARACTERIZATION_NOT_SHARP_SMALL_MARKET_BOUNDARY",
+          "evidence": "The paper states that rank-maximal matchings need not be popular but does not give the audited minimality/census theorem.",
+          "identifier_or_url": "DOI:10.1137/06067328X; University of Glasgow author PDF",
+          "material_read": "Complete primary author PDF around the definitions, related-work comparison with rank maximality, and the strict-list characterization; the relevant page was visually inspected.",
+          "method": "Open full-PDF text and page-image inspection.",
+          "title": "Popular Matchings",
+          "trigger": "Foundational source for global popularity and the strongest same-model characterization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "popular-matching literature",
+        "rank-maximal matching literature"
+      ],
+      "rationale": "Rank maximality and popularity are two standard, competing optimality notions in one-sided allocation. Locating their first possible conflict and completely resolving every smaller market gives a natural finite cutoff with a reproducible exact census, not an arbitrary slice.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In balanced complete one-sided house-allocation markets with strict preferences, every three-agent instance that admits a popular matching has every rank-maximal matching popular, while four agents already admit an instance with popular matchings but with some rank-maximal matchings nonpopular; the complete two- and three-agent census and the displayed four-agent witness are exact.",
+  "limitations": [
+    "Balanced complete strict one-sided preferences only.",
+    "The theorem is a sharp small-market boundary and census, not a structural classification for arbitrary market size."
+  ],
+  "schema_version": 1
+}
