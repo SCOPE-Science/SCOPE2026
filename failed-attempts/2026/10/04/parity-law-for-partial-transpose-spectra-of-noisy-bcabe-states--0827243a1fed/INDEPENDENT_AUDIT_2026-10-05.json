@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:05:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four vertices are the four joint eigenspaces of the commuting global Pauli strings, each of dimension \\(4^N\\), so the original eigenvalues are \\(p_i/4^N\\). Partial transpose flips only the global \\(Y\\) coefficient once per transposed qubit; an odd flip reflects the tetrahedron to its antipodes and gives \\((1/2-p_i)/4^N\\), while an even number returns the original state. Summing the only possible negative block gives the two negativity formulas. Fresh direct matrix construction for \\(N=1,2\\) independently reproduced every parity spectrum for a nontrivial weight vector.",
+      "risk": "PPT on an even cut is not asserted to imply separability.",
+      "sources": [
+        "Bandyopadhyay et al., arXiv:quant-ph/0411082 / DOI:10.1103/PhysRevA.71.062317",
+        "Hiesmayr et al., arXiv:0807.4842 / DOI:10.1103/PhysRevA.78.042327",
+        "fresh independent matrix replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior simplex theorem covers all even numbers of qubits and all three real parameters.",
+          "The BCABE paper identifies the noisy family with Bell-diagonal entanglement geometry."
+        ],
+        "reasoning": "Together these statements dominate the audited family; diagonalization only makes their existing affine eigenvalue geometry explicit.",
+        "searches": [
+          "Hiesmayr et al. full Section III",
+          "Bandyopadhyay et al. noisy-state section"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0807.4842",
+        "DOI:10.1103/PhysRevA.78.042327",
+        "arXiv:quant-ph/0411082",
+        "DOI:10.1103/PhysRevA.71.062317",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four positivity planes are precisely the four eigenvalue inequalities of the commuting Pauli representation.",
+          "Odd PT flips one coordinate and even PT restores it; standard trace norm then gives negativity."
+        ],
+        "reasoning": "The submitted formulas are a routine spectral unpacking of stronger published structure and are therefore covered under the implication rule.",
+        "searches": [
+          "arXiv:0807.4842 lines/equations on positivity and partial-transpose parity",
+          "arXiv:quant-ph/0411082 noisy BCABE Bell-diagonal mapping"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hiesmayr's equations (1) and (3) give the same Pauli simplex and its four positivity eigenvalue planes.",
+          "The paper explicitly states odd-versus-even partial-transpose equivalence."
+        ],
+        "reasoning": "Pauli-tetrahedron, Bell-diagonal barycentric, PPT-parity and partial-transpose-spectrum formulations are equivalent here.",
+        "searches": [
+          "arXiv:0807.4842 Section III partial transpose",
+          "arXiv:quant-ph/0411082 noisy BCABE Bell-diagonal mapping",
+          "Resultary noisy Smolin partial-transpose spectrum query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact table was needed because direct primary-source implication is decisive."
+        ],
+        "reasoning": "Absence of the exact printed spectrum does not restore originality when the prior Pauli representation and PT action determine it immediately.",
+        "searches": [
+          "Resultary and web searches for generalized Smolin negativity and partial-transpose spectra"
+        ]
+      },
+      "rationale": "Hiesmayr et al. already publish the exact three-Pauli simplex representation and explicitly state that partial transpose of one qubit flips the \\(Y\\) coefficient, any odd number of transposes is equivalent to one, and any even number returns the original positivity geometry. Bandyopadhyay et al. explicitly map the noisy four-weight BCABE family to two-qubit Bell-diagonal entanglement. Reading the four affine tetrahedron eigenvalues and applying the standard Bell-diagonal trace-norm formula is therefore a direct corollary of the combined prior statements, even though the multiplicity-scaled spectrum is not printed in the same notation.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_DIRECT_COVERAGE_OF_PT_GEOMETRY",
+          "evidence": "The source explicitly supplies all structural ingredients needed to read off the submitted spectrum.",
+          "identifier_or_url": "arXiv:0807.4842; DOI:10.1103/PhysRevA.78.042327",
+          "material_read": "Full open arXiv Section III, including the Pauli form, four tetrahedral positivity planes, one-qubit sign flip and statement that odd/even numbers of partial transposes reduce to one/zero flips.",
+          "method": "Lawful open full-text inspection.",
+          "title": "A simplex of bound entangled multipartite qubit states",
+          "trigger": "Exact same Pauli simplex and partial-transpose operation."
+        },
+        {
+          "assessment": "NOISY_FAMILY_ALREADY_REDUCED_TO_BELL_DIAGONAL_GEOMETRY",
+          "evidence": "The source's noisy states are convex mixtures of the four BCABE vertices and their entanglement properties are directly mapped to Bell-diagonal states.",
+          "identifier_or_url": "arXiv:quant-ph/0411082; DOI:10.1103/PhysRevA.71.062317",
+          "material_read": "Primary arXiv abstract plus lawfully accessible source material for the noisy-state section stating its direct mapping to two-qubit Bell-diagonal entanglement.",
+          "method": "Open primary-source inspection.",
+          "title": "Bell-Correlated Activable Bound Entanglement in Multiqubit Systems",
+          "trigger": "Defines the exact four-weight noisy BCABE family."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The parity-uniform negativity formula is useful exposition, but after the published Pauli-tetrahedron representation, odd/even PT rule and Bell-diagonal mapping are in hand, obtaining the eigenvalues and trace norm is routine diagonalization. Under the common value bar this is not a new structural gap independent of the known geometry.",
+      "risk": "The formulas remain pedagogically useful but that does not overcome direct prior implication.",
+      "sources": [
+        "arXiv:0807.4842",
+        "arXiv:quant-ph/0411082"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the four-weight noisy BCABE/generalized-Smolin simplex on \\(2N+2\\) qubits, even-size partial transposition leaves the state unchanged, while odd-size partial transposition has eigenvalues \\((1/2-p_i)/4^N\\) each with multiplicity \\(4^N\\); hence every odd cut has negativity \\(\\max(0,w-1/2)\\) and logarithmic negativity \\(\\max(0,\\log_2(2w))\\).",
+  "limitations": [
+    "Four-vertex BCABE/generalized-Smolin simplex only.",
+    "No separability conclusion is drawn from PPT on arbitrary even cuts.",
+    "Negativity is not identified with distillable entanglement."
+  ],
+  "schema_version": 1
+}
