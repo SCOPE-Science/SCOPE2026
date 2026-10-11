@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:03:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exchangeability and absence of ties make the calibration/future label pattern in the joint score order uniform over all \\(\\binom{n+m}{n}\\) binary interleavings. The map from an interleaving to counts in the \\(n+1\\) calibration gaps is a bijection with weak compositions of \\(m\\), proving the fine-gap law. Grouping consecutive gaps gives the displayed Dirichlet-multinomial mass by stars and bars, and its standard moments give the covariance formula. The dynamic program is also exact: after \\(b-1\\) gaps have prefix total \\(t\\le s\\), there is a unique nonnegative choice \\(K_b=s-t\\); prefix sums make each row \\(O(m)\\). A fresh exhaustive interleaving check for \\((n,m)=(4,3)\\) recovered all 35 weak compositions exactly once at the unlabeled-pattern level, independently corroborating the frozen verifier.",
+      "risk": "The law depends critically on exchangeability and tie-free scores; adaptive or shifted settings need different distributions.",
+      "sources": [
+        "O'Neill, arXiv:2207.00270 / DOI:10.1007/s44199-025-00125-y",
+        "Marques, arXiv:2303.02770 / DOI:10.1016/j.spl.2024.110350",
+        "RESULT.md",
+        "verify.py",
+        "fresh exact interleaving enumeration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "O'Neill handles arbitrary selected rank vectors and arbitrary Dirichlet spacing parameters, strictly broader than the all-consecutive-rank \\((1,\\ldots,1)\\) specialization.",
+          "Marques already identifies the beta-binomial one-level marginal in split conformal prediction."
+        ],
+        "reasoning": "The prior order-statistics theorem dominates the joint law; conformal terminology does not create a new distributional theorem.",
+        "searches": [
+          "O'Neill 2025 open full article, especially joint order statistics and Theorem 10",
+          "Marques 2025 single-level batch coverage theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.00270",
+        "DOI:10.1007/s44199-025-00125-y",
+        "arXiv:2303.02770",
+        "DOI:10.1016/j.spl.2024.110350",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choose population size \\(N=n+m\\), sample size \\(n\\), and all sampled rank indices; subtract the deterministic unit gaps between consecutive calibration labels. The residual \\(m\\) future-label gap vector has Dirichlet-multinomial parameters all equal to one.",
+          "For parameters all one, the Dirichlet-multinomial pmf simplifies to the constant \\(\\binom{m+n}{n}^{-1}\\), exactly the submitted uniform-composition law.",
+          "Grouping consecutive categories preserves the Dirichlet-multinomial form with parameters equal to block sizes."
+        ],
+        "reasoning": "The multilevel probabilistic core is a routine specialization; the band DP is a routine lattice-path/prefix-sum count applied afterward.",
+        "searches": [
+          "O'Neill Theorem 10",
+          "Marques one-level beta-binomial theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O'Neill Theorem 10 gives a Dirichlet-multinomial mixture for the joint spacings/order-statistic vector under sampling without replacement.",
+          "The calibration positions among \\(n+m\\) exchangeable labels are exactly such a sample.",
+          "Marques gives the one-threshold beta-binomial empirical-coverage law, the corresponding marginal."
+        ],
+        "reasoning": "Calibration-gap occupancies, random rank spacings, simple-random-sampling order statistics, and Dirichlet-multinomial formulations are mathematically the same object here.",
+        "searches": [
+          "Web search: Dirichlet-multinomial order statistics spacings counts",
+          "O'Neill arXiv:2207.00270 / DOI:10.1007/s44199-025-00125-y",
+          "Resultary query: multilevel split conformal uniform composition Dirichlet multinomial",
+          "Marques arXiv:2303.02770"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical conformal-labeled table was needed once the stronger order-statistics representation was found."
+        ],
+        "reasoning": "Exact wording is irrelevant because the published general theorem determines every displayed joint mass and moment after substitution.",
+        "searches": [
+          "Resultary semantic search for the exact multilevel conformal statement",
+          "Web search for uniform weak compositions of order-statistic gaps and Dirichlet-multinomial spacings"
+        ]
+      },
+      "rationale": "A stronger prior order-statistics theorem was missed by the frozen audit. O'Neill's open 2025 paper derives the joint distribution of an arbitrary vector of order statistics under simple random sampling without replacement and gives its Dirichlet-multinomial mixture representation. Apply that theorem to the random positions of all \\(n\\) calibration labels in the combined \\(n+m\\) exchangeable score order: the rank vector is exactly a simple random sample without replacement, and taking all consecutive calibration ranks makes the Dirichlet parameter vector \\((1,\\ldots,1)\\). The induced gap counts are therefore Dirichlet-multinomial with all parameters one, whose mass is constant over weak compositions. Grouped calibration levels are the standard aggregation of the same Dirichlet-multinomial law. Marques independently supplies the conformal one-level beta-binomial marginal. Thus the principal probabilistic theorem is a direct specialization of stronger published order-statistics results; only the elementary prefix-count DP remains, and it does not rescue the combined claim under the implication-based originality rule.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_PRIOR_RESULT_DIRECTLY_IMPLIES_FINE_AND_GROUPED_GAP_LAWS",
+          "evidence": "The theorem represents joint finite-population order statistics through Dirichlet-multinomial spacings; consecutive sampled ranks give the all-ones parameter vector and hence uniform weak compositions.",
+          "identifier_or_url": "arXiv:2207.00270; DOI:10.1007/s44199-025-00125-y",
+          "material_read": "Open full Springer article text surfaced in this audit, including the introduction's joint-distribution scope and Theorem 10's multinomial--Dirichlet mixture representation.",
+          "method": "Lawful open full-text HTML inspection.",
+          "title": "The Distribution of Order Statistics Under Sampling Without Replacement",
+          "trigger": "General joint rank-spacing law that can subsume the calibration/future interleaving."
+        },
+        {
+          "assessment": "COVERS_ONE_LEVEL_BETA_BINOMIAL_MARGINAL",
+          "evidence": "It establishes the universal exact batch empirical-coverage law for a single split-conformal threshold.",
+          "identifier_or_url": "arXiv:2303.02770; DOI:10.1016/j.spl.2024.110350",
+          "material_read": "Public primary abstract and publication page stating the exact finite-batch empirical-coverage distribution.",
+          "method": "Lawful public-source inspection.",
+          "title": "Universal distribution of the empirical coverage in split conformal prediction",
+          "trigger": "Same split-conformal batch-coverage setting at one nominal level."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Once the published joint order-statistics Dirichlet-multinomial representation is recognized, the conformal multilevel law is a textbook rank-label specialization, and the simultaneous-band algorithm is the elementary dynamic program for counting constrained weak compositions. The result is useful exposition for conformal users but does not clear the required scientific-value bar as an independent mathematical contribution.",
+      "risk": "The implementation can still be practically useful; the rejection concerns mathematical originality/value, not utility.",
+      "sources": [
+        "DOI:10.1007/s44199-025-00125-y",
+        "DOI:10.1016/j.spl.2024.110350"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Under exchangeable tie-free split-conformal calibration and a future batch, the counts in the \\(n+1\\) calibration gaps are uniform over weak compositions of the batch size, arbitrary grouped levels are Dirichlet-multinomial with the stated covariance, and simultaneous full-grid prefix-count bands have the displayed exact \\(O(nm)\\) dynamic-program evaluator.",
+  "limitations": [
+    "This rejection is for prior implication and value, not correctness.",
+    "Exchangeable, tie-free split conformal only.",
+    "The exact band DP assumes integer prefix-count bounds."
+  ],
+  "schema_version": 1
+}
