@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:56:32.922788Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6ef9fb0c09071bffa3de8a38b4e12fac6243f111",
+        "VERIFICATION.md blob 04fe9f34829b1b809fdeaad37d28725038cb722f",
+        "DOI:10.3390/sym12040550 source equations"
+      ],
+      "rationale": "Direct differentiation of R=m y^2+(z-c)^2 gives 2my x(z-c)+2(z-c)(-b-mxy)=-2b(z-c). Integrating proves the finite-time mean formula. On bounded forward trajectories R(T)/T tends to zero; compact support justifies integrating the generator against an invariant probability measure. The Jacobian trace is exactly -z, so Liouville gives the determinant identity and the standard determinant/Oseledets relation gives Lyapunov-sum -c whenever the spectrum is defined. The periodic-orbit statement is the finite-time identity with R(T)=R(0).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The precursor is three-dimensional and the accessible material emphasizes chaotic dynamics and bifurcation rather than a parameterized stationary mean law.",
+          "Other high-similarity Resultary results were model-specific balance laws for different vector fields."
+        ],
+        "reasoning": "Generic Liouville/Oseledets theory supplies the implication from divergence to a sum once the exact mean is known, but does not supply this system's mean-height identity.",
+        "searches": [
+          "DOI:10.1007/s11071-013-1101-7 bibliographic/abstract material",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "Zhang--Li--Lei--Liu--Tao, A Symmetric Controllable Hyperchaotic Hidden Attractor, DOI:10.3390/sym12040550, complete open full text",
+        "Cang--Wang--Chen--Jia, Analytical and numerical investigation of a new Lorenz-like chaotic attractor with compound structures, DOI:10.1007/s11071-013-1101-7, bibliographic/abstract-level comparison",
+        "Resultary query: four dimensional hyperchaotic hidden attractor exact time average z equals c Lyapunov sum invariant measure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating m y^2+(z-c)^2 creates an exact cancellation not stated in the source.",
+          "The source's divergence formula alone does not imply its long-time average because the average of z is not fixed without the new coboundary."
+        ],
+        "reasoning": "The final claim requires the model-specific balance identity; the source's numerical control discussion and standard Liouville theory do not imply it on their own.",
+        "searches": [
+          "direct comparison with source equations (2) and (3)",
+          "full source sections on parameter control and reported spectra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's model is exactly the audited vector field and its divergence is printed as -z.",
+          "The source reports parameter-control behavior and numerical Lyapunov exponents but no exact invariant-measure mean law."
+        ],
+        "reasoning": "Equivalent formulations as a coboundary, time-average identity, invariant-measure identity, determinant law and Lyapunov-sum constraint were compared against the same-object source.",
+        "searches": [
+          "DOI:10.3390/sym12040550 complete publisher full text",
+          "Resultary query: four dimensional hyperchaotic hidden attractor exact time average z equals c Lyapunov sum invariant measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source's numerical spectra sum approximately to -1 at c=1 and -1.3 in the quoted second example, but they are observations rather than an exact table of the theorem.",
+          "No checked database table states the all-bounded-orbit identity."
+        ],
+        "reasoning": "Numerical agreement is consistency evidence, not prior exact coverage.",
+        "searches": [
+          "DOI:10.3390/sym12040550 full-text numerical figures and spectra",
+          "Resultary query above"
+        ]
+      },
+      "rationale": "Originality passes. The complete introducing article prints the exact ODE and divergence -z, reports numerical spectra, and discusses geometric control numerically. It does not state the cohomological identity for R, an exact stationary z-mean, the finite-time determinant boundary term, or the exact Lyapunov-sum theorem. Fresh Resultary comparison found only the present same-object record and balance laws for different flows.",
+      "residual_risks": [
+        "The 2014 three-dimensional precursor was not independently read in full in this run, so a fixed-parameter special-case balance law remains possible.",
+        "Analogous coboundary balance laws occur in other polynomial flows, but no inspected source specialized them to this exact four-dimensional system."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_NOT_EXACT_BALANCE_LAW",
+          "evidence": "The source prints the ODE and divergence -z and reports numerical spectra, but does not state Rdot=-2b(z-c) or its stationary consequences.",
+          "identifier_or_url": "DOI:10.3390/sym12040550",
+          "material_read": "Complete open publisher article, including model equations, divergence, parameter scans/control discussion, reported Lyapunov spectra and conclusions.",
+          "method": "lawful open-access publisher full text",
+          "title": "A Symmetric Controllable Hyperchaotic Hidden Attractor",
+          "trigger": "Defining paper for the exact four-dimensional vector field and strongest same-object coverage check."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "defining full article",
+        "independent coboundary/Liouville reconstruction"
+      ],
+      "rationale": "The theorem upgrades the paper's geometric-control observations into an exact stationary constraint valid across every bounded recurrent regime and simultaneously gives an exact phase-volume and Lyapunov-sum diagnostic. That is a natural structural law tied to the controller parameter, not a cosmetic recalculation.",
+      "residual_risks": [
+        "It does not prove boundedness, attractor existence, hyperchaos, or any individual Lyapunov exponent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 2014 three-dimensional precursor was not independently read in full in this run, so a fixed-parameter special-case balance law remains possible.",
+    "Analogous coboundary balance laws occur in other polynomial flows, but no inspected source specialized them to this exact four-dimensional system.",
+    "The current read connector exposed exact file blobs at the frozen commit but no read action that enumerates a directory Git tree object by SHA. The assignment tree SHA is preserved exactly, and reviewed blobs were fetched at the frozen commit, but the tree SHA was not independently recomputed from a complete enumerated tree.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

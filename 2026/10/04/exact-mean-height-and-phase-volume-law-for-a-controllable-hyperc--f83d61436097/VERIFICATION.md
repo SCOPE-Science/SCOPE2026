@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The printed vector field is
-\[
-\dot x=-ay-xz-u,\quad \dot y=x(z-c),\quad \dot z=-b-mxy,\quad \dot u=kx-y.
-\]
-For \(R=m y^2+(z-c)^2\), direct differentiation gives
-\[
-2my\,x(z-c)+2(z-c)(-b-mxy)=-2b(z-c),
-\]
-with exact cancellation of the nonlinear terms. This is the critical algebraic step; no numerical experiment is used to extend a finite observation to an infinite-time theorem.
+# Independent mathematical audit
 
-Integrating the identity gives the finite-time boundary-term formula exactly. Boundedness is used only to make \(R(T)/T\to0\). For invariant measures, compact support is used to justify integrating the generator of \(R\). The divergence is independently reconstructed from the four diagonal Jacobian entries and equals \(-z\), matching the introducing source. Liouville's formula then yields the exact determinant identity.
+## correctness
 
-As a source-consistency check only, the reported exponents at \(c=1\) sum to \(-0.9999\), while those at \(c=1.3\) sum to \(-1.3001\), agreeing with the exact sums \(-1\) and \(-1.3\) to displayed precision. These rounded values are not used as proof.
+PASS
 
-Limits: the verification does not establish global boundedness, existence of any attractor, hyperchaos, or individual exponents. It does not resolve whether the inaccessible full text of the 2014 precursor contains a fixed-parameter special case.
+Direct differentiation of R=m y^2+(z-c)^2 gives 2my x(z-c)+2(z-c)(-b-mxy)=-2b(z-c). Integrating proves the finite-time mean formula. On bounded forward trajectories R(T)/T tends to zero; compact support justifies integrating the generator against an invariant probability measure. The Jacobian trace is exactly -z, so Liouville gives the determinant identity and the standard determinant/Oseledets relation gives Lyapunov-sum -c whenever the spectrum is defined. The periodic-orbit statement is the finite-time identity with R(T)=R(0).
+
+## originality
+
+PASS
+
+Originality passes. The complete introducing article prints the exact ODE and divergence -z, reports numerical spectra, and discusses geometric control numerically. It does not state the cohomological identity for R, an exact stationary z-mean, the finite-time determinant boundary term, or the exact Lyapunov-sum theorem. Fresh Resultary comparison found only the present same-object record and balance laws for different flows.
+
+## value
+
+PASS
+
+The theorem upgrades the paper's geometric-control observations into an exact stationary constraint valid across every bounded recurrent regime and simultaneously gives an exact phase-volume and Lyapunov-sum diagnostic. That is a natural structural law tied to the controller parameter, not a cosmetic recalculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
