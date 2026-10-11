@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The bundled `verify.py` is a replay check, not a replacement for the Ky Fan argument.
+# Independent mathematical audit
 
-It checks the following facts with exact arithmetic:
+## correctness
 
-- all \(64\) order-four Seidel sign matrices reduce by diagonal sign switching to the normalized three-sign form, with residual-negative counts \(8,24,24,8\);
-- the \(48\) middle cases have characteristic polynomial \((x^2-1)(x^2-5)\), hence top-two eigenvalue sum \(1+\sqrt5\), while the two extreme classes have top-two sum \(2\);
-- the displayed matrix \(P_0\) satisfies \(P_0^2=P_0\) and \(\operatorname{tr}P_0=2\) in \(\mathbb Q(\sqrt5)\);
-- its ordered total coherence is exactly \(1+\sqrt5\);
-- the scalar identities used for the explicit frame, \(a+d=1/2\) and \(ad=c^2\), hold exactly.
+PASS
 
-The finite enumeration does not establish the infinite optimization by itself; the universal step is the variational characterization over all rank-two projections.
+A four-vector Parseval Gram matrix is a rank-two orthogonal projection. Matching off-diagonal signs converts total coherence to \(\max_S\operatorname{tr}(SP)\), and Ky Fan reduces the optimization to the sum of the two largest eigenvalues of the 64 Seidel sign matrices. Switching normal form gives spectra \({3,-1,-1,-1}\), \({1,1,1,-3}\), or \({\sqrt5,1,-1,-\sqrt5}\), so the optimum is \(1+\sqrt5\). The eigengap yields the unique maximizing projection within the middle switching class. The frozen exact-arithmetic verifier was read and confirms the switching counts and projection identities.
+
+## originality
+
+PASS
+
+Cahill-Casazza define this total-coherence optimization, prove equiangular Parseval frames optimal when such frames exist, and explicitly ask structural questions in the non-equiangular regime. Real four vectors in dimension two have no four-line ETF. Nguyen's 2025 dissertation repository abstract confirms study of non-equiangular regimes, but the accessible material in this run did not state the exact unrestricted maximum or equality classification; the direct PDF route was access-blocked, so this is retained as a residual risk.
+
+## value
+
+PASS
+
+This closes the smallest natural real Parseval regime where the ETF theorem is unavailable and settles concrete structural optimizer questions by an exact equality classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
