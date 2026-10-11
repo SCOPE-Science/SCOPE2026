@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof was reconstructed for one final claim. For \(L\prec H\), the domination ratio gives a smallest-singular-value gap because \(\sigma_{{n-1}}\ge\mathfrak m(M|_H)\) by min-max and \(\sigma_n\le\|M|_L\|\). This makes the least singular line a uniform finite-time approximation of \(L\), yielding uniform continuity of the lifted line. In \(\operatorname{{Hom}}(L,H)\) graph coordinates, backward iteration contracts slopes by the domination ratio; sufficiently small complex perturbations preserve this contraction. Fixed-center holomorphic projective iterates converge uniformly, giving a holomorphic line extension. The Stein normalization concerns a line bundle and is independent of ambient rank. Diophantine Fourier solving then supplies the phase and modulus coboundaries needed by the arbitrary-rank line-resolved obstruction and existence theorems. The exact coset and carried simplicity are independently recovered from the scalar ratio of two sections, using recurrence and Fourier characters. Reverse domination is handled by the inverse cocycle. No numerical experiment is used as proof.
+## correctness
 
-## Originality — PASS
-The closest primary source is Azimifard, arXiv:2609.29577v1. Its full text explicitly says that the analytic discharge of the coboundary hypothesis is a rank-two theorem, that no higher-rank analogue is asserted, and that rank \(n>2\) lies outside its proved scope. Bochi–Gourmelon, arXiv:0808.3811v2, was inspected in full for arbitrary-dimensional domination and singular-gap results; it has no Chern, winding, or measurable-eigensection conclusion. Duarte–Klein, arXiv:1704.03036v1, obstructs existence of dominated splittings in homotopy classes and does not imply a spectral criterion once a dominated line exists. Targeted semantic searches did not locate an equivalent claim. The principal residual risk is that higher-rank analytic regularity of dominated lines may be folklore or follow from a general invariant-bundle theorem not indexed under the searched terminology.
+PASS
 
-## Value — PASS
-The statement removes an explicit dimensional restriction from a new exact criterion on a natural class. The extension is structural rather than cosmetic: it shows that the rank-two projective argument is really a one-dimensional-block graph transform and that neither the Stein charge gauge nor the scalar small-divisor step depends on the complement being one-dimensional. This makes the Chern–winding test available for extremal line blocks in arbitrary-rank analytic dominated cocycles while retaining the sharp eigenvalue-coset conclusion.
+Domination gives an exponential gap between the least singular direction and the remaining n−1 directions, so the extremal line is uniformly approximated by simple finite-time singular lines. A backward projective graph transform on Hom(L,H) is uniformly contracting; local holomorphic iterates converge to a holomorphic invariant line on a thin strip. Once the invariant object is a holomorphic line, the charge normalization and the two scalar Diophantine cohomology equations are ambient-rank independent. Vanishing Chern and winding then constructs a nonzero analytic eigensection directly, while either obstruction prevents one. Comparing any two carried eigensections reduces to a scalar torus-translation eigenfunction, giving the exact character coset and one-dimensional eigenspaces. Reverse domination follows by the inverse cocycle.
 
-## Closest literature and limitations
-The finding is line-resolved. It does not classify the complementary block, does not assert that every higher-rank eigensection lies on the chosen line, and does not cover nonuniform domination, center blocks, noninvertibility, equal-exponent regimes, or Liouville translations. The strongest originality risk is prior folklore on analytic graph transforms; no claim is made that projective contraction itself is new.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Azimifard's accessible primary abstract states the arbitrary-rank Chern obstruction under a phase-coboundary condition and the automatic exact Chern–winding criterion only in rank two under analytic domination. The audited theorem supplies an arbitrary-rank automatic discharge for an extremal one-dimensional dominated block by a higher-dimensional projective graph transform. Bochi–Gourmelon gives the necessary domination machinery but no sewn-bundle Chern/winding eigensection theorem, while Duarte–Klein concerns topological obstruction to domination itself. No independent Resultary theorem covers the conjunction. Full same-paper comparison is access-limited and retained as a residual risk.
+
+## value
+
+PASS
+
+The rank restriction is a natural boundary in the initiating eigensection theorem. Showing that every extremal one-dimensional dominated block in arbitrary rank inherits the exact criterion is a substantive analytic extension with a reusable higher-rank graph-transform lemma, while carefully avoiding claims about the complementary block.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
