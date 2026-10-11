@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:04:11.362894Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob c0429cdbd853cfac77b258289988b95a19aaa385",
+        "verify.py blob 68c2054513a5fada23de054e51bcb40b17794f21",
+        "independent base-p carry reconstruction"
+      ],
+      "rationale": "The all-k proof reconstructs cleanly. If M+i with 1<=i<=k-1 were k-smooth, truncating each exponent at r_p gives a common divisor of M and M+i that contains q^{r_q}>k for some exceeded exponent, hence is larger than i while dividing i, a contradiction. For each p<=k, writing M=p^rQ shows that M-1 has p-1 in its lowest r base-p positions. Adding k first carries at t=nu_p(k), propagates through positions t,...,r-1, and stops at r because p does not divide Q. Kummer therefore gives nu_p(C(M+k-1,k))=r_p-nu_p(k)>=1. The finite k<=120 verifier is corroborative only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kummer gives the general carry criterion but does not by itself identify the exact carry pattern of this recent M construction.",
+          "The 1993 deficiency literature supplies the surrounding problem, not this exact valuation formula for the proposed construction."
+        ],
+        "reasoning": "The new step is the model-specific base-p digit analysis of M-1, not a new statement of Kummer's theorem.",
+        "searches": [
+          "Kummer carry theorem",
+          "DOI:10.1090/S0025-5718-1993-1199990-6",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "Xu Zhang, Infinitely Many Binomial Coefficients of Deficiency One, arXiv:2609.25042v1",
+        "Erdős--Lacampagne--Selfridge, Estimates of the Least Prime Factor of a Binomial Coefficient, DOI:10.1090/S0025-5718-1993-1199990-6",
+        "Kummer's theorem on p-adic valuations and carries",
+        "Resultary query: deficiency one binomial coefficient M+k-1 Kummer r_p minus nu_p(k) Zhang 2609.25042 correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once the low base-p digits of M-1 are recognized as p-1, Kummer gives exactly r_p-nu_p(k) carries.",
+          "This conclusion contradicts rather than follows from the claimed goodness attributed to the proposed construction."
+        ],
+        "reasoning": "The final correction is a nontrivial specialization of a classical theorem to a new construction; it is not implication-covered by a prior statement found in the checked literature.",
+        "searches": [
+          "Kummer theorem specialized to n-k=M-1",
+          "public arXiv:2609.25042v1 record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited statement is a correction formulated through Kummer carries and p-adic valuations of the source construction.",
+          "The accessible primary record establishes the claimed deficiency-one/good-binomial context but was insufficient for a whole-document comparison."
+        ],
+        "reasoning": "Equivalent formulations through carries, valuations, gcd with k!, and good-binomial status were searched; the full source remains a named access risk.",
+        "searches": [
+          "arXiv:2609.25042v1 public primary record",
+          "Resultary exact valuation/correction query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent indexed correction or exact valuation table was found; the exact Resultary match was the present finding."
+        ],
+        "reasoning": "Search absence is supporting evidence only; the inaccessible current source is retained as residual risk.",
+        "searches": [
+          "Resultary exact correction query",
+          "targeted searches for the formula r_p-nu_p(k) with the source title"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes with an explicit access risk. The public current arXiv record still presents the proposed deficiency-one infinitude construction, while the audited theorem proves an exact valuation obstruction for the construction identified in the frozen package. Fresh Resultary comparison returned the present correction as the exact same-object hit and no earlier correction. Because the full primary text was inaccessible in this run, no whole-document noncoverage claim is made.",
+      "residual_risks": [
+        "The current arXiv primary record is directly relevant, but full text could not be independently inspected in this run. Open routes did not yield an inspectable copy and the single authorized institutional retrieval attempt returned 'Oxford worker unavailable or request invalid'; it was not retried or bypassed.",
+        "An older observation about this exact construction could exist under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_DIRECT_SOURCE",
+          "evidence": "The accessible record confirms the paper's claimed constructive infinitude result; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "arXiv:2609.25042v1",
+          "material_read": "Public primary metadata and abstract/current record. Open full-text routes did not yield an inspectable copy; one authorized institutional retrieval attempt returned an unavailable/invalid worker error and was not retried.",
+          "method": "lawful primary record plus one bounded authorized-access attempt",
+          "title": "Infinitely Many Binomial Coefficients of Deficiency One",
+          "trigger": "Direct source whose proposed construction is being corrected."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xu Zhang, Infinitely Many Binomial Coefficients of Deficiency One, arXiv:2609.25042v1",
+        "Erdős--Lacampagne--Selfridge, Estimates of the Least Prime Factor of a Binomial Coefficient, DOI:10.1090/S0025-5718-1993-1199990-6",
+        "Kummer's theorem on p-adic valuations and carries",
+        "Resultary query: deficiency one binomial coefficient M+k-1 Kummer r_p minus nu_p(k) Zhang 2609.25042 correction"
+      ],
+      "rationale": "The theorem identifies a decisive arithmetic obstruction in a newly proposed infinitude construction: not merely one counterexample, but every small prime p<=k divides the constructed binomial coefficient with an exact valuation. It preserves the valid deficiency-one part while isolating precisely why the claimed goodness fails. That is a substantive correction with clear future use.",
+      "residual_risks": [
+        "It does not settle the underlying existence of infinitely many good deficiency-one binomial coefficients."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The current arXiv primary record is directly relevant, but full text could not be independently inspected in this run. Open routes did not yield an inspectable copy and the single authorized institutional retrieval attempt returned 'Oxford worker unavailable or request invalid'; it was not retried or bypassed.",
+    "An older observation about this exact construction could exist under different notation.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

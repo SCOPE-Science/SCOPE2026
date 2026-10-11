@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The theorem is proved symbolically in `RESULT.md`. The standalone exact-integer program `verify.py` provides a separate computational check.
+# Independent mathematical audit
 
-Running
+## correctness
 
-`python3 verify.py`
+PASS
 
-produces exactly:
+The all-k proof reconstructs cleanly. If M+i with 1<=i<=k-1 were k-smooth, truncating each exponent at r_p gives a common divisor of M and M+i that contains q^{r_q}>k for some exceeded exponent, hence is larger than i while dividing i, a contradiction. For each p<=k, writing M=p^rQ shows that M-1 has p-1 in its lowest r base-p positions. Adding k first carries at t=nu_p(k), propagates through positions t,...,r-1, and stops at r because p does not divide Q. Kummer therefore gives nu_p(C(M+k-1,k))=r_p-nu_p(k)>=1. The finite k<=120 verifier is corroborative only.
 
-`VERIFY_OK k_cases=119 valuation_pairs=2037 deficiency_cases=119`
+## originality
 
-For every tested \(k\) from \(2\) through \(120\), the program constructs \(M\), computes \(\binom{M+k-1}{k}\) exactly, and checks the valuation formula for every prime \(p\le k\). It also divides each of \(M,M+1,\ldots,M+k-1\) by all primes at most \(k\) to verify that only \(M\) is \(k\)-smooth.
+PASS
 
-Finite verification does not establish the theorem for all \(k\); the universal statement follows from the carry and divisibility arguments in `RESULT.md`. The checker does not assess bibliographic originality.
+Best-of-knowledge originality passes with an explicit access risk. The public current arXiv record still presents the proposed deficiency-one infinitude construction, while the audited theorem proves an exact valuation obstruction for the construction identified in the frozen package. Fresh Resultary comparison returned the present correction as the exact same-object hit and no earlier correction. Because the full primary text was inaccessible in this run, no whole-document noncoverage claim is made.
+
+## value
+
+PASS
+
+The theorem identifies a decisive arithmetic obstruction in a newly proposed infinitude construction: not merely one counterexample, but every small prime p<=k divides the constructed binomial coefficient with an exact valuation. It preserves the valid deficiency-one part while isolating precisely why the claimed goodness fails. That is a substantive correction with clear future use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

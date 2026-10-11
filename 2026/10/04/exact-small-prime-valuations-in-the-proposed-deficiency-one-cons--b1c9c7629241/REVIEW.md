@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof independently reconstructs both parts of the final claim. The deficiency-one statement follows from a divisibility contradiction for any hypothetical additional \(k\)-smooth integer \(M+i\). For every prime \(p\le k\), an exact Kummer carry count gives \(\nu_p(\binom{M+k-1}{k})=r_p-\nu_p(k)\ge1\). The finite checker corroborates both statements for \(2\le k\le120\) but is not used to justify the universal quantifier.
+## correctness
 
-## Originality
-PASS. The inspected source arXiv:2609.25042v1 claims the opposite goodness conclusion for the same construction and does not give this valuation identity. Targeted published-finding corpus and web searches for the title, construction, carry formulation, exact valuation, and correction language found no equivalent prior result. The principal residual risk is an unindexed correction or an older observation hidden in literature not materially inspected in full text; this is recorded in `AUDIT.json`.
+PASS
 
-## Value
-PASS. The result directly tests a recent proposed resolution of a longstanding problem and identifies the precise structural failure rather than only a small numerical counterexample. The exact valuation formula shows that every prime at most \(k\) divides the proposed coefficient, while the deficiency-one part remains valid. This sharply separates the valid and invalid components of the proposed construction.
+The all-k proof reconstructs cleanly. If M+i with 1<=i<=k-1 were k-smooth, truncating each exponent at r_p gives a common divisor of M and M+i that contains q^{r_q}>k for some exceeded exponent, hence is larger than i while dividing i, a contradiction. For each p<=k, writing M=p^rQ shows that M-1 has p-1 in its lowest r base-p positions. Adding k first carries at t=nu_p(k), propagates through positions t,...,r-1, and stops at r because p does not divide Q. Kummer therefore gives nu_p(C(M+k-1,k))=r_p-nu_p(k)>=1. The finite k<=120 verifier is corroborative only.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with an explicit access risk. The public current arXiv record still presents the proposed deficiency-one infinitude construction, while the audited theorem proves an exact valuation obstruction for the construction identified in the frozen package. Fresh Resultary comparison returned the present correction as the exact same-object hit and no earlier correction. Because the full primary text was inaccessible in this run, no whole-document noncoverage claim is made.
+
+## value
+
+PASS
+
+The theorem identifies a decisive arithmetic obstruction in a newly proposed infinitude construction: not merely one counterexample, but every small prime p<=k divides the constructed binomial coefficient with an exact valuation. It preserves the valid deficiency-one part while isolating precisely why the claimed goodness fails. That is a substantive correction with clear future use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
