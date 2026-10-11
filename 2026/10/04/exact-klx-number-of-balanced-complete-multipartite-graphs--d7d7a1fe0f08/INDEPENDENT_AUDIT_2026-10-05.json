@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:52:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The DFS comparability property forces every branch vertex in a complete multipartite graph to have only singleton child subtrees: different child roots must lie in one part, while any proper descendant of one child lies outside that part and would be adjacent to a vertex in another child subtree. Thus every DFS tree is a spine with at most a terminal fan. For \\(r\\ge3\\) the spine crosses the middle cut. At a prefix of size \\(t\\), the cut is \\(t(N-t)-\\sum_i x_i(m-x_i)=t(N-m-t)+\\sum_i x_i^2\\), minimized by balanced part counts, yielding the stated lower bound. The cyclic Hamiltonian DFS path has balanced prefixes; its cut increment formula is nonnegative up to the midpoint and symmetric thereafter, so its maximum equals the same middle-cut value. Because a path has no enveloping contribution beyond crossing back edges, the upper and lower bounds match.",
+      "risks": [
+        "The theorem is restricted to balanced part sizes, \\(r\\ge3\\), and \\(m\\ge2\\); the finite verifier is only a sanity check."
+      ],
+      "sources": [
+        "RESULT.md blob eac9a84f7fdc3ef281f9d84fff37c152cb19195b",
+        "artifacts/verify.py blob dacf7bc6182749302201a6bca74e1eb92c43528b",
+        "Bourotte--Ducloz--Orponen--Seki, DOI:10.4230/LIPIcs.MFCS.2026.7"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bourotte et al. provide structural/algorithmic KLX theory but no exact dense-family evaluation.",
+          "Law--Ostrovskii determine ordinary spanning-tree congestion of complete multipartite graphs, an optimization over a larger and different tree class.",
+          "The prior SCOPE KLX result covers \\(K_n\\) and \\(K_{a,b}\\), not balanced \\(r\\)-partite graphs with \\(r\\ge3,m\\ge2\\)."
+        ],
+        "reasoning": "Neither ordinary spanning-tree congestion nor the boundary-family KLX formulas determine the submitted DFS-restricted middle-cut optimum.",
+        "searches": [
+          "Bourotte et al., DOI:10.4230/LIPIcs.MFCS.2026.7 full PDF",
+          "Law--Ostrovskii, Spanning tree congestion: duality and isoperimetry, application to multipartite graphs",
+          "Resultary published record 2026/9/19/SCOPE-klx-complete-and-complete-bipartite-graphs--b27f97da8029"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.4230/LIPIcs.MFCS.2026.7",
+        "arXiv:2606.24675",
+        "Resultary:2026/9/19/SCOPE-klx-complete-and-complete-bipartite-graphs--b27f97da8029",
+        "Law--Ostrovskii complete-multipartite spanning-tree congestion paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The biclique formula has a two-part imbalance transition and does not specialize to \\(r\\ge3\\).",
+          "Ordinary STC permits non-DFS trees; KLX explicitly restricts to ordered DFS trees and counts open back edges."
+        ],
+        "reasoning": "The closest prior results do not imply the new formula; the terminal-fan DFS lemma and balanced midpoint construction are additional content.",
+        "searches": [
+          "Statement comparison with published SCOPE clique/biclique KLX record",
+          "Statement comparison with Law--Ostrovskii ordinary spanning-tree congestion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary KLX paper contains no occurrence of complete graph, complete bipartite, or multipartite in the inspected full PDF.",
+          "Resultary's closest exact-family hit is the separate complete/complete-bipartite record."
+        ],
+        "reasoning": "Equivalent DFS-tree-congestion terminology and family names did not expose a covering balanced multipartite formula.",
+        "searches": [
+          "Resultary: KLX complete multipartite balanced complete multipartite DFS congestion kissing loop crossing",
+          "Primary full PDF DOI:10.4230/LIPIcs.MFCS.2026.7 searches for complete, bipartite, multipartite",
+          "Web: DFS tree congestion complete multipartite KLX"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact KLX table for balanced complete multipartite graphs was located."
+        ],
+        "reasoning": "The theorem gives an infinite symbolic formula, not a finite table recomputation.",
+        "searches": [
+          "Resultary exact KLX family query",
+          "Web KLX complete multipartite exact value"
+        ]
+      },
+      "rationale": "The KLX parameter was introduced in 2026. Its full primary paper characterizes small KLX values and gives algorithmic/tree-width results but contains no complete, bipartite, or multipartite exact-family formula. The closest published SCOPE result gives exact KLX only for cliques and complete bipartite graphs. Classical spanning-tree congestion does have complete-multipartite formulas, but minimizes over all spanning trees rather than ordered DFS trees and therefore does not imply the DFS-restricted KLX value. The submitted balanced \\(r\\ge3\\) theorem requires a new DFS-tree structure reduction plus a balanced middle-cut argument.",
+      "residual_risks": [
+        "KLX is very recent, so unindexed parallel exact-family work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The paper defines KLX and treats small-value characterization/FPT questions; no exact complete-multipartite family result was found."
+          ],
+          "identifier_or_url": "DOI:10.4230/LIPIcs.MFCS.2026.7 / arXiv:2606.24675",
+          "material_read": "Full 15-page open-access proceedings PDF, including definition, DFS preliminaries, stated characterization results and algorithmic scope; targeted full-text searches for complete/multipartite families; rendered page inspected.",
+          "method": "Direct PDF text and page-image inspection.",
+          "title": "A Congestion Parameter for Depth-First Graph Traversals",
+          "trigger": "Primary source defining KLX and its general theory."
+        },
+        {
+          "assessment": "BOUNDARY_ONLY",
+          "evidence": [
+            "Its domains are one-vertex parts or two parts; the audited domain is balanced \\(r\\ge3,m\\ge2\\)."
+          ],
+          "identifier_or_url": "Resultary:2026/9/19/SCOPE-klx-complete-and-complete-bipartite-graphs--b27f97da8029",
+          "material_read": "Full RESULT.md including DFS-tree structure and formulas for cliques and bicliques.",
+          "method": "Direct repository inspection.",
+          "title": "Exact KLX numbers of complete and complete bipartite graphs",
+          "trigger": "Closest published SCOPE exact-family result."
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION",
+          "evidence": [
+            "Ordinary spanning-tree congestion minimizes over all spanning trees and therefore does not determine KLX, which restricts to ordered DFS trees."
+          ],
+          "identifier_or_url": "Law--Ostrovskii (2009)",
+          "material_read": "Abstract and definition material establishing exact ordinary spanning-tree congestion on complete multipartite graphs.",
+          "method": "Public full-text/search inspection.",
+          "title": "Spanning tree congestion: duality and isoperimetry. With an application to multipartite graphs",
+          "trigger": "Potentially broader exact multipartite congestion theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Balanced complete multipartite graphs are a canonical dense family beyond the previously solved clique and biclique boundaries. The exact KLX formula exposes how the DFS constraint forces a long spine and a balanced middle-cut bottleneck, a structural phenomenon not captured by ordinary spanning-tree congestion. This is a natural complete classification for a newly introduced invariant.",
+      "risks": [
+        "The unbalanced multipartite problem remains open in this record."
+      ],
+      "sources": [
+        "DOI:10.4230/LIPIcs.MFCS.2026.7",
+        "Resultary:2026/9/19/SCOPE-klx-complete-and-complete-bipartite-graphs--b27f97da8029",
+        "RESULT.md blob eac9a84f7fdc3ef281f9d84fff37c152cb19195b"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formula is claimed for arbitrary unequal part sizes."
+  ],
+  "schema_version": 1
+}
