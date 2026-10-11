@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Reachability is a partial order because an oriented tree is acyclic. A three-element reachability chain is exactly three vertices appearing in order on the unique directed tree path between the first and last vertices; uniqueness makes that path geodesic. Conversely, any directed geodesic containing three selected vertices supplies such a chain. Hence general-position sets are precisely two-families, and the Greene–Kleitman theorem at \(k=2\) proves the min–max equality. The embedded exhaustive verifier independently checks the three formulations on all labeled oriented trees through six vertices.
+## correctness
 
-## Originality
-PASS. The closest primary paper, arXiv:2604.15909, treats oriented-tree lower bounds and out-arborescences but explicitly asks for an arbitrary-tree formula in Problem 5.2. Full-text and alias searches did not locate a reachability-poset/two-family formulation. Greene–Kleitman (1976) supplies the classical poset min–max theorem but not the directed-general-position identification. Residual risk remains from unindexed or very recent independent work.
+PASS
 
-## Value
-PASS. The result addresses a stated 2026 open direction for an entire graph class and gives an exact structural formula, rather than another special orientation or finite-order computation. The reduction also makes the large toolkit for finite-poset two-families and chain partitions immediately applicable to oriented-tree general position.
+In an oriented tree, if \(x<y<z\) in reachability order, the directed \(x\)-to-\(y\) and \(y\)-to-\(z\) paths cannot share an edge with opposite traversal and concatenate to the unique underlying \(x\)-to-\(z\) tree path; therefore that path is directed and, because no alternative route exists, geodesic. Conversely any directed geodesic containing three selected vertices orders them into a three-element reachability chain. Hence directed general-position sets are exactly two-families. Greene–Kleitman at \(k=2\) then gives the chain-partition min–max formula. The bundled exhaustive replay through six vertices is a stress test, not the universal proof.
 
-## Closest literature and limitations
-The direct anchor is Chandran S. V. et al., arXiv:2604.15909 (17 April 2026), especially its tree section and Problem 5.2. Greene and Kleitman, JCTA 20 (1976), provide the supporting two-family min–max theorem; Cameron, European J. Combin. 7 (1986), provides the related acyclic-digraph path-partition extension. The resulting formula is a reachability-poset min–max characterization, not a closed formula in elementary tree statistics, and the proof does not extend unchanged to DAGs with shortcuts.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest 2026 primary paper studies directed general position, gives only a leaf lower bound and an exact arborescence case for oriented trees, and explicitly poses as Problem 5.2 the task of finding a formula for the general-position number of any tree. The classical Greene–Kleitman theorem supplies the poset min–max once a two-family has been identified, and Cameron gives a broader acyclic-digraph path-partition min–max, but neither source identifies directed general-position sets of an arbitrary oriented tree with reachability-poset two-families. Fresh Resultary and alias searches found no earlier statement of that bridge.
+
+## value
+
+PASS
+
+The result answers an explicitly posed class-wide problem by converting a directed metric invariant into a standard poset two-family invariant. This is a motivated structural lemma with immediate algorithmic and extremal consequences, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:57:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In an oriented tree, if \\(x<y<z\\) in reachability order, the directed \\(x\\)-to-\\(y\\) and \\(y\\)-to-\\(z\\) paths cannot share an edge with opposite traversal and concatenate to the unique underlying \\(x\\)-to-\\(z\\) tree path; therefore that path is directed and, because no alternative route exists, geodesic. Conversely any directed geodesic containing three selected vertices orders them into a three-element reachability chain. Hence directed general-position sets are exactly two-families. Greene–Kleitman at \\(k=2\\) then gives the chain-partition min–max formula. The bundled exhaustive replay through six vertices is a stress test, not the universal proof.",
+      "reason": "In an oriented tree, if \\(x<y<z\\) in reachability order, the directed \\(x\\)-to-\\(y\\) and \\(y\\)-to-\\(z\\) paths cannot share an edge with opposite traversal and concatenate to the unique underlying \\(x\\)-to-\\(z\\) tree path; therefore that path is directed and, because no alternative route exists, geodesic. Conversely any directed geodesic containing three selected vertices orders them into a three-element reachability chain. Hence directed general-position sets are exactly two-families. Greene–Kleitman at \\(k=2\\) then gives the chain-partition min–max formula. The bundled exhaustive replay through six vertices is a stress test, not the universal proof.",
+      "risks": [
+        "The formula is tree-specific; DAGs with shortcuts need not have the chain/geodesic equivalence."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 19b1961a98f86ef6bff81cdd6d966de96d8435c3",
+        "Frozen verify.py blob 473cb6fc7597d32cd7199427105d3d68d490f20a",
+        "Frozen verification_output.txt blob c6b80b7926798973be3a2829a0ac4db56edb4639",
+        "Greene–Kleitman, JCTA 20 (1976), 41–68."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper says oriented-tree general position is difficult, proves the out-arborescence formula, and asks for a formula for any tree.",
+          "Cameron’s theorem gives an acyclic-digraph path-partition min–max but not the general-position equivalence."
+        ],
+        "reasoning": "The prior results provide ingredients and adjacent min–max structure, but do not dominate the submitted class-wide GP identity.",
+        "searches": [
+          "arXiv:2604.15909 tree section and Problem 5.2",
+          "DOI:10.1016/S0195-6698(86)80036-1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.15909",
+        "DOI:10.1016/0097-3165(76)90077-7",
+        "DOI:10.1016/S0195-6698(86)80036-1",
+        "fresh Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Greene–Kleitman applies only after establishing that GP sets are exactly two-families.",
+          "The 2026 source leaves arbitrary oriented-tree formulas open."
+        ],
+        "reasoning": "The submitted geodesic/reachability equivalence is the missing nontrivial bridge; neither cited theorem alone or by parameter substitution yields it.",
+        "searches": [
+          "Greene–Kleitman k-family theorem",
+          "arXiv:2604.15909 directed-general-position definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fresh Resultary hits were unrelated finite-poset/general-position results; no covering oriented-tree statement appeared.",
+          "The 2026 primary paper’s full-text tree section contains no reachability-poset/two-family formula in the inspected material."
+        ],
+        "reasoning": "The natural aliases are two-family, union of two antichains, and chain-partition min–max; none of the inspected direct-source material states the directed-geodesic bridge.",
+        "searches": [
+          "Resultary: oriented tree general position reachability poset two-family Greene Kleitman chain partition",
+          "web: oriented tree general position reachability poset antichain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table row or published SCOPE record with the same claim was found."
+        ],
+        "reasoning": "This is a universal structural theorem, not a known finite table recomputation.",
+        "searches": [
+          "Resultary query above",
+          "exact phrase search: general position oriented tree Greene Kleitman"
+        ]
+      },
+      "rationale": "The closest 2026 primary paper studies directed general position, gives only a leaf lower bound and an exact arborescence case for oriented trees, and explicitly poses as Problem 5.2 the task of finding a formula for the general-position number of any tree. The classical Greene–Kleitman theorem supplies the poset min–max once a two-family has been identified, and Cameron gives a broader acyclic-digraph path-partition min–max, but neither source identifies directed general-position sets of an arbitrary oriented tree with reachability-poset two-families. Fresh Resultary and alias searches found no earlier statement of that bridge.",
+      "reason": "The closest 2026 primary paper studies directed general position, gives only a leaf lower bound and an exact arborescence case for oriented trees, and explicitly poses as Problem 5.2 the task of finding a formula for the general-position number of any tree. The classical Greene–Kleitman theorem supplies the poset min–max once a two-family has been identified, and Cameron gives a broader acyclic-digraph path-partition min–max, but neither source identifies directed general-position sets of an arbitrary oriented tree with reachability-poset two-families. Fresh Resultary and alias searches found no earlier statement of that bridge.",
+      "residual_risks": [
+        "A very recent or poorly indexed independent observation may exist."
+      ],
+      "risks": [
+        "An unindexed very recent note may independently make the same reachability-poset observation; no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_PRIOR_NOT_COVERING",
+          "evidence": [
+            "The source proves only lower bounds and the arborescence case, then asks for a formula for any tree."
+          ],
+          "identifier_or_url": "arXiv:2604.15909",
+          "material_read": "Public full-text author upload including the oriented-tree section, Lemma 3.7, Theorem 3.8, and the conclusion containing Problem 5.2.",
+          "method": "Lawful public full-text inspection.",
+          "title": "The general position number of digraphs",
+          "trigger": "Exact recent primary source for directed general position and oriented trees."
+        },
+        {
+          "assessment": "SUPPORTING_CLASSICAL_TOOL",
+          "evidence": [
+            "The maximum size of a union of \\(k\\) antichains equals the minimum chain-partition \\(k\\)-norm."
+          ],
+          "identifier_or_url": "DOI:10.1016/0097-3165(76)90077-7",
+          "material_read": "Author-repository abstract plus exact theorem statement in a standard mathematical reference.",
+          "method": "Public bibliographic/theorem-statement inspection.",
+          "title": "The Structure of Sperner k-families",
+          "trigger": "Classical theorem supplying the final min–max equality."
+        },
+        {
+          "assessment": "BROADER_MINMAX_NOT_TARGET",
+          "evidence": [
+            "The source extends path-partition min–max relations to acyclic digraphs but does not state the directed-general-position bridge."
+          ],
+          "identifier_or_url": "DOI:10.1016/S0195-6698(86)80036-1",
+          "material_read": "Publisher abstract and theorem-level description.",
+          "method": "Public publisher-page inspection.",
+          "title": "On k-Optimum Dipath Partitions and Partial k-Colourings of Acyclic Digraphs",
+          "trigger": "Potential broader acyclic-digraph min–max coverage."
+        }
+      ],
+      "sources": [
+        "Chandran S. V. et al., arXiv:2604.15909, public full-text copy.",
+        "Greene–Kleitman, DOI:10.1016/0097-3165(76)90077-7.",
+        "Cameron, DOI:10.1016/S0195-6698(86)80036-1.",
+        "Resultary query: oriented tree general position reachability poset two-family Greene Kleitman chain partition."
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers an explicitly posed class-wide problem by converting a directed metric invariant into a standard poset two-family invariant. This is a motivated structural lemma with immediate algorithmic and extremal consequences, not an arbitrary finite census.",
+      "reason": "The result answers an explicitly posed class-wide problem by converting a directed metric invariant into a standard poset two-family invariant. This is a motivated structural lemma with immediate algorithmic and extremal consequences, not an arbitrary finite census.",
+      "risks": [
+        "It gives a structural min–max formula, not a closed expression solely in elementary tree statistics."
+      ],
+      "sources": [
+        "The 2026 source explicitly asks for an arbitrary-tree formula.",
+        "The result makes Greene–Kleitman machinery directly available."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite oriented tree, directed general-position sets are exactly the two-families of its reachability poset, so the general-position number equals the Greene–Kleitman minimum over chain partitions of the sum of \\(\\min\\{2,|C|\\}\\).",
+  "limitations": [
+    "No unchanged extension to general DAGs with directed shortcuts is claimed."
+  ],
+  "schema_version": 1
+}
