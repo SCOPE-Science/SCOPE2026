@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Starting from the exact published formulas U'(y)=(e^y-1)/(q e^y-p), W(E)=(q-p)log r and Theta(E)=(q-p)^(-1) integral W'(x)/sqrt(e^{2(E-x)}-1) dx, local analytic series reversion gives the inverse coefficients through order seven. Beta convolution gives c1=pi A/(12 d^(3/2)), c2=pi A^2/(576 d^(5/2)), and on A=0, c3=pi(d-4)(d-1)^2/(720 sqrt d). Since E=d(log r)^2/8+O((log r)^4), composition gives the claimed coefficient. The checker reconstructs these identities from the defining formulas rather than trusting stored coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li--Wan Corollary 4.3 supplies the endpoint and quadratic term only.",
+        "Tao proves global monotonicity on the entire boundary but does not quantify its degenerate endpoint rate."
+      ],
+      "reasoning": "Global strict monotonicity is weaker than an exact local sixth-order coefficient. The older quadratic expansion is identically zero on the boundary and therefore does not dominate the new statement.",
+      "searches": [
+        "planar isotropic L_p dual Minkowski higher order period asymptotic",
+        "Minkowski support function period integral small amplitude Birkhoff normal form",
+        "Li Wan planar isotropic L_p dual Minkowski endpoint expansion higher order"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.39636v1 full text",
+      "arXiv:2209.14630v2 full PDF, Corollary 4.3",
+      "Published-record searches for the exact boundary polynomial, sixth-order period law, and coefficient 368640",
+      "Current and prior geometry-recent ledgers by source ID and claim fingerprints"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tao Theorem 3.3 proves strict decrease for A<=0 away from three exceptions.",
+        "Li--Wan Corollary 4.3 gives Theta=pi/sqrt(d)+pi A (r-1)^2/(96 sqrt(d))+o((r-1)^2).",
+        "Tao equations (2.13)--(2.14) give W(E)=d log r and the E-convolution used in the new derivation."
+      ],
+      "reasoning": "The prior implications establish the qualitative sign and a vanished quadratic test, but neither identifies the first nonzero term. The new Puiseux/convolution calculation is necessary to obtain order six, its exact coefficient, and its exceptional zero set.",
+      "searches": [
+        "arXiv:2609.39636 Theorem 3.3 Corollary Li Wan 4.3",
+        "arXiv:2209.14630 Corollary 4.3 period expansion",
+        "A(p,q)=0 Tao strictly decreasing period"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The recent full text states the exact boundary A<=0 and quotes only a quadratic endpoint expansion proportional to A.",
+        "Exact-formula searches found no published record stating a sixth-order term, an equivalent log-amplitude coefficient, or the factor (d-4)(d-1)^2."
+      ],
+      "reasoning": "Equivalent formulations checked included sixth-order expansion in r-1, sixth-order expansion in log r, higher-order small-amplitude period law, and a local quantitative form of strict decrease on A=0. None of the checked statements implied the claimed coefficient.",
+      "searches": [
+        "2609.39636 planar isotropic L_p dual Minkowski period boundary sixth order expansion",
+        "p^2-pq+q^2+3p-3q=0 period integral sixth order",
+        "planar isotropic Lp dual Minkowski degenerate endpoint asymptotic (r-1)^6",
+        "Theta(p,q,r) boundary decreasing region exceptional (1,2) (-2,-1) (-2,2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked semantic record matched the source-specific boundary polynomial with a sixth-order coefficient.",
+        "No checked published scientific record contained the source identifier together with the claimed boundary coefficient."
+      ],
+      "reasoning": "This is an analytic local invariant rather than a tabulated quantity; exact source, polynomial, and coefficient fingerprints were used to detect direct coverage.",
+      "searches": [
+        "arXiv:2609.39636 sixth order period",
+        "368640 Minkowski period",
+        "sqrt 13 irrelevant exact coefficient check replaced by d-4 d-1 squared"
+      ]
+    },
+    "rationale": "The full recent source proves strict monotonicity on A<=0 but invokes only Li--Wan's quadratic endpoint asymptotic. Li--Wan's inspected Corollary 4.3 states that quadratic expansion and no sixth-order coefficient. Exact source/formula/coefficient searches and ledger checks found no covering statement. The result therefore supplies a quantitatively stronger local statement not implied by the prior wording.",
+    "residual_risks": [
+      "An equivalent higher-order calculation could exist under different perturbation coordinates not surfaced by the targeted searches.",
+      "The primary recent preprint does not print an MSC line; 52A10 ownership is supported by the identical problem's predecessor metadata and the planar convex-support-function formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: global strict decrease is proved, but the degenerate endpoint rate is not computed beyond the quoted quadratic term.",
+        "evidence": "Equations (2.13)--(2.14) provide W(E)=d log r and the convolution. Theorem 3.3 uses Li--Wan Corollary 4.3, whose coefficient vanishes on A=0.",
+        "identifier_or_url": "arXiv:2609.39636v1",
+        "material_read": "Full arXiv HTML: introduction, period definition, equations (2.10)--(2.17), Theorem 3.3 and proof, Theorem 3.4 context, exceptional families.",
+        "method": "Full-text statement and formula comparison; exact boundary and asymptotic searches.",
+        "title": "The exact number of nonconstant positive solutions to the planar isotropic L_p dual Minkowski problem",
+        "trigger": "Primary recent source containing the complete period classification and new E-convolution representation."
+      },
+      {
+        "assessment": "CLOSEST_PRIOR_NOT_COVERING: gives endpoint plus quadratic term only.",
+        "evidence": "Corollary 4.3 states the coefficient pi(q^2-pq+p^2+3p-3q)/(96 sqrt(q-p)) times (r-1)^2 plus little-o of that order.",
+        "identifier_or_url": "arXiv:2209.14630v2",
+        "material_read": "ArXiv metadata plus full PDF page containing Corollary 4.3; the PDF page was visually inspected.",
+        "method": "Primary PDF text and page-image inspection at Corollary 4.3.",
+        "title": "Classification of solutions for the planar isotropic L_p dual Minkowski problem",
+        "trigger": "Direct predecessor cited for endpoint asymptotics of the identical period integral."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "223d562b-c991-4c2b-b896-b1c0218d572c",
+  "value": {
+    "rationale": "The boundary A=0 is exactly where the known local quadratic test degenerates while the new source nevertheless proves strict decrease. Identifying the first nonzero term resolves that local degeneracy quantitatively and explains why the only coefficient zeros are exactly the three constant-period exceptional families. The sixth-order law is a natural structural invariant of the classification boundary, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
