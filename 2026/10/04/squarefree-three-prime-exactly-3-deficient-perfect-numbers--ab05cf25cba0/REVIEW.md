@@ -1,19 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(n=2pq\), the exact deficiency is \(pq-3p-3q-3\). Since this is smaller than \(pq\), every three-divisor representation must use only \(1,2,p,2p,q,2q\), leaving exactly twenty cases. Each case factors as
-\[
-\bigl(p-(b+3)\bigr)\bigl(q-(a+3)\bigr)=(a+3)(b+3)+c+3,
-\]
-with a positive right side at most \(33\). Both factors are positive, so positive divisor enumeration is exhaustive. The package independently reconstructs all twenty cases and directly checks the six surviving divisor-sum identities.
+## correctness
 
-## Originality
-PASS. The primary paper classifies odd exactly \(3\)-deficient-perfect numbers with at most two distinct prime factors, not even squarefree numbers with three prime factors. Chen's earlier result concerns exactly \(2\)-deficient-perfect numbers with at most two prime factors. OEIS A331629 lists the six values but does not state their completeness in the \(2pq\) family. The closest published-finding corpus record concerns ordinary deficient-perfect numbers with one deficient divisor. Exact and semantic searches found no prior theorem covering this classification. Residual risk remains from unindexed or unpublished work.
+PASS
 
-## Value
-PASS. This closes the first natural squarefree three-prime-support slice beyond the primary paper's two-prime focus. The result is a complete structural classification, not a bounded census, and gives explicit deficient-divisor certificates for every surviving integer.
+The deficiency is Δ=pq-3p-3q-3. Since Δ<pq, only six small proper divisors can appear. Each of the 20 triples has sum c+ap+bq and rearranges to (p-(b+3))(q-(a+3))=(a+3)(b+3)+c+3, with the constant at most 33; its positive divisors give exactly six prime pairs. Fresh brute force below 100 reproduces the list and the frozen verifier checks all twenty rows and each witness.
 
-## Closest literature and limitations
-The closest primary source is Saralee Aursukaree and Prapanpong Pongsriiam, “On Exactly \(3\)-Deficient-Perfect Numbers,” arXiv:2001.06953. The theorem here does not classify nonsquarefree numbers \(2^a p^b q^c\) or arbitrary exactly \(3\)-deficient-perfect integers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Aursukaree–Pongsriiam define exactly 3-deficient-perfect numbers and prove the odd at-most-two-prime-factor case. OEIS A331629 lists all six submitted values but does not state that they are exactly the squarefree 2pq solutions. Resultary returns the audited record itself as the exact hit; nearby deficient-perfect 2^a pq work concerns one deficient divisor.
+
+## value
+
+PASS
+
+This is a natural first even squarefree three-prime-support layer of the exact-deficiency invariant, upgrading sequence evidence to a bound-free complete classification with explicit witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:51:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md faa7f97454cf77048fc65b514f9c0d3e0a6fac52",
+        "verify.py a72d65aef05f75f0c950a0142a8d504c9a6aee23",
+        "fresh prime/divisor replay"
+      ],
+      "rationale": "The deficiency is Δ=pq-3p-3q-3. Since Δ<pq, only six small proper divisors can appear. Each of the 20 triples has sum c+ap+bq and rearranges to (p-(b+3))(q-(a+3))=(a+3)(b+3)+c+3, with the constant at most 33; its positive divisors give exactly six prime pairs. Fresh brute force below 100 reproduces the list and the frozen verifier checks all twenty rows and each witness.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior results cover odd/two-prime-support exactly-3 deficiency or a different number of deficient divisors."
+        ],
+        "reasoning": "No broader checked theorem supplies this 2pq list.",
+        "searches": [
+          "arXiv:2001.06953",
+          "Chen 2019",
+          "Resultary deficient-perfect 2^a pq record"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.06953",
+        "OEIS A331629",
+        "Chen 2019",
+        "Resultary exact search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each divisor triple reduces to a factorization of a constant between 18 and 33."
+        ],
+        "reasoning": "This bound-free finite closure is additional mathematics.",
+        "searches": [
+          "primary theorem scope",
+          "audited twenty-triple factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=2pq, exact 3-deficiency means three distinct divisors from {1,2,p,2p,q,2q} sum to pq-3p-3q-3."
+        ],
+        "reasoning": "This is a different prime-support regime from the primary theorem.",
+        "searches": [
+          "arXiv:2001.06953",
+          "OEIS A331629",
+          "Resultary exact 3-deficient-perfect 2pq query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists the values but no 2pq exhaustion theorem."
+        ],
+        "reasoning": "The table is consistent but not exhaustive for the infinite family.",
+        "searches": [
+          "OEIS A331629",
+          "Resultary query"
+        ]
+      },
+      "rationale": "Aursukaree–Pongsriiam define exactly 3-deficient-perfect numbers and prove the odd at-most-two-prime-factor case. OEIS A331629 lists all six submitted values but does not state that they are exactly the squarefree 2pq solutions. Resultary returns the audited record itself as the exact hit; nearby deficient-perfect 2^a pq work concerns one deficient divisor.",
+      "residual_risks": [
+        "An unindexed arithmetic note or sequence annotation may contain the same 2pq classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ODD_AT_MOST_TWO_PRIME_FACTORS_ONLY",
+          "evidence": "The source states only the odd example 1521 in that regime.",
+          "identifier_or_url": "arXiv:2001.06953; Fibonacci Quarterly 59 (2021)",
+          "material_read": "Primary arXiv abstract plus current journal abstract/theorem statement.",
+          "method": "Prime-support/domain comparison.",
+          "title": "On Exactly 3-Deficient-Perfect Numbers",
+          "trigger": "Defining primary source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2001.06953",
+        "OEIS A331629",
+        "Chen 2019",
+        "Resultary exact search"
+      ],
+      "rationale": "This is a natural first even squarefree three-prime-support layer of the exact-deficiency invariant, upgrading sequence evidence to a bound-free complete classification with explicit witnesses.",
+      "residual_risks": [
+        "An unindexed arithmetic note or sequence annotation may contain the same 2pq classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2001.06953",
+    "OEIS A331629",
+    "Chen 2019",
+    "Resultary exact search"
+  ],
+  "disposition": "passed",
+  "final_claim": "The squarefree exactly 3-deficient-perfect integers 2pq are exactly 130,154,170,182,290,434.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed arithmetic note or sequence annotation may contain the same 2pq classification.",
+    "No nonsquarefree or higher-support classification is claimed."
+  ]
+}
