@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:54:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_conic_multiview_nonnormal.py at the frozen source tree",
+        "arXiv:2404.03063v1",
+        "independent symbolic Jacobian reconstruction"
+      ],
+      "rationale": "The frozen package reconstructs the published three \\(2\\times2\\) minors. On \\(P_\\gamma=V(\\gamma_2,\\gamma_4,\\gamma_5)\\), the first quadratic row vanishes identically and direct differentiation leaves only the \\(\\gamma_5\\) Jacobian column; hence the defining Jacobian has rank at most one. The symmetric statement holds on \\(P_\\delta\\), with only the \\(\\delta_0\\) column. Since the ambient product has dimension ten, the published prime variety has dimension eight, and these product subsets have dimension seven, every such point is singular and the singular locus has a divisor, violating regularity in codimension one and therefore normality. At a general double-line point, the differential of the zero row has rank three and composition with wedge against a nonzero other row has rank two, so the codimension-two variety is smooth there. An independent symbolic reconstruction reproduced the one-column restrictions and an explicit Jacobian rank-one witness; the argument itself is symbolic and global on the stated plane.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source supplies the prime ideal, dimension, camera-coordinate equivalence, and zero-row geometry.",
+          "No inspected broader source supplies the normality conclusion for this conic multiview variety."
+        ],
+        "reasoning": "The defining equations do not mechanically imply normality status without analyzing their differential along the special zero-row component.",
+        "searches": [
+          "F. Rydell and I. Sundelius, Projections of Curves and Conic Multiview Varieties, arXiv:2404.03063v1",
+          "E. Ballico, On the Algebraic Geometry of Multiview, Foundations 4 (2024)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.03063v1",
+        "Foundations 4 (2024) multiview overview",
+        "Resultary conic-multiview singularity/normality query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the epipolar plane the minors vanish automatically, but prior equations alone do not assert the Jacobian rank drops below the codimension.",
+          "The exact differentiation shows rank at most one along a seven-dimensional subset of an eight-dimensional prime variety, forcing a codimension-one singular locus and failure of Serre \\(R_1\\)."
+        ],
+        "reasoning": "The audited conclusion needs a local singularity calculation that is absent from the inspected primary theorem.",
+        "searches": [
+          "arXiv:2404.03063v1 defining minors and zero-row description",
+          "audited Jacobian restriction on the epipolar plane"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper states the dimension-eight two-view variety and its rank-one defining equations.",
+          "It explains that a zero quadratic row means a double line or a union of two lines through the epipole."
+        ],
+        "reasoning": "The rank-one determinantal and geometric zero-row formulations were compared directly; the audited claim adds the local Jacobian rank and codimension-one singularity consequence.",
+        "searches": [
+          "arXiv:2404.03063v1, Projections of Curves and Conic Multiview Varieties",
+          "Resultary query: two-view conic multiview singular divisor nonnormal epipolar reducible conic plane"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited finding is the direct exact result; nearby hits concern nonlinear multiview graphs or line-multiview singularities."
+        ],
+        "reasoning": "No exact singular-locus or normality table for this object was located.",
+        "searches": [
+          "Resultary published-finding corpus for conic multiview singularity/normality",
+          "targeted searches under singular divisor, nonnormal, zero row, and epipolar reducible conics"
+        ]
+      },
+      "rationale": "Rydell--Sundelius give the exact two-view rank-one equations, prove the ideal/variety description and dimension, and identify the geometric zero-row alternatives. Their inspected full text does not state that the epipolar reducible-conic plane times the other image factor is a singular divisor, nor the resulting nonnormality. Resultary found the audited theorem as the exact direct match; adjacent multiview singularity records concern different varieties. Thus the Jacobian/R1 consequence is not prior-implied by an inspected theorem.",
+      "residual_risks": [
+        "A later or differently indexed singularity study of the same conic multiview variety could contain the same normality defect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_IDEAL_AND_ZERO_ROW_GEOMETRY_NOT_DIVISORIAL_SINGULARITY_OR_NORMALITY",
+          "evidence": "The source gives the rank-one model and geometric degeneration types but does not state the singular-divisor/Jacobian-rank conclusion in the inspected text.",
+          "identifier_or_url": "arXiv:2404.03063v1",
+          "material_read": "Full accessible preprint material around the main two-view theorem, the rank-one equations, and the discussion of zero quadratic rows as double lines or epipolar reducible conics.",
+          "method": "Primary full-text statement and local-implication comparison.",
+          "title": "Projections of Curves and Conic Multiview Varieties",
+          "trigger": "Primary source for the exact conic multiview equations, dimension, and zero-row interpretation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2404.03063v1",
+        "Resultary conic-multiview query"
+      ],
+      "rationale": "Normality is a basic structural property of a multiview variety, and a codimension-one singular boundary materially affects normalization and downstream intersection/birational calculations. Isolating the epipolar reducible-conic component as the source of the defect while distinguishing the generically smooth double-line component is a motivated geometric result, not merely a consistency check of the published equations.",
+      "residual_risks": [
+        "A later or differently indexed singularity study of the same conic multiview variety could contain the same normality defect."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2404.03063v1",
+    "Foundations 4 (2024) multiview overview",
+    "Resultary conic-multiview singularity/normality query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the two-view conic multiview variety, the epipolar reducible-conic planes in either image factor produce codimension-one singular subvarieties \\(P_\\gamma\\times\\mathbb P^5\\) and \\(\\mathbb P^5\\times P_\\delta\\); hence the irreducible variety is nonnormal, while a general double-line point in the other zero-row component is smooth. The conclusion is invariant under projective coordinate changes for any distinct-center camera pair.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A later or differently indexed singularity study of the same conic multiview variety could contain the same normality defect."
+  ]
+}

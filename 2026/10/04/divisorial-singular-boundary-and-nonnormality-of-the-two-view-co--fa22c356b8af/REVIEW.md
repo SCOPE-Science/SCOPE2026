@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published source gives a prime codimension-two defining ideal for the canonical two-view conic multiview variety. On each stated epipolar plane, one quadratic row vanishes identically and the exact Jacobian restriction has at most one nonzero column, forcing rank at most one. Since the variety has codimension two, the Jacobian criterion gives singularity. Each product stratum has dimension seven inside an eight-dimensional irreducible variety, so the singularity occurs in codimension one and violates the necessary \(R_1\) condition for normality. The bundled symbolic script reproduces these identities and also verifies a smooth generic double-line point.
+PASS
 
-## Originality
+The frozen package reconstructs the published three \(2\times2\) minors. On \(P_\gamma=V(\gamma_2,\gamma_4,\gamma_5)\), the first quadratic row vanishes identically and direct differentiation leaves only the \(\gamma_5\) Jacobian column; hence the defining Jacobian has rank at most one. The symmetric statement holds on \(P_\delta\), with only the \(\delta_0\) column. Since the ambient product has dimension ten, the published prime variety has dimension eight, and these product subsets have dimension seven, every such point is singular and the singular locus has a divisor, violating regularity in codimension one and therefore normality. At a general double-line point, the differential of the zero row has rank three and composition with wedge against a nonzero other row has rank two, so the codimension-two variety is smooth there. An independent symbolic reconstruction reproduced the one-column restrictions and an explicit Jacobian rank-one witness; the argument itself is symbolic and global on the stated plane.
 
-PASS with residual literature risk. The primary source explicitly gives the rank-one ideal and describes the two geometric components of the zero-row locus, but it does not state that the epipolar reducible-conic plane produces a singular divisor or that the variety is nonnormal. Searches using the exact title/object together with `singular locus`, `singular divisor`, `normal`, and `nonnormal`, plus semantic published-finding corpus searches for equivalent formulations, returned no overlapping result. The closest indexed materials discuss other singular varieties or general multiview compactifications rather than this codimension-one Jacobian defect.
+## originality
 
-## Value
+PASS
 
-PASS. Normality is a structural property of the compactified correspondence variety, and a codimension-one singular boundary affects divisor theory, desingularization, and any attempt to use smooth/normal compactifications in exact or numerical geometry. The contrast between the reducible epipolar-plane component and the generically smooth double-line component identifies the precise degeneration responsible for the defect rather than merely exhibiting an isolated singular point.
+Rydell--Sundelius give the exact two-view rank-one equations, prove the ideal/variety description and dimension, and identify the geometric zero-row alternatives. Their inspected full text does not state that the epipolar reducible-conic plane times the other image factor is a singular divisor, nor the resulting nonnormality. Resultary found the audited theorem as the exact direct match; adjacent multiview singularity records concern different varieties. Thus the Jacobian/R1 consequence is not prior-implied by an inspected theorem.
 
-The main limitation is that the complete singular locus and the normalization are not determined.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Normality is a basic structural property of a multiview variety, and a codimension-one singular boundary materially affects normalization and downstream intersection/birational calculations. Isolating the epipolar reducible-conic component as the source of the defect while distinguishing the generically smooth double-line component is a motivated geometric result, not merely a consistency check of the published equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
