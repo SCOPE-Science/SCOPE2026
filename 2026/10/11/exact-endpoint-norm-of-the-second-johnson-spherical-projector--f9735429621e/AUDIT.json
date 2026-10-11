@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the radial degree-two kernel from exact hypergeometric factorial moments, slice degree, irreducibility and trace normalization. The discrete antiderivative is an algebraic identity, and exact rational replay verifies it together with kernel mean, second moment and the final norm formula for 3,481 parameter pairs. The asymptotic uses an exact centered quadratic form, the standard hypergeometric CLT, and exact \\(L^2\\) control for uniform integrability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:math/0701533 Proposition 2.14 gives general isotypic projections on finite homogeneous spaces, but the full text has no endpoint-norm calculation.",
+        "arXiv:2608.06232 concerns mean absolute deviation of the linear hypergeometric statistic, not a quadratic spherical kernel."
+      ],
+      "reasoning": "General finite-homogeneous-space projection theory and general hypergeometric absolute-deviation theory were checked. Neither dominates the claimed quadratic absolute-kernel identity.",
+      "searches": [
+        "Johnson scheme second primitive idempotent endpoint projection norm exact hypergeometric boundary mass",
+        "second spherical component Johnson slice projection l1 norm degree two Hahn polynomial absolute sum",
+        "Eberlein Hahn degree two absolute row sum primitive idempotent Johnson scheme"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0701533",
+      "arXiv:1406.0142",
+      "doi:10.13001/1081-3810.1256",
+      "arXiv:2608.06232"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own item ec798093-53f9-4dc0-ba74-48d0efb50fd4 is the second-homogeneous Walsh projector on the full Boolean cube.",
+        "The Johnson projector uses a hypergeometric intersection law and a Hahn/Eberlein kernel; the Walsh result uses a binomial/Krawtchouk setting."
+      ],
+      "reasoning": "The shared limiting constant does not imply finite-size equivalence. The exact Johnson boundary formula and kernel normalization are not consequences of the Walsh result.",
+      "searches": [
+        "Johnson scheme degree two spherical projection endpoint norm Hahn polynomial L1 absolute sum",
+        "Johnson slice harmonic degree two projection norm sqrt 2 pi e asymptotic",
+        "own item ec798093-53f9-4dc0-ba74-48d0efb50fd4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1406.0142 identifies slice degree d with the d-th Johnson primitive-idempotent eigenspace.",
+        "doi:10.13001/1081-3810.1256 derives Johnson spherical functions/Eberlein polynomials.",
+        "No inspected source states the absolute row sum of the degree-two primitive idempotent."
+      ],
+      "reasoning": "The equivalent formulations checked were primitive-idempotent \\(E_2\\), degree-two slice harmonics, second Johnson spherical component, and degree-two Hahn/Eberlein kernel. They identify the same operator but did not supply its endpoint norm.",
+      "searches": [
+        "Johnson scheme degree two spherical projection endpoint norm Hahn polynomial L1 absolute sum",
+        "second Johnson eigenspace projection norm slice harmonic degree two hypergeometric",
+        "primitive idempotent E2 Johnson scheme absolute row sum Lebesgue constant",
+        "Hahn polynomial absolute L1 norm hypergeometric second degree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Krebs--Shaheen treats spectra through Eberlein polynomials, not absolute primitive-idempotent row sums.",
+        "Filmus gives primitive-idempotent eigenspaces and basis norms, not the induced endpoint norm."
+      ],
+      "reasoning": "Known Johnson spectral tables can reconstruct the kernel values, but the claim is the exact absolute sum and its telescoping reduction; no checked table or source states that quantity.",
+      "searches": [
+        "primitive idempotent E2 Johnson scheme absolute row sum Lebesgue constant",
+        "Johnson slice harmonic degree two projection norm sqrt 2 pi e asymptotic",
+        "hypergeometric quadratic orthogonal polynomial absolute expectation telescoping boundary mass"
+      ]
+    },
+    "rationale": "Statement-level comparisons found the Johnson spectral component and its Hahn/Eberlein kernel in the literature, but not the endpoint absolute-row-sum evaluation, the two-boundary collapse, or the density-independent bulk constant. A recent hypergeometric mean-absolute-deviation paper covers the linear statistic only. The closest own Walsh degree-two result has a different state space and kernel and does not imply the finite Johnson formula.",
+    "residual_risks": [
+      "Older Johnson-association-scheme or orthogonal-polynomial tables may contain an equivalent degree-two absolute-sum identity under a different normalization.",
+      "The 2026 hypergeometric mean-absolute-deviation paper could not be fully fetched in the final comparison pass; its abstract describes only the linear statistic, so it is not a decisive unresolved comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new endpoint norm; it supplies the isotypic projection framework",
+        "evidence": "Proposition 2.14 defines the isotypic projection; full-text search found no endpoint norm discussion.",
+        "identifier_or_url": "arXiv:math/0701533",
+        "material_read": "full arXiv text, especially the spherical-function discussion, Proposition 2.14, and Johnson-scheme passages",
+        "method": "full-text inspection",
+        "title": "Harmonic analysis on a finite homogeneous space",
+        "trigger": "general finite-homogeneous-space projection framework and Johnson-scheme ancestry"
+      },
+      {
+        "assessment": "NOT_COVERING for the absolute row sum; it identifies the eigenspaces and primitive idempotents",
+        "evidence": "Section 5 identifies the degree-d slice basis with the d-th Johnson eigenspace; no projection-norm statement was found.",
+        "identifier_or_url": "arXiv:1406.0142",
+        "material_read": "full arXiv text, especially Section 5 on the Johnson association scheme",
+        "method": "full-text inspection",
+        "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+        "trigger": "direct slice/Johnson primitive-idempotent formulation"
+      },
+      {
+        "assessment": "NOT_COVERING for endpoint norms; it derives spectra and spherical functions",
+        "evidence": "The paper states that Johnson spectra are given by Eberlein polynomials and develops the Gelfand-pair spherical functions, but does not evaluate absolute primitive-idempotent row sums.",
+        "identifier_or_url": "doi:10.13001/1081-3810.1256",
+        "material_read": "14-page open PDF, including Introduction and Sections 4-5; page images were inspected as well as extracted text",
+        "method": "full-text PDF inspection",
+        "title": "On the spectra of Johnson graphs",
+        "trigger": "direct spherical-function/Eberlein-polynomial source"
+      },
+      {
+        "assessment": "NOT_DECISIVE but apparently degree-one only; retained as a residual comparison risk",
+        "evidence": "The abstract explicitly concerns mean absolute deviation about the mean, hence the linear statistic |J-EJ|; it does not advertise quadratic Hahn-polynomial absolute sums.",
+        "identifier_or_url": "arXiv:2608.06232",
+        "material_read": "abstract and search metadata; a later full-text fetch attempt failed",
+        "method": "abstract-level inspection plus access attempt",
+        "title": "The mean absolute deviation of the classical discrete distributions: collapse identities, complete asymptotic expansions, and enveloping series",
+        "trigger": "possible hypergeometric absolute-deviation collapse covering the telescoping mechanism"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f9735429-621e-417a-bf29-6a44dab705e6",
+  "value": {
+    "rationale": "The degree-two Johnson primitive idempotent is a canonical spectral projector. Its endpoint amplification is a natural harmonic-analysis invariant, and the two-boundary collapse replaces a full Hahn-polynomial absolute sum by two explicit masses for every admissible \\(n,k\\). The fixed-density limit gives a universal sharp linear-growth constant.",
+    "status": "PASS"
+  }
+}
