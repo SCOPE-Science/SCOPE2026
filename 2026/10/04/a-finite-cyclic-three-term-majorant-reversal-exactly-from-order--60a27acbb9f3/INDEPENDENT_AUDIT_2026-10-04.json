@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:09:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For \\(D(t)=|1+e^{it}-e^{3it}|^3-|1+e^{it}+e^{3it}|^3\\), the submitted derivative estimate gives \\(\\|D''\\|_1\\le2232\\pi\\): for either trinomial, \\(|P|\\le3\\), \\(|P'|\\le4\\), \\(|P''|\\le10\\), and the Hessian formula for \\(|P|^3\\) yields the pointwise 558 bound, extending through zeros because \\((x^2+y^2)^{3/2}\\) is \\(C^2\\). Two integrations by parts and root-of-unity aliasing therefore give \\(|\\Delta_L-I|\\le372\\pi^2/L^2\\) for the continuous mean I. The inspected directed-interval verifier certifies \\(\\Delta_{10000}\\) near 0.1155409795794836083, hence \\(I>0.1155042646511115\\) and the tail \\(L\\ge200\\) exceeds 0.0237169437209805. It separately certifies every \\(5\\le L\\le199\\), with minimum lower endpoint at \\(L=10\\) above 0.1055728090. The exact low-order formulas are negative for L=1,2,3,4. Thus the finite interval work plus analytic aliasing covers all L; no finite enumeration is extrapolated to infinity.",
+      "risk": "The numerical certificates depend on directed interval arithmetic as carried in the inspected verifier; the analytic tail constant has ample margin relative to 0.0237.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuous theorems cover exponents/frequency gaps more broadly but do not control every finite root-of-unity sample.",
+          "The only located discrete-uniform predecessor is described as numerical rather than proved."
+        ],
+        "reasoning": "No prior broader theorem was found whose implication forces the submitted all-order finite-grid sign statement.",
+        "searches": [
+          "arXiv:1006.0409",
+          "Mockenhaupt thesis as described by Krenedits",
+          "2026 Mockenhaupt three-term conjecture paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1006.0409v1",
+        "Mockenhaupt 1996 thesis as quoted in Krenedits",
+        "Resultary semantic corpus",
+        "2026 continuous three-term majorant search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous positivity gives only the limiting mean I; individual finite-grid averages differ by aliased Fourier coefficients.",
+          "The submitted \\(L^{-2}\\) aliasing estimate plus certified finite range is needed to turn the continuous phenomenon into a theorem for every L."
+        ],
+        "reasoning": "The claim is not a special case of the continuous majorant theorem and is not established by the earlier numerical observation.",
+        "searches": [
+          "Krenedits continuous theorem",
+          "Mockenhaupt discrete-uniform discussion",
+          "2026 continuous three-term theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krenedits identifies the same signed pair and discusses a discrete/uniform inequality in Mockenhaupt's thesis, but not a rigorous all-L finite-grid theorem.",
+          "The 2026 result concerns continuous circle norms."
+        ],
+        "reasoning": "The finite cyclic averages are equivalent to character-order quotients, but no checked source proves their exact sign threshold.",
+        "searches": [
+          "Resultary: finite cyclic Hardy Littlewood majorant 1+z-z^3 roots of unity p=3",
+          "arXiv:1006.0409 full text search for discrete/uniform",
+          "2026 continuous three-term majorant searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of \\(\\Delta_L\\) with a proved all-order threshold was located."
+        ],
+        "reasoning": "The finite part of the proof is newly certified and the tail is analytic, rather than copied from a database.",
+        "searches": [
+          "Resultary finite-cyclic three-term searches",
+          "Krenedits primary discussion"
+        ]
+      },
+      "rationale": "Krenedits' primary full text explicitly reports that Mockenhaupt's 1996 thesis contained a 'discrete and uniform' version for the same three-term pair, but also quotes that its lower bound was established by numerical calculations and says there was no convincing all-parameter proof. Krenedits' proved theorem is for the continuous integral. The audited theorem is a rigorous root-of-unity-grid classification for every finite order, including the sharp first positive order L=5 and a uniform quantitative gap. Continuous majorant positivity does not imply positivity on each finite grid, so the Fourier-aliasing step is a genuinely additional comparison.",
+      "residual_risks": [
+        "The full 1996 Mockenhaupt thesis was not directly available; Krenedits' detailed primary discussion is the material read. The residual risk is that the thesis contains a rigorous finite-order statement not reflected in that description."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper proves continuous results and reports a numerical discrete-uniform lower bound, not the audited rigorous all-L threshold.",
+          "evidence": "It says Example 3.4 of Mockenhaupt gives a discrete and uniform version and comments that the lower bound was established by numerical calculations, followed by the statement that no convincing general proof resulted.",
+          "identifier_or_url": "arXiv:1006.0409v1",
+          "material_read": "Full arXiv text around the historical discussion and the discrete/uniform passage, plus the continuous theorem context.",
+          "method": "lawful arXiv full text",
+          "title": "Three-term idempotent counterexamples in the Hardy-Littlewood majorant problem",
+          "trigger": "Primary source for the same polynomial pair and its report of Mockenhaupt's discrete-uniform attempt."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-cyclic version is mathematically distinct from the continuous Hardy--Littlewood counterexample: it asks for uniform control on every root-of-unity grid and has a sharp threshold. The analytic aliasing bridge plus certified finite range turns a previously numerical discrete observation into an exact all-order theorem with a quantitative gap, a motivated boundary result in a classical majorant problem.",
+      "risk": "The result is specific to exponent three and the classical three-frequency pair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(\\Delta_L=L^{-1}\\sum_{j=0}^{L-1}(|1+\\omega_L^j-\\omega_L^{3j}|^3-|1+\\omega_L^j+\\omega_L^{3j}|^3)\\), one has \\(\\Delta_L<0\\) for \\(1\\le L\\le4\\), while \\(\\Delta_L>0\\) for every \\(L\\ge5\\), in fact \\(\\Delta_L>0.0237\\) uniformly for all \\(L\\ge5\\).",
+  "limitations": [
+    "The theorem does not address other exponents or arbitrary three-term frequency sets.",
+    "The Mockenhaupt thesis itself was not directly inspected."
+  ],
+  "schema_version": 1
+}

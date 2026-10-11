@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two components.
+# Independent mathematical audit
 
-First, the analytic component proves
-\[
-|\Delta_L-I|\le\frac{372\pi^2}{L^2},
-\]
-where \(I\) is the continuous mean of the signed-minus-positive third-moment integrand. This comes from the uniform derivative estimate \(|H_\pm''|\le558\), hence \(\|D''\|_1\le2232\pi\), followed by two integrations by parts and the exact root-of-unity aliasing identity. This component is the reason finitely many computations suffice for an all-order theorem.
+## correctness
 
-Second, `artifacts/verify.py` uses outward-rounded interval arithmetic to check the required numerical certificates. It verifies:
+PASS
 
-- the order-\(10000\) enclosure for \(\Delta_{10000}\);
-- the inferred lower bound \(I>0.1155042646511115\);
-- every order \(5\le L\le199\), with the smallest certified lower endpoint occurring at \(L=10\) and exceeding \(0.1055728090000841\);
-- the tail inequality for every \(L\ge200\), whose uniform lower bound exceeds \(0.0237169437209805\);
-- the four low-order signs, including the exact formulas stated in the result.
+For \(D(t)=|1+e^{it}-e^{3it}|^3-|1+e^{it}+e^{3it}|^3\), the submitted derivative estimate gives \(\|D''\|_1\le2232\pi\): for either trinomial, \(|P|\le3\), \(|P'|\le4\), \(|P''|\le10\), and the Hessian formula for \(|P|^3\) yields the pointwise 558 bound, extending through zeros because \((x^2+y^2)^{3/2}\) is \(C^2\). Two integrations by parts and root-of-unity aliasing therefore give \(|\Delta_L-I|\le372\pi^2/L^2\) for the continuous mean I. The inspected directed-interval verifier certifies \(\Delta_{10000}\) near 0.1155409795794836083, hence \(I>0.1155042646511115\) and the tail \(L\ge200\) exceeds 0.0237169437209805. It separately certifies every \(5\le L\le199\), with minimum lower endpoint at \(L=10\) above 0.1055728090. The exact low-order formulas are negative for L=1,2,3,4. Thus the finite interval work plus analytic aliasing covers all L; no finite enumeration is extrapolated to infinity.
 
-The interval code requires `mpmath==1.3.0`, recorded in `artifacts/requirements.txt`. Finite verification is not an exhaustive check of infinitely many orders; it is coupled to the proved \(L^{-2}\) tail bound. No independent audit has been performed.
+## originality
+
+PASS
+
+Krenedits' primary full text explicitly reports that Mockenhaupt's 1996 thesis contained a 'discrete and uniform' version for the same three-term pair, but also quotes that its lower bound was established by numerical calculations and says there was no convincing all-parameter proof. Krenedits' proved theorem is for the continuous integral. The audited theorem is a rigorous root-of-unity-grid classification for every finite order, including the sharp first positive order L=5 and a uniform quantitative gap. Continuous majorant positivity does not imply positivity on each finite grid, so the Fourier-aliasing step is a genuinely additional comparison.
+
+## value
+
+PASS
+
+The finite-cyclic version is mathematically distinct from the continuous Hardy--Littlewood counterexample: it asks for uniform control on every root-of-unity grid and has a sharp threshold. The analytic aliasing bridge plus certified finite range turns a previously numerical discrete observation into an exact all-order theorem with a quantitative gap, a motivated boundary result in a classical majorant problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
