@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:11:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "repository RESULT.md blob 1f320bb62402298f42e387328b8f8c4a4fe2e296",
+        "repository verify.py blob a080efa53a05228766019328c376df34da5584c6",
+        "https://arxiv.org/abs/1807.07648",
+        "https://arxiv.org/abs/2310.09992"
+      ],
+      "rationale": "Since \\(m\\mid p+1\\), the index-\\(m\\) subgroup \\(H\\) contains \\(\\mathbb F_p^\\times\\), and \\(|H/\\mathbb F_p^\\times|=(p+1)/m\\). For a character descending nontrivially to that quotient, decompose \\(H\\) into prime-field projective lines. The canonical additive-character sum over a line is \\(p-1\\) on the unique trace-zero line and \\(-1\\) otherwise. Quotient-character orthogonality then forces each compressed Fourier entry to vanish unless its product orbit is the distinguished trace-zero orbit, where it equals \\(p\\chi(t_0)\\). Hence there is exactly one nonzero entry per row and column, all of modulus \\(p\\), giving determinant modulus \\(p^m\\), \\(m^2-m\\) zero entries, and exactly \\((p+1)/m-1\\) eligible nontrivial characters. Fresh checks confirmed the subgroup and character-count boundary at \\(p=7,m=4\\); the universal conclusion rests on the projective-line proof.",
+      "residual_risks": [
+        "The theorem covers only the stated quadratic-extension and subfield-trivial-character family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later primary paper explicitly scopes its characterization to an index-3 subgroup and a nontrivial character.",
+          "The standard proper-subfield obstruction requires the multiplicative subgroup itself to lie in a proper subfield, whereas here \\(H\\) strictly contains \\(\\mathbb F_p^\times\\)."
+        ],
+        "reasoning": "The closest broader theorems have materially different hypotheses and do not imply the stated \\(m\\ge4\\) family.",
+        "searches": [
+          "Garcia-Karaali-Katz non-prime-field compressed Fourier results",
+          "Díaz Padilla-Ochoa Arango index-3 characterization"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1807.07648",
+        "https://arxiv.org/abs/2310.09992",
+        "https://doi.org/10.1515/math-2025-0178",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proper-subfield theorem's key hypothesis fails for the present family because \\(|H|>p-1\\).",
+          "The 2025 paper states an index-3 characterization and therefore does not cover higher index."
+        ],
+        "reasoning": "No inspected prior implication yields the projective-line monomial collapse; the trace-zero-line argument is an additional mechanism.",
+        "searches": [
+          "proper-subfield NVM obstruction versus the present containment \\(\\mathbb F_p^\times\\subset H\\)",
+          "index-3 characterization versus \\(m\\ge4\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent orbit-sum statement is that the kernel is supported on exactly one class of \\(K^\times/H\\).",
+          "No retrieved source states this one-orbit support law under the subfield-trivial character hypothesis."
+        ],
+        "reasoning": "Both compressed-matrix and character-sum aliases were checked.",
+        "searches": [
+          "Resultary query: compressed Fourier \\(F_{p^2}\\) character trivial on \\(F_p^\times\\) monomial",
+          "relative Gauss-sum / trace-zero-line formulation",
+          "arXiv:1807.07648 and arXiv:2310.09992"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the only exact infinite-family hit in current published findings.",
+          "Finite index-four examples, where present, do not supply the all-prime/all-admissible-index theorem."
+        ],
+        "reasoning": "The result is an infinite structural classification for a character family, not a recomputation of isolated tables.",
+        "searches": [
+          "Resultary exact search for monomial compressed Fourier matrices with \\(m\\mid p+1\\)",
+          "larger-index finite computations cited in the 2023 thesis context"
+        ]
+      },
+      "rationale": "Garcia-Karaali-Katz introduce the compressed Fourier framework and non-prime-field obstructions; the later Díaz Padilla-Ochoa Arango paper explicitly characterizes the index-3 nontrivial-character case. The present family begins at \\(m=4\\) and uses the opposite structural situation from the standard proper-subfield obstruction: \\(\\mathbb F_p^\times\\subset H\\), with the character trivial on that subfield group. Current published-finding searches found no theorem giving the resulting monomial support pattern for all \\(m\\mid p+1\\).",
+      "residual_risks": [
+        "An equivalent theorem could exist under relative Gauss-sum or cyclotomic terminology and remain poorly indexed.",
+        "Isolated larger-index finite examples are prior data and are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_AND_DIFFERENT_OBSTRUCTIONS",
+          "evidence": "The source establishes the compressed Fourier/NVM framework; its non-prime-field results do not state the present subfield-trivial monomial family.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07648",
+          "material_read": "Primary abstract and scope statement, together with theorem-level comparison to the proper-subfield obstruction cited in the audited package",
+          "method": "Primary-source scope inspection",
+          "title": "An improved uncertainty principle for functions with symmetry",
+          "trigger": "Primary source introducing compressed Fourier matrices and non-prime-field issues"
+        },
+        {
+          "assessment": "INDEX_3_ONLY",
+          "evidence": "The paper explicitly says it characterizes NVM for an index-3 subgroup and a nontrivial character.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.09992",
+          "material_read": "Primary abstract and current publication metadata",
+          "method": "Primary-source scope inspection",
+          "title": "On an uncertainty principle for small index subgroups of finite fields",
+          "trigger": "Closest later characterization for nontrivial compressed-Fourier characters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Garcia-Karaali-Katz framework",
+        "Díaz Padilla-Ochoa Arango index-3 paper",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The theorem supplies a uniform infinite higher-index failure mechanism in a program whose published complete classifications are concentrated at small indices. The exact monomial form simultaneously determines support, determinant magnitude, zero-entry count, and the number of affected characters, making it a reusable structural result rather than a finite example.",
+      "residual_risks": [
+        "It does not classify characters nontrivial on \\(\\mathbb F_p^\times\\) or all higher-index failures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem covers only the stated quadratic-extension and subfield-trivial-character family.",
+    "An equivalent theorem could exist under relative Gauss-sum or cyclotomic terminology and remain poorly indexed.",
+    "Isolated larger-index finite examples are prior data and are not claimed as new.",
+    "It does not classify characters nontrivial on \\(\\mathbb F_p^\times\\) or all higher-index failures."
+  ]
+}

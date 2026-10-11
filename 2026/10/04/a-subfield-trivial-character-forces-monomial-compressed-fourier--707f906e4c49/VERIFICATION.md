@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the standard compressed Fourier entry
-\[
-M_{\chi}(r,s)=\sum_{h\in H}\chi(h)\psi(shr).
-\]
-The critical structural facts are:
+# Independent mathematical audit
 
-1. \(m\mid p+1\) implies \(\mathbb F_p^\times\subset H\).
-2. \(H/\mathbb F_p^\times\) has order \((p+1)/m\), and an eligible \(\chi\) is a nontrivial character of this quotient.
-3. The trace kernel in \(\mathbb F_{p^2}\) is a one-dimensional \(\mathbb F_p\)-space, hence exactly one projective line.
-4. Summing the canonical additive character over the nonzero points of a projective line gives \(p-1\) on the trace-zero line and \(-1\) on every other line.
-5. Quotient-character orthogonality converts those line sums into \(0\) off one \(H\)-orbit and \(p\chi(t_0)\) on that orbit.
+## correctness
 
-The bundled `verify.py` uses exact modular arithmetic only. For several primes and every admissible divisor \(m\ge4\) of \(p+1\), it builds \(\mathbb F_{p^2}\), a primitive multiplicative generator, \(H\), the embedded prime-field subgroup, the projective-line quotient, and every nonzero \(H\)-orbit. It checks that exactly one orbit contains the trace-zero line and that the resulting product-orbit support is a permutation pattern. It also checks the eligible-character count.
+PASS
 
-The checker prints `VERIFY_OK`.
+Since \(m\mid p+1\), the index-\(m\) subgroup \(H\) contains \(\mathbb F_p^\times\), and \(|H/\mathbb F_p^\times|=(p+1)/m\). For a character descending nontrivially to that quotient, decompose \(H\) into prime-field projective lines. The canonical additive-character sum over a line is \(p-1\) on the unique trace-zero line and \(-1\) otherwise. Quotient-character orthogonality then forces each compressed Fourier entry to vanish unless its product orbit is the distinguished trace-zero orbit, where it equals \(p\chi(t_0)\). Hence there is exactly one nonzero entry per row and column, all of modulus \(p\), giving determinant modulus \(p^m\), \(m^2-m\) zero entries, and exactly \((p+1)/m-1\) eligible nontrivial characters. Fresh checks confirmed the subgroup and character-count boundary at \(p=7,m=4\); the universal conclusion rests on the projective-line proof.
 
-The computation is finite and is not used as an infinite proof. It does not test characters outside the theorem's hypothesis.
+## originality
+
+PASS
+
+Garcia-Karaali-Katz introduce the compressed Fourier framework and non-prime-field obstructions; the later Díaz Padilla-Ochoa Arango paper explicitly characterizes the index-3 nontrivial-character case. The present family begins at \(m=4\) and uses the opposite structural situation from the standard proper-subfield obstruction: \(\mathbb F_p^	imes\subset H\), with the character trivial on that subfield group. Current published-finding searches found no theorem giving the resulting monomial support pattern for all \(m\mid p+1\).
+
+## value
+
+PASS
+
+The theorem supplies a uniform infinite higher-index failure mechanism in a program whose published complete classifications are concentrated at small indices. The exact monomial form simultaneously determines support, determinant magnitude, zero-entry count, and the number of affected characters, making it a reusable structural result rather than a finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
