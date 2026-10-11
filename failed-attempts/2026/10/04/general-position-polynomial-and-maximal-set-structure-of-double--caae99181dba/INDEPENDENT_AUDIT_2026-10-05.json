@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:08:01.907128Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 6d13f537d78fb334a6606ab099a6280a18a6e9a8",
+        "assigned verify.py blob 3b97c1cccf7d9de28fe56318cccb81e9e9d5f258",
+        "Iršič--Klavžar--Rus--Tuite, General Position Polynomials, Results Math. 79 (2024)",
+        "Anand et al., arXiv:1812.08460 / Applied Math. Comput. 359 (2019)"
+      ],
+      "rationale": "The center-membership case split is correct. With neither center chosen, every leaf subset is in general position. With only center \\(u\\), either no \\(A\\)-leaf is chosen and an arbitrary \\(B\\)-leaf subset is allowed, or exactly one \\(A\\)-leaf is chosen and no \\(B\\)-leaf is allowed; the symmetric statement holds for \\(v\\). With both centers, no leaf can be included. This gives \\(\\psi(D_{a,b};x)=(1+x)^{a+b}+x(1+x)^a+x(1+x)^b+(a+b+1)x^2\\) and the stated maximal sets. A fresh independent geodesic enumeration for \\((a,b)=(2,2),(2,4),(3,5)\\) matched the polynomial and the maximal-set count \\(a+b+4\\); the package verifier independently checks all parameter pairs \\(2\\le a,b\\le7\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 theorem applies to all connected graphs.",
+          "The 2024 paper develops the polynomial for multiple graph families and general graph operations."
+        ],
+        "reasoning": "The prior structural theorem is strictly broader than the double-star family; no new structural principle is needed to obtain the submitted cases.",
+        "searches": [
+          "Anand et al., Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "Iršič et al., General Position Polynomials"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1812.08460",
+        "https://link.springer.com/article/10.1007/s00025-024-02133-3",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On a double star, the possible induced complete components and inter-component distances immediately force the submitted cases according to which centers are selected.",
+          "Counting those cases gives the displayed three binomial terms plus the quadratic correction."
+        ],
+        "reasoning": "The result is a short worked example of the published characterization rather than an independent theorem under the implication standard.",
+        "searches": [
+          "direct specialization of Anand et al.'s general-position-set characterization",
+          "comparison with Iršič et al. Proposition 2.2 counting framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anand et al. characterize every general-position set in an arbitrary graph by a complete-component, in-transitive, distance-constant partition criterion.",
+          "The 2024 paper defines the exact counting polynomial and derives formulas from maximal general-position sets."
+        ],
+        "reasoning": "The double-star statement is the direct specialization of the general characterization to a two-center tree.",
+        "searches": [
+          "Resultary query: general position polynomial double star bistar maximal general position sets",
+          "Anand et al. arXiv:1812.08460",
+          "Iršič et al. DOI:10.1007/s00025-024-02133-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact double-star formula was found in the checked table/paper."
+        ],
+        "reasoning": "Lack of a printed exact formula does not overcome direct implication from the earlier complete characterization.",
+        "searches": [
+          "Resultary semantic search for double-star/bistar polynomial",
+          "full-text search of the 2024 polynomial paper for 'double star' and 'bistar'"
+        ]
+      },
+      "rationale": "Although the 2024 general-position-polynomial paper does not print a double-star or bistar formula, Anand et al. had already published a complete characterization of general-position sets in arbitrary connected graphs in terms of the components of the induced subgraph forming an in-transitive, distance-constant partition. Specializing that characterization to the diameter-three double star yields exactly the submitted center/leaf case split with only local inspection, and the 2024 polynomial paper supplies the counting-polynomial framework and inclusion-exclusion viewpoint. The submitted formula is therefore a routine special-family corollary of a stronger published structural characterization, so it is covered under the audit's implication rule.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_GENERAL_CHARACTERIZATION",
+          "evidence": "The submitted double-star case split is a direct specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08460",
+          "material_read": "Primary abstract/theorem statement giving the iff complete-component, in-transitive, distance-constant partition characterization, plus its bipartite/diameter-three consequences.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "Strongest prior structural theorem for all general-position sets."
+        },
+        {
+          "assessment": "POLYNOMIAL_FRAMEWORK_NOT_EXACT_FAMILY",
+          "evidence": "It supplies the counting framework but not the printed double-star formula.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-024-02133-3",
+          "material_read": "Complete open article sections defining the polynomial, maximal-set inclusion-exclusion formula, tree examples and graph-operation formulas; full-text searches found no 'double star' or 'bistar'.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "General Position Polynomials",
+          "trigger": "Defining source for the counting polynomial."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Anand et al. (2019)",
+        "Iršič et al. (2024)"
+      ],
+      "rationale": "Double stars are a natural tree family, but after the published all-graph characterization the submitted maximal-set classification is a short center/leaf case split and the polynomial is an immediate binomial count. That is a useful worked example but a routine exercise rather than a motivated unresolved structural gap under the common value standard.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1812.08460",
+    "https://link.springer.com/article/10.1007/s00025-024-02133-3",
+    "Resultary semantic search"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The rejection is for direct prior implication and routine value, not correctness.",
+    "The formula assumes \\(a,b\\ge2\\); smaller degenerate double stars are outside the submitted statement."
+  ],
+  "residual_risks": [],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_GENERAL_CHARACTERIZATION",
+      "evidence": "The submitted double-star case split is a direct specialization.",
+      "identifier_or_url": "https://arxiv.org/abs/1812.08460",
+      "material_read": "Primary abstract/theorem statement giving the iff complete-component, in-transitive, distance-constant partition characterization, plus its bipartite/diameter-three consequences.",
+      "method": "Lawful open primary-source inspection.",
+      "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+      "trigger": "Strongest prior structural theorem for all general-position sets."
+    },
+    {
+      "assessment": "POLYNOMIAL_FRAMEWORK_NOT_EXACT_FAMILY",
+      "evidence": "It supplies the counting framework but not the printed double-star formula.",
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-024-02133-3",
+      "material_read": "Complete open article sections defining the polynomial, maximal-set inclusion-exclusion formula, tree examples and graph-operation formulas; full-text searches found no 'double star' or 'bistar'.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "General Position Polynomials",
+      "trigger": "Defining source for the counting polynomial."
+    }
+  ]
+}
