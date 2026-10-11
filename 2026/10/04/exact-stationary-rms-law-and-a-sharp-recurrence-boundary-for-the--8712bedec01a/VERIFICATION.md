@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic.
 
-For
-\[
-\dot x=y,\qquad
-\dot y=z,\qquad
-\dot z=-y-xz-yz-a,
-\]
-it verifies
-\[
-Lx=y,\qquad
-Ly=z,
-\]
-\[
-L\left(\frac{x^2}{2}\right)=xy,
-\qquad
-L\left(\frac{y^2}{2}\right)=yz,
-\]
-and
-\[
-L(xy)=y^2+xz.
-\]
+# Independent mathematical audit
 
-It then replays the stationary linear algebra to obtain
-\[
-\mathbb E[xz]=-a,
-\qquad
-\mathbb E[y^2]=a.
-\]
+## correctness
 
-For the source value
-\[
-a=\frac34,
-\]
-it verifies the exact squared RMS value \(3/4\).
+PASS
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+Arbitrary antiderivative tests in x and y yield \(\mathbb E[y\mid x]=0\) and \(\mathbb E[z\mid y]=0\), hence the four zero first/mixed moments used in the proof. Stationarity of z then gives \(\mathbb E[xz]=-a\), while stationarity of xy gives \(\mathbb E[y^2]+\mathbb E[xz]=0\), so \(\mathbb E[y^2]=a\). Nonnegativity excludes a<0. At a=0, zero y square plus support invariance forces y=z=0, exactly the equilibrium line. For a>0, the variance/covariance formulas and Cauchy--Schwarz are immediate, and nonzero zero-mean y has both signs. The exact checker independently verifies all generator identities and the a=3/4 specialization.
 
-The checker verifies the algebraic certificates. The conditional laws use arbitrary one-variable antiderivative tests, while the critical \(a=0\) classification additionally uses invariant-support tangency.
+## originality
+
+PASS
+
+The full foundational NE6 paper was inspected: it catalogs the flow at \(a=3/4\), reports Lyapunov/chaos data and a period-doubling route, but does not state the all-invariant-measure RMS/covariance law or the \(a=0\) recurrence boundary. The fractional-order follow-up changes the dynamical category. Targeted Resultary search returned related stationary laws for other systems but no NE6 equivalent.
+
+## value
+
+PASS
+
+NE6 was introduced as a no-equilibrium chaotic flow at positive forcing. The exact law \(\mathbb E[y^2]=a\) converts that forcing into a sharp compact-recurrence boundary, completely classifies the critical parameter, and fixes the RMS amplitude and a covariance for every recurrent statistical state at positive a. That is a natural structural invariant of the source family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

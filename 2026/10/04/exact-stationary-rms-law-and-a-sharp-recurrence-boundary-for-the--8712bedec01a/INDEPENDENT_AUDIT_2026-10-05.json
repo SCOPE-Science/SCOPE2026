@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:47:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 468736e9ee4a48fb3fd1317044e3973405bf89ef",
+        "assigned verify.py blob ff6aa0390dbd48b3ec8a43174edbf830040441fe",
+        "Jafari--Sprott--Hashemi Golpayegani 2013, DOI:10.1016/j.physleta.2013.01.009"
+      ],
+      "rationale": "Arbitrary antiderivative tests in x and y yield \\(\\mathbb E[y\\mid x]=0\\) and \\(\\mathbb E[z\\mid y]=0\\), hence the four zero first/mixed moments used in the proof. Stationarity of z then gives \\(\\mathbb E[xz]=-a\\), while stationarity of xy gives \\(\\mathbb E[y^2]+\\mathbb E[xz]=0\\), so \\(\\mathbb E[y^2]=a\\). Nonnegativity excludes a<0. At a=0, zero y square plus support invariance forces y=z=0, exactly the equilibrium line. For a>0, the variance/covariance formulas and Cauchy--Schwarz are immediate, and nonzero zero-mean y has both signs. The exact checker independently verifies all generator identities and the a=3/4 specialization.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original paper is trajectory/chaos oriented and the follow-up studies a fractional-order system; neither gives the integer-order invariant-measure parameter trichotomy."
+        ],
+        "reasoning": "No checked stronger theorem supplies this exact recurrence boundary for NE6.",
+        "searches": [
+          "Jafari--Sprott--Hashemi Golpayegani 2013 full paper",
+          "Cafagna--Grassi 2013 fractional NE6 follow-up"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.physleta.2013.01.009",
+        "DOI:10.1155/2013/380436",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published equations are inputs, but the stationary moment elimination and exact a=0 support classification are additional deductions."
+        ],
+        "reasoning": "The final theorem gives an all-parameter recurrence obstruction not stated or implied by the source's numerical chaotic example.",
+        "searches": [
+          "DOI:10.1016/j.physleta.2013.01.009 full NE6 entry and bifurcation discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's NE6 entry fixes the same polynomial vector field and source parameter but focuses on chaotic trajectories/Lyapunov data."
+        ],
+        "reasoning": "Aliases through RMS rigidity, mean-square balance, covariance law, and compact-recurrence threshold were compared.",
+        "searches": [
+          "Resultary query: Jafari Sprott NE6 invariant measure stationary moments RMS covariance recurrence boundary",
+          "DOI:10.1016/j.physleta.2013.01.009"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database entry with \\(\\mathbb E[y^2]=a\\) and the a<=0 classification was located."
+        ],
+        "reasoning": "The source's numerical Lyapunov table at a=3/4 does not imply the all-parameter stationary identities.",
+        "searches": [
+          "Resultary exact NE6 stationary-law search"
+        ]
+      },
+      "rationale": "The full foundational NE6 paper was inspected: it catalogs the flow at \\(a=3/4\\), reports Lyapunov/chaos data and a period-doubling route, but does not state the all-invariant-measure RMS/covariance law or the \\(a=0\\) recurrence boundary. The fractional-order follow-up changes the dynamical category. Targeted Resultary search returned related stationary laws for other systems but no NE6 equivalent.",
+      "residual_risks": [
+        "The algebra is short enough that an equivalent stationary balance could exist in unindexed jerk/chaos literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_THE_STATIONARY_PARAMETER_TRICHOTOMY",
+          "evidence": "The article presents chaotic-flow examples at positive parameter and numerical bifurcation evidence rather than invariant-probability moment laws.",
+          "identifier_or_url": "DOI:10.1016/j.physleta.2013.01.009",
+          "material_read": "Full four-page primary PDF, including the table containing NE6, Lyapunov data, and period-doubling discussion; relevant pages visually inspected.",
+          "method": "Open-access full-PDF inspection.",
+          "title": "Elementary quadratic chaotic flows with no equilibria",
+          "trigger": "Defining NE6 source and parameter study."
+        },
+        {
+          "assessment": "DIFFERENT_DYNAMICAL_SYSTEM",
+          "evidence": "Fractional Caputo dynamics do not imply the invariant-measure identities of the integer-order ODE.",
+          "identifier_or_url": "DOI:10.1155/2013/380436",
+          "material_read": "Primary abstract/result-level material on the fractional-order modification, numerical methods, and chaos tests.",
+          "method": "Open primary-source comparison.",
+          "title": "Elegant Chaos in Fractional-Order System without Equilibria",
+          "trigger": "Direct NE6 follow-up."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jafari--Sprott--Hashemi Golpayegani 2013",
+        "fractional NE6 follow-up"
+      ],
+      "rationale": "NE6 was introduced as a no-equilibrium chaotic flow at positive forcing. The exact law \\(\\mathbb E[y^2]=a\\) converts that forcing into a sharp compact-recurrence boundary, completely classifies the critical parameter, and fixes the RMS amplitude and a covariance for every recurrent statistical state at positive a. That is a natural structural invariant of the source family.",
+      "residual_risks": [
+        "Positive-a existence remains conditional rather than proved for all a."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Jafari--Sprott NE6 family \\(\\dot x=y\\), \\(\\dot y=z\\), \\(\\dot z=-y-xz-yz-a\\), every compactly supported invariant probability measure satisfies \\(\\mathbb E[y\\mid x]=0\\), \\(\\mathbb E[z\\mid y]=0\\), \\(\\mathbb E[y^2]=a\\), and \\(\\mathbb E[xz]=-a\\). Hence no such measure exists for \\(a<0\\); at \\(a=0\\) they are exactly compact probabilities on the equilibrium line; and for \\(a>0\\) the stated variance/covariance and sign consequences hold.",
+  "limitations": [
+    "Compactly supported invariant probabilities only.",
+    "For \\(a>0\\) the theorem gives necessary stationary laws and does not prove a compact attractor exists for every parameter."
+  ],
+  "schema_version": 1
+}
