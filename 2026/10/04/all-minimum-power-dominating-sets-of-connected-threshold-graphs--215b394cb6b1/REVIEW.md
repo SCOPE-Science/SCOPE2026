@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses only the canonical threshold adjacency rules and the standard power-domination process. The one-block case is characterized by the presence or absence of a later false-twin pair; the \(A_1\) case has the analogous obstruction and an explicit forcing chain; and any \(A_i\) with \(i\ge2\) stalls immediately because every observed one-block vertex has at least two unobserved neighbors. The universal final one-block proves \(\gamma_P(G)=1\). Exhaustive replay through order \(12\) agrees with the theorem on every singleton.
+## correctness
 
-## Originality
-PASS with a stated residual risk. The founding literature defines power domination and the split-graph literature gives complexity results, but those statements do not imply which vertices of a threshold graph are optimal singleton PMU locations. The closest threshold-specific result located states polynomial-time solvability for minimum connected power domination on threshold graphs; the accessible abstract and preview do not state the creation-block iff criterion or the exact count. The unavailable threshold-specific full section is therefore recorded as a residual risk rather than treated as negative evidence.
+PASS
 
-## Value
-PASS. Although \(\gamma_P(G)=1\) itself follows immediately from the universal final one-block, identifying every optimal location is not determined by that scalar fact. The theorem gives a sharp structural suffix rule and exact multiplicity, quantifying placement flexibility in a natural graph class used in power-domination algorithmics.
+The proof was reconstructed from the assigned RESULT.md. A final one-block vertex is universal, so \(\gamma_P=1\). For \(v\in B_i\), all one-blocks and zero-blocks through \(A_i\) are initially observed. Any later zero-block of size at least two contains two unobserved false twins, which can never be the first forced vertex; if all later zero-blocks are singletons, successive vertices of \(B_{i+1},B_{i+2},\ldots\) force them in order. For \(v\in A_i\), \(i\ge2\), every observed later one-vertex sees at least one unobserved vertex in \(A_{i-1}\) and one in \(B_{i-1}\), so no force starts. For \(v\in A_1\), the same false-twin obstruction is exact and the singleton-block forcing chain proves sufficiency. I independently replayed the defining closure test for every connected creation sequence of orders \(2\) through \(12\): 2,047 graphs and 22,528 singleton placements, with zero criterion mismatches. The finite replay is corroborative only; the block proof establishes the infinite statement.
 
-## Closest literature and limitations
-The closest sources are the split-graph complexity theorem of Liao--Lee and the threshold-graph polynomial-time connected-power-domination result of Goyal--Panda. The present claim is narrower in graph class but stronger in output: it classifies every optimum singleton and counts them. It does not address nonminimum sets or propagation time, and the unavailable threshold-specific section of the closest connected-power-domination paper remains the principal literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary work located on connected power domination proves polynomial-time solvability on threshold graphs, but the accessible primary material does not state the exact set of every optimal singleton location or its count. Since a connected threshold graph always has a universal vertex, knowing only that an optimum of size one exists does not imply which non-universal singleton vertices also work. Targeted Resultary searches returned no equivalent threshold-block classification. Full text of the closest threshold-section source was not available through the open routes tried; one authorized institutional retrieval attempt then returned an operational error and was not retried or bypassed. That is retained as a residual overlap risk rather than negative novelty evidence.
+
+## value
+
+PASS
+
+The theorem gives an exact all-optima description and count for a natural graph class, refining a minimum-value/algorithmic result into a structural classification of where a single PMU can be placed. The false-twin boundary identifies precisely when non-universal optimal locations exist. This is a motivated exact invariant rather than a tiny-instance check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

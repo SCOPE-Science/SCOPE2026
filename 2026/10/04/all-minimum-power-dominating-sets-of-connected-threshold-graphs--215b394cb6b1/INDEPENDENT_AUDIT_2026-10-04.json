@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:06:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof was reconstructed from the assigned RESULT.md. A final one-block vertex is universal, so \\(\\gamma_P=1\\). For \\(v\\in B_i\\), all one-blocks and zero-blocks through \\(A_i\\) are initially observed. Any later zero-block of size at least two contains two unobserved false twins, which can never be the first forced vertex; if all later zero-blocks are singletons, successive vertices of \\(B_{i+1},B_{i+2},\\ldots\\) force them in order. For \\(v\\in A_i\\), \\(i\\ge2\\), every observed later one-vertex sees at least one unobserved vertex in \\(A_{i-1}\\) and one in \\(B_{i-1}\\), so no force starts. For \\(v\\in A_1\\), the same false-twin obstruction is exact and the singleton-block forcing chain proves sufficiency. I independently replayed the defining closure test for every connected creation sequence of orders \\(2\\) through \\(12\\): 2,047 graphs and 22,528 singleton placements, with zero criterion mismatches. The finite replay is corroborative only; the block proof establishes the infinite statement.",
+      "risk": "The characterization uses the canonical threshold-block convention and ordinary power domination; it does not classify larger power-dominating sets or propagation times.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goyal--Panda gives polynomial-time solvability for minimum connected power domination on threshold graphs.",
+          "Liao--Lee treats power domination on broader graph classes but does not supply the audited threshold-block all-optima statement in the checked material."
+        ],
+        "reasoning": "The broader algorithmic results cover optimization on a larger or related class, but they do not mathematically dominate the submitted exact location criterion.",
+        "searches": [
+          "P. Goyal and B. S. Panda, Hardness Results of Connected Power Domination for Bipartite Graphs and Chordal Graphs, DOI:10.1142/S0129054123410071",
+          "C.-S. Liao and D.-T. Lee, Power Domination Problem in Graphs, DOI:10.1007/11533719_83"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1142/S0129054123410071",
+        "DOI:10.1007/11533719_83",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A universal final-block vertex already proves minimum value one for every connected threshold graph.",
+          "The audited theorem additionally identifies non-universal one-block and first zero-block vertices that work and excludes all others."
+        ],
+        "reasoning": "The all-minimum-set criterion is strictly stronger than the prior optimization value and is not a routine statement of the returned minimum.",
+        "searches": [
+          "Goyal--Panda threshold-graph minimum connected power-domination result",
+          "Resultary threshold-graph domination corpus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No checked source stated the two exact block conditions for all singleton power-dominating vertices.",
+          "The closest connected-power-domination source advertises an optimization algorithm on threshold graphs, not an all-optima classification in the material available."
+        ],
+        "reasoning": "An algorithm returning one minimum connected power-dominating set and the fact \\(\\gamma_P=1\\) are not equivalent to classifying every optimal singleton.",
+        "searches": [
+          "Resultary semantic search: power domination connected threshold graph minimum singleton all optimal vertices creation sequence blocks",
+          "Web search: connected power domination threshold graph all minimum sets creation sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table enumerating the eligible canonical blocks for arbitrary threshold graphs was located."
+        ],
+        "reasoning": "The result is a symbolic all-orders classification, so a finite graph table would not imply it in any case.",
+        "searches": [
+          "Resultary published-finding corpus search for threshold-graph power domination and optimal singleton locations"
+        ]
+      },
+      "rationale": "The closest primary work located on connected power domination proves polynomial-time solvability on threshold graphs, but the accessible primary material does not state the exact set of every optimal singleton location or its count. Since a connected threshold graph always has a universal vertex, knowing only that an optimum of size one exists does not imply which non-universal singleton vertices also work. Targeted Resultary searches returned no equivalent threshold-block classification. Full text of the closest threshold-section source was not available through the open routes tried; one authorized institutional retrieval attempt then returned an operational error and was not retried or bypassed. That is retained as a residual overlap risk rather than negative novelty evidence.",
+      "residual_risks": [
+        "The inaccessible threshold-specific section of Goyal--Panda may contain a more detailed characterization than its accessible abstract reveals; no such statement was found in the material actually read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_RISK_NOT_DECISIVE",
+          "evidence": "The accessible statement concerns finding a minimum connected power-dominating set, while the audited theorem classifies every minimum singleton by canonical creation blocks.",
+          "identifier_or_url": "DOI:10.1142/S0129054123410071",
+          "material_read": "Publisher/search abstract and bibliographic material stating the threshold-graph algorithm; open searches did not expose the threshold-section proof text.",
+          "method": "lawful public web/metadata; after arXiv and OA full-text routes did not yield the body, one authorized institutional retrieval attempt returned an operational error",
+          "title": "Hardness Results of Connected Power Domination for Bipartite Graphs and Chordal Graphs",
+          "trigger": "Closest source because it explicitly reports a polynomial-time algorithm for minimum connected power domination on threshold graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact all-optima description and count for a natural graph class, refining a minimum-value/algorithmic result into a structural classification of where a single PMU can be placed. The false-twin boundary identifies precisely when non-universal optimal locations exist. This is a motivated exact invariant rather than a tiny-instance check.",
+      "risk": "The proof is threshold-specific and short; its value is the complete optimal-location classification, not a new general power-domination technique.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a finite connected threshold graph with canonical creation blocks \\(0^{a_1}1^{b_1}\\cdots0^{a_p}1^{b_p}\\), the power-domination number is \\(1\\). A singleton \\(\\{v\\}\\) is power dominating exactly when either \\(v\\in B_i\\) and every later zero-block is a singleton, or \\(v\\in A_1\\), \\(a_1\\le2\\), and every later zero-block is a singleton; no vertex in \\(A_i\\) for \\(i\\ge2\\) works. The displayed block formula therefore counts every minimum power-dominating set.",
+  "limitations": [
+    "Full threshold-section text of the closest connected-power-domination source remained inaccessible in this run; this is a bibliographic risk only.",
+    "The finite replay through order 12 is supplementary and is not used to extrapolate the theorem."
+  ],
+  "schema_version": 1
+}
