@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone checker constructs \(W_{n,m}\) directly from an adjacency list. For every tested vertex subset, it computes the induced degree of every selected vertex and decides dissociation without using the theorem's structural classification.
+# Independent mathematical audit
 
-It separately compares the direct decision with the center/blade criterion, accumulates the full coefficient sequence, tests inclusion-maximality by all one-vertex extensions, and checks the total count, maximum size, and both maximal-set multiplicities.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-windmill_parameter_pairs_checked = 16
-vertex_subsets_checked = 334112
-dissociation_sets_checked = 62554
-maximal_dissociation_sets_checked = 3408
-parameters n,m>=2 with 1+n*m<=18
-all direct degree tests matched the structural classification
-all dissociation-polynomial coefficients matched
-all total counts, maximum sizes, and maximal-set multiplicities matched
-```
+In \(K_1\vee nK_m\), a center-free selected set has induced degree at most one exactly when each clique blade contributes at most two vertices; with the center selected, its induced degree forces at most one outer vertex in total. These two disjoint cases give the stated polynomial immediately. Inclusion-maximal center-containing sets are exactly center-plus-one-outer-vertex sets, while a center-free set is maximal exactly when it chooses two vertices from every blade. The inspected exhaustive checker independently tests induced degrees and all one-vertex extensions for every tested parameter pair with at most 18 vertices.
 
-The finite exhaustive computation is corroborative only. The theorem for arbitrary \(n,m\ge2\) follows from the proof.
+## originality
+
+PASS
+
+The full 2023 dissociation-polynomial paper defines the weighted enumerator and proves a cubic-graph extremal theorem; full-text searches found no windmill, friendship, fan, or path treatment. Generalized windmills in the stated range are not cubic because their center has degree \(nm\). Current published-finding searches found no earlier dissociation-polynomial formula or all-maximal-set classification for this family; a nearby generalized-windmill result concerns the unrelated geodesic general-position polynomial.
+
+## value
+
+PASS
+
+Generalized windmills and friendship graphs are standard graph families, and the dissociation polynomial is an established enumerative invariant. The result gives the complete feasible-set product, all polynomial coefficients implicitly, and the full inclusion-maximal classification for every \(n,m\ge2\). Although the proof is elementary, it is a natural complete classification rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

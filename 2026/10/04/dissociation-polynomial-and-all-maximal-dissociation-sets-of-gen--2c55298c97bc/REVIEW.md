@@ -1,12 +1,21 @@
-# Review of Dissociation polynomial and all maximal dissociation sets of generalized windmills
+# Independent mathematical audit
 
-## Correctness
-PASS. The universal center gives an exhaustive two-case proof. When it is absent, different blades are anticomplete and each selected blade subset must have size at most two because the blade is a clique. When it is present, the center itself forces at most one selected outer vertex. These conditions are also sufficient. The polynomial, total count, maximum size, and both maximal-set families follow directly. An independent exhaustive checker agrees on every tested graph through eighteen vertices.
+## correctness
 
-## Originality
-PASS. The 2023 primary paper defines the dissociation polynomial and proves a cubic-graph extremal theorem, but generalized windmills in the claimed parameter range are noncubic and the inspected full text contains no windmill or friendship treatment. Targeted web and semantic-index searches for dissociation polynomials, dissociation numbers, and maximal dissociation sets of windmill and friendship graphs returned no equivalent formula. The closest indexed same-family result concerns the general-position polynomial, a non-equivalent geodesic invariant. The own ledger contains a dissociation polynomial for complete multipartite graphs, but generalized windmills with at least two nontrivial blades are not complete multipartite.
+PASS
 
-## Value
-PASS. The dissociation polynomial is an established counting invariant whose exact evaluation is the subject of current extremal work. Generalized windmills are a standard named family containing friendship graphs. The result gives the entire coefficient sequence in closed form, the total number of feasible sets, the maximum dissociation number, and the complete maximal-set spectrum and multiplicities rather than only one scalar parameter.
+In \(K_1\vee nK_m\), a center-free selected set has induced degree at most one exactly when each clique blade contributes at most two vertices; with the center selected, its induced degree forces at most one outer vertex in total. These two disjoint cases give the stated polynomial immediately. Inclusion-maximal center-containing sets are exactly center-plus-one-outer-vertex sets, while a center-free set is maximal exactly when it chooses two vertices from every blade. The inspected exhaustive checker independently tests induced degrees and all one-vertex extensions for every tested parameter pair with at most 18 vertices.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full 2023 dissociation-polynomial paper defines the weighted enumerator and proves a cubic-graph extremal theorem; full-text searches found no windmill, friendship, fan, or path treatment. Generalized windmills in the stated range are not cubic because their center has degree \(nm\). Current published-finding searches found no earlier dissociation-polynomial formula or all-maximal-set classification for this family; a nearby generalized-windmill result concerns the unrelated geodesic general-position polynomial.
+
+## value
+
+PASS
+
+Generalized windmills and friendship graphs are standard graph families, and the dissociation polynomial is an established enumerative invariant. The result gives the complete feasible-set product, all polynomial coefficients implicitly, and the full inclusion-maximal classification for every \(n,m\ge2\). Although the proof is elementary, it is a natural complete classification rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
