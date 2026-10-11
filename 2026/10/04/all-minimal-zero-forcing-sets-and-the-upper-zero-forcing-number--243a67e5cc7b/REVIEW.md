@@ -1,12 +1,21 @@
-# Review of All minimal zero forcing sets and the upper zero forcing number of spider trees
+# Independent mathematical audit
 
-## Correctness
-PASS. A minimal zero forcing set on a spider represents exactly all but one leg. With the center absent, each represented leg has exactly one inclusion-minimal local seed: a root singleton, leaf singleton, or adjacent non-leaf pair. At least one trigger is necessary, and a shallow pair is minimal only when it is the unique trigger; deep pairs remain essential. With the center present, minimality leaves exactly the center and nonleaf roots on all but one leg. These exhaustive cases give the stated upper formula. Direct subset-by-subset simulation agrees with the full classification for every spider profile through order thirteen.
+## correctness
 
-## Originality
-PASS. The 2022 primary paper introduces the upper zero forcing number and contains special spider constructions, including a one-long-leg classification, but no arbitrary-leg formula. The 2023 primary paper proves the exactly-all-but-one-leg observation and the well-forced criterion but does not determine the upper value outside the equality case. Targeted exact-phrase and semantic searches found these sources and unrelated later zero-forcing results rather than a stronger all-profile theorem.
+PASS
 
-## Value
-PASS. The upper zero forcing number was introduced precisely to measure the largest inclusion-minimal forcing solution, and spiders are central examples in the foundational minimal-set literature. The theorem resolves the invariant for every spider, explains exactly which local leg configurations create nonminimum minimal sets, and recovers the known well-forced characterization as the zero-extra-term boundary. The all-set classification is stronger than the scalar formula.
+A minimal zero forcing set represents exactly \(k-1\) legs. Before the center turns blue, each represented leg must use one of the three inclusion-minimal path seeds: an eligible root singleton, a leaf singleton, or an adjacent nonleaf pair. Trigger necessity and the shallow-pair redundancy rule give the noncentered classification; center-containing minimal sets force precisely the stated root pattern. Maximizing the number of doubled deep-pair legs and comparing with the centered extra vertex yields the formula. An independent brute-force reconstruction over 281 spider profiles of order at most 10 matched every minimal set and the upper formula exactly; this finite check only corroborates the symbolic proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fresh comparison confirms substantial prior spider work but not the claimed full classification. Brimkov–Carlson explicitly construct the adjacent-pair mechanism and classify a special spider family; the well-forced literature classifies the equality boundary. Resultary found no prior all-leg-profile upper formula or all-minimal-set theorem.
+
+## value
+
+PASS
+
+The upper zero forcing number is a named invariant introduced specifically to measure the largest inclusion-minimal forcing set, and spiders are a canonical family in that literature. The exact value for every arm profile plus all minimal sets materially refines prior special constructions and the binary well-forced boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
