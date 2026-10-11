@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:43:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify.py at the frozen tree",
+        "Rossmann, Enumerating conjugacy classes of graphical groups over finite fields, BLMS 2022, full primary text"
+      ],
+      "rationale": "For a proper support, deleting zero-weight edges turns the cycle into path components, and each weighted path block has rank twice the maximum-matching size; the three-state transfer therefore obeys the Lucas recurrence \\(L_n=L_{n-1}+q(q-1)uL_{n-2}\\). The only omitted support is the all-nonzero cycle. For odd cycles it always has maximal possible rank; for even cycles its Pfaffian is the signed difference of the two perfect-matching monomials, giving exactly \\((q-1)^{n-1}\\) singular assignments and rank drop exactly two. Adding that support yields the displayed \\(\\rho_i\\). Rossmann explicitly identifies graphical-group character degrees with rank counts up to the power \\(q^{n-2i}\\) for odd \\(q\\). Independent brute-force recomputation over \\(\\mathbf F_3\\) reproduced the complete vectors \\((1,30,212)\\) for \\(C_5\\) and \\((1,36,356,336)\\) for \\(C_6\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general graphical-group framework reduces characters to rank counts but does not evaluate the cycle rank distribution.",
+          "Tree formulas omit the unique cycle support whose Pfaffian distinguishes the cycle case."
+        ],
+        "reasoning": "The audited cycle theorem is not a special case of the known tree formulas and is not supplied by Rossmann’s general reduction.",
+        "searches": [
+          "Rossmann 2022 graphical groups",
+          "public tree-graphical-group matching-support result"
+        ]
+      },
+      "checked_sources": [
+        "Rossmann 2022 BLMS",
+        "public tree-graphical-group result",
+        "semantic corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem supplies the reduction from characters to ranks, but leaves the rank enumeration unsolved for general graphs.",
+          "The audited transfer/Pfaffian calculation is the missing cycle-specific evaluation."
+        ],
+        "reasoning": "The final claim therefore is not mechanically implied by the prior reduction.",
+        "searches": [
+          "Rossmann Question 1.10 and rank-count reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rossmann Question 1.10 asks how the degree counts depend on q and names only edgeless, paths, and complete graphs as known cases.",
+          "The closest public tree-family result has no cycle full-support term."
+        ],
+        "reasoning": "Equivalent formulations as the cycle antisymmetric rank enumerator, matching-support polynomial plus a Pfaffian correction, or character-degree polynomial were compared.",
+        "searches": [
+          "semantic-search: cycle graphical group character degree antisymmetric rank Lucas polynomial",
+          "Rossmann 2022 Question 1.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact cycle table or database entry covering all n and q was found."
+        ],
+        "reasoning": "Finite brute-force tables would not imply the symbolic all-n formula.",
+        "searches": [
+          "semantic-search: cycle antisymmetric rank distribution finite field graphical group"
+        ]
+      },
+      "rationale": "Rossmann explicitly poses character-degree enumeration for graphical groups as an open problem and lists only edgeless, path, and complete graphs as known polynomial cases. The nearest published same-family extension located treats trees via matching-support formulas; neither covers cycles, where the all-nonzero Pfaffian term creates the new correction.",
+      "residual_risks": [
+        "A later unindexed cycle calculation under different terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING; supplies the open problem and reduction only.",
+          "evidence": "The source names only edgeless, path, and complete graphs as known character-polynomial cases and says it is unclear whether the rank-count approach answers the general question.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.12665",
+          "material_read": "Full primary HTML around Section 1.6, Question 1.10, and the generic antisymmetric-rank reduction.",
+          "method": "Open full-text inspection.",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Primary source defining the open character-enumeration problem and rank-count reduction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Rossmann 2022",
+        "tree graphical-group comparison"
+      ],
+      "rationale": "Cycles are the first natural connected non-tree family, and the full-support Pfaffian produces a genuinely new correction absent for forests. An explicit all-degree character enumerator directly answers a named open enumeration problem on an infinite graph family.",
+      "residual_risks": [
+        "The method does not yet extend automatically to arbitrary unicyclic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every cycle \\(C_n\\), the rank distribution of its generic antisymmetric edge-weight matrix over \\(\\mathbf F_q\\) is given by the stated Lucas-polynomial formulas with one explicit full-support correction; for odd \\(q\\), this yields the explicit character-degree counts \\(\\mathrm{ch}(C_n,i;q)=q^{n-2i}\\rho_i\\) for the graphical group.",
+  "limitations": [
+    "The character interpretation is asserted only for odd \\(q\\), while the rank formulas themselves hold for all finite fields checked by the proof.",
+    "The result treats cycle graphs, not arbitrary unicyclic graphs."
+  ],
+  "schema_version": 1
+}

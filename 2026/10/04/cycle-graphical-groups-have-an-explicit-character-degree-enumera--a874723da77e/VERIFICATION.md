@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic and does not depend on finite enumeration.
 
-The rank calculation has three independently checkable ingredients:
+# Independent mathematical audit
 
-1. A nonzero weighted path with \(r\) edges has rank
-\[
-2\left\lceil\frac r2\right\rceil.
-\]
+## correctness
 
-2. Proper cycle supports are encoded by the transfer matrix
-\[
-M=
-\begin{pmatrix}
-1&(q-1)u&0\\
-1&0&q-1\\
-1&(q-1)u&0
-\end{pmatrix},
-\]
-whose nonzero eigenvalues satisfy
-\[
-\lambda^2-\lambda-q(q-1)u=0.
-\]
+PASS
 
-3. On an all-nonzero even cycle, the Pfaffian is the difference of the two alternating edge products. Exactly
-\[
-(q-1)^{n-1}
-\]
-all-nonzero assignments make it vanish; those matrices have rank \(n-2\), while the remaining full-support matrices have rank \(n\).
+For a proper support, deleting zero-weight edges turns the cycle into path components, and each weighted path block has rank twice the maximum-matching size; the three-state transfer therefore obeys the Lucas recurrence \(L_n=L_{n-1}+q(q-1)uL_{n-2}\). The only omitted support is the all-nonzero cycle. For odd cycles it always has maximal possible rank; for even cycles its Pfaffian is the signed difference of the two perfect-matching monomials, giving exactly \((q-1)^{n-1}\) singular assignments and rank drop exactly two. Adding that support yields the displayed \(\rho_i\). Rossmann explicitly identifies graphical-group character degrees with rank counts up to the power \(q^{n-2i}\) for odd \(q\). Independent brute-force recomputation over \(\mathbf F_3\) reproduced the complete vectors \((1,30,212)\) for \(C_5\) and \((1,36,356,336)\) for \(C_6\).
 
-The packaged checker `artifacts/verify.py` constructs the weighted antisymmetric cycle matrix and performs exact finite-field row reduction for
-\[
-(n,q)=(5,2),(5,3),(6,3),(7,3),(8,2),(6,4),(5,5).
-\]
-For each case it verifies the complete rank-count vector against the formula and confirms that the counts sum to \(q^n\). For odd \(q\), it also checks the character-degree sum-of-squares identity after applying the factor \(q^{n-2i}\).
+## originality
 
-The checker returns `VERIFY_OK`.
+PASS
 
-Finite computation is not used to prove the formulas.
+Rossmann explicitly poses character-degree enumeration for graphical groups as an open problem and lists only edgeless, path, and complete graphs as known polynomial cases. The nearest published same-family extension located treats trees via matching-support formulas; neither covers cycles, where the all-nonzero Pfaffian term creates the new correction.
+
+## value
+
+PASS
+
+Cycles are the first natural connected non-tree family, and the full-support Pfaffian produces a genuinely new correction absent for forests. An explicit all-degree character enumerator directly answers a named open enumeration problem on an infinite graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
