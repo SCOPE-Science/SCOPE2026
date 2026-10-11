@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two decisive targets reduce to explicit piecewise-linear circle-distance functions. Their discrete minima follow from adjacent grid points after excluding remote intervals by a \(\tfrac3{10}\) lower bound. The other six targets have explicit continuous witnesses and a \(3\)-Lipschitz sampling bound; exact rational enumeration closes the finite remainder.
+## correctness
 
-## Originality
-PASS. published-finding corpus searches using finite-cyclic, binary-Kronecker, three-character, and mod-\(4\) formulations returned no covering result. The closest inspected Hare–Ramsey full text gives the continuous value for \(\{1,2,3\}\), while the later binary paper also optimizes over a real circle parameter. Neither inspected statement gives the finite \(N\)-grid correction.
+PASS
 
-## Value
-PASS. The theorem gives a natural exact discretization invariant for the canonical three-term arithmetic progression and exposes a structural mod-\(4\) sampling penalty, rather than merely recomputing the continuous constant.
+For each binary target the objective is a piecewise-linear circle-distance function. The explicit piecewise formulas for targets \(010\) and \(111\) show that, beyond the bounded small range, a minimizer is one of the two grid points adjacent to \(1/4\); direct substitution gives their four residue classes. The other six targets have explicit continuous witnesses of error at most \(1/5\), and the objective is \(3\)-Lipschitz, so for \(N\ge30\) their nearest grid points have error at most \(1/4\). Exact finite enumeration closes \(5\le N\le29\). The bundled verifier uses exact integer arithmetic and checks all eight targets through \(N=200\); an independent reconstruction of the same minimization through \(N=80\) reproduced every stated value.
 
-## Closest literature and limitations
-Closest sources are the 2012 Hare–Ramsey full treatment and their 2015 binary three-element paper. The former was inspected in full text around the arithmetic-progression result and the special value \(\alpha(\{1,2,3\})=\tfrac14\); the latter's primary-source abstract explicitly uses real \(x\). Residual risk is an equivalent finite-cyclic formula indexed under different terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hare and Ramsey determine continuous-circle Kronecker constants for three-element integer sets and, in particular, the continuous binary angular value \(1/4\) for the three-term arithmetic progression. Their approximation parameter ranges over the full circle. The audited theorem instead restricts that parameter to the finite subgroup \(N^{-1}\mathbb Z/\mathbb Z\) and derives an exact mod-four discretization penalty for every grid size. Neither the continuous value nor the general three-element classification implies those finite-grid residue classes.
+
+## value
+
+PASS
+
+Restricting a continuous Kronecker approximation problem to finite cyclic characters is a natural discretization, and the theorem quantifies the exact sampling loss for every grid size rather than computing a single small case. The residue-class law explains precisely when the finite problem reaches the continuous optimum and how fast it approaches it otherwise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
