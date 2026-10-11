@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(n=2^a p\), complementary closure partitions the divisor set into the \(a+1\) pairs \((2^i,p2^{a-i})\). Subtracting any omitted union from \(\sigma(n)=(2^{a+1}-1)(p+1)\) gives the reversible identity \(M-A_I=p(1+B_I)\). The cutoff requires only \(a\le11\), and exact enumeration checks every mask in that complete range. The boundary \(11776=2^9\cdot23\) has exactly one admissible mask, \(I=\{4,6\}\), so uniqueness is not inferred from a partial search.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. Wang--Zelinsky (2026) is the same-object source: it defines strongly pseudoperfect numbers, lists \(352\) with the one omitted pair \((8,44)\), and proves a Mersenne-prime rigidity theorem for \(2^k p\), but does not state the binary-mask criterion or the \(11776\) cutoff. Aryan et al. (2024) completely treat the strongly 2-near-perfect \(2^k p\) subcase, so the \(|I|=1\) specialization is prior coverage and is not claimed as new. Targeted searches for the exact number, the two-pair cutoff, binary-mask formulations, and the pair \(352,11776\) did not locate the accepted theorem. Unindexed or differently phrased prior work remains possible.
+PASS
 
-## Value
-PASS. Strongly pseudoperfect representations are constrained by complementary pairing, and the one-pair \(2^k p\) regime already has a dedicated classification. The exact first point where this regime breaks is therefore a natural structural cutoff. The theorem both identifies that first transition and supplies a global exact reduction that can be reused for larger searches or further structure.
+The divisors of \(2^a p\) partition into the complementary pairs \((2^i,p2^{a-i})\). Subtracting an arbitrary omitted union from the exact divisor sum yields the reversible equation \(M-A_I=p(1+B_I)\). The cutoff is exhaustive because any \(a\ge12\) already makes \(2^a p>11776\). Fresh exact mask enumeration through \(a=11\) reproduced precisely the candidates \(6,28,496,352,8128,11776\), with 352 the unique one-pair nonperfect case and 11776 the first case whose unique representation has mask \(\{4,6\}\). Direct divisor-sum substitution verifies the omitted pairs and total.
 
-## Closest literature and limitations
-The closest direct predecessor is Aryan--Madhavani--Parikh--Slattery--Zelinsky (2024), whose strong 2-near condition means exactly one complementary pair is omitted. Wang--Zelinsky (2026) supplies the current definition, early data, and the Mersenne-prime branch. The accepted theorem does not classify all \(2^a p\) cases in closed form, and its minimality statement is restricted to this two-prime-support, odd-prime-exponent-one slice.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Wang–Zelinsky's full primary preprint was materially read. It defines strongly pseudoperfect representations, explicitly shows 156 can omit either one pair or two pairs, lists 352 with its unique omitted pair \((8,44)\), and proves a Mersenne-prime rigidity theorem for \(2^k p\). The earlier 2-near-perfect source classifies the one-omitted-pair \(2^k p\) subcase. Neither checked source states the arbitrary bit-mask criterion or identifies 11776 as the first \(2^a p\) case whose every representation genuinely needs multiple omitted complementary pairs. Resultary searches found no covering theorem.
+
+## value
+
+PASS
+
+The first transition beyond the previously classified one-pair regime is a natural structural boundary in the sparsest nontrivial prime-support family. The global mask equation is reusable and the 11776 cutoff distinguishes genuinely multi-pair behavior rather than merely adding another sequence term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

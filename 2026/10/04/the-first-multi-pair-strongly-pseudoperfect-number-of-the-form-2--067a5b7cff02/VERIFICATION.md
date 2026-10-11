@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two independent layers.
+# Independent mathematical audit
 
-First, the symbolic reduction is reversible. For \(n=2^a p\), every strongly pseudoperfect representation is a union of complementary pairs \((2^i,p2^{a-i})\). If \(I\) indexes the omitted pairs, then the condition that the retained divisor sum is \(2n\) is exactly
-\[
-2^{a+1}-1-A_I=p(1+B_I).
-\]
-Thus each mask determines at most one possible odd prime \(p\), and every integral prime quotient gives a valid representation.
+## correctness
 
-Second, `verify.py` exhausts the finite cutoff using exact integers. Since \(p\ge3\), every \(2^a p\le11776\) has \(a\le11\). The verifier checks every subset mask for these exponents, uses deterministic trial division for primality, groups all representations by \(n\), and directly recomputes retained divisor sums. It then verifies that the only candidates up to the boundary are \(6,28,352,496,8128,11776\), that \(352\) has the unique mask \(\{3\}\), and that \(11776\) has the unique mask \(\{4,6\}\).
+PASS
 
-This finite computation certifies only the stated cutoff. It is not used as evidence for a classification at larger \(a\).
+The divisors of \(2^a p\) partition into the complementary pairs \((2^i,p2^{a-i})\). Subtracting an arbitrary omitted union from the exact divisor sum yields the reversible equation \(M-A_I=p(1+B_I)\). The cutoff is exhaustive because any \(a\ge12\) already makes \(2^a p>11776\). Fresh exact mask enumeration through \(a=11\) reproduced precisely the candidates \(6,28,496,352,8128,11776\), with 352 the unique one-pair nonperfect case and 11776 the first case whose unique representation has mask \(\{4,6\}\). Direct divisor-sum substitution verifies the omitted pairs and total.
+
+## originality
+
+PASS
+
+Wang–Zelinsky's full primary preprint was materially read. It defines strongly pseudoperfect representations, explicitly shows 156 can omit either one pair or two pairs, lists 352 with its unique omitted pair \((8,44)\), and proves a Mersenne-prime rigidity theorem for \(2^k p\). The earlier 2-near-perfect source classifies the one-omitted-pair \(2^k p\) subcase. Neither checked source states the arbitrary bit-mask criterion or identifies 11776 as the first \(2^a p\) case whose every representation genuinely needs multiple omitted complementary pairs. Resultary searches found no covering theorem.
+
+## value
+
+PASS
+
+The first transition beyond the previously classified one-pair regime is a natural structural boundary in the sparsest nontrivial prime-support family. The global mask equation is reusable and the 11776 cutoff distinguishes genuinely multi-pair behavior rather than merely adding another sequence term.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

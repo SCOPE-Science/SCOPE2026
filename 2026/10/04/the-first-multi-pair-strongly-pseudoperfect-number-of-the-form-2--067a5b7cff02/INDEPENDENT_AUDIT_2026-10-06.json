@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:54:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0eaa59950069e8bc021224f5802612ca9e91bde4",
+        "verify.py blob bfbcb158146b24bdfd533f315d307df8b7305701",
+        "fresh exact mask enumeration through exponent 11",
+        "Wang–Zelinsky Table 2 for the 352 cross-check"
+      ],
+      "rationale": "The divisors of \\(2^a p\\) partition into the complementary pairs \\((2^i,p2^{a-i})\\). Subtracting an arbitrary omitted union from the exact divisor sum yields the reversible equation \\(M-A_I=p(1+B_I)\\). The cutoff is exhaustive because any \\(a\\ge12\\) already makes \\(2^a p>11776\\). Fresh exact mask enumeration through \\(a=11\\) reproduced precisely the candidates \\(6,28,496,352,8128,11776\\), with 352 the unique one-pair nonperfect case and 11776 the first case whose unique representation has mask \\(\\{4,6\\}\\). Direct divisor-sum substitution verifies the omitted pairs and total.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The new Wang–Zelinsky paper has broad constructions and restrictions, but its \\(2^k p\\) theorem covers the Mersenne-prime branch and its even table stops at 420.",
+          "Aryan et al. classify \\(2^k p\\) only when exactly two divisors, one complementary pair, are omitted."
+        ],
+        "reasoning": "No inspected stronger result classifies all omitted-pair masks in the \\(2^a p\\) slice.",
+        "searches": [
+          "Wang–Zelinsky full primary PDF",
+          "Aryan et al. 2-near-perfect classification"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.36068v1",
+        "arXiv:2310.01305",
+        "OEIS A334405",
+        "Resultary strongly-pseudoperfect search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Mersenne-prime theorem covers only the empty-mask/perfect branch, and the earlier 2-near result covers masks of size one.",
+          "The reversible equation \\(p=(M-A_I)/(1+B_I)\\) handles every mask and makes an exact finite cutoff possible."
+        ],
+        "reasoning": "The multi-pair transition is not implied by either previously covered branch.",
+        "searches": [
+          "Wang–Zelinsky Theorem 6 and Table 2",
+          "Aryan et al. one-pair classification",
+          "audited mask quotient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For \\(n=2^a p\\), complementary divisors pair as \\((2^i,p2^{a-i})\\); choosing omitted pairs is therefore exactly a bit-mask problem.",
+          "The one-pair specialization is the strongly 2-near-perfect case treated in prior work."
+        ],
+        "reasoning": "The final theorem extends the known one-pair equation to arbitrary masks and asks for the first genuinely multi-pair point.",
+        "searches": [
+          "Wang–Zelinsky, arXiv:2609.36068v1, full PDF",
+          "Aryan et al., arXiv:2310.01305",
+          "Resultary query: strongly pseudoperfect 2^a p omitted pairs 11776 352"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 gives 352 with exactly one solution omitting \\((8,44)\\), and OEIS lists strongly pseudoperfect integers generally.",
+          "The exact 11776 two-pair transition was not found in the inspected tables or Resultary corpus."
+        ],
+        "reasoning": "Known tables establish nearby examples but not the submitted first-transition theorem.",
+        "searches": [
+          "Wang–Zelinsky Table 2",
+          "OEIS A334405",
+          "Resultary exact 11776 query"
+        ]
+      },
+      "rationale": "Wang–Zelinsky's full primary preprint was materially read. It defines strongly pseudoperfect representations, explicitly shows 156 can omit either one pair or two pairs, lists 352 with its unique omitted pair \\((8,44)\\), and proves a Mersenne-prime rigidity theorem for \\(2^k p\\). The earlier 2-near-perfect source classifies the one-omitted-pair \\(2^k p\\) subcase. Neither checked source states the arbitrary bit-mask criterion or identifies 11776 as the first \\(2^a p\\) case whose every representation genuinely needs multiple omitted complementary pairs. Resultary searches found no covering theorem.",
+      "residual_risks": [
+        "An unindexed computation or note may contain the same 11776 observation.",
+        "The bit-mask criterion does not give a closed prime classification for all exponents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_ONE_OR_MULTI_PAIR_EXAMPLES_AND_MERSENNE_BRANCH_PRIOR_FULL_2A_P_MASK_CLASSIFICATION_NOT_STATED",
+          "evidence": "The paper gives 156 with both one- and two-pair representations, proves a Mersenne-prime \\(2^k p\\) rigidity result, and lists 352 with the one omitted pair \\((8,44)\\), but does not state the 11776 cutoff.",
+          "identifier_or_url": "arXiv:2609.36068v1",
+          "material_read": "Complete 17-page arXiv PDF, including the definition, examples, Theorems 5–6, open questions and even-number data table; relevant definition/theorem pages were visually inspected.",
+          "method": "Full-text family/representation comparison.",
+          "title": "Strongly Pseudoperfect Numbers",
+          "trigger": "Defining recent primary source on the same invariant and \\(2^k p\\) family."
+        },
+        {
+          "assessment": "ONE_PAIR_SUBCASE_ONLY",
+          "evidence": "Its strong paired-divisor condition is the \\(|I|=1\\) specialization and therefore does not cover first genuinely multi-pair behavior.",
+          "identifier_or_url": "arXiv:2310.01305",
+          "material_read": "Primary abstract and theorem scope describing complete \\(2^k p^i\\), \\(i\\in\\{1,2\\}\\), classifications and the paired-divisor restriction.",
+          "method": "Number-of-omitted-pairs scope comparison.",
+          "title": "On 2-Near Perfect Numbers",
+          "trigger": "Direct predecessor for the one-complementary-pair subcase."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.36068v1",
+        "arXiv:2310.01305",
+        "OEIS A334405",
+        "Resultary strongly-pseudoperfect search"
+      ],
+      "rationale": "The first transition beyond the previously classified one-pair regime is a natural structural boundary in the sparsest nontrivial prime-support family. The global mask equation is reusable and the 11776 cutoff distinguishes genuinely multi-pair behavior rather than merely adding another sequence term.",
+      "residual_risks": [
+        "An unindexed computation or note may contain the same 11776 observation.",
+        "The bit-mask criterion does not give a closed prime classification for all exponents."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.36068v1",
+    "arXiv:2310.01305",
+    "OEIS A334405",
+    "Resultary strongly-pseudoperfect search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For \\(n=2^a p\\) with \\(p\\) an odd prime, strongly pseudoperfect representations are exactly governed by \\(p=(2^{a+1}-1-A_I)/(1+B_I)\\) for omitted complementary-pair masks \\(I\\); the first nonperfect such integer for which every representation needs at least two omitted pairs is \\(11776=2^9\\cdot23\\), uniquely omitting \\((16,736)\\) and \\((64,184)\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed computation or note may contain the same 11776 observation.",
+    "The bit-mask criterion does not give a closed prime classification for all exponents.",
+    "The theorem is restricted to one odd-prime support \\(2^a p\\); it does not classify all strongly pseudoperfect numbers."
+  ]
+}
