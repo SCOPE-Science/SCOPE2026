@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:54:23.186409Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 7fbcaac834df66b8f2293157a1491756bb160e38",
+        "artifacts/verify.py blob 583f8de0d475ac7c84fa47205986481bd617ae57",
+        "artifacts/certificate.json blob 6b8d88abe614712c9d008906f6eddabc6b74dbda",
+        "independent GF(8) arithmetic and exhaustive scaling replay"
+      ],
+      "rationale": "The exact GF(8) arithmetic and generator matrix were independently reconstructed using the polynomial relation defining the field. The baseline code has rank 3 and hull dimension 1. For a monomial transform, the Gram rank depends only on diagonal coordinate squares, and a common nonzero scalar can be normalized away, leaving exactly \\(7^5=16807\\) scalings. Independent exhaustive Gram-rank enumeration reproduced hull counts 14685, 2091, 31, 0 in dimensions 0,1,2,3 respectively, so the attainable spectrum is exactly {0,1,2}, the maximum is 2, and no monomially equivalent code is self-dual.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The construction paper's Example 5.6 certifies only one representative and does not contain the number 14685 or an Example-5.6 maximal-hull classification.",
+          "General hull-variation theorems show that equivalence can change hull dimension but do not force the exact attainable spectrum of an arbitrary fixed code."
+        ],
+        "reasoning": "The checked broader theory motivates the invariant but does not dominate the code-specific finite classification.",
+        "searches": [
+          "Bhowmick--Dalai--Mesnager full open-access article, Sections 3 and 5",
+          "Chen arXiv:2206.14516 primary abstract and theorem summary"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s10623-025-01757-y / arXiv:2511.18779 (Bhowmick--Dalai--Mesnager)",
+        "DOI:10.1109/TIT.2023.3234249 / arXiv:2206.14516 (Chen)",
+        "Resultary semantic search: Example 5.6 [6,3,3]_8 code monomial hull spectrum maximal hull dimension 2 14685 2091 31",
+        "Exact web search for 14685 2091 31 GF(8) hull"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source construction proves that the displayed extension has hull dimension 1, not the maximum within its monomial class.",
+          "The audited exhaustive Gram-rank calculation finds dimension 2 witnesses and excludes dimension 3; neither conclusion follows from the cited construction theorem."
+        ],
+        "reasoning": "The code-specific maximum and spectrum require actual analysis of this generator's scaled Gram matrices rather than routine substitution into a general existence theorem.",
+        "searches": [
+          "Test whether Chen's general hull-variation theorems imply hull dimension 2 for this code",
+          "Test whether Bhowmick--Dalai--Mesnager Proposition 5.1 implies absence of hull dimension 3 under monomial scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhowmick--Dalai--Mesnager Example 5.6 states that the displayed [6,3,3] code has one-dimensional hull.",
+          "Chen defines maximal hull dimension and studies general equivalent-code hull variation.",
+          "No retrieved source supplied the exact Example 5.6 monomial spectrum 0/1/2 with counts 14685/2091/31."
+        ],
+        "reasoning": "Searches included equivalent-code, diagonal-scaling, monomial-equivalence, maximal-hull, and exact numerical formulations.",
+        "searches": [
+          "DOI:10.1007/s10623-025-01757-y Example 5.6",
+          "arXiv:2206.14516 maximal hull dimension",
+          "Resultary query using Example 5.6, [6,3,3]_8, and counts 14685 2091 31"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry with the scaling profile or maximal hull 2 was retrieved."
+        ],
+        "reasoning": "The claim is precisely an exact finite invariant of a named code, so a prior table would be decisive; none was found.",
+        "searches": [
+          "Exact web search: 14685 2091 31 GF8 hull code",
+          "Resultary query for Example 5.6 [6,3,3]_8 hull spectrum"
+        ]
+      },
+      "rationale": "The primary construction paper gives the exact Example 5.6 generator and certifies only the displayed representative's one-dimensional hull. Chen introduces maximal hull dimension and general hull-variation methods, but those general results do not determine the attainable hull dimensions of this particular code. The exact 16807-scaling profile, maximal hull dimension 2, and impossibility of a self-dual monomial equivalent were not found in the checked sources.",
+      "residual_risks": [
+        "The normalized scaling counts are parameter counts and do not quotient by the monomial automorphism group; the invariant spectrum and maximal hull dimension are unaffected.",
+        "An unindexed computation of the same code under another field labeling or generator matrix could contain the same profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_BASELINE_NOT_MONOMIAL_SPECTRUM",
+          "evidence": "Example 5.6 verifies the displayed representative is [6,3,3] with one-dimensional hull; the article does not state the audited 16807-scaling profile or maximal hull 2.",
+          "identifier_or_url": "DOI:10.1007/s10623-025-01757-y; arXiv:2511.18779",
+          "material_read": "Complete open-access publisher text around the hull-scaling setup, Section 5 construction results, Example 5.6, adjacent examples, and conclusion. Example 5.6 prints the exact generator and states a one-dimensional hull.",
+          "method": "lawful open-access publisher full text",
+          "title": "On construction of linear (Euclidean) hull codes over finite extensions binary fields",
+          "trigger": "Primary source of the exact code in Example 5.6 and strongest same-object coverage risk."
+        },
+        {
+          "assessment": "GENERAL_INVARIANT_BACKGROUND",
+          "evidence": "The source gives general existence/variation theorems, not the Example 5.6 [6,3,3]_8 spectrum.",
+          "identifier_or_url": "arXiv:2206.14516; DOI:10.1109/TIT.2023.3234249",
+          "material_read": "Primary arXiv abstract and theorem summary describing maximal hull dimension and general equivalent-code variation results.",
+          "method": "lawful open-access primary record",
+          "title": "On Hull-Variation Problem of Equivalent Linear Codes",
+          "trigger": "Foundational source defining maximal hull dimension and equivalent-code hull variation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bhowmick--Dalai--Mesnager 2026",
+        "Chen 2023",
+        "assigned finite certificate",
+        "independent replay"
+      ],
+      "rationale": "Maximal hull dimension is an explicitly motivated invariant in the equivalent-code literature, and this source paper presents the code as a concrete worked example. Determining the full attainable spectrum and proving that self-duality is impossible in its monomial class is a natural exact invariant of that named object, not an arbitrary parameter slice.",
+      "residual_risks": [
+        "The multiplicities count normalized scaling parameters, not inequivalent monomial code classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The normalized scaling counts are parameter counts and do not quotient by the monomial automorphism group; the invariant spectrum and maximal hull dimension are unaffected.",
+    "An unindexed computation of the same code under another field labeling or generator matrix could contain the same profile."
+  ],
+  "schema_version": 1
+}

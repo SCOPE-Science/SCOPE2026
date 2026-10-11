@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,11 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It implements \(\mathbb F_8=\mathbb F_2(\omega)\) with \(\omega^3+\omega+1=0\) and reconstructs the generator matrix printed in Example 5.6. It checks rank \(3\), the source’s one-dimensional Euclidean hull, and the baseline weight enumerator
-\[
-1+7z^3+84z^4+189z^5+231z^6.
-\]
+# Independent mathematical audit
 
-For every normalized scaling \((1,a_2,\ldots,a_6)\in(\mathbb F_8^\times)^6\), the verifier forms the scaled generator, computes its exact Euclidean Gram rank, and tallies the hull dimension \(3-\operatorname{rank}(GG^T)\). All \(16807\) cases are exhausted. The resulting counts are \(14685\), \(2091\), \(31\), and \(0\) for hull dimensions \(0\), \(1\), \(2\), and \(3\). It also checks the three explicit witness scalings in `artifacts/certificate.json`. No randomized or floating-point computation is used.
+## correctness
+
+PASS
+
+The exact GF(8) arithmetic and generator matrix were independently reconstructed using the polynomial relation defining the field. The baseline code has rank 3 and hull dimension 1. For a monomial transform, the Gram rank depends only on diagonal coordinate squares, and a common nonzero scalar can be normalized away, leaving exactly \(7^5=16807\) scalings. Independent exhaustive Gram-rank enumeration reproduced hull counts 14685, 2091, 31, 0 in dimensions 0,1,2,3 respectively, so the attainable spectrum is exactly {0,1,2}, the maximum is 2, and no monomially equivalent code is self-dual.
+
+## originality
+
+PASS
+
+The primary construction paper gives the exact Example 5.6 generator and certifies only the displayed representative's one-dimensional hull. Chen introduces maximal hull dimension and general hull-variation methods, but those general results do not determine the attainable hull dimensions of this particular code. The exact 16807-scaling profile, maximal hull dimension 2, and impossibility of a self-dual monomial equivalent were not found in the checked sources.
+
+## value
+
+PASS
+
+Maximal hull dimension is an explicitly motivated invariant in the equivalent-code literature, and this source paper presents the code as a concrete worked example. Determining the full attainable spectrum and proving that self-duality is impossible in its monomial class is a natural exact invariant of that named object, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
