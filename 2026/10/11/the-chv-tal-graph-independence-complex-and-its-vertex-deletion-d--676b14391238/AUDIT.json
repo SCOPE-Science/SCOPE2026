@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For the explicitly encoded graph exhaustive enumeration reconstructs all 126 nonempty faces and all 12 deletion/link pairs. The actual checker constructs acyclic element matchings on whole (62 pairs, crit 0+2), deletion A (49, crit 0), deletion B (48, crit 0+2), link A (12, crit 0+1) and link B (13, crit 0), verifying every directed incidence by full topological sort. It also actually constructs valid free-face collapse orders for deletion A and link B, verifies two automorphism generators and orbit separation by 99 versus 98 deletion face counts, and proves all vertex deletions decrease chromatic number from 4 to 3. Discrete Morse CW theorem implies S^2/S^1 as stated; gluing the cone on contractible links makes canonical deletion inclusions homotopy equivalences in orbit B. Independent full F2 boundary-rank calculations on all 12 deletions/links corroborate homology, but are not substituted for homotopy proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barmak, Theorem 3.4, supplies a suspension for any triangle-free graph, not its homotopy type; Proposition 4.7 imposes stronger forbidden-induced-path conditions.",
+        "The Chvátal graph has an induced five-vertex path (0,1,2,8,10), violating the relevant no-induced-path hypothesis.",
+        "Goyal–Shukla–Singh treat generalized Mycielskians and specified products/families, without the Chvátal graph theorem."
+      ],
+      "reasoning": "A mere assertion that K is a suspension neither determines S^2 nor the collapse/inclusion behavior of each vertex deletion. The stronger condition cited is violated by an explicit induced path, and the other inspected graph families are not blanket supersets of the target.",
+      "searches": [
+        "arxiv:1007.0418v1 PDF Barmak Theorem 3.4 and Proposition 4.7",
+        "arxiv:1905.06926 PDF introductory graph family theorems",
+        "triangle-free four-chromatic 4-regular Chvatal graph homotopy of independence complex"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1007.0418v1, PDF pp. 1–7 relevant theorem/conditions",
+      "arxiv:2003.06204, PDF abstract/§2/Theorem 4",
+      "arxiv:1905.06926, PDF introductory graph-family statements/Theorem 2.10",
+      "published-record:2026/9/11/SCOPE019, indexed title and summary",
+      "2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2, indexed summary",
+      "2026/10/4/SCOPE-the-dodecahedral-independence-complex-is-a-wedge-of-four-5-spher--ba0161fd495f, indexed summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target establishes Ind(G)≈S^2, collapsibility for all A deletions and B links, remaining orbit homotopy S^1/S^2, and eight canonical inclusion equivalences.",
+        "Barmak establishes suspension of Ind(G) without an exact Chvátal link/deletion classification.",
+        "Kitaev–Pyatkin Theorem 4 concerns orientation, not higher homotopy."
+      ],
+      "reasoning": "None of the compared source statements implies the full Chvátal vertex-orbit dichotomy or the explicit elementary collapses. The exact graph-specific theorem requires finite Morse calculations absent from those statements.",
+      "searches": [
+        "Chvatal graph ordinary independence complex homotopy equivalent two sphere, vertex deletion and links",
+        "arxiv:1007.0418 Barmak star clusters independence graphs",
+        "arxiv:2003.06204 Chvatal semi-transitive orientability",
+        "arxiv:1905.06926 independence complexes graph families"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a graph G, the independence complex is the clique complex of its complement; deleting a vertex gives Ind(G-v), and a link gives Ind(G-N[v]).",
+        "Kitaev–Pyatkin (arXiv:2003.06204), §2, is specifically about this graph but gives an orientability theorem, not a clique complex of the complement."
+      ],
+      "reasoning": "These formulations refer to the same 12-vertex finite complex and its canonical 12 vertex deletions/links. No equivalent covering homotopy classification appeared in the indicated checks; different graph invariant or graph complex is not automatically equivalent.",
+      "searches": [
+        "Chvatal graph ordinary independence complex homotopy equivalent two sphere, vertex deletion and links",
+        "\"Chvátal graph\" \"independence complex\" sphere",
+        "\"Chvatal graph\" \"clique complex\" \"complement\" topology"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published Chvátal graph record concerns a two-sided Ramanujan edge signing and spectral radius, not an independence-complex homotopy table.",
+        "Indexed independence-complex results for Heawood and dodecahedral graphs concern different graph objects and have no graph-independent classification theorem implying the target vertex deletions."
+      ],
+      "reasoning": "The target covers 25 linked exact complexes (the original plus all vertex deletions and links); no returned database record tabulates these Chvátal homotopy types. Search absence leaves residual bibliographic risk rather than proving novelty.",
+      "searches": [
+        "12-vertex Chvatal graph independence complex S2 vertex critical orbit",
+        "\"Chvatal graph\" \"independence complex\" \"S^2\"",
+        "published-record:2026/9/11/SCOPE019 (Chvatal graph signing)",
+        "2026/10/4/SCOPE-the-heawood-independence-complex-is-bigvee-6-s-3--dbd95019d1e2"
+      ]
+    },
+    "rationale": "Specific primary full-text material was checked against the new graph-specific homotopy and inclusion/deletion statement. The general suspension theorem in Barmak does not identify sphere types or collapsibility, and a stronger no-induced-path corollary fails on the target graph. Kitaev–Pyatkin study the exact graph but only semi-transitive orientation. Goyal–Shukla–Singh study other families. Semantic record searches for the exact graph, graph-complement clique formulation and vertex-link dichotomy returned only different-graph complexes or an unrelated Chvátal spectral signing; absent evidence is not proof of comprehensive novelty.",
+    "residual_risks": [
+      "An equivalent graph-specific computation could exist in unindexed or unpublished literature; no global uniqueness is certified.",
+      "The published-record comparisons rely on their indexed statements where no substantive full text was required for an inapplicable graph/spectral claim; no claim about unread appendices of those records is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_SUSPENSION_NOT_COVERING",
+        "evidence": "Barmak proves an abstract suspension for triangle-free graphs, without this graph-specific S^2 theorem or deletion/link types. The stronger forbidden-path hypothesis fails on the explicit induced path (0,1,2,8,10).",
+        "identifier_or_url": "https://arxiv.org/pdf/1007.0418",
+        "material_read": "Original PDF, introduction and Section 3 including Theorem 3.4; Proposition 4.7 and its hypotheses inspected",
+        "method": "Read open-access PDF text, verified first-public arXiv date 2010-07-02 and primary classification 57M15",
+        "title": "Star clusters in independence complexes of graphs",
+        "trigger": "Earliest methodological source with triangle-free suspension theorem, checked for stronger homotopy implications"
+      },
+      {
+        "assessment": "SAME_GRAPH_DIFFERENT_INVARIANT",
+        "evidence": "The Chvátal statement studies (semi-)transitive orientability, not topological independence complexes, their links or deletions.",
+        "identifier_or_url": "https://arxiv.org/pdf/2003.06204",
+        "material_read": "Abstract, introductory graph discussion, Section 2 and Theorem 4, plus available PDF text around the Chvátal figure",
+        "method": "Read available PDF text rather than relying on abstract/search snippets",
+        "title": "On semi-transitive orientability of triangle-free graphs",
+        "trigger": "Relevant primary source specifically on the twelve-vertex Chvátal graph"
+      },
+      {
+        "assessment": "FAMILIES_NOT_COVERING",
+        "evidence": "The objects are generalized Mycielskians of complete graphs, specified graph products and perturbations; no Chvátal graph deletion/link classification is stated.",
+        "identifier_or_url": "https://arxiv.org/pdf/1905.06926",
+        "material_read": "Introductory sections, graph family definitions and theorem statements through Theorem 2.10",
+        "method": "Read the lawful full-text PDF at selected relevant material, not only snippets",
+        "title": "Homotopy type of independence complexes of certain families of graphs",
+        "trigger": "Plausibly stronger families theorem on exactly the same graph-complex functor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "676b1439-1238-488f-aec1-1a13520e9294",
+  "value": {
+    "rationale": "The Chvátal graph is a canonical smallest triangle-free 4-regular 4-chromatic graph. A complete finite automorphism-orbit classification of its 12 vertex links/deletions is naturally motivated, not an arbitrary choice of a numerical slice. The theorem exhibits a real structural distinction: all vertices are chromatically critical, but exactly four are homotopy-critical; the other eight have homotopy-equivalent canonical deletion inclusions. Actual simplicial collapsibility certificates strengthen a mere Betti-count observation, while modest finite scope is stated explicitly.",
+    "status": "PASS"
+  }
+}
