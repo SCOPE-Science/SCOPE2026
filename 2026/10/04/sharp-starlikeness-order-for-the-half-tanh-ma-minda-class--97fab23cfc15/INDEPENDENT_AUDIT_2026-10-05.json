@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:55:37Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob d1e8f4ae88cdb6a41412c5ee0a8cb8225a77fc8c.",
+        "Actual package certificate and verifier blobs d4e91201a437179cfba638f25aa851ec90b39da8 and 9145801b4e99e51dc29f12eb3e539cad4c9a2189 were read.",
+        "Fresh symbolic differentiation verified the displayed \\(F'\\) formula; fresh 50-digit computation reproduced the root/order decimals.",
+        "Ahmad 2026 DOI:10.3390/axioms15030173 defines the half-tanh class and its scope."
+      ],
+      "rationale": "The identity \\(\\operatorname{Re}\\tanh(x+iy)=\\sinh(2x)/(\\cosh(2x)+\\cos(2y))\\) reduces the positive maximum over the unit disk to the first-quadrant boundary arc because, for fixed \\(x\\ge0\\), the denominator decreases with \\(|y|\\). Differentiation gives \\(F'(t)=2G(t)/D(t)^2\\) with positive \\(D\\). The actual verifier's sign certificate was independently checked: the derivative formula simplifies exactly, crude analytic bounds give the stated global Lipschitz constants for the certificate, and high-precision root solving reproduced \\(t_*=1.007214594072238336\\ldots\\) and \\(\\alpha=0.574270065606231212\\ldots\\). Odd symmetry gives the minimum; subordination transfers the half-plane bound; the canonical integral extremal satisfies the defining differential equation and approaches equality.",
+      "risks": [
+        "The exact constant is transcendental in presentation; the decimal is not itself the theorem.",
+        "The result is a classical half-plane order, not a sector/strong-starlikeness order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahmad 2026 introduces the half-tanh class but its stated contributions are coefficient and majorization problems.",
+          "Ullah et al. 2021 studies the full-tanh image through radius and centered-disk containments; its Lemma 3 identifies inscribed/circumscribed disks rather than the exact supporting half-plane.",
+          "Rai--Çetinkaya--Kumar 2023 lists convolution, coefficient/determinant and Bernardi-operator results for the full-tanh class."
+        ],
+        "reasoning": "None of these broader same-generator papers states a theorem that fixes the exact real-part minimum on the full unit disk; affine scaling alone therefore does not cover the submitted constant.",
+        "searches": [
+          "DOI:10.3390/axioms15030173",
+          "DOI:10.1155/2021/9967640",
+          "DOI:10.3934/mfc.2022032"
+        ]
+      },
+      "checked_sources": [
+        "Fresh Resultary query",
+        "DOI:10.3390/axioms15030173",
+        "DOI:10.1155/2021/9967640",
+        "DOI:10.3934/mfc.2022032"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coefficient bounds and majorization do not imply a sharp containing half-plane.",
+          "The largest centered disk inside or outside the tanh image does not determine its leftmost support line because the extremal real part occurs at a nonreal boundary point."
+        ],
+        "reasoning": "The submitted one-variable boundary optimization is the substantive missing implication.",
+        "searches": [
+          "Ahmad 2026 class definition",
+          "Ullah et al. 2021 image-domain disk lemma",
+          "Rai et al. 2023 full-tanh class"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's top exact hit is the audited record; neighboring results concern different Ma--Minda generators.",
+          "No exact supporting-line or identical constant was found in the web searches."
+        ],
+        "reasoning": "Order of starlikeness, minimum real part of the generator, and left supporting line of \\(1+\\tfrac12\\tanh(\\mathbb D)\\) are implication-equivalent here and were all searched.",
+        "searches": [
+          "Resultary: half tanh Ma-Minda starlikeness order exact minimum real part tanh unit disk",
+          "Web: half tanh starlikeness order exact minimum real part tanh unit disk",
+          "Web: exact decimal 0.574270065606 and tanh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external constant table or database entry matching \\(t_*\\) or \\(\\alpha_{\\tanh}\\) was located."
+        ],
+        "reasoning": "This is an analytic image-domain extremum rather than a table lookup.",
+        "searches": [
+          "Resultary exact half-tanh-order query",
+          "Web exact decimal and critical-equation searches"
+        ]
+      },
+      "rationale": "The 2026 defining paper studies coefficients, Fekete--Szegő/Zalcman/Hankel functionals, logarithmic/inverse coefficients, and majorization rather than this supporting half-plane. Earlier full-tanh papers study convolution/determinants/Bernardi inclusions and radius/disk-containment questions. In particular, the 2021 paper gives disks centered in the image and sufficient radius estimates; those do not determine the actual left supporting line, whose extremizer occurs at a nonreal boundary point. Fresh Resultary and exact formula searches found no earlier statement of this order.",
+      "residual_risks": [
+        "An older complex-analysis source may tabulate the same support function of \\(\\tanh(\\mathbb D)\\) without Ma--Minda terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_CLASS; DOES_NOT_STATE_EXACT_CLASSICAL_ORDER",
+          "evidence": [
+            "Advertised results concern coefficients, Fekete--Szegő, Zalcman/Hankel, logarithmic/inverse problems, and majorization."
+          ],
+          "identifier_or_url": "DOI:10.3390/axioms15030173",
+          "material_read": "Open-access publisher article: abstract, introduction, novelty/contribution discussion, defining-generator context, and conclusion.",
+          "method": "Direct open-access HTML inspection.",
+          "title": "New Results on Analytic Function Subclasses Defined by Tangent Hyperbolic Functions",
+          "trigger": "Exact 2026 source defining the half-tanh class."
+        },
+        {
+          "assessment": "RELATED_RADIUS_AND_DISK_GEOMETRY_NOT_EXACT_SUPPORTING_LINE",
+          "evidence": [
+            "The source uses \\(\\tan r\\) radius bounds and centered image disks; it does not give the submitted boundary critical equation or exact real-part minimum."
+          ],
+          "identifier_or_url": "DOI:10.1155/2021/9967640",
+          "material_read": "Open full article at its starlikeness-radius theorem and Lemma 3 describing disks associated with \\(1+\\tanh(\\mathbb D)\\).",
+          "method": "Direct open-access full-text inspection.",
+          "title": "Radius Problems for Starlike Functions Associated with the Tan Hyperbolic Function",
+          "trigger": "Most relevant full-tanh image-geometry source."
+        },
+        {
+          "assessment": "SAME_SPECIAL_FUNCTION_DIFFERENT_INVARIANTS",
+          "evidence": [
+            "The stated results are convolution, coefficient/determinant and Bernardi-subordination results."
+          ],
+          "identifier_or_url": "DOI:10.3934/mfc.2022032",
+          "material_read": "Current primary article scope/abstract and open-access repository availability were inspected.",
+          "method": "Public publisher/repository inspection.",
+          "title": "Starlike functions associated with tanh z and Bernardi integral operator",
+          "trigger": "Earlier full-tanh class with identical special function."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact global order and unique boundary critical point.",
+        "Sharp inclusion into the classical \\(\\mathcal S^*(\\alpha)\\) hierarchy."
+      ],
+      "rationale": "The classical starlikeness order is a canonical global geometric invariant of a newly defined Ma--Minda class. The result gives the exact sharp supporting half-plane, not a coefficient estimate or coarse disk containment, and comes with a canonical extremal realizing sharpness.",
+      "risks": [
+        "It does not determine the optimal containing sector."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Ma--Minda class defined by \\(zf'(z)/f(z)\\prec 1+\\tfrac12\\tanh z\\), the exact classical starlikeness order is \\(\\alpha_{\\tanh}=0.574270065606231\\ldots\\), equivalently \\(1-\\tfrac12\\max_{|z|\\le1}\\operatorname{Re}\\tanh z\\), with the unique maximizing boundary parameter \\(t_*=1.007214594072238\\ldots\\) characterized by the displayed equation \\(G(t_*)=0\\).",
+  "limitations": [
+    "Only the classical order of starlikeness is classified.",
+    "No algebraic closed form for the critical point is claimed."
+  ],
+  "schema_version": 1
+}

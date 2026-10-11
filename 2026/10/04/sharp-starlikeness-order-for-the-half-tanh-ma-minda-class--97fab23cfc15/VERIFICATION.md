@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,73 +19,24 @@
 }
 ---
 
-For
-\[
-z=x+iy
-\]
-one has
-\[
-\operatorname{Re}\tanh z
-=
-\frac{\sinh(2x)}
-{\cosh(2x)+\cos(2y)}.
-\]
-On the right half of the unit disk, fixing \(x\) and increasing \(|y|\) decreases the denominator because
-\[
-0\le |y|\le1<\frac{\pi}{2}.
-\]
-Hence the positive maximum occurs on the unit circle.
+# Independent mathematical audit
 
-On the first-quadrant arc,
-\[
-F(t)
-=
-\frac{\sinh(2\cos t)}
-{\cosh(2\cos t)+\cos(2\sin t)},
-\]
-and
-\[
-F'(t)
-=
-\frac{2G(t)}
-{\left(
-\cosh(2\cos t)+\cos(2\sin t)
-\right)^2}.
-\]
-The included checker verifies one sign change of \(G\) and returns
-\[
-1.0072145940722<t_*<1.0072145940723.
-\]
+## correctness
 
-The resulting numerical enclosure is
-\[
-0.5742700656061
-<
-1-\frac12F(t_*)
-<
-0.5742700656064.
-\]
+PASS
 
-Odd symmetry gives the matching negative minimum of
-\[
-\operatorname{Re}\tanh z.
-\]
-Subordination transfers the supporting half-plane to every class member.
+The identity \(\operatorname{Re}\tanh(x+iy)=\sinh(2x)/(\cosh(2x)+\cos(2y))\) reduces the positive maximum over the unit disk to the first-quadrant boundary arc because, for fixed \(x\ge0\), the denominator decreases with \(|y|\). Differentiation gives \(F'(t)=2G(t)/D(t)^2\) with positive \(D\). The actual verifier's sign certificate was independently checked: the derivative formula simplifies exactly, crude analytic bounds give the stated global Lipschitz constants for the certificate, and high-precision root solving reproduced \(t_*=1.007214594072238336\ldots\) and \(\alpha=0.574270065606231212\ldots\). Odd symmetry gives the minimum; subordination transfers the half-plane bound; the canonical integral extremal satisfies the defining differential equation and approaches equality.
 
-Finally,
-\[
-f_*(z)
-=
-z\exp\left(
-\frac12\int_0^z\frac{\tanh\zeta}{\zeta}\,d\zeta
-\right)
-\]
-satisfies
-\[
-\frac{zf_*'(z)}{f_*(z)}
-=
-1+\frac12\tanh z,
-\]
-so the order is sharp.
+## originality
 
-The numerical checker locates the unique critical point; the proof of the class-wide statement is analytic and does not rely on a finite coefficient truncation.
+PASS
+
+The 2026 defining paper studies coefficients, Fekete--Szegő/Zalcman/Hankel functionals, logarithmic/inverse coefficients, and majorization rather than this supporting half-plane. Earlier full-tanh papers study convolution/determinants/Bernardi inclusions and radius/disk-containment questions. In particular, the 2021 paper gives disks centered in the image and sufficient radius estimates; those do not determine the actual left supporting line, whose extremizer occurs at a nonreal boundary point. Fresh Resultary and exact formula searches found no earlier statement of this order.
+
+## value
+
+PASS
+
+The classical starlikeness order is a canonical global geometric invariant of a newly defined Ma--Minda class. The result gives the exact sharp supporting half-plane, not a coefficient estimate or coarse disk containment, and comes with a canonical extremal realizing sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
