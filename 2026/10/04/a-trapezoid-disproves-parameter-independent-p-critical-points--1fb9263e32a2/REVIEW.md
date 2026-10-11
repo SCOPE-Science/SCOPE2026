@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The defining \(p\)-asymmetry functional is reconstructed from the normalized \(L_p\)-mixed-volume formula. Reflection symmetry plus the published uniqueness theorem for \(1<p<\infty\) reduces the minimizer to \(x=(0,t)\). Summing the four polygonal edge contributions gives the stated exact objective.
+PASS
 
-Each summand \(a^{1-p}b^p\) with positive affine \(a,b\) has
-\[
-f''=p(p-1)f\left(\frac{a'}a-\frac{b'}b\right)^2\ge0,
-\]
-and one edge term is strictly convex, so the whole objective has a unique minimizer. Exact rational signs isolate the \(p=2\) and \(p=3\) minimizers in disjoint intervals. No finite experiment is used to infer uniqueness or separation.
+Reflection symmetry plus published uniqueness puts every finite-p critical point on the vertical axis. Direct evaluation of the polygonal surface-area measure gives the stated one-variable objective. Each affine-ratio term has second derivative \(p(p-1)f(a'/a-b'/b)^2\), and one term is strictly convex, so there is a unique minimizer. Exact rational evaluation of the derivative polynomials gives opposite signs at the stated endpoints for \(p=2\) and \(p=3\); the two isolating intervals are disjoint.
 
-## Originality
+## originality
 
-PASS with one explicit access risk. The 2021 primary full text defines the normalized \(L_p\)-mixed volume, restates uniqueness of finite-\(p\) critical points, gives two quadrilateral examples whose critical points are independent of \(p\), and explicitly poses Problem 5.4 asking whether this is always so. The present trapezoid gives a direct negative answer.
+PASS
 
-A 2015 paper dedicated to \(p\)-critical-point properties was inspected at its abstract, introduction, definitions, and publicly exposed PDF text. It studies continuity in \(p\), limiting relations to Minkowski-critical points, and approximation. The public endpoint did not expose its later pages in this run, so complete exclusion of an older equivalent example is not claimed. Targeted searches of its title together with quadrilateral, trapezoid, varying-\(p\), and example terminology did not surface such a result.
+The 2021 primary source explicitly leaves universal finite-p coincidence as Problem 5.4. The accessible 2015 source states continuity and limiting relationships, not constancy, and no earlier counterexample was found in targeted or published-result searches. Full 2015 text could not be obtained through the authorized institutional route this round; that access limitation is retained as a residual risk rather than treated as negative evidence.
 
-## Value
+## value
 
-PASS. The source presents parameter independence as an explicit open problem after supplying nontrivial examples supporting it. A two-parameter comparison is enough to settle the problem negatively. The counterexample is exact and geometrically simple, and the proof exposes the mechanism by which unequal edge weights make the minimizing center drift with \(p\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The example gives a concrete negative answer to an explicit published open problem and identifies asymmetric edge weighting as a mechanism for finite-p center drift. An exact low-dimensional counterexample is a natural and reusable boundary result rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

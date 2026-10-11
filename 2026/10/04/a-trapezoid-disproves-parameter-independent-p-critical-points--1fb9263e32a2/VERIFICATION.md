@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,59 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For the trapezoid
-\[
-K=\operatorname{conv}\{(-1,-1),(1,-1),(1/2,1),(-1/2,1)\},
-\]
-the area is \(3\). Reflection uniqueness gives
-\[
-x_p=(0,t_p).
-\]
+## correctness
 
-Using the defining probability measure and support ratio,
-\[
-6\mu_p(K,(0,t))^p
-=
-2(1+t)^{1-p}(1-t)^p
-+
-(1-t)^{1-p}(1+t)^p
-+
-(3-t)^{1-p}(5+t)^p.
-\]
+PASS
 
-For positive affine \(a,b\),
-\[
-\frac{d^2}{dt^2}\left(a^{1-p}b^p\right)
-=
-p(p-1)a^{1-p}b^p
-\left(\frac{a'}a-\frac{b'}b\right)^2.
-\]
-Hence the objective is strictly convex on \((-1,1)\).
+Reflection symmetry plus published uniqueness puts every finite-p critical point on the vertical axis. Direct evaluation of the polygonal surface-area measure gives the stated one-variable objective. Each affine-ratio term has second derivative \(p(p-1)f(a'/a-b'/b)^2\), and one term is strictly convex, so there is a unique minimizer. Exact rational evaluation of the derivative polynomials gives opposite signs at the stated endpoints for \(p=2\) and \(p=3\); the two isolating intervals are disjoint.
 
-At \(p=2\), the derivative has the sign of
-\[
-q_2(t)=15t^4+12t^3-78t^2+60t+7,
-\]
-and exact rational evaluation gives
-\[
-q_2(-103/1000)<0<q_2(-102/1000).
-\]
+## originality
 
-At \(p=3\), the derivative has the opposite sign of
-\[
-q_3(t)=45t^7+169t^6-507t^5+681t^4-1153t^3+1155t^2-561t-85,
-\]
-and exact rational evaluation gives
-\[
-q_3(-119/1000)>0>q_3(-118/1000).
-\]
+PASS
 
-The embedded `verify.py` was replayed from its actual package path. It performs the bracket tests with exact rational arithmetic, checks that the intervals are disjoint, numerically confirms local minimization of the original objective, and re-evaluates the strict-convexity identity.
+The 2021 primary source explicitly leaves universal finite-p coincidence as Problem 5.4. The accessible 2015 source states continuity and limiting relationships, not constancy, and no earlier counterexample was found in targeted or published-result searches. Full 2015 text could not be obtained through the authorized institutional route this round; that access limitation is retained as a residual risk rather than treated as negative evidence.
 
-The replay output was:
+## value
 
-`VERIFY_OK p-critical trapezoid counterexample`
+PASS
 
-The numerical bisections are not the proof of separation. Exact rational signs and strict convexity certify the two disjoint minimizer intervals.
+The example gives a concrete negative answer to an explicit published open problem and identifies asymmetric edge weighting as a mechanism for finite-p center drift. An exact low-dimensional counterexample is a natural and reusable boundary result rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
