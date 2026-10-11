@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:51:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "R. Meshulam, An uncertainty inequality for finite abelian groups, European Journal of Combinatorics 27 (2006), 63–67, arXiv:math/0312407; primary theorem statement inspected for the consecutive-divisor interpolation inequality.",
+        "A. Bonami and S. Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060; primary abstract/full-text scope inspected for exact-support analysis on selected group families.",
+        "S. Delvaux and M. Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, Linear Algebra and its Applications 426 (2007), 349–367, DOI:10.1016/j.laa.2007.05.009; primary abstract/scope compared.",
+        "Resultary semantic searches for exact support-three cyclic uncertainty, trinomial zeros on N-th roots and μ_N(3).",
+        "Assigned RESULT.md, VERIFICATION.md, METADATA.json, SLOGAN.txt and verify_mu3_cyclic.py at the frozen commit.",
+        "Independent analytic reconstruction of every divisor/parity branch; packaged exact cyclotomic enumeration inspected as corroboration."
+      ],
+      "rationale": "After translating the support and dividing out g=gcd(N,a,b), Fourier zeros lift with multiplicity g from the primitive quotient and q can only increase. If 3 divides N, product uncertainty is sharp. If 4 divides N but 3 does not, splitting the trinomial into even/odd exponent parts shows P(z) and P(−z) cannot both vanish, so at most N/2 roots vanish. If q=p≥5 and N is odd, Meshulam gives the claimed lower bound. If N=2m with m odd, the primitive support meets both parity fibers; under Z_N≅Z_2×Z_m, each of the two frequency parities is the Fourier transform of a nonzero ≤3-sparse function on Z_m, giving at most 2m/p zeros each. The support {0,N/q,2N/q} with a quadratic having two prescribed distinct q-th roots realizes exactly 2N/q zeros. Every branch and boundary is therefore proved analytically.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meshulam gives a general divisor-interpolation lower bound but not the stronger even-order support-three value in every case.",
+          "Bonami–Ghobber's complete equality analysis is restricted to selected prime-square/two-prime families.",
+          "Delvaux–Van Barel give constructions/structure for Fourier/Kronecker rank defects, not this exact all-N minimum."
+        ],
+        "reasoning": "The prior sources are broader structurally but do not dominate the audited exact invariant on every cyclic order.",
+        "searches": [
+          "Meshulam arXiv:math/0312407",
+          "Bonami–Ghobber arXiv:1003.5060",
+          "Delvaux–Van Barel DOI:10.1016/j.laa.2007.05.009"
+        ]
+      },
+      "checked_sources": [
+        "R. Meshulam, An uncertainty inequality for finite abelian groups, European Journal of Combinatorics 27 (2006), 63–67, arXiv:math/0312407; primary theorem statement inspected for the consecutive-divisor interpolation inequality.",
+        "A. Bonami and S. Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060; primary abstract/full-text scope inspected for exact-support analysis on selected group families.",
+        "S. Delvaux and M. Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, Linear Algebra and its Applications 426 (2007), 349–367, DOI:10.1016/j.laa.2007.05.009; primary abstract/scope compared.",
+        "Resultary semantic searches for exact support-three cyclic uncertainty, trinomial zeros on N-th roots and μ_N(3).",
+        "Assigned RESULT.md, VERIFICATION.md, METADATA.json, SLOGAN.txt and verify_mu3_cyclic.py at the frozen commit.",
+        "Independent analytic reconstruction of every divisor/parity branch; packaged exact cyclotomic enumeration inspected as corroboration."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When 3 divides N, product uncertainty already gives the audited bound.",
+          "For odd N with least divisor p≥5, Meshulam directly gives N(p−2)/p.",
+          "For 4 dividing N and for N=2m with m odd and least odd divisor p≥5, the audited parity/CRT arguments are additional and are not implied at the needed strength by Meshulam's scalar interpolation bound."
+        ],
+        "reasoning": "The final theorem genuinely combines prior lower bounds with new even-order arguments and a uniform sharpness construction.",
+        "searches": [
+          "Meshulam consecutive-divisor inequality",
+          "Bonami–Ghobber restricted equality results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No independent all-order exact-support-three theorem was returned.",
+          "Matrix/minor and trinomial formulations were checked because three Fourier zeros correspond to rank defects in three-column Fourier submatrices."
+        ],
+        "reasoning": "Exact Fourier-support minimum, maximum number of N-th-root zeros of a three-term Laurent polynomial, and a three-column Fourier rank problem are equivalent formulations.",
+        "searches": [
+          "Resultary: cyclic group exact support three Fourier uncertainty trinomial maximum zeros",
+          "Searches for three-term Laurent polynomials vanishing on N-th roots of unity",
+          "Searches for μ_N(3) and rank-deficient three-column Fourier minors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact all-N table/formula was located."
+        ],
+        "reasoning": "The theorem is a symbolic infinite classification; small-order values are corroborative only.",
+        "searches": [
+          "Resultary exact μ_N(3) and support-three searches",
+          "Searches for exact all-N zero counts 2N/q_N"
+        ]
+      },
+      "rationale": "Meshulam's interpolation theorem directly supplies some branches of the claimed lower bound but is weaker in the key even regimes; Bonami–Ghobber give equality-case results for restricted group families rather than arbitrary cyclic order. The audited proof adds parity pairing for the q=4 regime and a Z2×Z_m fiber argument for the even q≥5 regime, then supplies a uniform sharp construction. No prior all-N support-three formula or equivalent trinomial-zero theorem was located.",
+      "residual_risks": [
+        "A poorly indexed theorem on trinomials evaluated on roots of unity could be equivalent to the final all-N zero bound.",
+        "The theorem does not classify every extremizing support/coefficient configuration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE; SHARP FOR SOME BRANCHES, WEAKER FOR THE KEY EVEN REGIMES",
+          "evidence": "The theorem gives the exact odd least-divisor branch when support size is three, but does not by itself produce the q=4 parity bound or the strengthened even N=2m branch.",
+          "identifier_or_url": "arXiv:math/0312407",
+          "material_read": "Primary theorem statement giving the lower bound between consecutive divisors of the group order.",
+          "method": "Primary arXiv theorem inspection.",
+          "title": "An uncertainty inequality for finite abelian groups",
+          "trigger": "Critical general lower bound and strongest implication risk."
+        },
+        {
+          "assessment": "RESTRICTED FAMILY COVERAGE, NOT THE ALL-CYCLIC-ORDER SUPPORT-THREE THEOREM",
+          "evidence": "Its exact equality analysis is not an arbitrary-composite cyclic classification.",
+          "identifier_or_url": "arXiv:1003.5060",
+          "material_read": "Primary abstract and relevant scope material covering prime-square and two-prime group families and the difficulty of general extension.",
+          "method": "Primary arXiv source inspection.",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Closest exact-support/equality-case source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "R. Meshulam, An uncertainty inequality for finite abelian groups, European Journal of Combinatorics 27 (2006), 63–67, arXiv:math/0312407; primary theorem statement inspected for the consecutive-divisor interpolation inequality.",
+        "A. Bonami and S. Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060; primary abstract/full-text scope inspected for exact-support analysis on selected group families.",
+        "S. Delvaux and M. Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, Linear Algebra and its Applications 426 (2007), 349–367, DOI:10.1016/j.laa.2007.05.009; primary abstract/scope compared.",
+        "Resultary semantic searches for exact support-three cyclic uncertainty, trinomial zeros on N-th roots and μ_N(3).",
+        "Assigned RESULT.md, VERIFICATION.md, METADATA.json, SLOGAN.txt and verify_mu3_cyclic.py at the frozen commit.",
+        "Independent analytic reconstruction of every divisor/parity branch; packaged exact cyclotomic enumeration inspected as corroboration."
+      ],
+      "rationale": "Exact support three is the first genuinely nontrivial sparse Fourier uncertainty profile beyond one/two-point cases. A sharp formula for every cyclic order, including composite even orders where the generic divisor interpolation is not sharp, is a natural reusable invariant in finite harmonic analysis and sparse-polynomial zero theory.",
+      "residual_risks": [
+        "A poorly indexed theorem on trinomials evaluated on roots of unity could be equivalent to the final all-N zero bound.",
+        "The theorem does not classify every extremizing support/coefficient configuration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every N≥3, a complex function on Z_N with exactly three nonzero values has Fourier support at least N(q_N−2)/q_N, where q_N is the least divisor of N at least three; this is sharp, equivalently a three-term Laurent polynomial has at most 2N/q_N zeros among the N-th roots of unity.",
+  "limitations": [
+    "Exact support size three only; all extremizers are not classified.",
+    "A poorly indexed theorem on trinomials evaluated on roots of unity could be equivalent to the final all-N zero bound.",
+    "The theorem does not classify every extremizing support/coefficient configuration."
+  ],
+  "schema_version": 1
+}

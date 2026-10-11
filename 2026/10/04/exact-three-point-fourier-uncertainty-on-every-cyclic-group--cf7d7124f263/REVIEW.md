@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces common support divisors exactly, then treats the only possible least-divisor regimes. The \(q_N=3\) branch is the classical product inequality. The \(q_N=4\) branch uses the parity pairing \(z\leftrightarrow-z\), where three monomials force one parity block to be a nonvanishing singleton. For odd least divisor \(p\ge5\), Meshulam's interpolation bound is exact at support size three; for \(N=2m\), the Chinese-remainder split converts each parity-frequency fiber into the transform of a nonzero at-most-three-point function on odd \(m\), giving the same bound. The sharpness construction has exactly two zero fibers among the \(q_N\)-th roots. The integer checker independently exhausts all \(3\le N\le36\).
+## correctness
 
-## Originality
-PASS with residual risk. Searches compared the exact statement, not merely titles: all-order exact support-three cyclic uncertainty; trinomial zeros on the \(N\)-th roots; rank-deficient three-column Fourier submatrices; and the relation to Meshulam's monotone function. Meshulam provides a general lower bound but not this exact even-order result. Bonami--Ghobber analyze exact-support equality cases only for selected group families and explicitly describe arbitrary prime-factor generalization as difficult. Delvaux--Van Barel give prime-power/Kronecker rank-deficiency constructions rather than this all-order exact-support-three formula. No equivalent theorem was found in published-finding corpus or the inspected primary sources.
+PASS
 
-## Value
-PASS. Exact support size three is the first genuinely nontrivial sparse stratum after the elementary two-point case. The formula is uniform in \(N\), exposes a previously hidden distinction between the divisors \(3\), \(4\), and the least odd prime divisor, and converts a natural uncertainty question into a sharp root-of-unity zero bound. It is a reusable structural statement rather than a finite table or isolated computation.
+After translating the support and dividing out g=gcd(N,a,b), Fourier zeros lift with multiplicity g from the primitive quotient and q can only increase. If 3 divides N, product uncertainty is sharp. If 4 divides N but 3 does not, splitting the trinomial into even/odd exponent parts shows P(z) and P(−z) cannot both vanish, so at most N/2 roots vanish. If q=p≥5 and N is odd, Meshulam gives the claimed lower bound. If N=2m with m odd, the primitive support meets both parity fibers; under Z_N≅Z_2×Z_m, each of the two frequency parities is the Fourier transform of a nonzero ≤3-sparse function on Z_m, giving at most 2m/p zeros each. The support {0,N/q,2N/q} with a quadratic having two prescribed distinct q-th roots realizes exactly 2N/q zeros. Every branch and boundary is therefore proved analytically.
 
-Closest literature and limitations are described in `RESULT.md`. The main residual risk is a differently phrased or poorly indexed prior statement; the theorem does not classify all extremizers or treat support size four and above.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Meshulam's interpolation theorem directly supplies some branches of the claimed lower bound but is weaker in the key even regimes; Bonami–Ghobber give equality-case results for restricted group families rather than arbitrary cyclic order. The audited proof adds parity pairing for the q=4 regime and a Z2×Z_m fiber argument for the even q≥5 regime, then supplies a uniform sharp construction. No prior all-N support-three formula or equivalent trinomial-zero theorem was located.
+
+## value
+
+PASS
+
+Exact support three is the first genuinely nontrivial sparse Fourier uncertainty profile beyond one/two-point cases. A sharp formula for every cyclic order, including composite even orders where the generic divisor interpolation is not sharp, is a natural reusable invariant in finite harmonic analysis and sparse-polynomial zero theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
