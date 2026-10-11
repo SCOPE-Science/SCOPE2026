@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite domain contains exactly \(120\) permutations. The verifier reconstructs Ulam distance from longest common subsequences, builds the entire compatibility graph, enumerates every maximal clique, and independently checks each accepted structural assertion. The maximal-clique histogram is exactly \(60\) of size \(2\), \(120\) of size \(3\), and \(4020\) of size \(4\), proving both the maximum and the complete labeled census. All \(4020\) maxima have six pairwise distances equal to \(3\). The declared \(240\)-element transformation set is directly checked to preserve all pairwise distances before orbit enumeration.
+## correctness
 
-## Originality
-PASS. The closest exact-parameter source, arXiv:1504.05100v1, explicitly gives the prior optimum \(A(5,3)=4\) but does not state a count of maximum codes, universal equidistance, or an orbit classification. The foundational arXiv:1202.0932v1 defines the same Ulam/translocation metric and proves the relevant invariance, but studies bounds and constructions rather than this finite extremizer census. Targeted published-record and web searches for exact-parameter aliases, the count \(4020\), equidistance, maximum-clique enumeration, and symmetry classification found no implication-equivalent result. Residual risk is an obscure or unindexed finite enumeration.
+PASS
 
-## Value
-PASS. This parameter cell is explicitly singled out in the prior finite-search literature as a non-Singleton-optimal small case, with the optimum known but its extremizers undescribed. A complete census plus the universal equidistance constraint and symmetry decomposition supplies a reusable calibration datum for Ulam-code search, classification, and finite-bound methods, rather than merely recomputing the already known value \(4\).
+Fresh exhaustive construction of all 120 permutations gave the exact compatibility graph with 2520 edges and degree 42. An independent Bron-Kerbosch enumeration returned maximal-clique histogram 60 of size 2, 120 of size 3 and 4020 of size 4, with no larger clique. Every one of the 4020 maxima had six pairwise distances exactly three. Explicit construction of all 240 stated isometries verified distance preservation and yielded orbit-size distribution 60x5, 120x7, 240x12. This is exhaustive over the finite graph, not a timeout/sample.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact optimum \(A(5,3)=4\) is prior art and is not claimed as new. The 2015 primary paper's Example III.1 explicitly records that value after deriving an integer-programming upper bound of five, but it does not enumerate all extremizers. No inspected source or Resultary record gives 4020 labeled maxima, universal pairwise distance three, or the 24-orbit decomposition under the stated 240-element isometry subgroup.
+
+## value
+
+PASS
+
+The parameter cell is a standard small Ulam-code benchmark whose optimum size was known but whose full optimizer landscape was not. A complete exact extremizer census, universal equidistance phenomenon, and symmetry quotient are natural finite classification data that a future coding-theory comparison can directly use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

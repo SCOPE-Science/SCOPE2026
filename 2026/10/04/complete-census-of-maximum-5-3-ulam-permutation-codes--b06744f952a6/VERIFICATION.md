@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with Python 3 and no third-party dependencies. The program reconstructs the entire finite instance from definitions; it does not read cached scientific results.
+# Independent mathematical audit
 
-It checks:
+## correctness
 
-- all \(120\) elements of \(S_5\);
-- all pairwise Ulam distances via longest common subsequences;
-- the \(2520\)-edge, \(42\)-regular compatibility graph for threshold \(d_U\ge 3\);
-- every maximal clique, obtaining histogram \(2:60,3:120,4:4020\);
-- all six internal distances in each of the \(4020\) maximum codes;
-- all \(240\) common-relabeling/position-reversal transformations and their distance preservation on every unordered pair;
-- the \(24\) maximum-code orbits and size distribution \(60\) repeated \(5\) times, \(120\) repeated \(7\) times, and \(240\) repeated \(12\) times.
+PASS
 
-The computation is exhaustive over the stated finite domain. It proves nothing about larger permutation orders or other minimum distances, and it does not claim that the stated \(240\)-element subgroup is the full isometry group.
+Fresh exhaustive construction of all 120 permutations gave the exact compatibility graph with 2520 edges and degree 42. An independent Bron-Kerbosch enumeration returned maximal-clique histogram 60 of size 2, 120 of size 3 and 4020 of size 4, with no larger clique. Every one of the 4020 maxima had six pairwise distances exactly three. Explicit construction of all 240 stated isometries verified distance preservation and yielded orbit-size distribution 60x5, 120x7, 240x12. This is exhaustive over the finite graph, not a timeout/sample.
+
+## originality
+
+PASS
+
+The exact optimum \(A(5,3)=4\) is prior art and is not claimed as new. The 2015 primary paper's Example III.1 explicitly records that value after deriving an integer-programming upper bound of five, but it does not enumerate all extremizers. No inspected source or Resultary record gives 4020 labeled maxima, universal pairwise distance three, or the 24-orbit decomposition under the stated 240-element isometry subgroup.
+
+## value
+
+PASS
+
+The parameter cell is a standard small Ulam-code benchmark whose optimum size was known but whose full optimizer landscape was not. A complete exact extremizer census, universal equidistance phenomenon, and symmetry quotient are natural finite classification data that a future coding-theory comparison can directly use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
