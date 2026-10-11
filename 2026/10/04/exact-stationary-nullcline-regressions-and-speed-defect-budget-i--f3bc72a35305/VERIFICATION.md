@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact rational sparse-polynomial arithmetic.
 
-For
-\[
-\dot v=v-\frac{v^3}{3}-w+I,
-\qquad
-\dot w=\varepsilon(v+a-bw),
-\]
-it verifies the residual identities
-\[
-F(v)-w=\dot v,
-\qquad
-v+a-bw=\frac{\dot w}{\varepsilon},
-\]
-where
-\[
-F(v)=v-\frac{v^3}{3}+I.
-\]
+# Independent mathematical audit
 
-It also verifies that substitution of
-\[
-w=F(v)
-\]
-into the linear recovery-nullcline equation gives the equilibrium polynomial
-\[
-\frac b3v^3+(1-b)v+a-bI=0.
-\]
+## correctness
 
-For the standard coefficients
-\[
-b=\frac45,
-\qquad
-\varepsilon=\frac{2}{25},
-\]
-it checks exactly
-\[
-b^2=\frac{16}{25},
-\qquad
-\varepsilon^{-2}=\frac{625}{4}.
-\]
+PASS
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+Invariance of antiderivatives of arbitrary functions of v and w gives \(\mathbb E[w\mid v]=F(v)\) and \(\mathbb E[v\mid w]=bw-a\). Conditional-variance decompositions then give \(\operatorname{Var}(w)-\operatorname{Var}(F(v))=\mathbb E[\dot v^2]\) and \(\operatorname{Var}(v)-b^2\operatorname{Var}(w)=\varepsilon^{-2}\mathbb E[\dot w^2]\), with the combined budget by substitution. Zero square speed plus support invariance forces a constant orbit and hence an equilibrium; otherwise each zero-mean nonzero speed has both signs. The exact checker verifies the vector-field residual and equilibrium polynomial, including the displayed standard coefficients.
 
-The checker verifies the algebraic certificates only. Conditional expectations, variance decompositions, equality rigidity, and sign-crossing use analytic stationarity and invariant-support arguments recorded in `RESULT.md`.
+## originality
+
+PASS
+
+A full primary mathematical treatment of the same oscillator was inspected and develops boundedness, equilibria, Hopf/homoclinic behavior, and forcing, not invariant-measure conditional regressions or the exact speed-budget decomposition. Targeted Resultary search found no same-object theorem. The general generator identity is standard, but the paired nullcline projection and strict two-speed budget were not implication-level covered by the inspected model literature.
+
+## value
+
+PASS
+
+The deterministic nullclines are the organizing geometry of FitzHugh--Nagumo. Showing that both are exact stationary regressions and that their residual scatter is exactly the kinetic activity of each coordinate gives an interpretable, checkable constraint on every recurrent statistical state and a sharp equilibrium/non-equilibrium discriminator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

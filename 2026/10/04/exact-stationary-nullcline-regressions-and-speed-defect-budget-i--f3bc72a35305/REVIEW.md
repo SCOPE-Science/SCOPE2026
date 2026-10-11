@@ -1,22 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Arbitrary antiderivative tests in \(v\) and \(w\) give
-\[
-\mathbb E[w\mid v]=F(v),
-\qquad
-\mathbb E[v\mid w]=bw-a.
-\]
-The residuals are exactly \(-\dot v\) and \(\dot w/\varepsilon\), so the law of total variance gives both speed defects and their combined budget. If either squared-speed defect vanishes, invariance of the support forces both coordinates to be constant along every support trajectory, hence the support lies in the equilibrium set. Non-equilibrium-supported invariant measures have nonzero mean-square speed and zero mean speed in each coordinate, forcing both signs and therefore both sides of both nullclines.
+## correctness
 
-Risk: compact support is used to justify the full antiderivative test family without additional integrability hypotheses.
+PASS
 
-## Originality
-PASS. The complete same-object bifurcation preprint was inspected in full and contains the equivalent cubic planar system, boundedness, equilibria, periodic orbits, and global bifurcation structure, but no average, moment, invariant-measure, or conditional formulation under targeted document-wide searches. A recent full FitzHugh–Nagumo paper specifically studying time averages was also inspected; its dynamic-homeostasis claim concerns parameter dependence of a limit-cycle mean rather than fixed-parameter conditional disintegration. Direct and equivalent semantic searches did not locate the accepted nullcline regressions or speed-defect budget.
+Invariance of antiderivatives of arbitrary functions of v and w gives \(\mathbb E[w\mid v]=F(v)\) and \(\mathbb E[v\mid w]=bw-a\). Conditional-variance decompositions then give \(\operatorname{Var}(w)-\operatorname{Var}(F(v))=\mathbb E[\dot v^2]\) and \(\operatorname{Var}(v)-b^2\operatorname{Var}(w)=\varepsilon^{-2}\mathbb E[\dot w^2]\), with the combined budget by substitution. Zero square speed plus support invariance forces a constant orbit and hence an equilibrium; otherwise each zero-mean nonzero speed has both signs. The exact checker verifies the vector-field residual and equilibrium polynomial, including the displayed standard coefficients.
 
-Risk: the foundational 1961 article was not available as a stable complete-text rendering in the inspected interface, and a short equivalent observation could remain in unindexed literature.
+## originality
 
-## Value
-PASS. FitzHugh–Nagumo analysis is organized by its cubic and linear nullclines. The theorem upgrades those curves to exact stationary conditional regression functions and quantifies their residuals by physically meaningful coordinate speeds. The equality classification and compulsory two-sided nullcline occupancy give a reusable diagnostic for periodic or stationary data rather than merely restating the phase portrait.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A full primary mathematical treatment of the same oscillator was inspected and develops boundedness, equilibria, Hopf/homoclinic behavior, and forcing, not invariant-measure conditional regressions or the exact speed-budget decomposition. Targeted Resultary search found no same-object theorem. The general generator identity is standard, but the paired nullcline projection and strict two-speed budget were not implication-level covered by the inspected model literature.
+
+## value
+
+PASS
+
+The deterministic nullclines are the organizing geometry of FitzHugh--Nagumo. Showing that both are exact stationary regressions and that their residual scatter is exactly the kinetic activity of each coordinate gives an interpretable, checkable constraint on every recurrent statistical state and a sharp equilibrium/non-equilibrium discriminator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
