@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:34:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 5f616887ea20057c3ede6239dfe1bb80abca1d58",
+        "assigned artifacts/verify.py blob 238e4486f362ade20ce5d75bfeb156fff942693b",
+        "Gao--Ji--Liu, A Generalized Stein Lemma for Quantum Channels, arXiv:2609.30762, Example 24 and surrounding finite-block bounds"
+      ],
+      "rationale": "Commutation makes the target ray an eigenvector of every block state, with block overlap \\(g_k=c+(1-c)q^k\\). Replacing an \\(\\omega^{\\otimes k}\\) block by \\(\\zeta_k\\) strictly increases target overlap, and \\(g_{a+b}-g_ag_b=c(1-c)(1-q^a)(1-q^b)\\ge0\\), so repeated merging proves the single \\(n\\)-block state is extremal. The entropy and max-entropy identities then follow from the target eigenvalue. For hypothesis testing, the single-block alternative gives the lower bound and \\(Q=(1-\\varepsilon)\\rho^{\\otimes n}\\) attains it uniformly. For smoothing, trace distance gives target mass at least \\(1-\\delta/2\\), and the explicit mixture \\(L_s=(1-s)\\rho^{\\otimes n}+s\\zeta_n\\) attains the bound. The bundled verifier independently checks all block compositions and the merge/smoothing identities on bounded grids; it is corroborative rather than the source of the universal proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized Stein result is asymptotic and Example 24 supplies bounds sufficient for zero rate, not the exact commuting finite-block profile.",
+          "General commuting composite-testing theory does not encode the partition-generated extremal merge law."
+        ],
+        "reasoning": "No checked broader theorem determines the same \\(q\\)-dependent finite values without the new optimization over block structures.",
+        "searches": [
+          "arXiv:2609.30762 generalized Stein lemma and Example 24",
+          "Frenkel--Mosonyi--Vrana--Weiner composite quantum hypothesis testing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.30762",
+        "Frenkel--Mosonyi--Vrana--Weiner 2025 composite quantum hypothesis testing",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's inequality \\(\\zeta_n\\ge c\\rho^{\\otimes n}\\) gives only a bound independent of \\(q\\).",
+          "The audited proof needs the commuting target eigenvector and \\(g_{a+b}\\ge g_ag_b\\) to show that no partitioned extreme point beats the single block."
+        ],
+        "reasoning": "Thus the exact finite-block theorem is a strict sharpening on a natural subfamily, not a corollary of the published zero-rate argument.",
+        "searches": [
+          "arXiv:2609.30762 Example 24 versus the audited merge identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's Example 24 defines the same partition-generated correlated alternative and records a uniform lower bound from the fixed \\(c\\rho^{\\otimes n}\\) component.",
+          "The audited result identifies the exact finite overlap through the additional commuting eigenvalue \\(q\\), then derives four exact optimized quantities."
+        ],
+        "reasoning": "Equivalent formulations as maximizing the pure-target expectation over the family, minimizing relative entropy to the family, and exact composite type-II testing were compared.",
+        "searches": [
+          "Resultary query: commuting correlated zero Stein rate Gao Ji Liu Example 24 exact overlap max relative entropy smoothing beta epsilon",
+          "arXiv:2609.30762 Example 24"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database or published SCOPE table giving \\(g_n\\), the fixed-error equality, and the smoothing threshold was returned."
+        ],
+        "reasoning": "The claim is an analytic all-\\(n\\) identity rather than a finite table, but an exact-formula search was performed.",
+        "searches": [
+          "Resultary semantic search for exact finite-block overlap/testing/smoothing in the Gao--Ji--Liu family"
+        ]
+      },
+      "rationale": "Gao--Ji--Liu introduce exactly the correlated family and use \\(\\zeta_n\\ge c\\rho^{\\otimes n}\\) to show a persistent type-II lower bound and zero normalized Stein rate, but they do not impose the commuting eigenvector parameter \\(q\\), optimize over all partitions at finite \\(n\\), or state the resulting exact entropy/testing/smoothing profile. The decisive merge identity and full finite-block equality are therefore not implication-level consequences of the source's stated lower bound. Targeted Resultary search found no published record with the same joint profile.",
+      "residual_risks": [
+        "Older classical non-i.i.d. composite-testing literature could contain an equivalent pure-target overlap observation under different terminology; no source covering this exact family/profile was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_ONLY",
+          "evidence": "The source establishes the correlated construction and finite lower bounds but not the commuting \\(q\\)-dependent equalities or smoothing formula.",
+          "identifier_or_url": "arXiv:2609.30762",
+          "material_read": "Primary full-text material around Example 24, including the family definition, persistent \\(c\\)-component bound, type-II consequence, and zero-rate discussion.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "A Generalized Stein Lemma for Quantum Channels",
+          "trigger": "Exact source of the correlated family and zero-Stein-rate example."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gao--Ji--Liu arXiv:2609.30762",
+        "composite quantum hypothesis-testing literature"
+      ],
+      "rationale": "The source uses this family specifically to exhibit a nontrivial zero-rate obstruction, so determining its exact finite-block behavior on the natural commuting subfamily is mathematically motivated. The result identifies the precise finite cost hidden behind the vanishing normalized rate and simultaneously resolves relative entropy, max-relative entropy, fixed-error testing, and smoothing.",
+      "residual_risks": [
+        "The usefulness is tied to a special commuting subfamily rather than the full noncommutative example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the commuting specialization of the Gao--Ji--Liu correlated alternative family with pure target \\(\\rho\\), faithful \\(\\omega\\), \\([\\rho,\\omega]=0\\), \\(0<c<1\\), and \\(q=\\langle\\phi|\\omega|\\phi\\rangle\\), every finite blocklength \\(n\\) has exact maximal target overlap \\(g_n=c+(1-c)q^n\\); consequently the optimized relative entropy and max-relative entropy are both \\(-\\log_2 g_n\\), the fixed-error type-II optimum is \\((1-\\varepsilon)g_n\\), and the trace-preserving smoothed max-relative quantity is \\(\\log_2\\max\\{1,(1-\\delta/2)/g_n\\}\\).",
+  "limitations": [
+    "The exact formulas use the additional commutation hypothesis \\([\\rho,\\omega]=0\\) and rank-one target.",
+    "The family is the specific partition-generated correlated family from Gao--Ji--Liu Example 24.",
+    "No corresponding finite-block formula is claimed for the noncommuting case."
+  ],
+  "schema_version": 1
+}

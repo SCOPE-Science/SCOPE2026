@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is analytic. Its critical checks are:
+# Independent mathematical audit
 
-1. With \(g_k=c+(1-c)q^k\), direct expansion gives \(g_{a+b}-g_ag_b=c(1-c)(1-q^a)(1-q^b)\ge0\). Therefore replacing product blocks by one correlated block can only increase target overlap.
-2. Under \([\rho,\omega]=0\), the target ray is an eigenvector of every free state. This is the needed nonstandard boundary condition for reducing Umegaki and max-relative entropy to the target eigenvalue.
-3. The testing converse uses the actual free state \(\zeta_n=g_n\rho^{\otimes n}+(1-g_n)\nu_n\), while the matching test is \((1-\varepsilon)\rho^{\otimes n}\).
-4. The smoothing converse uses the trace-zero effect bound \(\operatorname{Tr}(\rho^{\otimes n}L)\ge1-\delta/2\). The matching state \(L_s=(1-s)\rho^{\otimes n}+s\zeta_n\) lies at exact trace distance \(2s(1-g_n)\) and has domination factor \(\max\{1,(1-\delta/2)/g_n\}\) below the free threshold, or factor \(1\) once the threshold is crossed.
+## correctness
 
-The accompanying checker enumerates block-size compositions and assignments only as a finite corroboration. It does not certify the all-\(n\) theorem; the displayed algebra does. No statement is made for \([\rho,\omega]\ne0\).
+PASS
+
+Commutation makes the target ray an eigenvector of every block state, with block overlap \(g_k=c+(1-c)q^k\). Replacing an \(\omega^{\otimes k}\) block by \(\zeta_k\) strictly increases target overlap, and \(g_{a+b}-g_ag_b=c(1-c)(1-q^a)(1-q^b)\ge0\), so repeated merging proves the single \(n\)-block state is extremal. The entropy and max-entropy identities then follow from the target eigenvalue. For hypothesis testing, the single-block alternative gives the lower bound and \(Q=(1-\varepsilon)\rho^{\otimes n}\) attains it uniformly. For smoothing, trace distance gives target mass at least \(1-\delta/2\), and the explicit mixture \(L_s=(1-s)\rho^{\otimes n}+s\zeta_n\) attains the bound. The bundled verifier independently checks all block compositions and the merge/smoothing identities on bounded grids; it is corroborative rather than the source of the universal proof.
+
+## originality
+
+PASS
+
+Gao--Ji--Liu introduce exactly the correlated family and use \(\zeta_n\ge c\rho^{\otimes n}\) to show a persistent type-II lower bound and zero normalized Stein rate, but they do not impose the commuting eigenvector parameter \(q\), optimize over all partitions at finite \(n\), or state the resulting exact entropy/testing/smoothing profile. The decisive merge identity and full finite-block equality are therefore not implication-level consequences of the source's stated lower bound. Targeted Resultary search found no published record with the same joint profile.
+
+## value
+
+PASS
+
+The source uses this family specifically to exhibit a nontrivial zero-rate obstruction, so determining its exact finite-block behavior on the natural commuting subfamily is mathematically motivated. The result identifies the precise finite cost hidden behind the vanishing normalized rate and simultaneously resolves relative entropy, max-relative entropy, fixed-error testing, and smoothing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
