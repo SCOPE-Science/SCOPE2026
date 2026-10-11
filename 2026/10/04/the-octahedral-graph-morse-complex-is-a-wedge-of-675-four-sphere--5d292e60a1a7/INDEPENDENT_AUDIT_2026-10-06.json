@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:07:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A primitive field is an oriented vertex-edge incidence. A simplex is exactly a partial orientation in which every vertex is a tail at most once, no undirected edge is selected twice, and no directed cycle occurs. I independently enumerated all \\(5^6\\) tail assignments from the frozen graph and recovered 6125 faces including the empty face and the stated nonempty face vector. Reconstructing the frozen deterministic element matching from scratch gave 2724 matched pairs, exactly one critical \\(0\\)-simplex and 675 critical \\(4\\)-simplices; an independent topological-sort test of every reversed Hasse edge found no directed cycle. Forman's acyclic-matching theorem therefore gives the wedge statement. The frozen verifier source was read in full and agrees with the independently reconstructed certificate.",
+      "risk": "The theorem is finite and graph-specific; no family formula is proved.",
+      "sources": [
+        "frozen RESULT.md",
+        "frozen verify_octahedral_morse.py blob c206ceee653af30f1b51468bdd9c609ce1965bbb",
+        "Donovan--Lin--Scoville arXiv:1909.11440",
+        "Scoville--Zaremsky arXiv:2004.10481",
+        "Donovan--Scoville arXiv:2207.13780",
+        "fresh independent full face/matching replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem gives only connectivity; the same paper treats complete graphs separately.",
+          "The later exact-family paper covers extended stars, paths, cycles and Dutch windmills, not this graph."
+        ],
+        "reasoning": "No inspected general theorem specializes to the full homotopy type of the octahedral graph.",
+        "searches": [
+          "Scoville--Zaremsky arXiv:2004.10481, graph connectivity theorem and complete-graph example",
+          "Donovan--Scoville arXiv:2207.13780 exact-family sections",
+          "Kozlov 1999 complete-graph comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1909.11440",
+        "arXiv:2004.10481",
+        "arXiv:2207.13780",
+        "Kozlov, JCTA 88 (1999)",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Connectivity bounds do not determine homology or homotopy rank.",
+          "Exact results for complete, bipartite, wheel, prism, and other graphs do not transfer to \\(K_{2,2,2}\\) through a published graph-operation theorem."
+        ],
+        "reasoning": "The final wedge decomposition is not a corollary of the inspected prior statements.",
+        "searches": [
+          "arXiv:2004.10481",
+          "arXiv:2207.13780",
+          "Resultary nearby graph-Morse records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary exact hit is the assigned record itself; nearby hits concern different graphs.",
+          "The primary papers use the aliases Morse complex, complexes of discrete Morse functions, and graph discrete vector fields without an octahedral exact computation."
+        ],
+        "reasoning": "The graph aliases octahedral graph, \\(K_{2,2,2}\\), and \\(K_6\\) minus a perfect matching were compared with the standard Morse-complex terminology.",
+        "searches": [
+          "Resultary query: octahedral graph K_{2,2,2} ordinary Morse complex homotopy wedge spheres 675",
+          "arXiv:1909.11440",
+          "arXiv:2004.10481",
+          "arXiv:2207.13780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent table or database value for the octahedral Morse complex was located."
+        ],
+        "reasoning": "The exact finite certificate was independently recomputed rather than inferred from a neighboring graph table.",
+        "searches": [
+          "Resultary exact semantic query above",
+          "Resultary nearby records: K_{3,3} wedge of 80 four-spheres; K_{2,n} family; wheel and triangular-prism Morse records"
+        ]
+      },
+      "rationale": "The inspected exact Morse-complex literature computes selected graph families, while the general connectivity theorem supplies only bounds and the classical exact complete-graph theorem does not cover \\(K_{2,2,2}\\). Fresh Resultary search surfaced nearby exact SCOPE records for \\(K_{3,3}\\), \\(K_{2,n}\\), the wheel, cube and triangular prism, but none contains this graph or implies its 675-sphere decomposition.",
+      "residual_risks": [
+        "An unindexed finite computation under a different graph alias could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_OCTAHEDRAL_GRAPH",
+          "evidence": "The paper emphasizes that explicit homotopy types are known for limited families and does not state the octahedral computation.",
+          "identifier_or_url": "arXiv:1909.11440",
+          "material_read": "Open primary full text, especially the introduction, definitions and listed exact graph families.",
+          "method": "Lawful open full-text inspection.",
+          "title": "On the homotopy and strong homotopy type of complexes of discrete Morse functions",
+          "trigger": "Closest earlier exact-homotopy study of graph Morse complexes."
+        },
+        {
+          "assessment": "BOUNDS_ONLY_FOR_THIS_GRAPH",
+          "evidence": "The graph theorem provides connectivity information; its exact comparison is for complete graphs, not \\(K_{2,2,2}\\).",
+          "identifier_or_url": "arXiv:2004.10481",
+          "material_read": "Open primary full text around the graph connectivity theorem and complete-graph examples.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Higher connectivity of the Morse complex",
+          "trigger": "General theorem that might dominate a finite exact computation."
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILIES",
+          "evidence": "The exact computations concern extended stars, paths, cycles, Dutch windmills and related constructions, not the octahedral graph.",
+          "identifier_or_url": "arXiv:2207.13780",
+          "material_read": "Open primary full text covering the advertised exact families and discrete-Morse wedge criterion.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Star clusters in the Matching, Morse, and Generalized Morse complex",
+          "trigger": "Later exact-homotopy paper using the same Morse-complex framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The octahedral graph is a canonical Platonic and cocktail-party graph lying immediately outside the complete-graph exact family. A full homotopy type with an explicit critical-cell certificate is a natural finite benchmark for graph Morse complexes, not an arbitrary parameter slice.",
+      "risk": "The result does not yet reveal a complete multipartite family pattern.",
+      "sources": [
+        "arXiv:1909.11440",
+        "arXiv:2004.10481",
+        "arXiv:2207.13780"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the octahedral graph \\(O=K_{2,2,2}\\), the ordinary Morse complex of gradient discrete vector fields is homotopy equivalent to \\(\\bigvee^{675}S^4\\), with nonempty face vector \\((24,228,1072,2496,2304)\\).",
+  "limitations": [
+    "Ordinary Morse complex only, not the generalized Morse complex.",
+    "Exact finite statement for \\(K_{2,2,2}\\) only."
+  ],
+  "schema_version": 1
+}
