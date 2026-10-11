@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly against the standard \(k\)-forcing rule. The critical invariant is that a vertex in part \(V_i\) sees exactly the white vertices outside \(V_i\). Therefore the first force necessarily clears all outside whites, and every later unresolved white vertex lies in a single independent part. This reduces success to the three inequalities stated in the result.
+# Independent mathematical audit
 
-The standalone `verify.py` script separately constructs complete multipartite graphs, simulates the literal rule to closure, and compares every initial subset with the theorem criterion. It also brute-forces the minimum size and minimum-set count and compares them with the closed formula and inclusion-exclusion expression. The exhaustive range is every ordered positive part-size profile of total order \(2\) through \(9\), every admissible number of parts, and every \(k\) from \(1\) through \(\min\{4,N\}\).
+## correctness
 
-Replay output:
+PASS
 
-`VERIFY_OK profiles=502 parameter_checks=2003 subset_checks=694928 count_checks=2003 max_order=9 k_max=4`
+The first force must occur from a black vertex in one part \(V_i\), so before any color change it sees exactly the whites outside \(V_i\). Its force clears all outside whites; the remaining whites are precisely those in \(V_i\), and a now-black outside vertex can clear them exactly when their count is at most \(k\). This proves necessity and sufficiency. Maximizing whites gives \(\min\{k,n_i-1\}+\min\{k,N-n_i\}\). At the optimum, a part witnesses a minimum set exactly when its within-part white count attains the first cap, so inclusion-exclusion gives the stated count. Fresh literal dynamics checked 42,640 cases through order seven.
 
-The finite replay is not an infinite proof. Cases of larger order and \(k>4\) are justified by the symbolic first-force proof, not by enumeration. No claim of independent audit or independent validation is made.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. The foundational k-forcing paper gives general bounds, while the 2024 automata paper treats the complete bipartite case and states minimum-set behavior there. Neither inspected source gives an arbitrary complete-multipartite all-set first-force criterion or the inclusion-exclusion count of all minimum sets.
+
+## value
+
+PASS
+
+The theorem gives a compact all-set decision rule for a standard propagation process, not merely its minimum parameter, and it counts all optimum initial sets on an arbitrary complete multipartite profile. The two-part and \(k=1\) slices are established prior territory, while the arbitrary-profile structural rule and optimum multiplicity are natural reusable extensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

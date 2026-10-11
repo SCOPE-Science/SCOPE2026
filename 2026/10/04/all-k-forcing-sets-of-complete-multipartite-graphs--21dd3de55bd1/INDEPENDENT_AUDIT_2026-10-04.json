@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:47:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "D. Amos, Y. Caro, R. Davila, R. Pepper, Upper bounds on the k-forcing number of a graph, arXiv:1401.6206 / Discrete Applied Mathematics 181 (2015).",
+        "M. Shamsizadeh et al., Recognizable Languages of k-Forcing Automata, Mathematical and Computational Applications 29 (2024), 32, DOI:10.3390/mca29030032; complete public HTML inspected, especially Theorems 9--11 on complete bipartite graphs.",
+        "K. Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910 / Discrete Applied Mathematics 258 (2019); full accessible text inspected for zero-forcing-set enumeration context.",
+        "Resultary semantic query: complete multipartite k-forcing all sets minimum count.",
+        "Fresh literal k-forcing replay on all ordered complete-multipartite profiles of total order 2 through 7, \\(1\\le k\\le\\min\\{4,N\\}\\): 42,640 subset/parameter checks, including the minimum-size and inclusion-exclusion minimum-count formulas."
+      ],
+      "rationale": "The first force must occur from a black vertex in one part \\(V_i\\), so before any color change it sees exactly the whites outside \\(V_i\\). Its force clears all outside whites; the remaining whites are precisely those in \\(V_i\\), and a now-black outside vertex can clear them exactly when their count is at most \\(k\\). This proves necessity and sufficiency. Maximizing whites gives \\(\\min\\{k,n_i-1\\}+\\min\\{k,N-n_i\\}\\). At the optimum, a part witnesses a minimum set exactly when its within-part white count attains the first cap, so inclusion-exclusion gives the stated count. Fresh literal dynamics checked 42,640 cases through order seven.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amos et al. establish general upper bounds for \\(F_k(G)\\).",
+          "The automata paper analyzes complete \\(X\\)-\\(Y\\) bipartite graphs, including the \\(N-2k\\) minimum-size regime when \\(k\\) is smaller than both part sizes.",
+          "Boyer et al. develop all-set counting for ordinary zero forcing but do not supply this arbitrary-multipartite all-\\(k\\) theorem in the inspected text."
+        ],
+        "reasoning": "The broader graph-theoretic sources do not dominate the exact arbitrary-multipartite feasible-family characterization and minimum-set count.",
+        "searches": [
+          "arXiv:1401.6206",
+          "DOI:10.3390/mca29030032 Theorems 9--11",
+          "arXiv:1801.08910"
+        ]
+      },
+      "checked_sources": [
+        "D. Amos, Y. Caro, R. Davila, R. Pepper, Upper bounds on the k-forcing number of a graph, arXiv:1401.6206 / Discrete Applied Mathematics 181 (2015).",
+        "M. Shamsizadeh et al., Recognizable Languages of k-Forcing Automata, Mathematical and Computational Applications 29 (2024), 32, DOI:10.3390/mca29030032; complete public HTML inspected, especially Theorems 9--11 on complete bipartite graphs.",
+        "K. Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910 / Discrete Applied Mathematics 258 (2019); full accessible text inspected for zero-forcing-set enumeration context.",
+        "Resultary semantic query: complete multipartite k-forcing all sets minimum count.",
+        "Fresh literal k-forcing replay on all ordered complete-multipartite profiles of total order 2 through 7, \\(1\\le k\\le\\min\\{4,N\\}\\): 42,640 subset/parameter checks, including the minimum-size and inclusion-exclusion minimum-count formulas."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-bipartite results resolve only \\(r=2\\) behavior and do not encode which arbitrary multipartite white profiles admit a first force.",
+          "A general numerical upper bound for \\(F_k\\) does not imply equality or count minimum sets."
+        ],
+        "reasoning": "The assigned first-force argument uses the exact white count inside one witnessing part and on its complement; extending from two parts to arbitrary part profiles plus inclusion-exclusion is not mechanically supplied by the inspected prior statements.",
+        "searches": [
+          "2024 complete-bipartite Theorems 9--11",
+          "Amos et al. general bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit was the assigned finding.",
+          "The 2024 complete-bipartite theorem uses the same standard k-forcing rule and supplies a two-part minimum-size special case."
+        ],
+        "reasoning": "Generalized forcing aliases were checked. The complete-bipartite special case is consistent with, but not equivalent to, the arbitrary-part white-profile criterion.",
+        "searches": [
+          "Resultary: complete multipartite k-forcing all sets minimum count",
+          "k-forcing / generalized zero forcing / zero forcing polynomial terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier indexed formula matching the arbitrary-part \\(k\\)-forcing criterion or the minimum-set inclusion-exclusion count appeared.",
+          "Known zero-forcing counting work is for \\(k=1\\) and other graph families/representations."
+        ],
+        "reasoning": "The assigned theorem is not a recomputation of a known table; its finite formulas are derived structurally.",
+        "searches": [
+          "Resultary exact-topic semantic search",
+          "zero-forcing polynomial source family search"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. The foundational k-forcing paper gives general bounds, while the 2024 automata paper treats the complete bipartite case and states minimum-set behavior there. Neither inspected source gives an arbitrary complete-multipartite all-set first-force criterion or the inclusion-exclusion count of all minimum sets.",
+      "residual_risks": [
+        "The 2024 complete-bipartite article contains formulas stated in an automata setting and uses some minimum-set assertions without deriving the arbitrary multipartite extension; no older alternate-terminology source was found that closes this gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TWO-PART SPECIAL CASE ONLY",
+          "evidence": "It states complete-bipartite minimum forcing behavior and automaton languages, but not arbitrary multipartite all-set characterization or minimum-set inclusion-exclusion.",
+          "identifier_or_url": "https://www.mdpi.com/2297-8747/29/3/32",
+          "material_read": "Complete public HTML with focused reading of Example 7 and Theorems 9--11 on complete bipartite graphs.",
+          "method": "Open-access primary full-text inspection",
+          "title": "Recognizable Languages of k-Forcing Automata",
+          "trigger": "Highly relevant complete-bipartite k-forcing specialization"
+        },
+        {
+          "assessment": "ORDINARY ZERO-FORCING CONTEXT, NOT ALL-k COVERAGE",
+          "evidence": "The paper counts zero-forcing sets for \\(k=1\\); it does not give the assigned all-\\(k\\), arbitrary-multipartite criterion or count.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "Accessible full article text including definitions, family-enumeration sections, and structural zero-forcing-set results.",
+          "method": "Open full-text inspection",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Closest all-set counting framework for the \\(k=1\\) specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "D. Amos, Y. Caro, R. Davila, R. Pepper, Upper bounds on the k-forcing number of a graph, arXiv:1401.6206 / Discrete Applied Mathematics 181 (2015).",
+        "M. Shamsizadeh et al., Recognizable Languages of k-Forcing Automata, Mathematical and Computational Applications 29 (2024), 32, DOI:10.3390/mca29030032; complete public HTML inspected, especially Theorems 9--11 on complete bipartite graphs.",
+        "K. Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910 / Discrete Applied Mathematics 258 (2019); full accessible text inspected for zero-forcing-set enumeration context.",
+        "Resultary semantic query: complete multipartite k-forcing all sets minimum count.",
+        "Fresh literal k-forcing replay on all ordered complete-multipartite profiles of total order 2 through 7, \\(1\\le k\\le\\min\\{4,N\\}\\): 42,640 subset/parameter checks, including the minimum-size and inclusion-exclusion minimum-count formulas."
+      ],
+      "rationale": "The theorem gives a compact all-set decision rule for a standard propagation process, not merely its minimum parameter, and it counts all optimum initial sets on an arbitrary complete multipartite profile. The two-part and \\(k=1\\) slices are established prior territory, while the arbitrary-profile structural rule and optimum multiplicity are natural reusable extensions.",
+      "residual_risks": [
+        "The 2024 complete-bipartite article contains formulas stated in an automata setting and uses some minimum-set assertions without deriving the arbitrary multipartite extension; no older alternate-terminology source was found that closes this gap."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a complete multipartite graph, an initial black set is \\(k\\)-forcing exactly when it is already all black or some initially black part sees between one and \\(k\\) white vertices outside it and leaves at most \\(k\\) whites in its own part; the stated closed formula for \\(F_k(G)\\) and inclusion-exclusion count of all minimum \\(k\\)-forcing sets follow.",
+  "limitations": [
+    "Only the standard undirected k-forcing rule is covered; connected, PSD, oriented, probabilistic, and other forcing variants are outside scope.",
+    "The 2024 complete-bipartite article contains formulas stated in an automata setting and uses some minimum-set assertions without deriving the arbitrary multipartite extension; no older alternate-terminology source was found that closes this gap."
+  ],
+  "schema_version": 1
+}
