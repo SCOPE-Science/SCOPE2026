@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source splitting formula was checked directly in the full preprint. On the region where the source cutoff equals one,
-\[
-E(\tau,\phi)
-=
-\Delta(\tau)+(q(\tau)-\Delta(\tau))\psi(\phi)
-=
-\psi(\phi)q(\tau)+(1-\psi(\phi))\Delta(\tau).
-\]
-Under \(q\ge0\), \(\psi\ge1\), \(\Delta\le0\), and \(q^{-1}(0)\subset\{\Delta<0\}\), this is zero exactly when \(q=0\) and \(\psi=1\). The source's positivity argument outside the nonpositive-splitting region then leaves no additional zeros.
+# Independent mathematical audit
 
-For a relative deletion schedule \((\rho_n)\), the stage-\(N\) surviving length was recomputed as
-\[
-L\prod_{n=1}^N(1-\rho_n).
-\]
-Taking the decreasing intersection gives the infinite product. The product is positive exactly when
-\[
-\sum_{n\ge1}-\log(1-\rho_n)<\infty.
-\]
-Fubini gives the two-coordinate area formula.
+## correctness
 
-For constant relative deletion \(\rho\), the similarity ratio is \((1-\rho)/2\). The four-map product construction therefore has Hausdorff dimension
-\[
-\frac{2\log2}{\log(2/(1-\rho))}.
-\]
-At \(\rho=1/4\), the exact value is \(2\log2/\log(8/3)\); its decimal approximation \(1.4133901052\) was independently recomputed from the closed form.
+PASS
 
-Limits: the verification does not establish perturbative persistence, does not give a variable-schedule Hausdorff-dimension formula, and does not perform independent validation.
+The final theorem is correct under its explicitly stated source-form splitting assumptions. On Delta<=0, E=psi q+(1-psi)Delta is a sum of two nonnegative terms. If q>0 then E>0; if q=0 and the zero lies in the strict Delta<0 region, E=0 exactly when psi=1, hence the zero set is C_tau x C_phi. The assumed source cutoff gives strict positivity outside this region. For stagewise relative central deletions, continuity from above gives m_1(C_i)=L_i prod_n(1-rho_{i,n}); Fubini gives area, and positivity of an infinite product in (0,1] is equivalent to summability of -log factors. With constant rho, the product IFS has four similarities of common ratio (1-rho)/2, so the open-set-condition dimension is 2 log 2 / log(2/(1-rho)); rho=1/4 yields the stated zero area and dimension.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with a material access risk. Fresh Resultary search found the present record as the exact match and only adjacent fractal/dynamical findings. The recent defining paper's primary abstract establishes the phase-induced-tipping/splitting setting but not the detailed Cantor size theorem. Its full text was inaccessible through open and authorized routes in this run, so whole-document noncoverage is not asserted. Under the owner's rule, that inaccessible plausible source is retained explicitly as residual risk rather than converted into scientific failure.
+
+## value
+
+PASS
+
+Within the source's engineered phase-tipping mechanism, whether heteroclinic representatives occupy zero or positive area is a natural size question. The exact infinite-product boundary distinguishes negligible from positive-area channel families and resolves the convention-sensitive fixed-relative-quarter versus fat-Cantor distinction. Although the Cantor facts are classical, their transfer gives a motivated sharp boundary for the dynamical construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
