@@ -1,0 +1,19 @@
+# Scientific review: dihedral cycle matching homology
+
+## Correctness — PASS
+
+The claim is an exact character of the unique nonzero reduced rational homology module of the matching complex of every simple cycle, together with its cyclic and dihedral rational quotient groups. The previously established integral suspension recurrence fixes the only homology degree and its dimension. An independently reconstructed reduced simplicial Lefschetz sum weights an invariant face with one negative sign for each of its occupied vertex orbits; the result is the negative evaluation at \(-1\) of the independent-set polynomial of the orbit graph. Explicit orbit graphs are cyclic for rotations and paths for each reflection conjugacy class. Their independent-set polynomials satisfy a two-step recursion of period six. Averaging the resulting characters yields the claimed congruences. The endpoint cases \(n=3,4,5\), all gcd conventions, reflected edges, and the period-six boundary cases were checked directly; \(n=3\) is the ordinary triangle, not a multigraph. The standalone `verify.py` checks 266 exact signed-character evaluations and ten complete mod-two chain-rank examples. Finite checks are supplementary, not infinite proofs.
+
+## Originality — PASS, with residual risks
+
+**Exact statements compared:** Bayer–Jelić Milutinović–Vega, *Matching Complexes of Outerplanar Graphs*, Theorem 2 and Proposition 7: outerplanar matching-complex homotopy and an ordinary suspension recurrence, not a dihedral character or quotient calculation. Adamaszek, *Clique complexes and graph powers*, Example 6.3: the same nonequivariant cycle homology and recurrence, already known; these are explicitly attributed. Adamaszek–Adams–Frick–Peterson–Previte-Johnson, *Nerve complexes of circular arcs*, Section 7: **does** determine dihedral actions, but on \(\mathcal N(n,k)\), not on cycle matching complexes. Section 8 relates circular-arc nerves to cycle-power clique complexes via a nonequivariant construction, with a different number of vertices, so it does not supply the claimed natural dihedral action. In odd lengths there is a genuine abstract isomorphism from cycle independence complexes to clique complexes of a specific cycle power, but no verified equivariant identification with the Section 7 nerve representations. Exact claim, aliases, gcd and mod-twelve congruences were searched in an indexed mathematical corpus, along with published mathematical results, without finding a statement implying this claim. Search absence is not novelty proof; equivalent unindexed work and a subtler equivariant consequence of the nerve literature remain risks.
+
+## Value — PASS
+
+The full graded rational representation of a natural finite symmetry group is intrinsic geometric information absent from the published Betti-number/homotopy-type classification. A single all-length formula identifies rotation and both reflection traces and yields a sharp mod-twelve classification of rationally acyclic full dihedral quotients. The distinction between cyclic and dihedral quotients is structurally motivated; the small periods reflect the independence polynomial recurrence rather than an arbitrary parameter slice. The finding is neither a restatement of the nonequivariant recurrence nor a numerical instance calculation.
+
+## Closest literature and limitations
+
+The 2024 source is used as recent motivation, and the 2011 homotopy computation and 2014 nerve equivariance are independently and explicitly credited. The proof applies only to finite simple cycles, natural edge-label dihedral actions, rational homology characters and rational quotient homology. Neither integral quotient acyclicity nor quotient contractibility follows. The inspected published comparisons do not establish independence from all unindexed or inaccessible work.
+
+Same-model review: passed. Independent audit: not yet performed.
