@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:54:37.675168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 17cec8d3fb50bee52d506a599367dfeaad833670",
+        "artifacts/verify.py blob ef6cf72b79644200eff91d46aed5cd0a0556c32f",
+        "Bai--Jin Proposition 4.4 and Proposition A.1 independently reconstructed"
+      ],
+      "rationale": "The implication was reconstructed from the source propositions rather than accepted from the package verifier. For \\(\\gamma\\le\\alpha\\), the exact rule is threshold monotonicity. For \\(\\gamma>\\alpha\\), choosing the test-score threshold and loss value one inside the universal exclusion condition forces the source's empirical-risk statistic to be at most \\(\\alpha\\), exactly the \\(\\gamma=\\alpha\\) criterion. The same substitution applies to Proposition A.1's weighted statistic. The package's two strict finite-sample constructions also satisfy the bounded-loss constraints and make the inclusion strict on each side of \\(\\alpha\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The adjacent conformal-risk-control papers use broader or different procedures.",
+          "Those broader frameworks are not needed for coverage because the same SCoRE paper already provides the exact conditions from which the claim follows."
+        ],
+        "reasoning": "Broader literature neither rescues nor weakens the decisive same-paper implication.",
+        "searches": [
+          "arXiv:2208.02814 Conformal Risk Control",
+          "arXiv:2512.12844 Selective Conformal Risk Control",
+          "arXiv:2603.24704 Sections 4 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Bai and Jin, Conformal Selective Prediction with General Risk Control, arXiv:2603.24704, Proposition 4.4, Remark 4.5, Theorem 4.6, Section 6, Proposition A.1",
+        "Angelopoulos et al., Conformal Risk Control, arXiv:2208.02814",
+        "Xu, Guo and Wei, Selective Conformal Risk Control, arXiv:2512.12844",
+        "Resultary semantic search: finite-sample tuning optimality gamma equals alpha SCoRE MDR risk-adjusted e-values pointwise dominance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For \\(\\gamma>\\alpha\\), selection requires the first empirical-risk quantity to be at most \\(\\gamma\\) and every candidate quantity to avoid \\((\\alpha,\\gamma]\\).",
+          "At the test-score threshold and loss value one, that candidate is exactly the first empirical-risk quantity, hence it must be at most \\(\\alpha\\).",
+          "For \\(\\gamma<\\alpha\\), inclusion is already stated explicitly by Remark 4.5; the weighted proposition has the same logic."
+        ],
+        "reasoning": "The full final claim is a short corollary of printed same-paper propositions. Under the audit's implication standard, absence of the exact headline wording does not make it original.",
+        "searches": [
+          "Specialize Bai--Jin Proposition 4.4 at the admissible test-score threshold and loss value one",
+          "Specialize Bai--Jin Proposition A.1 in the same way for known covariate-shift weights",
+          "Compare the resulting criterion with the \\(\\gamma=\\alpha\\) branch"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 4.4 states the exact deployment indicator for both \\(\\gamma\\le\\alpha\\) and \\(\\gamma>\\alpha\\).",
+          "Remark 4.5 explicitly says the proposition justifies setting \\(\\gamma\\) equal to \\(\\alpha\\).",
+          "Proposition A.1 gives the weighted analogue with the same quantified exclusion structure."
+        ],
+        "reasoning": "The package's statement is an unstated but direct equivalent consequence of the printed decision characterization, not a distinct finite-sample theorem requiring a new structural lemma.",
+        "searches": [
+          "arXiv:2603.24704 full text: Proposition 4.4 and Remark 4.5",
+          "arXiv:2603.24704 full text: Proposition A.1 under covariate shift",
+          "Resultary query: finite-sample tuning optimality gamma equals alpha SCoRE MDR risk-adjusted e-values pointwise dominance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate table or database entry was needed: the primary paper itself supplies the exact symbolic characterization.",
+          "The Resultary search did not reveal an independent earlier SCOPE result that changes the coverage analysis."
+        ],
+        "reasoning": "This is not a numerical-table claim; exact database noncoverage cannot override a direct theorem implication.",
+        "searches": [
+          "Resultary semantic search for SCoRE MDR gamma-alpha pointwise dominance",
+          "Web search for Proposition 4.4 gamma alpha SCoRE finite-sample dominance"
+        ]
+      },
+      "rationale": "The final theorem is implication-covered by the defining paper. Proposition 4.4 prints the exact two regimes. For \\(\\gamma>\\alpha\\), its universal exclusion condition may be evaluated at the allowed choice consisting of the test score and loss value one; this makes the excluded candidate equal to the first displayed empirical-risk quantity, so selection forces that quantity to be at most \\(\\alpha\\). Proposition A.1 prints the same structure for known covariate-shift weights. Remark 4.5 already says Proposition 4.4 justifies choosing \\(\\gamma=\\alpha\\). The reward statement is then immediate from indicator dominance.",
+      "residual_risks": [
+        "None material to the rejection: the direct source's printed unweighted and weighted decision characterizations already imply the final pathwise inclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY_IMPLICATION_COVERING",
+          "evidence": "The printed unweighted and weighted shortcut propositions contain exactly the quantified condition whose single admissible specialization gives the claimed pathwise inclusion.",
+          "identifier_or_url": "arXiv:2603.24704",
+          "material_read": "Full preprint portions containing the MDR construction, Proposition 4.4, Remark 4.5, asymptotic optimality discussion, known-covariate-shift MDR construction, and Proposition A.1.",
+          "method": "lawful open preprint/full-text inspection",
+          "title": "Conformal Selective Prediction with General Risk Control",
+          "trigger": "Direct source defining SCoRE-MDR and its tuning parameter."
+        },
+        {
+          "assessment": "BROADER_BACKGROUND_NOT_NEEDED_FOR_COVERAGE",
+          "evidence": "It does not define the SCoRE tuning family; coverage is already decisive in the direct SCoRE source.",
+          "identifier_or_url": "arXiv:2208.02814",
+          "material_read": "Primary abstract/scope and the relationship described by the direct SCoRE source.",
+          "method": "lawful open primary record",
+          "title": "Conformal Risk Control",
+          "trigger": "Foundational broader conformal-risk-control comparison."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2603.24704, Proposition 4.4, Remark 4.5, Proposition A.1"
+      ],
+      "rationale": "The conclusion is useful as exposition, but the scientific step is only a one-substitution corollary of the source's exact computational shortcut, and the source already states that this proposition justifies \\(\\gamma=\\alpha\\). Multiplying an already-covered pointwise indicator inequality by a nonnegative reward and taking expectations adds no independent mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientifically correct but rejected because the final theorem is implication-covered and routine from the defining paper's exact decision characterization."
+  ],
+  "schema_version": 1
+}
