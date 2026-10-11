@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The proof is reconstructed from the stated stationary random expanding-circle system. The exact transfer operator is the adjoint of the forward Koopman operator, and it contracts variation on mean-zero functions with factor at most \((1-\varepsilon)/a+\varepsilon/b<1\). This ensures the bounded Poisson solution, a convergent Green--Kubo series, and a bounded reverse martingale approximation. Its stationary conditional variance is the displayed squared-norm difference, so the martingale CLT applies. Vanishing conditional variance forces a common composition identity, and comparing Fourier coefficients at frequencies divisible by the two coprime reduced slopes proves that only constants satisfy it. At the zero-noise endpoint, the resolvent is differentiable on mean-zero \(BV\); differentiating the squared-norm identity yields precisely the asserted mismatch norm. The exact finite-cosine checks reproduce the first-order coefficient and resonant examples; they are not relied upon as infinite proofs. The main risk would be an overlooked failure of the reverse-chain argument at an endpoint, which is avoided by claiming positivity only for \(0<\varepsilon<1\).
+
+## Originality — PASS, with explicit residual risk
+
+Suzuki's random beta-transformations paper (arXiv:2303.17521, sections on invariant densities and their Bernoulli dependence) supplies the natural stochastic family but not asymptotic variance. Aimino--Nicol--Vaienti's full accessible manuscript establishes the annealed CLT, a common-coboundary criterion (Proposition 3.4), and the random integer-multiplier example (Example 7.3). These are preexisting results and are explicitly credited. Neither cited result alone establishes the additional Fourier-rigidity nondegeneracy for *every* distinct pair or evaluates the one-sided variance response coefficient on all deterministic \(BV\) coboundaries. Dragičević--Hafouta (arXiv:2403.04907, Section 4) proves a general differentiability theorem for quenched variances but does not in the inspected relevant sections give this specific Bernoulli-endpoint coefficient. Mathematically related research-record searches and a scan of prior domain findings found no equivalent or dominating claim. Search incompleteness and unindexed alternative parameterizations remain priority risks.
+
+## Value — PASS
+
+Zero asymptotic variance is a real obstruction to nondegenerate limit laws, because each individual expanding integer map has nonconstant deterministic coboundaries with vanishing variance. The theorem shows that switching between *any* two distinct integer slopes destroys that obstruction for **every** nonconstant \(BV\) observable, including divisible and multiplicatively dependent slopes. The exact first-order coefficient \(\|\psi\circ T_a-\psi\circ T_b\|_2^2\) quantifies the leading statistical cost of a rare switch and distinguishes the continuously emerging variance from the already known qualitative CLT. Resonant first-harmonic examples provide natural sharp, exactly reproducible boundary cases. These are motivated infinite-family structural assertions, not finite computations or restatements of the general CLT.
+
+## Sources and limitations
+
+Primary source: Suzuki, arXiv:2303.17521 (first public version 30 March 2023, primary MSC 37E05). Closest mathematical predecessor: Aimino--Nicol--Vaienti, arXiv:1310.4359, especially Proposition 3.4, Theorem 3.5, and Example 7.3. Related sensitivity framework: Dragičević--Hafouta, arXiv:2403.04907, Section 4. The proof establishes annealed statements only and no uniform positive lower bound over a normed class of observables. The finite Fourier code supplements rather than certifies the universal theorem. No claim of exhaustive priority or external validation is made.
+
+Same-model review: passed. Independent audit: not yet performed.
