@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:47:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "G. K. Vallis, El Niño: a chaotic dynamical system?, Science 232 (1986), DOI:10.1126/science.232.4747.243; model provenance and scope compared.",
+        "A. P. Krishchenko and K. E. Starkov, Localization of Compact Invariant Sets of Nonlinear Time-Varying Systems, International Journal of Bifurcation and Chaos 18 (2008), DOI:10.1142/S021812740802121X; accessible primary material inspected for the Vallis application and the quadratic temperature localizing derivative.",
+        "V. Magron, M. Forets, D. Henrion, Semidefinite approximations of invariant measures for polynomial systems, DCDS-B 24 (2019), DOI:10.3934/dcdsb.2019165; open primary full text inspected for the standard invariant-measure generator/moment framework.",
+        "Resultary query: Vallis model invariant measure conditional expectation y given x current acceleration variance defect stationary budget; no same-object exact record returned.",
+        "Assigned RESULT.md and exact sparse-polynomial verifier at source tree 521636b0d537d31371b825965a6ba94aff327c99."
+      ],
+      "rationale": "For arbitrary continuous \\(\\phi(x)\\), stationarity of an antiderivative gives \\(\\mathbb E[\\phi(x)(By-C(x+p))]=0\\), hence the conditional regression. The residual equals \\(\\dot x/B\\), so conditional orthogonality gives the variance identity exactly. If its square vanishes, invariant-support completeness makes \\(x\\), then \\(y\\), then \\(z\\) constant, including the bounded-complete special case \\(x=0\\). The temperature-circle identity follows from \\(L((y^2+z^2)/2)=-y^2+z-z^2\\), and stationarity of \\((x+p)^2/2\\) removes the cross term in the final budget. The exact verifier checks all algebraic identities.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generator identity applies to arbitrary flows, not just Vallis.",
+          "The 2008 Vallis calculation already supplies the quadratic temperature defect whose stationary integral is the packaged circle."
+        ],
+        "reasoning": "The combination of a general theorem and the same-object prior quadratic identity dominates the claimed statistical decomposition.",
+        "searches": [
+          "General invariant-measure generator identity",
+          "Magron–Forets–Henrion 2019 invariant-measure moment framework",
+          "Krishchenko–Starkov 2008 Vallis localization"
+        ]
+      },
+      "checked_sources": [
+        "G. K. Vallis, El Niño: a chaotic dynamical system?, Science 232 (1986), DOI:10.1126/science.232.4747.243; model provenance and scope compared.",
+        "A. P. Krishchenko and K. E. Starkov, Localization of Compact Invariant Sets of Nonlinear Time-Varying Systems, International Journal of Bifurcation and Chaos 18 (2008), DOI:10.1142/S021812740802121X; accessible primary material inspected for the Vallis application and the quadratic temperature localizing derivative.",
+        "V. Magron, M. Forets, D. Henrion, Semidefinite approximations of invariant measures for polynomial systems, DCDS-B 24 (2019), DOI:10.3934/dcdsb.2019165; open primary full text inspected for the standard invariant-measure generator/moment framework.",
+        "Resultary query: Vallis model invariant measure conditional expectation y given x current acceleration variance defect stationary budget; no same-object exact record returned.",
+        "Assigned RESULT.md and exact sparse-polynomial verifier at source tree 521636b0d537d31371b825965a6ba94aff327c99."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking \\(f=H(x)\\) yields \\(\\mathbb E[y\\mid x]=(C/B)(x+p)\\) in one line.",
+          "Since \\(y-(C/B)(x+p)=\\dot x/B\\), conditional orthogonality yields the exact variance defect mechanically.",
+          "Replacing \\(\\mathbb E[y^2]\\) in the already-known temperature-circle balance gives the three-term budget."
+        ],
+        "reasoning": "No new nonstandard lemma is required for the principal formulas; the remaining equality classification is routine invariant-support algebra.",
+        "searches": [
+          "General invariant-measure identity \\(\\int Lf\\,d\\mu=0\\)",
+          "Krishchenko–Starkov Vallis quadratic temperature derivative"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General stationarity says \\(\\int L H(x)\\,d\\mu=0\\) for every admissible one-variable test.",
+          "This is exactly the conditional-zero-drift statement \\(\\mathbb E[\\dot x\\mid x]=0\\).",
+          "The package's regression and acceleration defect are equivalent regression/Pythagorean reformulations of that generic identity."
+        ],
+        "reasoning": "Conditional regression, orthogonal residual variance and current-acceleration budget were checked as equivalent formulations; they add no new Vallis-specific structural premise beyond the coordinate drift and the prior quadratic balance.",
+        "searches": [
+          "Resultary query: Vallis model invariant measure conditional expectation y given x current acceleration variance defect stationary budget",
+          "Magron–Forets–Henrion invariant-measure generator framework",
+          "Krishchenko–Starkov Vallis localization calculation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-wording Resultary record was returned."
+        ],
+        "reasoning": "This non-detection is not novelty evidence because theorem-level implication is already decisive.",
+        "searches": [
+          "Resultary exact Vallis stationary-current search"
+        ]
+      },
+      "rationale": "The package is mathematically consistent, but its purported new content is mechanically implied by standard stationary-generator calculus plus a quadratic Vallis identity already present in the localization literature. For any invariant measure, testing an antiderivative of a function of \\(x\\) gives \\(\\mathbb E[\\dot x\\mid x]=0\\), hence the displayed linear regression immediately. Because \\(\\dot x/B\\) is exactly the residual, the variance identity is just conditional-expectation orthogonality/law of total variance. The three-term budget is then a substitution into the previously known temperature-circle balance. The equality case is a short invariant-support check. Under the audit's implication standard, absence of identical wording in the database does not make this original.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES THE QUADRATIC TEMPERATURE DEFECT USED BY THE PACKAGE",
+          "evidence": "The localizing derivative translates to \\(L(y^2+z^2)=-2(y^2+z^2-z)\\), whose stationary integral is the package's circle identity.",
+          "identifier_or_url": "DOI:10.1142/S021812740802121X",
+          "material_read": "Accessible primary article/preview material covering the Vallis application and localizing-function calculation cited by the package.",
+          "method": "Primary source implication comparison.",
+          "title": "Localization of Compact Invariant Sets of Nonlinear Time-Varying Systems",
+          "trigger": "Strongest same-object implication source for the quadratic temperature identity."
+        },
+        {
+          "assessment": "GENERAL THEOREM-LEVEL COVERAGE OF THE TEST-FUNCTION STEP",
+          "evidence": "The invariant-measure formulation enforces vanishing generator averages, the only measure-theoretic premise needed for the packaged conditional regression.",
+          "identifier_or_url": "DOI:10.3934/dcdsb.2019165",
+          "material_read": "Open primary full text describing invariant measures through generator moment constraints.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Semidefinite approximations of invariant measures for polynomial systems",
+          "trigger": "Broad invariant-measure source for the generator/moment principle."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "G. K. Vallis, El Niño: a chaotic dynamical system?, Science 232 (1986), DOI:10.1126/science.232.4747.243; model provenance and scope compared.",
+        "A. P. Krishchenko and K. E. Starkov, Localization of Compact Invariant Sets of Nonlinear Time-Varying Systems, International Journal of Bifurcation and Chaos 18 (2008), DOI:10.1142/S021812740802121X; accessible primary material inspected for the Vallis application and the quadratic temperature localizing derivative.",
+        "V. Magron, M. Forets, D. Henrion, Semidefinite approximations of invariant measures for polynomial systems, DCDS-B 24 (2019), DOI:10.3934/dcdsb.2019165; open primary full text inspected for the standard invariant-measure generator/moment framework.",
+        "Resultary query: Vallis model invariant measure conditional expectation y given x current acceleration variance defect stationary budget; no same-object exact record returned.",
+        "Assigned RESULT.md and exact sparse-polynomial verifier at source tree 521636b0d537d31371b825965a6ba94aff327c99."
+      ],
+      "rationale": "The physical interpretation is clear, but the main formulas are a direct one-coordinate specialization of the standard stationary-generator identity, an elementary conditional-variance decomposition, and substitution into a quadratic balance already available in the Vallis localization literature. Under the common value bar this is routine repackaging rather than an independently motivated new structural theorem.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For compactly supported invariant probabilities of the autonomous Vallis model, the current variable has the stated exact linear conditional regression on \\(x\\), the residual variance equals the normalized current-acceleration energy, equality occurs only on equilibria, and combining this with the temperature-circle balance gives the stated three-term stationary budget.",
+  "limitations": [
+    "The mathematics is correct; rejection is for direct theorem-level implication and routine-corollary value, not for lack of access.",
+    "The temperature-circle identity is explicitly treated as prior art."
+  ],
+  "schema_version": 1
+}
