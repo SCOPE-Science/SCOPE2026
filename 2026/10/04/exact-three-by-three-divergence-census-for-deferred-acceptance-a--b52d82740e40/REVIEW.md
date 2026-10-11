@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The final claim is finite and exhaustive. The complete \(3\times3\) domain has \((3!)^6=46{,}656\) profiles, all of which are generated. Two separately coded DA implementations agree profile by profile, and two separately coded TTC implementations agree profile by profile. DA Pareto efficiency is not inferred from TTC; it is checked against all six perfect matchings independently. The symmetry counts are obtained by canonical orbit reduction and independently reconstructed by Burnside's lemma. The actual embedded verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the proof of the numerical census is computational rather than a closed symbolic count. Multiple exact cross-checks reduce ordinary implementation risk, but independent external validation has not been performed.
+PASS
 
-## Originality
-**PASS.** Abdulkadiroğlu--Sönmez provide the mechanisms, the efficiency/stability tradeoff, and a three-student Pareto-improvement example. Kesten proves broader priority-structure comparison results and explicitly gives the qualitative possibility that an inefficient DA outcome is not Pareto-dominated by TTC. Those results do not state the exact first-size incidence \(4{,}320/46{,}656\), the \(1{,}080\) TTC-dominance count, the exact \(216\)-profile inefficient-but-incomparable stratum, or the \(120\)-class quotient. Searches by aliases, exact counts, reduced probabilities, and the Example-4 implication found no equivalent statement.
+Fresh exhaustive code independently enumerates all 46,656 profiles, implements student-proposing DA and school-choice TTC from their definitions, and separately tests DA Pareto efficiency against all six perfect matchings. It reproduces 42,336 equal, 1,080 TTC-dominant, 3,240 incomparable and zero DA-dominant profiles, together with the 1,296 inefficient DA count and 216 inefficient-but-incomparable profiles. An independent canonical action of all 36 role-preserving relabelings yields exactly 120 divergent orbits, each of size 36, refined as 30 TTC-dominant/inefficient, 84 efficient-incomparable and 6 inefficient-incomparable.
 
-Risk: failed search is not proof of novelty. An unindexed thesis, course note, software table, or supplementary computation may contain the same finite census.
+## originality
 
-## Value
-**PASS.** The two mechanisms are canonical competing school-choice rules, and the cited literature frames their stability-versus-efficiency tradeoff as a central design question. Three-by-three is the first nontrivial size because the mechanisms coincide at every smaller strict unit-capacity profile. Exact frequencies distinguish three materially different outcomes—agreement, TTC Pareto improvement, and incomparability—and quantify the specific literature-known phenomenon in which TTC fails to repair an inefficient DA outcome. The quotient removes arbitrary labels and shows that the exceptional stratum consists of six intrinsic types.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The mechanism-design literature already proves that DA can be inefficient, TTC is Pareto efficient, and the two mechanisms need not be Pareto comparable even when DA is inefficient. Those qualitative facts are treated as prior. The audited contribution is the complete first-divergence finite census and role-preserving symmetry quotient. No inspected primary source or Resultary finding gives the counts 42,336/1,080/3,240, the 216-profile exceptional stratum, or the 120-class quotient.
+
+## value
+
+PASS
+
+The 3x3 market is the first size at which these two canonical school-choice mechanisms diverge. A complete labeled and symmetry-reduced census quantifies exactly how the known qualitative efficiency/non-dominance phenomena first arise, making it a natural finite boundary benchmark rather than an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

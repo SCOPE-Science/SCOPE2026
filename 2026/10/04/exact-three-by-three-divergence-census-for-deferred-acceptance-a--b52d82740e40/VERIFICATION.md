@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_ttc_da3_census.py` is a standard-library-only exact replay.
 
-It enumerates every strict preference-priority profile for market sizes \(n=1,2,3\). At \(n=3\), it checks all \(46{,}656\) labeled profiles.
+# Independent mathematical audit
 
-For each profile it computes DA twice, once with a free-student stack and once by simultaneous proposal rounds. It computes TTC twice, once by detecting all cycles in each round and once by repeatedly tracing and executing a single cycle in the residual problem. The paired implementations must agree profile by profile.
+## correctness
 
-The replay verifies the exact partition
-\[
-42{,}336\text{ equal},\quad 1{,}080\text{ TTC-dominance},\quad 3{,}240\text{ incomparable},\quad 0\text{ DA-dominance}.
-\]
-It independently tests DA Pareto efficiency against all six perfect matchings and verifies exactly \(1{,}296\) inefficient DA profiles, of which \(216\) are TTC-incomparable.
+PASS
 
-For every divergent profile, all \(36\) independent relabelings of students and schools are generated. Canonicalization gives \(120\) classes with refinement \(30+84+6\), every class of orbit size \(36\). A separate Burnside fixed-point sum reproduces the same class counts.
+Fresh exhaustive code independently enumerates all 46,656 profiles, implements student-proposing DA and school-choice TTC from their definitions, and separately tests DA Pareto efficiency against all six perfect matchings. It reproduces 42,336 equal, 1,080 TTC-dominant, 3,240 incomparable and zero DA-dominant profiles, together with the 1,296 inefficient DA count and 216 inefficient-but-incomparable profiles. An independent canonical action of all 36 role-preserving relabelings yields exactly 120 divergent orbits, each of size 36, refined as 30 TTC-dominant/inefficient, 84 efficient-incomparable and 6 inefficient-incomparable.
 
-The replay also reconstructs the three-student, three-school Abdulkadiroğlu--Sönmez example, obtaining the diagonal DA matching and the TTC matching that swaps the first two assignments and Pareto-improves DA.
+## originality
 
-Run:
+PASS
 
-`python3 verify_ttc_da3_census.py`
+The mechanism-design literature already proves that DA can be inefficient, TTC is Pareto efficient, and the two mechanisms need not be Pareto comparable even when DA is inefficient. Those qualitative facts are treated as prior. The audited contribution is the complete first-divergence finite census and role-preserving symmetry quotient. No inspected primary source or Resultary finding gives the counts 42,336/1,080/3,240, the 216-profile exceptional stratum, or the 120-class quotient.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The computation proves only the finite claims stated here; it does not extrapolate the frequencies to larger markets.
+The 3x3 market is the first size at which these two canonical school-choice mechanisms diverge. A complete labeled and symmetry-reduced census quantifies exactly how the known qualitative efficiency/non-dominance phenomena first arise, making it a natural finite boundary benchmark rather than an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
