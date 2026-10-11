@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T08:59:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 5dfb894e47fe0172c2ea756c5a2c08175f94ff65",
+        "verify.py blob d33d2c1a8089c43a27701fc340a5d0f39c749b9b",
+        "fresh normalized recurrence reconstruction"
+      ],
+      "rationale": "With y_t=v_t/G² and s=1-beta2, the recurrence is y_t=y_{t-1}-s sign(y_{t-1}-1). Starting from zero, it advances by exactly s until it either lands on one or first overshoots. Integer reciprocal 1/s gives exact hitting and then sign zero freezes the state. Otherwise the first overshoot is exactly one step above the last subunit lattice point, and the next step returns to that point, forcing a two-cycle. The first moment and Adam comparison are elementary closed recurrences. The exact verifier checks locking cases, nonlocking cycles, cycle width and the reported parameter grid.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining work motivates Yogi's additive sign-controlled second moment and contrasts it with Adam's multiplicative relaxation.",
+          "General stochastic convergence results do not imply this exact deterministic constant-forcing orbit."
+        ],
+        "reasoning": "The broad optimizer theory does not determine the arithmetic hitting-versus-cycle dichotomy.",
+        "searches": [
+          "Zaheer et al., Adaptive Methods for Nonconvex Optimization, NeurIPS 2018",
+          "Adam comparison under constant forcing"
+        ]
+      },
+      "checked_sources": [
+        "Zaheer et al., NeurIPS 2018",
+        "Resultary Yogi locking search",
+        "RESULT.md blob 5dfb894e47fe0172c2ea756c5a2c08175f94ff65",
+        "verify.py blob d33d2c1a8089c43a27701fc340a5d0f39c749b9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sign recurrence alone does not state the orbit classification; solving it reveals exact finite hitting only on a discrete arithmetic parameter set.",
+          "Adam's linear recurrence converges geometrically for every beta2 and therefore does not imply Yogi's behavior."
+        ],
+        "reasoning": "The final claim is a new exact response law for the displayed source recurrence, subject to the noted source-reread risk.",
+        "searches": [
+          "source-form Yogi scalar recurrence in the assigned package",
+          "current literature search on Yogi additive second-moment dynamics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After division by the constant squared gradient, Yogi becomes a deterministic walk that moves by the fixed step 1-beta2 toward one.",
+          "Exact locking is equivalent to the reciprocal step being an integer; otherwise the state alternates forever between the adjacent lattice points bracketing one."
+        ],
+        "reasoning": "Equivalent finite-hitting, divisibility and period-two formulations were searched; no distinct published theorem was located.",
+        "searches": [
+          "Resultary query: Yogi constant gradient second moment two-cycle exact locking beta2",
+          "web query: Adaptive Methods for Nonconvex Optimization Yogi Algorithm 2 sign second moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact published record of the locking set or cycle width was located."
+        ],
+        "reasoning": "The practical beta grid is supporting context, not a novelty proof.",
+        "searches": [
+          "Resultary Yogi constant-gradient semantic search",
+          "targeted search for beta2 values 0.9, 0.99, 0.999 with locking/cycle language"
+        ]
+      },
+      "rationale": "The defining Yogi recurrence is an additive fixed-magnitude sign update, and the submitted constant-gradient classification follows by solving that scalar lattice dynamics exactly. Targeted literature and Resultary searches did not surface a prior finite-lock-versus-two-cycle theorem. The source itself was not materially reread in complete primary full text during this run, so an implementation-note or source-version overlap remains a residual originality risk.",
+      "residual_risks": [
+        "An equivalent short calculation may exist in unindexed optimizer notes or implementation documentation.",
+        "Different implementations may initialize the preconditioner differently or add debiasing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_SOURCE_FULL_REREAD_LIMITED",
+          "evidence": "The audited recurrence is the source-form additive sign update; no search result exposed an equivalent constant-gradient arithmetic classification.",
+          "identifier_or_url": "NeurIPS 2018, Zaheer–Reddi–Sachan–Kale–Kumar",
+          "material_read": "Current bibliographic/search-level source information was checked; the complete primary full text was not materially reread during this run.",
+          "method": "Access/time-limited source check, with the exact recurrence independently audited from the frozen package.",
+          "title": "Adaptive Methods for Nonconvex Optimization",
+          "trigger": "Defining source for Yogi."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zaheer et al., NeurIPS 2018",
+        "Resultary Yogi locking search",
+        "RESULT.md blob 5dfb894e47fe0172c2ea756c5a2c08175f94ff65",
+        "verify.py blob d33d2c1a8089c43a27701fc340a5d0f39c749b9b"
+      ],
+      "rationale": "Yogi's defining design choice is an additive sign-controlled second moment. The theorem exposes a qualitative arithmetic consequence of exactly that mechanism—finite lock versus permanent oscillation—and quantifies the oscillation, making it a useful diagnostic rather than a routine one-step calculation.",
+      "residual_risks": [
+        "An equivalent short calculation may exist in unindexed optimizer notes or implementation documentation.",
+        "Different implementations may initialize the preconditioner differently or add debiasing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zaheer et al., NeurIPS 2018",
+    "Resultary Yogi locking search",
+    "RESULT.md blob 5dfb894e47fe0172c2ea756c5a2c08175f94ff65",
+    "verify.py blob d33d2c1a8089c43a27701fc340a5d0f39c749b9b"
+  ],
+  "disposition": "passed",
+  "final_claim": "For source-form Yogi with zero initial second moment and a constant nonzero gradient, the normalized second moment either reaches the target exactly and locks when 1/(1-beta2) is an integer, or enters a permanent two-cycle whose exact width is (1-beta2) times the squared gradient. The commonly reported beta2 values 0.9, 0.99 and 0.999 lie on the locking set.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent short calculation may exist in unindexed optimizer notes or implementation documentation.",
+    "Different implementations may initialize the preconditioner differently or add debiasing.",
+    "This is a constant-input response theorem, not a global optimization or parameter-space cycle theorem."
+  ]
+}

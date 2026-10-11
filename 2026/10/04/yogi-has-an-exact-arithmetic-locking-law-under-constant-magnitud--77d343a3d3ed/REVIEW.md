@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The normalized Yogi second moment is a deterministic fixed-step walk toward the target \(1\). Exact divisibility gives finite hitting and locking; nondivisibility gives immediate alternation between adjacent lattice points. The cycle width, first-moment limit, update-magnitude cycle, and Adam comparison all follow from exact scalar recurrences.
+PASS
 
-Risk: implementations with different initialization or debiasing conventions have different transients.
+With y_t=v_t/G² and s=1-beta2, the recurrence is y_t=y_{t-1}-s sign(y_{t-1}-1). Starting from zero, it advances by exactly s until it either lands on one or first overshoots. Integer reciprocal 1/s gives exact hitting and then sign zero freezes the state. Otherwise the first overshoot is exactly one step above the last subunit lattice point, and the next step returns to that point, forcing a two-cycle. The first moment and Adam comparison are elementary closed recurrences. The exact verifier checks locking cases, nonlocking cycles, cycle width and the reported parameter grid.
 
-## Originality
+## originality
 
-PASS. The defining Yogi paper provides the sign-controlled additive recurrence and qualitative effective-learning-rate motivation, but the inspected full text does not state the arithmetic finite-lock versus period-two classification. Focused published-record and web searches found no implication-equivalent result.
+PASS
 
-Residual risk: the recurrence is simple enough that an equivalent calculation may exist in unindexed notes.
+The defining Yogi recurrence is an additive fixed-magnitude sign update, and the submitted constant-gradient classification follows by solving that scalar lattice dynamics exactly. Targeted literature and Resultary searches did not surface a prior finite-lock-versus-two-cycle theorem. The source itself was not materially reread in complete primary full text during this run, so an implementation-note or source-version overlap remains a residual originality risk.
 
-## Value
+## value
 
-PASS. The finding concerns Yogi's defining mechanism rather than an arbitrary parameter slice. It shows that constant forcing does not generically produce a convergent second moment: exact convergence occurs only on an arithmetic locking set, while all other beta-two values produce a persistent two-cycle of exactly known width. The paper's reported beta-two grid lies precisely on the locking set.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Yogi's defining design choice is an additive sign-controlled second moment. The theorem exposes a qualitative arithmetic consequence of exactly that mechanism—finite lock versus permanent oscillation—and quantifies the oscillation, making it a useful diagnostic rather than a routine one-step calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
