@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:07:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 42fea67d129b2bcaaff3e0c20a0b2768ef7d404c",
+        "assigned verify.py blob 7b289c60b5cfcfb66cd0ac787a6c2061a20cb7da",
+        "Hundsdorfer-Ruuth-Spiteri CWI Report MAS-R0210 / DOI 10.1137/S0036142902406326"
+      ],
+      "rationale": "The recurrence has characteristic polynomial \\((3+2r)\\xi^2-4\\xi+1\\). For \\(r>1/2\\) its roots are \\(\\rho e^{\\pm i\\theta}\\) with \\(\\rho=(3+2r)^{-1/2}\\) and \\(\\cos\\theta=2/\\sqrt{3+2r}\\). Matching the backward-Euler starter gives \\(z_n=\\rho^n[\\cos(n\\theta)+\\beta\\sin(n\\theta)]\\), \\(\\beta=((1+r)\\sqrt{2r-1})^{-1}\\), hence a phase \\(\\cos(n\\theta-\\phi)\\). Because \\(0<\\theta<\\pi/2\\), the first strictly negative term is exactly the first integer with \\(n\\theta>\\pi/2+\\phi\\), including the zero-at-equality boundary. The repeated-root formula at \\(r=1/2\\) is positive. Expanding \\(\\theta\\) and \\(\\phi\\) at \\(r=1/2+\\varepsilon\\) yields the stated \\(\\pi\\sqrt2\\) delay constant. Fresh exact-rational replay reproduced first-negative indices 42, 12, 5 and 3 at \\(r=0.51,0.6,1,2\\).",
+      "residual_risks": [
+        "The formula is specific to constant-step BDF2 with a backward-Euler starter on scalar linear decay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader theory gives sharp step-size conditions for monotonicity and suitable starts.",
+          "Those threshold results do not supply the integer-valued phase hitting time or its near-threshold asymptotics."
+        ],
+        "reasoning": "The new statement quantifies behavior strictly beyond the prior monotonicity boundary.",
+        "searches": [
+          "Hundsdorfer-Ruuth-Spiteri 2002 full CWI report",
+          "Hundsdorfer-Ruuth 2006 monotonicity/boundedness literature"
+        ]
+      },
+      "checked_sources": [
+        "CWI Report MAS-R0210",
+        "DOI 10.1137/S0036142902406326",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the threshold says only that some positivity failure can occur beyond one half; it does not determine when the first negative term occurs for each r.",
+          "The phase representation and asymptotic expansion are additional calculations not implied by the threshold coefficient."
+        ],
+        "reasoning": "The exact hitting-time law is not a corollary of the prior threshold statement alone.",
+        "searches": [
+          "known positivity threshold \\(r\\le1/2\\) versus supercritical phase formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's BDF2 positivity plots and discussion identify the one-half transition with backward-Euler starting.",
+          "The audited theorem instead solves the supercritical recurrence phase exactly and locates the first sign change."
+        ],
+        "reasoning": "Sign-loss, oscillation, monotonicity and complex-root formulations were compared.",
+        "searches": [
+          "Resultary: BDF2 backward Euler starter first negative index positivity sign oscillation exact delay law",
+          "web: Hundsdorfer Ruuth Spiteri monotonicity BDF2 coefficient one half backward Euler start"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-result published finding was returned among the leading BDF2/positivity hits."
+        ],
+        "reasoning": "Search absence is supporting only; direct primary comparison supplies the substantive noncoverage evidence.",
+        "searches": [
+          "Resultary current corpus search for exact BDF2 first-negative index and near-threshold delay"
+        ]
+      },
+      "rationale": "The closest primary source establishes positivity/monotonicity threshold behavior for implicit two-step methods with starting procedures and its numerical section explicitly treats BDF2 with a backward-Euler start and the change at the one-half parameter. It does not state the exact first-negative index above the threshold or the square-root divergence of that index. Current Resultary searches under BDF2 positivity, sign loss, oscillation and backward-Euler starter terminology found no equivalent phase law. The known threshold alone does not determine the delayed failure index.",
+      "residual_risks": [
+        "An older specialist note on root geometry could contain the same phase-hitting formula under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THRESHOLD_AND_STARTER_PRIOR_NOT_PHASE_LAW",
+          "evidence": "The report explicitly plots BDF2 started by backward Euler and discusses the behavior change at one half, but does not state the assigned first-negative-index formula.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/4231",
+          "material_read": "complete primary report context with visual inspection of the numerical BDF2/backward-Euler-start section and its one-half transition",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Monotonicity-Preserving Linear Multistep Methods",
+          "trigger": "primary source for BDF2 monotonicity with starting procedures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hundsdorfer-Ruuth-Spiteri 2002/2003",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The first wrong-signed iterate is a natural diagnostic immediately beyond a sharp positivity boundary. Its exact phase formula and critical \\(1/\\sqrt{r-1/2}\\) delay explain why a slightly supercritical step can appear positive for a long transient. This is a motivated boundary refinement rather than an arbitrary recurrence exercise.",
+      "residual_risks": [
+        "The result is scalar and starter-specific."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The formula is specific to constant-step BDF2 with a backward-Euler starter on scalar linear decay.",
+    "An older specialist note on root geometry could contain the same phase-hitting formula under different terminology.",
+    "The result is scalar and starter-specific."
+  ]
+}
