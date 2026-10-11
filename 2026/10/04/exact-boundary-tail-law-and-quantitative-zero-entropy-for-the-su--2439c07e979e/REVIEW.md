@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The factorization \(F=H_n\circ F_n\), exact derivative \(H_n'(0)=\prod_{j>n}\lambda_j\), inner-product computation, mismatch estimate, Fano bound, and entropy normalization were reconstructed from the definitions and checked with all quantifiers and boundary cases stated. No finite experiment is used as evidence for an infinite claim.
+## correctness
 
-## Originality
-PASS for the quantitative claim. The motivating paper asks whether its zero-topological-entropy Blaschke sequence has zero metric entropy. A broader 2026 precompactness theorem already covers the bare qualitative implication once pullback-partition precompactness is known, so qualitative zero alone is not claimed as new. Direct inspection and targeted searches did not find the exact boundary identity or the resulting explicit tail-product finite-horizon estimate.
+PASS
 
-## Value
-PASS. The result answers the motivating entropy question while identifying the natural tail product as a quantitative convergence scale. The exact norm law converts summability of the dynamical perturbations into a concrete information-loss estimate, which is reusable for stronger tail assumptions and avoids an unsupported universal rate.
+For each fixed \(n\), surjectivity of the finite Blaschke product makes the locally uniform tail factor \(H_n\) in \(F=H_n\circ F_n\) unique. Its derivative is the future product \(L_n\). Since every centered inner function preserves normalized circle measure, the boundary inner product is exactly \(L_n\), and unit \(L^2\) norms give \(\|F-F_n\|_2^2=2(1-L_n)\). The entropy estimate was rederived by splitting an arc-label mismatch into a boundary-neighborhood event and a chord-distance event, applying Markov to the exact norm identity, optimizing the boundary radius, and then using Fano plus the chain rule. Cesaro convergence yields zero entropy for equal arcs; regular approximation and conditional entropy extend this to arbitrary finite measurable partitions.
 
-## Closest literature and limitations
-The closest sources are Evdoridou--Fagella--Rippon--Stallard on the specific example, Ferreira on forward limits of inner functions, Li--Yu--Zhong on general partition precompactness and zero maximal pattern entropy, and Kawan on non-autonomous metric entropy. A residual originality risk remains that the exact Hardy-space inner-product identity may occur as folklore, although its tail-product entropy application was not located. The quantitative estimate is not asserted optimal and is explicit only for equal-arc partitions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The focal 2026 primary paper proves zero topological entropy for this exact summable centered Blaschke sequence and explicitly asks whether its metric entropy is zero. Ferreira supplies the forward-limit structure but not the exact boundary \(L^2\) tail identity or entropy bound. General partition-precompactness/entropy theory is broader in abstraction but does not state the tail-product finite-horizon estimate for this non-autonomous sequence. The exact identity and quantitative estimate therefore survive the prior-implication check.
+
+## value
+
+PASS
+
+The focal paper explicitly asks whether this zero-topological-entropy example also has zero metric entropy. The audited result answers that concrete question and, more importantly for value under possible qualitative prior routes, gives an exact boundary distance and a quantitative finite-horizon entropy control in terms of the future-product tail. This is a motivated structural refinement with direct reuse for rate questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

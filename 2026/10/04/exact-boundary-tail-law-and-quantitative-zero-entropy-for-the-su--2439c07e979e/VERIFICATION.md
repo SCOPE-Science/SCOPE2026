@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked directly from the analytic definitions. For each fixed \(n\), the finite Blaschke product \(F_n\) is onto the unit disc, so a local-uniform tail factor in \(F=H_n\circ F_n\) is unique. Its derivative is the convergent future product \(L_n=\prod_{j>n}\lambda_j\), and centred inner measure preservation gives the exact boundary inner product \(\langle F,F_n\rangle=L_n\). Expanding the squared norm proves the stated identity.
+# Independent mathematical audit
 
-For an equal \(q\)-arc partition, the mismatch event was decomposed into a boundary-neighborhood event and a large chord-distance event. The former has normalized measure \(q\rho/\pi\); the latter is controlled by the exact boundary norm. Optimizing at \(\rho=\pi(d_n/q)^{1/3}\) when admissible gives the coefficient \(3/2\) and exponent \(d_n^{1/3}\). The Fano expression is increasing only up to \(1-1/q\), so the stated \(\Psi_q\) deliberately uses a constant \(\log q\) continuation beyond that point rather than assuming global monotonicity.
+## correctness
 
-The source paper uses unnormalized arc length in its displayed finite-partition entropy, which multiplies normalized Shannon entropy by \(2\pi\); this accounts for the prefactor in the quantitative bound. The extension from arc partitions to arbitrary finite measurable partitions uses regular approximation together with conditional entropy and the fact that every \(F_n\) preserves normalized Lebesgue measure.
+PASS
 
-No numerical experiment, finite enumeration, or external certificate is used. The proof does not establish an optimal entropy-decay exponent, a universal decay rate, or a statement beyond the summable degree-two Blaschke family described in the assumptions.
+For each fixed \(n\), surjectivity of the finite Blaschke product makes the locally uniform tail factor \(H_n\) in \(F=H_n\circ F_n\) unique. Its derivative is the future product \(L_n\). Since every centered inner function preserves normalized circle measure, the boundary inner product is exactly \(L_n\), and unit \(L^2\) norms give \(\|F-F_n\|_2^2=2(1-L_n)\). The entropy estimate was rederived by splitting an arc-label mismatch into a boundary-neighborhood event and a chord-distance event, applying Markov to the exact norm identity, optimizing the boundary radius, and then using Fano plus the chain rule. Cesaro convergence yields zero entropy for equal arcs; regular approximation and conditional entropy extend this to arbitrary finite measurable partitions.
+
+## originality
+
+PASS
+
+The focal 2026 primary paper proves zero topological entropy for this exact summable centered Blaschke sequence and explicitly asks whether its metric entropy is zero. Ferreira supplies the forward-limit structure but not the exact boundary \(L^2\) tail identity or entropy bound. General partition-precompactness/entropy theory is broader in abstraction but does not state the tail-product finite-horizon estimate for this non-autonomous sequence. The exact identity and quantitative estimate therefore survive the prior-implication check.
+
+## value
+
+PASS
+
+The focal paper explicitly asks whether this zero-topological-entropy example also has zero metric entropy. The audited result answers that concrete question and, more importantly for value under possible qualitative prior routes, gives an exact boundary distance and a quantitative finite-horizon entropy control in terms of the future-product tail. This is a motivated structural refinement with direct reuse for rate questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
