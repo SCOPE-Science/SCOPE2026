@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:01:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Because a finite local nonfield has zero-divisor ideal \\(\\mathfrak m\\), the classical total-graph structure theorem gives, after deleting zero, \\(K_{s-1}\\dot\\cup(q-1)K_s\\) if \\(2\\in\\mathfrak m\\), and \\(K_{s-1}\\dot\\cup((q-1)/2)K_{s,s}\\) otherwise. Zero forcing is additive over components, with \\(Z(K_t)=t-1\\) for \\(t\\ge2\\), \\(Z(K_{s,s})=2s-2\\), and \\(Z(K_1)=1\\). Rank-one clique blocks and rank-two complete-bipartite blocks give a pattern matrix of rank \\(q\\) for \\(s\\ge3\\); the boundary \\(s=2\\) has \\(q=2\\) and graph \\(K_1\\dot\\cup K_2\\), of real minimum rank one. Thus \\(M\\le Z\\) closes the lower bound. Minimum sets omit exactly one allowed vertex per residue component, giving \\((s-1)s^{q-1}\\). Fresh direct residue-graph enumeration reproduced \\((Z,\\#\\min)=(2,2),(5,12),(5,18)\\) for \\(\\mathbb Z_4,\\mathbb Z_8,\\mathbb Z_9\\).",
+      "risk": "The theorem depends essentially on locality, since for nonlocal finite rings the zero divisors need not form an ideal.",
+      "sources": [
+        "Anderson--Badawi, DOI:10.1016/j.jalgebra.2008.06.028",
+        "Anderson--Badawi, DOI:10.1142/S0219498812500740",
+        "Mishra--Patra, DOI:10.37418/amsj.9.11.48",
+        "AIM Minimum Rank Work Group, DOI:10.1016/j.laa.2007.10.009",
+        "frozen RESULT.md and verify.py",
+        "fresh direct enumeration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2008 theorem gives the disjoint \\(K_s\\)/\\(K_{s,s}\\) structure for the regular part when the zero divisors form an ideal.",
+          "The 2012 paper defines and studies exactly \\(T_0(\\Gamma(R))\\) but its announced results are connectivity, diameter, girth, and path structure.",
+          "Mishra--Patra compute zero forcing in a related nil-ideal graph over \\(\\mathbb Z_n\\), with the zero vertex present."
+        ],
+        "reasoning": "These sources supply structural ingredients and nearby special cases, but none states the deleted-zero all-local forcing/minimum-rank theorem.",
+        "searches": [
+          "Anderson--Badawi 2008 full primary PDF, Theorem 2.2",
+          "Anderson--Badawi 2012 primary abstract and paper metadata",
+          "Mishra--Patra 2020 full primary PDF"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.jalgebra.2008.06.028",
+        "DOI:10.1142/S0219498812500740",
+        "DOI:10.37418/amsj.9.11.48",
+        "DOI:10.1016/j.laa.2007.10.009",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The component theorem makes the forcing calculation accessible, but it does not itself state zero forcing, rank witnesses, or the deletion boundary.",
+          "Mishra--Patra's graph uses the nil ideal and includes zero, so its parameter does not imply the claimed count for arbitrary finite local rings.",
+          "The minimum-rank equality requires constructing componentwise low-rank matrices and matching the forcing upper bound."
+        ],
+        "reasoning": "The final claim is a natural but nontrivial strengthening of the known component decomposition rather than a quoted prior theorem.",
+        "searches": [
+          "Anderson--Badawi Theorem 2.2",
+          "Mishra--Patra Theorem 5.1 and setup",
+          "AIM inequality \\(M\\le Z\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record; nearby records concern other ring graphs or domination.",
+          "Mishra--Patra use a nil-ideal total graph on all of \\(\\mathbb Z_n\\), not \\(T_0(\\Gamma(R))\\) for arbitrary local rings.",
+          "No source found states the transversal count together with real minimum rank."
+        ],
+        "reasoning": "Deleted-zero total graph, residue-coset component, zero-forcing, zero-forcing-graph, and inverse-eigenvalue formulations were compared.",
+        "searches": [
+          "Resultary: local total graph zero divisors zero forcing minimum rank",
+          "Web: zero forcing total graph commutative local ring without zero",
+          "Web: total graph deleted zero minimum rank residue cosets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table or formula matching the full theorem was located."
+        ],
+        "reasoning": "The comparison distinguishes the ring-specific deleted-zero boundary from superficially similar full-total-graph formulas.",
+        "searches": [
+          "Resultary exact search for \\(q(s-1)-1\\) local total graph zero forcing",
+          "Targeted web search for minimum zero forcing transversals of local-ring total graphs"
+        ]
+      },
+      "rationale": "Anderson--Badawi provide the exact clique/complete-bipartite residue-coset decomposition, but study connectivity and metric/cycle behavior rather than zero forcing or minimum rank. Mishra--Patra do study zero forcing around a total graph, but for \\(\\mathbb Z_n\\) with respect to the nil ideal, with zero retained and a separate reconfiguration graph; their formulas do not state the deleted-zero local-ring theorem or its real minimum rank. Resultary searches found no earlier theorem combining the all-local classification, the deletion boundary, every minimum forcing set, and residue-field recovery.",
+      "residual_risks": [
+        "A ring-graph paper may derive the same parameter componentwise without indexing it under zero forcing or minimum rank."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_COMPONENT_THEOREM_ONLY",
+          "evidence": "Theorem 2.2 decomposes the regular part into disjoint cliques or complete bipartite graphs according as \\(2\\) lies in the zero-divisor ideal.",
+          "identifier_or_url": "DOI:10.1016/j.jalgebra.2008.06.028",
+          "material_read": "Open author-hosted full PDF, including Theorem 2.2 and its complete/complete-bipartite coset proof; the relevant page was visually inspected.",
+          "method": "Lawful open full-text PDF inspection.",
+          "title": "The total graph of a commutative ring",
+          "trigger": "Primary structure theorem for finite rings whose zero divisors form an ideal."
+        },
+        {
+          "assessment": "SAME_GRAPH_NOT_ZERO_FORCING_OR_MINIMUM_RANK",
+          "evidence": "The stated results concern connectivity, diameter, girth, zero-divisor paths, and regular paths.",
+          "identifier_or_url": "DOI:10.1142/S0219498812500740",
+          "material_read": "Primary abstract and bibliographic page defining \\(T_0(\\Gamma(R))\\) and listing its connectivity/diameter/girth/path objectives.",
+          "method": "Lawful publisher inspection.",
+          "title": "On the total graph of a commutative ring without the zero element",
+          "trigger": "Exact deleted-zero graph convention."
+        },
+        {
+          "assessment": "NEARBY_DIFFERENT_GRAPH_AND_VERTEX_CONVENTION",
+          "evidence": "It studies a nil-ideal total graph on all of \\(\\mathbb Z_n\\) and then a graph whose vertices are minimum zero forcing sets, not the deleted-zero local total graph.",
+          "identifier_or_url": "DOI:10.37418/amsj.9.11.48",
+          "material_read": "Open full PDF through the setup and main zero-forcing section; the first page was visually inspected.",
+          "method": "Lawful open full-text PDF inspection.",
+          "title": "Zero forcing graph associated to the total graph of \\(\\mathbb Z_n\\) with respect to nil ideal",
+          "trigger": "Closest prior source explicitly combining total-ring graphs with zero forcing."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a complete forcing and inverse-eigenvalue classification for an entire natural class, including a sharp small-ring boundary, every minimum forcing set, and recovery of the residue-field and maximal-ideal sizes from graph invariants. This goes beyond a single routine parameter substitution.",
+      "risk": "Once the classical component decomposition is imported, the remaining graph calculations are elementary.",
+      "sources": [
+        "DOI:10.1016/j.jalgebra.2008.06.028",
+        "DOI:10.1142/S0219498812500740"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a finite commutative local nonfield \\(R\\), writing \\(q=|R/\\mathfrak m|\\) and \\(s=|\\mathfrak m|\\), the total graph with zero deleted satisfies \\(Z=M=2\\), \\(\\operatorname{mr}=1\\) when \\(s=2\\), and \\(Z=M=q(s-1)-1\\), \\(\\operatorname{mr}=q\\) when \\(s\\ge3\\); moreover there are exactly \\((s-1)s^{q-1}\\) minimum zero forcing sets, characterized by residue-coset transversals.",
+  "limitations": [
+    "Finite commutative local nonfields only.",
+    "Real symmetric minimum rank only.",
+    "The deleted-zero convention is essential."
+  ],
+  "schema_version": 1
+}
