@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T13:49:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f4de0231f3171242d007610007b1be05fb4e40c5",
+        "Pikhurko--Verbitsky arXiv:1003.4865",
+        "SCOPE record exact-logical-width-of-arbitrary-complete-multipartite-graphs RESULT.md blob 4a143deedced5e347bda8f07ccaac426d65493a7"
+      ],
+      "rationale": "The upper bound is valid: complete-multipartite structure is three-variable definable and exact part count/part size use at most \\(r+1\\) and \\(s+1\\) reusable variables. For the lower bound, with \\(m=\\max(r,s)\\), Duplicator can match occupied parts and pebbled vertices between \\(T_{r,s}\\) and the graph obtained by increasing the larger bottleneck (part size when \\(s\\ge r\\), number of parts when \\(r\\ge s\\)); after lifting one pebble at most \\(m-1\\) relevant vertices/parts remain occupied, leaving a fresh response. This gives \\(m\\)-variable equivalence to a nonisomorphic graph.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader theorem covers every heterogeneous complete multipartite graph and strictly contains the balanced family."
+        ],
+        "reasoning": "This is decisive direct broader coverage.",
+        "searches": [
+          "stronger SCOPE arbitrary-complete-multipartite record, blob 4a143deedced5e347bda8f07ccaac426d65493a7"
+        ]
+      },
+      "checked_sources": [
+        "stronger SCOPE repository record blob 4a143deedced5e347bda8f07ccaac426d65493a7",
+        "arXiv:1003.4865"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a balanced graph there is one occurring part size \\(s\\) with multiplicity \\(m_s=r\\), so the stronger formula immediately becomes \\(1+\\max(r,s)\\)."
+        ],
+        "reasoning": "The assigned theorem follows by direct parameter substitution.",
+        "searches": [
+          "stronger record general formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stronger record's Finding gives the arbitrary part-size/multiplicity formula and its Relationship section explicitly derives the balanced formula."
+        ],
+        "reasoning": "Balanced Turán notation and complete multipartite notation are the same object here.",
+        "searches": [
+          "GitHub source record: 2026/10/04/exact-logical-width-of-arbitrary-complete-multipartite-graphs--2d960f9c3f1d/RESULT.md at inventory commit",
+          "arXiv:1003.4865"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic ranking did not surface the stronger record, but the repository snapshot contains and exposes its exact RESULT.md."
+        ],
+        "reasoning": "Repository-source coverage is stronger evidence than absence from the semantic index.",
+        "searches": [
+          "Resultary logical-width searches",
+          "GitHub exact stronger-record path"
+        ]
+      },
+      "rationale": "At the exact audited repository snapshot, the stronger record 'Exact logical width of arbitrary complete multipartite graphs' proves \\(W(G)=1+\\max\\{\\max s,\\max m_s\\}\\) for every finite complete multipartite graph and explicitly states the balanced specialization \\(W(T_{r,s})=\\max\\{r,s\\}+1\\). The assigned claim is therefore literally a special case of a broader same-snapshot theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY_COVERING_STRONGER_RESULT",
+          "evidence": "It explicitly states that the general formula strictly extends the balanced case and prints the same \\(\\max\\{r,s\\}+1\\) value.",
+          "identifier_or_url": "SCOPE repository record at inventory commit; RESULT.md blob 4a143deedced5e347bda8f07ccaac426d65493a7",
+          "material_read": "Complete RESULT.md at the audited Git snapshot, including the general theorem, proof, and explicit balanced specialization.",
+          "method": "Read-only Git blob inspection.",
+          "title": "Exact logical width of arbitrary complete multipartite graphs",
+          "trigger": "Potential stronger same-family result."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "stronger arbitrary-complete-multipartite logical-width record"
+      ],
+      "rationale": "Exact logical width of balanced Turán graphs is a natural invariant, but this record contributes no surviving independent fact once the same snapshot already contains the strictly stronger arbitrary-complete-multipartite theorem with this specialization stated explicitly. Publishing the weaker duplicate would add no mathematical value.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the balanced complete \\(r\\)-partite graph with part size \\(s\\), ordinary first-order logical width is \\(\\max\\{r,s\\}+1\\).",
+  "limitations": [
+    "Balanced complete multipartite graphs only.",
+    "The claim is strictly subsumed by another record present at the audited repository snapshot."
+  ],
+  "schema_version": 1
+}
