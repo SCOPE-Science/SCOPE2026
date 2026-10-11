@@ -1,0 +1,12 @@
+# Scientific review of the Steinberg Fourier endpoint norm
+
+## Correctness — PASS
+The central character-idempotent formula gives both endpoint norms as the representation degree times the mean absolute Steinberg character. The Steinberg character-value theorem reduces the mean to semisimple classes weighted by their centralizers' characteristic-prime parts. Rational canonical classification, explicit general-linear centralizers, the finite-polynomial Euler identity, and a standard elementary \(q\)-binomial expansion prove the formula and its parity/asymptotic consequences for every prime power \(q\ge2\) and integer \(n\ge1\). Reproducible exact rational-canonical tests cover 36 parameter pairs; exhaustive independent fixed-flag matrix enumeration covers four small groups, totaling 11,454 invertible matrices. The all-parameter claim rests on the analytic identities, not the finite tests.
+
+## Originality — PASS (qualified)
+Scarabotti–Tolli's general isotypic projection framework and Srinivasan's Steinberg character values do not themselves give the explicit all-parameter absolute character mean. Fulman's semisimple cycle-index calculation weights classes by reciprocal centralizer size, not by the additional centralizer \(p\)-part; Møller's equivariant Euler characteristic averages have signs, not absolute values; Fulman–Guralnick studies regular semisimple class counts. A related published Steinberg tensor-covering result concerns occurrence of irreducibles in tensor powers, not endpoint Fourier norms. Searches across Fourier-idempotent, mean absolute character, semisimple centralizer, and Euler-product formulations did not identify an implication covering the exact norm and parity plateaus. The remaining risk is an equivalent older weighted-semisimple or \(q\)-product calculation outside the inspected literature; search failure is not a proof of universal novelty.
+
+## Mathematical value — PASS
+The Steinberg constituent is canonical for the building and regular representation of every finite general linear group. The sharp endpoint norm is a natural operator invariant with a dimension-dependent amplification scale; the exact parity plateaus and positive Euler-product limit reveal structure across all ranks, not a numerical curiosity from one small group. The characterization applies to every finite field order and every rank in the stated range.
+
+Same-model review: passed. Independent audit: not yet performed.
