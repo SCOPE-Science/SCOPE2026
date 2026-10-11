@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The periodicity of the parity-adjusted chirp is checked, all shifted autocorrelations vanish by an invertible geometric character, and the exact derivative diagonalizes by the unitary Fourier transform. The vanished Hessian modes are exactly the frequencies satisfying the divisibility condition \(N\mid s^2\), hence precisely the \(d\)-periodic phases. All such phases give exact CAZAC vectors, and strict positivity of the transverse Hessian plus a second-order integral gives local uniqueness and a quantitative stability bound. The standalone verifier checks the derivation numerically; no unproved global finiteness is asserted.
+
+**Originality — PASS, with risk.** Gilbert–Rzeszotnik (2010) gives the finite-Fourier extremizer framework and lists Gaussian biunimodular vectors, while Führ–Rzeszotnik (2015) establishes background and addresses general unitary matrices. The particularly relevant Benedetto–Cordwell–Magsino §2.4 construction (2018) gives squareful continuous families, including related periodic freedoms; construction alone does not imply that those families exhaust *every* sufficiently small solution at a specified Gaussian chirp, nor does it give the complete arithmetic Hessian spectrum. Searches for equivalent Jacobian, defect, circulant-Hadamard, and cyclic-root formulations found no covering statement. The 1995 Björck–Saffari original full text was not obtained, leaving residual originality risk; the exact Gaussian-point defect might be known under different terminology.
+
+**Value — PASS.** The Björck–Saffari squarefree finiteness problem makes the local behavior of canonical Gauss solutions a natural structural test. The result provides a complete arithmetic local classification in all lengths, a sharp tangent-space dimension, and a transverse spectral stability inequality. It distinguishes local squarefree isolation from non-squarefree smooth families without claiming to solve the global problem.
+
+Closest publications: Gilbert–Rzeszotnik, *Ann. Inst. Fourier* 60 (2010); Führ–Rzeszotnik, arXiv 1506.06738v1 (2015); Benedetto–Cordwell–Magsino, 2018 manuscript §§1–2. Important limitations: local only; no numerical certificate of novelty; no global CAZAC census, optimal stability radius, or independent audit.
+
+Same-model review: passed. Independent audit: not yet performed.
