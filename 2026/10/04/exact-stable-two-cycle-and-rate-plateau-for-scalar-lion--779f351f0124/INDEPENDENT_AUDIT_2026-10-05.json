@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:01:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nontrivial two-cycle with \\(q\\ne2\\), the two sign readouts must be opposite; the position equations then force antisymmetric positions and the momentum update forces antisymmetric stored momentum. Substitution yields \\(M=(1-\\beta_2)a c/(1+\\beta_2)\\), sign margin proportional to \\(\\Delta=1+\\beta_2-2\\beta_1\\), and \\(c=\\eta/(2-q)\\) exactly when \\(0<q<2\\) and \\(\\Delta>0\\). The strict margin fixes the local sign itinerary, so the local Jacobian is triangular with eigenvalues \\(1-q\\) and \\(\\beta_2\\); the rate plateau and \\(q=1\\) nominal-bound crossing follow immediately. A fresh numerical replay reproduced a default-coefficient cycle and positive sign margin.",
+      "risks": [
+        "The result is local and deterministic; it does not claim global attraction, stochastic behavior, or the singular boundaries \\(q=2\\) and \\(\\Delta=0\\)."
+      ],
+      "sources": [
+        "RESULT.md blob c52a4c1a4cc12b21192417cebf36ca00f8cac232",
+        "verify.py blob a2ecbf09260c8b7ebb8194edf607d1eea4f714b1",
+        "arXiv:2302.06675v1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Lyapunov paper analyzes discrete Lion and its bound-constrained interpretation but does not state the exact scalar two-cycle criterion or local eigenvalue plateau in the inspected full text.",
+          "The original Lion paper is foundational for the recurrence only."
+        ],
+        "reasoning": "The strongest broader Lion dynamics source does not dominate the submitted constant-step scalar orbit theorem.",
+        "searches": [
+          "Chen--Liu--Liang--Liu, arXiv:2310.05898 full text",
+          "Chen et al., arXiv:2302.06675 full text"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.06675v1",
+        "arXiv:2310.05898v1",
+        "Resultary exact Lion-cycle query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later source’s discrete-time theorem gives Lyapunov/bound behavior, not a complete period-two orbit classification.",
+          "The original update alone does not imply the orbit amplitude and stability claim without the submitted sign-itinerary analysis."
+        ],
+        "reasoning": "The final claim is an additional sharp dynamical statement, not a renamed theorem from the inspected Lion literature.",
+        "searches": [
+          "Statement comparison with arXiv:2310.05898 Theorem 4.1/discrete-time section",
+          "Statement comparison with arXiv:2302.06675 Lion update"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No exact Lion two-cycle record was returned by Resultary.",
+          "The original paper defines the two interpolation coefficients and sign update but does not state the submitted orbit formula in the inspected text.",
+          "The later Lyapunov paper contains no periodic/cycle match and its inspected discrete-time theorem concerns Lyapunov decrease and bounded-constrained interpretation instead."
+        ],
+        "reasoning": "Equivalent formulations through sign-momentum dynamics, limit cycles, switched affine maps, and constrained-Lion dynamics were checked.",
+        "searches": [
+          "Resultary: Lion optimizer scalar quadratic period two cycle beta1 beta2 weight decay local stability",
+          "arXiv:2302.06675 full-text Lion definition",
+          "arXiv:2310.05898 full-text searches for periodic and cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned other optimizer stability/cycle records but no exact Lion result with the coefficient \\(1+\\beta_2-2\\beta_1\\), amplitude, or plateau."
+        ],
+        "reasoning": "No exact database/table coverage was located.",
+        "searches": [
+          "Resultary exact Lion-cycle query"
+        ]
+      },
+      "rationale": "Fresh comparison resolved the main access risk noted in the frozen package. The original Lion paper supplies the update but not a scalar period-two classification. The full 36-page Lyapunov paper was inspected: its Lion update and discrete-time Lyapunov/bound analysis were read, and in-document searches for periodic/cycle terminology returned no matching result. A focused Resultary search also returned no Lion-specific exact two-cycle theorem.",
+      "residual_risks": [
+        "Equivalent switched-affine analyses outside the Lion literature may exist, but none was located in the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING",
+          "evidence": [
+            "Defines Lion but does not state the scalar two-cycle criterion, amplitude, local factor, or q=1 crossing in the inspected material."
+          ],
+          "identifier_or_url": "arXiv:2302.06675v1",
+          "material_read": "Open-access full HTML around the Lion program/update and momentum/interpolation discussion.",
+          "method": "Primary full-text HTML inspection.",
+          "title": "Symbolic Discovery of Optimization Algorithms",
+          "trigger": "Primary source defining Lion and its distinct beta1/beta2 update."
+        },
+        {
+          "assessment": "BROADER_DYNAMICS_NOT_COVERING",
+          "evidence": [
+            "The inspected theorem concerns Lyapunov decrease/bound behavior, and no periodic/cycle result matching the submitted formulas was found."
+          ],
+          "identifier_or_url": "arXiv:2310.05898v1",
+          "material_read": "Full 36-page public PDF/text: Lion update near the beginning; discrete-time analysis and Theorem 4.1; rendered pages containing the update and theorem were visually inspected; full-text searches for periodic/cycle were also performed.",
+          "method": "Public full-PDF text plus required page-image inspection and in-document search.",
+          "title": "Lion Secretly Solves Constrained Optimization: As Lyapunov Predicts",
+          "trigger": "Most directly relevant later paper on discrete Lion dynamics and weight-decay bounds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A stable nonzero constant-step cycle is a substantive boundary phenomenon for Lion rather than a tiny numerical case. The theorem gives the exact compatibility condition between the two Lion momentum coefficients, a sharp local-rate plateau, and the precise point where the stable orbit leaves the nominal weight-decay bound. It is a natural minimal-model diagnostic with direct relevance to interpreting constant-step Lion dynamics.",
+      "risks": [
+        "The theorem does not establish prevalence or global attraction in multidimensional/stochastic training."
+      ],
+      "sources": [
+        "RESULT.md blob c52a4c1a4cc12b21192417cebf36ca00f8cac232",
+        "arXiv:2310.05898v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Deterministic scalar positive quadratic, constant hyperparameters, local stability only, and nondegenerate \\(0<\\eta\\lambda<2\\), \\(\\Delta>0\\) regime."
+  ],
+  "schema_version": 1
+}
