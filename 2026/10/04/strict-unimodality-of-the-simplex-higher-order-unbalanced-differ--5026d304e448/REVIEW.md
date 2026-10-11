@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. The source's exact simplex-volume formula is rewritten as a degree-\(np\) Bernstein polynomial. The standard derivative identity reduces the sign of the derivative to the polynomial \(Q_{n,p}\). The consecutive differences of a binomial row have one sign change, and the endpoint coefficients have opposite signs, so Descartes' rule gives exactly one positive zero. This proves the full infinite family, rather than inferring it from samples. The planar radical formula and limits follow by exact algebra. The auxiliary checker was replayed successfully.
+# Independent mathematical audit
 
-## Originality
-PASS. The lead preprint was inspected at the definition, low-dimensional theorem, unbalanced-body conjecture, and simplex-volume formula; it supplies the benchmark polynomial but does not state its strict unimodality, its unique maximizing parameter, the planar closed form, or the uniform-in-parameter corollary. The order-one predecessor was inspected around its unbalanced Rogers--Shephard conjecture and low-dimensional theorem and does not cover the higher-order statement. Targeted result-database and literature searches for the parameter optimizer, Bernstein formulation, and equivalent polynomial did not locate a statement implying the claim. The closest database hits concern other simplex extremal profiles rather than higher-order unbalanced difference bodies.
+## correctness
 
-## Value
-PASS. The parameter \(t\) is intrinsic to the new higher-order unbalanced construction, and maximizing over it is the natural way to extract its worst imbalance rather than an arbitrary slice. The result gives a structural all-dimensional theorem for the source's simplex benchmark, an explicit planar sharp constant at every order, and a sharp uniform extremal consequence wherever the source has proved the pointwise conjecture. It also determines a nontrivial large-order limit.
+PASS
 
-## Closest literature and limitations
-The closest primary sources are arXiv:2609.08612v1 and arXiv:2412.05308. The all-body comparison beyond dimension three remains open; the present unconditional all-dimensional assertion concerns the simplex benchmark itself. A residual originality risk is an unindexed application of general Bernstein variation-diminishing theory to exactly the same polynomial.
+The Fryš--Kotrbatý simplex formula is exactly the stated degree-\(np\) Bernstein polynomial after absorbing the common \((1-t)^{n(p-1)}\) factor. Its Bernstein coefficients are \(a_j=\binom nj\) through \(j=n\) and zero afterwards. Differentiation gives coefficient differences \(a_{j+1}-a_j\), whose nonzero signs change exactly once. After \(x=t/(1-t)\), positive binomial multipliers preserve that single sign change, so Descartes gives at most one positive derivative zero. The constant coefficient is \(n-1>0\) and the last nonzero coefficient is negative, forcing one zero and a positive-to-negative derivative transition. The planar quadratic, critical point, maximum simplification and limits follow by direct algebra. The source's proved low-dimensional coefficientwise higher-order Godbersen inequality then gives the uniform-in-parameter convex-body bound for \(n\le3\). I independently checked the sign-change property for \(2\le n\le20\) and representative orders, while the inspected verifier checks the same identities on a broader finite grid; the all-parameter theorem rests on the symbolic sign argument.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The highly relevant Fryš--Kotrbatý primary preprint was inspected through its higher-order unbalanced-difference sections. It defines the body, proves the low-dimensional higher-order Godbersen cases, and gives the exact simplex-volume formula, including equation (21), but the inspected material does not optimize that formula in the imbalance parameter or state strict unimodality. Resultary search for the profile, Bernstein variation and optimizer returns the audited result as the direct exact match, with no earlier equivalent finding. The order-one predecessor studies the analogous body and pointwise inequalities but does not imply the all-order Bernstein-profile theorem.
+
+## value
+
+PASS
+
+The imbalance parameter is intrinsic to the new higher-order unbalanced difference body, and the simplex is the conjectured extremizer. Determining the unique optimal imbalance in every dimension/order and converting the proved low-dimensional pointwise theorem into a sharp uniform bound are natural quantitative questions attached to the source construction. The explicit planar optimizer and asymptotics add usable structure beyond simply restating the source polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

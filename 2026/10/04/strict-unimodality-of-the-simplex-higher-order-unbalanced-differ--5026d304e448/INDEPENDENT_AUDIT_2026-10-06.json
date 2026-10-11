@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:11:18.971688Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4afe34458969c397cbe98aeb4e7d65abae69c622",
+        "assigned verify.py blob 20ffd2c628dca583b152505cf74f18a832edbada",
+        "Fryš--Kotrbatý, arXiv:2609.08612v2"
+      ],
+      "rationale": "The Fryš--Kotrbatý simplex formula is exactly the stated degree-\\(np\\) Bernstein polynomial after absorbing the common \\((1-t)^{n(p-1)}\\) factor. Its Bernstein coefficients are \\(a_j=\\binom nj\\) through \\(j=n\\) and zero afterwards. Differentiation gives coefficient differences \\(a_{j+1}-a_j\\), whose nonzero signs change exactly once. After \\(x=t/(1-t)\\), positive binomial multipliers preserve that single sign change, so Descartes gives at most one positive derivative zero. The constant coefficient is \\(n-1>0\\) and the last nonzero coefficient is negative, forcing one zero and a positive-to-negative derivative transition. The planar quadratic, critical point, maximum simplification and limits follow by direct algebra. The source's proved low-dimensional coefficientwise higher-order Godbersen inequality then gives the uniform-in-parameter convex-body bound for \\(n\\le3\\). I independently checked the sign-change property for \\(2\\le n\\le20\\) and representative orders, while the inspected verifier checks the same identities on a broader finite grid; the all-parameter theorem rests on the symbolic sign argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper treats higher-order Godbersen inequalities and defines the higher-order unbalanced body.",
+          "The predecessor treats the order-one body and related extremal inequalities."
+        ],
+        "reasoning": "Neither inspected broader source states the all-\\(n,p\\) optimizer profile derived from the simplex coefficients.",
+        "searches": [
+          "Fryš--Kotrbatý arXiv:2609.08612v2",
+          "Artstein-Avidan--Putterman arXiv:2412.05308"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.08612v2",
+        "arXiv:2412.05308",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (21) supplies the benchmark polynomial but does not determine its number of interior critical points without additional coefficient analysis.",
+          "The low-dimensional coefficientwise theorem implies pointwise simplex dominance, and only after the new profile optimization does one obtain the displayed sharp uniform-in-\\(t\\) bound."
+        ],
+        "reasoning": "The Bernstein derivative/Descartes argument is the additional nontrivial step.",
+        "searches": [
+          "Comparison with source equation (21), Theorem 1.4 and Conjecture 1.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source prints the exact simplex polynomial in the imbalance parameter.",
+          "No inspected source statement asserts that its derivative has exactly one zero or gives the planar optimizer."
+        ],
+        "reasoning": "Knowing an exact polynomial is not equivalent to its global strict-unimodality classification.",
+        "searches": [
+          "Resultary query: higher order unbalanced difference body simplex profile strict unimodality Bernstein",
+          "Fryš--Kotrbatý arXiv:2609.08612v2, Sections 6--7 and equation (21)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding is the exact direct hit; no earlier distinct record with the same formulas was returned."
+        ],
+        "reasoning": "The result is an analytic infinite-family classification, not a table lookup.",
+        "searches": [
+          "Resultary semantic search for the explicit planar optimizer and all-dimensional strict unimodality"
+        ]
+      },
+      "rationale": "The highly relevant Fryš--Kotrbatý primary preprint was inspected through its higher-order unbalanced-difference sections. It defines the body, proves the low-dimensional higher-order Godbersen cases, and gives the exact simplex-volume formula, including equation (21), but the inspected material does not optimize that formula in the imbalance parameter or state strict unimodality. Resultary search for the profile, Bernstein variation and optimizer returns the audited result as the direct exact match, with no earlier equivalent finding. The order-one predecessor studies the analogous body and pointwise inequalities but does not imply the all-order Bernstein-profile theorem.",
+      "residual_risks": [
+        "A classical total-positivity/Bernstein-polynomial source could make the one-sign-change conclusion immediate abstractly, but no source was located applying it to this geometric profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_FORMULA_NOT_PROFILE_OPTIMIZATION",
+          "evidence": "The inspected source gives the exact polynomial and low-dimensional pointwise extremality but no strict-unimodality or optimizer theorem.",
+          "identifier_or_url": "arXiv:2609.08612v2",
+          "material_read": "Primary pages 1--12 and 13--24 were materially read through authorized institutional access after ordinary arXiv/OA full-text routes did not yield usable complete text. This included Theorem 1.4, the unbalanced-body definitions, equation (21) giving the simplex profile, and the associated conjectural/weighted-inequality sections.",
+          "method": "Authorized institutional full-text inspection after open routes failed.",
+          "title": "Around higher-order Godbersen conjectures",
+          "trigger": "Exact source defining the higher-order unbalanced difference body and its simplex volume."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fryš--Kotrbatý 2026",
+        "Artstein-Avidan--Putterman 2024/2025"
+      ],
+      "rationale": "The imbalance parameter is intrinsic to the new higher-order unbalanced difference body, and the simplex is the conjectured extremizer. Determining the unique optimal imbalance in every dimension/order and converting the proved low-dimensional pointwise theorem into a sharp uniform bound are natural quantitative questions attached to the source construction. The explicit planar optimizer and asymptotics add usable structure beyond simply restating the source polynomial.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.08612v2",
+    "arXiv:2412.05308",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "For dimensions at least four, only the simplex profile is proved; the all-convex-body comparison remains conditional on the higher-order Godbersen conjecture.",
+    "For dimensions at least three the optimizer is characterized by one positive polynomial root rather than a radical formula."
+  ],
+  "residual_risks": [
+    "A classical total-positivity/Bernstein-polynomial source could make the one-sign-change conclusion immediate abstractly, but no source was located applying it to this geometric profile."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SOURCE_FORMULA_NOT_PROFILE_OPTIMIZATION",
+      "evidence": "The inspected source gives the exact polynomial and low-dimensional pointwise extremality but no strict-unimodality or optimizer theorem.",
+      "identifier_or_url": "arXiv:2609.08612v2",
+      "material_read": "Primary pages 1--12 and 13--24 were materially read through authorized institutional access after ordinary arXiv/OA full-text routes did not yield usable complete text. This included Theorem 1.4, the unbalanced-body definitions, equation (21) giving the simplex profile, and the associated conjectural/weighted-inequality sections.",
+      "method": "Authorized institutional full-text inspection after open routes failed.",
+      "title": "Around higher-order Godbersen conjectures",
+      "trigger": "Exact source defining the higher-order unbalanced difference body and its simplex volume."
+    }
+  ]
+}
