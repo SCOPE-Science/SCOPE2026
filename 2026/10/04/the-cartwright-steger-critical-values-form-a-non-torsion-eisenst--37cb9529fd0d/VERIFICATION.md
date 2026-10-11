@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof of infinite order uses two exact good reductions rather than a bounded-height point search.
+# Independent mathematical audit
 
-The bundled `verify.py` checks the identity
-\[
-y_*^2=q^3\cdot1116-3888,
-\]
-the degree-one specializations
-\[
-\theta\equiv12\pmod{17},\qquad \theta\equiv13\pmod{23},
-\]
-the resulting reduced points
-\[
-\overline P_{17}=(2,8),\qquad \overline P_{23}=(17,17),
-\]
-and their exact group-law orders \(9\) and \(4\). It also checks that the denominators are units and the elliptic curve has good reduction at both primes.
+## correctness
 
-The replay does not attempt to enumerate \(E(L)\). The full Mordell--Weil group and saturation index of the critical-value submodule remain unproved limits. The module-theoretic conclusion uses the mathematical fact that a nonzero elliptic-curve endomorphism has finite kernel.
+PASS
 
-The saved output must end in `VERIFY_OK`.
+The exact rational identity \(y_*^2=q^3\cdot1116-3888\) was independently rechecked. At a degree-one good prime over 17 with \(\theta\mapsto12\), the point reduces to \((2,8)\) of exact order 9; at a degree-one good prime over 23 with \(\theta\mapsto13\), it reduces to \((17,17)\) of exact order 4. The curve and cubic discriminants and the denominators are units at those primes. If \(P\) were torsion of order \(N\), good-reduction injectivity on prime-to-residue-characteristic torsion would force simultaneously \(N=9\cdot17^a\) and \(N=4\cdot23^b\), impossible. The order-three automorphism \(\rho(x,y)=(\zeta_3^2x,y)\) satisfies \(1+\rho+\rho^2=0\). Since a nonzero Eisenstein endomorphism has finite kernel, the map \(\mathbb Z[\zeta_3]\to E\), \(a\mapsto aP\), is injective for non-torsion \(P\), proving the module and relation statements.
+
+## originality
+
+PASS
+
+Szabó's very recent primary paper constructs the Albanese map, target elliptic curve, order-three symmetry and exact critical values; its stated purpose is the polynomial fibration and critical-point/value geometry, not Mordell--Weil arithmetic. The independently searched follow-up by Akhmedov--Yeung studies monodromy and vanishing cycles. Targeted searches for the exact coordinates, torsion, Mordell--Weil order and Eisenstein orbit found no prior non-torsion statement. Because a later portion of the very recent Szabó preprint could not be re-opened after a tool safety block, that source remains an explicit residual risk rather than being treated as whole-document negative evidence.
+
+## value
+
+PASS
+
+These are the distinguished singular-fiber values of a newly explicit canonical Albanese fibration. Determining that their symmetry orbit is non-torsion, and identifying the exact Eisenstein-module relation, gives a natural arithmetic invariant complementary to the geometric and monodromy descriptions of the fibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
