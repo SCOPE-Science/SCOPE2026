@@ -1,15 +1,21 @@
-# Review of A generic lower-order perturbation criterion for opposite exponential phases
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the Baker-omitted-value claim to unbounded images of unbounded curves using the cited criterion. Away from the fundamental rays of \\(Q\\), one of the two exponentials has \\(\\exp(c|z|^m)\\)-scale growth and dominates the lower-degree perturbation and the polynomial term. Along a fundamental ray, transversality of \\(R\\) gives a uniform sign to \\(\\Re R\\). If it is positive, boundedness would force \\(\\exp(2Q-R)\\to-1\\), contradicting the cited phase-separation lemma. If it is negative, the exponential product tends to zero super-polynomially, so one exponential vanishes while the other carries the polynomial-size cancellation; connectedness fixes the dominant branch and reduces to the cited one-exponential Baker-omitted-value theorem. The hypotheses, degree inequalities, and boundary cases used by each cited lemma were checked explicitly.
+## correctness
 
-## Originality
-PASS. The motivating preprint explicitly asks whether Example 6.1 remains valid when \\(-Q\\) is replaced by a same-degree polynomial with negative leading coefficient. The new theorem treats the nontrivial family \\(\\widetilde Q=-Q+R\\) with a generic angular transversality condition on the lower-order correction. It is not implied by the source's Theorem 1.2, whose two exponential phases must have unequal degrees and noncoincident fundamental rays; here the two phases have equal degree and coincident fundamental-ray sets. Targeted published-record and web searches for opposite-leading-coefficient, same-degree, and fundamental-ray variants found no equivalent or stronger result. The residual risk is an unnamed implication in broad classical exponential-polynomial value-distribution literature.
+PASS
 
-## Value
-PASS. The result gives a genuine partial solution to an explicit open question posed in a recent primary source, rather than a parameter substitution or a numerical slice. For each fixed lower degree, the transversality failure occurs only at finitely many leading-coefficient directions for \\(R\\), so the theorem covers an open dense generic family of lower-order perturbations. It also isolates the mathematically meaningful obstruction left for future work: lower-order resonance exactly on the common fundamental rays.
+The proof correctly separates unbounded curves by the fundamental-ray geometry of the leading phase \(Q\). Away from a fundamental ray, one exponential dominates because \(R=o(Q)\). Along a fundamental ray of \(Q\), the no-common-ray hypothesis makes \(\Re R\) have a fixed nonzero sign of order \(r^{\deg R}\). If \(\Re R\to+\infty\), boundedness of \(e^Q+e^{-Q+R}+P\) would force the two exponentials to have asymptotically equal modulus and opposite phase, contradicting the phase separation supplied by the source's fundamental-ray lemma. If \(\Re R\to-\infty\), their product tends to zero while the polynomial term grows; one exponential must dominate on an unbounded connected tail, reducing boundedness to the one-exponential case covered by Theorem 1.1. This establishes the unbounded-image curve criterion and hence the Baker omitted value. The hypotheses exclude the cancellation examples where same-degree opposite phases differ only by a constant.
 
-## Closest literature and limitations
-Das--Ghora--Nayak, arXiv:2609.24154v1, is the closest source: Example 6.1 proves the exact \\(\\widetilde Q=-Q\\) case and Question 6.1(1) asks for the same-degree opposite-leading-coefficient extension. Its Theorem 1.2 does not cover equal degrees or coincident fundamental rays. Das--Nayak, arXiv:2407.14835v1 / *Complex Variables and Elliptic Equations* 70 (2025), establishes the one-exponential foundation, while Chakra--Chakraborty--Nayak (2016) supplies the general unbounded-curve criterion. The theorem here leaves resonant lower-order corrections unresolved.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full primary paper was inspected. Its Theorem 1.2 requires unequal exponential-phase degrees and no coincident fundamental rays. Example 6.1 handles the exact pair \(Q,-Q\). Question 6.1(1) explicitly says that replacing \(-Q\) by a same-degree polynomial with opposite leading coefficient 'remains to be verified'. The audited theorem proves a broad lower-order perturbation subcase \(-Q+R\) under a transparent transversality condition. Current Resultary and literature searches found no intervening theorem covering that subcase.
+
+## value
+
+PASS
+
+The result answers a substantial generic portion of an explicit open question in a current primary paper and isolates a clean geometric obstruction—shared fundamental rays of the lower-order perturbation. That is a motivated structural criterion, not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

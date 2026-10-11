@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:17:06.501468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof correctly separates unbounded curves by the fundamental-ray geometry of the leading phase \\(Q\\). Away from a fundamental ray, one exponential dominates because \\(R=o(Q)\\). Along a fundamental ray of \\(Q\\), the no-common-ray hypothesis makes \\(\\Re R\\) have a fixed nonzero sign of order \\(r^{\\deg R}\\). If \\(\\Re R\\to+\\infty\\), boundedness of \\(e^Q+e^{-Q+R}+P\\) would force the two exponentials to have asymptotically equal modulus and opposite phase, contradicting the phase separation supplied by the source's fundamental-ray lemma. If \\(\\Re R\\to-\\infty\\), their product tends to zero while the polynomial term grows; one exponential must dominate on an unbounded connected tail, reducing boundedness to the one-exponential case covered by Theorem 1.1. This establishes the unbounded-image curve criterion and hence the Baker omitted value. The hypotheses exclude the cancellation examples where same-degree opposite phases differ only by a constant.",
+      "risks": [
+        "The proof is a generic sufficient condition; it does not classify the same-degree opposite-leading-coefficient case when fundamental rays of \\(Q\\) and \\(R\\) coincide."
+      ],
+      "sources": [
+        "assigned RESULT.md blob e7af9423efcf03596b309456837f1d46351bbd08",
+        "Das–Ghora–Nayak arXiv:2609.24154v2 full PDF",
+        "source Theorem 1.1, fundamental-ray analysis, and Lemma 2.1 curve criterion"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source theorem covers unequal degrees; Example 6.1 covers exactly \\(R=0\\). Neither implies the nonzero lower-order perturbation case."
+        ],
+        "reasoning": "The audited theorem fills a genuine gap between the source's general unequal-degree theorem and its exactly opposite-phase example.",
+        "searches": [
+          "Theorem 1.2 and Theorem 1.3 of arXiv:2609.24154v2",
+          "Example 6.1 and Question 6.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.24154v2",
+        "current Resultary semantic search",
+        "Das–Nayak 2025 one-exponential BOV work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.2 excludes equal degrees; Example 6.1 is only \\(\\widetilde Q=-Q\\); Question 6.1 explicitly asks for the replacement by a same-degree opposite-leading polynomial.",
+          "The added lower-order polynomial changes exponential balance precisely on the critical rays, so the source example does not mechanically imply the audited result."
+        ],
+        "reasoning": "The final claim is a nontrivial sufficient criterion inside an explicitly open source regime.",
+        "searches": [
+          "claim versus Theorem 1.2 / Example 6.1 / Question 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 6.1(1) explicitly identifies the same-degree opposite-leading-coefficient replacement as unverified.",
+          "The audited condition \\(\\widetilde Q=-Q+R\\), \\(\\deg R<\\deg Q\\), with no shared fundamental ray, lies inside that open regime."
+        ],
+        "reasoning": "The same-degree formulation, the lower-order perturbation form, and the fundamental-ray transversality formulation were compared directly.",
+        "searches": [
+          "Resultary: exponential polynomials Baker omitted value opposite leading coefficient lower order perturbation same degree",
+          "Das–Ghora–Nayak arXiv:2609.24154v2 full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table or stronger matching theorem was found."
+        ],
+        "reasoning": "The claim is a qualitative function-theoretic theorem, not a tabulated invariant.",
+        "searches": [
+          "current Resultary complex-analysis findings",
+          "searches for same-degree Baker omitted value and fundamental rays"
+        ]
+      },
+      "rationale": "The full primary paper was inspected. Its Theorem 1.2 requires unequal exponential-phase degrees and no coincident fundamental rays. Example 6.1 handles the exact pair \\(Q,-Q\\). Question 6.1(1) explicitly says that replacing \\(-Q\\) by a same-degree polynomial with opposite leading coefficient 'remains to be verified'. The audited theorem proves a broad lower-order perturbation subcase \\(-Q+R\\) under a transparent transversality condition. Current Resultary and literature searches found no intervening theorem covering that subcase.",
+      "residual_risks": [
+        "The theorem gives only a generic sufficient condition; other same-degree perturbations in Question 6.1 remain open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING; explicitly poses the same-degree replacement as open.",
+          "evidence": "Question 6.1(1) states that replacing \\(-Q\\) by a same-degree polynomial with negative leading coefficient remains to be verified.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24154",
+          "material_read": "Full 25-page v2 PDF, with detailed inspection of Theorems 1.1–1.3, the fundamental-ray setup, Example 6.1, and Question 6.1.",
+          "method": "Primary full-text theorem and implication comparison.",
+          "title": "Exponential polynomials with Baker omitted value",
+          "trigger": "Primary source containing Theorem 1.2, Example 6.1, and Question 6.1."
+        },
+        {
+          "assessment": "Correct generic solution of a source-open subcase.",
+          "evidence": "The sign split of \\(\\Re R\\) resolves the only critical-ray regime not handled by simple exponential domination.",
+          "identifier_or_url": "repository RESULT.md at the assigned tree",
+          "material_read": "Complete file.",
+          "method": "Independent proof reconstruction against the source curve criterion and one-exponential theorem.",
+          "title": "Assigned RESULT.md",
+          "trigger": "New transversality proof."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers a substantial generic portion of an explicit open question in a current primary paper and isolates a clean geometric obstruction—shared fundamental rays of the lower-order perturbation. That is a motivated structural criterion, not a parameter substitution.",
+      "risks": [
+        "It should not be advertised as a full resolution of Question 6.1."
+      ],
+      "sources": [
+        "Das–Ghora–Nayak Question 6.1",
+        "assigned fundamental-ray transversality theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires \\(1\\le\\deg R<\\deg Q\\) and no common fundamental ray of \\(Q\\) and \\(R\\).",
+    "Does not classify all same-degree opposite-leading-coefficient pairs.",
+    "The conclusion is a sufficient BOV criterion, not a necessary one."
+  ],
+  "schema_version": 1
+}
