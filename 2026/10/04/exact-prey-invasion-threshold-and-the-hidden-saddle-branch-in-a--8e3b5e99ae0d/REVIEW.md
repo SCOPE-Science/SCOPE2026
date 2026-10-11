@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The positive-equilibrium parameterization follows exactly from the source equations: cancellation produces a quadratic with one positive predator root for every \(N\in(0,K)\), and the prey equation then gives the attack-rate graph \(A(N)\). Its boundary limit agrees exactly with the predator-only prey-invasion eigenvalue threshold. The dominant fractional-power correction is positive, and the determinant asymptotic is negative, proving the local branch is a saddle. Numerical replay is supporting evidence only.
+PASS
 
-## Originality
+Adding the predator equation to the prey equation after multiplying the latter by the assimilation coefficient cancels predation and yields a quadratic with exactly one positive predator root. Substitution into the prey equilibrium equation gives the attack-rate branch. Its limit at zero prey is exactly the predator-only invasion threshold. The small-prey expansion has a positive first correction and the Jacobian determinant has the corresponding negative leading term, so the nearby coexistence equilibrium is a saddle. Fresh numerical reconstruction at the source parameters gives threshold 0.208, coexistence equilibria near (8.3358197853,54.8152125587) and (32.0797287675,54.6492858751) at attack rate 0.8, with determinants approximately −0.04513 and 0.06983 respectively; the small branch expansion tends to the predicted unit coefficient.
 
-PASS. The 2024 source derives the ellipse relation and the boundary stability inequality but does not combine them into the exact coexistence parameterization or the one-sided saddle asymptotic. Exact-title, threshold, numerical-value, and boundary-collision searches found no published correction or equivalent source-specific result. The 2023 predecessor uses a different interaction law.
+## originality
 
-## Value
+PASS
 
-PASS. The result resolves a substantive bifurcation inconsistency in the source model: a collision with the predator-only equilibrium can occur only at \(a=cr+r/H\), not at an initial-condition-dependent value. It also identifies the nearby coexistence branch as the saddle that naturally separates the two stable basins in the bistable regime.
+The primary paper gives the exact predator-only stability threshold and nevertheless reports a numerical transcritical event at a larger, initial-condition-dependent value. It does not give the audited exact coexistence parameterization, prove that any boundary collision must occur at the invasion threshold, or identify the small-prey coexistence branch as a saddle. The audited theorem therefore corrects a scientifically material bifurcation interpretation and adds the missing local branch geometry rather than restating the source threshold.
 
-## Closest literature and limitations
+## value
 
-The closest source is Acotto and Venturino (2024), DOI 10.3934/math.2024831. The closest same-author predecessor is DOI 10.1002/mma.9262. A published result on determinant-sign stability exchange in another predator-dependent model is structurally analogous but does not cover these equations. The theorem does not claim a unique fold globally for all parameters.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Correctly locating and typing a boundary bifurcation in a published bistability model is scientifically consequential: it separates the true invasion threshold from a trajectory-dependent numerical transition and exposes a hidden saddle branch that organizes coexistence. The result is a structural correction, not a cosmetic numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
