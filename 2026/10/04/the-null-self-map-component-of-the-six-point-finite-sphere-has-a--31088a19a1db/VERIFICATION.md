@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The packaged `verify.py` reconstructs the six-point poset from its three two-point levels and performs a complete check with no external dependencies. It enumerates every set map, verifies order preservation, constructs the pointwise-order mapping space, and validates each beat-point witness at the moment of deletion.
+# Independent mathematical audit
 
-Replay result: `VERIFY_OK`. The exact totals are \(446\) continuous self-maps, \(432\) certified beat-point deletions, and a \(14\)-point survivor subspace consisting of six constants and eight homeomorphisms. The deletion split is \(352\) down-beat and \(80\) up-beat removals. The SHA-256 of the serialized deletion sequence is `5d3ed002bf3422a74be756d3d44d4d0d75f5bdb08039335624871b65a2614fd1`.
+## correctness
 
-The verifier also checks that the constants carry exactly the original \(X_2\) order, that the eight homeomorphisms are isolated already in the full mapping space, and that the survivor subspace has no beat points. These finite checks establish the claimed core once combined with the standard beat-point strong-deformation-retract theorem.
+PASS
 
-No claim is made beyond the six-point model, and the computation is exhaustive only because the complete domain of \(6^6\) set maps is explicitly traversed.
+Fresh enumeration of all 6^6 set maps found exactly 446 order-preserving self-maps, six constants and eight bijective order maps. The eight automorphisms are isolated in the full pointwise order. Replaying the specified deterministic beat reduction independently removed 432 maps, 352 by down-beat and 80 by up-beat moves, leaving exactly constants plus automorphisms; the survivor has no beat points and the constants carry the original X_2 order. Thus each deletion is a strong deformation retract and the asserted core decomposition follows.
+
+## originality
+
+PASS
+
+Barmak-Minain supply the six-point minimal S^2 model and finite-space core machinery, while a distinct published SCOPE result c2663e0b31aa classifies only the self-homotopy components for all minimal sphere models: one null class plus isolated homeomorphisms. That stronger-in-dimension component theorem does not determine the strong homotopy type inside the large null component. Resultary search found the audited record as the exact core computation and no earlier theorem giving its 14-point Stong core.
+
+## value
+
+PASS
+
+The prior component classification leaves open the internal topology of the large null component. Showing that it retracts not to a point but back to the minimal finite sphere itself is a sharp and conceptually significant mapping-space phenomenon, with a complete finite certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
