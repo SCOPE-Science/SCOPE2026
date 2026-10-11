@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:01:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an arbitrary slice, a near-norming set either contains an atom, yielding the normalized atomic witness with distance at least 1+||f||_1-2m(f), or has an atomless positive-measure part, where sigma-finiteness and nonatomic divisibility give finite sets with arbitrarily small f-mass and distances approaching 1+||f||_1. Conversely, a slice supported on an atom carrying mass p gives delta c(f) <= 1+||f||_1-2p; taking p upward to the supremal atomic mass and using dc<=delta c closes equality. The m=0 case and nonattainment of m are handled by limits. The finite rational checker is only algebraic corroboration.",
+      "risks": [
+        "The proof uses the real sigma-finite L1 dual identification and nonatomic divisibility exactly as stated; no complex or non-localizable extension was checked."
+      ],
+      "sources": [
+        "RESULT.md blob d405476ad345493b3a21c8b7c539fdd34082a474",
+        "verify_mixed_l1_constants.py blob e3b01fbf1dc2d045586435a6bc22220f4413bb96",
+        "arXiv:1812.02450",
+        "arXiv:2307.10647"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A broader atomic-summand Daugavet theorem covers sphere dc after decomposing mixed L1, but not arbitrary interior points or the mixed Delta equality.",
+          "The primary quantitative source does not provide a broader Banach-function theorem implying the all-ball mixed formula."
+        ],
+        "reasoning": "Prior broader results strictly subsume the sphere dc layer, so novelty is restricted to the interior mixed quantitative law and its Delta equality.",
+        "searches": [
+          "Resultary query: exact mixed sigma-finite L1 Daugavet Delta constants largest atomic mass",
+          "arXiv:2307.10647 direct-sum and L1 sections",
+          "arXiv:1812.02450 sigma-finite L1 theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.02450",
+        "arXiv:2307.10647",
+        "Resultary:2026/10/4/SCOPE-exact-daugavet-constants-after-adjoining-an-atomic-ell-1-summand--8eb036c03232"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results imply dc=delta c=2(1-m) on the unit sphere when combined, so that part is covered.",
+          "For ||f||<1, neither the sphere theorem nor the purely atomic formula yields the mixed identity by a stated homogeneity or direct-sum theorem; the audited arbitrary-slice argument supplies the missing lower bound and exact dependence on ||f||."
+        ],
+        "reasoning": "The final all-ball statement is only partially covered. The covered sphere layer is explicitly excluded from the originality rationale; the interior mixed formula is not a corollary of the inspected prior statements.",
+        "searches": [
+          "Statement comparison: Resultary atomic-summand theorem versus arbitrary f in B_L1",
+          "Statement comparison: Choi--Jung Propositions on atomic L1 and Delta upper bounds",
+          "Statement comparison: Abrahamsen et al. sigma-finite L1 qualitative theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published atomic-summand theorem states a unit-sphere Daugavet formula; it does not state the interior mixed Delta/Daugavet law.",
+          "Choi--Jung give exact purely atomic values and an atom-based Delta upper bound, while Abrahamsen--Haller--Lima--Pirk give only the qualitative atom-free characterization."
+        ],
+        "reasoning": "The natural direct-sum and atom-mass formulations were compared. They cover the sphere portion but not the all-ball mixed equality.",
+        "searches": [
+          "Resultary query: exact mixed sigma-finite L1 Daugavet Delta constants largest atomic mass",
+          "Resultary:2026/10/4/SCOPE-exact-daugavet-constants-after-adjoining-an-atomic-ell-1-summand--8eb036c03232",
+          "arXiv:2307.10647",
+          "arXiv:1812.02450"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact atomic table/formula is prior; the Resultary hit is exact on the sphere after adjoining an atomic ell_1 summand.",
+          "No exact database/table for arbitrary mixed interior L1 points was located."
+        ],
+        "reasoning": "The candidate is not accepted for recomputing the covered sphere/atomic cases; the retained claim is the unlocated interior mixed formula.",
+        "searches": [
+          "Resultary query: exact mixed sigma-finite L1 Daugavet Delta constants largest atomic mass",
+          "Resultary published atomic-summand record",
+          "arXiv:2307.10647 exact atomic formula"
+        ]
+      },
+      "rationale": "The unit-sphere Daugavet part is no longer novel: a published Resultary/SCOPE theorem for X direct-sum_1 ell_1(Gamma), specialized to an atomless L1 Daugavet summand, gives dc=2(1-m), and Choi--Jung's atom upper bound then closes the sphere Delta equality. The surviving contribution is the all-ball mixed-measure identity 1+||f||_1-2m(f), including interior points, for both dc and Delta c. The inspected quantitative primary paper gives the all-ball formula only in the purely atomic case and a one-sided general Delta bound; the qualitative L1 source detects only the extremal value. No inspected theorem implies the interior mixed identity.",
+      "residual_risks": [
+        "An equivalent all-ball mixed formula may exist under different terminology or outside indexed literature.",
+        "The unit-sphere part is prior and must not be presented as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRICTLY_WEAKER",
+          "evidence": [
+            "Characterizes Daugavet/Delta points via absence of atoms; does not define or compute later quantitative constants."
+          ],
+          "identifier_or_url": "arXiv:1812.02450",
+          "material_read": "Full theorem/definition material around the sigma-finite L1 characterization.",
+          "method": "Direct theorem and implication comparison.",
+          "title": "Delta- and Daugavet-points in Banach spaces",
+          "trigger": "Primary source for sigma-finite L1 point classification."
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Covers purely atomic all-ball cases and one-sided general Delta estimates, but not the exact arbitrary mixed all-ball equality."
+          ],
+          "identifier_or_url": "arXiv:2307.10647",
+          "material_read": "Definitions and L1 results: purely atomic Daugavet formula, general atom Delta upper bound, ell_1 equality, and direct-sum material.",
+          "method": "Full-text statement comparison.",
+          "title": "The Daugavet and Delta-constants of points in Banach spaces",
+          "trigger": "Primary quantitative source defining the constants and treating L1."
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Implies the candidate sphere Daugavet formula, and with Choi--Jung closes the sphere Delta formula, but is stated on the unit sphere and does not imply the interior mixed identity."
+          ],
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-exact-daugavet-constants-after-adjoining-an-atomic-ell-1-summand--8eb036c03232",
+          "material_read": "Full RESULT.md including the exact X direct-sum_1 ell_1 formula and Daugavet-space corollary.",
+          "method": "Direct public repository inspection and specialization to the atomless/atomic decomposition of L1.",
+          "title": "Exact Daugavet constants after adjoining an atomic ell_1 summand",
+          "trigger": "Highly relevant published same-day result returned by semantic search."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "After removing the covered sphere layer, the all-ball identity remains a natural quantitative completion: it identifies the largest atomic L1 mass as the exact obstruction for both constants at every point, including mixed atomic/diffuse interior points where the prior sphere theorem does not apply. This is a structural exact law rather than a finite or cosmetic calculation.",
+      "risks": [
+        "Its incremental value is concentrated in interior mixed points because the unit-sphere formula is already covered."
+      ],
+      "sources": [
+        "RESULT.md blob d405476ad345493b3a21c8b7c539fdd34082a474",
+        "arXiv:2307.10647",
+        "Resultary atomic-summand theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real sigma-finite L1 only; sphere-level formula is prior coverage and not part of the originality claim."
+  ],
+  "schema_version": 1
+}

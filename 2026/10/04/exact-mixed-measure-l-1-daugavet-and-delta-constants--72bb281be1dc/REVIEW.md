@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the definitions of the two pointwise constants. For the universal lower bound it analyzes an arbitrary slice: either a near-norming set contains an atom, producing a normalized atomic witness with distance at least \(1+\|f\|_1-2m(f)\), or the set is atomless, producing witnesses with distance arbitrarily close to \(1+\|f\|_1\). For the upper bound, a slice supported on any atom carrying mass \(p\) has diameter from \(f\) at most \(1+\|f\|_1-2p\) in the limit. Taking \(p\uparrow m(f)\) closes the estimate. The cases \(m(f)=0\), \(f=0\), and nonattainment of the supremum are included.
+## correctness
 
-## Originality
-PASS. The closest quantitative source computes the Daugavet constant on purely atomic \(L_1\), gives an atom-based upper bound for the Delta constant in general \(L_1\), and obtains exact equality in \(\ell_1\). The earlier \(L_1\) classification identifies Daugavet and Delta points qualitatively. The inspected statements do not give the displayed exact equality for an arbitrary mixed atomic/atomless measure.
+PASS
 
-## Value
-PASS. The formula unifies three regimes—purely atomic, atomless, and mixed—and identifies one natural statistic, the largest atomic \(L_1\)-mass, as the complete quantitative obstruction for both constants. It upgrades the qualitative coincidence of Daugavet and Delta points in \(L_1\) to an exact pointwise identity.
+For an arbitrary slice, a near-norming set either contains an atom, yielding the normalized atomic witness with distance at least 1+||f||_1-2m(f), or has an atomless positive-measure part, where sigma-finiteness and nonatomic divisibility give finite sets with arbitrarily small f-mass and distances approaching 1+||f||_1. Conversely, a slice supported on an atom carrying mass p gives delta c(f) <= 1+||f||_1-2p; taking p upward to the supremal atomic mass and using dc<=delta c closes equality. The m=0 case and nonattainment of m are handled by limits. The finite rational checker is only algebraic corroboration.
 
-## Closest literature and limitations
-The closest sources are arXiv:1812.02450 and arXiv:2307.10647. The result is limited to real sigma-finite \(L_1\) spaces. The finite rational replay checks only the algebra in the proof and is not an independent audit or a substitute for the measure-theoretic argument. An equivalent result in unindexed literature remains a residual bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The unit-sphere Daugavet part is no longer novel: a published Resultary/SCOPE theorem for X direct-sum_1 ell_1(Gamma), specialized to an atomless L1 Daugavet summand, gives dc=2(1-m), and Choi--Jung's atom upper bound then closes the sphere Delta equality. The surviving contribution is the all-ball mixed-measure identity 1+||f||_1-2m(f), including interior points, for both dc and Delta c. The inspected quantitative primary paper gives the all-ball formula only in the purely atomic case and a one-sided general Delta bound; the qualitative L1 source detects only the extremal value. No inspected theorem implies the interior mixed identity.
+
+## value
+
+PASS
+
+After removing the covered sphere layer, the all-ball identity remains a natural quantitative completion: it identifies the largest atomic L1 mass as the exact obstruction for both constants at every point, including mixed atomic/diffuse interior points where the prior sphere theorem does not apply. This is a structural exact law rather than a finite or cosmetic calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
