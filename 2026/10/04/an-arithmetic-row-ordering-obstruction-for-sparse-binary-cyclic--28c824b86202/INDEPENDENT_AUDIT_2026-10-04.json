@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:55:21.430130Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 9ac1cf0054210147e7902477134c415c9f53637a",
+        "Lei--Bickel complete primary preprint",
+        "independent affine-distance calculation"
+      ],
+      "rationale": "For the saturated scalar CPT, Theorem 2 reduces \\(O^*\\) to the Euclidean distance from one cyclic shift to the affine hull of the others. Fourier diagonalization of the circulant orbit gives \\((O^*)^2=n/\\sum_{k=1}^{n-1}|\\widehat x_k|^{-2}\\) when all non-DC Fourier coefficients are nonzero, while any non-DC zero supplies an affine dependence and forces zero distance. For two ones at separation \\(d\\), \\(|\\widehat x_k|^2=4\\cos^2(\\pi kd/n)\\). Writing \\(N=n/\\gcd(n,d)\\), even \\(N\\) creates a zero; for odd \\(N\\), residue multiplicities and \\(\\sum_{r=0}^{N-1}\\sec^2(\\pi r/N)=N^2\\) give the exact denominator \\((nN-1)/4\\). Independent least-squares calculations for \\(n=20\\) reproduced exactly the four positive separations and \\(\\sqrt{80/99}\\), with error below \\(3\\times10^{-14}\\).",
+      "residual_risks": [
+        "The theorem concerns the design proxy \\(O^*\\), not the full alternative power function."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives the regression-residual proxy for arbitrary designs.",
+          "Section 2.4 says the proxy depends on row order and formulates maximizing it as a nonlinear traveling-salesman problem, using a genetic algorithm."
+        ],
+        "reasoning": "The source is broader in design dimension but does not solve the special sparse orbit; classical circulant theory alone does not select the optimal row separations.",
+        "searches": [
+          "Lei--Bickel arXiv:1907.06133 / Biometrika 108 (2021), Theorem 2 and Section 2.4",
+          "classical circulant Fourier diagonalization"
+        ]
+      },
+      "checked_sources": [
+        "Lei--Bickel complete primary preprint",
+        "Resultary semantic searches",
+        "focused web searches",
+        "classical circulant Fourier background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source specialization yields an affine residual problem but no gcd/parity closed form.",
+          "The zero/nonzero dichotomy requires locating spectral notches; the optimizer requires the odd-divisor and secant-square calculation."
+        ],
+        "reasoning": "The final classification is not a routine parameter substitution into the source theorem; Fourier and number-theoretic structure close an optimization the source leaves heuristic in general.",
+        "searches": [
+          "specialize Lei--Bickel Theorem 2 to p=r=1,m=n-1",
+          "compare source row-order optimization with two-one binary circulant orbit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No earlier Resultary finding with the CPT two-one spacing law was returned.",
+          "Web results led back to the general CPT method and its heuristic row-ordering problem, not an exact sparse-binary solution."
+        ],
+        "reasoning": "The Fourier-altitude formulation is an equivalent reformulation developed in the audited proof, not a prior published equivalent found in search.",
+        "searches": [
+          "Resultary query: arithmetic row ordering obstruction sparse binary cyclic permutation test O star gcd n d two ones",
+          "web query: cyclic permutation test two ones row ordering O* Fourier gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older exact formula/table entry was returned."
+        ],
+        "reasoning": "The finite \\(n=20\\) statement is a corollary of the infinite arithmetic theorem, not a lookup.",
+        "searches": [
+          "Resultary exact/semantic search for two-one CPT spacing and the n=20 value"
+        ]
+      },
+      "rationale": "The complete Lei--Bickel source defines \\(O^*\\), proves the general residual representation, emphasizes its row-order dependence and formulates row pre-ordering as a nonlinear traveling-salesman problem for which it uses heuristics. It does not derive the circulant Fourier altitude identity or the two-active-row gcd/parity classification. Focused Resultary and web searches found no earlier exact arithmetic solution of this sparse binary CPT family.",
+      "residual_risks": [
+        "A specialized later note on CPT design ordering could use different notation and escape the focused searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_NOT_COVERING",
+          "evidence": "The source provides the general residual proxy and identifies row ordering as a hard optimization problem, but not the two-one binary arithmetic solution.",
+          "identifier_or_url": "arXiv:1907.06133; Biometrika 108 (2021), 397–412",
+          "material_read": "Complete 46-page primary preprint; Theorem 2 and the row-preordering section were read, and the theorem/preordering page was visually inspected.",
+          "method": "lawful open-access full text",
+          "title": "An Assumption-Free Exact Test for Fixed-Design Linear Models with Exchangeable Errors",
+          "trigger": "Defining primary source for CPT and \\(O^*\\)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lei--Bickel motivation for row pre-ordering",
+        "exact arithmetic classification"
+      ],
+      "rationale": "Exactly two active rows is a natural rare-binary-predictor design. The theorem completely solves the source-motivated row-order sensitivity in this family, exposes a qualitative power-of-two obstruction, and gives a concrete exact 5-percent saturated case. That is a motivated structural classification and benchmark, not an arbitrary finite census.",
+      "residual_risks": [
+        "The saturated choice ties \\(\\alpha\\) to \\(1/n\\), so extensions to nonsaturated tests remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem concerns the design proxy \\(O^*\\), not the full alternative power function.",
+    "A specialized later note on CPT design ordering could use different notation and escape the focused searches.",
+    "The saturated choice ties \\(\\alpha\\) to \\(1/n\\), so extensions to nonsaturated tests remain open."
+  ],
+  "schema_version": 1
+}
