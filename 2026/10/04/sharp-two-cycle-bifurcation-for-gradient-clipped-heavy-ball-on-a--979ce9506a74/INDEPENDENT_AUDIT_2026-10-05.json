@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:01:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unclipped state matrix has characteristic polynomial \\(z^2-(1+\\beta-q)z+\\beta\\), so Jury gives local asymptotic stability exactly for \\(0<q<2(1+\\beta)\\). On any nonzero two-cycle, periodicity forces opposite velocities and hence clipped gradients of equal and opposite magnitude \\(G=(1+\\beta)(a-b)/\\alpha\\). Scalar clipping leaves only two exhaustive branches: \\(G<C\\), where both positions are unsaturated and the equations force the critical equality; or \\(G=C\\), where both are saturated and the gap is \\(\\alpha C/(1+\\beta)\\), giving precisely the supercritical center band. In the strictly saturated alternating region the forcing is locally constant, so the velocity perturbation obeys \\(e_t=\\beta e_{t-1}\\) and the center converges along the neutral cycle manifold. Fresh exact rational checks reproduced both critical and supercritical branches; the frozen verifier was independently read.",
+      "risk": "The theorem classifies period two and local normal attraction only, not all global recurrent behavior.",
+      "sources": [
+        "frozen RESULT.md",
+        "frozen verify.py",
+        "Zhang et al. arXiv:1905.11881",
+        "Mai--Johansson arXiv:2102.06489",
+        "Yang--Stoorvogel--Saberi DOI:10.1002/rnc.2855",
+        "Yang et al. DOI:10.23919/ECC.2013.6669477"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The control sources characterize or exhibit periodicity for different saturated linear-feedback plants; the ECC example is a period-four saturated orbit.",
+          "The optimization sources establish convergence/stability guarantees for clipped methods but not this fixed-step raw-heavy-ball orbit classification."
+        ],
+        "reasoning": "No inspected broader theorem specializes directly to the submitted map with its full two-cycle set.",
+        "searches": [
+          "Yang--Stoorvogel--Saberi 2013 journal abstract/full-access metadata",
+          "Yang--Stoorvogel--Saberi--Johansson 2013 ECC full text",
+          "Mai--Johansson arXiv:2102.06489",
+          "Koloskova--Hendrikx--Stich arXiv:2305.01588"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.11881",
+        "arXiv:2102.06489",
+        "arXiv:2305.01588",
+        "DOI:10.1002/rnc.2855",
+        "DOI:10.23919/ECC.2013.6669477",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The saturated-control papers show that locally stable discrete-time feedback can have periodic orbits, but their saturation acts on the whole feedback law and their stated conditions do not yield the audited amplitude continuum or center band.",
+          "Clipped-gradient convergence papers do not imply persistent cycles for a raw heavy-ball state."
+        ],
+        "reasoning": "The final theorem requires solving the two-cycle equations of this exact algorithm; the prior literature supplies motivation and nearby phenomena rather than a dominating result.",
+        "searches": [
+          "Yang et al. ECC 2013 theorem/example",
+          "Yang--Stoorvogel--Saberi IJRNLC 2013",
+          "Zhang et al. 2019 and Mai--Johansson 2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest control papers treat \\(x_{k+1}=Ax_k+B\\sigma(Fx_k)\\) for saturated state feedback and exhibit other periodic regimes.",
+          "The submitted heavy-ball recurrence has momentum damping outside the clipped position force and a different exact orbit geometry."
+        ],
+        "reasoning": "Optimization, saturated-feedback, second-order recurrence, switched-system and period-two formulations were all compared.",
+        "searches": [
+          "Resultary: clipped heavy-ball scalar quadratic period-two saturation continuum",
+          "Web: gradient clipping heavy-ball period-two quadratic saturation",
+          "DOI:10.1002/rnc.2855",
+          "DOI:10.23919/ECC.2013.6669477"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching cycle table or phase diagram was located."
+        ],
+        "reasoning": "The local Jury boundary alone is classical; originality is in the complete clipped period-two bifurcation and normal dynamics.",
+        "searches": [
+          "Resultary exact semantic search for the boundary \\(\\alpha\\lambda=2(1+\\beta)\\) with clipping and cycles",
+          "Web searches for clipped heavy-ball continuum period-two cycles"
+        ]
+      },
+      "rationale": "Optimization papers on clipping study descent/convergence or differently normalized momentum. Older saturated-control literature is substantially closer and was inspected: it constructs periodic behavior for saturated discrete-time double integrators and neutrally stable planar systems, but its model saturates an entire linear feedback input in a different state-space recurrence and its explicit orbit is period four. It does not state or imply the clip-current-gradient heavy-ball threshold, critical continuum, full supercritical period-two center band, or exact normal contraction factor. Resultary and targeted searches found no matching theorem.",
+      "residual_risks": [
+        "The 2013 saturated-control journal article is broader in dynamical scope and full theorem-level text was not stably retrievable from its institutional mirror in this run; an equivalent special case under a state transformation remains the principal originality risk.",
+        "Longer-period or chaotic behavior outside the classified local regime remains unaddressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_SATURATED_CONTROL_PERIODICITY_DIFFERENT_RECURRENCE",
+          "evidence": "The source saturates a linear state-feedback input and constructs a period-four orbit; it does not contain the heavy-ball two-cycle phase diagram.",
+          "identifier_or_url": "DOI:10.23919/ECC.2013.6669477",
+          "material_read": "Accessible full conference text around the model, local-stability region, Theorem 2 and its explicit saturated period-four construction.",
+          "method": "Lawful public full-text inspection; PDF text and the relevant structured passage were inspected.",
+          "title": "Further results on saturated globally stabilizing linear state feedback control laws for single-input neutrally stable planar systems",
+          "trigger": "Highly relevant older source explicitly constructing periodic solutions under actuator saturation."
+        },
+        {
+          "assessment": "PLAUSIBLE_BROADER_CONTROL_SOURCE_NOT_DIRECTLY_SAME_MAP",
+          "evidence": "The published object is the discrete-time double integrator with saturation of a linear feedback law, whereas clipped heavy-ball has a stable momentum mode and clips only the current gradient term.",
+          "identifier_or_url": "DOI:10.1002/rnc.2855",
+          "material_read": "Publisher and institutional primary metadata/abstract plus linked model context; the repository PDF link redirected and did not provide stable full text in this run.",
+          "method": "Lawful publisher/institutional inspection; no access bypass.",
+          "title": "Dynamic behavior of the discrete-time double integrator with saturated locally stabilizing linear state feedback laws",
+          "trigger": "Claims complete global behavior for a canonical saturated second-order discrete system."
+        },
+        {
+          "assessment": "DIFFERENT_STOCHASTIC_MOMENTUM_CONSTRUCTION",
+          "evidence": "It does not state the constant-step scalar quadratic orbit classification.",
+          "identifier_or_url": "arXiv:2102.06489",
+          "material_read": "Open primary source material on the clipped method, momentum extension and convergence setting.",
+          "method": "Lawful open-source inspection.",
+          "title": "Stability and Convergence of Stochastic Gradient Clipping: Beyond Lipschitz Continuity and Smoothness",
+          "trigger": "Closest optimization source explicitly combining clipping and momentum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem separates bounded oscillation from convergence in a widely used clipped-momentum mechanism and gives a complete, sharp period-two bifurcation with an exact neutral manifold and transverse rate. The result is materially stronger than merely observing one oscillatory example.",
+      "risk": "It is a one-dimensional benchmark and should not be extrapolated to norm clipping in multiple dimensions.",
+      "sources": [
+        "arXiv:1905.11881",
+        "DOI:10.23919/ECC.2013.6669477"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For scalar gradient-clipped heavy-ball on \\(f(x)=\\lambda x^2/2\\), clipping the current gradient before raw momentum leaves the local origin-stability threshold at \\(\\alpha\\lambda=2(1+\\beta)\\); at the threshold all symmetric amplitudes up to the clipping radius are period-two cycles, and above it all nonzero period-two cycles form the stated saturated center band, whose interior is normally attracting with transverse factor \\(\\beta\\).",
+  "limitations": [
+    "One-dimensional positive quadratic.",
+    "Fixed \\(\\alpha,C,\\beta\\) with \\(0\\le\\beta<1\\).",
+    "No global basin or classification of periods beyond two.",
+    "Normal attraction excludes kink endpoints."
+  ],
+  "schema_version": 1
+}
