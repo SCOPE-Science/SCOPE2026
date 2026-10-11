@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify_weighted_volume.py` reconstructs the published polynomial vector field symbolically and checks
-\[
-\nabla\!\cdot f=-az,
-\qquad
-\nabla\!\cdot f+a\dot x=0,
-\qquad
-\nabla\!\cdot(e^{ax}f)=0.
-\]
-The replay terminates with `VERIFY_WEIGHTED_VOLUME_OK`.
+# Independent mathematical audit
 
-The remaining deductions are analytic: integrating the exact coboundary by Liouville's formula gives \(\det D\phi_t=e^{-a(x(t)-x(0))}\); a periodic orbit makes the endpoint term zero; and preservation of the positive locally finite weighted measure contradicts strict compact trapping of a bounded open set.
+## correctness
 
-Limits: no numerical integration is used as proof; no claim of global completeness is made; no independent audit has been performed.
+PASS
+
+Direct differentiation gives div f=-a z=-a xdot and therefore div(exp(a x)f)=0. Liouville's formula integrates the divergence to the endpoint expression exactly. Bounded x makes its time-average vanish; a periodic orbit makes the monodromy determinant one and the two nontrivial Floquet multipliers reciprocal in product. On any bounded trapping region the positive density has finite nonzero measure, while strict compact containment would lower that invariant measure, a contradiction. A fresh symbolic replay reproduced both divergence identities.
+
+## originality
+
+PASS
+
+The 2017 source explicitly labels the exact ODE dissipative and writes a state-dependent volume contraction expression, while the audited Liouville calculation shows the divergence is the exact derivative -a xdot and produces an invariant positive density. Targeted Resultary comparison found no prior source-specific correction with the exact Jacobian, Floquet product and trapping obstruction. The result therefore corrects the mathematical interpretation of the published continuous-time system.
+
+## value
+
+PASS
+
+This is a substantive correction to a published chaotic-flow interpretation: it distinguishes instantaneous Euclidean divergence from cumulative dissipation and rules out the usual attracting-limit-set interpretation for the exact ODE. The invariant density and Floquet obstruction are reusable structural facts, not merely a numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
