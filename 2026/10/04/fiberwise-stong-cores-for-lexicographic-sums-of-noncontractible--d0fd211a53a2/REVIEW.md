@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof has two independent parts. First, an internal up-beat witness remains below every point in every higher indexed fiber, and the dual statement holds for down-beat witnesses, so each fiber reduction replays inside the full lexicographic sum. Second, after every fiber is replaced by a nontrivial core, a hypothetical cross-fiber up-beat witness would force a global minimum in one core fiber; a cross-fiber down-beat witness would force a global maximum. A nontrivial minimal finite space has neither. These arguments cover arbitrary finite index posets and disconnected fibers.
+## correctness
 
-The standalone verifier checks \(352\) finite lexicographic sums and \(320\) global replays of fiberwise beat deletions, then verifies that each terminal space is beat-point-free. It separately confirms the stated boundary counterexample.
+PASS
 
-## Originality
-PASS with residual literature risk. The closest inspected finite-space source gives Stong's beat-point/core machinery but does not discuss lexicographic sums. The closest inspected lexicographic-sum source studies derived equivalence and does not state a result about beat points, strong deformation retracts, or Stong cores. Semantic database searches for combinations of “lexicographic sum”, “core”, “beat point”, “finite space”, and “homotopy” produced no statement implying the theorem.
+The core argument was reconstructed from definitions. An internal up-beat witness in a fiber remains below every point in each higher comparable fiber, and dually for down-beat witnesses, so any chosen fiber reduction sequence remains valid globally. After all fibers are replaced by nontrivial minimal cores, a point with internal comparable points cannot acquire a cross-fiber beat witness because an internal point lies on the wrong side of every higher/lower fiber. If it is maximal/minimal internally, any cross-fiber minimum/maximum witness would force a global minimum/maximum in one nontrivial minimal core, impossible because such an extremum creates a beat point. Hence the terminal lexicographic sum is beat-point-free and is a Stong core. The singleton-below-two-antichain example correctly shows failure when a contractible fiber is allowed. Independent tiny lexicographic-sum checks over chain and V-shaped indices found no beat points after substitution by nontrivial antichain cores.
 
-The nearest earlier scientific result is the non-Hausdorff-suspension core formula, which is a single binary ordinal-sum specialization. That specialization does not imply the arbitrary-index, arbitrary-noncontractible-fiber theorem proved here.
+## originality
 
-## Value
-PASS. Lexicographic sum is a standard poset substitution operation, so an exact compositional rule for Stong cores turns a global homotopy-reduction problem into independent reductions of the pieces. The theorem handles arbitrary index-poset shape and gives an exact core-cardinality formula. The noncontractibility assumption is mathematically substantive rather than cosmetic: a singleton lower fiber below a two-point antichain produces immediate extra cross-fiber collapse.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS with ordinary literature-search residual risk. The inspected finite-space source supplies Stong beat-point/core machinery but not lexicographic sums. The inspected Ladkani source defines lexicographic sums but studies derived equivalence rather than finite-space strong deformation retracts. Resultary finds a prior SCOPE non-Hausdorff-suspension theorem that is a binary ordinal-sum specialization, plus product/core results, but no arbitrary-index substitution theorem. A broader search also surfaced general poset lexicographic-sum/Ur-operation literature without a beat-point core formula. The special suspension case does not imply the full theorem for arbitrary finite index posets and arbitrary noncontractible fibers.
+
+## value
+
+PASS
+
+Lexicographic sum is a standard poset substitution, and an exact compositional rule for Stong cores converts a global homotopy-reduction problem into independent fiber reductions across arbitrary index shape. The sharp contractible-fiber counterexample identifies a substantive boundary, so the theorem is structural rather than a cosmetic generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
