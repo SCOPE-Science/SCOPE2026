@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The map parametrization by order ideals and comparability components is bijective, yielding the exact weighted count \(2836\). The one-coordinate-raise lemma identifies the mapping-poset components with the finite adjacency graph used by the verifier. The verifier independently checks the map count, ideal count, component split \(2828+8\), induced first-homology profile, and the exact characterization of all eight singleton maps as projection-after-automorphism maps.
+## correctness
 
-The key risk is homology-basis bookkeeping. It is controlled by computing both coefficients through restrictions to the two canonical factor circles and a fixed integral cocycle on the four-edge target circle. Finite enumeration is complete for this finite mapping poset; it is not being used to infer an unproved infinite statement.
+PASS
 
-## Originality
-PASS. Full-text comparison of arXiv:1512.06088v1, arXiv:math/0611156v1, and May's finite-space notes found the model definitions and general mapping-space machinery but not this exact cardinality, component decomposition, or induced-homology profile. A bibliographic check of Stong's foundational paper was access-limited, which is retained as a residual historical-search risk rather than treated as negative evidence.
+The frozen verifier exhaustively enumerates all monotone maps \(T\to C\), and a fresh independent replay reproduced exactly 2,836 maps, component sizes \(2828+8\times1\), and homology profile 2,828 zero maps plus two representatives of each signed coordinate class. The one-coordinate-raise lemma is valid: for comparable \(f\le g\), raising a maximal domain point among coordinates where they differ preserves monotonicity, so graph components equal mapping-poset components. The eight isolated maps are exactly the two coordinate projections composed with the four automorphisms of \(C\). The fixed cocycle evaluation on the two canonical factor circles gives the stated \(H_1\) coefficients.
 
-Previously recorded related statements do not imply the claim: a torus self-map result constrains induced endomorphisms of \(H_1(T;\mathbb Z)\) but does not classify all maps \(T\to C\), and other mapping-space results concern different finite spaces.
+## originality
 
-## Value
-PASS. The result answers a natural complete question for canonical minimal models and gives an exact quantitative form of the known finite-model scarcity phenomenon. It separates direct finite maps from the classical classification \([T^2,S^1]\cong\mathbb Z^2\), showing precisely which homology classes survive without subdivision and how finite-space homotopy further splits the nonzero cases.
+PASS
 
-## Closest literature and limitations
-Cianci--Ottina identify the product sixteen-point torus model; Barmak--Minian give the minimal finite-circle framework; May gives the mapping-space/component correspondence and explains why subdivision may be needed. None of the inspected full texts states the present exact census. The statement is limited to the product sixteen-point torus and four-point circle; it does not determine the other minimal torus model or subdivision depth.
+The primary finite-space literature establishes the four-point circle framework and the sixteen-point minimal torus models, but the searches did not locate this exact mapping-poset census, its nine-component decomposition, or the induced-homology profile. A related published SCOPE result on self-maps of the same torus constrains \(H_1\)-actions but does not imply the classification of maps into the four-point circle. Public full-text extraction of the most relevant arXiv topology papers was unavailable in this run after direct attempts, so that access limitation is retained as risk rather than treated as negative evidence.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural complete finite classification rather than an arbitrary slice. It quantifies exactly how the unsubdivided minimal finite torus truncates the classical \([T^2,S^1]\cong\mathbb Z^2\) picture, distinguishing one large null component from eight rigid coordinate classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

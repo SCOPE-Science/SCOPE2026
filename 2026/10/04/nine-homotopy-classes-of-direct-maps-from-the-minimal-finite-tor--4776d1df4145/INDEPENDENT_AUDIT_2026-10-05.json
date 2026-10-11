@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:57:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob cbe38ef33465eb9b2f193c34c6ebdf49a69abfeb",
+        "verify.py blob d455c2b21c37119233fc521c48f106fc81387a7b",
+        "Fresh independent exhaustive replay: maps=2836, components=[2828,1,1,1,1,1,1,1,1], degree profile {(0,0):2828,(1,0):2,(-1,0):2,(0,1):2,(0,-1):2}."
+      ],
+      "rationale": "The frozen verifier exhaustively enumerates all monotone maps \\(T\\to C\\), and a fresh independent replay reproduced exactly 2,836 maps, component sizes \\(2828+8\\times1\\), and homology profile 2,828 zero maps plus two representatives of each signed coordinate class. The one-coordinate-raise lemma is valid: for comparable \\(f\\le g\\), raising a maximal domain point among coordinates where they differ preserves monotonicity, so graph components equal mapping-poset components. The eight isolated maps are exactly the two coordinate projections composed with the four automorphisms of \\(C\\). The fixed cocycle evaluation on the two canonical factor circles gives the stated \\(H_1\\) coefficients.",
+      "risks": [
+        "The computation is finite and exhaustive; it is not extrapolated to subdivisions or other torus models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cianci–Ottina's primary abstract proves the 16-point lower bound and complete characterization of minimal finite torus models.",
+          "Barmak–Minian provide the minimal finite-circle/model framework, not the exact map census."
+        ],
+        "reasoning": "These sources define/characterize the objects but do not provide a theorem that determines all direct maps between the selected models.",
+        "searches": [
+          "Cianci Ottina arXiv:1512.06088 minimal finite torus 16 points",
+          "Barmak Minian arXiv:math/0611156 minimal finite circle"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query above",
+        "arXiv:1512.06088",
+        "arXiv:math/0611156"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the source and target are weak finite models does not determine the finite topological mapping-poset components; finite models need not preserve classical mapping sets without subdivision.",
+          "The related self-map result has a different codomain and does not imply this enumeration."
+        ],
+        "reasoning": "The exhaustive direct-map classification supplies new data not forced by the inspected object-classification theorems.",
+        "searches": [
+          "minimal finite torus classification",
+          "minimal finite circle models",
+          "related SCOPE torus self-map H1 rigidity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record as the direct match; nearby records concern different source/target finite spaces or torus self-maps.",
+          "No prior exact 2,836-map/nine-component statement was located."
+        ],
+        "reasoning": "Equivalent formulations through pointwise mapping-poset components, finite-space homotopy classes, or direct circle-valued maps were checked.",
+        "searches": [
+          "Resultary: minimal finite torus four point circle maps homotopy classes mapping poset 2836 2828 projections",
+          "web: finite torus mapping space four-point circle homotopy classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external database/table containing the exact map count and component split was located."
+        ],
+        "reasoning": "The exact finite census is not a recomputation of a known published table found in the searches.",
+        "searches": [
+          "Resultary exact numeric query 2836 2828 finite torus circle",
+          "web exact numeric mapping-poset query"
+        ]
+      },
+      "rationale": "The primary finite-space literature establishes the four-point circle framework and the sixteen-point minimal torus models, but the searches did not locate this exact mapping-poset census, its nine-component decomposition, or the induced-homology profile. A related published SCOPE result on self-maps of the same torus constrains \\(H_1\\)-actions but does not imply the classification of maps into the four-point circle. Public full-text extraction of the most relevant arXiv topology papers was unavailable in this run after direct attempts, so that access limitation is retained as risk rather than treated as negative evidence.",
+      "residual_risks": [
+        "A historical finite-space mapping calculation may be buried under different terminology; the strongest direct primary full-text routes were unavailable in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_AND_CLASSIFIES_SOURCE_OBJECT_NOT_MAPPING_CENSUS",
+          "evidence": [
+            "The source states the 16-point torus minimality/classification result, not the submitted map-space enumeration."
+          ],
+          "identifier_or_url": "arXiv:1512.06088",
+          "material_read": "Primary abstract and bibliographic classification statement; direct arXiv full-text route was attempted and unavailable.",
+          "method": "Public arXiv/web retrieval.",
+          "title": "Poset splitting and minimality of finite models",
+          "trigger": "Primary classification of minimal finite torus models."
+        },
+        {
+          "assessment": "FRAMEWORK_NOT_COVERING_EXACT_MAP_CENSUS",
+          "evidence": [
+            "No exact torus-to-four-point-circle component count appears in the accessible material."
+          ],
+          "identifier_or_url": "arXiv:math/0611156",
+          "material_read": "Primary abstract and journal metadata; direct full-text route was attempted and unavailable.",
+          "method": "Public arXiv/journal web retrieval.",
+          "title": "Minimal Finite Models",
+          "trigger": "Foundational primary finite-model framework including minimal models of circles/graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete enumeration of all direct maps and all homotopy components.",
+        "Exact induced \\(H_1\\) image identifies which classical degrees survive without subdivision."
+      ],
+      "rationale": "This is a natural complete finite classification rather than an arbitrary slice. It quantifies exactly how the unsubdivided minimal finite torus truncates the classical \\([T^2,S^1]\\cong\\mathbb Z^2\\) picture, distinguishing one large null component from eight rigid coordinate classes.",
+      "risks": [
+        "The result is model-specific and does not determine the other minimal torus model or subdivision depth."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the standard sixteen-point product finite torus \\(T=C\\times C\\) and four-point minimal finite circle \\(C\\), the pointwise mapping poset has exactly 2,836 maps in nine finite-space homotopy classes: one 2,828-map null class and eight singleton projection-after-automorphism classes, with induced integral first-homology maps only \\((0,0),(\\pm1,0),(0,\\pm1)\\).",
+  "limitations": [
+    "Only the standard product sixteen-point torus and the four-point circle are classified; no claim is made for subdivisions or other finite torus models."
+  ],
+  "schema_version": 1
+}

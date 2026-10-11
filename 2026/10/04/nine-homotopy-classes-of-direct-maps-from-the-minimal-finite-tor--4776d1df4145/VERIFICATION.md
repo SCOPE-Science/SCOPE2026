@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The packaged `verify.py` constructs the four-point circle poset and its sixteen-point Cartesian square, then performs the following complete finite checks:
+# Independent mathematical audit
 
-1. Recursively enumerates every order-preserving map \(T\to C\), obtaining \(2836\).
-2. Independently enumerates all \(430\) order ideals and evaluates the exact weighted component-coloring sum, again obtaining \(2836\).
-3. Builds the graph of all valid one-coordinate raises and checks that its connected-component sizes are \(2828\) and eight copies of \(1\).
-4. Computes the two integral first-homology coefficients by restriction to the factor circles and verifies the complete profile \((0,0):2828\), \((1,0):2\), \((-1,0):2\), \((0,1):2\), \((0,-1):2\).
-5. Generates the four order automorphisms of \(C\), composes each with both coordinate projections, and checks equality with the eight singleton maps.
-6. Checks that all four constant maps lie in the unique \(2828\)-map component.
+## correctness
 
-A replay from the exact packaged verifier bytes must print:
+PASS
 
-`VERIFY_OK maps=2836 ideals=430 components=2828+8x1 degree_profile=2828,2,2,2,2 isolated=8_projections`
+The frozen verifier exhaustively enumerates all monotone maps \(T\to C\), and a fresh independent replay reproduced exactly 2,836 maps, component sizes \(2828+8\times1\), and homology profile 2,828 zero maps plus two representatives of each signed coordinate class. The one-coordinate-raise lemma is valid: for comparable \(f\le g\), raising a maximal domain point among coordinates where they differ preserves monotonicity, so graph components equal mapping-poset components. The eight isolated maps are exactly the two coordinate projections composed with the four automorphisms of \(C\). The fixed cocycle evaluation on the two canonical factor circles gives the stated \(H_1\) coefficients.
 
-The verifier certifies only this finite mapping-poset computation. The proof in `RESULT.md` supplies the general finite combinatorial justification for the parametrization and adjacency relation used by the program.
+## originality
+
+PASS
+
+The primary finite-space literature establishes the four-point circle framework and the sixteen-point minimal torus models, but the searches did not locate this exact mapping-poset census, its nine-component decomposition, or the induced-homology profile. A related published SCOPE result on self-maps of the same torus constrains \(H_1\)-actions but does not imply the classification of maps into the four-point circle. Public full-text extraction of the most relevant arXiv topology papers was unavailable in this run after direct attempts, so that access limitation is retained as risk rather than treated as negative evidence.
+
+## value
+
+PASS
+
+This is a natural complete finite classification rather than an arbitrary slice. It quantifies exactly how the unsubdivided minimal finite torus truncates the classical \([T^2,S^1]\cong\mathbb Z^2\) picture, distinguishing one large null component from eight rigid coordinate classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
