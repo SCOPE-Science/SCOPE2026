@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:07:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substituting constant equilibrium controls gives \\(dK_t=(A-\\delta K_t)dt+\\sigma\\sqrt{K_t}\\,dW_t=\\delta(A/\\delta-K_t)dt+\\sigma\\sqrt{K_t}\\,dW_t\\), exactly the classical CIR form. Gordy's primary full text states the conditional transition is noncentral chi-square and the stationary univariate law is Gamma with shape \\(\\theta/\\nu\\) and scale \\(\\nu=\\sigma^2/(2\\kappa)\\). Under \\(\\kappa=\\delta,\\theta=A/\\delta\\), this gives shape \\(2A/\\sigma^2\\) and scale \\(\\sigma^2/(2\\delta)\\). The source's printed formula is independently evidenced as assuming Normality and using \\(1.96D[K_t]\\) after defining \\(D\\) as variance. Fresh SciPy evaluation at the paper's Nash parameters gave \\(A=2.4\\), Gamma\\((30,0.8)\\), mean 24, variance 19.2, quantiles 16.1926992171 and 33.3190699509, and source-band exact coverage 0.999999999676259. The frozen standard-library verifier independently agrees.",
+      "risk": "The displayed numerical interval is only for the Nash stationary benchmark; other regimes have different \\(A\\).",
+      "sources": [
+        "Fan et al., DOI:10.3934/math.2023234",
+        "Gordy, DOI:10.17016/FEDS.2012.12 full screen-reader text",
+        "Gordy, DOI:10.1239/jap/1421763319",
+        "frozen verify.py blob ce035b0c62dfb75abc9d387f563af0e8e60c5015",
+        "fresh independent Gamma-quantile replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The FEDS paper states \\(dX_t=\\kappa(\\theta-X_t)dt+\\sigma\\sqrt{X_t}dW_t\\), says the transition is noncentral chi-square, and gives the stationary Gamma distribution.",
+          "These statements apply for arbitrary positive \\(\\kappa,\\theta,\\sigma\\), hence strictly dominate the game-specific distribution theorem."
+        ],
+        "reasoning": "The general theorem covers the accepted distributional statement by direct parameter identification.",
+        "searches": [
+          "Gordy FEDS 2012 full screen-reader text lines describing the CIR SDE, transition law, and stationary Gamma law",
+          "Gordy 2014 journal version",
+          "classical CIR distribution theory"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2023234",
+        "DOI:10.17016/FEDS.2012.12",
+        "DOI:10.1239/jap/1421763319",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general CIR theorem plus the source's displayed SDE immediately yields the exact finite-time and stationary laws.",
+          "The variance-versus-standard-deviation point follows from the source's own definition of \\(D[K_t]\\) as variance and the textbook Gaussian interval formula."
+        ],
+        "reasoning": "The entire final mathematical correction is implied by the juxtaposition of a classical general theorem with the published model equation; no nonstandard intermediate lemma is required.",
+        "searches": [
+          "Gordy DOI:10.17016/FEDS.2012.12",
+          "Fan et al. DOI:10.3934/math.2023234"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The applied paper's state is a square-root diffusion after equilibrium controls are fixed.",
+          "Gordy identifies that exact square-root/CIR form and its transition/stationary distributions."
+        ],
+        "reasoning": "The source notation, CIR notation, square-root diffusion, stationary Gamma law and confidence-band formulation were explicitly matched.",
+        "searches": [
+          "Resultary query: Fan Tao Zhang open shared data stochastic differential game CIR Gamma confidence interval variance",
+          "DOI:10.3934/math.2023234",
+          "DOI:10.17016/FEDS.2012.12 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nash parameter substitution gives \\(A=2.4\\), shape 30, scale 0.8; the interval then follows from the standard Gamma quantile function."
+        ],
+        "reasoning": "The numerical values are a routine evaluation of a distribution already fixed by classical theory, not a new exact invariant.",
+        "searches": [
+          "Fan et al. primary article and numerical parameter table",
+          "fresh exact/quantile computation from the printed parameters"
+        ]
+      },
+      "rationale": "The source-specific diagnosis is correct, but the mathematical content is directly covered by stronger classical theory. Gordy's full primary text states the exact CIR SDE, the noncentral-chi-square transition law, and the Gamma stationary law for every process of this form. The Fan et al. equilibrium state equation is literally obtained by parameter substitution into that general theorem. Once this identification is made, the stationary parameters and exact interval are routine specialization, while replacing variance by standard deviation in a Gaussian interval is elementary. Under the required implication-based originality rule, the final mathematical claim is therefore a direct application of prior general coverage, even though it exposes an error in the applied paper.",
+      "residual_risks": [
+        "A published erratum to the applied paper could make the source-specific correction itself non-original as well, but stronger classical coverage already decides the originality axis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_HAS_THE_DIAGNOSED_BAND_ERROR",
+          "evidence": "The paper assumes a Normal law for the open-data stock and uses a variance quantity directly as the Gaussian half-width.",
+          "identifier_or_url": "DOI:10.3934/math.2023234",
+          "material_read": "Open publisher article/primary PDF material covering the stochastic-game setup, equilibrium state, moment/risk discussion and numerical benchmark; a public PDF mirror explicitly shows the Normal assumption and \\(E[K_t]\\pm1.96D[K_t]\\) band.",
+          "method": "Lawful open full-text/source inspection.",
+          "title": "Research on open and shared data from government-enterprise cooperation based on a stochastic differential game",
+          "trigger": "Applied source whose uncertainty bands are being corrected."
+        },
+        {
+          "assessment": "STRONGER_GENERAL_RESULT_DIRECTLY_COVERS_DISTRIBUTION_CLAIM",
+          "evidence": "The paper states the exact transition and stationary laws for any positive-parameter square-root/CIR diffusion, of which the game state is a direct parameter instance.",
+          "identifier_or_url": "DOI:10.17016/FEDS.2012.12",
+          "material_read": "Full Federal Reserve screen-reader text, including the defining CIR SDE, conditional noncentral-chi-square statement, and stationary Gamma parameterization.",
+          "method": "Lawful primary full-text inspection.",
+          "title": "On the Distribution of a Discrete Sample Path of a Square-root Diffusion",
+          "trigger": "Potential stronger prior theorem for the exact same diffusion class."
+        },
+        {
+          "assessment": "GENERAL_CIR_COVERAGE",
+          "evidence": "The journal description again identifies conditional noncentral-chi-square and stationary multivariate Gamma laws.",
+          "identifier_or_url": "DOI:10.1239/jap/1421763319",
+          "material_read": "Publisher abstract and bibliographic distribution statement, cross-checked against the full FEDS version for formulas.",
+          "method": "Lawful primary-source inspection.",
+          "title": "Finite-Dimensional Distributions of a Square-Root Diffusion",
+          "trigger": "Journal version of the same stronger distribution theory."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Correcting an applied paper's uncertainty band is useful, but the mathematical work here is a direct textbook identification of a standard CIR SDE, application of its classical distribution theorem, and routine Gamma quantile evaluation; the second error is the elementary distinction between variance and standard deviation. Under the common value bar, this does not supply a new structural lemma, boundary phenomenon, classification, or nontrivial invariant beyond the covered general theory.",
+      "risk": "The correction may still have practical value for readers of the applied paper, but practical error-reporting usefulness is distinct from the audit's scientific-value threshold.",
+      "sources": [
+        "DOI:10.17016/FEDS.2012.12",
+        "DOI:10.3934/math.2023234"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "After equilibrium substitution, the Fan--Tao--Zhang--Fan--Cheng open-data state is a CIR square-root diffusion with noncentral-chi-square transitions and Gamma stationary law; the paper's printed Normal bands are not exact and also use variance rather than standard deviation. In the Nash benchmark the exact stationary 95% equal-tail Gamma interval is approximately \\([16.19269922,33.31906995]\\), not the printed \\([-13.632,61.632]\\).",
+  "limitations": [
+    "This rejection is for prior implication and scientific value, not correctness.",
+    "Exact numerical interval only for the Nash stationary benchmark.",
+    "Other equilibrium regimes require their own parameter substitution."
+  ],
+  "schema_version": 1
+}
