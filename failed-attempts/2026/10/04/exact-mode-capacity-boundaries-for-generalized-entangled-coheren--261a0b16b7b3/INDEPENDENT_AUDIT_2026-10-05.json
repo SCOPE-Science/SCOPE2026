@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:01:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the source normalization equation Ab^2+Bbc+c^2=1, real c exists iff b^2<=4/(4A-B^2), and A-B^2/4 simplifies to d(1-t)(1+dt). Substituting the source linear and nonlinear unconstrained optima and writing s=sqrt(d) gives exactly the two strictly increasing cubics stated, hence iff root boundaries. Independent numerical evaluation at x=16 gives R_L^2 approximately 255.75065 and R_N^2 approximately 17.01439, so capacities 255 and 17. The large-x leading laws are x^2 and x^2/16. The frozen RESULT contains a local malformed TeX expansion `\\frac1004+\\frac18`; the correct expansion is x/4+1/8+O(x^-2). This defect does not change the stated boundary/asymptotic conclusions but is a scientific-text error.",
+      "risks": [
+        "The frozen proof has the malformed intermediate TeX expansion noted above; because the claim fails originality/value, it is not repaired.",
+        "The result addresses normalization feasibility of a formal QFIM optimum, not detector saturation or loss robustness."
+      ],
+      "sources": [
+        "RESULT.md blob f2bd52c52ab16d7fa4c3c4b936d080e0b4e7777f",
+        "verify_ecs_capacity.py blob f39adf470e7baaeb4b36123831c0af006f266557",
+        "arXiv:1409.6167"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary generalized-ECS paper covers the full state/QFIM setup and both linear/nonlinear optima, including their admissible parameter regions.",
+          "The candidate remains within exactly that family and those formulas."
+        ],
+        "reasoning": "The same-object primary source is already broad enough to imply the claim by elementary elimination.",
+        "searches": [
+          "arXiv:1409.6167 full primary paper",
+          "arXiv:1307.7653 multiphase benchmark",
+          "Resultary generalized ECS query"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1409.6167",
+        "DOI:10.1088/1751-8113/49/11/115302",
+        "arXiv:1307.7653",
+        "Resultary generalized-ECS query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After positive cross-multiplication, the source condition b_L^2<=Gamma^2 is exactly A_L s^3+B_L s-x<=0.",
+          "The nonlinear source condition similarly gives A_N s^3+B_N s-g<=0.",
+          "Strict positivity of the coefficients for x>=1 then makes the boundary the unique positive root; this is routine one-variable algebra from prior exact formulas."
+        ],
+        "reasoning": "The prior exact feasibility equations logically imply the final claim with only elementary rearrangement and asymptotic expansion.",
+        "searches": [
+          "Substitute published b_L^2 and Gamma^2 from arXiv:1409.6167",
+          "Substitute published b_N^2 and Gamma^2 from arXiv:1409.6167",
+          "Compare source reachability figures and candidate inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source exact condition is the same feasibility question: the published formal optimum is realizable iff its b* lies within the exact normalization bound Gamma.",
+          "Eliminating Gamma and setting s=sqrt(d) produces the candidate cubic with no additional physical or geometric premise."
+        ],
+        "reasoning": "The cubic-root statement is an equivalent algebraic formulation of the exact published feasibility inequality, not a new independent theorem.",
+        "searches": [
+          "Resultary query: generalized entangled coherent state normalization phase capacity cubic boundary Liu Lu Sun Wang",
+          "arXiv:1409.6167 normalization ellipse and optimal-b sections",
+          "DOI:10.1088/1751-8113/49/11/115302"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source contains exact formulas defining the plotted feasibility regions; the candidate integer examples 255 and 17 are evaluations of that prior region at x=16."
+        ],
+        "reasoning": "The integer capacities are not independent unknown invariants; they are readouts from the already-defined exact region.",
+        "searches": [
+          "Primary paper Figures 2 and 3 reachable/unreachable regions",
+          "Resultary generalized ECS query"
+        ]
+      },
+      "rationale": "The Liu--Lu--Sun--Wang primary paper already supplies the exact normalization ellipse/bound |b|<=Gamma, both exact unconstrained optimal coefficients, and reachable/unreachable regions for those optima. The submitted cubic boundaries are obtained by direct substitution of those published formulas, the change of variable s=sqrt(d), and elementary algebra; the floor capacities and factor-16 asymptotic follow from the same inequality. Under the required implication-level standard, an algebraic reparameterization of an exact published feasibility condition is covered even though the source presents the region graphically rather than naming the cubic roots.",
+      "residual_risks": [
+        "No residual literature uncertainty can rescue originality because the same-object primary formulas already imply the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": [
+            "The exact b* and Gamma formulas in the source are sufficient to derive both submitted cubics and every fixed-x capacity."
+          ],
+          "identifier_or_url": "arXiv:1409.6167 / DOI:10.1088/1751-8113/49/11/115302",
+          "material_read": "Full primary PDF sections containing the normalization ellipse/bound, linear optimum and its reachable region, nonlinear optimum and corresponding reachable region/Figures 2--3.",
+          "method": "Direct full-text formula substitution and implication check.",
+          "title": "Quantum multiparameter metrology with generalized entangled coherent state",
+          "trigger": "Same object, same normalization constraint, and same formal optimum."
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": [
+            "Motivates the multiphase comparison but is not needed for the covering implication."
+          ],
+          "identifier_or_url": "arXiv:1307.7653 / DOI:10.1103/PhysRevLett.111.070403",
+          "material_read": "Primary benchmark statement and protocol context.",
+          "method": "Statement comparison.",
+          "title": "Quantum Enhanced Multiple Phase Estimation",
+          "trigger": "Benchmark cited for generalized NOON multiphase scaling."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The boundary is a direct substitution/reparameterization of the source's exact normalization bound and exact optimizer, followed by routine monotone-cubic algebra. The factor-16 and d=255/17 examples are useful annotations but do not add a motivated structural lemma, new physical obstruction, or nonmechanical classification beyond the already-defined feasible region. The user standard explicitly rejects textbook substitutions and tiny algebraic restatements even when correct.",
+      "risks": [
+        "The frozen malformed TeX expansion further reduces publication quality but is not the reason for the V rejection."
+      ],
+      "sources": [
+        "arXiv:1409.6167",
+        "RESULT.md blob f2bd52c52ab16d7fa4c3c4b936d080e0b4e7777f"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientifically rejected for prior implication/routine value, not for transport or literature access. Main feasibility formulas are correct; the frozen proof also contains a malformed intermediate TeX expansion."
+  ],
+  "schema_version": 1
+}
