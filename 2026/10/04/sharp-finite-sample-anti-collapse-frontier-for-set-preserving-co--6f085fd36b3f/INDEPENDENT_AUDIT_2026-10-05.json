@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:01:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 27206f5697e16d4f4280dd42eae3e30c8fcc1ee7",
+        "assigned verify_floor.py blob 11825e5afe799441f3bc5439bccd31dec4c4ac93",
+        "Alami--Zakharia--Ben Taieb, PMLR 306 (2026), arXiv:2606.03600"
+      ],
+      "rationale": "Let \\(e_j=F(j/N)\\) and \\(m=\\min_j e_j\\). Exact decision preservation forces the first \\(k\\) values to be at least \\(1/\\alpha\\), while every tail value is at least \\(m\\). Exact e-validity on the uniform rank grid gives \\(N=\\sum_j e_j\\ge k/\\alpha+(N-k)m\\), hence the stated \\(m^*\\). Equality forces every head value to equal \\(1/\\alpha\\) and every tail value to equal the common minimum, so the optimizer is unique on the grid. When \\(\\alpha N\\) is integral, the first \\(k\\) values already exhaust the total expectation, forcing every tail value to zero. The bundled rational checker validates representative lattice and nonlattice cases; the theorem itself is the exact normalization argument.",
+      "residual_risks": [
+        "The theorem assumes the tie-free uniform conformal rank grid and optimizes only the worst-rank floor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The located primary material establishes set-preserving calibration as a new conformal objective; classical p-to-e theory treats general validity but not the finite-rank decision-equivalent max-min problem."
+        ],
+        "reasoning": "No inspected broader theorem states the exact \\(m^*\\) frontier.",
+        "searches": [
+          "Alami--Zakharia--Ben Taieb 2026",
+          "Vovk--Wang general p-to-e calibration theory"
+        ]
+      },
+      "checked_sources": [
+        "PMLR 306:1680-1705",
+        "arXiv:2606.03600",
+        "Vovk--Wang arXiv:1912.06116",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of a smooth positive calibrator does not determine the largest possible minimum grid value or the uniqueness of the max-min optimizer."
+        ],
+        "reasoning": "The normalization extremal argument supplies an additional sharp impossibility statement.",
+        "searches": [
+          "positive set-preserving calibrator existence versus optimal worst-rank floor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source has the same conformal rank-grid/set-preservation objective and proposes a positive P2E calibrator.",
+          "The audited objective \\(m(F)=\\min_jF(j/N)\\) asks for the best uniform anti-collapse reserve across all exact set-preserving grid calibrators."
+        ],
+        "reasoning": "This max-min extremal question is not the same as existence, smoothness, invertibility, or empirical efficiency of one constructed calibrator.",
+        "searches": [
+          "Resultary query: set preserving conformal p to e finite grid minimum e value anti collapse",
+          "Alami--Zakharia--Ben Taieb PMLR 306 page and arXiv:2606.03600"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact \\(m^*\\) formula or two-level max-min theorem was retrieved in the current results."
+        ],
+        "reasoning": "This is supporting evidence only.",
+        "searches": [
+          "Resultary current anti-collapse/set-preserving calibration search"
+        ]
+      },
+      "rationale": "The 2026 PMLR paper introduces the same set-preserving p-to-e problem and motivates strictly positive calibration, but the accessible primary page states construction and efficiency results rather than the max-min grid frontier. The audited theorem optimizes over the larger class of all positive exact grid calibrators and produces a sharp worst-rank ceiling and the lattice impossibility. The PDF link returned an unsupported-content transport error in this run, so full-body noncoverage is not claimed and overlap remains a residual risk.",
+      "residual_risks": [
+        "The inaccessible primary body could contain a related finite-grid bound not exposed by its abstract or indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_PROBLEM_FULL_BODY_ACCESS_RISK",
+          "evidence": "The accessible primary material states the set-preserving P2E construction and efficiency motivation but does not expose the audited max-min floor theorem.",
+          "identifier_or_url": "PMLR 306:1680-1705 (2026); arXiv:2606.03600",
+          "material_read": "official PMLR primary landing page and abstract; the official PDF link was attempted but returned an unsupported-content transport error in this run",
+          "method": "primary-source abstract/landing-page inspection with full-text access limitation",
+          "title": "Set-Preserving Calibration from Conformal P-Values to E-Values",
+          "trigger": "same finite conformal calibration problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Alami--Zakharia--Ben Taieb 2026",
+        "assigned RESULT/verifier"
+      ],
+      "rationale": "The worst-rank reserve is directly motivated by the source's positivity/anti-collapse goal: a single zero can collapse products of e-values. The exact max-min frontier quantifies how much uniform positivity is fundamentally possible, shows unavoidable \\(O(N^{-1})\\) decay, and identifies the unique grid optimizer. Although the proof is elementary normalization, the invariant is natural for the motivating application and the result is a sharp finite-sample boundary.",
+      "residual_risks": [
+        "The result does not compare power or log-growth under alternatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem assumes the tie-free uniform conformal rank grid and optimizes only the worst-rank floor.",
+    "The inaccessible primary body could contain a related finite-grid bound not exposed by its abstract or indexing.",
+    "The result does not compare power or log-growth under alternatives."
+  ]
+}

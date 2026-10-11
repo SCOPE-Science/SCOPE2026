@@ -1,23 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Let \(e_j=F(j/N)\) and \(m=\min_j e_j\). Set preservation forces the first \(k=\lfloor\alpha N\rfloor\) values to be at least \(1/\alpha\), while all remaining values are at least \(m\). Exactness therefore forces
-\[
-N\ge \frac{k}{\alpha}+(N-k)m,
-\]
-which gives the claimed upper bound. The two-level construction attains equality, and equality in the sum inequality characterizes it uniquely on the grid. The lattice case follows because the threshold block alone exhausts the entire exactness budget.
+PASS
 
-## Originality
+Let \(e_j=F(j/N)\) and \(m=\min_j e_j\). Exact decision preservation forces the first \(k\) values to be at least \(1/\alpha\), while every tail value is at least \(m\). Exact e-validity on the uniform rank grid gives \(N=\sum_j e_j\ge k/\alpha+(N-k)m\), hence the stated \(m^*\). Equality forces every head value to equal \(1/\alpha\) and every tail value to equal the common minimum, so the optimizer is unique on the grid. When \(\alpha N\) is integral, the first \(k\) values already exhaust the total expectation, forcing every tail value to zero. The bundled rational checker validates representative lattice and nonlattice cases; the theorem itself is the exact normalization argument.
 
-PASS with residual literature risk. The inspected Alami–Zakharia–Ben Taieb paper proves existence of positive smooth set-preserving P2E calibrators in the non-lattice case, discusses the product-collapse problem caused by zeros, proves pointwise domination over the all-or-nothing calibrator, and establishes convergence toward all-or-nothing as \(n\) grows. The inspected material does not state the sharp finite-\(N\) optimization of the minimum grid e-value, its unique two-level optimizer, or the explicit \(O(1/N)\) ceiling.
+## originality
 
-Targeted published-finding corpus searches for set-preserving conformal p-to-e calibration, worst-case minimum e-value, product-collapse floors, and the lattice boundary returned no equivalent published finding. Web searches for “minimum e-value” and “worst-case e-value” calibrator formulations likewise exposed the motivating calibration literature but no theorem matching this finite-grid maximin statement.
+PASS
 
-A residual risk remains that the same elementary extremal calculation appears in an unindexed note, appendix, or discussion under different terminology.
+The 2026 PMLR paper introduces the same set-preserving p-to-e problem and motivates strictly positive calibration, but the accessible primary page states construction and efficiency results rather than the max-min grid frontier. The audited theorem optimizes over the larger class of all positive exact grid calibrators and produces a sharp worst-rank ceiling and the lattice impossibility. The PDF link returned an unsupported-content transport error in this run, so full-body noncoverage is not claimed and overlap remains a residual risk.
 
-## Value
+## value
 
-PASS. Strict positivity is presented in the motivating paper as a remedy for the destructive zero values of the all-or-nothing calibrator in product-based evidence accumulation. The new theorem gives the exact finite-sample limit of that remedy: positivity can avoid literal zero off the lattice, but exact set preservation cannot guarantee a worst-rank reserve larger than \(m^*\), and \(m^*\) is at most order \(1/N\). This is a directly interpretable design limitation and supplies a sharp benchmark for any smooth positive calibrator.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The worst-rank reserve is directly motivated by the source's positivity/anti-collapse goal: a single zero can collapse products of e-values. The exact max-min frontier quantifies how much uniform positivity is fundamentally possible, shows unavoidable \(O(N^{-1})\) decay, and identifies the unique grid optimizer. Although the proof is elementary normalization, the invariant is natural for the motivating application and the result is a sharp finite-sample boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
