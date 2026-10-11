@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For a factual truth set \(X\subseteq W\), the update on one accessibility row is
-\[
-C_X(S)=
-\begin{cases}
-S\cup X^c,&S\subseteq X,\\
-S,&S\not\subseteq X.
-\end{cases}
-\]
+# Independent mathematical audit
 
-The proof checks idempotence directly and establishes
-\[
-C_XC_Y=C_YC_X
-\quad\Longleftrightarrow\quad
-X=Y\ \text{or}\ X\cup Y=W
-\]
-as an identity of maps on \(\mathcal P(W)\). The noncommuting direction is witnessed by the empty row.
+## correctness
 
-The bundled `verify.py` exhaustively tests all triples \((X,Y,S)\) for carriers of sizes \(1\) through \(7\). It separately counts commuting ordered pairs through carrier size \(8\) and checks the closed form \(2^N+3^N-1\). It also confirms the propositional counts \(12,96,6816\) for one, two, and three variables.
+PASS
 
-## Limits
+For a fixed factual truth set X, one row is updated by C_X(S)=S union X^c when S is contained in X and is otherwise fixed. Idempotence follows immediately. If X=Y or X union Y=W, a complete rowwise case split gives commutation. Conversely, if X differs from Y and their union is not W, the empty row yields X^c in one order and Y^c in the other. The propositional universal criterion follows by combining a valuation where the formulas differ with one where both are false. Inclusion-exclusion counts equal pairs and covering pairs as 2^N+3^N-1 for N=2^n. A fresh independent exhaustive check through five-world carriers reproduced the iff law.
 
-The checker is corroborative. The proof, not the finite enumeration, establishes the general set-map theorem. The result does not cover modal contraction inputs.
+## originality
+
+PASS
+
+Belardinelli--Zhang introduce the row-expansion contraction and study its one-step logical properties and event composition, but the checked public full-text material/searches did not surface the exact factual pairwise commutation theorem or census. The audited theorem reduces the operator to an exact set map and classifies its semigroup interaction; no stronger checked contraction theorem implied the iff condition.
+
+## value
+
+PASS
+
+Commutation and idempotence are natural structural questions for iterated belief change. The exact universal criterion sharply separates compatible factual contractions and the census quantifies how rare noninteraction becomes over finite propositional vocabularies; this is a reusable algebraic property of the new operator rather than a cosmetic reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

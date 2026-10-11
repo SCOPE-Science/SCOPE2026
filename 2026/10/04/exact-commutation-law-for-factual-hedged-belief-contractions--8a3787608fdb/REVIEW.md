@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a factual input, the valuation and therefore its truth set are invariant under contraction. Each accessibility row is consequently transformed by the explicit subset map \(C_X\). The proof classifies two such maps completely: equal truth sets commute trivially; covering truth sets commute by a four-case subset analysis; and if the sets are distinct and fail to cover, the empty row separates the two orders. The source explicitly permits unconstrained doxastic relations, so the empty-row witness is admissible.
+PASS
 
-Idempotence follows directly from the same row map. The propositional converse is obtained from two Boolean valuations, and the counting formula is a direct inclusion-exclusion count. The bundled exhaustive checker agrees on all small carriers tested.
+For a fixed factual truth set X, one row is updated by C_X(S)=S union X^c when S is contained in X and is otherwise fixed. Idempotence follows immediately. If X=Y or X union Y=W, a complete rowwise case split gives commutation. Conversely, if X differs from Y and their union is not W, the empty row yields X^c in one order and Y^c in the other. The propositional universal criterion follows by combining a valuation where the formulas differ with one where both are false. Inclusion-exclusion counts equal pairs and covering pairs as 2^N+3^N-1 for N=2^n. A fresh independent exhaustive check through five-world carriers reproduced the iff law.
 
-## Originality
+## originality
 
-PASS. The closest primary source defines the row-expansion contraction mechanism, proves one-step properties, and embeds it in a generalized event formalism with event composition. The checked text does not state the pairwise commutation law for factual inputs, universal model-transform idempotence in this form, or the exact finite census.
+PASS
 
-A separate recent paper by Baltag, Fiutek, and Smets studies three contraction operations on epistemic plausibility models. Its update mechanisms are different and do not imply the row-map classification here. Candidate-specific published-finding and literature searches for commutation, idempotence, iteration, and hedged public announcements did not locate an equivalent theorem.
+Belardinelli--Zhang introduce the row-expansion contraction and study its one-step logical properties and event composition, but the checked public full-text material/searches did not surface the exact factual pairwise commutation theorem or census. The audited theorem reduces the operator to an exact set map and classifies its semigroup interaction; no stronger checked contraction theorem implied the iff condition.
 
-## Value
+## value
 
-PASS. Order sensitivity is a central structural issue for iterated belief change. The theorem gives a complete and easily testable criterion for the new contraction operator on the factual fragment, identifies the exact obstruction to reordering, and quantifies how sparse noncommutation is over finite propositional vocabularies. This provides a natural algebraic baseline for the harder modal-input case.
+PASS
 
-## Closest literature and limitations
+Commutation and idempotence are natural structural questions for iterated belief change. The exact universal criterion sharply separates compatible factual contractions and the census quantifies how rare noninteraction becomes over finite propositional vocabularies; this is a reusable algebraic property of the new operator rather than a cosmetic reformulation.
 
-Belardinelli and Zhang (2026) supply the exact contraction semantics and the unconstrained model class. Baltag, Fiutek, and Smets (2026) provide the closest contemporary comparison for iterated contraction, but in a plausibility semantics with different operations.
-
-The result is intentionally limited to factual inputs and to universal commutation over the unconstrained Kripke class.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
