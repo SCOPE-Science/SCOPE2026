@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_bucklin6_noshow.py` is an exact finite replay using only the Python standard library.
 
-It generates every anonymous three-candidate profile through six voters as a weak composition into the six strict ranking types. For each profile it tests every positive homogeneous abstention group and evaluates whether the abstainers strictly prefer the post-abstention winner.
+# Independent mathematical audit
 
-Two winner implementations are checked against one another on every full and reduced profile. One follows literal Bucklin rank depths; the other uses the three-candidate identity that, absent a strict first-place majority, the depth-two winner is the unique candidate with the fewest last-place votes.
+## correctness
 
-A second traversal begins from post-abstention profiles and adds homogeneous groups. Its event set must equal the profile-first event set exactly.
+PASS
 
-The replay verifies zero no-show events through five voters and exactly eighteen at six voters, with eighteen distinct bad profiles, one abstainer in every event, three candidate-relabeling classes of size six, the normalized family \((1,t,0,3,2-t,0)\) for \(t\in\{0,1,2\}\), and incidence fractions \(3/77\) and \(6/139\).
+Fresh exhaustive replay over all anonymous strict three-candidate profiles found zero Bucklin no-show events for electorates of size at most five and exactly 18 bad profiles at six voters. All 18 events use a single abstainer. Normalizing the abstainer to rank A>B>C gives exactly the three profiles (1,t,0,3,2-t,0) for t=0,1,2; candidate relabeling gives three orbits of size six. There are 462 anonymous six-voter profiles and 417 with unique Bucklin winner, so the two exact incidences are 3/77 and 6/139.
 
-Run:
+## originality
 
-`python3 verify_bucklin6_noshow.py`
+PASS
 
-The first line must be:
+Brandt, Matthäus and Saile already prove that the Bucklin No-Show Paradox first appears with three candidates and six voters, so the minimum itself is prior art. Their full article and summary table do not state the complete anonymous six-voter census, its 18 profiles, the three relabeling classes, or the exact incidence fractions. Targeted Resultary and web searches found no prior equivalent boundary classification.
 
-`VERIFY_OK`
+## value
+
+PASS
+
+A complete classification at the exact minimal paradox boundary is a natural finite object: it gives every witness, symmetry classes, abstention size and exact incidence rather than one counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
