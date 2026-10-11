@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The alternating-gradient first moment is an exact geometric series. The second moment becomes a bias-corrected exponentially weighted average of its square plus the exact accumulated damping floor, giving the stated limit. The raw-gradient ablation is exactly solvable because the squared input is constant. The restoration factor and its endpoint limits follow algebraically.
+PASS
 
-Risk: the theorem is an input-response result and does not assert convergence on a single fixed objective.
+Solving the first EMA under \(g_t=(-1)^{t-1}G\) gives \(m_t=(-1)^{t-1}aG(1-(-\beta_1)^t)\) with \(a=(1-\beta_1)/(1+\beta_1)\). Squaring removes the alternating sign, so the bias-corrected second EMA tends to \(a^2G^2+\varepsilon/(1-\beta_2)\). The raw-gradient control has the exact denominator \(G^2+\varepsilon/(1-\beta_2)\). The ratio and its derivative in \(G^2\) are therefore correct, including the zero-damping cancellation and the factor nineteen at \(\beta_1=0.9\). An independent long recurrence replay at the source table parameters matched the closed-form amplitude to better than \(10^{-10}\).
 
-## Originality
+## originality
 
-PASS. The defining AdaMomentum paper gives the momentum-squared second moment and calls it a twofold EMA, but the inspected algorithm, motivation, theory, and appendix do not state the alternating-gradient attenuation cancellation. The closest inspected momentum/adaptivity analysis uses the different LaProp recurrence. Focused published-record searches found no implication-equivalent AdaMomentum result.
+PASS
 
-Residual risk: an equivalent short frequency-response calculation may exist in unindexed notes.
+Best-of-knowledge originality survives. The complete AdaMomentum text was searched for alternating/oscillatory-gradient analysis and contains none; it motivates replacing raw squares with momentum squares through loss-curve smoothing and proves convergence/generalization results instead. LaProp studies a different momentum/adaptivity coupling and instability regime. Resultary returned no implication-equivalent periodic-response theorem.
 
-## Value
+## value
 
-PASS. The result tests AdaMomentum's defining twofold-EMA mechanism at the frequency most strongly attenuated by ordinary momentum. It shows that adaptive normalization can exactly undo that attenuation, with a signal-dominated restoration factor \((1+\beta_1)/(1-\beta_1)\), equal to \(19\) at \(\beta_1=0.9\). This is a direct, interpretable design diagnostic for the method's core normalization.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+A pure alternating signal is the canonical highest-frequency diagnostic for a momentum filter. The exact result exposes a non-obvious cancellation in the optimizer actually introduced by the source, quantifies the signal-to-damping crossover, and shows that nominal first-moment smoothing can disappear after adaptive normalization. This is a motivated optimizer-dynamics boundary rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:00:11.623301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py",
+        "independent recurrence replay",
+        "Wang et al. arXiv:2106.11514 full textual rendering"
+      ],
+      "rationale": "Solving the first EMA under \\(g_t=(-1)^{t-1}G\\) gives \\(m_t=(-1)^{t-1}aG(1-(-\\beta_1)^t)\\) with \\(a=(1-\\beta_1)/(1+\\beta_1)\\). Squaring removes the alternating sign, so the bias-corrected second EMA tends to \\(a^2G^2+\\varepsilon/(1-\\beta_2)\\). The raw-gradient control has the exact denominator \\(G^2+\\varepsilon/(1-\\beta_2)\\). The ratio and its derivative in \\(G^2\\) are therefore correct, including the zero-damping cancellation and the factor nineteen at \\(\\beta_1=0.9\\). An independent long recurrence replay at the source table parameters matched the closed-form amplitude to better than \\(10^{-10}\\).",
+      "reason": "Solving the first EMA under \\(g_t=(-1)^{t-1}G\\) gives \\(m_t=(-1)^{t-1}aG(1-(-\\beta_1)^t)\\) with \\(a=(1-\\beta_1)/(1+\\beta_1)\\). Squaring removes the alternating sign, so the bias-corrected second EMA tends to \\(a^2G^2+\\varepsilon/(1-\\beta_2)\\). The raw-gradient control has the exact denominator \\(G^2+\\varepsilon/(1-\\beta_2)\\). The ratio and its derivative in \\(G^2\\) are therefore correct, including the zero-damping cancellation and the factor nineteen at \\(\\beta_1=0.9\\). An independent long recurrence replay at the source table parameters matched the closed-form amplitude to better than \\(10^{-10}\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source analyses general loss-curve regimes but does not derive this frequency response.",
+          "Nearby Adam/LaProp stability literature addresses mismatched decay parameters and other dynamics rather than the momentum-squared cancellation formula."
+        ],
+        "reasoning": "No inspected broader theorem specializes to the exact restoration factor.",
+        "searches": [
+          "AdaMomentum full source",
+          "LaProp momentum/adaptivity analysis",
+          "focused web search for Adam periodic-gradient frequency response"
+        ]
+      },
+      "checked_sources": [
+        "AdaMomentum full preprint text",
+        "LaProp source material",
+        "Resultary semantic search",
+        "focused web search for periodic/alternating gradients"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The algorithm definition supplies the recurrence but the source theorems do not determine this periodic steady-state comparison as a stated corollary.",
+          "Deriving the response requires solving both coupled EMAs and comparing the momentum-squared and raw-square normalizers."
+        ],
+        "reasoning": "Unlike the AdaGrad-Diff case, no prior convergence theorem collapses the result to an immediate special-case consequence; the periodic response calculation is the substantive claim.",
+        "searches": [
+          "Does source Algorithm 1 plus a published theorem already state the alternating steady state?",
+          "Does LaProp imply the same normalized amplitude?"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AdaMomentum Algorithm 1 exactly matches the recurrence audited here.",
+          "The source contains no alternating or oscillating signal theorem.",
+          "LaProp separates normalization and momentum in a different algorithm and does not give the audited twofold-EMA response."
+        ],
+        "reasoning": "The audited claim is an exact periodic input-response law, not a restatement of the source convergence or generalization theory.",
+        "searches": [
+          "Resultary semantic query: AdaMomentum alternating gradient frequency response momentumized second moment restoration factor",
+          "arXiv:2106.11514 full-text search for alternating and oscillating",
+          "LaProp arXiv:2002.04839"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior Resultary finding matched the AdaMomentum alternating-gradient response."
+        ],
+        "reasoning": "There is no standard table; the relevant check is theorem-level search.",
+        "searches": [
+          "Resultary exact/semantic search for restoration factor and alternating gradient"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives. The complete AdaMomentum text was searched for alternating/oscillatory-gradient analysis and contains none; it motivates replacing raw squares with momentum squares through loss-curve smoothing and proves convergence/generalization results instead. LaProp studies a different momentum/adaptivity coupling and instability regime. Resultary returned no implication-equivalent periodic-response theorem.",
+      "reason": "Best-of-knowledge originality survives. The complete AdaMomentum text was searched for alternating/oscillatory-gradient analysis and contains none; it motivates replacing raw squares with momentum squares through loss-curve smoothing and proves convergence/generalization results instead. LaProp studies a different momentum/adaptivity coupling and instability regime. Resultary returned no implication-equivalent periodic-response theorem.",
+      "residual_risks": [
+        "A control-theoretic optimizer paper could encode the same Nyquist response under transfer-function language without naming AdaMomentum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_NOT_COVERING",
+          "evidence": "Algorithm 1 confirms the exact recurrence and epsilon placement; the paper does not state the alternating-gradient frequency response.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.11514",
+          "material_read": "complete public textual rendering, including Algorithm 1, motivation, Sections 3–4 and appendices searchable for alternating/oscillatory terms",
+          "method": "lawful open-access preprint rendering",
+          "title": "Rethinking Adam: A Twofold Exponential Moving Average Approach",
+          "trigger": "defining primary source for AdaMomentum"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_MECHANISM",
+          "evidence": "It studies decoupling and hyperparameter mismatch, not AdaMomentum momentum-squared second moments or the exact Nyquist-frequency restoration factor.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04839",
+          "material_read": "public abstract and theory summary",
+          "method": "lawful open-access material",
+          "title": "LaProp: Separating Momentum and Adaptivity in Adam",
+          "trigger": "closest prior work on interaction of momentum and adaptive normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "AdaMomentum motivation and algorithm",
+        "LaProp coupling context"
+      ],
+      "rationale": "A pure alternating signal is the canonical highest-frequency diagnostic for a momentum filter. The exact result exposes a non-obvious cancellation in the optimizer actually introduced by the source, quantifies the signal-to-damping crossover, and shows that nominal first-moment smoothing can disappear after adaptive normalization. This is a motivated optimizer-dynamics boundary rather than an arbitrary numerical slice.",
+      "reason": "A pure alternating signal is the canonical highest-frequency diagnostic for a momentum filter. The exact result exposes a non-obvious cancellation in the optimizer actually introduced by the source, quantifies the signal-to-damping crossover, and shows that nominal first-moment smoothing can disappear after adaptive normalization. This is a motivated optimizer-dynamics boundary rather than an arbitrary numerical slice.",
+      "residual_risks": [
+        "The result is an input-response law, not a fixed-objective convergence theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
