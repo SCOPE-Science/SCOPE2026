@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:03:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2c766493c2173566c2ebd11e5bbb4edc7aab2561",
+        "assigned verify.py blob 9c96dd59b4cd52008cf5579fd4ac04a0e521989e",
+        "Fokkink--Papavassiliou--Pelekis, arXiv:2011.11795"
+      ],
+      "rationale": "Let \\(S\\sim\\operatorname{Bin}(2k+m,p)\\) and \\(Y\\sim\\operatorname{Bin}(2,p)\\) be independent. Conditioning on the only two boundary values of \\(S\\) gives \\(\\Delta=\\Pr(S=k)(1-p)^2-\\Pr(S=k-1)p^2\\). The exact neighboring-mass ratio is \\(\\Pr(S=k-1)/\\Pr(S=k)=[k/(k+m+1)](1-p)/p\\), hence \\(\\Delta=\\Pr(S=k)(1-p)[(1-p)-kp/(k+m+1)]\\). All prefactors are positive for \\(0<p<1\\), so the unique interior zero is \\(p^*=(k+m+1)/(2k+m+1)\\) with the stated sign change; the endpoint zeros follow directly. Independent exact-rational checks over multiple \\(k,m\\) pairs reproduced the factorization and signs.",
+      "residual_risks": [
+        "The theorem is specific to adding exactly two Bernoulli trials."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general \\(n\\)-block theorem supplies only \\(p\\le1/n\\); accessible older descriptions concern related monotonicity and median/Poisson comparisons."
+        ],
+        "reasoning": "No inspected broader result yields the displayed exact \\(n=2\\) root.",
+        "searches": [
+          "Fokkink et al. general block-size theorem",
+          "Anderson--Samuels and Jogdeo--Samuels related binomial monotonicity literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2011.11795",
+        "Anderson--Samuels 1967 metadata",
+        "Jogdeo--Samuels 1968 metadata",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.3 stops at the universal sufficient region \\(p\\le1/2\\); the audited conditioning identity determines the sign on the entire unit interval and shows the prior range is strictly nonsharp."
+        ],
+        "reasoning": "The exact threshold requires exploiting the two-trial boundary structure.",
+        "searches": [
+          "Fokkink Theorem 3.3 versus the exact two-trial factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source compares \\(\\Pr(\\operatorname{Bin}(nk+m,p)\\ge k)\\) with the next block and therefore specializes exactly to the audited \\(n=2\\) statistic."
+        ],
+        "reasoning": "The audited theorem sharpens the same comparison from a sufficient interval to the exact two-trial sign threshold.",
+        "searches": [
+          "Resultary query: two trial Chaundy Bullard binomial tail exact probability threshold",
+          "Fokkink--Papavassiliou--Pelekis arXiv:2011.11795, Theorem 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent same-formula threshold record was retrieved."
+        ],
+        "reasoning": "Search absence is supporting evidence, not a novelty proof.",
+        "searches": [
+          "Resultary exact search for \\((k+m+1)/(2k+m+1)\\) in the Chaundy-Bullard step",
+          "targeted web exact-formula search"
+        ]
+      },
+      "rationale": "Fokkink, Papavassiliou, and Pelekis study the same successive binomial-tail comparison. Their full primary text defines the same gap and Theorem 3.3 proves the sufficient interval \\(p\\in[0,1/n]\\); at block size two this is only \\(p\\le1/2\\). Their calculus proof discusses the shape of the gap function but does not state the exact two-trial zero \\(p^*_{k,m}>1/2\\) or the full if-and-only-if sign classification. Current Resultary and exact-formula searches found no prior all-\\(k,m\\) threshold. Older Anderson--Samuels/Jogdeo--Samuels work is a residual historical risk because not all original full text was inspected.",
+      "residual_risks": [
+        "The older binomial-monotonicity literature was not exhaustively inspected in full text and could contain an equivalent two-trial specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BLOCK_SUFFICIENT_RANGE_PRIOR_EXACT_TWO_TRIAL_THRESHOLD_NOT_STATED",
+          "evidence": "Theorem 3.3 proves only \\(p\\le1/n\\); its text explicitly presents this as a generalization of the Chaundy-Bullard range.",
+          "identifier_or_url": "arXiv:2011.11795",
+          "material_read": "full primary text around Corollary 3.2, the gap function, and Theorem 3.3 including its derivative proof",
+          "method": "primary full-text inspection",
+          "title": "Some inequalities on Binomial and Poisson probabilities",
+          "trigger": "closest same-statistic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fokkink et al. 2020",
+        "assigned exact proof"
+      ],
+      "rationale": "The result gives the sharp finite-sample cutoff for a named classical binomial-tail monotonicity step and quantifies exactly how far the current general theorem's \\(1/2\\) range can be extended. Such a sharp threshold is a natural boundary invariant even though the proof becomes elementary for block size two.",
+      "residual_risks": [
+        "No analogous closed threshold for larger block sizes is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is specific to adding exactly two Bernoulli trials.",
+    "The older binomial-monotonicity literature was not exhaustively inspected in full text and could contain an equivalent two-trial specialization.",
+    "No analogous closed threshold for larger block sizes is claimed."
+  ]
+}

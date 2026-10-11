@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof was checked by reconstructing the conditioning identity for an independent \(\operatorname{Bin}(2,p)\) increment and the adjacent binomial-mass ratio. Their substitution yields the exact sign factor whose unique interior zero is \(p=(k+m+1)/(2k+m+1)\).
+# Independent mathematical audit
 
-`verify.py` uses only the Python standard library. It computes the two tail probabilities exactly as rational numbers for \(1\le k\le8\), \(0\le m\le5\), verifies the closed factorization, equality at the threshold, strict signs on either side, and the formula for the threshold's excess over \(1/2\). Running the file returns `VERIFY_OK`.
+## correctness
 
-The computation is a stress test only. No finite enumeration is used to justify the theorem for unbounded \(k\) or \(m\). The literature check establishes only the inspected-source comparison described in the accompanying review and does not certify historical uniqueness.
+PASS
+
+Let \(S\sim\operatorname{Bin}(2k+m,p)\) and \(Y\sim\operatorname{Bin}(2,p)\) be independent. Conditioning on the only two boundary values of \(S\) gives \(\Delta=\Pr(S=k)(1-p)^2-\Pr(S=k-1)p^2\). The exact neighboring-mass ratio is \(\Pr(S=k-1)/\Pr(S=k)=[k/(k+m+1)](1-p)/p\), hence \(\Delta=\Pr(S=k)(1-p)[(1-p)-kp/(k+m+1)]\). All prefactors are positive for \(0<p<1\), so the unique interior zero is \(p^*=(k+m+1)/(2k+m+1)\) with the stated sign change; the endpoint zeros follow directly. Independent exact-rational checks over multiple \(k,m\) pairs reproduced the factorization and signs.
+
+## originality
+
+PASS
+
+Fokkink, Papavassiliou, and Pelekis study the same successive binomial-tail comparison. Their full primary text defines the same gap and Theorem 3.3 proves the sufficient interval \(p\in[0,1/n]\); at block size two this is only \(p\le1/2\). Their calculus proof discusses the shape of the gap function but does not state the exact two-trial zero \(p^*_{k,m}>1/2\) or the full if-and-only-if sign classification. Current Resultary and exact-formula searches found no prior all-\(k,m\) threshold. Older Anderson--Samuels/Jogdeo--Samuels work is a residual historical risk because not all original full text was inspected.
+
+## value
+
+PASS
+
+The result gives the sharp finite-sample cutoff for a named classical binomial-tail monotonicity step and quantifies exactly how far the current general theorem's \(1/2\) range can be extended. Such a sharp threshold is a natural boundary invariant even though the proof becomes elementary for block size two.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
