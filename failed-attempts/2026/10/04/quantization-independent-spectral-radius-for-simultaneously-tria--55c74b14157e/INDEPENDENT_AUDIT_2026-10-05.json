@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:49:08Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 81b7da86675e9e009f78609c9eee6498af955002",
+        "Scherer--Shalit--Shamovich, arXiv:2605.09354, commuting formula and quantization-dependence setup.",
+        "Shalit--Shamovich, arXiv:2501.01325 / Advances in Mathematics 479 (2025), similarity characterization."
+      ],
+      "rationale": "The similarity characterization converts the radius into the infimum of matrix norm over scalar similarities. In a common upper-triangular basis, diagonal scaling suppresses all strict upper entries and yields the upper bound by Ruan's direct-sum axiom. A norming scalar functional on the Banach space is completely bounded with the same norm; after amplification, the resulting scalar upper-triangular matrix retains the selected diagonal value as an eigenvalue under every similarity, proving the reverse bound. Lie's theorem gives the solvable-Lie corollary.",
+      "risks": [
+        "Finite-dimensional complex matrices only; the result does not address the minimal spectral radius."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 theorem characterizes the radius through simultaneous scalar similarity into operator-space balls for arbitrary tuples.",
+          "The 2026 paper confirms the same radius and underlying-norm setting."
+        ],
+        "reasoning": "The 2025 result is broader at the machinery level and, combined with textbook triangularization, mechanically yields the submitted formula.",
+        "searches": [
+          "Shalit--Shamovich arXiv:2501.01325 similarity theorem",
+          "Scherer--Shalit--Shamovich arXiv:2605.09354"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2605.09354",
+        "arXiv:2501.01325"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diagonal scaling sends every strict upper entry to zero while preserving diagonal characters.",
+          "A norming scalar functional detects each diagonal character under every similarity."
+        ],
+        "reasoning": "These standard steps complete the claim directly from the published similarity theorem, so the final theorem is covered at implication level even without matching wording.",
+        "searches": [
+          "arXiv:2501.01325 similarity characterization",
+          "standard diagonal scaling for upper-triangular matrices",
+          "standard norming functional and Lie theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returns the audited record as the exact phrasing.",
+          "The focal 2026 paper explicitly gives quantization independence for commuting tuples but the more general 2025 similarity characterization is the decisive prior input."
+        ],
+        "reasoning": "Equivalent formulations through upper-triangular tuples, solvable generated Lie algebras, and diagonal characters were checked.",
+        "searches": [
+          "Resultary: Shalit Shamovich operator space spectral radius simultaneously triangularizable solvable Lie algebra quantization independent diagonal characters",
+          "web: On the spectral radius of operator tuples triangularizable solvable Lie"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent database row is needed for the failure decision; coverage follows from the published general theorem plus standard facts."
+        ],
+        "reasoning": "The claim is not an empirical table entry.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "The statement is a direct corollary of already-published general machinery plus standard triangular-matrix facts. The 2025 similarity characterization applies to arbitrary matrix tuples, not merely commuting ones. Once a tuple is simultaneously triangularized, the standard diagonal contraction and a norming functional give the exact diagonal-character formula immediately; Lie's theorem then turns simultaneous triangularizability into the solvable-Lie formulation. The 2026 paper's headline theorem stops at commuting tuples, but absence of the word 'triangularizable' does not make this routine implication original.",
+      "residual_risks": [
+        "None material to the failure decision: even if no paper states the triangularizable corollary verbatim, it is mechanically implied by the cited general theorem and standard linear algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COMMUTING_HEADLINE_ONLY; NOT_DECISIVE_FOR_FAILURE",
+          "evidence": [
+            "The abstract states quantization independence for commuting tuples and dependence for some general tuples."
+          ],
+          "identifier_or_url": "arXiv:2605.09354",
+          "material_read": "Primary abstract describing the commuting formula, general quantization dependence, and invertibility-domain characterization.",
+          "method": "Public arXiv/alphaXiv retrieval.",
+          "title": "On the spectral radius of operator tuples",
+          "trigger": "Exact recent paper on quantization dependence."
+        },
+        {
+          "assessment": "BROADER_GENERAL_MACHINERY_DECISIVE",
+          "evidence": [
+            "The submitted proof itself uses no additional nonstandard theorem beyond this similarity characterization."
+          ],
+          "identifier_or_url": "arXiv:2501.01325; Advances in Mathematics 479 (2025) 110449",
+          "material_read": "The frozen package's theorem use was checked against current bibliographic/source metadata; the theorem is the general arbitrary-tuple similarity characterization.",
+          "method": "Primary-source metadata plus theorem-level cross-check from the actual package.",
+          "title": "A spectral radius for matrices over an operator space",
+          "trigger": "General similarity theorem used in the proof."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "The class strictly contains commuting tuples.",
+        "Non-solvability becomes a necessary condition for quantization dependence."
+      ],
+      "rationale": "The solvable-versus-nonsolvable boundary is conceptually useful because it identifies a necessary algebraic mechanism for quantization dependence and includes genuinely noncommuting tuples. The record fails acceptance only on originality.",
+      "risks": [
+        "The proof is short precisely because the conclusion is a routine corollary of existing machinery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every simultaneously triangularizable complex matrix tuple, the Shalit--Shamovich operator-space spectral radius equals the maximum underlying Banach norm of its diagonal characters and is therefore independent of quantization; in particular, quantization dependence requires a non-solvable generated complex Lie algebra.",
+  "limitations": [
+    "Scientific rejection is originality-only; no claim is made that non-solvability is sufficient."
+  ],
+  "schema_version": 1
+}
