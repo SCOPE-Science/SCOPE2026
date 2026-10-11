@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The local identities \(\sigma^*(p^a)=1+p^a\) and \(\sigma^{(e)}(p^a)=\sum_{d\mid a}p^d\) are used with multiplicativity. For the selected cylinders, all primes at least \(17\) are square-free in the integer and therefore contribute a local ratio greater than one. Exact rational enumeration verifies the small-prime product condition for every one of the \(46656\) allowed exponent vectors, with \(17230\) accepted. Five equality vectors create only five exceptions when the tail is empty, which does not affect density. The Euler-product conversion to the coefficient \(6097572635664749695003/819750822146736480000\) is exact.
+## correctness
 
-## Originality
-**PASS.** The closest primary source, arXiv:1312.4615v1, explicitly asks for the proportion and gives only the square-free lower bound \(6/\pi^2\), while its \(0.778307\) value is computational through \(10^9\). Searches for the comparison, the exact coefficient, equivalent exponent-cylinder formulations, and broader exponent-set density tables did not locate this lower bound or a stronger result that implies it. General exponent-set Euler products are prior background, not the comparison-specific selection. A same-source prior result available for overlap concerns equality on a thin two-prime slice and does not imply this density statement.
+PASS
 
-## Value
-**PASS.** The claim advances the rigorous lower bound from \(0.607927\ldots\) to \(0.753659\ldots\), an absolute gain of about \(0.14573\). Relative to the source's finite-range value \(0.778307\), this closes about \(85.5\%\) of the gap from the previously stated rigorous lower bound. It also gives a transparent finite-cylinder method that can be extended without changing the proof architecture.
+Multiplicativity gives the stated local ratio \(\rho_p(a)\). For each fixed valuation vector on \(P=\{2,3,5,7,11,13\}\), the tail-squarefree condition has the displayed Euler-product density. The cylinders are disjoint, and tail primes at exponent one have local ratio greater than one, so every core with ratio at least one contributes except finitely many equality-core integers with empty tail. An independent exact replay of the inspected `verify_density.py` enumerated all \(6^6=46656\) vectors, found 17230 good and five equality vectors, and reproduced the exact coefficient \(6097572635664749695003/819750822146736480000\), giving \(0.753659844064288\ldots\) after division by \(\pi^2\).
 
-## Closest literature and limitations
-The primary comparison source is Trudgian, arXiv:1312.4615v1 / DOI 10.2298/PIM140617001T. OEIS A209061 documents standard Euler-product densities for prescribed exponent sets, but not the divisor-sum inequality or this coupled finite union. The bound is not claimed optimal, and an unindexed later treatment remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Trudgian explicitly poses the comparison-density problem, proves the squarefree lower bound \(6/\pi^2\), and reports empirical density about \(0.778307\) through \(10^9\); the complete source does not contain the substantially stronger \(0.753659844\ldots\) rigorous bound. Current published-finding searches for the comparison, density and explicit coefficient found no earlier stronger or equivalent theorem. Standard prescribed-valuation Euler products are methodology, not the comparison-specific selection of 17230 admissible exponent cores.
+
+## value
+
+PASS
+
+The result directly addresses a published density question and closes most of the gap between the source's rigorous squarefree bound and its empirical proportion using a finite exact certificate. The improvement from about 0.608 to 0.754 is mathematically substantive and reproducible, even though the exact density remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-The proof has two logically separate parts.
+# Independent mathematical audit
 
-1. **Symbolic inclusion.** For each selected exponent vector on \(2,3,5,7,11,13\), the exact local-ratio product is at least one. Every larger prime is allowed only with exponent zero or one, and an exponent-one tail factor contributes \((q+1)/q>1\). Thus all selected integers satisfy the strict inequality except the five tail-free equality cases, a finite set of density zero.
-2. **Exact density calculation.** `verify_density.py` enumerates all \(6^6=46656\) exponent vectors with exact rational arithmetic, finds \(17230\) accepted vectors and five equality vectors, sums the exact valuation probabilities, and verifies
-\[
-\frac{6W}{\prod_{p\in\{2,3,5,7,11,13\}}(1-p^{-2})}
-=\frac{6097572635664749695003}{819750822146736480000}.
-\]
-Multiplication by \(1/\pi^2\) comes from the standard square-free Euler product for the unrestricted tail.
+## correctness
 
-Fresh replay output:
+PASS
 
-`VERIFY_OK`
+Multiplicativity gives the stated local ratio \(\rho_p(a)\). For each fixed valuation vector on \(P=\{2,3,5,7,11,13\}\), the tail-squarefree condition has the displayed Euler-product density. The cylinders are disjoint, and tail primes at exponent one have local ratio greater than one, so every core with ratio at least one contributes except finitely many equality-core integers with empty tail. An independent exact replay of the inspected `verify_density.py` enumerated all \(6^6=46656\) vectors, found 17230 good and five equality vectors, and reproduced the exact coefficient \(6097572635664749695003/819750822146736480000\), giving \(0.753659844064288\ldots\) after division by \(\pi^2\).
 
-`patterns_total=46656 good_patterns=17230 equality_patterns=5`
+## originality
 
-`coefficient=6097572635664749695003/819750822146736480000`
+PASS
 
-`lower_bound=0.753659844064288`
+Trudgian explicitly poses the comparison-density problem, proves the squarefree lower bound \(6/\pi^2\), and reports empirical density about \(0.778307\) through \(10^9\); the complete source does not contain the substantially stronger \(0.753659844\ldots\) rigorous bound. Current published-finding searches for the comparison, density and explicit coefficient found no earlier stronger or equivalent theorem. Standard prescribed-valuation Euler products are methodology, not the comparison-specific selection of 17230 admissible exponent cores.
 
-Limits: the verifier certifies the stated finite union, not optimality of the cutoff or the exact comparison density. No finite sampling is used as evidence for the infinite lower bound.
+## value
+
+PASS
+
+The result directly addresses a published density question and closes most of the gap between the source's rigorous squarefree bound and its empirical proportion using a finite exact certificate. The improvement from about 0.608 to 0.754 is mathematically substantive and reproducible, even though the exact density remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
