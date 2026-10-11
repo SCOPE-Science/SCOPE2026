@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:20:15.573575Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md, extremizers.csv, and verify.py at Git tree 987b734ab4e2d6f2418c3c8d96fcc7db8ce290ee",
+        "independent exhaustive hitting-set implementation over all binary words through length 12"
+      ],
+      "rationale": "A string attractor is exactly a hitting set for the cover sets of all distinct nonempty substrings. An independent exhaustive implementation formed those cover sets for every binary word and tested candidate position sets exactly. It confirmed that lengths through \\(11\\) have minimum-attractor size at most \\(3\\), and at length \\(12\\) the exact distribution is \\(2,1332,2734,28\\) for minimum sizes \\(1,2,3,4\\). The same independent run recovered all \\(28\\) size-four words and exactly nine reversal/complement orbits with the nine representatives and orbit sizes stated in the source package.",
+      "residual_risks": [
+        "The theorem is finite and computational; correctness relies on exhaustive exact enumeration, mitigated by an independently implemented cover-set calculation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 62-page MAX-SAT paper was inspected across the full paper; it defines exact string-attractor computation, gives MAX-SAT encodings and experiments, and cites the public exact-value sequence, but does not state the length-12 full census.",
+          "The foundational paper defines string attractors and establishes the general computational problem."
+        ],
+        "reasoning": "General exact algorithms can reproduce the census but do not imply its particular extremizer count or symmetry classification without performing the finite computation.",
+        "searches": [
+          "Bannai et al., Computing NP-hard Repetitiveness Measures via MAX-SAT, arXiv:2207.02571v2",
+          "Kempa-Prezza, At the Roots of Dictionary Compression: String Attractors, arXiv:1710.10964"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2207.02571",
+        "https://arxiv.org/abs/1710.10964",
+        "https://oeis.org/A339391",
+        "https://oeis.org/A339668",
+        "https://oeis.org/A355520",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general solver plus a maximum-value sequence does not mathematically imply that exactly 28 words attain size four or that they form nine symmetry classes; those require the exhaustive classification."
+        ],
+        "reasoning": "The final claim adds a natural complete extremal layer rather than renaming a published aggregate.",
+        "searches": [
+          "comparison with arXiv:2207.02571v2 and the checked OEIS rows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A339391 records the maximum value and a size-four witness at length 12.",
+          "A339668 gives the number 1332 of length-12 binary words with minimum-attractor size exactly two; A355520 gives the corresponding cumulative at-most-two count.",
+          "No checked source listed the 28 extremizers or nine symmetry classes."
+        ],
+        "reasoning": "The published/curated sequences capture neighboring aggregate invariants but not the audited complete distribution and orbit census.",
+        "searches": [
+          "Resultary query: binary string attractor length 12 28 size four words nine reversal complement classes",
+          "OEIS A339391, A339668, A355520",
+          "web searches for exact representative strings including 000100101110"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At length 12 the checked sequences corroborate the maximum value 4 and the exact size-two count 1332, but they do not supply the size-three count 2734, the size-four count 28, or orbit representatives."
+        ],
+        "reasoning": "The audited census is not a known-table recomputation of a row already containing the claimed complete invariant.",
+        "searches": [
+          "OEIS A339391 maximum minimum-attractor size",
+          "OEIS A339668 exact size-two count",
+          "OEIS A355520 at-most-two count"
+        ]
+      },
+      "rationale": "The exact-computation literature supplies general algorithms, and OEIS records the maximum minimum-attractor size and the number of size-two words, including the first appearance of size four at length \\(12\\). However, the inspected complete exact-computation paper and the checked OEIS entries do not give the full \\(2/1332/2734/28\\) distribution, the full list of \\(28\\) extremizers, or the nine reversal/complement classes. Resultary returned no equivalent census.",
+      "residual_risks": [
+        "An unindexed program output or private/supplementary exhaustive enumeration could contain the same 28-word list."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_EXACT_METHOD_NOT_CENSUS",
+          "evidence": "The paper provides exact algorithms and experiments but no length-12 all-binary distribution or 28-word/nine-orbit classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.02571",
+          "material_read": "All 62 pages were retrieved in bounded page ranges; the main definitions, exact MAX-SAT encoding, related work, sensitivity application, experiments, tables, and appendices were inspected.",
+          "method": "ArXiv/open route did not return full text through the browser; authorized institutional retrieval supplied the primary PDF.",
+          "title": "Computing NP-hard Repetitiveness Measures via MAX-SAT",
+          "trigger": "Most directly relevant exact-computation primary source and source of the public implementation/sequence context."
+        },
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING",
+          "evidence": "It establishes the string-attractor framework, not the finite length-12 census.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.10964",
+          "material_read": "Primary abstract and accessible full-paper metadata describing the definition, complexity and reductions.",
+          "method": "ArXiv plus institutional/public metadata inspection.",
+          "title": "At the Roots of Dictionary Compression: String Attractors",
+          "trigger": "Foundational primary source defining the invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "OEIS A339391",
+        "Bannai et al. exact-computation paper"
+      ],
+      "rationale": "Length \\(12\\) is the first binary length at which the worst-case minimum-attractor size reaches four. Classifying every extremizer at this first boundary, together with its full distribution and symmetry quotient, is a natural finite cutoff rather than an arbitrary sample.",
+      "residual_risks": [
+        "The result is a finite census and does not by itself yield a general formula for longer lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2207.02571",
+    "https://arxiv.org/abs/1710.10964",
+    "https://oeis.org/A339391",
+    "https://oeis.org/A339668",
+    "https://oeis.org/A355520",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The complete census is only for binary words of length 12, with smaller lengths used to establish sharp onset.",
+    "Symmetry is only reversal and bit complement."
+  ],
+  "residual_risks": [
+    "An unindexed program output or private/supplementary exhaustive enumeration could contain the same 28-word list."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_EXACT_METHOD_NOT_CENSUS",
+      "evidence": "The paper provides exact algorithms and experiments but no length-12 all-binary distribution or 28-word/nine-orbit classification.",
+      "identifier_or_url": "https://arxiv.org/abs/2207.02571",
+      "material_read": "All 62 pages were retrieved in bounded page ranges; the main definitions, exact MAX-SAT encoding, related work, sensitivity application, experiments, tables, and appendices were inspected.",
+      "method": "ArXiv/open route did not return full text through the browser; authorized institutional retrieval supplied the primary PDF.",
+      "title": "Computing NP-hard Repetitiveness Measures via MAX-SAT",
+      "trigger": "Most directly relevant exact-computation primary source and source of the public implementation/sequence context."
+    },
+    {
+      "assessment": "FOUNDATIONAL_NOT_COVERING",
+      "evidence": "It establishes the string-attractor framework, not the finite length-12 census.",
+      "identifier_or_url": "https://arxiv.org/abs/1710.10964",
+      "material_read": "Primary abstract and accessible full-paper metadata describing the definition, complexity and reductions.",
+      "method": "ArXiv plus institutional/public metadata inspection.",
+      "title": "At the Roots of Dictionary Compression: String Attractors",
+      "trigger": "Foundational primary source defining the invariant."
+    }
+  ]
+}
