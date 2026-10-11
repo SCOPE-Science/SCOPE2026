@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The standalone verifier uses exact rational arithmetic for the concrete witness. It checks the source threshold functional, the true and printed closed-season cutoffs, the true and printed fixed-season growth-rate cutoffs, and the source's auxiliary parameter inequalities. It also checks the exact per-cycle logarithmic upper bound \(-1/2\).
 
-The general correction is symbolic: setting the source's displayed \(\digamma\) equal to zero gives \(\int_{\overline T^*}^{T}q=crT\), while subtracting the root equation from the value at \(\overline T>\overline T^*\) gives \((1/c)\int_{\overline T^*}^{\overline T}q\). No finite experiment is used as evidence for an infinite-time claim; global extinction in the witness follows from the analytic cycle contraction.
+# Independent mathematical audit
 
-No independent audit has been performed.
+## correctness
+
+PASS
+
+The primary article defines the threshold functional as rT minus c^{-1} times the integral of q over the open season. Setting it to zero gives the exact integral relation equal to crT, which yields the missing factor T in the average-value closed-season expression and the missing factor 1/c in the fixed-season growth threshold. Fresh exact arithmetic for T=c=2, r=1 and q=4 gives the true closed-season root 1, printed value 1/2 and threshold value -1/2 at 3/4. The analytic per-cycle estimate then gives contraction by at least exp(-1/2), so the regime reversal is not a simulation artifact.
+
+## originality
+
+PASS
+
+The general concept of seasonal closed-season thresholds is prior art, but the accepted contribution is the source-specific algebraic correction of the two printed formulas and the exact regime-reversal witness. Exact-title/DOI/formula searches and Resultary searching did not locate an indexed correction.
+
+## value
+
+PASS
+
+These quantities are management thresholds. In the exact admissible witness, using the printed cutoff predicts persistence while the actual model contracts globally to extinction, so the correction is scientifically consequential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

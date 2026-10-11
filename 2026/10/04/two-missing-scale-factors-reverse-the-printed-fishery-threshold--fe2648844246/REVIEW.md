@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The threshold equation is solved directly from the source's displayed \(\digamma\). The missing \(T\) and \(1/c\) factors follow algebraically, and the proof's lower-bound equality repairs to \((1/c)\int_{\overline T^*}^{\overline T}q\). The constant-parameter witness is exact and gives a direct global contraction, so it does not rely on simulation or on accepting the source's theorem.
+## correctness
 
-## Originality
-PASS. Searches covered the exact title and DOI, missing-factor aliases, closed-season and growth-threshold formulations, the 2023 Michaelis–Menten predecessor, and a 2026 seasonal-switching fishery analogue. The closest semantic results concern other switching or threshold systems. No source-specific correction or erratum was found. The 2023 predecessor's abstract confirms that the general threshold concept is prior art; novelty is restricted to the later source's two explicit scale errors, the proof repair, and the exact regime-reversal witness.
+PASS
 
-A full-text attempt for the 2023 predecessor returned unrelated material, which was discarded. Only its public abstract and metadata were used. This is a residual access risk, not evidence for novelty. The primary 2025 article was read in lawful public full text.
+The primary article defines the threshold functional as rT minus c^{-1} times the integral of q over the open season. Setting it to zero gives the exact integral relation equal to crT, which yields the missing factor T in the average-value closed-season expression and the missing factor 1/c in the fixed-season growth threshold. Fresh exact arithmetic for T=c=2, r=1 and q=4 gives the true closed-season root 1, printed value 1/2 and threshold value -1/2 at 3/4. The analytic per-cycle estimate then gives contraction by at least exp(-1/2), so the regime reversal is not a simulation artifact.
 
-## Value
-PASS. The corrected quantities are the paper's management thresholds. In the explicit witness, use of the printed threshold switches the predicted qualitative regime from extinction to persistence. That makes the correction consequential for interpretation and parameter calibration, rather than a cosmetic algebraic change.
+## originality
 
-## Closest literature and limitations
-Feng–Liu–Ruan–Yu (2023) is the closest predecessor on seasonal Michaelis–Menten harvesting and already establishes the importance of a critical closed-season duration. Jiao–Zhang–Sheng–Li–Liu (2026) is a later close analogue with a closed-season threshold. Neither public record inspected states the two corrections here. The corrected closed-season formula remains implicit for nonconstant \(q\), and no assertion is made about separate root-existence hypotheses or other applications in the 2025 paper.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The general concept of seasonal closed-season thresholds is prior art, but the accepted contribution is the source-specific algebraic correction of the two printed formulas and the exact regime-reversal witness. Exact-title/DOI/formula searches and Resultary searching did not locate an indexed correction.
+
+## value
+
+PASS
+
+These quantities are management thresholds. In the exact admissible witness, using the printed cutoff predicts persistence while the actual model contracts globally to extinction, so the correction is scientifically consequential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
