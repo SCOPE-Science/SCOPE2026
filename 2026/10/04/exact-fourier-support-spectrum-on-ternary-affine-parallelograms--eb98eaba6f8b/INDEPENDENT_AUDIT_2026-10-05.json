@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T01:47:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 77a3742327a9059ac676e052311a0be4aaae41d4",
+        "assigned artifacts/verify.py blob 81fdd74c7593a25729107d7bda679b9eb2b320f9",
+        "independent reconstruction of the row-factorization proof and all five witness zero counts"
+      ],
+      "rationale": "After affine normalization the local transform is \\(P(X,Y)=a+bX+cY+dXY\\) on \\(\\mu_3^2\\). In any row, either the affine function of \\(Y\\) is identically zero or it has at most one zero. Hence without a full zero row there are at most three zeros. If a row \\(X=\\alpha\\) is identically zero, then \\(P=(X-\\alpha)(b+dY)\\), so the zero set is either that row alone (3 zeros) or the union of a full row and a full column (5 zeros). Thus four zeros are impossible. Five explicit all-nonzero coefficient vectors attain zero counts \\(0,1,2,3,5\\). The actual exact verifier checks those witnesses in \\(\\mathbb Q(\\omega)\\) and all 126 four-row constraints, confirming that any all-nonzero rank-three null vector forced by four prescribed zeros actually has five zeros. Multiplying by the ambient fiber count \\(3^{d-2}\\) proves the result.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The global results allow arbitrary four-point supports and therefore do not force the audited set \\(\\{4,6,7,8,9\\}\\)."
+        ],
+        "reasoning": "No broader inspected theorem specializes mechanically to the complete fixed-parallelogram spectrum.",
+        "searches": [
+          "Delvaux--Van Barel full primary paper",
+          "Bonami--Ghobber Proposition 21 and Theorem 23"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.laa.2007.05.009",
+        "arXiv:1003.5060",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither source contains the full-row factorization classification that excludes exactly four local zeros with all four physical coefficients nonzero."
+        ],
+        "reasoning": "The audited forbidden value and all attainable intermediate values require additional fixed-geometry analysis.",
+        "searches": [
+          "DOI 10.1016/j.laa.2007.05.009",
+          "arXiv:1003.5060"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Fourier-matrix work studies global Hamming/rank extrema.",
+          "The uncertainty-function paper determines global minimum support and equality classes rather than the complete spectrum on one support."
+        ],
+        "reasoning": "Equivalent formulations as zero sets of a bilinear polynomial on the \\(3\\times3\\) root grid and fixed-column Fourier rank patterns were checked.",
+        "searches": [
+          "Resultary query: ternary affine parallelogram Fourier support spectrum F3 fixed four-point support",
+          "Delvaux--Van Barel, DOI 10.1016/j.laa.2007.05.009",
+          "Bonami--Ghobber, arXiv:1003.5060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact fixed-parallelogram support-spectrum table was found."
+        ],
+        "reasoning": "Global tables minimize over support choices and therefore are not exact databases for this geometric slice.",
+        "searches": [
+          "Resultary exact ternary fixed-support search",
+          "published Fourier Hamming-number tables"
+        ]
+      },
+      "rationale": "Delvaux--Van Barel and Bonami--Ghobber give global rank-deficiency/uncertainty information for \\(F_3\\otimes F_3\\) and \\(\\mathbb Z_3^2\\), but they do not give the complete spectrum for the specified four-column parallelogram. In particular, the global uncertainty function at physical support size four does not determine which intermediate output-support sizes are attainable on this geometry. Resultary returned no earlier implication-equivalent fixed-support theorem.",
+      "residual_risks": [
+        "An equivalent fixed-submatrix rank-pattern statement may exist in specialized Fourier-matroid literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL_EXTREMAL_CONTEXT_ONLY",
+          "evidence": "The source does not enumerate the full Fourier-support spectrum of the fixed affine-parallelogram columns.",
+          "identifier_or_url": "DOI:10.1016/j.laa.2007.05.009",
+          "material_read": "Full primary paper/report sections on the ternary Kronecker Fourier matrix and Hamming-number framework.",
+          "method": "Full-text PDF inspection.",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Primary source for \\(F_3\\otimes F_3\\) rank deficiency."
+        },
+        {
+          "assessment": "NOT_COVERING_COMPLETE_FIXED_SUPPORT_SPECTRUM",
+          "evidence": "The result concerns global minima/equality cases rather than all attainable values on the prescribed four-point support.",
+          "identifier_or_url": "arXiv:1003.5060",
+          "material_read": "Full primary PDF around the uncertainty function and equality-case theorems.",
+          "method": "Open-access full-PDF inspection.",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Exact uncertainty-function source for \\(\\mathbb Z_3^2\\)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Delvaux--Van Barel",
+        "Bonami--Ghobber"
+      ],
+      "rationale": "This is the smallest ternary two-dimensional affine-parallelogram support problem and gives a complete exact spectrum, including an isolated forbidden intermediate size. It is a natural geometry-sensitive refinement of finite Fourier uncertainty rather than an arbitrary parameter census.",
+      "residual_risks": [
+        "The proof is highly specific to the \\(3\\times3\\) root grid."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every \\(d\\ge2\\), a complex-valued function on \\(\\mathbb F_3^d\\) supported exactly on an affine parallelogram with four nonzero support values has Fourier-support size exactly one of \\(\\{4,6,7,8,9\\}3^{d-2}\\), and every listed value occurs; in particular \\(5\\cdot3^{d-2}\\) is impossible.",
+  "limitations": [
+    "Only exact four-point affine-parallelogram supports over \\(\\mathbb F_3\\) are classified.",
+    "No assertion is made for other four-point affine types or larger primes."
+  ],
+  "schema_version": 1
+}
