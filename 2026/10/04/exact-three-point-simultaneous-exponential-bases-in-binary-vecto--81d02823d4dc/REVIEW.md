@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. After translating each three-point set, the character matrix has four possible column types and every three distinct types have determinant \(\pm4\). The common-basis condition is therefore exactly a three-matching condition in the image of the combined rank-\(r\) projection. The three possible subdirect bipartite graphs have respectively \(4\), \(16\), and \(96\) three-matchings, and each image matching has exactly \(2^{3(d-r)}\) lifts. The bundled exact checker independently verifies the determinant/projection equivalence and exhaustive low-dimensional cases.
+## correctness
 
-## Originality
-PASS. Ferguson–Mayeli–Sothanaphan ask the two-set simultaneous-basis question and give only a three-set obstruction in \(\mathbb Z_2^2\) plus a cyclic-group positive result. Targeted published-finding corpus and web searches found no three-point binary-vector-space theorem. The closest published published-finding corpus record exhausts minors of the order-eight Sylvester Hadamard matrix, so it can overlap the \(d=3\) determinant data, but it neither states the common-basis intersection count nor extends beyond order eight. The present dimension-free formula is not implied by that finite-order claim.
+PASS
 
-## Value
-PASS. The result resolves a complete natural cardinality stratum of an explicitly posed harmonic-analysis question for an infinite noncyclic family and gives exact multiplicities rather than mere existence. The matching reduction also identifies the structural mechanism behind the answer and supplies sharp worst-case counts.
+After translating each set to {0,a_i,b_i}, the character column depends only on the projection π_i(ξ)∈F_2^2. Exactly three distinct of the four possible column types give determinant ±4, so a frequency triple is a basis precisely when π_i is injective on it. The combined map has rank r and fibers of size 2^{d-r}; its image is a subdirect bipartite graph on four left and four right vertices. Common bases correspond exactly to three-edge matchings, each lifting in 2^{3(d-r)} ways. At rank two the graph is a perfect matching and has 4 three-edge submatchings; at rank three it is 2-regular, hence C8 or two C4's, and has 16 such matchings; at rank four it is K_4,4 and has C(4,3)^2·3!=96. Comparing these formulas gives the sharp dimensional minima and the disjoint-plane equality condition.
 
-## Closest literature and limitations
-The motivating and closest primary source is arXiv:1904.04487, especially Question 1.8 and Section 7.1. The closest published finite computation is published-finding corpus record `2026/9/9/SCOPE037`, limited to the order-eight Sylvester matrix. The theorem does not address subsets of size at least four, odd characteristic, arbitrary finite abelian groups, or quantitative Riesz conditioning.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ferguson–Mayeli–Sothanaphan explicitly leave the two-set simultaneous-basis question unresolved in general and prove a broad positive theorem only for cyclic groups; F_2^d with d≥2 is noncyclic except the trivial low dimension. The audited theorem resolves the complete three-point pair stratum for every binary dimension and gives exact partner counts. The order-eight Hadamard census can overlap the d=3 determinant data but cannot imply the dimension-free formula.
+
+## value
+
+PASS
+
+The theorem resolves an explicit open simultaneous-basis question on the complete three-point stratum of an infinite noncyclic family and gives exact counts rather than mere existence. The matching reduction is reusable structural information connecting finite Fourier invertibility to subdirect bipartite geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

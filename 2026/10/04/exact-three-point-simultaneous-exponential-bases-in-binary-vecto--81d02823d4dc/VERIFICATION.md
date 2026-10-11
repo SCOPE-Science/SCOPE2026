@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is self-contained. For each three-point set, translation reduces the character matrix to columns indexed by a map into \(\mathbb F_2^2\); direct determinant expansion gives determinant \(\pm4\) for any three distinct column types and zero for a repetition. The combined map has rank \(r=\dim(U_1+U_2)\) and equal fibers of size \(2^{{d-r}}\). Its image is a subdirect bipartite graph with three-edge matching counts \(4\), \(16\), and \(96\) for ranks \(2\), \(3\), and \(4\), respectively. This proves the universal formula without finite extrapolation.
+# Independent mathematical audit
 
-`verify.py` was executed from the packaged path. It returned:
+## correctness
 
-`VERIFY_OK canonical_cases=12 all_d3_pairs=1596 all_d4_plane_pairs=630`
+PASS
 
-The script uses only Python standard-library integer arithmetic. It checks the determinant criterion against the projection criterion, canonical rank cases through dimension \(6\), every unordered pair of three-point sets in \(\mathbb F_2^3\), and every unordered pair of two-planes in \(\mathbb F_2^4\). These computations are replay checks, not the proof for arbitrary dimension.
+After translating each set to {0,a_i,b_i}, the character column depends only on the projection π_i(ξ)∈F_2^2. Exactly three distinct of the four possible column types give determinant ±4, so a frequency triple is a basis precisely when π_i is injective on it. The combined map has rank r and fibers of size 2^{d-r}; its image is a subdirect bipartite graph on four left and four right vertices. Common bases correspond exactly to three-edge matchings, each lifting in 2^{3(d-r)} ways. At rank two the graph is a perfect matching and has 4 three-edge submatchings; at rank three it is 2-regular, hence C8 or two C4's, and has 16 such matchings; at rank four it is K_4,4 and has C(4,3)^2·3!=96. Comparing these formulas gives the sharp dimensional minima and the disjoint-plane equality condition.
+
+## originality
+
+PASS
+
+Ferguson–Mayeli–Sothanaphan explicitly leave the two-set simultaneous-basis question unresolved in general and prove a broad positive theorem only for cyclic groups; F_2^d with d≥2 is noncyclic except the trivial low dimension. The audited theorem resolves the complete three-point pair stratum for every binary dimension and gives exact partner counts. The order-eight Hadamard census can overlap the d=3 determinant data but cannot imply the dimension-free formula.
+
+## value
+
+PASS
+
+The theorem resolves an explicit open simultaneous-basis question on the complete three-point stratum of an infinite noncyclic family and gives exact counts rather than mere existence. The matching reduction is reusable structural information connecting finite Fourier invertibility to subdirect bipartite geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
