@@ -1,41 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts every integer with at most two prime factors counted
-with multiplicity. Primes have nontrivial-divisor sum \(0\). A prime square
-\(p^2\) has nontrivial-divisor sum \(p\), so it cannot lie in a two-cycle.
-The only remaining case is
-\[
-m=pq,\qquad n=rs
-\]
-with distinct primes in each product. Quasi-amicability becomes
-\[
-n=p+q,\qquad m=r+s.
-\]
-But each distinct-prime product is strictly larger than the corresponding
-prime sum, forcing simultaneously \(m>n\) and \(n>m\). No finite enumeration
-is used in this argument.
+## correctness
 
-## Originality
-PASS. Hagis--Lord Proposition 2 gives at least four distinct prime factors in
-the product of a *relatively prime* quasi-amicable pair, which does not exclude
-two squarefree semiprimes: such a configuration can have exactly four distinct
-prime factors. Their Proposition 4 and Corollary 4.1 control prime powers but
-do not eliminate the remaining two-squarefree-semiprime case. Pollack's later
-full paper proves an ambient density-zero theorem and contains no semiprime
-classification. Exact-database and semantic searches likewise found no
-statement implying the new \(\Omega\le2\) barrier.
+PASS
 
-The main residual risk is historical: older quasi-amicable literature is not
-uniformly available in searchable full text, so the same short observation
-could have appeared without modern semiprime terminology.
+Writing L(t)=sigma(t)-t-1, a quasi-amicable pair is exactly a two-cycle of L. A prime maps to zero. A prime square p^2 maps to p and then to zero. If t=pq with distinct primes, L(t)=p+q<t=pq. Hence if both members had Omega at most two, both would be composite semiprimes; the square case is impossible, while two squarefree semiprimes would force m>n and n>m simultaneously. This proves the unrestricted Omega barrier. The packaged finite sweep is only corroborative.
 
-## Value
-PASS. The result is a natural complete classification at the first nontrivial
-multiplicative-complexity boundary. The foundational paper itself studies
-prime-power membership and lower bounds on the number of prime factors, so
-closing the entire two-factor layer directly sharpens that structural program.
-It also gives a clean search constraint: every quasi-amicable pair must have
-at least one member with three or more prime factors counted with multiplicity.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hagis-Lord's primary paper proves that relatively prime quasi-amicable pairs have at least four distinct prime factors in the product and separately proves that a prime-power member must have odd exponent greater than three. Those statements do not cover the remaining non-coprime squarefree-semiprime branch. Pollack's full 2011 article studies asymptotic density and does not state a semiprime classification. Current Resultary searches found no prior unrestricted Omega<=2 barrier. Originality therefore passes to the best of current knowledge, with older unindexed observations retained as a risk.
+
+## value
+
+PASS
+
+The theorem gives a complete and unrestricted classification of the lowest nontrivial multiplicative-complexity layer for a classical aliquot two-cycle problem. Although the final contradiction is elementary, the boundary is natural and directly complements published low-factor restrictions; this is a motivated structural cutoff rather than an arbitrary exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

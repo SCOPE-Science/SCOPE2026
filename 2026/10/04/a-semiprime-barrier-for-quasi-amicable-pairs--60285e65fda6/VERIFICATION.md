@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The infinite theorem is proved symbolically in `RESULT.md`.
+# Independent mathematical audit
 
-The proof partitions every positive integer with at most two prime factors
-counted with multiplicity into the exhaustive cases:
-\[
-p,\qquad p^2,\qquad pq\quad(p<q\ \text{prime}).
-\]
-For a prime, the nontrivial-divisor sum is \(0\). For \(p^2\) it is \(p\), so
-a quasi-amicable two-cycle is impossible. For \(pq\) it is \(p+q\). If both
-members were distinct-prime semiprimes, the two cycle equations would force
-each product to be strictly larger than the other member.
+## correctness
 
-The packaged checker supplies finite corroboration through
-\(2{,}000{,}000\). It constructs a smallest-prime-factor table, computes
-\(\Omega(t)\) and \(\sigma(t)\) exactly, and tests every integer in the range
-with \(\Omega(t)\le2\). No quasi-amicable two-cycle having both members in that
-layer is found.
+PASS
 
-The finite computation is not an exhaustive proof beyond its stated bound and
-is not used to infer the unrestricted result.
+Writing L(t)=sigma(t)-t-1, a quasi-amicable pair is exactly a two-cycle of L. A prime maps to zero. A prime square p^2 maps to p and then to zero. If t=pq with distinct primes, L(t)=p+q<t=pq. Hence if both members had Omega at most two, both would be composite semiprimes; the square case is impossible, while two squarefree semiprimes would force m>n and n>m simultaneously. This proves the unrestricted Omega barrier. The packaged finite sweep is only corroborative.
+
+## originality
+
+PASS
+
+Hagis-Lord's primary paper proves that relatively prime quasi-amicable pairs have at least four distinct prime factors in the product and separately proves that a prime-power member must have odd exponent greater than three. Those statements do not cover the remaining non-coprime squarefree-semiprime branch. Pollack's full 2011 article studies asymptotic density and does not state a semiprime classification. Current Resultary searches found no prior unrestricted Omega<=2 barrier. Originality therefore passes to the best of current knowledge, with older unindexed observations retained as a risk.
+
+## value
+
+PASS
+
+The theorem gives a complete and unrestricted classification of the lowest nontrivial multiplicative-complexity layer for a classical aliquot two-cycle problem. Although the final contradiction is elementary, the boundary is natural and directly complements published low-factor restrictions; this is a motivated structural cutoff rather than an arbitrary exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
