@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof was checked by reconstructing the scalar fixed-step primal-dual update and its two-by-two iteration matrix, then computing its trace, determinant, and discriminant directly. The spectral-radius formula in the conjugate-root regime follows from the determinant. In the real-root regime the derivative of the larger root was checked symbolically and its sign proved analytically.
 
-The accompanying checker verifies the matrix identities and tests the monotonicity around the critical value over a deterministic grid. These numerical checks are supporting evidence only; they are not used as a proof for the continuum of parameter values.
+# Independent mathematical audit
 
-The source-side scope was checked against the 2016 Malitsky--Pock algorithm and fixed-step condition, and against the 2024 Fercoq quadratic PDHG spectral-radius formulation. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Independent reduction gives trace \((2+\sigma-2r)/(1+\sigma)\), determinant \((1-r)/(1+\sigma)\), and discriminant \((\sigma^2-4r(1-r))/(1+\sigma)^2\). Below the repeated-root threshold the eigenvalues are conjugate with modulus \(\sqrt{(1-r)/(1+\sigma)}\), strictly decreasing. Above it the larger real root has positive derivative. Hence the unique minimum is at \(\sigma_*=2\sqrt{r(1-r)}\). Substitution into \(r=\sigma^2a^2/\beta\) gives the beta formula. Independent numerical monotonicity checks covered representative \(r\) values from 0.05 to 0.95.
+
+## originality
+
+PASS
+
+The 2016/2018 source defines the ratio and convergence ceiling but explicitly treats ratio adaptation as outside its main strategy; Fercoq later makes spectral-radius minimization central but does not state the audited scalar closed form in the inspected material. No exact Resultary match was found.
+
+## value
+
+PASS
+
+The formula gives an exact calibration of a free primal/dual ratio on the canonical one-singular-value model, and identifies the same underdamped/overdamped transition that later adaptive spectral methods try to locate numerically. It is a useful analytic benchmark rather than an arbitrary parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

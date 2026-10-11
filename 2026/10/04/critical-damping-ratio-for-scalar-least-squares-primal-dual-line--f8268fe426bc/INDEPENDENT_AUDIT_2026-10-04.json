@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:45:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Y. Malitsky, T. Pock, A first-order primal-dual algorithm with linesearch, arXiv:1608.08883v2 / SIAM J. Optim. 28 (2018); primary PDF pages 1--4 visually and textually inspected, including the fixed PDA, \\(\\tau\\sigma\\|K\\|^2<1\\), Algorithm 1, and the statement that \\(\\beta=\\sigma/\\tau\\) for fixed steps.",
+        "O. Fercoq, Monitoring the Convergence Speed of PDHG to Find Better Primal and Dual Step Sizes, arXiv:2403.19202; primary abstract and quadratic spectral-radius objective inspected.",
+        "Resultary semantic search for scalar least-squares PDHG/PDAL fixed-product optimal ratio, repeated eigenvalues, and critical damping.",
+        "Fresh independent two-by-two trace/determinant/discriminant derivation and monotonicity checks on both sides of the transition."
+      ],
+      "rationale": "Independent reduction gives trace \\((2+\\sigma-2r)/(1+\\sigma)\\), determinant \\((1-r)/(1+\\sigma)\\), and discriminant \\((\\sigma^2-4r(1-r))/(1+\\sigma)^2\\). Below the repeated-root threshold the eigenvalues are conjugate with modulus \\(\\sqrt{(1-r)/(1+\\sigma)}\\), strictly decreasing. Above it the larger real root has positive derivative. Hence the unique minimum is at \\(\\sigma_*=2\\sqrt{r(1-r)}\\). Substitution into \\(r=\\sigma^2a^2/\\beta\\) gives the beta formula. Independent numerical monotonicity checks covered representative \\(r\\) values from 0.05 to 0.95.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fercoq explicitly seeks PDHG step sizes that minimize spectral radius for quadratic problems.",
+          "Malitsky--Pock provide convergence conditions and a ratio parameter."
+        ],
+        "reasoning": "The broader framework identifies the optimization target but the inspected statements do not give the one-mode analytic optimizer or its translation to the Malitsky--Pock ratio.",
+        "searches": [
+          "Fercoq arXiv:2403.19202",
+          "Malitsky--Pock arXiv:1608.08883"
+        ]
+      },
+      "checked_sources": [
+        "Y. Malitsky, T. Pock, A first-order primal-dual algorithm with linesearch, arXiv:1608.08883v2 / SIAM J. Optim. 28 (2018); primary PDF pages 1--4 visually and textually inspected, including the fixed PDA, \\(\\tau\\sigma\\|K\\|^2<1\\), Algorithm 1, and the statement that \\(\\beta=\\sigma/\\tau\\) for fixed steps.",
+        "O. Fercoq, Monitoring the Convergence Speed of PDHG to Find Better Primal and Dual Step Sizes, arXiv:2403.19202; primary abstract and quadratic spectral-radius objective inspected.",
+        "Resultary semantic search for scalar least-squares PDHG/PDAL fixed-product optimal ratio, repeated eigenvalues, and critical damping.",
+        "Fresh independent two-by-two trace/determinant/discriminant derivation and monotonicity checks on both sides of the transition."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former gives admissibility, not a rate optimum.",
+          "The latter gives a general spectral optimization program and adaptive estimator, not the stated scalar theorem in inspected material."
+        ],
+        "reasoning": "Solving the scalar characteristic discriminant and proving monotonicity supplies a conclusion not mechanically stated by either inspected source.",
+        "searches": [
+          "Malitsky--Pock pages 3--4",
+          "Fercoq spectral-radius formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Malitsky--Pock identify \\(\\beta\\) as \\(\\sigma/\\tau\\) and recover fixed PDA under the product ceiling.",
+          "No exact indexed formula matching \\(\\beta_*=4a^2(1-r)\\) was returned."
+        ],
+        "reasoning": "Primal/dual balancing, fixed-product ratio tuning, and linesearch step adaptation were treated as distinct formulations. The audited statement solves a specific fixed-product spectral minimization.",
+        "searches": [
+          "Malitsky--Pock fixed PDA and Algorithm 1",
+          "Resultary: PDHG scalar least squares optimal beta fixed product critical damping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior table or indexed formula was located."
+        ],
+        "reasoning": "This is a derived calibration law, not a database invariant.",
+        "searches": [
+          "Resultary semantic search",
+          "searches for \\(2\\sqrt{r(1-r)}\\) and \\(4a^2(1-r)\\) in PDHG context"
+        ]
+      },
+      "rationale": "The 2016/2018 source defines the ratio and convergence ceiling but explicitly treats ratio adaptation as outside its main strategy; Fercoq later makes spectral-radius minimization central but does not state the audited scalar closed form in the inspected material. No exact Resultary match was found.",
+      "residual_risks": [
+        "A later or differently phrased scalar specialization of Fercoq's general spectral-radius framework could record the same closed form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES THE TUNING PARAMETER BUT DOES NOT GIVE THE AUDITED OPTIMUM",
+          "evidence": "Page 4 states that \\(\\beta\\) is the ratio \\(\\sigma/\\tau\\) and fixed steps may satisfy the source ceiling; the paper does not there solve the scalar spectral minimization.",
+          "identifier_or_url": "arXiv:1608.08883v2",
+          "material_read": "Primary PDF pages 1--4, including original PDA update, fixed-step convergence condition, Algorithm 1, and ratio discussion",
+          "method": "Open-access PDF text plus visual page inspection",
+          "title": "A first-order primal-dual algorithm with linesearch",
+          "trigger": "Primary source defining the algorithm, fixed-step condition, and beta ratio"
+        },
+        {
+          "assessment": "BROADER TUNING FRAMEWORK, NO INSPECTED SCALAR CLOSED FORM",
+          "evidence": "The paper states that its method estimates and seeks to minimize spectral radius, including conjugate principal eigenvalues, but the inspected statement does not give this fixed-product one-mode formula.",
+          "identifier_or_url": "arXiv:2403.19202",
+          "material_read": "Primary abstract and accessible quadratic/spectral-radius description",
+          "method": "Open-access primary inspection",
+          "title": "Monitoring the Convergence Speed of PDHG to Find Better Primal and Dual Step Sizes",
+          "trigger": "Closest later work explicitly minimizing quadratic PDHG spectral radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Y. Malitsky, T. Pock, A first-order primal-dual algorithm with linesearch, arXiv:1608.08883v2 / SIAM J. Optim. 28 (2018); primary PDF pages 1--4 visually and textually inspected, including the fixed PDA, \\(\\tau\\sigma\\|K\\|^2<1\\), Algorithm 1, and the statement that \\(\\beta=\\sigma/\\tau\\) for fixed steps.",
+        "O. Fercoq, Monitoring the Convergence Speed of PDHG to Find Better Primal and Dual Step Sizes, arXiv:2403.19202; primary abstract and quadratic spectral-radius objective inspected.",
+        "Resultary semantic search for scalar least-squares PDHG/PDAL fixed-product optimal ratio, repeated eigenvalues, and critical damping.",
+        "Fresh independent two-by-two trace/determinant/discriminant derivation and monotonicity checks on both sides of the transition."
+      ],
+      "rationale": "The formula gives an exact calibration of a free primal/dual ratio on the canonical one-singular-value model, and identifies the same underdamped/overdamped transition that later adaptive spectral methods try to locate numerically. It is a useful analytic benchmark rather than an arbitrary parameter sample.",
+      "residual_risks": [
+        "A later or differently phrased scalar specialization of Fercoq's general spectral-radius framework could record the same closed form."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For scalar least-squares PDHG/PDAL with fixed modal product \\(r=\\tau\\sigma a^2\\in(0,1)\\), the spectral radius is uniquely minimized at \\(\\sigma_*=2\\sqrt{r(1-r)}\\), equivalently \\(\\beta_*=4a^2(1-r)\\), with minimum \\(\\sqrt{1-r}/(\\sqrt r+\\sqrt{1-r})\\); the optimum is the repeated-root boundary.",
+  "limitations": [
+    "A matrix problem with several singular values becomes a shared-ratio minimax problem and is not covered.",
+    "A later or differently phrased scalar specialization of Fercoq's general spectral-radius framework could record the same closed form."
+  ],
+  "schema_version": 1
+}

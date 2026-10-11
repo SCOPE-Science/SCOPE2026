@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The fixed-step Malitsky--Pock iteration reduces exactly to the displayed two-state matrix. Its discriminant is \((\sigma^2-4r(1-r))/(1+\sigma)^2\). Below the repeated-root boundary, the spectral radius is \(\sqrt{(1-r)/(1+\sigma)}\) and strictly decreases. Above it, direct differentiation of the larger real root is strictly positive. The conversion from \(\sigma_*\) to \(\beta_*\) follows from \(r=\sigma^2a^2/\beta\). The checker independently reconstructs and tests these formulas numerically.
+## correctness
 
-## Originality
-PASS with a residual literature risk. The primary 2016 paper identifies \(\beta\) as the primal/dual ratio and supplies the fixed-step ceiling, but does not state a rate-optimal ratio. Fercoq's 2024 quadratic PDHG work explicitly makes spectral-radius minimization the tuning objective and gives the general quadratic iteration matrix; the inspected material does not state this scalar closed form, its critical discriminant boundary, or the corresponding Malitsky--Pock ratio. Targeted published-finding searches for those equivalent formulations returned no implication-equivalent result. The closest published finding found concerns a different forward-reflected-backward method whose optimum also occurs at eigenvalue coalescence; it does not imply the present PDHG matrix calculation.
+PASS
 
-## Value
-PASS. The result resolves a parameter that the source deliberately leaves free with a sharp, closed calibration law on the simplest nontrivial least-squares mode. It also separates three regimes—conjugate, repeated, and real roots—and identifies the exact transition as the unique rate optimum. This supplies a transparent benchmark for primal/dual ratio heuristics and spectral-radius adaptation, while explicitly delimiting the multi-mode problem that remains.
+Independent reduction gives trace \((2+\sigma-2r)/(1+\sigma)\), determinant \((1-r)/(1+\sigma)\), and discriminant \((\sigma^2-4r(1-r))/(1+\sigma)^2\). Below the repeated-root threshold the eigenvalues are conjugate with modulus \(\sqrt{(1-r)/(1+\sigma)}\), strictly decreasing. Above it the larger real root has positive derivative. Hence the unique minimum is at \(\sigma_*=2\sqrt{r(1-r)}\). Substitution into \(r=\sigma^2a^2/\beta\) gives the beta formula. Independent numerical monotonicity checks covered representative \(r\) values from 0.05 to 0.95.
 
-## Closest literature and limitations
-The closest later literature is Fercoq's spectral-radius-based PDHG step adaptation for quadratic problems. It motivates the same tuning objective at much greater generality but uses spectral-radius estimation rather than the scalar analytic minimizer recorded here. The claim is limited to one singular mode, constant steps, \(\theta=1\), and asymptotic spectral radius.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2016/2018 source defines the ratio and convergence ceiling but explicitly treats ratio adaptation as outside its main strategy; Fercoq later makes spectral-radius minimization central but does not state the audited scalar closed form in the inspected material. No exact Resultary match was found.
+
+## value
+
+PASS
+
+The formula gives an exact calibration of a free primal/dual ratio on the canonical one-singular-value model, and identifies the same underdamped/overdamped transition that later adaptive spectral methods try to locate numerically. It is a useful analytic benchmark rather than an arbitrary parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
