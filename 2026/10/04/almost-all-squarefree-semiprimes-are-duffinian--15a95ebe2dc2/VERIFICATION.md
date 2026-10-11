@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The unrestricted proof is in `RESULT.md`.
+# Independent mathematical audit
 
-The exact finite checker `verify.py` uses a standard sieve to enumerate every
-squarefree semiprime \(pq\le10^6\) with \(p<q\). For each pair it computes
-\[
-\sigma(pq)=(p+1)(q+1)
-\]
-and verifies that
-\[
-\gcd(pq,\sigma(pq))=1
-\]
-is equivalent to
-\[
-p\ne2\quad\text{and}\quad q\not\equiv-1\pmod p.
-\]
+## correctness
 
-The checker also reports counts at \(10^4\), \(10^5\), and \(10^6\). These
-counts only test the exact finite criterion and illustrate the slowly declining
-exceptional proportion. They do not certify the asymptotic theorem.
+PASS
 
-The analytic proof uses:
-1. Brun--Titchmarsh for \(p\le x^{1/3}\);
-2. the elementary prime-counting upper bound and a bounded reciprocal-prime sum
-   for \(x^{1/3}<p<\sqrt{x}\);
-3. Landau's asymptotic for integers with two prime factors.
+For distinct primes \(p<q\), \(\sigma(pq)=(p+1)(q+1)\). Cross-divisibility shows \(pq\) is Duffinian exactly when \(p\ne2\) and \(q\not\equiv-1\pmod p\). For exceptional odd \(p\le x^{1/3}\), Brun–Titchmarsh gives \(\pi(x/p;p,-1)\ll x/[p(p-1)\log x]\), summable over \(p\). For \(x^{1/3}<p<\sqrt{x}\), discarding the congruence and using \(\pi(x/p)\ll x/[p\log x]\) leaves a bounded reciprocal-prime sum over a fixed logarithmic interval. The \(p=2\) contribution is also \(O(x/\log x)\). Thus the exceptional set is \(O(x/\log x)\), negligible relative to Landau's \(x\log\log x/\log x\) count of squarefree semiprimes. The finite checker confirms only the local criterion, not the asymptotic proof.
 
-No effective constant in the \(O(x/\log x)\) term and no secondary asymptotic
-constant are claimed.
+## originality
+
+PASS
+
+Pollack's full 2011 paper studies the global distribution of \(\gcd(n,\sigma(n))\) and uses the same \(-1\) congruence/Brun–Titchmarsh mechanism, but full-document searches found no occurrence of 'semiprime' or 'Duffinian' and no theorem conditioning on the two-prime stratum. The global density behavior is qualitatively opposite to the audited relative-density-one result. OEIS and accessible historical metadata list Duffinian numbers but do not imply the semiprime asymptotic. Best-of-knowledge, the thin-stratum theorem is not covered.
+
+## value
+
+PASS
+
+The theorem exposes a genuine density reversal: a globally sparse coprimality property becomes generic on the natural squarefree-semiprime stratum. The exact local criterion and quantitative \(O(x/\log x)\) exceptional bound make this a motivated analytic-number-theory fact rather than a finite sequence observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

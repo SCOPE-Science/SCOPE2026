@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:13:23.881864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct primes \\(p<q\\), \\(\\sigma(pq)=(p+1)(q+1)\\). Cross-divisibility shows \\(pq\\) is Duffinian exactly when \\(p\\ne2\\) and \\(q\\not\\equiv-1\\pmod p\\). For exceptional odd \\(p\\le x^{1/3}\\), Brun–Titchmarsh gives \\(\\pi(x/p;p,-1)\\ll x/[p(p-1)\\log x]\\), summable over \\(p\\). For \\(x^{1/3}<p<\\sqrt{x}\\), discarding the congruence and using \\(\\pi(x/p)\\ll x/[p\\log x]\\) leaves a bounded reciprocal-prime sum over a fixed logarithmic interval. The \\(p=2\\) contribution is also \\(O(x/\\log x)\\). Thus the exceptional set is \\(O(x/\\log x)\\), negligible relative to Landau's \\(x\\log\\log x/\\log x\\) count of squarefree semiprimes. The finite checker confirms only the local criterion, not the asymptotic proof.",
+      "risks": [
+        "No leading constant for the exceptional semiprimes is proved."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "assigned verify.py",
+        "Pollack 2011 full paper",
+        "Landau semiprime asymptotic",
+        "Brun–Titchmarsh"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global-density theorems do not imply relative density inside the thin squarefree-semiprime stratum.",
+          "The semiprime restriction changes the problem to one explicit prime-pair congruence."
+        ],
+        "reasoning": "Broader ambient-density results are not dominating because conditioning on a zero-density stratum is not preserved by them.",
+        "searches": [
+          "Pollack 2011/2023 global gcd-distribution theorems",
+          "Dressler/Luca density results"
+        ]
+      },
+      "checked_sources": [
+        "Pollack 2011 full PDF",
+        "Pollack 2023 sequel scope",
+        "OEIS database",
+        "current Resultary search",
+        "assigned RESULT.md/verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pollack's Lemma 2.3 gives a useful Brun–Titchmarsh bound for primes \\(-1\\pmod m\\), but applying it to the semiprime decomposition plus Landau's denominator is an additional conditioned counting argument.",
+          "The global fact that small gcd is common or rare does not imply the semiprime relative proportion."
+        ],
+        "reasoning": "The primary source supplies a tool, not the final stratum-specific theorem.",
+        "searches": [
+          "claim-versus-Pollack implication comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pollack treats \\(G(x,A)\\) over all integers and supplies general congruence tools, not a semiprime relative-density theorem.",
+          "No Resultary hit matched the audited density-one statement."
+        ],
+        "reasoning": "Equivalent formulations as a Duffinian semiprime density, a count of cross-divisibility prime pairs, and a conditioned gcd distribution were compared.",
+        "searches": [
+          "Resultary Duffinian squarefree-semiprime density search",
+          "Pollack 2011 full PDF",
+          "OEIS Duffinian/gcd sequences",
+          "Duffy/Luca bibliographic searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite sequence tables list examples but supply no asymptotic semiprime theorem."
+        ],
+        "reasoning": "Finite databases cannot establish density one in the infinite semiprime family.",
+        "searches": [
+          "OEIS A003624/A009194 and finite Duffinian lists",
+          "current Resultary search"
+        ]
+      },
+      "rationale": "Pollack's full 2011 paper studies the global distribution of \\(\\gcd(n,\\sigma(n))\\) and uses the same \\(-1\\) congruence/Brun–Titchmarsh mechanism, but full-document searches found no occurrence of 'semiprime' or 'Duffinian' and no theorem conditioning on the two-prime stratum. The global density behavior is qualitatively opposite to the audited relative-density-one result. OEIS and accessible historical metadata list Duffinian numbers but do not imply the semiprime asymptotic. Best-of-knowledge, the thin-stratum theorem is not covered.",
+      "residual_risks": [
+        "Duffy's 1979 article and Luca's 2007 article were not available in full text in this run; a differently phrased semiprime observation there remains a historical risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the semiprime relative-density theorem.",
+          "evidence": "The paper studies all integers; no 'semiprime' or 'Duffinian' occurrence was found, while its Lemma 2.3 supplies a general \\(-1\\) congruence estimate.",
+          "identifier_or_url": "https://www.pollack-math.net/combined3.pdf",
+          "material_read": "Complete accessible PDF was searched; introduction/theorems and the Brun–Titchmarsh congruence lemma/proof were read, and relevant page images were inspected.",
+          "method": "Primary full-text scope and implication comparison.",
+          "title": "On the Greatest Common Divisor of a Number and Its Sum of Divisors",
+          "trigger": "Closest primary analytic source on \\(\\gcd(n,\\sigma(n))\\)."
+        },
+        {
+          "assessment": "CONSISTENT_BUT_NOT_COVERING.",
+          "evidence": "The entries provide values/references, not the squarefree-semiprime asymptotic.",
+          "identifier_or_url": "OEIS A009194 and cited Duffinian entry",
+          "material_read": "Definitions, listed terms, references and comments.",
+          "method": "Database coverage comparison.",
+          "title": "OEIS gcd/Duffinian database entries",
+          "trigger": "Exact database check."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem exposes a genuine density reversal: a globally sparse coprimality property becomes generic on the natural squarefree-semiprime stratum. The exact local criterion and quantitative \\(O(x/\\log x)\\) exceptional bound make this a motivated analytic-number-theory fact rather than a finite sequence observation.",
+      "risks": [
+        "The result is only a relative-density statement for squarefree semiprimes and does not quantify a leading exceptional constant."
+      ],
+      "sources": [
+        "Pollack global gcd-distribution context",
+        "Landau semiprime stratum",
+        "assigned counting proof"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Squarefree products of two distinct primes only.",
+    "Error term only \\(O(x/\\log x)\\).",
+    "Duffy 1979 and Luca 2007 full texts were unavailable; originality is best-of-knowledge with that risk."
+  ],
+  "schema_version": 1
+}

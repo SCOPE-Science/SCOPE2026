@@ -1,39 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(n=pq\) with \(p<q\), multiplicativity gives
-\(\sigma(n)=(p+1)(q+1)\), so the exact failure condition reduces to the single
-cross congruence \(q\equiv-1\pmod p\), together with the automatic obstruction
-at \(p=2\). The exceptional count is split at \(p=x^{1/3}\). Brun--Titchmarsh
-gives a convergent \(p^{-2}\)-type sum below the split; above the split, dropping
-the congruence and using the prime-counting bound together with the bounded
-reciprocal-prime mass of \((x^{1/3},x^{1/2})\) gives
-\(O(x/\log x)\). Landau's semiprime theorem then makes this lower order by a
-factor of \(\log\log x\). The packaged finite checker confirms the exact local
-criterion but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. Dressler's full two-page paper proves the ambient ordinary-density-zero
-result for \(\gcd(n,\sigma(n))=1\), which neither implies nor conflicts with a
-relative-density-one statement inside the zero-density semiprime stratum.
-Pollack's full paper studies the global distribution of \(\gcd(n,\sigma(n))\)
-and supplies closely related arithmetic-progression estimates, but no semiprime
-or Duffinian theorem appears in the text. published-finding corpus searches for the exact
-local criterion, semiprime formulation, aliases, and relative-density statement
-returned only unrelated divisor-function and semiprime results. The current
-ledger has no Duffinian finding.
+PASS
 
-The principal residual risk is historical: Duffy's 1979 paper and Luca's 2007
-paper are directly relevant, but full text was not available in this run. Their
-known bibliographic descriptions concern Duffinian definitions/examples and
-ambient density, respectively; no claim of whole-document noncoverage is made
-from snippets alone.
+For distinct primes \(p<q\), \(\sigma(pq)=(p+1)(q+1)\). Cross-divisibility shows \(pq\) is Duffinian exactly when \(p\ne2\) and \(q\not\equiv-1\pmod p\). For exceptional odd \(p\le x^{1/3}\), Brun–Titchmarsh gives \(\pi(x/p;p,-1)\ll x/[p(p-1)\log x]\), summable over \(p\). For \(x^{1/3}<p<\sqrt{x}\), discarding the congruence and using \(\pi(x/p)\ll x/[p\log x]\) leaves a bounded reciprocal-prime sum over a fixed logarithmic interval. The \(p=2\) contribution is also \(O(x/\log x)\). Thus the exceptional set is \(O(x/\log x)\), negligible relative to Landau's \(x\log\log x/\log x\) count of squarefree semiprimes. The finite checker confirms only the local criterion, not the asymptotic proof.
 
-## Value
-PASS. The theorem exposes a sharp change of behavior between ambient integers
-and the natural \(\Omega=2\) squarefree stratum: a property of ordinary density
-zero becomes generic there. The proof also gives a transparent exact local
-obstruction and a quantitative \(O(x/\log x)\) exceptional bound, so it is more
-than a finite census or a renamed standard identity.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Pollack's full 2011 paper studies the global distribution of \(\gcd(n,\sigma(n))\) and uses the same \(-1\) congruence/Brun–Titchmarsh mechanism, but full-document searches found no occurrence of 'semiprime' or 'Duffinian' and no theorem conditioning on the two-prime stratum. The global density behavior is qualitatively opposite to the audited relative-density-one result. OEIS and accessible historical metadata list Duffinian numbers but do not imply the semiprime asymptotic. Best-of-knowledge, the thin-stratum theorem is not covered.
+
+## value
+
+PASS
+
+The theorem exposes a genuine density reversal: a globally sparse coprimality property becomes generic on the natural squarefree-semiprime stratum. The exact local criterion and quantitative \(O(x/\log x)\) exceptional bound make this a motivated analytic-number-theory fact rather than a finite sequence observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
