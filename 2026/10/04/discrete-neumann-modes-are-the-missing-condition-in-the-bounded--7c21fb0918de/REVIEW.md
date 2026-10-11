@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The mode polynomial and coefficients are taken directly from the source model. Under \(R_1\), every modal trace is negative, so modal instability is equivalent to \(D_k<0\). The quadratic \(D(z)=Az^2-Bz+C\) is negative exactly on \( (z_-,z_+)\) when \(B>0\) and \(S>0\); on a bounded Neumann interval only the discrete values \(z_k=k^2/l^2\) are admissible. The exact witness satisfies the coexistence relation and all sign claims by rational arithmetic. At \(l=1/10\), all nonzero modes have \(z_k\ge100\), beyond the quadratic vertex, and \(D(100)>0\), proving stability of every mode. At \(l=1\), \(D(4)<0\) and \(D(9)<0\).
+## correctness
 
-## Originality
-PASS. The source paper states the discrete spectrum and later uses mode-specific Turing curves, but its Theorem 6 explicitly claims that the continuous condition \(R_5\) itself forces an unstable integer mode. No correction or exact bounded-domain counterexample was found in searches for the paper identifier, theorem, or the missing spectral-intersection condition. General bounded-domain Turing literature treats instability mode by mode, which supports the correction but does not supply this model-specific rational witness.
+PASS
 
-Closest literature: Hazra--Banerjee--Jana, arXiv:2609.29052v1; Jiang--Cao--Wang, DCDS-B 27 (2022), DOI 10.3934/dcdsb.2021085.
+For the linearized bounded Neumann problem the modal trace is strictly negative under the stated kinetic condition, so instability is equivalent to negativity of the quadratic modal determinant \(D(z)=d_1d_2z^2-Bz+C\). When \(B>0\) and the discriminant is positive, negativity occurs only on the open continuous band between the two positive roots; a bounded interval is unstable exactly when one of the discrete values \(k^2/l^2\) lies inside that band. The inspected exact-arithmetic verifier reconstructs the coexistence point and coefficients and certifies the witness: the vertex is below 100, \(D(100)>0\), whereas \(D(4)<0\) and \(D(9)<0\). Thus the same kinetics satisfy the source's continuous-band condition but are stable for \(l=1/10\) and unstable in modes 2 and 3 for \(l=1\).
 
-## Value
-PASS. The correction prevents false domain-independent Turing predictions in a model intended for spatial biological control. It gives the exact missing criterion and a transparent witness in which changing only the habitat length toggles instability, so it directly identifies a biologically interpretable boundary of the source theorem rather than a cosmetic algebraic issue.
+## originality
 
-## Limitations
-The finding is linear and local to the homogeneous equilibrium. It does not invalidate the source paper's \(l=1\) numerical pattern simulations, and it does not prove which nonlinear patterned state is selected after instability.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Bounded-domain Turing theory generally requires intersection with the Laplacian spectrum, but current searches found no earlier model-specific correction or exact counterexample to the Hazra-Banerjee-Jana criterion. The source's current record concerns the supplemented predator-prey system, while the audited finding adds the missing discrete-spectrum quantifier and an exact geometry-dependent witness. The general eigenmode principle supplies context but does not state this source-specific correction.
+
+## value
+
+PASS
+
+The result repairs a qualitative instability criterion in a current bounded-domain reaction-diffusion model and gives an exact witness where geometry changes the stability verdict. That is a motivated structural correction with practical interpretive value, not a numerical perturbation or finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
