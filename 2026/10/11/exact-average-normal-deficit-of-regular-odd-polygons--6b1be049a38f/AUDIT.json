@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For odd regular polygons the selected edge-active region is exactly a strip. The two omitted caps are exhaustively described, the strip intersection is solved exactly, and the shoelace sum gives area(U_E)=s(3c^2+2c-1)/c. Hann's planar Euler-type identity makes the total vertex-active area equal the total edge-active area, so the average equals twice the edge contribution. Substitution yields 8-2(sec(pi/n)-1)^2. The bundled clipping checker independently reproduces the values through n=101; the all-n conclusion rests on the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 paper records the general planar upper bounds and the value 8 for centrally symmetric cyclic polygons, but no theorem there specializes to an explicit odd regular-polygon value.",
+        "Nasonov--Panina--Siersma, arXiv:2406.01773, discusses average normal counts for polytopes and includes an explicit triangle statement; no inspected regular odd-polygon family theorem was located."
+      ],
+      "reasoning": "A general active-region identity is a computational framework, not a statement that determines the strip area for this family. The known even/cyclic equality does not imply the odd values. The later average-normal literature inspected does not dominate the claim.",
+      "searches": [
+        "mean number normals regular odd n-gon Santalo exact formula",
+        "active region regular odd polygon normals average quartic 8",
+        "convex polygon swept by inner normals regular n-gon mean number normals",
+        "Hann average normals regular polygon exact formula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.0813v1",
+      "DOI:10.1556/012.2015.52.4.1320",
+      "arXiv:2406.01773",
+      "Hann, Geometriae Dedicata 48 (1993), 27--55 (bibliographic/access-limited comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected 2014 source gives the identity used in the proof and the even centrally symmetric cyclic equality, but leaves odd regular polygons unevaluated.",
+        "The later inspected source has a triangle average result and no located regular-polygon profile.",
+        "Hann 1993 is acknowledged as the source of the general identity; its full text was not used to assert noncoverage."
+      ],
+      "reasoning": "The new statement requires an exact geometric evaluation of one active strip and its cap for every odd n. Neither the general identity nor the even cyclic equality supplies that evaluation. Because the historical Hann article was not fully inspected, it is carried as a residual risk rather than treated as negative evidence.",
+      "searches": [
+        "arXiv:1406.0813v1 Sections 1--4, especially the definition, polygonal extremal discussion, and Remark 1",
+        "arXiv:2406.01773 average number of normals section",
+        "Hann 1993 average number normals Euler-type identity bibliographic comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Domokos--Lángi, arXiv:1406.0813v1: definition of n(K), Hann bounds, Hug cyclic centrally symmetric equality, and planar open question.",
+        "No inspected exact-form or decimal search result states the regular odd-polygon formula."
+      ],
+      "reasoning": "The searches cover both displayed algebraic forms and a diagnostic pentagon value. The closest source gives framework and neighboring equality cases, not an equivalent evaluation of odd regular polygons.",
+      "searches": [
+        "average number normals regular polygon n(P) odd regular polygon Domokos Langi",
+        "8 - 2 (sec(pi/n)-1)^2 average normals regular polygon",
+        "6 + 4 sec(pi/n) - 2 sec(pi/n)^2 regular polygon normals",
+        "regular pentagon average normals 7.888543819998"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked bibliographic or semantic result tabulates these values or the closed formula.",
+        "The 2014 survey table gives class-wide upper bounds, not regular odd-polygon exact values."
+      ],
+      "reasoning": "The obvious low-n numerical fingerprints and the natural secant alias were searched because an older table could cover the claim even without matching theorem wording; none was found.",
+      "searches": [
+        "regular pentagon average normals 7.888543819998",
+        "regular heptagon average normals 7.97583682974",
+        "regular polygon inner normal average 8 secant"
+      ]
+    },
+    "rationale": "The 2014 primary paper is a close survey/research source for the invariant. It states the general active-region identity and the known value 8 for centrally symmetric cyclic polygons, but does not give the odd regular-polygon profile. A later primary paper discusses average normals and gives an explicit triangle result, with no inspected regular-polygon family formula. Searches for the exact expression, equivalent secant form, representative decimal values, active-region formulation, and regular-polygon aliases found no covering statement.",
+    "residual_risks": [
+      "The full 1993 Hann article was not materially inspected, so an explicit regular-polygon computation hidden there remains possible.",
+      "Dumitraşcu's 1998 polygonal normal-sweep paper is summarized in the 2014 survey only by its general lower-bound result; an unindexed special-family computation could exist.",
+      "An older non-English or poorly indexed note could tabulate the same regular odd-polygon values without using the modern average-normal terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING: supplies the structural identity and neighboring known cases but no exact regular odd-polygon profile.",
+        "evidence": "Definition 1; the discussion of Hann and Hug; Section 3.1 paragraph on centrally symmetric cyclic polygons; Section 4 Question 1 and Remark 1.",
+        "identifier_or_url": "arXiv:1406.0813v1; DOI:10.1556/012.2015.52.4.1320",
+        "material_read": "ArXiv full text, including definition of n(K), history of Hann/Hug results, polygonal maximizer discussion, Section 4 question, and the displayed Euler-type identity; relevant PDF pages were also visually inspected.",
+        "method": "Full-text and page-image inspection of the lawful arXiv version.",
+        "title": "On the average number of normals through points of a convex body",
+        "trigger": "Closest primary survey/research source for the invariant, polygonal upper bounds, cyclic centrally symmetric equality, Euler-type identity, and the planar extremal question."
+      },
+      {
+        "assessment": "NOT_COVERING: the inspected average-normal discussion does not state the regular odd-polygon family formula.",
+        "evidence": "The average-number section treats the triangle case explicitly and discusses higher-dimensional polytopes; no regular-polygon profile was located.",
+        "identifier_or_url": "arXiv:2406.01773",
+        "material_read": "Relevant full-text sections defining active regions and discussing average numbers of normals, including the explicit planar triangle proposition.",
+        "method": "Material full-text inspection of the arXiv version.",
+        "title": "Concurrent normals problem for convex polytopes and Euclidean distance degree",
+        "trigger": "Later primary work revisiting concurrent and average normals for convex polytopes."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_RISK: used as attribution for the identity, not as whole-document negative evidence.",
+        "evidence": "The 2014 source explicitly attributes its displayed Remark 1 Euler-type identity to Hann 1993.",
+        "identifier_or_url": "Geom. Dedicata 48 (1993), 27--55",
+        "material_read": "Bibliographic record and the exact identity as reproduced in the materially inspected 2014 primary source; the original article itself was not materially inspected.",
+        "method": "Bibliographic comparison plus exact reproduction in a later primary survey.",
+        "title": "The average number of normals through a point in a convex body and a related Euler-type identity",
+        "trigger": "Original historical source of the Euler-type identity used by the 2014 paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6b1be049-a38f-4700-9aa7-b8eb529072ec",
+  "value": {
+    "rationale": "Regular odd polygons are the canonical non-centrally-symmetric partners of the regular even polygons that fall under the known n(P)=8 cyclic centrally symmetric theorem. The exact all-odd profile therefore supplies a natural benchmark for Santaló's average-normal problem, and the quartic deficit quantifies how the classical value 8 is approached. This is a complete family law with a structural asymptotic, not an arbitrary numerical slice or a routine recomputation of a known table.",
+    "status": "PASS"
+  }
+}
