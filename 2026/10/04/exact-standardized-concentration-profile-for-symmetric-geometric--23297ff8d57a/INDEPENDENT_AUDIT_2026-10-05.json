@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:18:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ebb127bce7584bf76ab420c6a0a33ba3f45efdc4",
+        "Zhang--Hu--Sun, On the measure concentration of infinitely divisible distributions, arXiv:2310.03471",
+        "Bobkov--Marsiglietti--Melbourne, Concentration functions and entropy bounds for discrete log-concave distributions, arXiv:2007.11030"
+      ],
+      "rationale": "The symmetric geometric variance \\(\\sigma_q^2=2q/(1-q)^2\\) is correct. On each lattice band, the closed central mass equals \\(1-2q^{m+1}/(1+q)\\) and decreases with \\(q\\). Solving the threshold \\(c\\sqrt{2q}/(1-q)=s\\) gives \\(q_s=\\exp(-2\\operatorname{arsinh}(c/(\\sqrt2\\,s)))\\). The complementary band extrema \\(T_s\\) have strictly negative logarithmic derivative because \\(t>\\tanh t\\), so the first band is globally extremal. At \\(s=1\\), the mass is \\(c/\\sqrt{c^2+2}\\); the closed event has an unattained infimum while the open event attains its unique minimum at \\(q_1=1+c^2-c\\sqrt{c^2+2}\\). The endpoint jump and uniqueness are handled correctly.",
+      "residual_risks": [
+        "No separate package verifier is present; the proof was independently reconstructed from its exact tail sums and one-variable derivative."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former proves one radius; the latter gives general inequalities but not this exact one-parameter standardized family profile."
+        ],
+        "reasoning": "Neither inspected broader result mechanically supplies the monotone sequence of exact lattice-band extrema for every \\(c\\).",
+        "searches": [
+          "Zhang--Hu--Sun full primary article",
+          "Bobkov--Marsiglietti--Melbourne full primary article"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.03471",
+        "arXiv:2007.11030",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single radius does not determine which lattice threshold controls every radius.",
+          "General concentration inequalities do not imply the exact optimizer \\(q_1(c)\\) or open/closed attainment distinction."
+        ],
+        "reasoning": "The final profile requires the new threshold-band monotonicity argument.",
+        "searches": [
+          "known \\(c=1\\) value versus arbitrary \\(c\\)",
+          "fixed-window discrete log-concave bounds versus standardized moving window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-standard-deviation source uses the same distribution and variance normalization.",
+          "The broader log-concave concentration work uses fixed-window concentration functions, not the moving standardized radius."
+        ],
+        "reasoning": "The exact \\(c=1\\) match was treated as prior coverage; originality is only the all-radius extension and optimizer classification.",
+        "searches": [
+          "Resultary query: symmetric geometric distribution standardized concentration profile all radii variance central mass",
+          "Zhang--Hu--Sun arXiv:2310.03471, symmetric geometric section",
+          "Bobkov--Marsiglietti--Melbourne arXiv:2007.11030"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact all-radius table or theorem was retrieved."
+        ],
+        "reasoning": "This supports, but does not replace, the direct primary-source comparison.",
+        "searches": [
+          "Resultary current search for the all-radius formula \\(c/\\sqrt{c^2+2}\\) in the symmetric geometric family"
+        ]
+      },
+      "rationale": "Zhang, Hu and Sun inspect the same symmetric-geometric family and prove the one-standard-deviation value \\(1/\\sqrt3\\), which is exactly the \\(c=1\\) specialization. Their complete primary text does not state the all-\\(c>0\\) standardized profile, the unique open-event optimizer, or the first-band monotonicity theorem. Bobkov, Marsiglietti and Melbourne give broader discrete log-concave concentration inequalities, but those optimize fixed integer windows rather than a centered window whose radius scales with each law's own standard deviation. No Resultary search returned a stronger all-radius statement.",
+      "residual_risks": [
+        "An equivalent all-radius staircase calculation may exist in older probability literature under a different parameterization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ONE_RADIUS_SPECIAL_CASE",
+          "evidence": "The paper proves the \\(c=1\\) value \\(1/\\sqrt3\\), not the all-\\(c\\) profile or optimizer law.",
+          "identifier_or_url": "arXiv:2310.03471",
+          "material_read": "complete primary paper with the symmetric-geometric proposition and its proof inspected",
+          "method": "primary full-text/PDF inspection",
+          "title": "On the measure concentration of infinitely divisible distributions",
+          "trigger": "same symmetric-geometric law and standardized one-sigma problem"
+        },
+        {
+          "assessment": "BROADER_INEQUALITIES_DIFFERENT_OPTIMIZATION",
+          "evidence": "Its fixed integer-window bounds do not state the audited variance-scaled centered-window profile.",
+          "identifier_or_url": "arXiv:2007.11030",
+          "material_read": "primary article sections on concentration functions and geometric extremizers inspected",
+          "method": "primary full-text inspection",
+          "title": "Concentration functions and entropy bounds for discrete log-concave distributions",
+          "trigger": "broader discrete log-concave concentration theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhang--Hu--Sun",
+        "Bobkov--Marsiglietti--Melbourne",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The result upgrades a published sharp one-standard-deviation fact to the complete standardized concentration profile for the same canonical extremal family, including attainment and unique optimizer. The first-threshold principle is a clean structural statement that can serve as a benchmark for broader discrete concentration problems.",
+      "residual_risks": [
+        "The theorem remains family-specific rather than an extremal result over all discrete log-concave laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No separate package verifier is present; the proof was independently reconstructed from its exact tail sums and one-variable derivative.",
+    "An equivalent all-radius staircase calculation may exist in older probability literature under a different parameterization.",
+    "The theorem remains family-specific rather than an extremal result over all discrete log-concave laws."
+  ]
+}

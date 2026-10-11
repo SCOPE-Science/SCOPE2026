@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The probability on each lattice band is an exact geometric-tail sum. The threshold parameterization \(q_s=e^{-2t_s}\), with \(t_s=\operatorname{arsinh}(c/(\sqrt2 s))\), is exact. Differentiating the complementary band infimum yields a strictly negative derivative because \(t_s>\tanh t_s\). Endpoint inclusion is treated separately, giving a nonattained closed-event infimum and a uniquely attained open-event minimum.
+## correctness
 
-## Originality
-PASS. The closest same-family paper proves only the \(c=1\) value \(1/\sqrt3\). The closest broader concentration-function paper proves largest-atom and fixed-integer-window bounds; those do not imply the variance-scaled all-radius profile. Targeted searches for symmetric-geometric, two-sided-geometric, discrete-Laplace, arbitrary-standard-deviation, and the exact formula did not locate an equivalent theorem. A differently indexed equivalent statement remains a residual risk.
+PASS
 
-## Value
-PASS. A full standardized-radius profile is the natural completion of a one-standard-deviation extremal calculation. The theorem also identifies the optimizer and the exact open/closed endpoint distinction, and it shows that every higher lattice band is dominated by the first-contact band.
+The symmetric geometric variance \(\sigma_q^2=2q/(1-q)^2\) is correct. On each lattice band, the closed central mass equals \(1-2q^{m+1}/(1+q)\) and decreases with \(q\). Solving the threshold \(c\sqrt{2q}/(1-q)=s\) gives \(q_s=\exp(-2\operatorname{arsinh}(c/(\sqrt2\,s)))\). The complementary band extrema \(T_s\) have strictly negative logarithmic derivative because \(t>\tanh t\), so the first band is globally extremal. At \(s=1\), the mass is \(c/\sqrt{c^2+2}\); the closed event has an unattained infimum while the open event attains its unique minimum at \(q_1=1+c^2-c\sqrt{c^2+2}\). The endpoint jump and uniqueness are handled correctly.
 
-## Closest literature and limitations
-Zhang, Hu, and Sun (arXiv:2310.03471) compute the same family at one standard deviation. Bobkov, Marsiglietti, and Melbourne (arXiv:2007.11030) treat concentration functions for discrete log-concave laws and identify two-sided geometric distributions as equality cases for a largest-atom variance bound. The present result is restricted to the symmetric geometric family and does not settle analogous profiles for broader distribution classes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Zhang, Hu and Sun inspect the same symmetric-geometric family and prove the one-standard-deviation value \(1/\sqrt3\), which is exactly the \(c=1\) specialization. Their complete primary text does not state the all-\(c>0\) standardized profile, the unique open-event optimizer, or the first-band monotonicity theorem. Bobkov, Marsiglietti and Melbourne give broader discrete log-concave concentration inequalities, but those optimize fixed integer windows rather than a centered window whose radius scales with each law's own standard deviation. No Resultary search returned a stronger all-radius statement.
+
+## value
+
+PASS
+
+The result upgrades a published sharp one-standard-deviation fact to the complete standardized concentration profile for the same canonical extremal family, including attainment and unique optimizer. The first-threshold principle is a clean structural statement that can serve as a benchmark for broader discrete concentration problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
