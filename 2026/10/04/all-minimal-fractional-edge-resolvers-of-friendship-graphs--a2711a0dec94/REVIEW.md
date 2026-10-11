@@ -1,12 +1,21 @@
-# Review of All minimal fractional edge resolvers of friendship graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. For any two distinct outer vertices, the corresponding spokes have resolving neighborhood exactly that pair, so all outer pair inequalities are necessary. Every other resolving neighborhood contains at least two outer vertices, making those inequalities sufficient. The coordinatewise-minimal points of the resulting complete-pair covering polytope are exactly the uniform half-vector and the one-low/all-equal-high family. The weight formula then gives the full interval \([k,2k-1]\) and a unique optimum at the uniform half-vector. Direct graph-distance reconstruction and vertex-level LP checks agree for \(2\le k\le8\).
+## correctness
 
-## Originality
-PASS. The foundational 2021 source introduces fractional edge dimension. The later 2021 friendship-graph paper proves the scalar value \(\operatorname{edim}_f(F_k)=k\) while defining minimal edge resolving functions generally. Searches for friendship graphs combined with minimal edge resolving functions, optimizer uniqueness, feasible polytopes, and fractional edge resolvers located that scalar-value paper but no equivalent all-minimal-function classification. The scalar value is explicitly excluded from the novelty basis.
+PASS
 
-## Value
-PASS. Minimal edge resolving functions are part of the published formulation of fractional edge dimension, not an artificial auxiliary object. Determining the entire minimal-function space identifies all irreducible fractional landmark assignments on a standard graph family, quantifies their possible weights, and shows that the published optimum is rigid rather than merely attainable.
+Every two-spoke edge pair has resolving neighborhood exactly its two outer endpoints, giving all pair inequalities; every other edge-pair resolving neighborhood contains at least two outer vertices, so those inequalities suffice and the center is free. Coordinatewise minimality forces center weight zero, the two smallest outer weights to sum to one, and every other positive coordinate to be tight with the smallest, yielding exactly the claimed family. The assigned distance/LP verifier corroborates cases \(2\le k\le8\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest primary article is exact same-object prior work and was inspected in full. It defines minimal edge resolving functions and proves only the scalar friendship value. The audited theorem adds the complete pair-inequality reduction, all coordinatewise-minimal functions, their weight interval, and unique optimum; Resultary did not locate an equivalent stronger classification.
+
+## value
+
+PASS
+
+The friendship family is an established exact test case for fractional edge dimension. Classifying every minimal resolving function and proving optimizer uniqueness is a natural structural refinement of the published scalar theorem, with a simple reusable polyhedral description rather than a cosmetic restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
