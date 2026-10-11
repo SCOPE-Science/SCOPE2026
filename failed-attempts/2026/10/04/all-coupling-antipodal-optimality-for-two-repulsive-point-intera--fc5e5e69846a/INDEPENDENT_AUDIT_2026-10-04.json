@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:56:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two identical repulsive delta interactions, simplicity and positivity of the one-dimensional ground state force reflection symmetry through the two sites, hence equal positive endpoint amplitudes on both complementary arcs. Solving \\(-u''=k^2u\\) on an arc of length \\(L\\) with equal endpoint value gives the cosine profile and positivity forces \\(0<kL<\\pi\\). The two delta jumps combine to \\(\u0007lpha=k[\\tan(ka/2)+\\tan(kb/2)]\\), which is strictly increasing in \\(k\\) on the positive branch. Strict convexity of \\(\\tan\\) and \\(a+b=2\\pi\\) then gives the unique antipodal maximizer for every \\(\u0007lpha>0\\). This is an analytic proof, not an inference from the finite transfer-matrix tests.",
+      "risks": [
+        "The argument relies on the special two-site reflection symmetry and equal interaction strengths."
+      ],
+      "sources": [
+        "Frozen source tree 50098e7b69dcc26f1a4e94f93af478a6a07d69e2",
+        "P. Exner, arXiv:1906.01229, Section 5",
+        "Independent reconstruction of the two-arc boundary-value problem in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-\\(N\\) theorem contains the same operator, coupling range and objective, with strictly broader \\(N\\)-coverage."
+        ],
+        "reasoning": "This is decisive broader coverage, not merely a related result.",
+        "searches": [
+          "Direct frozen-tree inspection of 2026/10/04/all-coupling-equidistant-maximizer-for-repulsive-point-interacti--e80ea5c2ae33 at tree ac182af03d66313d9b95dd01b41cb94bcccfb749"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026:2026/10/04/all-coupling-equidistant-maximizer-for-repulsive-point-interacti--e80ea5c2ae33@ac182af03d66313d9b95dd01b41cb94bcccfb749",
+        "arXiv:1906.01229",
+        "Resultary Exner/repulsive-loop semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger theorem proves the conjectured inequality for all \\(N\\ge2\\), all positive couplings and uniquely equal gaps.",
+          "Exner 2019 proves only weak/strong regimes and conjectures the full interval."
+        ],
+        "reasoning": "The current broader theorem directly implies the submitted N=2 statement, so O fails regardless of the older literature gap.",
+        "searches": [
+          "2026/10/04/all-coupling-equidistant-maximizer-for-repulsive-point-interacti--e80ea5c2ae33/RESULT.md at source tree ac182af03d66313d9b95dd01b41cb94bcccfb749",
+          "arXiv:1906.01229 lines containing Theorems 5.1, 5.2 and Conjecture 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stronger SCOPE theorem states unique equal-spacing optimality for every integer \\(N\\ge2\\) and every \\(\u0007lpha>0\\).",
+          "For \\(N=2\\), the two equal cyclic gaps are both \\(\\pi\\), i.e. the antipodal configuration."
+        ],
+        "reasoning": "The two statements are equivalent after specializing the stronger theorem to \\(N=2\\); wording differences do not avoid implication.",
+        "searches": [
+          "SCOPE2026@cd76f0b741a81ebc64b2fc7846361df5d730832d:2026/10/04/all-coupling-equidistant-maximizer-for-repulsive-point-interacti--e80ea5c2ae33/RESULT.md",
+          "P. Exner, arXiv:1906.01229, Section 5 and Conjecture 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic Resultary search was not sufficient to surface the stronger path, but the frozen SCOPE inventory itself supplied and was read as an assigned record."
+        ],
+        "reasoning": "A database table is not the issue; direct theorem implication by a broader frozen record is decisive.",
+        "searches": [
+          "Resultary searches for Exner repulsive loop / all-coupling / antipodal / equidistant",
+          "Direct SCOPE2026 inventory comparison at cd76f0b741a81ebc64b2fc7846361df5d730832d"
+        ]
+      },
+      "rationale": "The final claim is strictly covered by another frozen SCOPE result in the same inventory: the assigned all-\\(N\\) equidistant theorem proves Exner's repulsive-loop conjecture for every \\(N\\ge2\\) and every positive coupling. Setting \\(N=2\\) makes equal spacing exactly antipodal placement, so the present claim is an immediate special case. Exner 2019 itself leaves the all-coupling statement conjectural, but that does not restore originality once the broader current theorem is present.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_STRONGER",
+          "evidence": [
+            "Specializing the stated all-\\(N\\) theorem to \\(N=2\\) gives antipodal placement and exactly the present optimization claim."
+          ],
+          "identifier_or_url": "SCOPE2026:2026/10/04/all-coupling-equidistant-maximizer-for-repulsive-point-interacti--e80ea5c2ae33@ac182af03d66313d9b95dd01b41cb94bcccfb749",
+          "material_read": "Full frozen RESULT.md including finding, Dirichlet-to-Neumann/Perron--Frobenius/Jensen proof and scope.",
+          "method": "Direct theorem-implication comparison.",
+          "title": "All-coupling equidistant maximizer for repulsive point interactions on a loop",
+          "trigger": "Same operator and coupling range with visibly broader parameter \\(N\\)."
+        },
+        {
+          "assessment": "NOT_COVERING_BY_ITSELF",
+          "evidence": [
+            "Theorems 5.1 and 5.2 cover weak and large coupling; Conjecture 5.1 states the full positive-coupling inequality."
+          ],
+          "identifier_or_url": "arXiv:1906.01229",
+          "material_read": "Full relevant Section 5, including Theorems 5.1--5.2 and Conjecture 5.1.",
+          "method": "Primary full-text theorem comparison.",
+          "title": "An optimization problem for finite point interaction families",
+          "trigger": "Primary source for the repulsive-loop conjecture."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a standalone scientific claim, the N=2 optimizer no longer fills a mathematical gap once the same frozen corpus contains a proof for every \\(N\\ge2\\). The shorter two-site symmetry argument may be pedagogically pleasant, but it adds no new classification, boundary, invariant or parameter range beyond the broader theorem, so it does not clear the value bar as a separate result.",
+      "risks": [
+        "This value judgment concerns the final claim as submitted, not the correctness of its simpler proof."
+      ],
+      "sources": [
+        "Broader SCOPE theorem 2026/10/04/all-coupling-equidistant-maximizer-for-repulsive-point-interacti--e80ea5c2ae33"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The mathematical proof is correct; rejection is for decisive broader coverage and consequent lack of standalone scientific value.",
+    "Failed whole-package archival cannot currently be published without exposing operational provenance fields."
+  ],
+  "schema_version": 1
+}
