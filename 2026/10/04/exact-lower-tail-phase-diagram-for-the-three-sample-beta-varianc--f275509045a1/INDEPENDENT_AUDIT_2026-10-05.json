@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:40:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 475232d24ddb12c1473dc1fb34c90ac8d0d9cb93",
+        "assigned verify.py blob 40aa425ef58c3cb1d61655c69a1fd66480c541af",
+        "Royen, The exact distribution of the sample variance from bounded continuous random variables, arXiv:0810.1572",
+        "Osan--Chu--Yu, Closed forms and open obstructions: the sample variance of three observations, arXiv:2609.25333v1"
+      ],
+      "rationale": "The orthogonal diagonal coordinates have Jacobian \\(\\sqrt3\\) when parameterized by the sample mean t and two orthogonal contrasts, and \\(S^2=(\\xi_1^2+\\xi_2^2)/2\\), so the regular tube cross-section has area \\(2\\pi y\\). If both endpoint exponents exceed \\(2/3\\), \\(f^3\\) is integrable and dominated localization yields the stated \\(2\\sqrt3\\pi\\int_0^1f^3\\) coefficient. At a critical endpoint, \\(f(t)^3\\sim B^{-3}t^{-1}\\), and integration from the \\(\\sqrt y\\) corner scale contributes exactly \\(\\sqrt3\\pi B^{-3}y\\log(1/y)\\) per critical endpoint. Below threshold, scaling \\(X_i=\\sqrt y\\,u_i\\) gives the power \\(y^{3m/2}\\) and the corner integral. In simplex/radial coordinates the only tail divergence occurs near the simplex center, where the integrand behaves as \\(r^{1-3m}\\), giving finiteness exactly for \\(m<2/3\\); faces are integrable for m>0. The inspected checker verifies the Royen critical normalization for \\(\\operatorname{Beta}(2/3,1)\\) and representative exponent boundaries, while the universal claim rests on the analytic localization proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen's exact theorem does not encode simultaneous lower and upper Beta endpoints with possibly unequal exponents.",
+          "Osan--Chu--Yu's singular-parent section analyzes the arcsine model and does not present an all-parameter Beta phase diagram or exact \\(J_m\\) coefficient."
+        ],
+        "reasoning": "The two strongest checked sources jointly motivate the result but do not imply its arbitrary two-endpoint coefficient formula without the audited localization/comparison argument.",
+        "searches": [
+          "Royen arXiv:0810.1572 full theorem on singular endpoint density classes",
+          "Osan--Chu--Yu arXiv:2609.25333v1 full primary paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0810.1572",
+        "arXiv:2609.25333v1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Royen supplies the pure-power local model and therefore covers the critical threshold mechanism, which the audit does not count as originality.",
+          "Osan--Chu--Yu state \\(F(Y)\\sim C_3Y^{3/4}\\) for arcsine with \\(C_3\\) obtained numerically; the audited tied-endpoint formula specializes to an exact integral representation for that constant and also treats every unequal Beta pair."
+        ],
+        "reasoning": "The final originality claim is restricted to the exact full Beta transfer and endpoint competition, not to the already-known threshold mechanism itself.",
+        "searches": [
+          "Royen Theorem 3 at n=3",
+          "Osan--Chu--Yu Section 8 small-deviation law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Royen covers one-sided pure-power densities.",
+          "Osan--Chu--Yu cover n=3 Beta/polynomial examples and the symmetric arcsine singular example, including the \\(y^{3/4}\\) exponent but only a numerical arcsine origin constant."
+        ],
+        "reasoning": "Small-variance probability, small-deviation law, variance-tube/corner localization, and Beta endpoint regular variation were treated as equivalent formulations.",
+        "searches": [
+          "Resultary: three sample beta sample variance lower tail alpha beta Royen phase transition",
+          "arXiv:0810.1572 Theorem 3",
+          "arXiv:2609.25333v1 Section 8 and Appendix C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact table/formula matching all three regimes for arbitrary Beta parameters was located."
+        ],
+        "reasoning": "The arcsine exponent is known in the same-object 2026 paper, but its exact general coefficient and the unequal-endpoint cases are absent.",
+        "searches": [
+          "Resultary exact Beta lower-tail phase search",
+          "web searches for \\(\\min(\\alpha,\\beta)=2/3\\), sample variance, and exact lower-tail constants"
+        ]
+      },
+      "rationale": "Royen's Theorem 3 already contains the one-sided pure-power threshold \\(np=n-1\\), the subcritical exponent, and the critical logarithm, so those mechanisms are not credited as new. The full 2026 Osan--Chu--Yu paper treats the same n=3 geometry and explicitly derives the arcsine exponent \\(3/4\\), but quotes its lower-tail constant only numerically and does not state the general two-endpoint Beta competition law. The audited claim survives narrowly as the exact transfer to arbitrary \\((\\alpha,\\beta)\\): regular \\(f^3\\) coefficient, exact critical endpoint-count coefficient, exact corner-integral constant below threshold, and the rule selecting or adding endpoint contributions.",
+      "residual_risks": [
+        "A general regular-variation theorem for small sample variance could subsume the localization argument under terminology not found in the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ONE_SIDED_MECHANISM_NOT_FULL_BETA_TRANSFER",
+          "evidence": "At n=3 the theorem gives the pure-power threshold p=2/3, subcritical power, and critical log, but not the two-endpoint Beta competition/constants.",
+          "identifier_or_url": "arXiv:0810.1572",
+          "material_read": "Full accessible primary text around Theorem 3 and the endpoint-singular density classes.",
+          "method": "Open full-text inspection.",
+          "title": "The exact distribution of the sample variance from bounded continuous random variables",
+          "trigger": "Decisive predecessor for small-variance singularity and the critical logarithm."
+        },
+        {
+          "assessment": "PARTIALLY_COVERING_ARCSINE_SPECIAL_CASE",
+          "evidence": "The paper gives arcsine exponent \\(3/4\\) and a numerical origin constant \\(C_3=2.694\\pm0.002\\), not the exact all-Beta phase diagram or general \\(J_m\\) representation.",
+          "identifier_or_url": "arXiv:2609.25333v1",
+          "material_read": "Full 40-page accessible experimental HTML, including the Beta worked examples, closure hierarchy, singular-parent Section 8, and arcsine appendix material.",
+          "method": "Open full-text inspection.",
+          "title": "Closed forms and open obstructions: the sample variance of three observations",
+          "trigger": "Same sample size, same variance geometry, Beta family, and explicit singular arcsine lower tail."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Royen arXiv:0810.1572",
+        "Osan--Chu--Yu arXiv:2609.25333v1"
+      ],
+      "rationale": "The theorem resolves exactly how two competing endpoint singularities alter the lower tail of a standard statistic in a widely used two-parameter family. It both systematizes the arcsine phenomenon highlighted in the current n=3 distribution paper and identifies the critical surface and constants for every Beta pair, making it a natural phase classification rather than an isolated asymptotic calculation.",
+      "residual_risks": [
+        "The result is first-order asymptotic only and does not supply uniform error bounds in parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For three iid \\(\\operatorname{Beta}(\\alpha,\\beta)\\) observations and unbiased sample variance \\(S^2\\), the exact lower-tail leading regime is linear when \\(m=\\min(\\alpha,\\beta)>2/3\\), \\(y\\log(1/y)\\) at \\(m=2/3\\), and \\(y^{3m/2}\\) when \\(m<2/3\\), with the stated Beta-function constants, endpoint multiplicity factor, and subcritical corner integral \\(J_m\\), which is finite exactly for \\(0<m<2/3\\).",
+  "limitations": [
+    "Exactly three observations, fixed positive Beta parameters, and the stated unbiased variance normalization.",
+    "Only the first lower-tail term is determined; no second-order expansion or general closed form for \\(J_m\\) is claimed."
+  ],
+  "schema_version": 1
+}
