@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact rational elimination of the printed vector field yields the scalar equation \(t+(231898/2735)\sin t=0\). Strict convexity on each negative-sine lobe, together with \(26\pi<231898/2735<27\pi\), gives exactly two positive roots in each of 13 lobes and no others. The exact cubic Routh array then gives the 26/27 unstable-index split with no vanishing first-column entry. The bundled checker replays the algebra and independent numerical bracketing.
+## correctness
 
-## Originality
-PASS. The closest source is the Ye–He article itself. It states only that multiple nonzero equilibria exist, gives two examples, and checks the origin and those two examples for instability; it does not give the total count or complete unstable-index classification. A foundational sine-multiscroll paper by Tang et al. gives a prescribed equilibrium formula for a different modified Chua system and therefore does not imply the same-system result. published-finding corpus and exact-coefficient/title searches found no stronger same-system coverage.
+PASS
 
-## Value
-PASS. The article motivates its scroll mechanism by trajectories moving among unstable equilibria. Counting and classifying the entire saddle set at the featured chaotic parameters therefore resolves a natural missing structural quantity: the system has 53 hyperbolic equilibria even though the showcased attractor has three scrolls, with two distinct unstable dimensions interlaced across the sine lobes. This classification is directly reusable in local bifurcation and connecting-orbit studies.
+Exact elimination of the printed terminating-decimal matrix gives \(t+B\sin t=0\) with \(B=231898/2735\), and the remaining coordinates are fixed rational multiples of \(x_2\). The rational bounds \(26\pi<B<27\pi\) confine positive roots to 13 negative-sine lobes; strict convexity plus a negative midpoint gives exactly two roots per lobe, hence 53 equilibria including reflections and the origin. Independent numerical bracketing reproduced the 26 positive roots only as a check. The exact characteristic polynomial and Routh first-column thresholds, together with \(|\cos t|>1/4\), give 13 positive roots of each index; reflection doubles them and the origin adds one index-one point, yielding 26 index-two and 27 index-one hyperbolic equilibria.
 
-## Closest literature and limitations
-The source article is the closest literature because it defines exactly the same vector field and parameters. Tang et al. is the closest checked broader sine-multiscroll construction, but its state equations and prescribed nonlinearity are inequivalent. A recent Joshi–Bhatt–Ranjan sine-multiscroll paper was only available through its abstract in the checked sources and concerns a different single-unstable-node system. The accepted result is parameter-specific and does not determine scroll count, basins, or which equilibria are visited by the chaotic invariant set.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The open-access Ye--He article was inspected at its system construction, equilibrium analysis, and conclusions. It states that the controlled system has multiple/many unstable equilibrium points and lists sample nonzero equilibria, but it does not state the total count at \(\varepsilon_2=3.3,\sigma_2=4.7\) or the unstable-index split. The audited reduction to one scalar sine equation and exact convex-lobe/Routh classification therefore provides a complete same-parameter result not found in the inspected source or fresh Resultary search.
+
+## value
+
+PASS
+
+The source motivates equilibrium multiplicity as part of its multi-scroll mechanism. Giving the exact number and hyperbolic unstable dimension of every equilibrium at the principal parameter point is a natural complete classification of that system, and the analytic lobe count avoids conflating a finite numerical scan with proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
