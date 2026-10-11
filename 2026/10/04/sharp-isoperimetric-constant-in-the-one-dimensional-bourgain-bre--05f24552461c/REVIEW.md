@@ -1,29 +1,21 @@
-# Review of Sharp isoperimetric constant in the one-dimensional Bourgain--Brezis model
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary source fixes the Fourier convention, Hermitian pairing, Hardy projections, and the exact identity
-\[
-\|\Pi_+f\|_{\dot H^{-1/2}}^2-\|\Pi_-f\|_{\dot H^{-1/2}}^2
-=
-\langle f,|D|^{-1}\operatorname{sign}(D)f\rangle.
-\]
-Under that convention, the inverse transform of \(1/\xi\) is \((i/2)\operatorname{sign}(x)\). Mean zero therefore turns the operator exactly into \(iF\), where \(F\) is the closed primitive. The Hermitian pairing is exactly twice the algebraic area of that curve. Arclength parameterization, periodic Wirtinger, and Cauchy--Schwarz give
-\[
-|\mathcal A(F)|\le \frac{\|f\|_1^2}{4\pi},
-\]
-so the energy imbalance is bounded by \(\|f\|_1^2/(2\pi)\). Equality in both inequalities forces a first harmonic with equal orthogonal coordinate amplitudes, hence a once-traversed circle. The explicit circle primitive attains the coefficient. The source's annular approximation, or equivalently symmetric frequency truncation, passes the identity and sharp bound to the stated \(L^1_0\) class and simultaneously proves finiteness of the missing frequency component.
+PASS
 
-## Originality
+With the stated Fourier convention, the inverse transform of the principal-value multiplier \(1/\xi\) is \((i/2)\operatorname{sign}x\); mean zero therefore turns \(|D|^{-1}\operatorname{sign}(D)f\) into \(iF\). The Hermitian pairing is twice the signed area of the closed primitive curve, and the sharp signed isoperimetric inequality gives \(2|\mathcal A(F)|\le \|f\|_1^2/(2\pi)\), with circles as the equality cases. The argument also lets a finite regularized difference transfer finiteness from one half-frequency energy to the other. A local proof typo was detected in RESULT.md: it prints a minus sign in the displayed formula for \(\operatorname{Im}(F'\overline F)\); direct multiplication gives the positive area integrand. The immediately following pairing and final identity use the correct sign, so the theorem and sharp constant are unchanged. This is treated as a non-substantive proof-line defect, not a false final claim.
 
-PASS with a stated terminology risk. The full primary paper was inspected through Appendix A. Proposition A.1 gives only an unspecified comparison constant, despite writing the exact difference-of-frequency-energies identity used here. It does not identify that pairing with algebraic area, state the coefficient \(1/(2\pi)\), or classify equality.
+## originality
 
-A full later paper by the same author on Bourgain--Brezis selection maps was also inspected. Searches of that text for one-dimensional, Hilbert, and isoperimetric formulations found no matching refinement. Classical geometric references do contain the sharp signed-area isoperimetric theorem and its Fourier proof, but not the operator-theoretic half-Sobolev statement in the recent Bourgain--Brezis model.
+PASS
 
-Semantic searches covered Hardy projections, positive/negative frequency imbalance, \(\dot H^{-1/2}\) endpoint estimates, Hilbert-transform primitives, signed area, and isoperimetric formulations. No covering published statement was located. The residual risk is that this exact reformulation may appear in older Fourier-geometry literature under terminology not connected to Hardy projections.
+The closest source is Arsénio's one-dimensional Hilbertian Bourgain--Brezis model. Public arXiv/full-text routes did not yield usable complete text in this run, and after those failures the authorized institutional retrieval returned an Oxford-worker-unavailable/request-invalid error; it was not retried or bypassed. Accessible source material describes the nonsharp comparison, while the submitted argument identifies the endpoint pairing with signed area and then imports the classical sharp isoperimetric constant and equality cases. Resultary search for the exact Hardy-projection imbalance and \(1/(2\pi)\) constant returned only the submitted exact formulation among the relevant hits. The inaccessible same-paper remainder is retained as a priority risk rather than treated as automatic failure.
 
-## Value
+## value
 
-PASS. The source presents the one-dimensional estimate as the model for its Hilbertian reflection mechanism, but leaves its constant hidden. The result identifies the cancellation quantity geometrically, determines the optimal coefficient, and classifies every equality case. This is a natural structural completion of the model estimate rather than an arbitrary constant optimization: it explains why the self-pairing has substantially more cancellation than the raw endpoint operator bound and converts the analytic endpoint mechanism into a classical extremal geometry problem.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The result sharpens a current one-dimensional Bourgain--Brezis model from an unspecified comparison to the exact constant and complete equality geometry. Identifying the operator imbalance with signed area gives a structural explanation, not merely a better numerical coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
