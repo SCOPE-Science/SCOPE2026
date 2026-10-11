@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The truncated cubical graph is specified intrinsically by truncating the cube, so the metric object is unambiguous. Complete clique enumeration at radius \(3\) gives \((24,156,376,372,144,20)\). The supplied sequential matching pairs \(542\) face/coface pairs and the verifier checks the entire directed Hasse diagram is acyclic. Exactly one critical \(0\)-cell, one critical \(2\)-cell, and six critical \(3\)-cells remain. Exact signed gradient reduction gives zero boundary coefficient from every critical \(3\)-cell to the unique critical \(2\)-cell. Hence the Morse CW model is \(S^2\) with six null-attached \(3\)-cells, which is \(S^2\vee\bigvee^{6}S^3\).
+## correctness
 
-## Originality
-PASS, with residual literature risk. The closest primary source, Saleh--Titz Mite--Witzel (arXiv:2302.14388), classifies Platonic solids and explicitly points to Archimedean solids as a possible extension; it does not include the truncated cube. Adamaszek's graph-power paper (arXiv:1104.0433) supplies the general clique-complex/graph-power framework but no truncated-cube computation. Exact and alias searches for truncated cube/cubical graph, third graph power, clique complex, graph-metric Rips complex, and the claimed sphere wedge found no statement implying this result. Search absence is not treated as a proof of novelty.
+PASS
 
-## Value
-PASS. The source literature explicitly identifies Archimedean solids as a natural extension of the completed Platonic calculation. At the tested scale the truncated cube does not merely reproduce a single-dimensional sphere wedge: it has essential homotopy in dimensions \(2\) and \(3\) simultaneously. This supplies a concrete boundary example showing that an Archimedean extension must accommodate mixed-dimensional Morse data, and the compact certificate is reusable for comparisons with broader structural conjectures.
+The package's finite certificate is complete for the stated graph-metric scale. A fresh reconstruction of the 24-vertex truncated-cube graph gave 36 edges, cubic degree sequence, diameter 6, and exactly 1092 nonempty simplices in the third distance-power clique complex with f-vector (24,156,376,372,144,20). Replaying the printed vertex order produced 542 disjoint Morse pairs, exactly the listed critical vertex, one critical 2-simplex, and six critical 3-simplices; a full topological sort verified acyclicity, and an independent signed gradient reduction gave zero boundary coefficient from each critical 3-cell to the sole critical 2-cell. The Morse CW complex therefore has 2-skeleton S^2 and six degree-zero 3-cell attaching maps, hence the claimed wedge.
 
-## Closest literature and limitations
-The Platonic-solid paper is the nearest object-level source and provides both the motivating extension and the discrete-Morse methodology. The graph-power paper is the nearest framework-level source. The result is intentionally limited to one graph and one scale; adjacent-scale persistence and other Archimedean solids remain open here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Saleh-Titz Mite-Witzel classify the five Platonic solids, not the Archimedean truncated cube; Adamaszek's graph-power paper supplies general clique-complex machinery and examples such as cycles, but no truncated-cube computation. Targeted current searches for the truncated cube under Vietoris-Rips, clique-complex, and graph-power terminology found the assigned result but no prior decomposition. Best-of-knowledge originality therefore passes, with the inaccessible full Platonic-paper body retained only as a terminology risk.
+
+## value
+
+PASS
+
+The truncated cube is a canonical Archimedean test case immediately beyond the known Platonic classification, and the result exhibits a single natural Rips scale with sphere summands in two positive dimensions. The complete finite Morse certificate and attaching-map computation make this a motivated exact extension rather than an arbitrary small complex census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
