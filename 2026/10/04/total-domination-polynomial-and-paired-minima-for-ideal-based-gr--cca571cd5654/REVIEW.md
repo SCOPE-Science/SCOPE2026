@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Vertices are exactly lifts of nonzero zero-divisor cosets of the chain quotient. The chain filtration gives the exact vertex and socle-lift counts. A lifted socle vertex is universal, while for length at least three a valuation-one vertex has open neighborhood exactly the lifted nonzero socle; this proves the if-and-only-if classification of total dominating sets. The generating polynomial is then direct subset counting. Every minimum two-vertex total dominating set is an edge and hence a paired dominating set, while every paired dominating set is total dominating. The length-two and one-vertex boundary cases are treated separately by the same formula.
+PASS
 
-Sources and risks: the chain-quotient graph structure was checked against a full-text primary paper, and the standalone verifier reconstructs several actual rings from multiplication. Finite replay is not used as an infinite proof.
+Vertices are precisely lifts of nonzero zero divisors of the chain quotient, so valuation layers give \(N=s(q^{k-1}-1)\) and the nonzero socle lifts have size \(m=s(q-1)\). Every socle lift is universal. For \(k\ge3\), a valuation-one vertex has open neighborhood exactly the socle-lift set, forcing every total dominating set to meet it; for \(k=2\) that set is all vertices. Meeting the universal set together with cardinality at least two is also sufficient. The generating polynomial and minimum-pair count are then exact subset counts. Every admissible two-set is an edge, so it is paired. The \(N=1\) case is the isolated vertex. The inspected verifier independently reconstructs several quotient multiplication tables and matches all coefficients.
 
-## Originality
+## originality
 
-PASS. Prior work already covers ordinary domination of the ideal-based graph and the numerical transfer of total domination from the ideal-based graph to the quotient zero-divisor graph; that numerical value is expressly excluded from the novelty claim. A recent paper gives total-domination polynomials for ordinary zero-divisor graphs of several integer residue rings, including the prime-power special case. Searches under the ideal-based, chain-ring, quotient-blow-up, total-domination-polynomial, and paired-domination formulations did not locate the full classification of all total dominating subsets, the fibre-sensitive polynomial, or the paired minimum-set classification/count for arbitrary finite chain-ring quotients.
+PASS
 
-Sources and risks: the 2022 coupon-coloring full text contains the total-domination-number equality and was treated as covering that parameter. The 2024 polynomial paper covers a genuine special case. The remaining residual risk is an unindexed paper phrasing the same all-subsets classification via graph blow-ups or lexicographic products.
+The chain-ring primary paper gives the exact ideal-based graph structure but not total domination. Reji--Pavithra report a numerical total-domination relation for ideal-based zero-divisor graphs, which does not classify all total dominating subsets. Alikhani--Aghaei compute total-domination polynomials for ordinary zero-divisor graphs of several integer residue rings; their prime-power theorem is a genuine \(I=0\), \(\mathbb Z/p^\alpha\) special case. No inspected source states the fibre-sensitive polynomial or the complete minimum paired-set classification for arbitrary finite chain-ring quotients.
 
-## Value
+## value
 
-PASS. The theorem upgrades a known minimum-number equality to a complete enumerative description for a natural algebraic family. It exposes exactly which algebraic layer every total dominating set must meet, records the dependence on the ideal fibre size, gives every coefficient of the total-domination polynomial, and simultaneously classifies and counts minimum paired dominating sets. This distinguishes quotient information from fibre information that the bare minimum number cannot see.
+PASS
 
-Risk: once the universal socle layer and valuation-one witness are isolated, the graph-theoretic counting is short; the value lies in the exact family-wide classification and its algebraic interpretation.
+The result upgrades a minimum-number observation to a complete, fibre-sensitive enumeration for a natural ring-theoretic graph family and simultaneously determines every minimum paired dominating set. The socle-lift forcing gives the algebraic reason for the closed polynomial.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
