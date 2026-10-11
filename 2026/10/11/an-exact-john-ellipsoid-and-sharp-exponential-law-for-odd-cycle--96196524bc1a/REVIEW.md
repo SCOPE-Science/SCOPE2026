@@ -1,0 +1,15 @@
+# Scientific review: odd-cycle fractional stable-set ellipsoid
+
+## Correctness — PASS
+The mathematical statement is confined to odd dimensions at least five, standard Euclidean volume, and the fractional—not integer—stable-set polytope. Existence and uniqueness of the defining scalar parameter follow from a strictly decreasing rational trigonometric average. The Fourier spectrum makes the proposed shape positive definite. Its diagonal and adjacent off-diagonal entries give equality in all facet support inequalities. The explicitly positive facet multipliers satisfy both John moment identities after affine normalization, proving global maximality and uniqueness. The roots-of-unity product gives the exact volume; a factored polynomial root equation gives the exponential limit. The bundled finite numerical verifier has been run and is not offered as an infinite proof.
+
+## Originality — PASS, with qualification
+The 2017 Kafer–Pashkovich–Sanità source treats the exact same fractional stable-set polytope but studies circuit distance, whereas this claim concerns maximum-volume inscribed Euclidean ellipsoids. The 2016 Hamano–Hibi–Ohsugi paper treats the same fractional polytope through Ehrhart counting and algebraic properties, which do not imply this metric extremal solution. The 2011 Giandomenico–Letchford–Rossi–Smriglio work treats external ellipsoidal bounds for integral stable sets, not the volume-maximizing inscribed ellipsoid of the fractional cycle polytope. Database, synonym, and parameter searches disclosed no covering statement; failure to find one does not certify absolute novelty. An equivalent earlier result under cyclic packing or experimental-design terminology remains possible. The earlier circumsphere analysis of the same polytope concerns a different extremal problem and cannot imply an inscribed John ellipsoid.
+
+## Value — PASS
+This supplies a complete, structurally explicit answer to a natural Euclidean extremal problem on a familiar nonintegral combinatorial-polytope family: exact center, shape spectrum, volume, positive certification weights and all contacts for every odd dimension. The nontrivial sharp exponential correction quantifies the cycle-closing effect beyond a limiting infinite-chain approximation. The quantity is intrinsic to the specified standard Euclidean realization and is motivated by contact geometry, not an arbitrary selected subcase.
+
+## Source comparisons and limitations
+Primary source: Kafer, Pashkovich, Sanità, *On the Circuit Diameter of some Combinatorial Polytopes*, arXiv:1709.09642v1, Section 5 (https://arxiv.org/html/1709.09642v1); its published MSC list starts with 52B05 (https://doi.org/10.1137/17M1152115). Further comparators: Hamano, Hibi, Ohsugi, *Ehrhart series of fractional stable set polytopes of finite graphs*, arXiv:1603.09613; Giandomenico et al., *A New Approach to the Stable Set Problem Based on Ellipsoids*; and John's classical contact theorem. The calculation does not establish other-graph, even-cycle or integral-stable-set analogues, or independently certify priority.
+
+Same-model review: passed. Independent audit: not yet performed.
