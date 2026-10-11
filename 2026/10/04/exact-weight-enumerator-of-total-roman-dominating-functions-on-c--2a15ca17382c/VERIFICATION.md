@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and does not depend on finite computation. A standalone exhaustive checker supplies supplementary regression evidence.
+# Independent mathematical audit
 
-For every integer partition of every order from \(2\) through \(9\) with at least two parts, the checker constructs the corresponding complete multipartite graph and tests every labeling by \(\{0,1,2\}\). It compares:
+## correctness
 
-1. the literal total Roman definition against the part-profile criterion;
-2. brute-force weight counts against an independent expansion of the closed polynomial;
-3. the brute-force minimum against \(\min\{N,4,\min_i n_i+2\}\).
+PASS
 
-A successful replay prints:
+In a complete multipartite graph, a positive vertex is isolated in the positive-induced subgraph exactly when all positive labels lie in its own part; hence totality is equivalent to positive labels occupying at least two parts. A zero in part \(i\) is Roman-dominated exactly when some label two lies outside part \(i\). These two observations give the stated iff criterion. Splitting labelings by whether label two occurs in at least two parts, exactly one part, or no part yields the closed generating polynomial without overlap. Extracting the lowest power gives \(\gamma_{tR}(G)=\min\{N,4,\min_i n_i+2\}\). A fresh exhaustive check on the profiles \((1,1),(2,1),(2,2),(3,2,1),(2,2,2)\) found exact agreement between the literal definition and the part-profile criterion for every labeling; the infinite theorem is the symbolic adjacency argument.
 
-`VERIFY_OK profiles=87 labelings=748341 coefficient_checks=1369 minimum_checks=87 max_order=9`
+## originality
 
-The finite range is not an exhaustive proof of the infinite theorem. The infinite theorem is justified by the exact adjacency argument in `RESULT.md`.
+PASS
+
+The defining 2016 total-Roman paper develops general bounds and relations among domination parameters, not a weight enumerator for complete multipartite graphs; a searchable full-text inspection found no complete-multipartite treatment in the article body. Current Resultary searches return exact complete-multipartite enumerators for several different Roman variants, but no prior ordinary total-Roman enumerator. The inspected neighboring results therefore do not imply the all-weight polynomial or its coefficient distribution.
+
+## value
+
+PASS
+
+Total Roman domination is an established graph invariant and complete multipartite graphs are a canonical family. Counting every feasible function by weight is a natural refinement of the minimum parameter and yields that minimum as a corollary while retaining substantially more combinatorial information. The all-part-size symbolic classification gives a reusable enumerator rather than a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

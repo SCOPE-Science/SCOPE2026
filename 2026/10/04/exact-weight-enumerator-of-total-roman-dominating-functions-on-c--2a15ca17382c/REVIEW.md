@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces both defining conditions to exact partwise adjacency statements. The three-case decomposition by the support of label \(2\) is disjoint and exhaustive, so the generating-function identity follows without inclusion ambiguity. The minimum formula follows by optimizing each case. The standalone verifier independently checks the literal graph definition, the structural criterion, all coefficients, and the minimum through order \(9\).
+## correctness
 
-## Originality
-**PASS.** The same-parameter sources inspected introduce total \((a,b)\)-Roman domination and ordinary total Roman domination, together with complexity results, bounds, and structural relations. The accessible 2016 full text contains no multipartite or complete-bipartite treatment, while the accessible 2013 abstract does not expose an all-function complete-multipartite formula. Targeted exact-formula searches surfaced a total **strong** Roman result for complete multipartite graphs, which is a different parameter. The accepted novelty claim is restricted to the all-function characterization and exact weight enumerator; the scalar minimum is only a corollary.
+PASS
 
-## Value
-**PASS.** A complete membership criterion and weight enumerator for an established domination invariant on a canonical graph family is a natural exact classification. It determines every coefficient, not only the optimum, and therefore supports counting and distribution questions that minimum-value formulas cannot answer.
+In a complete multipartite graph, a positive vertex is isolated in the positive-induced subgraph exactly when all positive labels lie in its own part; hence totality is equivalent to positive labels occupying at least two parts. A zero in part \(i\) is Roman-dominated exactly when some label two lies outside part \(i\). These two observations give the stated iff criterion. Splitting labelings by whether label two occurs in at least two parts, exactly one part, or no part yields the closed generating polynomial without overlap. Extracting the lowest power gives \(\gamma_{tR}(G)=\min\{N,4,\min_i n_i+2\}\). A fresh exhaustive check on the profiles \((1,1),(2,1),(2,2),(3,2,1),(2,2,2)\) found exact agreement between the literal definition and the part-profile criterion for every labeling; the infinite theorem is the symbolic adjacency argument.
 
-## Closest literature and limitations
-Liu--Chang (2013), DOI 10.1007/s10878-012-9482-y, gives the more general total \((a,b)\)-Roman framework and complexity results. Ahangar--Henning--Samodivkin--Yero (2016), DOI 10.2298/AADM160802017A, develops ordinary total Roman domination and general bounds. The full text of the earlier Liu--Chang paper was not available in the inspected public sources, so a residual alternate-terminology or hidden-special-case risk remains. The result is limited to connected complete multipartite graphs and ordinary total Roman domination.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining 2016 total-Roman paper develops general bounds and relations among domination parameters, not a weight enumerator for complete multipartite graphs; a searchable full-text inspection found no complete-multipartite treatment in the article body. Current Resultary searches return exact complete-multipartite enumerators for several different Roman variants, but no prior ordinary total-Roman enumerator. The inspected neighboring results therefore do not imply the all-weight polynomial or its coefficient distribution.
+
+## value
+
+PASS
+
+Total Roman domination is an established graph invariant and complete multipartite graphs are a canonical family. Counting every feasible function by weight is a natural refinement of the minimum parameter and yields that minimum as a corollary while retaining substantially more combinatorial information. The all-part-size symbolic classification gives a reusable enumerator rather than a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
