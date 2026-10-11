@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:50:46.113403Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob c73a9b7aaa7ee47e9bcbe3af0299e9fa48ab215c",
+        "verify_rank2_coverage.py blob 22ea66b983edeed0cce0871cc20c3063db495f4e",
+        "independent stopping-time and discrete-convexity reconstruction"
+      ],
+      "rationale": "For any zero-free rank-two generator, conditioning on the first sampled projective class gives exactly \\(1+\\sum_i m_i/(n-m_i)\\). A zero column is strictly dominated by replacement with an existing nonzero direction because a subsequent independent direction gives a positive-probability strict improvement. The discrete increment of \\(f(t)=t/(n-t)\\) is strictly increasing, so every pair with gap at least two is strictly improved by transferring one column from the larger to the smaller multiplicity. Iteration proves both the balanced optimum and uniqueness of its multiplicity multiset. The packaged exact composition replay for small parameters was independently checked as finite consistency evidence, not as proof of the all-parameter theorem.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MDS optimality determines the optimum only while a rank-two MDS generator can use distinct projective directions.",
+          "The later formulas compute expectations of specified code families and do not dominate the non-MDS all-code optimization."
+        ],
+        "reasoning": "Broader coverage-depth machinery supplies premises but not the balanced optimizer structure for every length.",
+        "searches": [
+          "arXiv:2305.05656v1 MDS optimality",
+          "arXiv:2603.06489v1 fixed-code evaluation machinery",
+          "arXiv:2507.20639v1 small-alphabet coverage depth"
+        ]
+      },
+      "checked_sources": [
+        "Bertuzzo--Ravagnani--Yaakobi, The DNA Coverage Depth Problem: Duality, Weight Distributions, and Applications, arXiv:2603.06489v1",
+        "Bertuzzo--Ravagnani--Yaakobi, The Coverage Depth Problem in DNA Storage Over Small Alphabets, arXiv:2507.20639v1",
+        "Bar-Lev--Sabary--Gabrys--Yaakobi, Cover Your Bases: How to Minimize the Sequencing Coverage in DNA Storage Systems, arXiv:2305.05656v1 / IEEE TIT 71(1)",
+        "Resultary query: DNA coverage depth rank two [n,2]_q balanced projective multiplicities exact optimum full recovery sampling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The MDS result yields the displayed value only for the distinct-direction regime.",
+          "For larger n, the exact expectation is a strictly convex separable function of projective multiplicities, and that additional reduction/balancing argument is not in the inspected sources."
+        ],
+        "reasoning": "The final non-MDS branch and complete optimizer classification are not corollaries of the prior MDS or fixed-family statements.",
+        "searches": [
+          "arXiv:2603.06489v1 Theorem 2.2 and Conjecture 3.2",
+          "direct specialization of MDS feasibility to dimension two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 paper defines the same optimum and explicitly says simplex optimality lacks a formal proof in its small-field discussion.",
+          "The rank-two claim is equivalently an optimization over multiplicities on the projective line; no inspected source states that balanced multiplicities are exactly optimal."
+        ],
+        "reasoning": "The stopping-time, projective-multiplicity, and optimal-code formulations were compared directly rather than by title.",
+        "searches": [
+          "arXiv:2603.06489v1, Problem B, Theorem 2.2, Remark 2.3, Section 3",
+          "arXiv:2305.05656v1 coverage-depth/MDS theorem",
+          "Resultary query above"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked table or database result supplied the all-length formula or equality characterization."
+        ],
+        "reasoning": "The result is analytic and all-parameter rather than a finite lookup; database absence is supporting evidence only.",
+        "searches": [
+          "Resultary query above",
+          "targeted exact searches for rank-two coverage-depth optimization and balanced projective classes"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. The comprehensive March 2026 primary paper defines the same all-code optimum, proves the MDS lower bound, and still states simplex optimality as a conjecture in the small-field regime. Its fixed-family formulas do not optimize arbitrary rank-two multisets once repeated projective directions are forced. The 2023 MDS theorem covers the rank-two parameters only through the MDS-feasible range. Fresh Resultary search found no prior balanced-projective-multiplicity optimizer theorem.",
+      "residual_risks": [
+        "The balancing proof is elementary enough that an equivalent folklore observation could exist under finite-geometric or coupon-collector language.",
+        "Very recent or unindexed work could postdate the inspected March 2026 comprehensive paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OPTIMIZATION_OPEN_BEYOND_MDS",
+          "evidence": "The paper explicitly presents simplex optimality as conjectural and develops evaluation formulas rather than this rank-two all-length optimizer theorem.",
+          "identifier_or_url": "arXiv:2603.06489v1",
+          "material_read": "Authorized full text, pages 1--12, including Problem B, Theorem 2.2, Remark 2.3, the simplex section and the fixed-code duality/weight-distribution formulas.",
+          "method": "Authorized institutional full-text access after open rendering was not inspectable.",
+          "title": "The DNA Coverage Depth Problem: Duality, Weight Distributions, and Applications",
+          "trigger": "Most recent comprehensive primary source on the same optimum."
+        },
+        {
+          "assessment": "COVERS_ONLY_MDS_FEASIBLE_RANGE",
+          "evidence": "For dimension two, distinct projective directions give the MDS range; repeated directions beyond that range require additional optimization.",
+          "identifier_or_url": "arXiv:2305.05656v1",
+          "material_read": "Primary arXiv abstract and theorem-level material on uniform noiseless MDS optimality.",
+          "method": "Lawful open primary source.",
+          "title": "Cover Your Bases: How to Minimize the Sequencing Coverage in DNA Storage Systems",
+          "trigger": "Foundational MDS-optimality theorem that could cover the result in a parameter range."
+        },
+        {
+          "assessment": "NO_ALL_LENGTH_RANK_TWO_OPTIMIZER",
+          "evidence": "It evaluates natural small-field families and does not state the balanced projective-multiplicity theorem.",
+          "identifier_or_url": "arXiv:2507.20639v1",
+          "material_read": "Primary abstract and source-level description of simplex/small-field calculations and open optimal-code direction.",
+          "method": "Lawful open primary source.",
+          "title": "The Coverage Depth Problem in DNA Storage Over Small Alphabets",
+          "trigger": "Immediate small-field predecessor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bertuzzo--Ravagnani--Yaakobi, The DNA Coverage Depth Problem: Duality, Weight Distributions, and Applications, arXiv:2603.06489v1",
+        "Bertuzzo--Ravagnani--Yaakobi, The Coverage Depth Problem in DNA Storage Over Small Alphabets, arXiv:2507.20639v1",
+        "Bar-Lev--Sabary--Gabrys--Yaakobi, Cover Your Bases: How to Minimize the Sequencing Coverage in DNA Storage Systems, arXiv:2305.05656v1 / IEEE TIT 71(1)"
+      ],
+      "rationale": "The all-code coverage-depth optimum is a central object of the initiating literature, and dimension two is the first complete nontrivial setting where the small-field non-MDS regime can be solved exactly. The theorem gives both the optimum and every equality case for all lengths, providing a natural baseline for higher-dimensional optimization.",
+      "residual_risks": [
+        "The special projective-line reduction does not extend directly to higher dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The balancing proof is elementary enough that an equivalent folklore observation could exist under finite-geometric or coupon-collector language.",
+    "Very recent or unindexed work could postdate the inspected March 2026 comprehensive paper.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

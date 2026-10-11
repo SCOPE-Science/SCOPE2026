@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stopping-time reduction is exact for every zero-free rank-two generator matrix. A zero column is strictly dominated by replacing it with a nonzero column. Conditional on the first projective class, the remaining waiting time is geometric with success probability \((n-m_i)/n\), giving \(\mathbb E[G]=1+\sum_i m_i/(n-m_i)\). The discrete increment of \(t/(n-t)\) is strictly increasing, so pairwise balancing is strictly improving until all projective multiplicities differ by at most one. Exact exhaustive checks for small \(q\) and \(n\) reproduce the closed formula and equality cases.
+## correctness
 
-## Originality
-PASS, with residual literature risk. The 2025 small-alphabet paper formulates the optimal-coverage problem and only gives computational evidence for a different parameter point, \([7,3]_2\). Its 2026 extension still states simplex optimality as conjectural and develops evaluation formulas for fixed families rather than an all-code optimizer theorem. The earlier MDS theorem implies the rank-two optimum only for \(n\le q+1\); it does not determine the non-MDS regime \(n>q+1\). Focused semantic-index and literature searches for rank-two coverage-depth optimization and balanced projective multiplicities found no statement implying the all-\(n\) formula or optimizer classification.
+PASS
 
-## Value
-PASS. The result completely solves the natural optimal coverage-depth problem in the first nontrivial dimension, including every small-field non-MDS length, and gives both the exact optimum and a structural classification of all optimizers. It also supplies a clean baseline for higher-dimensional small-field optimization.
+For any zero-free rank-two generator, conditioning on the first sampled projective class gives exactly \(1+\sum_i m_i/(n-m_i)\). A zero column is strictly dominated by replacement with an existing nonzero direction because a subsequent independent direction gives a positive-probability strict improvement. The discrete increment of \(f(t)=t/(n-t)\) is strictly increasing, so every pair with gap at least two is strictly improved by transferring one column from the larger to the smaller multiplicity. Iteration proves both the balanced optimum and uniqueness of its multiplicity multiset. The packaged exact composition replay for small parameters was independently checked as finite consistency evidence, not as proof of the all-parameter theorem.
 
-The main limitation is scope: dimension two has a special one-step projective-state reduction that is unavailable in higher dimension.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes. The comprehensive March 2026 primary paper defines the same all-code optimum, proves the MDS lower bound, and still states simplex optimality as a conjecture in the small-field regime. Its fixed-family formulas do not optimize arbitrary rank-two multisets once repeated projective directions are forced. The 2023 MDS theorem covers the rank-two parameters only through the MDS-feasible range. Fresh Resultary search found no prior balanced-projective-multiplicity optimizer theorem.
+
+## value
+
+PASS
+
+The all-code coverage-depth optimum is a central object of the initiating literature, and dimension two is the first complete nontrivial setting where the small-field non-MDS regime can be solved exactly. The theorem gives both the optimum and every equality case for all lengths, providing a natural baseline for higher-dimensional optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
