@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:11:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob bea521e0e744d6a28d164da7523b4cb8e896d89d",
+        "assigned verify.py blob 3d49177a44897eb96bffe5eaafc07047c4072e5c",
+        "Gusev--Pribavkina arXiv:1403.3992v1 primary HTML"
+      ],
+      "rationale": "The cited source fixes the reset threshold and unique target of every shortest word. Reading a shortest word backward from that target and rotating the preimage set converts the two letters into a deterministic scheduled Boolean system: \\(b\\) is a no-op, while \\(a\\) copies the membership bit at offset \\(q-p\\). Coprimality makes that dependency map one cycle. The first possible creation times are \\(1,1+p,\\ldots,1+(q-2)p\\); missing any such forced copy delays it by a full \\(q>p\\) steps and makes completion by the known threshold impossible. Exactly \\(q-1\\) positions therefore force \\(a\\). Before the last creation the sole present state whose dependency successor is absent is the initial endpoint, producing exactly \\(p-1\\) forced \\(b\\)-positions. At every other position the compared bits agree, so either letter has identical reverse action and the choices are independent. Subtracting the forced positions from \\(L=pq-2p+1\\) leaves \\((p-1)(q-3)\\) free bits, giving exactly \\(2^{(p-1)(q-3)}\\) shortest reset words. The actual verifier exhaustively checks all coprime pairs through \\(q=13\\) and symbolically checks the schedule through \\(q=100\\); these checks support but do not replace the all-parameter schedule proof.",
+      "residual_risks": [
+        "The theorem is only for the \\(n=q\\) Wielandt-type subfamily with coprime cycle lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The family source determines length and target but not multiplicity.",
+          "The general algorithmic literature finds shortest words for arbitrary automata but does not supply an all-parameter closed multiplicity formula for this family."
+        ],
+        "reasoning": "Neither broader result mechanically yields the count without the family-specific rotating dependency analysis.",
+        "searches": [
+          "Gusev--Pribavkina, Reset thresholds of automata with two cycle lengths",
+          "Kisielewicz--Kowalski--Szykuła, Computing the shortest reset words of synchronizing automata"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.3992v1",
+        "Kisielewicz--Kowalski--Szykuła 2015 shortest-reset-word algorithmic literature",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A threshold gives no information about branching among all words of that length.",
+          "An algorithm can enumerate fixed instances but does not imply the symbolic free-position count \\((p-1)(q-3)\\)."
+        ],
+        "reasoning": "The multiplicity theorem is a genuine refinement of the extremal-length result.",
+        "searches": [
+          "known reset threshold and one optimal word versus count of all optimal words",
+          "general BFS shortest-word algorithms versus closed family formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source uses the same automaton family and shortest-reset target.",
+          "Its threshold theorem and explicit shortest word do not enumerate the complete set of shortest words."
+        ],
+        "reasoning": "Reset-word, synchronizing-word and reverse-preimage formulations were matched to the same automaton.",
+        "searches": [
+          "Resultary query: Wielandt W(q,q,p) shortest reset words multiplicity",
+          "Gusev--Pribavkina arXiv:1403.3992v1",
+          "searches under synchronizing word, reset word, power automaton and shortest-word count terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-result finding was returned among the leading twelve results."
+        ],
+        "reasoning": "There is no canonical multiplicity table covering all coprime parameters; the package verifier supplies finite checks but the claim is an infinite formula.",
+        "searches": [
+          "Resultary current semantic search for W(q,q,p) shortest-word multiplicity and the proposed exponent"
+        ]
+      },
+      "rationale": "Gusev and Pribavkina define this exact Wielandt-type automaton, prove the same reset threshold, prove the target of every shortest word, and exhibit an optimal word, but the inspected primary text does not count all shortest reset words. Exact current Resultary search for the family and multiplicity returned no same-result finding among the leading results; the closest hits concerned other synchronizing-automaton thresholds or general shortest-word algorithms. The multiplicity is not implied by knowing one optimal word or the threshold: it requires identifying every forced reverse-preimage event and proving that all remaining letters branch independently.",
+      "residual_risks": [
+        "An unindexed automata-theory note or computational census could contain the same family-specific multiplicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THRESHOLD_AND_TARGET_NOT_MULTIPLICITY",
+          "evidence": "The source fixes the shortest length and target and gives an optimal word, but no enumeration of all shortest words was found in the inspected primary text.",
+          "identifier_or_url": "arXiv:1403.3992v1",
+          "material_read": "searchable primary HTML with the family definition, threshold theorem, explicit shortest word and shortest-target statements inspected",
+          "method": "primary full-text targeted inspection",
+          "title": "Reset thresholds of automata with two cycle lengths",
+          "trigger": "exact source of the Wielandt-type family and threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gusev--Pribavkina 2014",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The Wielandt-type automata are a standard slowly synchronizing family, and shortest-word multiplicity is a natural refinement of reset threshold: it measures how rigid the extremal synchronization mechanism is. The exact exponential count for every coprime parameter pair is structural, not a finite census, and the reverse-preimage schedule is reusable for related two-cycle families.",
+      "residual_risks": [
+        "The proof exploits a special two-edge structure and does not yet extend to the full \\(W(n,q,p)\\) family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is only for the \\(n=q\\) Wielandt-type subfamily with coprime cycle lengths.",
+    "An unindexed automata-theory note or computational census could contain the same family-specific multiplicity.",
+    "The proof exploits a special two-edge structure and does not yet extend to the full \\(W(n,q,p)\\) family."
+  ]
+}
