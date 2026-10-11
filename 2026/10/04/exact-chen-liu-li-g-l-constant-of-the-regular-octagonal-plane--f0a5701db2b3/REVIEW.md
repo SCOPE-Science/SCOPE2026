@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the full equilateral-pair set by octagonal dihedral symmetry to one facet, exhausts all active support-functional pairs, explicitly treats the otherwise-missed parallel-support cases, and leaves exactly six affine feasible branches. Support switches partition each branch into cells on which the objective is a convex quadratic, so endpoint evaluation is exhaustive. Exact \(\mathbb Q(\sqrt2)\) arithmetic verifies the global maximum \(18-8\sqrt2\) and the maximizing pair. The bundled checker reconstructs these steps rather than sampling numerically.
+## correctness
 
-Risk: the argument depends on the stated support-functional representation of the regular-octagonal norm and on the facet-transitivity symmetry reduction; both are explicit and directly checkable from the norm.
+PASS
 
-## Originality
-PASS. The defining 2021 preprint introduces \(G_L\), proves \(9/2\le G_L\le8\), computes \(\ell_\infty\), gives \(\ell_p\) upper bounds, and gives the Hilbert value, but does not compute the regular-octagonal plane. Targeted searches for the exact expression, the octagonal space, aliases, and the defining objective found no covering result. A later exact regular-polygon perimeter theorem concerns a different invariant. A prior exact product-type computation on the same octagon does not imply this sum-of-squares optimum.
+The dihedral symmetry reduction to one reference facet is valid. For each active supporting facet of \(y\) and \(x-y\), the two support equalities determine an affine branch when nonparallel; the exact package verifier at blob 8c62c67a5cc5baed44a36c88c099f03d0090ffea checks all 64 active pairs, enforces every octagonal unit inequality, handles the parallel degeneracies, and deduplicates exactly six feasible branches. It then inserts every support-switch point for \(N(x+y)\) and \(N(2x-y)\); on each resulting cell the objective is a convex quadratic, so checking endpoints is exhaustive. The exact maximum is \(18-8\sqrt2\). The independently displayed witness \(x=(1,\sqrt2-1)\), \(y=(3-2\sqrt2,1)\) satisfies all three unit constraints and has both target norms \(2\sqrt2-1\), attaining the claimed value. The stored verifier output records six branches, ten piecewise cells and VERIFY_OK.
 
-Risk: an unindexed or inaccessible paper could contain the same exact value; no such source was located in the targeted searches.
+## originality
 
-## Value
-PASS. \(G_L\) was introduced specifically to quantify the geometry of equilateral triples in Banach spaces, and exact values on concrete spaces are a stated use case. The regular octagon is a standard non-Hilbertian Minkowski plane appearing independently in the equilateral-triangle literature. The closed form \(18-8\sqrt2\) gives a nontrivial exact benchmark strictly between the Hilbert value \(6\) and the square-space endpoint \(8\), with an exhaustive proof rather than a numerical estimate.
+PASS
 
-Risk: the result is a concrete-space computation rather than a general classification; its value lies in furnishing an exact canonical benchmark and a reusable polyhedral optimization method.
+Chen, Liu and Li introduce the \(G_L\) constant and give universal bounds and standard-space examples, but the inspected complete article does not evaluate the regular octagonal plane. Current published findings do contain several exact invariants of the same octagonal norm, including \(T_G\), Ptolemy, the angle modulus and a parameterized von Neumann-Jordan profile. Their optimization functionals differ: a sharp product or weighted sum for another constant does not determine the sum of the two squared norms defining \(G_L\). Resultary search returns the assigned \(G_L\) record as the direct match and no earlier same-result theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The regular octagon is a canonical polyhedral Banach plane, and G_L is a named geometric constant introduced specifically to quantify equilateral configurations. An exact value with an exhaustive sharp upper proof is a natural reusable invariant, not an arbitrary coordinate sample. The calculation also distinguishes G_L from other nearby octagonal constants that happen to share related extremal geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

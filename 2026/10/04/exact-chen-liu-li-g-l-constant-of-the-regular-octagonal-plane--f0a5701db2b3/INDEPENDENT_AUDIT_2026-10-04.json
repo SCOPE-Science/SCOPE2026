@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:06:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e4826c02a7f73dfbf5dca6111415aa2b87b0efbd",
+        "assigned exact checker blob 8c62c67a5cc5baed44a36c88c099f03d0090ffea",
+        "stored verification output blob 0525ac481cdf20da61634c476261ba3698d55722",
+        "Chen-Liu-Li DOI 10.3390/sym14010072"
+      ],
+      "rationale": "The dihedral symmetry reduction to one reference facet is valid. For each active supporting facet of \\(y\\) and \\(x-y\\), the two support equalities determine an affine branch when nonparallel; the exact package verifier at blob 8c62c67a5cc5baed44a36c88c099f03d0090ffea checks all 64 active pairs, enforces every octagonal unit inequality, handles the parallel degeneracies, and deduplicates exactly six feasible branches. It then inserts every support-switch point for \\(N(x+y)\\) and \\(N(2x-y)\\); on each resulting cell the objective is a convex quadratic, so checking endpoints is exhaustive. The exact maximum is \\(18-8\\sqrt2\\). The independently displayed witness \\(x=(1,\\sqrt2-1)\\), \\(y=(3-2\\sqrt2,1)\\) satisfies all three unit constraints and has both target norms \\(2\\sqrt2-1\\), attaining the claimed value. The stored verifier output records six branches, ten piecewise cells and VERIFY_OK.",
+      "residual_risks": [
+        "The theorem is an exact computation for one Banach plane and does not give a regular-polygon family formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining article gives \\(9/2\\le G_L(X)\\le8\\) and selected examples but no polygon-wide formula specializing to the octagon.",
+          "Equilateral-perimeter results and other geometric constants do not determine the two transformed norms in the G_L objective."
+        ],
+        "reasoning": "No inspected broader theorem mechanically supplies this exact value.",
+        "searches": [
+          "Chen-Liu-Li full 2022 article",
+          "Alonso-Martín-Papini 2025 equilateral-triangle perimeter literature",
+          "current published regular-octagon exact-constant records"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/sym14010072",
+        "DOI 10.1007/s00009-025-02805-6",
+        "current published regular-octagon constant records",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Universal bounds leave a wide interval containing the claimed value.",
+          "Knowing a maximum or common value for a product-type expression does not prove the required global upper bound for the sum of squares over all feasible pairs.",
+          "The six-branch exact facet analysis supplies the missing upper bound."
+        ],
+        "reasoning": "The claim requires a distinct exhaustive optimization on the same unit ball.",
+        "searches": [
+          "defining universal G_L bounds versus exact octagon facet optimization",
+          "published T_G octagon value versus G_L sum of squares"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source definition is exactly the equilateral-pair objective optimized by the record.",
+          "The nearby octagon records optimize distinct expressions; even the value \\(T_G=2\\sqrt2-1\\) does not by itself upper-bound the sum of squares sharply."
+        ],
+        "reasoning": "The direct G_L formulation and the closest same-space constants were compared rather than treating common extremizers or parameters as equivalent.",
+        "searches": [
+          "Resultary query: regular octagonal plane Chen Liu Li G_L constant exact",
+          "Chen-Liu-Li DOI 10.3390/sym14010072",
+          "published regular-octagon T_G, angle-modulus, Ptolemy and von-Neumann-Jordan findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the direct match; nearby same-day records concern different constants."
+        ],
+        "reasoning": "This is an exact natural invariant rather than a recomputation of a standard table.",
+        "searches": [
+          "Resultary current search for exact G_L values on the regular octagonal plane"
+        ]
+      },
+      "rationale": "Chen, Liu and Li introduce the \\(G_L\\) constant and give universal bounds and standard-space examples, but the inspected complete article does not evaluate the regular octagonal plane. Current published findings do contain several exact invariants of the same octagonal norm, including \\(T_G\\), Ptolemy, the angle modulus and a parameterized von Neumann-Jordan profile. Their optimization functionals differ: a sharp product or weighted sum for another constant does not determine the sum of the two squared norms defining \\(G_L\\). Resultary search returns the assigned \\(G_L\\) record as the direct match and no earlier same-result theorem.",
+      "residual_risks": [
+        "An unindexed polygonal Banach-geometry computation could contain the same exact constant under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_SOURCE_NOT_REGULAR_OCTAGON_VALUE",
+          "evidence": "The article motivates G_L and bounds it but does not state the regular-octagonal exact value.",
+          "identifier_or_url": "https://doi.org/10.3390/sym14010072",
+          "material_read": "complete accessible primary article sections defining the constant, proving its general estimates and listing examples",
+          "method": "primary full-text web inspection",
+          "title": "Inscribed triangles in the unit sphere and a new class of geometric constants",
+          "trigger": "primary source defining G_L"
+        },
+        {
+          "assessment": "DIFFERENT_FUNCTIONAL_NOT_COVERAGE",
+          "evidence": "The T_G objective is product-type and its exact value does not establish the G_L sum-of-squares upper bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-t-g-constant-of-the-regular-octagonal-banach-plane--3b6f71e2e4f4",
+          "material_read": "published finding summary and statement-level comparison from current Resultary search",
+          "method": "published-finding comparison",
+          "title": "Exact T_G constant of the regular octagonal Banach plane",
+          "trigger": "closest same-space current exact constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chen-Liu-Li 2022",
+        "closest published regular-octagon exact constants",
+        "assigned RESULT.md and exact checker"
+      ],
+      "rationale": "The regular octagon is a canonical polyhedral Banach plane, and G_L is a named geometric constant introduced specifically to quantify equilateral configurations. An exact value with an exhaustive sharp upper proof is a natural reusable invariant, not an arbitrary coordinate sample. The calculation also distinguishes G_L from other nearby octagonal constants that happen to share related extremal geometry.",
+      "residual_risks": [
+        "The contribution is an exact single-space computation rather than a general theorem over all regular polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is an exact computation for one Banach plane and does not give a regular-polygon family formula.",
+    "An unindexed polygonal Banach-geometry computation could contain the same exact constant under different notation.",
+    "The contribution is an exact single-space computation rather than a general theorem over all regular polygons."
+  ]
+}
