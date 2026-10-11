@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The graph, metric convention, thresholds, face sets, and matching are reconstructed from the stated LCF data. At scale \\(2\\), exact enumeration gives face vector \\((18,81,108,18)\\); a 99-pair face-poset matching is exhaustively checked acyclic and leaves one critical \\(0\\)-cell and 26 critical \\(2\\)-cells. At scale \\(3\\), the distance-4 graph is exactly six disjoint triangles, so the Rips complex is \\(\\operatorname{Ind}(6K_3)\\), the join of six three-point spaces, hence \\(\\bigvee^{64}S^5\\). Independent mod-2 boundary ranks agree.",
+    "risks": [
+      "The exhaustive certificate proves only the stated finite graph instance.",
+      "No claim is made about persistence inclusion maps beyond the homotopy type at each threshold."
+    ],
+    "sources": [
+      "artifacts/pappus_rips_verify.py",
+      "artifacts/pappus_rips_verification.txt",
+      "Forman 1998 discrete Morse theory"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus record c3740b96b3c3 proves a scale-2 theorem for incidence graphs of finite projective planes.",
+        "The Pappus graph is the Levi graph of the Pappus 9_3 configuration, not the incidence graph of a finite projective plane.",
+        "The present claim also determines scales 3 and 4, which the projective-plane scale-2 theorem does not address for this object."
+      ],
+      "reasoning": "The closest broader family theorem has a hypothesis the Pappus configuration does not satisfy, so it neither implies the scale-2 statement nor the complete filtration.",
+      "searches": [
+        "distance-regular cubic graph Vietoris-Rips Pappus graph",
+        "Pappus configuration Levi graph Rips complex scale 2 scale 3",
+        "published-finding corpus 2026/10/4/SCOPE-scale-two-vietoris-rips-complexes-of-finite-projective-plane-inc--c3740b96b3c3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.14388v1",
+      "published-finding corpus:c3740b96b3c3",
+      "published-finding corpus:51e8cc219376",
+      "published-finding corpus:c10ad684de7e",
+      "WolframMathWorld:PappusGraph",
+      "published Desargues and Möbius-Kantor Rips findings",
+      "published scale-two projective-plane incidence-graph Rips finding"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The checked Desargues and Möbius-Kantor findings concern different vertex sets and have different distance-shell structures and homotopy sequences.",
+        "The projective-plane incidence theorem requires a projective plane and is restricted to scale 2.",
+        "The truncated-tetrahedron result concerns a 12-vertex Archimedean graph and has a different filtration."
+      ],
+      "reasoning": "None of the checked published or published-finding corpus claims has hypotheses that specialize to the Pappus graph, and no implication from their stated homotopy types determines this filtration.",
+      "searches": [
+        "published related finding: complete graph-metric Rips filtration Desargues graph",
+        "published related finding: complete graph-metric Rips filtration Möbius-Kantor graph",
+        "published related finding: scale-two Vietoris-Rips projective-plane incidence graphs",
+        "published-finding corpus 2026/10/4/SCOPE-the-graph-metric-rips-filtration-of-the-truncated-tetrahedron--51e8cc219376"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact published-finding corpus searches returned no Pappus Rips finding; nearest hits were unrelated graph-power results and Rips results for other spaces.",
+        "Web searches for ‘Pappus graph’ with ‘Vietoris-Rips’, ‘Rips complex’, and ‘clique complex’ found graph-reference material but no covering mathematical result."
+      ],
+      "reasoning": "The claim was searched under the standard metric-complex name, the Levi-graph alias, the Foster-census alias, and the equivalent clique-complex-of-a-graph-power viewpoint. No checked statement matched the Pappus object and scales.",
+      "searches": [
+        "Pappus graph Vietoris-Rips wedge 26 S2 64 S5 shortest-path metric",
+        "Pappus configuration Levi graph Rips complex scale 2 scale 3",
+        "F018A Vietoris-Rips clique complex graph power"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked published-finding corpus hit gives the face vectors, Betti vectors, or homotopy types in the claim.",
+        "A 2026 graph-power paper found on the web tabulates distance-independence data for the Pappus graph but not clique-complex homotopy; it therefore does not cover the result."
+      ],
+      "reasoning": "Known graph tables can encode the graph or graph-power numerical invariants without determining the homotopy types claimed here. No exact Rips table was found.",
+      "searches": [
+        "Pappus graph Vietoris-Rips shortest path filtration",
+        "Pappus graph Rips scale 3 64 spheres",
+        "Pappus graph clique complex graph power topology"
+      ]
+    },
+    "rationale": "No checked published-finding corpus record or inspected primary source covers the complete Pappus-graph Rips filtration or either exact nontrivial Pappus homotopy type. Closest records concern other graph metrics or a nonapplicable finite-projective-plane family.",
+    "residual_risks": [
+      "A non-indexed thesis, computational note, or result using the equivalent phrase ‘clique complex of the square/cube of the Pappus graph’ could overlap.",
+      "The web and published-finding corpus searches are evidence of noncoverage among checked sources, not a proof of universal novelty."
+    ],
+    "risks": [
+      "Search cannot exclude an unindexed or differently titled computation, especially under graph-power clique-complex terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The theorem lists only the five Platonic solids; the introduction describes other families as possible extensions; the full text has no occurrence of ‘Pappus’.",
+        "identifier_or_url": "arXiv:2302.14388v1",
+        "material_read": "Full arXiv HTML: abstract, theorem and introduction, Sections 1–4, including the discrete-Morse setup, simple cases, cube warmup, and dodecahedron case; full-text search for ‘Pappus’.",
+        "method": "Direct full-text inspection of the lawful arXiv version.",
+        "title": "Vietoris–Rips complexes of Platonic solids",
+        "trigger": "Primary topology source using combinatorial graph distance and discrete Morse theory for complete finite Rips filtrations."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": "The reference identifies the same 18-vertex graph but provides no Vietoris–Rips homotopy computation.",
+        "identifier_or_url": "WolframMathWorld:PappusGraph",
+        "material_read": "Graph definition and basic properties including the LCF representation, cubic symmetry, distance regularity, and 18-vertex order.",
+        "method": "Reference-page inspection.",
+        "title": "Pappus Graph",
+        "trigger": "Check standard graph identity and LCF alias used in the claim."
+      }
+    ],
+    "sources": [
+      "published-finding corpus semantic search",
+      "arXiv:2302.14388v1",
+      "previously published related findings"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4d3507a8-98b5-45a6-9c67-21a74444dbe1",
+  "value": {
+    "rationale": "The claim gives a complete exact filtration for a classical highly symmetric finite graph metric. Its penultimate stage exhibits a structurally distinct farthest-shell mechanism: six disjoint farthest triangles yield \\(2^6=64\\) five-spheres, rather than the single cross-polytope sphere arising from a perfect-matching antipodal relation. The separate scale-2 discrete-Morse computation gives a 26-sphere wedge, so the result is more than a routine terminal check and provides a reproducible benchmark for structured finite Rips complexes.",
+    "risks": [
+      "The contribution is an exact structured example, not a general classification theorem.",
+      "Its broader significance depends on using such examples to understand Rips complexes of distance-regular and symmetric graph metrics."
+    ],
+    "sources": [
+      "arXiv:2302.14388v1 for the structured finite Rips-complex program",
+      "WolframMathWorld:PappusGraph for the graph's classical symmetric/distance-regular status",
+      "artifacts/pappus_rips_verify.py for the exact finite data"
+    ],
+    "status": "PASS"
+  }
+}
