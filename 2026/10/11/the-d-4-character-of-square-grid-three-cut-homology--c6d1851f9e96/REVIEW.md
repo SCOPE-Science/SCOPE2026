@@ -1,0 +1,15 @@
+# Scientific review: square-grid dihedral three-cut character
+
+## Correctness — PASS
+
+The graph and the ordinary three-cut complex are explicitly defined for every integer \(n\ge3\). The published shellability and Betti theorem (Bayer et al., *Topology of Cut Complexes II*, Propositions 5.6 and 5.8, https://arxiv.org/pdf/2407.08158) establishes homological concentration in degree \(n^2-4\); we do not infer it from finite observations. The complementary-face argument accounts for every missing face: cardinality at most two, connected triples, and induced unit squares. The signed reduced Hopf trace is reconstructed from oriented chain groups, and each of five dihedral conjugacy classes is counted using fixed vertices, two-cycles, invariant three-paths and invariant squares. The rational irreducible multiplicities follow by explicit character inner products. Direct enumeration of all faces for \(n=3,4\) and signed local counts for \(3\le n\le12\) reproduce the formulas using the standalone verifier. Residual risk is confined to potential transcription or implicit convention mistakes in the published premise, not an unproved computational extrapolation.
+
+## Originality — PASS, with residual bibliographic risk
+
+The nearest primary source is Bayer et al., arXiv:2407.08158v1, §5: its propositions determine only the homology *rank* and homotopy type of ordinary three-cut grid complexes, while §6 computes representations for other graph families. The main candidate for broader coverage, arXiv:2408.07646v1, studies a distinct total-cut construction and different values of the ordinary cut parameter. Earlier arXiv:2304.13675v1 develops the basic complex and graph-family topology. Exact searches for square-grid dihedral action, signed path/square characters, and equivariant three-cut complexes found no statement of these all-order formulas. Related published computations for other grids or parameters are not logically covering. The character here contains nontrivial parity-sensitive traces and a full infinite-family irreducible decomposition, not a restatement of the existing Betti count. An unindexed equivalent formula is still a material residual possibility; no claim of universal novelty certification is made.
+
+## Value — PASS
+
+A square grid has a canonical nontrivial dihedral group of geometric symmetries. Its homology rank, previously known, cannot identify how that group acts; the finite-dimensional rational representation is a natural invariant required for equivariant topology and symmetry-sensitive comparisons. The infinite-family classification explicitly separates four one-dimensional isotypes from the standard two-dimensional representation. In particular, all quarter-turn and diagonal-reflection traces vanish, while half-turn and axial-reflection traces exhibit systematic size and parity effects. This is a complete, motivated algebraic-topological refinement, not an arbitrary computed example or a routine restatement of the homotopy type. It makes no unproved downstream application claim.
+
+Same-model review: passed. Independent audit: not yet performed.
