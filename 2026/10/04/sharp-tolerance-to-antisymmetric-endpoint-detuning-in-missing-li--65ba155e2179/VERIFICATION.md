@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-`verify_endpoint_detuning.py` reconstructs the action of the full source-normalized Hamiltonian on the three symmetry-adapted vectors for several graph sizes and endpoint mismatches.
+# Independent mathematical audit
 
-It checks
-\[
-M^3=\Omega^2M,
-\]
-then evaluates \(e^{-iMt}\) both from the closed cubic formula and independently by a direct power-series summation. The two routes agree on deterministic test points.
+## correctness
 
-The script also checks the exact maximizing times, target-fidelity threshold, fixed-error expansion, and scaled-error limit.
+PASS
 
-The replay is supplementary. Global optimality follows analytically from the exact factor
-\[
-[1-\cos(\Omega t)]^2.
-\]
+The endpoint-symmetric, endpoint-antisymmetric and uniform-remainder states form an invariant three-dimensional subspace. After subtracting the common energy, the reduced matrix has only two couplings and satisfies \(M^3=\Omega^2M\) with \(\Omega^2=(32(n-2)+\delta^2)/4\). The closed exponential gives a single-cosine transfer amplitude, so the displayed times are global maximizers and all corollaries follow algebraically. A fresh independent matrix replay checked the cubic identity and exact maximum for representative \(n,\delta\); the frozen verifier additionally compares an independent power-series exponential, target boundaries and asymptotics.
 
-No independent audit has been performed.
+## originality
+
+PASS
+
+Casaccino–Lloyd–Mancini–Severini analytically solve the missing-link complete graph with equal endpoint shifts and identify \(2n-6\) as a perfect-transfer setting; the same full primary paper studies independent random frequency/coupling fluctuations numerically. It does not state the deterministic antisymmetric endpoint-detuning law. Later spin-network robustness work studies other controller geometries and sensitivity formulations. Resultary search found no equivalent closed maximum-fidelity formula.
+
+## value
+
+PASS
+
+The source's perfect-transfer setting is experimentally meaningful only with calibrated endpoint energies. The theorem gives a sharp deterministic robustness law, exact fidelity tolerance, and the correct \(\sqrt n\) scaling for a natural antisymmetric calibration error, information not supplied by random-noise averages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

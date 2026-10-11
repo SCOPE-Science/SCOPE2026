@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:51:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 24664af7f33fed4bcf47a888a89e08524f30da64",
+        "verify_endpoint_detuning.py blob 962b125e53cacae59550c7290cb0d779fee466f3",
+        "fresh reduced-matrix calculation"
+      ],
+      "rationale": "The endpoint-symmetric, endpoint-antisymmetric and uniform-remainder states form an invariant three-dimensional subspace. After subtracting the common energy, the reduced matrix has only two couplings and satisfies \\(M^3=\\Omega^2M\\) with \\(\\Omega^2=(32(n-2)+\\delta^2)/4\\). The closed exponential gives a single-cosine transfer amplitude, so the displayed times are global maximizers and all corollaries follow algebraically. A fresh independent matrix replay checked the cubic identity and exact maximum for representative \\(n,\\delta\\); the frozen verifier additionally compares an independent power-series exponential, target boundaries and asymptotics.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper covers complete and missing-link complete graphs and random fluctuations, but its analytic missing-link theorem uses equal shifts.",
+          "The later robustness work motivates sensitivity questions in optimized spin networks without supplying this all-\\(n\\) closed detuning law."
+        ],
+        "reasoning": "No inspected broader weighted-graph theorem was found that specializes directly to the claimed maximum and exact calibration window.",
+        "searches": [
+          "Casaccino et al. full primary PDF",
+          "O'Neil et al. robustness paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0904.4510",
+        "DOI:10.1142/S0219749909006085",
+        "arXiv:2303.00142",
+        "Resultary endpoint-detuning search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-shift perfect transfer fixes only the point \\(\\delta=0\\). Independent random fluctuation simulations do not imply a deterministic worst-error curve.",
+          "The cubic identity for the detuned three-state matrix yields the exact time dependence and global maximum."
+        ],
+        "reasoning": "The differential-detuning law requires additional exact diagonal dynamics beyond the checked source.",
+        "searches": [
+          "Casaccino et al. equal-shift theorem",
+          "audited symmetry-reduced cubic closure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published optimum has equal endpoint energy shifts \\(2n-6\\).",
+          "Fixing their mean and introducing opposite shifts couples the bright and antisymmetric endpoint modes, leaving an exact three-level problem."
+        ],
+        "reasoning": "The submitted theorem is the deterministic differential-calibration response around the published optimum, not the random-disorder average treated by the source.",
+        "searches": [
+          "Casaccino et al., arXiv:0904.4510 / DOI:10.1142/S0219749909006085",
+          "O'Neil et al., arXiv:2303.00142",
+          "Resultary query: complete graph missing edge quantum state transfer unequal endpoint shifts antisymmetric detuning fidelity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or published finding with the \\(32(n-2)/(32(n-2)+\\delta^2)\\) law was located."
+        ],
+        "reasoning": "The result is an analytic transfer formula, not a database lookup.",
+        "searches": [
+          "Resultary detuning search",
+          "targeted unequal-endpoint/frequency-mismatch searches"
+        ]
+      },
+      "rationale": "Casaccino–Lloyd–Mancini–Severini analytically solve the missing-link complete graph with equal endpoint shifts and identify \\(2n-6\\) as a perfect-transfer setting; the same full primary paper studies independent random frequency/coupling fluctuations numerically. It does not state the deterministic antisymmetric endpoint-detuning law. Later spin-network robustness work studies other controller geometries and sensitivity formulations. Resultary search found no equivalent closed maximum-fidelity formula.",
+      "residual_risks": [
+        "A broader weighted-graph or spin-control treatment using a different normalization may contain an equivalent two-endpoint detuning formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUAL_ENDPOINT_OPTIMUM_AND_RANDOM_DISORDER_PRIOR_DETERMINISTIC_ANTISYMMETRIC_LAW_NOT_STATED",
+          "evidence": "The source sets both distinguished endpoint shifts to \\(2n-6\\) for perfect transfer and separately averages random frequency/coupling perturbations; it does not derive the audited unequal-endpoint maximum.",
+          "identifier_or_url": "arXiv:0904.4510; DOI:10.1142/S0219749909006085",
+          "material_read": "Full primary PDF was read around the missing-link analytic theorem and the later fluctuation study; the theorem and noise-result pages were visually inspected.",
+          "method": "Same-Hamiltonian parameter and deterministic-versus-random comparison.",
+          "title": "Quantum State Transfer Through a Qubit Network with Energy Shifts and Fluctuations",
+          "trigger": "Defining source for the same missing-link network and endpoint-control optimum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:0904.4510",
+        "DOI:10.1142/S0219749909006085",
+        "arXiv:2303.00142",
+        "Resultary endpoint-detuning search"
+      ],
+      "rationale": "The source's perfect-transfer setting is experimentally meaningful only with calibrated endpoint energies. The theorem gives a sharp deterministic robustness law, exact fidelity tolerance, and the correct \\(\\sqrt n\\) scaling for a natural antisymmetric calibration error, information not supplied by random-noise averages.",
+      "residual_risks": [
+        "A broader weighted-graph or spin-control treatment using a different normalization may contain an equivalent two-endpoint detuning formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0904.4510",
+    "DOI:10.1142/S0219749909006085",
+    "arXiv:2303.00142",
+    "Resultary endpoint-detuning search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the single-excitation \\(XY\\) Hamiltonian on \\(K_n\\) with the input-output edge deleted, hopping two, and endpoint shifts \\(2n-6\\pm\\delta/2\\), the exact maximum transfer fidelity is \\(\\left(32(n-2)/(32(n-2)+\\delta^2)\\right)^2\\), attained at the stated odd half-periods; this gives the exact target-fidelity window, fixed-error asymptotic, and nontrivial \\(\\delta=c\\sqrt n\\) limit.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A broader weighted-graph or spin-control treatment using a different normalization may contain an equivalent two-endpoint detuning formula.",
+    "The mean endpoint shift remains fixed at the published optimum and coupling/common-mode disorder is outside the theorem."
+  ]
+}

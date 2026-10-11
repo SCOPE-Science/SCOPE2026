@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** In the source normalization, the input, output, and uniform-rest sector is exactly three-dimensional. With the mean endpoint shift fixed at \(2n-6\), differential detuning produces a reduced matrix with eigenvalues \(0,\pm\Omega\). The identity \(M^3=\Omega^2M\) gives the propagator explicitly, and the transfer probability is a positive constant times \([1-\cos(\Omega t)]^2\). This proves both the global maximum and all maximizing times. A standalone replay checks the reduction and the closed probability formula.
+PASS
 
-## Originality
+The endpoint-symmetric, endpoint-antisymmetric and uniform-remainder states form an invariant three-dimensional subspace. After subtracting the common energy, the reduced matrix has only two couplings and satisfies \(M^3=\Omega^2M\) with \(\Omega^2=(32(n-2)+\delta^2)/4\). The closed exponential gives a single-cosine transfer amplitude, so the displayed times are global maximizers and all corollaries follow algebraically. A fresh independent matrix replay checked the cubic identity and exact maximum for representative \(n,\delta\); the frozen verifier additionally compares an independent power-series exponential, target boundaries and asymptotics.
 
-**PASS, narrowly scoped.** The direct source solves equal endpoint shifts exactly and treats random frequency or coupling disorder numerically. Its exact fidelity formulas assume one common endpoint shift and therefore do not cover the unequal-endpoint Hamiltonian used here. Targeted searches for unequal endpoint shifts, antisymmetric detuning, endpoint frequency mismatch, and complete-graph-minus-edge transfer did not locate the closed maximum-fidelity law. Later robustness work studies optimized spin-ring controllers and sensitivity measures rather than this exact family.
+## originality
 
-The claim does not take ownership of the missing-link graph, the optimal equal shift, or the source's perfect-transfer result.
+PASS
 
-## Value
+Casaccino–Lloyd–Mancini–Severini analytically solve the missing-link complete graph with equal endpoint shifts and identify \(2n-6\) as a perfect-transfer setting; the same full primary paper studies independent random frequency/coupling fluctuations numerically. It does not state the deterministic antisymmetric endpoint-detuning law. Later spin-network robustness work studies other controller geometries and sensitivity formulations. Resultary search found no equivalent closed maximum-fidelity formula.
 
-**PASS.** Differential endpoint calibration is a natural control imperfection precisely because the ideal protocol requires equal endpoint energies. The theorem replaces a qualitative statement that asymmetry harms transfer with an exact global fidelity ceiling, exact readout times, and a target-dependent tolerance window. The \(\sqrt n\) tolerance scale identifies how the calibration budget changes with network size.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source's perfect-transfer setting is experimentally meaningful only with calibrated endpoint energies. The theorem gives a sharp deterministic robustness law, exact fidelity tolerance, and the correct \(\sqrt n\) scaling for a natural antisymmetric calibration error, information not supplied by random-noise averages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
