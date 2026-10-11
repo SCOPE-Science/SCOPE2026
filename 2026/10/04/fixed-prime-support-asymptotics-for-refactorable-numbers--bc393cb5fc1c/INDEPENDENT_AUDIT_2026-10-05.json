@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:02:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 325ebfcbc15b0016c3efc90991c096507e03f0c8",
+        "assigned verify.py blob ba6d599c81358d7c89fad904fbc60f35361253b2",
+        "Simon Colton, Refactorable Numbers - A Machine Invention, Journal of Integer Sequences 2 (1999)",
+        "Claudia Spiro, How often is the number of divisors of n a divisor of n?, JNT 21 (1985)",
+        "independent exact exponent-box checks"
+      ],
+      "rationale": "The exact exponent criterion follows directly from \\(\\tau(n)=\\prod_i(a_i+1)\\): if \\(n\\) has exact support \\(S\\), every prime dividing every \\(a_i+1\\) must lie in \\(S\\), and the \\(p_j\\)-valuation of \\(\\tau(n)\\) is the column sum \\(\\sum_i e_{ij}\\), which must not exceed \\(a_j\\). Conversely those conditions imply \\(\\tau(n)\\mid n\\). For fixed \\(S\\), the count of \\(S\\)-smooth integers up to \\(y\\) is the lattice-point volume \\(C_S(\\log y)^m+O((\\log y)^{m-1})\\). With \\(L=\\log x\\) and \\(T=\\log L\\), independently bounding each \\(A_i=a_i+1\\) from above and below shows that tuples obeying only the size condition number \\(C_S^mT^{m^2}(1+o(1))\\). Each exponent coordinate \\(e_{ij}=O(T)\\); hence a tuple can violate a column inequality only if some \\(A_j=O(T)\\), a set of size \\(O(T^{m(m-1)}(\\log T)^m)=o(T^{m^2})\\). Fresh exact checks of the structural criterion on supports \\(\\{2\\},\\{2,3\\},\\{2,5\\},\\{2,3,5\\}\\) agreed with direct divisibility in every tested exponent box.",
+      "residual_risks": [
+        "The support is fixed; no uniformity is claimed when its size or primes vary with \\(x\\).",
+        "The proof supplies a leading asymptotic only, not an optimized error term."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Colton's Theorem 5 organizes by the value of \\(\\tau(n)\\), allowing the supporting primes to vary.",
+          "Spiro's theorem aggregates all supports and has order near \\(x/\\sqrt{\\log x}\\), qualitatively different from the fixed-support polylogarithmic count."
+        ],
+        "reasoning": "Neither inspected broader theorem specializes to the audited constant.",
+        "searches": [
+          "Colton, Refactorable Numbers - A Machine Invention",
+          "Spiro, How often is the number of divisors of n a divisor of n?"
+        ]
+      },
+      "checked_sources": [
+        "Journal of Integer Sequences 2 (1999), Article 99.1.2",
+        "DOI 10.1016/0022-314X(85)90012-5",
+        "OEIS A033950 supporting bibliography",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The criterion is elementary, but the leading fixed-support count also requires a lattice asymptotic and control of the nontrivial valuation inequalities.",
+          "The global count cannot be disaggregated into fixed-support constants by a formal specialization."
+        ],
+        "reasoning": "The final asymptotic is not mechanically implied by the inspected prior statements.",
+        "searches": [
+          "standard divisor formula versus the exact exponent criterion",
+          "global refactorable asymptotics versus the fixed-support lattice theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Colton uses the identical condition \\( au(n)\\mid n\\) and prime-exponent divisor formula.",
+          "Spiro counts all refactorable integers without fixing their prime support."
+        ],
+        "reasoning": "The exact-support formulation is not equivalent to Colton's fixed-divisor-count classification.",
+        "searches": [
+          "Resultary query: refactorable numbers tau divides n fixed prime support asymptotic log log x smooth exponents",
+          "Colton 1999 full article, membership and distribution sections",
+          "Spiro 1985 global refactorable counting theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact support-dependent asymptotic or table was retrieved."
+        ],
+        "reasoning": "The search is corroborative; the full Colton source was inspected directly.",
+        "searches": [
+          "Resultary current search for fixed-prime-support refactorable asymptotics",
+          "targeted current web searches under aliases refactorable and tau number"
+        ]
+      },
+      "rationale": "Colton's complete primary article defines refactorable numbers, develops membership constructions, and in its distribution section counts refactorable integers having a prescribed divisor count. It does not count refactorable integers with a prescribed exact prime support. Spiro's 1985 work is a global counting theorem over all supports. The audited fixed-support asymptotic lives on a different logarithmic scale and requires an \\(m^2\\)-dimensional smooth-exponent lattice plus a proof that the valuation-column constraints remove only lower-order mass. Current Resultary searches returned the assigned theorem first and no stronger fixed-support result.",
+      "residual_risks": [
+        "An older tau-number paper may contain an unindexed fixed-support formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_DIVISOR_COUNT_NOT_FIXED_SUPPORT",
+          "evidence": "The paper counts by a prescribed number of divisors and gives constructions, but no exact-prime-support asymptotic.",
+          "identifier_or_url": "Journal of Integer Sequences 2 (1999), Article 99.1.2",
+          "material_read": "complete accessible HTML, including definition, membership theorems, and the full distribution section with Theorem 5",
+          "method": "primary full-text inspection",
+          "title": "Refactorable Numbers - A Machine Invention",
+          "trigger": "defining primary source and closest finite/distribution theory"
+        },
+        {
+          "assessment": "GLOBAL_COUNT_DIFFERENT_SCALE",
+          "evidence": "The global theorem does not determine the audited polylogarithmic fixed-support slice.",
+          "identifier_or_url": "DOI 10.1016/0022-314X(85)90012-5",
+          "material_read": "bibliographic record and published global asymptotic scope; no fixed-support theorem is stated in the accessible material",
+          "method": "primary-source scope inspection",
+          "title": "How often is the number of divisors of n a divisor of n?",
+          "trigger": "principal global counting result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Colton 1999",
+        "Spiro 1985",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Exact prime support is a standard and useful way to stratify sparse multiplicative sets. The theorem converts the divisibility condition into a transparent exponent-lattice model and determines the exact leading constant on every finite support. This gives a natural local asymptotic complementary to the classical global count.",
+      "residual_risks": [
+        "The result is asymptotic and nonuniform in the support."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The support is fixed; no uniformity is claimed when its size or primes vary with \\(x\\).",
+    "The proof supplies a leading asymptotic only, not an optimized error term.",
+    "An older tau-number paper may contain an unindexed fixed-support formulation.",
+    "The result is asymptotic and nonuniform in the support."
+  ]
+}

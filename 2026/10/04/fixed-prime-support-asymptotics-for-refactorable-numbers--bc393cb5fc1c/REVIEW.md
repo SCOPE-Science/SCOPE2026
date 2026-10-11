@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact criterion is equivalent to \(\tau(n)\mid n\) prime by prime. Fixed-support smooth numbers are lattice points in an \(m\)-simplex, giving \(H_S(y)\sim (\log y)^m/(m!\prod_{p\in S}\log p)\). A matching box sandwich gives the unrestricted \(m\)-coordinate count, and the failed valuation inequalities lie in a boundary where one shifted exponent is only \(O(\log\log x)\), which is lower order by a factor tending to zero. The included checker independently confirms the exact criterion on finite boxes.
+## correctness
 
-## Originality
-PASS. Colton's full text counts refactorable numbers with a prescribed divisor count and gives broad constructions, while Spiro treats the global counting function over all supports. Neither located source states the exact-support asymptotic or its \((\log\log x)^{m^2}\) law. Exact indexed research corpus searches for refactorable or tau numbers with fixed support returned no same or stronger statement; the nearest results concern different arithmetic predicates or relative tau-divisibility.
+PASS
 
-## Value
-PASS. Fixed prime support is a natural local decomposition of a classical sparse sequence. The result gives both an exact membership parametrization and an explicit leading constant for every finite support, rather than a finite census or a routine special case of the global density theorem.
+The exact exponent criterion follows directly from \(\tau(n)=\prod_i(a_i+1)\): if \(n\) has exact support \(S\), every prime dividing every \(a_i+1\) must lie in \(S\), and the \(p_j\)-valuation of \(\tau(n)\) is the column sum \(\sum_i e_{ij}\), which must not exceed \(a_j\). Conversely those conditions imply \(\tau(n)\mid n\). For fixed \(S\), the count of \(S\)-smooth integers up to \(y\) is the lattice-point volume \(C_S(\log y)^m+O((\log y)^{m-1})\). With \(L=\log x\) and \(T=\log L\), independently bounding each \(A_i=a_i+1\) from above and below shows that tuples obeying only the size condition number \(C_S^mT^{m^2}(1+o(1))\). Each exponent coordinate \(e_{ij}=O(T)\); hence a tuple can violate a column inequality only if some \(A_j=O(T)\), a set of size \(O(T^{m(m-1)}(\log T)^m)=o(T^{m^2})\). Fresh exact checks of the structural criterion on supports \(\{2\},\{2,3\},\{2,5\},\{2,3,5\}\) agreed with direct divisibility in every tested exponent box.
 
-Closest literature and residual search risks are recorded in `AUDIT.json` and `RESULT.md`. The theorem does not address supports varying with \(x\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Colton's complete primary article defines refactorable numbers, develops membership constructions, and in its distribution section counts refactorable integers having a prescribed divisor count. It does not count refactorable integers with a prescribed exact prime support. Spiro's 1985 work is a global counting theorem over all supports. The audited fixed-support asymptotic lives on a different logarithmic scale and requires an \(m^2\)-dimensional smooth-exponent lattice plus a proof that the valuation-column constraints remove only lower-order mass. Current Resultary searches returned the assigned theorem first and no stronger fixed-support result.
+
+## value
+
+PASS
+
+Exact prime support is a standard and useful way to stratify sparse multiplicative sets. The theorem converts the divisibility condition into a transparent exponent-lattice model and determines the exact leading constant on every finite support. This gives a natural local asymptotic complementary to the classical global count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
