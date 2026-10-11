@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:57:07Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob d5d568b48beb2d349f3a398cf3ebaa5a1df33cf6",
+        "VERIFICATION.md blob 882afff560e1ca7d7cb40f1440c29b3d21426402",
+        "verify.py blob ebf6cbcd812f0f541a780f00eb5b67fb208a49ec",
+        "verification_output.txt blob ff72f0e6845f79aec501c6e8e74606466b8b00da",
+        "Fresh independent integer/binomial replay of all displayed dimension identities for n=4..9.",
+        "Guedes, arXiv:2609.19427, primary abstract and current exact-range open-problem statement."
+      ],
+      "rationale": "The published sufficient criterion and already-settled equal-degree cases reduce the higher-dimensional gap to the cubic containing a quadric cone. For that case the package separates a second cone by the gcd degree s of the two restricted quadrics on the hyperplane intersection. In dimension n>=4 the first cone's restriction has rank at least four and is irreducible, so s is 0 or 2. The s=0 locus has incidence codimension exceeding the full second-cone parameter dimension by 2n-2. In the s=2 locus, if the second polar vertex is outside the intersection the restricted quadric is unique up to scalar; if it lies in the intersection, the restriction kernel has vector dimension 2n-2, giving total parameter dimension at most 4n-4, still below \\(D_n(2)=(n-1)(2n+1)\\). I independently rechecked the package's binomial identities \\(A-H_0=D+2n-2\\), \\(A-H_2=D\\), the d=4 criterion margin, and \\(4n-4<D\\) for n>=4.",
+      "risks": [
+        "The geometric incidence proof relies on genericity and irreducibility of rank-at-least-four quadrics; these hypotheses were reconstructed from the displayed strata rather than machine-certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source already owns the quadratic exception and several sufficient/boundary cases but explicitly does not determine the exact higher-dimensional range."
+        ],
+        "reasoning": "The audited theorem strictly completes, rather than specializes, the source's stated range.",
+        "searches": [
+          "Guedes arXiv:2609.19427"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search above",
+        "arXiv:2609.19427",
+        "current source-indexed exact-range open-problem record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those results reduce the gap but do not imply the (m,d)=(2,3) case for n>=4.",
+          "The submitted gcd-stratified two-cone dimension argument is the new implication needed to finish the range."
+        ],
+        "reasoning": "The decisive case is outside the published sufficient inequality, so the result is not a parameter substitution.",
+        "searches": [
+          "Guedes higher-dimensional sufficient criterion and settled equal-degree cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record as the direct match.",
+          "The primary abstract states complete results only in P3 and P5 and a sufficient criterion in higher dimension.",
+          "The current source-derived open-problem page quotes the paper's conclusion that the exact higher-dimensional range is unknown."
+        ],
+        "reasoning": "Searches covered generic degree, uniqueness of involutive cones, cubic containing quadric cone and higher-dimensional symplectic incidence formulations.",
+        "searches": [
+          "Resultary: involutive cone incidence exact birational range cubic quadric symplectic higher dimension",
+          "Web: Guedes exact birational range higher-dimensional projective symplectic involutive cones",
+          "Web: arXiv 2609.19427 cubic quadric incidence birational"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No later published record with the full all-n range was located."
+        ],
+        "reasoning": "The claim is a geometric generic-degree theorem, so the relevant exact check is whether the remaining case was already closed.",
+        "searches": [
+          "Resultary exact birational-range query"
+        ]
+      },
+      "rationale": "Guedes's primary abstract proves the exact range in projective dimensions three and five, proves the quadratic exceptional degree 2n in every dimension, and gives only a sufficient higher-dimensional criterion. The source's concluding open-problem statement says the exact range for n>=4 is unknown. The audited two-cone argument closes precisely the remaining cubic-quadric hole after the source criteria. Resultary returned no independent solution.",
+      "residual_risks": [
+        "The complete arXiv body was not retrievable through the public full-text route during this run; overlap beyond the accessible abstract/concluding statement cannot be ruled out absolutely.",
+        "A near-simultaneous follow-up could have appeared after the source without being indexed yet."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_HIGHER_DIMENSIONAL_RANGE_GAP",
+          "evidence": [
+            "The abstract says the exact all-pair result only in P3 and P5 and a sufficient criterion in higher dimension.",
+            "The concluding statement says the exact birational range in P^{2n-1} for n>=4 is not known."
+          ],
+          "identifier_or_url": "arXiv:2609.19427",
+          "material_read": "Primary abstract describing the P3/P5 exact ranges, the all-dimensional quadratic exception and only a sufficient criterion in higher dimension. Direct public full-PDF access was attempted but unavailable; a current source-indexed open-problem page reproduces the paper's concluding statement that the exact n>=4 range is unknown.",
+          "method": "Public primary abstract plus source-indexed concluding-statement comparison; no access bypass.",
+          "title": "Hypersurfaces containing involutive cones in projective symplectic spaces",
+          "trigger": "Exact source and explicit open problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Completes the higher-dimensional birational classification for all d>=m>=2.",
+        "Preserves the source's exceptional generic degree 2n exactly."
+      ],
+      "rationale": "The theorem resolves an explicit exact-range problem left open by the source and reduces the generic-degree phase diagram to one universal quadratic exception. The missing cubic-quadric case requires a genuine two-incidence dimension argument rather than routine arithmetic.",
+      "risks": [
+        "The result classifies generic degree, not singularities or degrees of the incidence-image varieties."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a complex symplectic vector space of dimension \\(2n\\), \\(n\\ge2\\), and every \\(d\\ge m\\ge2\\), the incidence map for degree-d hypersurfaces containing degree-m involutive hyperplane cones is birational onto its image except at \\((m,d)=(2,2)\\), where its generic degree is \\(2n\\).",
+  "limitations": [
+    "Complex symplectic setting and the source's hyperplane-supported involutive-cone incidence only.",
+    "No new closed degree formulas for the incidence image are claimed."
+  ],
+  "schema_version": 1
+}
