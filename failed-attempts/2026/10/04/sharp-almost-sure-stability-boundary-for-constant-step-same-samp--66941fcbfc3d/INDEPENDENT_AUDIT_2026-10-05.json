@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:53:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 95ea1e4673612e8e0627b74dc90cb92eb29f1742",
+        "verify_seg_threshold.py blob 8d9ad65130ca17bb8310de2acb6ead7ab0893d84",
+        "fresh multiplier algebra"
+      ],
+      "rationale": "Identifying R^2 with C, one S-SEG step multiplies by m_s=1-sγ+i(2sγ^2-γ). Exact multiplication gives |m_+|^2|m_-|^2=16γ^8-4γ^4+1. The iid strong law gives the mean log-modulus exponent, whose sign changes exactly at γ=1/sqrt(2). At equality the moduli are sqrt(2)-1 and sqrt(2)+1, so the log radius is a centered simple random walk with unbounded positive and negative excursions. Averaging the two squared moduli gives 1+2γ^2+4γ^4. The frozen verifier and a fresh independent polynomial check reproduce these identities.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper studies the same-sample/independent-sample separation on the broader rho,nu rotation family and proves almost-sure divergence results under other step schedules.",
+          "The older SEG papers give broader algorithmic frameworks but not this exact scalar threshold."
+        ],
+        "reasoning": "The source family is broader in noise parameters and step-pair notation; the audited statement fixes a particularly simple slice.",
+        "searches": [
+          "arXiv:2608.06182 abstract and indexed detailed review of Lemma 3.11/Theorem 4.2",
+          "Gorbunov et al., arXiv:2111.08611",
+          "Li et al., arXiv:2107.00464"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.06182",
+        "arXiv:2111.08611",
+        "arXiv:2107.00464",
+        "Resultary constant-step S-SEG stability search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's scalar complex multiplier formula immediately specializes to m_±(gamma).",
+          "For iid fair signs, the a.s. radial exponent is the mean of the two log moduli; multiplying the two squared moduli yields 16gamma^8-4gamma^4+1, whose comparison with one gives the threshold. At equality the two moduli are reciprocal and the log radius is a symmetric random walk."
+        ],
+        "reasoning": "The scientific conclusion is a short standard postprocessing of a source recurrence specifically designed for the same counterexample family.",
+        "searches": [
+          "Yoon–Loizou Lemma 3.11 rotation family/multiplier reduction",
+          "standard strong law for iid log multipliers",
+          "audited equal-step substitution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source family is F(x;ξ_1)=(rho I+(1+nu)J)x and F(x;ξ_2)=(-rho I+(1-nu)J)x and reduces S-SEG to complex multipliers b_s(gamma,gamma_hat).",
+          "Setting rho=1, nu=0 and equal steps gives exactly the audited ±I+J sample maps and scalar product."
+        ],
+        "reasoning": "The final theorem is the constant-equal-step slice of the source's explicit multiplier family.",
+        "searches": [
+          "Yoon–Loizou, arXiv:2608.06182, Lemma 3.11 family as identified by the source record and indexed detailed review",
+          "Resultary query: same-sample stochastic extragradient constant step multiplicative rotation noise almost sure stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate Resultary theorem with gamma=1/sqrt(2) was found.",
+          "Exact-title absence does not restore originality when the stronger source multiplier formula already contains the recurrence by substitution."
+        ],
+        "reasoning": "This is resolved by source implication rather than a table lookup.",
+        "searches": [
+          "Resultary S-SEG constant-step stability search",
+          "targeted search for arXiv:2608.06182 plus rho, nu and Lemma 3.11"
+        ]
+      },
+      "rationale": "The defining Yoon–Loizou work already introduces the exact two-sample rotation family and reduces S-SEG on it to scalar complex multipliers b_s(gamma,gamma_hat). The submitted model is the specialization rho=1, nu=0 with gamma_hat=gamma. Although the full primary text could not be materially retrieved in this run and that access limitation is recorded, the source relationship is strong and specific: the one-step recurrence used by the submission is the source family's exact multiplier after direct substitution. The remaining Lyapunov exponent, threshold and critical random-walk description follow from that scalar iid product by the standard strong law and elementary algebra. Under the required corollary/specialization rule, this is covered rather than independently original.",
+      "residual_risks": [
+        "The primary full preprint was not materially available in this run; the coverage judgment relies on the exact family relationship disclosed by the package and independently indexed source analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_DIRECT_SPECIALIZATION_EVIDENCE_WITH_PRIMARY_FULL_TEXT_ACCESS_LIMITATION",
+          "evidence": "The indexed description identifies exactly the broader two-sample rotation family and its S-SEG complex multipliers; the audited samples are rho=1,nu=0.",
+          "identifier_or_url": "arXiv:2608.06182",
+          "material_read": "Primary arXiv abstract plus indexed detailed source analysis exposing Lemma 3.11's rho,nu rotation family and scalar multiplier reduction; complete primary full text could not be materially retrieved through available open routes, and the authorized institutional retrieval attempt returned an unavailable/error result.",
+          "method": "Access-limited but specific parameter-specialization/implication comparison.",
+          "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+          "trigger": "Defining source explicitly named by the package as containing the general rotation family."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2608.06182",
+        "arXiv:2111.08611",
+        "arXiv:2107.00464",
+        "Resultary constant-step S-SEG stability search"
+      ],
+      "rationale": "The threshold is a neat exact phase diagram, but after the source has already supplied the same rotation counterexample family and its scalar S-SEG multiplier, the submitted result is obtained by fixing rho=1,nu=0, setting the two steps equal, multiplying two quartics and applying the standard strong law. Under the required bar against routine parameter specializations/corollaries, this does not carry independent value.",
+      "residual_risks": [
+        "The primary full preprint was not materially available in this run; the coverage judgment relies on the exact family relationship disclosed by the package and independently indexed source analysis."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2608.06182",
+    "arXiv:2111.08611",
+    "arXiv:2107.00464",
+    "Resultary constant-step S-SEG stability search"
+  ],
+  "disposition": "failed",
+  "final_claim": "For fair iid samples F(x;ξ)=(ξ I+J)x and equal constant-step same-sample extragradient, the a.s. radial Lyapunov exponent is (1/4)log(16γ^8-4γ^4+1), giving exact stability threshold γ=1/sqrt(2); at equality the log radius is a symmetric random walk, while the second moment grows exponentially for every γ>0.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for direct prior-family implication and routine specialization value, not for correctness.",
+    "The primary full preprint was not materially available in this run; the coverage judgment relies on the exact family relationship disclosed by the package and independently indexed source analysis."
+  ]
+}
