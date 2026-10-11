@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,60 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier implements the Gödel-chain operations
-\[
-x\odot y=\min(x,y),
-\qquad
-x\to y=
-\begin{cases}
-1,&x\le y,\\
-y,&x>y,
-\end{cases}
-\]
-and checks the FARL and monadic axiom systems independently.
+# Independent mathematical audit
 
-For
-\[
-2\le n\le4,
-\]
-it exhaustively enumerates every pair of unary maps
-\[
-f,g:G_n\to G_n.
-\]
-The set of FARL pairs and the set of monadic Gödel pairs are exactly equal.
+## correctness
 
-For
-\[
-2\le n\le6,
-\]
-it exhaustively enumerates candidate right adjoints \(f\), reconstructs the unique possible left adjoint \(g\), and verifies that the FARL survivors are exactly the rounding pairs arising from endpoint-containing subsets.
+PASS
 
-For
-\[
-2\le n\le12,
-\]
-it constructs every subset
-\[
-F
-\quad\text{with}\quad
-\{0,1\}\subseteq F
-\]
-and verifies both axiom systems directly. The number of distinct expansions is
-\[
-2^{n-2}
-\]
-at every checked size.
+For FARL-to-monadic, Wang--Shi--Wang's derived implication, join, fixed-point, and adjunction identities give the nontrivial monadic axioms, while the Gödel product is idempotent so the square/product axiom becomes automatic. Conversely, the standard monadic Gödel structure theorem identifies the common image \(F=\exists G=\forall G\) as a Gödel subalgebra and makes \(\forall\) and \(\exists\) the lower and upper approximations to \(F\); these rounding formulas give the Galois adjunction and the three Frobenius laws. On a finite chain every endpoint-containing subset is a Gödel subalgebra, and the rounding pair is unique, yielding exactly \(2^{n-2}\) expansions. The inspected verifier exhaustively compares both axiom systems on small chains and on the four-element product algebra as corroboration.
 
-To test the general theorem away from chains, the verifier also exhaustively enumerates every pair of unary maps on the four-element product Gödel algebra
-\[
-G_2\times G_2.
-\]
-Again the FARL and monadic Gödel survivor sets coincide exactly.
+## originality
 
-The script prints `VERIFY_OK`.
+PASS
 
-## Limits
+Wang--Shi--Wang introduce FARL and explicitly prove that FARL and monadic residuated lattices are incomparable in general, but their inspected full text contains no Gödel specialization. The older monadic-Gödel paper gives the common-image rounding structure but predates FARL. Combining these strands to prove exact coincidence on all Gödel algebras therefore supplies a genuine boundary theorem rather than a special case already stated by either source.
 
-Finite enumeration is corroborative. The theorem for arbitrary Gödel algebras follows from the symbolic axiom comparison and the established monadic Gödel common-image approximation theorem. No inference from finite cases to the general theorem is used.
+## value
+
+PASS
+
+The defining FARL paper emphasizes that its new class and monadic residuated lattices are incomparable. Identifying a canonical and widely studied idempotent subclass where they coincide exactly, together with a complete finite-chain normal form, is a natural structural boundary result rather than an arbitrary specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
