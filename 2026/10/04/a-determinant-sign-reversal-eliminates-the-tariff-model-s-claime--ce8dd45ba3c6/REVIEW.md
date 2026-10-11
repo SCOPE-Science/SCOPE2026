@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a zero-diagonal matrix \(\begin{pmatrix}0&a\\ b&0\end{pmatrix}\), the determinant is \(-ab\). Substitution of the source’s off-diagonal Jacobian entries therefore gives the corrected determinant with a minus sign. The characteristic equation then makes \(A_AA_B>0\) a saddle regime. The source’s first integral differentiates exactly to zero, and its Hessian has a strict extremum precisely when \(A_AA_B<0\), which supplies the nonlinear center classification for the opposite-sign case. The source’s coefficient definitions make \(A_A,A_B\ge0\), and an interior equilibrium requires both nonzero, so every interior equilibrium of the stated tariff model lies in the saddle regime.
+## correctness
 
-## Originality
-PASS for the source-specific finding. General two-population replicator theory already contains the saddle/center classification, so the contribution is not claimed as a new general theorem. The new point is the explicit diagnosis of the missing determinant sign in the 2026 tariff article, the propagation of that sign error through Proposition 7.1, Proposition 7.2 items 1–2, and Appendix 9, and the structural consequence that the tariff model’s own coefficient definitions rule out the claimed center regime. Exact-title, DOI, theorem, determinant, correction, and phase-portrait searches did not locate a published correction. The article’s later Section 7.4 already gives the correct saddle description for the coordination special case; this was treated as partial internal overlap rather than ignored.
+PASS
 
-## Value
-PASS. The sign is not a cosmetic typo: it reverses whether the mixed policy state is a saddle or a center and therefore reverses the distinction between path-dependent convergence to pure regimes and persistent tariff-policy cycles. Since the source’s actual coefficients force the saddle sign whenever an interior equilibrium exists, the correction removes an entire claimed cyclic dynamic regime from the stated economic model and reconciles the earlier theorems with the later coordination discussion.
+At the interior equilibrium the Jacobian has zero diagonal and off-diagonal entries \(A_Ax^*(1-x^*)\) and \(A_By^*(1-y^*)\); hence its determinant is the negative product of those entries. The sign classification therefore reverses Proposition 7.1. The source payoff definitions give \(A_I=S_I+\operatorname{exp}^I(0)+\operatorname{exc}^I(0)\ge0\); existence of an interior equilibrium requires the relevant \(A_I\ne0\), so both are strictly positive. The source first integral remains valid but supports the center only when the corrected product sign is negative. The source itself later describes the coordination mixed equilibrium as a saddle, which is consistent with the corrected determinant and inconsistent with its Proposition 7.1.
 
-## Closest literature and limitations
-Szabó and Fáth (2007) give the standard two-population \(2\times2\) replicator phase portraits: the coordination class has an interior saddle, whereas matching-pennies-type games have an interior center. That general result covers the corrected qualitative classification but does not identify the source-specific sign error or its coefficient-level consequence. A residual risk is that a very recent author correction may exist outside the sources indexed at review time.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2026 paper was inspected in the relevant payoff, replicator, Jacobian, Proposition 7.1, strategic-regime, and first-integral passages. It prints the determinant with the wrong sign and assigns center/saddle accordingly, while a later coordination paragraph says saddle. A targeted published-SCOPE search located no earlier correction of this tariff paper. Generic two-population replicator theory explains the sign rule but does not make this source-specific correction, its coefficient-positivity consequence, or the reconciliation of the paper’s contradictory passages redundant.
+
+## value
+
+PASS
+
+The correction changes the local phase portrait of the only interior tariff equilibrium from the paper’s advertised cycling regime to instability and resolves an internal contradiction with its coordination discussion. Although the determinant calculation is elementary, the consequence is substantive for the paper’s central dynamic interpretation, so this is a motivated mathematical correction rather than a cheap sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
