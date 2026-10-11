@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The center-line half-ellipse diameter is derived from an exact chord identity and a one-variable concave quadratic. Separate analytic lower bounds exclude every other center-line direction in both aspect-ratio regimes. The published center-line reduction for centrally symmetric planar convex bodies then transfers the value to arbitrary bisections. The packaged symbolic/numerical checker replays the critical identities from its actual path; finite scans are regression only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 paper proves that an arbitrary bisection can be replaced by a center-line bisection with no larger d_M and lists the ellipse standard bisection as minimizing.",
+        "The 2016 paper states that in the twofold-symmetric case the optimal 2-partition was not more precisely characterized in that treatment."
+      ],
+      "reasoning": "The later general theorem covers existence and qualitative optimality but not the exact value as a function of semiaxes. No broader source inspected supplies a formula that dominates the new calculation.",
+      "searches": [
+        "arXiv:1803.00321v1 full-text Sections 2--5",
+        "DOI:10.7153/mia-19-25 Section 3.2",
+        "research-index query: centrally symmetric ellipse maximum relative diameter bisection unique"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1511.08009v1",
+      "DOI:10.7153/mia-19-25",
+      "arXiv:1803.00321v1",
+      "current owned geometry-archive ledger through g000028",
+      "prior owned geometry-archive ledger 2026-09_week4__private research ledger__p0001_g000053.jsonl",
+      "candidate-specific research-index and web searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 reduction implies it suffices to optimize center lines, but contains no evaluation of the half-ellipse diameter.",
+        "The current owned ledger contains an exact rectangle bisection theorem, not an ellipse theorem; the prior archive has ellipse results on unrelated inellipse and affine topics."
+      ],
+      "reasoning": "The new claim requires a nontrivial chord maximization with a phase transition. Neither qualitative ellipse optimality nor the rectangle formula implies it.",
+      "searches": [
+        "arXiv:1511.08009v1 lines corresponding to Section 3.2",
+        "arXiv:1803.00321v1 Proposition 3.1 and Section 5 ellipse example",
+        "owned ledgers: ellipse; maximum relative diameter; bisection; minor axis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The directly relevant 2018 full text states that the standard ellipse bisection is minimizing but gives no displayed semiaxis-dependent optimum.",
+        "Exact-expression and threshold searches did not return an ellipse bisection formula."
+      ],
+      "reasoning": "The claim was searched both as an optimization value and through its distinctive second branch and threshold. The known qualitative optimality of the minor-axis cut does not imply the displayed value without solving the half-ellipse diameter problem.",
+      "searches": [
+        "research-index query: ellipse maximum relative diameter bisection semiaxes exact phase sqrt 2",
+        "web query: \"maximum relative diameter\" ellipse bisection exact",
+        "web query: \"standard bisection\" ellipse \"maximum relative diameter\"",
+        "web query: \"a^2/sqrt(a^2-b^2)\" ellipse bisection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula or numerical table for the optimum was returned.",
+        "The closest indexed ellipse result concerns a different Ptolemy invariant."
+      ],
+      "reasoning": "The second branch is a distinctive algebraic fingerprint, and the sqrt(2) aspect-ratio transition gives an independent search handle. Their absence supports, but does not alone establish, originality.",
+      "searches": [
+        "web query: \"a^2/sqrt(a^2-b^2)\" ellipse bisection",
+        "web query: \"half ellipse\" diameter \"sqrt(2)\" bisection",
+        "research-index query: ellipse half diameter minor axis a^2 sqrt(a^2-b^2)"
+      ]
+    },
+    "rationale": "The archive-era source records the twofold-symmetric center-line reduction context and says a more precise description is not known there. The closest later full-text paper proves that the standard bisection of an ellipse is minimizing but does not state the semiaxis formula, the sqrt(2) transition, or the center-line uniqueness calculation. Exact-form and implication searches located no covering result.",
+    "residual_risks": [
+      "A short exact ellipse calculation may exist in an unindexed exercise, note, or non-English source.",
+      "The later paper already establishes qualitative optimality of the minor-axis standard bisection; novelty is restricted to the exact value, phase transition, and center-line uniqueness calculation.",
+      "No classification of all nonlinear minimizing bisection curves is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATING_NOT_COVERING: supplies the archive anchor and problem context but no ellipse semiaxis formula.",
+        "evidence": "The paper lists MSC 52A10, 52A40 and states in Section 3.2 that a minimizing 2-partition is a center line while a more precise description was not known in that treatment.",
+        "identifier_or_url": "arXiv:1511.08009v1; DOI:10.7153/mia-19-25",
+        "material_read": "Full relevant introduction and Section 3.2; first PDF page visually inspected for title and MSC; Section 3.2 text inspected for the center-line reduction and the statement that a more precise description was not known there.",
+        "method": "Lawful full-text PDF plus page-image inspection.",
+        "title": "The maximum relative diameter for multi-rotationally symmetric planar convex bodies",
+        "trigger": "Archive-era source for the twofold-symmetric maximum-relative-diameter problem and classification ownership."
+      },
+      {
+        "assessment": "QUALITATIVE_COVERAGE_ONLY: proves center-line reduction and says the standard ellipse bisection is minimizing, but does not compute the semiaxis-dependent optimum or transition.",
+        "evidence": "Proposition 3.1 reduces arbitrary minimizers to center lines; Section 5 states standard bisections are minimizing for the ellipse, rectangle, and square.",
+        "identifier_or_url": "arXiv:1803.00321v1",
+        "material_read": "Material full text: definitions, Proposition 3.1 with proof, standard-bisection section, and ellipse examples in Sections 4--5.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "Bisections of centrally symmetric planar convex bodies minimizing the maximum relative diameter",
+        "trigger": "Closest source specifically treating arbitrary centrally symmetric bisections and explicit ellipses."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c0948018-2449-42c4-93b4-f13a5d5374df",
+  "value": {
+    "rationale": "Maximum relative diameter is exactly the optimization functional studied in the source literature, and ellipses are a canonical centrally symmetric family explicitly used there. The exact value reveals a real change in the controlling farthest pair at aspect ratio sqrt(2), gives a closed benchmark for every ellipse, and sharpens qualitative optimality into a complete natural-family performance law.",
+    "status": "PASS"
+  }
+}
