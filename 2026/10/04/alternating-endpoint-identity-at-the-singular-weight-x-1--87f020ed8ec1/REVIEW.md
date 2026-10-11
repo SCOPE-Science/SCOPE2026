@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The auxiliary polynomial is verified coefficient-by-coefficient to satisfy \(s_{n+1}-s_n=2P(n)\). Substitution of the recurrence into the endpoint quantity leaves one mixed term, whose coefficient vanishes exactly by that finite-difference equation; the remaining square term is precisely \(W_n\). The \(n=0\) boundary is checked separately from \(u_1=P(0)u_0\), \(s_0=0\), and \(s_1=2P(0)\). Exact-rational replay provides an independent finite check but is not used to justify the universal quantifier.
+## correctness
 
-## Originality
-PASS with a stated residual risk. The motivating Theorem 2.1 in arXiv:2609.29910v1 explicitly requires \(cx(x+1)\ne0\), and its displayed auxiliary polynomial has poles at \(x=-1\). Its proof uses \(s_{n+1}(x)+xs_n(x)=2P(n)\), whereas the present boundary case uses the distinct finite-difference equation \(s_{n+1}-s_n=2P(n)\). Searches by recurrence, alternating weight, square-sum, and Christoffel-Darboux aliases did not locate the same statement. The available abstract of the closely related arXiv:2608.13192v1 was inspected, but its full text was unavailable through the checked lawful routes; this remains the principal overlap risk.
+PASS
 
-## Value
-PASS. The source's general identity deliberately loses the alternating endpoint because its coefficients become singular there. The new formula fills that natural boundary for the entire degree-at-most-three recurrence class rather than for a single numerical sequence. It also gives an explicit low-degree auxiliary polynomial and a clean specialization for second-kind Apéry-like recurrences, making the excluded endpoint usable in subsequent exact identities.
+The displayed quartic satisfies \(s_{n+1}-s_n=2P(n)\); this identity was independently expanded symbolically from the audited coefficients. Defining the stated endpoint quantity \(H_n\), substitution of the three-term recurrence makes the mixed coefficient equal to \(c n^r(-2P(n)+s_{n+1}-s_n)=0\), while the remaining square coefficient is exactly \(W_n\). The \(n=0\) boundary follows from \(u_1=P(0)u_0\), \(s_0=0\), \(s_1=2P(0)\). Telescoping therefore proves the identity for every \(N\ge1\), every integer \(r\ge1\), \(c\ne0\), and every cubic-or-lower \(P\).
 
-## Closest literature and limitations
-The closest source is arXiv:2609.29910v1, Theorem 2.1 and its proof. Classical Christoffel-Darboux identities and arXiv:2608.13192v1 are broader related literature, but no checked source states this singular alternating completion. The claim is restricted to \(r\ge1\); it neither supplies the \(r=0\) initial-boundary variant nor derives congruence consequences.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Sun's current paper supplies a parameterized three-term-recurrence identity with auxiliary relation \(s_{n+1}(x)+x s_n(x)=2P(n)\), but the accessible detailed account confirms the printed formula has a singular \(x=-1\) boundary. The audited theorem solves the degenerate difference equation separately and produces finite endpoint coefficients rather than substituting into a legal source case. Resultary found only the assigned endpoint theorem. Full primary text of arXiv:2609.29910 and the closely related arXiv:2608.13192 could not be obtained through the checked lawful full-text routes; the authorized institutional retrieval attempt was safety-blocked and was not retried. That access gap is retained as a residual risk rather than treated as novelty proof.
+
+## value
+
+PASS
+
+The result closes a natural singular boundary of a published parameterized identity where direct substitution is illegal. The exact finite endpoint formula and explicit polynomial solution are reusable for alternating Apéry-type sums, so this is a motivated boundary theorem rather than an arbitrary special value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
