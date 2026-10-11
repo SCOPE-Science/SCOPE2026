@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The scale-two neighborhood generators are exact; a non-flag face contains two disjoint original edges, and absence of 3- or 4-cycles forces a unique connecting generator. Generator toggling pairs all non-flag faces, and descending-size processing makes every pair a free-face elementary collapse. The star-simplex cover of the remaining flag complex has nerve H. The first-homology inclusion kernel is the sum of local clique cycle lattices with disjoint edge supports, so the sum is direct and has stated rank. Sample finite full-face checker successfully replays every collapse.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goyal–Shukla–Singh arXiv:2009.12130 Theorem 3.7 covers only flag-complex homotopy, not the Čech enlargement or inclusion.",
+        "Matsushita arXiv:2511.12608 Theorems 1.2 and 1.5 give suspension / fundamental-group relationships, not line-graph elementary collapses.",
+        "Adams–Shukla–Singh arXiv:2212.05871 Lemma 2.3 assumes r less than half the girth of the **line graph**; it does not handle degree-three star triangles at r=2."
+      ],
+      "reasoning": "None of the broader-sounding prior results implies a collapse of the actual scale-two complex, because target homotopy and fundamental group do not determine a simple-homotopy inclusion; generic girth recovery is unavailable for line graphs with triangles.",
+      "searches": [
+        "Closed-neighborhood complex of a line graph L(H) for H girth at least five simplicially collapses onto clique complex of L(H), cycle rank",
+        "Topology of Clique Complexes of Line Graphs arxiv 2009.12130 theorem triangle free",
+        "Closed neighborhood complexes of graphs arxiv 2511.12608 Theorem 1.5",
+        "graph Čech complex recover topology girth Lemma 2.3 arxiv 2212.05871"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2212.05871 (full primary article, Lemmas 2.2–2.3)",
+      "arxiv:2009.12130 (primary lawful full text, Theorem 3.7)",
+      "arxiv:2511.12608 (primary full text, Definition 1.1 / Theorems 1.2, 1.5)",
+      "Published mathematics research records: line-graph Čech, closed neighborhood, simple-homotopy collapse, persistence kernel, named graph cases",
+      "Prior scientific claims concerning graph Čech complexes and line graphs, checked for mathematical overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The theorem here explicitly matches every non-flag face through its unique connector; none of the inspected cited results uses or implies that matching.",
+        "The new kernel is an integral subgroup in the first-homology persistence map from the line graph to its scale-two Čech nerve; the prior homotopy of Cl(L(H)) alone does not determine the inclusion map.",
+        "For a four-cycle original graph, the scale-two Čech complex is a two-sphere while the flag complex of its line graph is a circle, so a blanket homotopy implication without girth restriction would be false."
+      ],
+      "reasoning": "Exact statement-level comparison: earlier recovery of the flag complex provides only the homotopy of a subcomplex; the new mathematical work is establishing elementary collapsibility of a larger Čech complex and computing the kernel of its inclusion map. The proof does not re-label a prior known homotopy theorem as new.",
+      "searches": [
+        "Closed-neighborhood complex of a line graph L(H) for H girth at least five simplicially collapses onto clique complex of L(H), cycle rank",
+        "Persistence kernel from line graph to its scale two Čech neighborhood complex local star triangle cycle subgroups",
+        "arxiv:2009.12130 Theorem 3.7",
+        "arxiv:2212.05871 Lemmas 2.2 and 2.3",
+        "arxiv:2511.12608 Theorems 1.2 and 1.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adams–Shukla–Singh arXiv:2212.05871 Lemma 2.2: intrinsic graph Čech at scale two equals closed-neighborhood complex.",
+        "Matsushita arXiv:2511.12608 Definition 1.1: same closed-neighborhood construction; its searchable full text has no treatment of line graphs.",
+        "A published result on the icosahedral Lovász neighborhood complex treats open rather than closed neighborhoods and does not establish this theorem."
+      ],
+      "reasoning": "Both Čech scale two and reflexive closed-neighborhood naming were checked; no inspected claim supplies a simple collapse from the closed-neighborhood complex of all high-girth line graphs to its flag complex.",
+      "searches": [
+        "Closed-neighborhood complex of a line graph L(H) for H girth at least five simplicially collapses onto clique complex of L(H), cycle rank",
+        "line graph closed neighborhood complex and clique complex simple homotopy collapse girth 5",
+        "\"closed neighborhood complex\" \"line graph\" homotopy",
+        "arxiv:2511.12608 Definition 1.1 / line graph (full text search)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published scale-two Vietoris–Rips calculation for finite projective-plane incidence graphs concerns a different functor and class of graphs.",
+        "A published Rips classification of the truncated tetrahedral graph concerns Rips, not the stated scale-two line-graph Čech inclusion.",
+        "Searched exact graph families Petersen, Heawood, dodecahedron and line-graph/Čech aliases; no matching classification table or direct formula returned."
+      ],
+      "reasoning": "Single-graph computations, Rips complexes and other neighborhood constructions are not an all-graph statement of the same inclusion collapse. No covering exact table was identified, but database coverage is not proof of worldwide novelty.",
+      "searches": [
+        "Čech scale two of line graph of Petersen Heawood Dodecahedron homotopy H1 cycle rank",
+        "Intrinsic graph Cech scale two closed neighborhood nerve of Johnson graph J(n,2) line graph complete graph homotopy type",
+        "line graph closed neighborhood complex and clique complex simple homotopy collapse girth 5"
+      ]
+    },
+    "rationale": "Direct statement-level comparison against the intrinsic graph Cech construction, prior homotopy of clique line-graph complexes, and general closed-neighborhood results supports an unreported elementary collapse plus integral persistence-kernel classification. The target clique-complex homotopy is explicitly credited to prior work. No published-finding query uncovered the same implication, but unindexed equivalence remains a residual risk.",
+    "residual_risks": [
+      "An unindexed or differently named article might prove an equivalent simple-homotopy collapse or dominate the degree-one inclusion statement.",
+      "Published-finding search is semantic and incomplete; non-hits do not establish originality.",
+      "Only sample finite graphs have computer checks; the general claim relies on the written combinatorial proof, not an exhaustive experiment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines K as closed-neighborhood nerve and recovers graph in a different girth-controlled range; does not prove the high-girth-original-line-graph collapse.",
+        "evidence": [
+          "Lemma 2.2: even r facets N_{r/2}[v].",
+          "Lemma 2.3: r<girth(G)/2 guarantees the nerve recovers G.",
+          "Theorem 4.2: hypercube families, not general line graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2212.05871v2",
+        "material_read": "Definitions of intrinsic graph Čech nerves, Lemmas 2.2–2.3, hypercube results at scale two and three, and the general nerve-theorem preliminaries.",
+        "method": "Primary arXiv HTML full text accessed; inspected exact construction, directly relevant lemmas and main theorem statements with targeted text search.",
+        "title": "Čech complexes of hypercube graphs",
+        "trigger": "The owning construction at exactly scale two and general recoverability."
+      },
+      {
+        "assessment": "The known triangle-free clique-complex homotopy theorem is credited; no scale-two Čech nerve or collapse from the larger complex appears in inspected material.",
+        "evidence": [
+          "Theorem 3.7: Cl(L(H)) is a wedge of original cycle-rank many circles for triangle-free H.",
+          "The author summary explicitly focuses on clique complexes."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/344400146_Topology_of_Clique_Complexes_of_Line_Graphs",
+        "material_read": "Introduction and contribution summary, relevant Section 3 discussion, Theorem 3.7 and its proof, and targeted search for the closed-neighborhood construction.",
+        "method": "Lawful author-uploaded primary full text accessed as HTML; directly relevant sections read and searched, and bibliographic metadata cross-checked against arXiv:2009.12130.",
+        "title": "Topology of Clique Complexes of Line Graphs",
+        "trigger": "The exact target Cl(L(H)) could be covered by an existing result."
+      },
+      {
+        "assessment": "General constructions, suspension and fundamental groups; no high-girth line-graph collapse or integral scale-one inclusion kernel established in material examined.",
+        "evidence": [
+          "Definition 1.1 identifies the closed-neighborhood complex.",
+          "Theorem 1.2 gives a suspension relation; Theorem 1.5 studies its fundamental group.",
+          "A full-text search for the phrase line graph returned no match."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.12608v2",
+        "material_read": "Definition 1.1, Theorem 1.2, Corollary 1.3, Theorem 1.5 and introduction; checked full text for treatment of line graphs.",
+        "method": "Primary arXiv HTML full text accessed with targeted inspection of definitions, theorems and the phrase line graph.",
+        "title": "Closed neighborhood complexes of graphs",
+        "trigger": "Equivalent naming and potential stronger closed-neighborhood homotopy theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69ae03a7-604c-41b9-b8ba-420a17d72269",
+  "value": {
+    "rationale": "Applies to all finite connected girth-at-least-five original graphs, including arbitrary degrees, bridges and nontrivial cycle rank, and recovers topology from a line graph whose own girth may be three. An explicit simplicial collapse is stronger than a Betti computation; the integral local triangle kernel describes the first persistent loss of homology. Triangles and quadrilaterals supply motivated sharp boundaries.",
+    "status": "PASS"
+  }
+}
