@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The general proof is symbolic and classifies every character. The accompanying finite replay is a consistency check of the character arithmetic and divisor-cohomology case split.
+# Independent mathematical audit
 
-For each \(n\) from \(2\) through \(8\), `verify.py` enumerates all six-tuples of edge weights in \(\{0,\ldots,n-1\}\) whose total is divisible by \(n\). For each character it computes
-\[
-d=\frac1n\sum_e a_e,
-\qquad
-b_v=\left\lfloor\frac1n\sum_{e\ni v}a_e\right\rfloor,
-\qquad
-k=\#\{v:b_v=2\}.
-\]
-It then evaluates Riemann--Roch and the explicit Serre-duality dimension for plane curves of degree at most two through up to four general points.
+## correctness
 
-The replay checks that the only characters contributing nonzero \(H^1\) have \((d,k)=(2,1)\) or \((4,4)\), each with one-dimensional contribution. It verifies the totals
-\[
-0,5,15,30,50,75,105
-\]
-for \(n=2,3,4,5,6,7,8\), exactly matching \(5\binom{n-1}{2}\). It also checks the closed polynomial for \(p_g\) and the value \(p_g(Y'_6)=1975\).
+PASS
 
-The replay output stored in `verification_output.txt` must end in `VERIFY_OK`.
+The proof was reconstructed for arbitrary \(n\), not inferred from finite tests. For each character, Riemann--Roch and Serre duality on \(\operatorname{Bl}_4\mathbf P^2\) reduce \(h^1\) to the pair \((d,k)\); the edge-sum identities exclude multiple \(b_v=2\) vertices in the low-\(d\) cases. The only contributions are \((2,1)\) and \((4,4)\), each of multiplicity one in cohomology. Their character counts are respectively \(4\binom{n-1}{2}\) and \(\binom{n-1}{2}\). An independent exact enumeration for \(2\le n\le8\) reconstructed all \(n^5\) characters and reproduced \(q=0,5,15,30,50,75,105\), serving only as a consistency check. The displayed \(p_g\) and degree-zero local-cohomology dimension then follow from the stated Euler characteristic and standard section-ring correspondence.
 
-Unproved limits: finite enumeration does not prove the all-\(n\) statement, literature novelty, the Albanese geometry, or the full graded local-cohomology module. Those limits are handled by the mathematical proof and literature comparison rather than by the script.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with an explicit access risk. The older same-object Bauer--Catanese paper was read in full and identifies the same complete-quadrangle \((\mathbf Z/n)^5\)-covers but does not state the audited irregularity formula in the inspected text. Fresh exact-formula and Resultary searches returned no earlier covering record. The initiating 2026 Anghel paper is the strongest residual risk: only its public primary record was available for independent reading in this run because the authorized full-text attempt was safety-blocked. That access limitation alone is not converted into failure.
+
+## value
+
+PASS
+
+Irregularity is a fundamental Hodge invariant of this classical complete-quadrangle cover family, and the exact family formula upgrades a mere nonzero defect to a complete quantitative invariant with immediate consequences for geometric genus and the degree-zero deficiency of the motivating section rings. This is a natural structural calculation, not a gratuitous finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
