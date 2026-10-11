@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs the equal-area disk problem from the cap area formula. Differentiation gives the half-chord weights, triangle side-normal equilibrium gives the proportionality law, and the barycentric area identity reduces the displayed triangle to one scalar equation. That equation is strictly monotone and its root is shown to lie in a subinterval that keeps all three caps regular and all vertices outside the disk. Brunn--Minkowski concavity of overlap supplies the global step. The numerical checker is supplemental only.
+## correctness
 
-## Originality
-**PASS, with residual risk.** The closest source is Finch's 2014 full text for the identical triangle. It reports the same decimal center after a two-variable partition calculation, but it does not state the proportional-chord law, scalar root equation, or global proof used here. The general quantitative-isoperimetric literature does not imply these exact triangle formulas. A later Finch survey points triangle computations back to the 2014 paper. Targeted semantic, alias, exact-coordinate, and implication searches found no covering statement. Residual risk remains for an unindexed note and for Finch's unavailable unpublished 2014 essay.
+PASS
 
-## Value
-**PASS.** This is a structural simplification of a named Fraenkel-asymmetry triangle-center problem: it turns a two-variable calculus construction into a geometric normal-balance rule and one monotone equation, while also proving global uniqueness and giving the asymmetry directly. It does not claim a classification of all triangles.
+Differentiating the circular-cap area gives \(C'(d)=-2\sqrt{R^2-d^2}\) and positive second derivative. Stationarity of the sum of three exterior caps therefore equates the positive half-chord weights with the unique positive dependence among the three inward normals, proving proportionality to the opposite side lengths. For the 30-60-90 triangle this reduces the center to the stated one-parameter square-root formulas and a strictly decreasing scalar equation with opposite endpoint signs, hence one root. The submitted inequalities place that root in the regular three-cap regime and exclude all vertices. Brunn--Minkowski concavity of the square root of overlap area upgrades the positive-definite local optimum to the unique global optimum. The inspected checker independently reproduces the root, center, chord ratios, vertex exclusions and asymmetry value; these numerics are diagnostic, not the proof.
 
-## Closest literature and limitations
-The closest same-object source is S. R. Finch, *In Limbo: Three Triangle Centers*, arXiv:1406.0836. N. Fusco, F. Maggi and A. Pratelli provide the general quantitative-isoperimetric framework. Finch's 2019 survey chapter on Fraenkel asymmetry was also checked. The general side/chord statement is limited to the regular three-cap regime; only the displayed right triangle receives a global theorem here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Finch's complete triangle-center paper was inspected through the 30-60-90 calculation: it sets up the overlap/cap geometry and reports the same numerical center, but does not state the general half-chord proportionality law, the monotone one-variable characterization, or the Brunn--Minkowski uniqueness argument. The general quantitative-isoperimetric literature defines Fraenkel asymmetry but does not cover this explicit triangle optimization. Targeted Resultary searches returned the audited finding as the direct exact match and no stronger prior derivation.
+
+## value
+
+PASS
+
+Finch explicitly presents this center as a nontrivial triangle-center computation. Replacing a two-variable numerical optimization by a general stationarity law, one monotone scalar equation, and a global uniqueness proof is a motivated exact geometric advance, not an arbitrary decimal refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

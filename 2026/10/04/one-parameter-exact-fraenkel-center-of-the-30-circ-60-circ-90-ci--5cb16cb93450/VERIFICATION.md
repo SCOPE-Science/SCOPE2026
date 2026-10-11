@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and does not depend on numerical certification. The bundled checker performs the following finite-precision replay:
+# Independent mathematical audit
 
-- bisects the strictly decreasing scalar equation on \((R^2/8,R^2/4)\);
-- reconstructs the three center-to-side distances and verifies the area identity;
-- checks that the half-chord ratios are \(2:\sqrt3:1\);
-- compares the resulting center with the published decimal benchmark;
-- verifies that all three triangle vertices lie outside the equal-area disk;
-- evaluates the three circular caps and reproduces the stated Fraenkel asymmetry.
+## correctness
 
-The finite calculation does not prove the existence, uniqueness, or global-optimality statements. Those follow from the derivative formulas, strict monotonicity, positive-definite cap Hessian, and Brunn--Minkowski concavity given in `RESULT.md`.
+PASS
+
+Differentiating the circular-cap area gives \(C'(d)=-2\sqrt{R^2-d^2}\) and positive second derivative. Stationarity of the sum of three exterior caps therefore equates the positive half-chord weights with the unique positive dependence among the three inward normals, proving proportionality to the opposite side lengths. For the 30-60-90 triangle this reduces the center to the stated one-parameter square-root formulas and a strictly decreasing scalar equation with opposite endpoint signs, hence one root. The submitted inequalities place that root in the regular three-cap regime and exclude all vertices. Brunn--Minkowski concavity of the square root of overlap area upgrades the positive-definite local optimum to the unique global optimum. The inspected checker independently reproduces the root, center, chord ratios, vertex exclusions and asymmetry value; these numerics are diagnostic, not the proof.
+
+## originality
+
+PASS
+
+Finch's complete triangle-center paper was inspected through the 30-60-90 calculation: it sets up the overlap/cap geometry and reports the same numerical center, but does not state the general half-chord proportionality law, the monotone one-variable characterization, or the Brunn--Minkowski uniqueness argument. The general quantitative-isoperimetric literature defines Fraenkel asymmetry but does not cover this explicit triangle optimization. Targeted Resultary searches returned the audited finding as the direct exact match and no stronger prior derivation.
+
+## value
+
+PASS
+
+Finch explicitly presents this center as a nontrivial triangle-center computation. Replacing a two-variable numerical optimization by a general stationarity law, one monotone scalar equation, and a global uniqueness proof is a motivated exact geometric advance, not an arbitrary decimal refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
