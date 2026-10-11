@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic verification checks the full quantified claim: symmetry and strict convexity reduce to the axis; differentiating the quotient \(B_h(y)\) gives a unique phase transition at \(h=1\); substitution yields both exact coefficient branches; and the median-to-bisector comparison factors into an explicitly nonnegative polynomial.
 
-The bundled `verify.py` independently replayed the central algebraic factorization with exact integer polynomial arithmetic, checked 20,000 deterministic parameter values, and ran 60,000 deterministic interior-point stress tests. It returned `VERIFY_OK`; the smallest sampled sharp-inequality defect was `1.7688941511551093e-07`, the smallest sampled Liu-specialization defect was `0.0017469132115603969`, and the maximum residual on tested exact interior equality points was `3.5527136788005009e-15`. These finite checks are supplemental and do not replace the analytic proof.
+# Independent mathematical audit
 
-Unproved limits: no statement is made for scalene triangles, and no claim of absolute literature uniqueness is made beyond the recorded searches and source comparisons.
+## correctness
+
+PASS
+
+For a fixed height \(y\), the sum of the three vertex distances is an even strictly convex function of the horizontal coordinate, so the sharp symmetric inequality reduces to the altitude \(x=0\). There it is equivalent to \(K\le B_h(y)=[2\sqrt{1+y^2}+h-3y]/(h-y)\). The derivative has the sign of \(1-h(\sqrt{1+y^2}-y)\), yielding the boundary minimum \(y\downarrow0\) for \(0<h\le1\) and the unique interior minimum \(y_*=(h^2-1)/(2h)\) for \(h>1\). This gives the stated two-branch \(\Lambda(h)\) and equality behavior. For Liu's coefficient, the exact factorization \(H(s)^2-\lambda_L^2=(s-2)^2(s^3+2s^2+8s+8)/[8s^2(s+1)]\ge0\), together with \(\Lambda-H=(h-1)^2/(hs)\ge0\) on \(h\le1\), proves \(\lambda_L\le\Lambda\). Equality forces \(s=2\), hence the equilateral center. Independent parameter checks reproduced the formulas but are not used as the proof.
+
+## originality
+
+PASS
+
+Liu's 2015 open-access primary paper explicitly states Conjecture 2 with the same median-to-angle-bisector coefficients \(m_i/w_i\). The audited result proves that conjecture for every isosceles triangle and, more strongly, determines the exact largest symmetric coefficient with a phase transition at \(h=1\). Later weighted Erdős-Mordell papers located in current searches use different weighting families; targeted searches did not find an isosceles resolution of this exact ratio conjecture. The complete bodies of some closely related later papers were not all inspectable, so they remain named residual risks rather than being declared noncovering.
+
+## value
+
+PASS
+
+The theorem resolves an explicit published conjecture on the entire natural isosceles class and simultaneously identifies the sharp coefficient and extremizer transition. This is a motivated geometric classification, not merely a verification at a few symmetric examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
