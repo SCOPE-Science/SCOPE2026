@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,29 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-For random positive rational probability profiles and strict rational supports normalized to range one, it verifies
-\[
-\operatorname{Var}(X)\ge L(\mathbf p)
-\]
-and, for at least three atoms,
-\[
-\operatorname{Var}(X)<U(\mathbf p).
-\]
+## correctness
 
-It separately verifies exact equality for all tested two-point laws and for the explicit three-point lower extremizer
-\[
-x_2=\frac{p_m}{p_1+p_m}
-\]
-under endpoint normalization.
+PASS
 
-The checker also verifies the equal-mass formulas and follows explicit strict-support rational sequences toward both the lower and upper boundary configurations.
+After normalizing the endpoints to zero and one, conditioning on whether the observation is an endpoint contributes exactly \(p_1p_m/(p_1+p_m)\) to total variance; equality forces all interior mass to one point. For the upper side, the centered variable is a positive gap combination of cumulative-cut indicators and the gaps sum to one, so the \(L^2\) triangle inequality gives the maximum cut variance, strictly for at least two positive gaps. Explicit coalescing supports reach both limits and connectedness fills the interval. Fresh exact-rational replay verified the inequalities on 1800 generated profiles/supports.
 
-Finite replay is supplementary. The universal theorem follows from the conditional-variance decomposition and the cumulative-cut \(L^2\) argument in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK random_lower_checks=30000 random_upper_checks=25620 two_point_checks=4380 three_point_lower_checks=10000 equal_mass_checks=198 lower_path_checks=6000 upper_path_checks=6000`.
+The classical finite-universe range/variance literature gives equal-weight and universal bounds, not the exact arbitrary ordered-mass profile. The closest same-day SCOPE neighbor studies Bhatia--Davis efficiency \(\sigma^2/[(x_m-\mu)(\mu-x_1)]\), was imported after this record, and in any case has a different invariant. No inspected prior theorem determines both the endpoint-mass lower floor and cumulative-cut upper ceiling for \(\sigma^2/R^2\).
+
+## value
+
+PASS
+
+This is the exact arbitrary-weight refinement of two classical complementary range/variance bounds. It quantifies precisely how known category frequencies sharpen both sides, identifies the active support geometries, and recovers the familiar equal-weight lower constant as a special case. That is a natural structural statistic with plausible reuse in finite-population and categorical dispersion work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

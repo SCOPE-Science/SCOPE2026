@@ -1,32 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. After range normalization, conditioning on whether the observation is one of the two endpoint atoms gives an unavoidable variance contribution
-\[
-\frac{p_1p_m}{p_1+p_m}.
-\]
-The equality conditions force every interior atom to the endpoint conditional mean, which is compatible with strict support only for a single interior atom.
+PASS
 
-For the upper side, every ordered support is a positive gap combination of centered cumulative-cut indicators. Their standard deviations are
-\[
-\sqrt{P_j(1-P_j)}.
-\]
-The \(L^2\) triangle inequality therefore gives the cumulative-cut maximum, and strictness follows for every support with at least two positive gaps. Explicit collapse sequences prove both sharp limits, and connectedness fills every intermediate value.
+After normalizing the endpoints to zero and one, conditioning on whether the observation is an endpoint contributes exactly \(p_1p_m/(p_1+p_m)\) to total variance; equality forces all interior mass to one point. For the upper side, the centered variable is a positive gap combination of cumulative-cut indicators and the gaps sum to one, so the \(L^2\) triangle inequality gives the maximum cut variance, strictly for at least two positive gaps. Explicit coalescing supports reach both limits and connectedness fills the interval. Fresh exact-rational replay verified the inequalities on 1800 generated profiles/supports.
 
-## Originality
+## originality
 
-PASS, with an explicit older weighted-inequality residual risk. The complete Sharma--Gupta--Kapoor variance paper was inspected through its statement of the Popoviciu, von Szokefalvi-Nagy, and Bhatia--Davis bounds and through its main range-based refinements. Its finite-universe setup is equal-weight and does not state a fixed arbitrary probability-profile range.
+PASS
 
-Afendras--Balakrishnan--Papadatos provide a broad discrete variance-bound framework for cumulative Ord laws, but their accessible abstract and classification show a difference-operator/orthogonal-polynomial program rather than support-geometry optimization at prescribed arbitrary masses.
+The classical finite-universe range/variance literature gives equal-weight and universal bounds, not the exact arbitrary ordered-mass profile. The closest same-day SCOPE neighbor studies Bhatia--Davis efficiency \(\sigma^2/[(x_m-\mu)(\mu-x_1)]\), was imported after this record, and in any case has a different invariant. No inspected prior theorem determines both the endpoint-mass lower floor and cumulative-cut upper ceiling for \(\sigma^2/R^2\).
 
-Targeted semantic database and web searches using weighted variance, fixed probabilities, range normalization, endpoint masses, cumulative cuts, Popoviciu, and von Szokefalvi-Nagy did not locate the two-sided fixed-profile attainable interval.
+## value
 
-## Value
+PASS
 
-PASS. Popoviciu's upper bound and the von Szokefalvi-Nagy lower bound are classical complementary constraints on variance relative to range. A fixed frequency profile contains strictly more information than support size alone. The theorem gives the exact amount of additional information on both sides, identifies the extremal support geometries, and reduces under equal masses to the classical lower constant while sharpening the upper constant whenever an exact half-mass cut is unavailable.
+This is the exact arbitrary-weight refinement of two classical complementary range/variance bounds. It quantifies precisely how known category frequencies sharpen both sides, identifies the active support geometries, and recovers the familiar equal-weight lower constant as a special case. That is a natural structural statistic with plausible reuse in finite-population and categorical dispersion work.
 
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK random_lower_checks=30000 random_upper_checks=25620 two_point_checks=4380 three_point_lower_checks=10000 equal_mass_checks=198 lower_path_checks=6000 upper_path_checks=6000`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
