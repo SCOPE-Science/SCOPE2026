@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:44:06.228454Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "VERIFICATION.md",
+        "arXiv:2101.03452 Lemma 6 discrete-uniform mixture representation",
+        "DOI:10.1007/BF00774775",
+        "arXiv:1406.4151",
+        "Resultary MAD search"
+      ],
+      "rationale": "The formula is correct. The centered-uniform moment points satisfy v_m=m(m+1)/3 and d_m=m(m+1)/(2m+1)=3v_m/sqrt(12v_m+1). The latter curve is strictly concave, so Jensen over the discrete-uniform mixture gives the adjacent-chord upper envelope and its equality cases. U_0/U_R mixtures at fixed variance make MAD tend to zero, and convex mixing fills every intermediate value. The phase correction follows from the exact closed cell formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structural mixture theorem is broader than this one-functional optimization.",
+          "Segers studies MAD but does not add a shape-constrained extremal theorem."
+        ],
+        "reasoning": "Prior structural coverage plus elementary concavity is sufficient to imply the claim.",
+        "searches": [
+          "arXiv:2101.03452 Lemma 6 discrete-uniform mixture representation",
+          "DOI:10.1007/BF00774775",
+          "arXiv:1406.4151",
+          "Resultary MAD search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2101.03452 Lemma 6 discrete-uniform mixture representation",
+        "DOI:10.1007/BF00774775",
+        "arXiv:1406.4151",
+        "Resultary MAD search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict concavity of the explicit grid curve forces adjacent-uniform maxima; remote U_0/U_R mixtures force the lower infimum.",
+          "The phase correction is a Taylor expansion of the same exact interpolation."
+        ],
+        "reasoning": "The final claim contains no nonstandard step beyond known mixture structure and elementary calculus.",
+        "searches": [
+          "arXiv:2101.03452 Lemma 6 discrete-uniform mixture representation",
+          "DOI:10.1007/BF00774775",
+          "arXiv:1406.4151",
+          "Resultary MAD search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The centered-uniform mixture is the direct symmetric version of the published discrete-uniform decomposition.",
+          "MAD and variance are both linear in the mixture weights."
+        ],
+        "reasoning": "The audited theorem is a two-dimensional projection of the known mixture class.",
+        "searches": [
+          "arXiv:2101.03452 Lemma 6 discrete-uniform mixture representation",
+          "DOI:10.1007/BF00774775",
+          "arXiv:1406.4151",
+          "Resultary MAD search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table was found, but the grid lies on the explicit concave curve d=3v/sqrt(12v+1)."
+        ],
+        "reasoning": "No database match is required when the theorem is mechanically derivable.",
+        "searches": [
+          "arXiv:2101.03452 Lemma 6 discrete-uniform mixture representation",
+          "DOI:10.1007/BF00774775",
+          "arXiv:1406.4151",
+          "Resultary MAD search"
+        ]
+      },
+      "rationale": "Originality fails under the implication standard for the same structural reason. The known discrete-uniform mixture representation turns fixed-variance MAD into the convex hull of (v_m,d_m), and the elementary identity d_m=3v_m/sqrt(12v_m+1) is a strictly concave curve. Jensen/adjacent-chord interpolation therefore gives the exact upper envelope directly; mixing U_0 with remote uniforms gives the zero infimum.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRUCTURAL_PRIOR_IMPLICATION",
+          "evidence": "The source supplies the mixture mechanism from which the fixed-variance two-moment hull follows.",
+          "identifier_or_url": "arXiv:2101.03452",
+          "material_read": "Full arXiv HTML including the mixture lemma.",
+          "method": "lawful open full text",
+          "title": "Tail inequalities for restricted classes of discrete random variables",
+          "trigger": "Primary accessible source for discrete-uniform decomposition."
+        },
+        {
+          "assessment": "DIFFERENT_STATISTICAL_PROBLEM",
+          "evidence": "It concerns estimation/asymptotics, not the lattice shape-constrained extremum; the rejection instead rests on structural implication.",
+          "identifier_or_url": "arXiv:1406.4151",
+          "material_read": "Primary abstract/indexed material and theorem descriptions on sample MAD asymptotics.",
+          "method": "lawful primary material",
+          "title": "On the asymptotic distribution of the mean absolute deviation about the mean",
+          "trigger": "Closest MAD-specific source."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2101.03452 Lemma 6 discrete-uniform mixture representation",
+        "DOI:10.1007/BF00774775",
+        "arXiv:1406.4151",
+        "Resultary MAD search"
+      ],
+      "rationale": "The statistic is natural, but the theorem is an elementary consequence of the known mixture representation plus one concavity derivative and a remote-uniform construction. Under the required value standard it is too mechanically implied to count as a distinct worthwhile finding.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
