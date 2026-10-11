@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T13:00:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh reconstruction confirms the formulas. The cyclicizer of D_{2n} is {1}; nonidentity rotations form an independent set in the noncyclic graph, reflections form a clique, and every rotation-reflection pair is adjacent, hence N(D_{2n})≅K_n∨\\overline{K_{n−1}}. The Laplacian invariant subspaces give eigenvalues 0 once, n with multiplicity n−2 and 2n−1 with multiplicity n. Matrix–Tree then gives \\(n^{n-2}(2n-1)^{n-1}\\); the spectral resistance formula gives (2n−1)[(n−2)/n+n/(2n−1)]=3n−5+2/n. The finite checker n=3,...,8 is consistent but unnecessary for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dihedral cyclic-graph structure implies the noncyclic graph is complete split after removing the identity.",
+          "Das–Liu treat the Laplacian spectrum of arbitrary CS(N,α), strictly broader than the one-parameter dihedral specialization.",
+          "The graph-join paper treats arbitrary \\overline{K_m}∇K_n and gives its Kirchhoff index, strictly broader than m=n−1."
+        ],
+        "reasoning": "These are dominating-parameter results; the submitted formulas are direct specializations.",
+        "searches": [
+          "Ma–Wei–Zhong, The Cyclic Graph of a Finite Group (2013), Theorem 28 / dihedral section",
+          "Das–Liu, DOI:10.1016/j.dam.2016.01.003",
+          "Resistance distances and Kirchhoff indices in graph joins, DOI:10.1088/1751-8121/ae2997"
+        ]
+      },
+      "checked_sources": [
+        "Ma–Wei–Zhong (2013) cyclic graph paper",
+        "DOI:10.1016/j.dam.2016.01.003",
+        "DOI:10.1088/1751-8121/ae2997",
+        "Resultary semantic index",
+        "targeted complete-split spectrum searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known complete-split Laplacian spectrum specializes to \\(\\{0,n^{(n-2)},(2n-1)^{(n)}\\}\\).",
+          "The general complete-split Kirchhoff formula specializes algebraically to 3n−5+2/n.",
+          "The spanning-tree number follows immediately by multiplying the nonzero Laplacian eigenvalues and dividing by 2n−1."
+        ],
+        "reasoning": "Every claimed invariant after the structural identification is a direct special case or textbook consequence of prior symbolic results.",
+        "searches": [
+          "Direct substitution CS(N,α) with N=2n−1, α=n−1",
+          "Direct substitution m=n−1 into general complete-split Kirchhoff index",
+          "Matrix–Tree theorem applied to the prior Laplacian spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record itself and related group-graph records.",
+          "Das–Liu 2016 is explicitly titled 'Complete split graph determined by its (signless) Laplacian spectrum'.",
+          "The 2026 graph-join paper has a dedicated complete-split section with a closed Kirchhoff-index formula."
+        ],
+        "reasoning": "The named dihedral graph and the equivalent complete-split graph formulation were both searched; the latter exposes direct prior coverage.",
+        "searches": [
+          "Resultary: dihedral group noncyclic graph Laplacian spectrum spanning trees Kirchhoff index complete split",
+          "web: noncyclic graph dihedral Laplacian spectrum Kirchhoff spanning tree",
+          "web: complete split graph Laplacian spectrum Kirchhoff index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table is needed because the covering results are symbolic for arbitrary complete-split parameters."
+        ],
+        "reasoning": "Symbolic prior coverage is stronger than any exact database/table match.",
+        "searches": [
+          "Published complete-split spectrum literature",
+          "published graph-join Kirchhoff formula"
+        ]
+      },
+      "rationale": "The final claim is covered by prior graph-theoretic results once the already-known dihedral graph structure is recognized. Ma–Wei–Zhong's cyclic-graph description is equivalent, after deleting the identity and complementing, to the complete-split model. Das–Liu (2016) specifically study complete split graphs and their Laplacian spectrum. A 2026 primary paper on graph joins gives the Kirchhoff index of a general complete split graph \\overline{K_m}∇K_n; setting m=n−1 yields exactly 3n−5+2/n. The spanning-tree formula is then the routine Matrix–Tree consequence of the known Laplacian spectrum. Thus the advertised dihedral spectrum/tree/Kirchhoff package is not original under the required implication-based standard.",
+      "residual_risks": [
+        "The authorized full-text fallback for the 2016 Das–Liu DOI returned a mismatched older paper and was not used; however the independent publisher/institutional metadata and later literature are already decisive for broader Laplacian coverage.",
+        "No originality remains merely from expressing standard complete-split invariants in dihedral notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_DIHEdRAL_GRAPH_STRUCTURE",
+          "evidence": "The reflection/rotation adjacency description is equivalent, after complementing on nonidentity vertices, to K_n∨\\overline{K_{n−1}}.",
+          "identifier_or_url": "Ma, Wei, Zhong; Algebra 2013, Article 107265",
+          "material_read": "Primary HTML/statement material defining cyclic/noncyclic graphs and the dihedral section/Theorem 28 context.",
+          "method": "Direct primary web-text inspection.",
+          "title": "The Cyclic Graph of a Finite Group",
+          "trigger": "Primary source on the exact complementary graph for dihedral groups."
+        },
+        {
+          "assessment": "BROADER_LAPLACIAN_COVERAGE",
+          "evidence": "The paper is explicitly about the Laplacian spectrum of arbitrary complete split graphs, which contains the submitted graph as CS(2n−1,n−1).",
+          "identifier_or_url": "DOI:10.1016/j.dam.2016.01.003",
+          "material_read": "Primary bibliographic/abstract page stating that CS(N,α) is determined by its Laplacian spectrum; public full text was not available. An authorized fallback returned an unrelated PDF payload and therefore was discarded as evidence.",
+          "method": "Primary publisher/institutional metadata plus independent cross-source verification.",
+          "title": "Complete split graph determined by its (signless) Laplacian spectrum",
+          "trigger": "Exact broader graph class and exact Laplacian invariant."
+        },
+        {
+          "assessment": "DIRECTLY_COVERS_KIRCHHOFF_SPECIALIZATION",
+          "evidence": "Substituting m=n−1 into the displayed general formula simplifies exactly to 3n−5+2/n.",
+          "identifier_or_url": "DOI:10.1088/1751-8121/ae2997",
+          "material_read": "Published primary search rendering of Section 3.3, including the definition \\overline{K_m}∇K_n and its closed Kirchhoff-index expression.",
+          "method": "Primary publisher/search rendering.",
+          "title": "Resistance distances and Kirchhoff indices in graph joins",
+          "trigger": "Direct broader Kirchhoff formula for complete split graphs."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Once the already-known complete-split structure is identified, the Laplacian spectrum is standard and the spanning-tree/Kirchhoff formulas are immediate textbook or published complete-split consequences. The record does not add a new structural lemma, boundary, classification or motivated invariant beyond that substitution, so it is a routine recomputation under the stated value standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is for originality and value, not correctness.",
+    "The conclusion concerns the noncyclic graph only, not the distinct noncommuting graph."
+  ],
+  "schema_version": 1
+}
