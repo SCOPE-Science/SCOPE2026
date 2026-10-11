@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The recent source gives the exact algebraic reduction
-\[
-N_n=
-N/
-\left\langle\!\left\langle
-\phi^n(g)g^{-1}:g\in N
-\right\rangle\!\right\rangle,
-\qquad
-\pi_1(M_n)\cong N_n\rtimes C_n.
-\]
-For the odd-\(k\) family,
-\[
-N=H_k=\operatorname{UT}_3(\mathbb Z_k).
-\]
+# Independent mathematical audit
 
-The classical source was inspected for the precise meridional action:
-\[
-\phi(A)=B,
-\qquad
-\phi(B)=A^{-1}B.
-\]
-The class-two relation \(C=[A,B]\) then gives \(\phi(C)=C\), and direct iteration gives \(\phi^6=1\).
+## correctness
 
-The six coinvariant cases were derived symbolically. Their kernel orders are
-\[
-k^3,\quad 1,\quad \gcd(k,3),\quad 1,\quad \gcd(k,3),\quad 1
-\]
-for residues \(0,1,2,3,4,5\pmod6\), respectively. In the two \(C_3\) cases, \(\phi\) descends to inversion.
+PASS
 
-The bundled exact finite checker independently constructs the Heisenberg groups, normal closures of the coinvariant relations, and descended action. It reports:
+The Kanenobu–Kazama presentation gives \(\phi(A)=B\), \(\phi(B)=A^{-1}B\) in the class-two Heisenberg group and fixes \(C=[A,B]\); direct iteration has period six. The meridional quotient is the coinvariant quotient by \(\phi^n(g)g^{-1}\), so only \(n\bmod6\) matters. Residues 1 and 5 kill \(A,B,C\); residues 2 and 4 force \(B=A^2\), then \(C=1\) and \(A^3=1\), leaving \(C_{\gcd(k,3)}\); residue 3 gives \(A^2=B^2=C^{-1}\), and centrality yields \(C^2=1\), so odd \(k\) forces the whole kernel trivial. Residue 0 retains \(H_k\). On the surviving \(C_3\), \(\phi(A)=A^{-1}\), producing the stated semidirect product. The inspected finite normal-closure checker agrees for representative odd moduli but is not used as the proof.
 
-`VERIFY_OK k=3,5,7,9,11,15 residues=0..5 quotient_sizes=[k^3,1,gcd(k,3),1,gcd(k,3),1] inversion_action=true`
+## originality
 
-The finite check does not establish the infinite theorem; it only verifies representative instances of the symbolic proof.
+PASS
 
-No independent audit has been performed.
+The 1994 primary paper was inspected at the exact group presentation and explicitly gives the meridional conjugation \(xax^{-1}=b\), \(xbx^{-1}=a^{-1}b\). The recent torus-replacement preprint's accessible abstract describes twisted constructions with finite nonabelian groups, but its full text was unavailable through arXiv/OA and the authorized institutional fallback returned no usable paper. Fresh Resultary search found the audited all-exponent trichotomy itself and no earlier covering classification. Best-of-knowledge, the residue-by-residue coinvariant computation is original; the inaccessible recent full text remains a concrete residual risk.
+
+## value
+
+PASS
+
+Completing all twist exponents in a natural family closes the parameter gap left by a period-six construction and reveals a nontrivial intermediate \(C_3\) kernel. The result is structural and uniform in both odd \(k\) and positive twist exponent, not a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
