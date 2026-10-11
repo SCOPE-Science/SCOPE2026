@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "A unit-modulus 3-by-3 determinant vanishes iff two rows or columns are proportional, proved by normalizing and comparing conjugated products. For \\(F_p^2\\), this means row or column difference annihilates the three-point other support direction. Triangular rows have three distinct annihilating directions with exactly p binom(p,3) column triples each, all rank two. Linear rows are separated by one linear functional; its one/two/three-valued fibers yield ranks one/two/three, with exact counts. Summing produces R_1,R_2,R_3 for every prime p>=3. Separately executed exact cyclotomic determinant and 2x2 minor checker enumerates every pair at p=3,5 and passes. Computation alone does not establish all-prime quantification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "TW477 Theorem 17 yields exact Hamming numbers of Kronecker matrices; Theorem 14 exhibits rank-deficient tilings. Its conclusion explicitly does not characterize uniqueness of submatrices.",
+        "arXiv:1808.07424 Theorems 1–3 bound support sizes of f and Fourier f and address exceptional coset configurations, not rank distributions of three-by-three submatrices.",
+        "arXiv:2409.09793 Theorems 1.1 and 1.2 are about cyclic N-point principal minors."
+      ],
+      "reasoning": "The exact counts for each rank cannot be deduced solely from Hamming minima, existence of rank-deficient blocks, spectral-support inequalities or principal-minor results. No stronger general theorem with the same conclusion was identified; equivalent specialized older literature remains possible.",
+      "searches": [
+        "Delvaux Van Barel Rank-deficient submatrices of Kronecker products of Fourier matrices",
+        "arXiv:1808.07424v2",
+        "arXiv:2409.09793v4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2409.09793v1/v4",
+      "arXiv:1808.07424v2",
+      "KU Leuven Report TW477 (2006), later LAA 426 (2007)",
+      "Published result feb52ea6712b: cyclic prime-square 3x3 Fourier minors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Caragea-Lee restrict both indices to the same set in cyclic Z_N; the present theorem allows arbitrary A,B in the noncyclic group \\(F_p^2\\).",
+        "Delvaux-Van Barel report sharp cardinality minimum of Fourier support and construction of rank-deficient blocks, not individual minor-incidence counts.",
+        "Biró-Lev support inequalities are coarse cardinality constraints."
+      ],
+      "reasoning": "The candidate supplies strictly finer, directional data: fixed triangular row sets have exactly 3p binom(p,3) rank-two partners, while linear row sets have precisely p cubed binom(p,3) full-rank partners. These are not numerical consequences of cited coarse uncertainty bounds, and the cyclic group rank census has different hypotheses and conclusions. The final rank-one and rank-two counts happen to equal (p+1) times their cyclic counterparts, an exact identity checked from both closed formulas; such a scalar relation does not itself supply the complete noncyclic geometric incidence theorem.",
+      "searches": [
+        "three by three Fourier minors elementary abelian p group noncollinear row column triangles invertible F_p squared",
+        "arXiv:2409.09793v4 Theorem 1.1",
+        "KU Leuven TW477 Theorems 14 and 17",
+        "arXiv:1808.07424v2 Theorems 1-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full cyclic prime-square rank-three-minor result uses residue classes of \\(\\mathbb Z_{p^2}\\) and counts 333 singular minors at p=3; noncyclic \\(F_3\\otimes F_3\\) yields 1332.",
+        "The three-by-three unit-modulus determinant reduction is elementary and is not separately claimed original."
+      ],
+      "reasoning": "All three-pair ranks, not just a zero/nonzero determinant condition, were compared. Affine lines in \\(F_p^2\\) are different from residue-class lines in \\(\\mathbb Z_{p^2}\\); a renaming of parameters cannot equate the two statements.",
+      "searches": [
+        "three by three Fourier minors elementary abelian p group noncollinear row column triangles invertible F_p squared",
+        "Fourier character matrix F_p^2 triangle noncollinear 3x3 minors collinear singular orthogonal directions",
+        "Every singular 3x3 unimodular complex matrix has two proportional rows or columns normalized phase matrices determinant zero"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Read the full published cyclic p-square three-minor classification: rank one iff both index sets occupy one residue class mod p, rank two iff one index set type B and the other type C, etc.",
+        "For p=3 it gives 333 singular minors, versus 36+1296=1332 for \\(F_3\\otimes F_3\\).",
+        "An earlier four-by-four \\(F_3^2\\) incidence census has a different order of minors and only the isolated prime."
+      ],
+      "reasoning": "The closest catalogued all-minors rank census has a distinct index group and numerically incompatible rank counts. The earlier order-nine noncyclic four-by-four table does not subsume a universal three-by-three classification.",
+      "searches": [
+        "Three by three minors Fourier character matrix elementary abelian rank two prime p affine collinearity exact rank distribution",
+        "Kronecker product Fp tensor Fp all singular 3x3 Fourier submatrices rank 1 rank 2 counts",
+        "public mathematical result: All singular three-by-three minors of prime-square Fourier matrices, identifier feb52ea6712b"
+      ]
+    },
+    "rationale": "The statement distinguishes the noncyclic elementary-abelian character matrix \\(F_p\\otimes F_p\\) from cyclic prime-square Fourier matrices and from a principal-minor theorem; it classifies all arbitrary three-by-three minors for every prime, including ranks and exact counts, unlike the inspected prior work. Genuine risk of a differently indexed older or stronger rank classification remains.",
+    "residual_risks": [
+      "A differently described all-minors incidence classification may appear in older noncyclic complex-Hadamard or multivariate interpolation literature.",
+      "The result on general rank-deficient tilings in Kronecker Fourier matrices may have an unlocated later refinement that entails this special size-three counting problem.",
+      "The elementary unimodular determinant lemma is likely classical and is not independently claimed original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 1.1 establishes nonsingularity of principal minors in cyclic squarefree dimensions, and Theorem 1.2 existence of singular principal minors in non-squarefree dimensions; arbitrary three-row/three-column minors of \\(F_p\\otimes F_p\\) and their rank counts are not established.",
+        "identifier_or_url": "https://arxiv.org/html/2409.09793v4",
+        "material_read": "Full accessible HTML including introduction, Theorems 1.1-1.2, Sections 2-4, proof of three-by-three principal-minor theorem and references",
+        "method": "Read lawful arXiv full text and checked exact quantifiers and cyclic group index",
+        "title": "On the principal minors of Fourier matrices",
+        "trigger": "Prime-square and three-by-three Fourier minors; possible direct overlap"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its Theorem 17 gives H_{A tensor B}(d)=min H_A(a) H_B(b) and its Section 4.2 comments that the Hamming number characterization does not characterize uniqueness of rank-deficient submatrices. It does not enumerate all 3x3 square minor ranks.",
+        "identifier_or_url": "https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW477.pdf",
+        "material_read": "23-page lawful report: introduction, Section 2 low ranks, Section 3 rank-one block tilings, Section 4 Theorems 17 and 20 on Hamming numbers, conclusion on lack of uniqueness classification",
+        "method": "Read PDF parsed text, inspected page screenshots at pages 7 and 13 and scanned all sections",
+        "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+        "trigger": "Direct study of Kronecker products F_p tensor F_p, possible dominating classification"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorems 1–3 concern bounds on sizes and geometry of supp f and supp Fourier f; no exact rank-one/two/three minor incidence is given.",
+        "identifier_or_url": "https://arxiv.org/html/1808.07424v2",
+        "material_read": "Full HTML examined, particularly Sections 1–4, summary Theorems 1–3 and search across proofs/appendix for individual minor rank criteria",
+        "method": "Read arXiv full text, searched terms minor, matrix, rank, compared statement implications",
+        "title": "Uncertainty in finite planes",
+        "trigger": "Same finite affine group F_p squared and strong structural uncertainty inequalities"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its group is cyclic \\(\\mathbb Z_{p^2}\\), not elementary abelian \\(F_p^2\\), and its p=3 count of all singular pairs 333 differs from 1332 here.",
+        "identifier_or_url": "feb52ea6712b",
+        "material_read": "Complete published RESULT.md, its theorem, assumptions, proof, rank formulas and limitations",
+        "method": "Retrieved read-only publicly available complete mathematical result from repository and compared subgroup structure and numeric counts",
+        "title": "All singular three-by-three minors of prime-square Fourier matrices",
+        "trigger": "Exact same minor size and prime-square matrix dimension, but possibly different finite abelian group"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba0b52ec-4cec-4558-ae98-7f2dff2d78cf",
+  "value": {
+    "rationale": "The smallest nonlinear square Fourier minors relevant to restricted interpolation and exponential bases are 3x3. The complete incidence pattern of the noncyclic prime-plane character table gives a natural full rank distribution for every prime, with a structural orthogonal-direction explanation and distinct fixed-support behavior for collinear versus triangular row sets. The answer is not determined by existing uncertainty support-cardinality bounds or by the cyclic prime-square table. A stand-alone classification of this natural invariant is valuable without a downstream theorem. The exact (p+1)-fold scaling of rank deficiencies relative to the nonisomorphic cyclic prime-square character table is an additional structural comparison.",
+    "status": "PASS"
+  }
+}
