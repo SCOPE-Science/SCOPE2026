@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:54:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact resolving-neighborhood argument was rebuilt from the graph metric. With at least three parts, for any distinct vertices x,y a vertex z in a suitable third/different part makes R_e{zx,zy}={x,y}; every distinct-edge resolving neighborhood contains at least two vertices, so all pair inequalities are both necessary and sufficient. In the bipartite case, exact size-two neighborhoods generate precisely the same-part pair inequalities, and every other resolving neighborhood contains such a same-part pair. The optimization therefore separates into fractional clique-cover polytopes on the parts, yielding singleton weight 0, a size-two segment summing to one, and the unique all-1/2 solution for parts of size at least three. Independent exact small-family reconstruction checked the claimed generator neighborhoods and sufficiency for (1,2),(2,2),(1,1,1),(1,2,2),(2,3,1),(2,2,2).",
+      "risks": [
+        "The packaged LP replay is corroborative; the all-order proof is combinatorial."
+      ],
+      "sources": [
+        "RESULT.md blob da0f176dada37124b6b8166f4e01115fe84ddb82",
+        "verify.py blob 575a46109dc7d9c4de487be420d51a97832835b1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yi uses selected exact pair neighborhoods to prove a scalar lower bound; it does not assert sufficiency of the complete reduced pair system.",
+          "The later paper lists vertex/edge-transitive, friendship, hypercube, and circulant applications rather than the claimed family-wide optimizer classification."
+        ],
+        "reasoning": "Known scalar values and some necessary pair constraints do not determine the whole feasible region or all optimal functions.",
+        "searches": [
+          "Yi Proposition 3.7 proof lines 346-363",
+          "Goshi et al. 2021 abstract/introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.07375v1",
+        "DOI:10.3390/math9192364",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem fixes only min |g|. Many LPs share the same optimum value but have different feasible and optimizer sets; the submitted theorem proves necessity and sufficiency of a smaller canonical inequality system and then solves its full optimum face."
+        ],
+        "reasoning": "The prior scalar theorem does not logically imply the full optimizer classification without additional resolving-neighborhood structure and sufficiency arguments.",
+        "searches": [
+          "Direct comparison with Yi Proposition 3.7 and its proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yi states edim_f(K_{a1,...,ak})=(n-1)/2 for stars and n/2 otherwise.",
+          "The follow-up defines MERFs but does not state the submitted complete-multipartite optimizer faces."
+        ],
+        "reasoning": "The feasible-polytope formulation is stronger than the scalar optimum and was searched under ERF, MERF, optimizer, and complete multipartite aliases.",
+        "searches": [
+          "Yi arXiv:2103.07375v1 Proposition 3.7 full HTML",
+          "MDPI 10.3390/math9192364 ERF/MERF definitions",
+          "Resultary: fractional edge dimension complete multipartite all optimal edge resolving functions feasible polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned hits included outer multiset dimension and doubly resolving sets of complete multipartite graphs, which are different invariants; no exact fractional-edge optimizer table appeared."
+        ],
+        "reasoning": "No database/table entry was found for the claimed feasible polytope or optimizer face.",
+        "searches": [
+          "Resultary semantic query above"
+        ]
+      },
+      "rationale": "PASS. Yi Proposition 3.7 determines only the scalar fractional edge dimension of complete multipartite graphs. Its proof gives selected pair inequalities sufficient for the scalar lower bound but does not characterize every edge resolving function or the optimizer face. The later Goshi–Zafar–Rashid–Guirao paper defines minimal edge resolving functions and a general criterion but its stated exact applications are other graph classes and it does not provide an arbitrary complete-multipartite feasible-polytope/optimizer theorem. Resultary searches returned other complete-multipartite resolving invariants, not this fractional-edge feasible set. The final claim is not a mere restatement of the scalar formula: it gives an if-and-only-if reduced constraint system and classifies all minimizers, including nonuniqueness.",
+      "residual_risks": [
+        "A differently phrased optimizer classification in unindexed literature cannot be excluded.",
+        "The proof is elementary once the correct resolving-neighborhood generators are recognized; originality rests on the full feasible/optimal structure, not on the prior scalar value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the final feasible-polytope/optimizer theorem; DOES_COVER the scalar minimum.",
+          "evidence": "Proposition 3.7 states only the two scalar cases and its proof is organized around lower/upper bounds.",
+          "identifier_or_url": "arXiv:2103.07375v1 / DOI:10.1016/j.dam.2022.07.014",
+          "material_read": "Full accessible HTML around Proposition 3.7 and its proof, including the exact complete-multipartite scalar formula and selected resolving-neighborhood inequalities.",
+          "method": "Primary full-text theorem/proof implication comparison.",
+          "title": "On the edge dimension and fractional edge dimension of graphs",
+          "trigger": "Decisive same-family primary source."
+        },
+        {
+          "assessment": "NOT_COVERING the arbitrary complete-multipartite optimizer classification in the inspected material.",
+          "evidence": "The paper advertises exact applications to other graph families and cites Yi for complete multipartite scalar values.",
+          "identifier_or_url": "DOI:10.3390/math9192364",
+          "material_read": "Accessible primary HTML abstract, introduction, and ERF/MERF framework.",
+          "method": "Primary statement/scope comparison.",
+          "title": "A Combinatorial Approach to the Computation of the Fractional Edge Dimension of Graphs",
+          "trigger": "Later source defining MERFs and a combinatorial method."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an LP-defined graph invariant, the complete feasible constraint reduction and full minimizer face are natural structural data materially stronger than the optimum scalar. The theorem resolves exactly when the optimum is unique and when a continuum of optima occurs across the entire complete-multipartite family, not an arbitrary finite slice.",
+      "risks": [
+        "The additional structure is elementary and should not be overstated beyond this canonical graph family."
+      ],
+      "sources": [
+        "RESULT.md structural reduction",
+        "Yi Proposition 3.7 as the prior scalar baseline"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The known scalar fractional edge dimensions are prior and excluded from novelty.",
+    "Finite LP checks are corroborative only."
+  ],
+  "schema_version": 1
+}
