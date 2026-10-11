@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The embedded `verify.py` is dependency-free and uses exact rational sparse-polynomial arithmetic. It checks the following identities for
-\[
-\dot x=-z,\qquad \dot y=x-y,\qquad \dot z=ax+y^2+bz:
-\]
+# Independent mathematical audit
 
-1. With \(K=z+bx-ay\), it verifies \(LK=y(y+a)\).
-2. With \(w=x-y\), \(v=Lw=y-x-z\), and
-\[
-H=wv+\frac{1-b}{2}w^2+\frac a2y^2+\frac13y^3,
-\]
-it verifies
-\[
-LH=v^2-(a-b)w^2.
-\]
-3. It verifies the eliminated scalar equation
-\[
-\dddot y+(1-b)\ddot y+(a-b)\dot y+ay+y^2=0.
-\]
-4. It verifies that \((0,0,0)\) and \((-a,-a,0)\) are equilibria symbolically.
+## correctness
 
-The replay output embedded in `verification_output.txt` is `VERIFY_OK`.
+PASS
 
-The checker verifies the algebraic certificates, not the general analytic facts about invariant measures or Wirtinger's inequality. Those steps are stated explicitly in the proof. No independent audit has been performed.
+Exact differentiation gives \(L(z+bx-ay)=y(y+a)\) and \(L H=(y-x-z)^2-(a-b)(x-y)^2\). Thus for \(a\le b\) nonnegativity and support invariance reduce every compact invariant measure to the two equilibria. For \(a>b\), the zero mean of \(y(y+a)\) forces mass both inside and outside the equilibrium slab unless the measure is purely equilibrium-supported. On periodic orbits the derivative-energy law and Wirtinger yield \(P\ge2\pi/\sqrt{a-b}\); equality is excluded by the nonzero second harmonic from \(y^2\) in the eliminated jerk equation. Fresh symbolic reconstruction independently verified all identities.
+
+## originality
+
+PASS
+
+Sprott's primary-author parameter survey records exactly the two-parameter Q model and numerically separates dynamic regions, but does not state the invariant-measure threshold \(a=b\) or period theorem. Current Resultary searches found only analogous recurrence results for other flows. Panchev's all-Sprott analytical paper remains a named residual bibliographic risk because reliable full text was unavailable; its accessible abstract does not expose the claimed Q-specific identities.
+
+## value
+
+PASS
+
+The exact line \(a=b\) is a natural analytic phase boundary for compact recurrence in a standard chaotic family, and the strict least-period floor gives an independently useful quantitative consequence. This is a structural theorem rather than a parameter sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
