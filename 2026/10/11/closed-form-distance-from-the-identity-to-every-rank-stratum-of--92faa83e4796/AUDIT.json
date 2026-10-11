@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Starting from Chen's exact quotient-distance formula, the identity factor converts each registered row comparison to the angle between a coordinate vector and a unit vector in a common rank-s subspace. Orthogonal projection gives the sharp coordinatewise bound by sqrt(P_ii). The function arccos^2(sqrt(p)) is proved strictly convex by an explicit second derivative whose numerator has positive derivative. Jensen then gives the sharp rank bound. Real Schur-Horn produces the constant-diagonal projection attaining it. Equality in Jensen and Cauchy--Schwarz gives the complete minimizer set, and the corank-one specialization gives exactly the signed regular-simplex matrices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen proves the quotient representation and gives the exact angular alignment objective, then states that the general minimization has no closed-form solution and proposes numerical Riemannian gradient descent.",
+        "Chen's full text contains no tight-frame formulation of the identity-to-rank-stratum problem.",
+        "Benedetto--Fickus minimizes a quadratic frame potential; it shares the equality class but not the angular quotient objective or its value."
+      ],
+      "reasoning": "The source framework is broader as a metric construction, but it does not dominate the new closed-form slice. Classical frame-potential theory does not imply the arccos-squared Jensen objective after orthogonal quotient registration.",
+      "searches": [
+        "Full text: Chen, arXiv:2401.03126, Sections 3.1, 3.4, and 4.1",
+        "Full text search in Chen for \"tight frame\", \"unit norm tight\", and identity-matrix special cases",
+        "Literature search: Benedetto--Fickus frame potential and unit-norm tight-frame minimizers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.03126v1 and v3",
+      "doi:10.1137/24M1630566",
+      "doi:10.1023/A:1021323312367",
+      "Horn, American Journal of Mathematics 76 (1954), 620--630",
+      "Published-result database searches for correlation orbit distances, rank strata, angular formulas, tight frames, and related matrix metrics",
+      "Web searches for the exact closed form and equivalent tight-frame / quotient-alignment formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen's equation (4.1 context) gives a nonlinear orthogonal alignment problem but no identity-to-stratum solution.",
+        "Frame potential prior work identifies unit-norm tight frames via a different quadratic energy; it does not yield the quotient angular value.",
+        "Schur--Horn supplies only existence of constant-diagonal projections and does not perform the metric optimization."
+      ],
+      "reasoning": "The final formula requires a new reduction from quotient registration to projection diagonals, strict convexity of f(p)=arccos^2(sqrt(p)), and equality analysis. None of the inspected prior statements implies all of these conclusions.",
+      "searches": [
+        "Chen arXiv:2401.03126, equation defining d_orb,k and Section 4.1 distance computation",
+        "Benedetto--Fickus frame-potential literature and modern summaries of its minimizer theorem",
+        "Schur--Horn theorem / constant-diagonal projection existence",
+        "Web: \"rank r correlation matrices\" identity quotient distance",
+        "Web: \"identity\" \"Corr(m, [k])\" distance rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No search located the formula for Chen's quotient metric or a distance-to-rank-stratum theorem with the same objective.",
+        "Searches included the equivalent unit-norm-tight-frame characterization and the exact characteristic expression."
+      ],
+      "reasoning": "The claim can be expressed as a rank-stratum distance, an orthonormal-basis-to-common-subspace angular problem, or a tight-frame Gram minimization. Those aliases were all searched; no equivalent statement was found.",
+      "searches": [
+        "Published-result database: quotient geometry correlation matrices identity distance rank stratum arccos sqrt r/n",
+        "Published-result database: bounded rank correlation matrices distance identity unit norm tight frame quotient",
+        "Published-result database: orbit distance correlation matrices rank stratum closed form",
+        "Web: \"sqrt(n) arccos sqrt(r/n)\" frame",
+        "Web: \"arccos(sqrt(r/n))\" tight frame",
+        "Web: \"correlation\" \"arccos\" \"unit norm tight frame\" quotient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result was an exact Wasserstein isotropization theorem for spherical measures on a subspace, with a different cost and feasible class.",
+        "Other close hits concerned Welch-type bounds or matrix metrics but did not contain Chen's orbit-space distance."
+      ],
+      "reasoning": "No database item supplied this distance profile or a table that implies it. The Wasserstein and Welch-type results have different metrics, so their numerical formulas do not specialize to the quotient angular distance.",
+      "searches": [
+        "Published-result database: elliptope correlation matrices inradius circumradius Frobenius",
+        "Published-result database: spherical product quotient correlation identity tight frame",
+        "Published-result database: quotient geometry correlation matrices identity distance rank stratum arccos sqrt r/n"
+      ]
+    },
+    "rationale": "The motivating full text explicitly states that its general angular alignment distance has no closed-form solution and uses numerical optimization. The identity-to-every-rank-stratum family is not solved there. Direct formula, alias, tight-frame, and database searches found no covering statement. Classical frame-potential results share the tight-frame minimizers under a different quadratic objective and do not imply this angular quotient value.",
+    "residual_risks": [
+      "An equivalent identity may appear in frame geometry as an orthonormal-basis-to-tight-frame spherical alignment result under different terminology.",
+      "The database contained a nearby Wasserstein isotropization theorem with similar constant-projection geometry, but its metric and feasible objects differ and it does not imply this result.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the precise metric, recommends k=m on the full elliptope, and states that the nonlinear distance minimization has no closed-form solution in general. It does not state the identity-to-rank-stratum formula, constant-diagonal projection reduction, or minimizer classification.",
+        "evidence": "The source gives d_orb,k^2 as an infimum over O(k) of a sum of squared arccos row inner products and immediately introduces Riemannian gradient descent for computation.",
+        "identifier_or_url": "arXiv:2401.03126 / DOI 10.1137/24M1630566",
+        "material_read": "Abstract and MSC metadata; introduction and factor-orbit bijection; Sections 3.1 and 3.4 on orbit metrics and dependence on k; Section 4.1 including the angular alignment objective and numerical distance algorithm; Appendix comparison formulas.",
+        "method": "Open-access full-text PDF inspection with page images and targeted full-text searches.",
+        "title": "Quotient Geometry of Bounded or Fixed-Rank Correlation Matrices",
+        "trigger": "Exact source defining the metric and rank stratification in the claim."
+      },
+      {
+        "assessment": "This prior work explains the familiar equality class for a quadratic frame potential. It does not use Chen's spherical product quotient metric or state the arccos rank-stratum distance.",
+        "evidence": "The frame potential is a Hilbert--Schmidt quadratic sum of squared pairwise inner products, not a sum of squared registered spherical angles.",
+        "identifier_or_url": "DOI 10.1023/A:1021323312367",
+        "material_read": "Abstract-level theorem statements and modern theorem summaries identifying unit-norm tight frames as frame-potential minimizers.",
+        "method": "Published literature search and theorem-level comparison.",
+        "title": "Finite Normalized Tight Frames",
+        "trigger": "The equality class in the new theorem consists of unit-norm tight-frame Gram matrices, so classical frame-potential coverage had to be compared."
+      },
+      {
+        "assessment": "The constant diagonal (r/n,...,r/n) is majorized by (1,...,1,0,...,0), so a real symmetric projection with the required diagonal exists.",
+        "evidence": "This verifies the sharpness construction for every pair n>=r, but does not contain the quotient metric optimization.",
+        "identifier_or_url": "Horn, American Journal of Mathematics 76 (1954), 620--630",
+        "material_read": "The classical majorization characterization and its application to projection eigenvalues.",
+        "method": "Theorem-level literature verification.",
+        "title": "Schur--Horn theorem / constant-diagonal projections",
+        "trigger": "Needed to verify existence of real rank-r projections with every diagonal entry r/n."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "92faa83e-4796-4ada-b640-ae84419687aa",
+  "value": {
+    "rationale": "Rank is the source's orbit stratification, and distance computation is a central problem for the proposed geometry. The theorem gives a closed form for the distance from the canonical full-rank point to every lower-rank stratum, despite the source's general lack of a closed form, and classifies every optimizer. The corank-one case gives an exact metric clearance to rank loss and identifies all nearest singular correlations. This is a structural all-dimensions result tied directly to the motivating metric, not an arbitrary finite slice or a reformulation of the quadratic Welch bound.",
+    "status": "PASS"
+  }
+}
