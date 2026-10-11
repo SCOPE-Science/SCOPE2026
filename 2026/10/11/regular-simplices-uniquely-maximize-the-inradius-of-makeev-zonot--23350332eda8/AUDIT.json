@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For a centered simplex, the zonotope support is one half of the l1 norm of the vertex projection vector. For each edge, a unit normal to the span of the other d-1 vertices makes all other projections vanish; the zero-sum relation leaves two opposite coefficients, giving a support value at most half that edge length. The inradius is the minimum support value because the zonotope is centrally symmetric. Hence every edge is at least twice the inradius, giving the global 1/2 bound, stability, and equality rigidity. The regular converse follows from the exact published strip description. The package checker independently replays the special-direction identities and regular tight case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hausel--Makai--Szűcs prove the regular strip body is a universal cover in dimension three and formulate the higher-dimensional regular-body conjecture.",
+        "Živaljević states the arbitrary-Delta zonotope version of Makeev's conjecture and proves the regular strip representation.",
+        "Bezdek's theorem concerns intrinsic-volume minimization among d+1-generator zonotopes already normalized to contain a unit ball."
+      ],
+      "reasoning": "The first two sources supply the motivating universal-cover framework but do not compare nonregular generators. Bezdek's theorem reverses the normalization: it assumes fixed inradius and optimizes intrinsic volumes, so it neither bounds inradius from generator diameter nor gives the edgewise stability statement.",
+      "searches": [
+        "arXiv:math/9906066 Makeev regular simplex strips universal cover",
+        "arXiv:1307.5138 Delta-zonotope Makeev conjecture regular simplex",
+        "\"On rhombic dodecahedra\" Bezdek unit inradius intrinsic volumes",
+        "zonotope d+1 generators unit ball regular intrinsic volume"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/9906066v1/v2",
+      "arXiv:1307.5138v1",
+      "K. Bezdek, On rhombic dodecahedra, Beiträge Algebra Geom. 41 (2000), 411-416",
+      "Semantic searches for Delta-zonotope inradius, generator diameter, regular-simplex uniqueness, minimum width, and Makeev ball formulations",
+      "Published web searches for simplex-zonotope minimum width, rhombic-dodecahedron generator geometry, and inradius extremality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 7 of Živaljević applies only to a regular generating simplex and identifies its zonotope with edge-normal strips.",
+        "Section 6 of Hausel--Makai--Szűcs fixes the regular simplex from the outset and does not optimize over arbitrary generators.",
+        "Bezdek's theorem assumes a zonotope contains a unit ball and minimizes intrinsic volumes; it has no generator-diameter hypothesis."
+      ],
+      "reasoning": "Knowing the regular candidate has inradius one half does not imply no nonregular diameter-one generator can do as well. The new pairwise orthogonal-complement certificate supplies exactly that missing comparison and yields rigidity and stability.",
+      "searches": [
+        "arXiv:1307.5138v1 Proposition 7 regular simplex strip intersection",
+        "arXiv:math/9906066v2 Section 6 U_n unit width strips",
+        "Bezdek On rhombic dodecahedra abstract d+1 generators unit ball",
+        "Makeev conjecture simplex diameter Delta-zonotope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a centrally symmetric zonotope, twice the Euclidean inradius equals its minimum width.",
+        "The accepted claim is equivalently a minimum-width upper bound of one for every centered simplex-generated zonotope whose generating simplex has diameter at most one.",
+        "No searched source stated this minimum-width formulation or its edgewise stability refinement."
+      ],
+      "reasoning": "Inradius, minimum width, Euclidean ball containment, and containment after translation are equivalent here because the zonotope is centrally symmetric. Searches were run under all of these natural aliases rather than relying on the phrase 'inradius' alone.",
+      "searches": [
+        "Delta-zonotope inradius generating simplex diameter regular simplex",
+        "simplex zonotope minimum width diameter regular simplex",
+        "rhombic dodecahedron generator simplex diameter inradius",
+        "Makeev universal cover ball regular simplex unique generator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-object searches returned the defining Delta-zonotope paper and general zonotope material, but no table or theorem evaluating the maximal inradius under generator diameter.",
+        "The regular rhombic dodecahedron's inradius is standard, but no searched source connected it to a uniqueness extremum over all simplex generators of bounded diameter."
+      ],
+      "reasoning": "The numerical extremum itself is only one half, so exact-value search is weak. The database check therefore focused on the object-normalization pair and on the uniqueness statement.",
+      "searches": [
+        "\"Delta-zonotope\" inradius",
+        "\"R_Delta\" inradius simplex",
+        "\"regular simplex\" zonotope \"minimum width\"",
+        "\"rhombic dodecahedron\" generating simplex inradius diameter"
+      ]
+    },
+    "rationale": "Hausel--Makai--Szűcs define the regular simplex strip body and Makeev universal-cover problem, while Živaljević defines arbitrary simplex-generated Delta-zonotopes and identifies the regular strip representation. Neither materially inspected full text states the diameter-of-generator versus inradius inequality, the edgewise bound, or the equality rigidity. Bezdek's related theorem fixes inradius and minimizes intrinsic volumes, so it does not imply a bound under a generator-diameter constraint. Semantic and published-source searches under the geometric and minimum-width aliases found no equivalent statement.",
+    "residual_risks": [
+      "The short pairwise-width argument may exist in older zonotope literature under minimum-width or generator-matrix terminology.",
+      "The full text of Bezdek's 2000 rhombic-dodecahedron paper was not obtained in the bounded public-access attempt; only its abstract and later theorem summaries were read.",
+      "The result only identifies the optimal generator for the Euclidean ball and does not solve Makeev's universal-cover conjecture in dimensions at least four."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATING_NOT_COVERING",
+        "evidence": "The paper fixes a regular simplex of unit edge length and defines the intersection of its unit-width edge-normal strips; it does not compare arbitrary simplex generators by inradius.",
+        "identifier_or_url": "arXiv:math/9906066v1",
+        "material_read": "Full open arXiv HTML, especially the introduction and Section 6 defining the regular unit-width strip body, Conjecture 1, and the dimension-three theorem.",
+        "method": "Lawful public arXiv full-text inspection.",
+        "title": "Inscribing cubes and covering by rhombic dodecahedra via equivariant topology",
+        "trigger": "Earliest exact public source found for the regular-simplex Makeev universal-cover body."
+      },
+      {
+        "assessment": "FRAMEWORK_AND_REGULAR_CASE_NOT_EXTREMAL_COMPARISON",
+        "evidence": "Definition 5 introduces R_Delta for arbitrary centered simplices; Conjecture 6 imposes simplex diameter at most one; Proposition 7 treats only regular simplices. No inradius extremum or equality rigidity is stated.",
+        "identifier_or_url": "arXiv:1307.5138v1",
+        "material_read": "Full open arXiv HTML through Section 3, including Definition 5, Conjecture 6, and Proposition 7.",
+        "method": "Lawful public arXiv full-text inspection.",
+        "title": "Illumination complexes, Δ-zonotopes, and the polyhedral curtain theorem",
+        "trigger": "Primary source for the arbitrary simplex-generated Delta-zonotope formulation used in the claim."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_NORMALIZATION",
+        "evidence": "The abstract states that among d+1-generator zonotopes containing a unit ball, regular ones minimize intrinsic volumes. It does not state an inradius maximum under a diameter constraint on the generating simplex.",
+        "identifier_or_url": "Beiträge Algebra Geom. 41 (2000), 411-416",
+        "material_read": "Published abstract and later theorem summaries; direct EuDML full-text retrieval returned access failure.",
+        "method": "Published abstract plus independent later citation summary; bounded public full-text attempt.",
+        "title": "On rhombic dodecahedra",
+        "trigger": "Closest known extremal theorem for zonotopes with d+1 generating segments and Euclidean inradius normalization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23350332-eda8-46dd-991b-61c2aa2f9908",
+  "value": {
+    "rationale": "The Euclidean ball is the canonical symmetric diameter-one test body in Makeev's universal-cover problem, and the accepted theorem identifies the unique generator that is best possible for this test under the conjecture's own diameter normalization. The edgewise estimate is structural rather than merely numerical: near-maximal inradius forces every simplex edge near the common extremal length, giving an immediate stability statement.",
+    "status": "PASS"
+  }
+}
