@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exactly characterizes the region \(H_w>h\), integrates its uniform area, and simplifies the result to the stated CDF. The weight extremum follows from a strict derivative inequality for \(t\log(1+A/t)\). Boundary weights, the equal-weight reduction, and the numerical calibration were separately checked. The standalone verifier compares the formula to direct quadrature at several parameter points.
+## correctness
 
-## Originality
-PASS. Wilson defines the weighted HMP and develops approximate/asymptotic calibration, while Chen et al. establish strict sub-uniformity of weighted HMPs under independence. Rui Li's thesis already contains the exact equal-weight two-uniform CDF, and that case is explicitly excluded from the originality claim. Targeted searches and statement-level comparisons did not locate the arbitrary normalized two-weight CDF together with the unique equal-weight pointwise type-I-error extremum.
+PASS
 
-The closest inaccessible material is Embrechts, McNeil, and Straumann's 2002 risk-management Example 7, cited by Chen et al. for the harmonic mean of two uniforms. Only a publisher extract was available; this remains a literature risk, although accessible later descriptions identify it as the two-uniform case and no evidence of the weighted extension was found.
+The event geometry was reconstructed directly. For \(0<h<1\) and \(0<w<1\), conditioning on \(U=u\) gives a single lower threshold for \(V\) above \(a=hw/[1-h(1-w)]\); exact integration yields the displayed CDF. Setting \(t=w(1-w)\) makes the excess \(h^2 t\log(1+A/t)\), \(A=(1-h)/h^2\). Its derivative is \(h^2[\log(1+x)-x/(1+x)]>0\) for \(x=A/t>0\), so the unique maximum is at \(w=1/2\). Independent numerical integration at several interior parameter pairs reproduced the closed form; the endpoint weights reduce to a single uniform p-value. The equal-weight value at \(h=0.05\) and calibrated root also reproduce the stated numbers.
 
-## Value
-PASS. Exact HMP threshold adjustment is a directly motivated calibration problem in the literature. The result gives a complete two-input weighted solution, quantifies the \(5\%\) inflation, gives the exact corrected cutoff, and identifies a nontrivial weight-design extremum valid at every threshold.
+## originality
 
-## Closest literature and limitations
-Wilson (bioRxiv 171751; later PNAS 2019) supplies the weighted definition and asymptotic calibration framework. Chen et al. (arXiv:2405.01368v1) supply broad strict sub-uniformity under independence. Li (2018) supplies the equal-weight two-uniform formula. The claim is limited to two independent continuous uniform null p-values and deterministic normalized weights.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Originality passes for the arbitrary normalized two-weight law and strict weight extremum, not for qualitative anti-conservatism or the equal-weight specialization. Chen et al. prove strict sub-uniformity of weighted harmonic means under independence, so the sign of the calibration error is prior. Li's thesis is credited with the equal-weight two-uniform formula. The inspected sources and targeted/Resultary searches did not supply the exact arbitrary-weight distribution, its reduction to \(w(1-w)\), or the theorem that equal weighting uniquely maximizes finite-sample inflation for every threshold.
+
+## value
+
+PASS
+
+Two-test combination is the smallest nontrivial finite HMP setting, and exact null calibration is operationally important because direct HMP interpretation is known to be anti-conservative. The theorem quantifies the full deterministic-weight dependence and identifies the uniquely worst weighting, furnishing a precise finite-sample benchmark rather than a routine restatement of sub-uniformity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

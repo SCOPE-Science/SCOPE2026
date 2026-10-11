@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:57:45.230942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob d36a0ad4b0fe10babb1f6a92b0ed6b8387fdb055",
+        "verify.py blob bfe4097d2cf45eaeb5fb31040a6eb8794f1a0501",
+        "independent event-integral and derivative reconstruction"
+      ],
+      "rationale": "The event geometry was reconstructed directly. For \\(0<h<1\\) and \\(0<w<1\\), conditioning on \\(U=u\\) gives a single lower threshold for \\(V\\) above \\(a=hw/[1-h(1-w)]\\); exact integration yields the displayed CDF. Setting \\(t=w(1-w)\\) makes the excess \\(h^2 t\\log(1+A/t)\\), \\(A=(1-h)/h^2\\). Its derivative is \\(h^2[\\log(1+x)-x/(1+x)]>0\\) for \\(x=A/t>0\\), so the unique maximum is at \\(w=1/2\\). Independent numerical integration at several interior parameter pairs reproduced the closed form; the endpoint weights reduce to a single uniform p-value. The equal-weight value at \\(h=0.05\\) and calibrated root also reproduce the stated numbers.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wilson develops weighted HMP calibration primarily through the general/asymptotic procedure.",
+          "Chen et al. provide broader dependence coverage for the direction of miscalibration, while the present claim gives the exact two-test magnitude and optimizer."
+        ],
+        "reasoning": "Broader validity/sub-uniformity results do not imply the exact weight profile or its unique maximizer without an additional two-dimensional integration.",
+        "searches": [
+          "Wilson 2019 HMP method",
+          "arXiv:2405.01368",
+          "Li 2018 thesis"
+        ]
+      },
+      "checked_sources": [
+        "Chen--Wang--Wang--Zhu, Sub-uniformity of harmonic mean p-values, arXiv:2405.01368",
+        "Wilson, The harmonic mean p-value for combining dependent tests, PNAS 116 (2019), 1195--1200",
+        "Li, Some Contributions to Distribution Theory, University of Manchester PhD thesis (2018), Chapter 7",
+        "Resultary semantic query: weighted harmonic mean p values two independent uniforms exact arbitrary weights calibration worst equal weight"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict sub-uniformity implies only that the excess is positive, not how it varies across deterministic weights.",
+          "The equal-weight formula is one point of the parameterized family and cannot imply uniqueness of the maximizing weight."
+        ],
+        "reasoning": "The claimed new portion requires the exact arbitrary-weight integral and the strict monotonicity of \\(t\\log(1+A/t)\\) in \\(t=w(1-w)\\).",
+        "searches": [
+          "arXiv:2405.01368 weighted-harmonic sub-uniformity result",
+          "Li equal-weight specialization",
+          "independent differentiation of the exact audited formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al. cover strict weighted-harmonic sub-uniformity under independence but do not give this two-input closed distribution in the inspected material.",
+          "The equal-weight formula is explicitly treated as prior by the audited package."
+        ],
+        "reasoning": "The arbitrary-weight formula was compared both as a transformed two-uniform distribution and as an exact harmonic-mean-p-value null calibration; the prior qualitative theorem and equal-weight formula are strictly weaker statements.",
+        "searches": [
+          "arXiv:2405.01368 full primary text",
+          "Li 2018 thesis Chapter 7 bibliographic record",
+          "Resultary query listed in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked Resultary or literature-table entry supplied the all-\\(h\\), all-\\(w\\) formula or exact calibration cutoff as a theorem."
+        ],
+        "reasoning": "Search absence is only supporting evidence; the main originality comparison is with the direct HMP sources.",
+        "searches": [
+          "Resultary semantic query listed in checked_sources",
+          "targeted exact searches for weighted two-uniform harmonic-mean distribution and weight extremum"
+        ]
+      },
+      "rationale": "Originality passes for the arbitrary normalized two-weight law and strict weight extremum, not for qualitative anti-conservatism or the equal-weight specialization. Chen et al. prove strict sub-uniformity of weighted harmonic means under independence, so the sign of the calibration error is prior. Li's thesis is credited with the equal-weight two-uniform formula. The inspected sources and targeted/Resultary searches did not supply the exact arbitrary-weight distribution, its reduction to \\(w(1-w)\\), or the theorem that equal weighting uniquely maximizes finite-sample inflation for every threshold.",
+      "residual_risks": [
+        "The equal-weight two-uniform distribution is prior and is excluded from the originality claim.",
+        "A generic probability source could contain the arbitrary-weight two-uniform transformation outside harmonic-mean-p-value terminology.",
+        "The complete Li thesis chapter was not independently reread in this run; its equal-weight result is treated conservatively as prior rather than used as noncoverage evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_SIGN_PRIOR_NOT_EXACT_TWO_WEIGHT_LAW",
+          "evidence": "It establishes strict anti-conservatism for positive weights but does not supply the inspected arbitrary-weight two-input CDF or unique weight extremum.",
+          "identifier_or_url": "arXiv:2405.01368",
+          "material_read": "Primary full-text material around the weighted generalized-mean setup and strict sub-uniformity proposition for harmonic means under independence.",
+          "method": "lawful open-access primary text",
+          "title": "Sub-uniformity of harmonic mean p-values",
+          "trigger": "Strongest directly relevant theorem on weighted harmonic means under independent uniform null p-values."
+        },
+        {
+          "assessment": "METHOD_CONTEXT_NOT_EXACT_FINITE_TWO_TEST_PROFILE",
+          "evidence": "The inspected material establishes the weighted HMP framework but not the audited finite two-uniform weight profile.",
+          "identifier_or_url": "PNAS 116 (2019), 1195--1200; PMID 30610179",
+          "material_read": "Primary bibliographic/abstract material and current method documentation describing normalized weights and general calibration.",
+          "method": "primary record plus method documentation",
+          "title": "The harmonic mean p-value for combining dependent tests",
+          "trigger": "Defining HMP method and weighted-statistic context."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chen--Wang--Wang--Zhu, Sub-uniformity of harmonic mean p-values, arXiv:2405.01368",
+        "Wilson, The harmonic mean p-value for combining dependent tests, PNAS 116 (2019), 1195--1200",
+        "Li, Some Contributions to Distribution Theory, University of Manchester PhD thesis (2018), Chapter 7",
+        "Resultary semantic query: weighted harmonic mean p values two independent uniforms exact arbitrary weights calibration worst equal weight"
+      ],
+      "rationale": "Two-test combination is the smallest nontrivial finite HMP setting, and exact null calibration is operationally important because direct HMP interpretation is known to be anti-conservative. The theorem quantifies the full deterministic-weight dependence and identifies the uniquely worst weighting, furnishing a precise finite-sample benchmark rather than a routine restatement of sub-uniformity.",
+      "residual_risks": [
+        "The result does not address power, dependence, data-dependent weights, or more than two p-values."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The equal-weight two-uniform distribution is prior and is excluded from the originality claim.",
+    "A generic probability source could contain the arbitrary-weight two-uniform transformation outside harmonic-mean-p-value terminology.",
+    "The complete Li thesis chapter was not independently reread in this run; its equal-weight result is treated conservatively as prior rather than used as noncoverage evidence.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
