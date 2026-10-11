@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The retained linear taxis term, Neumann modal sign, two-by-two determinant, and phase relation were reconstructed from the source equations. The delayed coefficient must be \(S_k=-a_{12}\chi v_*\mu_k>0\). The source's zero-delay Eq. (4.9) independently confirms this sign. The half-period shift follows exactly from \(\arccos(-c)=\pi-\arccos(c)\).
+## correctness
 
-## Originality
-PASS. Exact-source, correction, sign-alias, and Hopf-delay searches found no published correction of this source-specific sign. The closest methodological predecessor, Song–Peng–Zhang (2021), contains the generic determinant with the corrected sign but does not identify Liu and Tan's inconsistency or the exact correction to their Eq. (4.18). The prior local-ledger finding on the same source concerns a separate coexistence-existence shortcut and is implication-incomparable.
+PASS
 
-## Value
-PASS. The error changes every analytical critical delay by \(\pi/\omega_k\), while preserving the frequency equation, so it directly affects the stability boundary assembled from the delay branches. This is a structural correction to a central bifurcation threshold rather than a notation-only discrepancy.
+Reconstruction of the source linearization gives the modal delayed coefficient \(S_k=-a_{12}\chi v_*\mu_k>0\): the retained taxis term \(-\chi v_*\Delta \widetilde u(t-\tau)\) becomes \(+\chi v_*\mu_k\widetilde u_k(t-\tau)\) on \(\Delta\phi_k=-\mu_k\phi_k\), and the 2-by-2 determinant therefore contributes \(-a_{12}\chi v_*\mu_k e^{-\lambda\tau}\). At \(\lambda=i\omega\), the real/imaginary equations imply the positive-sine branch under \(P_k,S_k,\omega>0\). Replacing the printed \(R_k=-S_k\) and using \(\arccos(-c)=\pi-\arccos(c)\) proves an exact \(\pi/\omega_k\) shift; squaring explains why the frequency polynomial is unchanged. The zero mode is correctly excluded. The bundled exact-rational replay checks determinant and branch bookkeeping but is not used as the universal proof.
 
-## Closest literature and limitations
-Song, Peng, and Zhang (2021) provide the closest generic memory-diffusion characteristic determinant and support the corrected sign. The present review did not rerun the nonlinear PDE simulations or recompute Hopf normal forms at corrected critical delays; those downstream claims therefore remain outside the accepted statement.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives a fresh comparison. The generic determinant sign is prior art, but the audited claim is the source-specific diagnosis that Liu–Tan’s printed scalar coefficient has the opposite sign from their own linearized operator and that their printed Hopf-delay branch is therefore displaced by exactly half a period. Resultary and exact-title/DOI/sign searches did not locate a prior correction making that implication. The strongest methodological predecessor corroborates the determinant sign without identifying the 2026 source inconsistency.
+
+## value
+
+PASS
+
+An exact half-period displacement of the analytical Hopf-delay branches changes a central bifurcation/stability threshold while leaving the frequency polynomial unchanged, sharply localizing a substantive source error. This is mathematically motivated and useful for anyone reusing the paper’s delay threshold; it is not a cosmetic sign convention or routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
