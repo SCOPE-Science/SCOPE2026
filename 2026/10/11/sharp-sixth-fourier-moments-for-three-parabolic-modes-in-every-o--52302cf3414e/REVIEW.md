@@ -1,0 +1,11 @@
+# Scientific review: three-mode sixth parabolic moments
+
+**Correctness — PASS.** The proof verifies the Vandermonde affine-independence hypothesis for every triple of distinct parabola points, enumerates every multiplicity class of threefold sums in all odd characteristics, and obtains exact sixth moments by finite-group character orthogonality. Both deficit decompositions are algebraic identities into nonnegative AM–GM, Cauchy–Schwarz, and triangle-inequality terms. All equality statements and the special full-field conclusion for \(q=3\) follow from these terms. An independent computational implementation confirmed 460 finite-field cases, including two nonprime fields. Finite computation is corroborative, not a replacement for the unrestricted proof.
+
+**Originality — PASS with risk.** González-Riquelme and Oliveira e Silva (arXiv:2405.16647v1) prove an unrestricted sharp parabola extension theorem only when \(p>3\); its larger unrestricted constant does not entail this exact three-mode optimum, and its hypotheses exclude the ternary result. The later moment-curve endpoint results (arXiv:2508.08377v1 and arXiv:2609.29882v1) concern the planar \(L^4\) endpoint, not this \(L^6\) question. Published three-sparse Fourier support-cardinality and ordinary trigonometric-trinomial moment results measure distinct invariants. Searches and primary material inspections found no dominating equivalent statement. There remains risk that an earlier sparse hypercontractivity or additive-energy formula already covers the result under different terminology.
+
+**Value — PASS.** This is an exact, naturally motivated first collision-sensitive sparse extension norm over an infinite family of finite fields, with a characteristic-three phase rigidity phenomenon and all optimal coefficients classified. At \(q=3\) the sparse theorem is the unrestricted globally sharp inequality, a case excluded from the motivating general theorem. It is not asserted to resolve the unrestricted problem for larger fields.
+
+**Limitations.** The claim assumes three available parabola frequencies, odd characteristic and moment order six. Independent assessment has not been undertaken.
+
+Same-model review: passed. Independent audit: not yet performed.
