@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The critical steps are:
+# Independent mathematical audit
 
-1. Translation places the four-point support inside its difference span \(H\), and the restriction map on characters has constant fiber size \(2^{d-r}\). Thus ambient Fourier-support size is exactly that factor times the local support size.
-2. If \(r=2\), the support is the full affine two-plane. The local Walsh matrix is invertible, and finite-hyperplane avoidance realizes every nonempty local Fourier support.
-3. If \(r=3\), normalization gives \(\{0,e_1,e_2,e_3\}\) and local Fourier values \(L(\varepsilon)=a+b\varepsilon_1+c\varepsilon_2+d\varepsilon_3\). Adjacent zero vertices would force one of \(b,c,d\) to vanish; antipodal zero vertices would force \(a=0\); four remaining pairwise distance-two zeros form a parity tetrahedron and their summed equations also force \(a=0\). Hence there are at most three zeros.
-4. Explicit coefficient quadruples realize zero counts \(0,1,2,3\), and cube symmetries realize every allowed exact pattern.
+## correctness
 
-`artifacts/verify.py` uses exact rational arithmetic to exhaust all \(256\) candidate zero subsets of the cube. It confirms counts \(1,8,12,8\) for zero-set sizes \(0,1,2,3\), confirms that the size-two patterns are exactly distance-two pairs and the size-three patterns are exactly parity-tetrahedron triples, verifies all affine-plane Fourier-support subsets, checks the two affine support types in dimensions \(3\) and \(4\), and prints `VERIFY_OK`.
+PASS
 
-Replay command:
+Translation and dual restriction reduce the problem to the span of support differences with multiplicity \(2^{d-r}\). For affine rank two the support is the whole four-point plane; invertibility of the Walsh matrix plus avoidance of finitely many proper hyperplanes realizes every nonempty local Fourier support. For affine rank three, two adjacent zeros force one slope coefficient to vanish, two antipodal zeros force the constant coefficient to vanish, so every zero pair has Hamming distance two. Four mutually distance-two cube vertices form a parity tetrahedron whose four equations sum to \(4a=0\), impossible over \(\mathbb C\) with nonzero constant coefficient. Explicit witnesses realize zero counts zero through three. An independent rational nullspace replay in this audit found exactly 1 empty, 8 singleton, 12 distance-two pair, and 8 three-point feasible zero patterns.
 
-`python3 artifacts/verify.py`
+## originality
 
-The finite local enumeration is exact and complete, but the all-dimensional statement still uses the analytic character-restriction argument above rather than extrapolation from finite data.
+PASS
+
+Bonami-Ghobber classify uncertainty equality cases in several finite Abelian families but not arbitrary elementary two-groups and not the complete fixed-support-four spectrum. Delvaux-Van Barel and related uncertainty-diagram work provide rank criteria, Hamming-number bounds, and small-order diagrams; they can contain bare cells for small dimensions but do not imply the dimension-free affine-type theorem or exact cube zero-pattern classification. Resultary returned the current theorem as the exact leading hit and no stronger prior record.
+
+## value
+
+PASS
+
+Four-sparse uncertainty is the first support size at which affine planes and affine-independent bases diverge in binary vector spaces. The theorem gives a complete all-dimensional spectrum and explains every local zero geometry, a natural structural classification rather than a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

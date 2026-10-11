@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof first reduces every four-point support to the difference span \(H\) and proves exact Fourier-support scaling by the constant fibers of character restriction. The affine-plane case is complete by invertibility plus avoidance of finitely many coefficient hyperplanes. The affine-independent case reduces to an affine function on the cube; adjacent or antipodal zero pairs would force a time coefficient to vanish, and four pairwise distance-two zeros would form a parity tetrahedron whose summed equations force the constant coefficient to vanish. Explicit coefficient quadruples attain zero counts \(0,1,2,3\). The exact rational checker independently exhausts all local zero patterns and returns `VERIFY_OK`.
+## correctness
 
-## Originality
-**PASS.** Bonami--Ghobber classify minimum-support equality cases for three selected finite-Abelian families; their inspected full text does not contain the all-\(d\) exact-support-four spectrum for elementary abelian two-groups. Krahmer--Pfander--Rashkov provide a general rank criterion and a numerical order-at-most-\(16\) diagram that includes the \(d=4\) special case, but not the two affine support types, the fixed-support attainable lists, the cube zero-pattern theorem, or the arbitrary-dimensional lift. Claim-specific searches in the published finding index returned no equivalent statement.
+PASS
 
-## Value
-**PASS.** The result turns a low-order numerical support-pair slice into a closed-form theorem for an infinite family and identifies the geometric invariant controlling every four-point support. The affine-independent lower bound \(5\,2^{d-3}\) and the zero-pattern classification are not consequences of the classical product uncertainty inequality, while the full spectrum gives more information than the minimum uncertainty function.
+Translation and dual restriction reduce the problem to the span of support differences with multiplicity \(2^{d-r}\). For affine rank two the support is the whole four-point plane; invertibility of the Walsh matrix plus avoidance of finitely many proper hyperplanes realizes every nonempty local Fourier support. For affine rank three, two adjacent zeros force one slope coefficient to vanish, two antipodal zeros force the constant coefficient to vanish, so every zero pair has Hamming distance two. Four mutually distance-two cube vertices form a parity tetrahedron whose four equations sum to \(4a=0\), impossible over \(\mathbb C\) with nonzero constant coefficient. Explicit witnesses realize zero counts zero through three. An independent rational nullspace replay in this audit found exactly 1 empty, 8 singleton, 12 distance-two pair, and 8 three-point feasible zero patterns.
 
-## Closest literature and limitations
-The \(d=4\) global cells are already visible numerically in Krahmer--Pfander--Rashkov, and the minimum affine-plane cell is compatible with the classical equality classification. The new content is the exact per-support affine classification, exact local zero geometry, and all-dimensional formula. A residual risk remains that an equivalent cube-hyperplane statement appears in older Walsh or coding literature under different terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bonami-Ghobber classify uncertainty equality cases in several finite Abelian families but not arbitrary elementary two-groups and not the complete fixed-support-four spectrum. Delvaux-Van Barel and related uncertainty-diagram work provide rank criteria, Hamming-number bounds, and small-order diagrams; they can contain bare cells for small dimensions but do not imply the dimension-free affine-type theorem or exact cube zero-pattern classification. Resultary returned the current theorem as the exact leading hit and no stronger prior record.
+
+## value
+
+PASS
+
+Four-sparse uncertainty is the first support size at which affine planes and affine-independent bases diverge in binary vector spaces. The theorem gives a complete all-dimensional spectrum and explains every local zero geometry, a natural structural classification rather than a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
