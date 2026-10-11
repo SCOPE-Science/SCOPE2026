@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:57:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh reconstruction confirms the theorem. On one parity b_k=a_{epsilon+2k} satisfies Delta^2 b_k=(2/pi)q. Twice summation gives b_k=b_0+k(b_1-b_0)+(2/pi)sum_{j<k}(k-j)q_j. If q_j=L+o(1), the weighted error is o(k^2), hence b_k=(L/pi)k^2+o(k^2) and a_n/n^2->L/(4pi). Conversely b_k=(L/pi)k^2+(-1)^k k^(3/2) has the required normalized quadratic limit but unbounded second differences. An independent numerical regression recovered constant q=7.25 for a quadratic test; finite numerics are not the proof. The final repaired VERIFICATION.md only restores malformed TeX escapes and does not alter the mathematics.",
+      "risks": [
+        "No knot-realizability claim is made for the converse witness."
+      ],
+      "sources": [
+        "RESULT.md blob d1803faf1b3ed0f00bc5258c6ee671ae373a3ff6",
+        "artifacts/verify_discrete_green.py blob b600965a41ee8b3a295804ee98bd479c85c6d7d2",
+        "repaired VERIFICATION.md SHA-256 14a596e2b6f29d03fe7bef71573b7af95128bf6ac34e97b62db748f4c28f72f6"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aso's accessible primary material gives the conjectural local second-difference quantity.",
+          "Goda supplies the older global quadratic-growth volume formula."
+        ],
+        "reasoning": "Neither accessible prior statement is broader in the direction needed to make the exact summation implication and strict non-converse automatic as a published theorem.",
+        "searches": [
+          "Aso arXiv:2609.29124v1 abstract/current metadata",
+          "Goda arXiv:1604.07490v1 and DOI:10.3792/pjaa.93.61",
+          "Resultary semantic search above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29124v1",
+        "arXiv:1604.07490v1",
+        "DOI:10.3792/pjaa.93.61",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing n=epsilon+2k gives Delta^2 b_k=(2/pi)q_n; twice summing is the missing implication.",
+          "The perturbation (-1)^k k^(3/2) is o(k^2) but has unbounded second differences, so quadratic growth alone cannot recover the local limit."
+        ],
+        "reasoning": "The implication requires an exact discrete Green identity; the reverse fails without additional knot-theoretic structure. Thus the two prior asymptotics are not equivalent.",
+        "searches": [
+          "Direct comparison: Aso second-difference proposal versus Goda quadratic-growth theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aso's abstract states the exact n-2,n,n+2 logarithmic quotient and proposes its complex-volume limit.",
+          "Goda's primary paper states a hyperbolic-volume formula from higher-dimensional twisted Alexander asymptotics.",
+          "No independent Resultary hit states the discrete Green implication or the oscillatory non-converse."
+        ],
+        "reasoning": "The checked aliases cover second differences, quadratic growth, parity, Goda's volume formula, and Aso's conjecture. The current claim relates the two statements rather than merely restating either.",
+        "searches": [
+          "Resultary: fixed parity second differences twisted Alexander Aso Goda hyperbolic volume asymptotic implication converse",
+          "arXiv:2609.29124v1",
+          "arXiv:1604.07490v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Aso's experiments concern finitely many knots, whereas the proof is a symbolic sequence theorem on any fixed parity."
+        ],
+        "reasoning": "A finite table cannot establish the all-sequence implication or non-converse; no exact database entry covering that theorem was found.",
+        "searches": [
+          "Resultary query above",
+          "Aso's finite knot computations through six crossings"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after fresh implication-level comparison. Aso's 2026 preprint proposes the fixed-parity second-difference complex-volume limit, while Goda's earlier theorem gives the parity-separated quadratic-growth volume asymptotic. The submitted result is the exact discrete-summation implication from the real second-difference limit to the quadratic coefficient together with a strict sequence-level non-converse. Resultary returned this audited record as the direct match and no independent covering record among the checked results. The complete Aso preprint text was not retrievable in this run; the current primary abstract and lawful public metadata were inspected, so an equivalent observation hidden in the unseen text remains a residual risk rather than negative evidence.",
+      "residual_risks": [
+        "The complete Aso preprint text was inaccessible in this run; the exact sequence lemma could conceivably appear in unseen discussion.",
+        "The non-converse is abstract sequence theory and is not claimed to be realizable by a knot.",
+        "The result addresses only the real part, not the Chern-Simons phase."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ACCESS_NOT_COVERING on material read; unseen full text is a residual risk.",
+          "evidence": "The abstract explicitly displays the n-2,n,n+2 quotient and says numerical experiments motivate a complexified analogue of Goda's formula.",
+          "identifier_or_url": "arXiv:2609.29124v1",
+          "material_read": "Current primary abstract/metadata, including the exact logarithmic quotient and proposed complex-volume limit; full primary text was not retrievable in this run.",
+          "method": "Statement and implication comparison on accessible primary material.",
+          "title": "Asymptotic behavior of twisted Alexander invariants for hyperbolic knots with at most six crossings",
+          "trigger": "Same-object primary source proposing the fixed-parity second-difference limit."
+        },
+        {
+          "assessment": "COVERS the quadratic-growth baseline, not the fixed-parity second-difference implication/non-converse.",
+          "evidence": "The source presents a hyperbolic-volume formula from twisted Alexander asymptotics.",
+          "identifier_or_url": "arXiv:1604.07490v1; DOI:10.3792/pjaa.93.61",
+          "material_read": "Primary abstract and author-posted public text surfaced by literature search, together with the theorem's role in Aso's formulation.",
+          "method": "Statement-level comparison.",
+          "title": "Twisted Alexander invariants and Hyperbolic volume",
+          "trigger": "Underlying global asymptotic volume theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Although the proof is elementary discrete summation, the statement resolves the exact logical strength of a new knot-theoretic asymptotic proposal relative to Goda's established volume theorem and identifies a sharp reverse-direction obstruction. That is a motivated structural boundary for proof strategy rather than an arbitrary sequence exercise.",
+      "risks": [
+        "Its value is interpretive/structural rather than a new knot construction."
+      ],
+      "sources": [
+        "Aso arXiv:2609.29124v1",
+        "Goda arXiv:1604.07490v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Frozen VERIFICATION.md contains eight TeX-corrupting control characters; the ready repair changes only those escapes.",
+    "The theorem does not address the phase/Chern-Simons part of Aso's conjecture."
+  ],
+  "schema_version": 1
+}
