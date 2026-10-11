@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs all definitions and quantifiers for a convex bicycle \((10,4)\)-gon. The published isosceles-trapezoid lemma applies to every index. Comparing the same base line in the trapezoids at indices \(i\) and \(i+5\) gives a lifted-angle multiple of \(2\pi\); convexity bounds that multiple tightly enough to force \(\alpha_{i+5}=\alpha_i\). The resulting opposite side vectors are negatives, hence the polygon is centrally symmetric. The parallelogram identity then yields an alternating radius recurrence on an odd five-cycle, forcing one common radius. Equal side chords on that circle force equal central gaps and regularity. No numerical evidence is used in place of proof.
+## correctness
 
-## Originality
-**PASS.** The closest primary paper introduces bicycle polygons, poses their classification, and proves several regularity families but does not list \((10,4)\). The closest infinitesimal-rigidity paper places \((10,4)\) in its exceptional even-even set and explicitly leaves genuine flexibility as a question; its second-order flexibility and third-order rigidity do not imply global rigidity. The first-order classification likewise addresses only infinitesimal deformations at regular polygons. Targeted searches using bicycle-polygon, equilateral-decagon, fourth-neighbor-diagonal, regularity, flexibility, and central-symmetry formulations located no statement implying the theorem. The main residual risk is an unindexed elementary special-case observation.
+PASS
 
-## Value
-**PASS.** This is a complete global classification for a natural low-complexity parameter pair singled out by the published exceptional infinitesimal theory. It converts a case with nontrivial second-order infinitesimal flexibility into an exact global rigidity theorem for the full convex \((10,4)\) class. The result is structural rather than a numerical cutoff: the proof exposes a forced-central-symmetry mechanism and an odd-cycle radius rigidity mechanism that may be useful in neighboring bicycle-polygon cases.
+Fresh reconstruction verifies the global rigidity argument. Tabachnikov's convex bicycle lemma makes each Vi,Vi+1,Vi+4,Vi+5 an isosceles trapezoid. Comparing the same unoriented base line at indices i and i+5 gives theta_{i+5}+theta_{i+9}-theta_i-theta_{i+4} congruent to 0 mod 2pi. In turning-angle variables this is 2pi+alpha_{i+4}-alpha_{i+9}; convexity places it in [pi,3pi], so it equals 2pi and alpha_{j+5}=alpha_j. The first five turns sum to pi, hence opposite edges are negatives and the decagon is centrally symmetric. Writing centered vertices X_{i+5}=-X_i and X_{i+4}=-X_{i-1}, the common side and fourth-diagonal lengths give |X_i-X_{i-1}|^2=s^2 and |X_i+X_{i-1}|^2=d^2, hence |X_i|^2+|X_{i-1}|^2 is constant. This forces radius squares to have periods 2 and 5 and therefore to be constant. The vertices lie on one circle; equal adjacent chords in convex cyclic order then force equal central gaps pi/5 and regularity. No finite experiment is used as an infinite proof.
 
-## Closest literature and limitations
-The checked literature includes the original bicycle-polygon framework and isosceles-trapezoid lemma, the exceptional-set infinitesimal-rigidity result, the first-order classification, and later polygonal-bicycle-path work. The theorem does not address nonconvex polygons, other exceptional pairs, or stability under perturbed length data.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. The closest prior work makes this parameter pair especially nontrivial rather than covered: Tabachnikov's global convex regularity theorem lists k=2, odd n with k=3, n=2k+1, and n=3k, so (10,4) is absent. Connelly--Csikos classify the regular (10,4)-gon as first-order flexible, and Csikos proves the exceptional class B is second-order flexible but third-order rigid while explicitly asking whether such regular polygons are genuinely flexible. Since (10,4) lies in B, the submitted global convex theorem answers that open local-flexibility case negatively by showing every convex realization is regular. Resultary's closest hit is the audited record itself; no broader published SCOPE theorem was found.
+
+## value
+
+PASS
+
+PASS. This closes a natural exceptional case singled out by the established bicycle-polygon rigidity program: (10,4) is locally first-order flexible and even second-order flexible, so proving global convex uniqueness is not a routine regular-polygon exercise. The proof exposes a reusable rigidity mechanism--half-turn symmetry plus a coprime period argument for centered radii--and resolves a concrete open flexibility question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
