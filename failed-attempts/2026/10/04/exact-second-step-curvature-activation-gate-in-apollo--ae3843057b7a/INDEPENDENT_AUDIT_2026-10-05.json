@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:55:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob c31fd21b9a78c98aea46c0314166c90d5a563816",
+        "verify.py blob 3e0672c3d3663e7bd87b321b4701fd4cc1f082cc",
+        "arXiv:2009.13586v6 Algorithm 1"
+      ],
+      "rationale": "Reconstructing Algorithm 1 exactly gives m1=lambda x0, B1=0, D1=sigma, d1=lambda x0/sigma and x1=(1-q)x0. The source bias correction gives m2=lambda x0(1-q/(1+beta)); inserting d1 and m2-m1 into the scalar B update yields B2=(eta lambda/(1+beta))(u/(u+epsilon))^4. Since u/(u+epsilon)<1 at every finite nonzero u, q<=1+beta implies B2<sigma, while solving B2>sigma for u gives the stated sharp threshold for q>1+beta. On the floor branch, x2=[1-2q+q^2/(1+beta)]x0. The frozen verifier replays the same recurrence and randomized parameter checks; it corroborates rather than substitutes for the algebra.",
+      "residual_risks": [
+        "The official current implementation rescales epsilon in its constant-rebound branch; the audited theorem is correctly scoped to the paper's displayed recurrence, not every later implementation detail."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source provides the complete recurrence from which every finite-step scalar formula in the claim follows.",
+          "The implementation confirms the zero state variables and the same diagonal update architecture, although its constant-rebound code rescales epsilon operationally."
+        ],
+        "reasoning": "The published recurrence is stronger as an algorithmic specification: the submitted theorem is a direct special-case evaluation, not a new consequence requiring additional theory.",
+        "searches": [
+          "arXiv:2009.13586v6 Section 3.1--3.4 and Algorithm 1",
+          "Apollo official implementation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.13586v6",
+        "XuezheMax/apollo optim/apollo.py",
+        "Resultary Apollo query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting g1=lambda x0, d0=B0=0 gives x1=(1-q)x0; substituting g2=lambda x1 into the displayed bias correction and B update gives the claimed B2 in a few scalar algebra steps."
+        ],
+        "reasoning": "The complete scientific claim is mechanically implied by the prior algorithm definition plus elementary algebra, so O fails despite no verbatim prior theorem.",
+        "searches": [
+          "Ma 2021 Algorithm 1, page containing the full pseudocode"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 1 gives m0=d0=B0=0, the bias-corrected m update, the alpha/B update with (||d_t||_4+epsilon)^4, rectification, and the parameter update.",
+          "The direct Resultary search did not surface an independent theorem about this gate."
+        ],
+        "reasoning": "The audited gate is exactly the scalar, deterministic, constant-stepsize, first-two-step expansion of the published recurrence.",
+        "searches": [
+          "Ma, Apollo, arXiv:2009.13586v6, Algorithm 1 and Eq. (9)",
+          "official XuezheMax/apollo optim/apollo.py",
+          "Resultary query: exact second-step curvature activation gate Apollo zero initialization scalar quadratic rectification floor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact published-finding table for q=1+beta appeared among the leading results."
+        ],
+        "reasoning": "The absence of a duplicate numerical formula is not novelty evidence because claim-vs-prior implication is already decisive.",
+        "searches": [
+          "Resultary Apollo activation-gate semantic search"
+        ]
+      },
+      "rationale": "The defining Apollo paper already states the exact zero initialization, bias-corrected moving-gradient recurrence, diagonal Hessian update, regularizer, and rectification step. On a scalar quadratic, the submitted B2 formula and q=1+beta gate are obtained by substituting two gradients into those displayed recurrences and solving one scalar inequality. No independent structural theorem is required. Under implication-level originality, this is a mechanically implied two-step specialization of the published algorithm, even though the source does not print the resulting closed form.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_MECHANICAL_PRIOR_IMPLICATION",
+          "evidence": "Algorithm 1 explicitly gives zero initialization, the bias-corrected moving average, diagonal Hessian update, epsilon regularization, rectification, and parameter update.",
+          "identifier_or_url": "arXiv:2009.13586v6",
+          "material_read": "Full public PDF around Sections 3.1--3.4 and Algorithm 1; the algorithm page was visually inspected.",
+          "method": "Direct recurrence-to-claim implication comparison.",
+          "title": "Apollo: An Adaptive Parameter-wise Diagonal Quasi-Newton Method for Nonconvex Stochastic Optimization",
+          "trigger": "Defining primary source for the exact recurrence."
+        },
+        {
+          "assessment": "CONFIRMS_STATE_ARCHITECTURE_WITH_IMPLEMENTATION_SPECIFIC_EPSILON_SCALING",
+          "evidence": "The implementation initializes exp_avg_grad, approx_hessian and update to zero, rectifies the Hessian, and performs the same update family; its constant-rebound branch rescales epsilon, so the submitted paper-algorithm formula should not be advertised as byte-for-byte current-code behavior.",
+          "identifier_or_url": "XuezheMax/apollo, optim/apollo.py, blob da2a3bc12a067429fec1b9454d52be6a68aaed6d",
+          "material_read": "Complete optimizer implementation through initialization and step update.",
+          "method": "Implementation consistency and scope check.",
+          "title": "Official Apollo implementation",
+          "trigger": "Operational source for the optimizer state and update."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Apollo defining paper and implementation"
+      ],
+      "rationale": "The gate is a useful implementation sanity check, but scientifically it is only a two-step scalar unwinding of a published recurrence followed by one inequality. It does not expose a nonstandard structural lemma, an infinite-time phase diagram, or a boundary requiring more than routine substitution. Under the stated bar rejecting mechanically implied and tiny routine deductions, it does not retain sufficient independent value.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2009.13586v6",
+    "XuezheMax/apollo optim/apollo.py",
+    "Resultary Apollo query"
+  ],
+  "disposition": "failed",
+  "final_claim": "For the defining paper's zero-initialized scalar Apollo recurrence, B2=(eta lambda/(1+beta))(u/(u+epsilon))^4; hence no finite initialization clears the curvature floor at the second informative step when q=eta lambda/sigma<=1+beta, while for q>1+beta the submitted explicit initialization threshold is necessary and sufficient.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for mechanical prior implication and routine-value status, not for correctness."
+  ]
+}
