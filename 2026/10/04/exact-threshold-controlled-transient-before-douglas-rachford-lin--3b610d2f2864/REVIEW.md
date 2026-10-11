@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Before the first active threshold, the exact nonlinear Douglas--Rachford map keeps \(y^k\) on the sensing-row direction and yields \(R(y^k)=((k+2)b/(1+a^2))(1,a)^\top\). This gives the stated first crossing index. Under \(\gamma\ge b/(1-a)\), the second coordinate has not crossed when the first activates. The candidate fixed point projects to \((b,0)\) and shrinks back to that point. Inside the correct sign/support cell, the exact error matrix satisfies \(M^\top M=(a^2/(1+a^2))I\). The onset error is strictly smaller than \(b\), while the fixed reflected point has at least that much margin to every relevant cell boundary under the stated threshold condition, proving invariance and the exact all-step norm law. The checker independently iterates the original nonlinear map on representative parameters and returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with a residual literature risk. Demanet--Zhang explicitly state that they do not characterize the transient regime preceding their eventual linear convergence theorem; their full text gives the same basis-pursuit Douglas--Rachford map and the eventual principal-angle rate, but not an exact identification index. Liang--Fadili--Peyre--Luke prove finite activity identification under partial smoothness and nondegeneracy, but their theorem asserts only that identification occurs for all sufficiently large indices. Targeted published-finding and web searches for quantitative Douglas--Rachford support-identification time, soft-threshold dependence, and this two-variable model located no implication-equivalent formula. Later forward--Douglas--Rachford work gives bounds under different hypotheses and for a different algorithm, not this exact basis-pursuit onset law.
+PASS
 
-## Value
-PASS. The result isolates a concrete limitation of asymptotic rate descriptions: on a natural basis-pursuit model, the eventual factor is completely independent of \(\gamma\), yet the exact time before that regime grows on the order of \(\gamma/b\). This directly quantifies a transient that the primary source leaves open and provides a reproducible calibration example for choosing soft-threshold parameters when finite iteration count matters. The claim is exact, structurally motivated by finite activity identification, and not a mere recomputation of the eventual rate.
+Before threshold activation, direct induction gives y^k=-(kb/(1+a^2))(1,a) and Ry^k=((k+2)b/(1+a^2))(1,a). The first-coordinate strict crossing k+2>gamma(1+a^2)/b yields the exact floor formula, and gamma>=b/(1-a) ensures the second reflected coordinate is still within threshold at that first crossing. In the identified cell the error matrix is (1/(1+a^2))[[a^2,-a],[a,a^2]], whose transpose product is a^2/(1+a^2) times identity. The entry error lies strictly within the distance-b ball around the reflected fixed point, while all relevant cell-boundary distances are at least b; the reflector is orthogonal on errors and the linear map contracts, so the cell remains invariant. A fresh direct nonlinear replay on a representative parameter set recovered the exact first entry and the package checker tests several further cases. The analytic proof, not finite testing, establishes the continuum claim.
 
-## Closest literature and limitations
-The closest primary literature is Demanet--Zhang's basis-pursuit analysis and Liang--Fadili--Peyre--Luke's finite activity-identification theorem. The former supplies the algorithm and eventual rate while explicitly omitting transient characterization; the latter supplies qualitative finite identification at much greater generality. The present claim is deliberately narrow: two variables, one affine constraint, zero initialization, and a sufficient large-threshold regime. The sharp boundary for permanent identification at smaller thresholds remains open here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Demanet--Zhang prove eventual linear convergence for basis pursuit with the same principal-angle rate and explicitly state that they make no attempt to characterize the preceding transient. Liang--Fadili--Peyré--Luke prove finite activity identification and local linear convergence under partial smoothness but give qualitative identification time. The audited two-variable family supplies an exact threshold-controlled entry index and invariant-cell proof, which is not covered by those broader asymptotic/local theorems.
+
+## value
+
+PASS
+
+The motivating primary paper explicitly leaves transient characterization open. This exact family shows a sharp separation between an arbitrarily long threshold-controlled identification delay and an unchanged principal-angle asymptotic rate, a useful structural warning for algorithm tuning rather than an arbitrary toy iteration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

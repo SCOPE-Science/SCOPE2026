@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:54:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 2b3472400fddb7db7dff487068d9bd29ec99428f",
+        "check.py blob d0719e481e325bc59ba046b806ab535581136171",
+        "fresh nonlinear recurrence replay",
+        "Demanet--Zhang full primary PDF"
+      ],
+      "rationale": "Before threshold activation, direct induction gives y^k=-(kb/(1+a^2))(1,a) and Ry^k=((k+2)b/(1+a^2))(1,a). The first-coordinate strict crossing k+2>gamma(1+a^2)/b yields the exact floor formula, and gamma>=b/(1-a) ensures the second reflected coordinate is still within threshold at that first crossing. In the identified cell the error matrix is (1/(1+a^2))[[a^2,-a],[a,a^2]], whose transpose product is a^2/(1+a^2) times identity. The entry error lies strictly within the distance-b ball around the reflected fixed point, while all relevant cell-boundary distances are at least b; the reflector is orthogonal on errors and the linear map contracts, so the cell remains invariant. A fresh direct nonlinear replay on a representative parameter set recovered the exact first entry and the package checker tests several further cases. The analytic proof, not finite testing, establishes the continuum claim.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These results cover much broader problem classes asymptotically/locally but leave the iteration number of identification unspecified.",
+          "The audited formula depends explicitly on gamma(1+a^2)/b and can diverge while the eventual rate stays fixed."
+        ],
+        "reasoning": "Broader qualitative identification does not imply the exact floor formula or the invariant-cell statement.",
+        "searches": [
+          "Demanet--Zhang eventual linear convergence theorem",
+          "Liang et al. finite activity identification theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.0542",
+        "arXiv:1412.6858",
+        "Resultary Douglas--Rachford transient query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem supplies the eventual rate but not when the iteration enters the active affine cell.",
+          "The audited proof derives the exact first strict threshold crossing and proves permanent cell invariance under gamma>=b/(1-a)."
+        ],
+        "reasoning": "The exact onset and threshold-controlled arbitrarily long transient are additional consequences not mechanically supplied by the prior asymptotic rate theorem.",
+        "searches": [
+          "Demanet--Zhang principal-angle rate",
+          "submitted pre-entry arithmetic progression and invariant-ball argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Demanet--Zhang give the same eventual principal-angle contraction factor and explicitly disclaim characterization of the transient regime.",
+          "The later partial-smoothness paper guarantees finite identification/local linear convergence without a closed exact onset count for this family."
+        ],
+        "reasoning": "The claim is an exact activity-identification time for a concrete two-variable basis-pursuit family, followed by the known principal-angle linear regime.",
+        "searches": [
+          "Demanet--Zhang, arXiv:1301.0542",
+          "Liang--Fadili--Peyré--Luke, arXiv:1412.6858",
+          "Resultary query: Douglas Rachford basis pursuit exact identification time two variable threshold gamma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same onset formula or finite-dimensional table was located; leading Resultary matches were unrelated threshold results."
+        ],
+        "reasoning": "The exact transient law is not a database lookup found in the checked sources.",
+        "searches": [
+          "Resultary exact Douglas--Rachford transient search",
+          "targeted searches for two-variable basis pursuit exact identification delay"
+        ]
+      },
+      "rationale": "Demanet--Zhang prove eventual linear convergence for basis pursuit with the same principal-angle rate and explicitly state that they make no attempt to characterize the preceding transient. Liang--Fadili--Peyré--Luke prove finite activity identification and local linear convergence under partial smoothness but give qualitative identification time. The audited two-variable family supplies an exact threshold-controlled entry index and invariant-cell proof, which is not covered by those broader asymptotic/local theorems.",
+      "residual_risks": [
+        "A specialized later example paper could contain the same two-variable delay formula under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EVENTUAL_RATE_PRIOR_EXACT_TRANSIENT_EXPLICITLY_OUT_OF_SCOPE",
+          "evidence": "The authors state that they make no attempt to characterize the transient regime preceding onset of linear convergence.",
+          "identifier_or_url": "arXiv:1301.0542",
+          "material_read": "Full primary PDF around the main convergence setup, transient discussion, and numerical threshold-parameter examples; PDF pages were visually inspected.",
+          "method": "Same-algorithm statement and explicit-scope comparison.",
+          "title": "Eventual linear convergence of the Douglas Rachford iteration for basis pursuit",
+          "trigger": "Primary source for the same algorithm and principal-angle asymptotic rate."
+        },
+        {
+          "assessment": "QUALITATIVE_FINITE_IDENTIFICATION_NOT_EXACT_ITERATION_COUNT",
+          "evidence": "The inspected statement guarantees finite identification under structural assumptions but does not provide the submitted closed onset index for the two-variable family.",
+          "identifier_or_url": "arXiv:1412.6858",
+          "material_read": "Primary abstract/theorem-level scope describing finite activity identification followed by local linear convergence.",
+          "method": "Broader-theorem implication comparison.",
+          "title": "Activity Identification and Local Linear Convergence of Douglas--Rachford/ADMM under Partial Smoothness",
+          "trigger": "Broader finite-identification theorem for Douglas--Rachford."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1301.0542",
+        "arXiv:1412.6858",
+        "Resultary Douglas--Rachford transient query"
+      ],
+      "rationale": "The motivating primary paper explicitly leaves transient characterization open. This exact family shows a sharp separation between an arbitrarily long threshold-controlled identification delay and an unchanged principal-angle asymptotic rate, a useful structural warning for algorithm tuning rather than an arbitrary toy iteration.",
+      "residual_risks": [
+        "A specialized later example paper could contain the same two-variable delay formula under different notation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1301.0542",
+    "arXiv:1412.6858",
+    "Resultary Douglas--Rachford transient query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For zero-initialized Douglas--Rachford splitting on min |x1|+|x2| subject to x1+a x2=b with 0<a<1, b>0 and gamma>=b/(1-a), the first reflected iterate in the correct sign/support cell is exactly k_*=max{0,floor(gamma(1+a^2)/b)-1}; that cell is invariant thereafter and the Euclidean fixed-point error contracts exactly by a/sqrt(1+a^2) each subsequent step.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialized later example paper could contain the same two-variable delay formula under different notation.",
+    "The large-threshold condition is sufficient, not claimed necessary.",
+    "The exact delay law is for y^0=0 and the two-variable family; it is not asserted for arbitrary initialization or dimension."
+  ]
+}
