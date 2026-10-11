@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces each closed-neighborhood constraint to the exact part-count expression \(1+b-b_i\) or \(b-b_i\). For \(b>k\), the selected-vertex constraint is exactly \(b_i\ge b-k+1\) in every part, and these inequalities are sufficient. The existence condition for a size \(s>k\) is reduced to a feasible bounded composition with lower quota \(s-k+1\); the residual-capacity argument proves sufficiency. Exhaustive replay through order \(9\) agrees with the literal definition on 1,680,156 subsets and independently checks all coefficients and the closed maximum formula.
+## correctness
 
-## Originality
-PASS. The closest direct primary result is Gallant et al.'s complete-bipartite formula, recovered here as the \(r=2\) case. Full-text inspection of the foundational/bounds literature did not reveal the arbitrary complete-multipartite all-set characterization or enumerator. Structured-class limited-packing papers supply complexity and algorithmic coverage rather than this exact formula. Required semantic searches and the checked prior scientific record produced no matching or stronger claim. Residual risk from older alternate terminology and one incompletely accessible structured-class source is retained.
+PASS
 
-## Value
-PASS. The claim resolves an established maximization invariant on a natural dense graph family, classifies every feasible set rather than only one optimum, yields the full cardinality distribution, and strictly generalizes a published exact special case. Because limited packing is NP-complete on broad bipartite/split classes, the closed form is a meaningful structural result rather than a textbook exercise.
+For a vertex in part \(i\), the closed-neighborhood intersection has size \(1+b-b_i\) if selected and \(b-b_i\) otherwise. If \(b\le k\) feasibility is automatic. If \(b>k\), every part must contain a selected vertex and the selected-vertex inequality is exactly \(b_i\ge b-k+1\); it is also sufficient. For a fixed size \(s>k\), feasibility is equivalent to \(s-k+1\le\min_i n_i\), \(r(s-k+1)\le s\), and \(s\le N\), which yields the maximum formula. Fresh literal replay checked 42,640 cases through order seven.
 
-## Closest literature and limitations
-The principal comparison is Gallant et al., which states the exact value for complete bipartite graphs. Dobson–Leoni–Nasini treat computational complexity on structured classes, and Gagarin–Zverovich provide general probabilistic and greedy bounds. The present statement is restricted to finite connected complete multipartite graphs and closed-neighborhood limited packing; it makes no claim about total/open-neighborhood variants or weighted packing functions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes. Gallant et al. give the exact complete-bipartite value \(L_k(K_{m,n})\) as Lemma 1.3 and general bounds, but their complete six-page paper does not contain the arbitrary complete-multipartite all-set criterion or enumerator. Later sources emphasize bounds and algorithms rather than this symbolic family classification.
+
+## value
+
+PASS
+
+This is a natural complete classification of a standard packing notion on a canonical graph class, refining the known bipartite maximum value to every feasible set and every cardinality. The coefficient formula and sharp maximum are directly useful consequences of one structural quota rule, so the result has independent reference value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

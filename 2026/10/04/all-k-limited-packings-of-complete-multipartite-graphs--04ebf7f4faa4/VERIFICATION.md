@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and covers every finite connected complete multipartite graph and every integer \(k\ge1\). The finite program is a stress test, not a substitute for the proof.
+# Independent mathematical audit
 
-`verify.py` enumerates every ordered positive part-size profile of total order at most \(9\), every \(k\) from \(1\) through \(N+1\), and every vertex subset. For each subset it computes the closed-neighborhood condition directly from the graph and compares it with the theorem's part-count criterion. It also reconstructs the enumerator coefficients from the lower-quota formula, checks the closed form for \(L_k(G)\), and verifies the published complete-bipartite specialization.
+## correctness
 
-Replay output:
+PASS
 
-`VERIFY_OK profiles=502 subset_checks=1680156 criterion_checks=1680156 coefficient_checks=42110 bipartite_checks=276 max_order=9`
+For a vertex in part \(i\), the closed-neighborhood intersection has size \(1+b-b_i\) if selected and \(b-b_i\) otherwise. If \(b\le k\) feasibility is automatic. If \(b>k\), every part must contain a selected vertex and the selected-vertex inequality is exactly \(b_i\ge b-k+1\); it is also sufficient. For a fixed size \(s>k\), feasibility is equivalent to \(s-k+1\le\min_i n_i\), \(r(s-k+1)\le s\), and \(s\le N\), which yields the maximum formula. Fresh literal replay checked 42,640 cases through order seven.
 
-Unproved by computation: no finite census can establish the arbitrary-order theorem. The infinite statement depends on the closed-neighborhood identity and the residual-capacity argument given in `RESULT.md`.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. Gallant et al. give the exact complete-bipartite value \(L_k(K_{m,n})\) as Lemma 1.3 and general bounds, but their complete six-page paper does not contain the arbitrary complete-multipartite all-set criterion or enumerator. Later sources emphasize bounds and algorithms rather than this symbolic family classification.
+
+## value
+
+PASS
+
+This is a natural complete classification of a standard packing notion on a canonical graph class, refining the known bipartite maximum value to every feasible set and every cardinality. The coefficient formula and sharp maximum are directly useful consequences of one structural quota rule, so the result has independent reference value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
