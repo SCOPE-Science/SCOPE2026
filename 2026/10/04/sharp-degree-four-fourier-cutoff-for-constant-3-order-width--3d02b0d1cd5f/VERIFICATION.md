@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked by recomputing the support-spectrum reduction, the area formula, the curvature-density transformation, and the Fejer--Riesz coefficient relations. The scalar objective becomes
-\[
-J(u)=\frac{80u-156u^2}{15}
-=\frac{80}{117}-\frac{52}{5}\left(u-\frac{10}{39}\right)^2,
-\]
-so the unique scalar optimizer is \(u=10/39\), with \(J=80/117\) and area factor \(1-J/2=77/117\).
+# Independent mathematical audit
 
-For the equality support, direct differentiation gives
-\[
-p_*+p_*''=\frac{\Lambda}{3}\left(1-\frac{4\sqrt{190}}{39}\cos(2\theta)+\frac{20}{39}\cos(4\theta)\right),
-\]
-and the identity \(\cos(4\theta)=2\cos^2(2\theta)-1\) factors this as a nonnegative square.
+## correctness
 
-The bundled `verify.py` replays these exact rational identities and checks the trigonometric cancellations numerically. Sampling is not used to establish nonnegativity or global optimality; both are proved algebraically.
+PASS
 
-Unproved limits: no claim is made about support functions with Fourier modes of degree above \(4\), nor about the unrestricted least-area problem.
+Constant w3 and Fourier degree at most four reduce the centered support to r+Re(c2 e^{2i theta}+c4 e^{4i theta}) with r=Lambda/3. Convexity is a nonnegative degree-two trigonometric polynomial rho/r=1+2Re(d1 e^{i phi}+d2 e^{2i phi}), while area deficit is J=4(|d1|^2/3+|d2|^2/15). Fejer--Riesz writes rho/r=|a+b e^{i phi}+c e^{2i phi}|^2. At fixed |a|^2+|c|^2 the objective increases with |ac|, so |a|=|c|; writing their squared magnitude u gives J=(80u-156u^2)/15, uniquely maximized at u=10/39 with J=80/117. This yields A>=77*pi*Lambda^2/1053. Equality phases reduce by rotation to the displayed support, and its curvature factors as a nonnegative perfect square.
+
+## originality
+
+PASS
+
+Originality passes. Ou--Pan introduce k-order width, prove the Fourier characterization and explicitly ask for the least-area constant-k-order-width curve, but do not solve this degree-four k=3 slice. Later radial-dual and Chernoff-type work addresses different inequalities. Resultary found no prior optimizer with this constant.
+
+## value
+
+PASS
+
+The finite-mode theorem is a natural sharp benchmark inside an explicit foundational least-area problem. It gives an exact constant, a unique extremizer and a curvature factorization rather than a numerical slice, and can inform the unrestricted constant-3-order-width problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
