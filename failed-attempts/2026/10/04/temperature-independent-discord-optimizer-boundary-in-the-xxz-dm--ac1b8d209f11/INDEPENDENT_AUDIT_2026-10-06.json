@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:47:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Y.-X. Chen and Z. Yin, Thermal Quantum Discord in Anisotropic Heisenberg XXZ Model with Dzyaloshinskii–Moriya Interaction, arXiv:1002.0176 / Commun. Theor. Phys. 54 (2010), DOI:10.1088/0253-6102/54/1/12; primary full text inspected at the Hamiltonian, exact thermal density matrix and discord analysis.",
+        "M. D. Lang and C. M. Caves, Quantum Discord and the Geometry of Bell-Diagonal States, arXiv:1006.2775 / Phys. Rev. Lett. 105, 150501 (2010); primary arXiv full text inspected, especially Eq. (5) and the proof that the optimal measurement is along the direction of c=max |c_j|, citing Luo.",
+        "S. Luo, Quantum discord for two-qubit systems, Phys. Rev. A 77, 042303 (2008), DOI:10.1103/PhysRevA.77.042303; publisher abstract inspected; article body was access-controlled, while the Bell-diagonal theorem was independently read in Lang–Caves.",
+        "Resultary semantic query: XXZ Dzyaloshinskii Moriya thermal quantum discord Bell diagonal optimizer boundary high temperature.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_discord_boundary.py at exact tree b2fd43ca9beba765cc1cc3c6c8984959a7a669aa.",
+        "Fresh direct Gibbs-matrix replay on parameter choices on both sides of, and on, J_z=sqrt(J^2+D_z^2)."
+      ],
+      "rationale": "A relative local z rotation removes the DM phase and gives a Bell-diagonal XXZ Hamiltonian with transverse coupling R=sqrt(J^2+D_z^2). The exact Gibbs weights yield |c_z|-|c_perp| proportional to exp(2(J_z-R)/T)-1, so the optimizer boundary follows from the published Bell-diagonal maximum-correlation rule. The small-correlation entropy expansion gives the stated T^-2 coefficients. Fresh direct diagonalization of the original Hamiltonian reproduced the two equal transverse singular values, the sign change across the boundary and exact degeneracy on it.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These results cover every Bell-diagonal correlation vector, a broader family than the gauge-rotated XXZ-DM Gibbs line."
+        ],
+        "reasoning": "The audited optimizer statement is a parameterized subfamily of the general Bell-diagonal optimizer theorem.",
+        "searches": [
+          "Lang–Caves complete Bell-diagonal discord geometry",
+          "Luo analytic two-qubit/Bell-diagonal discord theorem"
+        ]
+      },
+      "checked_sources": [
+        "Y.-X. Chen and Z. Yin, Thermal Quantum Discord in Anisotropic Heisenberg XXZ Model with Dzyaloshinskii–Moriya Interaction, arXiv:1002.0176 / Commun. Theor. Phys. 54 (2010), DOI:10.1088/0253-6102/54/1/12; primary full text inspected at the Hamiltonian, exact thermal density matrix and discord analysis.",
+        "M. D. Lang and C. M. Caves, Quantum Discord and the Geometry of Bell-Diagonal States, arXiv:1006.2775 / Phys. Rev. Lett. 105, 150501 (2010); primary arXiv full text inspected, especially Eq. (5) and the proof that the optimal measurement is along the direction of c=max |c_j|, citing Luo.",
+        "S. Luo, Quantum discord for two-qubit systems, Phys. Rev. A 77, 042303 (2008), DOI:10.1103/PhysRevA.77.042303; publisher abstract inspected; article body was access-controlled, while the Bell-diagonal theorem was independently read in Lang–Caves.",
+        "Resultary semantic query: XXZ Dzyaloshinskii Moriya thermal quantum discord Bell diagonal optimizer boundary high temperature.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_discord_boundary.py at exact tree b2fd43ca9beba765cc1cc3c6c8984959a7a669aa.",
+        "Fresh direct Gibbs-matrix replay on parameter choices on both sides of, and on, J_z=sqrt(J^2+D_z^2)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A local z rotation diagonalizes the transverse correlation block with singular value determined by R=sqrt(J^2+D_z^2).",
+          "The sign of |c_z|-|c_perp| reduces directly to the sign of J_z-R.",
+          "Expanding the standard Bell-diagonal mutual information and classical-correlation formula to second order gives the displayed high-temperature coefficient."
+        ],
+        "reasoning": "Both pieces of the final claim are short algebraic consequences of stronger published formulas, not a new nonstandard lemma or boundary mechanism.",
+        "searches": [
+          "Chen–Yin exact Gibbs matrix",
+          "Lang–Caves Eq. (5) and maximum-correlation measurement theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Yin give the exact two-qubit Gibbs matrix with transverse scale sqrt(J^2+D_z^2).",
+          "Lang–Caves prove that Bell-diagonal classical correlation is optimized along a direction attaining max |c_j|."
+        ],
+        "reasoning": "The temperature-independent longitudinal/transverse switch is exactly the comparison of two correlation magnitudes in this known Bell-diagonal state.",
+        "searches": [
+          "Chen–Yin arXiv:1002.0176",
+          "Lang–Caves arXiv:1006.2775 Eq. (5), c=max |c_j|",
+          "Resultary query for the exact XXZ-DM optimizer boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate indexed statement with the same threshold was located."
+        ],
+        "reasoning": "An absent exact statement does not establish novelty when the formulas follow mechanically from the published state and general optimizer theorem.",
+        "searches": [
+          "Resultary exact search for J_z=sqrt(J^2+D_z^2) and the T^-2 coefficient",
+          "Targeted web searches for the same boundary and coefficient"
+        ]
+      },
+      "rationale": "The formulas are correct, but the final claim is a routine specialization of two established ingredients: Chen–Yin already give the exact XXZ+DM Gibbs state, and Lang–Caves/Luo give the complete Bell-diagonal discord optimization by the largest correlation magnitude. A local z rotation replaces J+iD_z by R=sqrt(J^2+D_z^2); subtracting the two relevant correlation magnitudes yields the boundary in one line. The high-temperature coefficient is the quadratic Taylor term of the same published Bell-diagonal formula. Exact wording was not found, but implication-level coverage is decisive.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES THE EXACT THERMAL STATE AND THE R=sqrt(J^2+D_z^2) DEPENDENCE",
+          "evidence": "The off-diagonal Gibbs terms and energy scale are given explicitly, so the local-unitary Bell-diagonal reduction is immediate.",
+          "identifier_or_url": "arXiv:1002.0176; DOI:10.1088/0253-6102/54/1/12",
+          "material_read": "Primary full text around the Hamiltonian, the exact thermal density matrix for D_z, and the quantum-discord calculation/plots.",
+          "method": "Open primary PDF text plus rendered-page inspection.",
+          "title": "Thermal Quantum Discord in Anisotropic Heisenberg XXZ Model with Dzyaloshinskii–Moriya Interaction",
+          "trigger": "Exact Hamiltonian and thermal state used by the audited claim."
+        },
+        {
+          "assessment": "DIRECTLY SUPPLIES THE OPTIMIZER RULE",
+          "evidence": "Eq. (5) has c=max |c_j| and the text proves equality for projective measurement along a direction of maximum c_j.",
+          "identifier_or_url": "arXiv:1006.2775; DOI:10.1103/PhysRevLett.105.150501",
+          "material_read": "Primary arXiv full text through Eqs. (1)–(6), including Eq. (5) and the POVM proof of the maximum-correlation direction.",
+          "method": "Open arXiv full-text inspection.",
+          "title": "Quantum Discord and the Geometry of Bell-Diagonal States",
+          "trigger": "Strong primary source for the exact optimization rule after Bell-diagonal reduction."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Y.-X. Chen and Z. Yin, Thermal Quantum Discord in Anisotropic Heisenberg XXZ Model with Dzyaloshinskii–Moriya Interaction, arXiv:1002.0176 / Commun. Theor. Phys. 54 (2010), DOI:10.1088/0253-6102/54/1/12; primary full text inspected at the Hamiltonian, exact thermal density matrix and discord analysis.",
+        "M. D. Lang and C. M. Caves, Quantum Discord and the Geometry of Bell-Diagonal States, arXiv:1006.2775 / Phys. Rev. Lett. 105, 150501 (2010); primary arXiv full text inspected, especially Eq. (5) and the proof that the optimal measurement is along the direction of c=max |c_j|, citing Luo.",
+        "S. Luo, Quantum discord for two-qubit systems, Phys. Rev. A 77, 042303 (2008), DOI:10.1103/PhysRevA.77.042303; publisher abstract inspected; article body was access-controlled, while the Bell-diagonal theorem was independently read in Lang–Caves.",
+        "Resultary semantic query: XXZ Dzyaloshinskii Moriya thermal quantum discord Bell diagonal optimizer boundary high temperature.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_discord_boundary.py at exact tree b2fd43ca9beba765cc1cc3c6c8984959a7a669aa.",
+        "Fresh direct Gibbs-matrix replay on parameter choices on both sides of, and on, J_z=sqrt(J^2+D_z^2)."
+      ],
+      "rationale": "The phase-boundary phrasing is useful for interpretation, but mathematically it is a one-step comparison inside a known exact Gibbs state using the standard Bell-diagonal optimizer theorem, followed by a routine quadratic entropy expansion. Under the common value bar this is too mechanically implied to be an independent contribution.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the antiferromagnetic two-qubit XXZ model with z-directed Dzyaloshinskii–Moriya interaction, the projective-discord optimizer is longitudinal for J_z>sqrt(J^2+D_z^2), transverse for the reverse inequality, and degenerate at equality for every positive temperature; the same reduction gives the stated piecewise exact coefficient of T^-2 quantum-discord decay.",
+  "limitations": [
+    "The optimizer boundary and high-temperature coefficient are mathematically correct.",
+    "Rejection is based on direct prior implication, not on the access-controlled Luo publisher body."
+  ],
+  "schema_version": 1
+}
