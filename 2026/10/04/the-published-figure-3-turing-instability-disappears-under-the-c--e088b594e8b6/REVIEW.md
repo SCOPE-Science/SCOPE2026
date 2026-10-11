@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The reaction Jacobian was differentiated from the printed equations and independently checked numerically. For the Figure 3 parameter point, the zero mode is Hurwitz and the modal determinant has three strictly positive coefficients as a polynomial in \(\mu=k^2\), while the modal trace is strictly negative. Hence no spatial mode can be linearly unstable. The published negative point at \(k^2=0.83\) differs from the reconstructed value by more than four units, so rounding cannot account for the discrepancy.
+PASS
 
-## Originality
+The numerical and analytic reconstruction agrees exactly with the assigned proof. Solving the printed equilibrium relation gives u0=3.880786577827112 and v0=8.836967740350953. Fresh differentiation gives f_u=-0.5291880158707808, f_v=-0.397557495697221, g_u=0.09330903285810652, and g_v=0.02033146852557073. The zero-mode trace is negative and determinant positive. With d1=0.01,d2=10, d2 f_u+d1 g_v=-5.291676844022552, so the modal trace stays negative and the modal determinant is positive for every nonnegative Laplacian mode. At k squared 0.83 the determinant is 4.48731831647893, not the plotted negative value.
 
-PASS. The primary source was inspected through its model, linearization, Turing criterion, Figure 3, and conclusions. Exact-title, DOI, equilibrium-string, marked-value, web, and semantic-database searches did not locate an erratum or the same correction. Related Allee-effect reaction-diffusion papers concern different models. The claim is restricted to the source-specific inconsistency and does not present the standard Turing criterion itself as new.
+## originality
 
-## Value
+PASS
 
-PASS. The source uses Figure 3 as its unstable double-Allee example and contrasts it with Figure 4 to argue that increasing prey diffusion changes the system from unstable to stable. The correction removes that linear-instability transition for the printed parameter pair and therefore changes the mathematical interpretation of a central example.
+Originality passes. The open primary PDF prints the reaction terms, reverses the labels g_u and g_v in the displayed Jacobian assignment, and presents Figure 3 as the unstable case for d1=0.01 and d2=10 with a negative determinant near k squared equal to 0.83. Direct differentiation of the printed equations gives a completely stable modal polynomial instead. Generic Turing theory is prior art but does not state this parameter-specific contradiction, and the bounded searches found no correction.
 
-## Closest literature and limitations
+## value
 
-Related Allee-effect predator-prey reaction-diffusion papers establish genuine Turing patterns in other models, so diffusion-driven pattern formation as a phenomenon is not disputed. The source code and raw simulation data for Figure 3 were not available in the inspected material, preventing attribution of the discrepancy to a unique implementation error. The finite-amplitude pattern panel is not claimed impossible.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Figure 3 is the source's showcased unstable double-Allee case and underpins its claimed diffusion-driven transition as prey diffusion changes. Showing that every linear spatial mode is stable for the printed equations removes that interpretation and separates possible finite-amplitude spatial structure from genuine Turing instability. This is a substantive correction of a central numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

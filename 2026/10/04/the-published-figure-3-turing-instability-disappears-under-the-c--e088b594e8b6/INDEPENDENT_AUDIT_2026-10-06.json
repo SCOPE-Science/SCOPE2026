@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:51:40.512403Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 7baac80557636e733fdfcd3a4d7820a0ce4c4a30",
+        "verify.py blob f0a17181f323f03b3658c799062d216c178b0792",
+        "fresh independent equilibrium/Jacobian reconstruction",
+        "Li--Li, The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect, DOI:10.3934/math.20241309"
+      ],
+      "rationale": "The numerical and analytic reconstruction agrees exactly with the assigned proof. Solving the printed equilibrium relation gives u0=3.880786577827112 and v0=8.836967740350953. Fresh differentiation gives f_u=-0.5291880158707808, f_v=-0.397557495697221, g_u=0.09330903285810652, and g_v=0.02033146852557073. The zero-mode trace is negative and determinant positive. With d1=0.01,d2=10, d2 f_u+d1 g_v=-5.291676844022552, so the modal trace stays negative and the modal determinant is positive for every nonnegative Laplacian mode. At k squared 0.83 the determinant is 4.48731831647893, not the plotted negative value.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard Turing criterion is a broader general theorem.",
+          "It requires the correct source-specific Jacobian and therefore does not imply the paper's Figure 3 classification without the new derivative reconstruction."
+        ],
+        "reasoning": "General theory supplies the test, not the outcome for this misindexed published calculation.",
+        "searches": [
+          "General two-species reaction-diffusion Turing criterion",
+          "Li--Li, The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect, DOI:10.3934/math.20241309"
+        ]
+      },
+      "checked_sources": [
+        "Li--Li, The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect, DOI:10.3934/math.20241309",
+        "General two-species reaction-diffusion Turing criterion",
+        "Resultary semantic query: published Figure 3 Turing instability disappears under corrected diffusion model",
+        "Targeted exact-title, DOI, equilibrium, Figure 3 marked-value, Jacobian, and erratum searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-mode trace is about -0.50885655 and determinant about 0.02633654.",
+          "For d1=0.01,d2=10 the coefficient d2 f_u+d1 g_v is about -5.29167684, so the modal determinant has strictly positive constant, linear, and quadratic coefficients for every nonnegative mode."
+        ],
+        "reasoning": "The source-specific modal calculation directly contradicts the claimed linear instability and is not implied by unrelated Turing examples.",
+        "searches": [
+          "Li--Li, The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect, DOI:10.3934/math.20241309",
+          "fresh independent equilibrium and Jacobian reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulations are the correct reaction Jacobian, the modal trace/determinant test, and the absence of a diffusion-driven unstable band.",
+          "The source's own displayed matrix ordering makes a21 the u-derivative of g and a22 the v-derivative, contrary to its printed labels."
+        ],
+        "reasoning": "The correction was checked in both derivative and dispersion-polynomial formulations.",
+        "searches": [
+          "Li--Li, The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect, DOI:10.3934/math.20241309",
+          "Resultary semantic query: published Figure 3 Turing instability disappears under corrected diffusion model",
+          "Targeted exact-title, DOI, equilibrium, Figure 3 marked-value, Jacobian, and erratum searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source itself marks approximately -0.06913 at k squared 0.83, whereas the printed equations give approximately 4.48731831648.",
+          "No checked erratum, exact database entry, or Resultary record reports this correction."
+        ],
+        "reasoning": "The discrepancy is a direct source calculation, not a known table result.",
+        "searches": [
+          "Resultary semantic query: published Figure 3 Turing instability disappears under corrected diffusion model",
+          "Targeted exact-title, DOI, equilibrium, Figure 3 marked-value, Jacobian, and erratum searches"
+        ]
+      },
+      "rationale": "Originality passes. The open primary PDF prints the reaction terms, reverses the labels g_u and g_v in the displayed Jacobian assignment, and presents Figure 3 as the unstable case for d1=0.01 and d2=10 with a negative determinant near k squared equal to 0.83. Direct differentiation of the printed equations gives a completely stable modal polynomial instead. Generic Turing theory is prior art but does not state this parameter-specific contradiction, and the bounded searches found no correction.",
+      "residual_risks": [
+        "An undocumented alternative implementation or parameter set could explain the published pattern panel; the claim is restricted to the printed equations and linear Turing interpretation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIGURE_3_LINEAR_INSTABILITY_NOT_REPRODUCIBLE_FROM_PRINTED_MODEL",
+          "evidence": "The PDF labels a22=g_u and a21=g_v, calls d1=0.01,d2=10 unstable, and plots a negative value near k squared 0.83; the correctly differentiated model gives a positive modal determinant there and for every nonnegative mode.",
+          "identifier_or_url": "DOI:10.3934/math.20241309",
+          "material_read": "Complete relevant open PDF material covering the reaction model, Jacobian assignment, modal characteristic polynomial, Turing conditions, Figure 3 parameter set, and marked dispersion value; the Jacobian and Figure 3 pages were visually inspected.",
+          "method": "Lawful open-access primary PDF with page-image inspection followed by independent differentiation and modal evaluation.",
+          "title": "The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect",
+          "trigger": "Exact primary source of the model and Figure 3 instability claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li--Li, The spatiotemporal dynamics of a diffusive predator-prey model with double Allee effect, DOI:10.3934/math.20241309",
+        "General two-species reaction-diffusion Turing criterion",
+        "Resultary semantic query: published Figure 3 Turing instability disappears under corrected diffusion model",
+        "Targeted exact-title, DOI, equilibrium, Figure 3 marked-value, Jacobian, and erratum searches"
+      ],
+      "rationale": "Figure 3 is the source's showcased unstable double-Allee case and underpins its claimed diffusion-driven transition as prey diffusion changes. Showing that every linear spatial mode is stable for the printed equations removes that interpretation and separates possible finite-amplitude spatial structure from genuine Turing instability. This is a substantive correction of a central numerical example.",
+      "residual_risks": [
+        "The result does not exclude nonlinear finite-amplitude patterns or identify the source's implementation error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Publication is withheld because every frozen package contains operational audit/workflow state in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files. The complete 35-file recursive inventory was read; RESULT.md, SLOGAN.txt, and verifier sources were semantically inspected and were clear of the checked platform, provider, scheduling, credential, and private-workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}
