@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the illumination body of a hyperbolic disk to a one-parameter radius increment, uses exact right-triangle identities to obtain the cap area \(\delta(\varepsilon)=2\gamma-2\cosh r\,\alpha\), expands through \(O_r(\varepsilon^{7/2})\), inverts the resulting Puiseux series, and substitutes into the exact disk-area formula. The first coefficient independently agrees with the published leading-order floating-area theorem. Standard-library numerical replay checks the exact identities at multiple radii but is not used as a proof of the asymptotic theorem.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2605.25122v1, proves only the leading-order limit and gives the geodesic-ball radius implicitly through the added cap volume. The later Riemannian extension, arXiv:2606.21112v1, likewise identifies its illumination result as leading order. Targeted searches for hyperbolic illumination disks, radius expansions, curvature corrections, and \(\delta^{4/3}\) terms found no statement implying the displayed coefficient. Nearby indexed results concern deleted-ball Gromov–Hausdorff asymptotics, hyperbolic triangle inequalities, or unrelated disk stability and do not dominate this claim.
+PASS
 
-## Value
-PASS. Geodesic disks are the canonical exactly symmetric test objects for non-Euclidean illumination bodies. A closed second-order coefficient provides a necessary benchmark for any future higher-order illumination-body expansion on curved spaces and separates a radius-dependent curvature correction from the already known affine-surface-area leading term. The calculation is not a mere numerical refinement: it identifies the next invariant-order term after a nontrivial cancellation in the exact cap geometry.
+The exact hyperbolic geometry was reconstructed. If the exterior point is at radius \(r+\varepsilon\), the right tangent triangle gives \(\cos\alpha=\tanh r/\tanh(r+\varepsilon)\) and \(\cos\gamma=\sinh r/\sinh(r+\varepsilon)\). Two right-triangle areas minus the disk sector yield exactly \(\delta(\varepsilon)=2\gamma-2\cosh r\,\alpha\). The square-root terms cancel; expanding through \(\varepsilon^{5/2}\) gives \(L_r=2\sqrt{2\tanh r}/3\) and \(M_r=-\sqrt2((\tanh r)^2+3)/(10\sqrt{\tanh r})\). Puiseux inversion yields the stated radius coefficients. Substituting into \(2\pi(\cosh(r+\varepsilon)-\cosh r)\) gives the displayed \(C_1,C_2\); direct algebra independently reproduces \(C_2=\pi3^{4/3}\cosh r((\tanh r)^2+8)/(20(\tanh r)^{2/3})\). The leading term agrees with the published illumination/floating-area theorem.
 
-The main limitation is scope: only curvature \(-1\), dimension two, and geodesic disks are treated. An unindexed historical computation of the same special-family coefficient remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary paper was read in full-text HTML. Its geodesic-ball example states only that symmetry makes the illumination body another ball and defines its radius implicitly by the added cap volume; its theorem gives the universal leading \(\delta^{2/(n+1)}\) limit. It does not give the two-dimensional hyperbolic tangent-triangle cap formula, the square-root cancellation, or a second Puiseux coefficient. A later Riemannian extension likewise advertises the illumination result at leading order. Fresh Resultary searching returns the audited record as the only exact second-order disk match.
+
+## value
+
+PASS
+
+Geodesic disks are the canonical symmetric test objects for newly developed non-Euclidean illumination bodies. The first curvature-sensitive correction after the universal leading law is a natural exact benchmark any general higher-order theory must reproduce, and its derivation exposes a genuine square-root cancellation rather than a mere normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
