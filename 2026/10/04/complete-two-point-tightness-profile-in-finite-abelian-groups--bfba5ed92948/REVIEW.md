@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every two-character partner reduces, up to unitary row and column factors, to
-\[
-\begin{pmatrix}1&1\\1&\zeta\end{pmatrix},
-\]
-where \(\zeta\) runs through all \(m\)-th roots of unity and \(m\) is the order of the set difference. The two squared singular values are exactly \(2\pm|1+\zeta|\). The four optimizations therefore reduce to the same nearest-root-to-\(-1\) problem, whose minimum cosine distance is \(0\) for even \(m\) and \(\sin(\pi/(2m))\) for odd \(m\). The determinant formula follows from \(|1-\zeta|\). The character-surjectivity step is justified by counting the kernel of restriction to \(\langle d\rangle\).
+## correctness
 
-## Originality
-PASS relative to the checked sources. The primary paper proves an asymptotic result only for two-point subsets of prime vector spaces and gives an order-\(3\) obstruction for composite moduli. It does not state the exact all-group formulas in terms of the order of the difference. Exact-form, tangent-form, order-of-difference, and condition-number searches returned no covering statement.
+PASS
 
-## Value
-PASS. The result gives a natural complete classification of the cardinality-two case for every finite abelian group, simultaneously determining all four tightness quantities. It sharpens both the source's prime-asymptotic proposition and its composite-modulus counterexample, and supplies an exact cardinality-two answer to the source's lower-bound program for \(\rho(E)\).
+After translation and character normalization the Fourier matrix is \(\begin{pmatrix}1&1\\1&\zeta\end{pmatrix}\), where character evaluation on the order-m difference runs through every m-th root of unity. Its Gram eigenvalues are \(2\pm|1+\zeta|\), so all four optimizations reduce to choosing the root nearest \(-1\). The minimum cosine distance is zero for even m and \(\sin(\pi/(2m))\) for odd m, giving every displayed formula. Fresh direct computations for all nonzero differences in cyclic groups of orders 2 through 16 agree exactly to numerical tolerance.
 
-## Closest literature and limitations
-The closest source is Ferguson--Mayeli--Sothanaphan, arXiv:1904.04487. The theorem is limited to two-point subsets and does not address the substantially harder higher-cardinality lower-bound problem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating primary paper already reduces two-point prime-vector-space examples to a 2-by-2 Fourier condition number and gives an order-three composite obstruction, so those facts are prior. It does not state the exact arbitrary-finite-abelian classification by the order of the difference, nor the simultaneous closed formulas for L, U, rho, and D. Resultary returned the assigned finding as the exact hit and no earlier equivalent formula.
+
+## value
+
+PASS
+
+Cardinality two is the natural base case of the paper's quantitative-spectrality program, and the result completely classifies a natural invariant over every finite abelian group, simultaneously deciding exact spectrality and all four tightness quantities. Its proof is short, but the exact intrinsic order parameter sharpens both the source's asymptotic proposition and its isolated composite obstruction in a reusable way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
