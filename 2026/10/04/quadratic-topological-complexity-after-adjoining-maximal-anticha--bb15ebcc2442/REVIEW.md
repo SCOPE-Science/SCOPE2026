@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof fixes the unreduced convention, a nonempty noncontractible finite base, and a discrete upper antichain. The upper bound comes from the contractible principal-open cover. The lower bound uses all \(n^2\) maximal pairs: any motion-planning domain containing two of them yields, after slicing, a null-homotopic inclusion of a two-top suspension. The explicit retraction from the full join onto that suspension would then make the suspension contractible, contradicting the known two-point suspension theorem. The argument handles either differing coordinate symmetrically and does not rely on finite enumeration.
+## correctness
 
-## Originality
-PASS, with stated residual risk. Tanaka's closest computation has a discrete lower level, while Kandola's two complementary results cover either arbitrary base with exactly two upper points or arbitrary upper size with a discrete base. The inspected statements do not imply the arbitrary-base/arbitrary-upper-size theorem. Targeted searches across non-Hausdorff join, ordinal sum, maximal antichain, weak order, and finite-space topological complexity found no dominating result. The new implication is the retraction from the full join onto the forced two-top suspension.
+PASS
 
-## Value
-PASS. The theorem converts a natural join operation into an exact quadratic motion-planning law for every noncontractible finite base. It unifies two previously separate special families and gives exact topological complexity for broad weak-order and iterated-join families without classifying individual motion planners.
+The upper bound follows from the \(n\) principal opens \(X\cup\{d_i\}\), each with a maximum, together with the finite-space category bound. For the lower bound, fewer than \(n^2\) open motion-planning domains force one lower set to contain two distinct maximal pairs. If their second coordinates differ, slicing at any \(x\in X\) makes the inclusion of \(X\oplus\{b,d\}\) null-homotopic; the explicit order retraction from \(X\oplus D_n\) onto that two-top subspace would then make its identity null-homotopic. The first-coordinate case is symmetric. Kandola's non-Hausdorff-suspension result supplies the required noncontractibility obstruction. The proof is symbolic and the finite checker is not used as an infinite proof.
 
-## Closest literature and limitations
-Tanaka, arXiv:1605.06755v1, provides the finite-space topological-complexity framework, the \(n^2\) complete height-two case, and the minimal-sphere special case. Kandola, arXiv:1812.07604v1, proves the arbitrary-base two-point suspension theorem and the arbitrary-size join of two discrete spaces. The final theorem requires the base to be noncontractible and the newly adjoined upper factor to be discrete. Search cannot rule out an uncaught equivalent formulation in later literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh Resultary and literature searches recover exactly the two complementary prior boundary cases: arbitrary noncontractible base with a two-point upper antichain, and arbitrary upper size when the lower factor is discrete. No inspected source dominates the arbitrary-base, arbitrary-\(n\) statement. The substantive bridge is the retraction forced by any motion-planning domain containing two maximal pairs.
+
+## value
+
+PASS
+
+The theorem gives an exact structural law for a natural infinite class of finite spaces and unifies two previously separate boundary cases. It is not a tiny numerical instance or a routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

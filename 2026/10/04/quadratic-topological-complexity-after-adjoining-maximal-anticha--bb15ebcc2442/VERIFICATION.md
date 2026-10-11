@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved symbolically in `RESULT.md`; no finite census is used to establish the quantified statement.
+# Independent mathematical audit
 
-The critical finite-space mechanism is the following. If an open motion-planning domain contains two distinct maximal pairs, then after choosing the coordinate in which they differ and slicing at any base point, the domain contains a two-top suspension. A local path section makes the slice inclusion null-homotopic. The explicit retraction from the full join onto that two-top suspension would therefore contract the suspension, contradicting the known noncontractibility of the two-top suspension of a noncontractible base.
+## correctness
 
-`artifacts/verify.py` checks the purely order-theoretic part of this mechanism on three representative noncontractible bases and upper-antichain sizes \(2,3,4\). It verifies the \(n^2\) maximal-pair count, every collapse-to-two-tops retraction, and a nontrivial Stong core for each sampled two-top suspension. Replay with `python3 artifacts/verify.py` must reproduce `artifacts/verify_output.txt` and end with `VERIFY_OK`.
+PASS
 
-These finite checks are consistency tests only. They do not prove the general noncontractibility statement or replace the symbolic argument and cited two-point suspension theorem.
+The upper bound follows from the \(n\) principal opens \(X\cup\{d_i\}\), each with a maximum, together with the finite-space category bound. For the lower bound, fewer than \(n^2\) open motion-planning domains force one lower set to contain two distinct maximal pairs. If their second coordinates differ, slicing at any \(x\in X\) makes the inclusion of \(X\oplus\{b,d\}\) null-homotopic; the explicit order retraction from \(X\oplus D_n\) onto that two-top subspace would then make its identity null-homotopic. The first-coordinate case is symmetric. Kandola's non-Hausdorff-suspension result supplies the required noncontractibility obstruction. The proof is symbolic and the finite checker is not used as an infinite proof.
+
+## originality
+
+PASS
+
+Fresh Resultary and literature searches recover exactly the two complementary prior boundary cases: arbitrary noncontractible base with a two-point upper antichain, and arbitrary upper size when the lower factor is discrete. No inspected source dominates the arbitrary-base, arbitrary-\(n\) statement. The substantive bridge is the retraction forced by any motion-planning domain containing two maximal pairs.
+
+## value
+
+PASS
+
+The theorem gives an exact structural law for a natural infinite class of finite spaces and unifies two previously separate boundary cases. It is not a tiny numerical instance or a routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
