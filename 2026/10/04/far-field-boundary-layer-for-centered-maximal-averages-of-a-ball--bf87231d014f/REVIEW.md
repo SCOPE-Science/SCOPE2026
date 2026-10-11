@@ -1,27 +1,21 @@
-# Review of Far-field boundary layer for centered maximal averages of a ball
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim reduces the centered maximal average of the unit ball at \(Re_1\) to a one-parameter intersection-volume optimization. The missed region for radius \(R+1-\delta\) is analyzed by exact axial cross-sections. Its leading volume is the spherical-cap term
-\[
-\frac{2^{(n+1)/2}\omega_{n-1}}{n+1}\delta^{(n+1)/2},
-\]
-while the partial-cross-section transition has relative order \(O(R^{-1})\). Expanding the denominator gives the competing gain \(n\delta/(R+1)\). Balancing these terms forces the scale \(\delta\asymp(R+1)^{-2/(n-1)}\). After rescaling, the objective converges uniformly on compact scaled intervals to a strictly concave profile with a unique positive maximizer. Elementary cap lower bounds exclude scaled maximizers escaping to zero or infinity. This proves the optimizer asymptotic for every maximizing radius and the stated second term of the maximal value.
+PASS
 
-The calculation was independently stress-tested by direct numerical quadrature in dimensions \(2\) through \(5\); those finite checks were not used to infer the theorem.
+The proof was reconstructed from the frozen RESULT.md rather than accepted from its prior review. In axial coordinates at the farthest point of the unit ball, the missed full cap is exactly the region 0<=u<delta and the partial transition ends at u_*=(2B delta-delta^2)/(2(B-1)); hence its width is O(delta/R). Integrating the cap cross-sections gives C_n delta^{(n+1)/2} with C_n=2^{(n+1)/2} omega_{n-1}/(n+1). Expanding the radius denominator balances delta/B against delta^{(n+1)/2}, forcing delta=t B^{-2/(n-1)}. The limiting objective G_n(t)=nt-a_n t^{(n+1)/2} has a unique positive maximizer and gives exactly the stated c_n and kappa_n. The localization argument excludes delta bounded away from zero and scaled t escaping to zero or infinity. An independent quadrature/maximization check for n=4,R=200 gave scaled optimizer ratio about 1.017, consistent with the asymptotic but not used as proof.
 
-## Originality
+## originality
 
-PASS with a recorded access risk. The motivating preprint's public metadata states that it gives an explicit formula for the unit-ball maximal function only in dimension three and, separately, a general incomplete-beta formula for two-ball intersection volume. The accepted claim deliberately starts at \(n=4\) and solves a different problem: the far-field radius optimization in arbitrary higher dimension, with exact scaling and leading constants.
+PASS
 
-Multiple published-finding corpus searches were made for centered maximal unit-ball asymptotics, maximizing radii, far-field optimizer laws, and incomplete-beta formulations. The closest records concern one-dimensional sharp centered maximal norms and near-eigenfunction rigidity, not the unit-ball radius optimization. Broad web searches likewise found no statement of the \(2/(n-1)\) boundary-layer exponent or the constants \(c_n,\kappa_n\).
+Best-of-knowledge PASS with a material access risk. The primary abstract for Solyanik arXiv:2609.27687v1 explicitly distinguishes an elementary closed formula for M_c(chi_U) in R^3 from an arbitrary-dimensional two-ball intersection formula. The final claim begins at n>=4 and adds a singular far-field argmax asymptotic and two-term maximal-value expansion. Resultary searches for the optimizer law returned the same audited record and unrelated one-dimensional centered-maximal findings, not a covering prior. The highly relevant preprint full text could not be obtained through arXiv/open-access routes; after those failures the single authorized institutional fallback returned worker unavailable, and no retry or bypass was made. Under the owner rule this inaccessible plausible source is retained as a residual risk rather than treated as evidence of novelty or as an automatic failure.
 
-The full text of arXiv:2609.27687v1 could not be retrieved despite bounded attempts through the preprint endpoint, open-access mirrors, and institutional retrieval; the primary abstract/metadata and a detailed public review were inspected. This is an access risk, not a claim that the unseen text is noncovering.
+## value
 
-## Value
+PASS
 
-PASS. The source introduces explicit higher-dimensional ball-intersection geometry specifically to study the centered maximal operator, while singling out dimension three as the case where the full unit-ball maximal function becomes elementary. The new result extracts a dimension-uniform higher-dimensional consequence that the source's abstract does not provide: the optimizer approaches the containing radius through a nontrivial boundary layer, and both the boundary-layer exponent and the first correction to the maximal value are explicit.
+The optimizing radius is an intrinsic quantity for the canonical test object in the motivating maximal-operator problem. Identifying its exact dimension-dependent boundary-layer scale and the first correction to the maximal value is a structural asymptotic, not a fixed-radius Taylor exercise. It isolates the competition between cap loss and denominator gain and can inform perturbative constructions.
 
-This is mathematically motivated because maximizing-radius geometry is central to the source's noninjectivity constructions. The result identifies the precise far-field scale on which the optimizer can respond to small geometric perturbations. It is not a generic Taylor expansion at a fixed radius: the maximizing radius itself moves on a dimension-dependent singular scale.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
