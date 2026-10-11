@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:55:54.232825Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 96edef343cc3ca217de4a4bf2da9c78c42bc6e4f",
+        "verify_two_lag_variance_floor.py blob c8b11fe9bd767e38f99a08a264e2d611419bc2bb",
+        "Berg--Song reversible moment representation"
+      ],
+      "rationale": "The proof is exact. Writing \\(1+r=\\int(1+\\lambda)d\\nu\\) as the product of the square roots of the variance kernel and \\(1-\\lambda^2\\), Cauchy--Schwarz gives \\(\\tau_g(1-s)\\ge(1+r)^2\\). Equality forces all spectral mass away from \\(-1\\) onto one point; solving the two moments gives the stated \\(q\\) and mass. The displayed symmetric four-state chain has eigenvalues \\(-1\\) and \\(q\\) on the two observable components and realizes every feasible pair. In the aperiodic class, positive \\(-1\\) mass forbids equality, while the recalibrated lazification preserves the target first two moments exactly and approaches the boundary. The package exact-rational checker independently exercises these identities.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haggstrom--Rosenthal is broader on CLT/variance equivalences but does not optimize the functional at fixed first two spectral moments.",
+          "Berg--Song is broader on the moment-sequence shape and estimation problem, not on this sharp extremal envelope."
+        ],
+        "reasoning": "No inspected general theorem includes the equality fiber and finite-state realizability conclusions.",
+        "searches": [
+          "Haggstrom--Rosenthal, On Variance Conditions for Markov Chain CLTs, DOI:10.1214/ECP.v12-1336",
+          "Berg--Song, Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain, arXiv:2207.12705 / DOI:10.1214/23-AOS2335",
+          "Longla, Remarks on limit theorems for reversible Markov processes, arXiv:1310.8239",
+          "Resultary query: reversible Markov chain two autocorrelation sharp asymptotic variance lower bound spectral moment"
+        ]
+      },
+      "checked_sources": [
+        "Haggstrom--Rosenthal, On Variance Conditions for Markov Chain CLTs, DOI:10.1214/ECP.v12-1336",
+        "Berg--Song, Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain, arXiv:2207.12705 / DOI:10.1214/23-AOS2335",
+        "Longla, Remarks on limit theorems for reversible Markov processes, arXiv:1310.8239",
+        "Resultary query: reversible Markov chain two autocorrelation sharp asymptotic variance lower bound spectral moment"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cauchy--Schwarz gives the lower bound once the spectral representation is recognized, but the final claim also solves the equality measure uniquely and realizes every feasible pair by an explicit reversible chain.",
+          "The aperiodic exact infimum further requires recalibrating the moments before lazification."
+        ],
+        "reasoning": "The full theorem is more than the standard representation itself and was not found as a corollary stated or implied in the inspected sources.",
+        "searches": [
+          "Haggstrom--Rosenthal, On Variance Conditions for Markov Chain CLTs, DOI:10.1214/ECP.v12-1336",
+          "Berg--Song, Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain, arXiv:2207.12705 / DOI:10.1214/23-AOS2335",
+          "Longla, Remarks on limit theorems for reversible Markov processes, arXiv:1310.8239",
+          "Resultary query: reversible Markov chain two autocorrelation sharp asymptotic variance lower bound spectral moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lag sequence is a moment sequence on \\([-1,1]\\), so the problem is a truncated two-moment extremum of the standard variance kernel.",
+          "The effective-sample-size and integrated-autocorrelation formulations are equivalent rescalings of the same functional."
+        ],
+        "reasoning": "Spectral-measure, autocovariance, asymptotic-variance, and MCMC formulations were compared.",
+        "searches": [
+          "Haggstrom--Rosenthal, On Variance Conditions for Markov Chain CLTs, DOI:10.1214/ECP.v12-1336",
+          "Berg--Song, Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain, arXiv:2207.12705 / DOI:10.1214/23-AOS2335",
+          "Longla, Remarks on limit theorems for reversible Markov processes, arXiv:1310.8239",
+          "Resultary query: reversible Markov chain two autocorrelation sharp asymptotic variance lower bound spectral moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned no covering two-lag variance-floor theorem among the closest spectral/autocorrelation records."
+        ],
+        "reasoning": "No exact database table is relevant; the claim is a symbolic all-feasible-pair theorem.",
+        "searches": [
+          "Haggstrom--Rosenthal, On Variance Conditions for Markov Chain CLTs, DOI:10.1214/ECP.v12-1336",
+          "Berg--Song, Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain, arXiv:2207.12705 / DOI:10.1214/23-AOS2335",
+          "Longla, Remarks on limit theorems for reversible Markov processes, arXiv:1310.8239",
+          "Resultary query: reversible Markov chain two autocorrelation sharp asymptotic variance lower bound spectral moment"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. The primary literature supplies the reversible spectral representation, the standard asymptotic-variance kernel, and the fact that autocovariances form a moment sequence, but no inspected statement gives the exact lower envelope from only the first two normalized moments, its equality support, or the all-pair finite-state realization and aperiodic sharp infimum. Resultary and targeted searches found no implication-complete prior theorem.",
+      "residual_risks": [
+        "Classical truncated-moment or operator variational literature may contain the same elementary Cauchy--Schwarz envelope under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOMENT_REPRESENTATION_NOT_TWO_MOMENT_EXTREMUM",
+          "evidence": "The paper develops moment-shape inference and variance estimation rather than the claimed exact lower envelope.",
+          "identifier_or_url": "arXiv:2207.12705; DOI:10.1214/23-AOS2335",
+          "material_read": "Open primary full-text material around the moment-sequence representation and asymptotic-variance motivation.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain",
+          "trigger": "Strongest modern primary source on reversible autocovariances as moment sequences."
+        },
+        {
+          "assessment": "GENERAL_VARIANCE_EQUIVALENCES_NOT_FIXED_TWO_LAG_OPTIMUM",
+          "evidence": "The source studies when standard asymptotic-variance expressions agree, not the exact optimization at fixed lag one and lag two.",
+          "identifier_or_url": "DOI:10.1214/ECP.v12-1336",
+          "material_read": "Primary bibliographic/full-article access material and theorem-level spectral-variance scope.",
+          "method": "Lawful open primary-source comparison.",
+          "title": "On Variance Conditions for Markov Chain CLTs",
+          "trigger": "Primary source for the reversible spectral asymptotic-variance functional."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Haggstrom--Rosenthal, On Variance Conditions for Markov Chain CLTs, DOI:10.1214/ECP.v12-1336",
+        "Berg--Song, Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain, arXiv:2207.12705 / DOI:10.1214/23-AOS2335",
+        "Longla, Remarks on limit theorems for reversible Markov processes, arXiv:1310.8239",
+        "Resultary query: reversible Markov chain two autocorrelation sharp asymptotic variance lower bound spectral moment"
+      ],
+      "rationale": "Asymptotic variance directly controls Monte Carlo error. The theorem gives the exact best guarantee obtainable from the first two autocorrelations, strictly improves the one-lag Jensen bound in the nondegenerate case, and completely characterizes global and aperiodic sharpness. This is a natural constrained spectral-moment classification rather than an arbitrary inequality.",
+      "residual_risks": [
+        "Two lags determine only a lower envelope, and reversibility is essential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical truncated-moment or operator variational literature may contain the same elementary Cauchy--Schwarz envelope under different notation.",
+    "Publication is withheld because all five frozen packages contain operational workflow state in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md. The complete 34-file recursive inventory was read and semantically inspected; RESULT.md, SLOGAN.txt, and verifier sources were clear of the checked platform/workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}

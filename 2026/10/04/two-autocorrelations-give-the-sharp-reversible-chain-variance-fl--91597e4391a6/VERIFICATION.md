@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-It verifies the bound for finitely supported rational spectral probability measures by clearing denominators. It then generates rational equality measures supported on \(\{-1,q\}\), reconstructs the prescribed first two moments, and checks the exact equality value.
+## correctness
 
-The checker verifies the \(-1\) and \(q\) eigenvectors of the explicit four-state stochastic matrix. It also applies the recalibration preceding lazification, confirms that the lazy chain preserves the target first two autocorrelations exactly, and checks the strict inequality in the aperiodic case when the second moment exceeds the square of the first.
+PASS
 
-Finite replay does not prove the infinite-dimensional inequality. The universal argument is the Cauchy--Schwarz proof in `RESULT.md`.
+The proof is exact. Writing \(1+r=\int(1+\lambda)d\nu\) as the product of the square roots of the variance kernel and \(1-\lambda^2\), Cauchy--Schwarz gives \(\tau_g(1-s)\ge(1+r)^2\). Equality forces all spectral mass away from \(-1\) onto one point; solving the two moments gives the stated \(q\) and mass. The displayed symmetric four-state chain has eigenvalues \(-1\) and \(q\) on the two observable components and realizes every feasible pair. In the aperiodic class, positive \(-1\) mass forbids equality, while the recalibrated lazification preserves the target first two moments exactly and approaches the boundary. The package exact-rational checker independently exercises these identities.
 
-Independent audit has not been performed.
+## originality
 
-Exact-rational replay result: `VERIFY_OK generic_checks=20000 equality_checks=36000 matrix_checks=48000 lazy_checks=60000 one_lag_checks=20000`.
+PASS
+
+Best-of-knowledge originality passes. The primary literature supplies the reversible spectral representation, the standard asymptotic-variance kernel, and the fact that autocovariances form a moment sequence, but no inspected statement gives the exact lower envelope from only the first two normalized moments, its equality support, or the all-pair finite-state realization and aperiodic sharp infimum. Resultary and targeted searches found no implication-complete prior theorem.
+
+## value
+
+PASS
+
+Asymptotic variance directly controls Monte Carlo error. The theorem gives the exact best guarantee obtainable from the first two autocorrelations, strictly improves the one-lag Jensen bound in the nondegenerate case, and completely characterizes global and aperiodic sharpness. This is a natural constrained spectral-moment classification rather than an arbitrary inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

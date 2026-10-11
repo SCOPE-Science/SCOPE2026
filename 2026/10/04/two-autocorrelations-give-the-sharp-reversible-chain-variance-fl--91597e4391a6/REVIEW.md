@@ -1,35 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. After normalizing the observable spectral measure to a probability law, the two known autocorrelations are its first two moments. Factoring
-\[
-1+\lambda
-=
-\sqrt{\frac{1+\lambda}{1-\lambda}}
-\sqrt{1-\lambda^2}
-\]
-and applying Cauchy--Schwarz gives
-\[
-(1+\rho_1)^2
-\le
-\tau_g(1-\rho_2).
-\]
-The equality condition forces all spectral mass away from \(-1\) to a single point. Solving the two moment equations gives the stated \(q\) and weight.
+PASS
 
-The four-state symmetric transition matrix realizes the equality spectrum exactly for every feasible two-lag pair. The recalibrated lazy construction preserves both target moments exactly and proves the aperiodic sharp-infimum statement.
+The proof is exact. Writing \(1+r=\int(1+\lambda)d\nu\) as the product of the square roots of the variance kernel and \(1-\lambda^2\), Cauchy--Schwarz gives \(\tau_g(1-s)\ge(1+r)^2\). Equality forces all spectral mass away from \(-1\) onto one point; solving the two moments gives the stated \(q\) and mass. The displayed symmetric four-state chain has eigenvalues \(-1\) and \(q\) on the two observable components and realizes every feasible pair. In the aperiodic class, positive \(-1\) mass forbids equality, while the recalibrated lazification preserves the target first two moments exactly and approaches the boundary. The package exact-rational checker independently exercises these identities.
 
-## Originality
+## originality
 
-PASS, with a residual classical moment-problem risk. The full accessible Häggström--Rosenthal source was inspected at the spectral-measure and asymptotic-variance formulas and at its comparison theorem. Longla's full arXiv text was inspected at the spectral representation and variance-integrability discussion. Berg--Song's full arXiv HTML was inspected at the autocovariance moment representation and paired-sequence framework.
+PASS
 
-Those sources provide the ingredients and broad spectral setting but do not state the two-lag lower envelope, its equality fiber, or exact finite-state realizability for every feasible \((\rho_1,\rho_2)\). Exact-formula and alias searches also did not locate the raw-autocovariance inequality.
+Best-of-knowledge originality passes. The primary literature supplies the reversible spectral representation, the standard asymptotic-variance kernel, and the fact that autocovariances form a moment sequence, but no inspected statement gives the exact lower envelope from only the first two normalized moments, its equality support, or the all-pair finite-state realization and aperiodic sharp infimum. Resultary and targeted searches found no implication-complete prior theorem.
 
-## Value
+## value
 
-PASS. In reversible MCMC, asymptotic variance and integrated autocorrelation time determine Monte Carlo efficiency, while the first few autocorrelations are often the most stable dependence summaries available. The theorem gives the best possible guarantee obtainable from the first two lags alone, strictly improves the one-lag Jensen bound whenever \(\rho_2>\rho_1^2\), and identifies exactly when the floor is attainable versus only approachable under aperiodicity.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Asymptotic variance directly controls Monte Carlo error. The theorem gives the exact best guarantee obtainable from the first two autocorrelations, strictly improves the one-lag Jensen bound in the nondegenerate case, and completely characterizes global and aperiodic sharpness. This is a natural constrained spectral-moment classification rather than an arbitrary inequality.
 
-
-Exact-rational replay: `VERIFY_OK generic_checks=20000 equality_checks=36000 matrix_checks=48000 lazy_checks=60000 one_lag_checks=20000`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
