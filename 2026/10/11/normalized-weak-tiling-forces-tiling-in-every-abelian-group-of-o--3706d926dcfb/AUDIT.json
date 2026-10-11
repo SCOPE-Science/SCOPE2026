@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The support-avoidance implication follows from h(0)=1, convolution one at every point of A, and nonnegativity. The remaining incidence system has integer coefficients. The standalone integer-only script iterates 32768 rooted subsets for each of the five groups, checks all exact tiles by cardinality/bitset union, and proves each remaining admissible system inconsistent over Q by fraction-free elimination. Solvability over R is equivalent to solvability over Q for rational linear equations. Actual file execution checks all 163840 cases; its exact elimination was additionally cross-checked against symbolic rational matrix ranks on 800 deterministic random matrices. The converse uses the indicator of a translated tiling complement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kiss--Matolcsi--Matolcsi--Somlai prove pd-flatness in elementary prime-exponent groups of dimensions one and two, and discuss dimension three; their theorem does not range over four non-elementary order-16 groups.",
+        "The later lonely-weak-tile example is built in products of groups involving large prime powers and has no order-16 theorem.",
+        "The Z_pq cyclic result concerns a product of two distinct primes rather than 2-power groups of order 16."
+      ],
+      "reasoning": "The closest primary theorems either assume Fourier positivity and elementary exponent, concern a larger counterexample group, or use different prime divisibility. None entails the four newly classified non-elementary groups under only nonnegativity.",
+      "searches": [
+        "Tiling and weak tiling in Z_p^d 2022 pd-flat elementary p groups Proposition 3.1",
+        "A lonely weak tile arxiv 2410.04948 finite group construction",
+        "Tiles and weak tiles in Zpq arxiv 2607.02149",
+        "positive definite weak tiling finite abelian groups Z4 times Z4 classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.05513v1",
+      "doi:10.1007/s43670-023-00073-7",
+      "arXiv:2410.04948v1/v2",
+      "arXiv:2607.02149 (abstract only)",
+      "Earlier exact normalized-weak-tiling result on (Z_2)^4, accounted for as coverage",
+      "Exact group-type, fractional-cover, pd-flat, and weak-to-proper searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier exact census proves normalized weak tiling implies actual tiling for the elementary group (Z_2)^4 only.",
+        "Another earlier census covers positive-definite weak tiling for (Z_2)^3, a different order and weaker hypothesis.",
+        "The four remaining groups are nonisomorphic to the elementary-abelian group, and their group addition laws have different translation-incidence systems.",
+        "The new program proves the four missing cases and consolidates all five classes without Fourier positivity."
+      ],
+      "reasoning": "The earlier F_2^4 result is acknowledged as covered. Its statement provides no implication for Z_16, Z_8 x Z_2, Z_4^2, or Z_4 x Z_2^2, because they are neither isomorphic to F_2^4 nor covered by its proof quantifiers. The all-isomorphism-type conclusion is therefore a substantive logical extension, not a restatement.",
+      "searches": [
+        "order 16 five abelian groups normalized weak tiling h(0)=1 without Fourier positivity every set tiles",
+        "Z4 times Z4 weak tiling complete classification positive definite pd-flat",
+        "Z8 times Z2 weak tiling pd flat positive definite",
+        "finite abelian order 16 fractional exact cover weak tile nonnegative h(0)=1 implies tile"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The weak tiling equation with h(0)=1 forces support away from (A-A)\\{0}, reducing the question exactly to an incidence system M_A c=1.",
+        "The full five-group rank certificate proves exact inconsistency for all non-tilers, not just for positive-definite h.",
+        "Previously established order-16 elementary binary weak tiling is one of the five cases and is not claimed as fresh."
+      ],
+      "reasoning": "Equivalence to nonnegative fractional exact covers and the stronger signed incidence-rank obstruction were checked. The all-group classification is strictly stronger than a single elementary-vector-space classification, but does not purport to rediscover that already-covered case.",
+      "searches": [
+        "Any finite abelian group of order sixteen has normalized weak tiling implies translational tiling",
+        "Z4 times Z4 weak tiling complete classification positive definite pd-flat",
+        "finite abelian order 16 fractional exact cover weak tile nonnegative h(0)=1 implies tile",
+        "normalized weak tiling order 16 group group theory"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The earliest source arXiv:2212.05513v1 was posted on 2022-12-11; indexing lists 43A25 first.",
+        "The exact verifier enumerates 32768 subsets per group, 163840 in total, with printed tiling counts by cardinality and group type.",
+        "No checked database record or scholarly table gives the four non-elementary normalized-weak-tiling classifications."
+      ],
+      "reasoning": "Published-source dates were separated from later journal dates, and the table of new tile counts was independently produced by exhaustive integer bitset enumeration rather than copied from known finite tables.",
+      "searches": [
+        "order 16 five abelian groups normalized weak tiling h(0)=1 without Fourier positivity every set tiles",
+        "Z4 Z4 normalized nonnegative fractional tiling convolution indicator h0=1 exact classification",
+        "Z8 times Z2 weak tiling pd flat positive definite",
+        "Hajós positive definite weak tiling finite cyclic groups of order 16"
+      ]
+    },
+    "rationale": "The complete original 2022 finite-group source and the later large-group counterexample were inspected at their precise definitions and scope, while source-title, group-type, normalized-weak-tiling, affine-equivalent, fractional exact-cover, and implication queries were compared with indexed published findings. The previously established elementary-abelian order-16 case is explicitly treated as covered; the new non-elementary groups are not implied by it. No checked full-text or indexed result states the all-five-group classification without Fourier positivity.",
+    "residual_risks": [
+      "An unindexed existing theorem or unpublished computation could classify the four non-elementary order-16 groups.",
+      "The recent cyclic Z_pq paper was accessible only at abstract level; its stated scope does not include order 16.",
+      "The table depends on exhaustive exact code execution; no independent formal proof certificate is claimed.",
+      "No inference of uniqueness beyond the reviewed public/indexed corpus is justified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It treats elementary prime-exponent groups and does not give the non-elementary order-16 theorem; removing Fourier positivity is outside the source's hypotheses.",
+        "evidence": "Its Definition 1.1 requires h nonnegative, h(0)=1, convolution one, and nonnegative Fourier transform; Proposition 3.1 concerns (Z_p)^d with d=1,2.",
+        "identifier_or_url": "arXiv:2212.05513v1; doi:10.1007/s43670-023-00073-7",
+        "material_read": "The introduction, Definition 1.1, support-disjointness relation, Lemmas 1.2-1.3, Definition 1.4, and the complete statement and proof of Proposition 3.1 (elementary p-groups), plus the surrounding scope discussion.",
+        "method": "Open lawful arXiv PDF full text with page-image inspection of the first page, and the public publisher text.",
+        "title": "Tiling and weak tiling in (Z_p)^d",
+        "trigger": "Exact motivating source for normalized pd-weak tiling, Fourier positivity, and pd-flatness."
+      },
+      {
+        "assessment": "Its counterexample uses a much larger finite product group, establishing that general weak-to-proper tiling is not trivial. It does not classify groups of order 16.",
+        "evidence": "The construction uses a product of Z_6^5 x Z_q with (Z_p)^4 for sufficiently large primes p and q.",
+        "identifier_or_url": "arXiv:2410.04948v1; arXiv:2410.04948v2",
+        "material_read": "Complete definition and finite-group construction in Section 3, including the group choice, normalization, non-tile argument, pd-tiling lemma, non-spectral proof, and conclusion.",
+        "method": "Open lawful arXiv PDF full text and rendered image of its definition page.",
+        "title": "A lonely weak tile",
+        "trigger": "Close newer work producing a pd-weak tile that is not a proper tile."
+      },
+      {
+        "assessment": "The stated scope is groups of order the product of two distinct primes, not any group of order 16. Unread interior is a residual coverage risk only.",
+        "evidence": "The public abstract states equivalence of weak tiles and translational tiles in Z_pq.",
+        "identifier_or_url": "arXiv:2607.02149",
+        "material_read": "Public abstract and source-identifying metadata; the preprint PDF could not be opened from the available route.",
+        "method": "Public record and abstract inspection, not a whole-document negative claim.",
+        "title": "Tiles and weak tiles in Z_pq",
+        "trigger": "Recent result on weak-versus-proper tiling in a different finite cyclic family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3706d926-dcfb-4d28-adca-76ae862e2d9a",
+  "value": {
+    "rationale": "Normalized weak tiling is the Fourier-positive-free relaxation underlying spectral-to-tiling questions, and weak tiles that are not proper tiles exist in larger ambient groups. A complete classification across all five abelian isomorphism types of the first richly structured 2-power order (16) is a natural finite rigidity boundary. Four non-elementary groups receive new coverage, with exact tiling-cardinality counts and independently reproducible integer-rank obstructions, not a numerical heuristic or a substitution into an existing elementary-group theorem.",
+    "status": "PASS"
+  }
+}
