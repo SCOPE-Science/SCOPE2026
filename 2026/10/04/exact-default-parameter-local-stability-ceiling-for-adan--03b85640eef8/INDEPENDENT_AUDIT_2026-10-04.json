@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact algebra confirms the limiting optimization block polynomial and the Schur/Jury inequalities. At s=19800/859, P_s(-1)=0 exactly; the corresponding inequality is positive below and negative immediately above, while the other upper bound is looser and the remaining conditions are positive for s>0. The first-moment-only comparison gives 198 and ratio 859/100. The frozen RESULT.md, however, contains two literal form-feed control bytes corrupting two \\frac commands and prints 19800/859 as 23.049; the true value is 23.0500582072.... The repaired final RESULT.md fixes only those transcription defects and leaves the theorem/proof unchanged.",
+      "risks": [
+        "This is an asymptotic local deterministic statement after bias corrections converge; it does not classify nonlinear dynamics beyond instability."
+      ],
+      "sources": [
+        "RESULT.md blob ff1d771f47d96bf75a0784be19d79a4c5dfeee22",
+        "verify.py blob 2c766b2087efd796c55621585d33379c139c0404",
+        "Independent exact Jury reconstruction",
+        "Repaired RESULT.md SHA-256 f5d217942b9f3d9f34c7c6eb3df9ad94215c087ce2dcbcdb777590e97986f710"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper proves broad stochastic nonconvex convergence/complexity results and introduces the optimizer.",
+          "Implementation documentation fixes the decay-coefficient convention but does not analyze the exact scalar local stability region."
+        ],
+        "reasoning": "Broader convergence theory does not directly imply the necessary-and-sufficient epsilon-floor local Schur boundary.",
+        "searches": [
+          "arXiv:2208.06677v1",
+          "public Adan implementation/default-coefficient documentation"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob ff1d771f47d96bf75a0784be19d79a4c5dfeee22",
+        "verify.py blob 2c766b2087efd796c55621585d33379c139c0404",
+        "arXiv:2208.06677v1",
+        "Public default-coefficient documentation",
+        "Fresh Resultary and web exact-number searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sources determine the update equations and defaults but do not identify which Jury inequality is active or derive the -1 crossing."
+        ],
+        "reasoning": "Deriving the limiting Jacobian, eliminating the momentum filters, and solving the Schur inequalities are additional mathematical steps rather than a direct source corollary.",
+        "searches": [
+          "Statement comparison with arXiv:2208.06677v1",
+          "Default-parameter documentation comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Adan paper defines the gradient-difference and moving-average mechanism but does not present the submitted cubic Schur reduction.",
+          "Fresh searches found no exact-number or equivalent stability-frontier match."
+        ],
+        "reasoning": "Equivalent formulations would be a third-order linear recurrence, a cubic Jury/Schur problem, or a local Jacobian spectral-radius threshold for the default coefficients; none was located in the inspected Adan source.",
+        "searches": [
+          "arXiv:2208.06677v1 full-text comparison",
+          "Resultary query: Adan optimizer scalar quadratic local stability characteristic polynomial default beta exact threshold",
+          "web queries: Adan quadratic local stability; \"19800/859\" Adan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or indexed result with the cubic coefficients or boundary was found."
+        ],
+        "reasoning": "The database check targets the exact coefficient triple, cubic, and rational boundary; non-detection is corroborative only.",
+        "searches": [
+          "Resultary exact Adan local-stability query",
+          "web exact-number query \"19800/859\" Adan"
+        ]
+      },
+      "rationale": "The defining Adan paper supplies the recurrence and stochastic optimization theory but not an exact deterministic scalar Schur frontier. Fresh exact-number and quadratic-local-stability searches did not find the rational boundary 19800/859 or an implication-equivalent theorem. Generic control/multistep literature remains a residual alias risk rather than evidence of coverage.",
+      "residual_risks": [
+        "An equivalent cubic analysis could exist under generic control or multistep-method terminology.",
+        "Only the default coefficient triple is classified exactly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_LOCAL_FRONTIER",
+          "evidence": [
+            "The source gives the algorithm and stochastic theory, not the exact deterministic scalar cubic stability ceiling."
+          ],
+          "identifier_or_url": "arXiv:2208.06677v1",
+          "material_read": "Full-text portions defining momentum, gradient-difference, adaptive second moment, update rule, defaults, and convergence claims.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "Adan: Adaptive Nesterov Momentum Algorithm for Faster Optimizing Deep Models",
+          "trigger": "Defining primary source for the optimizer and coefficient convention."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact local stability ceiling and period-doubling boundary quantify a concrete endpoint of the large-step robustness of a widely used adaptive optimizer, and the 8.59 factor isolates the effect of its gradient-difference channel. This is a motivated stability fact rather than an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Default paper-form coefficients only.",
+    "Local deterministic analysis with weight decay, clipping, restart logic and stochastic noise disabled.",
+    "The repaired public RESULT.md has no C0 controls and corrects the displayed decimal without changing the mathematical claim."
+  ],
+  "schema_version": 1
+}

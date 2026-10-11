@@ -47,7 +47,7 @@ P_s(r)
 r^3
 +
 \left(
-\frac{117}{1250}s-rac{29}{10}
+\frac{117}{1250}s-\frac{29}{10}
 \right)r^2
 +
 \left(
@@ -55,7 +55,7 @@ r^3
 \right)r
 +
 \left(
-\frac{1127}{15625}s-rac{1127}{1250}
+\frac{1127}{15625}s-\frac{1127}{1250}
 \right).
 \]
 One apparent fourth state is algebraically redundant, leaving this cubic for the optimization block.
@@ -68,7 +68,7 @@ Numerically,
 \[
 \frac{19800}{859}
 \approx
-23.049.
+23.0500582072.
 \]
 At the upper boundary,
 \[

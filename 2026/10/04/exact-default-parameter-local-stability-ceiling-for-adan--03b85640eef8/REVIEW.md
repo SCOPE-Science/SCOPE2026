@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact elimination of the first-moment and gradient-difference EMA states gives the displayed cubic. Substitution of the paper defaults reduces the cubic Schur conditions to explicit rational inequalities; the active one is \(s<19800/859\), and equality makes \(r=-1\) a root. The squared adaptive state contributes eigenvalue \(0.99\) because its innovation is quadratic at the minimizer.
+PASS
 
-Risk: the theorem is asymptotic local analysis after bias corrections approach one.
+Independent exact algebra confirms the limiting optimization block polynomial and the Schur/Jury inequalities. At s=19800/859, P_s(-1)=0 exactly; the corresponding inequality is positive below and negative immediately above, while the other upper bound is looser and the remaining conditions are positive for s>0. The first-moment-only comparison gives 198 and ratio 859/100. The frozen RESULT.md, however, contains two literal form-feed control bytes corrupting two \frac commands and prints 19800/859 as 23.049; the true value is 23.0500582072.... The repaired final RESULT.md fixes only those transcription defects and leaves the theorem/proof unchanged.
 
-## Originality
+## originality
 
-PASS. The defining Adan paper provides the Nesterov momentum estimation mechanism and global stochastic complexity theory but does not state this local deterministic cubic or its exact default-parameter stability ceiling. Public implementation notes clarify the coefficient-convention reversal but do not give the Schur analysis. Focused searches over Adan quadratic stability, characteristic polynomials, gradient-difference local dynamics, and exact learning-rate frontiers found no covering statement.
+PASS
 
-Residual risk: a generic multistep-control analysis may contain an equivalent cubic under non-Adan terminology.
+The defining Adan paper supplies the recurrence and stochastic optimization theory but not an exact deterministic scalar Schur frontier. Fresh exact-number and quadratic-local-stability searches did not find the rational boundary 19800/859 or an implication-equivalent theorem. Generic control/multistep literature remains a residual alias risk rather than evidence of coverage.
 
-## Value
+## value
 
-PASS. Adan is explicitly motivated by large learning-rate tolerance. The exact local calculation identifies a complementary limitation: once the adaptive denominator has decayed to its epsilon floor, the default Nesterov-difference channel has a sharp period-doubling ceiling. The comparison with the same first-moment recurrence without the gradient-difference channel quantifies an \(8.59\)-fold reduction, making the result directly relevant to late-stage tuning and implementation diagnostics.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact local stability ceiling and period-doubling boundary quantify a concrete endpoint of the large-step robustness of a widely used adaptive optimizer, and the 8.59 factor isolates the effect of its gradient-difference channel. This is a motivated stability fact rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
