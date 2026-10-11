@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:10:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 25912ff3ce8d18ec63199d21748fd5c3317d7cc3",
+        "assigned verify.py blob 8a8108beb5e548a6eb1c796a03da007bfec5fe67",
+        "https://apjm.apacific.org/PDFs/13-47.pdf",
+        "https://doi.org/10.1007/s11538-022-01057-9"
+      ],
+      "rationale": "The source equations have one shared exposed class E. At the disease-free equilibrium only the incidence term entering E creates newly infected individuals; the flows alpha*varphi_j E into I_j and (1-alpha)phi E into C are transfers. The resulting F has only its first row nonzero, V is lower triangular, and the unique possible nonzero eigenvalue of FV^{-1} is the displayed additive R*. The infected Jacobian yields the same threshold because its real characteristic function is strictly increasing and has g(0)=a_E(1-R*). For the exact two-strain witness the printed quantity satisfies R_print^2=5/6<1 while R*=10/9>1, and a fresh symbolic calculation gives characteristic polynomial (z+3)^2((z+3)^2-10), hence positive eigenvalue -3+sqrt(10).",
+      "residual_risks": [
+        "The theorem corrects only local disease-free stability for the equations as printed; it does not validate or invalidate later endemic or optimal-control results."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General methodology supplies the classification rule for F and V but not the source-specific additive expression.",
+          "Models with E_j for each strain do not imply the shared-E formula."
+        ],
+        "reasoning": "The correction is a model-specific consequence of standard methodology, not a previously stated theorem located in the broader literature.",
+        "searches": [
+          "Brouwer 2022 next-generation method",
+          "van den Driessche-Watmough methodology as cited by the source",
+          "multistrain SEIR literature with strain-specific exposed classes"
+        ]
+      },
+      "checked_sources": [
+        "https://apjm.apacific.org/PDFs/13-47.pdf",
+        "https://doi.org/10.1007/s11538-022-01057-9",
+        "Resultary current corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic theorem says how to build F and V but does not state the corrected formula for this model.",
+          "The admissible n=2 parameter witness gives opposite source and true stability verdicts."
+        ],
+        "reasoning": "The final claim is a concrete correction requiring direct reconstruction of the model's infected subsystem.",
+        "searches": [
+          "Source equation (3.8) versus the correct new-infection/transfer split",
+          "generic next-generation theorem versus the exact witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The additive R* is both the spectral radius of the correct rank-one next-generation matrix and the zero-crossing threshold of the infected Metzler block.",
+          "The source's max-square-root quantity comes from treating progression as new infection."
+        ],
+        "reasoning": "The two threshold formulations concern exactly the same printed ODE system and can be compared directly by their stability verdicts.",
+        "searches": [
+          "Resultary: shared exposed class multistrain additive next-generation threshold",
+          "Casimir-Abibelaye-Somdouda 2026 full PDF",
+          "Brouwer 2022 next-generation exposition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior same-result record was retrieved."
+        ],
+        "reasoning": "No finite database is intrinsic; this search checks current published finding coverage.",
+        "searches": [
+          "Resultary semantic search for the source DOI, shared/common exposed class, additive threshold, and max-square-root correction"
+        ]
+      },
+      "rationale": "The complete primary 2026 paper was inspected at the model equations and reproduction-number section. It places progression terms out of the common exposed class inside its new-infection matrix, obtains a maximum of square-root branch expressions in equation (3.8), and states local stability in terms of that quantity. Standard next-generation literature explicitly defines F using production of genuinely new infections, not transfers between infected states. Current Resultary search found no source-specific correction with the additive shared-exposure formula or the exact false-stability witness. Separate-exposed-class multistrain models are architecturally different. Originality therefore passes.",
+      "residual_risks": [
+        "A later erratum or author correction may exist outside the indexed sources.",
+        "The biological intent could have been a different strain-specific exposed architecture, but the theorem is explicitly scoped to the printed equations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_THRESHOLD_ERROR_CONFIRMED",
+          "evidence": "The model has a single E state feeding every I_j and C; the paper's displayed next-generation calculation includes those progression terms and reports a maximum of square-root branch quantities.",
+          "identifier_or_url": "https://apjm.apacific.org/PDFs/13-47.pdf",
+          "material_read": "complete primary PDF model equations and reproduction-number/local-stability sections, with equations (2.1)-(2.7), (3.8), and Theorem 3.4 inspected visually and textually",
+          "method": "primary full-text PDF inspection",
+          "title": "Modeling and Optimal Control of a Multi-Strain Epidemic Applied to COVID-19 with an Underlying Chronic Disease Condition",
+          "trigger": "exact model and printed reproduction number being corrected"
+        },
+        {
+          "assessment": "STANDARD_METHOD_SUPPORTS_CORRECTION",
+          "evidence": "F_ij is defined as the rate at which infected individuals in compartment j produce new infections in compartment i; FV^{-1} counts new infections during infected-state residence.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-022-01057-9",
+          "material_read": "full accessible exposition around the next-generation matrix construction",
+          "method": "primary full-text web inspection",
+          "title": "Why the Spectral Radius? An intuition-building introduction to the basic reproduction number",
+          "trigger": "primary methodological comparison for the meaning of F"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Casimir-Abibelaye-Somdouda 2026",
+        "Brouwer 2022",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The result repairs a published local-stability criterion and gives an admissible parameter point where the printed rule predicts stability while the actual linearization is unstable. Correcting a threshold that changes the qualitative epidemiological verdict is a substantive and reusable model-analysis contribution.",
+      "residual_risks": [
+        "It is a local deterministic correction and does not address global persistence or optimal control."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem corrects only local disease-free stability for the equations as printed; it does not validate or invalidate later endemic or optimal-control results.",
+    "A later erratum or author correction may exist outside the indexed sources.",
+    "The biological intent could have been a different strain-specific exposed architecture, but the theorem is explicitly scoped to the printed equations.",
+    "It is a local deterministic correction and does not address global persistence or optimal control."
+  ]
+}
