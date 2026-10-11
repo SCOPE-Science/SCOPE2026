@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The divisor factorization \(n=2^a m\) with \(m\) odd gives an exact formula for the even-minus-odd divisor-power difference. Every sign claim is reduced to a monotone geometric sum. For \(s<0\), the summatory asymptotic follows from an absolutely convergent divisor rearrangement with explicit main coefficient \((2^s-1)\zeta(1-s)\) and error \(o(x)\). The packaged checker reproduces the divisor identity directly and checks representative summatory convergence.
+## correctness
 
-## Originality
-PASS. Pongsriiam's Problem 15 explicitly asks about the \(q=2\) odd/even divisor-power comparison and the cumulative analogue. The inspected later paper of Ding, Pan, and Sun solves other problems from the source but contains no discussion of Problem 15 or odd/even divisor sums. OEIS A002129 contains the ordinary \(s=1\) case only. Targeted literature and database searches did not locate the all-real threshold classification, valuation densities, or negative-\(s\) summatory constant.
+PASS
 
-## Value
-PASS. This gives a complete answer to the pointwise \(q=2\) problem across every real parameter, with an exact phase transition and densities, plus a full summatory theorem on the negative half-line. For \(-1<s<0\), local signs oscillate forever while the cumulative difference is eventually negative with a linear main term.
+The divisor factorization follows uniquely by writing every divisor as \(2^jd\) with \(d\mid m\). Since \(\sigma_s(m)>0\), all pointwise signs reduce to the monotone geometric partial sum \(G_a(s)\). Its infinite sum is at most one exactly for \(s\le-1\), while for \(-1<s<0\) it crosses one at the stated finite threshold. Valuation densities give the density formulas, and adjacent sign changes are supplied by odd predecessors of suitable powers-of-two multiples. For the summatory law, divisor switching gives \(\sum_{d\le x}\varepsilon(d)d^s\lfloor x/d\rfloor\); absolute convergence of \(\sum_d\varepsilon(d)d^{s-1}\) for \(s<0\) yields the coefficient \((2^s-1)\zeta(1-s)\), while the displayed remainder bounds are all \(o(x)\). The verifier independently checks the factorization and representative regimes through \(n=5000\) and the summatory normalization through \(x=200000\), but the theorem itself is symbolic.
 
-## Closest literature and limitations
-The closest source is Pongsriiam's Problem 15. Ding–Pan–Sun is the closest later sign-change paper but does not cover this problem. OEIS A002129 supplies only the fixed case \(s=1\). The summatory result here stops at \(s<0\), and no claim is made for general moduli.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Pongsriiam's Problem 15 explicitly asks for the modulus-two odd-versus-even divisor-power comparison and for pointwise and cumulative sign changes. The inspected later Ding--Pan--Sun paper solves other Pongsriiam sign-change problems but does not address Problem 15. Resultary searches found the assigned finding and unrelated divisor-parity work, while the classical OEIS entry at \(s=1\) covers only one parameter and does not imply the real-parameter threshold or negative-\(s\) summatory law.
+
+## value
+
+PASS
+
+The result gives a complete answer to an explicitly posed modulus-two sign problem, including a sharp real-parameter phase transition, exact natural densities, and the contrast between infinite pointwise sign changes and a fixed cumulative bias. Those are natural structural invariants rather than a finite numerical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
