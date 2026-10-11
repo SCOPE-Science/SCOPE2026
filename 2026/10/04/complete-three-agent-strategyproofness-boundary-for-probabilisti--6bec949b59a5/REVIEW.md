@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite boundary is exhaustive. Every two-agent and three-agent strict profile is checked against every unilateral false report with exact rational PS allocations. A second PS implementation based on twelve exact microticks agrees profile-by-profile with the continuous event-driven implementation throughout the three-by-three universe. The resulting \(72\)-event set is then independently canonicalized, yielding exactly \(54\) bad profiles, two profile orbits, two event orbits, and the universal lottery difference. Direct stochastic-dominance tests also verify that no false report strictly dominates truth.
+## correctness
 
-Risk: the proof of the complete three-agent census is computational rather than a hand enumeration of all ten isomorphism types. The small universe, exact arithmetic, dual PS implementations, orbit identities, and closed normalized forms materially reduce implementation risk.
+PASS
 
-## Originality
-**PASS.** Bogomolnaia--Moulin already prove that PS is weakly but not fully strategyproof from three agents onward and print one profitable three-agent deviation. Aziz et al. reuse that structural example and later sample manipulability frequencies under selected utility models. The inspected sources do not state the exact \(54/216\) profile count, the \(72\) vulnerable agent-profile pairs, the second profile orbit, uniqueness of the false report for each vulnerable agent, or the fact that all failures share the same affine utility threshold.
+Fresh exact-rational event-driven PS computation over all 216 profiles and all 15 unilateral false reports per profile gives 72 full-strategyproofness violations on 54 profiles and 72 vulnerable agent-profile pairs, with no strict-SD improvement. Every recorded deviation has the same objectwise lottery delta \((-1/4,1/3,-1/12)\), yielding the stated utility inequality. The structural orbit description follows by relabeling and matches the two normalized event types. The 2-by-2 boundary is checked exhaustively.
 
-Risk: an unindexed note, thesis, software enumeration, or supplementary data set may contain the same small-market census. The full 2016 convex-strategyproofness paper was not available from the institutional endpoint during this check, although its abstract and bibliographic record were inspected.
+## originality
 
-## Value
-**PASS.** The distinction between weak and full strategyproofness is one of the foundational incentive facts about probabilistic serial. The result converts the classical existential three-agent counterexample into a complete first-boundary geometry: one quarter of all profiles are vulnerable, only two structural types occur, and every profitable cardinal realization lies in the same explicit utility cone. This is a natural local invariant of a canonical allocation mechanism, not an arbitrary parameter slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Prior work covers existence and minimum market size of PS manipulation, and a later paper gives a global incentive-ratio bound. The accessible primary manipulation paper reproduces one of the three-agent event types and studies sampled/algorithmic manipulability, but does not state the exact 54-profile/72-event census, the second orbit, unique-report property, or universal affine utility cone. Best-of-knowledge originality passes for this complete smallest-market boundary.
+
+## value
+
+PASS
+
+This is a complete classification at the minimal market where a canonical mechanism loses full strategyproofness. Exact incidence, orbit structure, unique reports, and one universal utility cone sharpen a classical existential counterexample into a reusable boundary theorem, which is mathematically and economically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
