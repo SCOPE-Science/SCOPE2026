@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Checks performed
-The proof was reconstructed from the canonical Ferrers ordering. The maximal-independent-set support was checked directly from neighborhood inclusion. The random-greedy output criterion for a fixed maximal independent set was checked in both directions, after which the two blocking subsystems were verified to use disjoint vertex-priority sets. The first-active-vertex recurrence for \(\Phi\) was then derived by conditioning on the earliest active vertex and deleting the blocked Ferrers prefix.
 
-The standalone script `artifacts/verify_chain_rgmIS.py` was executed from the package path. It enumerates every connected canonical chain degree sequence with total order at most eight, exhaustively enumerates every vertex permutation, computes greedy directly, and compares the complete exact-rational output law against the theorem. It also checks support equality and normalization. The observed output was `VERIFY_OK degree_sequences=127 permutations=2754350 support_points=383 max_total=8`.
+# Independent mathematical audit
 
-# Limits
-The exhaustive finite computation checks boundary cases, support classification on small graphs, and rational arithmetic; it is not the proof of the general theorem. The infinite statement follows from the structural classification, disjoint-block factorization, and exact recurrence. Literature comparison was targeted rather than exhaustive across every historical alias of chain/Ferrers/difference graphs. No independent external audit has been performed.
+## correctness
+
+PASS
+
+The support classification follows from nested neighborhoods: a maximal independent set must contain a prefix of the A-side and then exactly the B-tail beyond its last selected degree, with corners only where the degree jumps. For a fixed corner, the left and right blocking conditions depend on disjoint priority sets, hence factor. Conditioning on the earliest active vertex yields the terminating \(\Phi\) recurrence. An independent exhaustive reconstruction over every connected canonical chain graph with total order at most 7 matched the exact rational support and probabilities for every permutation.
+
+## originality
+
+PASS
+
+The chain/quasi-chain literature explicitly notes only linearly many maximal independent sets and exploits their support structure algorithmically. The general random-greedy MIS paper contains no chain-graph specialization. The audited factorized exact law and recursive corner probabilities therefore add a genuine stochastic classification not supplied by either source family.
+
+## value
+
+PASS
+
+Chain graphs are a canonical nested-neighborhood bipartite class. A complete exact law for a standard random greedy heuristic, expressed directly from the Ferrers degree sequence, is a natural stochastic invariant and gives more than support enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
