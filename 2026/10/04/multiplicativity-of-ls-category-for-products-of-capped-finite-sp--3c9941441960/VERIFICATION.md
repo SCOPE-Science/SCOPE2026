@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The quantified theorem is proved symbolically in `RESULT.md`. The computational artifact is a regression check of the finite order-theoretic mechanism, not a certificate for the universal quantifiers.
+# Independent mathematical audit
 
-`artifacts/verify.py` checks four representative products of capped antichain bases, including a three-factor product. For every test case it verifies:
+## correctness
 
-- the expected product number of global maxima;
-- coverage by principal opens at those maxima and contractibility of each such open via its maximum;
-- for every pair of distinct global maxima, existence of a differing coordinate whose two-top slice lies below one of the pair and hence inside any lower set containing both;
-- absence of beat points in the tested two-top slice; and
-- order preservation of the explicit factor retraction onto that slice.
+PASS
 
-The recorded replay output is:
+Let \(Z=\prod_i(P_i\oplus D_{m_i})\) and \(M=\prod_i m_i\). The \(M\) global maxima have principal opens with maxima, giving \(\operatorname{gcat}(Z)\le M\). If a categorical open contained two distinct global maxima, choose a differing coordinate \(j\) and fix points in all other bases. The resulting slice \(P_j\oplus D_2\) lies in the open. Projection back to the \(j\)-th factor turns null-homotopy of the ambient inclusion into null-homotopy of the slice inclusion; the explicit retraction \(P_j\oplus D_{m_j}\to P_j\oplus D_2\) would then make the slice contractible. That is impossible: reducing \(P_j\) to its nonsingleton Stong core preserves the two added maxima, and the capped core has no beat points. Hence each categorical open contains at most one global maximum, so \(\operatorname{cat}(Z)\ge M\). Since \(\operatorname{cat}\le\operatorname{gcat}\), both equal \(M\). The one-factor identities and reduced two-factor defect follow algebraically.
 
-```text
-CASE [(2, 2), (2, 2)] points 16 maxima 4 maximal_pairs 6
-CASE [(2, 2), (2, 3)] points 20 maxima 6 maximal_pairs 15
-CASE [(3, 3), (2, 2)] points 24 maxima 6 maximal_pairs 15
-CASE [(2, 2), (2, 2), (2, 2)] points 64 maxima 8 maximal_pairs 28
-VERIFY_OK cases=4 maximal_pairs=64
-```
+## originality
 
-The computation tests only capped antichain bases of the displayed sizes. It neither enumerates arbitrary finite bases nor substitutes for the Stong-core argument in the proof.
+PASS
+
+Mosquera-Lois--Tanaka Proposition 3.2 proves exactly the one-factor formula \(\operatorname{cat}(P\oplus D_m)=m\) for noncontractible \(P\), and its proof uses the same two-maxima retraction obstruction in one factor. Resultary also shows a prior SCOPE result giving quadratic topological complexity for one capped space, which already covers the equal-factor twofold category value indirectly. Those cases are not counted as new. The submitted final claim is the strictly broader arbitrary finite heterogeneous product theorem, with unrelated bases and cap sizes, plus the explicit unbounded reduced product-subadditivity defect. No inspected source or Resultary hit states or implies that heterogeneous product lower bound.
+
+## value
+
+PASS
+
+Exact product behavior is a natural LS-category question. This family exhibits a sharp non-Hausdorff pathology: reduced product subadditivity can fail by the explicit unbounded amount \((m-1)(n-1)\). The coordinate-slice/retraction obstruction is structural and reusable, not a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
