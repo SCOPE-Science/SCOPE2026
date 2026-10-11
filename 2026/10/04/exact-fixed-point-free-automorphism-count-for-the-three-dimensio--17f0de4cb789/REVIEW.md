@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The automorphism parameterization is reconstructed from the center and bracket of \(\mathfrak h_3(\mathbb F_q)\). The fixed-point condition becomes two determinant conditions, and the count follows from determinant fibers and one conjugacy class. The \(q=2\) boundary is included, and exhaustive checks over five small fields, including \(\mathbb F_4\), agree.
+## correctness
 
-## Originality
-PASS. The closest recent source proves existence and possible finite orders over \(\mathbb C\), not a finite-field census. Structural Heisenberg automorphism literature and exact fixed-point-free counts for finite groups were compared; no equivalent finite-field Lie-algebra formula was located. An older equivalent statement under different terminology remains the main residual risk.
+PASS
 
-## Value
-PASS. The exact count gives a sharp profile for the motivating invariant on the smallest nonabelian nilpotent Lie algebra: none over \(\mathbb F_2\), existence over every larger finite field, and density \(((q-2)/(q-1))^2\) tending to one.
+For the three-dimensional Heisenberg Lie algebra, the center and derived algebra are both the one-dimensional span of \(z\). Every automorphism therefore induces \(A\in\mathrm{GL}_2(\mathbb F_q)\) on the quotient, has two independent central shifts, and sends \(z\) to \(\det(A)z\). Thus there are \(q^2\) automorphisms above each quotient matrix and \(|\mathrm{Aut}|=q^3(q-1)^2(q+1)\). The matrix of \(\varphi-I\) is block triangular, so fixed-point-freeness is exactly \(\det(A-I)\ne0\) and \(\det A\ne1\). For fixed \(\delta\in\mathbb F_q^\times\setminus\{1\}\), the determinant fiber has \(q(q^2-1)\) matrices. Those with eigenvalue one have characteristic polynomial \((t-1)(t-\delta)\) with distinct roots and hence form the conjugacy class of \(\mathrm{diag}(1,\delta)\), whose centralizer has order \((q-1)^2\); the excluded class therefore has size \(q(q+1)\). This leaves \(q(q+1)(q-2)\) admissible matrices per determinant and \(q(q+1)(q-2)^2\) quotient matrices in total; multiplying by the shifts gives \(q^3(q+1)(q-2)^2\). The assigned verifier exhaustively reproduces the quotient count over \(\mathbb F_2,\mathbb F_3,\mathbb F_4,\mathbb F_5,\mathbb F_7\); those finite checks corroborate rather than replace the all-prime-power conjugacy argument.
 
-## Closest literature and limitations
-Burde--Dekimpe classify the low-dimensional complex existence problem; Liu--Tang study Heisenberg automorphism groups and subgroups; Hayat--López-Aguayo--Abbas count fixed-point-free automorphisms of certain finite groups. None of the inspected statements gives the present formula. The theorem is restricted to dimension three and is not refined by automorphism order.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Burde and Dekimpe's full current primary paper studies existence and possible orders of fixed-point-free automorphisms over characteristic-zero Lie algebras; its low-dimensional Heisenberg discussion supplies explicit complex examples but no finite-field enumeration. Liu and Tang study automorphism groups of Heisenberg Lie algebras and thus provide the natural structural background, but no exact finite-field fixed-point-free count was located. Resultary's exact semantic query returns the assigned Heisenberg formula as the same-object record and a separate general theorem for finite abelian groups; the latter counts a different algebraic category and does not imply the determinant-twisted Heisenberg condition. The formula therefore survives best-of-knowledge originality.
+
+## value
+
+PASS
+
+The three-dimensional Heisenberg algebra is the canonical smallest nonabelian nilpotent Lie algebra, and fixed-point-free automorphisms are a standard structural property. An exact finite-field count, including the sharp \(q=2\) exception and asymptotic proportion, is a natural algebraic invariant. The determinant-fiber argument makes the result reusable rather than a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
