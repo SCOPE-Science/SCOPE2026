@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:00:21Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 2ed6a39644a634844ac12ead3c49df0278503197",
+        "verify_equal_pair_alabama.py blob 977e1789353c2286b9d387b668b35d2b75551b20",
+        "Fresh independent exact-rational/integer Hamilton replay for all primitive a<=20.",
+        "Janson--Linusson, arXiv:1104.2137 / Journal of Applied Probability 49 (2012), DOI:10.1239/jap/1346955333."
+      ],
+      "rationale": "Writing the fractional-remainder numerators as y,y,x with x congruent to -2y modulo P splits the unique Hamilton allocations into two strict regions: the small state receives the unique surplus seat for 0<y<P/3, while the two equal large states uniquely receive the two surplus seats for 2P/3<y<P. Since a=(P-c)/2, advancing one house sends y to y+a without wrap in the first region; the transition crosses to the second region exactly when y>(P+3c)/6. That inequality also keeps the small state's lower quota fixed, so it loses one seat. The integer count of residues in the open interval is the displayed ceil/floor formula. A fresh independent exact Hamilton replay over 127 primitive pairs with a<=20 matched the theorem, including (3,3,1), (7,7,2), and (9,9,1).",
+      "risks": [
+        "Cutoff-tied house sizes are intentionally excluded; the theorem does not assign a random or deterministic tie-breaking convention there."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The probability paper gives asymptotic formulas under generic assumptions and explicitly excludes/generalizes away from rational ties.",
+          "Balinski--Young provide the classical Hamilton method and paradox framework."
+        ],
+        "reasoning": "Neither source provides the exact tie-independent periodic loss count for the equal-pair rational family.",
+        "searches": [
+          "Janson--Linusson DOI:10.1239/jap/1346955333",
+          "Balinski--Young, The Quota Method of Apportionment, 1975"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:1104.2137 / DOI:10.1239/jap/1346955333",
+        "Balinski--Young 1975"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Periodicity alone does not identify which residues cause losses or handle equal-remainder cutoffs.",
+          "The equal-pair symmetry plus exact quota-region analysis yields the new interval."
+        ],
+        "reasoning": "The published example is one specialization, not a theorem implying the family formula.",
+        "searches": [
+          "Janson--Linusson rational periodicity discussion and explicit 3/7 example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No equivalent Resultary finding appeared.",
+          "Janson--Linusson give the (3/7,3/7,1/7) example and leave general rational exact formulas open."
+        ],
+        "reasoning": "Residue, largest-remainder, periodic seat-change and rational-population formulations were compared.",
+        "searches": [
+          "Resultary: Hamilton Alabama paradox rational populations equal pair (a,a,c) exact loss frequency tie independent",
+          "Janson--Linusson rational population Alabama periodicity and (3/7,3/7,1/7)",
+          "Searches for equal populations largest remainder Alabama residue formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or formula matching the interval/count was located."
+        ],
+        "reasoning": "The result is symbolic for an infinite rational family, not a finite tabulation.",
+        "searches": [
+          "Resultary exact equal-pair query",
+          "Search for the interval (P+3c)/6 < y < P/3"
+        ]
+      },
+      "rationale": "Janson and Linusson explicitly leave extension of their probability formula to all population vectors, particularly rational ones, open and note periodicity in the rational case. Their paper includes the anchor vector (3/7,3/7,1/7), where the small state loses on the 3-to-4 transition modulo 7, but does not give the all-(a,a,c) residue interval or exact count. Resultary found no equivalent equal-pair formula.",
+      "residual_risks": [
+        "An apportionment thesis or exercise may contain this symmetric rational-family derivation without indexed keywords."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTAINS_ANCHOR_EXAMPLE_AND_OPEN_RATIONAL_DIRECTION_NOT_EQUAL_PAIR_FORMULA",
+          "evidence": [
+            "The paper says its formula is not extended to all, particularly rational, population vectors and records the 3/7 equal-pair example."
+          ],
+          "identifier_or_url": "arXiv:1104.2137; DOI:10.1239/jap/1346955333",
+          "material_read": "Full public arXiv text passages on rational periodicity, the open extension to rational population vectors, and the explicit (3/7,3/7,1/7) periodic example.",
+          "method": "Public full-text inspection.",
+          "title": "The probability of the Alabama paradox",
+          "trigger": "Closest primary source on rational periodic Alabama losses."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Closed interval criterion and count for every primitive equal-pair triple.",
+        "Recovers the published 3/7 example and covers even and odd periods."
+      ],
+      "rationale": "This gives an exact infinite-family solution inside a rational regime explicitly singled out as delicate because seat changes are periodic and ties matter. The tie-independent formulation isolates convention-free losses and yields both their exact residues and frequency.",
+      "risks": [
+        "It does not solve arbitrary unequal rational triples or tied-cutoff transitions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For primitive populations (a,a,c) with a>c>0 under Hamilton apportionment, tie-independent Alabama losses occur exactly when (P+3c)/6 < (ha mod P) < P/3, P=2a+c, giving the stated exact count and periodic frequency; only the smaller state loses.",
+  "limitations": [
+    "Three states with two equal larger populations only.",
+    "Tie-dependent transitions excluded."
+  ],
+  "schema_version": 1
+}
