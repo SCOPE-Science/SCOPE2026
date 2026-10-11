@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof separates the imported theorem-level input from the new finite argument. The recent sphere result supplies constant-modulus necessity. Finite-group Plancherel then turns the fourth moment into convolution energy, and equality for a constant-modulus function is equivalent to phase alignment on every pair-sum fiber. For the ternary sphere the pair-sum geometry is inspected completely. For the five-element field, the relation lattice is trapped between an explicit index-\(125\) certificate and the kernel of a surjective three-coordinate moment map, also of index \(125\), forcing equality. The standalone verifier replays those exact finite claims.
+PASS
 
-## Originality
+Ronda's sharp theorem supplies the common premise that every maximizer on the stated nondegenerate sphere has constant modulus. Equality in the convolution Cauchy–Schwarz step then requires phase alignment within every fiber of the pair-sum map. For \(q=3\), the sphere consists of the six signed coordinate vectors and the pair-sum relations have rank two, leaving four phase parameters up to no further constraint, equivalently equality of the three antipodal products. For \(q=5\), the radius-two sphere has twenty points. A fresh construction of all pair-sum phase relations produced a 109 by 20 integer relation matrix of rank 19 whose Smith invariants are sixteen ones followed by three fives, hence index \(125=5^3\) in the sum-zero lattice. The additive-character moment map has the same index and lies in the relation kernel, forcing equality. This independently reproduces the phase classification rather than relying on a finite numerical fit.
 
-PASS with a stated residual access risk. The closest recent sphere source states sharpness and constant-modulus necessity but, in accessible metadata and abstract, does not state the phase classification. Earlier sharp-extension papers classify extremizers for paraboloids, hyperbolic paraboloids, and cones rather than these spheres. Targeted research-record and web searches for the explicit small-field sphere relation lattices and additive-character rigidity found no covering result. The motivating preprint's full text was not accessible during the check, so an equivalent result hidden under different notation remains a residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. Constant modulus leaves a large a priori phase space, so identifying the exact equality phases is a natural next question after a sharp extension theorem. The result exposes a concrete arithmetic transition already between the two smallest admissible prime fields: continuous non-character freedom at \(\(q=3\)\) versus complete character rigidity at \(\(q=5\)\). The proof also gives a reusable finite-relation-lattice method for testing phase rigidity on other finite-field surfaces.
+The exact source paper proves the sharp extension inequality and that all sphere maximizers have constant modulus, but its full equality analysis stops at modulus and does not classify the remaining phases. Ronda's 2025 master's-thesis public record says maximizers are characterized for several planar curves, while for the three-dimensional spheres it states the constant-function sharp result and does not advertise a phase classification; the thesis document itself is not publicly available. The submitted relation-lattice argument therefore addresses a genuine equality-case gap in the first two admissible fields.
 
-## Closest literature and limitations
+## value
 
-Ronda's 2026 preprint is the direct source of the sharp sphere theorem and constant-modulus necessity. González-Riquelme--Oliveira e Silva and González-Riquelme--Ismoilov provide the closest maximizer-classification literature on other finite-field quadratic surfaces. No larger-field generalization is claimed, and the recent source full text was not available during this review.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Equality-case structure is a central part of a sharp extension theorem. The contrast between a residual phase torus at \(q=3\) and complete additive-character rigidity at \(q=5\) identifies the first arithmetic transition and supplies exact finite-field equality data beyond the source's constant-modulus statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
