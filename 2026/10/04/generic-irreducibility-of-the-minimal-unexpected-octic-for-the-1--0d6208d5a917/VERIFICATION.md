@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 artifacts/verify.py`. A successful replay prints `VERIFY_OK`.
+# Independent mathematical audit
 
-The script performs exact integer/rational arithmetic and checks:
+## correctness
 
-- all 18 source points lie on the archived degree-\(8\) form;
-- all 28 partial derivatives of total order below \(7\) vanish at \(P_0=[3:5:1]\);
-- the resulting \(46\times45\) interpolation matrix has a nonzero kernel vector and rank \(44\) modulo \(1000003\), \(1000033\), \(10007\), and \(65537\);
-- the 18 point-evaluation rows have rank \(18\), so \(\dim I(Z)_8=27\);
-- after translation to \((u,v)=(0,0)\), the curve has only degree-\(7\) and degree-\(8\) terms, so the multiplicity at \(P_0\) is exactly \(7\);
-- the degree-\(8\) piece equals the displayed product, while the degree-\(7\) piece has the displayed coefficients;
-- the exact rational gcd of \(A_7(u,1)\) and \(B_8(u,1)\) is constant, and \(A_7(1,0)\neq0\), excluding a common homogeneous factor.
+PASS
 
-The script verifies the explicit witness and the finite algebra used in the proof. It does not computationally enumerate the exceptional assigned-point locus. The generic step is theoretical: the source gives generic one-dimensionality, rank \(44\) persists near the witness, and the reducible locus in the projective space of octics is Zariski closed.
+The witness certificate was independently reconstructed. The 18 point conditions plus all 28 affine jets of total order below seven at \(P_0=[3:5:1]\) give a \(46\times45\) matrix annihilating the supplied octic coefficient vector; fresh modular elimination at primes 1000003 and 1000033 gives rank 44, so the kernel is exactly one-dimensional. Translation to \(P_0\) has only degree-seven and degree-eight pieces. Their dehomogenizations are coprime, and the degree-seven piece is nonzero in the direction at infinity, so no line through \(P_0\) divides the octic. If a degree-eight curve of multiplicity seven were reducible, the sum of degree-minus-multiplicity deficits over factors would be one; with at least two factors, some positive-degree factor has equal degree and multiplicity and therefore splits into lines through \(P_0\), contradiction. Thus the witness is absolutely irreducible. The source supplies generic one-dimensionality; the nonzero rank-44 minor keeps the kernel a line near the witness, and reducible octics form a Zariski-closed subset, so irreducibility holds for general assigned point.
+
+## originality
+
+PASS
+
+Originality passes. The complete Malara--Pokora--Tutaj-Gasińska source was inspected: Theorem 5.1 gives a general irreducibility criterion for a minimal unexpected curve, while Example 5.10 computes this exact 18-point configuration's splitting type \((7,10)\) and only concludes existence in degrees eight and nine. The example does not evaluate the deletion criterion or assert irreducibility. The audited exact witness proves irreducibility directly and then uses openness to obtain the generic statement. Resultary search found the audited record as the exact match and no earlier configuration-specific theorem.
+
+## value
+
+PASS
+
+Example 5.10 is a concrete plus-one-generated configuration singled out in the source, and irreducibility of its unique minimal unexpected curve is a natural geometric property explicitly controlled by the source's general theorem but left unevaluated there. The exact witness plus openness gives a clean configuration-specific theorem that future work can use without recomputing all deletion splitting types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

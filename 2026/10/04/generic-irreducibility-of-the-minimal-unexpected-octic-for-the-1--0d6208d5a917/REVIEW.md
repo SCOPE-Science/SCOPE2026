@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source fixes the exact 18-point configuration, proves splitting type \((7,10)\), and gives a unique minimal unexpected octic for a general assigned point. For the rational witness \(P_0=[3:5:1]\), the packaged verifier checks the 18 point equations and all 28 order-\(<7\) jet equations, exhibits a nonzero kernel vector, and obtains interpolation rank \(44\) modulo several primes. The translated curve is exactly \(A_7+B_8\) with \(\gcd(A_7,B_8)=1\). The degree-minus-multiplicity argument proves that any reducible degree-\(8\), multiplicity-\(7\) curve must have a line factor through \(P_0\), which is impossible. Generic irreducibility then follows from algebraic variation of the one-dimensional kernel and closedness of the reducible locus.
+## correctness
 
-Risk: the openness step uses the source's generic uniqueness theorem, not an exhaustive symbolic computation in the two parameters of the assigned point. The use is legitimate: generic rank \(44\) forces all maximal minors to vanish identically, while the exact rank-\(44\) witness supplies a nonempty rank-constant open set.
+PASS
 
-## Originality
-PASS. The closest primary source is Malara--Pokora--Tutaj-Gasińska, Example 5.10. It computes the arrangement exponents, Tjurina number, splitting type, and the existence range \(j\in\{8,9\}\), but does not state that the minimal octic for this example is irreducible. Its Theorem 5.1 records a general irreducibility criterion. Cook II--Harbourne--Migliore--Nagel provide the broader unexpected-curve framework and irreducibility criteria, not this configuration-specific certificate. Exact-coordinate, exponent-triple, source-identifier, and alias searches did not locate a publication or database finding that states or implies this explicit result.
+The witness certificate was independently reconstructed. The 18 point conditions plus all 28 affine jets of total order below seven at \(P_0=[3:5:1]\) give a \(46\times45\) matrix annihilating the supplied octic coefficient vector; fresh modular elimination at primes 1000003 and 1000033 gives rank 44, so the kernel is exactly one-dimensional. Translation to \(P_0\) has only degree-seven and degree-eight pieces. Their dehomogenizations are coprime, and the degree-seven piece is nonzero in the direction at infinity, so no line through \(P_0\) divides the octic. If a degree-eight curve of multiplicity seven were reducible, the sum of degree-minus-multiplicity deficits over factors would be one; with at least two factors, some positive-degree factor has equal degree and multiplicity and therefore splits into lines through \(P_0\), contradiction. Thus the witness is absolutely irreducible. The source supplies generic one-dimensionality; the nonzero rank-44 minor keeps the kernel a line near the witness, and reducible octics form a Zariski-closed subset, so irreducibility holds for general assigned point.
 
-Residual risk: a downstream paper, supplementary calculation, thesis, or other unindexed source could contain the same explicit octic or an equivalent deletion-splitting computation.
+## originality
 
-## Value
-PASS. For this source example, existence of an unexpected octic was known but its basic geometric status as irreducible or reducible was left unresolved in the example itself. Irreducibility is not cosmetic here: the general theory singles it out through a deletion/splitting-type criterion, and it distinguishes one integral unexpected curve from a reducible fixed-component phenomenon. The exact witness also gives a compact reproducible method for deciding that structural question without requiring a full classification of the exceptional assigned-point locus.
+PASS
 
-## Closest literature and limitations
-The lead source is arXiv:2007.04162v1 / doi:10.1007/s10711-021-00602-5, especially Theorem 5.1 and Example 5.10. The broader comparison is arXiv:1602.02300 / doi:10.1112/S0010437X18007376. The result does not classify exceptional assigned points, other singularities, or the degree-\(9\) system.
+Originality passes. The complete Malara--Pokora--Tutaj-Gasińska source was inspected: Theorem 5.1 gives a general irreducibility criterion for a minimal unexpected curve, while Example 5.10 computes this exact 18-point configuration's splitting type \((7,10)\) and only concludes existence in degrees eight and nine. The example does not evaluate the deletion criterion or assert irreducibility. The audited exact witness proves irreducibility directly and then uses openness to obtain the generic statement. Resultary search found the audited record as the exact match and no earlier configuration-specific theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Example 5.10 is a concrete plus-one-generated configuration singled out in the source, and irreducibility of its unique minimal unexpected curve is a natural geometric property explicitly controlled by the source's general theorem but left unevaluated there. The exact witness plus openness gives a clean configuration-specific theorem that future work can use without recomputing all deletion splitting types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
