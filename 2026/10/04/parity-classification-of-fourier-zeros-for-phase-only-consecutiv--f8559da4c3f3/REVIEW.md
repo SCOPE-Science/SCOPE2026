@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the all-modulus claim to a cubic root-geometry lemma. Vieta's formulas show that for three unit-circle roots, equal coefficient moduli are equivalent to the unit modulus of their sum; an exact trigonometric factorization forces an antipodal pair. The converse is immediate from the elementary symmetric functions. The finite cyclic classification follows by whether the character grid contains antipodes. Explicit witness families realize every listed count.
+## correctness
 
-## Originality
-PASS. The closest inspected archive-era work treats trigonometric trinomials and continuous maximum-modulus/Sidon questions. General self-inversive-polynomial work treats unit-circle roots but not the equal-modulus antipodal specialization or the resulting finite-grid zero spectrum. A current four-frequency Sidon treatment uses the same frequency set but optimizes a different continuous norm and does not imply the zero-count theorem. A prior three-point phase-only theorem treats three support points, not the cubic geometry here. Residual risk remains for differently indexed older sequence-design or cyclotomic literature.
+PASS
 
-## Value
-PASS. Phase-only coefficients are a natural harmonic-analysis constraint, and four consecutive frequencies are the minimal setting where three sampled zeros are possible. The parity split is an exact structural phenomenon valid for every modulus, with a short mechanism that can be reused in sparse Fourier zero questions.
+Fourier zeros are roots of the coefficient cubic on \(\mu_N\). If all three roots are unimodular, Vieta gives \(e_2=e_3\overline{e_1}\), so equal coefficient moduli reduce to \(|e_1|=1\). After rotating one root to one, this is equivalent to \(2\cos d(\cos s+\cos d)=0\), forcing an antipodal pair; the converse follows immediately from roots \(\{u,-u,v\}\). Sampling that triple on \(\mu_N\) gives three zeros exactly when \(-1\in\mu_N\), and explicit choices realize every smaller listed count. A fresh symbolic replay independently verified the trigonometric factorization.
 
-## Closest literature and limitations
-The result does not classify arbitrary four-point supports or unequal coefficient magnitudes, and it makes no claim about continuous maximum-modulus optimization. Its novelty assessment is statement-level rather than title-level and remains subject to the residual indexing risk described above.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lalín-Smyth give general criteria for self-inversive polynomials to have all zeros on the unit circle, while Neuwirth studies continuous maximum-modulus/Sidon problems. Neither inspected source states the equal-modulus cubic antipodal classification or its finite-root-of-unity parity consequence. The closest Resultary theorem for arbitrary four-sparse signals on prime cyclic groups covers only prime dimensions and support geometry, not all composite/even \(N\) or the cubic structural equivalence.
+
+## value
+
+PASS
+
+The theorem gives a complete uncertainty-style zero spectrum for the first consecutive support where three sampled zeros can occur and explains the parity obstruction by a rigid unit-circle root geometry. The structural cubic lemma is independently reusable and not merely a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof of the infinite statement is analytic. The accompanying `verify.py` is a finite corroboration of the witness constructions and coefficient-modulus identities, not an exhaustive proof over all moduli.
+# Independent mathematical audit
 
-The verifier checks each integer \(4\le N\le300\). For every claimed zero count, it builds a cubic from an antipodal unit-circle root pair and a third unit root, verifies that all four coefficients have modulus \(1\), evaluates the polynomial at every \(N\)-th root of unity, and confirms the exact predicted zero count within a conservative floating-point tolerance. The parity-excluded three-zero case is proved analytically in `RESULT.md`, not inferred from the finite sweep.
+## correctness
 
-Scientific limits: no claim is made for unequal coefficient magnitudes, nonconsecutive four-point supports, or support aliasing when \(N<4\).
+PASS
+
+Fourier zeros are roots of the coefficient cubic on \(\mu_N\). If all three roots are unimodular, Vieta gives \(e_2=e_3\overline{e_1}\), so equal coefficient moduli reduce to \(|e_1|=1\). After rotating one root to one, this is equivalent to \(2\cos d(\cos s+\cos d)=0\), forcing an antipodal pair; the converse follows immediately from roots \(\{u,-u,v\}\). Sampling that triple on \(\mu_N\) gives three zeros exactly when \(-1\in\mu_N\), and explicit choices realize every smaller listed count. A fresh symbolic replay independently verified the trigonometric factorization.
+
+## originality
+
+PASS
+
+Lalín-Smyth give general criteria for self-inversive polynomials to have all zeros on the unit circle, while Neuwirth studies continuous maximum-modulus/Sidon problems. Neither inspected source states the equal-modulus cubic antipodal classification or its finite-root-of-unity parity consequence. The closest Resultary theorem for arbitrary four-sparse signals on prime cyclic groups covers only prime dimensions and support geometry, not all composite/even \(N\) or the cubic structural equivalence.
+
+## value
+
+PASS
+
+The theorem gives a complete uncertainty-style zero spectrum for the first consecutive support where three sampled zeros can occur and explains the parity obstruction by a rigid unit-circle root geometry. The structural cubic lemma is independently reusable and not merely a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
