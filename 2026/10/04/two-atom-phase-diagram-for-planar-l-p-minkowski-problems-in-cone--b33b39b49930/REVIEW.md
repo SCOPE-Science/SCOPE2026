@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The support-sign convention is fixed by \(u_i=-n_i\), so \(h_C(A,u_i)=-a_i\). The active-facet interval \(c<r<b\), both facet lengths, the two atom-mass formulas, the reduction to \(\Phi_p\), the scale law for \(p\ne2\), and the \(p=2\) scale cancellation were independently reconstructed. The derivative analysis reduces to minimizing \(H(r)\), whose unique minimizer is \(\sqrt{bc}\); this gives the exact threshold and root multiplicities. Finite numerical checks in `verify.py` agree with the analytic formulas but are not used as proof of the infinite statement.
+## correctness
 
-## Originality
-PASS. The closest recent paper proves general existence and uniqueness for \(0\le p\le1\) but does not state a two-atom explicit inverse or a multiplicity threshold. The 2022 \(C\)-coconvex \(L_p\) paper provides the measure definition, compact-support existence for \(p\ne0,n\), and uniqueness only for \(0<p<1\); it explicitly excludes exact scaling at \(p=n\), which is \(p=2\) here. Khovanskiĭ–Timorin give planar support-number geometry but not this \(L_p\) inverse or phase transition, and Schneider's one-point example does not cover interacting two-atom data. Targeted database and literature searches for two-atom, two-facet, pseudo-cone, and \(C\)-close formulations found no equivalent statement.
+PASS
 
-## Value
-PASS. Two atoms are the first interacting discrete datum after the known one-point model, and the result completely solves that natural benchmark rather than an arbitrary numerical slice. It supplies a closed constructive inverse in the recently solved \(0\le p\le1\) regime, identifies the critical homogeneity \(p=2\) exactly, and exhibits a sharp geometry-dependent transition to three solutions for large \(p\). These facts give a concrete test case for general existence/continuity theory and for numerical solvers of the corresponding discrete problem.
+The planar reduction is correct. Monotonicity of the boundary normal forces exactly two interior facets, with active shape interval \(c<r<b\). Direct line-intersection geometry gives the two facet lengths and hence the mass ratio \(\Phi_p(r)=r^{1-p}(r-c)/(c(b-r))\); for \(p\ne2\) the first mass fixes scale. Its logarithmic derivative reduces criticality to \(p-1=H(r)\), where \(H\) has unique minimum at \(r=\sqrt{bc}\), giving the displayed threshold and the exact one/two/three-root trichotomy. At \(p=2\) scale cancels and the two mass equations reduce to the stated compatibility curve. Fresh symbolic differentiation gave \(H'(r)\) proportional to \(r^2-bc\), confirming the critical geometry.
 
-## Closest literature and limitations
-The closest sources are Ai–Ye–Zhu (arXiv:2609.23962v1), Yang–Ye–Zhu (arXiv:2204.00860v1), Schneider's *Pseudo-cones* (arXiv:2305.00452v1), and Khovanskiĭ–Timorin's planar support-number discussion. The result is limited to dimension two and exactly two interior atom directions. A residual bibliographic risk remains that an equivalent elementary calculation appears in a source not indexed by the searches performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes with the focal-access limitation retained. The recent C-close source establishes the surrounding general existence/continuity regime, while the fully inspected earlier C-coconvex source gives exact-existence and uniqueness ranges, but neither accessible theorem supplies the two-atom inverse, the scale-critical compatibility curve, or the geometry-dependent transition to a three-solution region. Resultary's exact two-atom search returned the assigned theorem and no stronger covering record.
+
+## value
+
+PASS
+
+Two atoms are the first nontrivial interacting finite-support datum in the recently active C-close Lp Minkowski problem. The result gives a complete constructive inverse in the uniqueness regime and identifies both the exact homogeneity degeneracy and a sharp geometry-dependent multiplicity transition outside it. That is a natural benchmark for the general theory and for discrete numerical solvers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
