@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:49:32.036416Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 34c9f31628118f2a1788e0916130d2a233593f59",
+        "verify_mapping_regression.py blob 54785b80d67a3ee03d39a17f5cb220f0a20bd90d",
+        "Hansen--Jaworski, Random mappings with Ewens cycle structure, Ars Combinatoria 112 (2013), peer-reviewed author PDF"
+      ],
+      "rationale": "The mathematics is correct. Counting the cyclic set, a permutation on it, and the rooted forest gives the stated cyclic-point mass and tail. Conditional on L=m the component count is the cycle count of a uniform m-permutation, so the Bernoulli-sum coupling, strict stochastic increase, and positive covariance for increasing transforms follow. Tail summation gives the exact covariance identity. Birthday scaling gives L divided by square-root n converging to Rayleigh with moment convergence, and H_m equals log m plus Euler's constant plus a vanishing error; this yields the stated covariance constant. The conditional cycle-count variance is H_m minus the second harmonic sum, so total variance is one half log n plus a bounded term and the correlation constant follows. The package's exact enumeration through n=7 is consistent with the analytic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior source gives the conditional permutation structure in a model broad enough to contain the uniform mapping.",
+          "Classical cyclic-point tails and permutation cycle moments supply the remaining inputs."
+        ],
+        "reasoning": "The prior structural result plus classical distributional facts dominate the regression statement.",
+        "searches": [
+          "Hansen--Jaworski, Random mappings with Ewens cycle structure, Ars Combinatoria 112 (2013), peer-reviewed author PDF",
+          "Hansen--Jaworski, Random mappings with exchangeable in-degrees, DOI:10.1002/rsa.20187",
+          "Kupka, The distribution and moments of the number of components of a random function, DOI:10.2307/3214607",
+          "classical Feller/Chinese-restaurant cycle-count Bernoulli representation",
+          "Resultary semantic query: random mappings cyclic points components conditional cycles positive regression covariance asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Hansen--Jaworski, Random mappings with Ewens cycle structure, Ars Combinatoria 112 (2013), peer-reviewed author PDF",
+        "Hansen--Jaworski, Random mappings with exchangeable in-degrees, DOI:10.1002/rsa.20187",
+        "Kupka, The distribution and moments of the number of components of a random function, DOI:10.2307/3214607",
+        "classical Feller/Chinese-restaurant cycle-count Bernoulli representation",
+        "Resultary semantic query: random mappings cyclic points components conditional cycles positive regression covariance asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adding one more cyclic vertex adds one Bernoulli cycle-start indicator under the standard coupling.",
+          "Monotone regression, positive covariance of increasing transforms, and mean H_m are then immediate; the covariance and correlation constants are direct moment calculations."
+        ],
+        "reasoning": "No nonstandard new lemma is needed beyond published/classical facts.",
+        "searches": [
+          "Hansen--Jaworski, Random mappings with Ewens cycle structure, Ars Combinatoria 112 (2013), peer-reviewed author PDF",
+          "classical Feller/Chinese-restaurant cycle-count Bernoulli representation",
+          "classical uniform-mapping cyclic-point distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The peer-reviewed construction chooses the cyclic set, a rooted forest, and a permutation on the cyclic vertices.",
+          "For the uniform case the permutation is uniform, so component count is exactly its cycle count."
+        ],
+        "reasoning": "The audited Bernoulli-mixture formulation is the standard sequential cycle construction applied conditionally.",
+        "searches": [
+          "Hansen--Jaworski, Random mappings with Ewens cycle structure, Ars Combinatoria 112 (2013), peer-reviewed author PDF",
+          "Hansen--Jaworski, Random mappings with exchangeable in-degrees, DOI:10.1002/rsa.20187",
+          "Kupka, The distribution and moments of the number of components of a random function, DOI:10.2307/3214607",
+          "classical Feller/Chinese-restaurant cycle-count Bernoulli representation",
+          "Resultary semantic query: random mappings cyclic points components conditional cycles positive regression covariance asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching table was found, but exact wording is unnecessary once the claim follows from the prior conditional construction."
+        ],
+        "reasoning": "Implication coverage is decisive; search absence does not restore originality.",
+        "searches": [
+          "Resultary semantic query: random mappings cyclic points components conditional cycles positive regression covariance asymptotics",
+          "targeted searches for covariance of cyclic points and components"
+        ]
+      },
+      "rationale": "Originality fails under the implication standard. The 2013 Hansen--Jaworski construction explicitly conditions on the number of cyclic vertices and then applies a uniform permutation to those vertices in the uniform case; the same paper gives the sequential cycle construction, whose new-cycle indicators are independent Bernoulli variables with probabilities one over the insertion index. Together with the classical exact cyclic-point law for a uniform mapping, this already yields the audited joint mixture. Strict stochastic regression and covariance positivity are immediate monotone-coupling corollaries. The exact covariance sum and the displayed constants then follow by routine tail summation, the classical birthday/Rayleigh scaling of cyclic points, and the harmonic-number expansion. The final claim is therefore a useful synthesis, but it is mechanically implied by established ingredients rather than an original theorem under the required bar.",
+      "residual_risks": [
+        "Older bivariate generating-function treatments may contain the covariance constants explicitly, but this is not needed for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_STRUCTURAL_IMPLICATION",
+          "evidence": "Conditional component count is the cycle count of the permutation on the cyclic vertices; the sequential construction yields the Bernoulli cycle increments.",
+          "identifier_or_url": "Ars Combinatoria 112 (2013), 307--322",
+          "material_read": "Peer-reviewed author PDF through the construction section; page images were inspected. It explicitly builds the mapping from the cyclic vertices and an independent Ewens permutation, with the uniform case at parameter one.",
+          "method": "lawful full primary PDF with page-image inspection",
+          "title": "Random mappings with Ewens cycle structure",
+          "trigger": "Direct prior conditional construction."
+        },
+        {
+          "assessment": "BROADER_RANDOM_MAPPING_DISTRIBUTION_FRAMEWORK",
+          "evidence": "The source explicitly treats distributions of cyclic points and components in a model containing the uniform case.",
+          "identifier_or_url": "DOI:10.1002/rsa.20187",
+          "material_read": "Primary abstract and publication record.",
+          "method": "lawful primary-source comparison",
+          "title": "Random mappings with exchangeable in-degrees",
+          "trigger": "Earlier broad source for cyclic-point and component distributions."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Hansen--Jaworski, Random mappings with Ewens cycle structure, Ars Combinatoria 112 (2013), peer-reviewed author PDF",
+        "Hansen--Jaworski, Random mappings with exchangeable in-degrees, DOI:10.1002/rsa.20187",
+        "Kupka, The distribution and moments of the number of components of a random function, DOI:10.2307/3214607",
+        "classical Feller/Chinese-restaurant cycle-count Bernoulli representation",
+        "Resultary semantic query: random mappings cyclic points components conditional cycles positive regression covariance asymptotics"
+      ],
+      "rationale": "The two statistics are important, but after the published conditional-permutation construction is recognized, the regression coupling and mixed moments are routine consequences of standard permutation-cycle and birthday asymptotics. Under the required value bar this is a polished consequence package rather than a distinct motivated mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication is withheld because every frozen package contains operational workflow material in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files. The complete 36-file recursive inventory was read and semantically inspected; RESULT.md, SLOGAN.txt, and computational artifacts were clear of the checked platform and workflow disclosures. No exact guarded sanitizing replacement bytes were prepared in this run."
+  ],
+  "schema_version": 1
+}
