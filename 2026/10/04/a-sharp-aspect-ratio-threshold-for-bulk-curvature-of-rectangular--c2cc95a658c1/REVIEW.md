@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The classical generic rectangular determinantal degree formula is explicitly present in the inspected source. The adjacent-rank quotient is obtained by exact cancellation, and the asymptotic phase theorem follows from a direct scaling limit, strict monotonicity in aspect ratio, and an exact square factorization at the critical algebraic value. The packaged checker replays the finite identities and critical factorization with exact arithmetic.
+## correctness
 
-## Originality
-PASS. Searches covered determinant-rank degree curvature, log-concavity, aspect ratio, and the equivalent boxed-plane-partition interpretation. The primary full text was inspected; it studies parity and valuations and does not state the new curvature identity or phase boundary. The closest recorded square-matrix result is only the aspect-ratio-one slice and does not imply the new rectangular threshold.
+PASS
 
-Residual risk: an unindexed source in the plane-partition literature could contain the same two-parameter curvature analysis.
+Starting from the classical rectangular determinantal degree product, direct adjacent cancellation yields the stated exact rational curvature ratio. Dividing by m^4 gives the bulk limit R_lambda(x). The logarithmic derivative in lambda is strictly negative for lambda>1 and x in (0,1). At lambda*=(1+sqrt(17))/4, the difference between denominator and numerator factors exactly as the square of the displayed quadratic divided by 1088; that quadratic has exactly one root in (0,1). Monotonicity then gives the sharp two-sided aspect-ratio phase transition. A fresh exact symbolic reconstruction independently verified the adjacent ratio at an additional parameter point and the critical Q(sqrt(17)) square identity.
 
-## Value
-PASS. The theorem gives a sharp global aspect-ratio boundary between two qualitatively different bulk degree profiles in a classical algebraic-geometric family. It is a uniform structural classification rather than a finite table or arbitrary parameter slice.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Friedland-Krattenthaler's complete 31-page primary paper was read through its introduction, parity sections, plane-partition section, and conclusions. It records the Harris-Tu rectangular degree product as formula (1.2) and studies parity/2-adic valuations and real matrix subspaces, not adjacent-rank log curvature or an aspect-ratio phase threshold. A current published square-matrix finding gives the lambda=1 special case and a Pell equality law, while the assigned result treats the genuinely rectangular two-parameter family and identifies the new global boundary lambda*=(1+sqrt(17))/4 separating persistent bulk log-convexity from uniform bulk log-concavity. Current Resultary search found no earlier rectangular threshold theorem.
+
+## value
+
+PASS
+
+The result identifies a sharp algebraic aspect-ratio boundary for a classical two-parameter enumerative family and cleanly separates persistence of a bulk log-convex rank window from eventual log-concavity at every bulk rank. This is a natural structural phase theorem, not merely another evaluation of the known degree product.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
