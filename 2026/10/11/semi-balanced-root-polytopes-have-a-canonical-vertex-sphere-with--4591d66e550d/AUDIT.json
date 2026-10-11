@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The source layer functional and dimension theorem determine the full affine hull. Centering the layer vector gives the exact orthogonal projection of the ambient origin, and every root vector has norm squared 2 and layer increment 1, yielding the common radius exactly. A self-contained finite-point lemma proves that a common vertex sphere is the unique minimum enclosing sphere exactly when its center lies in the convex hull; strict separation gives a strictly smaller sphere otherwise. Convex-hull membership is exactly a nonnegative edge-flow equation. In the standard bipartite orientation, max-flow/min-cut reduces this to the proportional Hall inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source provides the affine and combinatorial structure but no Euclidean radius optimization.",
+        "The later graph-polytope paper concentrates on h*-vectors and spanning-tree dissections.",
+        "The earlier bipartite-root-polytope paper concentrates on Ehrhart/interior-polynomial duality and triangulations rather than Euclidean enclosing balls."
+      ],
+      "reasoning": "The source layer hyperplane implies a natural projection center, but the common-radius identity, minimum-sphere criterion, and flow/Hall equivalence are additional geometric and optimization statements.",
+      "searches": [
+        "arXiv:2105.00960 Definition 2.1, layer-function discussion, affine hyperplane, Corollary 3.2",
+        "arXiv:2105.00960 complete and layer-complete bipartite graph section",
+        "arXiv:2203.17127 introduction and root-polytope setup",
+        "Kálmán--Postnikov bipartite-root-polytope abstract and complete-bipartite discussion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.00960v1/v3",
+      "doi:10.1112/mtk.12163",
+      "arXiv:2203.17127v1/v4",
+      "doi:10.5802/alco.318",
+      "Kálmán--Postnikov, Root polytopes, Tutte polynomials, and a duality theorem for bipartite graphs, abstract and scope",
+      "published-result database searches for root-polytope minimum-sphere, flow, and Hall formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The historical oriented-cycle result determines lattice Ehrhart data and normalized volume, not Euclidean vertex spheres or enclosing balls.",
+        "No current finding has a root-polytope minimum-sphere claim.",
+        "The source dimension theorem determines the affine hull dimension but not whether the projection center lies in the root polytope.",
+        "Spanning-tree dissection and h*-vector statements do not imply balanced-flow feasibility or Euclidean optimality."
+      ],
+      "reasoning": "The final theorem needs two new implication steps beyond the prior work: the orthogonal projection of the ambient origin must be converted into an exact common vertex radius, and minimum-sphere optimality must then be characterized by convex-hull membership and reduced to flow feasibility.",
+      "searches": [
+        "historical geometry ledger: oriented-cycle root-polytope Ehrhart theorem",
+        "current geometry ledger: root polytope / semi-balanced / biregular / Hall / minimum enclosing sphere",
+        "Kálmán--Tóthmérész semi-balanced dimension and dissection theorems",
+        "Kálmán--Tóthmérész graph-polytope h*-vector theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located statement identifies the layer-projection sphere with a minimum enclosing sphere exactly under a convex-combination or flow condition.",
+        "No located statement gives the proportional Hall criterion for the standard bipartite root polytope's minimum sphere."
+      ],
+      "reasoning": "Equivalent formulations include circumsphere minimality, minimum enclosing ball, center-in-convex-hull contact criteria, balanced fractional edge weights, and uniform-marginal transportation support. The searches covered these formulations without locating a theorem that implies the complete statement.",
+      "searches": [
+        "published-result database query: bipartite root polytope minimum enclosing sphere Hall condition fractional matching",
+        "published-result database query: root polytope circumcenter fractional perfect matching bipartite",
+        "published-result database query: root polytope Euclidean circumsphere Hall theorem",
+        "published-result database query: bipartite graph root polytope circumradius transportation coupling uniform marginals",
+        "literature query: \"biregular bipartite\" \"root polytope\" circumradius",
+        "literature query: \"root polytope\" \"minimum enclosing sphere\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned root-polytope record concerns exact Ehrhart polynomials of oriented cycles, not Euclidean radii.",
+        "No indexed radius table, minimum-sphere formula, or Hall-type metric criterion for root polytopes was returned."
+      ],
+      "reasoning": "A symbolic radius theorem or a family table for complete/biregular bipartite graphs would provide strong prior coverage. The exact-object searches returned neither.",
+      "searches": [
+        "published-result database query: semi-balanced root polytope circumsphere biregular bipartite",
+        "published-result database query: bipartite root polytope Euclidean circumradius",
+        "published-result database query: root polytope minimum enclosing sphere bipartite graph"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the directed root-polytope definition, the layer-function characterization, the affine hyperplane, the connected semi-balanced dimension theorem, and the complete-bipartite discussion. Targeted full-text checks found no radius, sphere, Euclidean, or circumradius treatment. Published-result searches under root-polytope, minimum-enclosing-sphere, fractional-matching, balanced-transport, and Hall-condition formulations found no covering theorem. The closest prior root-polytope result in the checked historical ledger is an Ehrhart theorem for oriented cycles and has no Euclidean implication.",
+    "residual_risks": [
+      "The minimum-enclosing-sphere contact criterion is a general convex-geometry lemma, so a broader theorem outside root-polytope terminology could specialize to the same statement.",
+      "Balanced transportation feasibility and proportional Hall inequalities are classical; the new content is their exact identification with minimum-sphere optimality for the root-polytope realization.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the root-vector realization, layer functional, and affine dimension, but does not state the canonical Euclidean vertex sphere, a minimum-enclosing criterion, or the Hall specialization.",
+        "evidence": "The first public version is dated 2021-05-03 and MSC 52B20 is listed first. The full text states that connected semi-balanced root polytopes have dimension |V|-2 and lie in the layer-functional affine hyperplane.",
+        "identifier_or_url": "arXiv:2105.00960v1; DOI 10.1112/mtk.12163",
+        "material_read": "ArXiv metadata and MSC; Definition 2.1; standard bipartite orientation discussion; semi-balanced definition and layer-function hyperplane; Corollary 3.2 on dimension; complete and layer-complete bipartite graph section; targeted searches for radius, sphere, Euclidean, and circumradius.",
+        "method": "Open-access arXiv HTML full-text inspection.",
+        "title": "Root polytopes and Jaeger-type dissections for directed graphs",
+        "trigger": "Exact primary source introducing the semi-balanced directed root-polytope framework used in the theorem."
+      },
+      {
+        "assessment": "The paper develops h*-vector formulas and spanning-tree activities; it does not state the Euclidean minimum-sphere theorem.",
+        "evidence": "The paper lists MSC 52B20 first and defines the same root-polytope framework for its combinatorial enumeration results.",
+        "identifier_or_url": "arXiv:2203.17127v1; DOI 10.5802/alco.318",
+        "material_read": "ArXiv metadata; introduction and setup; dimension and facet context for graph root polytopes; targeted searches for Euclidean, inradius, and circumradius.",
+        "method": "Open-access arXiv HTML full-text inspection.",
+        "title": "h*-vectors of graph polytopes using activities of dissecting spanning trees",
+        "trigger": "Later same-framework source treating symmetric edge and semi-balanced root polytopes through spanning-tree dissections."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4591d66e-550d-4d0b-af94-c4d1da2d96e9",
+  "value": {
+    "rationale": "Semi-balanced root polytopes are a canonical recent graph-polytope family whose literature emphasizes lattice, Ehrhart, and spanning-tree structure. The theorem exposes a realization-sensitive Euclidean structure that is invisible to those invariants: every member has a canonical all-vertex sphere, and a sharp flow condition decides whether that sphere is actually optimal. For standard bipartite orientations, the result turns a Euclidean minimum-enclosing-ball question into the natural proportional Hall expansion criterion, with every connected biregular graph as an immediate exact-radius family.",
+    "status": "PASS"
+  }
+}
