@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "A complete proof is supplied: uniqueness and scalar p-mean equation; full-measure implicit Jacobian with norm m^(1/p)||alpha||_q; p>2 bound alpha_max<=1/2 from residual balance; p<2 probability-vector bound; finite continuous Lipschitz-selection lemma for active equality blocks; KKT strict positive-multiplier local pooling on every weakly connected graph; and explicit non-cut vertex/one-edge multiplier asymptotics attaining both sharp constants. Edge cases N<=2, p=2 and disconnected graphs are proved. Executed path/star/diamond finite numerical diagnostics matched analytic derivatives and approaching bounds but are not treated as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finzel–Li 1998 DOI 10.1006/jmaa.1998.6120 public abstract: uniform existence of Lipschitz modulus for polyhedral best lp projection; Berens–Finzel–Li–Xu 1997 Theorem 1 is for linear subspaces.",
+        "arXiv:1507.00710v2 gives algorithms for arbitrary DAGs and p, no optimal perturbation constant in Sections 1–4 or supplementary algorithmic development."
+      ],
+      "reasoning": "Qualitative polyhedral uniform Lipschitz existence, and algorithms for general DAGs, are wider in ambient class but do not dominate the claimed *exact sharp constant* or its independence from graph structure. The full 1998 article was not inspectable, so broader-coverage risk is explicitly retained.",
+      "searches": [
+        "l_p isotonic regression projection map Lipschitz PAVA arbitrary connected directed acyclic graph",
+        "universal exact Lipschitz constant data-to-fit map isotonic regression arbitrary poset sharp across ell_p graph connected"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1503.08458v1/v2 (2015)",
+      "arXiv:1507.00710v1/v2 (2015)",
+      "arXiv:1706.01852v3 (2017)",
+      "doi:10.1006/jmaa.1997.5521 (1997)",
+      "doi:10.1006/jmaa.1998.6120 (1998; abstract)",
+      "published-finding corpus semantic database: seven recorded searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously known scalar constant-vector projection has the same branch constants, but treats an unconstrained one-dimensional subspace rather than an order cone.",
+        "Németh–Németh 2015 is strictly Euclidean; Kyng–Rao–Sachdeva 2015 is algorithmic; Yang–Barber 2017 fixes the objective at 2.",
+        "Finzel–Li 1998 abstract states regularity without a numeric optimum."
+      ],
+      "reasoning": "The constant-line result supplies the block upper bounds but does not prove the graph-independent lower bound. Each connected poset requires the newly constructed normal-cone interior perturbations to realize the extreme scalar derivative. Therefore none of the inspected prior statements logically contains the full all-posets sharpness assertion.",
+      "searches": [
+        "global Lipschitz constant of isotonic regression metric projection onto order cone in real l_p^n independent of the connected partial order",
+        "poset isotonic regression worst-case stability constant l_p equal n^(1/p) for 1<p<2 and (n/2)^(1/p) for p>2",
+        "universal exact Lipschitz constant data-to-fit map isotonic regression arbitrary poset sharp across ell_p graph connected"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1503.08458v2 Section 5 describes Euclidean order-preserving projection; arXiv:1706.01852v3 Section 2 concerns Euclidean-least-squares fit assessed under other norms."
+      ],
+      "reasoning": "The present objective changes with p and its global perturbation norm is exactly computed; equivalently phrased fixed Euclidean projection contraction results concern a different nonlinear map except at p=2.",
+      "searches": [
+        "global Lipschitz constant of isotonic regression metric projection onto order cone in real l_p^n independent of the connected partial order",
+        "sharp l_p Lipschitz modulus of isotonic projection nonexpansive order preserving p-mean block partition",
+        "finite selection of Lipschitz generalized p means isotonic metric projection sharp constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual ranked published-finding corpus records: 2026/10/4/SCOPE-exact-refined-width-lipschitz-modulus-for-every-convex-body--8ad0bcb7a305; 2026/10/4/SCOPE-exact-inverse-regular-norms-for-the-elementary-positive-miljutin--1911ccb70f2e; 2026/10/4/SCOPE-monotone-data-attain-the-conjectured-path-graph-variational-cons--2ae83e2401fb.",
+        "No matching result/table on graph-independent constants in queried mathematical sources."
+      ],
+      "reasoning": "Retrieved entries concern different norms/geometry, operator inverses, and path maximal-variation, not the unweighted isotonic p-objective projection mapping. A negative retrieval is limited evidence, not a uniqueness certificate.",
+      "searches": [
+        "poset isotonic regression worst-case stability constant l_p equal n^(1/p) for 1<p<2 and (n/2)^(1/p) for p>2",
+        "maximum derivative of p-isotonic regression at fully pooled observations arbitrary DAG operator norm"
+      ]
+    },
+    "rationale": "Direct inspection of full Németh–Németh 2015, Kyng–Rao–Sachdeva 2015, Yang–Barber 2017 and relevant 1997 linear approximation theorem yields no sharp data-to-fit Lipschitz modulus for the non-Hilbert isotonic metric projection on arbitrary finite posets. The 1998 Finzel–Li abstract guarantees Lipschitz existence for general polyhedral targets but contains no exact constant. Seven actual semantic database searches found no covering claim. Graph independence and graph-specific sharpness are not consequences of the scalar constant-vector line alone; strict positive-multiplier full-pooling stability is an additional argument. A plausible full-text historical source is inaccessible and remains a documented overlap risk.",
+    "residual_risks": [
+      "The full text of Finzel–Li (1998), doi:10.1006/jmaa.1998.6120, could not be directly inspected; abstract-level evidence does not exclude an unadvertised isotonic sharp special case.",
+      "Unindexed pre-2016 literature, differently named stability parameters, or private unpublished mathematics could contain an equivalent statement; searches do not certify global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Euclidean isotonic metric projection and order monotonicity; no non-Hilbert p-loss stability modulus.",
+        "evidence": [
+          "arXiv:1503.08458v2 Sections 3 and 5; original arXiv v1 dated 2015-03-29"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1503.08458v2",
+        "material_read": "Full HTML text, Sections 1–5 and main theorem statements, after the 2015 arXiv preprint",
+        "method": "Open-access arXiv full-text reading and implications comparison",
+        "title": "Isotonic regression and isotonic projection",
+        "trigger": "Same isotonic order cones and projection terminology"
+      },
+      {
+        "assessment": "NOT_COVERING: runtime and approximation algorithms for varying p, no exact data-to-fit Lipschitz condition number.",
+        "evidence": [
+          "arXiv:1507.00710v2 Sections 1.2, 3 and appendices; v1 2015-07-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1507.00710v2",
+        "material_read": "Open-access HTML full article, Sections 1–4 and algorithmic supplementary sections",
+        "method": "Open-access arXiv full-text reading, search for sensitivity and Lipschitz, theorem implication comparison",
+        "title": "Fast, Provable Algorithms for Isotonic Regression in all ell_p norms",
+        "trigger": "All p and general directed acyclic graphs, identical optimization objects"
+      },
+      {
+        "assessment": "NOT_COVERING: fixes least-squares objective ell_2 while measuring its output in alternate norms, unlike p-objective projection.",
+        "evidence": [
+          "arXiv:1706.01852v3 Section 2 defines iso(x)=argmin ||x-y||_2 and studies contraction under other norms."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1706.01852v3",
+        "material_read": "Full HTML body, especially Sections 1, 2 and main contribution and least-squares definition",
+        "method": "Open-access arXiv full-text reading and distinction of objective norm from measurement norm",
+        "title": "Contraction and uniform convergence of isotonic regression",
+        "trigger": "Explicit title mentions isotonic contraction and Lipschitz-norm properties"
+      },
+      {
+        "assessment": "NOT_COVERING: general Lipschitz existence for linear subspaces, no order cone or exact graph-independent sharp constant.",
+        "evidence": [
+          "Berens–Finzel–Li–Xu 1997 Theorem 1, p.186 is uniform qualitative bound for linear subspaces."
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/jmaa.1997.5521",
+        "material_read": "1997 original publication full text pages 183–187, including Theorem 1",
+        "method": "Institutional PDF-extracted text and direct statement comparison",
+        "title": "Hoffmans Error Bounds and Uniform Lipschitz Continuity of Best lp-Approximations",
+        "trigger": "Potentially broader projection Lipschitz theorem"
+      },
+      {
+        "assessment": "UNCERTAIN_FULL_TEXT: abstract proves existence of uniform finite Lipschitz constants, does not state exact order-cone sharp values. Cannot claim whole-document NOT_COVERING.",
+        "evidence": [
+          "Finzel–Li JMAA 228 (1998), 112–118; abstract, DOI 10.1006/jmaa.1998.6120"
+        ],
+        "identifier_or_url": "https://digitalcommons.odu.edu/mathstat_fac_pubs/87/",
+        "material_read": "Public abstract and publication metadata only; full article download unavailable",
+        "method": "Open-access attempt and institutional-access attempt; no matching full 1998 text was obtained",
+        "title": "Uniform Lipschitz Continuity of Best lp-Approximations by Polyhedral Sets",
+        "trigger": "Highly plausible broader scope: any polyhedral target, including order cones"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7bfc7f16-ca62-46c3-b626-daace1628316",
+  "value": {
+    "rationale": "A full sharp data-to-fit condition number for every finite partial order and every 1<p<infinity answers a natural sensitivity question for nonlinear isotonic best approximation. It exposes surprising independence from branching/edge structure and a genuine two-sided transition at the Hilbert exponent. Proving graph-adapted normal-cone sharpness adds mathematical content beyond a routine scalar mean calculation; the exact parameter is directly relevant for worst-case perturbation amplification.",
+    "status": "PASS"
+  }
+}
