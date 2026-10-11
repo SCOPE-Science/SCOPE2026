@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:47:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Gabrić, Rampersad and Shallit, An inequality for the number of periods in a word, arXiv:2005.11718 / International Journal of Foundations of Computer Science 32 (2021), DOI 10.1142/S0129054121410094; primary full text inspected at Section 7.",
+        "OEIS A332866, current entry inspected during this audit; it lists the exact initial values 1, 3, 7, 23, 59 and no sixth value.",
+        "Rivals, Sweering and Wang, Convergence of the Number of Period Sets in Strings, ICALP 2023, DOI 10.4230/LIPIcs.ICALP.2023.100; broader unrestricted period-set scope compared.",
+        "Resultary query: ternary squarefree word periods g(5) 142 Gabrić Rampersad Shallit OEIS A332866; no independent covering result appeared in the returned top results.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree e4f9bb35021e9dfc6dd410ddfe57207cec7f9881.",
+        "Fresh independent recursion reproduced minima 1, 3, 7, 23, 59, 142 and four normalized minimizers at length 142."
+      ],
+      "rationale": "The proof is exhaustive rather than heuristic. In a squarefree word every proper border is shorter than half the word; if u is the longest border, every shorter border of the word is also a border of u. Hence every candidate with at least r borders has the form u v u with u already having at least r-1 borders. Independent reimplementation of this recursion over the normalized ternary alphabet reproduced the successive minima 1, 3, 7, 23, 59, 142, found four normalized minimizers at 142, and verified the displayed witness has exactly the five stated borders. Thus the lower bound and exact-five upper witness meet.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 23 supplies only an explicitly nonoptimal upper bound.",
+          "The ICALP work concerns unrestricted possible period sets and does not impose ternary squarefreeness."
+        ],
+        "reasoning": "Neither broader result dominates the exact squarefree extremum.",
+        "searches": [
+          "Gabrić–Rampersad–Shallit Theorem 23",
+          "Rivals–Sweering–Wang period-set enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Gabrić, Rampersad and Shallit, An inequality for the number of periods in a word, arXiv:2005.11718 / International Journal of Foundations of Computer Science 32 (2021), DOI 10.1142/S0129054121410094; primary full text inspected at Section 7.",
+        "OEIS A332866, current entry inspected during this audit; it lists the exact initial values 1, 3, 7, 23, 59 and no sixth value.",
+        "Rivals, Sweering and Wang, Convergence of the Number of Period Sets in Strings, ICALP 2023, DOI 10.4230/LIPIcs.ICALP.2023.100; broader unrestricted period-set scope compared.",
+        "Resultary query: ternary squarefree word periods g(5) 142 Gabrić Rampersad Shallit OEIS A332866; no independent covering result appeared in the returned top results.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree e4f9bb35021e9dfc6dd410ddfe57207cec7f9881.",
+        "Fresh independent recursion reproduced minima 1, 3, 7, 23, 59, 142 and four normalized minimizers at length 142."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact values do not give a lower bound at five periods.",
+          "The longest-border recursion exhausts every squarefree candidate because the longest border is shorter than half the word and contains every shorter border."
+        ],
+        "reasoning": "An exhaustive new lower-bound computation plus a length-142 exact-five witness is needed; the prior upper bound alone cannot imply equality.",
+        "searches": [
+          "Gabrić–Rampersad–Shallit exact table and upper-bound theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 7 defines the same extremal function and tabulates only p from zero through four.",
+          "The source remark explicitly says its upper bound is clearly not optimal and points to the database sequence."
+        ],
+        "reasoning": "The formulation by proper borders is equivalent because a border of length b corresponds exactly to period n-b; the audited fifth-border minimum is therefore the same missing g(5) problem.",
+        "searches": [
+          "Resultary query: ternary squarefree word periods g(5) 142 Gabrić Rampersad Shallit OEIS A332866",
+          "Gabrić–Rampersad–Shallit Section 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both exact tables stop at 59, corresponding to four nontrivial periods."
+        ],
+        "reasoning": "The database/table comparison directly identifies 142 as the next previously unrecorded exact term among the inspected sources.",
+        "searches": [
+          "OEIS A332866 current entry",
+          "Gabrić–Rampersad–Shallit exact table"
+        ]
+      },
+      "rationale": "The defining period paper publishes exact values only through four nontrivial periods, then gives a nonoptimal general upper bound and explicitly asks for improvements. The current database likewise stops at 59. The audited structural recursion proves the missing lower bound and supplies an exact-five witness at 142; no stronger Resultary or primary source located implies that value.",
+      "residual_risks": [
+        "An unindexed thesis or independent computation could contain the same sixth value under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREDECESSOR TABLE STOPS ONE TERM BEFORE THE AUDITED VALUE",
+          "evidence": "The exact table is 1, 3, 7, 23, 59; the following upper bound is labeled nonoptimal and no value for p=5 is stated.",
+          "identifier_or_url": "arXiv:2005.11718; DOI:10.1142/S0129054121410094",
+          "material_read": "Primary full-text Section 7, including the definition, exact table through p=4, Theorem 23 and the following remark asking for better bounds.",
+          "method": "Open primary PDF text plus rendered-page inspection.",
+          "title": "An inequality for the number of periods in a word",
+          "trigger": "Exact source defining g(p) and publishing the predecessor exact values."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gabrić, Rampersad and Shallit, An inequality for the number of periods in a word, arXiv:2005.11718 / International Journal of Foundations of Computer Science 32 (2021), DOI 10.1142/S0129054121410094; primary full text inspected at Section 7.",
+        "OEIS A332866, current entry inspected during this audit; it lists the exact initial values 1, 3, 7, 23, 59 and no sixth value.",
+        "Rivals, Sweering and Wang, Convergence of the Number of Period Sets in Strings, ICALP 2023, DOI 10.4230/LIPIcs.ICALP.2023.100; broader unrestricted period-set scope compared.",
+        "Resultary query: ternary squarefree word periods g(5) 142 Gabrić Rampersad Shallit OEIS A332866; no independent covering result appeared in the returned top results.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree e4f9bb35021e9dfc6dd410ddfe57207cec7f9881.",
+        "Fresh independent recursion reproduced minima 1, 3, 7, 23, 59, 142 and four normalized minimizers at length 142."
+      ],
+      "rationale": "This is the next exact term of a natural extremal word-combinatorics sequence explicitly left open after the published exhaustive table. The structural recursion and exact finite cutoff are independently useful even without a general formula for all period counts.",
+      "residual_risks": [
+        "An unindexed thesis or independent computation could contain the same sixth value under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The minimum length of a ternary squarefree word with exactly five nontrivial periods is 142; equivalently the sixth term of the convention that includes the full-length period is 142, with a witness whose proper borders are exactly 1, 3, 11, 30 and 67.",
+  "limitations": [
+    "Only the five-nontrivial-period case is determined; no asymptotic or closed formula for general p is claimed.",
+    "An unindexed thesis or independent computation could contain the same sixth value under different terminology."
+  ],
+  "schema_version": 1
+}
