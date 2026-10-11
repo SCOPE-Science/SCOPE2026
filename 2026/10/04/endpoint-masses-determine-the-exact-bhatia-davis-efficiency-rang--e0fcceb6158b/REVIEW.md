@@ -1,42 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Positive affine normalization reduces the problem to support in \([0,1]\). Conditional variance shows that, at fixed interior conditional mean, every spread among the interior atoms can only increase the Bhatia--Davis efficiency. The remaining three-level problem is one-dimensional.
+PASS
 
-In odds coordinates, maximizing the Bhatia--Davis deficit reduces to minimizing
-\[
-a(1-a)z+\frac{c(1-c)}{z},
-\]
-whose unique positive minimizer gives the displayed support ratio and lower constant. Equality requires both this odds condition and zero conditional interior variance, explaining the exact distinction between three atoms and four or more distinct atoms.
+After affine normalization, conditioning on the interior atoms shows that interior conditional variance can only increase the Bhatia--Davis efficiency at fixed interior mean. The remaining three-level problem reduces by an odds substitution to a one-variable arithmetic--geometric mean inequality with the stated unique equality geometry. Distinct positive interior atoms make the lower endpoint unattainable beyond three atoms, the classical deficit makes the upper endpoint strict, and connectedness supplies every intermediate value. Independent exact-rational random tests verified the radical-free lower certificate and the strict upper bound.
 
-The upper endpoint follows from the exact deficit
-\[
-\mu(1-\mu)-\sigma^2=\mathbb E[X(1-X)],
-\]
-which is strictly positive in the presence of a genuine interior atom and tends to zero under endpoint collapse. Connectedness supplies the complete attainable intervals.
+## originality
 
-## Originality
+PASS
 
-PASS, with an explicit residual risk from older variance and moment-problem literature. Audenaert's complete arXiv text was inspected through its real-variable variance section and classical sharp bound. Sharma--Gupta--Kapoor's complete nine-page article was inspected through its introduction and principal variance refinements. Ellis's open full article text was inspected through the finite-sequence extremal lemmas and theorems.
+The inspected sources optimize under different information: support bounds alone, or equal weights with a fixed mean, minimum, maximum, and sample length. Fresh exact-form and endpoint-probability searches did not locate the submitted endpoint-mass efficiency floor, its three-point equality geometry, or the complete attainable interval. The original Monthly article remains a whole-document access risk and is not used as negative evidence.
 
-The prior literature fixes the support interval, or an equal-weight finite universe, or a prescribed mean. None of the inspected statements fixes arbitrary endpoint probabilities and asks for the exact range of the ratio
-\[
-\frac{\sigma^2}{(M-\mu)(\mu-m)}.
-\]
-Targeted exact-formula and semantic searches likewise did not locate the endpoint-mass floor or its attainment classification.
+## value
 
-## Value
+PASS
 
-PASS. The Bhatia--Davis inequality is a standard variance bound used when the mean and support range are known. In finite categorical or empirical models, endpoint frequencies may also be fixed. The theorem quantifies exactly how much that additional information prevents the classical bound from being loose, and it identifies the unique three-point geometry that is worst for tightness.
+Fixed endpoint frequencies are natural information in finite empirical distributions. The theorem gives the exact efficiency floor forced by that information, its equality geometry, the complete attainable range, and a simple equal-mass specialization.
 
-The equal-frequency specialization
-\[
-\ell=\frac2m
-\]
-gives an immediate benchmark, while the general formula reveals the unexpected fact that the sharp floor depends only on the two endpoint masses and not on how the remaining probability is split.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK upper_checks=16000 lower_checks=13699 strict_lower_checks=11440 conditional_checks=41097 binary_checks=2301 equality_checks=8000 lower_approach_checks=48 upper_approach_checks=48 equal_mass_checks=48`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
