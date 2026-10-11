@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The following checks were performed on the packaged claim.
+# Independent mathematical audit
 
-1. Reconstructed the three-dimensional free Dirac resolvent normalization and the source finite-dimensional gap spectral condition for linearly independent constant columns.
-2. Evaluated the spherical Yukawa surface integral exactly as \((1-e^{-2\kappa R})/(2\kappa)\) for each fixed surface point, then multiplied by \(4\pi R^2\).
-3. Verified that the vector part of the double principal-value kernel is antisymmetric under interchange of the two surface variables and therefore contributes zero to the integrated matrix.
-4. Reduced the gap condition to the two \(\alpha_0\) branches, each of multiplicity two, and proved strict monotonicity by the half-angle derivative inequality \(e^u-1+cu>e^u-1-u>0\).
-5. Re-expanded the exact scalar equation at both gap edges and at zero energy, yielding the critical coupling, zero-crossing coupling and the two stated asymptotic laws.
-6. Replayed `verify_spherical_shell.py` from the actual embedded bytes. It solves representative scalar equations and checks the displayed threshold, reflection and asymptotic ratios. These finite computations are corroborative only and are not used to prove the infinite statements.
+## correctness
 
-The theorem does not classify the operator exactly at the threshold, nonspherical shells, nonconstant matrix coefficients, embedded spectrum or scattering. The originality risks recorded in the review remain in force.
+PASS
+
+The source's gap-eigenvalue criterion reduces to a finite-dimensional matrix when the columns of \(F\) are linearly independent. For \(F=I_4\), \(G=\lambda I_4\) and a sphere, antisymmetry cancels the vector part of the double resolvent integral, while the scalar Yukawa surface integral gives \(Y(\kappa)=2\pi R^2(1-e^{-2\kappa R})/\kappa\). Diagonalizing \(\alpha_0\) leaves two scalar branches, each with multiplicity two. For positive coupling the equation is \(\lambda Y(\kappa)(m-E)=1\). The half-angle substitution gives a strictly monotone scalar function, with endpoint values \(8\pi mR^3\) and zero, proving the threshold, uniqueness, multiplicity and monotone spectral flow. The lower-edge and upper-edge expansions independently reproduce the stated coefficients \(32\pi^2mR^4\) and \(1/(4\pi R^3)\).
+
+## originality
+
+PASS
+
+Heriban--Tušek prove the non-local shell construction and the general finite-dimensional gap criterion, but the open full article does not evaluate that criterion for the constant spherical specialization. The audited result adds the spherical double integral, global scalar monotonicity, exact threshold, multiplicity, zero crossing, reflection and both edge asymptotics. Resultary returned no equivalent spherical non-local Dirac-shell result among its leading matches.
+
+## value
+
+PASS
+
+The round sphere with constant scalar coefficient is the canonical exactly symmetric specialization of the new non-local shell model. A sharp existence threshold, exact multiplicity and complete gap spectral flow provide a natural solvable benchmark for that model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
