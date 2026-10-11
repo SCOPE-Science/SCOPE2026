@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:54:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob acdf40844a436e252778958c67241f9ffdcd0333",
+        "verify_modular_pairwise.py blob 13df3614c7c2ebc7a796e32ee6c617ce42fe6a11",
+        "fresh exact-rational threshold checks",
+        "Benjamini et al. and Ramachandra--Natarajan full primary PDFs"
+      ],
+      "rationale": "Pairwise independence and fairness force E K=n/2 and Var K=n/4. If K=r+qJ with J integer in {0,...,N}, then (J-a)(J-a-1)>=0 gives the sharp minimum variance delta(1-delta), while J(N-J)>=0 gives the sharp maximum m(N-m). Conversely, the nearest-lattice and endpoint laws have the same mean m and these two endpoint variances, so convex mixing realizes every intermediate variance. Conditional on K=k, choosing a uniform k-subset yields coordinate marginal E K/n=1/2 and pair joint E[K(K-1)]/[n(n-1)]=1/4, proving pairwise independence. Mixing residue-specific constructions realizes every residue law. For n=q^2-1, the half-integer variance obstruction is avoided by parity and grid spacing, while the upper variance bound holds uniformly; at n=q^2-2 the stated residue makes m half-integral and requires variance at least 1/4>n/(4q^2). Fresh exact-rational checks for q=2,...,20 reproduced both the full threshold and the forbidden boundary residue.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader papers address Boolean functions, tail/union events, rare-sum weak limits or occupancy collision statistics.",
+          "None fixes fair Bernoulli marginals and classifies every congruence vertex of K mod q at finite n."
+        ],
+        "reasoning": "These broader moment methods do not mechanically yield the exact q^2-1 eventual threshold without solving the integer-support variance problem residue by residue.",
+        "searches": [
+          "Benjamini et al. k-wise Boolean-function results",
+          "Ramachandra--Natarajan tight probability bounds",
+          "Resultary rare pairwise-independent Bernoulli limit classification",
+          "Resultary occupancy one-moment reduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1201.3261",
+        "arXiv:2006.00516",
+        "Akhiezer classical moment problem",
+        "Resultary modular pairwise-independent query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise fairness fixes only E K=n/2 and Var K=n/4.",
+          "The submitted proof shows these moments are also sufficient for a residue-supported K by interpolating between the nearest-lattice and endpoint distributions, then lifts K to a pairwise-independent Bernoulli vector.",
+          "The q^2-1 threshold requires additional parity/grid analysis at n=q^2-1 and a half-integer obstruction at q^2-2."
+        ],
+        "reasoning": "Prior moment constraints alone do not state the exact residue criterion or the sharp eventual threshold; the sufficiency construction and threshold synthesis are substantive additional implications.",
+        "searches": [
+          "classical two-moment constraints under pairwise independence",
+          "submitted integer-support min/max variance interpolation",
+          "exchangeable conditional-on-K construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both sources reduce limited-independence questions to low-order moment constraints in suitable settings.",
+          "The audited residue event is equivalent to an integer moment problem for J=(K-r)/q with fixed mean and variance."
+        ],
+        "reasoning": "The moment formulation is standard in spirit, but the exact lattice minimum/maximum variance interval for a fixed residue and the modular threshold are not stated in the inspected prior work.",
+        "searches": [
+          "Benjamini--Gurel-Gurevich--Peled, arXiv:1201.3261",
+          "Ramachandra--Natarajan, arXiv:2006.00516",
+          "Resultary query: pairwise independent Bernoulli sum modulo q moment problem residue threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same finite-n residue-feasibility table or q^2-1 threshold was located.",
+          "Nearby published SCOPE findings involve rare-sum limits and occupancy rather than fair Hamming-weight congruence support."
+        ],
+        "reasoning": "No exact database coverage was identified; coding-theoretic terminology remains a residual search risk.",
+        "searches": [
+          "Resultary modular-Hamming-weight/pairwise-independence search",
+          "targeted orthogonal-array/limited-independence congruence searches represented in the package review"
+        ]
+      },
+      "rationale": "Benjamini--Gurel-Gurevich--Peled use the classical moment problem to study Boolean events under k-wise independence, and Ramachandra--Natarajan optimize tail/union probabilities of Bernoulli sums under pairwise independence. Neither inspected full primary source treats support of the Hamming weight in one residue class or the exact full-simplex threshold for K mod q. Resultary returned nearby pairwise-independent occupancy and rare-sum results but no theorem implying the q^2-1 modular threshold.",
+      "residual_risks": [
+        "An equivalent congruence-support construction may exist in coding-theoretic or orthogonal-array literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MOMENT_METHOD_NOT_MODULAR_RESIDUE_CLASSIFICATION",
+          "evidence": "The source studies Boolean functions under k-wise independent inputs and uses moment tools, but does not state the audited congruence-support feasibility interval or threshold.",
+          "identifier_or_url": "arXiv:1201.3261",
+          "material_read": "Full primary PDF around the moment-problem reductions and examples; PDF pages were visually inspected.",
+          "method": "Method and event-scope comparison.",
+          "title": "On K-wise Independent Distributions and Boolean Functions",
+          "trigger": "Primary limited-independence source using the classical moment problem."
+        },
+        {
+          "assessment": "TAIL_AND_UNION_EVENTS_NOT_MODULAR_SUPPORT",
+          "evidence": "The paper optimizes tail/union probabilities under first- and second-moment constraints, not almost-sure congruence support or arbitrary laws of K mod q.",
+          "identifier_or_url": "arXiv:2006.00516",
+          "material_read": "Full primary preprint around the Bernoulli-sum tail optimization results; PDF pages were visually inspected.",
+          "method": "Same-moment-class event comparison.",
+          "title": "Tight Probability Bounds with Pairwise Independence",
+          "trigger": "Primary paper on exact/tight events for sums of pairwise-independent Bernoulli variables."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1201.3261",
+        "arXiv:2006.00516",
+        "Akhiezer classical moment problem",
+        "Resultary modular pairwise-independent query"
+      ],
+      "rationale": "The law of a Hamming weight modulo q is a natural global statistic under limited independence. The theorem gives both an exact residue-vertex feasibility criterion and a sharp all-q eventual threshold, together with an explicit exchangeable construction. This is a reusable finite moment classification rather than a routine tail estimate.",
+      "residual_risks": [
+        "An equivalent congruence-support construction may exist in coding-theoretic or orthogonal-array literature under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1201.3261",
+    "arXiv:2006.00516",
+    "Akhiezer classical moment problem",
+    "Resultary modular pairwise-independent query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fair pairwise-independent Bernoulli variables, a residue r modulo q can contain K=sum X_i almost surely exactly when the induced integer variable J=(K-r)/q has mean m=(n-2r)/(2q) in [0,N] and required variance v=n/(4q^2) between delta(1-delta) and m(N-m); consequently every law of K mod q is attainable for every n>=q^2-1, and q^2-1 is the exact eventual threshold.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent congruence-support construction may exist in coding-theoretic or orthogonal-array literature under different terminology.",
+    "The theorem is for fair pairwise independence only; biased marginals and k-wise independence for k>=3 impose different moment constraints."
+  ]
+}
