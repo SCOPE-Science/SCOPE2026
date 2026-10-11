@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The finite complex is reconstructed from the degree-at-most-two definition. An exhaustive matching has 3663 pairs and critical counts 1 in dimension 0 and 15 in dimension 5; all 37728 Hasse covers are oriented and topologically sorted with no directed cycle. Forman's theorem yields a CW model with one 0-cell and fifteen 5-cells, whose attaching maps are necessarily constant. The independent mod-2 chain calculation has reduced Betti rank 15 only in degree 5 and the Euler characteristic is -14. Risk is implementation error, reduced by full reconstruction, complete DAG verification, and independent chain ranks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Singh Theorem 1.2: M_r(K_{m,n}) is covered for m>r≥n, and M_{n-1}(K_{n,n}) is a sphere.",
+        "Vega, arXiv:1909.10406, states its 2-matching homotopy applications for leaf-attachment families, wheels, and perfect caterpillars."
+      ],
+      "reasoning": "For K_{4,4} with r=2, the inequality r≥n fails and r is not n-1. Thus Singh's stronger-looking formulas do not dominate this claim; Vega's graph-family results are inapplicable.",
+      "searches": [
+        "higher matching complexes complete bipartite K4,4",
+        "Singh higher matching complex complete bipartite theorem 1.2",
+        "2-matching complexes complete bipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2006.13632",
+      "arXiv:1909.10406",
+      "DOI:10.1023/A:1008728115910"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest exact located record: M_2(K_{3,4})≃S^5.",
+        "Singh's balanced exact theorem gives M_3(K_{4,4})≃S^8, a different degree constraint."
+      ],
+      "reasoning": "Neither changing one bipartition size from 3 to 4 nor changing the degree bound from 3 to 2 is a homotopy-preserving operation supplied by the cited literature, so these neighboring results do not imply the claim.",
+      "searches": [
+        "M2 K4,4 higher matching complex wedge 15 S5",
+        "two-matching complex complete bipartite K4,4",
+        "M_2(K_{4,4}) homotopy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Singh, arXiv:2006.13632, defines M_r(G) as the constant-bound bounded-degree complex.",
+        "Reiner--Roberts, DOI 10.1023/A:1008728115910, treats chessboard complexes with multiplicities and bounded-degree graph complexes at the rational-homology level."
+      ],
+      "reasoning": "The aliases point to the same simplicial complex: edge subsets of K_{4,4} with all row and column degrees at most two. No searched alias produced the claimed wedge-of-fifteen homotopy type.",
+      "searches": [
+        "\"M_2(K_{4,4})\" matching complex",
+        "\"two-matching complex\" \"K_{4,4}\"",
+        "BD(2,2,2,2,2,2,2,2) K4,4 homotopy",
+        "chessboard complex with multiplicities K4,4 degree at most 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Reiner--Roberts Theorem 3.3 computes characteristic-zero homology of chessboard complexes with multiplicities via weight spaces.",
+        "Singh explicitly cites Reiner--Roberts for rational homology of higher matching complexes of complete bipartite graphs."
+      ],
+      "reasoning": "A rational-homology formula can overlap the Betti-number consequence but does not imply a wedge-of-spheres homotopy type. The new claim is the stronger simple-homotopy/discrete-Morse conclusion.",
+      "searches": [
+        "Reiner Roberts M_2(K_{4,4})",
+        "chessboard complexes with multiplicities 4 4 degree 2",
+        "bounded degree complex K_{4,4} homology"
+      ]
+    },
+    "rationale": "Direct statement and alias searches found no source giving the homotopy type of M_2(K_{4,4}). Singh's full text gives exact complete-bipartite homotopy formulas only in parameter regions that exclude (4,4,2). Reiner--Roberts gives rational homology for the relevant bounded-degree/chessboard-with-multiplicity class, not the homotopy equivalence. Vega's full text treats other 2-matching families. The closest located exact case is M_2(K_{3,4})≃S^5, which does not imply the balanced case.",
+    "residual_risks": [
+      "An unindexed or differently phrased exact homotopy computation of M_2(K_{4,4}) could exist.",
+      "Older rational-homology literature may already encode the rank-15 Betti consequence; the accepted claim is specifically the homotopy type, not novelty of that Betti number."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the homotopy claim at (m,n,r)=(4,4,2).",
+        "evidence": "Theorem 1.2 covers m>r≥n and the balanced case r=n-1; neither includes r=2,n=4.",
+        "identifier_or_url": "arXiv:2006.13632",
+        "material_read": "Abstract, introduction, definitions, Theorem 1.2, and discussion of prior rational homology.",
+        "method": "Full-text inspection of the author-posted version.",
+        "title": "Higher matching complexes of complete graphs and complete bipartite graphs",
+        "trigger": "Same object family and complete-bipartite parameter formulas."
+      },
+      {
+        "assessment": "NOT_COVERING.",
+        "evidence": "The paper's homotopical applications concern leaf-attachment classes, wheels, and perfect caterpillars; no K_{4,4} theorem was located.",
+        "identifier_or_url": "arXiv:1909.10406",
+        "material_read": "Introduction and the sections describing the principal graph families and k-matching sequences.",
+        "method": "Full-text arXiv inspection plus exact-term search for K_{4,4}.",
+        "title": "2-Matching Complexes",
+        "trigger": "Exact 2-matching homotopy paper and possible family-level coverage."
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP_ONLY.",
+        "evidence": "Theorem 3.3 computes characteristic-zero reduced homology representations; it does not state the wedge-of-spheres homotopy type.",
+        "identifier_or_url": "DOI:10.1023/A:1008728115910",
+        "material_read": "Abstract, introduction, and Theorem 3.3 on chessboard complexes with multiplicities.",
+        "method": "Full-text PDF inspection.",
+        "title": "Minimal Resolutions and the Homology of Matching and Chessboard Complexes",
+        "trigger": "Singh identifies it as the rational-homology source for higher complete-bipartite matching complexes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "915eed6b-65e5-4768-8a18-29e7b500bc86",
+  "value": {
+    "rationale": "The case is canonical rather than an arbitrary slice: it is the first balanced K_{n,n} instance at degree bound two beyond K_{3,3}-scale examples and sits immediately below Singh's known balanced sphere M_3(K_{4,4}). The source literature explicitly notes that exact higher-matching homotopy types are difficult. A perfect finite Morse model resolving the homotopy type therefore supplies a reusable benchmark and a concrete boundary case for any prospective balanced-family theory. Risk: a single small case need not extrapolate to larger n, and no such extrapolation is claimed.",
+    "status": "PASS"
+  }
+}
