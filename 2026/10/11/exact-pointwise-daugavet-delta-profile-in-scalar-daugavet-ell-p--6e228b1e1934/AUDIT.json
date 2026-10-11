@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "All four quantifier directions in the slice infimum formulas are preserved. For dc lower, for every normalized dual slice a Hölder norming pair (u,r) with |u|^p+r^p=1 can be realized by a scaled Daugavet-point fiber witness w whose norm approaches one and whose distance from x approaches two. The exact inequalities (b+r)^p≥b^p+r^p and |a-u|^p+r^p≥(1-a)^p force dc≥((1-a)^p+b^p)^(1/p). Concentrating scalar slices u→1 give equality. For Delta lower, every containing slice admits the same scalar coordinate a and a fiber witness near -x, giving 2b. For Delta upper, scalar slices u>a-η and the monotonic envelope |u-a|^p+(b+(1-u^p)^(1/p))^p≤(2b)^p for u≥a give a matching limit, with continuity for u<a. The a=0 and a=1 endpoints, strict gap for 0≤a<1, and full-sphere statement when every normalized Y-vector is Daugavet are explicitly derived.",
+    "risks": [
+      "The finite verifier is illustrative, not a replacement for all-slice and real-exponent proofs.",
+      "The proof uses the genuine pointwise Daugavet assumption; it cannot be extended unchanged to arbitrary non-Daugavet fibers."
+    ],
+    "sources": [
+      "arXiv:2307.10647v3 Definition 2.1",
+      "arXiv:2001.06197v1 Lemma 1.2",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Choi–Jung Proposition 4.1 is a general Daugavet lower estimate and Proposition 4.9 a general Delta lower estimate; neither supplies both sharp mixed-point formulas.",
+        "The separate exact pointwise Daugavet index result requires every coordinate space to have the Daugavet property, whereas a real scalar line never does.",
+        "The 2020 absolute-sum paper establishes qualitative Delta/non-Delta behavior rather than quantitative profiles."
+      ],
+      "reasoning": "Qualitative classification, lower stability bounds, and a formula under the stronger but incompatible hypothesis that all summands are Daugavet spaces do not dominate the simultaneous sharp profile in a sum with a scalar atom.",
+      "searches": [
+        "pointwise delta modulus X plus_p Y both Daugavet spaces",
+        "Delta point quantitative slice diameter of ell_p sum Daugavet components",
+        "arXiv:2307.10647v3 Sections 4.1 and 4.2",
+        "2026/10/4/SCOPE-exact-pointwise-daugavet-constants-for-arbitrary-finite-and-infi--c0ffd1ad943c"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2001.06197v1",
+      "https://arxiv.org/html/2307.10647v3",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-scalar-axis-daugavet-and-delta-constants-in-ell-p-sums--1f505b58d6b8/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-pointwise-daugavet-constants-for-arbitrary-finite-and-infi--c0ffd1ad943c/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-daugavet-constants-after-adjoining-an-atomic-ell-1-summand--8eb036c03232/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The axis record is restricted to points (t,0), while the accepted theorem concerns (t,bx) with b positive except at endpoints; its Delta constant is twice the axis value at the same t.",
+        "The all-Daugavet-coordinate formula cannot take a scalar first summand, and it computes only dc, not Delta.",
+        "The atomic-ell_1 calculation uses p=1; its scalar geometry and upper bound do not transfer to the strictly convex outer p norm for p>1.",
+        "The 2020 qualitative classification can imply the Delta-point locus after specializing its hypotheses, but supplies neither numerical radius nor a simultaneous Daugavet formula."
+      ],
+      "reasoning": "The accepted claim is a pair of sharp quantitative identities for an exact previously untreated mixed-unit-point domain. None of the highly relevant inspected statements yields those values, even after changing notation or invoking the qualitative classification as a corollary.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-scalar-axis-daugavet-and-delta-constants-in-ell-p-sums--1f505b58d6b8",
+        "2026/10/4/SCOPE-exact-pointwise-daugavet-constants-for-arbitrary-finite-and-infi--c0ffd1ad943c",
+        "2026/10/4/SCOPE-exact-daugavet-constants-after-adjoining-an-atomic-ell-1-summand--8eb036c03232",
+        "arXiv:2001.06197v1 Theorem 4.1",
+        "arXiv:2307.10647v3 Propositions 4.1, 4.9, 4.11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Choi–Jung Definition 2.1 identifies both constants with infima over all slices or slices containing the point; the accepted formula is in exactly that normalized convention.",
+        "Haller–Pirk–Veeorg define Daugavet points through the all-slice distance-two property, the geometric input in the proof.",
+        "The relevant public axis record gives values for (t,0), not (t,bx) where b>0."
+      ],
+      "reasoning": "The formulas were compared in both slice-radius and mixed-coordinate parametrizations, including the change of variable b=(1-|t|^p)^(1/p). An equality on a distinct ball-axis point does not imply either mixed-point identity.",
+      "searches": [
+        "pointwise Daugavet and Delta constants of scalar plus Banach space with Daugavet point under ell_p norm exact profile",
+        "complete profile Daugavet delta constant ℝ ⊕_p Y unit sphere atomic diffuse gap",
+        "inf slice sup distance Daugavet delta constants mixed support scalar diffuse coordinates",
+        "arXiv:2307.10647v1 Definition 2.1 and Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed scalar-axis table computes dc(t,0)=1-|t| and delta c(t,0)=(1-|t|^p)^(1/p), rather than the target sphere values with a nonzero second coordinate.",
+        "The mixed pointwise profile and the twofold Delta amplification at fixed scalar t do not appear in the inspected axis result.",
+        "Exact-formula and exact-object searches located no table evaluating both constants on these mixed sphere points."
+      ],
+      "reasoning": "The known table is a different slice of the unit ball. Fixing the scalar coordinate and adding the fiber component changes the point, both constants, and which scalar slices contain the point.",
+      "searches": [
+        "scalar summand arbitrary Daugavet point z=(a,bx) pointwise dc delta c formulas (1-a)^p 2b",
+        "Delta constant dc pointwise profile for real scalar direct sum Daugavet point x ℝ⊕_pY",
+        "pointwise Delta constants full unit sphere ℝ direct sum p Daugavet space",
+        "2026/10/4/SCOPE-exact-scalar-axis-daugavet-and-delta-constants-in-ell-p-sums--1f505b58d6b8"
+      ]
+    },
+    "rationale": "Actual semantic searches and full-text implication comparisons identify the 2020 qualitative absolute-sum result, the 2023 defining quantitative stability paper, and three highly relevant exact published profiles. The old qualitative theorem gives a Delta-point locus but no pointwise constants. The closest indexed exact same-space pair of constants covers the different ball axis (t,0), not the mixed sphere (t,bx). Another exact result requires all components to be Daugavet spaces, which excludes a real scalar line; the atomic-summand formula is for p=1. Neither literature result implies the two sharp mixed-point identities. No covering mixed scalar–Daugavet two-constant statement was found among the inspected scientific claims.",
+    "residual_risks": [
+      "Searches and these readings cannot prove absolute novelty: an equivalent mixed-sphere slice profile might exist under different terminology.",
+      "The argument does not assert quantitative universality for non-Daugavet fibers or p=1/infinity.",
+      "The 2020 qualitative Delta classification overlaps the zero-vs-nonzero qualitative locus; the accepted originality is specifically the simultaneous exact numerical two-constant profile and sharp gap."
+    ],
+    "risks": [
+      "An independent literature audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "QUALITATIVE_PARTIALLY_COVERING: its Theorem 4.1 supports the qualitative absence of mixed Delta points with a nonzero scalar component, but the paper predates and does not contain the pointwise quantitative two-constant formulas.",
+        "evidence": "ArXiv first public version dated 17 January 2020, primary MSC 46B20, 46B04. Theorem 4.1 constrains component Delta points, not the numerical slice-infimum radius.",
+        "identifier_or_url": "https://arxiv.org/html/2001.06197v1",
+        "material_read": "Open-access full-text HTML: introduction, Definitions and Lemmas 1.2–1.3, exact pointwise qualitative definitions, Section 2 summands-to-sums, and Section 4 including Theorem 4.1 on Delta-point inheritance; title/MSC/date.",
+        "method": "ArXiv first-version public HTML read through the displayed mathematical statements and proofs.",
+        "title": "Daugavet- and Delta-points in absolute sums of Banach spaces",
+        "trigger": "Earliest eligible literature anchor and full classification of qualitative Daugavet/Delta points in absolute sums."
+      },
+      {
+        "assessment": "DEFINING_AND_GENERAL_BOUNDS_NOT_COVERING: proves the exact definitions, general estimates and endpoint sum stability, but does not evaluate both constants on a mixed scalar–Daugavet unit vector for 1<p<infinity.",
+        "evidence": "First posted 20 July 2023; Definition 2.1 provides the slice-infimum convention. The stability results give lower estimates and ℓ1/ℓ∞ behavior, not the mixed scalar p-profile.",
+        "identifier_or_url": "https://arxiv.org/html/2307.10647v3",
+        "material_read": "Open-access full-text HTML: Definition 2.1 and its exact inf-over-slices equalities, full Section 4.1 including Propositions 4.1, 4.2, 4.8, and Section 4.2 including Propositions 4.9 and 4.11 and proofs.",
+        "method": "ArXiv version 3 public full-text reading; first public v1 date independently checked in arXiv metadata.",
+        "title": "The Daugavet and Delta-constants of points in Banach spaces",
+        "trigger": "Defining primary full text for the quantitative constants and the strongest available absolute-sum stability comparisons."
+      },
+      {
+        "assessment": "SAME_SPACE_DIFFERENT_POINTS_NOT_COVERING: it evaluates the ball axis, not the mixed unit-sphere point with nonzero Daugavet component; its values differ systematically.",
+        "evidence": "For z=(t,0) the record gives dc=1-|t| and delta c=(1-|t|^p)^(1/p); for z=(t,bx) the present Delta value is 2b.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-scalar-axis-daugavet-and-delta-constants-in-ell-p-sums--1f505b58d6b8/RESULT.md",
+        "material_read": "Complete public RESULT.md, including Finding, Assumptions, proof, comparisons and limitations. Checked its exact object (t,0), valid throughout the scalar ball axis.",
+        "method": "Read-only public GitHub repository file retrieval.",
+        "title": "Exact scalar-axis Daugavet and Delta-constants in ell_p-sums",
+        "trigger": "Closest exact same space and same pair of invariants."
+      },
+      {
+        "assessment": "NOT_COVERING: requires every coordinate space to have Daugavet property; the scalar first summand never does. Does not compute Delta constants.",
+        "evidence": "Its formula for a family of Daugavet summands depends on smallest coordinate-norm m and cannot be specialized to a real scalar first component.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-pointwise-daugavet-constants-for-arbitrary-finite-and-infi--c0ffd1ad943c/RESULT.md",
+        "material_read": "Complete public RESULT.md, theorem hypotheses and exact coordinate-norm formula, proof and limitations.",
+        "method": "Read-only public GitHub repository file retrieval.",
+        "title": "Exact pointwise Daugavet constants for arbitrary finite and infinite ell_p-sums",
+        "trigger": "Strongest superficially broader pointwise Daugavet formula for vector-valued p-sums."
+      },
+      {
+        "assessment": "NOT_COVERING: exact identity relies on p=1 and the ℓ1 dual-coordinate geometry; no conclusion for 1<p<infinity or for Delta constants.",
+        "evidence": "Its exact dc formula concerns X⊕₁ℓ1(Γ), whereas the present theorem assumes ℝ⊕pY with strictly convex outer ℓp.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-daugavet-constants-after-adjoining-an-atomic-ell-1-summand--8eb036c03232/RESULT.md",
+        "material_read": "Complete public RESULT.md including the ℓ1 sum theorem, both proof mechanisms and all limitations.",
+        "method": "Read-only public GitHub repository file retrieval.",
+        "title": "Exact Daugavet constants after adjoining an atomic ell_1 summand",
+        "trigger": "Closest atomic-summand exact calculation under a different outer norm."
+      }
+    ],
+    "sources": [
+      "arXiv:2001.06197v1",
+      "arXiv:2307.10647v1"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e228b1e-1934-479d-b2a4-fece00bd14aa",
+  "value": {
+    "rationale": "The theorem resolves both natural local diameter-two radii for every unit vector of a scalar–Daugavet p-sum, with only a pointwise Daugavet hypothesis. It gives a nontrivial continuum-wide strict gap, an exact twofold Delta amplification relative to the previously known scalar-ball-axis value, and a complete Delta-locus and Daugavet-nonexistence classification when the second summand has the Daugavet property. This full mixed-sphere profile is not a routine restatement of qualitative inheritance or a random finite slice.",
+    "risks": [
+      "The phenomenon is specific to one scalar atom and the strictly convex outer p range; further multiple-atom classifications are not claimed."
+    ],
+    "sources": [
+      "arXiv:2307.10647v3 Definition 2.1 and Section 4",
+      "arXiv:2001.06197v1 Section 4",
+      "Bundled RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
