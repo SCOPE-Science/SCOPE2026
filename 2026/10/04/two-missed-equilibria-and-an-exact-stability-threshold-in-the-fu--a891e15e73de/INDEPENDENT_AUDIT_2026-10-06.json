@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:01:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Primary Scientific Reports full text for the printed vector field and its sole-equilibrium claim.",
+        "Fresh symbolic equilibrium/characteristic-polynomial reconstruction in this audit.",
+        "verify.py blob 0a78b5135944ee7edb60a86409e74d3f429dc097."
+      ],
+      "rationale": "Solving the equilibrium equations directly gives the origin and the two displayed off-origin branches, with no others. Fresh symbolic reconstruction gives the origin characteristic polynomial lambda(lambda-12)(lambda+3)(lambda+35), so the origin cannot be stable. The two quartic characteristic polynomials and Routh first columns in the package were independently reconstructed. Numerical root counts at representative points on each side of the exact threshold agree with the symbolic Routh sign classification, and the threshold factorization isolates one simple imaginary pair.",
+      "risks": [
+        "The result proves a spectral crossing, not nonlinear Hopf nondegeneracy or a periodic-orbit branch."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Routh-Hurwitz theory is prior methodology but does not supply these source-specific equilibria or threshold."
+        ],
+        "reasoning": "The accepted result is a concrete correction to one published vector field, not a new stability method.",
+        "searches": [
+          "Scientific Reports source article and related hyperchaotic-flow stability literature"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "DOI:10.1038/s41598-023-46161-5",
+        "targeted exact-equation web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source conclusions conflict with its printed equations: the equations yield two more equilibria and the origin spectrum contains +12.",
+          "No source theorem implies the exact d_H threshold."
+        ],
+        "reasoning": "The new statement is incompatible with, rather than a corollary of, the source's equilibrium classification.",
+        "searches": [
+          "Primary article equilibrium and Jacobian sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top Resultary hit is the audited record; nearby findings concern different hyperchaotic flows.",
+          "The primary article states only the origin as equilibrium."
+        ],
+        "reasoning": "Searches covered equation-level, equilibrium, spectral and correction formulations.",
+        "searches": [
+          "Resultary: Fu Cheng Liu hyperchaotic flow three equilibria exact stability threshold d_H nonzero equilibria Scientific Reports 2023",
+          "Web searches by DOI 10.1038/s41598-023-46161-5, equations, equilibrium coordinates, threshold and correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed correction, erratum or same-system equilibrium table containing the two branches was located."
+        ],
+        "reasoning": "Database non-detection is combined with direct full-text comparison rather than treated as novelty proof by itself.",
+        "searches": [
+          "Exact DOI/title searches for correction or erratum",
+          "Resultary exact system search"
+        ]
+      },
+      "rationale": "The primary article explicitly states that the origin is the only equilibrium and later interprets a high-d regime as stable at that origin, despite its own displayed origin eigenvalue 12. It does not state the two missed equilibria or the exact off-origin stability threshold. Exact DOI/title/equation searches and Resultary searching found no same-system correction.",
+      "residual_risks": [
+        "An unindexed note or thesis could independently contain the same correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_MISSES_TWO_EQUILIBRIA_AND_CONTAINS_INCONSISTENT_ORIGIN_STABILITY_INTERPRETATION",
+          "evidence": [
+            "The paper states the origin is the only equilibrium while its printed equations have two additional solutions; its origin spectrum includes 12."
+          ],
+          "identifier_or_url": "DOI:10.1038/s41598-023-46161-5",
+          "material_read": "Publisher full text covering system definition, equilibrium claim, origin Jacobian/eigenvalues and parameter-regime discussion.",
+          "method": "Primary publisher full-text inspection.",
+          "title": "Dynamics, circuit design, feedback control of a new hyperchaotic system and its application in audio encryption",
+          "trigger": "Exact source system and conflicting stability claims."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact equilibrium census and exact stability partition on the source's full parameter sweep."
+      ],
+      "rationale": "The correction changes the local phase portrait of a published system: an off-origin equilibrium has an open stable basin below a sharp threshold, while the origin is never attracting. This directly affects interpretation of numerical attractors and control claims.",
+      "risks": [
+        "No global attractor, basin-boundary or encryption-performance theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the printed Fu--Cheng--Liu four-dimensional flow, there are exactly three equilibria; the origin is unstable for every positive d, the positive off-origin branch has exactly one unstable eigenvalue on 0<d<=30, and the negative branch is asymptotically stable exactly below the explicit spectral threshold d_H and has two unstable eigenvalues above it on that range.",
+  "limitations": [
+    "Local equilibrium stability on 0<d<=30.",
+    "No nonlinear Hopf or global-chaos assertion."
+  ],
+  "schema_version": 1
+}

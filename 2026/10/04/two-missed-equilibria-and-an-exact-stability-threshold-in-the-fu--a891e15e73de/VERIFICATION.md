@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accepted claim was checked from the displayed vector field with exact symbolic algebra.
+# Independent mathematical audit
 
-`verify.py` performs the following checks:
+## correctness
 
-1. substitutes the two claimed off-origin equilibria and verifies all four vector-field components vanish identically;
-2. derives the origin characteristic polynomial and confirms the spectrum \(\{-35,12,-3,0\}\);
-3. derives the characteristic polynomials for \(E_{+1}\) and \(E_{-1}\) directly from the Jacobian;
-4. reconstructs the Routh first-column expressions used in the proof;
-5. verifies that \(d_H=(119105-455\sqrt{68521})/3\) is the smaller positive root of \(3d^2-238210d+147000\);
-6. checks the exact imaginary-pair factorization at \(d=d_H\); and
-7. checks representative numerical spectra only as a secondary sanity test.
+PASS
 
-The proof in `RESULT.md` supplies the interval sign analysis needed for the continuum statement. The numerical checks are not used as substitutes for that proof.
+Solving the equilibrium equations directly gives the origin and the two displayed off-origin branches, with no others. Fresh symbolic reconstruction gives the origin characteristic polynomial lambda(lambda-12)(lambda+3)(lambda+35), so the origin cannot be stable. The two quartic characteristic polynomials and Routh first columns in the package were independently reconstructed. Numerical root counts at representative points on each side of the exact threshold agree with the symbolic Routh sign classification, and the threshold factorization isolates one simple imaginary pair.
 
-Replay command:
+## originality
 
-`python verify.py`
+PASS
 
-Observed output is recorded in `verification_output.txt`.
+The primary article explicitly states that the origin is the only equilibrium and later interprets a high-d regime as stable at that origin, despite its own displayed origin eigenvalue 12. It does not state the two missed equilibria or the exact off-origin stability threshold. Exact DOI/title/equation searches and Resultary searching found no same-system correction.
 
-Limits: the checker does not establish nonlinear Hopf nondegeneracy, global boundedness, basin geometry, or the existence of a hyperchaotic attractor.
+## value
+
+PASS
+
+The correction changes the local phase portrait of a published system: an off-origin equilibrium has an open stable basin below a sharp threshold, while the origin is never attracting. This directly affects interpretation of numerical attractors and control claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
