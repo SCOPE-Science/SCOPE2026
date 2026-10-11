@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:11:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d778ba886d78041171d489579bc581b86626b043",
+        "assigned artifacts/verify_seshadri_gap.py blob d23245adbc2182b03c794c2e201f6cbb84ed0474",
+        "Fuentes García, Seshadri constants on ruled surfaces: the rational and the elliptic cases, arXiv:math/0503253"
+      ],
+      "rationale": "Fuentes García's Theorem 9 gives exactly \\(\\varepsilon(A,x)=(2n(n+1)b+a)/(2n+1)\\) with \\(n=\\lfloor\\sqrt{a/(2b)}\\rfloor\\), and the standard volume bound is \\(\\varepsilon(A,x)\\le\\sqrt{A^2}\\) with \\(A^2=2ab\\). Expanding and refactoring gives the claimed product \\((a-2bn^2)(2b(n+1)^2-a)/(2n+1)^2\\). On a fixed chamber \\(n^2\\le t=a/(2b)<(n+1)^2\\), dividing by \\(A^2\\) reduces the sharp relative-gap bound to the elementary product inequality maximized at \\(t=n(n+1)\\). Equality with the volume bound occurs exactly at square slopes. A fresh exact rational replay across 3,481 integer pairs independently reproduced the factorization and equality conditions; the infinite conclusion rests on the algebra, not the finite replay.",
+      "residual_risks": [
+        "No correctness defect is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source completely determines the Seshadri constants on these elliptic ruled surfaces, a stronger raw statement than a derived normalized deficit profile."
+        ],
+        "reasoning": "The published exact constant is sufficient to recover the full audited profile without a new geometric argument.",
+        "searches": [
+          "Fuentes García full ruled-surface article",
+          "Resultary current Seshadri-constant corpus"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0503253",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting the square of the published formula from \\(2ab\\) factors immediately into the two chamber-endpoint distances.",
+          "AM-GM on those two factors gives the chamber optimum at \\(t=n(n+1)\\), and setting the factorized gap to zero gives the square-slope criterion."
+        ],
+        "reasoning": "The final claim is a routine exact corollary of a stronger same-object theorem.",
+        "searches": [
+          "Fuentes García Theorem 9 versus the factorized volume gap",
+          "Fuentes García Lemma 10 versus chamber minimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives \\(Q_{C_n}\\) by \\(n^2<a/(2b)<(n+1)^2\\) and the exact same \\(\\varepsilon(A,x)\\).",
+          "The source states the general upper bound \\(\\varepsilon(A,x)\\le\\sqrt{A^2}\\)."
+        ],
+        "reasoning": "The audited ratio and gap are algebraic reformulations of the source theorem on exactly the same surface, point class, divisor normalization, and chambers.",
+        "searches": [
+          "Resultary query: Seshadri elliptic ruled surface non-torsion volume gap chamber normalized",
+          "Fuentes García arXiv:math/0503253, Lemma 10 and Theorem 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the only exact profile hit, but search absence does not override direct implication from the primary formula."
+        ],
+        "reasoning": "No independent database match is needed because same-paper implication is decisive.",
+        "searches": [
+          "Resultary current exact search for the non-torsion elliptic ruled-surface volume-gap profile"
+        ]
+      },
+      "rationale": "The primary source already gives the exact non-torsion elliptic ruled-surface Seshadri constant, the square-root volume upper bound, and the same chamber condition \\(n^2<a/(2b)<(n+1)^2\\). Every claimed novelty-bearing clause is obtained by expanding the square of that published closed formula, factoring a quadratic numerator, and optimizing a two-factor product on the already published chamber. Under an implication-based originality standard, the volume-gap profile is mechanically contained in the source even though the source does not print the factored expression.",
+      "residual_risks": [
+        "No access limitation affects the decisive implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_SAME_OBJECT_FORMULA",
+          "evidence": "Theorem 9 prints the exact formula and Lemma 10 prints the same square chambers from which the entire audited profile follows algebraically.",
+          "identifier_or_url": "arXiv:math/0503253",
+          "material_read": "relevant full-text sections on the general volume bound, non-torsion elliptic ruled surface, Lemma 10, and Theorem 9; the page containing Theorem 9 was visually inspected",
+          "method": "primary PDF full-text targeted inspection plus page-image verification",
+          "title": "Seshadri constants on ruled surfaces: the rational and the elliptic cases",
+          "trigger": "exact source of the load-bearing Seshadri formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Fuentes García exact formula and chamber theorem",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The factorized deficit is a clean way to visualize how the published exact Seshadri constant approaches its volume bound, but its sharp chamber minimum and square-slope equality set require only elementary expansion, factorization, and AM-GM once the source theorem is inserted. This is an expository corollary rather than a new structural lemma, boundary phenomenon, or difficult exact invariant.",
+      "residual_risks": [
+        "The profile may still be useful pedagogically."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No correctness defect is asserted.",
+    "No access limitation affects the decisive implication.",
+    "The profile may still be useful pedagogically."
+  ]
+}
