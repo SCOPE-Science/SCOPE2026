@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "By homogeneity, two injective ordered tuples are in the same automorphism orbit exactly when their coordinate-labelled induced finite substructures agree. Choosing which \\(p\\) coordinates lie on the left contributes \\(\\binom np\\), the two internal structures contribute \\(f_p g_{n-p}\\), and the unrestricted bipartite cross relation contributes \\(2^{p(n-p)}\\). Every finite structure embeds in the Fraïssé limit, so the count is exact. For pure finite sets and finite linear orders, \\(f_p=1\\) and \\(g_q=q!\\), yielding the displayed closed form; formal rearrangement gives both OEIS exponential generating functions. Partitioning an arbitrary ordered tuple by its equality kernel gives the Stirling transform. A fresh computation reproduced \\(1,2,7,43,441,7241,185233,7252337,429318529,38079107713,5026601726721\\), matching OEIS A340335, and the actual frozen verifier was read.",
+      "risk": "The transform is elementary once the mixed-sum definition and homogeneity are in place; its contribution is the general orbit-profile formula and identification.",
+      "sources": [
+        "arXiv:1811.09650",
+        "OEIS:A340335",
+        "fresh exact coefficient replay in this audit",
+        "frozen verify.py at source tree 3e026f82f752067b96fdc3a9596d6f058378c1ab"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The mixed-sum theorem gives existence and automorphism-group embeddings, not oligomorphic profile formulas.",
+          "OEIS gives the analytic sequence but no Fraïssé-age derivation.",
+          "The inspected later structural paper contained no orbit/profile/A340335 statement."
+        ],
+        "reasoning": "No broader inspected result simultaneously determines the orbit profile of the mixed-sum limit.",
+        "searches": [
+          "Kubiś-Shelah Theorem 4.2 and application",
+          "OEIS A340335",
+          "Truss 2025 same-limit structural treatment"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.09650",
+        "DOI:10.1017/jsl.2020.10",
+        "OEIS:A340335",
+        "DOI:10.1007/s00153-025-00986-1",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixed-sum definition makes the counting problem natural but does not itself state the resulting profile.",
+          "The OEIS formula does not identify which homogeneous structure realizes the sequence."
+        ],
+        "reasoning": "The final statement bridges two prior objects by a general orbit-counting theorem; neither prior statement alone supplies that bridge.",
+        "searches": [
+          "arXiv:1811.09650 Section 4",
+          "OEIS:A340335"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kubiś-Shelah lines 214-246 define the mixed sum with arbitrary bipartite relation and the finite-set/linear-order torsion-free example, but give no orbit enumeration.",
+          "OEIS A340335 lists exactly the same coefficients and the two generating functions, without the homogeneous-structure interpretation."
+        ],
+        "reasoning": "The comparison separated the known numeric sequence from the new model-theoretic orbit identification and generalized transform.",
+        "searches": [
+          "Resultary: mixed sum orbit transform Kubiś Shelah torsion-free limit A340335 Fraisse orbit profile",
+          "arXiv:1811.09650 full HTML Section 4",
+          "OEIS:A340335",
+          "later one-side-ordered bipartite Fraïssé-limit literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numeric sequence and generating functions are exact prior database content.",
+          "The model-theoretic interpretation and general \\(f_p,g_p\\) transform were not present in the inspected database/literature."
+        ],
+        "reasoning": "The prior sequence is explicitly credited; originality is restricted to the general transform and its identification with the orbit profile.",
+        "searches": [
+          "OEIS:A340335 exact sequence and e.g.f.",
+          "Resultary semantic search for A340335 plus Kubiś-Shelah mixed sums"
+        ]
+      },
+      "rationale": "Kubiś and Shelah define mixed sums, prove the Fraïssé/strong-amalgamation theorem, and single out the finite-set/linear-order example for its torsion-free automorphism group, but their full open text does not enumerate tuple orbits. OEIS A340335 already contains the sequence and both generating functions, but not the Kubiś-Shelah model-theoretic interpretation. A later source on the same one-side-ordered bipartite limit was inspected and did not state an orbit/profile or A340335 theorem. No source found implication-wise contained the general mixed-sum transform plus this identification.",
+      "residual_risks": [
+        "Because the transform is a direct labeled-age count, an equivalent formula may exist as folklore or in unindexed combinatorial-species/model-theory notes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_OBJECT_NOT_ORBIT_PROFILE",
+          "evidence": "The source proves the Fraïssé and torsion-free automorphism-group properties but does not enumerate tuple orbits.",
+          "identifier_or_url": "arXiv:1811.09650; DOI:10.1017/jsl.2020.10",
+          "material_read": "Full open arXiv HTML Section 4, including Definition of mixed sums, Lemma 4.1, Theorem 4.2 and the finite-set/linear-order application.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Homogeneous structures with non-universal automorphism groups",
+          "trigger": "Primary source defining mixed sums and the exact torsion-free example."
+        },
+        {
+          "assessment": "EXACT_SEQUENCE_PRIOR_BUT_NO_MODEL_THEORETIC_IDENTIFICATION",
+          "evidence": "The entry gives the same sequence and e.g.f.s but no Kubiś-Shelah mixed-sum interpretation.",
+          "identifier_or_url": "OEIS:A340335",
+          "material_read": "Complete public sequence entry including coefficients and both exponential generating functions.",
+          "method": "Lawful public database inspection.",
+          "title": "OEIS A340335",
+          "trigger": "Exact coefficient sequence in the audited theorem."
+        },
+        {
+          "assessment": "SAME_OBJECT_STRUCTURAL_WORK_NOT_PROFILE_FORMULA",
+          "evidence": "No inspected statement gives the audited orbit transform or sequence identification.",
+          "identifier_or_url": "DOI:10.1007/s00153-025-00986-1",
+          "material_read": "Public full article/source material with targeted checks for orbit, profile, oligomorphic and A340335 terminology.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Later structural treatment of the one-side-ordered homogeneous bipartite limit",
+          "trigger": "Potential same-object later coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Orbit profiles are a canonical quantitative invariant of oligomorphic homogeneous structures. The theorem gives a reusable transform for an entire natural Fraïssé construction and identifies the precise profile of the torsion-free Kubiś-Shelah example with a pre-existing OEIS sequence. Although the derivation is short, the object and invariant are independently motivated and the formula packages exact information that is useful across mixed-sum examples.",
+      "risk": "The mathematics is elementary once the correct invariant is posed, so its value is as an exact general transform and identification rather than a deep structural theorem.",
+      "sources": [
+        "arXiv:1811.09650",
+        "OEIS:A340335"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For mixed sums of relational Fraïssé classes with strong amalgamation and finite labeled age profiles \\(f_p,g_p\\), the injective ordered \\(n\\)-tuple orbit count of the Fraïssé limit is \\(a_n=\\sum_{p=0}^n\\binom np f_p g_{n-p}2^{p(n-p)}\\); all ordered-tuple orbits are the Stirling transform \\(b_n=\\sum_k S(n,k)a_k\\). For the Kubiś-Shelah finite-set/linear-order mixed sum this gives \\(a_n=n!\\sum_{p=0}^n2^{p(n-p)}/p!\\), exactly OEIS A340335, with the stated two equivalent exponential generating functions.",
+  "limitations": [
+    "Requires finite labeled age profiles in each arity.",
+    "The OEIS sequence and generating functions themselves are prior work; novelty is restricted to the general transform and model-theoretic identification."
+  ],
+  "schema_version": 1
+}
