@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact stationary matrix exponential. In the overdamped regime, the difference after division by the positive first-order autocorrelation has a derivative with exactly one sign change, so there is exactly one positive crossover. Critical damping is handled by the repeated-root formula and a one-turning-point logarithmic ratio. In the underdamped regime, exact odd half-period lags give negative second-order correlation while the first-order comparator stays positive.
+## correctness
 
-## Originality
-PASS. The motivating 2026 source displays the same second-order formulas and then states the opposite unrestricted dominance claim. Classical stochastic-oscillator/CAR(2) literature covers the oscillatory autocorrelation formula but the checked sources do not state the variance-matched first/second-order comparison, unique overdamped crossover, or the correction of the early-warning claim. Focused searches under several equivalent formulations located no implication-equivalent result. Residual risk remains that an equivalent comparison is present in unindexed engineering or time-series literature under different notation.
+PASS
 
-## Value
-PASS. A single-lag autocorrelation is sampling-rate dependent. The result gives the exact structural boundary between inertial amplification and suppression for the comparison used in a fresh tipping-point paper, and shows that underdamped sampling can even reverse the sign of the indicator. This is a substantive correction to a claimed universal ordering, not merely a numerical counterexample.
+The exact comparison is correct. In the overdamped regime, using r_-r_+=alpha and r_-+r_+=eta rewrites the derivative of the ratio-difference as a difference of two decaying exponentials with exactly one zero; the sign function starts at zero with positive slope and tends to a negative limit, so it has exactly one positive crossing. At critical damping the log ratio log(1+s/2)-s/4 rises then decreases to minus infinity, giving one positive root. In the underdamped regime the second-order bracket equals -1 at every odd half-period while the matched first-order autocorrelation stays positive.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.01164v1 itself: it provides the linearized model, the matrix-exponential autocorrelation, and the variance-matched comparator, but asserts that the second-order autocorrelation is always larger. Koen (2012) is close background for stochastic damped-oscillator autocorrelation but does not make this matched comparison. The claim is limited to stationary local linearization and theoretical autocorrelation; it does not cover nonlinear escape or finite-window estimator error.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes narrowly for the exact lag-domain classification. Classical damped-oscillator literature supplies the autocorrelation formula, and the accessible Ditlevsen source broadly notes that inertia/damping may enhance or reduce warning signatures. The audited theorem proves the sharper exact comparator result: a unique positive crossover in the overdamped and critical regimes and explicit infinitely many negative intervals in the underdamped regime. Resultary found no prior exact theorem.
+
+## value
+
+PASS
+
+Fixed-lag autocorrelation is a standard early-warning statistic. The unique crossover and explicit negative lag bands precisely identify how sampling lag can reverse the comparison between first- and second-order linearized saddle-node models, turning a broad qualitative issue into an exact boundary theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

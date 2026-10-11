@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact comparison was checked algebraically from the stationary linearized matrix exponential.
+# Independent mathematical audit
 
-For \(0<\alpha<\eta^2/4\), defining \(r_-=(\eta-\sqrt{\eta^2-4\alpha})/2\), \(r_+=(\eta+\sqrt{\eta^2-4\alpha})/2\), and \(q=\alpha/\eta\), the sign of \(R_2/R_1-1\) is the sign of
-\[
-F(\Delta)=r_+e^{-(r_--q)\Delta}-r_-e^{-(r_+-q)\Delta}-(r_+-r_-).
-\]
-The identities \(r_--q=r_-^2/\eta\) and \(r_+-q=r_+^2/\eta\) make \(F'\) a difference of two exponentials with exactly one zero. Since \(F'(0)>0\) and \(F(\infty)<0\), there is exactly one positive crossover.
+## correctness
 
-At \(\alpha=\eta^2/4\), the ratio is \(e^{-s/4}(1+s/2)\) with \(s=\eta\Delta\). Its log derivative is \(1/(s+2)-1/4\), giving exactly one positive crossover. The quoted decimal \(5.0257248345\) is only a numerical evaluation of this proved scalar root, not part of the proof of uniqueness.
+PASS
 
-For \(\alpha>\eta^2/4\), \(R_2\) is a decaying sinusoid with bracket \(\cos(\omega\Delta)+(\eta/(2\omega))\sin(\omega\Delta)\). At every odd half-period the bracket is exactly \(-1\), while the matched first-order autocorrelation remains positive.
+The exact comparison is correct. In the overdamped regime, using r_-r_+=alpha and r_-+r_+=eta rewrites the derivative of the ratio-difference as a difference of two decaying exponentials with exactly one zero; the sign function starts at zero with positive slope and tends to a negative limit, so it has exactly one positive crossing. At critical damping the log ratio log(1+s/2)-s/4 rises then decreases to minus infinity, giving one positive root. In the underdamped regime the second-order bracket equals -1 at every odd half-period while the matched first-order autocorrelation stays positive.
 
-Limits: the verification does not test finite-window sample autocorrelation or nonlinear trajectories; those are outside the claim.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes narrowly for the exact lag-domain classification. Classical damped-oscillator literature supplies the autocorrelation formula, and the accessible Ditlevsen source broadly notes that inertia/damping may enhance or reduce warning signatures. The audited theorem proves the sharper exact comparator result: a unique positive crossover in the overdamped and critical regimes and explicit infinitely many negative intervals in the underdamped regime. Resultary found no prior exact theorem.
+
+## value
+
+PASS
+
+Fixed-lag autocorrelation is a standard early-warning statistic. The unique crossover and explicit negative lag bands precisely identify how sampling lag can reverse the comparison between first- and second-order linearized saddle-node models, turning a broad qualitative issue into an exact boundary theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
