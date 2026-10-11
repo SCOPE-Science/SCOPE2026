@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces one fixed-length tandem duplication to insertion of one zero block in the standard derivative coordinates. For a fixed nonzero skeleton, a conflict is exactly a transfer of \(\ell\) zeros from one zero run to another. The difference of the two zero-run vectors identifies the donor and recipient uniquely, proving both the one-common-descendant statement and the absence of hidden multiplicity. Stars-and-bars gives \(\binom{n-2\ell}{s}\) legal donor states for a skeleton with \(s\) nonzero symbols, and the binomial identity then gives the closed form. The standalone verifier reconstructs the channel directly and checks representative parameter ranges independently.
+## correctness
 
-Risk: the finite replay cannot establish the universal quantifiers by itself. The universal result rests on the explicit bijection, transfer characterization, and binomial summation given in the proof.
+PASS
 
-## Originality
-PASS. The closest literature inspected gives the fixed-length tandem-duplication channel, the derivative/zero-block insertion representation, code-size bounds, and pairwise descendant-intersection machinery. No inspected source states the aggregate edge count of the exact-one confusability graph or the resulting average degree. The reconstruction paper analyzes overlap for prescribed pairs and descendant cones; the present theorem instead sums all one-step conflicts over the complete source space.
+The standard \(\ell\)-step derivative is a bijection from a source word to its length-\(\ell\) prefix and derivative tail, and one length-\(\ell\) tandem duplication inserts \(0^\ell\) into that tail. For a fixed nonzero skeleton, distinct source tails are described by zero-run vectors. Two distinct tails share a one-duplication output exactly when one is obtained from the other by transferring \(\ell\) zeros from one zero run to a distinct zero run; the two changed coordinates uniquely determine the common output, proving multiplicity one. For skeleton length \(s\), oriented transfers are counted by \(s(s+1)\binom{n-2\ell}{s}\), so unordered edges contribute half that. Summing over \((q-1)^s\) skeletons and \(q^\ell\) prefixes, then differentiating the binomial theorem twice, gives the closed formula and boundary \(n\le2\ell\). The inspected verifier reconstructs the channel directly over many finite \((q,\ell,n)\) values and matches the formula, but the general proof is combinatorial.
 
-Risk: semantic and full-text searches cannot rule out an unindexed finite or combinatorial computation of the same aggregate invariant.
+## originality
 
-## Value
-PASS. The number of conflicting source pairs is a natural global invariant of an error channel: it is exactly the edge count of the graph whose independent sets are one-error-correcting codes. The formula also gives collision density and average degree for all \(q,\ell,n\), while the unique-common-descendant property identifies the exact local multiplicity underlying that graph. This is an infinite structural statement rather than an arbitrary small-parameter slice.
+PASS
 
-## Closest literature and limitations
-The derivative representation is standard in fixed-length tandem-duplication coding, and reconstruction coding already exploits zero-run signatures to study descendant intersections. The new contribution is limited to the exact-one fixed-length channel; it does not determine the degree sequence or maximum independent set and does not extend here to multiple errors or mixed duplication lengths.
+The primary tandem-duplication literature supplies the same derivative transform, zero-run/signature representation, sphere bounds, and descendant-cone intersection machinery, but no inspected source aggregates the exact-one confusability relation over all length-\(n\) sources to obtain this all-parameter edge formula or states that every conflict has exactly one common one-error descendant. Targeted Resultary and web searches found no implication-equivalent published SCOPE record or exact table.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The confusability graph is the natural graph whose independent sets are one-error-correcting codes. An exact edge count for every alphabet size, block length, and source length, together with the exact common-descendant multiplicity, gives structural density information that is reusable for probabilistic, spectral, and extremal studies of these codes. This is an all-parameter invariant, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

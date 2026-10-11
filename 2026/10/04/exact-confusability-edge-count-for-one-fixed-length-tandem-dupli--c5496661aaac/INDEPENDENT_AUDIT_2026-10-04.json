@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:32:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 9d5e29638a67323b9d8686dedfe2141b824a16b6",
+        "assigned verify.py blob 4d93e32844948a87bc10da83e534a26fa14e14d1",
+        "Lenz--Wachter-Zeh--Yaakobi, arXiv:1712.09345, primary full text",
+        "Yehezkeally--Schwartz, arXiv:1801.06022",
+        "Lenz--Jünger--Wachter-Zeh, arXiv:1807.02874"
+      ],
+      "rationale": "The standard \\(\\ell\\)-step derivative is a bijection from a source word to its length-\\(\\ell\\) prefix and derivative tail, and one length-\\(\\ell\\) tandem duplication inserts \\(0^\\ell\\) into that tail. For a fixed nonzero skeleton, distinct source tails are described by zero-run vectors. Two distinct tails share a one-duplication output exactly when one is obtained from the other by transferring \\(\\ell\\) zeros from one zero run to a distinct zero run; the two changed coordinates uniquely determine the common output, proving multiplicity one. For skeleton length \\(s\\), oriented transfers are counted by \\(s(s+1)\\binom{n-2\\ell}{s}\\), so unordered edges contribute half that. Summing over \\((q-1)^s\\) skeletons and \\(q^\\ell\\) prefixes, then differentiating the binomial theorem twice, gives the closed formula and boundary \\(n\\le2\\ell\\). The inspected verifier reconstructs the channel directly over many finite \\((q,\\ell,n)\\) values and matches the formula, but the general proof is combinatorial.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader signature machinery characterizes individual descendants and distances but does not print or immediately tabulate the global edge enumeration."
+        ],
+        "reasoning": "The audited counting theorem requires summing legal zero-run transfers over all skeleton lengths and prefixes; it is not a mere parameter substitution into a published code-size bound.",
+        "searches": [
+          "fixed-length duplication sphere/signature theorems",
+          "uniform tandem-duplication reconstruction codes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.09345",
+        "arXiv:1801.06022",
+        "arXiv:1807.02874",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior work provides the coordinate system used in the proof, but the global legal-transfer count and binomial summation are additional deductions.",
+          "Existing reconstruction results concern distances or sizes of descendant-cone intersections for prescribed pairs, not the number of source pairs with nonempty one-error intersection."
+        ],
+        "reasoning": "No inspected stronger theorem implies the edge formula without carrying out essentially the audited enumeration.",
+        "searches": [
+          "arXiv:1712.09345 derivative/signature section",
+          "arXiv:1801.06022 descendant-intersection framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lenz--Wachter-Zeh--Yaakobi explicitly encode fixed-length duplication as insertion of a zero block in derivative coordinates.",
+          "Yehezkeally--Schwartz analyze descendant-cone intersections using Manhattan-metric signatures, while Lenz--Jünger--Wachter-Zeh focus on bounds/constructions."
+        ],
+        "reasoning": "Equivalent formulations as an exact count of conflicting source pairs, an aggregate one-descendant intersection count, or a zero-run transfer graph were compared.",
+        "searches": [
+          "Resultary query: fixed-length tandem duplication confusability graph exact edge count common one-duplication descendant",
+          "arXiv:1712.09345",
+          "arXiv:1801.06022",
+          "arXiv:1807.02874"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table containing the displayed edge count or the multiplicity-one statement was located."
+        ],
+        "reasoning": "Because this is an exact enumerative invariant, direct table/database coverage was specifically checked.",
+        "searches": [
+          "Resultary exact edge-count search",
+          "web search for fixed-length tandem-duplication confusability graph common descendant"
+        ]
+      },
+      "rationale": "The primary tandem-duplication literature supplies the same derivative transform, zero-run/signature representation, sphere bounds, and descendant-cone intersection machinery, but no inspected source aggregates the exact-one confusability relation over all length-\\(n\\) sources to obtain this all-parameter edge formula or states that every conflict has exactly one common one-error descendant. Targeted Resultary and web searches found no implication-equivalent published SCOPE record or exact table.",
+      "residual_risks": [
+        "An unindexed coding-theory note could have carried out the same aggregate enumeration; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING only.",
+          "evidence": "It supplies zero-block insertion coordinates and coding bounds, not the all-source confusability edge enumeration.",
+          "identifier_or_url": "arXiv:1712.09345",
+          "material_read": "Primary full text around the tandem-duplication sphere definitions, \\(\\ell\\)-step derivative, zero-run signature, and duplication/deletion equivalence.",
+          "method": "Open-access full-text inspection.",
+          "title": "Duplication-Correcting Codes",
+          "trigger": "Foundational fixed-length tandem-duplication source with the exact derivative transform used in the proof."
+        },
+        {
+          "assessment": "NOT_COVERING the exact one-error global edge count.",
+          "evidence": "It studies reconstruction/intersection behavior for descendants, not the aggregate number of confusable source pairs at one duplication.",
+          "identifier_or_url": "arXiv:1801.06022",
+          "material_read": "Primary abstract and result-level material on signature/Manhattan representations and descendant-cone intersections.",
+          "method": "Open-access source comparison.",
+          "title": "Reconstruction Codes for DNA Sequences with Uniform Tandem-Duplication Errors",
+          "trigger": "Closest primary work on intersections of tandem-duplication descendant cones."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "fixed-length tandem-duplication coding literature",
+        "reconstruction-code intersection literature"
+      ],
+      "rationale": "The confusability graph is the natural graph whose independent sets are one-error-correcting codes. An exact edge count for every alphabet size, block length, and source length, together with the exact common-descendant multiplicity, gives structural density information that is reusable for probabilistic, spectral, and extremal studies of these codes. This is an all-parameter invariant, not an arbitrary finite census.",
+      "residual_risks": [
+        "Edge density alone does not determine optimal code size or the degree distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exact one fixed-length tandem duplication on \\(\\mathbb Z_q^n\\), the confusability graph has no edges when \\(n\\le2\\ell\\); for \\(n\\ge2\\ell+1\\), its edge count is \\(\\frac{(n-2\\ell)(q-1)q^{n-\\ell-2}}{2}((q-1)(n-2\\ell-1)+2q)\\), and every adjacent source pair has exactly one common one-duplication descendant.",
+  "limitations": [
+    "Only exactly one tandem duplication of one fixed length is covered.",
+    "The theorem gives total edge count and common-descendant multiplicity, not degree sequence, independence number, optimal code size, mixed lengths, or multiple duplications."
+  ],
+  "schema_version": 1
+}
