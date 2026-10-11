@@ -1,0 +1,15 @@
+# Same-model scientific review
+
+## Correctness: PASS
+The proof explicitly transforms nonzero solutions by \(z=1/(Gx)-S\) and derives \(z'=-(G'/G)z(z-k)/(S+z)\). The two halves of each level set of \(G\) differ in \(S\) by a strict sign. At every possible coincidence of the two half-solutions their differential speeds differ by a fixed nonzero sign. This forces opposite ordering when integrated from the two shared endpoints, excluding any nontrivial candidate beyond the two known rational ones. Positivity of \(J(c)\), direct variational integration, and the finite-time return expansion prove the stability statements. Bounded strict parameter hypotheses ensure the denominators do not vanish along the known curves, and a hypothetical nonzero periodic orbit also cannot make its inverse vanish. A standalone numerical check supplements these arguments.
+
+## Originality: PASS (qualified)
+The two rational curves are *not* new: they arise from the special case of Proposition 2.10 in Bravo--Calderón--Ojeda (2023). Its theorem bounds rational cycles and does not rule out other real periodic solutions. The separate 2023 singular-cycle article and the 2025 extended-Chebyshev upper-bound theorem do not state the exact parameter-uniform exhaustion, negative/nonrational exclusion, and explicit opposite hyperbolic exponents for this degree-higher harmonic family. The general conditional Chebyshev theorem may imply an upper bound for some parameter choices; that possibility is not mischaracterized as absent. No equivalent statement was identified in targeted mathematical-record and published-literature searches, and earlier collected mathematical claims were checked for overlap. Priority risk from older broad periodic uniqueness literature remains.
+
+## Value: PASS
+The nonrational-versus-rational distinction is central to the original source's program: two *rational* invariant curves by themselves cannot establish the global periodic-orbit census for a nonlinear, nonautonomous scalar equation. This theorem supplies that missing exclusion and the full stability ordering on a robust five-parameter family. It is neither a new name for the original algebraic construction nor a numerical example; the half-wave comparison is a structural argument that handles arbitrary real periodic solutions.
+
+## Closest work and limits
+[1] Bravo, Calderón, Ojeda, arXiv:2302.10743v1, Proposition 2.10 (two rational invariant curves, only rational-cycle bounds); [2] Bravo, Fernández, Ojeda, arXiv:2302.13642v1 (singular positive cycle stability under other hypotheses); [3] Huang, Tian, Zhao, arXiv:2506.14091v1 (conditional general upper bound via an extended-Chebyshev triple); [4] Gasull, Llibre, DOI:10.1137/0521068 (a sign-controlled Abel upper bound not directly applicable here, since every nontrivial linear combination of \(A,B\) changes sign). Unsettled publication priority remains possible through different formulations; independent review has not occurred.
+
+Same-model review: passed. Independent audit: not yet performed.
