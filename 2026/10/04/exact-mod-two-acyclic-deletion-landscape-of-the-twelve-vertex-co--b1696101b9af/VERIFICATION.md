@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The program contains the published 38-tetrahedron facet list, reconstructs every face, enumerates all 4095 nonempty induced vertex subcomplexes, and computes simplicial homology over \(\mathbb F_2\) by exact binary Gaussian elimination.
+# Independent mathematical audit
 
-For every induced subcomplex it independently checks that the Euler characteristic from face counts equals the alternating sum of computed Betti numbers. It then builds the acyclicity-preserving vertex-deletion graph from the full twelve-vertex state, recomputes all layer sizes, identifies terminal states, counts maximal directed paths by dynamic programming, and checks that the three seven-vertex terminals are exactly the complements of the published exceptional deletion sets.
+## correctness
 
-The expected success line is:
+PASS
 
-`VERIFY_OK acyclic_all=585 reachable=134 layers=12:1,11:11,10:36,9:52,8:31,7:3 terminals=8:17,7:3 maximal_paths=532 path_split=8:292,7:240 paper_terminal7=match`
+An independent exact replay reconstructed all faces from the frozen 38-tetrahedron facet list, enumerated all 4095 nonempty induced vertex sets, computed F2 Betti numbers by binary boundary-rank elimination, and then built the reachable acyclicity-preserving deletion DAG. It independently reproduced 585 acyclic induced subcomplexes, 134 reachable states with layers 1,11,36,52,31,3 on 12 through 7 vertices, 17 size-8 plus 3 size-7 terminals, and 532 maximal deletion paths split 292/240. The three size-7 terminals exactly match complements of Benedetti--Lutz Proposition 3.3 exceptional five-deletion sets.
 
-Limits: this verifies only the stated \(\mathbb F_2\)-acyclicity and induced vertex-deletion claim for the published labeled complex. It does not test integral acyclicity, arbitrary face deletions, or a general family of balls.
+## originality
+
+PASS
+
+Benedetti--Lutz Proposition 3.3 exhausts only the five-deletion layer needed for evasiveness and records exactly three acyclic seven-vertex exceptions plus their one-step obstruction. It does not give the full reachable DAG, the 17 earlier size-8 traps, the 134-state layer profile, or 532 maximal-chain census. The later collapsibility/discrete-Morse paper does not state this object-specific deletion landscape. Resultary exact-number and alias searches found only the candidate itself as a matching record.
+
+## value
+
+PASS
+
+B12,38 is a canonical explicit collapsible-but-evasive 3-ball whose evasiveness proof is driven by homology under vertex deletion. The complete reachable acyclic-deletion landscape is therefore a motivated structural benchmark: it exposes 17 earlier terminal traps invisible in the original one-layer proof and gives exact branch/path counts useful for non-evasiveness search algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

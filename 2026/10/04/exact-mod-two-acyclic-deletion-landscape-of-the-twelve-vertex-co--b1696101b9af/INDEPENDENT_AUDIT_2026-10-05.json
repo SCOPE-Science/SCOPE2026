@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:01:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exact replay reconstructed all faces from the frozen 38-tetrahedron facet list, enumerated all 4095 nonempty induced vertex sets, computed F2 Betti numbers by binary boundary-rank elimination, and then built the reachable acyclicity-preserving deletion DAG. It independently reproduced 585 acyclic induced subcomplexes, 134 reachable states with layers 1,11,36,52,31,3 on 12 through 7 vertices, 17 size-8 plus 3 size-7 terminals, and 532 maximal deletion paths split 292/240. The three size-7 terminals exactly match complements of Benedetti--Lutz Proposition 3.3 exceptional five-deletion sets.",
+      "risks": [
+        "The census is F2-specific, labeled-complex-specific, and restricted to induced vertex deletions."
+      ],
+      "sources": [
+        "RESULT.md blob 49814a3cc74df3aef0a2167c04a60555648eef13",
+        "certificate.json blob e57e464a5615eaaaf83be5315da6b73d4e49dbbc",
+        "verify.py blob 5d8810f186fadfcb2f08ab6403358eb7bee30b5a",
+        "arXiv:1303.2070"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source establishes collapsibility and evasiveness for B12,38 using a strategically chosen layer.",
+          "The later paper discusses broader collapsibility/non-evasiveness phenomena but not this exact reachable F2-acyclic DAG."
+        ],
+        "reasoning": "No broader theorem or dataset inspected yields the submitted finite landscape or path counts.",
+        "searches": [
+          "arXiv:1303.2070 full primary paper",
+          "arXiv:1404.4239 extremal collapsibility/random discrete Morse",
+          "Resultary exact B12,38 query"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.2070",
+        "DOI:10.37236/3319",
+        "arXiv:1404.4239",
+        "Resultary exact B12,38 query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the three deepest terminals does not determine how many higher-layer branches are reachable, where they stall, or how many ordered deletion paths lead to them.",
+          "The 17 size-8 terminal traps and 532 path count require exhaustive state/edge information absent from prior statements."
+        ],
+        "reasoning": "The full claim is not implied by the source evasiveness proof; it is a new complete finite invariant of the obstruction mechanism.",
+        "searches": [
+          "Statement comparison with Benedetti--Lutz Proposition 3.3",
+          "Statement comparison with arXiv:1404.4239"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source uses complements of five deleted vertices rather than a directed deletion graph, but only at one depth.",
+          "No equivalent all-layer reachable-chain census was located."
+        ],
+        "reasoning": "The complement-set and deletion-chain formulations were compared directly; the source covers exactly the deepest three terminals, not the complete graph.",
+        "searches": [
+          "Resultary query: Benedetti Lutz B12,38 acyclic deletion graph 134 532",
+          "Search aliases: acyclic vertex-deletion chain B12,38 homology deletion landscape",
+          "arXiv:1303.2070 Proposition 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published source lists three five-deletion exceptions but no table of all 134 reachable states, 20 terminals, or 532 paths."
+        ],
+        "reasoning": "The candidate extends a known small table slice to a complete reachable-state census; it is not a recomputation of a located full table.",
+        "searches": [
+          "Resultary query: Benedetti Lutz B12,38 acyclic deletion graph 134 532",
+          "Primary proposition table/exception sets in arXiv:1303.2070"
+        ]
+      },
+      "rationale": "Benedetti--Lutz Proposition 3.3 exhausts only the five-deletion layer needed for evasiveness and records exactly three acyclic seven-vertex exceptions plus their one-step obstruction. It does not give the full reachable DAG, the 17 earlier size-8 traps, the 134-state layer profile, or 532 maximal-chain census. The later collapsibility/discrete-Morse paper does not state this object-specific deletion landscape. Resultary exact-number and alias searches found only the candidate itself as a matching record.",
+      "residual_risks": [
+        "An unindexed computation or private supplementary dataset could contain the same finite census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Covers exactly the three seven-vertex terminal complements and their inability to delete once more, but not prior reachable layers or path counts."
+          ],
+          "identifier_or_url": "arXiv:1303.2070 / DOI:10.37236/3319",
+          "material_read": "Full primary PDF around Section 3 and Proposition 3.3, including the exhaustive five-deletion check and three exceptional subcomplexes.",
+          "method": "Direct PDF and page-image inspection; statement-to-census comparison.",
+          "title": "Knots in collapsible and non-collapsible balls",
+          "trigger": "Primary source defining B12,38 and proving its evasiveness."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "No B12,38 all-layer acyclic deletion census or matching counts were found."
+          ],
+          "identifier_or_url": "arXiv:1404.4239",
+          "material_read": "Relevant full-text discussion of collapsible/evasive complexes and algorithmic examples.",
+          "method": "Direct topic and object-specific statement search.",
+          "title": "Extremal examples of collapsible complexes and random discrete Morse theory",
+          "trigger": "Closest later source on collapsibility/non-evasiveness and related examples."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "B12,38 is a canonical explicit collapsible-but-evasive 3-ball whose evasiveness proof is driven by homology under vertex deletion. The complete reachable acyclic-deletion landscape is therefore a motivated structural benchmark: it exposes 17 earlier terminal traps invisible in the original one-layer proof and gives exact branch/path counts useful for non-evasiveness search algorithms.",
+      "risks": [
+        "The result is a specialized exact invariant of one labeled test complex rather than a general theorem about all balls."
+      ],
+      "sources": [
+        "arXiv:1303.2070",
+        "RESULT.md blob 49814a3cc74df3aef0a2167c04a60555648eef13"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "F2 acyclicity only; induced vertex deletions only; one labeled triangulation only."
+  ],
+  "schema_version": 1
+}
