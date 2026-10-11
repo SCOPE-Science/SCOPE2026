@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:52:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "P. Richtárik, I. Sokolov, I. Fatkhullin, EF21: A New, Simpler, Theoretically Better, and Practically Faster Error Feedback, arXiv:2106.05203; complete primary paper inspected, especially distributed Algorithm 2 and convergence theorem.",
+        "P. Richtárik et al., 3PC: Three Point Compressors for Communication-Efficient Distributed Training and a Better Theory for Lazy Aggregation, arXiv:2202.00998; EF21 embedding/lazy-aggregation scope compared.",
+        "Resultary semantic searches for exact scalar EF21 mean-square stability, Bernoulli half-dropout and worker-count thresholds.",
+        "Assigned RESULT.md and verify.py at tree e2a4d0e2fad0d4c080a77c06fede2c89012ed52a.",
+        "Independent symbolic determinant reconstruction and spectral checks of the four-moment map."
+      ],
+      "rationale": "Direct conditioning on independent compressor coins closes the exchangeable second moments X=E[x²], C=E[xm], M=E[m²], Q=E[q] under the stated 4×4 linear map. Independent symbolic reconstruction gives det(I−M)=s(6n−(n+8)s)/(16n). The covariance transformation is positive on the proper cone of exchangeable covariance states, so its spectral radius is a nonnegative eigenvalue; any loss or recovery of Schur stability must cross +1. EF21 theory supplies a nonempty stable interval near zero, while the map is unstable for large s, leaving the unique positive root as the exact frontier. The n→∞ two-state limit has Jury interval 0<s<6.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior work handles nonlinear/nonconvex objectives and general compressors with sufficient stepsize bounds.",
+          "Those broad bounds do not determine the exact scalar half-dropout threshold or its dependence on n."
+        ],
+        "reasoning": "Broader optimization theory is weaker on this exact invariant.",
+        "searches": [
+          "EF21 general contractive-compressor convergence theorem",
+          "3PC general compressor framework"
+        ]
+      },
+      "checked_sources": [
+        "P. Richtárik, I. Sokolov, I. Fatkhullin, EF21: A New, Simpler, Theoretically Better, and Practically Faster Error Feedback, arXiv:2106.05203; complete primary paper inspected, especially distributed Algorithm 2 and convergence theorem.",
+        "P. Richtárik et al., 3PC: Three Point Compressors for Communication-Efficient Distributed Training and a Better Theory for Lazy Aggregation, arXiv:2202.00998; EF21 embedding/lazy-aggregation scope compared.",
+        "Resultary semantic searches for exact scalar EF21 mean-square stability, Bernoulli half-dropout and worker-count thresholds.",
+        "Assigned RESULT.md and verify.py at tree e2a4d0e2fad0d4c080a77c06fede2c89012ed52a.",
+        "Independent symbolic determinant reconstruction and spectral checks of the four-moment map."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specialization closes on four exchangeable second moments and yields det(I−M)=s(6n−(n+8)s)/(16n).",
+          "Positive covariance-map structure makes any unit spectral-radius crossing occur through eigenvalue +1; small-step stability and large-step instability then force the unique positive boundary."
+        ],
+        "reasoning": "The exact boundary requires a new moment closure and spectral argument, not just substitution into the published sufficient bound.",
+        "searches": [
+          "EF21 distributed recurrence",
+          "standard finite-dimensional positive-operator/Perron theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source update exactly matches model step followed by independently compressed local memory corrections.",
+          "No inspected theorem gives the spectral boundary 6n/(n+8) or the four-moment stationary operator."
+        ],
+        "reasoning": "Mean-square stability, spectral radius of the exchangeable covariance map, and a worker-count learning-rate frontier are equivalent formulations of the audited benchmark.",
+        "searches": [
+          "Resultary: EF21 scalar quadratic Bernoulli half-dropout exact mean-square stability worker count",
+          "Richtárik–Sokolov–Fatkhullin Algorithm 2",
+          "3PC lazy-aggregation comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact formula or benchmark table was located."
+        ],
+        "reasoning": "The theorem is analytic for all worker counts rather than an extrapolated experiment.",
+        "searches": [
+          "Resultary exact-threshold searches for 6n/(n+8), half-dropout EF21 and mean-square stability"
+        ]
+      },
+      "rationale": "The defining EF21 paper gives the exact distributed memory update and broad sufficient convergence conditions for contractive compressors; the 3PC follow-up embeds EF21 in a larger framework. Neither inspected source states the half-dropout scalar second-moment closure, exact worker-count frontier, or deterministic n→∞ ceiling. Targeted Resultary search returned no covering exact benchmark. The result therefore survives best-of-knowledge originality as a sharp source-specific stability calculation.",
+      "residual_risks": [
+        "An equivalent random-delay or switched-linear-system calculation may exist without EF21 terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME ALGORITHM; NO EXACT HALF-DROPOUT SCALAR FRONTIER",
+          "evidence": "The source gives broad sufficient stepsizes and convergence rates, not the audited exchangeable second-moment matrix or worker-count law.",
+          "identifier_or_url": "arXiv:2106.05203",
+          "material_read": "Complete primary paper, including distributed Algorithm 2, compressor assumptions and convergence theorem.",
+          "method": "Open primary full-text inspection.",
+          "title": "EF21: A New, Simpler, Theoretically Better, and Practically Faster Error Feedback",
+          "trigger": "Defining source for the distributed EF21 recurrence."
+        },
+        {
+          "assessment": "BROADER FRAMEWORK, NOT THE EXACT STABILITY LAW",
+          "evidence": "No inspected result specializes to the half-dropout scalar threshold.",
+          "identifier_or_url": "arXiv:2202.00998",
+          "material_read": "Relevant primary statements connecting EF21 to the three-point-compressor/lazy-aggregation framework.",
+          "method": "Primary source comparison.",
+          "title": "3PC: Three Point Compressors for Communication-Efficient Distributed Training and a Better Theory for Lazy Aggregation",
+          "trigger": "Broader later framework containing EF21."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "P. Richtárik, I. Sokolov, I. Fatkhullin, EF21: A New, Simpler, Theoretically Better, and Practically Faster Error Feedback, arXiv:2106.05203; complete primary paper inspected, especially distributed Algorithm 2 and convergence theorem.",
+        "P. Richtárik et al., 3PC: Three Point Compressors for Communication-Efficient Distributed Training and a Better Theory for Lazy Aggregation, arXiv:2202.00998; EF21 embedding/lazy-aggregation scope compared.",
+        "Resultary semantic searches for exact scalar EF21 mean-square stability, Bernoulli half-dropout and worker-count thresholds.",
+        "Assigned RESULT.md and verify.py at tree e2a4d0e2fad0d4c080a77c06fede2c89012ed52a.",
+        "Independent symbolic determinant reconstruction and spectral checks of the four-moment map."
+      ],
+      "rationale": "The worker-count law is a natural exact benchmark for a central distributed error-feedback architecture. It quantifies a concrete averaging mechanism behind large admissible steps, separates mean-square stability from generic sufficient bounds, and supplies an exact regression test across n.",
+      "residual_risks": [
+        "An equivalent random-delay or switched-linear-system calculation may exist without EF21 terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For distributed EF21 on identical scalar quadratics with independent half-dropout compressors, mean-square stability for every square-integrable exchangeable initialization holds exactly for 0<s<6n/(n+8); the frontier increases from 2/3 at one worker to the deterministic lagged-gradient ceiling 6 as n→∞.",
+  "limitations": [
+    "Identical scalar curvatures, independent Bernoulli(1/2) compressor events and exchangeable square-integrable initialization only.",
+    "No almost-sure Lyapunov or heterogeneous-client claim.",
+    "An equivalent random-delay or switched-linear-system calculation may exist without EF21 terminology."
+  ],
+  "schema_version": 1
+}

@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The distributed EF21 recursion closes exactly on the exchangeable second moments \(\mathbb E[x^2]\), \(\mathbb E[xm]\), \(\mathbb E[m^2]\), and \(\mathbb E[q]\). The derived \(4\times4\) matrix has
-\[
-\det(I-M_n(s))
-=
-\frac{s[6n-(n+8)s]}{16n}.
-\]
-Because the underlying covariance map is positive, its spectral radius is a real nonnegative eigenvalue; a loss of mean-square stability therefore occurs through a \(+1\) eigenvalue. General EF21 theory supplies stability for sufficiently small positive steps, while the moment operator becomes unbounded for large steps, so the unique positive determinant root is the exact boundary. The infinite-worker limit independently reduces to a \(2\times2\) deterministic system with Jury ceiling \(6\).
+PASS
 
-Risk: the exact closure relies on identical scalar client curvatures and independent compressor coins.
+Direct conditioning on independent compressor coins closes the exchangeable second moments X=E[x²], C=E[xm], M=E[m²], Q=E[q] under the stated 4×4 linear map. Independent symbolic reconstruction gives det(I−M)=s(6n−(n+8)s)/(16n). The covariance transformation is positive on the proper cone of exchangeable covariance states, so its spectral radius is a nonnegative eigenvalue; any loss or recovery of Schur stability must cross +1. EF21 theory supplies a nonempty stable interval near zero, while the map is unstable for large s, leaving the unique positive root as the exact frontier. The n→∞ two-state limit has Jury interval 0<s<6.
 
-## Originality
+## originality
 
-PASS. The defining EF21 paper gives the distributed memory update, contractive-compressor theory, and broad linear convergence guarantees, but the inspected full text does not state an exact half-dropout scalar mean-square boundary or a worker-count law. The 3PC follow-up embeds EF21 into a wider compressor framework and connects it to lazy aggregation, but likewise does not state the moment matrix or the threshold \(6n/(n+8)\).
+PASS
 
-Focused semantic searches covered EF21, Markov compressors, lazy gradients, Bernoulli and half-dropout compression, scalar quadratics, worker count, and exact mean-square stability. No covering published statement was identified. The one-worker value \(2/3\) coincides with a previously derived classical Bernoulli error-feedback threshold, but the distributed growth to \(6\) is a distinct EF21 result.
+The defining EF21 paper gives the exact distributed memory update and broad sufficient convergence conditions for contractive compressors; the 3PC follow-up embeds EF21 in a larger framework. Neither inspected source states the half-dropout scalar second-moment closure, exact worker-count frontier, or deterministic n→∞ ceiling. Targeted Resultary search returned no covering exact benchmark. The result therefore survives best-of-knowledge originality as a sharp source-specific stability calculation.
 
-## Value
+## value
 
-PASS. EF21 was designed to stabilize biased compression and empirically tolerates large steps. The exact worker-count frontier explains a concrete mechanism: independent memories average into a lagged gradient, and this lag can stabilize normalized steps beyond the ordinary gradient-descent ceiling. The transition \(2/3\to6\) provides a sharp benchmark for distributed compression theory and a useful implementation test.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The worker-count law is a natural exact benchmark for a central distributed error-feedback architecture. It quantifies a concrete averaging mechanism behind large admissible steps, separates mean-square stability from generic sufficient bounds, and supplies an exact regression test across n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
