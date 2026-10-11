@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs every component-permuting \(k\)-algebra automorphism from its action on the diagonal primitive idempotents. One-dimensional corners force matrix-unit scalars; multiplicativity makes these scalars a diagonal coboundary. The degree equation then forces the coordinate permutation to be left-affine with automorphism part in \(\operatorname{Aut}(G)\). The converse is explicit. Small-group exhaustive checks agree with the theorem and are supplementary only.
+## correctness
 
-## Originality
-PASS. The 2026 classification reaches the regular-action description but not the self-equivalence group. The closest older crossed-product paper proves only that the coordinate-permutation subgroup of componentwise graded automorphisms is isomorphic to \(G\). Searches for equivalent holomorph, weak-automorphism, and Weyl formulations did not reveal the full formula. Residual risk remains that an older normalizer-based treatment states the same weak symmetry under different terminology.
+PASS
 
-## Value
-PASS. The Weyl quotient is a natural invariant of the newly isolated regular strong grading, and the exact identification \(W(\Gamma_G)\cong\operatorname{Aut}(G)\) gives a direct structural bridge between grading symmetry and the intrinsic automorphisms of the indexing group. The arbitrary-field semidirect-product description and finite-field counts make the result reusable.
+Any component-permuting algebra automorphism must preserve the neutral diagonal component because it contains the identity. It therefore permutes the primitive diagonal idempotents, say by \(\sigma\), and each one-dimensional matrix corner forces \(\varphi(E_{x,y})=d_xd_y^{-1}E_{\sigma(x),\sigma(y)}\), yielding the diagonal factor \(T_G=(k^\times)^G/k^\times\). If \(\pi\) is the induced degree permutation, the degree equation \(\sigma(x)^{-1}\sigma(y)=\pi(x^{-1}y)\) implies \(\pi(e)=e\), \(\sigma(y)=\sigma(e)\pi(y)\), and then \(\pi(xg)=\pi(x)\pi(g)\). Thus \(\pi\in\operatorname{Aut}(G)\) and \(\sigma\) is left-affine. Conversely every diagonal conjugation and left-affine permutation has the required action. Hence the full component-permuting group is \(T_G\rtimes\operatorname{Hol}(G)\), the componentwise stabilizer is \(T_G\rtimes G\), and the quotient is \(\operatorname{Aut}(G)\). The finite-field orders follow immediately. The package checker independently confirms the permutation factors for \(C_2,C_3,C_4,C_2^2,S_3\).
 
-## Closest literature and limitations
-The closest direct predecessor is Diniz--Bezerra, arXiv:1607.03942v1, Proposition 3.9, which identifies the componentwise coordinate-permutation subgroup in the crossed-product case. Lundström--Öinert--Orozco--Pinedo, arXiv:2608.27414v1, supplies the recent regular-action classification. The theorem here does not cover arbitrary partial-action gradings, repeated tuple entries, or semilinear automorphisms.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Diniz and Bezerra already analyze the permutation subgroup for crossed-product elementary gradings and, in the crossed-product case, identify the componentwise graded permutation subgroup with the grading group. Gordienko and Schnabel provide the broader weak-equivalence framework. The recent strong-elementary classification identifies the regular action as the canonical strong extremal case. None of the inspected statements computes the complete self weak-automorphism group, the diagonal extension by \(T_G\), or the resulting quotient \(\operatorname{Aut}(G)\). Current Resultary search returned only the assigned exact theorem. The newest classification paper's full body was not accessible through the inspected public routes, so a residual same-paper overlap risk is retained.
+
+## value
+
+PASS
+
+The regular strong elementary grading is the canonical extremal full-matrix case, and its complete weak symmetry group is a natural structural invariant. Identifying the Weyl-type quotient exactly with \(\operatorname{Aut}(G)\) cleanly separates diagonal and translation symmetries from genuine degree relabelings and extends the previously known componentwise permutation subgroup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
