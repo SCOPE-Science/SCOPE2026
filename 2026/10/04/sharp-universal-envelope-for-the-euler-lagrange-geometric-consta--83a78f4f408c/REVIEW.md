@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof gives a global scalar envelope by two triangle inequalities and \(2ab\le a^2+b^2\). The equality analysis is not based on finite tests or assumed maximizers: any maximizing sequence must have asymptotically equal input norms, then each nonnegative triangle defect vanishes, and Hahn–Banach support functionals produce unit vectors with both \(\|u_n+v_n\|\to2\) and \(\|u_n-v_n\|\to2\). The converse is reconstructed from a James-constant maximizing sequence. This establishes exactly \(L_{YJ}=(\lambda+\mu)^2/(\lambda^2+\mu^2)\) iff \(J(X)=2\).
+## correctness
 
-## Originality
-**PASS.** The defining 2021 paper records the general bound \(L_{YJ}\le2\), gives a different sufficient threshold for uniform non-squareness, and treats some special parameter cases. The sharp parameter endpoint is known for the unit-sphere variant \(L'_{YJ}\), not for the unrestricted radial optimization. Two later 2024 papers inspected in full still print \(L_{YJ}\le2\) as the general bound; one proves a generalized-James comparison and the other computes a regular-octagon special case. published-finding corpus and web alias/parameter searches yielded no equivalent or stronger theorem. Residual risk remains for obscure or unindexed literature.
+PASS
 
-## Value
-**PASS.** The theorem closes a natural structural gap in the original invariant: the unrestricted constant has exactly the same sharp endpoint as its unit-sphere restriction, and endpoint equality is equivalent to failure of uniform non-squareness. The proof also explains the geometry of near-extremizers by forcing radial equalization, making the result useful as a clean benchmark for later exact computations and comparisons.
+Writing \(a=\|x\|\), \(b=\|y\|\), the triangle inequality makes the numerator at most \((\lambda a+\mu b)^2+(\mu a+\lambda b)^2=(\lambda^2+\mu^2)(a^2+b^2)+4\lambda\mu ab\), and \(2ab\le a^2+b^2\) gives the universal endpoint. If \(J(X)=2\), simultaneous almost-maximal \(\|u+v\|\) and \(\|u-v\|\), together with norming functionals, makes both weighted sums tend to \(\lambda+\mu\), attaining the endpoint as a supremum. Conversely, an endpoint-approaching sequence forces the two input norms to equalize; the total nonnegative triangle-inequality defect tends to zero, so separate norming functionals recover unit vectors with both sum and difference norms tending to two, hence \(J(X)=2\). This does not assume attainment or finite dimension.
 
-## Closest literature and limitations
-Closest are Liu--Li (2021), doi:10.3390/math9020116; Liu--Zhou--Sarfraz--Li (2022), doi:10.1007/s40840-021-01196-7; Yang--Yang (2024), doi:10.7153/mia-2024-27-39; and Yang--Li--Yang (2024), doi:10.2298/FIL2405583Y. The result is for real Banach spaces and positive parameters; no quantitative stability modulus below the endpoint is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining 2021 source's accessible material introduces \(L_{YJ}\) and records general geometry/uniform-nonsquareness criteria, while later work introduces the unit-sphere variant whose parameter-dependent endpoint is sharper. The unrestricted \(L_{YJ}\) problem is different because input norms may be unequal. Targeted Resultary and exact-formula searches found no earlier theorem proving that unequal norms can never exceed the unit-sphere endpoint or characterizing equality exactly by \(J(X)=2\). Full text of the defining paper was unavailable in this run due publisher rate limiting, so possible implicit coverage there is retained as a residual risk rather than ignored.
+
+## value
+
+PASS
+
+The result gives the exact universal endpoint and equality threshold for a published Banach-space geometric constant whose unrestricted and unit-sphere versions are genuinely different optimization problems. The equality characterization links the constant precisely to uniform non-squareness, making it a natural structural theorem rather than merely a scalar estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
