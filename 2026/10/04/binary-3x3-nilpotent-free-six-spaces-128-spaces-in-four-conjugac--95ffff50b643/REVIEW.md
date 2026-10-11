@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The explicit six-space is the kernel of three independent linear forms and has 64 elements. Exact exhaustive multiplication over \(\mathbb F_2\) verifies that none of its 63 nonzero elements has cube zero. The global census is independently reproduced in primal and dual forms: all \({9\brack6}_2=788035\) six-spaces are tested directly, while all \({9\brack3}_2=788035\) orthogonal complements are tested against the full 63-point nonzero nilpotent set. Both methods return the same 128 spaces. Exact conjugation by all 168 elements of \(\mathrm{GL}_3(\mathbb F_2)\) gives orbit sizes \(8,8,56,56\).
+## correctness
 
-## Originality
-PASS with residual literature risk. The closest primary source, arXiv:2609.29177v1, explicitly states that the required finite-field construction is unclear and formulates its existence as Conjecture 8. Targeted searches for the exact parameter \(M_3(\mathbb F_2)\), a six-dimensional nilpotent-free subspace, the exact count 128, and the orbit partition found no covering source. Classical Gerstenhaber--Serezhkin results concern spaces all of whose matrices are nilpotent and do not imply the dual construction.
+PASS
 
-## Value
-PASS. This is the first binary dimension immediately beyond the previously resolved \(n=2\) case and directly settles a parameter pair of a conjecture posed one week earlier. The exact census and conjugacy decomposition strengthen mere existence and expose the finite geometry of all optimal witnesses at this parameter.
+The finite theorem is completely verified. I independently enumerated all \(512\) matrices in \(M_3(\mathbb F_2)\) and found exactly \(64\) nilpotents including zero. The displayed six-space has \(64\) elements and meets the nonzero nilpotent set trivially. I then independently enumerated all \({9\brack3}_2=788035\) three-dimensional orthogonal complements and obtained exactly \(128\) nilpotent-free six-spaces; conjugation by all \(168\) elements of \(\mathrm{GL}_3(\mathbb F_2)\) partitions them into orbits of sizes \(8,8,56,56\), with the displayed witness in a size-\(56\) orbit. This is exhaustive finite proof, not sampling.
 
-## Closest literature and limitations
-The result is finite and computationally exhaustive rather than a uniform structural theorem. An older or unindexed classification phrased in projective or finite-geometric language might contain an equivalent small-case statement; no such source was found in the checked searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives. Wigderson explicitly states as Conjecture 8 that such nilpotent-free complementary spaces should exist over every finite field and says the finite-field construction is not clear; the audited witness settles the first unresolved binary size beyond \(n=2\). Searches for the exact parameter, count \(128\), and orbit decomposition found no earlier primary classification. Relevant same-day Resultary records cover the \(n=2\) all-field case and a five-dimensional \(\mathbb F_3\) construction, neither of which implies the six-dimensional \(\mathbb F_2\) census.
+
+## value
+
+PASS
+
+This is a directly motivated exact parameter case of a newly stated finite-field conjecture, at the first binary matrix size beyond the elementary \(n=2\) case. The explicit optimal-dimensional witness already has value; the complete \(128\)-space census and conjugacy decomposition add a natural structural classification rather than an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
