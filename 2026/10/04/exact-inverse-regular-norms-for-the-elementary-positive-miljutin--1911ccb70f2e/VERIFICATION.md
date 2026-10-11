@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The inverse formulas from Proposition 3.1 were replayed symbolically. For \((\Phi_E^a)^{-1}\), the finite witness at coordinate \(N\) has output coefficient
-\[
-a^{-(N-1)}+\sum_{m=1}^{N-1}a^{-m},
-\]
-whose supremum is \(\max\{1,1/(a-1)\}\). For \((\Psi_E^{b,c})^{-1}\), independent finite alternating tails yield coefficients converging to \(1/(b-1)\) and \(b/[c(b-1)]\). Every input used has norm \(1\) and finite support.
 
-The distortion functions were then checked on their natural parameter regions: \(1<a\le2\) versus \(a\ge2\), and \(c\le b\) versus \(c\ge b\). Their monotonicity gives the unique minima \(a=2\) and \(c=b\), while \((b+1)/(b-1)\to1\) only as \(b\to\infty\).
+# Independent mathematical audit
 
-No numerical experiment, external certificate, or independent audit was used. The limiting arguments establish operator-norm suprema and do not assert norm-attaining vectors at the limiting values.
+## correctness
+
+PASS
+
+The proof was reconstructed directly from the source inverse formulas. Finite alternating-sign inputs of norm one make a chosen output coordinate equal to the positive partial geometric sum, giving lower bounds tending to \(\max\{1,1/(a-1)\}\) for \((\Phi_E^a)^{-1}\) and independently to \(1/(b-1)\) and \(b/[c(b-1)]\) for \((\Psi_E^{b,c})^{-1}\). Since ordinary norm is at most regular norm and the source majorants give the reverse inequalities, both equalities follow. Piecewise monotonicity gives the unique \(a=2\) minimum \(3\), fixed-\(b\) minimizer \(c=b\), and unattained infimum \(1\) as \(b\to\infty\).
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes. The defining paper's full Proposition 3.1 was read: it prints the two inverse formulas and only regular-norm upper bounds. The audited sign-aligned finitely supported inputs add the matching ordinary-operator lower bounds, hence exactness, and the local distortion optimizations. The paper's later global optimization is for absorbed maps and does not state or imply equality for the isolated inverse norms.
+
+## value
+
+PASS
+
+These are the exact local quantitative costs of the two elementary maps at the core of a new positive Cantor--Bernstein construction. Sharpness distinguishes which local estimates can or cannot be improved and identifies a genuine barrier \(3\) for one family versus asymptotic distortion \(1\) for the other. The object and invariant are therefore naturally motivated rather than an arbitrary parameter slice, even though the proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
