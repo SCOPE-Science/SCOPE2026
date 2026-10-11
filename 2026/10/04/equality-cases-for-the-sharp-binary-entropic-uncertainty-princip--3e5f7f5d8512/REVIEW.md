@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces equality to three explicitly nonnegative terms: lower-dimensional entropy deficits, a Jensen--Shannon mutual-information term, and a pointwise one-dimensional deficit. The one-dimensional deficit is evaluated in closed form and shown to be strictly positive away from squared-mass ratios \(0\), \(1/2\), and \(1\) by an exact second-derivative sign change. Equality of lower-dimensional Fourier magnitudes is converted into translation and phase equivalence by the exact autocorrelation of a phased affine Boolean cube. The induction and converse Haar-pushforward argument then give the full iff classification. The packaged verifier confirms the critical calculus identities and representative multidimensional checks.
+## correctness
 
-## Originality
-PASS with a documented residual literature risk. The 2025 source proves the sharp entropy inequality and verifies the normalized constant full-cube example, but the inspected Corollary 5 and Section 7 do not state an iff equality classification. Exact-claim searches using entropic-uncertainty, affine/Hilbert-cube, modulation, and extremizer aliases did not locate a stronger published statement. Semantic research-record searches likewise returned no close claim. A broader 2020 compact/discrete abelian-group Fourier-norm paper was only compared at abstract level and is not used to make a whole-document absence claim.
+PASS
 
-## Value
-PASS. Equality structure is a natural missing component of a sharp uncertainty inequality. The theorem identifies all extremizers, shows that equality forces power-of-two support and constant modulus, and reveals non-axis-aligned affine cubes and arbitrary linear modulations as the complete family. The entropy-chain decomposition and phased autocorrelation rigidity are reusable mechanisms for subsequent stability or nearby-parameter questions.
+The one-dimensional deficit is computed in closed form and its second derivative has one sign change; together with endpoint values this makes the deficit strictly positive except at masses 0, 1/2, and 1. Splitting the last coordinate gives an exact nonnegative decomposition into the weighted lower-dimensional deficits, a Jensen--Shannon/mutual-information term, and the conditional one-dimensional deficit. Equality with both slices nonzero therefore forces equal slice masses, lower-dimensional equality, and identical Fourier moduli. For phased affine cubes the autocorrelation coefficients recover the signed generator directions from the largest nonzero magnitude and recover phase increments; thus equal Fourier magnitude forces translation plus a constant phase between classified slices. Induction gives exactly one additional independent Boolean generator, while the converse factorizes through the surjective torus homomorphism induced by integer-linearly independent generators. A fresh symbolic recomputation verified the one-dimensional derivative identity; finite numerical checks in the package are supplementary.
 
-## Closest literature and limitations
-The closest source is arXiv:2507.01359, whose Corollary 5 is the exact sharp inequality being refined. General compact/discrete abelian-group Rényi uncertainty results are broader in ambient group but do not directly cover this improved binary-support coefficient or the present equality family. The search evidence cannot rule out unindexed folklore. No quantitative stability estimate is supplied.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating 2025 paper's accessible primary abstract states the sharp binary Beckner--Hirschman inequality but does not advertise an extremizer classification; public secondary summaries similarly present the inequality and the full cube equality example. Resultary found no independent earlier complete equality theorem. Full primary text could not be materially obtained through open access and the authorized institutional attempt failed at the transport layer; that is retained as a real originality risk, not converted into a scientific failure.
+
+## value
+
+PASS
+
+A complete extremizer theorem is the natural structural complement to a newly sharp uncertainty inequality. The result identifies support geometry, exact modulus, and all allowed phases, including non-axis-aligned affine cubes; the autocorrelation rigidity addresses genuinely complex-valued equality rather than merely restating an indicator-set result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
