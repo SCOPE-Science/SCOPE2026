@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The projective curve is a smooth \((2,2)\) complete intersection, hence has degree \(4\) and genus \(1\). A general projection to \(\mathbf P^2\) has exactly two ordinary nodes, so the general secant count is \(2\) and the 2026 secant-corrected theorem gives \(\deg(TV)\le12\). Exact Gröbner elimination for the stated complementary affine linear section yields leading monomials \(x,y,z,u,v,w^{12}\), and the degree-\(12\) eliminant is squarefree. Thus the section has \(12\) distinct points and \(\deg(TV)\ge12\).
+## correctness
 
-## Originality
-**PASS.** The initiating 2026 source proves the upper bound and gives other sharpness examples but does not state this elliptic-quartic equality case. The 2024 foundational source gives definitions and curve bounds but likewise does not cover the example. Searches by source, invariant, object, secant formulation, and intersection-of-two-quadrics alias found no covering statement. The principal residual risk is older literature using different terminology for the same embedded tangent-bundle degree.
+PASS
 
-## Value
-**PASS.** Equality cases for the new secant-corrected bound are a natural structural question. The elliptic quartic is a canonical first positive-genus space-curve test, and the calculation shows that the secant correction is exactly sharp there, providing a concrete benchmark beyond plane-curve examples.
+The two quadrics form a smooth \((2,2)\) complete-intersection curve of degree \(4\) and genus \(1\). The tangent-bundle ideal is the two quadrics plus their two Jacobian tangent equations. Fresh exact elimination for the displayed complementary affine plane reproduced a zero-dimensional reduced section with lex leading monomials \(x,y,z,u,v,w^{12}\) and a squarefree degree-12 eliminant. Independently, homogenizing the tangent-bundle ideal, saturating by the affine homogenizer, and computing the exact leading-monomial Hilbert series gave \((1+t)^2(-t^3+t^2+2t+1)/(1-t)^3\), whose numerator evaluates to \(12\) at \(t=1\); hence the projective closure, and therefore the affine geometric degree, is exactly \(12\). This direct degree computation removes dependence on an externally unread secant-bound theorem.
 
-## Closest literature and limitations
-The closest source is Lanciano, arXiv:2609.27047v1, which supplies the upper bound but not this equality example. Jeronimo–Lanciano–Solernó, arXiv:2403.10661, supplies the geometric-degree framework. The result is one explicit equality case and does not classify equality or assert the same value for all affine charts of all elliptic quartics.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for the explicit elliptic-quartic equality case. The 2024 primary paper proves the exact general curve formula deg(TC)=deg(C)+omega(C)deg(Tan(C)) but contains no elliptic-quartic example or automatic numerical evaluation of the two additional tangent-direction invariants. The newer Lanciano abstract announces a sharp universal quadratic theorem; its full text could not be independently retrieved in this run, so no whole-document noncoverage claim is made. Resultary returned the assigned finding as the only exact degree-12 elliptic-quartic hit.
+
+## value
+
+PASS
+
+A smooth elliptic quartic is the simplest standard positive-genus nondegenerate complete-intersection curve in projective three-space. Its exact tangent-bundle degree supplies a concrete sharpness benchmark for the new tangent/secant degree theory beyond plane/rational examples, and the degree is independently certified by exact algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

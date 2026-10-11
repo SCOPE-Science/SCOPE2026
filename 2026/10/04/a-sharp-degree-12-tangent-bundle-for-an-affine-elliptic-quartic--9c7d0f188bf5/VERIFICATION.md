@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier reconstructs the affine curve
-\[
-1+x^2+y^2+z^2=0,
-\qquad
-1+2x^2+3y^2+4z^2=0
-\]
-and its embedded tangent bundle using
-\[
-xu+yv+zw=0,
-\qquad
-2xu+3yv+4zw=0.
-\]
+# Independent mathematical audit
 
-It intersects this surface in \(\mathbf A^6\) with
-\[
--2x+y+3z+3u+3v-3w-1=0,
-\qquad
--3x+3z+2w=0.
-\]
-Exact lexicographic Gröbner-basis computation over \(\mathbf Q\) returns leading monomials
-\[
-x,\ y,\ z,\ u,\ v,\ w^{12}.
-\]
-The quotient therefore has length \(12\). The univariate eliminant is checked to be squarefree, proving that these are \(12\) distinct complex intersection points.
+## correctness
 
-The script also checks the degree \(4\) and genus \(1\) of a smooth \((2,2)\) complete intersection, computes the general apparent-double-point count
-\[
-\frac{(4-1)(4-2)}2-1=2,
-\]
-and verifies that the published secant-corrected upper bound evaluates to \(12\).
+PASS
 
-The replay output ends in `VERIFY_OK`.
+The two quadrics form a smooth \((2,2)\) complete-intersection curve of degree \(4\) and genus \(1\). The tangent-bundle ideal is the two quadrics plus their two Jacobian tangent equations. Fresh exact elimination for the displayed complementary affine plane reproduced a zero-dimensional reduced section with lex leading monomials \(x,y,z,u,v,w^{12}\) and a squarefree degree-12 eliminant. Independently, homogenizing the tangent-bundle ideal, saturating by the affine homogenizer, and computing the exact leading-monomial Hilbert series gave \((1+t)^2(-t^3+t^2+2t+1)/(1-t)^3\), whose numerator evaluates to \(12\) at \(t=1\); hence the projective closure, and therefore the affine geometric degree, is exactly \(12\). This direct degree computation removes dependence on an externally unread secant-bound theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the explicit elliptic-quartic equality case. The 2024 primary paper proves the exact general curve formula deg(TC)=deg(C)+omega(C)deg(Tan(C)) but contains no elliptic-quartic example or automatic numerical evaluation of the two additional tangent-direction invariants. The newer Lanciano abstract announces a sharp universal quadratic theorem; its full text could not be independently retrieved in this run, so no whole-document noncoverage claim is made. Resultary returned the assigned finding as the only exact degree-12 elliptic-quartic hit.
+
+## value
+
+PASS
+
+A smooth elliptic quartic is the simplest standard positive-genus nondegenerate complete-intersection curve in projective three-space. Its exact tangent-bundle degree supplies a concrete sharpness benchmark for the new tangent/secant degree theory beyond plane/rational examples, and the degree is independently certified by exact algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
