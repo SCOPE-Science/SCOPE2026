@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces by scaling to \(a=1/2\), certifies an explicit radius-\(481/200\) disk in the cut-spiral complement for \(\beta=\pi\), proves \(j_{0,1}<481/200\) by an exact Bessel-series sign bound, and then uses Dirichlet bracketing, domain monotonicity, and scaling. The continuum geometric inequality is interval-certified over the only finite angular range requiring computation; the tail is analytic.
+## correctness
 
-## Originality
-PASS. The closest source proves the weaker centered-disk condition \(\beta>2j_{0,1}\) and explicitly notes, without quantifying it, that shifting the disk can improve the result. Targeted published-finding corpus, exact-formula, cavity, shifted-disk, and follow-up searches found no theorem implying the explicit \(\beta\ge\pi\) statement. The later Barseghyan--Exner paper treats strictly shrinking spirals, not this cavity.
+PASS
 
-## Value
-PASS. Replacing \(2j_{0,1}\approx4.805\) by \(\pi\approx3.142\) cuts the rigorous sufficient angle by about \(34.6\%\) and gives a clean half-turn criterion in the exact cavity parameter studied by the source. The result does not claim the true threshold, which remains substantially lower numerically.
+After scaling to \(a=1/2\), the essential threshold is \(1\). For the proposed disk center \(c=(73/100,73/100)\) and radius \(R=481/200\), direct recomputation of the spiral-distance function gives a minimum near \(\theta=\pi\) with squared distance about \(5.82656\), safely above \(R^2=5.784025\); the package's outward interval argument covers the entire continuum \([3.1415,7]\), and the reverse triangle inequality covers \(\theta\ge7\). The exact alternating Bessel series has the order-six partial sum negative and a decreasing alternating tail beginning negative, so \(J_0(R)<0\), hence \(j_{0,1}<R\). A disk-supported Dirichlet ground-state trial function therefore has Rayleigh quotient below the known essential threshold, forcing discrete spectrum. Inclusion of cut spirals extends the same disk from \(\beta=\pi\) to all \(\beta>\pi\).
 
-## Closest literature and limitations
-The closest literature is Exner--Tater 2020, Proposition 3.1 and its shifted-circle remark. The finding gives only one sufficient bound-state criterion and does not establish the true critical angle, optimal disk placement, spectral simplicity, or eigenvalue counts.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Exner–Tater prove the centered-disk threshold \(\beta>2j_{0,1}\) and explicitly remark that shifting the disk center could improve the bound, but they do not provide a shifted-disk certificate or the half-turn threshold. The later Barseghyan–Exner paper studies Lieb–Thirring estimates for shrinking spirals rather than this cut-cavity optimization. Resultary returned no earlier implication-equivalent half-turn theorem.
+
+## value
+
+PASS
+
+The theorem gives a substantial rigorous improvement of a published sufficient bound by an explicit reproducible geometric mechanism. It does not claim the true threshold, but it closes a concrete gap explicitly identified by the source and is not merely a finite numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

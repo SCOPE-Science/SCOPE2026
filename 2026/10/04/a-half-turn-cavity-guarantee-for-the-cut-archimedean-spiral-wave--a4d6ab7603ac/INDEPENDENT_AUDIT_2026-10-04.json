@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:13:29.095150Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at audited Git tree",
+        "assigned artifacts/verify.py inspected as source, not trusted as a black box",
+        "Exner–Tater, arXiv:2009.02730, Section 3"
+      ],
+      "rationale": "After scaling to \\(a=1/2\\), the essential threshold is \\(1\\). For the proposed disk center \\(c=(73/100,73/100)\\) and radius \\(R=481/200\\), direct recomputation of the spiral-distance function gives a minimum near \\(\\theta=\\pi\\) with squared distance about \\(5.82656\\), safely above \\(R^2=5.784025\\); the package's outward interval argument covers the entire continuum \\([3.1415,7]\\), and the reverse triangle inequality covers \\(\\theta\\ge7\\). The exact alternating Bessel series has the order-six partial sum negative and a decreasing alternating tail beginning negative, so \\(J_0(R)<0\\), hence \\(j_{0,1}<R\\). A disk-supported Dirichlet ground-state trial function therefore has Rayleigh quotient below the known essential threshold, forcing discrete spectrum. Inclusion of cut spirals extends the same disk from \\(\\beta=\\pi\\) to all \\(\\beta>\\pi\\).",
+      "residual_risks": [
+        "The constant \\(\\pi\\) is only a sufficient bound and is far above the numerically indicated onset near \\(1.43\\)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later paper's abstract and body concern spectral estimates on strictly shrinking spiral-shaped domains."
+        ],
+        "reasoning": "Those results do not dominate a cut-Archimedean-cavity bound-state threshold.",
+        "searches": [
+          "Barseghyan–Exner, DOI 10.4171/JST/454",
+          "Resultary spiral-waveguide search"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2009.02730",
+        "https://doi.org/10.4171/JST/454",
+        "Resultary published findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 3.1 gives \\(\\beta>2j_{0,1}\\); the remark leaves shifted-center optimization undone."
+        ],
+        "reasoning": "A new geometric certificate is required to lower the rigorous sufficient angle to \\(\\pi\\), so the final claim is not mechanically implied by the published proposition.",
+        "searches": [
+          "Direct comparison to Proposition 3.1 and its post-proof shifted-center remark"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source states the threshold \\(2j_{0,1}\\approx4.805\\) and only notes qualitatively that a shifted circle can improve it."
+        ],
+        "reasoning": "The exact half-turn guarantee and explicit shifted disk are not stated in the source or located in the corpus.",
+        "searches": [
+          "Resultary: Archimedean spiral cut cavity beta pi shifted disk discrete spectrum",
+          "Exner–Tater arXiv:2009.02730 Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source reports a numerical onset near \\(1.43\\), not a rigorous threshold table establishing \\(\\pi\\)."
+        ],
+        "reasoning": "The claim is a rigorous continuum bracketing statement rather than finite tabulation.",
+        "searches": [
+          "Resultary search on beta=pi cavity threshold",
+          "Exner–Tater numerical section"
+        ]
+      },
+      "rationale": "Exner–Tater prove the centered-disk threshold \\(\\beta>2j_{0,1}\\) and explicitly remark that shifting the disk center could improve the bound, but they do not provide a shifted-disk certificate or the half-turn threshold. The later Barseghyan–Exner paper studies Lieb–Thirring estimates for shrinking spirals rather than this cut-cavity optimization. Resultary returned no earlier implication-equivalent half-turn theorem.",
+      "residual_risks": [
+        "An unindexed geometric note could contain the same explicit shifted disk, but the direct source leaves this optimization open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_BOUND_IMPROVEMENT_SOURCE",
+          "evidence": "The source proves \\(\\beta>2j_{0,1}\\) and explicitly declines the shifted-center optimization used by the audited theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.02730",
+          "material_read": "Full primary PDF Section 3, including Proposition 3.1, the shifted-center remark, and numerical onset discussion.",
+          "method": "Lawful public full-text PDF with page-image inspection.",
+          "title": "Spectral properties of spiral-shaped quantum waveguides",
+          "trigger": "Direct source for the same cut spiral and essential threshold."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "It treats strictly shrinking spirals and Lieb–Thirring estimates, not the cut-cavity half-turn guarantee.",
+          "identifier_or_url": "https://doi.org/10.4171/JST/454",
+          "material_read": "Open-access article scope and relevant spectral-estimate sections.",
+          "method": "Lawful OA full text.",
+          "title": "Spectral estimates for the Dirichlet Laplacian on spiral-shaped regions",
+          "trigger": "Closest later spiral spectral work by the same school."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exner–Tater Section 3",
+        "assigned exact disk certificate"
+      ],
+      "rationale": "The theorem gives a substantial rigorous improvement of a published sufficient bound by an explicit reproducible geometric mechanism. It does not claim the true threshold, but it closes a concrete gap explicitly identified by the source and is not merely a finite numerical experiment.",
+      "residual_risks": [
+        "The improvement remains nonoptimal relative to the source's numerical critical angle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2009.02730",
+    "https://doi.org/10.4171/JST/454",
+    "Resultary published findings"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sufficient existence result only; it does not determine the true critical cut angle.",
+    "It certifies at least one bound state and does not count the full discrete spectrum."
+  ],
+  "residual_risks": [
+    "An unindexed geometric note could contain the same explicit shifted disk, but the direct source leaves this optimization open."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OPEN_BOUND_IMPROVEMENT_SOURCE",
+      "evidence": "The source proves \\(\\beta>2j_{0,1}\\) and explicitly declines the shifted-center optimization used by the audited theorem.",
+      "identifier_or_url": "https://arxiv.org/abs/2009.02730",
+      "material_read": "Full primary PDF Section 3, including Proposition 3.1, the shifted-center remark, and numerical onset discussion.",
+      "method": "Lawful public full-text PDF with page-image inspection.",
+      "title": "Spectral properties of spiral-shaped quantum waveguides",
+      "trigger": "Direct source for the same cut spiral and essential threshold."
+    },
+    {
+      "assessment": "NOT_COVERING",
+      "evidence": "It treats strictly shrinking spirals and Lieb–Thirring estimates, not the cut-cavity half-turn guarantee.",
+      "identifier_or_url": "https://doi.org/10.4171/JST/454",
+      "material_read": "Open-access article scope and relevant spectral-estimate sections.",
+      "method": "Lawful OA full text.",
+      "title": "Spectral estimates for the Dirichlet Laplacian on spiral-shaped regions",
+      "trigger": "Closest later spiral spectral work by the same school."
+    }
+  ]
+}
