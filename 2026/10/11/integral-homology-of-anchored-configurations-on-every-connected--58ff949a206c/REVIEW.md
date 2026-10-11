@@ -1,0 +1,19 @@
+# Scientific review: integral homology of anchored graph configurations
+
+## Correctness: PASS
+
+The mathematical statement distinguishes the disconnected boundary \(n=r\) from \(n>r\), and specifies the finite graph, nonempty anchor set, labeled colliding points, coefficient ring, and cycle rank. The essential nonstandard step is constructive: replacing each chord of a spanning tree by a based loop yields mutual homotopy inverses **relative to the spanning tree**, so that coordinatewise homotopies genuinely restrict to anchored spaces. In the loop-adjoined graph, the cellular boundary of every loop one-cell vanishes over \(\mathbb Z\); grouping product cells by loop-coordinate subset and loop labels yields an integral, not merely rational, direct sum of shifted anchored-tree chain complexes. Kozlov's tree theorem identifies every summand's integral homology and its exceptional \(n=r\) zero-dimensional case. Thus all ranks and torsion-freeness follow without a hidden extension argument. The code independently enumerates original-graph cubical boundary matrices over \(\mathbb F_2\) in fourteen small cases, checking the predicted dimensions; it is not substituted for the integral proof.
+
+## Originality: PASS, qualified by literature-coverage risk
+
+The primary contemporary source, Mamun–Nalikka–Ramos (arXiv:2609.04554v1), Definition 4.13 and Corollary 4.18, proves a cograph finite-generation statement and torsion-exponent bound but explicitly notes that torsion in general anchored configuration spaces is unresolved (Section 4.3.1). Kozlov's open-access *Stirling complexes* proves the tree wedge-of-spheres theorem used as input, and its appendix extends that theorem to **contractible** ambient complexes, not to graphs of positive first Betti number. Kozlov's 2024 paper derives an Euler-characteristic formula for any connected graph but only determines the complete homology for circle graphs. Neither Euler characteristic nor finite generation implies the new integral decomposition or torsion-freeness. Targeted indexed research searches and owned prior findings did not establish an equivalent result. Absence from an index cannot rule out unpublished or unindexed equivalences; independent literature verification remains outstanding.
+
+## Value: PASS
+
+This answers the explicitly identified integral-torsion existence question for the **collision-allowed, fully anchored** spaces and computes all integral Betti numbers for every finite connected graph, not just trees, cycles, or cographs. The structural chain decomposition explains dependence on the first Betti number of the graph, number of anchors and number of particles, rather than merely proving individual examples. It supplies a concrete method to calculate homology without large cubical boundary matrices. This is a mathematically motivated, nonroutine general theorem, beyond a relabeling or textbook corollary.
+
+## Closest sources and limitations
+
+Closest primary literature: D. N. Kozlov, *Stirling complexes* (2022/2023), Theorem 2.5 and Appendix Theorem A.1; D. N. Kozlov, *Homology and Euler characteristic of generalized anchored configuration spaces of graphs* (arXiv:2309.17149, 2024), Theorems 2.1 and 4.4; A. Mamun, J. Nalikka, E. Ramos, *Universality in the algebra and topology of cographs* (arXiv:2609.04554, 2026), Definition 4.13, Corollary 4.18 and discussion. This result does not extend to collision-free graph configurations, partially anchored conditions, unordered quotient topology, or integral cohomology-ring calculations. The numerical checker verifies mod-two ranks in small cases, not an infinite classification or integral Smith normal forms. Originality is subject to residual risks of unpublished or unindexed equivalent work.
+
+Same-model review: passed. Independent audit: not yet performed.
