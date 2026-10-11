@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:08:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 59eb3aa640545d5e8a41c32524abd204e752fa44",
+        "assigned artifacts/verify.py blob 9413afe086ea76829978514dc394ed7e50e9c8c2",
+        "Exner-Lipovský arXiv:1906.09091 primary PDF, preferred-orientation tetrahedron section"
+      ],
+      "rationale": "The primary tetrahedron calculation decomposes the graph into three rotation sectors and gives exact secular factors. For \\(k\\notin2\\pi\\mathbb N\\), the common factor \\(A(k)=(k^2+3)\\cos^2(k/2)-1\\) is zero exactly when \\(\\tan^2(k/2)=k^2+2\\), and the sector-specific factor is zero exactly when \\(k\\tan(k/2)=\\pm\\sqrt3\\). The two alternatives cannot coincide: squaring would force \\(k^2=1\\), inconsistent with the first equation. Monotonicity on each tangent half-period gives one \\(A\\)-root in each half and exactly one signed simple root in the appropriate half. Every \\(A\\)-root is simple in each of all three orthogonal sectors, hence multiplicity three; a signed root occurs in one sector, hence multiplicity one. At \\(k=2n\\pi\\), direct reduced boundary systems have kernel dimensions \\(2,1,1\\), giving multiplicity four. The local cotangent/tangent expansions give the stated momentum and energy offsets. The inspected verifier independently reproduces root brackets, sector kernel dimensions and asymptotic scaling but is not the proof of the all-period result.",
+      "residual_risks": [
+        "Only the positive spectrum of the unit-edge tetrahedron with the specified preferred-orientation coupling is classified.",
+        "Negative spectrum and edge-length perturbations are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Platonic-solid paper provides asymptotic localization, not the exact spectrum.",
+          "The later statistics paper focuses on spectral statistics and Eulerian-cycle combinatorics.",
+          "The optimization paper treats extremal eigenvalues on star graphs and does not imply the tetrahedral spectrum."
+        ],
+        "reasoning": "No inspected broader result dominates the all-positive-spectrum statement.",
+        "searches": [
+          "Exner-Lipovský 2019/2020 Platonic-solid spectral asymptotics",
+          "Band-Exner-Goel-Strauss arXiv:2508.04869 / DOI 10.1063/5.0295424",
+          "Exner-Rohleder DOI 10.1007/s00023-025-01574-y"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1906.09091",
+        "arXiv:2508.04869",
+        "DOI 10.1007/s00023-025-01574-y",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An \\(O(k^{-1})\\) enclosure neither proves uniqueness within each interval nor determines exact multiplicities.",
+          "The direct endpoint kernel calculation is needed because determinant zero orders at \\(2n\\pi\\) are not by themselves a multiplicity proof."
+        ],
+        "reasoning": "The audited theorem requires monotonicity, simplicity and kernel-dimension arguments beyond the source's asymptotic conclusion.",
+        "searches": [
+          "large-\\(k\\) interval theorem versus one-root-per-half-period classification",
+          "sector determinants versus exact eigenvalue multiplicities at ordinary and exceptional roots"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (10) contains the common factor equivalent to \\(\\tan^2(k/2)=k^2+2\\).",
+          "Equation (11) adds the signed factor equivalent to \\(k\\tan(k/2)=\\pm\\sqrt3\\).",
+          "The source theorem only encloses high-energy roots in \\(O(k^{-1})\\) neighborhoods."
+        ],
+        "reasoning": "The audited scalar equations are algebraic rewritings of the published secular factors; the originality-bearing content is the complete root and multiplicity resolution.",
+        "searches": [
+          "Resultary query: preferred orientation tetrahedron quantum graph exact positive spectrum multiplicities tan equations Exner Lipovsky",
+          "Exner-Lipovský arXiv:1906.09091, equations (10)-(11) and Theorem 3.2",
+          "web search: Spectral statistics of preferred orientation quantum graphs tetrahedron equilateral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent published table/classification matching the full root and multiplicity pattern was returned."
+        ],
+        "reasoning": "The same secular determinants are prior, but their exact global solution was not found as a prior table or theorem.",
+        "searches": [
+          "Resultary current corpus search for the tetrahedron preferred-orientation exact tangent equations and multiplicities"
+        ]
+      },
+      "rationale": "Exner and Lipovský's full primary section gives the sector secular equations and Theorem 3.2 only as a large-\\(k\\) enclosure near integer multiples of \\(\\pi\\). The audited theorem resolves the equations globally, including exactly one root on every half-period, the multiplicities \\(3,1,4\\), total multiplicity twelve per full momentum period, and the sharper energy shifts. The 2026 spectral-statistics paper concerns statistical phenomena and periodic-orbit combinatorics rather than this equilateral tetrahedron classification. Current Resultary searches under the exact tetrahedron/preferred-orientation/tangent equations found no stronger published same-object theorem.",
+      "residual_risks": [
+        "An unindexed thesis calculation could have solved the same secular factors explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SECULAR_EQUATIONS_AND_ASYMPTOTIC_ENCLOSURE_NOT_GLOBAL_CLASSIFICATION",
+          "evidence": "The source states the factors and a high-energy interval theorem but not the audited all-positive root counts or exact multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.09091",
+          "material_read": "primary PDF tetrahedron preferred-orientation section, including equations (10)-(11) and Theorem 3.2, with the relevant pages visually inspected",
+          "method": "primary full-text PDF inspection",
+          "title": "Spectral asymptotics of the Laplacian on Platonic solids graphs",
+          "trigger": "exact source of the three tetrahedral preferred-orientation sector equations"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTICAL_PROBLEM",
+          "evidence": "The work studies spectral statistics and periodic-orbit combinatorics, not a complete equilateral tetrahedron spectrum.",
+          "identifier_or_url": "arXiv:2508.04869",
+          "material_read": "current primary abstract and publication scope",
+          "method": "primary-source scope inspection",
+          "title": "Spectral statistics of preferred orientation quantum graphs",
+          "trigger": "later primary work on the same vertex condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exner-Lipovský primary paper",
+        "later preferred-orientation literature",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The exact spectrum and multiplicities of a canonical equilateral Platonic quantum graph are natural invariants, and the source itself stops at asymptotic localization. The complete half-period census and exceptional multiplicities turn that asymptotic picture into a reusable spectral reference, with sharp satellite energy offsets.",
+      "residual_risks": [
+        "The proof is one-dimensional once the symmetry-reduced determinants are known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only the positive spectrum of the unit-edge tetrahedron with the specified preferred-orientation coupling is classified.",
+    "Negative spectrum and edge-length perturbations are outside scope.",
+    "An unindexed thesis calculation could have solved the same secular factors explicitly.",
+    "The proof is one-dimensional once the symmetry-reduced determinants are known."
+  ]
+}
