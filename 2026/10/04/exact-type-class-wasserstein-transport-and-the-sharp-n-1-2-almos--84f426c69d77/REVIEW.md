@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact lower bound is the expected distance of a product-distributed word to the target type-class support. The constructed minimal repair kernel is coordinate-permutation equivariant, so exchangeability forces its target law to be uniform on the transitive type-class orbit; hence the lower bound is attained. The finite bound follows from multinomial variances, and the sharp fixed-type constant follows from the multinomial central limit theorem plus uniform integrability. The quantum corollary uses the single-system classical-to-quantum \(W_1\) data-processing step explicitly used in arXiv:2609.17309v1. Orthogonal prepared states recover classical Hamming-Wasserstein distance.
+## correctness
 
-## Originality
-PASS. The closest direct source, arXiv:2605.15114v2, gives Proposition 23 with a \(\sqrt{\log(n+1)}\) loss and only a heuristic earth-mover explanation in Remark 26. The September 2026 GQSL paper repeats that estimate as Proposition 22 and uses it in equations (3.56)--(3.59), without a sharper quantitative statement. The inspected constant-composition distribution-matching paper studies informational divergence rather than Hamming-Wasserstein cost. Public literature and database searches over exact-claim, slice/type-class, multinomial-deviation, and fixed-composition aliases did not surface a covering statement. Residual risk remains that an equivalent classical identity appears in older literature under remote terminology.
+PASS
 
-## Value
-PASS. This is the exact transport computation behind a recent almost-i.i.d. construction: it removes an artificial logarithmic loss, supplies the sharp fixed-type asymptotic coefficient, and proves that the normalized \(n^{-1/2}\) order cannot be improved uniformly over quantum signal families. The improvement is directly reusable in quantitative versions of the cited type-class and arbitrarily-varying-null arguments.
+For a word with count vector \(k\), each coordinate edit can remove at most one surplus and one deficit, so its minimum Hamming distance to the target type class is exactly \(\frac12\sum_x|k_x-m_x|\). This gives the universal coupling lower bound. Conversely, repair exactly the surplus coordinates into deficits using a coordinate-permutation-equivariant random kernel. Since the product input law is exchangeable and the repaired output lies on the single coordinate-permutation orbit of the type class, the output is uniform; the coupling therefore attains the lower bound. The variance/Cauchy--Schwarz bounds and multinomial CLT with uniform integrability give the finite and asymptotic formulas. Independent full optimal-transport linear programs for several binary/ternary small types reproduced the identity, and the balanced binary formula follows from the standard central binomial absolute-deviation identity. The quantum inequality follows by the cited local preparation-channel contraction, with equality for orthogonal signal states.
 
-## Closest literature and limitations
-The closest papers are Girardi--De Palma--Lami, arXiv:2605.15114v2, and Girardi--Lee--Hayashi--Lami, arXiv:2609.17309v1. The quantum inequality may be strict for nonorthogonal signal states, no second-order asymptotic is claimed, and the improved rate does not by itself alter the already-established asymptotic Stein exponent.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. Girardi--De Palma--Lami prove the same type-class-to-product approximation only with normalized upper bound \(\sqrt{(N-1)\log(n+1)/(2n)}\), and their remark heuristically predicts Hamming displacement of order \(\sqrt n\). The audited equivariant repair coupling identifies the exact optimum, removes the logarithm, and gives the sharp fixed-type asymptotic constant. Constant-composition distribution matching studies different divergences/rate loss, and the quantum Wasserstein source supplies only the metric/data-processing framework.
+
+## value
+
+PASS
+
+The result sharpens a quantitative step in very recent almost-i.i.d. information theory from \(\sqrt{\log n/n}\) to the correct normalized order \(n^{-1/2}\), identifies the exact finite classical transport cost, and provides the sharp fixed-type constant. Orthogonal quantum signals show the improved scale is genuinely optimal. This is a directly motivated strengthening of an active theorem, not a detached exact calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

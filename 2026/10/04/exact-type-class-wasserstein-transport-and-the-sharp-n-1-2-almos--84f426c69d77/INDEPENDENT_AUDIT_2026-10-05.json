@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:57:45.230942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e11b1cddc1df7daf8c5cbc5cc238978c0fc60138",
+        "artifacts/verify.py blob 08b42855ec8df7a222f091fbf4d96901eb88eaf2",
+        "independent discrete optimal-transport LP checks for target counts (2,2), (2,1), and (1,1,1)",
+        "independent coupling and CLT reconstruction"
+      ],
+      "rationale": "For a word with count vector \\(k\\), each coordinate edit can remove at most one surplus and one deficit, so its minimum Hamming distance to the target type class is exactly \\(\\frac12\\sum_x|k_x-m_x|\\). This gives the universal coupling lower bound. Conversely, repair exactly the surplus coordinates into deficits using a coordinate-permutation-equivariant random kernel. Since the product input law is exchangeable and the repaired output lies on the single coordinate-permutation orbit of the type class, the output is uniform; the coupling therefore attains the lower bound. The variance/Cauchy--Schwarz bounds and multinomial CLT with uniform integrability give the finite and asymptotic formulas. Independent full optimal-transport linear programs for several binary/ternary small types reproduced the identity, and the balanced binary formula follows from the standard central binomial absolute-deviation identity. The quantum inequality follows by the cited local preparation-channel contraction, with equality for orthogonal signal states.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quantum follow-up reuses the almost-i.i.d. framework rather than providing a sharper classical transport identity.",
+          "Quantum \\(W_1\\) data processing and diagonal-state equality are framework results; constant-composition distribution matching uses informational divergence rather than Hamming transport."
+        ],
+        "reasoning": "No broader inspected theorem automatically yields the exact multinomial \\(L^1\\)-deviation formula together with the uniform repaired marginal.",
+        "searches": [
+          "arXiv:2609.17309v1 primary record",
+          "arXiv:2009.04469",
+          "arXiv:1503.05133"
+        ]
+      },
+      "checked_sources": [
+        "Girardi--De Palma--Lami, New approaches to almost i.i.d. information theory, arXiv:2605.15114v2, especially Proposition 23 and Remark 26",
+        "Girardi--Lee--Hayashi--Lami, Generalised quantum Stein's lemma more robust than ever, arXiv:2609.17309v1",
+        "De Palma--Marvian--Trevisan--Lloyd, The Quantum Wasserstein Distance of Order 1, arXiv:2009.04469; IEEE TIT 67 (2021)",
+        "Schulte--Böcherer, Constant Composition Distribution Matching, arXiv:1503.05133",
+        "Resultary semantic query: exact type class Wasserstein transport sharp almost iid scale Girardi De Palma Lami"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published transport-cost proof is an inequality and leaves a logarithmic factor.",
+          "The reverse inequality in the audited result needs a coupling whose output is proved uniform on the type class by permutation equivariance; that construction is not implied by the existing upper bound."
+        ],
+        "reasoning": "The exact theorem strictly strengthens the source estimate and therefore is not a covered corollary.",
+        "searches": [
+          "Girardi--De Palma--Lami Proposition 23",
+          "independent minimum-distance-to-type-class and equivariant-repair argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 23 contains the logarithmic normalized type-class Wasserstein upper bound.",
+          "Remark 26 gives only the order-of-magnitude heuristic that typical types are \\(O(\\sqrt n)\\) Hamming distance away, not an exact optimal coupling."
+        ],
+        "reasoning": "The exact transport value was compared both as earth-mover distance to a type orbit and as multinomial count deviation; neither equivalent formulation is stated in the inspected source.",
+        "searches": [
+          "arXiv:2605.15114v2 full relevant text, Proposition 23 and Remark 26",
+          "Resultary query listed in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked exact table/database result supplied the identity or the fixed-type asymptotic constant."
+        ],
+        "reasoning": "This is an all-blocklength theorem; database absence is supporting evidence only.",
+        "searches": [
+          "Resultary semantic query listed in checked_sources",
+          "targeted searches for uniform type-class versus multinomial product Hamming Wasserstein distance"
+        ]
+      },
+      "rationale": "Originality passes. Girardi--De Palma--Lami prove the same type-class-to-product approximation only with normalized upper bound \\(\\sqrt{(N-1)\\log(n+1)/(2n)}\\), and their remark heuristically predicts Hamming displacement of order \\(\\sqrt n\\). The audited equivariant repair coupling identifies the exact optimum, removes the logarithm, and gives the sharp fixed-type asymptotic constant. Constant-composition distribution matching studies different divergences/rate loss, and the quantum Wasserstein source supplies only the metric/data-processing framework.",
+      "residual_risks": [
+        "The exact classical coupling identity could have an older formulation in sampling-without-replacement or contingency-table transport literature under remote terminology.",
+        "The follow-up arXiv:2609.17309 was checked at primary-record level in this run; its relevant bound is already sourced to the earlier inspected almost-i.i.d. paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_LOGARITHMIC_UPPER_BOUND_NOT_EXACT_TRANSPORT",
+          "evidence": "The source proves a \\(\\sqrt{\\log n/n}\\) normalized bound and only heuristically notes the sharper natural scale.",
+          "identifier_or_url": "arXiv:2605.15114v2",
+          "material_read": "Primary full-text material around Proposition 23, its transportation-cost/type-cardinality proof, and Remark 26's \\(\\sqrt n\\)-distance heuristic.",
+          "method": "lawful open-access primary full text",
+          "title": "New approaches to almost i.i.d. information theory",
+          "trigger": "Direct source of the type-class Wasserstein estimate being sharpened."
+        },
+        {
+          "assessment": "METRIC_FRAMEWORK_NOT_TYPE_CLASS_IDENTITY",
+          "evidence": "It supplies the quantum-to-classical compatibility used after the new classical coupling, not the coupling itself.",
+          "identifier_or_url": "arXiv:2009.04469",
+          "material_read": "Primary abstract/theorem-level material describing recovery of classical Hamming-Wasserstein distance for diagonal states and contraction properties for local channels.",
+          "method": "lawful open primary source",
+          "title": "The Quantum Wasserstein Distance of Order 1",
+          "trigger": "Framework source for the quantum corollary and orthogonal-state equality."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Girardi--De Palma--Lami, New approaches to almost i.i.d. information theory, arXiv:2605.15114v2, especially Proposition 23 and Remark 26",
+        "Girardi--Lee--Hayashi--Lami, Generalised quantum Stein's lemma more robust than ever, arXiv:2609.17309v1",
+        "De Palma--Marvian--Trevisan--Lloyd, The Quantum Wasserstein Distance of Order 1, arXiv:2009.04469; IEEE TIT 67 (2021)",
+        "Schulte--Böcherer, Constant Composition Distribution Matching, arXiv:1503.05133",
+        "Resultary semantic query: exact type class Wasserstein transport sharp almost iid scale Girardi De Palma Lami"
+      ],
+      "rationale": "The result sharpens a quantitative step in very recent almost-i.i.d. information theory from \\(\\sqrt{\\log n/n}\\) to the correct normalized order \\(n^{-1/2}\\), identifies the exact finite classical transport cost, and provides the sharp fixed-type constant. Orthogonal quantum signals show the improved scale is genuinely optimal. This is a directly motivated strengthening of an active theorem, not a detached exact calculation.",
+      "residual_risks": [
+        "No second-order asymptotic term or general equality characterization for nonorthogonal quantum signals is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact classical coupling identity could have an older formulation in sampling-without-replacement or contingency-table transport literature under remote terminology.",
+    "The follow-up arXiv:2609.17309 was checked at primary-record level in this run; its relevant bound is already sourced to the earlier inspected almost-i.i.d. paper.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
