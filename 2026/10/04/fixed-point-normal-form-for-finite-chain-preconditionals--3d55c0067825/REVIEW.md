@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Chen's Lemma 3.2 gives consequent monotonicity and \(a\to b=a\to(a\wedge b)\). Together with the lower-bound axiom and importation, each antecedent row is an idempotent monotone ceiling map whose fixed set is exactly \(S_a\cup\{r_a\}\). Applying importation to values in a lower row yields precisely the three cross-row conditions in the normal form, and those conditions conversely imply importation.
+PASS
 
-Conditional identity forces every summit to the top element. Semicomplementation forces \(0\) to be fixed in every positive row. The remaining data are nested fixed-point sets, so each nonzero non-top element has an independent first-entry stage. Their product is \((n-2)!\). The induced negation is the ordinary chain pseudocomplement, making double-negation inflation automatic.
+The proof was reconstructed from Chen's axioms. Consequent monotonicity and a->b=a->(a meet b) make each row constant above a. Lower-bound plus self-importation makes every row value a fixed point, so q_a is the least-fixed-point ceiling map on b<=a. Cross-row importation for b<a is exactly S_b subset S_a together with the two summit cases. Conversely those conditions make importation hold on every row image. Under T, all summits equal top and semicomplementation forces 0 in S_a for a>0; the nested family is determined by independent first-entry stages t_j in {j+1,...,n-1}, giving product_{j=1}^{n-2}(n-1-j)=(n-2)!. The induced negation is top at 0 and 0 elsewhere, so F's double-negation inflation is automatic. The bundled verifier literally checks the source axioms for small n and normal-form counts through n=8; finite replay corroborates but does not establish the all-n theorem.
 
-## Originality
+## originality
 
-PASS. The 2026 primary source defines the \(\mathsf K/\mathsf T/\mathsf F\) algebraic hierarchy and proves completeness and finite-model results, but its checked full text has no occurrence of “chain” and gives no finite-chain classification or enumeration. Holliday's general preconditional papers likewise provide axioms and representation theory rather than this chain normal form.
+PASS
 
-Candidate-specific published-finding database and literature searches for finite-chain preconditionals, fixed-point normal forms, \(\mathsf T/\mathsf F\) chain algebras, and factorial counts did not locate an equivalent statement.
+PASS. Chen's 2026 primary source defines exactly the K/T/F preconditional hierarchy and proves general row identities, but the inspected full text contains no finite-chain specialization; an in-document search for 'chain' returned no occurrence. Holliday's foundational preconditional work is broader in ambient lattices/representations but does not provide this chain fixed-point parameterization or factorial T/F census. Resultary searches returned unrelated finite-poset/logic records and no covering chain theorem.
 
-## Value
+## value
 
-PASS. Finite chains are the canonical test algebras for ordered propositional semantics. The source establishes a new proof-theoretic/algebraic hierarchy but leaves its concrete finite algebra landscape largely implicit. The normal form gives a complete structural description on chains, shows the nominally stronger \(\mathsf F\) condition adds nothing there, and gives an exact factorial census. It also exhibits many non-Heyting \(\mathsf F\)-preconditionals already on small chains.
+PASS
 
-## Closest literature and limitations
+Finite chains are canonical test algebras. A complete normal form for all preconditionals and the exact collapse T=F with factorial census give reusable structural information for finite algebra generation and sharply distinguish the new semantics from the unique Heyting implication. This is a natural complete classification, not an arbitrary small-instance table.
 
-Chen (2026), Definition 3.1, Lemma 3.2, Definition 3.3, and Remarks 3.4–3.5 are the direct source. Holliday's earlier preconditional work is the closest broader algebraic literature.
-
-The theorem is chain-specific and does not provide a closed count for all unrestricted \(\mathsf K\)-expansions on arbitrary \(n\), although it gives a complete finite parameterization.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

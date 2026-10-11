@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,44 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker implements Chen's five preconditional axioms literally.
+# Independent mathematical audit
 
-For
-\[
-n=1,2,3,
-\]
-it exhaustively enumerates every binary operation on \(C_n\). The preconditional counts are
-\[
-1,2,8,
-\]
-while the \(\mathsf T\)- and \(\mathsf F\)-counts are
-\[
-1,1,1.
-\]
+## correctness
 
-A separate normal-form enumerator generates every compatible family \((S_a,r_a)\) through
-\[
-n=8.
-\]
-It counts
-\[
-1,2,8,47,359,3344,36530,455907
-\]
-unrestricted preconditionals. Through \(n=6\), every generated operation is replayed against the original five axioms directly.
+PASS
 
-For every
-\[
-2\le n\le8,
-\]
-the normal-form specializations satisfying conditional identity and semicomplementation are counted exactly; each is also replayed against the original \(\mathsf T\)- and \(\mathsf F\)-conditions. Their common count is
-\[
-(n-2)!.
-\]
+The proof was reconstructed from Chen's axioms. Consequent monotonicity and a->b=a->(a meet b) make each row constant above a. Lower-bound plus self-importation makes every row value a fixed point, so q_a is the least-fixed-point ceiling map on b<=a. Cross-row importation for b<a is exactly S_b subset S_a together with the two summit cases. Conversely those conditions make importation hold on every row image. Under T, all summits equal top and semicomplementation forces 0 in S_a for a>0; the nested family is determined by independent first-entry stages t_j in {j+1,...,n-1}, giving product_{j=1}^{n-2}(n-1-j)=(n-2)!. The induced negation is top at 0 and 0 elsewhere, so F's double-negation inflation is automatic. The bundled verifier literally checks the source axioms for small n and normal-form counts through n=8; finite replay corroborates but does not establish the all-n theorem.
 
-The script prints `VERIFY_OK`.
+## originality
 
-## Limits
+PASS
 
-The finite enumeration corroborates the proof. The arbitrary-\(n\) normal form and factorial formula are proved symbolically and are not inferred from the first eight values. For the unrestricted class at \(n=7,8\), the checker counts the proven normal-form objects rather than re-evaluating all five axioms on every resulting operation.
+PASS. Chen's 2026 primary source defines exactly the K/T/F preconditional hierarchy and proves general row identities, but the inspected full text contains no finite-chain specialization; an in-document search for 'chain' returned no occurrence. Holliday's foundational preconditional work is broader in ambient lattices/representations but does not provide this chain fixed-point parameterization or factorial T/F census. Resultary searches returned unrelated finite-poset/logic records and no covering chain theorem.
+
+## value
+
+PASS
+
+Finite chains are canonical test algebras. A complete normal form for all preconditionals and the exact collapse T=F with factorial census give reusable structural information for finite algebra generation and sharply distinguish the new semantics from the unique Heyting implication. This is a natural complete classification, not an arbitrary small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

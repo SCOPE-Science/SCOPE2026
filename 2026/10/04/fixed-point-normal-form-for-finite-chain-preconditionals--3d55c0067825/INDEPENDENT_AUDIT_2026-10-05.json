@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:57:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof was reconstructed from Chen's axioms. Consequent monotonicity and a->b=a->(a meet b) make each row constant above a. Lower-bound plus self-importation makes every row value a fixed point, so q_a is the least-fixed-point ceiling map on b<=a. Cross-row importation for b<a is exactly S_b subset S_a together with the two summit cases. Conversely those conditions make importation hold on every row image. Under T, all summits equal top and semicomplementation forces 0 in S_a for a>0; the nested family is determined by independent first-entry stages t_j in {j+1,...,n-1}, giving product_{j=1}^{n-2}(n-1-j)=(n-2)!. The induced negation is top at 0 and 0 elsewhere, so F's double-negation inflation is automatic. The bundled verifier literally checks the source axioms for small n and normal-form counts through n=8; finite replay corroborates but does not establish the all-n theorem.",
+      "risks": [
+        "No closed formula is claimed for all unrestricted K-preconditionals beyond the normal form."
+      ],
+      "sources": [
+        "RESULT.md blob 94387421c19318087ea6c68cff8ebe8ddb57eee6",
+        "verify.py blob f21c876f12398269f860cb77fdffe1ed63d1ec60",
+        "Chen arXiv:2607.20221"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General representation/completeness theorems apply to arbitrary bounded lattices but do not classify expansions of the fixed labelled chain."
+        ],
+        "reasoning": "Broader ambient theory does not imply the explicit row fixed-point normal form without a chain-specific order argument.",
+        "searches": [
+          "arXiv:2607.20221",
+          "arXiv:2402.02296",
+          "DOI:10.3390/logics1010004"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.20221",
+        "arXiv:2402.02296",
+        "DOI:10.3390/logics1010004",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Importation plus chain order is used to prove every row value is a fixed point and to derive exact cross-row compatibility.",
+          "The factorial count requires the first-entry-stage parameterization t_j in {j+1,...,n-1}."
+        ],
+        "reasoning": "These are additional chain-specific deductions, not statements already present in the primary source.",
+        "searches": [
+          "Chen Definition 3.1/Lemma 3.2 versus submitted row-ceiling theorem",
+          "Chen Definition 3.3 versus T=F factorial specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen Definition 3.1 supplies the five preconditional axioms and Lemma 3.2 supplies consequent monotonicity and a->b=a->(a meet b).",
+          "Chen Definition 3.3 supplies the T and F extensions; the inspected text has no chain theorem.",
+          "No independent Resultary hit gives the normal form or (n-2)! count."
+        ],
+        "reasoning": "Searches cover preconditional, finite/n-element chain, fixed points/ceiling maps, K/T/F algebras, and factorial enumeration.",
+        "searches": [
+          "Resultary: preconditional finite chain fixed point normal form T F algebra factorial enumeration",
+          "arXiv:2607.20221 full-text search for chain",
+          "arXiv:2402.02296"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No covering published table was found; the packaged finite counts are consequences of the symbolic normal form."
+        ],
+        "reasoning": "The all-n structural theorem, not the first eight counts, is the novelty basis.",
+        "searches": [
+          "Resultary query above",
+          "searches for unrestricted sequence 1,2,8,47,359,3344,36530,455907"
+        ]
+      },
+      "rationale": "PASS. Chen's 2026 primary source defines exactly the K/T/F preconditional hierarchy and proves general row identities, but the inspected full text contains no finite-chain specialization; an in-document search for 'chain' returned no occurrence. Holliday's foundational preconditional work is broader in ambient lattices/representations but does not provide this chain fixed-point parameterization or factorial T/F census. Resultary searches returned unrelated finite-poset/logic records and no covering chain theorem.",
+      "residual_risks": [
+        "An equivalent closure-map enumeration under different order-theoretic terminology may exist outside the retrieved literature.",
+        "The unrestricted count sequence may have an unrelated combinatorial interpretation not found by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING the finite-chain normal form/census.",
+          "evidence": "The axioms and derived row identities are present, while no 'chain' occurrence or chain enumeration appears in the inspected text.",
+          "identifier_or_url": "arXiv:2607.20221",
+          "material_read": "Full-text Definition 3.1, Lemma 3.2, Definition 3.3, surrounding remarks/finite-model discussion, and full-text search for 'chain'.",
+          "method": "Direct full-text statement and implication comparison.",
+          "title": "Fundamental Propositional Logic with Preconditional: Strong Completeness, Finite Model Property, and Modal Translations",
+          "trigger": "Primary recent source defining the exact K/T/F hierarchy."
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND_NOT_COVERING.",
+          "evidence": "The source treats general lattices/relations rather than a fixed finite-chain census.",
+          "identifier_or_url": "arXiv:2402.02296",
+          "material_read": "Axiomatic definition, examples, and representation-theorem material.",
+          "method": "Broader-coverage comparison.",
+          "title": "Preconditionals",
+          "trigger": "Foundational general preconditional theory and possible stronger prior coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite chains are canonical test algebras. A complete normal form for all preconditionals and the exact collapse T=F with factorial census give reusable structural information for finite algebra generation and sharply distinguish the new semantics from the unique Heyting implication. This is a natural complete classification, not an arbitrary small-instance table.",
+      "risks": [
+        "The result is specific to finite chains and does not classify general finite lattices or representing frames."
+      ],
+      "sources": [
+        "Chen arXiv:2607.20221",
+        "RESULT.md chain normal form"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The factorial formula is chain-specific; no general finite-lattice enumeration is claimed.",
+    "The displayed unrestricted counts through n=8 are finite consequences, not the proof of the all-n normal form."
+  ],
+  "schema_version": 1
+}
