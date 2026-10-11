@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:53:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical census is correct. A fresh independent enumeration reconstructed all \\(2^{10}=1024\\) labeled five-vertex tournaments, quotiented them under all 120 candidate relabelings into 12 classes, and then evaluated all \\(120^3=1{,}728{,}000\\) ordered three-ranking profiles. The resulting class counts exactly match the submitted 12-entry table, including 720 profiles for the regular class and 1,167,600 for the transitive class. The source RESULT.md, REVIEW.md and VERIFICATION.md contain literal C0 control bytes that corrupt four \\(\\frac\\) commands and three \\(\\bigl/\\bigr/\\binom\\) commands in RESULT, plus one \\(\\binom\\) in each of REVIEW and VERIFICATION. The repaired files restore exactly those nine TeX escapes; reversing the restorations reproduces all three frozen Git blob SHAs byte-for-byte, so the repair is transcription-only and leaves the theorem/proof unchanged.",
+      "risks": [
+        "The census is exactly for five alternatives, three ordered voters, strict rankings and the unweighted majority tournament."
+      ],
+      "sources": [
+        "RESULT.md blob 5cab18347b30b9b2b02dd3fca01e3e83956d191f",
+        "verify_five_candidate_three_voter_tournaments.py blob d966a40ce68ee61280f4ec366b1810855bd01e1f",
+        "Fresh independent exhaustive enumeration",
+        "Repaired RESULT.md SHA-256 ae7ad098b2021902fbb924e4cd3d7e10436bd12c000c2331d0135ef87c329cc4",
+        "Repaired REVIEW.md SHA-256 6740c5be0ae636c7c0f931309a8ecf6441e719788d74f20b9f6cd4fcfbc65a72",
+        "Repaired VERIFICATION.md SHA-256 8fc8b8fb1ff19c35764f1767c18691ad5a9c58b70ee5ebf1730ecf7d93937951"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eggermont et al. prove every \\(n\\le7\\) tournament has a three-permutation realization and enumerate feasibility at 8 and 9 vertices.",
+          "Those existence/predictability results imply only that the five-vertex fibers are nonempty."
+        ],
+        "reasoning": "The prior literature covers realizability, a strictly weaker question than exact preimage cardinality for every class.",
+        "searches": [
+          "Eggermont--Hurkens--Woeginger, full Acta Cybernetica PDF",
+          "Shepardson--Tovey, 2/3-majority realizability/predictability results"
+        ]
+      },
+      "checked_sources": [
+        "C. Eggermont, C. Hurkens, G. J. Woeginger, “Realizing Small Tournaments Through Few Permutations,” Acta Cybernetica 21 (2013), 267–271, DOI 10.14232/actacyb.21.2.2013.4.",
+        "D. Shepardson and C. A. Tovey, “Smallest Tournaments Not Realizable by 2/3-Majority Voting,” Social Choice and Welfare 33 (2009).",
+        "McKay tournament catalogue cited by Eggermont et al.",
+        "Resultary and exact-count web searches (2026-10-05 UTC)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem: every tournament on \\(n\\le7\\) has at least one three-permutation realization.",
+          "Final theorem: exact number of ordered realizations for each of all 12 five-vertex classes, plus probabilities and class signatures."
+        ],
+        "reasoning": "Existence of a realization does not determine how many profiles realize a class; the exact fibers require a separate exhaustive count.",
+        "searches": [
+          "Statement comparison with Eggermont et al. Theorem 1",
+          "Exact finite-census searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary record covered the 12-class profile-fiber table.",
+          "Exact web searches did not surface the two boundary probabilities as part of an equivalent complete distribution."
+        ],
+        "reasoning": "Equivalent formulations were checked as majority-map fibers, three-permutation realization multiplicities, impartial-culture probabilities and isomorphism-class counts.",
+        "searches": [
+          "Resultary: five candidates three voters majority tournament exact isomorphism class profile fibers impartial culture",
+          "Web: five-candidate three-voter majority tournament preimage multiplicity",
+          "Web exact probabilities 1/2400 and 973/1440 tournament voting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The output universe has 12 non-isomorphic tournaments on five vertices.",
+          "No located catalogue/table assigns the 1,728,000 voter profiles among those 12 classes."
+        ],
+        "reasoning": "The known catalogue determines the bins, not their voting-profile multiplicities.",
+        "searches": [
+          "McKay non-isomorphic tournament catalogue as cited by Eggermont et al.",
+          "Resultary exact-fiber query"
+        ]
+      },
+      "rationale": "The closest primary tournament-realization paper proves that every tournament on at most seven vertices is realizable by three permutations and uses McKay’s isomorphism catalogues, but it does not count the preimages of the majority map. McKay supplies the 12 output isomorphism classes, not the 12 three-voter fiber multiplicities. Fresh Resultary and exact-count searches did not locate an equivalent table. Surjectivity does not imply the probability mass function.",
+      "residual_risks": [
+        "An unindexed course note, software output or supplementary dataset could contain the same finite distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SURJECTIVITY_NOT_FIBER_COUNTS",
+          "evidence": [
+            "Theorem 1 proves three-permutation realizability through seven vertices; the paper does not tabulate the 12 five-vertex three-voter preimage sizes."
+          ],
+          "identifier_or_url": "DOI:10.14232/actacyb.21.2.2013.4",
+          "material_read": "Complete five-page open-access PDF, including the model, computational method, Theorem 1 and the 8/9-vertex census.",
+          "method": "Journal full-PDF text plus rendered-page inspection.",
+          "title": "Realizing Small Tournaments Through Few Permutations",
+          "trigger": "Direct primary source on realization by exactly three rankings/permutations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete probability mass function of the five-candidate majority tournament under the smallest nontrivial odd electorate, refining mere realizability into exact structural frequency data. The full 12-class distribution and extreme disparity between the regular and transitive classes are natural social-choice invariants, not an arbitrary recomputation of the number of tournament classes.",
+      "risks": [],
+      "sources": [
+        "Eggermont--Hurkens--Woeginger 2013",
+        "RESULT.md blob 5cab18347b30b9b2b02dd3fca01e3e83956d191f"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "The repaired public files contain no C0 controls or operational/platform leakage; all mathematical statements and counts are unchanged."
+  ],
+  "schema_version": 1
+}

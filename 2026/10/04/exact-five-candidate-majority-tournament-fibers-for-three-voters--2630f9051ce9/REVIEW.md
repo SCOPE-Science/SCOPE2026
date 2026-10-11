@@ -1,7 +1,7 @@
-# Same-model scientific review
+# Self-review
 
 ## Correctness
-**PASS.** The finite domain is fully enumerated: \(120^3=1{,}728{,}000\) ordered profiles. A second enumeration over \(inom{122}{3}=295{,}240\) anonymous ranking multisets, restored with weights \(1,3,6\), reproduces all class counts exactly. Separately, all 1024 labeled tournaments are quotiented under all 120 candidate relabelings, yielding 12 classes, consistent with the standard catalogue. The embedded replay returns `VERIFY_OK` and checks the exact table, orbit-stabilizer divisibility, and signature uniqueness.
+**PASS.** The finite domain is fully enumerated: \(120^3=1{,}728{,}000\) ordered profiles. A second enumeration over \(\binom{122}{3}=295{,}240\) anonymous ranking multisets, restored with weights \(1,3,6\), reproduces all class counts exactly. Separately, all 1024 labeled tournaments are quotiented under all 120 candidate relabelings, yielding 12 classes, consistent with the standard catalogue. The embedded replay returns `VERIFY_OK` and checks the exact table, orbit-stabilizer divisibility, and signature uniqueness.
 
 Risk: this proves the stated five-alternative census only; it is not an inductive or asymptotic argument.
 
@@ -13,4 +13,4 @@ Risk: an unindexed course note, software table, or supplementary file may contai
 ## Value
 **PASS.** Realizability says only whether a tournament can occur. The exact fiber profile quantifies how the smallest nontrivial electorate distributes mass over every five-candidate majority structure under impartial culture. It isolates a strong disparity between the regular class, probability \(1/2400\), and the transitive class, probability \(973/1440\), while supplying the complete intermediate spectrum. This is a natural refinement of the small-tournament realizability literature rather than an arbitrary slice.
 
-Same-model review: passed. Independent audit: not yet performed.
+Self-review: passed. Independent audit: not yet performed.

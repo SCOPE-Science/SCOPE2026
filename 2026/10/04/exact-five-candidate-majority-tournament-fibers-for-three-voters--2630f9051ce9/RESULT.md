@@ -23,11 +23,11 @@ Here \(d_v\) is the outdegree of vertex \(v\), and \(t_v\) is the number of dire
 
 Two boundary classes are especially simple. The unique regular five-vertex tournament, whose every vertex has outdegree \(2\), has only \(720\) ordered three-voter realizations, so its impartial-culture probability is
 \[
-rac{720}{120^3}=rac1{2400}.
+\frac{720}{120^3}=\frac1{2400}.
 \]
 The transitive tournament class has \(1{,}167{,}600\) realizations, hence probability
 \[
-rac{1{,}167{,}600}{120^3}=rac{973}{1440}.
+\frac{1{,}167{,}600}{120^3}=\frac{973}{1440}.
 \]
 
 ## Assumptions and scope
@@ -38,13 +38,13 @@ The table quotients the output tournaments by relabeling of alternatives, but it
 ## Proof
 Encode a strict ranking by the ten orientation bits on the unordered pairs of five alternatives. For three rankings with bit vectors \(a,b,c\), a pair is oriented forward by majority exactly when at least two of the three bits are \(1\), which is computed bitwise by
 \[
-(a\mathbin{\&}b)\;\mathbin{|}\;igl(c\mathbin{\&}(a\mathbin{|}b)igr).
+(a\mathbin{\&}b)\;\mathbin{|}\;\bigl(c\mathbin{\&}(a\mathbin{|}b)\bigr).
 \]
 There are only \(120^3\) ordered triples, so exhaustive evaluation is finite and complete.
 
 Independently, every one of the \(2^{10}=1024\) labeled five-vertex tournaments is canonically reduced under all \(5!=120\) relabelings. This produces exactly 12 orbits. For each orbit representative, its automorphism order is counted directly, and its invariant signature is computed from outdegrees and directed-triangle incidences. The 12 signatures in the table are pairwise distinct.
 
-The first enumeration loops over all ordered triples of rankings and increments the canonical tournament class. A second enumeration loops only over the \(inom{122}{3}=295{,}240\) multisets of three rankings, weighting a multiset by \(1\), \(3\), or \(6\) according to whether all three rankings coincide, exactly two coincide, or all are distinct. These two exhaustive calculations agree entry by entry, proving the table.
+The first enumeration loops over all ordered triples of rankings and increments the canonical tournament class. A second enumeration loops only over the \(\binom{122}{3}=295{,}240\) multisets of three rankings, weighting a multiset by \(1\), \(3\), or \(6\) according to whether all three rankings coincide, exactly two coincide, or all are distinct. These two exhaustive calculations agree entry by entry, proving the table.
 
 ## Verification
 The embedded `verify_five_candidate_three_voter_tournaments.py` reconstructs all 1024 labeled tournaments, all 12 relabeling classes, and all \(120^3\) ordered preference profiles from scratch using only the Python standard library. It then performs the independent anonymous-profile enumeration and checks exact equality of the 12 class counts. It also verifies orbit-stabilizer divisibility and the uniqueness of the human-readable signatures.
