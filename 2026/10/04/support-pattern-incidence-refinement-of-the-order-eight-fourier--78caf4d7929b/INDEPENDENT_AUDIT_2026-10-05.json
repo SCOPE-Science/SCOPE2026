@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:57:03Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob d04bccf9477f1f4f6c608d2812216f1e8fc0f380",
+        "VERIFICATION.md blob f2bef181706bfd1b3045c9ff856197364cf5ad39",
+        "Exact checker blob b855af25a699235b3f03ac1e2d0cf3eeaca5c61b inspected line by line",
+        "Yang–Zhang–Wang–Geng–Chen, Entropy 25 (2023) 1075, DOI:10.3390/e25071075."
+      ],
+      "rationale": "For fixed supports \\(S,T\\), vanishing outside \\(T\\) gives a kernel of the Fourier submatrix with rows in the complement of \\(T\\). Exact nonzero time coordinates are possible precisely when deleting each selected column leaves rank unchanged, and exact nonzero desired Fourier coordinates are possible precisely when adjoining each desired row raises rank by one. Over \\(\\mathbf C\\), finitely many proper kernels cannot cover the nonzero kernel, so these conditions are jointly sufficient. The inspected verifier implements all ranks exactly over \\(\\mathbf Q(\\zeta_8)\\) and exhausts all \\(65{,}025\\) support pairs and both finite symmetry actions. Independently, the displayed matrix sums to \\(20{,}929\\), is symmetric, and both reported orbit-size distributions sum back to \\(20{,}929\\) with respectively \\(205\\) and \\(108\\) classes.",
+      "risks": [
+        "The independent replay here rechecked all arithmetic consistency and the exact criterion/code, but did not reimplement the full \\(65{,}025\\)-pair cyclotomic-rank census in a second software stack."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang et al. supply the rank-existence criterion and size-level order-eight diagram.",
+          "General uncertainty and rank-deficient-minor results constrain possible support sizes but do not enumerate all location pairs or quotient them by the stated symmetry groups."
+        ],
+        "reasoning": "The prior criterion makes the finite census decidable but does not state its nontrivial exact output; the new object is the complete location-sensitive incidence and orbit classification.",
+        "searches": [
+          "Yang et al. DOI:10.3390/e25071075",
+          "Meshulam finite-group uncertainty",
+          "Delvaux–Van Barel Fourier submatrix ranks"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches above",
+        "DOI:10.3390/e25071075 / arXiv:2303.17203",
+        "Meshulam arXiv:math/0312407",
+        "Delvaux–Van Barel 2008",
+        "Bonami–Ghobber arXiv:1003.5060"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2 gives a decision criterion but not the aggregate number of exact support pairs at each cardinality or the affine/Fourier-dual orbit structure.",
+          "The orbit census additionally requires classifying the realized pairs under a size-256 affine action and its Fourier extension."
+        ],
+        "reasoning": "The exact values are not a quoted special-case entry of the prior diagram; they require a complete exact enumeration and symmetry reduction.",
+        "searches": [
+          "Yang et al. Lemma 2 and Figure 1 order-eight panel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact high-ranked hit was the audited record; nearby records concern other groups, other orders, or support-size profiles.",
+          "No inspected external source stated the same support-pair counts or orbit totals."
+        ],
+        "reasoning": "Searches covered uncertainty diagram, exact support, Fourier minors, incidence counts, affine support patterns and time-frequency symmetries.",
+        "searches": [
+          "Resultary query: order-eight DFT support-pattern incidence 20929 affine orbits",
+          "Web query: Z8 Fourier exact support pairs incidence orbit count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No pre-existing exact incidence table or orbit census was located.",
+          "The prior published order-eight diagram only indicates whether a size pair occurs."
+        ],
+        "reasoning": "This check is central because the result is a finite invariant; the searched published tables stop at the coarser size-level diagram.",
+        "searches": [
+          "Resultary exact 20929/205/108 query",
+          "Web exact-number searches for order-eight Fourier supports"
+        ]
+      },
+      "rationale": "Yang et al. give an equivalent rank criterion for whether a support-cardinality point belongs to the DFT uncertainty diagram and display the order-eight size-level diagram. Their result records zero-versus-positive existence by cardinality, not the number of actual support-set pairs or their symmetry-orbit decomposition. The audited computation refines that diagram to a complete incidence invariant and two quotient classifications. Exact-count searches found no prior table with \\(20{,}929\\), \\(205\\), or \\(108\\).",
+      "residual_risks": [
+        "Unpublished supplementary computations for the 2023 uncertainty-diagram paper could conceivably contain the full support-pair scan even though the inspected article does not report it.",
+        "The classification is finite and specific to order eight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OWNS_SIZE_LEVEL_DIAGRAM_NOT_LOCATION_INCIDENT_COUNTS_OR_ORBITS",
+          "evidence": [
+            "The paper determines membership/hole information in the support-cardinality plane and shows the order-eight panel, but does not tabulate how many concrete support-set pairs realize each cell or classify those pairs under the audited symmetries."
+          ],
+          "identifier_or_url": "DOI:10.3390/e25071075; arXiv:2303.17203",
+          "material_read": "Open full HTML including Lemma 2's rank criterion, the order-eight panel of Figure 1, the DFT section and conclusions.",
+          "method": "Open-access publisher full-text inspection.",
+          "title": "Characterizing an Uncertainty Diagram and Kirkwood–Dirac Nonclassicality Based on Discrete Fourier Transform",
+          "trigger": "Same order-eight DFT uncertainty diagram and strongest coverage candidate."
+        },
+        {
+          "assessment": "DIFFERENT_GROUP_FAMILY_AND_NO_ORDER_EIGHT_INCIDENCE_CENSUS",
+          "evidence": [
+            "The classified cyclic prime-power family highlighted there is not a support-pattern orbit census for \\(\\mathbb Z_8\\)."
+          ],
+          "identifier_or_url": "arXiv:1003.5060",
+          "material_read": "Accessible abstract/scope comparison.",
+          "method": "Public arXiv comparison.",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Closest classical exact-support literature for cyclic prime-power groups."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete classification of all \\(65{,}025\\) possible nonempty support pairs.",
+        "Two explicit symmetry quotient spectra compress the realized set into structural pattern types."
+      ],
+      "rationale": "The order-eight DFT is the first small dyadic composite example where support locations matter substantially. Refining the published size diagram to a complete location-sensitive incidence table and symmetry quotient is a natural exact invariant and a reusable benchmark for exact-support Fourier geometry, not an arbitrary subset sample.",
+      "risks": [
+        "No all-order formula is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the order-eight discrete Fourier transform, the exact-support realizability incidence matrix contains exactly \\(20{,}929\\) ordered nonempty support-set pairs; these form \\(205\\) affine time-frequency orbits and \\(108\\) orbits after Fourier duality.",
+  "limitations": [
+    "Finite classification for the order-eight DFT only.",
+    "Orbit counts depend on the explicitly stated affine and Fourier-duality actions."
+  ],
+  "schema_version": 1
+}
