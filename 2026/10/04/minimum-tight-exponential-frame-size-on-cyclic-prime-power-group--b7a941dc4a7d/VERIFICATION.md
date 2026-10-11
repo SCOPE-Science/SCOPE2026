@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof has four independently checkable steps:
+# Independent mathematical audit
 
-1. For the evaluation matrix \(F_{a,b}=\exp(2\pi iab/p^k)\), tightness is equivalent to vanishing of all off-diagonal row-Gram entries.
-2. A nonzero difference of valuation \(v\) produces a primitive \(p^{k-v}\)-th root, so its row-Gram sum vanishes exactly when the mask polynomial is divisible by \(\Phi_{p^{k-v}}\).
-3. The product of the distinct required cyclotomic factors divides the mask; evaluating at \(1\) proves \(p^{|R(A)|}\mid |B|\).
-4. The explicit digit-set mask is exactly the product of those cyclotomic factors, with 0/1 coefficients by uniqueness of base-\(p\) expansion, so the lower bound is attained.
+## correctness
 
-`verify.py` uses exact integer polynomial division and no floating-point determinant or root tests. It exhaustively checks every nonempty spatial set and every nonempty frequency set in \(\mathbb Z/4\mathbb Z\), \(\mathbb Z/8\mathbb Z\), and \(\mathbb Z/9\mathbb Z\), for a total of 781 spatial sets, and verifies selected larger constructions in orders 32, 27, 25, and 49.
+PASS
 
-Replay output:
+The row Gram matrix has diagonal |B| and off-diagonal entry P_B(zeta^d). For d with valuation v, zeta^d is primitive of order p^(k-v), so its rational minimal polynomial Phi_{p^(k-v)} divides the integer mask precisely when that off-diagonal vanishes. Distinct required cyclotomic factors are pairwise coprime; their product divides P_B, and evaluating at one shows p^{|R(A)|} divides |B|. Conversely the proposed digit set has mask product over the required Phi_{p^s}; uniqueness of base-p digit expansions makes all coefficients 0 or 1 and keeps the exponents inside Z/(p^k). It therefore gives the matching tight frame. The singleton case has an empty scale set and minimum one. The frozen verifier exhausts Z/4, Z/8 and Z/9 and checks larger constructions, but the proof is general.
 
-`VERIFY_OK exhaustive_A=781 larger_cases=4`
+## originality
 
-The finite checks are consistency tests only. They do not substitute for the general cyclotomic proof.
+PASS
+
+Frederick--Mayeli give the finite frame-spectral matrix framework but do not state a prime-power minimum-cardinality classification by p-adic difference scales. Lam--Leung and the full Malikiosis treatment supply vanishing-root and cyclotomic-mask structure for spectral/tiling problems, but those inspected results do not determine the minimum size of an oversampled tight frame for arbitrary A. The exact p^{|R(A)|} theorem and canonical free-digit optimizer were not found beyond the audited Resultary record.
+
+## value
+
+PASS
+
+Minimum oversampling for a tight exponential frame is a natural finite-harmonic invariant. The theorem gives a complete closed form for every subset of every cyclic prime-power group and an explicit optimizer controlled only by the intrinsic p-adic difference scales, which is reusable structure rather than a finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

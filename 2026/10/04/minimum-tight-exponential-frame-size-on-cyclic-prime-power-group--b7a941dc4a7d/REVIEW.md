@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The frame operator is computed explicitly through the row Gram matrix. Each off-diagonal vanishing condition is equivalent to divisibility of the frequency mask by the cyclotomic polynomial of the exact order of the corresponding difference character. Pairwise coprimality of the required cyclotomic factors gives the cardinality divisibility lower bound at \(X=1\), and the digit construction has exactly the product mask needed for equality. The singleton boundary case is included. Exact exhaustive replay on three small prime-power groups agrees with the theorem.
+## correctness
 
-## Originality
-PASS. The closest inspected source, Frederick--Mayeli, develops finite frame spectral pairs and lifting constructions but does not state the exact prime-power minimum in terms of distinct \(p\)-adic difference scales. Lam--Leung supplies general vanishing-sum machinery, and Malikiosis supplies cyclic cyclotomic/spectral structure, but neither inspected statement gives this tight-frame minimum or the canonical digit optimizer for arbitrary \(A\). Focused searches for prime-power tight exponential frames, cyclotomic balancing, and \(p\)-adic difference-scale classifications did not locate an implication covering the claim. Residual risk is an equivalent formulation in less directly indexed harmonic-frame literature.
+PASS
 
-## Value
-PASS. The result extracts a natural invariant of an arbitrary subset of a cyclic prime-power group and turns it into an exact optimal frame size, with a canonical optimizer. It separates geometric complexity relevant to tight exponential oversampling into the number of active \(p\)-adic difference scales, providing a reusable structural lemma rather than a finite table or an arbitrary special case.
+The row Gram matrix has diagonal |B| and off-diagonal entry P_B(zeta^d). For d with valuation v, zeta^d is primitive of order p^(k-v), so its rational minimal polynomial Phi_{p^(k-v)} divides the integer mask precisely when that off-diagonal vanishes. Distinct required cyclotomic factors are pairwise coprime; their product divides P_B, and evaluating at one shows p^{|R(A)|} divides |B|. Conversely the proposed digit set has mask product over the required Phi_{p^s}; uniqueness of base-p digit expansions makes all coefficients 0 or 1 and keeps the exponents inside Z/(p^k). It therefore gives the matching tight frame. The singleton case has an empty scale set and minimum one. The frozen verifier exhausts Z/4, Z/8 and Z/9 and checks larger constructions, but the proof is general.
 
-## Closest literature and limitations
-The theorem is positioned inside the finite frame-spectral framework of Frederick--Mayeli and uses classical cyclotomic vanishing ideas associated with Lam--Leung and cyclic spectral-set work such as Malikiosis. It is limited to prime-power cyclic groups and unweighted frequency sets; it does not classify all minimizers or all oversampling levels.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Frederick--Mayeli give the finite frame-spectral matrix framework but do not state a prime-power minimum-cardinality classification by p-adic difference scales. Lam--Leung and the full Malikiosis treatment supply vanishing-root and cyclotomic-mask structure for spectral/tiling problems, but those inspected results do not determine the minimum size of an oversampled tight frame for arbitrary A. The exact p^{|R(A)|} theorem and canonical free-digit optimizer were not found beyond the audited Resultary record.
+
+## value
+
+PASS
+
+Minimum oversampling for a tight exponential frame is a natural finite-harmonic invariant. The theorem gives a complete closed form for every subset of every cyclic prime-power group and an explicit optimizer controlled only by the intrinsic p-adic difference scales, which is reusable structure rather than a finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

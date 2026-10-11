@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:53:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b9f24f06bbb09fc0ff74541af3f93dfb002508c6",
+        "verify.py blob a768e47ca07633c60b92f936dca7313cc4d876db",
+        "fresh Gram/cyclotomic reconstruction"
+      ],
+      "rationale": "The row Gram matrix has diagonal |B| and off-diagonal entry P_B(zeta^d). For d with valuation v, zeta^d is primitive of order p^(k-v), so its rational minimal polynomial Phi_{p^(k-v)} divides the integer mask precisely when that off-diagonal vanishes. Distinct required cyclotomic factors are pairwise coprime; their product divides P_B, and evaluating at one shows p^{|R(A)|} divides |B|. Conversely the proposed digit set has mask product over the required Phi_{p^s}; uniqueness of base-p digit expansions makes all coefficients 0 or 1 and keeps the exponents inside Z/(p^k). It therefore gives the matching tight frame. The singleton case has an empty scale set and minimum one. The frozen verifier exhausts Z/4, Z/8 and Z/9 and checks larger constructions, but the proof is general.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frederick--Mayeli define finite frame spectral pairs and matrix criteria but focus on constructions/lifting and Riesz or spectral pairs.",
+          "Malikiosis studies spectral and tiling subsets and develops mask-polynomial/cyclotomic tools, not arbitrary oversampled tight frames.",
+          "For prime-power roots, Lam--Leung implies individual vanishing sums have length divisible by p; the audited simultaneous conditions at several distinct orders yield the stronger product divisibility p^{|R(A)|}."
+        ],
+        "reasoning": "No checked broader result supplies the simultaneous minimum or the canonical optimizer for every A.",
+        "searches": [
+          "Frederick--Mayeli finite frame-spectral framework",
+          "Malikiosis cyclic spectral/tiling theory",
+          "Lam--Leung vanishing-sum length theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.05667",
+        "arXiv:2005.05800",
+        "DOI:10.1017/fms.2022.14",
+        "DOI:10.1006/jabr.1999.8089",
+        "Resultary prime-power tight-frame query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each required distinct cyclotomic factor is monic and coprime to the others, so their product divides the mask; evaluation at one contributes one factor p per required scale.",
+          "The free-digit set has mask exactly the product of those cyclotomic factors and gives a 0-1 subset because the chosen base-p digit positions are independent."
+        ],
+        "reasoning": "The exact product lower bound and matching digit construction are not immediate from any single checked prior theorem.",
+        "searches": [
+          "Frederick--Mayeli finite DFT submatrix criterion",
+          "Lam--Leung/Mask-polynomial vanishing-root background",
+          "assigned simultaneous-cyclotomic argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tightness is equivalent to vanishing of the off-diagonal row Gram sums at every nonzero difference of A.",
+          "For a difference with p-adic valuation v, the relevant root has exact order p^(k-v), so the vanishing condition is exactly divisibility of the 0-1 mask by Phi_{p^(k-v)}."
+        ],
+        "reasoning": "This converts the finite-frame problem into simultaneous cyclotomic divisibility indexed by the distinct p-adic difference scales.",
+        "searches": [
+          "Frederick--Mayeli, arXiv:2010.05667 full primary text",
+          "Malikiosis, arXiv:2005.05800 / DOI:10.1017/fms.2022.14, especially mask-polynomial and vanishing-sum sections",
+          "Lam--Leung, DOI:10.1006/jabr.1999.8089",
+          "Resultary query: minimum tight exponential frame cyclic prime power p-adic difference valuations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact Resultary hit is the audited finding itself; neighboring results concern spectral/tiling sets or unrelated cyclotomic phenomena."
+        ],
+        "reasoning": "The result is an all-subset structural theorem, not a table of small groups.",
+        "searches": [
+          "Resultary semantic search for prime-power tight exponential frame minimum size",
+          "targeted web searches for p-adic difference-scale exponential frames and cyclotomic masks"
+        ]
+      },
+      "rationale": "Frederick--Mayeli give the finite frame-spectral matrix framework but do not state a prime-power minimum-cardinality classification by p-adic difference scales. Lam--Leung and the full Malikiosis treatment supply vanishing-root and cyclotomic-mask structure for spectral/tiling problems, but those inspected results do not determine the minimum size of an oversampled tight frame for arbitrary A. The exact p^{|R(A)|} theorem and canonical free-digit optimizer were not found beyond the audited Resultary record.",
+      "residual_risks": [
+        "An equivalent oversampling theorem may exist in finite harmonic-frame literature under terminology not captured by the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FINITE_FRAME_FRAMEWORK_PRIOR_NO_PRIME_POWER_MINIMUM_CLASSIFICATION",
+          "evidence": "The paper defines finite frame spectral pairs via DFT submatrices and develops construction/lifting results; the inspected text does not state the p-adic difference-scale minimum.",
+          "identifier_or_url": "arXiv:2010.05667",
+          "material_read": "Full arXiv HTML was inspected, including the finite Z_N^d definition/matrix formulation and finite-case basis discussion.",
+          "method": "Same-framework theorem-scope comparison.",
+          "title": "Frame spectral pairs and exponential bases",
+          "trigger": "Primary finite-frame-spectral source on the same DFT restriction framework."
+        },
+        {
+          "assessment": "SPECTRAL_TILING_STRUCTURE_NOT_ARBITRARY_TIGHT_FRAME_MINIMUM",
+          "evidence": "The paper's stated problem is the spectral-versus-tiling classification; its vanishing-sum theorems provide background but do not state the audited oversampled tight-frame cardinality.",
+          "identifier_or_url": "arXiv:2005.05800; DOI:10.1017/fms.2022.14",
+          "material_read": "Open primary full text was inspected through the mask-polynomial setup and Section 5 vanishing-sum theorems.",
+          "method": "Cyclotomic-tool and invariant-scope comparison.",
+          "title": "On the structure of spectral and tiling subsets of cyclic groups",
+          "trigger": "Primary cyclic-group source using mask polynomials and vanishing sums."
+        },
+        {
+          "assessment": "INDIVIDUAL_VANISHING_LENGTH_BACKGROUND_NOT_SIMULTANEOUS_FRAME_THEOREM",
+          "evidence": "For prime-power order the classical result constrains a single vanishing-sum length by p, while the audited result uses multiple required cyclotomic factors simultaneously.",
+          "identifier_or_url": "DOI:10.1006/jabr.1999.8089",
+          "material_read": "Primary publisher abstract and theorem scope were inspected, with the theorem also cross-checked through Malikiosis's open full-text statement.",
+          "method": "Length-divisibility implication comparison.",
+          "title": "On Vanishing Sums of Roots of Unity",
+          "trigger": "Classical primary source controlling lengths of vanishing root sums."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2010.05667",
+        "arXiv:2005.05800",
+        "DOI:10.1017/fms.2022.14",
+        "DOI:10.1006/jabr.1999.8089",
+        "Resultary prime-power tight-frame query"
+      ],
+      "rationale": "Minimum oversampling for a tight exponential frame is a natural finite-harmonic invariant. The theorem gives a complete closed form for every subset of every cyclic prime-power group and an explicit optimizer controlled only by the intrinsic p-adic difference scales, which is reusable structure rather than a finite calculation.",
+      "residual_risks": [
+        "An equivalent oversampling theorem may exist in finite harmonic-frame literature under terminology not captured by the searches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2010.05667",
+    "arXiv:2005.05800",
+    "DOI:10.1017/fms.2022.14",
+    "DOI:10.1006/jabr.1999.8089",
+    "Resultary prime-power tight-frame query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every nonempty A in Z/(p^k), the minimum cardinality of a distinct-frequency tight exponential frame for C^A is p^{|R(A)|}, where R(A) is the set of p-adic valuations of nonzero differences; tightness is equivalent to the corresponding cyclotomic divisibilities, and the stated free-base-p-digit set attains the minimum.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent oversampling theorem may exist in finite harmonic-frame literature under terminology not captured by the searches.",
+    "The theorem is restricted to cyclic prime-power groups, distinct frequency sets and the counting inner product."
+  ]
+}
