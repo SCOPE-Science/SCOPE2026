@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact rational arithmetic on the source's displayed A and P gives max standard-CARE residual 1789/2000000 and max printed-sign residual 5532161073/25000000. Exact Faddeev–LeVerrier characteristic polynomials and quartic Routh–Hurwitz determinants certify A-P as Hurwitz and -(A+P) as Hurwitz, hence A+P is strictly anti-Hurwitz. The argument does not infer unprinted simulation details.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest general sign-inconsistency result concerns a gyrostat model with a different nonlinear term and no Riccati equation.",
+        "Standard CARE theory determines the correct generic sign convention but does not by itself identify which convention the Fu–Xu–Xiao numerical matrix satisfies."
+      ],
+      "reasoning": "Broader controller-sign and model-sign corrections were checked for implication. The generic LQR theorem supplies prior machinery; the source-specific residual and opposite stability of the two literal matrices remain separate consequences of the printed data.",
+      "searches": [
+        "10.3390/math11010011",
+        "\"LQR Chaos Synchronization for a Novel Memristor-Based Hyperchaotic Oscillator\"",
+        "\"math11010011\" Riccati gain sign K P",
+        "2026/10/4/SCOPE-a-sign-inconsistency-separates-the-printed-and-simulated-gyrosta--df703a078b52"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math11010011",
+      "doi:10.3390/math8071096",
+      "scipy:solve_continuous_are",
+      "2026/10/4/SCOPE-structural-zero-mode-and-quadratic-center-drift-in-a-memristor-h--057b30be2054",
+      "2026/10/4/SCOPE-a-sign-inconsistency-separates-the-printed-and-simulated-gyrosta--df703a078b52"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published LQR reference gives the standard CARE and feedback signs but does not analyze the Fu–Xu–Xiao numerical matrix.",
+        "The prior same-source SCOPE result explicitly limits itself to local equilibrium dynamics and does not cover controller equations."
+      ],
+      "reasoning": "The final claim requires both a source-specific exact residual calculation and exact stability comparison. Neither standard LQR theory nor the earlier equilibrium correction implies those numerical statements without using this source's displayed A and P.",
+      "searches": [
+        "\"LQR Chaos Synchronization\" exact first integral hyperchaos",
+        "10.3390/math11010011 Riccati residual A-P A+P",
+        "\"math11010011\" Riccati gain sign K P",
+        "doi:10.3390/math8071096",
+        "scipy:solve_continuous_are"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same-source published record located in the database concerns the origin's structural zero eigenvalue and quadratic center drift, not the LQR controller equations.",
+        "The primary article's synchronization section displays the positive matrix P=K and the closed-loop form A-BK; the standard LQR references use K=R^{-1}B^T P and negative state feedback."
+      ],
+      "reasoning": "Aliases such as Riccati sign, gain sign, positive versus negative feedback, A-P, and A+P were searched. The prior same-source result has disjoint hypotheses and conclusion, so neither it nor a change of terminology implies the controller-sign statement.",
+      "searches": [
+        "\"Fu\" \"Xu\" \"Xiao\" Riccati sign LQR gain matrix P K",
+        "\"LQR Chaos Synchronization\" Riccati equation sign error",
+        "\"Fu Xu Xiao\" \"A+P\" LQR",
+        "2026/10/4/SCOPE-structural-zero-mode-and-quadratic-center-drift-in-a-memristor-h--057b30be2054"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches using the DOI and distinctive entries 13.9065 and 9.1334 did not return a source-specific database record asserting the CARE residual comparison or the A-P/A+P stability split.",
+        "The article's own table/matrix display is the data being checked, not a known corrected table."
+      ],
+      "reasoning": "No exact database or tabulated correction was found for this controller sign. The finding is reconstructed from the published matrix rather than copied from a correction table.",
+      "searches": [
+        "10.3390/math11010011",
+        "\"13.9065\" \"9.1334\" Riccati",
+        "\"13.9065\" \"A-BK\" \"math11010011\"",
+        "\"LQR Chaos Synchronization\" \"13.9065\""
+      ]
+    },
+    "rationale": "Source-specific searches by DOI, title, distinctive matrix entries, Riccati/gain-sign aliases, and A-P/A+P formulations found no prior statement of this controller-sign correction. The closest same-source result addresses a structural zero mode at an equilibrium and does not inspect the controller; generic LQR theory provides machinery but not the source-specific conclusion.",
+    "residual_risks": [
+      "An unindexed erratum or private implementation note could state the intended sign; none was located in the checked published records.",
+      "The source's internal unrounded Riccati solution is unavailable. This does not affect the sign conclusion because the rounded matrix nearly satisfies one CARE and misses the printed-sign equation by more than 221 in max norm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERAGE GAP: the source prints a sign convention inconsistent with its displayed stabilizing matrix; it does not state the residual comparison or the stable-versus-unstable literal interpretation proved here.",
+        "evidence": "The source displays B=I, Q=100I, R=I, A, and P=K; its closed-loop discussion uses A-BK and reports synchronization with the displayed gain.",
+        "identifier_or_url": "doi:10.3390/math11010011",
+        "material_read": "Publisher open-access full-text HTML through the synchronization section, including the linear error model, feedback form, closed-loop expression, parameter matrices, and displayed gain.",
+        "method": "Full-text publisher inspection and exact reconstruction of the displayed matrices.",
+        "title": "LQR Chaos Synchronization for a Novel Memristor-Based Hyperchaotic Oscillator",
+        "trigger": "Primary source for the printed synchronization equations, A, B, Q, R, displayed P=K matrix, public date, and MSC ownership."
+      },
+      {
+        "assessment": "PRIOR THEORY: confirms the standard convention used in the correction, but does not contain or imply the source-specific matrix residuals.",
+        "evidence": "Equations (19)–(21) use negative feedback, positive K, and the negative quadratic Riccati term.",
+        "identifier_or_url": "doi:10.3390/math8071096",
+        "material_read": "LQR derivation giving u=-Kx, K=R^{-1}B^T S, and A^T S+SA-SBR^{-1}B^T S+Q=0.",
+        "method": "Open-access full-text equation inspection.",
+        "title": "Hybrid LQR-PI Control for Microgrids under Unbalanced Linear and Nonlinear Loads",
+        "trigger": "Independent published check of the continuous-time LQR sign convention."
+      },
+      {
+        "assessment": "NOT_COVERING: it concerns the origin's characteristic polynomial and center manifold and explicitly leaves controller equations outside scope.",
+        "evidence": "Its claim is local equilibrium dynamics and contains no Riccati residual, gain-sign, or closed-loop A-P/A+P statement.",
+        "identifier_or_url": "2026/10/4/SCOPE-structural-zero-mode-and-quadratic-center-drift-in-a-memristor-h--057b30be2054",
+        "material_read": "Claim and scope description for the same source's equilibrium correction.",
+        "method": "Database record comparison by hypotheses and implication.",
+        "title": "Structural zero mode and quadratic center drift in a memristor hyperchaotic oscillator",
+        "trigger": "Closest published database record on the identical Fu–Xu–Xiao oscillator."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "af3ac449-fc4f-4940-87fe-f2eb4796aabd",
+  "value": {
+    "rationale": "The sign is implementation-critical rather than cosmetic: the displayed positive gain produces a Hurwitz error matrix, while following the printed negative gain literally produces an open-right-half-plane matrix. The result tells a reader exactly which convention reproduces the published stabilizing numerical matrix and prevents a controller implementation from reversing stability, while carefully preserving the possibility that the simulations used the correct sign internally.",
+    "status": "PASS"
+  }
+}
