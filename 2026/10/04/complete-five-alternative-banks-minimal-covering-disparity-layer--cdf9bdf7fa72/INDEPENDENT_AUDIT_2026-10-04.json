@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:16:55.576940Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently enumerated all \\(2^{10}=1024\\) labeled tournaments on five alternatives and recomputed both solution concepts from their definitions. The Banks set was obtained from inclusion-maximal transitive subtournaments, with transitivity checked by absence of directed 3-cycles; the minimal covering set was obtained by direct external covering-stability testing. This reproduced the exact order-five histogram \\((1,1):320,(3,3):520,(5,5):64,(4,3):120\\), with exactly 120 disparities, all satisfying \\(MC(T)\\subsetneq BA(T)\\). Canonicalization under all \\(5!\\) relabelings gave one canonical code, occurring 120 times, hence one asymmetric isomorphism class with full orbit size 120. This independently verifies the package's finite classification rather than relying on its saved output.",
+      "risks": [
+        "The theorem is only the complete first disparity layer at order five; it does not classify higher-order tournament disparities."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "assigned exact verifier",
+        "independent 1024-tournament reconstruction",
+        "Brandt–Dau–Seedig 2015"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general stable-set framework defines the solutions and proves structural relationships but does not determine the order-five census.",
+          "Knowing that the minimum disparity order is five and having one witness does not imply uniqueness of the isomorphism type or 120 labeled copies."
+        ],
+        "reasoning": "No inspected broader theorem implies the complete threshold layer.",
+        "searches": [
+          "Brandt–Dau–Seedig full disparity-index analysis",
+          "Brandt 2011 minimal-stable-set framework",
+          "current Resultary tournament-solution search"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1016/j.dam.2015.01.041",
+        "DOI 10.1016/j.jet.2011.05.004",
+        "current Resultary semantic search",
+        "independent five-vertex exhaustive reconstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A minimal order of 5 asserts existence at 5 and absence below 5; it does not assert that there is exactly one order-5 isomorphism class.",
+          "The displayed witness's set sizes do not imply all 120 strict tournaments have the same relation."
+        ],
+        "reasoning": "The audited result strengthens the prior threshold from existence to a complete classification of the entire threshold layer.",
+        "searches": [
+          "direct comparison with Brandt–Dau–Seedig's table of disparity indices and displayed five-vertex witness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brandt–Dau–Seedig gives the disparity index 5 and an explicit five-alternative witness.",
+          "The inspected paper does not state the full 120-labeled/one-unlabeled-class census."
+        ],
+        "reasoning": "Equivalent formulations as a complete minimal-order disparity census, uniqueness up to tournament isomorphism, and automorphism-orbit classification were compared.",
+        "searches": [
+          "Resultary query: Banks set minimal covering set five alternatives 120 tournaments one isomorphism class",
+          "Brandt–Dau–Seedig DOI 10.1016/j.dam.2015.01.041",
+          "Brandt 2011 DOI 10.1016/j.jet.2011.05.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published table with the exact audited order-five joint histogram or orbit count was located."
+        ],
+        "reasoning": "Because the 2015 authors used exhaustive tournament generation, unpublished computational output is a realistic residual risk, but unpublished/unstated data do not imply the audited theorem.",
+        "searches": [
+          "exact searches for 120, 15/128, one isomorphism class, canonical five-vertex Banks/minimal-covering disparity"
+        ]
+      },
+      "rationale": "The 2015 disparity paper was inspected in an author-hosted full PDF. It reports exhaustive generation of non-isomorphic tournaments through order ten, gives disparity index five for Banks versus minimal covering, and displays a five-alternative witness with the 4-versus-3 choice sets. Those published statements establish the threshold and a witness but do not state that every order-five disparity is the same isomorphism class, nor the labeled count 120 and probability 15/128. Resultary and targeted exact searches did not locate a published uniqueness/census theorem. Thus the threshold is prior work, while the complete threshold-layer classification survives as original to the best of current evidence.",
+      "residual_risks": [
+        "The 2015 authors' underlying exhaustive data may already contain the same one-class census even though the inspected published statements do not report it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: threshold and witness are prior; complete order-five census is not stated.",
+          "evidence": "The paper establishes minimum order five and shows a witness with four Banks and three minimal-covering alternatives, while not giving the audited labeled count, probability, or uniqueness-up-to-isomorphism statement.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2015.01.041",
+          "material_read": "Author-hosted full PDF, including the computational-method discussion, disparity-index table, and the smallest five-alternative BA-versus-MC witness/figure.",
+          "method": "Full primary theorem/table/figure implication comparison.",
+          "title": "Bounds on the disparity and separation of tournament solutions",
+          "trigger": "Primary prior source for the Banks/minimal-covering disparity threshold."
+        },
+        {
+          "assessment": "GENERAL BACKGROUND, NOT THE FINITE CENSUS.",
+          "evidence": "It supplies the Banks/minimal-covering framework but no five-vertex exhaustive classification.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jet.2011.05.004",
+          "material_read": "Full accessible text through the definitions of tournament solutions, qualified subsets, Banks set, and stable sets.",
+          "method": "Structural implication comparison.",
+          "title": "Minimal stable sets in tournaments",
+          "trigger": "Primary structural source defining the relevant stable-set framework."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first order at which two standard tournament solutions separate is a natural structural boundary. Classifying every tournament on that first layer, rather than merely exhibiting a witness, shows that the discrepancy has a unique symmetry type and a fixed containment pattern. That complete minimal-layer classification is mathematically useful and not an arbitrary finite slice.",
+      "risks": [
+        "No claim is made about order six or asymptotic disparity frequencies."
+      ],
+      "sources": [
+        "Brandt–Dau–Seedig threshold result",
+        "independent exact five-vertex classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete only through five alternatives.",
+    "The order-five threshold and existence witness are explicitly treated as prior work.",
+    "Originality is best-of-knowledge; unpublished enumeration data remain a residual risk."
+  ],
+  "schema_version": 1
+}

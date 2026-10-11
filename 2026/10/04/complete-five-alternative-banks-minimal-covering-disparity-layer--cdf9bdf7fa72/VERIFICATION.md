@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_banks_minimal_covering_first_layer.py` performs a complete exact census of labeled tournaments of orders \(1\) through \(5\).
 
-The Banks set is computed independently by:
-1. a dynamic program for transitive subsets using repeated deletion of a maximal vertex;
-2. the tournament fact that a subset is transitive exactly when it has no directed \(3\)-cycle.
+# Independent mathematical audit
 
-The minimal covering set is computed independently by:
-1. enumerating uncovered-stable subsets and taking the unique inclusion-minimal one;
-2. enumerating covering sets directly from the induced covering relation.
+## correctness
 
-The verifier confirms:
-- \(BA(T)=MC(T)\) for every tournament through order \(4\);
-- the complete order-\(5\) histogram
-\[
-(1,1):320,\quad
-(3,3):520,\quad
-(5,5):64,\quad
-(4,3):120;
-\]
-- exactly \(120\) strict cases among \(1024\) labeled tournaments;
-- exact incidence \(15/128\);
-- strict containment \(MC(T)\subsetneq BA(T)\) in every strict case;
-- exactly one strict isomorphism class;
-- canonical encoding \(41\);
-- orbit size \(120\) and automorphism-group order \(1\);
-- the displayed canonical out-neighborhoods and choice sets.
+PASS
 
-Run:
+I independently enumerated all \(2^{10}=1024\) labeled tournaments on five alternatives and recomputed both solution concepts from their definitions. The Banks set was obtained from inclusion-maximal transitive subtournaments, with transitivity checked by absence of directed 3-cycles; the minimal covering set was obtained by direct external covering-stability testing. This reproduced the exact order-five histogram \((1,1):320,(3,3):520,(5,5):64,(4,3):120\), with exactly 120 disparities, all satisfying \(MC(T)\subsetneq BA(T)\). Canonicalization under all \(5!\) relabelings gave one canonical code, occurring 120 times, hence one asymmetric isomorphism class with full orbit size 120. This independently verifies the package's finite classification rather than relying on its saved output.
 
-`python3 verify_banks_minimal_covering_first_layer.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+The 2015 disparity paper was inspected in an author-hosted full PDF. It reports exhaustive generation of non-isomorphic tournaments through order ten, gives disparity index five for Banks versus minimal covering, and displays a five-alternative witness with the 4-versus-3 choice sets. Those published statements establish the threshold and a witness but do not state that every order-five disparity is the same isomorphism class, nor the labeled count 120 and probability 15/128. Resultary and targeted exact searches did not locate a published uniqueness/census theorem. Thus the threshold is prior work, while the complete threshold-layer classification survives as original to the best of current evidence.
 
-The computation establishes only the complete first disparity layer through order \(5\).
+## value
+
+PASS
+
+The first order at which two standard tournament solutions separate is a natural structural boundary. Classifying every tournament on that first layer, rather than merely exhibiting a witness, shows that the discrepancy has a unique symmetry type and a fixed containment pattern. That complete minimal-layer classification is mathematically useful and not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
