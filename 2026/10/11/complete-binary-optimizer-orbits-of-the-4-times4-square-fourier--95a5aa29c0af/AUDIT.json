@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For all 65536 binary 4-by-4 arrays, the exact normalized fourth moment has the autocorrelation identity M=256+2 sum_{24 half-shifts} C^2. An order-eight sign-modulation action is free since a00,a01,a10 uniquely fix its three generators. Actual checker.py exhaustively visits all 8192 normal forms, independently evaluates their moments via coefficients of P^2, and finds minimum 304 with exactly four normal form winners and first greater value 336. Enumerating the full square-dihedral and sign actions gives exactly two disjoint size-16 full orbits covering 32 optima; direct correlation calculations exhibit two magnitude-three shifts, dot-product magnitudes zero or eight, and the common shift-magnitude histogram 16 zeros, six ones, two threes. Exact integer code has been replayed from its actual package path. Finite exhaustive proof only for the stated binary 4x4 domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmidt, arXiv:1105.5176, full introduction and mathematical sections: a priori stronger scalar optimum of Eggers is quoted; the paper treats asymptotics of quadratic-character families.",
+        "Svalbe and Tirkel 2017, doi:10.1186/s13634-017-0455-2, complete accessible article Sections 1–6: periodic near-perfect autocorrelation and large families, not equality cases for aperiodic 4-by-4 signs.",
+        "Pai and Chen 2021, arXiv:2102.04043, introduction, construction results and example: complementary array sets use a sum-across-arrays criterion."
+      ],
+      "reasoning": "A universal classification of all 4x4 aperiodic merit maximizers would dominate the candidate. The available strongest exact known theorem is the scalar optimum (does not fix classes); inspected other theorems address non-equivalent optimization domains. Full 1986/1993 classic texts were not read, so stronger coverage cannot be excluded solely from search failure.",
+      "searches": [
+        "\"Eggers\" \"merit factor\" \"4,4\" arrays",
+        "\"F4,4\" \"Eggers\" 32 optimum arrays",
+        "\"Optimizing the aperiodic merit factor of binary arrays\" PDF Bömer Antweiler",
+        "\"4x4\" \"binary\" \"autocorrelation\" \"merit factor\" 5.33"
+      ]
+    },
+    "checked_sources": [
+      "Schmidt arXiv:1105.5176 (full relevant text and visual PDF p.2)",
+      "Svalbe–Tirkel doi:10.1186/s13634-017-0455-2 (full open article)",
+      "Pai–Chen arXiv:2102.04043 (full relevant sections)",
+      "Bömer–Antweiler doi:10.1016/0165-1684(93)90047-E (abstract/bibliography, full text unavailable)",
+      "Eggers RWTH dissertation 1986 (known bibliographic source and secondhand Table 4.2, original unavailable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From Schmidt arXiv:1105.5176: maximal merit factor 16/3 follows from Eggers; count and orbit split are not given by the statement and do not logically follow from it.",
+        "From Svalbe–Tirkel doi:10.1186/s13634-017-0455-2: large families of periodic perfect/near-perfect two-dimensional arrays; periodic structure does not imply exhaustive aperiodic single-square equality classes.",
+        "From Pai–Chen arXiv:2102.04043: constructions of complementary arrays/sets; summing autocorrelations over multiple arrays does not imply an optimum classification of a single binary 4x4 array."
+      ],
+      "reasoning": "The precise extra assertion is an exhaustive 32-array fiber of the already-known scalar optimum and its quotient of two inequivalent 16-element symmetry orbits distinguished by dot products of the two largest-lobe displacement vectors. Known scalar inequalities, large-array asymptotic theorems, and complementary-family constructions do not entail the asserted finite fiber geometry.",
+      "searches": [
+        "\"All optimizers of aperiodic fourth-moment binary 4 by 4 planar arrays, 32 signed arrays, two inequivalent phase-dihedral orbits, autocorrelation lobes perpendicular and oblique\"",
+        "\"Classification of all optimal binary four by four arrays F_4,4 equals 16/3, two inequivalent dihedral modulation orbits\"",
+        "\"Binary 3x3 aperiodic array merit factor maximum classification correlations complementary arrays\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schmidt, arXiv:1105.5176, PDF introduction p.2, gives known F_{4,4}=16/3 via Eggers but no full equality census in his analyzed results.",
+        "Bomer and Antweiler, Signal Processing 30 (1993), 1-13, abstract describes merit-factor maximizing operations, not the two exact orbit invariants."
+      ],
+      "reasoning": "The moment formulation M=304 and the array formulation F=16/3 are equivalent because F=256/(M-256). The scalar equivalent is known. The new claim adds two group-action orbit sizes and directional invariants. No retrieved full primary statement establishes these additional features; inaccessible classics remain a residual risk.",
+      "searches": [
+        "\"4x4\" \"binary arrays\" \"orbit\" \"merit factor\"",
+        "\"4x4\" \"binary arrays\" \"32\" \"merit\" \"16/3\"",
+        "\"4x4\" \"merit factor\" \"equivalence classes\" binary",
+        "\"16 coefficient bivariate Littlewood polynomials degree 3 in both variables L4 304 extremizers\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Eggers (1986), Table 4.2, explicitly reported as a table of maximum scalar F_{n,m} for nm<=21 by Schmidt introduction p.2. The original table was not itself inspected.",
+        "Published record on a four-point prime cyclic support calculates a one-dimensional phase-only fourth-moment minimum; that support does not contain all 16 coefficients of a full 4x4 square.",
+        "Published length-33 skew-symmetric Littlewood census considers one-dimensional sequences and a merit-flatness Pareto frontier, not two-dimensional 4x4 equality orbits."
+      ],
+      "reasoning": "A known numerical table entry F4,4=16/3 exactly covers and disallows claiming a new best constant. The entry alone does not imply 32 optimizer arrays or their two directionally distinct group orbits. No available indexed table lists this complete optimizer structure. The untranslated full dissertation remains a risk.",
+      "searches": [
+        "\"F4,4\" \"16/3\" \"32\" binary",
+        "\"4x4\" \"binary arrays\" \"optima\" \"merit factor\" classes",
+        "\"Exhaustive joint merit-flatness census of skew-symmetric Littlewood polynomials at length 33\"",
+        "\"Four-point support geometry quantizes the phase-only fourth Fourier moment\""
+      ]
+    },
+    "rationale": "Known sharp scalar value is expressly excluded from novelty: Schmidt (arXiv:1105.5176, introduction p.2) quotes Eggers 1986 F_4,4=16/3. The claim concerns complete 32-array equality classification into two symmetry orbits, with invariant perpendicular versus oblique large-sidelobe directions. Reviewed accessible full texts study the scalar/asymptotic bound (Schmidt), periodic array families (Svalbe-Tirkel), or complementary array sets (Pai-Chen), not the optimizer classification. Published-record searches found no exact same claim. Full Eggers dissertation and Bomer-Antweiler 1993 text could conceal a matching census: this is a real bibliographic residual risk, not claimed ruled out.",
+    "residual_risks": [
+      "The full Eggers 1986 dissertation might contain an unpublished-in-current-access class census including both orbit geometries.",
+      "The full Bömer–Antweiler 1993 article might contain an equivalent optimizer table beyond its accessible abstract.",
+      "Semantic search and checked literature cannot establish absolute novelty or exclude all historically equivalent notation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scalar optimum is covered; equality orbit classification not found in inspected relevant sections.",
+        "evidence": [
+          "Introduction p.2 explicitly records F_{4,4}=16/3 attributed to Eggers Table 4.2.",
+          "Principal results address asymptotic quadratic-character binary array families."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1105.5176",
+        "material_read": "Full PDF introduction pp.1–3 and relevant main-text definitions/results, including a direct visual inspection of PDF page 2 and its citation to Eggers Table 4.2.",
+        "method": "Open-access arXiv preprint full-text reading and visual page verification.",
+        "title": "The merit factor of binary arrays derived from the quadratic character",
+        "trigger": "Known 4-by-4 scalar optimum and strongest direct prior overlap"
+      },
+      {
+        "assessment": "Periodic near-perfect family constructions do not imply the complete aperiodic 4-by-4 binary equality classification.",
+        "evidence": [
+          "Author/publisher article states public date 20 Feb 2017.",
+          "Construction concerns p-by-p periodic optimal families with p odd primes and cross-correlations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13634-017-0455-2",
+        "material_read": "Open full article, including introduction, family-construction sections, and conclusions, with publication date.",
+        "method": "Lawful full-text open-access HTML and publicly available OA PDF.",
+        "title": "Extended families of 2D arrays with near optimal auto and low cross-correlation",
+        "trigger": "Motivation and physically directional array autocorrelation geometry; earliest source 2017-02-20"
+      },
+      {
+        "assessment": "Results involve complementary sets and specific constructed shapes; no single-array 4x4 aperiodic extremizer orbit classification located.",
+        "evidence": [
+          "Main objects are complementary array sets whose combined off-origin autocorrelation cancels."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.04043",
+        "material_read": "Available full-text introduction, constructions, Theorem 17, and representative example.",
+        "method": "Open arXiv preprint and lawful OA full-text inspection.",
+        "title": "Two-Dimensional Golay Complementary Array Sets from Generalized Boolean Functions",
+        "trigger": "Possible dominating 2D array construction or optimizer census"
+      },
+      {
+        "assessment": "Decisive priority comparison not possible without full text; residual risk recorded.",
+        "evidence": [
+          "Abstract describes merit-factor optimization by operations on known array classes.",
+          "Cited in Schmidt as earlier array merit-factor research."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0165-1684(93)90047-E",
+        "material_read": "Abstract, bibliographic listings and accessible cross-citations only; full article not accessed.",
+        "method": "Searched arXiv and lawful open-access repositories; only bibliographic information and abstract were available.",
+        "title": "Optimizing the aperiodic merit factor of binary arrays",
+        "trigger": "Directly plausible prior optimizer table"
+      },
+      {
+        "assessment": "Known scalar optimum strongly covered; precise equality-class census unknown.",
+        "evidence": [
+          "Schmidt pp.2 quotes Eggers Table 4.2 as F_{n,m} maximum values, including F_{4,4}=16/3."
+        ],
+        "identifier_or_url": "Eggers, RWTH Aachen dissertation (1986), Table 4.2",
+        "material_read": "Bibliographic identification and Schmidt’s secondhand exact quotation of scalar Table 4.2; dissertation not examined.",
+        "method": "Cross-source verification using Schmidt arXiv preprint, rather than representing a secondhand quote as full-text inspection.",
+        "title": "Synthese zweidimensionaler Folgen mit guten Autokorrelationseigenschaften",
+        "trigger": "Earliest direct source of known F4,4 optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "95a5aa29-c0af-41e3-b682-9aa1aa064625",
+  "value": {
+    "rationale": "A natural complete finite classification of a fully populated two-dimensional 16-mode binary Fourier aperture, beyond the known scalar optimum. Two geometrically distinct equivalence orbits with identical minimal aggregate aperiodic sidelobe energy but orthogonal versus oblique dominant sidelobes answer a direction-sensitive structural question useful for correlation benchmarks. The exact number 32, two orbit cardinalities, and complete geometry are not mere decimal improvements, renamed parameters, or results implied by the numeric optimum. No unsupported broader engineering performance is claimed.",
+    "status": "PASS"
+  }
+}
