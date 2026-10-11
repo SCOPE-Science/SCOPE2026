@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:58:15.596985Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 53253f57aa3b14d73d39bb0fc32134a765924da5",
+        "verify_parity_dichotomy.py blob 93b9e29447bd02d2061fcb3d04c39ad8174c20cc",
+        "verification_output.txt blob 42ffb3d105892c44729d4accbc18487e963f1441",
+        "arXiv:2608.09354v1 complete full text",
+        "independent boundary-value parity reconstruction"
+      ],
+      "rationale": "The general-m formula is mathematically correct. Distinct reciprocal lattices meet only at zero because 1,sqrt(p_2),...,sqrt(p_m) are rationally independent. Nonzero poles are simple and the residue coefficients follow directly. Quadratic-irrational Diophantine bounds give only polynomial coefficient growth for the chosen square-root family, ensuring tempered convergence. At zero, 1/Phi_m has parity m: when m is odd its principal part contains odd negative powers, whose boundary-value jump gives even delta derivatives through order m-1; when m is even the unit-mass symmetrization leaves the nonzero regular function 2(2i)^{-m}/Phi_m on every pole-free interval, so support is all of R. The weighted-simplex lattice count gives the stated R^m leading term. The m=3 specialization agrees with the exact coefficients and delta-double-prime term in the primary source.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier crystalline-measure work supplies the contour/product framework used by Tselishchev.",
+          "Tselishchev already singles out odd unit-mass versus even signed-mass behavior, which dominates the package's structural parity claim."
+        ],
+        "reasoning": "The package is broader than Tselishchev's written m=3 theorem in notation, but not broader than the extension explicitly announced in the same paper.",
+        "searches": [
+          "arXiv:2608.09354v1 complete proof",
+          "Olevskii--Ulanovskii DOI:10.5802/crmath.142"
+        ]
+      },
+      "checked_sources": [
+        "Tselishchev, A new example of crystalline-type measure with unit masses and an application to tiling of the real line by translates of a function, arXiv:2608.09354v1, complete 11-page full text",
+        "Olevskii--Ulanovskii, A simple crystalline measure, arXiv:2006.12037 / Comptes Rendus Mathématique DOI:10.5802/crmath.142",
+        "Resultary semantic query: sine product semigroup Fourier transform parity odd even reciprocal lattice delta derivatives"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd m, the boundary jump of 1/Phi_m leaves reciprocal-lattice atoms plus even derivatives at zero, exactly as the source says will happen for any odd number of frequencies.",
+          "For even m, the unit-mass symmetrization adds rather than subtracts the two boundary values off the pole set, leaving a nonzero regular 1/Phi_m component; the signed-mass modification mentioned by the source is precisely what changes that parity."
+        ],
+        "reasoning": "The even full-support statement is an immediate boundary-value consequence of the same parity distinction already identified in the source.",
+        "searches": [
+          "Tselishchev Theorem 1.1 and Remark 2",
+          "Tselishchev contour identities (upper/lower reciprocal-sine expansions and residue computation)",
+          "independent parity check of the boundary-value sum/difference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's Theorem 1.1 gives the m=3 reciprocal-lattice/delta-derivative formula.",
+          "Remark 2 explicitly announces similar higher-derivative formulas for any odd number of rationally independent frequencies and says even numbers require charges plus/minus one rather than the unit counting measure.",
+          "The source proof expands the reciprocal product in upper/lower half-planes and computes reciprocal-lattice residues, the same mechanism used in the package."
+        ],
+        "reasoning": "The audited parity formulation is the explicit general-m realization of a generalization already stated by the primary source, not a scientifically distinct equivalent formulation.",
+        "searches": [
+          "arXiv:2608.09354v1 complete full text, Theorem 1.1, Remarks 1-4, and Sections 2.1-2.4",
+          "Resultary query: sine product semigroup Fourier transform parity odd even reciprocal lattice delta derivatives"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the present record; absence of a separately titled theorem does not overcome the direct primary-source coverage."
+        ],
+        "reasoning": "Database uniqueness of wording is irrelevant because the source remark and proof already imply the extension.",
+        "searches": [
+          "Resultary semantic query above",
+          "exact search for the present parity title and sine-product semigroup spectrum"
+        ]
+      },
+      "rationale": "Originality fails under the required implication standard. The complete primary Tselishchev paper predates this record and, immediately after its m=3 theorem, explicitly states that the construction extends to any odd number of rationally independent frequencies with higher-order delta derivatives, while for an even number an analogous formula requires alternating signed masses instead of the unit counting measure. Its contour proof is exactly the reciprocal-sine boundary-value mechanism generalized by the audited package. The package adds explicit all-m coefficients, a full-support formulation for the even unit-mass case, and a counting asymptotic, but these are routine consequences/bookkeeping of an extension the source itself already announces and structurally explains; the headline odd/even dichotomy is therefore implication-covered.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_COVERAGE",
+          "evidence": "The source explicitly announces odd-factor higher-derivative extensions and the even-factor need for signed masses, and its proof provides the same reciprocal-sine residue mechanism.",
+          "identifier_or_url": "arXiv:2608.09354v1",
+          "material_read": "Complete 11-page primary full text through authorized institutional access after the direct open PDF route was not inspectable, with particular attention to Theorem 1.1, Remark 2 and the contour proof in Sections 2.1-2.4.",
+          "method": "authorized institutional full-text access after open-route attempt",
+          "title": "A new example of crystalline-type measure with unit masses and an application to tiling of the real line by translates of a function",
+          "trigger": "Direct source of the m=3 unit-mass construction and strongest possible general-m coverage."
+        },
+        {
+          "assessment": "BACKGROUND_FRAMEWORK",
+          "evidence": "It supplies earlier crystalline-measure machinery but the decisive coverage comes from Tselishchev's explicit generalization remark.",
+          "identifier_or_url": "DOI:10.5802/crmath.142; arXiv:2006.12037",
+          "material_read": "Primary open publisher/arXiv material sufficient to identify the contour-product construction context.",
+          "method": "lawful open primary source",
+          "title": "A simple crystalline measure",
+          "trigger": "Earlier contour/crystalline-measure framework cited by the direct source."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2608.09354v1 complete paper",
+        "assigned proof",
+        "independent parity reconstruction"
+      ],
+      "rationale": "As a standalone calculation the explicit coefficients and support statement are coherent, but under the required value bar the contribution is a routine completion of a generalization already announced by the source itself. The odd higher-derivative extension and the need to change to signed masses for even factor count are explicitly flagged in the primary paper, and the package follows the same contour/residue mechanism. The remaining coefficient bookkeeping, parity sign, and lattice-count asymptotic do not create a sufficiently distinct mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
