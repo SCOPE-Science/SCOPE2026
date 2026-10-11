@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verification is exact and symbolic. For odd \(n\), set \(\alpha=\pi/n\), \(v=\cos\alpha\), and \(j=(n-1)/2\). The source formula reduces to \(\lambda=v(2v+1)\), hence \(Q=\operatorname{diag}(1,1,v^2(2v+1))\).
+# Independent mathematical audit
 
-With \(M_k=(v\cos((2k+1)\alpha),v\sin((2k+1)\alpha),1)\), direct substitution gives
-\[
-\langle M_k,M_k\rangle_Q=2v^2(v+1),\qquad
-\langle M_k,M_{k+1}\rangle_Q=2v^3(v+1).
-\]
-Therefore the normalized inner product is \(v\), and because \(0<\alpha\le\pi/3\) the chosen consecutive spherical segment is the minor arc of length \(\arccos(v)=\alpha\). Summing \(n\) segments gives \(\pi\).
+## correctness
 
-The source's proof of Theorem 4.6 independently supplies the strict primitive midpoint witness and its open periodic neighborhood. The positive-definite form identifies the spherical metric, and Theorem 5.25 gives local constancy of length on a connected family. No finite experiment, numerical approximation, or external certification is used. The proof does not establish anything about periodic components disconnected from the midpoint family.
+PASS
+
+For odd \(n\), the source's unique positive-definite regular-family member has \(j=(n-1)/2\), \(\theta=\alpha=\pi/n\), and, after simplification, invariant form proportional to \(Q=\mathrm{diag}(1,1,v^2(2v+1))\) with \(v=\cos\alpha\). For consecutive Euclidean side midpoints \(M_k\), direct symbolic reconstruction gives \(\langle M_k,M_{k+1}\rangle_Q/\langle M_k,M_k\rangle_Q=v\). Thus normalized consecutive lifts subtend the minor spherical angle \(\arccos v=\alpha\), and the primitive \(n\)-bounce midpoint orbit has exact total length \(n\alpha=\pi\). The source supplies openness of the strict midpoint witness and the spherical metric-rigidity congruence; continuity on a connected periodic component then makes length locally constant in the discrete class \(\pi+2\pi\mathbb Z\), so the component containing the witness has exact length \(\pi\). The conclusion is correctly limited to that connected component.
+
+## originality
+
+PASS
+
+The exact source paper was inspected at the regular-family theorem, the proposition identifying the unique spherical member, the metric-rigidity theorem and the warning following the spherical congruence. It proves only \(L\equiv\pi\pmod{2\pi}\) in the general odd spherical family and explicitly notes that this does not distinguish \(\pi\) from \(3\pi\) and higher odd multiples. The audited midpoint inner-product computation closes precisely that gap for the canonical regular member and propagates the result to its connected open periodic component. Fierobe's earlier projective-billiard paper supplies related reflective examples but does not dominate this 2026 all-odd regular family in the material inspected. Resultary returns the audited record as the exact same-object hit and no stronger all-odd exact-length theorem.
+
+## value
+
+PASS
+
+The source explicitly identifies a gap between a modulo-\(2\pi\) rigidity theorem and exact length. Resolving that ambiguity uniformly for the canonical spherical member of every odd regular period gives a motivated boundary clarification, and the local-constancy propagation upgrades one exact witness to an open family. This is a structural geometric fact rather than a cosmetic evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
