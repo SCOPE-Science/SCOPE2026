@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:13:23.881864Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing \\(x=\\alpha t+u\\) gives \\([x,\\beta t+v]=\\alpha A(v)-\\beta A(u)\\). If \\(\\alpha\\ne0\\), the adjoint image is exactly \\(A(V)\\), of rank \\(r\\); if \\(\\alpha=0\\), the rank is zero for \\(u\\in\\ker A\\) and one otherwise. The three exact multiplicities follow by rank-nullity, and substituting them into the standard centralizer/adjoint-image average gives \\(d(L)=(q^r+q^2-1)/q^{r+2}\\). The values decrease strictly with \\(r\\), and every rank \\(1\\le r\\le n\\) is realized by a rank-\\(r\\) endomorphism. The inspected verifier correctly corroborates several fields and ranks.",
+      "risks": [
+        "Correctness is elementary once the standard semidirect-product model is fixed."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "artifacts/verify.py",
+        "Avetisyan arXiv:1610.05365",
+        "Shamsaki–Erfanian–Parvizi commutativity-degree formula"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Together the sources cover both ingredients needed for the calculation; no new structural lemma is required."
+        ],
+        "reasoning": "The general structure-plus-general invariant formula dominates the claimed family calculation up to routine rank-nullity algebra.",
+        "searches": [
+          "Avetisyan structural classification",
+          "general commutativity-degree results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1610.05365",
+        "arXiv:2406.10064",
+        "DOI 10.1155/jom/9921706",
+        "current Resultary search",
+        "assigned RESULT.md/verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For \\(\\alpha\\ne0\\), \\(\\operatorname{Im}\\operatorname{ad}_{\\alpha t+u}=A(V)\\); for \\(\\alpha=0\\), its image is either zero or the span of \\(A(u)\\). Counting these cases is immediate.",
+          "Substitution into the published average gives the claimed scalar formula without an additional nonstandard theorem."
+        ],
+        "reasoning": "This is a routine specialization, so the final claim fails the originality bar even if no source states the identical closed formula.",
+        "searches": [
+          "explicit implication reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avetisyan Proposition 2 gives the codimension-one semidirect-product structure over arbitrary fields.",
+          "The 2026 paper states the general adjoint-image averaging formula and demonstrates exact rank-stratification computations."
+        ],
+        "reasoning": "The audited formulas are the direct specialization of the general adjoint-image formula to the standard almost-abelian bracket.",
+        "searches": [
+          "Avetisyan arXiv:1610.05365 full text",
+          "Shamsaki et al. arXiv:2406.10064 / 2026 journal framework",
+          "2026 Characterizing Lie Algebra Structure via the Commutativity Degree full text",
+          "Resultary almost-abelian commutativity search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table is needed because theorem-level implication is decisive."
+        ],
+        "reasoning": "Database novelty cannot overcome direct implication from prior theory.",
+        "searches": [
+          "current Resultary search",
+          "published commutativity-degree examples"
+        ]
+      },
+      "rationale": "The final claim is mechanically implied by two published inputs. Avetisyan's full primary text proves that every almost-abelian Lie algebra is a semidirect product of a one-dimensional algebra with a codimension-one abelian ideal controlled by one linear endomorphism. Shamsaki–Erfanian–Parvizi's commutativity-degree framework gives the general average over \\(|\\operatorname{Im}\\operatorname{ad}_x|\\), and their later full-text paper explicitly uses that formula to derive exact values by stratifying adjoint ranks. Applying those two ingredients to \\(x=\\alpha t+u\\) immediately produces the three rank strata and the displayed formula. The absence of an exact phrase match does not make this routine specialization original under the implication-based standard.",
+      "residual_risks": [
+        "No historical-priority claim is made about an exact printed almost-abelian formula; failure is based on mechanical implication, not title matching."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES THE COMPLETE STRUCTURAL INPUT.",
+          "evidence": "Proposition 2 identifies every almost-abelian algebra with the standard one-operator semidirect product.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.05365",
+          "material_read": "Full arXiv HTML through the definition and Proposition 2 establishing the codimension-one abelian ideal and semidirect-product structure, with surrounding classification context.",
+          "method": "Primary theorem implication comparison.",
+          "title": "The structure of almost Abelian Lie algebras",
+          "trigger": "Primary structural classification of the exact algebra family."
+        },
+        {
+          "assessment": "SUPPLIES THE GENERAL INVARIANT FORMULA/METHOD.",
+          "evidence": "The paper writes commutativity degree through adjoint-image sizes and computes examples by counting adjoint ranks.",
+          "identifier_or_url": "https://doi.org/10.1155/jom/9921706",
+          "material_read": "Open-access full HTML, including the general adjoint-image formula and exact rank-stratification examples/theorems.",
+          "method": "Primary full-text implication comparison.",
+          "title": "Characterizing Lie Algebra Structure via the Commutativity Degree",
+          "trigger": "Current full-text source using the same invariant and adjoint-rank method."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The calculation is correct and tidy, but after the standard almost-abelian decomposition and the published general commutativity-degree formula are in hand, the rank histogram and scalar value follow by a three-case rank-nullity exercise. That is below the stated value bar for a standalone finding; correctness and a family-wide closed form do not rescue a textbook-level specialization.",
+      "risks": [
+        "This does not say the formula is useless; it says it is not a sufficiently independent mathematical contribution for this catalogue."
+      ],
+      "sources": [
+        "Avetisyan structure theorem",
+        "published adjoint-image average"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is for originality/value, not correctness.",
+    "The exact closed formula may not have appeared verbatim previously; implication is nevertheless routine.",
+    "Failed package should be preserved intact."
+  ],
+  "schema_version": 1
+}
