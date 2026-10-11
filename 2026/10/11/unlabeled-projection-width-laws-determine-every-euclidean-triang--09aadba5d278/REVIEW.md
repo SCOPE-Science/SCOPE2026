@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof directly partitions unoriented directions into the three edge-pair sectors, changes variables through a cosine map, and obtains the exact density with explicit boundary cases. The total inverse-square-root weights separate acute, right and obtuse triangles. Obtuse-triangle finite negative jumps locate the two remaining altitudes, so the side lengths are recovered exactly. The numerical tests compare directly computed projections against the independent sector-CDF implementation, check density normalization, the Cauchy mean-width identity, singularities and jumps. These computations are supplementary; no finite sample is used as an infinite proof.
+
+**Originality — PASS, with residual historical risk.** Kim, Yaskin and Zvavitch (arXiv:1512.07289v1), inspected in its introduction and planar Section 3, establish general nonuniqueness of direction-unlabeled projection distributions, not an injectivity result for the entire class of triangles. Direction-indexed width theorems reviewed by Horváth do not cover the same data. Database searches of triangle projections, difference bodies and inverse distributions returned nearby results about other invariants, not the present claim. The abstract-only access to Goodey–Schneider–Weil and possible earlier specialized triangle computations limit historical certainty.
+
+**Value — PASS.** General convex bodies cannot be reconstructed from unlabeled projection-length distributions, so a complete natural-class injectivity theorem addresses a genuine geometric inverse gap. The all-triangle theorem is nontrivial in the obtuse regime, where the usual side-length singularities disappear and the missing lengths instead appear as discontinuities at altitudes. This provides a structural, exact shape-classification criterion rather than one isolated numerical invariant.
+
+The statement is for nondegenerate Euclidean triangles, exact Haar-uniform unoriented projection distributions and congruence up to all Euclidean isometries. Neither noisy reconstruction nor general-polygon uniqueness is established. Earlier equivalent specialized results cannot be excluded. Independent audit has not been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
