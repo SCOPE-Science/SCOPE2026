@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:14:35.235017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 363d27fb2807eb256da6950af98cfbab140289d7",
+        "verify.py blob 31bfec4da2547b9c8834124e538a154db4e4596f",
+        "Lin--Ma--Ren--Wei, arXiv:2609.26651v1",
+        "Wang--Ramdas 2022 e-BH paper"
+      ],
+      "rationale": "With exactly \\(m\\) nonnull streams and all null e-values frozen at one, terminal full discovery cannot have e-BH rank above \\(m\\): for every rank \\(r>m\\), the \\(r\\)-th ordered value is one while the threshold \\(K/(\\alpha r)>1\\). Thus full discovery forces rank exactly \\(m\\), and every nonnull terminal value must be at least \\(b_m=K/(\\alpha m)\\). Therefore stream \\(i\\) must receive at least its own first-passage count \\(\\tau_i\\); summing gives the pathwise lower bound. Sampling each nonnull until first crossing and then parking it attains the bound, because the \\(m\\) parked values all meet the rank-\\(m\\) cutoff. If every parked value is lowered below \\(b_m\\), the rank-\\(m\\) condition fails, proving sharpness of the common boundary. For likelihood-ratio streams, Wald's identity under the stated integrability assumptions yields \\(D_i\\mathbb E\\tau_i=\\log b_m+\\mathbb E O_i\\), giving the expectation formula. The inspected exact-rational verifier implements rank-geometry checks and a nonmonotone path example; the general result follows from the rank argument above.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 preprint gives implementable adaptive algorithms and broad high-probability/expected complexity bounds.",
+          "Foundational/stopped e-BH work concerns inferential validity and discovery stopping, not this favorable-oracle pathwise optimization."
+        ],
+        "reasoning": "Broader implementable theory does not dominate the exact oracle minimum because it pays for learning and managing unresolved evidence.",
+        "searches": [
+          "arXiv:2609.26651v1",
+          "Wang--Ramdas 2022 False Discovery Rate Control with E-values",
+          "stopped e-BH literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.26651v1",
+        "DOI:10.1111/rssb.12489",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 and Appendix B cross each nonnull at \\(K/\\alpha\\).",
+          "Theorem 4.2 supplies a general information lower bound, not an attainable oracle e-BH pathwise optimum at known multiplicity."
+        ],
+        "reasoning": "The pooled threshold follows from fixing the terminal rank to the oracle-known number of signals; that benchmark is not stated by the inspected source.",
+        "searches": [
+          "Lin--Ma--Ren--Wei Theorem 4.1 and Appendix B comparison",
+          "Lin--Ma--Ren--Wei Theorem 4.2 lower-bound comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source e-BH rule is the same underlying step-up geometry.",
+          "Its analyzed nonnull crossing is \\(K/\\alpha\\), not \\(K/(\\alpha m)\\).",
+          "No exact pooled parking identity was located."
+        ],
+        "reasoning": "First-passage, parking, multiplicity pooling and sample-complexity formulations were compared.",
+        "searches": [
+          "Resultary: e-BH multiplicity-sensitive boundary full discovery first passage",
+          "arXiv:2609.26651v1 e-BH definition and full-discovery sections",
+          "Appendix B expected stopping time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No result with the exact \\(K/(\\alpha m)\\) pooled boundary or sum-of-first-passages identity appeared among relevant hits."
+        ],
+        "reasoning": "This is an analytic identity rather than a numerical table; the database check was for exact prior formulations.",
+        "searches": [
+          "Resultary query: e-BH multiplicity-sensitive boundary full discovery first passage",
+          "Resultary query: e-BH full discovery oracle pooled boundary"
+        ]
+      },
+      "rationale": "After open arXiv routes failed in this run, the primary Lin--Ma--Ren--Wei preprint was obtained through authorized institutional access and materially read through the e-BH definition, the full-discovery upper/lower results, simple likelihood-ratio specialization, and the expected-stopping appendix. Its nonnull upper analysis uses individual crossing level \\(\\log(K/\\alpha)\\), while Theorem 4.2 gives an information lower scale \\(\\log(1/\\alpha)\\); Appendix B likewise defines nonnull first passage at \\(\\log(K/\\alpha)\\). It does not identify the exact oracle pooled boundary \\(K/(\\alpha m)\\), the exact pathwise sum of multiplicity-sensitive first passages, or the sharp parking theorem. Resultary searches for that formula found no equivalent published record. The claim is therefore original at the narrow oracle-benchmark level, not as a broad new e-BH procedure.",
+      "residual_risks": [
+        "Because the proof is a short sharp consequence of e-BH geometry, an unindexed note or discussion may have observed the same oracle threshold.",
+        "Later revisions of the September 2026 preprint could add a pooled-multiplicity benchmark."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_FULL_DISCOVERY_BOUNDS_NOT_POOLED_ORACLE_IDENTITY",
+          "evidence": "The source uses individual \\(K/\\alpha\\) crossings and a general lower bound, not the submitted exact \\(K/(\\alpha m)\\) oracle cost.",
+          "identifier_or_url": "arXiv:2609.26651v1",
+          "material_read": "Primary pages 1--12 covering problem formulation, e-BH equation, algorithm, Theorems 3.2, 4.1 and 4.2; Appendix B pages 35--39 covering expected stopping and its \\(K/\\alpha\\) first-passage definition.",
+          "method": "Open arXiv/PDF routes were attempted first and failed in this run; authorized institutional access was then used for the same preprint.",
+          "title": "Sample-Efficient Multiple Testing with Adaptive Data Collection",
+          "trigger": "Exact current source studying full-discovery sample complexity with e-BH."
+        },
+        {
+          "assessment": "FOUNDATIONAL_RULE_NOT_ORACLE_OPTIMUM",
+          "evidence": "It supplies the testing rule, not the submitted multiplicity-sensitive pathwise optimization.",
+          "identifier_or_url": "DOI:10.1111/rssb.12489",
+          "material_read": "e-BH step-up rule and sequential/bandit stopping context as reflected in the cited primary framework.",
+          "method": "Primary-source comparison previously linked by the current source; statement-level comparison in this round used the exact e-BH rule reproduced in the current primary preprint.",
+          "title": "False Discovery Rate Control with E-values",
+          "trigger": "Foundational e-BH source and closest earlier bandit use."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lin--Ma--Ren--Wei 2026",
+        "Wang--Ramdas 2022"
+      ],
+      "rationale": "The theorem isolates a motivated benchmark in the exact full-discovery problem studied by the current source. The threshold \\(\\log(K/(\\alpha m))\\) interpolates between the one-signal \\(\\log(K/\\alpha)\\) boundary and dense-signal \\(\\log(1/\\alpha)\\) scale, separating step-up multiplicity pooling from the extra cost of identifying signals and maintaining live evidence. The exact pathwise optimum and overshoot-aware expectation are therefore useful structural benchmarks despite the deliberately oracle-favorable assumptions.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.26651v1",
+    "DOI:10.1111/rssb.12489",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The nonnull set and multiplicity are oracle-known.",
+    "Null e-values are fixed at one and unsampled streams are stable.",
+    "The result is not an implementable improvement to e-PS.",
+    "The expectation identity requires the stated Wald integrability conditions."
+  ],
+  "residual_risks": [
+    "Because the proof is a short sharp consequence of e-BH geometry, an unindexed note or discussion may have observed the same oracle threshold.",
+    "Later revisions of the September 2026 preprint could add a pooled-multiplicity benchmark."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "RELATED_FULL_DISCOVERY_BOUNDS_NOT_POOLED_ORACLE_IDENTITY",
+      "evidence": "The source uses individual \\(K/\\alpha\\) crossings and a general lower bound, not the submitted exact \\(K/(\\alpha m)\\) oracle cost.",
+      "identifier_or_url": "arXiv:2609.26651v1",
+      "material_read": "Primary pages 1--12 covering problem formulation, e-BH equation, algorithm, Theorems 3.2, 4.1 and 4.2; Appendix B pages 35--39 covering expected stopping and its \\(K/\\alpha\\) first-passage definition.",
+      "method": "Open arXiv/PDF routes were attempted first and failed in this run; authorized institutional access was then used for the same preprint.",
+      "title": "Sample-Efficient Multiple Testing with Adaptive Data Collection",
+      "trigger": "Exact current source studying full-discovery sample complexity with e-BH."
+    },
+    {
+      "assessment": "FOUNDATIONAL_RULE_NOT_ORACLE_OPTIMUM",
+      "evidence": "It supplies the testing rule, not the submitted multiplicity-sensitive pathwise optimization.",
+      "identifier_or_url": "DOI:10.1111/rssb.12489",
+      "material_read": "e-BH step-up rule and sequential/bandit stopping context as reflected in the cited primary framework.",
+      "method": "Primary-source comparison previously linked by the current source; statement-level comparison in this round used the exact e-BH rule reproduced in the current primary preprint.",
+      "title": "False Discovery Rate Control with E-values",
+      "trigger": "Foundational e-BH source and closest earlier bandit use."
+    }
+  ]
+}
