@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-The root classification is analytic.
 
-For the exact witness
-\[
-\mu_h=\mu_v=\delta_h=\gamma=u=\alpha_1=\alpha_2=\beta_2=\Lambda_v=1,
-\quad
-b=100,
-\quad
-\Lambda_h=10,
-\quad
-\beta_1=\frac{29}{100},
-\]
-the bundled checker verifies with rational arithmetic that
-\[
-\mathcal R_0^2=\frac{29}{30},
-\quad
-C_0=658,
-\quad
-C_1=-\frac{8013}{100},
-\quad
-C_2=\frac1{10},
-\]
-and
-\[
-\Delta=\frac{61576169}{10000}>0.
-\]
+# Independent mathematical audit
 
-It computes both positive roots, reconstructs \(S_h,R_h,S_v,I_v\) from the original model equations, and checks all five equilibrium residuals.
+## correctness
 
-The finite numerical replay is used only for the explicit witness. The complete multiplicity classification follows from exact coefficient signs and Vieta relations.
+PASS
+
+The published endemic-equilibrium polynomial is \(C_0 I_h^2+C_1 I_h+C_2=0\), with \(C_0>0\) in the saturated-treatment regime and \(C_2\) equal to a positive factor times \(1-\mathcal R_0^2\). Vieta's formulas therefore give the complete positive-root classification. If \(\mathcal R_0>1\), the root product is negative and exactly one root is positive. At threshold, the nonzero root is positive exactly when \(C_1<0\). If \(\mathcal R_0<1\), real roots have the same sign and are positive exactly when \(C_1<0\); two distinct positive roots require \(\Delta>0\), while \(\Delta=0\) is the sole unique-positive-root fold. The paper's Lemma 3.1 prints mutually inconsistent subthreshold bullets. The exact witness \(\mu_h=\mu_v=\delta_h=\gamma=u=\alpha_1=\alpha_2=\beta_2=\Lambda_v=1\), \(b=100\), \(\Lambda_h=10\), \(\beta_1=29/100\) gives \(\mathcal R_0^2=29/30\), \(C_0=658\), \(C_1=-8013/100\), \(C_2=1/10\), and positive discriminant, so two positive endemic roots exist and reconstruct positive equilibria of the original equations.
+
+## originality
+
+PASS
+
+The primary 2020 article was inspected in full around its equilibrium polynomial and Lemma 3.1. It simultaneously acknowledges a two-root subthreshold case and then asserts a generic unique subthreshold equilibrium, so the audited correction is not already consistently stated there. Targeted searches found general backward-bifurcation/vector-host literature but no published correction of this exact lemma or the explicit witness. The result is a source-specific correction with exact root conditions, not merely a rediscovery that backward bifurcation can occur.
+
+## value
+
+PASS
+
+Correct endemic-equilibrium multiplicity is central to threshold and backward-bifurcation interpretation. The result replaces an internally inconsistent published lemma with the exact all-case quadratic classification and supplies an admissible model-level witness with two subthreshold endemic equilibria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
