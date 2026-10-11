@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T01:17:02.659317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree eef94be6bfab7ae0bd93f588f97a2a3e588214b6",
+        "Shekhar--Kim--Ramdas, arXiv:2211.14908, complete primary cross-MMD method text",
+        "classical equal-variance two-sample Student t theorem"
+      ],
+      "rationale": "For the linear kernel, cross-MMD factors as the first-half mean difference A times the second-half mean difference B. The published studentizer reduces to \\(B^2S/s^2\\), so the statistic is \\(\\operatorname{sgn}(B)sA/\\sqrt S\\). Under the equal-variance Gaussian null, the first-half pooled statistic is exactly \\(t_{2s-2}\\), while the independent sign of B preserves symmetry, yielding \\(\\sqrt{s/(s-1)}t_{2s-2}\\). The exact cutoff and finite-size anti-conservatism follow, and the quoted tail expansion/numerics were independently checked.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source supplies the exact finite-sample statistic and studentizer definitions.",
+          "The classical Student theorem supplies the finite-sample distribution of the resulting pooled mean-difference ratio."
+        ],
+        "reasoning": "Together these established results dominate the exact finite law; only elementary algebra is needed.",
+        "searches": [
+          "Shekhar--Kim--Ramdas arXiv:2211.14908, Section 2 and variance estimator",
+          "classical Gaussian two-sample Student theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2211.14908",
+        "Resultary semantic search",
+        "classical two-sample Student t theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-half projected variables are B times the original observations, so B cancels from the studentization except for its sign.",
+          "The remaining ratio is exactly the pooled Student statistic times \\(\\sqrt{s/(s-1)}\\)."
+        ],
+        "reasoning": "Every substantive distributional conclusion follows mechanically from the source statistic plus a textbook theorem.",
+        "searches": [
+          "direct algebraic specialization of arXiv:2211.14908 Eq. (2)/(4) to k(x,y)=xy",
+          "classical pooled-t distribution theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No source printing the exact scaled-t formula was found.",
+          "The published cross-MMD and variance-estimator definitions algebraically reduce to the classical pooled t statistic under the claimed specialization."
+        ],
+        "reasoning": "The kernel-test statement is equivalent to a standard Student t identity after direct substitution.",
+        "searches": [
+          "Resultary query: cross-MMD Gaussian linear kernel exact t distribution finite sample studentized",
+          "Shekhar--Kim--Ramdas arXiv:2211.14908",
+          "classical pooled two-sample t statistic comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table duplication is involved; the coverage is theorem implication."
+        ],
+        "reasoning": "Database noncoverage cannot rescue a direct specialization of established formulas.",
+        "searches": [
+          "searches for finite-sample cross-MMD calibration and exact t law"
+        ]
+      },
+      "rationale": "The source paper explicitly defines cross-MMD as a sample-split inner product and its studentizer as the sample variance of projected first-half variables. Specializing those published formulas to the linear kernel immediately factors out the second-half mean difference and leaves, up to a deterministic scale and independent sign, the classical pooled equal-variance two-sample t statistic. Thus the exact finite t law and exact t cutoff are direct textbook consequences of the published statistic definition; the first-order tail correction is then a standard Student-vs-normal expansion. The absence of this special case in the source text does not overcome implication coverage.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_DEFINITIONAL_COVERAGE",
+          "evidence": "The published formulas specialize directly to the pooled two-sample Student statistic for a one-dimensional linear kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.14908",
+          "material_read": "Complete primary paper sections defining cross-MMD, projected variables, empirical variance estimator and asymptotic null theorem; pages 1--11 were inspected in detail.",
+          "method": "After the ordinary browser route did not provide complete text, authorized institutional retrieval supplied the primary PDF.",
+          "title": "A permutation-free kernel two-sample test",
+          "trigger": "Exact defining source for cross-MMD and its studentizer."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Shekhar--Kim--Ramdas",
+        "classical Student t theory"
+      ],
+      "rationale": "The finite calibration warning is useful pedagogically, but the result is a direct textbook Gaussian-linear specialization of the published cross-MMD statistic. Once the reduction to pooled t is made, the exact law, cutoff, anti-conservatism and first-order tail correction require no new structural argument. Under the stated value bar this is not an independent mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2211.14908",
+    "Resultary semantic search",
+    "classical two-sample Student t theorem"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The rejection is for direct prior implication and routine specialization, not correctness.",
+    "Only one-dimensional equal-variance Gaussian data, linear kernel and balanced splitting are considered."
+  ],
+  "residual_risks": [],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_DEFINITIONAL_COVERAGE",
+      "evidence": "The published formulas specialize directly to the pooled two-sample Student statistic for a one-dimensional linear kernel.",
+      "identifier_or_url": "https://arxiv.org/abs/2211.14908",
+      "material_read": "Complete primary paper sections defining cross-MMD, projected variables, empirical variance estimator and asymptotic null theorem; pages 1--11 were inspected in detail.",
+      "method": "After the ordinary browser route did not provide complete text, authorized institutional retrieval supplied the primary PDF.",
+      "title": "A permutation-free kernel two-sample test",
+      "trigger": "Exact defining source for cross-MMD and its studentizer."
+    }
+  ]
+}
