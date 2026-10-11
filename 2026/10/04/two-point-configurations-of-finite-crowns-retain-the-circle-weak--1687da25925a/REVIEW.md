@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is quantified for every integer \(n\ge2\). The crown order, deleted-product order, minimal open sets, beat-point witnesses, and the use of McCord's theorem are all explicit. The maximal-fiber reduction is uniform in \(n\), including \(n=2\), and the remaining slice is a crown with one point removed, whose path-shaped Hasse diagram contracts by endpoint beat points. The conclusion about the order complex uses only standard weak-equivalence results for finite spaces plus Whitehead's theorem for CW complexes.
+## correctness
 
-## Originality
-PASS. Searches for the finite Alexandrov deleted product of crowns, its projection fibers, and equivalent formulations found no prior statement of this theorem. The closest primary literature either develops finite models and McCord's criterion without configuration spaces, or studies configuration spaces of geometric graphs rather than of finite Alexandrov models. A later combinatorial model for configuration spaces of simplicial realizations is likewise a different construction.
+PASS
 
-## Value
-PASS. The claim addresses a natural operation on a canonical family of minimal finite circle models: deleting the diagonal from a product. Configuration spaces are not formal homotopy invariants, so retaining the circle weak type is not automatic from \(C_n\simeq_w S^1\). The theorem gives an explicit forgetful weak equivalence and a reusable fiber-contraction pattern rather than a one-parameter census.
+The projection \(\pi_1:F_2(C_n)\to C_n\) is order-preserving. For a minimal point \(a_i\), the inverse image of its minimal open set is \(\{a_i\}\times(C_n\setminus\{a_i\})\), and the second factor is an alternating path that contracts by successive beat-point deletion. For a maximal point \(b_i\), cyclic symmetry reduces to \(b_0\); the explicit deletion sequence in the package removes the two lower-coordinate rows and leaves \(\{b_0\}\times(C_n\setminus\{b_0\})\), again an alternating path. The stated witnesses are valid beat points throughout, including the boundary case \(n=2\). Thus every preimage of a minimal open set is contractible, while each minimal open set in \(C_n\) is contractible. McCord's local criterion gives that \(\pi_1\) is a weak homotopy equivalence. Since the order complex of \(C_n\) is the \(2n\)-cycle, the order complex of \(F_2(C_n)\) has the weak type of \(S^1\); the CW comparison then yields a homotopy equivalence of realizations.
 
-## Closest literature and limitations
-Barmak--Minian provide the finite-space machinery and minimal circle models; Barnett--Farber treat classical graph deleted products; Wiltshire-Gordon gives combinatorial models for configuration spaces of geometric realizations. None of these inspected sources states or implies the Alexandrov-crown projection theorem. The result is limited to ordered two-point configurations and weak homotopy type.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Barmak and Minian supply the finite-space tools and circle models, while Barnett--Farber and Wiltshire-Gordon study configuration spaces of geometric graphs or simplicial realizations. Those constructions do not identify the deleted diagonal inside the product of the Alexandrov crown itself. Resultary searches returned the assigned theorem as the exact crown-configuration hit and a related theorem for minimal finite spheres of dimension at least two, not the circle crown family.
+
+## value
+
+PASS
+
+Configuration spaces need not preserve the homotopy behavior of their underlying models, so the exact behavior of a canonical finite circle family is a natural structural question. The theorem gives a uniform all-\(n\) local-collapse mechanism rather than a finite census and cleanly contrasts Alexandrov configurations with classical geometric graph configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
