@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,27 +19,24 @@
 }
 ---
 
-The exact source vector field was checked in the lawful open-access full text of the 2018 article. The proof uses only polynomial generator identities for that vector field.
+# Independent mathematical audit
 
-`artifacts/verify_stationary_gap.py` is a standalone Python script using only the standard library. It implements multivariate polynomials over exact rational coefficients and verifies:
-\[
-L\!\left(\frac{x^2}{2}\right)=xz,
-\]
-\[
-L\!\left(\frac{(x+y)^2}{2}\right)=-x(x+y),
-\]
-\[
-L(xy)=yz-x^2-xz,
-\]
-and, for
-\[
-G=z+\frac12(x+y)^2+\frac{11}{10}x+\frac{1}{10}y+\frac{3}{20}x^2,
-\]
-\[
-LG=a+5y-x^2.
-\]
-The script was executed from the packaged path; its output is embedded as `artifacts/verification_output.txt`.
+## correctness
 
-The equality case in the variance bound is not delegated to computation. If \(\operatorname{Var}(x+y)=0\), invariance of the support and \(d(x+y)/dt=-x\) force \(x=0\), then \(z=0\), then \(y=-a/5\).
+PASS
 
-A finite-time numerical trajectory may be used only as a sanity check and is not evidence for the exact theorem, compactness of the reported attractor, or originality.
+The stationary identities reconstruct directly from the generator. Invariance gives \(\langle z\rangle=\langle x\rangle=\langle xz\rangle=0\), \(\langle xy\rangle=-q\), and \(\langle yz\rangle=q\). Exact polynomial differentiation of the inspected certificate gives \(LG=a+5y-x^2\), hence \(\langle y\rangle=-a/5+q/5\). Since \(\operatorname{Var}(x+y)=\operatorname{Var}(y)-q\), the variance bound follows. Equality makes \(x+y\) constant on the invariant support; differentiating along the flow forces \(x=z=0\) and then \(y=-a/5\), so equality occurs only for the equilibrium Dirac mass. The periodic-orbit amplitude statement is then the elementary maximum-versus-variance bound.
+
+## originality
+
+PASS
+
+The introducing 2018 article gives the exact ODE, equilibrium, numerical hidden-attractor study, bifurcation data, entropy/parameter estimation, and circuit realization, but the inspected full-text sections and full-document searches do not state the polynomial coboundary or the resulting invariant-measure mean/covariance/variance rigidity. Fresh Resultary searches returned analogous balance laws for other flows, not this vector field. The result is therefore original to the best of the inspected evidence.
+
+## value
+
+PASS
+
+The exact height law and strict variance gap analytically separate the stable equilibrium from every other compact stationary state of a model studied primarily numerically. They also yield a rigorous periodic-orbit amplitude constraint, making the result a useful structural diagnostic rather than a numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

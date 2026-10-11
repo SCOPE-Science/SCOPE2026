@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:17:12.130038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary identities reconstruct directly from the generator. Invariance gives \\(\\langle z\\rangle=\\langle x\\rangle=\\langle xz\\rangle=0\\), \\(\\langle xy\\rangle=-q\\), and \\(\\langle yz\\rangle=q\\). Exact polynomial differentiation of the inspected certificate gives \\(LG=a+5y-x^2\\), hence \\(\\langle y\\rangle=-a/5+q/5\\). Since \\(\\operatorname{Var}(x+y)=\\operatorname{Var}(y)-q\\), the variance bound follows. Equality makes \\(x+y\\) constant on the invariant support; differentiating along the flow forces \\(x=z=0\\) and then \\(y=-a/5\\), so equality occurs only for the equilibrium Dirac mass. The periodic-orbit amplitude statement is then the elementary maximum-versus-variance bound.",
+      "risks": [
+        "Compact support is used to justify the polynomial generator identities.",
+        "The theorem constrains stationary states but does not prove existence of the reported chaotic attractor."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "artifacts/verify_stationary_gap.py",
+        "Kapitaniak et al., DOI 10.3390/e20090670"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General invariant-measure balance techniques do not supply the source-specific polynomial \\(G\\).",
+          "No stronger theorem located specializes to this exact vector field and implies the rigidity statement."
+        ],
+        "reasoning": "Nearby results are broader in methodology but concern different vector fields, so they do not dominate this claim.",
+        "searches": [
+          "Resultary current hidden-attractor stationary-law corpus",
+          "primary 2018 source"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/e20090670",
+        "PMCID PMC7513194",
+        "current Resultary semantic search",
+        "assigned exact polynomial certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's stable-equilibrium calculation and numerical attractor evidence do not imply \\(\\langle y\\rangle=-a/5+\\langle x^2\\rangle/5\\) for every compact stationary state.",
+          "The variance equality classification additionally uses invariant-support rigidity absent from the source."
+        ],
+        "reasoning": "The final theorem requires a new exact coboundary and equality argument, so it is not a corollary of the published local/numerical analysis.",
+        "searches": [
+          "statement-by-statement comparison with the 2018 source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary article studies the same vector field and equilibrium but not the displayed coboundary.",
+          "The closest Resultary hits are source-specific stationary laws for different ODEs."
+        ],
+        "reasoning": "Equivalent formulations as a polynomial Lie-derivative coboundary, stationary moment identities, and an equilibrium-relative height gap were compared.",
+        "searches": [
+          "Resultary semantic query: hidden attractor stationary invariant measure polynomial coboundary mean y variance x squared Kapitaniak Mohammadi",
+          "DOI 10.3390/e20090670 full-text search for stationary/invariant/average identities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source reports numerical dynamical quantities, not a table of the stationary moments in the claim."
+        ],
+        "reasoning": "This is an analytic all-invariant-measures statement rather than recomputation of a finite database value.",
+        "searches": [
+          "DOI/source-title search",
+          "current Resultary exact-source search"
+        ]
+      },
+      "rationale": "The introducing 2018 article gives the exact ODE, equilibrium, numerical hidden-attractor study, bifurcation data, entropy/parameter estimation, and circuit realization, but the inspected full-text sections and full-document searches do not state the polynomial coboundary or the resulting invariant-measure mean/covariance/variance rigidity. Fresh Resultary searches returned analogous balance laws for other flows, not this vector field. The result is therefore original to the best of the inspected evidence.",
+      "residual_risks": [
+        "An equivalent source-specific moment identity could exist in unindexed nonlinear-dynamics literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the audited stationary coboundary and rigidity theorem.",
+          "evidence": "The paper gives the ODE and equilibrium and develops numerical dynamical diagnostics, but no polynomial coboundary or all-invariant-measures moment theorem.",
+          "identifier_or_url": "https://doi.org/10.3390/e20090670",
+          "material_read": "Open-access full-text HTML, including the model/equilibrium, dynamical analysis, parameter-estimation/circuit sections and conclusion; the document was searched for stationary/invariant-measure formulations.",
+          "method": "Primary full-text equation and implication comparison.",
+          "title": "A New Chaotic System with Stable Equilibrium: Entropy Analysis, Parameter Estimation, and Circuit Design",
+          "trigger": "Primary source introducing the exact flow and hidden-attractor parameter regime."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact height law and strict variance gap analytically separate the stable equilibrium from every other compact stationary state of a model studied primarily numerically. They also yield a rigorous periodic-orbit amplitude constraint, making the result a useful structural diagnostic rather than a numerical recomputation.",
+      "risks": [
+        "The result is conditional on compact recurrence and does not establish a physical measure or basin geometry."
+      ],
+      "sources": [
+        "primary hidden-attractor model",
+        "exact generator/coboundary calculation"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Compactly supported invariant probability measures and the exact printed continuous-time ODE only.",
+    "No existence, uniqueness, physicality, Lyapunov-spectrum, or basin theorem for the reported chaotic set.",
+    "Originality remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}

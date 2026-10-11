@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact polynomial
-\[
-G=z+\frac12(x+y)^2+\frac{11}{10}x+\frac{1}{10}y+\frac{3}{20}x^2
-\]
-satisfies \(LG=a+5y-x^2\) for the published vector field. Together with the elementary generator identities for \(x\), \(y\), \(x^2/2\), \((x+y)^2/2\), and \(xy\), this gives the stated stationary mean and covariance laws. The variance inequality is exactly \(\operatorname{Var}(x+y)\ge0\). Equality forces the invariant support onto the equilibrium, so the strict non-equilibrium statements are justified. A packaged exact-arithmetic checker replays the algebra.
+## correctness
 
-## Originality
-PASS. The primary 2018 open-access article was inspected directly. It studies equilibria, numerical bifurcations, Lyapunov exponents, entropy, parameter estimation, and circuit implementation, but does not state the coboundary or all-invariant-measures laws. Targeted exact-equation and exact-source searches, together with semantic searches for stationary-balance analogues, located no equivalent result. The closest results concern different ODEs and do not imply this claim. A residual risk remains for unindexed work or an equivalent identity written under substantially different coordinates.
+PASS
 
-## Value
-PASS. The article's central qualitative feature is coexistence of a stable equilibrium with hidden non-equilibrium dynamics. The theorem gives an exact statistical separation: every non-equilibrium compact stationary state has mean \(y\) strictly above the equilibrium ordinate and a strict variance floor tied to \(\langle x^2\rangle\). It also yields a nontrivial amplitude constraint for every periodic orbit. These exact constraints can be used to validate long numerical runs or circuit realizations and sharpen the source's predominantly numerical dynamical description.
+The stationary identities reconstruct directly from the generator. Invariance gives \(\langle z\rangle=\langle x\rangle=\langle xz\rangle=0\), \(\langle xy\rangle=-q\), and \(\langle yz\rangle=q\). Exact polynomial differentiation of the inspected certificate gives \(LG=a+5y-x^2\), hence \(\langle y\rangle=-a/5+q/5\). Since \(\operatorname{Var}(x+y)=\operatorname{Var}(y)-q\), the variance bound follows. Equality makes \(x+y\) constant on the invariant support; differentiating along the flow forces \(x=z=0\) and then \(y=-a/5\), so equality occurs only for the equilibrium Dirac mass. The periodic-orbit amplitude statement is then the elementary maximum-versus-variance bound.
 
-The result does not claim to prove the existence or hiddenness of the source's numerical attractor, nor does it determine its basin or physical measure.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The introducing 2018 article gives the exact ODE, equilibrium, numerical hidden-attractor study, bifurcation data, entropy/parameter estimation, and circuit realization, but the inspected full-text sections and full-document searches do not state the polynomial coboundary or the resulting invariant-measure mean/covariance/variance rigidity. Fresh Resultary searches returned analogous balance laws for other flows, not this vector field. The result is therefore original to the best of the inspected evidence.
+
+## value
+
+PASS
+
+The exact height law and strict variance gap analytically separate the stable equilibrium from every other compact stationary state of a model studied primarily numerically. They also yield a rigorous periodic-orbit amplitude constraint, making the result a useful structural diagnostic rather than a numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
