@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact signed-incidence formula and cut inequality prove global optimality for all graphs. The two nonnegative defects give necessary and sufficient equality conditions. For bipartite graphs the degree-coordinate bound, component orientation rigidity and triangle obstruction prove the contact count. A standalone integer enumerator checked 1,104 graph examples (431 bipartite); finite checking was not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General graphical zonotope deformations are handled in arxiv:2111.12422; arxiv:2201.06896 describes arbitrary graph joins, not their Euclidean diameters.",
+        "A preexisting complete-multipartite circumradius formula with squared diameter (N^3 − sum n_i^3)/3 covers the subcase where coning a complete multipartite graph stays complete multipartite; it does not cover arbitrary H."
+      ],
+      "reasoning": "Explicitly compared implication direction. For H=K_{p,q}, the cone is K_{1,p,q}, and substituting in the known complete-multipartite expression recovers the claimed number. That special case is already covered and is not presented as new. The source formula cannot apply when H is an arbitrary non-complete-multipartite graph such as a long path or a cycle with a chord; the sharp all-graph constant and equality cuts remain uncovered by it.",
+      "searches": [
+        "farthest graphical zonotope vertices maximal imbalance orientation complete bipartite cut",
+        "Euclidean circumradius centered graphical zonotope fan graph K1 join path exact radius maximizing acyclic orientations",
+        "For G=K_{n1,...,nk} the standard graphical zonotope has unique Euclidean circumcenter and diameter square (N^3-sum n_i^3)/3, contacts k!",
+        "arxiv:2111.12422v2; https://arxiv.org/pdf/2111.12422",
+        "arxiv:2201.06896v3; https://arxiv.org/html/2201.06896v3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2111.12422 (first public 2021-11-24); deformation cones",
+      "arxiv:2201.06896 (first public 2022-01-18); join/shuffle with a point",
+      "arxiv:1905.04750 (first public 2019-05-12); one-skeleton diameter",
+      "Previously recorded complete-multipartite Euclidean circumradius evaluation, compared as covered special case"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chapoton–Pilaud: the shuffle with a point equals graph coning, and Section 2.4 treats the join operation. The section does not evaluate metric diameter.",
+        "Deza–Pournin–Sukegawa: Section 1 expressly defines diameter as one-skeleton graph diameter, so those estimates do not concern this claim.",
+        "Prior complete-multipartite squared-circumradius expression implies specific cases of the cone law, but not arbitrary base graph or equality-cut criterion."
+      ],
+      "reasoning": "The core new implication is the exact signed-norm identity plus the cut inequality −sum_S d ≤ |∂S| ≤ |S|(m−|S|), sharp for uniform spokes. Prior published join identities establish only which polytope is formed; graph-diameter papers establish another invariant; complete-multipartite formulas imply only a proper subclass. The new statement strictly extends those comparisons at the level of quantified graph classes and extremal point conditions.",
+      "searches": [
+        "metric diameter under shuffle with a point graphical zonotope join universal vertex",
+        "graphical zonotope Euclidean diameter squared coning apex operation m(m+1) Pythagorean law",
+        "arxiv:2201.06896v3; https://arxiv.org/html/2201.06896v3",
+        "arxiv:1905.04750v1; https://arxiv.org/html/1905.04750v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The zonotope of a graph join is the shuffle of the two graphical zonotopes (Chapoton–Pilaud, Proposition 98). The point-shuffle is the coning operation.",
+        "The inspected shuffle paper gives combinatorial face and vertex descriptions; no Euclidean-diameter or squared-norm cone identity occurs in its HTML text."
+      ],
+      "reasoning": "Checked the equivalent terms shuffle with a point, cone, universal join, signed-incidence vector and Euclidean circumradius. The existing join identity identifies the polytope itself, but it does not state or logically entail the exact Euclidean maximum-norm increment without the new sharp cut inequality. No equivalent Euclidean metric statement was located.",
+      "searches": [
+        "graphical zonotope circumradius Euclidean diameter vertex acyclic orientation signed degree vector graph cone apex Pythagorean m(m+1)",
+        "metric diameter under shuffle with a point graphical zonotope join universal vertex",
+        "graphical zonotope Euclidean diameter squared coning apex operation m(m+1) Pythagorean law",
+        "arxiv:2201.06896v3; https://arxiv.org/html/2201.06896v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Appendix A.1 tables enumerate faces/vertices of shuffled graph zonotopes, not Euclidean squared diameters or farthest contact sets.",
+        "Published-result semantic searches had no recorded match for an arbitrary-graph Euclidean cone law."
+      ],
+      "reasoning": "Compared the underlying invariants rather than numerical coincidence: tabulated f-vectors and acyclic-orientation counts are not Euclidean diameter tables, and no exact Euclidean metric database entry for the general cone was identified. Absence from a search does not prove novelty.",
+      "searches": [
+        "graphical zonotope circumradius Euclidean diameter vertex acyclic orientation signed degree vector graph cone apex Pythagorean m(m+1)",
+        "graphical zonotope diameter join with universal vertex equals diameter of original plus m(m+1)",
+        "arxiv:2201.06896v3; https://arxiv.org/html/2201.06896v3",
+        "Appendix A.1 of arxiv:2201.06896v3, zonotope shuffle tables"
+      ]
+    },
+    "rationale": "The inspected primary works cover graphical-zonotope deformation cones, graph-join shuffles and one-skeleton combinatorial diameter, but not the Euclidean squared-diameter identity for every graph H or the complete-cut contact classification. Already-covered complete-multipartite subcases were isolated and are not asserted as new; semantic-equivalence risk is documented.",
+    "residual_risks": [
+      "An equivalent all-graph Euclidean cone law may occur under signed-degree imbalance, support-function, or zonotope-shuffle terminology in literature not located by semantic search.",
+      "The search scope cannot exclude unpublished parallel work or every historical combinatorial-geometry source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers graph join and face combinatorics, but not the sharp Euclidean diameter law or extremal cut classification",
+        "evidence": [
+          "Definition 34 identifies the graphical zonotope; Definition 75 defines shuffle; Proposition 98 identifies graph join; Appendix A.1 gives face counts; relevant searched metric terms absent."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.06896v3",
+        "material_read": "Full accessible HTML: introduction, Sections 1.4, 2.1–2.4, Proposition 98, Appendix A.1 and full-document text searches for Euclidean/diameter/norm",
+        "method": "Primary open-access arXiv HTML, direct statement and appendix comparison",
+        "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+        "trigger": "Exact point-shuffle and graph-join operation, plausible stronger construction theorem"
+      },
+      {
+        "assessment": "Determines deformation cones and facet equations, not Euclidean diameter under coning",
+        "evidence": [
+          "Theorem 2.6 is a deformation-cone theorem; Sections 1–2 are not metric extremal classifications."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2111.12422",
+        "material_read": "Full 13-page primary PDF introduction, Section 1 definitions, Section 2 structural statements, Theorem 2.6, conclusions; text and first-page visual checked",
+        "method": "Open-access primary PDF text and page inspection",
+        "title": "Deformed graphical zonotopes",
+        "trigger": "Same graphical-zonotope object and plausible polyhedral stronger result"
+      },
+      {
+        "assessment": "Different invariant: one-skeleton graph distance, not ambient Euclidean distance",
+        "evidence": [
+          "Section 1 explicitly defines polytope diameter as the diameter of its graph of vertices and edges."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1905.04750v1",
+        "material_read": "Primary full HTML Sections 1–2, definitions, Theorem 1.1 and the stated diameter convention",
+        "method": "Open-access arXiv HTML, explicit invariant/implication comparison",
+        "title": "The diameter of lattice zonotopes",
+        "trigger": "Plausible same-title geometry result potentially dominating a metric statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "19096c28-cee4-4173-9f06-13c2ae0b62c4",
+  "value": {
+    "rationale": "Graph coning is a canonical infinite-family operation. Its exact, edge-independent squared Euclidean-diameter increment is a structural metric law, and the equality-cut classification plus bipartite contact-count dichotomy explain extremal geometry rather than tabulating isolated examples. It yields non-multipartite fan and other family values without re-enumerating orientations.",
+    "status": "PASS"
+  }
+}
