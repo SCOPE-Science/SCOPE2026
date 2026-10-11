@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:14:48.857461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "De Cataldo's product formula gives \\(F(q)=\\prod_{m\\ge1}(1-q^m)^{-e}\\). Formal logarithmic differentiation yields \\(qF'(q)=eF(q)\\sum_{j\\ge1}\\sigma_1(j)q^j\\), hence \\(n a_n=e\\sum_{j=1}^n\\sigma_1(j)a_{n-j}\\). Therefore \\(e\\mid n a_n\\), and cancelling \\(\\gcd(|e|,n)\\) gives \\(|e|/\\gcd(|e|,n)\\mid a_n\\). The \\(e=0\\) case follows from \\(F=1\\). The argument also works for negative Euler characteristic because it is an identity of formal power series. The bundled finite expansion is consistent but is not needed for the proof.",
+      "risks": [
+        "The statement is only about total compactly supported Euler characteristic; it says nothing about refined Betti/Hodge data.",
+        "The phrase 'uniformly sharp' is only justified in the across-all-n sense by n=1; it is not pointwise sharp for every fixed n."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "de Cataldo, arXiv:math/9811150, Theorem 2.1",
+        "assigned product-expansion verifier"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Cataldo's product formula is strictly stronger information than the claimed divisibility: it determines every coefficient exactly.",
+          "The modern coloured-partition paper uses the same product/coefficients and does not change this implication comparison."
+        ],
+        "reasoning": "Because the full generating function is known, the claimed all-n divisor is covered as a routine consequence even without matching wording.",
+        "searches": [
+          "arXiv:math/9811150",
+          "Bringmann--Kane--Pahari--Rolen 2026 k-coloured partitions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/9811150",
+        "DOI 10.1017/prm.2026.10154",
+        "Resultary current semantic search",
+        "web exact-form searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every step after the published product is standard formal-power-series algebra and Euclid's lemma; no additional geometric input or nonstandard lemma is required."
+        ],
+        "reasoning": "The claimed final theorem is mechanically implied by the published generating formula, so it fails the originality bar.",
+        "searches": [
+          "de Cataldo Theorem 2.1 -> logarithmic differentiation -> coefficient recurrence -> gcd cancellation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior theorem states the full coefficient-generating product for every smooth surface in scope.",
+          "The claimed recurrence is the standard logarithmic derivative of that exact product."
+        ],
+        "reasoning": "The Hilbert-scheme and k-coloured-partition formulations are the same coefficient sequence; the divisor is not a genuinely different object.",
+        "searches": [
+          "de Cataldo arXiv:math/9811150 Theorem 2.1",
+          "Resultary query: Hilbert scheme Euler characteristic gcd divisibility colored partitions",
+          "web queries: \"k/gcd(k,n)\" colored partitions; \"p_k(n)\" \"gcd(k,n)\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate database/table entry for the exact gcd divisor was located."
+        ],
+        "reasoning": "Database absence is immaterial because theorem-level prior implication is decisive.",
+        "searches": [
+          "Resultary exact-semantic search",
+          "web exact-form searches",
+          "OEIS/partition search terms"
+        ]
+      },
+      "rationale": "The arithmetic statement is a routine direct corollary of de Cataldo's already-published Euler product. Under the required implication standard, a result need not be printed verbatim to be covered: the known product determines the coefficients, and one standard logarithmic-derivative step gives the exact recurrence from which the divisor follows by Euclid's lemma. Fresh exact-form and Resultary searches did not locate the divisor as a separately named theorem, but that absence cannot restore originality against this decisive prior implication.",
+      "residual_risks": [
+        "A separately named older congruence theorem may exist, but originality already fails from the stronger published generating formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_IMPLICATION.",
+          "evidence": "Theorem 2.1 gives exactly \\(\\sum_n\\chi_c(S^{[n]})q^n=\\prod_{m\\ge1}(1-q^m)^{-\\chi_c(S)}\\); standard logarithmic differentiation immediately yields the audited recurrence and divisor.",
+          "identifier_or_url": "arXiv:math/9811150",
+          "material_read": "Full accessible text around Theorem 2.1 and its proof, including the surface scope and Euler product.",
+          "method": "Primary theorem and implication comparison.",
+          "title": "Hilbert schemes of a surface and Euler characteristics",
+          "trigger": "Primary source for the exact coefficient-generating formula."
+        },
+        {
+          "assessment": "SUPPORTING_CONTEXT; not needed for the decisive coverage.",
+          "evidence": "It uses the same Euler product/coefficient sequence for log-concavity questions.",
+          "identifier_or_url": "DOI 10.1017/prm.2026.10154",
+          "material_read": "Accessible introduction/result scope connecting \\(p_k(n)\\) with Hilbert-scheme Euler characteristics.",
+          "method": "Equivalent-formulation comparison.",
+          "title": "Strict log-concavity of k-coloured partitions",
+          "trigger": "Modern source using the equivalent coloured-partition coefficient sequence."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the divisor is a neat arithmetic observation on a natural geometric sequence, the entire proof is a standard one-line logarithmic-derivative recurrence plus gcd cancellation from a known exact generating function. Under the shared value standard this is a routine textbook deduction, not a sufficiently motivated new structural lemma or classification. The K3 specialization is just substitution into the same corollary.",
+      "risks": [
+        "This value judgment does not question correctness or potential usefulness as an exercise/remark; it rejects it as a standalone research finding."
+      ],
+      "sources": [
+        "de Cataldo's exact generating theorem",
+        "assigned derivation"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Correct but rejected as mechanically prior-implied and too routine for the research-value threshold.",
+    "No claim about refined cohomological invariants."
+  ],
+  "schema_version": 1
+}
