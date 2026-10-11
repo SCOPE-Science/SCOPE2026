@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:06:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 1415f20554e2103a4d99da888544c744484b27bd",
+        "assigned verify_sparse_two_digit.py blob 60126c59bd01a0ad31f276beca0f8f32e78fd252",
+        "Fairfax-Ball arXiv:2610.01328 Proposition 3.1",
+        "Kummer's borrow theorem",
+        "fresh independent bounded borrow replay"
+      ],
+      "rationale": "Kummer's theorem gives the valuation as the minimum borrow count. For \\(N=p^s+p^t\\), the only no-borrow lower indices are \\(0,p^s,p^t,N\\); the two proper nonzero possibilities are not divisible by \\(m\\) because \\(p\\) is a unit modulo \\(m\\). Hence every admissible lower index has at least one borrow. The explicit index \\(k=mp^{t-1}\\) has exactly one borrow because \\(m<p\\), including the adjacent-digit case \\(s=t-1\\). A fresh independent replay over 86 admissible small parameter quadruples confirmed both the minimum borrow count and the witness; this finite check is corroborative only.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is prior-implication/value based."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.1 proves \\(v_p(G(N;m))\\le r_p(m)\\) row by row for arbitrary admissible \\(N\\).",
+          "The earlier minus-one paper already covers the mixed two-digit branch for \\(p\\equiv-1\\pmod m\\), while the October theorem covers the needed upper bound in every residue class."
+        ],
+        "reasoning": "The audited upper-bound mechanism is strictly dominated by the general October theorem.",
+        "searches": [
+          "arXiv:2610.01328 Proposition 3.1 and Theorem 4.3",
+          "arXiv:2609.37754 mixed-parity minus-one branch"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01328",
+        "arXiv:2609.37754",
+        "McTague arXiv:1510.06696",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broad theorem gives the upper bound one for every admissible row because \\(p>m\\).",
+          "The sparse digit pattern excludes valuation zero by a one-line subdigit-selection argument."
+        ],
+        "reasoning": "The final equality and the modulus-five residue corollary require only routine specialization after the broader theorem.",
+        "searches": [
+          "universal bound \\(r_p(m)=1\\) plus Kummer no-borrow criterion versus exact two-digit valuation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 1 paper treats the identical restricted gcd and proves a universal upper bound over all admissible rows.",
+          "For \\(p>m\\), its bound specializes to one."
+        ],
+        "reasoning": "The audited two-digit family uses the same invariant and lies inside the broader universal theorem's domain.",
+        "searches": [
+          "Resultary: restricted binomial gcd sparse two digit Kummer p-adic valuation",
+          "Fairfax-Ball arXiv:2610.01328",
+          "Fairfax-Ball arXiv:2609.37754"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately indexed exact two-digit theorem was found, but the broader October 1 theorem is decisive."
+        ],
+        "reasoning": "Exact-title absence is irrelevant under implication-based originality.",
+        "searches": [
+          "Resultary current sparse-two-digit search",
+          "current web search for restricted-binomial-gcd p-adic extrema"
+        ]
+      },
+      "rationale": "A primary paper posted on 1 October 2026 proves the sharp universal row-by-row bound \\(v_p(G(N;m))\\le r_p(m)\\) for every admissible row when \\(p\\nmid m\\). Under the audited hypothesis \\(p>m\\), one has \\(r_p(m)=1\\), so that theorem supplies the entire upper bound for every row, not merely sparse rows. The remaining lower bound is the immediate Kummer no-borrow observation that a two-one-digit row has only \\(0,p^s,p^t,N\\) as no-borrow subdigits and none of the proper ones is selected. Thus the final equality is a direct special-case consequence of a strictly broader theorem plus the standard digit criterion.",
+      "residual_risks": [
+        "No access limitation affects the decisive universal-upper-bound comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_BROADER_COVERAGE",
+          "evidence": "Proposition 3.1 states the row-by-row upper bound \\(v_p(G(N;m))\\le r_p(m)\\), which is one whenever \\(p>m\\).",
+          "identifier_or_url": "arXiv:2610.01328",
+          "material_read": "full primary HTML through Proposition 3.1, the \\(r_p(m)=1\\) attainment discussion, and Theorem 4.3",
+          "method": "primary full-text HTML inspection",
+          "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+          "trigger": "strictly broader theorem posted before this audit"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_COVERAGE",
+          "evidence": "The paper already gives valuation one for the corresponding mixed two-digit branch when \\(p\\equiv-1\\pmod m\\) and \\(m<p\\).",
+          "identifier_or_url": "arXiv:2609.37754",
+          "material_read": "primary abstract and accessible full-text scope for the mixed-parity branch",
+          "method": "primary-source inspection",
+          "title": "Restricted Binomial GCDs at Primes Congruent to -1",
+          "trigger": "closest residue-class predecessor"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Fairfax-Ball 2026 universal-extrema theorem",
+        "Kummer's theorem",
+        "assigned proof"
+      ],
+      "rationale": "After the universal \\(p>m\\) upper bound is published, the sparse two-digit equality is obtained by the elementary no-borrow subdigit check. The modulus-five residue formulation is a convenient corollary but does not add a substantive structural gap beyond that specialization.",
+      "residual_risks": [
+        "The explicit one-borrow witness remains pedagogically useful."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No correctness defect is asserted; rejection is prior-implication/value based.",
+    "No access limitation affects the decisive universal-upper-bound comparison.",
+    "The explicit one-borrow witness remains pedagogically useful."
+  ]
+}
