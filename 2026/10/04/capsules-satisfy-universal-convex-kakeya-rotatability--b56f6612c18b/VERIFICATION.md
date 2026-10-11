@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,61 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The central identity is
-\[
-\rho(T+rB_2^d)+w
-=
-\rho T+w+rB_2^d
-\]
-because
-\[
-\rho B_2^d=B_2^d
-\]
-for every
-\[
-\rho\in\operatorname{SO}(d).
-\]
+## correctness
 
-For
-\[
-C=K\ominus rB_2^d
-=
-\{x:x+rB_2^d\subset K\},
-\]
-one therefore has
-\[
-\rho(T+rB_2^d)+w\subset K
-\]
-if and only if
-\[
-\rho T+w\subset C.
-\]
+PASS
 
-This is a two-sided logical equivalence for each individual placement, not only an implication at the level of existence. Consequently the rotation and translation parameter pairs for thickened copies in \(K\) are exactly the same parameter pairs as for unthickened copies in \(C\). Any continuous path of one type is therefore a continuous path of the other type.
+For every rotation and translation, rotation-invariance of the Euclidean ball gives \(\rho(T+rB_2^d)+w=\rho T+w+rB_2^d\). By definition of erosion this is contained in a convex host \(K\) exactly when \(\rho T+w\subset K\ominus rB_2^d\). The eroded host is a nonempty compact convex set whenever the thickened host is Kakeya. Thus the parameter spaces of admissible thickened and unthickened placements are identical and every continuous path transfers both ways. Janzer's segment theorem plus similarity yields the capsule case. The width comparison correctly excludes both segments and balls for nondegenerate \(L\) and \(r>0\).
 
-The eroded host is compact and convex because
-\[
-K\ominus rB_2^d
-=
-\bigcap_{b\in rB_2^d}(K-b).
-\]
+## originality
 
-For a segment \(L\), Janzer's Theorem 1.2 gives path-connectivity for unit length; similarity gives every positive length. This proves the capsule result.
+PASS
 
-The embedded `verify.py` was replayed from its actual package path. For random polyhedral halfspace hosts in dimensions \(2\) through \(5\), it checks the support-function form
-\[
-h_{\rho L+w}(a)+r\lVert a\rVert\le b
-\]
-against the eroded-host condition
-\[
-h_{\rho L+w}(a)\le b-r\lVert a\rVert.
-\]
-It also checks the parallel and perpendicular capsule widths.
+Janzer proves universal path-rotatability for segments and explicitly asks in Question 5.2 for non-segment, non-ball examples in dimension at least three. No inspected source or Resultary hit supplies the ball-thickening inheritance lemma or the capsule consequence. The new exact erosion equivalence transfers the complete placement space, not merely existence at each orientation.
 
-The replay output was:
+## value
 
-`VERIFY_OK capsule Kakeya erosion reduction`
+PASS
 
-These finite tests are consistency checks only. The theorem is proved by the exact set identity above.
+The inheritance lemma is a clean structural mechanism and its capsule specialization directly resolves an explicit published open question in every requested dimension. The contribution is mathematically motivated even though the transfer argument is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
