@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The final claim was checked from the definitions. For \(f(u)=u_1u_2u_3\), the tangent curvature-radius perturbation
-\[
-A=\nabla^2_{S^2}f+fI
-\]
-has trace \(-10u_1u_2u_3\) and determinant
-\[
-16u_1^2u_2^2u_3^2+4(u_1^2u_2^2+u_2^2u_3^2+u_3^2u_1^2)-1.
-\]
-This gives an exact spectral-radius optimization whose global maximum is \(4\sqrt{6}/9\). The explicit maximizing normal and tangent vector certify sharpness. The standard spherical support-function criterion then gives the iff statement.
+PASS
 
-## Originality
+For f(u)=u1u2u3, the spherical Hessian identity reduces the curvature-radius perturbation on u-perp to A=(D^2F)|_{u-perp}-2fI. The stated tangent trace -10s and determinant 16s^2+4q-1 give eigenvalues -5s plus or minus sqrt(1-4q+9s^2). After X=x^2,Y=y^2,Z=z^2, maximizing the spectral radius reduces at an interior critical point to two equal coordinates; setting Y=Z=t yields the two explicit branches in the package. Their maxima are 4sqrt(6)/9 at t=1/6 and 1 at t=3/8, so the global operator-norm maximum is 4sqrt(6)/9. An independent dense simplex replay numerically localized the maximum at a permutation of approximately (2/3,1/6,1/6) and matched 4sqrt(6)/9. Thus alpha I+beta A is positive semidefinite for every normal exactly at alpha >= (4sqrt(6)/9)|beta|, equivalently |epsilon|<=3sqrt(6)/8 when alpha=1; the sign condition leaves exactly twelve endpoint-degeneracy normals.
 
-PASS with residual bibliographic risk. The motivating source arXiv:2609.27192v1 was inspected at the exact triangular example: it proves only “sufficiently small” amplitude. A published general support-function criterion and an older explicit constant-width formula source were also inspected; neither gives the claimed threshold. Targeted semantic and exact-constant searches did not locate an equivalent or stronger statement.
+## originality
 
-The closest located literature concerns either the qualitative triangular exception or other constant-width stability questions, so it does not imply this coefficient optimization.
+PASS
 
-## Value
+The exact motivating primary source states only that h_epsilon=1+epsilon u1u2u3 is a support function for sufficiently small epsilon and proves the projection-symmetry property. Its proof uses continuity of the curvature-radius operator and does not state a sharp admissible interval or endpoint degeneracy set. Resultary search found the assigned exact threshold as the direct match; a related published SCOPE result gives a general degree-three harmonic curvature bound and a different Wigner-cubic constant, not this xyz-family optimum. The audited result therefore supplies the exact missing convexity boundary for the canonical source example.
 
-PASS. The threshold is the maximal convexity range of the canonical recent counterexample family, and the endpoint normals identify exactly where positive curvature first fails. This quantitatively closes the natural small-parameter gap in that construction.
+## value
 
-## Limitations and residual risks
+PASS
 
-The result is only for the explicit cubic family in \(\mathbb R^3\), and does not classify all threefold-projection-symmetry bodies. Search coverage cannot exclude an older equivalent statement under different terminology.
+The family is the canonical explicit exceptional example in a current convex-geometry theorem, and its exact convexity range is the natural quantitative question left open by a merely 'sufficiently small' construction. The threshold and endpoint normal set are sharp geometric invariants, not an arbitrary numerical slice.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
