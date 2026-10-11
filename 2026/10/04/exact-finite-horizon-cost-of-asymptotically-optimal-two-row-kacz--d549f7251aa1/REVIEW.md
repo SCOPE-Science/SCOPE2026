@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. In row-normal coordinates the relaxed sweep matrix is explicit. Applying it to \(a^\perp\) gives the lower bound \(\|T_\omega\|_2^2\ge c^2+s^2(\omega-1)^2\), which proves unique one-sweep optimality of \(\omega=1\). The characteristic discriminant factors exactly, the asymptotic optimum \(\omega_\star=2/(1+s)\) has a non-scalar repeated eigenvalue, and the nilpotent decomposition \(T_{\omega_\star}=qI+N\) yields the claimed all-horizon norm formula. The ratio, one-sweep strict inequality, eventual decay, and nearly-parallel crossover expansion follow algebraically. The included symbolic checker independently replays these identities and exact rational test cases.
+## correctness
 
-## Originality
-PASS with residual risk. Searches covered relaxed Kaczmarz, two-row Kaczmarz, SOR optimal relaxation, finite-horizon operator norms, Jordan coalescence, residual spikes, alternating projections, and two-coordinate Gauss-Seidel. The closest literature establishes relaxed-Kaczmarz convergence or asymptotic spectral-radius tuning; the closest published neighboring results concern different observables or algorithms. None of the inspected material states the exact Euclidean power norm at the two-row asymptotic optimum, the strict horizon-one reversal, or the \(s^{-1/2}\) crossover law. A historical unindexed derivation remains possible and is not represented as ruled out.
+PASS
 
-## Value
-PASS. Spectral-radius tuning is asymptotic and can obscure nonnormal transients. This result gives an exact, interpretable two-row model in which asymptotic optimization creates a Jordan block and quantifies the finite-horizon price for every sweep count. The crossover law shows that near row degeneracy the horizon needed before overrelaxation pays off diverges on a precise scale, making the distinction relevant to stopping-limited row-action solvers rather than a purely formal two-by-two exercise.
+In coordinates \(a=(1,0)\), \(b=(c,s)\), applying one sweep to \(a^\perp\) gives squared norm \(c^2+s^2(\omega-1)^2\), proving the unique one-sweep optimum \(\omega=1\). Direct trace, determinant, and discriminant calculation gives the classical spectral-radius optimizer \(\omega_\star=2/(1+s)\) and a repeated eigenvalue \(q=(1-s)/(1+s)\). At that parameter \(T=qI+N\) with \(N^2=0\), so \(T^k=q^k(I+kN/q)\); determinant one and the Frobenius norm determine the displayed largest singular value exactly. The unrelaxed matrix is rank one with \(T_1^k=c^{2k-2}T_1\). Taylor expansion of the exact log-ratio with \(k\sqrt{s}\to\alpha\) gives coefficient \(\alpha(1-4\alpha^2/3)\). The bundled symbolic checker verifies every algebraic identity and exact rational power-norm replays; independent direct matrix calculations at multiple \(s,k\) values matched the formulas.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The asymptotically optimal two-cyclic SOR/Kaczmarz relaxation is classical, and modern sources analyze relaxed Kaczmarz convergence rates. The audited contribution begins where that asymptotic statement stops: the optimizer lands at a defective double root, producing an exact polynomial transient in the Euclidean power norm, a strict one-sweep disadvantage, and an \(s^{-1/2}\) finite-horizon crossover with a sharp scaled threshold. Targeted Resultary and literature searches found no source stating or implying that complete finite-horizon profile.
+
+## value
+
+PASS
+
+The result exposes a concrete and practically meaningful separation between asymptotic rate tuning and finite-horizon worst-case performance in the smallest nontrivial Kaczmarz system. The exact Jordan transient, strict one-sweep cost, and crossover law quantify when the classical asymptotic optimizer becomes advantageous, making the fact reusable in relaxation/tuning analysis rather than a routine matrix exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

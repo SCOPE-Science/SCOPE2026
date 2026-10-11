@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:34:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 24c2e94a2e9a18e7795472f32110b0799051eb69",
+        "assigned check_tradeoff.py blob 59f008dba04586efb572f5e9bc2c748fecec8473",
+        "assigned CHECK_OUTPUT.txt blob 83b767164dc86607884c32cb306c24094354317d",
+        "independent direct two-by-two matrix power/singular-value checks",
+        "classical relaxed Kaczmarz and two-cyclic SOR literature"
+      ],
+      "rationale": "In coordinates \\(a=(1,0)\\), \\(b=(c,s)\\), applying one sweep to \\(a^\\perp\\) gives squared norm \\(c^2+s^2(\\omega-1)^2\\), proving the unique one-sweep optimum \\(\\omega=1\\). Direct trace, determinant, and discriminant calculation gives the classical spectral-radius optimizer \\(\\omega_\\star=2/(1+s)\\) and a repeated eigenvalue \\(q=(1-s)/(1+s)\\). At that parameter \\(T=qI+N\\) with \\(N^2=0\\), so \\(T^k=q^k(I+kN/q)\\); determinant one and the Frobenius norm determine the displayed largest singular value exactly. The unrelaxed matrix is rank one with \\(T_1^k=c^{2k-2}T_1\\). Taylor expansion of the exact log-ratio with \\(k\\sqrt{s}\\to\\alpha\\) gives coefficient \\(\\alpha(1-4\\alpha^2/3)\\). The bundled symbolic checker verifies every algebraic identity and exact rational power-norm replays; independent direct matrix calculations at multiple \\(s,k\\) values matched the formulas.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical formula determines \\(\\omega_\\star\\) and \\(\\rho(T_{\\omega_\\star})\\) only asymptotically.",
+          "Nearby published SCOPE records concern residual spikes, coherence, or underrelaxation bias rather than this two-row common-relaxation power norm."
+        ],
+        "reasoning": "Spectral-radius optimality does not control finite-time operator norms for a defective nonnormal matrix, so the broader convergence results do not dominate the audited theorem.",
+        "searches": [
+          "classical Young/two-cyclic SOR formula",
+          "relaxed Kaczmarz Hilbert-space convergence theory",
+          "Resultary Kaczmarz finite-transient records"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.4064/sm216-3-3",
+        "DOI:10.1002/nla.2459",
+        "Dax 2022 SOR rate paper",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At \\(\\omega_\\star\\), the repeated root makes \\(T^k\\) carry a factor linear in \\(k\\), invisible to the spectral radius.",
+          "The exact singular-value calculation and matched asymptotic expansion are extra steps not implied by knowing \\(\\rho(T)\\)."
+        ],
+        "reasoning": "The finite-horizon cost and crossover therefore survive implication-level comparison with the known asymptotic optimizer.",
+        "searches": [
+          "classical optimal-relaxation formula versus the audited Jordan-power calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior sources cover relaxed convergence and spectral-radius-optimal parameters.",
+          "No checked source gives the exact singular norm of every power at the defective optimum or the near-parallel crossover law."
+        ],
+        "reasoning": "Equivalent formulations as alternating relaxed projections on two lines, two-cyclic SOR on a two-dimensional normal-equation system, and power norms of a defective two-by-two sweep matrix were compared.",
+        "searches": [
+          "Resultary query: two-row cyclic Kaczmarz overrelaxation exact power norm defective optimum finite horizon",
+          "Szwarc--Świderski, Kaczmarz algorithm with relaxation in Hilbert space",
+          "Oseledets--Rakhuba--Uschmajew two-block SOR overrelaxation",
+          "Dax 2022 SOR convergence-rate paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or closed-form source for the displayed \\(k\\)-power norm or \\(\\sqrt3/2\\) scaled crossover was located."
+        ],
+        "reasoning": "The invariant is analytic and all-horizon, but exact-formula and two-by-two SOR searches were performed because historical matrix-iteration literature is a plausible source.",
+        "searches": [
+          "Resultary exact finite-horizon two-row Kaczmarz query",
+          "web searches for defective optimal SOR power norm and two-row crossover"
+        ]
+      },
+      "rationale": "The asymptotically optimal two-cyclic SOR/Kaczmarz relaxation is classical, and modern sources analyze relaxed Kaczmarz convergence rates. The audited contribution begins where that asymptotic statement stops: the optimizer lands at a defective double root, producing an exact polynomial transient in the Euclidean power norm, a strict one-sweep disadvantage, and an \\(s^{-1/2}\\) finite-horizon crossover with a sharp scaled threshold. Targeted Resultary and literature searches found no source stating or implying that complete finite-horizon profile.",
+      "residual_risks": [
+        "An older two-by-two SOR calculation may contain an algebraically equivalent power formula without the Kaczmarz finite-horizon interpretation; no such source was found in the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_RELAXATION_THEORY_NOT_COVERING_EXACT_TWO_ROW_TRANSIENT",
+          "evidence": "The work treats convergence with relaxation but does not provide the audited two-row all-power singular-norm formula.",
+          "identifier_or_url": "DOI:10.4064/sm216-3-3",
+          "material_read": "Primary result-level material on convergence of relaxed Kaczmarz iterations.",
+          "method": "Primary literature comparison.",
+          "title": "Kaczmarz algorithm with relaxation in Hilbert space",
+          "trigger": "Primary relaxed-Kaczmarz convergence source."
+        },
+        {
+          "assessment": "ASYMPTOTIC_FORMULA_ONLY",
+          "evidence": "It supports the classical spectral-radius optimizer but not the finite-horizon defective power norm or crossover.",
+          "identifier_or_url": "DOI:10.1002/nla.2459",
+          "material_read": "Primary result-level material surrounding the two-block SOR/Young optimal-relaxation relation.",
+          "method": "Primary literature comparison.",
+          "title": "Local convergence of alternating low-rank optimization methods with overrelaxation",
+          "trigger": "Primary source explicitly using the two-block SOR optimal-overrelaxation relation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "relaxed Kaczmarz convergence literature",
+        "classical two-cyclic SOR optimal-relaxation literature"
+      ],
+      "rationale": "The result exposes a concrete and practically meaningful separation between asymptotic rate tuning and finite-horizon worst-case performance in the smallest nontrivial Kaczmarz system. The exact Jordan transient, strict one-sweep cost, and crossover law quantify when the classical asymptotic optimizer becomes advantageous, making the fact reusable in relaxation/tuning analysis rather than a routine matrix exercise.",
+      "residual_risks": [
+        "The exact crossover may not persist in this form for more than two rows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a nonsingular real two-row cyclic Kaczmarz system with normalized row angle \\(\\theta\\), \\(s=\\sin\\theta\\), and common relaxation \\(0<\\omega<2\\), the one-sweep Euclidean operator norm is uniquely minimized by \\(\\omega=1\\), while the asymptotic spectral-radius optimum \\(\\omega_\\star=2/(1+s)\\) is defective. Its exact \\(k\\)-sweep norm is \\(q^k(\\sqrt{1+4k^2s^2/c^2}+2ks/c)\\) with \\(q=(1-s)/(1+s)\\), yielding the stated exact ratio to unrelaxed Kaczmarz and the near-parallel crossover scale \\(k\\asymp s^{-1/2}\\) with critical scaled horizon \\(\\sqrt3/2\\).",
+  "limitations": [
+    "Exactly two independent real normalized rows and one common relaxation parameter are covered.",
+    "Performance is Euclidean solution-error norm after complete cyclic sweeps.",
+    "No corresponding formula is asserted for more rows, inconsistent systems, randomized order, row-dependent relaxation, or residual norms."
+  ],
+  "schema_version": 1
+}
