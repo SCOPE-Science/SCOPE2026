@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:05:39.087712Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4093e3247ed4ea88c5aedc2519c99ff82f58fe89",
+        "assigned verify.py blob 6be3d276f39bc28f7499f4ae4abd22b27c872812",
+        "Huang--Zhang--Xiang--Wang, DOI:10.1155/2019/5803506"
+      ],
+      "rationale": "The equilibrium equations give exactly \\(E_\\pm=(\\pm\\sqrt b,\\pm\\sqrt b,0,0)\\). Direct expansion of the Jacobian gives the displayed quartic with positive coefficients and the third Hurwitz determinant \\(-bP(a,b,c)\\), where every monomial of \\(P\\) has positive coefficient. Hence \\(\\Delta_3<0\\) throughout \\(a,b,c>0\\). A zero eigenvalue is excluded by the positive constant term; a nonzero imaginary eigenvalue would force \\(\\Delta_3=0\\). Thus the equilibria are hyperbolic on the connected positive octant. The exact Routh first column at \\((1,1,2)\\) has two sign changes, so the unstable dimension is everywhere two. The standard-library verifier independently expands the determinant and the Hurwitz polynomial exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source already covers the full positive parameter family but only at the weaker instability level.",
+          "Retrieved broader hyperchaotic-flow results use different vector fields and do not specialize to this Jacobian."
+        ],
+        "reasoning": "No stronger same-system theorem was found that dominates the exact index classification.",
+        "searches": [
+          "DOI:10.1155/2019/5803506",
+          "Resultary searches for exact vector field and Routh index"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1155/2019/5803506",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An unstable equilibrium may have one, two, three or four unstable directions and may change index through imaginary-axis crossings while remaining unstable.",
+          "The source's single sample index therefore does not imply the global count."
+        ],
+        "reasoning": "The strictly negative third Hurwitz determinant plus imaginary-axis exclusion is the additional nonstandard step.",
+        "searches": [
+          "Statement comparison with the paper's Routh--Hurwitz instability statement and sample spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source says both equilibria are unstable and gives a single sample saddle-focus.",
+          "No inspected source statement gives constant index two or absence of imaginary-axis crossings for all positive parameters."
+        ],
+        "reasoning": "Unstable, saddle-focus, hyperbolic-index and no-equilibrium-bifurcation formulations were compared; generic instability is strictly weaker than the accepted parameter-uniform conclusion.",
+        "searches": [
+          "Resultary query: four dimensional Sprott B feedback flow equilibrium hyperbolic unstable index two Routh Hurwitz no equilibrium bifurcation",
+          "DOI:10.1155/2019/5803506 equilibrium and stability section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited record was the direct exact hit; no earlier exact same-system index table was returned."
+        ],
+        "reasoning": "The index theorem is symbolic over the full positive octant, not a finite numerical spectrum table.",
+        "searches": [
+          "Resultary semantic search for the exact vector field, unstable index and parameter-uniform hyperbolicity"
+        ]
+      },
+      "rationale": "The introducing paper derives the same equilibria, states by Routh--Hurwitz that they are unstable for positive parameters, and gives one numerical saddle-focus spectrum at \\((a,b,c)=(6,11,5)\\). That does not fix the unstable dimension throughout parameter space or exclude imaginary-axis crossings. The submitted negative Hurwitz-determinant identity and connectedness argument provide the missing uniform index classification. Fresh Resultary search found the audited result as the only direct same-system hit; nearby results concern different four-dimensional flows.",
+      "residual_risks": [
+        "A later same-system dynamical study may have repeated the full Routh-index calculation under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL_INSTABILITY_NOT_GLOBAL_INDEX",
+          "evidence": "The source establishes instability and one sample spectrum but does not prove parameter-uniform hyperbolicity or unstable dimension two.",
+          "identifier_or_url": "DOI:10.1155/2019/5803506",
+          "material_read": "Primary open full text at the system definition, equilibrium equations, characteristic polynomial/Routh--Hurwitz discussion and the sample saddle-focus spectrum.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "A New 4D Chaotic System with Two-Wing, Four-Wing, and Coexisting Attractors and Its Circuit Simulation",
+          "trigger": "Exact source introducing the vector field and equilibrium claims."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Huang--Zhang--Xiang--Wang 2019"
+      ],
+      "rationale": "The exact unstable index is a natural local invariant of a parameter-scanned chaotic flow. Proving it constant throughout the full positive octant rules out all local equilibrium stability crossings as organizers of the reported windows, a materially stronger conclusion than generic instability.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1155/2019/5803506",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Local equilibrium-spectrum classification only.",
+    "It does not prove or classify periodic/chaotic attractors, their basins, or circuit dynamics."
+  ],
+  "residual_risks": [
+    "A later same-system dynamical study may have repeated the full Routh-index calculation under different terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GLOBAL_INSTABILITY_NOT_GLOBAL_INDEX",
+      "evidence": "The source establishes instability and one sample spectrum but does not prove parameter-uniform hyperbolicity or unstable dimension two.",
+      "identifier_or_url": "DOI:10.1155/2019/5803506",
+      "material_read": "Primary open full text at the system definition, equilibrium equations, characteristic polynomial/Routh--Hurwitz discussion and the sample saddle-focus spectrum.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "A New 4D Chaotic System with Two-Wing, Four-Wing, and Coexisting Attractors and Its Circuit Simulation",
+      "trigger": "Exact source introducing the vector field and equilibrium claims."
+    }
+  ]
+}

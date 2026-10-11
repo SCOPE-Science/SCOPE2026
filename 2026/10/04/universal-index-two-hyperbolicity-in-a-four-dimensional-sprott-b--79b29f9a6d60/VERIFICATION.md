@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is verified algebraically from the printed ODE.
+# Independent mathematical audit
 
-`verify.py` performs the following exact checks using only the Python standard library:
+## correctness
 
-1. builds \(\lambda I-J_s\) for \(J_s\) at an equilibrium;
-2. expands the \(4\times4\) determinant exactly;
-3. reduces \(s^2=b\) and matches the coefficients \(A_1,\ldots,A_4\);
-4. expands \(\Delta_3=A_1A_2A_3-A_3^2-A_1^2A_4\) and matches the displayed strictly negative polynomial;
-5. checks the exact Routh signs at \((a,b,c)=(1,1,2)\).
+PASS
 
-The remaining parameter-uniform step is analytic: \(\Delta_3<0\) excludes nonzero imaginary roots, \(A_4>0\) excludes zero, and the positive parameter octant is connected. Therefore the right-half-plane root count cannot change away from the sample point.
+The equilibrium equations give exactly \(E_\pm=(\pm\sqrt b,\pm\sqrt b,0,0)\). Direct expansion of the Jacobian gives the displayed quartic with positive coefficients and the third Hurwitz determinant \(-bP(a,b,c)\), where every monomial of \(P\) has positive coefficient. Hence \(\Delta_3<0\) throughout \(a,b,c>0\). A zero eigenvalue is excluded by the positive constant term; a nonzero imaginary eigenvalue would force \(\Delta_3=0\). Thus the equilibria are hyperbolic on the connected positive octant. The exact Routh first column at \((1,1,2)\) has two sign changes, so the unstable dimension is everywhere two. The standard-library verifier independently expands the determinant and the Hurwitz polynomial exactly.
 
-The result does not use finite-time integration as evidence for an infinite-time dynamical claim. It does not verify the source’s numerical attractors or Lyapunov-exponent maps.
+## originality
+
+PASS
+
+The introducing paper derives the same equilibria, states by Routh--Hurwitz that they are unstable for positive parameters, and gives one numerical saddle-focus spectrum at \((a,b,c)=(6,11,5)\). That does not fix the unstable dimension throughout parameter space or exclude imaginary-axis crossings. The submitted negative Hurwitz-determinant identity and connectedness argument provide the missing uniform index classification. Fresh Resultary search found the audited result as the only direct same-system hit; nearby results concern different four-dimensional flows.
+
+## value
+
+PASS
+
+The exact unstable index is a natural local invariant of a parameter-scanned chaotic flow. Proving it constant throughout the full positive octant rules out all local equilibrium stability crossings as organizers of the reported windows, a materially stronger conclusion than generic instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
