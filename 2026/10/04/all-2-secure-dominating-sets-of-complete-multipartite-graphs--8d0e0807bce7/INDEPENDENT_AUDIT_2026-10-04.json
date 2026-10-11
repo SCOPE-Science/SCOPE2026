@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:56:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The condition \\(k-s_i\\ge\\min\\{c_i,3\\}\\) is necessary: one omission in a part needs an outside selected vertex for domination, two omitted attacked vertices force two distinct outside defenders, and if at least three vertices remain omitted then a third outside selected vertex must survive the two-defender move. It is sufficient by splitting attacks into the same-part and distinct-part cases; in the latter, the two closed-neighborhood candidate sets cover all of \\(S\\), so with \\(|S|\\ge2\\) they admit distinct representatives, and the replacement meets both attacked parts. The coefficient formulas count exactly the heavy-part violations; two bad-part events can overlap only for \\(k=4\\), producing the stated correction. An independent definition-level brute-force replay on representative profiles through order eight found no disagreement with the criterion.",
+      "risks": [
+        "The definition uses distinct attacked vertices and distinct defenders, matching the 2020 primary source; differently named secure 2-domination is a separate invariant."
+      ],
+      "sources": [
+        "Frozen source tree 4a96726f1c3180ccd53a75eaa298abad96b768eb",
+        "J. Pavan Kumar and P. Venkata Subba Reddy, arXiv:2002.02408",
+        "Independent definition-level reconstruction and bounded brute-force replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper proves complexity and approximation results, including special graph classes, but no arbitrary complete-multipartite structural classification."
+        ],
+        "reasoning": "Algorithmic breadth does not imply the submitted exact feasible-set criterion or enumerator.",
+        "searches": [
+          "arXiv:2002.02408 full text"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2002.02408",
+        "Resultary exact-title query",
+        "Resultary complete-multipartite 2-secure query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source supplies the definition but its theorems concern computational complexity and approximation, not a characterization of all 2-SDS on this graph family."
+        ],
+        "reasoning": "The checked primary results do not imply the final theorem.",
+        "searches": [
+          "arXiv:2002.02408 statement-level comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary hits are secure domination, secure total domination, super domination and other non-equivalent parameters.",
+          "The 2020 primary full text has no occurrence of \"multipartite\"."
+        ],
+        "reasoning": "The naming-neighbor parameters do not impose the same two simultaneous replacements, so their complete-multipartite polynomials do not cover this theorem.",
+        "searches": [
+          "Resultary: \"All 2-secure dominating sets of complete multipartite graphs\"",
+          "Resultary: \"2-secure domination complete multipartite all sets enumerator k-s_i min c_i 3\"",
+          "arXiv:2002.02408 full-text search for \"multipartite\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No 2-secure complete-multipartite coefficient table or matching formula was returned."
+        ],
+        "reasoning": "The coefficients are not a lookup or recomputation of a located exact table.",
+        "searches": [
+          "Resultary exact-title and semantic complete-multipartite queries"
+        ]
+      },
+      "rationale": "The 2020 primary full text defines 2-secure domination and develops hardness, bounded-treewidth, approximation and related algorithmic results, but contains no complete-multipartite treatment. Fresh Resultary exact-title/semantic searches returned secure-domination variants on complete multipartite graphs but not the simultaneous-two-attack 2-secure all-set criterion or coefficient formulas. No checked broader theorem implies the three-guard cap.",
+      "residual_risks": [
+        "The 2017 initiating paper and non-indexed graph-family notes could contain additional special cases; nothing located in this round implies the exact all-set criterion or enumerator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Defines the same 2-SDS notion; no complete-multipartite occurrence was found and the main results are algorithmic/complexity statements."
+          ],
+          "identifier_or_url": "arXiv:2002.02408",
+          "material_read": "Full accessible arXiv HTML, including definition, complexity sections, approximation results and targeted full-text searches.",
+          "method": "Primary statement and implication comparison.",
+          "title": "Algorithmic Aspects of 2-Secure Domination in Graphs",
+          "trigger": "Primary full-text source with the exact distinct-attacker/distinct-defender convention."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-secure domination models simultaneous attacks and is algorithmically difficult in broad graph classes. On a canonical dense family, the three-guard cap collapses the feasibility problem to part occupancies and yields all cardinality coefficients, a structurally useful exact classification rather than a routine minimum-value calculation.",
+      "risks": [
+        "The theorem is family-specific and does not transfer automatically to graphs whose non-neighborhoods are not parts."
+      ],
+      "sources": [
+        "Frozen theorem/proof",
+        "arXiv:2002.02408 for motivation of the invariant"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality remains subject to unindexed older work under alternate terminology."
+  ],
+  "schema_version": 1
+}
