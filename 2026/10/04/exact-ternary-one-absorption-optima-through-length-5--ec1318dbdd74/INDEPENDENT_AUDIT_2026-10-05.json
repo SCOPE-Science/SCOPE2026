@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:15:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4dd3db1d4ac4e1afad2fb463ea23652ac626f2c0",
+        "assigned verify.py blob 8d3da587cd2e67e736a5a9fbe08821c3b736ffe8",
+        "assigned optimal_codes.json blob 370d195e46e5ea06f6adb44e3e7e6f9b82c52689",
+        "Ye--Elishco arXiv:2302.09842 full primary PDF"
+      ],
+      "rationale": "For each length, a one-absorption-correcting code is exactly a family of source words whose distinct output balls are pairwise disjoint. The package constructs every absorption ball directly from saturated adjacent addition together with the terminal-missing event, then solves both the output set-packing integer program and the equivalent conflict-graph maximum independent-set integer program. Both formulations report zero MIP gap and optima \\(3,6,13,29\\) for lengths two through five; the supplied witnesses are checked directly. An independent reconstruction of the set-packing matrix reproduced all four optima with exact integrality and zero solver gap. The claim is a finite exhaustive optimization, so an exact integer-program optimum is an appropriate complete certificate of the upper bounds.",
+      "residual_risks": [
+        "The upper bounds are computer-assisted mixed-integer proofs rather than proof-assistant certificates.",
+        "No claim is made beyond length five."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper develops broad asymptotic code constructions but does not state the audited small exact values in the inspected full text.",
+          "The follow-up's accessible material describes redundancy improvements rather than an exact length-two-through-five census."
+        ],
+        "reasoning": "The broader construction literature does not mechanically imply the exact small-blocklength maxima.",
+        "searches": [
+          "Ye--Elishco complete primary paper",
+          "Nguyen--Cai--Quek--Immink 2024 abstract/metadata"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.09842",
+        "DOI 10.1109/ISIT57864.2024.10619179",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An asymptotically near-optimal construction does not determine the exact finite optimum at lengths at most five.",
+          "The exact upper bounds require exhaustion of all source-word/output conflicts at each length."
+        ],
+        "reasoning": "The finite optimum is not a routine substitution into the inspected asymptotic theorems.",
+        "searches": [
+          "asymptotic/redundancy constructions versus exact finite set-packing optimum",
+          "general absorption-code bounds versus the four explicit small optima"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ye--Elishco use the same saturated-addition absorption and terminal-missing convention.",
+          "The finite set-packing and conflict-graph formulations are exactly equivalent to pairwise disjoint absorption balls."
+        ],
+        "reasoning": "The same channel and same one-error criterion were compared, not merely related insertion/deletion codes.",
+        "searches": [
+          "Resultary query: ternary one absorption correcting codes exact small blocklength n=2 3 4 5 alphabet 3",
+          "Ye--Elishco arXiv:2302.09842",
+          "Nguyen--Cai--Quek--Immink DOI 10.1109/ISIT57864.2024.10619179"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact same-parameter table was retrieved from the searchable sources."
+        ],
+        "reasoning": "The search result is supporting only; the defining paper was read directly.",
+        "searches": [
+          "Resultary current search for the exact tuple 3,6,13,29 in ternary absorption codes",
+          "targeted current web search for ternary one-absorption finite optima"
+        ]
+      },
+      "rationale": "Ye and Elishco define the same absorption channel and correction criterion, but their complete primary paper focuses on constructions, redundancy, and asymptotic behavior rather than the four small ternary optima. A 2024 nonbinary follow-up advertises improved ternary/general constructions and redundancy bounds; accessible abstract and metadata did not expose a finite optimum table, and no full text was available through the open routes inspected in this run. Current Resultary searches for the exact parameter tuple returned no equivalent finite classification.",
+      "residual_risks": [
+        "The inaccessible 2024 follow-up body could contain a small finite table not visible from its abstract.",
+        "A software or thesis appendix could contain the same tiny-parameter census without indexed publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_ASYMPTOTICS_NOT_SMALL_EXACT_CENSUS",
+          "evidence": "The paper defines the same balls and correction problem but does not state the audited four finite optima in the inspected text.",
+          "identifier_or_url": "arXiv:2302.09842",
+          "material_read": "complete primary PDF with the channel definition, code criterion and construction/asymptotic sections inspected; a defining page was visually checked",
+          "method": "primary full-text PDF inspection",
+          "title": "Codes Over Absorption Channels",
+          "trigger": "defining source for the exact channel"
+        },
+        {
+          "assessment": "PLAUSIBLE_FINITE_TABLE_ACCESS_RISK",
+          "evidence": "The accessible material emphasizes ternary/general redundancy constructions; no whole-document noncoverage claim is made.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT57864.2024.10619179",
+          "material_read": "accessible abstract and bibliographic metadata only; open full text was not available through the inspected routes",
+          "method": "primary-source scope inspection with access limitation",
+          "title": "Efficient Constructions of Non-Binary Codes Over Absorption Channels",
+          "trigger": "closest later nonbinary/ternary follow-up"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ye--Elishco 2023/2024",
+        "Nguyen et al. 2024",
+        "assigned exact programs"
+      ],
+      "rationale": "The absorption channel is a recent coding model and the ternary alphabet is the first genuinely nonbinary case. Exact optima through length five provide a sharp baseline for testing general constructions and finite-length bounds, with a complete witness set rather than a single isolated computation. This is a motivated finite cutoff on a natural new model.",
+      "residual_risks": [
+        "The result remains a small-blocklength benchmark."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The upper bounds are computer-assisted mixed-integer proofs rather than proof-assistant certificates.",
+    "No claim is made beyond length five.",
+    "The inaccessible 2024 follow-up body could contain a small finite table not visible from its abstract.",
+    "A software or thesis appendix could contain the same tiny-parameter census without indexed publication.",
+    "The result remains a small-blocklength benchmark."
+  ]
+}

@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The primary definition was reconstructed including the terminal-missing case. `verify.py` generates every ternary absorption ball for \(2\le n\le5\), checks explicit attaining codes, and obtains \(3,6,13,29\) from two independently generated exact zero-one models: received-word set packing and conflict-graph independence. Both report zero MIP gap.
+## correctness
 
-## Originality
-PASS. published-finding corpus searches for exact values, absorption-ball aliases, confusability language, and finite tables found no matching absorption-code record. The full arXiv primary source was inspected and gives constructions/asymptotic optimality rather than these finite optima. The closest 2024 ternary follow-up states asymptotic construction improvements in the accessible abstract. Its full text was inaccessible, which remains an explicit residual risk.
+PASS
 
-## Value
-PASS. The smallest nonbinary alphabet is the first regime in which the source develops genuinely nonbinary absorption constructions. A complete exact profile through \(n=5\) provides finite benchmarks for that theory, and \(n=5\) already requires an exact packing computation over \(243\) centers rather than a one-line sphere count.
+For each length, a one-absorption-correcting code is exactly a family of source words whose distinct output balls are pairwise disjoint. The package constructs every absorption ball directly from saturated adjacent addition together with the terminal-missing event, then solves both the output set-packing integer program and the equivalent conflict-graph maximum independent-set integer program. Both formulations report zero MIP gap and optima \(3,6,13,29\) for lengths two through five; the supplied witnesses are checked directly. An independent reconstruction of the set-packing matrix reproduced all four optima with exact integrality and zero solver gap. The claim is a finite exhaustive optimization, so an exact integer-program optimum is an appropriate complete certificate of the upper bounds.
 
-## Closest literature and limitations
-Closest sources are arXiv:2302.09842v1 and DOI:10.1109/ISIT57864.2024.10619179. The result is finite only; no claim is made for \(n>5\). The exact upper bounds are computer-assisted mixed-integer proofs rather than formal proof-assistant certificates, and the 2024 follow-up full text could not be inspected.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ye and Elishco define the same absorption channel and correction criterion, but their complete primary paper focuses on constructions, redundancy, and asymptotic behavior rather than the four small ternary optima. A 2024 nonbinary follow-up advertises improved ternary/general constructions and redundancy bounds; accessible abstract and metadata did not expose a finite optimum table, and no full text was available through the open routes inspected in this run. Current Resultary searches for the exact parameter tuple returned no equivalent finite classification.
+
+## value
+
+PASS
+
+The absorption channel is a recent coding model and the ternary alphabet is the first genuinely nonbinary case. Exact optima through length five provide a sharp baseline for testing general constructions and finite-length bounds, with a complete witness set rather than a single isolated computation. This is a motivated finite cutoff on a natural new model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
