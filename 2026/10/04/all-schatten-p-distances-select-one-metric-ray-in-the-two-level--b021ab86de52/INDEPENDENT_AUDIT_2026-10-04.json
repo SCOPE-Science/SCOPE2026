@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:42:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8cd797fc848006fa705294ec0501432f57d451dd",
+        "assigned verify.py blob ff9cd724f76081b91c8e5017eb92c8c96b5c4f02",
+        "Krejčiřík--Lotoreichik--Znojil 2018, DOI 10.1098/rspa.2018.0264"
+      ],
+      "rationale": "Writing \\(t=(C_1+C_2)/2\\) and \\(u=(C_1-C_2)/(C_1+C_2)\\) gives metric eigenvalues \\(t(1\\pm r)\\), where \\(r=\\sqrt{s^2+(1-s^2)u^2}\\ge s\\), with equality exactly at \\(C_1=C_2\\). For fixed \\(r\\), strict convexity for \\(1<p<\\infty\\) gives the stated unique \\(t_p(r)\\), and substitution gives \\(m_p(r)=2r/((1+r)^q+(1-r)^q)^{1/q}\\). Its logarithmic derivative reduces to a strictly positive numerator, so the global optimum is uniquely at \\(r=s\\). The piecewise-linear \\(p=1\\) case and equioscillation \\(p=\\infty\\) case similarly have unique fixed-\\(r\\) optima and increasing minima. The \\(s=0\\) boundary is included and still yields the unique identity metric. Independent numerical rechecks reproduced the formulas on representative \\(s,p\\) values.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These sources describe admissible metric families or selection restrictions, not the all-Schatten distance optimization."
+        ],
+        "reasoning": "Broader parameterizations of compatible metrics do not imply which ray minimizes every Schatten distance.",
+        "searches": [
+          "Feinberg--Znojil 2022 metric parametrization",
+          "Znojil--Geyer 2006 two-level metric ambiguity"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1098/rspa.2018.0264",
+        "arXiv:1804.06766",
+        "Feinberg--Znojil 2022",
+        "Znojil--Geyer 2006",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source yields only the \\(p=2\\) specialization \\(c_2=1/(1+s^2)\\).",
+          "The audited proof performs a distinct fixed-\\(r\\) \\(\\ell^p\\) minimization and proves strict monotonicity in \\(r\\)."
+        ],
+        "reasoning": "The prior \\(p=2\\) result is one member of the audited family and does not mechanically imply the other exponents.",
+        "searches": [
+          "Krejčiřík--Lotoreichik--Znojil Section 4 two-dimensional Hilbert--Schmidt calculation versus all-\\(p\\) statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary search returned no covering same-model all-Schatten theorem.",
+          "The 2018 source explicitly poses other Schatten-class minimizations as alternatives after treating Hilbert--Schmidt distance."
+        ],
+        "reasoning": "Equivalent formulations as minimizing the singular-value residual vector of a two-parameter positive metric, or invariance of the minimizing metric ray across Schatten norms, were checked.",
+        "searches": [
+          "Resultary query: All Schatten-p distances select one metric ray in the two-level quasi-Hermitian problem Schatten norm metric operator minimization",
+          "DOI 10.1098/rspa.2018.0264",
+          "arXiv:1804.06766"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact formula or table entry for the family \\(c_p(s),d_p(s)\\) was located."
+        ],
+        "reasoning": "A finite database/table is inapplicable because the theorem is a continuous analytic optimization for all \\(s,p\\).",
+        "searches": [
+          "Resultary semantic search for two-level quasi-Hermitian Schatten minimization"
+        ]
+      },
+      "rationale": "The 2018 primary paper was inspected in full. It solves the Hilbert--Schmidt criterion, gives the two-level equal-coefficient optimizer there, and explicitly suggests analogous minimizations in other Schatten classes, including operator norm, but does not give the all-\\(p\\) formulas or ray-invariance theorem. Searches for the same two-vector/Schatten approximation statement found no prior equivalent theorem.",
+      "residual_risks": [
+        "An equivalent two-vector matrix-nearness theorem could exist under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING: \\(p=2\\) only and an explicit suggestion to study other Schatten classes.",
+          "evidence": "The article states that analogous minimization problems can be considered in other Schatten classes, including operator norm, but only derives the Hilbert--Schmidt optimizer in the inspected two-level section.",
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2018.0264",
+          "material_read": "Full open primary article, including the alternative-Schatten discussion and the complete two-dimensional Hilbert--Schmidt calculation.",
+          "method": "Open full-text inspection.",
+          "title": "The minimally anisotropic metric operator in quasi-Hermitian quantum mechanics",
+          "trigger": "Exact motivating metric-selection problem and two-dimensional source case."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krejčiřík--Lotoreichik--Znojil 2018"
+      ],
+      "rationale": "The theorem closes an explicit family of alternative metric-selection problems raised by the motivating paper and reveals a structural invariant—the selected positive ray is independent of Schatten index—even though the normalization changes. This is a natural complete two-level classification rather than a parameter substitution.",
+      "residual_risks": [
+        "The phenomenon may fail or become substantially more complicated in higher dimension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every two-dimensional quasi-self-adjoint operator with simple real spectrum, every Schatten-\\(p\\) distance from the identity, \\(1\\le p\\le\\infty\\), uniquely minimizes over the full positive metric family on the same ray \\(C_1=C_2\\), with the explicit coefficients and minimum distances stated in the record.",
+  "limitations": [
+    "Dimension two only.",
+    "Distance is measured from the identity in Schatten norms; higher-dimensional, weighted, or differently normalized objectives are not covered."
+  ],
+  "schema_version": 1
+}

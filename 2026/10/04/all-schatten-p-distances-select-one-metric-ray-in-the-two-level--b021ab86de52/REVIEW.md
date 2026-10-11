@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof parameterizes every positive metric by \(t=(C_1+C_2)/2\) and \(u=(C_1-C_2)/(C_1+C_2)\), derives the exact eigenvalues \(t(1\pm r)\), and reduces every Schatten objective to a scalar convex problem. The interior and endpoint cases are handled separately, and the resulting minimum is strictly increasing in \(r\), forcing equal coefficients. The \(p=2\) specialization reproduces the published coefficient \(1/(1+s^2)\).
+## correctness
 
-## Originality
-PASS with residual terminology risk. The 2018 source explicitly proposes other Schatten-class minimizations but develops the Hilbert–Schmidt choice; its \(2\times2\) example gives only the \(p=2\) formula. The 2006 source parameterizes the positive metric ambiguity in a specific two-state model, and the 2022 source parameterizes compatible metrics for generic pseudo-Hermitian matrices; neither inspected full text supplies this all-\(p\) minimization formula or the norm-independent ray conclusion. Dedicated database and literature searches did not locate an equivalent statement.
+PASS
 
-## Value
-PASS. The finding answers a natural alternative-minimization question explicitly raised by the source paper. The exact formulas identify which part of the Hilbert–Schmidt choice is robust—its projective metric ray—and which part is norm-dependent—the normalization. This is a structural statement rather than a routine numerical extension.
+Writing \(t=(C_1+C_2)/2\) and \(u=(C_1-C_2)/(C_1+C_2)\) gives metric eigenvalues \(t(1\pm r)\), where \(r=\sqrt{s^2+(1-s^2)u^2}\ge s\), with equality exactly at \(C_1=C_2\). For fixed \(r\), strict convexity for \(1<p<\infty\) gives the stated unique \(t_p(r)\), and substitution gives \(m_p(r)=2r/((1+r)^q+(1-r)^q)^{1/q}\). Its logarithmic derivative reduces to a strictly positive numerator, so the global optimum is uniquely at \(r=s\). The piecewise-linear \(p=1\) case and equioscillation \(p=\infty\) case similarly have unique fixed-\(r\) optima and increasing minima. The \(s=0\) boundary is included and still yields the unique identity metric. Independent numerical rechecks reproduced the formulas on representative \(s,p\) values.
 
-## Closest literature and limitations
-The closest direct source is arXiv:1804.06766v1 / DOI:10.1098/rspa.2018.0264. Relevant ambiguity/parameterization sources are arXiv:quant-ph/0607104v1 and arXiv:2111.04216v2. The result is not claimed beyond two dimensions or beyond Schatten distance from the identity, and an equivalent generic two-vector approximation theorem under different terminology remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2018 primary paper was inspected in full. It solves the Hilbert--Schmidt criterion, gives the two-level equal-coefficient optimizer there, and explicitly suggests analogous minimizations in other Schatten classes, including operator norm, but does not give the all-\(p\) formulas or ray-invariance theorem. Searches for the same two-vector/Schatten approximation statement found no prior equivalent theorem.
+
+## value
+
+PASS
+
+The theorem closes an explicit family of alternative metric-selection problems raised by the motivating paper and reveals a structural invariant—the selected positive ray is independent of Schatten index—even though the normalization changes. This is a natural complete two-level classification rather than a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
