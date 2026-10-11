@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof has been reconstructed from the stated STFT normalization. For a two-point signal, each time slice is a two-term character polynomial, the map \(\xi\mapsto\omega^{-s\xi}\) has fibers of size \(d=\gcd(N,s)\), and the generic-window condition makes the cancellation cosets for different time indices disjoint. The distinct-prime window is an explicit witness that all defining bad polynomials are proper. The ordinary Fourier calculation and the extremal \(\phi(\mathbb Z_N,2)\) argument were checked separately. The exact replay corroborates the discrete skeleton through \(N=300\).
+## correctness
 
-Risk: the replay is finite and does not prove the theorem; the infinite proof is the algebraic argument in `RESULT.md`.
+PASS
 
-## Originality — PASS
-The closest source is Malikiosis, “Spark deficient Gabor frames,” Section 5. It formulates the equality \(F=F_\varphi\), proves the inclusion \(F\subseteq F_\varphi\) for almost every cyclic window, and states that the reverse inclusion is the difficult direction for composite order. The present claim proves that reverse inclusion on the entire exact-support-two stratum and gives its full gcd spectrum. Krahmer--Pfander--Rashkov had earlier posed the correspondence and supplied prime-order proof plus small-order numerical evidence; their \(N=6,k=2\) numerical value \(33\) is recovered by the formula here. Generic full spark from Malikiosis 2015 gives only a coarser lower bound and does not imply the exact spectrum.
+For \(f=a\delta_0+b\delta_s\), each time slice is a two-term character polynomial. The character \(\xi\mapsto\omega^{-s\xi}\) has image size \(N/d\) and fibers of size \(d\), so a slice has either zero or exactly \(d\) zeros. Excluding the finite collection of algebraic equalities between the root cosets \(-\overline{g(j+s)}/\overline{g(j)}\,\mu_{N/d}\), together with coordinate hyperplanes, gives a nonempty Zariski-open set on which a coefficient ratio can hit at most one time slice. Both zero counts are attainable. The ordinary two-point Fourier polynomial has the identical \(d\)-zero alternative, proving the shifted support spectra. As \(s\) varies, \(d\) runs through the proper divisors of \(N\), and the largest is \(N/p\). The universal upper bound on \(\phi\) follows from a singleton when the window has a zero, or from forcing one \(N/p\)-zero slice when it has full support. I independently checked the distinct-ratio and character-fiber arithmetic for every \(2\le N\le120\) and all nonzero differences.
 
-Risk: semantic and bibliographic searches cannot exclude a differently phrased or poorly indexed prior treatment of this exact stratum.
+## originality
 
-## Value — PASS
-Exact support size two is the first nontrivial stratum of the published support-pair problem. The theorem holds for every cyclic order, explains the divisor dependence structurally, and gives the exact extremal value \(N^2-N/p\) in terms of the least prime divisor. This is a natural boundary result rather than an arbitrary finite slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Krahmer--Pfander--Rashkov explicitly pose as Question 4.13 whether, for every cyclic group and almost every window, the Fourier and STFT support-pair sets agree after the \(N^2-N\) shift. Their Table 1 reports only numerical data for \(\mathbb Z_6\), including the value 33 at support at most two. Their general theorem gives lower bounds, not the exact composite-order two-sparse stratum. Malikiosis proves generic full-spark Gabor frames and later discusses Fourier/STFT uncertainty similarities, but the checked accessible statements do not determine the reverse support-pair inclusion for composite cyclic order. Resultary search returned the assigned exact two-sparse theorem and related but different Gabor support results.
+
+## value
+
+PASS
+
+This resolves a complete nontrivial stratum of an explicit cyclic Gabor uncertainty question, for every composite and prime order, and gives the exact generic support-at-most-two optimum. The gcd formula also explains earlier numerical data and is a natural reusable sparse-signal invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

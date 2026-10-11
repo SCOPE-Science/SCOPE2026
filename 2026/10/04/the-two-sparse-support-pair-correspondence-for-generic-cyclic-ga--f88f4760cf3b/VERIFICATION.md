@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic/algebraic and does not depend on finite enumeration. The bundled `verify_two_sparse_generic_stft.py` provides an exact stress test of the discrete ingredients.
+# Independent mathematical audit
 
-It constructs, for each \(2\le N\le300\), the positive-prime window \(g(j)=p_j\). For every nonzero difference \(s\), it checks with exact rational arithmetic that all ratios \(g(j+s)/g(j)\) are distinct. Since a positive real root of unity is \(1\), this certifies pairwise disjointness of the cancellation cosets for that explicit witness. It also enumerates the character map \(\xi\mapsto-s\xi\pmod N\), verifying exactly \(N/\gcd(N,s)\) image values and constant fiber size \(\gcd(N,s)\). Finally it verifies the shifted support spectra for every difference and the least-prime-divisor extremal formula.
+## correctness
 
-Expected replay tail:
+PASS
 
-`N_RANGE 2 300`
+For \(f=a\delta_0+b\delta_s\), each time slice is a two-term character polynomial. The character \(\xi\mapsto\omega^{-s\xi}\) has image size \(N/d\) and fibers of size \(d\), so a slice has either zero or exactly \(d\) zeros. Excluding the finite collection of algebraic equalities between the root cosets \(-\overline{g(j+s)}/\overline{g(j)}\,\mu_{N/d}\), together with coordinate hyperplanes, gives a nonempty Zariski-open set on which a coefficient ratio can hit at most one time slice. Both zero counts are attainable. The ordinary two-point Fourier polynomial has the identical \(d\)-zero alternative, proving the shifted support spectra. As \(s\) varies, \(d\) runs through the proper divisors of \(N\), and the largest is \(N/p\). The universal upper bound on \(\phi\) follows from a singleton when the window has a zero, or from forcing one \(N/p\)-zero slice when it has full support. I independently checked the distinct-ratio and character-fiber arithmetic for every \(2\le N\le120\) and all nonzero differences.
 
-`RATIO_DISTINCTNESS_CHECKS 8999900`
+## originality
 
-`KERNEL_FIBER_CHECKS 8999900`
+PASS
 
-`DIFFERENCE_SPECTRA_CHECKS 44850`
+Krahmer--Pfander--Rashkov explicitly pose as Question 4.13 whether, for every cyclic group and almost every window, the Fourier and STFT support-pair sets agree after the \(N^2-N\) shift. Their Table 1 reports only numerical data for \(\mathbb Z_6\), including the value 33 at support at most two. Their general theorem gives lower bounds, not the exact composite-order two-sparse stratum. Malikiosis proves generic full-spark Gabor frames and later discusses Fourier/STFT uncertainty similarities, but the checked accessible statements do not determine the reverse support-pair inclusion for composite cyclic order. Resultary search returned the assigned exact two-sparse theorem and related but different Gabor support results.
 
-`VERIFY_OK`
+## value
 
-Limits: the computation checks finitely many orders and is not an infinite certificate. It does not test support size at least three and does not classify exceptional windows.
+PASS
+
+This resolves a complete nontrivial stratum of an explicit cyclic Gabor uncertainty question, for every composite and prime order, and gives the exact generic support-at-most-two optimum. The gcd formula also explains earlier numerical data and is a natural reusable sparse-signal invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

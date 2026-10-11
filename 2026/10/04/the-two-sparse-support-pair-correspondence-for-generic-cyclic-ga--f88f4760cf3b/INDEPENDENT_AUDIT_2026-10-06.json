@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:35:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a658edb2a69e49bcb9dce38c60ba8f7ec3305241",
+        "assigned verify_two_sparse_generic_stft.py blob 5315db18efd8b9bf20ae79c82c554e4cf5e77246",
+        "Krahmer--Pfander--Rashkov, arXiv:math/0611493 / DOI:10.1016/j.acha.2007.09.008",
+        "Malikiosis, arXiv:1304.7709 / DOI:10.1016/j.acha.2014.06.004",
+        "Malikiosis, arXiv:1602.09012 / DOI:10.2140/pjm.2018.294.159"
+      ],
+      "rationale": "For \\(f=a\\delta_0+b\\delta_s\\), each time slice is a two-term character polynomial. The character \\(\\xi\\mapsto\\omega^{-s\\xi}\\) has image size \\(N/d\\) and fibers of size \\(d\\), so a slice has either zero or exactly \\(d\\) zeros. Excluding the finite collection of algebraic equalities between the root cosets \\(-\\overline{g(j+s)}/\\overline{g(j)}\\,\\mu_{N/d}\\), together with coordinate hyperplanes, gives a nonempty Zariski-open set on which a coefficient ratio can hit at most one time slice. Both zero counts are attainable. The ordinary two-point Fourier polynomial has the identical \\(d\\)-zero alternative, proving the shifted support spectra. As \\(s\\) varies, \\(d\\) runs through the proper divisors of \\(N\\), and the largest is \\(N/p\\). The universal upper bound on \\(\\phi\\) follows from a singleton when the window has a zero, or from forcing one \\(N/p\\)-zero slice when it has full support. I independently checked the distinct-ratio and character-fiber arithmetic for every \\(2\\le N\\le120\\) and all nonzero differences.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krahmer--Pfander--Rashkov give composite-order lower bounds and numerical evidence but explicitly leave the cyclic pair correspondence as a question.",
+          "Full spark controls minors/linear independence and does not by itself classify exact STFT zero multiplicities for a fixed two-point support."
+        ],
+        "reasoning": "No checked broader theorem mechanically yields the gcd-resolved exact spectra.",
+        "searches": [
+          "Krahmer--Pfander--Rashkov Theorem 4.11 and Proposition 4.12",
+          "Malikiosis generic full-spark theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0611493",
+        "arXiv:1304.7709",
+        "arXiv:1602.09012",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's generic-optimum result says almost every window attains the unknown optimum; it does not compute that optimum for composite groups.",
+          "The audited root-coset disjointness argument is what supplies the missing reverse inclusion at support two."
+        ],
+        "reasoning": "The all-cyclic two-sparse equality is not implied by the checked prior bounds or full-spark statements.",
+        "searches": [
+          "Krahmer--Pfander--Rashkov Question 4.13 and generic-optimum Proposition 4.8",
+          "Malikiosis full-spark existence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 4.13 asks exactly for equality of the Fourier and STFT support-pair sets after the shift for cyclic groups.",
+          "For \\(\\mathbb Z_6\\), Table 1 lists the numerical STFT minimum 33 at support bound two, matching the formula but without proof."
+        ],
+        "reasoning": "The audited theorem is the complete exact-support-two stratum of that support-pair equality and the corresponding \\(\\phi(G,2)\\) optimization.",
+        "searches": [
+          "Resultary query: cyclic Gabor two-sparse exact support pair correspondence STFT Fourier gcd generic window phi ZN 2",
+          "Krahmer--Pfander--Rashkov full primary PDF, Question 4.13 and Table 1",
+          "Malikiosis arXiv:1304.7709 and arXiv:1602.09012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The historical table contains the isolated numerical value 33 for \\(N=6,k=2\\), but not the all-\\(N\\) formula or support-spectrum classification.",
+          "Resultary's direct exact hit is the assigned finding; neighboring records concern different windows or support constraints."
+        ],
+        "reasoning": "The theorem generalizes and explains the numerical datum rather than recomputing a known table.",
+        "searches": [
+          "Krahmer--Pfander--Rashkov Table 1 for \\(\\mathbb Z_6\\)",
+          "Resultary exact two-sparse query"
+        ]
+      },
+      "rationale": "Krahmer--Pfander--Rashkov explicitly pose as Question 4.13 whether, for every cyclic group and almost every window, the Fourier and STFT support-pair sets agree after the \\(N^2-N\\) shift. Their Table 1 reports only numerical data for \\(\\mathbb Z_6\\), including the value 33 at support at most two. Their general theorem gives lower bounds, not the exact composite-order two-sparse stratum. Malikiosis proves generic full-spark Gabor frames and later discusses Fourier/STFT uncertainty similarities, but the checked accessible statements do not determine the reverse support-pair inclusion for composite cyclic order. Resultary search returned the assigned exact two-sparse theorem and related but different Gabor support results.",
+      "residual_risks": [
+        "A later paper may isolate the support-two stratum of Question 4.13 under uncertainty-profile terminology; no such statement was found in the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSES_GENERAL_CORRESPONDENCE_AND_GIVES_NUMERICS_NOT_TWO_SPARSE_PROOF",
+          "evidence": "Question 4.13 explicitly leaves the cyclic equality open, and the \\(N=6\\) value 33 appears only as numerical evidence.",
+          "identifier_or_url": "arXiv:math/0611493; DOI:10.1016/j.acha.2007.09.008",
+          "material_read": "Full primary PDF around the definition of \\(\\phi\\), Proposition 4.8, the composite-group bounds, Table 1 for \\(\\mathbb Z_6\\), and Question 4.13; the relevant pages were also visually inspected.",
+          "method": "Open full-PDF text and page-image inspection.",
+          "title": "Uncertainty in time--frequency representations on finite Abelian groups and applications",
+          "trigger": "Primary source posing the exact cyclic support-pair correspondence and defining \\(\\phi(G,k)\\)."
+        },
+        {
+          "assessment": "FULL_SPARK_NOT_EXACT_TWO_SPARSE_ZERO_CLASSIFICATION",
+          "evidence": "The theorem controls minors of the Gabor analysis matrix but does not state the gcd-dependent exact support-pair spectrum.",
+          "identifier_or_url": "arXiv:1304.7709; DOI:10.1016/j.acha.2014.06.004",
+          "material_read": "Accessible full primary preprint material around the generic full-spark theorem, STFT matrix and consequences for linear independence.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "A note on Gabor frames in finite dimensions",
+          "trigger": "Primary generic cyclic full-spark result with potential implications for sparse supports."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krahmer--Pfander--Rashkov 2008",
+        "Malikiosis 2015/2018"
+      ],
+      "rationale": "This resolves a complete nontrivial stratum of an explicit cyclic Gabor uncertainty question, for every composite and prime order, and gives the exact generic support-at-most-two optimum. The gcd formula also explains earlier numerical data and is a natural reusable sparse-signal invariant.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every \\(N\\ge2\\), a nonempty Zariski-open set of cyclic Gabor windows has the exact two-sparse support correspondence: for a fixed support difference \\(s\\), with \\(d=\\gcd(N,s)\\), the attainable STFT support sizes are \\(\\{N^2,N^2-d\\}\\) and the ordinary Fourier support sizes are \\(\\{N,N-d\\}\\); consequently \\(\\phi(\\mathbb Z_N,2)=N^2-N/p\\) for the least prime divisor \\(p\\) of \\(N\\).",
+  "limitations": [
+    "Exact signal-support size two, plus the derived support-at-most-two optimum, only.",
+    "The theorem does not settle the full cyclic support-pair correspondence for support sizes three through \\(N\\) or characterize all exceptional windows."
+  ],
+  "schema_version": 1
+}
