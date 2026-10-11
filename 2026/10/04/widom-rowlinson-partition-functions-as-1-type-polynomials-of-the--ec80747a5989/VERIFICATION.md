@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,34 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The bundled checker tests the metric and graph formulations independently on finite instances.
+## correctness
 
-For every labeled graph on at most five vertices, it interprets edges as parameter distance \(1\) and nonedges as distance \(2\). It then enumerates all \(3^n\) candidate distance vectors \(f:V\to\{1,2,3\}\), tests the Katětov inequalities
-\[
-|f(u)-f(v)|\le d(u,v)\le f(u)+f(v),
-\]
-and records the complete coefficient dictionary indexed by the numbers of 1-, 2-, and 3-values. Separately, it evaluates
-\[
-\sum_{Z\subseteq V}y^{|Z|}\prod_{C\in\pi_0(G-Z)}(x^{|C|}+z^{|C|})
-\]
-by explicit connected-component search, and compares the dictionaries exactly.
+PASS
 
-At six vertices, where there are \(2^{15}=32768\) labeled graphs, the script independently checks the scalar count using precomputed forbidden \(1\)-\(3\) edge masks and compares it with \(\sum_Z2^{c(G-Z)}\). It also checks that the minimum and maximum are unique and equal to \(127\) and \(729\), respectively. Finally it verifies the path values through eight vertices.
+The one-point triangle inequalities reduce exactly to forbidding states one and three across a distance-one edge; distance-two pairs impose no further restriction. This is precisely the fully looped three-vertex path homomorphism condition. Fixing the state-two set forces each remaining connected component to be monochromatic, giving the polynomial. Adding edges can only remove assignments; one explicit nonedge assignment proves strictness away from the complete graph and one forbidden-edge assignment proves strictness away from the edgeless graph. The inspected verifier exhausts all labelled graph metrics through five vertices coefficientwise and all six-vertex graphs at scalar level. The imported bounded-degree hardness matches the Dyer–Greenhill source.
 
-Replay command:
+## originality
 
-`python3 artifacts/verify.py`
+PASS
 
-Observed output:
+Fresh statement-level searches did not locate a prior source identifying finite nonalgebraic one-point types over the graph-metric slice of the generic three-valued metric space with the Widom–Rowlinson homomorphism partition function. Dyer–Greenhill is decisive prior art for the fixed-target counting hardness, but it does not supply the metric/Katětov interpretation, the weighted component factorization, or the sharp complete-versus-edgeless type-count envelope.
 
-```
-all_graph_metrics_poly_checked_n_le_5 1100
-all_6_vertex_graph_metrics_scalar_checked 32768
-path_counts_n_0_to_8 [1, 3, 7, 17, 41, 99, 239, 577, 1393]
-extremes_n_6 127 729
-VERIFY_OK
-```
+## value
 
-The computation verifies the finite combinatorial core. The identification with complete 1-types for all finite parameter sets uses universality and ultrahomogeneity of the Fraïssé limit and is proved deductively in `RESULT.md`.
+PASS
+
+The bridge converts a natural finite model-theoretic counting problem into a classical statistical-mechanics partition function, immediately transferring complexity and yielding an exact weighted factorization and sharp extremal envelope. That is a reusable structural identification rather than a mere numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

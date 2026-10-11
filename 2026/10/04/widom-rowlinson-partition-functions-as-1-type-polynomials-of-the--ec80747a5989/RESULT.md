@@ -105,4 +105,4 @@ The bundled `artifacts/verify.py` directly enumerates all three-valued distance 
 \]
 through eight vertices. The verifier terminates with `VERIFY_OK`.
 
-This is same-model verification. No independent audit has been performed.
+This is self-review. No independent audit has been performed.
