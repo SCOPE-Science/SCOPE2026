@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:01:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 59e34460ec0e97b75641a7065cd2fe07e693056d",
+        "assigned artifacts/verify.py blob 5521e852bc4443288ab5d3e31f0274b9b094aeea",
+        "Zhang--Fan--Ji--Jiang--Abliz--Liu, Quantum correlations in spin models, arXiv:1105.2866",
+        "Dakić--Vedral--Brukner, PRL 105, 190502"
+      ],
+      "rationale": "Conjugation by \\(\\sigma_x\\otimes\\sigma_x\\) flips both Zeeman terms and preserves the XXZ interaction, giving \\(H(B,b)\\mapsto H(-B,-b)\\). Qubit swap sends \\(b\\mapsto-b\\) while preserving \\(B\\), and the two unitaries commute, so their product maps \\(H(B,b)\\) to \\(H(-B,b)\\). Functional calculus transfers this to the Gibbs state. Hilbert--Schmidt geometric discord is invariant under local unitaries and qubit swap exchanges which side is measured, yielding the two identities and all symmetric-function corollaries. The assigned numerical checker independently confirms the covariance to machine precision. No correctness defect is present.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is implication/value based."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The model source provides all state-level ingredients.",
+          "Local-unitary invariance and subsystem relabeling covariance are generic properties of the geometric discord construction."
+        ],
+        "reasoning": "Together these broader published facts mechanically imply the final claim.",
+        "searches": [
+          "Zhang et al. complete primary HTML",
+          "Dakić--Vedral--Brukner local-unitary-invariant Hilbert--Schmidt GQD framework"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1105.2866",
+        "Dakić--Vedral--Brukner PRL 105, 190502",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two direct conjugations yield \\(H(-B,b)\\) from \\(H(B,b)\\).",
+          "Applying a standard covariance property immediately exchanges the measured side."
+        ],
+        "reasoning": "The full final statement is a routine symmetry corollary of prior definitions.",
+        "searches": [
+          "published \\(H(B,b)\\) plus spin-flip and swap symmetries",
+          "standard local-unitary invariance of one-sided GQD"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives the exact Hamiltonian with fields \\(B+b\\) and \\(B-b\\), the thermal state, and the first-side GQD formula.",
+          "It explicitly reports that GQD, unlike several other correlations, is not symmetric about zero magnetic field."
+        ],
+        "reasoning": "The audited side-exchange identity is exactly the unitary/swap symmetry of the source's displayed Hamiltonian and directional GQD definition.",
+        "searches": [
+          "Resultary query: field reversal inhomogeneous XXZ geometric discord measured subsystem swap",
+          "Zhang et al. arXiv:1105.2866, Sections 2.3 and 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate indexed theorem was retrieved."
+        ],
+        "reasoning": "Exact-phrase absence cannot overcome direct implication from the published Hamiltonian and standard covariance.",
+        "searches": [
+          "Resultary current exact query for the field-reversal/side-swap identity"
+        ]
+      },
+      "rationale": "The same primary paper prints the exact XXZ Hamiltonian, the thermal state, and the one-sided Hilbert--Schmidt GQD formula, then explicitly remarks that its fixed-side GQD curve is not symmetric in magnetic field. The audited theorem is the immediate symmetry explanation already encoded in those formulas: a local spin flip changes both field signs, qubit swap reverses only the inhomogeneity, and standard local-unitary invariance plus swap covariance exchanges the measured side. No nonstandard lemma, spectral calculation, or optimization is needed. Under the implication-based originality rule this is a direct corollary of the published model and standard discord covariance, even though the source does not print the exchange identity.",
+      "residual_risks": [
+        "No access limitation affects the implication-based rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_MODEL_AND_FORMULA_COVERAGE",
+          "evidence": "The source displays every model ingredient needed for the two-conjugation side-exchange corollary.",
+          "identifier_or_url": "arXiv:1105.2866",
+          "material_read": "complete primary HTML through the GQD definition and XXZ Hamiltonian/thermal-state section, including the statement that GQD is not symmetric about magnetic field",
+          "method": "primary full-text inspection",
+          "title": "Quantum correlations in spin models",
+          "trigger": "same inhomogeneous XXZ dimer and the reported GQD field asymmetry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhang et al. 2011",
+        "standard GQD covariance",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The identity is a useful explanation of the source's asymmetric fixed-side plot, but it is obtained by composing two obvious symmetries of the printed Hamiltonian and invoking standard covariance of the discord measure. This is a short textbook symmetry check rather than an independently difficult structural result under the common value bar.",
+      "residual_risks": [
+        "The observation can remain useful pedagogically."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No correctness defect is asserted; rejection is implication/value based.",
+    "No access limitation affects the implication-based rejection.",
+    "The observation can remain useful pedagogically."
+  ]
+}
