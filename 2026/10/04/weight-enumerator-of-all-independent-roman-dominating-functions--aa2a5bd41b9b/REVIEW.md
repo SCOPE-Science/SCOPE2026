@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Independence forces all positive labels into one part. Any zero left in that same part would have no positively labeled neighbor, so the whole chosen part must be positive. Because the graph has at least two parts, zeros exist outside the chosen part, which forces at least one label \(2\). The converse is immediate. The enumerator, minimum, minimum-count formula, and reconstruction argument then follow exactly. `verify.py` independently checks the literal neighborhood definition for all profiles through order \(9\).
+## correctness
 
-## Originality
-PASS. The closest inspected primary literature concerns independent Roman domination numbers, bounds, and equality cases. The 2016 note contains a balanced complete-bipartite equality characterization in a restricted degree range, so scalar biclique consequences are treated as prior-covered. Searches for “independent Roman domination polynomial”, “independent Roman dominating functions complete multipartite all functions weight enumerator”, and equivalent profile language did not produce an arbitrary complete-multipartite all-function classification or weight enumerator. The retained claim is therefore the structural classification plus exact enumerator and reconstruction consequence, not merely the minimum parameter. Residual risk remains for poorly indexed older literature using alternate terminology.
+PASS
 
-## Value
-PASS. Independent Roman domination is a standard Roman variant, and complete multipartite graphs are a natural dense test class. The result gives every feasible function and every weight multiplicity in one formula, not only an extremal number. The reconstruction argument shows that the enumerator is complete for isomorphism inside the class, giving the polynomial structural content beyond a routine minimum calculation.
+Independence forces all positive labels into one part. A zero left in that same part would have no positive neighbor, so the entire chosen part must be positive; zeros outside are defended exactly when at least one chosen vertex is labeled 2. This gives the displayed binomial summand for each part. The reconstruction argument is triangular in descending part size because the coefficient at degree twice the largest part size counts precisely the largest parts. I independently compared the literal definition to the classifier on every ordered multipartite composition through order seven, totaling 164682 labelings, and matched the polynomial histograms for all such profiles; the packaged verifier extends its own census through order nine.
 
-## Closest literature and limitations
-The 2012 bounds paper defines and studies the same parameter and is classified under 05C69. The 2016 note improves bounds and includes complete-bipartite equality information but not the arbitrary-part all-function theorem. The 2020 survey supplies broader context for Roman variants. The literature search cannot exclude an obscure unindexed equivalent result.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary independent-Roman literature inspected studies minimum parameters, bounds, extremal trees and Nordhaus-Gaddum relations, not an all-function weight polynomial on arbitrary complete multipartite graphs. A later note improves scalar bounds. Resultary and exact polynomial searches found no covering enumerator or reconstruction theorem; the scalar minimum is not relied upon for originality.
+
+## value
+
+PASS
+
+Although the feasibility proof is short, the exact all-function polynomial is a natural invariant of a canonical graph family and has a nontrivial reconstruction consequence: within connected complete multipartite graphs it determines the graph up to isomorphism. That makes the result more than a routine minimum calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

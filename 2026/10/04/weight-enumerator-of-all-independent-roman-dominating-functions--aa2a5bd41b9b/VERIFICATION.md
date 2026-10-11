@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof establishes the theorem for every connected complete multipartite graph with at least two parts. The packaged `verify.py` performs an independent finite consistency check through order \(9\).
+# Independent mathematical audit
 
-It enumerates all nondecreasing multipartite profiles with at least two parts, then all \({0,1,2}\)-labelings. For each labeling it compares the literal independent Roman definition with the claimed one-part criterion. It also compares every weight coefficient with the closed formula, checks the minimum weight and the number of minimum functions, and reconstructs every profile from the polynomial.
+## correctness
 
-Replay command: `python verify.py`
+PASS
 
-Expected output: `VERIFY_OK profiles=87 labelings=748341 valid_functions=2316 coefficient_checks=1369 min_checks=87 reconstruction_checks=87 max_order=9`
+Independence forces all positive labels into one part. A zero left in that same part would have no positive neighbor, so the entire chosen part must be positive; zeros outside are defended exactly when at least one chosen vertex is labeled 2. This gives the displayed binomial summand for each part. The reconstruction argument is triangular in descending part size because the coefficient at degree twice the largest part size counts precisely the largest parts. I independently compared the literal definition to the classifier on every ordered multipartite composition through order seven, totaling 164682 labelings, and matched the polynomial histograms for all such profiles; the packaged verifier extends its own census through order nine.
 
-The finite census is not used as an infinite proof. It is a boundary and implementation check for the symbolic argument.
+## originality
+
+PASS
+
+The primary independent-Roman literature inspected studies minimum parameters, bounds, extremal trees and Nordhaus-Gaddum relations, not an all-function weight polynomial on arbitrary complete multipartite graphs. A later note improves scalar bounds. Resultary and exact polynomial searches found no covering enumerator or reconstruction theorem; the scalar minimum is not relied upon for originality.
+
+## value
+
+PASS
+
+Although the feasibility proof is short, the exact all-function polynomial is a natural invariant of a canonical graph family and has a nontrivial reconstruction consequence: within connected complete multipartite graphs it determines the graph up to isomorphism. That makes the result more than a routine minimum calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

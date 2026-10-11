@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:02:51Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob f53227fe34e301b6c1ca17961da2f5d268c3912b.",
+        "verify.py blob bdff0986f6a33e00270c1c177265576716bdd5bb.",
+        "Independent definition/polynomial replay.",
+        "Ebrahimi Targhi et al., Journal of Combinatorial Mathematics and Combinatorial Computing 80 (2012)."
+      ],
+      "rationale": "Independence forces all positive labels into one part. A zero left in that same part would have no positive neighbor, so the entire chosen part must be positive; zeros outside are defended exactly when at least one chosen vertex is labeled 2. This gives the displayed binomial summand for each part. The reconstruction argument is triangular in descending part size because the coefficient at degree twice the largest part size counts precisely the largest parts. I independently compared the literal definition to the classifier on every ordered multipartite composition through order seven, totaling 164682 labelings, and matched the polynomial histograms for all such profiles; the packaged verifier extends its own census through order nine.",
+      "risks": [
+        "The disconnected one-part edgeless case is intentionally excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier papers concern scalar domination numbers, inequalities and special extremal classes.",
+          "The later survey records the variant among Roman domination parameters."
+        ],
+        "reasoning": "Scalar bounds and surveys do not determine the full enumerator or reconstruction property.",
+        "searches": [
+          "Ebrahimi Targhi et al. 2012 Bounds for Independent Roman Domination in Graphs",
+          "Jafari Rad, Note on the Independent Roman Domination Number of a Graph",
+          "Chellali et al. Varieties of Roman domination II"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query above",
+        "Ebrahimi Targhi et al. 2012",
+        "Jafari Rad note",
+        "Chellali et al. Varieties of Roman domination II"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A minimum weight or bound does not imply the classification of all positive-support placements or coefficient sequence.",
+          "The reconstruction property additionally uses the entire polynomial's degree structure."
+        ],
+        "reasoning": "No inspected prior theorem mechanically yields the submitted all-function statement.",
+        "searches": [
+          "2012 independent Roman bounds paper",
+          "Later scalar-bound note"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct Resultary hit is the audited record; adjacent findings concern other Roman variants.",
+          "No inspected independent-Roman source states the all-function classifier or graph-reconstruction polynomial."
+        ],
+        "reasoning": "Independent Roman function enumeration and generating-polynomial aliases were searched.",
+        "searches": [
+          "Resultary: independent Roman domination complete multipartite weight enumerator reconstruction",
+          "Web searches for independent Roman domination polynomial, generating function and all functions on complete multipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table/formula for arbitrary part-size multisets was located."
+        ],
+        "reasoning": "The formula is simple enough that exact-expression and object-name searches were both performed.",
+        "searches": [
+          "Resultary exact family/enumerator query",
+          "Web exact formula searches for sum_i((x+x^2)^n_i-x^n_i) in independent Roman context"
+        ]
+      },
+      "rationale": "The primary independent-Roman literature inspected studies minimum parameters, bounds, extremal trees and Nordhaus-Gaddum relations, not an all-function weight polynomial on arbitrary complete multipartite graphs. A later note improves scalar bounds. Resultary and exact polynomial searches found no covering enumerator or reconstruction theorem; the scalar minimum is not relied upon for originality.",
+      "residual_risks": [
+        "Because the classifier is short, an unindexed exercise or folklore observation may duplicate it.",
+        "No originality is claimed for general independent Roman domination methodology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_BOUNDS_NOT_ALL_FUNCTION_ENUMERATION",
+          "evidence": [
+            "The paper studies the independent Roman domination number rather than weight enumerators."
+          ],
+          "identifier_or_url": "Journal of Combinatorial Mathematics and Combinatorial Computing 80 (2012), 351-365",
+          "material_read": "Public full article page and available full-text scope covering definitions, bounds, trees and Nordhaus-Gaddum results.",
+          "method": "Public primary-source inspection.",
+          "title": "Bounds for Independent Roman Domination in Graphs",
+          "trigger": "Foundational/closest primary source for the same invariant."
+        },
+        {
+          "assessment": "SCALAR_BOUND_REFINEMENT_NOT_ENUMERATOR",
+          "evidence": [
+            "The note improves minimum-parameter bounds and does not state the submitted polynomial."
+          ],
+          "identifier_or_url": "Journal of Combinatorial Mathematics and Combinatorial Computing 95, 119-125",
+          "material_read": "Full PDF abstract and theorem text; rendered first page inspected; full-text searches found no complete multipartite/bipartite enumerator.",
+          "method": "Open PDF text plus rendered-page inspection.",
+          "title": "Note on the Independent Roman Domination Number of a Graph",
+          "trigger": "Later same-invariant paper potentially covering complete multipartite families."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Closed all-weight enumerator, exact minimum-function count and graph reconstruction."
+      ],
+      "rationale": "Although the feasibility proof is short, the exact all-function polynomial is a natural invariant of a canonical graph family and has a nontrivial reconstruction consequence: within connected complete multipartite graphs it determines the graph up to isomorphism. That makes the result more than a routine minimum calculation.",
+      "risks": [
+        "The result remains specialized to complete multipartite graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every connected complete multipartite graph, an independent Roman dominating function is obtained exactly by choosing one whole part, labeling all of its vertices by 1 or 2 with at least one 2, and assigning 0 elsewhere; hence the stated weight enumerator follows and uniquely recovers the multiset of part sizes.",
+  "limitations": [
+    "Connected complete multipartite graphs only.",
+    "No algorithmic or complexity claim for general graphs."
+  ],
+  "schema_version": 1
+}
