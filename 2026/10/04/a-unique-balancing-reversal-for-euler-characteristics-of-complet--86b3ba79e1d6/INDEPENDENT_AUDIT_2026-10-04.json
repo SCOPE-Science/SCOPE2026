@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:39:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify.py at tree 85d0d54057650aea5e817c84574a2182b6c0db78",
+        "Navarro Aznar 1980 full primary paper",
+        "Dessai--Wiemeler complete-intersection Chern-class context"
+      ],
+      "rationale": "Navarro Aznar's Chern-class formula gives the displayed surface Euler formula. For a balancing move \\((x,y)\\mapsto(x+1,y-1)\\), the exact change is \\(P\\delta(C-B-\\delta)\\). In codimension two the sign factor is \\((x-1)^2+(y-2)^2-2\\), negative only for \\((x,y)=(1,3)\\), yielding the 64-to-63 reversal. With at least one remaining shifted degree, the extra term \\((x+y-2)R+H\\ge3\\) makes every genuine balancing move strictly positive. Iterating balancing and reverse-balancing gives the unique extrema. The actual artifact verifier was inspected and independently checks the formula and predicted extrema over a broad finite range; the theorem itself is symbolic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical formulas are broader inputs but do not determine the sign of every balancing move.",
+          "Different invariants have distinct extremizers, so those results do not dominate Euler characteristic."
+        ],
+        "reasoning": "No general Schur-convexity theorem located makes the audited classification automatic; the sign has a genuine codimension-two exception.",
+        "searches": [
+          "classical complete-intersection Chern-number literature",
+          "related SCOPE complete-intersection invariant results"
+        ]
+      },
+      "checked_sources": [
+        "Navarro Aznar 1980 DOI",
+        "Dessai--Wiemeler arXiv:1108.5327",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary formula determines \\(\\chi\\) from the degrees, but the product factor and quadratic Chern coefficient change in opposing directions under balancing.",
+          "The audited factorization resolves that competition and isolates exactly one sign reversal."
+        ],
+        "reasoning": "The extremal statement is not mechanically stated by the classical formula alone.",
+        "searches": [
+          "Navarro Aznar Theorems 1--2 versus balancing identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary exact hit is the assigned theorem; nearby records optimize signature, ED degree, geometric genus, or dual degree instead.",
+          "Navarro Aznar proves the general Chern/Euler formula, not this fixed-sum extremal theorem."
+        ],
+        "reasoning": "Equivalent formulations in terms of \\(\\chi_{top}\\), \\(b_2\\), fixed adjunction exponent, and pairwise balancing were compared.",
+        "searches": [
+          "Resultary: Euler characteristic complete intersection surfaces fixed degree sum balanced multidegree extremal",
+          "Navarro Aznar 1980",
+          "Dessai--Wiemeler arXiv:1108.5327"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No pre-existing table/classification of Euler extrema at fixed \\((c,S)\\) was located."
+        ],
+        "reasoning": "The theorem is symbolic for all fixed sums, not a finite database fact.",
+        "searches": [
+          "Resultary complete-intersection extremal search"
+        ]
+      },
+      "rationale": "The classical sources supply the Chern/Euler formulas but not the fixed-sum balancing classification. Searches for Euler characteristic, middle Betti number, fixed total degree, majorization, and complete intersections found the assigned theorem plus results for different invariants, but no prior theorem implying the unique extremal classification or the isolated \\((2,4)\\leftrightarrow(3,3)\\) reversal.",
+      "residual_risks": [
+        "An older unindexed paper on extremal Euler--Poincare characteristics under the same fixed-sum constraint remains a plausible residual risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the fixed-sum extremal classification.",
+          "evidence": "The paper derives Chern and Euler formulas for arbitrary nonsingular complete intersections but does not classify fixed-sum maxima/minima or balancing signs.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1980-0548103-2",
+          "material_read": "Full seven-page primary paper; Theorem 1 (total Chern class) and Theorem 2 (Euler characteristic formula) were read in context.",
+          "method": "Open university-repository PDF inspection.",
+          "title": "On the Chern Classes and the Euler Characteristic for Nonsingular Complete Intersections",
+          "trigger": "Primary classical formula underlying correctness and plausible source of an implicit extremal corollary."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Navarro Aznar 1980",
+        "complete-intersection topology literature"
+      ],
+      "rationale": "Fixing the degree sum fixes the canonical-polarization exponent, making the comparison geometrically natural. The theorem gives a complete all-codimension extremal classification and identifies a unique low-dimensional reversal, so it is more than a routine evaluation of the classical formula.",
+      "residual_risks": [
+        "The proof is elementary once the balancing factorization is found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For smooth complex complete-intersection surfaces of fixed codimension \\(c\\ge2\\) and fixed sum \\(S\\) of defining degrees, the Euler characteristic (and hence \\(b_2\\)) is uniquely maximized by the balanced multidegree and minimized by the one-heavy multidegree, except for the unique codimension-two reversal at \\(S=6\\), where \\((2,4)\\) has \\(\\chi=64\\) and \\((3,3)\\) has \\(\\chi=63\\).",
+  "limitations": [
+    "All defining degrees are at least two and the ground field is \\(\\mathbb C\\).",
+    "Codimension is fixed; singular, weighted-projective, or varying-codimension comparisons are not covered."
+  ],
+  "schema_version": 1
+}

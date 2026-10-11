@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Chern-class premise yields the Euler formula by exact coefficient extraction. The proof then computes the exact change under a unit balancing move. In codimension two its sign is negative only for the shifted pair \((1,3)\), which is exactly \((2,4)\to(3,3)\); in higher codimension the contribution of the remaining shifted degrees makes the sign strictly positive. The extrema follow by iterated balancing and unbalancing. The bundled exact checker independently reproduces the formula and all bounded regression cases.
+## correctness
 
-## Originality
-PASS. Searches covered fixed-sum Euler characteristic, middle Betti number, Chern-number extrema, balancing/majorization language, and fixed canonical class. Classical complete-intersection sources provide the invariant formulas, while the most plausible older extremal-Euler source concerns a different absolute-extremum problem. No inspected or retrieved source stated the all-codimension fixed-sum range or the unique \((2,4)\) versus \((3,3)\) reversal.
+PASS
 
-Residual risk: an unindexed older source could have extracted the same balancing consequence from the classical formula, and one plausible 1975 source was available only through indexed theorem-level text rather than a directly inspected publisher PDF.
+Navarro Aznar's Chern-class formula gives the displayed surface Euler formula. For a balancing move \((x,y)\mapsto(x+1,y-1)\), the exact change is \(P\delta(C-B-\delta)\). In codimension two the sign factor is \((x-1)^2+(y-2)^2-2\), negative only for \((x,y)=(1,3)\), yielding the 64-to-63 reversal. With at least one remaining shifted degree, the extra term \((x+y-2)R+H\ge3\) makes every genuine balancing move strictly positive. Iterating balancing and reverse-balancing gives the unique extrema. The actual artifact verifier was inspected and independently checks the formula and predicted extrema over a broad finite range; the theorem itself is symbolic.
 
-## Value
-PASS. The claim classifies a canonical topological invariant over an infinite family at fixed codimension and canonical-polarization exponent, with a sharp unique exception to the expected balancing principle. The same theorem simultaneously classifies the middle Betti number.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The classical sources supply the Chern/Euler formulas but not the fixed-sum balancing classification. Searches for Euler characteristic, middle Betti number, fixed total degree, majorization, and complete intersections found the assigned theorem plus results for different invariants, but no prior theorem implying the unique extremal classification or the isolated \((2,4)\leftrightarrow(3,3)\) reversal.
+
+## value
+
+PASS
+
+Fixing the degree sum fixes the canonical-polarization exponent, making the comparison geometrically natural. The theorem gives a complete all-codimension extremal classification and identifies a unique low-dimensional reversal, so it is more than a routine evaluation of the classical formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

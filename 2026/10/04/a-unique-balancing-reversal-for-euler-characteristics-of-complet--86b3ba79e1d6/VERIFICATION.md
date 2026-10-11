@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-The source-backed identity
-\[
-c(TX)=\frac{(1+H)^{c+3}}{\prod_i(1+d_iH)}
-\]
-is expanded independently in the checker to obtain the \(H^2\) coefficient. That result is compared against the shifted-degree formula
-\[
-\chi_{\mathrm{top}}(X)=\left(\prod_i d_i\right)\left(3-2T+h_2(\mathbf x)\right).
-\]
 
-The infinite classification is proved symbolically in RESULT.md by evaluating the exact change under one balancing move. The checker does not substitute for that proof. It exhaustively enumerates bounded fixed-sum families only as regression evidence, checking the predicted unique maxima/minima and every available balancing step.
+# Independent mathematical audit
 
-The cohomological corollary uses the Lefschetz hyperplane theorem: for a smooth complete-intersection surface, \(b_1=b_3=0\), so \(b_2=\chi_{\mathrm{top}}-2\).
+## correctness
 
-Limits: smooth complex complete-intersection surfaces, fixed codimension, fixed sum of defining degrees, and all defining degrees at least two.
+PASS
+
+Navarro Aznar's Chern-class formula gives the displayed surface Euler formula. For a balancing move \((x,y)\mapsto(x+1,y-1)\), the exact change is \(P\delta(C-B-\delta)\). In codimension two the sign factor is \((x-1)^2+(y-2)^2-2\), negative only for \((x,y)=(1,3)\), yielding the 64-to-63 reversal. With at least one remaining shifted degree, the extra term \((x+y-2)R+H\ge3\) makes every genuine balancing move strictly positive. Iterating balancing and reverse-balancing gives the unique extrema. The actual artifact verifier was inspected and independently checks the formula and predicted extrema over a broad finite range; the theorem itself is symbolic.
+
+## originality
+
+PASS
+
+The classical sources supply the Chern/Euler formulas but not the fixed-sum balancing classification. Searches for Euler characteristic, middle Betti number, fixed total degree, majorization, and complete intersections found the assigned theorem plus results for different invariants, but no prior theorem implying the unique extremal classification or the isolated \((2,4)\leftrightarrow(3,3)\) reversal.
+
+## value
+
+PASS
+
+Fixing the degree sum fixes the canonical-polarization exponent, making the comparison geometrically natural. The theorem gives a complete all-codimension extremal classification and identifies a unique low-dimensional reversal, so it is more than a routine evaluation of the classical formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
