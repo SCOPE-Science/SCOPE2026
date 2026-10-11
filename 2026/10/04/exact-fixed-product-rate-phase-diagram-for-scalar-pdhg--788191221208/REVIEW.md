@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The recurrence was reconstructed directly from the published basic-PDHG update. Its trace, determinant, and discriminant reduce to functions of \(p=\tau\sigma\) and \(s=\tau+\sigma\). The complex-root modulus is strictly decreasing in \(s\); the dominant real root is strictly increasing in \(s\); this yields the complete fixed-product minimizer classification. The remaining one-variable derivative identity proves the unique global optimum. The reciprocal adaptive updates preserve the product by direct multiplication. The packaged checker independently re-evaluates the algebraic identities and representative numerical cases.
+## correctness
 
-## Originality
-PASS. Targeted searches covered the exact scalar claim, fixed-product aliases, critical damping, reciprocal step updates, and spectral-radius tuning. Goldstein et al. provide the adaptive rule and residual-balancing motivation but no spectral-radius solution. Fercoq provides the closest broader treatment: a general quadratic iteration matrix and a spectral-radius adaptation strategy, while explicitly arguing that residual balancing can be nonoptimal. The inspected relevant sections do not state the closed-form scalar phase transition, the two asymmetric minimizers, or the unique global pair claimed here. Previously recorded findings were checked by claim and method; the closest scalar primal-dual record concerns a different PDAL/least-squares recurrence and does not imply this strongly convex-concave PDHG classification.
+PASS
 
-## Value
-PASS. The source paper presents residual balancing as a practical way to tune the primal/dual ratio while keeping the product fixed. The exact scalar classification identifies what that invariant leaves untuned and shows a non-obvious symmetry breaking below a natural product threshold. This gives a clean benchmark for designing or testing product-adaptive PDHG rules and a closed-form target against which spectral heuristics can be checked.
+For the stated scalar strongly convex--concave quadratic, direct proximal substitution gives the displayed two-by-two iteration matrix. With \(p=\tau\sigma\) and \(s=\tau+\sigma\), exact algebra yields \(T=(s+2-2p)/(1+s+p)\), \(D=(1-p)/(1+s+p)\), and discriminant \((s^2-8p(1-p))/(1+s+p)^2\), while positive steps of fixed product realize exactly \(s\ge2\sqrt p\). In the complex-root regime the spectral radius is \(\sqrt D\), strictly decreasing in \(s\); on the real-root branch implicit differentiation gives the strictly positive derivative proved in the record. Hence the fixed-product optimum is the feasible point nearest the double-root boundary \(s_c=\sqrt{8p(1-p)}\). This boundary lies strictly above the arithmetic-geometric lower bound exactly for \(p<1/2\), producing the two asymmetric minimizers and \(\rho_p^*=\sqrt{1-p}/(\sqrt{1-p}+\sqrt{2p})\); for \(p\ge1/2\) the unique optimum is \(\tau=\sigma=\sqrt p\). The separate derivative calculation on the balanced branch proves the global unique minimum at \(p=1/2\), \(\tau=\sigma=1/\sqrt2\), with rate \(\sqrt2-1\). Goldstein's adaptive update indeed preserves \(\tau_k\sigma_k\) exactly, so the stated reachability limitation follows. The verifier checks the matrix identities and polynomial sign identity exactly and probes the phase diagram numerically; the continuum classification rests on the analytic monotonicity proof.
 
-## Closest literature and limitations
-The closest broader source is Fercoq (2024), which motivates direct spectral-radius tuning for quadratic PDHG and reports that it can improve on residual balancing. The present claim is intentionally narrower and exact. It does not assert multidimensional optimality or a rate theorem for the nonstationary adaptive sequence. An unindexed thesis, note, or implementation analysis could contain the same scalar calculation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Goldstein et al. give the same basic PDHG ordering, the standard product condition and an adaptive residual-balancing scheme whose proof explicitly states that \(\tau_k\sigma_k\) remains unchanged. They do not solve the exact fixed-product rate optimization. Fercoq gives the closest broader modern framework: for quadratic saddle problems PDHG is a linear fixed-point iteration, its convergence speed is governed by the spectral radius, and step selection can be formulated as minimizing that radius. The full inspected Section 4 develops estimation and adaptive search, including conjugate principal eigenvalues, but does not state the scalar closed-form boundary \(p=1/2\), the two asymmetric minimizers below it, or the global pair \(1/\sqrt2\). Current Resultary searches for scalar PDHG, fixed product, spectral radius and the one-half phase transition did not return an equivalent theorem.
+
+## value
+
+PASS
+
+Step-size tuning is a central practical issue for PDHG, and current work explicitly uses spectral-radius monitoring on quadratic models. The scalar benchmark exposes a nontrivial phase transition: below product one half the fastest pair is asymmetric and lies at eigenvalue coalescence, while above it balance is optimal; globally the best product is exactly one half. Coupling this with the prior product-preserving adaptive rule gives a precise parameterization limitation. This is a motivated exact benchmark with reusable tuning insight, not an arbitrary two-by-two exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
