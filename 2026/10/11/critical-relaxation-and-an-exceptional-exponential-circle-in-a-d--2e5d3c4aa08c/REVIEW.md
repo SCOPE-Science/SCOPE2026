@@ -1,0 +1,19 @@
+# Scientific review: critical discrete repulsive triangle
+
+## Correctness — PASS
+
+The exact two-dimensional phase map follows by subtraction of the three node equations. The four fixed configurations are obtained by solving the two sine equations, and the stated eigenvalues follow from their displayed Jacobians. The critical fixed configuration has one center multiplier \(1\) and one contracting multiplier \(1-3h\). Exact invariant center and transverse coordinates permit a local comparison proving geometric transverse separation, algebraic center decay, and a convergent logarithmic renormalization. For \(0<h<1/3\), the weighted Laplacian eigenvalues \(0,2,3\) establish global gradient descent and global invertibility. Two saddles have null stable sets, and the sole source is exceptional; a local parabolic-attraction argument supplies the remaining nonhyperbolic case. The precise strong-stable circle is checked by an exact scalar restriction. Replaying `verify.py` yields 279 finite coordinate, fixed-state and finite-time asymptotic checks and 12 rational Taylor equalities. None is treated as a proof of the infinite statements.
+
+## Originality — PASS, subject to the stated risks
+
+Zhao–Zhou (arXiv:2407.11314) gives the continuous-time weighted-isosceles equilibrium and linear stability classifications; these are prior results and not claimed here. Shim (2020) derives an exact exponential rate for the attractive homogeneous discrete model, a noncritical regime. Gade–Gupta (arXiv:2609.22715) studies global/distributed-frequency discrete synchronization and motivates examination of discrete corrections, but its full text could not be retrieved in this review. General small-step gradient-descent results and generic parabolic expansion techniques are acknowledged as standard. The claim adds a system-specific, globally almost-sure critical basin/exceptional-circle classification and a sharp coefficient that changes sign with the numerical step. Searches of the published mathematical records for the same graph, degeneracy, inverse-square asymptotic, parameter normalization and stronger general statements did not identify an equivalent complete theorem. Absence of a search hit is not certification of priority; possible older equivalent calculations remain a residual risk.
+
+## Mathematical value — PASS
+
+The oscillator triangle is a minimal frustrated interaction network with a natural edge-weight boundary separating equilibrium arrangements. Linear stability alone cannot decide the relaxation of its marginal mode. The theorem quantifies the divergent critical relaxation time, identifies exactly which initial phases instead have geometric convergence, proves that the slow regime is Haar-typical in the small-step dynamics, and isolates a step-induced subleading effect absent from continuous-time linearization. This is a motivated dynamical classification, not an arbitrary coefficient extraction. The scope is only this fixed weighted triangle and its stated step ranges.
+
+## Closest literature and limitations
+
+The nearest source is the full six-page 2024 Zhao–Zhou paper, which already establishes the corresponding continuous-time equilibria. The 2020 Shim paper covers noncritical attractive maps. The qualifying September 2026 Gade–Gupta preprint was retrievable as an abstract but not as a full paper, leaving a limited priority uncertainty. A later October 2026 general discrete-network paper supplies relevant descent context but is not an eligible source for the anchored literature window and its Morse-hyperbolic conclusions do not directly settle this degenerate three-node configuration. No uniqueness of any invariant probability measure, statistical-noise robustness, or global theorem beyond the stated step range is claimed.
+
+Same-model review: passed. Independent audit: not yet performed.
