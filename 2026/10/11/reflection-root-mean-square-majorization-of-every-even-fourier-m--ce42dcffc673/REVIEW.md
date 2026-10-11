@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The reflection map \(x\mapsto t-x\) reverses autocorrelation shifts. Applying ordinary two-vector Cauchy--Schwarz termwise and reindexing proves every correlation inequality, with an explicit sum-of-squares difference and exact \(\ell^2\) preservation. The sum over all correlations is the square of the coefficient \(\ell^1\) mass, which strictly increases for every asymmetric nonnegative input; hence some nonzero lag strictly improves. Fourier orthogonality and the nonnegative expansion of each even moment propagate that strictness to every even exponent. Compactness completes the extremizer implication. The supplied script checks 624 exact cyclic cases, but the general statement rests on the written proof.
+
+## Originality — PASS, with a disclosed historical risk
+The directly inspected Green--Ruzsa and Krenedits texts concern the even-exponent coefficient majorant and failures away from even exponents. Their statements do not compare all autocorrelations under pairwise root-mean-square reflection. The full Katz--Rahman--Ward treatment of palindromic sequences addresses equality of autocorrelations and factorization, not the present inequality and strictness. Searches of relevant published research records under reflection, palindrome, autocorrelation, RMS balancing, and all-even-moment aliases did not expose a statement implying this theorem. A known four-frequency result is a special case; the present assertion holds in every length and arbitrary discrete abelian group, and thus is not a restatement of that finite-dimensional case. Older rearrangement literature may contain this elementary argument, so priority remains uncertain.
+
+## Mathematical value — PASS
+The result provides a single constructive, norm-preserving operation that simultaneously improves every aperiodic or periodic autocorrelation and every positive even Fourier moment on **every** centrally symmetric finite frequency mask. It supplies an unconditional necessary symmetry law for *all* sharp even-exponent Fourier norm maximizers and halves the independent modulus parameters for consecutive frequencies of arbitrary length. The gain is structural rather than a claimed new numerical norm: it can reduce otherwise high-dimensional extremal problems before exact optimization. The identity identifies each lag's defect and its equality condition. Simple individual Cauchy--Schwarz steps do not themselves quantify this simultaneous family of extremizers.
+
+## Closest literature and remaining limitations
+Green--Ruzsa (arXiv:math/0303244) and Krenedits (arXiv:1006.0409) establish majorant context; Katz--Rahman--Ward (arXiv:2308.07467) develops palindrome autocorrelation theory, but not strict RMS-reflection majorization. A plausible older paper by Goldstein--McDonald (1984) has not been inspected beyond bibliographic information and was not dismissed as noncovering. No claim of exhaustive historical priority or phase classification is made. Numerical examples are corroboration, not a substitute for the proof.
+
+Same-model review: passed. Independent audit: not yet performed.
