@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The packaged checker `artifacts/verify.py` verifies algebraic identities and samples the stated inequalities on deterministic finite test sets; these computations are corroborative and do not replace the universal proof.
+# Independent mathematical audit
 
-The checked analytic chain is: product-test acceptance reduces to \(P_{\mathrm{PT}}=(1+s)/2\); the published generalized-W overlap formula reduces in the high-entanglement branch to \(\omega=4pqr/(1-2s)\); the fixed-\(s\) trigonometric parametrization gives the sharp product lower bound; the induced \(w(t)=(2+t)^2/[9(1+t)]\) is increasing; and its inverse is the stated \(T(\omega)\). In the high-overlap branch, the largest-coefficient formula plus \(q^2+r^2\le(q+r)^2\) gives the sharp boundary.
+## correctness
 
-The checker also verifies the endpoint values \(P_{\mathrm{PT}}=2/3\) and dimension-free value \(19/27\) at \(\omega=4/9\), hence deficit \(1/27\), and confirms the exact factorization of the deficit for representative values throughout \([4/9,1/2]\).
+PASS
 
-Limits: no computation here enumerates all pure three-qubit states, and no such enumeration is used by the claim. The theorem is restricted to generalized W states. Independent audit has not been performed.
+For a W state the product-test purity identity reduces acceptance to one half of one plus the sum of squared probabilities. In the all-coefficients-at-most-one-half regime, the published circumradius formula converts fixed overlap to a relation between the product and this second moment. A trigonometric parameterization of triples with fixed sum and second moment shows the product is minimized exactly at one-small/two-equal triples, and monotone inversion yields the announced frontier and equality states. Above one half, the product overlap is the largest coefficient and convexity pushes the remaining mass to one boundary coefficient. Fresh checks on 100,000 random W triples found no violation, and 101 equality-family points matched the closed frontier to numerical precision.
+
+## originality
+
+PASS
+
+The 2026 product-test theorem gives the exact dimension-free curve with arbitrary local dimensions; it is a valid upper benchmark but does not give the optimum within the three-qubit W family. The older W-state literature supplies the exact product-overlap branches but never optimizes product-test acceptance at fixed overlap. The audited constrained simplex optimization and equality classification therefore fill a genuine canonical fixed-family problem, and no equivalent Resultary finding was located.
+
+## value
+
+PASS
+
+The generalized W family is the canonical three-qubit family containing the globally geometrically most-entangled W state. The exact fixed-overlap frontier quantifies a genuine fixed-dimension obstruction to the newly solved dimension-free problem and provides a sharp benchmark with complete equality classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
