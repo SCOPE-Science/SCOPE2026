@@ -1,14 +1,14 @@
 # No real tangent-plane ramification in the five Appendix A.1 double-line spectrahedral witnesses
 ## Finding
-Helsø--Ranestad give five explicit real symmetric \(4	imes4\) pencils in Appendix A.1, realizing the double-line spectrahedral node-count pairs \((a,b)=(6,4),(4,4),(4,2),(2,2),(2,0)\). For every one of these five pencils, the real rank-two double line has no real tangent-plane coalescence point.
+Helsø--Ranestad give five explicit real symmetric \(4\times4\) pencils in Appendix A.1, realizing the double-line spectrahedral node-count pairs \((a,b)=(6,4),(4,4),(4,2),(2,2),(2,0)\). For every one of these five pencils, the real rank-two double line has no real tangent-plane coalescence point.
 
 More explicitly, take homogeneous coordinates \([z:w]\) on the double line and normal coordinates \((u,v)\) obtained from the two linear equations of that line. If the determinant is expanded in \((u,v)\), its degree-two normal part has discriminant, up to a positive scalar, equal in the five cases to
 \[
-egin{aligned}
-(6,4):&\quad (w^2+2wz+2z^2)(2w^2+2wz+z^2),\
-(4,4):&\quad (2w^2-2wz+z^2)(8w^2-4wz+z^2),\
-(4,2):&\quad (w^2+2wz+2z^2)(w^2+4wz+5z^2),\
-(2,2):&\quad (w^2+2wz+2z^2)(2w^2+2wz+z^2),\
+\begin{aligned}
+(6,4):&\quad (w^2+2wz+2z^2)(2w^2+2wz+z^2),\\
+(4,4):&\quad (2w^2-2wz+z^2)(8w^2-4wz+z^2),\\
+(4,2):&\quad (w^2+2wz+2z^2)(w^2+4wz+5z^2),\\
+(2,2):&\quad (w^2+2wz+2z^2)(2w^2+2wz+z^2),\\
 (2,0):&\quad (4w^2+4wz+5z^2)(8w^2+4wz+z^2).
 \end{aligned}
 \]

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact verifier reconstructs the five Appendix A.1 symmetric pencils, expands each determinant over the rationals, extracts the degree-two part in two normal coordinates to the double line, and computes the binary discriminant \(B^2-4AC\). It checks the stated factorization for all five cases, tests each quadratic factor for positive definiteness using its exact binary discriminant, and checks coprimality of the two factors. These checks prove that no real point of the double line is a tangent-plane coalescence point and that the complex coalescence divisor has four distinct points.
+# Independent mathematical audit
 
-Run `python verify.py`. A successful replay prints `VERIFY_OK`.
+## correctness
 
-The verification does not test or claim a universal theorem for all double-line spectrahedral symmetroids, nor does it settle the missing \((0,0)\) node-count case.
+PASS
+
+For each source pencil, exact determinant expansion in two normal coordinates gives the degree-two normal form \(Au^2+Buv+Cv^2\). Fresh independent symbolic reconstruction reproduced all five package factorizations of \(B^2-4AC\). Every factor is a positive-definite real binary quadratic with nonzero discriminant and the two factors in each row are coprime. Thus the discriminant is strictly positive on \(\mathbb RP^1\), giving two distinct real tangent planes at every real point, while its four complex projective zeros are simple and nonreal.
+
+## originality
+
+PASS
+
+The source classifies the possible node-count pairs and its original Appendix A.1 prints exactly the five witness pencils, but neither the published classification nor the inspected original appendix computes their transverse discriminant divisors. The earlier complex classification likewise does not determine which of the four coalescence points are real for these concrete witnesses. Resultary's exact search returns the assigned finding and no covering predecessor.
+
+## value
+
+PASS
+
+These five matrices are the complete explicit witness list for the realized double-line spectrahedral node-count pairs in the original source appendix. Their real branch behavior is a natural additional singularity invariant and provides a reproducible benchmark for normalization and real-geometry calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
