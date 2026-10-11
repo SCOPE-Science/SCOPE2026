@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_gs3_proposals.py` is a complete exact replay of the stated finite census.
 
-It generates all \(6^6=46656\) strict labeled three-by-three preference profiles and runs men-proposing Gale–Shapley in two independently organized ways: a one-free-man-at-a-time sequential implementation and a simultaneous-round implementation. Matching and total proposal count must agree profile by profile.
+# Independent mathematical audit
 
-For every profile the script also:
-- verifies that proposal count equals the sum of the three men-optimal partner ranks;
-- brute-force checks all six perfect matchings for stability;
-- reconstructs the proposal-count distribution and rank-multiset distribution;
-- reconstructs the joint proposal-count/stable-multiplicity table;
-- computes all moments and conditional means with exact `Fraction` arithmetic.
+## correctness
 
-Run:
+PASS
 
-`python3 verify_gs3_proposals.py`
+A man proposes exactly to the initial segment of his list ending at his men-optimal partner, so total proposals equal the sum of the three men-optimal partner ranks. A fresh implementation independently enumerated all 6^6=46,656 labeled profiles, obtaining proposal counts 10,368, 15,552, 14,256, 5,832 and 648 for totals 3 through 7. Independently testing all six perfect matchings per profile reproduced the known stable-matching marginals 34,080, 11,484 and 1,092 and exactly the package's joint table. The resulting mean, variance and conditional means follow by exact arithmetic.
 
-The first output line must be:
+## originality
 
-`VERIFY_OK`
+PASS
 
-The replay proves only the finite three-by-three claims. No asymptotic distribution is inferred from enumeration.
+The 2024 exact-enumeration paper already gives the one-round atom and the marginal distribution of the number of stable matchings for three-by-three profiles. It does not tabulate total proposal counts beyond one round, men-optimal rank multisets, the seven-proposal cutoff, or the joint proposal-count/stable-multiplicity distribution. General random stable-marriage work studies asymptotic proposal complexity rather than this exact finite law. The audited joint census therefore adds a natural complete finite benchmark while explicitly treating the known marginals as prior.
+
+## value
+
+PASS
+
+The three-by-three market is the smallest size with three possible stable matchings and nontrivial proposal dynamics beyond one round. A complete exact proposal law, sharp support cutoff, rank decomposition and coupling to stable multiplicity form a natural finite benchmark for random deferred acceptance rather than an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

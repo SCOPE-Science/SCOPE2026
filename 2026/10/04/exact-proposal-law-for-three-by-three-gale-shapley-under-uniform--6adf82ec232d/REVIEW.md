@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is a complete finite census. All \(46656\) strict labeled profiles are run through two Gale–Shapley implementations that agree on matching and proposal count. The proposal count is independently constrained by the exact identity between proposals and the sum of the men-optimal partner ranks. All six perfect matchings are separately tested for stability at every profile. Exact rational arithmetic gives the mean, variance, and conditional means.
+## correctness
 
-Risk: the proof is computational rather than a symbolic classification. The universe is small and exhaustive, and the known one-round count and published stable-matching multiplicity marginals provide independent external calibration.
+PASS
 
-## Originality
-**PASS.** The proposal count itself is classical, and the \(P=3\) one-round count \(10368\) is explicitly prior. The published three-by-three counts of profiles with one, two, or three stable matchings are also prior. The inspected literature does not state the full proposal law, the sharp support endpoint at seven, the seven-atom men-optimal partner-rank law, or the proposal-count/stable-multiplicity joint table. Exact-number searches and semantic searches found no equivalent statement.
+A man proposes exactly to the initial segment of his list ending at his men-optimal partner, so total proposals equal the sum of the three men-optimal partner ranks. A fresh implementation independently enumerated all 6^6=46,656 labeled profiles, obtaining proposal counts 10,368, 15,552, 14,256, 5,832 and 648 for totals 3 through 7. Independently testing all six perfect matchings per profile reproduced the known stable-matching marginals 34,080, 11,484 and 1,092 and exactly the package's joint table. The resulting mean, variance and conditional means follow by exact arithmetic.
 
-Risk: an unindexed exercise, thesis, note, or software table may contain the same finite distribution. Wilson's 1972 paper was used for historical runtime context rather than a whole-document novelty absence claim.
+## originality
 
-## Value
-**PASS.** The number of proposals is the canonical execution-cost statistic for Gale–Shapley, central to both its worst-case and random-input analyses. The three-by-three market is the first size with genuinely varied stable-set multiplicity and nontrivial proposal tails. The exact law gives a finite calibration for asymptotic theory and reveals a sharp link between algorithmic effort, men-optimal partner ranks, and stable-set multiplicity.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The 2024 exact-enumeration paper already gives the one-round atom and the marginal distribution of the number of stable matchings for three-by-three profiles. It does not tabulate total proposal counts beyond one round, men-optimal rank multisets, the seven-proposal cutoff, or the joint proposal-count/stable-multiplicity distribution. General random stable-marriage work studies asymptotic proposal complexity rather than this exact finite law. The audited joint census therefore adds a natural complete finite benchmark while explicitly treating the known marginals as prior.
+
+## value
+
+PASS
+
+The three-by-three market is the smallest size with three possible stable matchings and nontrivial proposal dynamics beyond one round. A complete exact proposal law, sharp support cutoff, rank decomposition and coupling to stable multiplicity form a natural finite benchmark for random deferred acceptance rather than an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
