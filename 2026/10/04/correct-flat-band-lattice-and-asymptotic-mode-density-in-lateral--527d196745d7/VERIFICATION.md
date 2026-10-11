@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,34 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof was checked in four independent steps.
+## correctness
 
-First, for a closed interface the cross-section is disconnected, so the fiber Hamiltonian is an orthogonal direct sum. Its eigenvalues must therefore be the union of the two single-layer spectra
-\[
-B(2n+1)+\left(\frac{\pi m}{d_j}\right)^2.
-\]
+PASS
 
-Second, for \(d_1=ps\) and \(d_2=qs\) with \(\gcd(p,q)=1\), the exact integer solutions of the source's matching relation \(m_1/m_2=d_1/d_2\) are \(m_1=pr\), \(m_2=qr\). The common transverse eigenvalue is consequently \((\pi r/s)^2\).
+The disconnected cross-section is an orthogonal direct sum, so its eigenvalues are the union of the two single-layer spectra rather than sums of transverse energies. Independently solving the source matching relation at \(d_1=ps,d_2=qs\) gives \(m_1=pr,m_2=qr\) and common transverse energy \((\pi r/s)^2\). The exact floor-sum argument yields the stated \(E^{3/2}\) coefficient. Independent numerical branch counts at several coprime width ratios converged to both coefficients and to \(1/(p+q)\), including approximately 0.199818 versus 0.2 for \((p,q)=(2,3)\) at a large cutoff.
 
-Third, the explicit transverse function
-\[
-\chi_r(z)=\sin\!\left(\frac{\pi r z}{s}\right)
-\]
-vanishes at \(z=-d_2\), \(z=0\), and \(z=d_1\), has a continuous derivative at the interface, and satisfies the one-dimensional eigenvalue equation with eigenvalue \((\pi r/s)^2\). This verifies the flat-band construction directly.
+## originality
 
-Fourth, the counting asymptotic is obtained from the exact finite sum
-\[
-N_{\mathrm{flat}}(E)
-=
-\sum_{r\le (s/\pi)\sqrt{E-B}}
-\left\lfloor
-\frac{E-(\pi r/s)^2+B}{2B}
-\right\rfloor
-\]
-and the exact quadratic power sum. The error produced by the floor functions and endpoint replacement is smaller than the stated \(O(E)\) remainder.
+PASS
 
-The accompanying standard-library checker verifies representative coprime width ratios, common wave numbers, interface zeros, exact finite counts, and convergence to the leading constants. It is a reproducibility aid, not a substitute for the analytic proof.
+The same-model correction and density refinement were not found as a prior published statement. The primary paper prints the two-transverse-square expression for the disconnected system but its single-layer formula and Theorem 3.2 support the corrected direct-sum and matching mechanism. No indexed correction or exact branch-density statement was located. The later Exner--Spitzkopf paper studies a different potential-obstacle geometry.
 
-No statement about distinct numerical-energy counting, absolutely continuous band widths, band crossings, open-gap counts, or disorder stability is verified here.
+## value
+
+PASS
+
+The correction changes the decoupled spectral baseline used to organize infinitely many bands, and the density law quantifies exactly what fraction of branch labels survive finite window coupling for a reduced commensurate width ratio. This is structurally relevant spectral bookkeeping rather than a cosmetic notation change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

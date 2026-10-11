@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:52.368738Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 196ea99a52d5374820324c7cdc28c479654aad9a",
+        "VERIFICATION.md blob 3e4e64c7dffca1ac6224a29d0e489167f27eab4b",
+        "verify.py blob 3c1e595990ec2425aaf612aa03fddc1ca01ff21f",
+        "independent direct-sum, Diophantine, and branch-count replay"
+      ],
+      "rationale": "The disconnected cross-section is an orthogonal direct sum, so its eigenvalues are the union of the two single-layer spectra rather than sums of transverse energies. Independently solving the source matching relation at \\(d_1=ps,d_2=qs\\) gives \\(m_1=pr,m_2=qr\\) and common transverse energy \\((\\pi r/s)^2\\). The exact floor-sum argument yields the stated \\(E^{3/2}\\) coefficient. Independent numerical branch counts at several coprime width ratios converged to both coefficients and to \\(1/(p+q)\\), including approximately 0.199818 versus 0.2 for \\((p,q)=(2,3)\\) at a large cutoff.",
+      "residual_risks": [
+        "The asymptotic concerns labels rather than distinct numerical energies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.2 proves that surviving flat bands require \\(m_1/m_2=d_1/d_2\\) and explains the interface-vanishing smooth matching.",
+          "The 2025 potential-obstacle paper concerns a translationally invariant planar potential rather than two hard-wall layers coupled through a window."
+        ],
+        "reasoning": "The matching theorem provides important prior structure but does not itself state the correction to the disconnected spectrum or the branch-label survival fraction; the later paper is a different model.",
+        "searches": [
+          "Primary full-text inspection of arXiv:2207.01252, especially the single-layer spectrum and Theorem 3.2",
+          "arXiv:2410.16036 / DOI:10.1063/5.0244807"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.01252 / DOI:10.1088/1402-4896/ac925e (Exner, full primary PDF)",
+        "arXiv:2410.16036 / DOI:10.1063/5.0244807 (Exner--Spitzkopf, related different geometry)",
+        "Resultary semantic search: Magnetic transport laterally coupled layers flat bands commensurate widths direct sum correction asymptotic flat mode density p q 1/(p+q)",
+        "Exact-title/erratum search for Magnetic transport in laterally coupled layers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source matching condition mechanically gives \\(m_1=pr, m_2=qr\\), but its displayed decoupled energy is inconsistent with direct-sum geometry.",
+          "The exact \\(E^{3/2}\\) branch-density coefficient and limiting fraction require counting the corrected common lattice against both disconnected layer lattices; they are not printed in the source."
+        ],
+        "reasoning": "The source strongly motivates the arithmetic lattice, so novelty is not claimed for commensurability itself. The surviving contribution is the documented source correction together with the explicit branch-density consequence, which is not already stated by the prior theorem.",
+        "searches": [
+          "Test the final claim against Exner Theorem 3.2 and the single-layer energy formula",
+          "Compare the density statement with the source matching condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper itself is the nearest formulation and visibly prints Eq. (3.3a) with two transverse squares while its single-layer energies contain one transverse square.",
+          "No exact correction or \\(1/(p+q)\\) density result appeared in the inspected Resultary top results or targeted literature search."
+        ],
+        "reasoning": "Equivalent coverage would need either an explicit direct-sum correction to Eq. (3.3a) or the same coprime common-mode lattice/density law. The inspected records did not supply either.",
+        "searches": [
+          "Exact-title search for “Magnetic transport in laterally coupled layers” with correction, erratum, Eq. (3.3a), and flat-band density terms",
+          "Resultary semantic query recorded in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top Resultary matches were unrelated spectral/counting findings rather than this model; no exact published correction/table was retrieved."
+        ],
+        "reasoning": "This is not a standard database invariant. A prior erratum, table, or note containing the corrected spectrum or exact density ratio would directly cover it; none was found in the checked sources.",
+        "searches": [
+          "Resultary semantic query in checked_sources",
+          "Exact-title and DOI searches for an erratum/correction"
+        ]
+      },
+      "rationale": "The same-model correction and density refinement were not found as a prior published statement. The primary paper prints the two-transverse-square expression for the disconnected system but its single-layer formula and Theorem 3.2 support the corrected direct-sum and matching mechanism. No indexed correction or exact branch-density statement was located. The later Exner--Spitzkopf paper studies a different potential-obstacle geometry.",
+      "residual_risks": [
+        "An unindexed erratum or author note could already record the correction to Eq. (3.3a).",
+        "The asymptotic counts branch labels with multiplicity; arithmetic coincidences can merge distinct numerical energies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_WITH_SOURCE_INCONSISTENCY",
+          "evidence": "The paper prints two transverse squares in Eq. (3.3a), but Theorem 3.2 gives the matching relation and the surrounding single-layer formulas use one transverse square.",
+          "identifier_or_url": "arXiv:2207.01252; DOI:10.1088/1402-4896/ac925e",
+          "material_read": "Complete primary PDF at the single-layer spectral formula, the disconnected-layer Eq. (3.3a), Theorem 3.2 and its smooth-matching proof, and later band-edge discussion.",
+          "method": "lawful open full-text PDF with rendered-page inspection of the disputed display and theorem",
+          "title": "Magnetic transport in laterally coupled layers",
+          "trigger": "Exact primary model and strongest coverage risk."
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRY",
+          "evidence": "It studies a planar translationally invariant potential obstacle, not the two-layer window-coupling model.",
+          "identifier_or_url": "arXiv:2410.16036; DOI:10.1063/5.0244807",
+          "material_read": "Primary abstract and publication record.",
+          "method": "lawful primary bibliographic/abstract inspection",
+          "title": "Magnetic transport due to a translationally invariant potential obstacle",
+          "trigger": "Later magnetic-transport work by the same research line."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exner 2022 primary paper",
+        "independent asymptotic replay"
+      ],
+      "rationale": "The correction changes the decoupled spectral baseline used to organize infinitely many bands, and the density law quantifies exactly what fraction of branch labels survive finite window coupling for a reduced commensurate width ratio. This is structurally relevant spectral bookkeeping rather than a cosmetic notation change.",
+      "residual_risks": [
+        "The refinement does not address widths, crossings, or distinct-energy degeneracies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed erratum or author note could already record the correction to Eq. (3.3a).",
+    "The asymptotic counts branch labels with multiplicity; arithmetic coincidences can merge distinct numerical energies."
+  ],
+  "schema_version": 1
+}

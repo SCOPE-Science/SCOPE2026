@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The closed-interface operator is an orthogonal direct sum, so its spectrum is the union of the two separated single-layer spectra. For commensurate widths \(d_1=ps\), \(d_2=qs\) with \(\gcd(p,q)=1\), the source's matching condition forces \(m_1=pr\), \(m_2=qr\), which gives the common transverse wave number \(\pi r/s\). The explicit mode \(\sin(\pi r z/s)\) vanishes at both outer boundaries and at the interface and is smooth there. The asymptotic count follows from an exact floor sum and the exact identity for \(\sum_{r=1}^R r^2\). Finite numerical checks are not used as proof.
+PASS
 
-## Originality
+The disconnected cross-section is an orthogonal direct sum, so its eigenvalues are the union of the two single-layer spectra rather than sums of transverse energies. Independently solving the source matching relation at \(d_1=ps,d_2=qs\) gives \(m_1=pr,m_2=qr\) and common transverse energy \((\pi r/s)^2\). The exact floor-sum argument yields the stated \(E^{3/2}\) coefficient. Independent numerical branch counts at several coprime width ratios converged to both coefficients and to \(1/(p+q)\), including approximately 0.199818 versus 0.2 for \((p,q)=(2,3)\) at a large cutoff.
 
-**PASS.** The primary full text was inspected around the decoupled formula, the symmetric theorem, the unequal-width commensurability theorem and proof, and the later single-transverse-square band edge. Targeted searches for a correction to Eq. (3.3a), for the explicit flat-band lattice, and for a Weyl-type or density statement did not locate an equivalent published result. The closest later magnetic-transport paper concerns a translationally invariant potential obstacle rather than two laterally coupled layers.
+## originality
 
-Residual risk remains that an unindexed erratum, author note, or equivalent counting observation exists under different terminology.
+PASS
 
-## Value
+The same-model correction and density refinement were not found as a prior published statement. The primary paper prints the two-transverse-square expression for the disconnected system but its single-layer formula and Theorem 3.2 support the corrected direct-sum and matching mechanism. No indexed correction or exact branch-density statement was located. The later Exner--Spitzkopf paper studies a different potential-obstacle geometry.
 
-**PASS.** The correction changes the locations and indexing of infinitely degenerate spectral levels, so it is not merely typographical. The coprime lattice and the sharp leading branch-label density \(1/(p+q)\) give a natural quantitative measure of the flat spectrum that survives lateral coupling. The result also reconciles the unequal-width formula with the source's symmetric theorem and its later single-square band-edge expression.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The correction changes the decoupled spectral baseline used to organize infinitely many bands, and the density law quantifies exactly what fraction of branch labels survive finite window coupling for a reduced commensurate width ratio. This is structurally relevant spectral bookkeeping rather than a cosmetic notation change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
