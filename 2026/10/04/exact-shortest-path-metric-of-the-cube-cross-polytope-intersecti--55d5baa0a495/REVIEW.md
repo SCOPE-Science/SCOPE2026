@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the vertex set from the published polar description, derives the edge relation by exposed-face optimization, proves lower bounds with a target-match invariant, and gives explicit paths attaining every case. The shell formula is counted from the same overlap decomposition. The packaged BFS checker confirms every pair through dimension seven but is not used as the infinite proof.
+## correctness
 
-## Originality
-PASS. The closest sources were compared by implication rather than title. Cherkashin–Kiselev define the broader scalar-product graph family but study independence numbers; Deza–Hiriart-Urruty–Pournin determine the optimization polytopes' face data and vertices but not their all-pairs graph metric; Takhanov–Yun later use exactly the signed-Johnson adjacency but their accessible abstract is about independent sets and kissing arrangements. Database and exact-form literature searches found no covering statement. Residual risk remains because the 2026 full text was inaccessible for this comparison.
+PASS
 
-## Value
-PASS. The exact metric and shell distribution provide navigational structure for a natural family of norm balls already motivated by optimization and monotone-path computation, and connect that polytope skeleton to the signed Johnson graph used in current combinatorial-geometry work.
+The published polarity description gives the vertex set. Maximizing a linear functional over the intersection ball shows that an exposed one-dimensional face has exactly \(k-1\) forced signed coordinates and a two-way tie for the last coordinate, hence adjacency is exactly one signed-coordinate exchange. Each edge can increase the number of correct target signed coordinates by at most one; if supports agree and the vertices differ, the first edge must leave the support and an extra step is necessary. The explicit exchange chains attain both lower bounds. Counting same-sign, opposite-sign and exchanged coordinates gives the shell formula. A fresh independent breadth-first replay on \((d,k)=(4,2)\) and \((5,3)\) matched every tested pair distance; the frozen checker was read and exhausts all cases through dimension seven.
 
-## Closest literature and limitations
-The theorem is limited to integer \(k\), ordinary unweighted one-skeleton distance, and the bodies \(P_{d,k}\). Noninteger parameters and other face-adjacency metrics are not claimed. The finite checker is corroborative only.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Deza-Hiriart-Urruty-Pournin identify the optimization-ball family, its polar/vertices, face data and volumes but do not state the all-pairs one-skeleton metric. Cherkashin-Kiselev study independence numbers in the broader Johnson-type graph family. Takhanov-Yun define exactly the signed-Johnson adjacency \(\langle u,v\rangle=k-1\) but their accessible primary abstract advertises maximum independent-set and kissing-arrangement classifications, not shortest paths or diameter. Full text of that very recent paper was unavailable through the open routes in this run; the authorized institutional retrieval then returned an operational error and was not retried, so it remains an explicit residual risk rather than negative evidence.
+
+## value
+
+PASS
+
+These are natural norm balls motivated by optimization, and their skeleton is a current signed-Johnson graph used in coding/combinatorial geometry. An exact all-pairs metric, diameter and distance distribution provide structural navigational information not contained in the published face enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

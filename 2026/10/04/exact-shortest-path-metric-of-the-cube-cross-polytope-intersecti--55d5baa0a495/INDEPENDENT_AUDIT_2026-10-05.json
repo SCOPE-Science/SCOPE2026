@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:03:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published polarity description gives the vertex set. Maximizing a linear functional over the intersection ball shows that an exposed one-dimensional face has exactly \\(k-1\\) forced signed coordinates and a two-way tie for the last coordinate, hence adjacency is exactly one signed-coordinate exchange. Each edge can increase the number of correct target signed coordinates by at most one; if supports agree and the vertices differ, the first edge must leave the support and an extra step is necessary. The explicit exchange chains attain both lower bounds. Counting same-sign, opposite-sign and exchanged coordinates gives the shell formula. A fresh independent breadth-first replay on \\((d,k)=(4,2)\\) and \\((5,3)\\) matched every tested pair distance; the frozen checker was read and exhausts all cases through dimension seven.",
+      "risk": "The theorem treats integer \\(k\\) and the ordinary unweighted one-skeleton metric only.",
+      "sources": [
+        "Deza-Hiriart-Urruty-Pournin, arXiv:2011.05607 / DOI:10.55016/ojs/cdm.v16i3.71526",
+        "Cherkashin-Kiselev, arXiv:1907.06752",
+        "Takhanov-Yun, arXiv:2606.03299",
+        "frozen RESULT.md and artifacts/verify_metric.py",
+        "fresh independent BFS replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The polytope paper gives face/vertex structure and optimization motivation, not all-pairs navigation.",
+          "The Johnson-type papers focus on independent sets/codes rather than the shortest-path metric in the inspected material."
+        ],
+        "reasoning": "The broader object-level literature does not, in the material actually accessible, imply the distance formula or shell enumeration.",
+        "searches": [
+          "Deza-Hiriart-Urruty-Pournin arXiv:2011.05607 full article",
+          "Cherkashin-Kiselev arXiv:1907.06752",
+          "Takhanov-Yun arXiv:2606.03299"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2011.05607",
+        "arXiv:1907.06752",
+        "arXiv:2606.03299",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The vertex description plus the later adjacency definition do not by themselves determine the graph metric without a path argument.",
+          "Independence-number and kissing-arrangement results do not imply the submitted distance shells."
+        ],
+        "reasoning": "The exposed-edge proof and matching constructive shortest paths are additional content.",
+        "searches": [
+          "arXiv:2011.05607 vertex/face results",
+          "arXiv:1907.06752 Johnson-type graph scope",
+          "arXiv:2606.03299 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Takhanov-Yun define the exact same vertex set and adjacency, making signed-Johnson terminology the decisive equivalent formulation.",
+          "Their accessible abstract describes independent-set classifications and kissing arrangements rather than graph distances."
+        ],
+        "reasoning": "The graph was searched under both optimization-polytope and signed-Johnson names; no accessible prior shortest-path theorem was found.",
+        "searches": [
+          "Resultary: cube cross-polytope intersection signed Johnson graph shortest-path metric diameter shell counts",
+          "searches for signed Johnson graph distance and diameter",
+          "arXiv:2606.03299 primary abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted record was the exact leading hit; nearby records concern different polytope graph metrics or independent-set invariants."
+        ],
+        "reasoning": "No exact table or theorem was located; this is supporting evidence only.",
+        "searches": [
+          "Resultary exact searches for signed-Johnson diameter \\(k+1\\), shortest-path formula and cube-cross-polytope distance shells"
+        ]
+      },
+      "rationale": "Deza-Hiriart-Urruty-Pournin identify the optimization-ball family, its polar/vertices, face data and volumes but do not state the all-pairs one-skeleton metric. Cherkashin-Kiselev study independence numbers in the broader Johnson-type graph family. Takhanov-Yun define exactly the signed-Johnson adjacency \\(\\langle u,v\\rangle=k-1\\) but their accessible primary abstract advertises maximum independent-set and kissing-arrangement classifications, not shortest paths or diameter. Full text of that very recent paper was unavailable through the open routes in this run; the authorized institutional retrieval then returned an operational error and was not retried, so it remains an explicit residual risk rather than negative evidence.",
+      "residual_risks": [
+        "The inaccessible full text of arXiv:2606.03299 could contain an unadvertised metric observation.",
+        "An association-scheme treatment under different terminology could contain the same distance formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTING_VERTEX_GEOMETRY_NOT_GRAPH_METRIC",
+          "evidence": "The paper identifies the body and its sparse-sign vertices and studies face numbers/volumes; no all-pairs shortest-path theorem was found.",
+          "identifier_or_url": "arXiv:2011.05607; DOI:10.55016/ojs/cdm.v16i3.71526",
+          "material_read": "Open full PDF around the polar identity, vertex description, combinatorial results and application context, with rendered-page inspection.",
+          "method": "Lawful open full-text PDF inspection with page rendering.",
+          "title": "Polytopal balls arising in optimization",
+          "trigger": "Primary geometric source for the cube-cross-polytope intersection family."
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Its graph results concern independence numbers; its diameter language is about Hamming diameter of families rather than graph shortest paths.",
+          "identifier_or_url": "arXiv:1907.06752",
+          "material_read": "Primary full-text/abstract material and exact searches for distance, shortest path and diameter terminology.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Independence numbers of Johnson-type graphs",
+          "trigger": "Earlier source for the broader signed Johnson-type graph family."
+        },
+        {
+          "assessment": "HIGHLY_RELEVANT_FULL_TEXT_INACCESSIBLE_RESIDUAL_RISK",
+          "evidence": "The abstract defines the same graph but states independent-set and kissing-arrangement results; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "arXiv:2606.03299",
+          "material_read": "Primary arXiv abstract and metadata; open full-text routes failed. An authorized institutional retrieval was attempted once and returned an operational error.",
+          "method": "Lawful primary abstract inspection plus one authorized institutional attempt; no retry or bypass.",
+          "title": "Classification of independent sets in signed Johnson graphs and applications to kissing arrangements",
+          "trigger": "Very recent source using exactly the same signed-Johnson adjacency."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are natural norm balls motivated by optimization, and their skeleton is a current signed-Johnson graph used in coding/combinatorial geometry. An exact all-pairs metric, diameter and distance distribution provide structural navigational information not contained in the published face enumeration.",
+      "risk": "The result is limited to ordinary graph distance for integer-parameter members of the family.",
+      "sources": [
+        "arXiv:2011.05607",
+        "arXiv:2606.03299"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(P_{d,k}=(kB_1^d)\\cap[-1,1]^d\\) with \\(1\\le k<d\\), the vertices are the \\(k\\)-sparse sign vectors, two vertices are adjacent exactly when their dot product is \\(k-1\\), and the all-pairs graph distance is \\(k-a(u,v)\\) when the supports differ and \\(k-a(u,v)+1\\) for unequal vertices with identical support. Consequently the diameter is \\(k+1\\) and the stated closed distance-shell formula holds.",
+  "limitations": [
+    "Integer \\(1\\le k<d\\) is the nontrivial regime; the cube endpoint \\(k=d\\) is separately Hamming.",
+    "The full Takhanov-Yun 2026 text was inaccessible in this run and remains an originality residual risk."
+  ],
+  "schema_version": 1
+}
