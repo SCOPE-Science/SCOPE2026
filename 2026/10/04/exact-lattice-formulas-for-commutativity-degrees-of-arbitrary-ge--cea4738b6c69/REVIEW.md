@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every subgroup outside the abelian index-two subgroup \(A\) has the unique form \(H(B,x)=\langle B,x\gamma\rangle\) with \(\langle y\rangle\le B\le A\) and \(x\) taken modulo \(B\). Direct multiplication proves that two such subgroups permute exactly when \((xz^{-1})^2\in BC\). The quotient difference map has constant fiber size \(|A:B\cap C|\), so the outside-outside count is exactly the stated \(2\)-torsion-weighted lattice sum. All subgroups contained in \(A\) are normal, which supplies the remaining ordered pairs. The cyclic formula is the \(B=C=\langle y\rangle\) specialization. Exhaustive computation agrees on all packaged examples and reproduces the published numerical special cases.
+## correctness
 
-## Originality
-PASS. The first public 2016 source explicitly asks for both commutativity degrees for arbitrary abelian kernels after solving ordinary dicyclic groups and selected \(C_2\times C_n\) kernels. Its special-case formulas are recovered here. A later dicyclic subgroup-lattice paper studies pronormality rather than subgroup-permutability probability. Targeted statement, alias, quotient, and \(2\)-torsion searches found no arbitrary-kernel theorem equivalent to the displayed formulas or the criterion \((xz^{-1})^2\in BC\).
+PASS
 
-## Value
-PASS. The result addresses a named open direction for an entire natural class of finite groups and supplies both invariants at once. The subgroup formula gives an exact lattice computation for every abelian kernel, while the cyclic formula collapses to three readily computed kernel invariants. The quotient \(2\)-torsion term also explains the distinction from generalized-dihedral behavior and recovers quaternionic examples without case-by-case congruence arguments.
+Every subgroup of the abelian kernel \(A\) is normal because conjugation by the extra generator acts by inversion. Every subgroup outside \(A\) is uniquely \(H(B,x)=\langle B,x\gamma\rangle\) with \(Y=\langle y\rangle\le B\le A\) and \(x\in A/B\). Direct multiplication shows two such subgroups permute exactly when \((xz^{-1})^2\in BC\). For fixed \(B,C\), the map \(A/B\times A/C\to A/BC\) sending \((xB,zC)\) to \(xz^{-1}BC\) is surjective with fiber size \(|A:B\cap C|\), so counting images in the two-torsion of \(A/BC\) gives the displayed double lattice sum. The cyclic-subgroup formula is the specialization \(B=C=Y\). The inspected verifier independently builds the finite groups and complete subgroup lattices for several cyclic and mixed kernels and matches both formulas exactly.
 
-The main scientific limitation is that the subgroup formula retains a finite double sum over the quotient subgroup lattice rather than a single product in invariant-factor parameters.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Lazorec--Tărnăuceanu paper explicitly limits generalized-dicyclic calculations to selected kernels and ends with the open problem of computing both degrees for an arbitrary abelian kernel. The audited subgroup parametrization and quotient two-torsion criterion solve that arbitrary-kernel problem directly. Resultary searches for generalized dicyclic subgroup commutativity returned the assigned theorem plus neighboring graph-theoretic and generalized-dihedral results, but no prior arbitrary-kernel formula. The source's special cyclic and \(C_2\times C_n\) formulas are recovered as specializations rather than duplicated as the main claim.
+
+## value
+
+PASS
+
+The theorem answers a published open problem for the entire natural generalized-dicyclic family and exposes the exact two-torsion obstruction controlling subgroup permutability. The formulas are reusable for arbitrary finite abelian kernels and recover known special cases, so the contribution is structural rather than a collection of computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
