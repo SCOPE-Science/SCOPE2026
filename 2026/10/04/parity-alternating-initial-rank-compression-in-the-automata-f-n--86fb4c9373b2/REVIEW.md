@@ -1,15 +1,21 @@
-# Review: parity-alternating initial rank compression in \(F_n\)
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses only the stated transition maps. The collision letter \(a\) can reduce rank by at most one and is effective exactly when states \(2\) and \(n\) are both present. In a shortest target-rank word, \(a^2=a\) excludes adjacent \(a\)'s. Consecutive effective occurrences have separator lengths different from \(0\) and \(2\); a one-letter separator forces the next separator to have length at least \(3\). This yields the lower bounds by pairing separators. Explicit missing-state formulas for the two parity classes attain those bounds throughout \(1\le s\le(n+1)/2\). Exact power-automaton search for odd \(5\le n\le17\) and direct witness replay through odd \(n=301\) agree with the theorem.
+## correctness
 
-## Originality
-**PASS.** The defining source states the transition maps of \(F_n\) and proves only the reset threshold \(n^2-3n+3\). Its relevant subsection and theorem do not state prescribed-rank minima, and the inspected full text contains no occurrence of “rank.” Searches using the aliases “rank compression,” “deficiency,” “shortest word to rank,” the exact parity formulas, the source identifier, and the primitive-digraph \(V_n\) description found no statement implying the claimed profile. The closest indexed automata records concern different families or different invariants, so they do not dominate the claim. Residual risk remains that a differently named or unindexed note contains the same profile.
+PASS
 
-## Value
-**PASS.** The family \(F_n\) is a classical slowly synchronizing series whose published endpoint behavior is quadratic. Prescribed-rank compression is a natural finer invariant of the same synchronization process. The theorem gives a complete initial half-profile rather than one isolated value, and its parity oscillation exposes a concrete local mechanism—alternating one-step and forced three-step opportunities for effective collisions—that is invisible from the reset threshold alone. The result therefore supplies a reusable structural description of how this slow family begins to compress.
+Only a can lower rank, by at most one, and a shortest word to deficiency s ends at its s-th effective a. Immediately after an effective a, state n is missing, so separators between consecutive effective a's cannot have length zero; length two is impossible, and a length-one separator must be b. After an aba rank drop, both 1 and n are holes, so another one-letter separator would move a hole to 2 and make the next a ineffective. Hence adjacent separator lengths sum to at least four. Pairing separators gives 3s-2 for odd s and 3s-3 for even s. The proposed alternating ba/b^3a witnesses have the explicitly stated hole sets; the half-range hypothesis prevents wraparound and keeps every a effective. Fresh independent power-automaton BFS reproduced the formula for every allowed s at n=5,7,9,11,13, while the frozen verifier extends exact BFS through n=17 and witness replay through n=301. The symbolic separator/hole proof establishes all odd n.
 
-## Closest literature and limitations
-The closest primary source is Ananichev–Gusev–Volkov, arXiv:1302.5793, Section 4.4 and Theorem 7. An earlier paper by the same authors, arXiv:1005.0129, is a preliminary treatment of related slow families but does not define this \(F_n\) profile. The new theorem stops at \(s=(n+1)/2\); no statement is made for larger deficiencies.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Ananichev--Gusev--Volkov define the exact automata F_n and prove only the rank-one endpoint: for odd n>3 the reset threshold is n^2-3n+3. The relevant full PDF page was materially read and visually inspected; it gives the letter actions and Theorem 7 but no prescribed-intermediate-rank profile. Resultary searches for F_n intermediate rank/deficiency compression returned no covering theorem. The submitted parity-alternating initial half-profile therefore survives as a distinct exact classification.
+
+## value
+
+PASS
+
+Intermediate rank compression is a natural refinement of reset complexity for a canonical slow-synchronization family. The exact parity-alternating law over an unbounded half-rank range identifies the local obstruction long before the known quadratic reset endpoint and gives explicit optimal words and hole geometry, making it a substantive structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

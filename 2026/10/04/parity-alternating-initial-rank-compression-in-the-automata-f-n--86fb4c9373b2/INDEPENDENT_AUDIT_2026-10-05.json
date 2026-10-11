@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:57:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6efdb898ce6070067f988f7f1a196b3bbb968606",
+        "artifacts/verify.py blob 58d6323f9d2f6a5cb6170518b26bdca7792a9a81",
+        "arXiv:1302.5793 Section 4.4",
+        "fresh independent power-automaton BFS n=5..13"
+      ],
+      "rationale": "Only a can lower rank, by at most one, and a shortest word to deficiency s ends at its s-th effective a. Immediately after an effective a, state n is missing, so separators between consecutive effective a's cannot have length zero; length two is impossible, and a length-one separator must be b. After an aba rank drop, both 1 and n are holes, so another one-letter separator would move a hole to 2 and make the next a ineffective. Hence adjacent separator lengths sum to at least four. Pairing separators gives 3s-2 for odd s and 3s-3 for even s. The proposed alternating ba/b^3a witnesses have the explicitly stated hole sets; the half-range hypothesis prevents wraparound and keeps every a effective. Fresh independent power-automaton BFS reproduced the formula for every allowed s at n=5,7,9,11,13, while the frozen verifier extends exact BFS through n=17 and witness replay through n=301. The symbolic separator/hole proof establishes all odd n.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected defining subsection states F_n and proves its reset threshold via primitive-digraph arguments.",
+          "No intermediate rank thresholds appear in the inspected source passage, and the Resultary search returned unrelated synchronizing/avoiding-threshold results rather than this family/profile."
+        ],
+        "reasoning": "The known endpoint theorem does not determine shortest words achieving each intermediate deficiency.",
+        "searches": [
+          "arXiv:1302.5793 full primary PDF",
+          "arXiv:1005.0129 earlier slowly synchronizing automata paper",
+          "Resultary synchronizing-automata profile searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.5793",
+        "arXiv:1005.0129",
+        "Resultary F_n intermediate-rank search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reset theorem gives a single endpoint and a long reset word, not lower bounds for earlier rank drops.",
+          "The submitted proof derives local separator constraints between effective a's, obtains parity-dependent lower bounds, and constructs matching hole profiles through the non-wrapping half-range.",
+          "Fresh BFS independently reproduced every claimed lambda_n(s) for n through 13."
+        ],
+        "reasoning": "The half-rank law requires new local-combinatorial analysis and is not a corollary of the reset threshold.",
+        "searches": [
+          "Ananichev--Gusev--Volkov Theorem 7",
+          "assigned effective-collision separator proof",
+          "fresh power-automaton BFS for n=5,7,9,11,13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source F_n has exactly the same collision letter a and cyclic permutation b.",
+          "The source's theorem determines only lambda_n(n-1), the reset endpoint, while the submitted lambda_n(s) concerns every deficiency in the initial half range."
+        ],
+        "reasoning": "The claim is a shortest-rank-compression profile, not a reformulation of reset threshold.",
+        "searches": [
+          "Ananichev--Gusev--Volkov, arXiv:1302.5793, Section 4.4 and Theorem 7",
+          "Resultary query: automata F_n rank compression intermediate rank deficiency Ananichev Gusev Volkov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table or formula matching 3s-2/3s-3 was located.",
+          "The source provides the final reset threshold n^2-3n+3, which is on a different asymptotic scale from the initial profile."
+        ],
+        "reasoning": "The finite BFS checks support the theorem but novelty rests on absence of an implication from the primary endpoint result.",
+        "searches": [
+          "Resultary exact F_n rank-compression search",
+          "targeted literature search around arXiv:1302.5793 and intermediate image rank"
+        ]
+      },
+      "rationale": "Ananichev--Gusev--Volkov define the exact automata F_n and prove only the rank-one endpoint: for odd n>3 the reset threshold is n^2-3n+3. The relevant full PDF page was materially read and visually inspected; it gives the letter actions and Theorem 7 but no prescribed-intermediate-rank profile. Resultary searches for F_n intermediate rank/deficiency compression returned no covering theorem. The submitted parity-alternating initial half-profile therefore survives as a distinct exact classification.",
+      "residual_risks": [
+        "An unindexed synchronizing-automata paper could study the same intermediate rank profile under rank threshold or compressing-word terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_F_N_AND_RESET_ENDPOINT_ONLY",
+          "evidence": "Theorem 7 states reset threshold n^2-3n+3 for odd n>3; the inspected subsection does not state shortest intermediate-rank compression lengths.",
+          "identifier_or_url": "arXiv:1302.5793",
+          "material_read": "Full primary PDF Section 4.4 was read; the page containing the exact letter actions and Theorem 7 was visually inspected.",
+          "method": "Same-family parameter/endpoint comparison.",
+          "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+          "trigger": "Defining primary source for F_n and its known reset threshold."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1302.5793",
+        "arXiv:1005.0129",
+        "Resultary F_n intermediate-rank search"
+      ],
+      "rationale": "Intermediate rank compression is a natural refinement of reset complexity for a canonical slow-synchronization family. The exact parity-alternating law over an unbounded half-rank range identifies the local obstruction long before the known quadratic reset endpoint and gives explicit optimal words and hole geometry, making it a substantive structural classification.",
+      "residual_risks": [
+        "An unindexed synchronizing-automata paper could study the same intermediate rank profile under rank threshold or compressing-word terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1302.5793",
+    "arXiv:1005.0129",
+    "Resultary F_n intermediate-rank search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For odd n>3 and 1<=s<=(n+1)/2, the minimum word length that compresses F_n to image size at most n-s is 3s-2 for odd s and 3s-3 for even s, attained by the two displayed explicit witness families.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed synchronizing-automata paper could study the same intermediate rank profile under rank threshold or compressing-word terminology.",
+    "The theorem deliberately stops at deficiency (n+1)/2 and does not classify the later rank profile or reprove the reset threshold."
+  ]
+}
