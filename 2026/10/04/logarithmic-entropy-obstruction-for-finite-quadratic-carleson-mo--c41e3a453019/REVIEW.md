@@ -1,31 +1,21 @@
-# Review of Logarithmic entropy obstruction for finite quadratic Carleson modulation sets
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source lower construction uses a nonnegative packet average
-\[
-\chi_N=N^{-1}\sum_{j=1}^N\varphi_{Q_j}
-\]
-with exact \(L^1\) norm one. Before comparing with the infinite lacunary supremum, its proof restricts the modulation parameter to one finite dyadic interval containing \(\asymp N^2\) powers of two. The Bohr-set construction gives a set of measure \(\gtrsim N\), and for every point of that set one of those finite parameters makes the harmonic-sum main term \(\gtrsim(\log N)/N\); the source error choices are smaller than that scale. Hence the finite maximal operator itself has weak-\(L^1\) norm \(\gtrsim\log N\). Choosing \(N\asymp\sqrt M\) and enlarging the source block to exactly \(M\) consecutive dyadic parameters gives the stated level-set and norm bounds.
+PASS
 
-No asymptotic claim stronger than the proved lower bound is made.
+Conditioned on the quantitative scale-N estimates stated in the cited endpoint construction, the finite-cardinality deduction is sound: the source-scale block contains \(\asymp N^2\) dyadic parameters, the test has unit \(L^1\) mass, and the cited level \((\log N)/N\) on measure \(\gtrsim N\) gives weak norm \(\gtrsim\log N\). Choosing \(N\asymp\sqrt M\) and enlarging to exactly \(M\) consecutive dyadic parameters can only increase the pointwise maximum, yielding the displayed \(M\)-law. The inaccessible source text prevents line-by-line rechecking of those quoted scale-N estimates, so that dependence is explicit.
 
-## Originality
+## originality
 
-PASS. The full current primary text was inspected through the operator definitions, modular-failure theorem, wave-packet lemma, finite modulation restriction, Bohr-set construction, final lower level set, and finite-maximal positive lemma. The paper states failure for the infinite lacunary operator and a separate square-logarithmic upper estimate for finite oscillatory maximal families; it does not state the extracted lower law
-\[
-\|\mathcal C_{2,\Theta_M}\|_{L^1\to L^{1,\infty}}\gtrsim\log M
-\]
-for finite modulation blocks.
+PASS
 
-Targeted searches for finite quadratic-Carleson modulation sets, modulation entropy, consecutive dyadic blocks, weak-\(L^1\) logarithmic growth, and the source identifier returned no covering published finding. Broader searches recovered classical quadratic and polynomial Carleson boundedness papers but no finite-cardinality endpoint lower statement.
+The accessible primary record states the infinite lacunary endpoint obstruction and positive modular estimates, not a cardinality-dependent finite-family lower law. Resultary search found no earlier finite-modulation entropy statement. Because the full source proof was inaccessible, it remains possible that the \(c\log M\) finite-family corollary is already transparent or explicitly remarked there; under the owner rule this access limitation is retained as a concrete residual risk rather than converted into failure.
 
-The main residual risk is that this quantitative extraction may have been noticed informally because all of its ingredients occur inside the source proof.
+## value
 
-## Value
+PASS
 
-PASS. The source proves qualitative failure of weak type \((1,1)\) for the infinite lacunary supremum. The finding identifies how that failure begins at finite modulation complexity: already \(M\) consecutive dyadic parameters force at least logarithmic weak-\(L^1\) growth. This converts an infinite endpoint obstruction into a quantitative entropy law and places a nontrivial lower exponent beside the source's square-logarithmic finite-maximal upper mechanism.
+A quantitative finite-entropy obstruction is a natural refinement of failure of weak type \((1,1)\): it identifies how endpoint constants must deteriorate as the modulation family grows and connects directly to finite-maximal positive estimates. Even if ultimately a short extraction from the source proof, the exact logarithmic cardinality lower law is mathematically useful.
 
-The statement is therefore a motivated structural calibration of the new endpoint construction, not merely a restatement of its infinite-parameter theorem.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

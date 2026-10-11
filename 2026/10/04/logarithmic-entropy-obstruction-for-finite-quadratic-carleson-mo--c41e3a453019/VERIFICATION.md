@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,74 +19,24 @@
 }
 ---
 
-The verification uses only the finite part of the primary lower-bound construction.
+# Independent mathematical audit
 
-For
-\[
-\chi_N
-=
-\frac1N\sum_{j=1}^N\varphi_{Q_j},
-\]
-each packet is nonnegative and has integral one, hence
-\[
-\|\chi_N\|_1=1.
-\]
+## correctness
 
-The modulation block used in the proof is
-\[
-\Theta_N^0
-=
-\left[
-A_1^{-1}2^{N^2/2},
-A_1 2^{3N^2/4}
-\right]\cap2^{\mathbb N}.
-\]
-Its exponent interval has length
-\[
-N^2/4+O(1),
-\]
-so
-\[
-|\Theta_N^0|\asymp N^2.
-\]
+PASS
 
-The source Bohr-set argument constructs
-\[
-|E_N|\gtrsim N
-\]
-and, for each \(x\in E_N\), chooses
-\[
-\lambda_0\in\Theta_N^0
-\]
-for which the stationary harmonic sum is at least
-\[
-c\frac{\log N}{N}.
-\]
-The source error terms are chosen smaller than a fixed fraction of this level. Therefore
-\[
-\inf_{x\in E_N}
-\mathcal C_{2,\Theta_N^0}\chi_N(x)
-\gtrsim
-\frac{\log N}{N}.
-\]
+Conditioned on the quantitative scale-N estimates stated in the cited endpoint construction, the finite-cardinality deduction is sound: the source-scale block contains \(\asymp N^2\) dyadic parameters, the test has unit \(L^1\) mass, and the cited level \((\log N)/N\) on measure \(\gtrsim N\) gives weak norm \(\gtrsim\log N\). Choosing \(N\asymp\sqrt M\) and enlarging to exactly \(M\) consecutive dyadic parameters can only increase the pointwise maximum, yielding the displayed \(M\)-law. The inaccessible source text prevents line-by-line rechecking of those quoted scale-N estimates, so that dependence is explicit.
 
-It follows immediately that
-\[
-\|\mathcal C_{2,\Theta_N^0}\|_{L^1\to L^{1,\infty}}
-\gtrsim
-\log N.
-\]
+## originality
 
-For an arbitrary sufficiently large integer \(M\), choose
-\[
-N=\lfloor\sqrt M\rfloor
-\]
-and enlarge the source block to exactly \(M\) consecutive dyadic powers. Pointwise maxima are monotone under enlargement of the parameter set, while
-\[
-N\asymp\sqrt M,
-\qquad
-\log N\asymp\log M.
-\]
-This gives the stated \(M\)-parameter level set and weak norm.
+PASS
 
-No finite numerical experiment, extrapolation, or infinite limiting argument is used.
+The accessible primary record states the infinite lacunary endpoint obstruction and positive modular estimates, not a cardinality-dependent finite-family lower law. Resultary search found no earlier finite-modulation entropy statement. Because the full source proof was inaccessible, it remains possible that the \(c\log M\) finite-family corollary is already transparent or explicitly remarked there; under the owner rule this access limitation is retained as a concrete residual risk rather than converted into failure.
+
+## value
+
+PASS
+
+A quantitative finite-entropy obstruction is a natural refinement of failure of weak type \((1,1)\): it identifies how endpoint constants must deteriorate as the modulation family grows and connects directly to finite-maximal positive estimates. Even if ultimately a short extraction from the source proof, the exact logarithmic cardinality lower law is mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
