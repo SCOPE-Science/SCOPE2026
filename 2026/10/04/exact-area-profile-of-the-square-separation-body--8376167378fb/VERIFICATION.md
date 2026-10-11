@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,54 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For
-\[
-Q=[-1,1]^2,
-\]
-the published planar isotropic identity gives
-\[
-m(Q,z)
-=
-\frac1\pi\left[L(Q^z)-8\right].
-\]
-Thus \(\partial Q[\delta]\) is the perimeter-excess level
-\[
-L(Q^z)-8=\pi\delta.
-\]
+## correctness
 
-In a side strip, the fixed tangent vertices are the endpoints of one square side, giving an ellipse with major-axis length
-\[
-2+\pi\delta.
-\]
-In a corner chamber, the tangent vertices are the two endpoints of the two-edge boundary chain through the corner, giving an ellipse with major-axis length
-\[
-4+\pi\delta.
-\]
+PASS
 
-Writing
-\[
-a=1+\frac{\pi\delta}{2},\qquad b^2=a^2-1,\qquad \beta^2=(a+1)^2-2,
-\]
-the exact one-side and one-corner area increments are
-\[
-S=\frac{b^2}{a}+ab\arcsin\!\left(\frac1a\right)
-\]
-and
-\[
-C=(a+1)\beta\arcsin\!\left(\frac{b^2}{\sqrt2\,a(a+1)}\right)-\frac{b^2}{a}.
-\]
-Therefore
-\[
-\operatorname{Area}(Q[\delta])=4+4S+4C,
-\]
-which simplifies to the claimed formula.
+Schneider's isotropic planar identity converts the separation condition to a perimeter-excess sublevel. In a side chamber, the convex hull of the square and the exterior point replaces one side by two tangent segments, giving the stated axis-aligned ellipse; in a corner chamber the corresponding two-vertex tangent geometry gives the rotated ellipse. Their equations meet at the displayed junction, so integrating one side sector and one corner sector and multiplying by four yields the closed formula. Fresh independent evaluation reproduced that formula at \(\delta=0.01,0.1,1\), and series expansion of the exact expression gives the stated half-power asymptotic.
 
-The embedded `verify.py` was replayed from its actual package path. It reconstructs convex hulls of the square and sampled exterior points, verifies the perimeter excess on both ellipse families, checks the shared transition point, and independently integrates the radial sublevel set in \(2048\) directions.
+## originality
 
-The replay output was:
+PASS
 
-`VERIFY_OK square separation-body area profile`
+Schneider proves the general separation-body theory and observes that for a planar polygon under isotropic measure each edge-line chamber contributes an arc of an ellipse. The inspected paper does not specialize those ellipses to the square, assemble the eight arcs, integrate the exact area for every parameter, or derive the square's nonanalytic small-\(\delta\) expansion. The audited theorem is therefore a concrete exact profile inside the general framework rather than a restatement of the framework.
 
-The numerical tests are finite consistency checks only. The all-parameter formula follows from the exact chamber geometry and integrations in `RESULT.md`.
+## value
+
+PASS
+
+The square is the canonical nonsmooth test body for separation-body asymptotics. An explicit all-parameter profile and its \(\delta^{1/2}\) corner-driven boundary layer provide a useful benchmark for the random-halfspace applications motivating the construction, going materially beyond the source's qualitative statement that polygon chambers are elliptical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
