@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:57:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 1086c682dc9dda5c389a98c14fbd62ef330cfa33",
+        "verify_xxz_inhomogeneity.py blob 45b61cbab8a3f108b5a24c740a24545576f9be1e",
+        "Fresh independent 4-by-4 Gibbs/Wootters replay and large-|b| asymptotic check.",
+        "Zhang–Li primary abstract confirms the exact XXZ inhomogeneous-field model and its published finite-critical-field interpretation."
+      ],
+      "rationale": "Direct diagonalization of the 4-by-4 Hamiltonian gives the stated Gibbs X-state. Wootters' formula reduces positivity exactly to \\(J\\sinh(\\eta/T)/\\eta>e^{-J_z/T}\\), \\(\\eta=\\sqrt{J^2+b^2}\\). Since \\(x\\cosh x-\\sinh x>0\\) for \\(x>0\\), \\(\\sinh x/x\\) is strictly increasing, proving the one-threshold topology and the monotone \\(J_z\\)-dependence. Dominant hyperbolic terms give \\(C\\sim J/\\eta\\sim J/|b|\\). A fresh independent matrix replay agreed with the closed formula to about \\(5.4\\times10^{-12}\\) over a representative grid and produced \\(|b|C/J=0.99875,0.99980,0.99995\\) at \\(|b|=20,50,100\\).",
+      "risks": [
+        "The theorem is only for the stated signs \\(J>0\\), \\(J_z\\ge0\\); other sign regimes are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Li provide the exact same model and concurrence setup from which the submitted topology follows.",
+          "Earlier isotropic work already reports entanglement activation by sufficiently strong inhomogeneity in a special case."
+        ],
+        "reasoning": "The exact-source formula is stronger than needed for the positivity-topology conclusion; the later/source-adjacent literature reinforces that the phenomenon is not a new object.",
+        "searches": [
+          "Zhang Li arXiv:quant-ph/0509009",
+          "Asoudeh Karimipour arXiv:quant-ph/0407073 inhomogeneous Heisenberg entanglement",
+          "Wu Zhou DOI:10.1142/S0217979206034583"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query above",
+        "arXiv:quant-ph/0509009 / DOI:10.1103/PhysRevA.72.034302",
+        "DOI:10.1142/S0217979206034583",
+        "DOI:10.1088/0253-6102/48/3/014"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source formula's positive part is governed by \\(J\\sinh(\\eta/T)/\\eta-e^{-J_z/T}\\).",
+          "Strict increase of \\(\\sinh x/x\\) yields the entire zero-versus-positive topology; standard \\(\\sinh/\\cosh\\) asymptotics yield \\(J/|b|\\)."
+        ],
+        "reasoning": "Thus the mathematical content is a routine consequence of prior exact data, even though it corrects the source authors' qualitative interpretation.",
+        "searches": [
+          "Zhang Li 2005 exact concurrence formula and critical-field discussion",
+          "elementary monotonicity of sinh(x)/x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2005 primary source is exactly the same Hamiltonian/Gibbs family and states a finite critical inhomogeneity.",
+          "The audited positivity criterion is just the sign of the prior X-state concurrence formula."
+        ],
+        "reasoning": "Equivalent formulations as monotonicity of the numerator in \\(|b|\\), one-sided activation, or nonexistence of a finite upper zero are the same elementary consequence.",
+        "searches": [
+          "Resultary: XXZ dimer thermal concurrence inhomogeneous magnetic field no finite upper cutoff activation threshold asymptotic",
+          "web: Zhang Li quant-ph/0509009 critical inhomogeneous magnetic field concurrence",
+          "web: exact source title plus concurrence sinh eta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate corrigendum matching all submitted words was located, but corrigendum absence does not override direct implication from the published exact formula."
+        ],
+        "reasoning": "This is not a database/table claim; the decisive prior evidence is the exact formula in the source model.",
+        "searches": [
+          "Resultary XXZ inhomogeneous-field query",
+          "web exact source title and DOI searches"
+        ]
+      },
+      "rationale": "The scientific correction is correct, but the final mathematical claim is already implied by the exact Gibbs/concurrence formula in the 2005 source from which the submission starts. Once that prior formula is written in terms of \\(\\eta=\\sqrt{J^2+b^2}\\), the absence of an upper cutoff follows from the textbook derivative of \\(\\sinh x/x\\), and the reciprocal tail follows immediately from standard hyperbolic asymptotics. The source's prose interprets its own formula incorrectly, but implication-level auditing treats an elementary consequence of an already published exact formula as covered; a contradictory verbal conclusion does not make the formula's routine consequences original.",
+      "residual_risks": [
+        "The Wu–Zhou 2006 full text could not be inspected because the authorized fallback required renewed verification; no retry or bypass was attempted.",
+        "The O failure does not depend on that inaccessible source, because the 2005 source formula already implies the final mathematical topology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_EXACT_FORMULA_IMPLIES_FINAL_TOPOLOGY_BY_ELEMENTARY_CALCULUS",
+          "evidence": [
+            "The primary abstract explicitly states a critical inhomogeneous field independent of \\(J_z\\); the independently reconstructed exact Gibbs formula contradicts that prose and directly yields the submitted correction."
+          ],
+          "identifier_or_url": "arXiv:quant-ph/0509009; DOI:10.1103/PhysRevA.72.034302",
+          "material_read": "Primary abstract and publisher record were accessible; public arXiv body extraction failed. The frozen scientific package reproduces the source Hamiltonian/Gibbs concurrence formula, and that formula was independently re-derived from the Hamiltonian during correctness auditing.",
+          "method": "Public arXiv/APS searches plus independent matrix reconstruction from the cited model.",
+          "title": "Thermal entanglement in a two-qubit Heisenberg XXZ spin chain under an inhomogeneous magnetic field",
+          "trigger": "Exact primary source whose claimed critical inhomogeneity is being corrected."
+        },
+        {
+          "assessment": "ACCESS_BLOCKED; NOT_NEEDED_FOR_DECISIVE_O_FAIL_FROM_2005_PRIOR_FORMULA",
+          "evidence": [
+            "Access failure retained as a source-inspection risk; no negative inference was drawn from it."
+          ],
+          "identifier_or_url": "DOI:10.1142/S0217979206034583",
+          "material_read": "Public/OA routes did not yield full text. The authorized institutional fallback was attempted once and returned an interrupted verification-tab-expired state; it was not retried or bypassed.",
+          "method": "Public search followed by single authorized institutional fallback after OA attempts failed.",
+          "title": "Thermal entanglement in the anisotropic XXZ model under an inhomogeneous magnetic field",
+          "trigger": "Closely related follow-up with same physical parameters and strongest residual overlap risk."
+        },
+        {
+          "assessment": "RELATED_MODEL_FAMILY; NOT_NEEDED_FOR_DECISIVE_COVERAGE",
+          "evidence": [
+            "It confirms the established inhomogeneous-field concurrence framework in the same two-qubit family."
+          ],
+          "identifier_or_url": "DOI:10.1088/0253-6102/48/3/014",
+          "material_read": "Public full-text excerpt containing the Hamiltonian, inhomogeneity parameter and Wootters-concurrence setup.",
+          "method": "Public ResearchGate/web full-text extraction.",
+          "title": "Entanglement in Anisotropic Heisenberg XYZ Chain with Inhomogeneous Magnetic Field",
+          "trigger": "Accessible neighboring anisotropic follow-up useful for model-family comparison."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "The correction changes the topology of the reported entangled region.",
+        "The threshold's \\(J_z\\)-dependence and reciprocal tail make the corrected interpretation quantitatively explicit."
+      ],
+      "rationale": "Correcting a published qualitative phase-boundary interpretation is substantively useful: it changes 'entanglement dies above a finite inhomogeneity' into a one-sided activation law with a positive algebraic tail. The motivation is therefore strong even though the derivation is too directly implied by the prior exact formula to satisfy originality.",
+      "risks": [
+        "The mathematical derivation is elementary once the published concurrence formula is in hand, which is why originality fails despite the physical usefulness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the antiferromagnetic two-qubit XXZ Gibbs family with \\(J>0\\), \\(J_z\\ge0\\), the concurrence positivity set has no finite upper inhomogeneity cutoff: it is either positive for all finite \\(b\\), positive for every nonzero \\(b\\) at the boundary, or activates once above a unique lower threshold; when that threshold exists it decreases with \\(J_z\\), and \\(C(T,b)\\sim J/|b|\\).",
+  "limitations": [
+    "No claim is made for ferromagnetic transverse coupling, negative \\(J_z\\), or monotonicity of concurrence magnitude at all parameters."
+  ],
+  "schema_version": 1
+}
