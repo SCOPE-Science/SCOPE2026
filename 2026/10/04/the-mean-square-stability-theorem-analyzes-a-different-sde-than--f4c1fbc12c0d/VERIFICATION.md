@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-The core verification is analytic.
 
-The original model has diffusion coefficients
-\[
-g_i(N_i)=\sigma_i(t,N_i)N_i.
-\]
-At the positive deterministic equilibrium, the four source cases give
-\[
-(\epsilon N_1^*,\delta N_2^*),\quad
-(\epsilon N_1^*,\delta),\quad
-(\epsilon,\delta),\quad
-(\epsilon,\delta N_2^*),
-\]
-so every positive immigration intensity leaves nonzero diffusion at the claimed equilibrium.
+# Independent mathematical audit
 
-By contrast, the Section-4 coefficients contain \(N_i-N_i^*\) and therefore vanish at \(P^*\). The two SDEs are not related by the stated centering change of variables.
+## correctness
 
-The bundled checker independently reconstructs
-\[
-N_1^*=\frac{101}{150},
-\qquad
-N_2^*=\frac{31}{75},
-\]
-from the source parameter values and evaluates the four exact coefficients of
-\[
-\mathbb E\|N_t-P^*\|^2=q\,t+o(t)
-\]
-at \(\epsilon=0.25\), \(\delta=0.12\).
+PASS
 
-Finite computation is not used to establish the model mismatch or the equilibrium obstruction.
+The primary full text prints the original stochastic terms as \(\sigma_i(t,N_i)N_i\,dW_i\) in equations (2.1)--(2.2), with \(\sigma_i\) either constant or inverse-population. Section 4 instead replaces them by \(\sigma_i(t,N_i)(N_i-N_i^*)\,dW_i\) before applying the mean-square theorem. Centering the original equation leaves, respectively, constant terms \(\epsilon N_1^*\) or \(\epsilon\) and \(\delta N_2^*\) or \(\delta\), so the diffusion never vanishes at the deterministic positive equilibrium when both intensities are positive. Consequently that point is not a constant Itô equilibrium of the original model. Itô's formula at the deterministic point gives right derivative \(\|G(P^*)\|^2\) for the mean-square displacement. Fresh exact arithmetic at the source parameters reproduces \(N_1^*=101/150\), \(N_2^*=31/75\), and the four slopes \(0.0307962711\ldots,0.0427361111\ldots,0.0769,0.06496016\).
+
+## originality
+
+PASS
+
+The source itself prints both incompatible equations but presents Section 4 as the mean-square stability analysis of systems (2.1)--(2.2) and later interprets Theorem 4.3 that way numerically. Current exact-title, DOI, correction, and model-switch searches found the source and bibliographic mirrors but no corrigendum or prior published diagnosis of this mismatch. General mean-square stability literature requires diffusion to vanish at a point equilibrium but does not identify this source-specific replacement or its four exact departure rates.
+
+## value
+
+PASS
+
+The model switch invalidates the paper's principal interpretation that sufficiently small random immigration makes the deterministic positive point asymptotically mean-square stable. The exact short-time departure rates quantify the failure at the paper's own benchmark and sharply separate point stability from legitimate stationary-fluctuation questions, making this a substantive correction rather than a notational objection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:07:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 71652a8dbc2ae8d72939c50783a3e2e626d48d82",
+        "assigned verify.py blob 01c28059bfaedd66231ba41e67e7b8fc99267b57",
+        "Alebraheem--Mohammed--Tayel--Aziz, DOI 10.3934/math.2024725 full searchable primary text",
+        "fresh exact equilibrium and short-time slope replay",
+        "standard Itô equilibrium criterion"
+      ],
+      "rationale": "The primary full text prints the original stochastic terms as \\(\\sigma_i(t,N_i)N_i\\,dW_i\\) in equations (2.1)--(2.2), with \\(\\sigma_i\\) either constant or inverse-population. Section 4 instead replaces them by \\(\\sigma_i(t,N_i)(N_i-N_i^*)\\,dW_i\\) before applying the mean-square theorem. Centering the original equation leaves, respectively, constant terms \\(\\epsilon N_1^*\\) or \\(\\epsilon\\) and \\(\\delta N_2^*\\) or \\(\\delta\\), so the diffusion never vanishes at the deterministic positive equilibrium when both intensities are positive. Consequently that point is not a constant Itô equilibrium of the original model. Itô's formula at the deterministic point gives right derivative \\(\\|G(P^*)\\|^2\\) for the mean-square displacement. Fresh exact arithmetic at the source parameters reproduces \\(N_1^*=101/150\\), \\(N_2^*=31/75\\), and the four slopes \\(0.0307962711\\ldots,0.0427361111\\ldots,0.0769,0.06496016\\).",
+      "residual_risks": [
+        "The result does not classify stationary distributions or bounded-moment behavior of the original persistent-noise model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General theory assumes drift and diffusion vanish at the equilibrium before discussing point mean-square stability.",
+          "It does not compare the two equation sets in this 2024 source."
+        ],
+        "reasoning": "The broader theory supplies the criterion but not the source-specific correction or quantitative obstruction.",
+        "searches": [
+          "Senosiain--Tocino 2023 mean-square stability framework",
+          "general Itô equilibrium criterion"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/math.2024725",
+        "Senosiain--Tocino 2023",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.3 proves stability only after the diffusion has been changed so that the centered origin is a stochastic equilibrium.",
+          "The original centered diffusion has a nonzero constant part, so the theorem's trivial solution is not a solution of the original model."
+        ],
+        "reasoning": "The theorem cannot be transferred back to equations (2.1)--(2.2); identifying that failure is the novelty-bearing source audit.",
+        "searches": [
+          "Theorem 4.3 for altered centered-noise SDE versus original immigration SDE"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary text shows equations (2.1)--(2.2) with factors \\(N_i\\) and equations (4.1)--(4.2) with factors \\(N_i-N_i^*\\).",
+          "No correction or prior same-diagnosis result was retrieved."
+        ],
+        "reasoning": "The audited statement is the precise consequence of a printed model switch, not a general observation about noisy equilibria.",
+        "searches": [
+          "web query: \"Stochastic prey-predator model with small random immigration\" equations 4.1 4.2",
+          "web query: \"Stochastic prey-predator model with small random immigration\" correction erratum",
+          "Resultary query: stochastic prey predator small random immigration mean square stability altered SDE equations 2.1 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper's own numerical parameters and claimed small-noise regime are printed in the primary text.",
+          "No external correction table or alternative short-time slopes were retrieved."
+        ],
+        "reasoning": "The four slopes are freshly derived from the printed model rather than copied from a database.",
+        "searches": [
+          "DOI 10.3934/math.2024725 primary equations and numerical parameter search",
+          "current correction/erratum web search"
+        ]
+      },
+      "rationale": "The source itself prints both incompatible equations but presents Section 4 as the mean-square stability analysis of systems (2.1)--(2.2) and later interprets Theorem 4.3 that way numerically. Current exact-title, DOI, correction, and model-switch searches found the source and bibliographic mirrors but no corrigendum or prior published diagnosis of this mismatch. General mean-square stability literature requires diffusion to vanish at a point equilibrium but does not identify this source-specific replacement or its four exact departure rates.",
+      "residual_risks": [
+        "A nonindexed author communication could acknowledge the mismatch; no published correction was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_MODEL_SWITCH_CONFIRMED",
+          "evidence": "The original stochastic factors are \\(\\sigma_iN_i\\); Section 4 replaces them by \\(\\sigma_i(N_i-N_i^*)\\) while claiming to study the original systems.",
+          "identifier_or_url": "DOI 10.3934/math.2024725",
+          "material_read": "full searchable primary text at equations (2.1)--(2.4), the positive equilibrium, equations (4.1)--(4.3), Theorem 4.3, and the numerical interpretation",
+          "method": "primary full-text web inspection",
+          "title": "Stochastic prey-predator model with small random immigration",
+          "trigger": "exact source of the original model and claimed mean-square theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2024 primary article",
+        "standard mean-square stability theory",
+        "fresh exact calculation"
+      ],
+      "rationale": "The model switch invalidates the paper's principal interpretation that sufficiently small random immigration makes the deterministic positive point asymptotically mean-square stable. The exact short-time departure rates quantify the failure at the paper's own benchmark and sharply separate point stability from legitimate stationary-fluctuation questions, making this a substantive correction rather than a notational objection.",
+      "residual_risks": [
+        "The altered Section-4 SDE may itself have a valid stability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result does not classify stationary distributions or bounded-moment behavior of the original persistent-noise model.",
+    "A nonindexed author communication could acknowledge the mismatch; no published correction was found.",
+    "The altered Section-4 SDE may itself have a valid stability theorem."
+  ]
+}

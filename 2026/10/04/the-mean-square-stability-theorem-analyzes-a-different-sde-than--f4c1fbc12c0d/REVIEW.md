@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The original stochastic term is \(\sigma_i(t,N_i)N_i\,dW_i\). Centering by \(U_i=N_i-N_i^*\) therefore gives \(\sigma_i(t,U_i+N_i^*)(U_i+N_i^*)\,dW_i\), not the Section-4 term \(\sigma_i(t,N_i)U_i\,dW_i\). For each of the paper's four choices of \(\sigma_i\), the original diffusion at \(U=0\) is nonzero whenever the immigration intensities are positive.
+PASS
 
-A constant Itô equilibrium requires zero diffusion. Itô's formula further gives the exact short-time slope
-\[
-\frac{d}{dt}\mathbb E\|N_t-P^*\|^2\bigg|_{t=0+}
-=
-\|G(P^*)\|^2>0.
-\]
-The source benchmark arithmetic was replayed exactly.
+The primary full text prints the original stochastic terms as \(\sigma_i(t,N_i)N_i\,dW_i\) in equations (2.1)--(2.2), with \(\sigma_i\) either constant or inverse-population. Section 4 instead replaces them by \(\sigma_i(t,N_i)(N_i-N_i^*)\,dW_i\) before applying the mean-square theorem. Centering the original equation leaves, respectively, constant terms \(\epsilon N_1^*\) or \(\epsilon\) and \(\delta N_2^*\) or \(\delta\), so the diffusion never vanishes at the deterministic positive equilibrium when both intensities are positive. Consequently that point is not a constant Itô equilibrium of the original model. Itô's formula at the deterministic point gives right derivative \(\|G(P^*)\|^2\) for the mean-square displacement. Fresh exact arithmetic at the source parameters reproduces \(N_1^*=101/150\), \(N_2^*=31/75\), and the four slopes \(0.0307962711\ldots,0.0427361111\ldots,0.0769,0.06496016\).
 
-## Originality
+## originality
 
-PASS. The primary paper presents equations (4.1)–(4.2) as a mean-square stability analysis of equations (2.1)–(2.2), but the stochastic coefficients are different. General SDE stability literature states the standard zero-diffusion equilibrium requirement; no inspected source applies it to this paper or gives the four source-specific centered diffusion vectors and departure rates. Exact-title and correction searches found no published repair.
+PASS
 
-## Value
+The source itself prints both incompatible equations but presents Section 4 as the mean-square stability analysis of systems (2.1)--(2.2) and later interprets Theorem 4.3 that way numerically. Current exact-title, DOI, correction, and model-switch searches found the source and bibliographic mirrors but no corrigendum or prior published diagnosis of this mismatch. General mean-square stability literature requires diffusion to vanish at a point equilibrium but does not identify this source-specific replacement or its four exact departure rates.
 
-PASS. The paper's central conclusion that sufficiently small random immigration yields stability is tied to Theorem 4.3. The theorem applies only after the noise has been altered so that it vanishes at the deterministic equilibrium. This changes the scientific interpretation: the original nonzero-noise model may have stationary fluctuations, but it cannot possess the claimed asymptotically mean-square stable deterministic point \(P^*\).
+## value
 
-## Closest literature and limitations
+PASS
 
-The primary source is DOI 10.3934/math.2024725. Senosiain and Tocino (2023), DOI 10.1007/s11075-022-01478-6, provide the closest inspected general mean-square-stability framework and explicitly assume vanishing drift and diffusion at an equilibrium position.
+The model switch invalidates the paper's principal interpretation that sufficiently small random immigration makes the deterministic positive point asymptotically mean-square stable. The exact short-time departure rates quantify the failure at the paper's own benchmark and sharply separate point stability from legitimate stationary-fluctuation questions, making this a substantive correction rather than a notational objection.
 
-The finding does not classify invariant measures or moment boundedness of the original model. Theorem 4.3 may remain a valid result for the altered Section-4 SDE.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
