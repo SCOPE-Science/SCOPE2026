@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim has explicit definitions and quantifiers. The positive interval is backed by listed source sequences; the finite negative boundary is exhaustive over all relevant ball centers; the infinite negative tail follows from the maximum-degree-three ball bound. The packaged verifier reconstructs the graph and all finite checks rather than reading precomputed tables.
+## correctness
 
-## Originality
-PASS, with a recorded access risk. The closest primary source is Sim–Wong, DOI 10.47013/19.2.12. Its publisher abstract says the exact burning numbers are determined for all girth-four generalized Heawood graphs and for the girth-six family \(H(2k,k)\). That latter family intersects fixed \(H(n,5)\) only at \(n=10\). Targeted searches for \(H(n,5)\), four-round burnability, fixed diagonal \(5\), and boundary values did not find a theorem implying the present cutoff. The article PDF itself could not be retrieved during review, so an unindexed internal proposition remains a residual risk.
+PASS
 
-## Value
-PASS. A recent paper studies exactly this graph family and burning invariant while leaving most of the girth-six parameter plane outside its announced exact family. The fixed-diagonal \(5\) line is structurally natural, and the theorem gives a complete, exact transition for four-round burning rather than an arbitrary isolated data point.
+Every H(n,5) is cubic, so a radius-r ball has at most 3*2^r-2 vertices for r≥1. Four rounds can therefore cover at most 22+10+4+1=37 vertices, excluding n≥19, while three rounds cover at most 15, excluding b≤3 for n≥8. The displayed source sequences were checked by exact BFS and satisfy both coverage and source-validity for n=7,...,15. Exhaustive center enumeration, even without source-validity restrictions, shows radii 3,2,1 leave minimum 2,4,5 vertices uncovered for n=16,17,18, so the last radius-zero source cannot finish. For n=7, radii 2,1 leave at least two vertices, excluding three rounds. An independent replay reproduced the boundary uncovered minima and witness validity. Thus the finite enumeration is exhaustive only for four explicitly bounded orders and the infinite tail is analytic.
 
-## Closest literature and limitations
-The primary comparison is Kai An Sim and Kok Bin Wong, “On the Burning Number of the Generalized Heawood Graphs,” *Jordan Journal of Mathematics and Statistics* 19(2) (2026), DOI 10.47013/19.2.12. A structural comparison is DOI 10.1080/09728600.2024.2441817, which records the same graph parameterization and girth-six condition but studies skewness. The present result does not determine exact burning numbers for \(n\ge16\) and does not cover other diagonal parameters.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Sim--Wong's 2026 paper is the decisive same-family source. Its accessible publisher abstract states exact burning numbers for all girth-four generalized Heawood graphs and for the girth-six subfamily H(2k,k), which intersects the fixed-k=5 family only at H(10,5). Targeted Resultary searches found no fixed-5 cutoff theorem. Open-access retrieval did not yield the full article; an authorized institutional attempt for the same DOI also returned no verified PDF, so a bounded access risk is recorded rather than treated as failure.
+
+## value
+
+PASS
+
+The theorem gives an exact finite-to-infinite burning cutoff along a natural fixed-diagonal subfamily of generalized Heawood graphs studied in the current literature. The proof combines explicit positive schedules, exhaustive treatment of the three unresolved boundary orders, and a clean degree-growth tail, making it a meaningful family classification rather than a collection of isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

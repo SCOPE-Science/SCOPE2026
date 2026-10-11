@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:26:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 23ee2e2f86574af201a1d5e23bb2ec091e989778",
+        "verify.py blob f3bb667bc235067eefaa3e85d34bfec39dc5470b",
+        "fresh BFS/boundary replay",
+        "Sim--Wong accessible primary abstract"
+      ],
+      "rationale": "Every H(n,5) is cubic, so a radius-r ball has at most 3*2^r-2 vertices for r≥1. Four rounds can therefore cover at most 22+10+4+1=37 vertices, excluding n≥19, while three rounds cover at most 15, excluding b≤3 for n≥8. The displayed source sequences were checked by exact BFS and satisfy both coverage and source-validity for n=7,...,15. Exhaustive center enumeration, even without source-validity restrictions, shows radii 3,2,1 leave minimum 2,4,5 vertices uncovered for n=16,17,18, so the last radius-zero source cannot finish. For n=7, radii 2,1 leave at least two vertices, excluding three rounds. An independent replay reproduced the boundary uncovered minima and witness validity. Thus the finite enumeration is exhaustive only for four explicitly bounded orders and the infinite tail is analytic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source announces broad exact results in different parameter regimes.",
+          "The cubic ball bound handles the infinite non-four-burnable tail n≥19 but does not decide n=16,17,18 or provide positive witnesses 7..15."
+        ],
+        "reasoning": "No accessible broader theorem found implies the exact fixed-5 cutoff.",
+        "searches": [
+          "Sim--Wong 2026 publisher abstract",
+          "general maximum-degree ball-growth bound"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.47013/19.2.12",
+        "DOI:10.1080/09728600.2024.2441817",
+        "Resultary generalized-Heawood burning query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "H(2k,k) gives only H(10,5) in the fixed-k=5 line.",
+          "The submitted witnesses cover n=7..15, exact three-ball enumerations rule out n=16,17,18, and cubic growth rules out every n≥19."
+        ],
+        "reasoning": "The complete fixed-5 cutoff is not implied by the source abstract or the overlap at n=10.",
+        "searches": [
+          "Sim--Wong announced subfamilies",
+          "assigned cubic-capacity proof and exact boundary enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is equivalent to exact four-ball coverability with radii 3,2,1,0 plus the standard source-validity condition.",
+          "The source paper studies the same H(n,k) family and graph-burning invariant."
+        ],
+        "reasoning": "The fixed-diagonal threshold is a parameter slice distinct from the published abstract's H(2k,k) girth-six family except at n=10.",
+        "searches": [
+          "Sim--Wong DOI:10.47013/19.2.12",
+          "Resultary query: generalized Heawood H(n,5) graph burning number four rounds n 7 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct published finding matching 7≤n≤15 was returned.",
+          "The boundary computation is explicitly exhaustive over center tuples, not inferred from examples."
+        ],
+        "reasoning": "Search noncoverage supports but does not prove originality; the inaccessible same-family full article remains the principal residual risk.",
+        "searches": [
+          "Resultary fixed-H(n,5) burning search",
+          "targeted web searches for H(n,5) and four-round cutoff"
+        ]
+      },
+      "rationale": "Sim--Wong's 2026 paper is the decisive same-family source. Its accessible publisher abstract states exact burning numbers for all girth-four generalized Heawood graphs and for the girth-six subfamily H(2k,k), which intersects the fixed-k=5 family only at H(10,5). Targeted Resultary searches found no fixed-5 cutoff theorem. Open-access retrieval did not yield the full article; an authorized institutional attempt for the same DOI also returned no verified PDF, so a bounded access risk is recorded rather than treated as failure.",
+      "residual_risks": [
+        "The full 2026 Sim--Wong article could not be materially inspected; an internal proposition covering additional H(n,5) cases remains a specific access risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ABSTRACT_DOES_NOT_COVER_FIXED_5_CUTOFF_FULL_TEXT_INACCESSIBLE",
+          "evidence": "The accessible abstract announces exact results for girth-four members and the girth-six subfamily H(2k,k), not the full fixed H(n,5) line.",
+          "identifier_or_url": "DOI:10.47013/19.2.12",
+          "material_read": "Publisher abstract and bibliographic page were read. Open-access PDF retrieval failed, and the authorized institutional retrieval for the same DOI returned no verified PDF after the queued job was revisited.",
+          "method": "Accessible statement-scope comparison plus documented access limitation.",
+          "title": "On the Burning Number of the Generalized Heawood Graphs",
+          "trigger": "Primary same-family, same-invariant 2026 paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.47013/19.2.12",
+        "DOI:10.1080/09728600.2024.2441817",
+        "Resultary generalized-Heawood burning query"
+      ],
+      "rationale": "The theorem gives an exact finite-to-infinite burning cutoff along a natural fixed-diagonal subfamily of generalized Heawood graphs studied in the current literature. The proof combines explicit positive schedules, exhaustive treatment of the three unresolved boundary orders, and a clean degree-growth tail, making it a meaningful family classification rather than a collection of isolated computations.",
+      "residual_risks": [
+        "The full 2026 Sim--Wong article could not be materially inspected; an internal proposition covering additional H(n,5) cases remains a specific access risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.47013/19.2.12",
+    "DOI:10.1080/09728600.2024.2441817",
+    "Resultary generalized-Heawood burning query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the generalized Heawood graph H(n,5) in the girth-six range n≥7, the burning number equals four exactly for 7≤n≤15; consequently every n≥16 requires at least five rounds.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The full 2026 Sim--Wong article could not be materially inspected; an internal proposition covering additional H(n,5) cases remains a specific access risk.",
+    "The exact burning number for n≥16 is not determined beyond the lower bound five, and no other diagonal parameter is classified."
+  ]
+}
