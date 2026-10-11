@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For four affinely independent integer-cube sites, the squared point-to-closed-triangle distance is exactly the perpendicular-plane determinant quotient when its barycentric foot is feasible, or the minimum of three rational segment distances otherwise. The supplied standard-library verifier enumerates all marked unordered-triangle configurations once (58,528), compares every one against an independent seven-KKT-support convex minimum, and checks the 88-row full spectrum and 48-element cube-isometry orbit keys. Exact arithmetic proves a complete finite classification, not an extrapolated infinite claim. At level 1/29: 48 in one orbit; next 1/21: 96 in two orbits; third 1/17: 24 in one orbit. All representative vertices are directly included in the replayable script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deza–Pournin prove the sharp minimum 1/sqrt(29) when k=2 and its unique orbit; their general k formula addresses the first extremal level only.",
+        "Deza–Liu–Pournin 2025 Theorem 1.2 bounds point-triangle distances relative to the distinct global minimum of arbitrary disjoint lattice polytopes.",
+        "Deza–Liu–Pournin 2024 compute several global minimum separation values and present the least-squares optimization strategy, not the distribution of all marked 3D tetrahedra."
+      ],
+      "reasoning": "The general all-k sharp minimum and uniqueness do not logically determine how large the smallest nonminimum is, how many configurations attain it, or how all 88 values are distributed. The earlier global minimum over both segment–segment and point–triangle face types cannot subsume the specialized entire point–triangle distribution. No inspected stronger coverage was found.",
+      "searches": [
+        "published-finding corpus: Quantitative isolation of extremal flat lattice simplex k=2: second best distinct vertex-to-opposite-face distance",
+        "arXiv:2601.03183v1 Theorem 1.1 and Proposition 4.1",
+        "arXiv:2502.19554v1 Theorems 1.1 and 1.2",
+        "arXiv:2412.03479v1 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "Deza--Pournin, arXiv:2601.03183v1, Theorem 1.1, Proposition 4.1, Tables 1-4, Sections 4-5.",
+      "Deza--Liu--Pournin, arXiv:2502.19554v1, Theorems 1.1-1.2 and Sections 2-4.",
+      "Deza--Liu--Pournin, arXiv:2412.03479v1, Sections 1,2,4 and Tables 1-2.",
+      "published-finding corpus findings: 2026/10/4/SCOPE-sharp-three-point-square-lattice-illumination-distance-for-the-u--82c45c2832f1 (different illumination problem).",
+      "published-finding corpus findings: 2026/10/4/SCOPE-facet-distance-coordinates-are-a-scaled-euclidean-isometry-in-re--047a0e8f0d0c (regular-simplex coordinate identity, not lattice cube enumeration).",
+      "published-finding corpus findings: 2026/9/7/SCOPE004 (Heilbronn lattice triangle-area problem, not tetrahedral separation).",
+      "published-finding corpus findings: 2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbi--d886b40f95a8 (random points in one arbitrary triangle, not lattice marked tetrahedra)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published: every such marked tetrahedron has distance >=1/sqrt(29), with equality in a unique orbit.",
+        "New: every tetrahedron outside that orbit has distance >=1/sqrt(21), with equality in exactly two distinct cube-isometry orbits, 48 marked configurations each.",
+        "New full classification: the squared-distance function has exactly 88 values on 58,528 marked tetrahedra, with all multiplicities in spectrum.csv."
+      ],
+      "reasoning": "Knowing a unique minimizer gives no positive numerical gap between it and the remaining finitely many possible values and cannot imply the runner-up orbit count or histogram. The strictly stronger assertions are checked by exact exhaustive enumeration, not inferred from the wording of prior titles.",
+      "searches": [
+        "published-finding corpus: Second nearest nonminimal point-triangle separation 1/sqrt21 for lattice tetrahedra in cube k=2 and two symmetry classes",
+        "published-finding corpus: Quantitative isolation of extremal flat lattice simplex k=2: second best distinct vertex-to-opposite-face distance",
+        "arXiv:2601.03183v1 Proposition 4.1: uniqueness up to cube symmetry",
+        "arXiv:2502.19554v1 Section 3: point–triangle lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deza–Pournin (2026), Section 4, equation (20): the point-to-affine-plane distance is an integer determinant divided by a squared-normal norm; their Theorem 1.1 states the minimum and uniqueness, not a frequency distribution.",
+        "Deza–Liu–Pournin (2024), Section 2: the convex distance is a constrained quadratic minimization and affine separation is a relaxation; a complete closed-triangle spectrum requires testing the constraints.",
+        "Exact local computation: 58,528 noncoplanar marked configurations yield 88 different closed-triangle squared distances; the next rank is 1/21 with two cube-isometry classes."
+      ],
+      "reasoning": "An affine-plane-distance spectrum, a list of Gram minors, and a minimum-only table are not equivalent to the closed-convex-triangle distance distribution. Here the closest foot can lie outside the triangle, where an edge gives a larger distance. Searches did not reveal an equivalent 88-atom histogram or the sharp next-level orbit classification.",
+      "searches": [
+        "published-finding corpus: Second nearest nonminimal point-triangle separation 1/sqrt21 for lattice tetrahedra in cube k=2 and two symmetry classes",
+        "published-finding corpus: Exact distribution of Euclidean distances vertex to opposite triangle among 27-grid lattice tetrahedra [0,2]^3",
+        "arXiv:2601.03183v1 Section 4 (bounded triangle versus affine plane)",
+        "arXiv:2412.03479v1 Section 2 (least-squares distance, convex constraints)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 source Table 2 lists 1/epsilon_0(3,2)=sqrt(29), not the next distance 1/sqrt(21) or frequencies.",
+        "The 2024 and 2025 Tables 1 record only global minima epsilon(d,k); their remaining tabulations concern reduced algebraic search-space sizes.",
+        "published-finding corpus retrieved no matching complete point-to-triangle table; its nearest indexed geometric items concerned unrelated regular simplex facet coordinates, square lattice illumination, and grid Heilbronn point sets."
+      ],
+      "reasoning": "A list of known minimal values, or the table of algebraic search-space sizes, does not contain the 88 rational squared-distance values with multiplicities. The supplied table is independently recomputed from a complete explicitly specified domain. Failed database search is treated as limited evidence, not a mathematical uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Exact distance spectrum for point and opposite lattice triangle in 3x3x3 integer grid cube [0,2]^3: 88 rational squared distances and multiplicities; next after 1/29 is 1/21",
+        "arXiv:2601.03183v1 Tables 1,2,3,4",
+        "arXiv:2412.03479v1 Tables 1 and 2",
+        "arXiv:2502.19554v1 Table 1",
+        "web: minimum second minimum distance point triangle lattice cube 0 2 1/sqrt21 1/sqrt29"
+      ]
+    },
+    "rationale": "The full original papers establish the first minimal level and its unique orbit, or global minima in larger competing face types. They do not provide the all-distance distribution in the marked 3x3x3 lattice tetrahedron model, the nonminimal sharp threshold 1/sqrt(21), or its two equality orbits. Comprehensive statement-level comparisons and actual indexed searches support a provisional same-model originality PASS, subject to residual unindexed-equivalence risk.",
+    "residual_risks": [
+      "An older finite small-lattice-cube dataset or supplementary program might implicitly contain the same 88-level distribution but be absent from searched indexes; negative search results do not rule this out.",
+      "The source theorem already gives the first minimizer and its uniqueness; only second-rank isolation, second-rank orbit classification, and the complete frequency distribution are assessed as new.",
+      "The finite theorem does not establish an all-k stability gap; publication or independent assessment could judge its scientific importance differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The closest antecedent: explicitly proves the first level and unique minimum orbit, but its results/tables do not specify the sharp second level, two second-level orbits, or all-distance multiplicities.",
+        "evidence": [
+          "Theorem 1.1 gives epsilon_0(3,k) and uniqueness for k>=2.",
+          "Proposition 4.1 enumerates k<=8 only to obtain the minimum and uniqueness.",
+          "Table 2 has sqrt(29) for inverse minimum at k=2; no 88-level histogram."
+        ],
+        "identifier_or_url": "arXiv:2601.03183v1; https://arxiv.org/html/2601.03183v1",
+        "material_read": "Full accessible HTML manuscript: introduction and Tables 1–4, Section 4 including Proposition 4.1, Theorem 4.2 and projection formulas, and relevant Section 5 proof passages; direct checks for second level and multiplicity data.",
+        "method": "Read arXiv HTML primary text, compared exact statements and implication scope; checked distance formulas and finite-k enumeration discussion.",
+        "title": "Flat simplices and kissing polytopes",
+        "trigger": "Same four-vertex nondegenerate lattice point–triangle objects, including k=2 and uniqueness of shortest separation."
+      },
+      {
+        "assessment": "Theorems concern global shortest distances and point–triangle lower bounds relative to segment–segment minima, not all distance values and multiplicities.",
+        "evidence": [
+          "Theorem 1.2 states a point–triangle distance is strictly greater than epsilon(3,k).",
+          "Section 3 is a lower-bound comparison, not the closed-triangle distance spectrum."
+        ],
+        "identifier_or_url": "arXiv:2502.19554v1; https://arxiv.org/html/2502.19554v1",
+        "material_read": "Full accessible HTML manuscript, introduction/Theorems 1.1–1.2, discrete optimization model in Section 2, point–triangle Section 3 and segment–segment Section 4.",
+        "method": "Read the original statement and relevant derivation, distinguished minimum between arbitrary disjoint polytopes from all point–triangle squared-distance distribution.",
+        "title": "Kissing polytopes in dimension 3",
+        "trigger": "Same lattice cubic domain, related opposing-face metric, possibility of stronger all-polytope minimum covering the claim."
+      },
+      {
+        "assessment": "Introduces and computes minimum lattice-polytope separation for certain dimensions and sizes, with search-space enumeration statistics; does not report the marked vertex–triangle distribution or sharp second point–triangle distance in the inspected result sections.",
+        "evidence": [
+          "Table 1 records epsilon(d,k) minima (at d=3, k=2 its inverse is 5sqrt(2), for general disjoint polytopes).",
+          "Table 2 counts reduced algebraic search-space rows, not squared distances.",
+          "Section 2 distinguishes bounded simplex distance from relaxed affine least squares."
+        ],
+        "identifier_or_url": "arXiv:2412.03479v1; https://arxiv.org/pdf/2412.03479",
+        "material_read": "Lawful OA complete 17-page PDF available; inspected visual pages 1 and 3, abstract, Section 2 least-squares and constrained distance model, Section 4 computation of minima and the presented tables.",
+        "method": "Inspected PDF text and selected rendered page images; checked the listed theorem/table quantities against exact distribution and second minimum.",
+        "title": "Small kissing polytopes",
+        "trigger": "Predecessor method and potential known computational tabulation of all small-cube configurations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8d3cbeed-1ec8-4523-b449-6b6c1b2eeccc",
+  "value": {
+    "rationale": "The value is the entire exact distribution of a motivated flatness/facial-separation invariant on the first genuinely nonbinary three-dimensional lattice cube, rather than an arbitrary small slice. It supplies 88 rational masses on all 58,528 marked tetrahedra, the next sharp positive isolation gap above the known unique extremizer, and two distinct geometric runner-up orbits. Such exact data provide a self-contained finite benchmark for separating numerical face-distance and affine-hull calculations. The result deliberately does not claim a larger-cube theorem or generic algorithm speedup.",
+    "status": "PASS"
+  }
+}
