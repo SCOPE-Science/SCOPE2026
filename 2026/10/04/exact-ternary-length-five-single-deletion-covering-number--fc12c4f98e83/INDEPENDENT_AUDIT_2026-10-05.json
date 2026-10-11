@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:06:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The upper bound is an explicit 21-word code generated from seven representatives by the three cyclic alphabet translations; a fresh independent replay found 21 distinct codewords and all 81 ternary length-four targets in their distinct one-deletion shadows. For the lower bound, the ten symmetry-orbit weights have total numerator 468 over denominator 23, and an independent exhaustive pass over all 243 length-five centers found every deletion-ball numerator at most 23. Thus any cover has size at least ceil(468/23)=21. The proof is finite and exact, with no floating-point or timeout inference.",
+      "risks": [
+        "The theorem is only q=3,n=5,R=1 and does not classify optimal covers."
+      ],
+      "sources": [
+        "RESULT.md blob ba2c3f03968648a0d8329578b59548cfa645474d",
+        "artifacts/verify.py blob 05e0e375340a620e4037c355e6f48f165306d804",
+        "artifacts/certificate.json blob 627a2cc9f293ec34c23f9a43b6c35fdd6747d29b"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational paper's broader theorem gives constant-factor single-deletion bounds rather than an exact small-parameter classification.",
+          "The 2026 abstract describes hypergraph-covering bounds and asymptotically optimal nonbinary constructions, not a stated q=3,n=5 theorem."
+        ],
+        "reasoning": "The inspected broader results do not imply the matching 21-word construction and 468/23 dual certificate.",
+        "searches": [
+          "arXiv:1911.09944 full HTML sections I–IV",
+          "arXiv:2606.15379 abstract/preview",
+          "Resultary semantic query"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.09944",
+        "arXiv:2606.15379",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior weighted-covering method supplies a general proof template, but not the ten orbit numerators totaling 468/23 or the 21-word ternary construction.",
+          "The general q-ary bounds leave a gap at q=3,n=5."
+        ],
+        "reasoning": "The exact endpoint is not a corollary of the inspected prior statements; it requires the submitted finite primal and dual certificates.",
+        "searches": [
+          "Statement comparison with arXiv:1911.09944 Table I and weighted-covering method",
+          "Statement comparison with arXiv:2606.15379 accessible abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1911.09944 defines R-deletion-covering codes and K_D^q(n,R) in the same quantifiers; its Table I gives general 1-deletion existence and lower bounds, not the finite value 21.",
+          "Equivalent supersequence wording is exactly the same problem because every length-four target must be a subsequence of a selected length-five word.",
+          "No Resultary hit stated this exact parameter."
+        ],
+        "reasoning": "The codebook-cover formulation and the family of selected length-five supersequences are equivalent. No inspected equivalent formulation supplied 21.",
+        "searches": [
+          "Resultary: ternary length five single deletion covering code exact K_D^3(5,1) 21",
+          "arXiv:1911.09944 full accessible HTML, Definitions 1–2 and Table I",
+          "web exact-notation/supersequence-cover searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published SCOPE/database entry for K_D^3(5,1)=21 was returned; the closest Resultary deletion result concerns quinary deletion-correcting codes, a different packing invariant."
+        ],
+        "reasoning": "There is no located exact table entry; search noncoverage is not treated as proof and is supplemented by primary-source statement comparison.",
+        "searches": [
+          "Resultary exact-value query",
+          "web: K_D^3(5,1), ternary deletion covering 21, supersequence cover length 4/5"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. The foundational deletion-covering paper defines exactly the audited invariant and develops general weighted-covering bounds, but its full accessible text gives only nonexact general single-deletion bounds. Fresh Resultary search found no published SCOPE statement of the ternary length-five value. The highly relevant 2026 Xie–Sun–Ge paper was accessible only through abstract/preview in this run; it emphasizes large-alphabet/asymptotic bounds and constructions, so possible hidden small-parameter overlap remains a named residual risk rather than negative evidence.",
+      "residual_risks": [
+        "The complete 2026 Xie–Sun–Ge text was not inspectable in this run; an unobserved exact small-parameter table or remark could overlap the value 21.",
+        "An older unindexed computational table could exist despite exact-notation and equivalent-formulation searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_EXACT_VALUE",
+          "evidence": [
+            "Definitions 1–2 give the exact object; Table I gives nonexact general 1-deletion bounds; the results discussion emphasizes constant-factor/asymptotic bounds."
+          ],
+          "identifier_or_url": "arXiv:1911.09944",
+          "material_read": "Full accessible arXiv HTML through definitions, Table I, results overview, and weighted-covering discussion.",
+          "method": "Public full-text HTML inspection.",
+          "title": "Covering Codes using Insertions or Deletions",
+          "trigger": "Primary source defining the exact deletion-covering invariant."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_NO_DECISIVE_COVERAGE",
+          "evidence": [
+            "Accessible material emphasizes hypergraph-covering bounds, large-alphabet asymptotics, and asymptotically optimal nonbinary single-deletion constructions."
+          ],
+          "identifier_or_url": "arXiv:2606.15379",
+          "material_read": "Public abstract and available preview; complete paper text was not available through the reading route used in this run.",
+          "method": "Abstract/preview inspection after exact-value search.",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Most relevant recent work on the same nonbinary deletion-covering problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum deletion-covering cardinality is the central invariant of the cited literature. This is a natural first small nonbinary benchmark where general bounds remain nonexact, and the nonuniform orbit-weight certificate exposes the irregular deletion-ball geometry rather than merely recomputing a known table entry.",
+      "risks": [
+        "Its value is as an exact benchmark, not a general-length theorem."
+      ],
+      "sources": [
+        "arXiv:1911.09944",
+        "RESULT.md blob ba2c3f03968648a0d8329578b59548cfa645474d"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite result only for ternary length five and one deletion; no uniqueness/classification claim."
+  ],
+  "schema_version": 1
+}

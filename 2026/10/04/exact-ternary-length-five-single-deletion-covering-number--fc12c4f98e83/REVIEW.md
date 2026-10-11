@@ -1,15 +1,21 @@
-# Review: Exact ternary length-five single-deletion covering number
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is stated for the exact finite domain \(\Sigma_3^5\to\Sigma_3^4\). The upper bound is witnessed by 21 explicit codewords generated from seven representatives under cyclic symbol translation. The lower bound is an exact fractional-cover dual certificate: ten symmetry-orbit weights total \(468/23>20\), and exhaustive integer checking over all 243 possible length-five centers proves every deletion ball has weight at most one. Thus every cover has at least 21 codewords. The verifier reconstructs both halves without floating point arithmetic.
+## correctness
 
-## Originality
-**PASS.** The foundational paper arXiv:1911.09944 defines this exact invariant and supplies general bounds, but the inspected full text does not state the finite value \(\mathsf K_{\mathsf D}^{3}(5,1)=21\). Exact-value, alias, supersequence-cover, and deletion-cover searches found no matching indexed research record or accessible primary source giving this value. The 2023 fixed-length Levenshtein paper studies a different metric, and the 2025 subsequence-cover paper uses a different per-word covering notion. A 2026 paper is highly relevant, but only its abstract and preview were inspectable; this is retained as an explicit residual risk rather than treated as negative evidence from the whole paper.
+PASS
 
-## Value
-**PASS.** The minimum deletion-covering cardinality is the central invariant of the foundational literature. This is a natural small nonbinary instance at a length where the general bounds remain far from exact, and the nonuniform dual weights expose the deletion-ball irregularity that motivates the weighted-covering method. The result provides an exact benchmark for constructions and bounds without claiming a broader theorem.
+The upper bound is an explicit 21-word code generated from seven representatives by the three cyclic alphabet translations; a fresh independent replay found 21 distinct codewords and all 81 ternary length-four targets in their distinct one-deletion shadows. For the lower bound, the ten symmetry-orbit weights have total numerator 468 over denominator 23, and an independent exhaustive pass over all 243 length-five centers found every deletion-ball numerator at most 23. Thus any cover has size at least ceil(468/23)=21. The proof is finite and exact, with no floating-point or timeout inference.
 
-## Closest literature and limitations
-The closest inspected source is Lenz–Rashtchian–Siegel–Yaakobi, arXiv:1911.09944, which defines \(\mathsf K_{\mathsf D}^{q}(n,R)\), develops weighted covering lower bounds, and gives general single-deletion bounds. Xie–Sun–Ge, arXiv:2606.15379, develops newer nonbinary bounds and constructions, but the accessible abstract/preview does not state this exact small parameter. The claim is limited to \(q=3,n=5,R=1\), and possible overlap in inaccessible portions of the 2026 paper remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. The foundational deletion-covering paper defines exactly the audited invariant and develops general weighted-covering bounds, but its full accessible text gives only nonexact general single-deletion bounds. Fresh Resultary search found no published SCOPE statement of the ternary length-five value. The highly relevant 2026 Xie–Sun–Ge paper was accessible only through abstract/preview in this run; it emphasizes large-alphabet/asymptotic bounds and constructions, so possible hidden small-parameter overlap remains a named residual risk rather than negative evidence.
+
+## value
+
+PASS
+
+The minimum deletion-covering cardinality is the central invariant of the cited literature. This is a natural first small nonbinary benchmark where general bounds remain nonexact, and the nonuniform orbit-weight certificate exposes the irregular deletion-ball geometry rather than merely recomputing a known table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

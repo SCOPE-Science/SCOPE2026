@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` from the package root. The verifier uses only the Python standard library and exact integer arithmetic.
+## correctness
 
-It performs four exhaustive checks: it reconstructs the ten orbits of all 81 ternary length-four targets under symbol permutations and reversal; it verifies that the dual numerators total 468 and that every one of the 243 ternary length-five deletion balls has numerator at most 23; it generates the 21 codewords from seven cyclic-translation representatives; and it confirms that their deletion descendants cover all 81 targets. A successful execution prints `VERIFY_OK`.
+PASS
 
-The computation proves only the finite parameter \(q=3,n=5,R=1\). It does not prove uniqueness of optimal codes, a formula at other parameters, or absence of an equivalent statement in literature not inspected. The 2026 same-topic preprint was available only through abstract/preview material during the literature comparison.
+The upper bound is an explicit 21-word code generated from seven representatives by the three cyclic alphabet translations; a fresh independent replay found 21 distinct codewords and all 81 ternary length-four targets in their distinct one-deletion shadows. For the lower bound, the ten symmetry-orbit weights have total numerator 468 over denominator 23, and an independent exhaustive pass over all 243 length-five centers found every deletion-ball numerator at most 23. Thus any cover has size at least ceil(468/23)=21. The proof is finite and exact, with no floating-point or timeout inference.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. The foundational deletion-covering paper defines exactly the audited invariant and develops general weighted-covering bounds, but its full accessible text gives only nonexact general single-deletion bounds. Fresh Resultary search found no published SCOPE statement of the ternary length-five value. The highly relevant 2026 Xie–Sun–Ge paper was accessible only through abstract/preview in this run; it emphasizes large-alphabet/asymptotic bounds and constructions, so possible hidden small-parameter overlap remains a named residual risk rather than negative evidence.
+
+## value
+
+PASS
+
+The minimum deletion-covering cardinality is the central invariant of the cited literature. This is a natural first small nonbinary benchmark where general bounds remain nonexact, and the nonuniform orbit-weight certificate exposes the irregular deletion-ball geometry rather than merely recomputing a known table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
