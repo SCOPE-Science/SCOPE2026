@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof has three exact steps. First, every rectangle in a centrally symmetric convex body can be recentered without changing its half-side vectors or area, because each new centered vertex is a midpoint of two feasible points. Second, a centered rectangle is represented by equal-length half-diagonals, so its area is \(2r^2\sin\delta\). Third, the radial function of the regular polygon is explicit. For \(4\mid n\), the universal bounds \(r\le R\) and \(\sin\delta\le1\) are simultaneously sharp. For \(n\equiv2\pmod4\), the projective vertex-line lattice is short of a right angle by \(\pi/n\); any attempt to increase the diagonal angle forces at least one diagonal inward, and the exact deficit identity \((1-\cos t)/2\) proves that the tradeoff is unfavorable. Equality conditions are tracked throughout.
+PASS
 
-## Originality
+The centralization lemma is valid for every rectangle in a centrally symmetric convex body: each centered vertex \(\pm u\pm v\) is the midpoint of an original vertex and the centrally reflected opposite original vertex, so convexity preserves containment and area. For a centered rectangle the half-diagonals have common length \(r\) and area \(2r^2\sin\delta\). In a regular n-gon the radial reach at angular offset \(s\) from a vertex ray is \(\cos\alpha/\cos(\alpha-s)\), \(\alpha=\pi/n\). When \(4\mid n\), \(r\le R\) and \(\sin\delta\le1\) are simultaneously sharp at orthogonal vertex rays. When \(n\equiv2\pmod4\), the largest acute separation of vertex lines is \(\delta_0=\pi/2-\alpha\). For \(\delta=\delta_0+t\), nearest-vertex offsets satisfy \(s_1+s_2\ge t\), so the common radius is at most \(R\cos\alpha/\cos(\alpha-t/2)\); the identity \(\cos^2(\alpha-t/2)-\cos\alpha\cos(\alpha-t)=(1-\cos t)/2\) proves strict loss for every \(t>0\). This reconstructs both formula branches and the centered equality cases.
 
-PASS with residual literature risk. Targeted searches were run for maximum-area rectangles in regular polygons, regular hexagons and decagons, centered rectangles in centrally symmetric polygons, and the exact trigonometric candidate formula. The primary full texts inspected were the 2019 simple-polygon exact-algorithm paper, the 2014 convex-polygon exact-algorithm paper, and the 2012 convex-polygon approximation paper. They treat the general optimization problem algorithmically; no regular-polygon closed form or mod-four phase split was located, and text searches in the two most directly relevant full texts found no regular-polygon specialization.
+## originality
 
-The closest broader results solve arbitrary convex polygons by general algorithms, so they cover the input family but do not state or imply the symbolic optimum without carrying out the optimization. No database result located contains the formula \(2R^2\) versus \(2R^2\cos(\pi/n)\) or the diagonal-line equality characterization. The residual risk is that this elementary special case may have appeared in older recreational or weakly indexed sources.
+PASS
 
-## Value
+The closest primary literature solves maximum-area rectangles in arbitrary convex or simple polygons algorithmically, including exact cubic-time convex-polygon algorithms. Direct inspection of the most relevant full text found no regular-polygon specialization, modulo-four formula, or equality classification. Fresh exact-expression and regular-polygon searches likewise did not locate a prior all-even-n theorem. The audited result uses symmetry to replace general continuous optimization by a closed formula and equality geometry.
 
-PASS. Maximum-area inscribed rectangles are a standard continuous geometric optimization problem with a substantial algorithmic literature. Regular polygons form the canonical symmetric benchmark family, and the theorem gives a complete exact value for every even order together with a sharp mod-four phase transition and equality geometry. The result is therefore a natural complete classification rather than an arbitrary finite computation, and it provides exact benchmark instances for general-purpose largest-rectangle algorithms.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Regular polygons are a canonical test family for the established maximum-rectangle problem. The theorem completely resolves every even order, explains the modulo-four phase change, and classifies the centered equality geometry. This is a natural infinite-family classification rather than a small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

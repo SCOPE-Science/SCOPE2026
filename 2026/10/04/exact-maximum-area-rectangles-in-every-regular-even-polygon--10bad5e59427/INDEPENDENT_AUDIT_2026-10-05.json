@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:18:06.061127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob db4cf50ad96e23c4f6c0e0afb9ae37af9610624b",
+        "Cabello--Cheong--Knauer--Schlipf, arXiv:1405.1223",
+        "Choi--Lee--Ahn, arXiv:1910.08686"
+      ],
+      "rationale": "The centralization lemma is valid for every rectangle in a centrally symmetric convex body: each centered vertex \\(\\pm u\\pm v\\) is the midpoint of an original vertex and the centrally reflected opposite original vertex, so convexity preserves containment and area. For a centered rectangle the half-diagonals have common length \\(r\\) and area \\(2r^2\\sin\\delta\\). In a regular n-gon the radial reach at angular offset \\(s\\) from a vertex ray is \\(\\cos\\alpha/\\cos(\\alpha-s)\\), \\(\\alpha=\\pi/n\\). When \\(4\\mid n\\), \\(r\\le R\\) and \\(\\sin\\delta\\le1\\) are simultaneously sharp at orthogonal vertex rays. When \\(n\\equiv2\\pmod4\\), the largest acute separation of vertex lines is \\(\\delta_0=\\pi/2-\\alpha\\). For \\(\\delta=\\delta_0+t\\), nearest-vertex offsets satisfy \\(s_1+s_2\\ge t\\), so the common radius is at most \\(R\\cos\\alpha/\\cos(\\alpha-t/2)\\); the identity \\(\\cos^2(\\alpha-t/2)-\\cos\\alpha\\cos(\\alpha-t)=(1-\\cos t)/2\\) proves strict loss for every \\(t>0\\). This reconstructs both formula branches and the centered equality cases.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works solve or approximate the general polygon optimization problem algorithmically.",
+          "The inspected primary text gives an \\(O(n^3)\\) exact algorithm for convex polygons but no all-regular closed form."
+        ],
+        "reasoning": "A general algorithm does not state or immediately imply the modulo-four optimum/equality geometry without performing the family-specific optimization.",
+        "searches": [
+          "Cabello--Cheong--Knauer--Schlipf, arXiv:1405.1223",
+          "Choi--Lee--Ahn, arXiv:1910.08686",
+          "Knauer--Schlipf--Schmidt--Tiwary, DOI 10.1016/j.jda.2012.01.002"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1405.1223",
+        "https://arxiv.org/abs/1910.08686",
+        "DOI:10.1016/j.jda.2012.01.002",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior algorithms guarantee computability for each polygon but do not identify the optimizer or value uniformly over the regular-even family.",
+          "The audited proof adds the center-preserving reduction and angular-lattice optimization."
+        ],
+        "reasoning": "Algorithmic solvability is broader computationally but does not dominate the explicit all-n theorem as a scientific statement.",
+        "searches": [
+          "comparison with arXiv:1405.1223 exact convex-polygon algorithm",
+          "comparison with arXiv:1910.08686 simple-polygon algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's exact hit was the assigned finding itself; no older equivalent result was returned.",
+          "Targeted web searches did not locate the displayed formula in a prior regular-polygon source."
+        ],
+        "reasoning": "Both largest-inscribed-rectangle and maximum-area-contained-rectangle terminology were checked.",
+        "searches": [
+          "Resultary: regular even polygon maximum area inscribed rectangle exact formula mod 4",
+          "web: \"maximum area rectangle\" \"regular polygon\" circumradius",
+          "web: exact regular-polygon rectangle formula using circumradius and cosine of pi over n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact regular-polygon table/formula was found."
+        ],
+        "reasoning": "The claim is an infinite-family analytic formula rather than a finite table.",
+        "searches": [
+          "Resultary exact-formula search",
+          "web exact-expression search for the regular-even rectangle area formula"
+        ]
+      },
+      "rationale": "The closest primary literature solves maximum-area rectangles in arbitrary convex or simple polygons algorithmically, including exact cubic-time convex-polygon algorithms. Direct inspection of the most relevant full text found no regular-polygon specialization, modulo-four formula, or equality classification. Fresh exact-expression and regular-polygon searches likewise did not locate a prior all-even-n theorem. The audited result uses symmetry to replace general continuous optimization by a closed formula and equality geometry.",
+      "residual_risks": [
+        "Because the final derivation is elementary after centralization, an equivalent special-case formula could exist in older textbook, recreational or weakly indexed geometry literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_ALGORITHM_NOT_REGULAR_FORMULA",
+          "evidence": "It proves an exact \\(O(n^3)\\) algorithm for arbitrary convex polygons but no regular-even closed formula or equality classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.1223",
+          "material_read": "Complete primary PDF including the exact cubic-time theorem; targeted full-text search for a regular-polygon specialization.",
+          "method": "Lawful arXiv PDF inspection with rendered-page verification.",
+          "title": "Finding Largest Rectangles in Convex Polygons",
+          "trigger": "Strongest exact general convex-polygon algorithm."
+        },
+        {
+          "assessment": "GENERAL_ALGORITHM_NOT_SPECIAL_FAMILY_CLASSIFICATION",
+          "evidence": "It does not state the audited modulo-four formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.08686",
+          "material_read": "Primary abstract/theorem-level material and convex-polygon specialization.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Maximum-Area Rectangles in a Simple Polygon",
+          "trigger": "Later exact algorithmic literature on the same geometric objective."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "general maximum-rectangle algorithm literature"
+      ],
+      "rationale": "Regular polygons are a canonical test family for the established maximum-rectangle problem. The theorem completely resolves every even order, explains the modulo-four phase change, and classifies the centered equality geometry. This is a natural infinite-family classification rather than a small numerical improvement.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1405.1223",
+    "https://arxiv.org/abs/1910.08686",
+    "DOI:10.1016/j.jda.2012.01.002",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only regular even polygons and maximum area are treated; odd orders, fixed aspect ratio and maximum perimeter are outside scope.",
+    "The equality classification is stated for centered maximizers after the lossless centralization reduction."
+  ],
+  "residual_risks": [
+    "Because the final derivation is elementary after centralization, an equivalent special-case formula could exist in older textbook, recreational or weakly indexed geometry literature."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_ALGORITHM_NOT_REGULAR_FORMULA",
+      "evidence": "It proves an exact \\(O(n^3)\\) algorithm for arbitrary convex polygons but no regular-even closed formula or equality classification.",
+      "identifier_or_url": "https://arxiv.org/abs/1405.1223",
+      "material_read": "Complete primary PDF including the exact cubic-time theorem; targeted full-text search for a regular-polygon specialization.",
+      "method": "Lawful arXiv PDF inspection with rendered-page verification.",
+      "title": "Finding Largest Rectangles in Convex Polygons",
+      "trigger": "Strongest exact general convex-polygon algorithm."
+    },
+    {
+      "assessment": "GENERAL_ALGORITHM_NOT_SPECIAL_FAMILY_CLASSIFICATION",
+      "evidence": "It does not state the audited modulo-four formula.",
+      "identifier_or_url": "https://arxiv.org/abs/1910.08686",
+      "material_read": "Primary abstract/theorem-level material and convex-polygon specialization.",
+      "method": "Lawful open primary-source inspection.",
+      "title": "Maximum-Area Rectangles in a Simple Polygon",
+      "trigger": "Later exact algorithmic literature on the same geometric objective."
+    }
+  ]
+}
