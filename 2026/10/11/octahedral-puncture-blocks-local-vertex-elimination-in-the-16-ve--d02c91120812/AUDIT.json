@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact published complex, identifies the unique incidence minimum, verifies the octahedral link and its three nonedges, and proves the refill obstruction from the clique number of the octahedral graph. The verifier independently checks every finite combinatorial premise. The punctured homology-ball and fundamental-group conclusions follow from standard manifold arguments applied to the sourced Poincaré homology-sphere identification. No infinite conclusion is inferred from finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General sources note that a punctured Poincaré homology sphere is acyclic and noncontractible, but they do not identify this 15-vertex puncture or its octahedral boundary.",
+        "The 2005 Lutz survey concerns small triangulations and cites the 16-vertex complex but does not give the local obstruction."
+      ],
+      "reasoning": "General punctured-homology-sphere facts imply the homology/fundamental-group part once the puncture is identified, but do not imply the finite octahedral-link and diagonal statement.",
+      "searches": [
+        "punctured Poincare homology sphere triangulation octahedral boundary",
+        "Poincare homology ball 15 vertices octahedral",
+        "Poincare homology sphere triangulation shortest edge loop systole noncontractible"
+      ]
+    },
+    "checked_sources": [
+      "Lutz dissertation (1999), Chapter 1, Theorem 1.5",
+      "Björner–Lutz, Experimental Mathematics 9 (2000), DOI 10.1080/10586458.2000.10504652",
+      "Lutz, arXiv:math/0506372v1 (2005-06-18)",
+      "SageMath PoincareHomologyThreeSphere exact facet implementation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current cumulative ledger contains no claim mentioning the Poincaré homology sphere, an octahedral puncture, or this local vertex-elimination obstruction.",
+        "The prior-week topology-archive ledger search returned no matching Poincaré/octahedral-puncture claim."
+      ],
+      "reasoning": "Previously recorded findings do not imply or subsume the new claim; the closest published source gives the object but not the asserted local structure.",
+      "searches": [
+        "current ledger: Poincare homology sphere octahedral puncture vertex 16",
+        "prior topology-archive ledger: Poincare homology sphere octahedral puncture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no Poincaré-sphere item stating an octahedral vertex-16 link or equivalent diagonal obstruction.",
+        "Björner–Lutz/Lutz dissertation Theorem 1.5 prints the full 90-facet complex and discusses link-equivalence classes without this conclusion."
+      ],
+      "reasoning": "Searching both link language and the equivalent local star-replacement/diagonal language found no statement with the same implication.",
+      "searches": [
+        "16-vertex Poincare homology sphere vertex 16 octahedral link six vertices puncture",
+        "Poincare homology sphere octahedral vertex link 9 10 11 13 14 15",
+        "Bjorner Lutz triangulation unique minimum-degree vertex link octahedron diagonal obstruction",
+        "Poincare sphere local retriangulation remove vertex octahedron diagonal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 1.5 of Lutz's dissertation supplies all 90 tetrahedra and face vector (16,106,180,90).",
+        "SageMath independently reproduces the same labeled facet complex in PoincareHomologyThreeSphere."
+      ],
+      "reasoning": "These exact data sources permit reconstruction but contain no table of vertex tetrahedron-incidence degrees or local refill obstruction.",
+      "searches": [
+        "Bjorner Lutz 16 vertex Poincare facet list",
+        "Sage PoincareHomologyThreeSphere facets",
+        "9 10 11 13 14 15 Poincare triangulation"
+      ]
+    },
+    "rationale": "The exact primary facet list and later survey were inspected at statement level. They establish the triangulation, face vector, topology, and some vertex-link equivalence classes, but not the unique degree-8 octahedral link or the fact that all three octahedral diagonals lie in the deletion, hence they do not imply the local non-eliminability statement. published-finding corpus and public-literature searches for the exact object, vertex-16/link aliases, octahedral puncture, and local-retriangulation formulation found no covering statement. The claim is an exact consequence of the published labeled complex, with residual risk only of an unindexed observation.",
+    "residual_risks": [
+      "An unindexed computation or note could have observed the same local structure.",
+      "The local obstruction does not address retriangulation sequences that first modify the deletion; no stronger global minimality claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source states f=(16,106,180,90), lists every facet, and discusses some equivalent links, but does not state the octahedral link of vertex 16, the three outside diagonals, or local non-eliminability.",
+        "identifier_or_url": "https://www3.math.tu-berlin.de/IfM/Nachrufe/Frank_Lutz/dissertation.pdf",
+        "material_read": "Chapter 1, Section 1.5, Theorem 1.5, complete 90-facet list, and following discussion of vertex-link equivalence classes and trivial automorphism group; printed pages 17-18.",
+        "method": "Full-text PDF inspection including rendered page images.",
+        "title": "Triangulated Manifolds with Few Vertices and Vertex-Transitive Group Actions",
+        "trigger": "Primary exact-object source with the complete labeled triangulation."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The survey catalogs small triangulations and cites the Poincaré construction; it does not state the vertex-16 octahedral puncture or diagonal obstruction.",
+        "identifier_or_url": "arXiv:math/0506372v1",
+        "material_read": "Abstract/metadata, small-manifold discussion, and bibliography entry for the 16-vertex Poincaré triangulation.",
+        "method": "arXiv HTML metadata plus PDF text/page inspection.",
+        "title": "Triangulated Manifolds with Few Vertices: Combinatorial Manifolds",
+        "trigger": "Day-resolved public survey in the same primary MSC and small-triangulation literature."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article's advertised result is the construction of the 16-vertex triangulation via bistellar operations, not this local refill obstruction.",
+        "identifier_or_url": "doi:10.1080/10586458.2000.10504652",
+        "material_read": "Bibliographic record and abstract; the full exact facet statement was inspected in the dissertation chapter coauthored with Björner.",
+        "method": "Publisher/EUDML record plus same-chapter primary text in dissertation.",
+        "title": "Simplicial Manifolds, Bistellar Flips and a 16-Vertex Triangulation of the Poincaré Homology 3-Sphere",
+        "trigger": "Published exact-object article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d02c9112-0812-4bfc-b3b5-264f208dac30",
+  "value": {
+    "rationale": "Vertex elimination is directly motivated by the longstanding small-triangulation/minimality problem for this canonical Poincaré-sphere complex. The result isolates the unique locally cheapest vertex and proves that its exceptionally small octahedral link is nevertheless maximally obstructed for a no-new-vertex star replacement because every possible filling diagonal is already occupied outside the star. This is a structural local obstruction, not an arbitrary census; it can guide simplification and relative-triangulation searches while explicitly stopping short of a global minimality theorem.",
+    "status": "PASS"
+  }
+}
