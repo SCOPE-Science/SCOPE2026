@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed from the standard IPP1/IPP2 criterion. The packaged verifier checks the ambient MDS property, derives every forbidden three- and four-word configuration, enumerates all \(65536\) subcodes without pruning by unproved assumptions, and verifies the two affine-line profile counts. The claim is finite; no experiment is extrapolated to an infinite statement.
+## correctness
 
-## Originality
-PASS. The closest primary source, IACR ePrint 2007/276, proves the prolific length-four boundary and supplies the IPP criterion, but it does not optimize IPP subcodes of the quaternary MDS code. Exact-parameter searches under IPP, MDS, orthogonal-array and Latin-square formulations did not find the threshold \(8\), the count \(48\), or the \(24+24\) affine-profile split. An unindexed finite computation remains a residual risk.
+PASS
 
-## Value
-PASS. The quaternary \([4,2,3]\) MDS code is the first alphabet-size boundary immediately beyond the sporadic ternary prolific example emphasized in the primary source. Determining that only half of its words can survive under IPP, together with a complete extremal census and two geometric profiles, gives a natural quantitative measure of that obstruction rather than an arbitrary parameter slice.
+An independent exact replay reconstructed \(\mathbb F_4\), all 16 displayed codewords, and minimum Hamming distance 3. It derived forbidden sets directly from IPP1/IPP2, finding no bad triples and 144 bad four-word subsets, then checked all \(2^{16}=65536\) subcodes. The exact optimum is 8 with 48 maximizers. Independently reconstructing all 20 affine lines of \(\operatorname{AG}(2,4)\) gives exactly 24 maxima with profile \(\{4^2,2^{16},0^2\}\) and 24 with \(\{3^8,2^4,1^8\}\). This is exhaustive finite verification, not sampling.
 
-## Closest literature and limitations
-Blackburn, Etzion and Ng classify prolific nonbinary length-four IPP codes and exclude the quaternary full-code case. The present result is narrower in ambient object but sharper in deletion distance. It does not determine unrestricted quaternary length-four IPP maxima, and it does not claim a full automorphism-orbit classification of the forty-eight extremizers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes at the stated fixed-code level. Blackburn--Etzion--Ng give the standard IPP1/IPP2 criterion, general upper bounds, and the prolific length-four classification, including exclusion of quaternary prolific codes. Their full analysis does not determine the maximum IPP subset of this particular 16-word quaternary MDS code, enumerate all maximizers, or give the two affine-line profiles. Fresh semantic and exact-parameter searches did not surface a covering theorem.
+
+## value
+
+PASS
+
+The fixed ambient code is the natural quaternary length-four MDS object immediately beyond the unique ternary prolific example in the foundational classification. Determining exactly how much of it survives the IPP constraint, how many extremizers occur, and their affine incidence profiles is a meaningful finite boundary classification rather than a tiny arbitrary subset test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:56:48.062952Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b71341029832f9c75ca0d86d4452e333902c0326",
+        "verify.py blob fb2f15a1850f5ce56cf02ccb0df12fa4e147070c",
+        "independent exhaustive enumeration"
+      ],
+      "rationale": "An independent exact replay reconstructed \\(\\mathbb F_4\\), all 16 displayed codewords, and minimum Hamming distance 3. It derived forbidden sets directly from IPP1/IPP2, finding no bad triples and 144 bad four-word subsets, then checked all \\(2^{16}=65536\\) subcodes. The exact optimum is 8 with 48 maximizers. Independently reconstructing all 20 affine lines of \\(\\operatorname{AG}(2,4)\\) gives exactly 24 maxima with profile \\(\\{4^2,2^{16},0^2\\}\\) and 24 with \\(\\{3^8,2^4,1^8\\}\\). This is exhaustive finite verification, not sampling.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper's unrestricted upper bounds for length four are much broader and do not force the value 8 inside this code.",
+          "The prolific theorem excludes a full quaternary prolific example but gives no sharp deletion number."
+        ],
+        "reasoning": "Broader IPP bounds do not dominate the exact fixed-code optimization.",
+        "searches": [
+          "DOI:10.1137/070695551, general IPP upper bounds and Theorem 7.5",
+          "searches for IPP MDS orthogonal-array length four quaternary"
+        ]
+      },
+      "checked_sources": [
+        "Blackburn--Etzion--Ng, Prolific Codes with the Identifiable Parent Property, IACR ePrint 2007/276 and DOI:10.1137/070695551",
+        "Resultary semantic query: quaternary [4,2,3] MDS code identifiable parent property maximum subcode 8 48",
+        "exact searches for quaternary length-four IPP MDS subcode 8 / 48 affine-line profiles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source criterion makes the exhaustive computation well-defined but does not imply the optimum without checking the forbidden hypergraph of this 16-word code.",
+          "Non-prolificity is strictly weaker than the exact statement that every 9-word subset fails IPP."
+        ],
+        "reasoning": "The fixed-code extremal value and census require the complete finite exhaustion and do not follow merely from the published prolificity classification.",
+        "searches": [
+          "Blackburn--Etzion--Ng Lemma 1.1, Theorem 4.3, Lemma 7.4, Theorem 7.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source's IPP1/IPP2 conditions are exactly the criterion used in the finite proof.",
+          "Its prolific classification answers whether every ambient word is a descendant, not the largest IPP subcode of a fixed \\([4,2,3]_4\\) MDS code."
+        ],
+        "reasoning": "The descendant-set, forbidden-subset, and fixed-MDS-subcode formulations were compared; the primary paper supplies the criterion but not the extremal deletion theorem.",
+        "searches": [
+          "IACR ePrint 2007/276, Lemma 1.1 and Section 7",
+          "Resultary query: quaternary [4,2,3] MDS code identifiable parent property maximum subcode 8 48"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked database/table or indexed finding gave the exact maximum 8, the count 48, or the 24+24 incidence split."
+        ],
+        "reasoning": "A prior exhaustive table would cover the claim directly; none was located in the checked sources.",
+        "searches": [
+          "Resultary query above",
+          "exact web searches for 48 maximum IPP subcodes and the two line-intersection multisets"
+        ]
+      },
+      "rationale": "Originality passes at the stated fixed-code level. Blackburn--Etzion--Ng give the standard IPP1/IPP2 criterion, general upper bounds, and the prolific length-four classification, including exclusion of quaternary prolific codes. Their full analysis does not determine the maximum IPP subset of this particular 16-word quaternary MDS code, enumerate all maximizers, or give the two affine-line profiles. Fresh semantic and exact-parameter searches did not surface a covering theorem.",
+      "residual_risks": [
+        "An unindexed finite computation of the same fixed code could contain the exact 48-maximizer census.",
+        "The two affine-line profiles are not claimed to be a complete automorphism-orbit classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CRITERION_AND_BROADER_BOUND_NOT_FIXED_CODE_CENSUS",
+          "evidence": "The paper excludes quaternary prolific length-four codes and gives general bounds, but it does not enumerate IPP subsets of the standard quaternary \\([4,2,3]\\) MDS code.",
+          "identifier_or_url": "IACR ePrint 2007/276; DOI:10.1137/070695551",
+          "material_read": "Full primary text including the IPP1/IPP2 criterion, general upper-bound section, and Section 7 prolific length-four classification; the relevant PDF pages were visually inspected.",
+          "method": "lawful open primary full text",
+          "title": "Prolific Codes with the Identifiable Parent Property",
+          "trigger": "Foundational primary source for the IPP criterion and the closest length-four MDS/prolific classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Blackburn--Etzion--Ng",
+        "assigned finite theorem",
+        "independent exhaustive replay"
+      ],
+      "rationale": "The fixed ambient code is the natural quaternary length-four MDS object immediately beyond the unique ternary prolific example in the foundational classification. Determining exactly how much of it survives the IPP constraint, how many extremizers occur, and their affine incidence profiles is a meaningful finite boundary classification rather than a tiny arbitrary subset test.",
+      "residual_risks": [
+        "The claim is deliberately about this fixed MDS code and does not solve the unrestricted quaternary length-four IPP maximum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed finite computation of the same fixed code could contain the exact 48-maximizer census.",
+    "The two affine-line profiles are not claimed to be a complete automorphism-orbit classification.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
