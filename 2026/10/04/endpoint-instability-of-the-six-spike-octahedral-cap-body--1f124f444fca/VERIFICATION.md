@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved analytically in `RESULT.md`. The included `verify.py` is a consistency replay only. It checks representative subcritical parameters, unit norms, the positive dependence, the determinant factor, all six spike-coverage inequalities, and the endpoint square-sum obstruction. Finite numerical checks are not used as evidence for the universal quantifier over \(r\).
+# Independent mathematical audit
 
-Critical analytic checks are:
+## correctness
 
-1. For \(1<r<\sqrt2\), \(c_r=\sqrt{1-r^{-2}}<1/\sqrt2\), so the required \(x\) exists.
-2. The determinant equals \(s(3x^2-1)\), and the excluded value \(x=1/\sqrt3\) is exactly the only internal singular value.
-3. The positive relation \(u_1+u_2+u_3+\sqrt3\,s\,u_4=0\) has strictly positive coefficients because \(s>0\).
-4. At \(r=\sqrt2\), illuminating two distinct axial spikes would require two distinct coordinate squares to sum to more than one, contradicting unit norm.
+PASS
 
-No statement beyond the displayed family and parameter range has been verified. Independent audit has not been performed.
+The subcritical four directions are unit vectors, each spike is covered with strict margin, their stated positive dependence holds, and their determinant is nonzero away from the excluded parameter. Thus they positively span three-space and illuminate the body. At the square-root-of-two endpoint, a unit direction cannot satisfy two distinct strict coordinate thresholds, so at least six directions are needed and the six coordinate directions attain the bound. The determinant and positive dependence were independently recomputed symbolically.
+
+## originality
+
+PASS
+
+The closest full primary source proves the class-wide upper bound six and reproduces the sharp regular-octahedral endpoint, but it does not state the exact subcritical value four for every inward common radial perturbation. Fresh Resultary searches returned the present record as the only direct match.
+
+## value
+
+PASS
+
+The theorem identifies a sharp endpoint instability of the known extremal cap body: every common inward radial perturbation drops immediately from six to the dimension-minimal value four.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

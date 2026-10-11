@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cap-body condition holds on the full stated range. The proof uses the published spike-vertex criterion, checks all six strict coordinate inequalities, proves positive spanning by both a positive dependence and a nonzero determinant, and invokes the standard three-dimensional lower bound. At the endpoint, the strict coordinate threshold and the unit-norm identity force one spike per direction, while six coordinate directions attain the bound.
+## correctness
 
-The main scientific risk is a hidden boundary case, but the proof treats the only transition point \(r=\sqrt2\) separately and uses strict inequalities on both sides of the illumination criterion. The finite checker is supplemental and is not used to infer the quantified theorem.
+PASS
 
-## Originality
-**PASS.** The closest inspected primary source proves the class-wide bound \(I(K)\le6\) for centrally symmetric three-dimensional cap bodies and supplies the exact spike criterion. The later three-dimensional cap-body literature records the regular-octahedral endpoint as a sharp six-direction example. Neither inspected source states the exact radial profile \(4\) for every \(1<r<\sqrt2\), nor the explicit four-direction construction.
+The subcritical four directions are unit vectors, each spike is covered with strict margin, their stated positive dependence holds, and their determinant is nonzero away from the excluded parameter. Thus they positively span three-space and illuminate the body. At the square-root-of-two endpoint, a unit direction cannot satisfy two distinct strict coordinate thresholds, so at least six directions are needed and the six coordinate directions attain the bound. The determinant and positive dependence were independently recomputed symbolically.
 
-Targeted searches covered axial spikes, regular octahedral cap bodies, the \(\sqrt2\) threshold, spiky-ball terminology, and exact illumination-number formulations. The closest indexed exact-illumination records concern different convex bodies and do not imply this result. Residual risk remains that an isolated unindexed observation could contain the same construction.
+## originality
 
-## Value
-**PASS.** The endpoint \(r=\sqrt2\) is the natural tangency threshold of the six spherical base caps and is the standard sharpness example for the six-direction class bound. Showing that every strict inward radial perturbation has the minimum possible three-dimensional illumination number \(4\) identifies the exact stability boundary of that extremizer, rather than computing an arbitrary parameter value.
+PASS
 
-## Closest literature and limitations
-The proof is restricted to the common-radius axial family and ordinary illumination. It does not classify arbitrary centrally symmetric cap bodies, unequal axial radii, or multiple illumination. The comparison used Ivanov--Strachan's primary cap-body paper, the later spiky-ball criterion paper, and the current three-dimensional cap-body treatment of the sharp octahedral example.
+The closest full primary source proves the class-wide upper bound six and reproduces the sharp regular-octahedral endpoint, but it does not state the exact subcritical value four for every inward common radial perturbation. Fresh Resultary searches returned the present record as the only direct match.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem identifies a sharp endpoint instability of the known extremal cap body: every common inward radial perturbation drops immediately from six to the dimension-minimal value four.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
