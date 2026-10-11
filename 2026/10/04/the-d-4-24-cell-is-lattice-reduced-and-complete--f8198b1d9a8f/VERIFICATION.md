@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,32 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Let
-\[
-P=\{x:|x_i\pm x_j|\le1\text{ for all }i<j\}.
-\]
-The embedded exact-rational checker enumerates every intersection of four defining root hyperplanes and proves that the feasible vertex set is exactly
-\[
-\{\pm e_i\}\cup\{(\pm1/2,\pm1/2,\pm1/2,\pm1/2)\}.
-\]
-Hence the finite polyhedral identity used in the proof is independently reconstructed.
+## correctness
 
-It then takes these \(24\) points as the normals of the halfspace system
-\[
-m\cdot x\le1/2
-\]
-and again enumerates every fourfold active intersection. The resulting vertices are exactly
-\[
-\frac12\{\pm e_i\pm e_j:i<j\}.
-\]
-This verifies the polar halfspace description of \(V_{D_4^*}\) exactly.
+PASS
 
-For additional consistency, the checker evaluates the support inequalities for all tested \(D_4\) points with integer coordinates in \([-4,4]\) and all tested \(D_4^*\) points with half-integer coordinates in \([-7/2,7/2]\). It also confirms that each root direction uniquely selects its corresponding root vertex in \(C\).
+The coordinate proof is correct. The root halfspaces give P with support h_P(z)=max(||z||_infinity,||z||_1/2); every nonzero even-sum integer z satisfies h_P(z)<=||z||_2^2/2, while the roots already define P, hence P=V_D4. Polarity gives P*=C. The dual lattice is exactly the integral and all-half-integral cosets. For y in D4*, h_{C/2}(y) is half the sum of the two largest absolute coordinates; the integer and half-integral estimates each give h_{C/2}(y)<=||y||_2^2/2, and the shortest vectors already define C/2, so V_D4*=C/2. Codenotti--Freyer's open full text then supplies reducedness/completeness and scale invariance. The inspected exact-rational checker reconstructs both 24-vertex halfspace systems as corroboration.
 
-The replay output is:
+## originality
 
-`VERIFY_OK D4 24-cell reduced-complete identity`
+PASS
 
-The finite lattice sweeps are not used to prove the infinite statements. The all-lattice Voronoi inequalities are proved symbolically in `RESULT.md` by elementary estimates on integral and half-integral coordinates.
+Best-of-knowledge originality passes. The primary Codenotti--Freyer paper explicitly asks for an origin-symmetric simultaneous reduced-complete body in dimension at least three and notes that every higher-dimensional simultaneous example in its list is a simplex. Their polarity and Voronoi results are the needed general premises, but the inspected full text does not give a D4 or 24-cell instance. Resultary returned the assigned theorem as the exact D4 answer and no stronger prior SCOPE record. The nontrivial bridge is the same-lattice metric identity (V_D4)^*=2V_D4*.
+
+## value
+
+PASS
+
+The theorem directly answers an explicit open existence question with a canonical four-dimensional nonsimplex, and the double-Voronoi identity explains a reusable mechanism for simultaneous reducedness and completeness. This is a motivated structural construction rather than a decorative restatement of 24-cell self-duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

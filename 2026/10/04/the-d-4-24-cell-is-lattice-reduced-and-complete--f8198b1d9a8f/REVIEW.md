@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof independently establishes the two coordinate Voronoi identities. For \(D_4\), the candidate cell has support function \(\max\{\lVert z\rVert_\infty,\lVert z\rVert_1/2\}\), and every nonzero even-sum integer vector satisfies the needed Voronoi inequality. For \(D_4^*\), the half-root polytope has support equal to half the sum of the two largest absolute coordinates; the required inequality is proved separately for the integral and half-integral cosets. Polarity then gives \(C=(V_{D_4})^*\), and Codenotti--Freyer Proposition 3.11 plus scale invariance yields both reducedness and completeness with respect to \(D_4^*\).
+PASS
 
-The exact-rational verifier reconstructs both 24-vertex polytopes from their halfspace systems and replays the critical support inequalities on large bounded lattice boxes. Those finite checks are consistency tests only; the all-lattice statements are proved analytically.
+The coordinate proof is correct. The root halfspaces give P with support h_P(z)=max(||z||_infinity,||z||_1/2); every nonzero even-sum integer z satisfies h_P(z)<=||z||_2^2/2, while the roots already define P, hence P=V_D4. Polarity gives P*=C. The dual lattice is exactly the integral and all-half-integral cosets. For y in D4*, h_{C/2}(y) is half the sum of the two largest absolute coordinates; the integer and half-integral estimates each give h_{C/2}(y)<=||y||_2^2/2, and the shortest vectors already define C/2, so V_D4*=C/2. Codenotti--Freyer's open full text then supplies reducedness/completeness and scale invariance. The inspected exact-rational checker reconstructs both 24-vertex halfspace systems as corroboration.
 
-## Originality
+## originality
 
-PASS with residual literature risk. The inspected primary paper explicitly asks whether origin-symmetric simultaneous reduced-complete bodies exist in dimension at least three, and says that all of its listed higher-dimensional simultaneous examples are simplices. Full-text search found no occurrence of `D4` or `24-cell`. Targeted public and indexed searches did not locate a later answer using the 24-cell, the dual lattice, or the double-Voronoi identity.
+PASS
 
-The closest classical fact is that the \(D_4\) Voronoi cell is a regular 24-cell and that the 24-cell is self-dual. That does not by itself prove simultaneous reducedness and completeness with respect to one fixed lattice; the proof identifies the precise scaling \((V_{D_4})^*=2V_{D_4^*}\).
+Best-of-knowledge originality passes. The primary Codenotti--Freyer paper explicitly asks for an origin-symmetric simultaneous reduced-complete body in dimension at least three and notes that every higher-dimensional simultaneous example in its list is a simplex. Their polarity and Voronoi results are the needed general premises, but the inspected full text does not give a D4 or 24-cell instance. Resultary returned the assigned theorem as the exact D4 answer and no stronger prior SCOPE record. The nontrivial bridge is the same-lattice metric identity (V_D4)^*=2V_D4*.
 
-## Value
+## value
 
-PASS. The claim answers an explicit open existence question with one of the most canonical four-dimensional regular polytopes. It is structurally informative: it shows how a dual Voronoi coincidence can force reducedness and completeness simultaneously, rather than merely giving a numerical example. The example is origin-symmetric and non-simplex, exactly the kind the source singled out as missing.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The theorem directly answers an explicit open existence question with a canonical four-dimensional nonsimplex, and the double-Voronoi identity explains a reusable mechanism for simultaneous reducedness and completeness. This is a motivated structural construction rather than a decorative restatement of 24-cell self-duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
