@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the frozen RESULT.md and the primary paper equations for scheme 3, write r=1-d and y=1-q. Then C_3(y)=2r sqrt(y)/(r+y) has derivative \\(r(r-y)/(\\sqrt{y}(r+y)^2)\\), so the unique maximum on y in (0,1] occurs at y=r, i.e. q=d. Substitution gives C_max=sqrt(r) and P=r. At the paper's \\(q=2d-d^2\\) one has \\(y=r^2\\), C=2r/(1+r), P=r(1+r)/2; both are strictly smaller for 0<r<1. The efficient branch is y in [r,1], equivalently q in [0,d], and eliminating y gives C=r sqrt(2P-r)/P. A fresh independent numerical replay over 99 damping values confirmed the symbolic identities and strict inequalities, while the proof itself is analytic rather than experimental.",
+      "risks": [
+        "The correction is confined to the symmetric scheme-3 branch and does not claim an optimizer for different initial states or asymmetric damping."
+      ],
+      "sources": [
+        "Frozen source tree e40069c186bee8815d9602fca626a7de8d84f418",
+        "Xu et al., Quantum Information Processing 14 (2015), DOI:10.1007/s11128-015-1111-0, scheme-3 equations and stated optimizer",
+        "Independent analytic differentiation and substitution; package verifier verify_scheme3_optimum.py inspected at blob b60b4c5522ac2d3c43c02f69ff3fe8a487178e3a"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives C_3 and P_3 and then labels \\(q=2d-d^2\\) optimal; it does not state q=d or the efficient frontier."
+        ],
+        "reasoning": "The source contains the ingredients but an explicitly contrary optimization conclusion, so it does not dominate the correction as a prior theorem.",
+        "searches": [
+          "Full primary text of Xu et al. DOI:10.1007/s11128-015-1111-0",
+          "Search for later environment-assisted weak-measurement surveys/corrections"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s11128-015-1111-0 full text",
+        "Resultary semantic search",
+        "Exact web searches for the optimizer and errata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior statement selects \\(q=2d-d^2\\), whereas direct differentiation proves q=d and strict Pareto domination."
+        ],
+        "reasoning": "The corrected optimization result contradicts rather than specializes the source's stated optimum. The elementary derivation narrows the novelty to the error correction and full efficient branch.",
+        "searches": [
+          "Statement comparison with the 2015 scheme-3 formulas and optimizer paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No separate published Resultary finding matching the q=d correction appeared among the returned results.",
+          "The primary 2015 paper is the direct match and states the published \\(q^O=2d-d^2\\) choice."
+        ],
+        "reasoning": "Equivalent parameterizations y=1-q and r=1-d were checked; no independently published corrected optimum was found.",
+        "searches": [
+          "Resultary semantic query: environment assisted entanglement restoration weak measurement reversal optimum q equals d correction",
+          "Web search: \\(q^O=2d-d^2\\) entanglement restoration Xu",
+          "Web search: \\(C_3, 2d-d^2\\) success probability entanglement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No erratum, correction note, or exact table reproducing the corrected point was located."
+        ],
+        "reasoning": "An exact later correction would cover the claim; none was found in the queried indexes.",
+        "searches": [
+          "Exact q=d / \\(q=2d-d^2\\) correction searches",
+          "Resultary semantic search"
+        ]
+      },
+      "rationale": "The primary source explicitly states the conflicting optimizer \\(q=2d-d^2\\); fresh exact-phrase, DOI, correction/erratum, and Resultary searches did not locate a later publication stating q=d or the Pareto frontier. Because the checked source asserts the opposite conclusion, its displayed formula is evidence enabling the correction but is not a prior statement of the corrected optimum.",
+      "residual_risks": [
+        "A simple derivative correction may have circulated in unindexed notes or under a different weak-measurement parameter convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_CONTRADICTS_CORRECTED_OPTIMUM",
+          "evidence": [
+            "The paper supplies C_3=2(1-d)sqrt(1-q)/((1-d)+(1-q)) and P_3=((1-q)+(1-d))/2, then states \\(q^O=2d-d^2\\)."
+          ],
+          "identifier_or_url": "DOI:10.1007/s11128-015-1111-0",
+          "material_read": "Full-text scheme-3 construction and optimization discussion including the displayed concurrence, success probability, and stated \\(q^O=2d-d^2\\) choice.",
+          "method": "Primary full-text statement and formula comparison.",
+          "title": "Environment-assisted entanglement restoration and improvement of the fidelity for quantum teleportation",
+          "trigger": "Primary source whose scheme-3 optimum is corrected."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The published operating point is strictly dominated in both concurrence and success probability, so the correction changes a quantitative benchmark rather than merely renaming a parameter. The exact Pareto branch is directly useful for reuse of the protocol.",
+      "risks": [
+        "The contribution is a focused correction, not a new entanglement-restoration framework."
+      ],
+      "sources": [
+        "Primary scheme-3 benchmark in DOI:10.1007/s11128-015-1111-0",
+        "Exact dominance inequalities and efficient-branch derivation"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the equal-damping scheme-3 family and its stated Bell-branch formulas are audited."
+  ],
+  "schema_version": 1
+}
