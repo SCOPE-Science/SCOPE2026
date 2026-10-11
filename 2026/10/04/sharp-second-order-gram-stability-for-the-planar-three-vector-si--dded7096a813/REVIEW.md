@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact rank-two Gram determinant, an exact local formula for the active signed sums, and a sharp three-coordinate zero-sum inequality. The explicit one-parameter family attains the first two coefficients. The symbolic verifier checks the determinant identity and the family expansion. The result is explicitly local; no finite experiment is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest papers establish the global sharp planar signed-sum value and equality geometry, while the inspected statements do not give a quantitative Gram-defect stability expansion. Claim-specific searches using signed-sum, equilateral, Gram, stability, and the exact coefficient pair found no covering result. A residual risk remains that an unindexed regular-polygon or zonotope stability theorem in another metric could imply the same coefficients after conversion.
+PASS
 
-## Value
-PASS. Near-equality rigidity is a natural next question once the extremal value and equality class are known. The sharp linear modulus and its second-order correction identify the actual local scale of departure from the extremal equilateral configuration and can be inverted to control Gram geometry from signed-sum deficit.
+The proof reconstructs. After choosing the nearest sign representative, write the three off-diagonal Gram entries as minus one half plus perturbations x,y,z. Rank two gives the exact determinant identity 3s=Δ²+s²-4xyz. This first forces s of order Δ² and then s=Δ²/3 plus order Δ³. Near equality the active squared signed sums are 4+4x-2s and its permutations. After centering the perturbations, the sharp zero-sum inequality max q_i at least norm(q)/sqrt(6) gives the lower expansion with coefficients sqrt(8/3) and -2/9. Fresh symbolic calculation verified the determinant identity. The displayed symmetric angular perturbation has two equal active coordinates and its Taylor series attains both coefficients, proving joint sharpness.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with the focal full-text access limitation retained. Pinasco's visible primary statement proves the exact minimum and classifies equality for d+1 unit vectors; Grundbacher proves the sharp planar signed-sum extremum for arbitrary numbers of vectors. Targeted and Resultary searches did not locate a quantitative local deficit-versus-Gram-distance expansion, let alone the joint sharp first and second coefficients.
+
+## value
+
+PASS
+
+The result gives a quantitative rigidity scale around a newly classified extremal configuration for a natural signed-vector problem. Determining the sharp linear and quadratic response in an intrinsic Gram metric is a motivated stability refinement, not a recomputation of the extremal value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
