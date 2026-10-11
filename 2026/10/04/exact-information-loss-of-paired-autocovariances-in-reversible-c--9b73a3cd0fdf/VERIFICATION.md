@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,45 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational
-arithmetic for finitely supported spectral measures.
+# Independent mathematical audit
 
-For thousands of random rational probability measures on rational spectral
-points in \([-1,1]\), it forms the weighted squared pushforward \(G\), recovers
-the sign-splitting parameter, reconstructs the original spectral measure, and
-checks normalization together with paired moments through lag twenty.
+## correctness
 
-It verifies the compatibility inequality
-\[
-\int\frac{G(dx)}{1+\sqrt{x}}\le1
-\]
-whenever the square roots are rational in the generated test family.
+PASS
 
-The checker separately verifies the explicit measures
-\[
-\nu_A=
-\frac13\delta_{1/2}
-+\frac1{12}\delta_{1/3}
-+\frac7{12}\delta_{-1/3}
-\]
-and
-\[
-\nu_B=
-\frac3{16}\delta_{1/2}
-+\frac7{16}\delta_{-1/2}
-+\frac38\delta_{1/3}.
-\]
-It confirms identical paired moments, different second and third
-autocorrelations, common normalized asymptotic variance \(35/24\), and the
-two distinct three-step sample-mean variances.
+Reversibility yields \(r_k=\int\lambda^k\nu(d\lambda)\), so pairing gives the pushforward moment measure \(G\) immediately. On each \(x<1\), writing positive and negative branch masses at \(\pm\sqrt{x}\) turns the single equation \(G=(1+\sqrt{x})\alpha+(1-\sqrt{x})\beta\) into the measurable splitting parameter \(\eta\). The +1 atom is fixed by \(G(\{1\})/2\), while -1 is invisible and receives the residual normalization mass. The total mass functional is minimized by the positive branch, yielding the exact compatibility inequality. Equality of that minimum forces uniqueness; otherwise positive slack plus mass in \((0,1)\) permits a nontrivial branch perturbation. The explicit two spectral measures were independently recomputed: they have the same paired moments and normalized asymptotic variance but different \(r_2,r_3\) and three-step variances. The finite-support product of symmetric two-state kernels realizes each required eigenvalue with a reversible eigenfunction.
 
-Finally it checks the two-state eigenfunction identity for every rational
-spectral point used in the finite-state constructions.
+## originality
 
-Finite replay does not replace the measure-theoretic inversion proof.
+PASS
 
-Independent audit has not been performed.
+Berg--Song prove the forward spectral-moment representation for the full reversible autocovariance sequence and the Hausdorff-moment representation for Geyer's paired sequence, but the inspected proposition does not invert the weighted squaring map, characterize identifiability, or construct exact finite-state aliasing examples. Geyer's original work introduces the paired sequence and its shape properties. Targeted Resultary search found no prior inverse-fiber theorem. The audited result therefore adds the exact information-loss classification rather than restating the forward moment representation.
 
-Exact-rational replay result: `VERIFY_OK fiber_reconstruction_checks=12002 paired_moment_checks=264080 compatibility_checks=12002 two_state_eigen_checks=42015 explicit_alias_pair=passed`.
+## value
+
+PASS
+
+Paired autocovariances are a standard device in reversible-chain variance estimation, so knowing exactly what the complete paired sequence forgets is a natural identifiability question. The theorem gives the full fiber and a sharp uniqueness test, then demonstrates that the ambiguity persists in finite irreducible aperiodic chains and changes finite-horizon behavior even when asymptotic variance is identical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

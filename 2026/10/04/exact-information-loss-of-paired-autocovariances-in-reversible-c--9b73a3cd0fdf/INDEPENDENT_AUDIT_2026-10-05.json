@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:42:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2e81fe383502a912a5cddcfb72e0e906c10b521c",
+        "Berg--Song, Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain, arXiv:2207.12705 / Annals of Statistics 2023",
+        "Geyer, Practical Markov Chain Monte Carlo, Statistical Science 1992"
+      ],
+      "rationale": "Reversibility yields \\(r_k=\\int\\lambda^k\\nu(d\\lambda)\\), so pairing gives the pushforward moment measure \\(G\\) immediately. On each \\(x<1\\), writing positive and negative branch masses at \\(\\pm\\sqrt{x}\\) turns the single equation \\(G=(1+\\sqrt{x})\\alpha+(1-\\sqrt{x})\\beta\\) into the measurable splitting parameter \\(\\eta\\). The +1 atom is fixed by \\(G(\\{1\\})/2\\), while -1 is invisible and receives the residual normalization mass. The total mass functional is minimized by the positive branch, yielding the exact compatibility inequality. Equality of that minimum forces uniqueness; otherwise positive slack plus mass in \\((0,1)\\) permits a nontrivial branch perturbation. The explicit two spectral measures were independently recomputed: they have the same paired moments and normalized asymptotic variance but different \\(r_2,r_3\\) and three-step variances. The finite-support product of symmetric two-state kernels realizes each required eigenvalue with a reversible eigenfunction.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The forward moment theorem fixes G uniquely but does not fix the signs of square-root spectral locations.",
+          "Results imposing a positive Markov operator remove the negative branch and therefore do not cover the information-loss phenomenon."
+        ],
+        "reasoning": "No checked broader theorem supplies the complete branch-splitting fiber or its exact uniqueness criterion.",
+        "searches": [
+          "arXiv:2207.12705 full relevant proposition and discussion",
+          "positive-spectrum reversible-chain variance-envelope literature",
+          "Geyer 1992"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.12705",
+        "DOI:10.1214/ss/1177011137",
+        "Hausdorff moment theorem",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing all paired moments uniquely determines G but leaves weighted mass at +sqrt(x) and -sqrt(x) under one linear constraint.",
+          "The audited normalization analysis identifies exactly when that branch freedom survives and how much -1 mass completes the probability measure."
+        ],
+        "reasoning": "The inverse theorem is not an implication-level restatement of moment determinacy; it solves the noninjectivity left by the forward map.",
+        "searches": [
+          "Berg--Song forward pushforward formula versus the audited inversion",
+          "Hausdorff moment uniqueness for G"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berg--Song explicitly represent \\(\\Gamma_k\\) as a Hausdorff moment sequence on \\([0,1]\\).",
+          "The audited theorem solves the inverse problem from that representing measure back to every compatible signed-spectrum measure on \\([-1,1]\\)."
+        ],
+        "reasoning": "Equivalent formulations as spectral aliasing under \\(\\lambda\\mapsto\\lambda^2\\), identifiability from Geyer pairs, and inversion of the weighted squaring pushforward were compared.",
+        "searches": [
+          "Resultary query: paired autocovariances reversible chain inverse spectral measure identifiability negative eigenvalues",
+          "arXiv:2207.12705, proposition on spectral representations",
+          "Geyer 1992 paired initial-sequence construction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database or published SCOPE entry with the compatibility functional J(G), uniqueness dichotomy, or finite-state aliasing pair was found."
+        ],
+        "reasoning": "The Hausdorff moment theorem itself is classical and only identifies G; it does not tabulate or determine the inverse fiber in nu.",
+        "searches": [
+          "Resultary inverse paired-autocovariance search",
+          "moment-problem/initial-sequence terminology search"
+        ]
+      },
+      "rationale": "Berg--Song prove the forward spectral-moment representation for the full reversible autocovariance sequence and the Hausdorff-moment representation for Geyer's paired sequence, but the inspected proposition does not invert the weighted squaring map, characterize identifiability, or construct exact finite-state aliasing examples. Geyer's original work introduces the paired sequence and its shape properties. Targeted Resultary search found no prior inverse-fiber theorem. The audited result therefore adds the exact information-loss classification rather than restating the forward moment representation.",
+      "residual_risks": [
+        "Older spectral/moment-problem literature may contain an equivalent inverse weighted-squaring transformation under terminology unrelated to MCMC paired autocovariances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FORWARD_REPRESENTATION_ONLY",
+          "evidence": "The paper establishes the moment measure for the paired sequence but does not provide the inverse fiber, compatibility/uniqueness criteria, or the explicit finite-state aliasing construction.",
+          "identifier_or_url": "arXiv:2207.12705",
+          "material_read": "Primary PDF around the proposition representing autocovariances on [-1,1] and paired quantities on [0,1], plus the surrounding discussion of complete monotonicity.",
+          "method": "Open-access full-text/PDF inspection with the proposition page visually checked.",
+          "title": "Efficient shape-constrained inference for the autocovariance sequence from a reversible Markov chain",
+          "trigger": "Closest primary theorem giving both the full reversible spectral representation and the paired Hausdorff-moment representation."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_ORIGINAL_SOURCE; LATER_PRIMARY_DISCUSSION_USED",
+          "evidence": "The paired construction and its classical positivity/shape role are established, but originality judgment does not rely on claiming the inaccessible 1992 paper lacks the inverse theorem.",
+          "identifier_or_url": "DOI:10.1214/ss/1177011137",
+          "material_read": "Bibliographic record/abstract and later full-text discussions of the paired sequence; an authorized historical PDF had no usable scientific-text extraction in this run.",
+          "method": "Bounded source inspection; no whole-document noncoverage inference was made from inaccessible pages.",
+          "title": "Practical Markov Chain Monte Carlo",
+          "trigger": "Original source for Geyer's paired autocovariance sequence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Berg--Song arXiv:2207.12705",
+        "Geyer paired-sequence literature",
+        "assigned explicit construction"
+      ],
+      "rationale": "Paired autocovariances are a standard device in reversible-chain variance estimation, so knowing exactly what the complete paired sequence forgets is a natural identifiability question. The theorem gives the full fiber and a sharp uniqueness test, then demonstrates that the ambiguity persists in finite irreducible aperiodic chains and changes finite-horizon behavior even when asymptotic variance is identical.",
+      "residual_risks": [
+        "The theorem does not classify realization of arbitrary continuous fiber measures by finite-state chains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a stationary reversible chain and centered observable, the complete paired sequence \\(\\Gamma_k=r_{2k}+r_{2k+1}\\) uniquely determines the Hausdorff moment measure obtained by pushing \\((1+\\lambda)\\nu(d\\lambda)\\) through \\(\\lambda\\mapsto\\lambda^2\\). The entire inverse fiber of spectral probability measures is parameterized by measurable splitting between \\(+\\sqrt{x}\\) and \\(-\\sqrt{x}\\), with compatibility exactly \\(J(G)=\\int(1+\\sqrt{x})^{-1}G(dx)\\le1\\) and uniqueness exactly when \\(J(G)=1\\) or \\(G((0,1))=0\\). Explicit finite-state irreducible aperiodic reversible chains can have identical complete paired sequences and asymptotic variance but different individual autocorrelations and finite-horizon sample-mean variances.",
+  "limitations": [
+    "The main inverse classification is at the spectral-measure level for one fixed centered observable.",
+    "Finite support is used for the stated finite-state realization; no claim is made that every continuous fiber measure has a finite-state realization.",
+    "Negative eigenvalues are allowed; in a positive-spectrum regime the ambiguity can disappear."
+  ],
+  "schema_version": 1
+}
