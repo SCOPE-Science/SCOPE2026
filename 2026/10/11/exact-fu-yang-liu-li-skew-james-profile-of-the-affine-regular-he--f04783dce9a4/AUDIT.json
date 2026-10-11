@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The reciprocal identity J[t,X]=t J[1/t,X] is exact, so it is enough to treat 0<t<=1. The hexagon's dihedral isometries reduce every unit pair to x=(1,a) on one edge and y on four canonical edge classes. For E0 and E3 one transformed norm is at most 1. For E1 the exact formulas A=max(1+tc,a+t) and B=1-ta+max(0,t-c) show that A>L and B>L would force simultaneously a>1/(1+t) and a<1/(1+t). For E2 the exact formulas A=-tb+max(1,a+t) and B=max(t+b,1+t-ta) give contradictions a>1 or a<1/(1+t) whenever both exceed L=(t^2+t+1)/(t+1). Reflection covers the remaining two edges. The explicit pair x=(1,0), y=(t/(1+t),1) has both transformed norms exactly L, proving sharpness.",
+    "risks": [
+      "The all-parameter theorem rests on the analytic edge inequalities; the checker intentionally does not treat a finite grid as a proof of the continuum.",
+      "No classification of every maximizer is needed or claimed."
+    ],
+    "sources": [
+      "doi:10.5666/KMJ.2023.63.2.199 for the exact definition of J[t,X]",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fu--Yang--Liu--Li Proposition 5.3 gives only comparison bounds via the ordinary James constant and is strictly weaker than the accepted formula away from t=1.",
+        "The same paper computes the different squared-sum E[t,X] and skew von Neumann--Jordan constant on the same hexagon.",
+        "The later generalized-mean paper gives a broader family but its regular-hexagon computation uses a convex extreme-point reduction for mean exponent at least 1."
+      ],
+      "reasoning": "Neither the 2023 general bound nor the later positive-mean family calculation determines the negative-infinity minimum endpoint. The accepted edge argument supplies information genuinely absent from those broader statements.",
+      "searches": [
+        "On some skew constants J[t,X] regular polygon",
+        "E[t,X] ell infinity ell 1 hexagon Fu Yang Li",
+        "skew James constant affine regular hexagon exact profile (t^2+t+1)/(t+1)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.5666/KMJ.2023.63.2.199",
+      "arXiv:2504.00827",
+      "doi:10.1007/s10476-026-00166-0",
+      "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade",
+      "2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60",
+      "2026/10/4/SCOPE-exact-ptolemy-constant-on-the-first-nontrivial-hexagonal-regime--ba5cdee4c994",
+      "2026/10/4/SCOPE-exact-orthogonal-james-constant-of-a-mixed-euclidean-taxicab-ban--d257b41cb57c",
+      "Current own ledger through generation g000056"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For 0<t<1, the source upper bound is 1+t/2 after J(H)=3/2, whereas the exact result is 1+t^2/(1+t); the difference is t(1-t)/(2(1+t))>0.",
+        "Source Example 3.1.4 is the same hexagon but computes E[t,X], a sum-of-squares supremum rather than a minimum.",
+        "The later generalized-mean Example 3.2 is established only for mean exponent t>=1, while Fu's J[t,X] is the mean-exponent minus-infinity endpoint."
+      ],
+      "reasoning": "The exact profile is not a corollary of any inspected prior statement: the 2023 estimate is nonsharp, its hexagon examples concern different objectives, and the 2025 generalized example excludes the endpoint needed for the minimum.",
+      "searches": [
+        "doi:10.5666/KMJ.2023.63.2.199 Proposition 5.3",
+        "doi:10.5666/KMJ.2023.63.2.199 Example 3.1.4",
+        "arXiv:2504.00827 Example 3.2",
+        "skew James constant affine regular hexagon exact profile (t^2+t+1)/(t+1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 source defines J[t,X] as the supremum of the minimum of ||x+t y|| and ||t x-y|| over unit pairs.",
+        "The 2025 arXiv paper identifies Fu's J[t,X] with its generalized-mean skew James type constant at mean exponent minus infinity.",
+        "Its hexagonal extreme-point examples are proved only for mean exponent at least 1, not the minus-infinity endpoint."
+      ],
+      "reasoning": "The originality check compared the accepted minimum-type invariant both in its original notation and as the negative-infinity endpoint of the later generalized-mean family. The latter is the strongest natural equivalence and was inspected directly rather than treated as a title-only search.",
+      "searches": [
+        "J[t,X] skew James constant ell infinity 2",
+        "skew James constant affine regular hexagon",
+        "J[t,X] hexagonal Banach plane (t^2+t+1)/(t+1)",
+        "Fu Yang Li skew James constant hexagon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit states the exact J[t,H] profile.",
+        "The closest same-space hit is an isosceles von Neumann--Jordan profile, not J[t,H].",
+        "The current own ledger was checked for J[t,X], skew James, Milman moduli, and source-title aliases and contains no covering row."
+      ],
+      "reasoning": "Both exact formula and semantic object/invariant searches were used. Negative database evidence is not taken as novelty proof by itself; it is combined with direct full-text comparison.",
+      "searches": [
+        "skew James constant affine regular hexagon",
+        "J[t,X] hexagonal Banach plane (t^2+t+1)/(t+1)",
+        "Fu Yang Li skew James constant hexagon",
+        "golden ratio skew von Neumann Jordan hexagon"
+      ]
+    },
+    "rationale": "The defining 2023 article was inspected through its affine-regular hexagon example, its skew von Neumann--Jordan example, and the full Section 5 defining J[t,X] and proving Propositions 5.1--5.3. It computes E[t,X] and C_NJ[X] on the hexagon but gives no J[t,X] value there. A later 2025/2026 generalized-mean paper was inspected because its family contains Fu's J[t,X] at mean exponent minus infinity. Its regular-hexagon examples are derived using an extreme-point reduction explicitly restricted to mean exponent t>=1, so their displayed positive-mean formula does not cover the minimum endpoint. published-finding corpus searches using exact notation, object aliases, formula aliases, and the source authors returned no covering statement. The current own ledger through generation g000056 contains no skew James J[t,X] hexagonal profile.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "The later generalized-mean paper is the strongest nearby source; although its displayed hexagon calculation is explicitly proved only for mean exponent at least 1, another uninspected argument elsewhere could treat its minus-infinity endpoint.",
+      "An equivalent hexagonal calculation may exist under a linearly equivalent regular-hexagon normalization or under Milman-modulus notation without the Fu--Yang--Liu--Li symbol."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: the paper computes E[t,X] and C_NJ[X] on the same affine-regular hexagon, but Section 5 provides only general J[t,X] statements and no hexagonal J[t,X] profile.",
+        "evidence": "Kyungpook Mathematical Journal 63 (2023), 199--223; DOI 10.5666/KMJ.2023.63.2.199; public date 27 September 2023; MSC 46B20.",
+        "identifier_or_url": "doi:10.5666/KMJ.2023.63.2.199",
+        "material_read": "Public full-text article: Example 3.1.4 and its extreme-point description; Example 4.2; Section 5 definition of J[t,X]; Propositions 5.1, 5.2, and 5.3; Corollary 5.4.",
+        "method": "Full-text inspection with targeted searches for J[t,X], the hexagonal example, and Proposition 5.3.",
+        "title": "On Some Skew Constants in Banach Spaces",
+        "trigger": "Defining primary source for J[t,X] and the same canonical hexagonal plane."
+      },
+      {
+        "assessment": "HIGHLY_RELEVANT_NOT_COVERING: the broader family contains J[t,X], but the regular-hexagon formula is proved through a convex extreme-point reduction explicitly restricted to mean exponent at least 1, not the minimum endpoint.",
+        "evidence": "arXiv:2504.00827, first posted 31 March 2025; Remark 3.1 and Example 3.2; MSC 46B20.",
+        "identifier_or_url": "arXiv:2504.00827",
+        "material_read": "Full arXiv text and page images: Definitions 3.1--3.2; Remark 3.1 identifying the minus-infinity endpoint with J[t,X]; Proposition 3.2; Examples 3.1 and 3.2 including their proof restriction to generalized-mean exponent t>=1.",
+        "method": "Lawful arXiv full-text and PDF-page inspection.",
+        "title": "The skew James type constant in Banach spaces",
+        "trigger": "Later broader family explicitly containing Fu's J[t,X] as a limiting generalized-mean member and treating the same hexagonal norm."
+      }
+    ],
+    "sources": [
+      "doi:10.5666/KMJ.2023.63.2.199",
+      "arXiv:2504.00827",
+      "published-finding corpus records listed in the comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f04783dc-e9a4-43dc-9073-c4fd18daace9",
+  "value": {
+    "rationale": "The defining 2023 paper deliberately studies three related skew invariants and uses the affine-regular hexagon as a canonical non-Hilbert test object, but leaves its minimum-type J[t,X] profile uncomputed. The exact formula completes that canonical comparison rather than adding an arbitrary polygonal data point. It also exposes a structural limitation of Proposition 5.3: on the same standard example the general ordinary-James upper estimate has a strict, explicitly quantified gap for every unbalanced parameter. The result supplies a reusable piecewise-linear edge method for minimum-type skew invariants on polygonal norms.",
+    "risks": [
+      "The result is a canonical exact benchmark and sharpness diagnosis, not a classification theorem for all polygonal spaces."
+    ],
+    "sources": [
+      "doi:10.5666/KMJ.2023.63.2.199",
+      "arXiv:2504.00827",
+      "Bundled RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
