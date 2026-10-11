@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:18:24.697840Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f6469b18487eb32fcf9f2b304d7b7e423b724a78",
+        "assigned verify.py blob b39b7985496f9761cca44cac2a0cdc84b3df4d1c",
+        "Wei--Wang, Kybernetika 49 (2013) full-text same-object source"
+      ],
+      "rationale": "For every bounded complete trajectory, backward variation of constants in \\(\\dot y+y=x^2\\) gives \\(y(t)=\\int_0^\\infty e^{-s}x(t-s)^2ds\\ge0\\); equality would force an entire past half-orbit with \\(x=y=0\\), contradicting boundedness because then \\(\\dot z=1\\). Thus compact invariant support lies in \\(y>0\\). Generator stationarity applied to arbitrary one-coordinate C1 primitives gives the three conditional expectation laws. Their expectations yield \\(E[x]=1/4\\), \\(E[y]=E[x^2]\\), and hence the exact variance defect. Equality forces the unique equilibrium. Finally, if a non-equilibrium invariant measure lived in one closed z-half-space, \\(y>0\\) and \\(\\int yz=0\\) would force \\(z=0\\), then invariance forces the equilibrium; periodic sign crossing follows by continuity. The bundled exact-arithmetic checker independently confirms the equilibrium algebra but is not used for the measure-theoretic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works study the Sprott E system, chaos, equilibria, bifurcations and control.",
+          "None of the inspected statements provides the conditional stationary laws or one-sided support theorem."
+        ],
+        "reasoning": "Broader dynamical analysis does not mechanically imply these exact invariant-measure identities.",
+        "searches": [
+          "Sprott 1994, DOI:10.1103/PhysRevE.50.R647",
+          "Wei--Wang, Kybernetika 49 (2013) 359-374",
+          "Wei--Moroz--Liu, DOI:10.3906/mat-1305-64"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1103/PhysRevE.50.R647",
+        "DML-CZ 143372",
+        "DOI:10.3906/mat-1305-64",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identities use the triangular forcing structure plus generator/disintegration arguments not stated in the source papers.",
+          "The strict support result additionally needs bounded-complete backward dynamics."
+        ],
+        "reasoning": "No inspected published result directly implies the full conditional-law, rigidity and sign-crossing package.",
+        "searches": [
+          "comparison with the exact vector field in Wei--Wang and later Sprott-E papers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No direct Sprott-E stationary-law record appeared in the relevant returned results.",
+          "Wei--Wang gives the exact vector field but no inspected measure identities."
+        ],
+        "reasoning": "Invariant-measure, occupation-measure and periodic-time-average formulations were considered.",
+        "searches": [
+          "Resultary: Sprott E invariant measure stationary identities y positive z sign crossing",
+          "searches under occupation measure, time average and compact invariant measure Sprott E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table is relevant and no matching prior theorem was returned."
+        ],
+        "reasoning": "The claim is qualitative/analytic, so table coverage is specifically inapplicable.",
+        "searches": [
+          "Resultary semantic search for Sprott E stationary laws"
+        ]
+      },
+      "rationale": "The same-object Wei--Wang primary paper was inspected at the vector-field definition and explicitly identifies the zero-extension case as Sprott E. Its focus is chaotic behavior and synchronization, not compact invariant-measure conditional laws. Targeted Resultary searches for Sprott E stationarity, conditional expectations, positive-y support and sign crossing returned related stationary identities for other chaotic flows but no prior Sprott-E theorem. The original 1994 Sprott paper and later bifurcation/control literature provide dynamical context but no located implication of the submitted stationary geometry.",
+      "residual_risks": [
+        "Unindexed literature may formulate these identities as occupation-measure balances under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_NOT_STATIONARY_THEOREM",
+          "evidence": "It verifies the equations and existing dynamics focus but does not state the audited invariant-measure geometry.",
+          "identifier_or_url": "DML-CZ 143372 / Kybernetika 49 (2013)",
+          "material_read": "Primary PDF/text around the system definition \\(\\dot x=yz+h(x),\\dot y=x^2-y,\\dot z=1-4x\\) and the statement that the unmodified choice is Sprott E, plus surrounding dynamics context.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "Chaotic behavior and modified function projective synchronization of a simple system with one stable equilibrium",
+          "trigger": "Accessible full-text source explicitly identifying the canonical Sprott E case."
+        },
+        {
+          "assessment": "ORIGINAL_CONTEXT_NOT_COVERING",
+          "evidence": "No stationary conditional-law theorem was located.",
+          "identifier_or_url": "DOI:10.1103/PhysRevE.50.R647",
+          "material_read": "Publisher bibliographic/abstract material and identification of the classic system; exact equations were cross-checked in the later full-text source.",
+          "method": "Lawful public source inspection.",
+          "title": "Some simple chaotic flows",
+          "trigger": "Original Sprott family source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sprott E primary/later literature"
+      ],
+      "rationale": "The theorem gives exact invariant-measure constraints for a classical chaotic flow: a strict one-sided support geometry, sharp mean/variance rigidity and unavoidable two-sided recurrence in z. These statements apply to every compact invariant probability measure and immediately constrain every periodic or recurrent compact state, so they are structurally motivated rather than a numerical attractor observation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1103/PhysRevE.50.R647",
+    "DML-CZ 143372",
+    "DOI:10.3906/mat-1305-64",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No existence, uniqueness, ergodicity or physicality of a non-equilibrium invariant measure is asserted.",
+    "No quantitative bound on z-halfspace masses or crossing gaps is obtained."
+  ],
+  "residual_risks": [
+    "Unindexed literature may formulate these identities as occupation-measure balances under different terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SAME_OBJECT_NOT_STATIONARY_THEOREM",
+      "evidence": "It verifies the equations and existing dynamics focus but does not state the audited invariant-measure geometry.",
+      "identifier_or_url": "DML-CZ 143372 / Kybernetika 49 (2013)",
+      "material_read": "Primary PDF/text around the system definition \\(\\dot x=yz+h(x),\\dot y=x^2-y,\\dot z=1-4x\\) and the statement that the unmodified choice is Sprott E, plus surrounding dynamics context.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "Chaotic behavior and modified function projective synchronization of a simple system with one stable equilibrium",
+      "trigger": "Accessible full-text source explicitly identifying the canonical Sprott E case."
+    },
+    {
+      "assessment": "ORIGINAL_CONTEXT_NOT_COVERING",
+      "evidence": "No stationary conditional-law theorem was located.",
+      "identifier_or_url": "DOI:10.1103/PhysRevE.50.R647",
+      "material_read": "Publisher bibliographic/abstract material and identification of the classic system; exact equations were cross-checked in the later full-text source.",
+      "method": "Lawful public source inspection.",
+      "title": "Some simple chaotic flows",
+      "trigger": "Original Sprott family source."
+    }
+  ]
+}

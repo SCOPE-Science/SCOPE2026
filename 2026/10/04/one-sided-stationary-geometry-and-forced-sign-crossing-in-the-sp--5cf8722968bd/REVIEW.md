@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses only the canonical vector field, compact invariance, the exact backward variation-of-constants formula for \(\dot y+y=x^2\), and generator identities with one-coordinate test functions. The strict \(y>0\) statement is checked against the only possible zero case, which would force an unbounded past in \(z\). Equality in \(\mathbb E[y]\ge1/16\) forces \(x=1/4\), then \(z=0\), then the unique bounded complete solution \(y=1/16\). The half-space argument uses the fixed sign of \(yz\) together with stationarity of \(x\).
+## correctness
 
-## Originality
-PASS. Exact same-object and alias searches found no prior statement of the conditional stationary laws, strict one-sided \(y\)-geometry, sharp mean floor with rigidity, or forced two-sided \(z\)-recurrence. The closest inspected Sprott E papers instead study chaos generation, period-doubling, Lyapunov spectra, synchronization, hidden attractors, Hopf bifurcation, and delay-feedback control. Structurally similar stationary laws for other flows do not imply this vector-field-specific theorem.
+PASS
 
-## Value
-PASS. Sprott E is a canonical minimal polynomial chaotic flow. The theorem converts its three sparse equations into exact constraints on every compact stationary state, not a selected numerical orbit. The sharp equilibrium-normalized mean defect and forced sign crossing give global recurrence information that directly complements the literature's use of Poincare sections and time series.
+For every bounded complete trajectory, backward variation of constants in \(\dot y+y=x^2\) gives \(y(t)=\int_0^\infty e^{-s}x(t-s)^2ds\ge0\); equality would force an entire past half-orbit with \(x=y=0\), contradicting boundedness because then \(\dot z=1\). Thus compact invariant support lies in \(y>0\). Generator stationarity applied to arbitrary one-coordinate C1 primitives gives the three conditional expectation laws. Their expectations yield \(E[x]=1/4\), \(E[y]=E[x^2]\), and hence the exact variance defect. Equality forces the unique equilibrium. Finally, if a non-equilibrium invariant measure lived in one closed z-half-space, \(y>0\) and \(\int yz=0\) would force \(z=0\), then invariance forces the equilibrium; periodic sign crossing follows by continuity. The bundled exact-arithmetic checker independently confirms the equilibrium algebra but is not used for the measure-theoretic proof.
 
-## Closest literature and limitations
-The closest full-text same-object source is Wei--Wang (2013), which explicitly reproduces the generalized Sprott E equations and identifies the unmodified case, but its stated goals are attractor construction, bifurcation analysis, Lyapunov analysis, and synchronization. Wei--Moroz--Liu (2014) and Xu--Wu (2015) treat extended/control variants. The original 1994 publisher record was verified for date and provenance, but its full text was inaccessible during this review. Unindexed literature remains a residual bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The same-object Wei--Wang primary paper was inspected at the vector-field definition and explicitly identifies the zero-extension case as Sprott E. Its focus is chaotic behavior and synchronization, not compact invariant-measure conditional laws. Targeted Resultary searches for Sprott E stationarity, conditional expectations, positive-y support and sign crossing returned related stationary identities for other chaotic flows but no prior Sprott-E theorem. The original 1994 Sprott paper and later bifurcation/control literature provide dynamical context but no located implication of the submitted stationary geometry.
+
+## value
+
+PASS
+
+The theorem gives exact invariant-measure constraints for a classical chaotic flow: a strict one-sided support geometry, sharp mean/variance rigidity and unavoidable two-sided recurrence in z. These statements apply to every compact invariant probability measure and immediately constrain every periodic or recurrent compact state, so they are structurally motivated rather than a numerical attractor observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
