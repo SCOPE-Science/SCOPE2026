@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_maximin15_reinforcement.py` is a standard-library-only exact replay.
 
-For three candidates, each anonymous profile is represented by the six counts of the strict rankings. Pairwise majority margins and maximin scores are computed with integer arithmetic.
+# Independent mathematical audit
 
-Route A enumerates every unordered pair of nonempty anonymous profiles for each total electorate size through \(15\), restricted to pairs having the same unique maximin winner. It verifies zero reinforcement paradoxes for totals \(2\) through \(14\), and exactly \(18\) at total \(15\), all with electorate sizes \(5\) and \(10\).
+## correctness
 
-Route B independently enumerates every anonymous \(15\)-voter union profile and every componentwise decomposition into two nonempty subprofiles. It recomputes the maximin winner of each part and the union and is required to recover exactly the same \(18\)-pair set as Route A.
+PASS
 
-The replay further verifies:
-- exactly \(3\) candidate-relabeling pair classes, all of orbit size \(6\);
-- exactly \(18\) distinct union profiles, each with one paradox-producing partition;
-- exactly \(3\) candidate-relabeling union classes, all of orbit size \(6\);
-- each ordered change from one candidate to a different candidate occurs exactly \(3\) times;
-- in every minimal pair, the \(5\)-voter side has the shared winner as Condorcet winner, the \(10\)-voter side has no Condorcet winner, and the union has the new winner as Condorcet winner.
+An independent exact anonymous-profile enumeration used the three pairwise majority margins to compute maximin winners. The pair-first traversal found no reinforcement pair for total electorate sizes \(2\) through \(14\), and exactly \(18\) at total size \(15\), all with split \(5+10\). An independently organized union-first decomposition of every 15-voter profile returned the identical set. Canonicalization under all six candidate relabelings gave three pair classes of size six, all 18 unions were distinct with exactly one paradox-producing partition, and every witness had the claimed Condorcet-status pattern.
 
-Run:
+## originality
 
-`python3 verify_maximin15_reinforcement.py`
+PASS
 
-The first line must be:
+Brandt-Matthäus-Saile's open primary article systematically computes minimal paradox instances and explicitly treats maximin reinforcement, so the voter boundary itself is not new. However, the article defines completeness as supplying a minimal-voter instance and a minimal-candidate instance; it does not state an exhaustive count of every minimal anonymous witness. Targeted searches found no prior \(18\)-pair, three-orbit, unique-union-partition census, and Resultary returned no equivalent finding.
 
-`VERIFY_OK`
+## value
 
-The computation proves only the finite three-candidate, unique-winner statements above.
+PASS
+
+Reinforcement is a standard consistency axiom and maximin is a canonical Condorcet procedure. Completing the first possible three-candidate boundary from one known minimal witness to the full 18-pair set, symmetry quotient, unique partition property, and Condorcet-status structure is a natural exact finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
