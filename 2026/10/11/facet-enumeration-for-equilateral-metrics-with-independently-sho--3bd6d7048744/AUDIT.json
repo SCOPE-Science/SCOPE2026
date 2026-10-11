@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "An n-point Lip_0 polytope vertex is precisely a potential whose active tight-constraint graph is connected (incidence-normal rank n-1). Short pairs form a matching, so a connected graph requires a length-one tight edge, forcing range one. Each singleton then takes 0/1, and each matched pair must contain a 0 or 1 anchor and belong to exactly one of six feasible states; an interior mate must be short-tight to its anchor. The long tight edges form a connected bipartite anchor core whenever both polarities occur, proving the converse. Enumeration 6^k 2^(n-2k) - 2*3^k equals 3^k(2^(n-k)-2). Polar duality gives the facets. Exact integer-arithmetic spanning-tree enumeration matched all classifications in 36 bounded test cases (some duplicate k=0 metrics), used as corroboration, not universal proof. No assumptions beyond n>=3, disjoint pairs and 0<t_i<1 are needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generic weighted-metric Lipschitz-polytope results in arxiv:1608.06848 require generic conditions not uniform across the entire matching-short family.",
+        "The unweighted graph-facet counts of arxiv:1807.07678 concern different metric classes and cannot specialize to arbitrary real short lengths.",
+        "A published-finding corpus graph bipartiteness numerical-index theorem concerns a different invariant."
+      ],
+      "reasoning": "Searched for general statements that would subsume the exact matching facet formula, not merely exact wording. None of the compared full statements covers arbitrary independent t_i in (0,1) with the claimed count. Existence of a tight graph criterion is a proof tool, not an enumeration corollary without the new exhaustive analysis.",
+      "searches": [
+        "tight edge graph vertex enumeration Lipschitz polytope matching pairs contracted",
+        "Lipschitz free spaces independent shortened edges arbitrary matching facet count",
+        "sharp facet jumps interpolated complete multipartite Lipschitz-free balls",
+        "Lipschitz polytope vertices weighted complete graph edge shorter",
+        "arxiv:1807.07678"
+      ]
+    },
+    "checked_sources": [
+      "García-Lirola et al., arxiv:1707.09307, first posted 2017-07-28, primary MSC 46B20",
+      "Aliaga and Pernecká, arxiv:1810.11278, first posted 2018-10-26",
+      "Gordon and Petrov, arxiv:1608.06848 (generic Lipschitz polytope combinatorics)",
+      "Higashitani, Jochemko and Michałek, arxiv:1807.07678 (unweighted graph polytope facets)",
+      "Çelik et al., arxiv:2003.06725 (Lipschitz polytopes in discrete and structured metric examples)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aliaga–Pernecká's strict-triangle criterion decides primal vertices, not the dual vertices that index facets.",
+        "Gordon–Petrov's tight-graph criterion provides an applicable necessary-and-sufficient vertex test; the combinatorial enumeration for matching short edges is not stated and needs the separate anchor and six-state proof.",
+        "Complete multipartite graph metrics have within-part shortest-path distance 2, whereas here distinguished pair distances are strictly below 1 and all other distances are 1."
+      ],
+      "reasoning": "This comparison includes dual and polar formulations and checks whether stronger general assertions would dominate the theorem. Classical primal-vertex classification, generic f-vector results, and graph endpoint special cases do not logically yield the arbitrary matching count without additional mathematics. The equilateral specialization is not claimed novel.",
+      "searches": [
+        "finite metric Lipschitz free spaces Banach Mazur numerical index extremal projection spectral Walsh",
+        "facet-count transitions for snowflaked complete bipartite metrics",
+        "arxiv:1707.09307",
+        "arxiv:1810.11278",
+        "arxiv:1608.06848",
+        "arxiv:1807.07678"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gordon–Petrov studies Lipschitz polytopes and generic metric face counts, but no arbitrary matching-short count was found in its inspected full text.",
+        "Çelik et al. describe discrete/Hamming structured potential polytopes; their binary vertex count is the classical all-unit-distance special case."
+      ],
+      "reasoning": "The exact same conclusion under polar duality is a dual Lip-vertex count. Both the primal free-space facet language and the dual Lipschitz-polytope language were searched. Prior equilateral and generic formulas cannot infer the six-state independent matching law for all shortened lengths. An unrestricted existence or geometry result for dual polytopes does not itself determine their exact vertex number.",
+      "searches": [
+        "Lipschitz polytope facets shortened matching distances 3^k 2^(n-k) - 2*3^k",
+        "finite metric space n vertices disjoint short pairs equilateral Lipschitz free facets matching formula",
+        "exact facets on matching metric pair distances less than one all cross distances one",
+        "Lipschitz dual unit ball extreme potentials paired clusters ternary anchor combinatorics",
+        "facet number Lipschitz polytope metric matching distance two levels disjoint pairs",
+        "metric polytope 'matching' 'Lipschitz' vertices short edges",
+        "arxiv:1608.06848",
+        "arxiv:2003.06725"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known discrete metric count 2^n-2 is exactly the k=0 benchmark, but it does not specify the k>0 facet count.",
+        "The current independent checker agrees with small-size polytopes but is not presented as an exhaustive literature table or a novelty proof."
+      ],
+      "reasoning": "Compared the numerical form and small-parameter cases with the natural prior equilateral table and structured graph results. No existing exact table for all matching sizes and real short parameters was identified. Small n=3 and k=0 subcases may already be covered; originality is claimed for the general classification.",
+      "searches": [
+        "\"3^k\" \"Lipschitz polytope\" facets",
+        "\"3^k\" \"matching\" \"Lipschitz\" \"polytope\"",
+        "arxiv:2003.06725",
+        "arxiv:1608.06848"
+      ]
+    },
+    "rationale": "Originality is supported by statement-and-implication comparisons with full primary papers on Lipschitz polytope combinatorics and primal extremality, published-finding corpus related claims and other relevant claims. Generic metric formulas, equilateral vertices, primal molecule criteria, and unweighted graph endpoints do not imply the arbitrary-parameter matching-short facet enumeration. A prior equivalent unindexed statement remains possible.",
+    "residual_risks": [
+      "Potential equivalent enumeration in unindexed metric-polytope notes, theses, books or articles not surfaced by searches.",
+      "No independent literature audit or outside mathematical referee has checked novelty.",
+      "The theorem subsumes pre-existing equilateral and small-dimensional cases; novelty attaches to the uniform arbitrarily many short matching pairs formula and classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state or imply the exact number of facets for independently shortened matching metrics: extreme points of the free-space ball are different dual objects from extreme points of the Lipschitz-potential polytope.",
+        "evidence": "First posted 2017-07-28; MSC2020-compatible primary 46B20. Its main subject is strongly exposed/exposed/preserved extreme points, molecules and denting points, not this dual polytope's six-state count.",
+        "identifier_or_url": "https://arxiv.org/abs/1707.09307",
+        "material_read": "Full accessible arXiv-preprint text: abstract, extremal definitions, main theorems and hypotheses concerning extreme and preserved extreme molecules; compared the stated results with dual-facet enumeration",
+        "method": "Full-text arXiv preprint PDF and dated arXiv record",
+        "title": "Extremal structure and Duality of Lipschitz free spaces",
+        "trigger": "Primary MSC 46B20 source; plausibly relevant extremal structure"
+      },
+      {
+        "assessment": "Covers primal unit-ball extreme molecules under strict metric-segment conditions, not vertex numbers of the dual Lip ball or the corresponding facet count.",
+        "evidence": "For these strict metrics, every ordered normalized molecule is primal extreme; that fact alone does not imply the variable dual-facet count as a function of the matching size.",
+        "identifier_or_url": "https://arxiv.org/abs/1810.11278",
+        "material_read": "Accessible original arXiv full text: finitely supported extreme-point characterization and metric-segment criterion; examined conclusions and scope",
+        "method": "Full-text arXiv preprint PDF plus original 2018 arXiv record",
+        "title": "Supports and extreme points in Lipschitz-free spaces",
+        "trigger": "Strict triangle inequalities in matching-short metrics; could dominate primal extremal classification"
+      },
+      {
+        "assessment": "Provides the active-constraint geometric framework and generic-metric results; no formula identified for arbitrary independent shortened matching edges in all n, including nongeneric instances.",
+        "evidence": "The generic-metric f-vector theorem assumes genericity; multiple identical cross-distances make the present higher-dimensional family typically nongeneric. The generic-count conclusion cannot be substituted for the six-state matching enumeration.",
+        "identifier_or_url": "https://arxiv.org/abs/1608.06848",
+        "material_read": "Full arXiv PDF text, principal generic-metric theorem, tight graph argument, and nongeneric/equilateral discussion",
+        "method": "Full-text primary preprint with theorem/assumption comparison",
+        "title": "Combinatorics of the Lipschitz polytope",
+        "trigger": "Closest general Lipschitz-polytope combinatorics, tight-edge characterization and facet/vertex enumeration"
+      },
+      {
+        "assessment": "Does not cover complete weighted metrics with arbitrary independent short-pair distances strictly less than the common cross distance.",
+        "evidence": "Unweighted graph edge polytopes and graph metric endpoints are structurally different from the real-parameter matching-short complete metrics claimed here.",
+        "identifier_or_url": "https://arxiv.org/abs/1807.07678",
+        "material_read": "Full arXiv PDF text: facet theory for unweighted graph symmetric edge polytopes and related complete multipartite results",
+        "method": "Full-text primary preprint, graph-metric restriction and statement comparison",
+        "title": "Arithmetic aspects of symmetric edge polytopes",
+        "trigger": "Facet enumerations for symmetric edge polytopes and complete multipartite graph metrics"
+      },
+      {
+        "assessment": "Discrete metric polytope and particular structured graph examples do not provide independently shortened pair formula.",
+        "evidence": "The binary-valued discrete metric vertices agree with k=0, which is a recognized prior case; none of the inspected formulas supplies the k>0 arbitrary-parameter six-state classification.",
+        "identifier_or_url": "https://arxiv.org/abs/2003.06725",
+        "material_read": "Full arXiv preprint PDF text, sections on Lipschitz polytopes, discrete metric and graph examples",
+        "method": "Full-text primary preprint and direct object/parameter comparison",
+        "title": "Wasserstein Distance to Independence Models",
+        "trigger": "Lipschitz-polytope vertices for discrete/equilateral and structured metrics may encompass this family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3bd6d704-8744-49a9-a787-e64c3c41a557",
+  "value": {
+    "rationale": "The matched shortened edges constitute an intrinsically natural set of independent perturbations of the equilateral metric. The classification is complete across unbounded n, every matching size, and every independent continuous short length. The all-pairs equilateral facet number 2^n-2 changes to 3^k(2^(n-k)-2), yielding exponential asymptotic amplification for n=2k while remaining rigid under length variation. This exact polyhedral structural fact is not a routine primal-molecule deduction or a finite-table curiosity. Applications include sharp enumeration of dual Lipschitz potentials for tractable weighted metric geometries.",
+    "status": "PASS"
+  }
+}
