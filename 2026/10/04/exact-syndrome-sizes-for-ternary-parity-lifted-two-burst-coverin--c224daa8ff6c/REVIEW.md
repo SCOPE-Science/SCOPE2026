@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The weighted-lift reduction, syndrome-parity identity, rotation increment, prime-orbit uniformity, and signed/unsigned residue sums jointly derive the four cardinality formulas. `verify.py` checks those identities and formulas at \(p=3,5,7,11\), and directly checks the covering property at \(p=3,5,7\). The all-prime covering premise is Theorem VI.4 of Xie--Sun--Ge.
+## correctness
 
-## Originality
-PASS. The closest source proves the nonbinary two-burst covering construction and only a pigeonhole size guarantee. The closest exact-cardinality work computes direct \(q\)-ary differential-VT class sizes, which are not the same objects as ternary parity preimages. Searches under the exact formula, parity-lift terminology, two-burst covering terminology, and DVT aliases did not locate the four-level distribution. Residual risk remains from unindexed or inaccessible literature.
+PASS
 
-## Value
-PASS. The finding replaces an existential parameter choice in a new explicit ternary covering construction by a complete exact distribution and identifies every minimizing syndrome at all odd prime lengths. Its contribution is structural and infinite-family, not merely a small computational table.
+Each binary parity pattern \(b\) has exactly \(2^{p-\operatorname{wt}(b)}\) ternary lifts. The syndrome parity identity \(\sigma(b)\equiv\operatorname{wt}(b)\pmod2\) is correct. Under cyclic right rotation, the syndrome changes modulo \(p\) by the cyclic transition count; for a nonconstant word this is a positive even integer below the odd prime \(p\), so every nonconstant orbit has size \(p\) and its syndromes modulo \(p\) are equidistributed. Summing ordinary and signed lift weights gives the stated \(T_r\) and \(D_r\), and the opposite parities of the two residues above each class modulo \(p\) give all four formulas. Independent exhaustive binary checks at \(p=3,5,7,11\) reproduced them and the minimizer set; finite covering checks are not used to prove the all-prime cardinality law. The covering property itself follows directly from the source theorem because \(\lfloor3/2\rfloor=1\).
 
-## Closest literature and limitations
-The source construction is Chengfei Xie, Yubo Sun, and Gennian Ge, arXiv:2606.15379v1. Nithish Suresh Babu, Adi Krishnamoorthy, Ron M. Roth, and Paul H. Siegel study exact sizes of direct differential-VT codes at ISIT 2025. The result does not claim global optimality among all ternary covering codes, and composite lengths are outside its proved scope.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The complete Xie--Sun--Ge source was read. Its Theorem VI.4 defines exactly the nonbinary parity-and-checksum lift and proves the two-burst covering property plus an averaging size bound. At alphabet size three the checksum moduli are one, so the audited classes are exactly that source specialization. The source does not compute their individual sizes. The cited exact q-ary differential-VT cardinalities concern a different direct q-ary syndrome family and do not imply the weighted parity-lift distribution.
+
+## value
+
+PASS
+
+The source gives only an averaging guarantee inside a new explicit nonbinary two-burst covering construction. Exact syndrome sizes determine which parameter choices are genuinely smallest and by how much they improve the generic average at every odd prime length. That is a natural quantitative refinement of the construction, not an arbitrary code census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
