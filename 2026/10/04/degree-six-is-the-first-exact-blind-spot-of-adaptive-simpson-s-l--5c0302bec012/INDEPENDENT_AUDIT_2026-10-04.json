@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:16:01.733822Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at Git tree 9397681bacc08061f5dd3756732078bfe8e752f1",
+        "independent exact-rational monomial evaluation",
+        "Plaskota, DOI:10.1007/s00211-014-0684-3",
+        "Gonnet, arXiv:1006.3962v1"
+      ],
+      "rationale": "Independent exact-rational evaluation on the monomial basis gives \\(S_2-S_1=0\\) through degree three, \\(D(t^4)=-1/4\\), and \\(D(t^6)=-5/16\\); odd monomials vanish by symmetry. Thus on \\(\\mathcal P_6\\), \\(D(p)=-a_4/4-5a_6/16\\). The exact two-panel errors are \\(-a_4/60-23a_6/336\\); imposing \\(4a_4+5a_6=0\\) reduces this to \\(-a_6/21\\). When degree is at most five, the kernel forces \\(a_4=0\\), so Simpson is exact; degree six is therefore minimal. For \\(p_*(t)=-t^6+5t^4/4+1/84\\), positivity follows from \\(t^4(5/4-t^2)+1/84\\), while direct rational evaluation gives \\(S_1=S_2=4/21\\) and exact integral \\(5/21\\). Affine change of variables multiplies all three linear functionals by \\((b-a)/2\\), giving the stated general-interval formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Plaskota explicitly proves the standard procedure can terminate too early and gives a degree-ten polynomial returning zero.",
+          "Gonnet reviews adaptive quadrature reliability and the classical difference-based scheme."
+        ],
+        "reasoning": "These broader results establish the failure mode but do not identify the sharp first-degree boundary or exact kernel.",
+        "searches": [
+          "Plaskota DOI:10.1007/s00211-014-0684-3 full open article",
+          "Gonnet arXiv:1006.3962v1 full experimental HTML"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00211-014-0684-3",
+        "https://arxiv.org/abs/1006.3962",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exactness through degree five supplies only the lower-bound side.",
+          "A degree-ten counterexample supplies only a nonsharp upper bound on the first failure degree."
+        ],
+        "reasoning": "Neither fact implies existence at degree six, the complete degree-six kernel, or a strictly positive degree-six witness; the audited calculation closes that gap.",
+        "searches": [
+          "Plaskota explicit degree-ten counterexample",
+          "classical Simpson/Richardson exactness through degree five"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned only unrelated quadrature sharpness results among the leading hits.",
+          "No exact degree-six kernel or positive witness was located.",
+          "Plaskota's published example is a different degree-ten all-sampled-zero mechanism."
+        ],
+        "reasoning": "The searched aliases cover false-zero error estimates, estimator cancellation, and premature termination; no implication-equivalent statement was found.",
+        "searches": [
+          "Resultary: adaptive Simpson exact blind spot degree six false zero local error estimator positive polynomial",
+          "web: adaptive Simpson S2 S1 equal degree 6 polynomial false zero",
+          "web: 4a4+5a6 Simpson Richardson cancellation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked source or database row stated the relation 4a4+5a6=0 with missed error -a6/21."
+        ],
+        "reasoning": "The claimed cutoff and kernel are not a recomputation of a known table.",
+        "searches": [
+          "searches for degree-six Simpson blind spot and exact kernel coefficients"
+        ]
+      },
+      "rationale": "Premature termination of adaptive Simpson and accidental cancellation of difference-based estimators are established prior phenomena, but the inspected primary literature does not determine the first polynomial degree at which the classical one-panel/two-half-panel signal can vanish incorrectly. Plaskota's explicit catastrophic polynomial has degree ten and vanishes at the five sampled nodes; Gonnet treats estimator reliability broadly. Neither implies the exact degree-six nullspace, missed-error functional, or strictly positive cancellation witness. Targeted Resultary and web searches found no equivalent low-degree classification.",
+      "residual_risks": [
+        "Older adaptive-quadrature literature is extensive, so an equivalent low-degree calculation may exist under different terminology even though it was not located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_FAILURE_NOT_SHARP_BOUNDARY",
+          "evidence": "It states that standard adaptive Simpson can terminate too early and gives f(x)=product_{i=0}^4(x-i)^2, but not the degree-six kernel.",
+          "identifier_or_url": "https://doi.org/10.1007/s00211-014-0684-3",
+          "material_read": "Complete open publisher article around the standard local rule, stopping condition, and the explicit degree-ten example.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Automatic integration using asymptotically optimal adaptive Simpson quadrature",
+          "trigger": "Closest primary source with an explicit premature-termination polynomial."
+        },
+        {
+          "assessment": "GENERAL_RELIABILITY_NOT_COVERING",
+          "evidence": "It treats adaptive-estimator failure mechanisms broadly and does not state the exact degree-six Simpson nullspace.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.3962",
+          "material_read": "Open full experimental HTML, especially the introduction and error-estimation framework.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "Increasing the Reliability of Adaptive Quadrature Using Explicit Interpolants",
+          "trigger": "Primary reliability study of adaptive quadrature and difference-based error estimation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Plaskota full primary article",
+        "Gonnet full arXiv text"
+      ],
+      "rationale": "The first exact blind degree is a natural sharp boundary of a classical stopping criterion. The result distinguishes a minimal cancellation mechanism from previously documented high-degree node-hiding failures, gives the complete kernel and exact missed-error functional, and supplies a strictly positive 20-percent-error regression witness.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1007/s00211-014-0684-3",
+    "https://arxiv.org/abs/1006.3962",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic and the classical one-panel versus two-half-panel test are assumed.",
+    "No claim is made about safeguarded/hybrid production integrators or floating-point perturbations."
+  ],
+  "residual_risks": [
+    "Older adaptive-quadrature literature is extensive, so an equivalent low-degree calculation may exist under different terminology even though it was not located."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BROADER_FAILURE_NOT_SHARP_BOUNDARY",
+      "evidence": "It states that standard adaptive Simpson can terminate too early and gives f(x)=product_{i=0}^4(x-i)^2, but not the degree-six kernel.",
+      "identifier_or_url": "https://doi.org/10.1007/s00211-014-0684-3",
+      "material_read": "Complete open publisher article around the standard local rule, stopping condition, and the explicit degree-ten example.",
+      "method": "Lawful open full-text inspection.",
+      "title": "Automatic integration using asymptotically optimal adaptive Simpson quadrature",
+      "trigger": "Closest primary source with an explicit premature-termination polynomial."
+    },
+    {
+      "assessment": "GENERAL_RELIABILITY_NOT_COVERING",
+      "evidence": "It treats adaptive-estimator failure mechanisms broadly and does not state the exact degree-six Simpson nullspace.",
+      "identifier_or_url": "https://arxiv.org/abs/1006.3962",
+      "material_read": "Open full experimental HTML, especially the introduction and error-estimation framework.",
+      "method": "Lawful arXiv full-text inspection.",
+      "title": "Increasing the Reliability of Adaptive Quadrature Using Explicit Interpolants",
+      "trigger": "Primary reliability study of adaptive quadrature and difference-based error estimation."
+    }
+  ]
+}
