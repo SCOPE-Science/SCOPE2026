@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:46:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 46a9a524728b65a3fe55c02a79f01028fb30e109",
+        "verify_occupancy_precision.py a353c9a9ab65d60a7cddce0d2086322673b2aa86",
+        "Dubhashi--Ranjan BRICS RS-96-25",
+        "Bogachev--Gnedin--Yakubovich arXiv:math/0609498"
+      ],
+      "rationale": "Inclusion-exclusion gives the stated strict negative off-diagonal covariance. For one draw, \\(C=\\operatorname{diag}(p)-pp^{\\mathsf T}\\) has kernel exactly the constants. For \\(n\\ge2\\), a zero covariance quadratic form makes \\(\\sum_i a_iI_i\\) constant; singleton occupancy patterns force all coefficients equal, and positive-probability two-box patterns force that common value to zero. Thus \\(C\\succ0\\). Diagonal normalization gives a symmetric positive-definite Z-matrix \\(A=I-B\\) with \\(B\\) strictly positive off diagonal and \\(\\rho(B)<1\\); the Neumann series makes \\(C^{-1}\\) strictly positive. The exact-rational verifier checks formulas, principal minors, inverses, and direct small sample-space reconstructions.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic matrix theory covers the final inversion step after \\(C\\succ0\\), but not the occupancy-specific threshold \\(n=2\\)."
+        ],
+        "reasoning": "The new structural content is the all-parameter covariance-rank/precision classification.",
+        "searches": [
+          "Dubhashi--Ranjan negative association",
+          "standard Stieltjes/Z-matrix inverse theory"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.7146/brics.v3i25.20006",
+        "arXiv:math/0609498",
+        "Joag-Dev--Proschan 1983",
+        "standard Stieltjes-matrix theory",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covariance formula plus generic theory does not itself establish positive definiteness for every \\(n\\ge2\\); the occupancy support-pattern argument does."
+        ],
+        "reasoning": "The checked sources provide ingredients but not the full combined theorem.",
+        "searches": [
+          "Bogachev--Gnedin--Yakubovich covariance term",
+          "generic Stieltjes inverse theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Negative association does not in general imply nonsingularity or inverse signs; occupied and empty indicators share the same covariance."
+        ],
+        "reasoning": "Occupied/empty indicator and precision-matrix formulations were compared.",
+        "searches": [
+          "Resultary: occupied boxes precision inverse covariance",
+          "Dubhashi--Ranjan BRICS RS-96-25",
+          "arXiv:math/0609498"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier occupancy precision-matrix table/theorem was returned."
+        ],
+        "reasoning": "The result is formulaic over arbitrary probability vectors.",
+        "searches": [
+          "Resultary exact occupancy precision search"
+        ]
+      },
+      "rationale": "The checked occupancy literature gives strong negative dependence and the pairwise covariance cross-term; generic Stieltjes-matrix theory makes inverse nonnegativity standard once positive definiteness is known. No source located gives the occupancy-specific rank transition together with strict inverse positivity and the resulting full-order partial-correlation sign.",
+      "residual_risks": [
+        "An older matrix-analysis or occupancy source may have recorded the same short inverse-positivity consequence.",
+        "The full Dubhashi--Ranjan PDF was not successfully transported in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NEGATIVE_DEPENDENCE_BACKGROUND",
+          "evidence": "Accessible material establishes negative association/regression, not a precision-matrix theorem.",
+          "identifier_or_url": "DOI:10.7146/brics.v3i25.20006",
+          "material_read": "Primary BRICS article page and extended abstract; direct full-PDF download timed out.",
+          "method": "Primary publisher inspection with transport failure; no whole-document noncoverage inference.",
+          "title": "Balls and Bins: A Study in Negative Dependence",
+          "trigger": "Same multinomial occupancy model and strong negative dependence."
+        },
+        {
+          "assessment": "PAIRWISE_COVARIANCE_INGREDIENT",
+          "evidence": "Its stated objective is the variance of the occupied-box count rather than covariance rank or inverse sign.",
+          "identifier_or_url": "arXiv:math/0609498",
+          "material_read": "Primary arXiv abstract/result material and bibliographic record.",
+          "method": "Open-access primary-source comparison.",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Closest source containing the fixed-sample covariance cross-term."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "balls-and-bins negative-dependence literature",
+        "occupancy variance literature",
+        "Stieltjes-matrix theory"
+      ],
+      "rationale": "The exact rank transition and strict precision sign refine standard pairwise negative dependence for a canonical multinomial statistic and yield a clear structural statement about all full-order linear partial correlations.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For iid sampling from finitely many positive-probability boxes, the occupied-box indicator covariance has rank \\(m-1\\) for one draw and is positive definite for every \\(n\\ge2\\); for \\(n\\ge2\\) its off-diagonal entries are strictly negative and its inverse is strictly positive entrywise, so all full-order linear partial correlations are negative.",
+  "limitations": [
+    "Finite positive-probability category set and iid draws.",
+    "The precision statement is linear and second-order, not a nonlinear conditional-association theorem.",
+    "The Dubhashi--Ranjan full-PDF transport timed out during this audit; no whole-document noncoverage inference was made from that source."
+  ],
+  "schema_version": 1
+}

@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The diagonal and off-diagonal covariance formulas follow directly from emptiness probabilities and two-event inclusion--exclusion. The off-diagonal sign is strict for every positive category pair.
+PASS
 
-The covariance matrix is singular for one draw because the occupancy indicators sum to one, with no other null direction. For two or more draws, a zero-variance linear combination would have to take the same value on every singleton and pair occupancy pattern. Singleton patterns force all coefficients equal; pair patterns force that common coefficient to vanish. This proves positive definiteness without relying on numerical eigenvalue tests.
+Inclusion-exclusion gives the stated strict negative off-diagonal covariance. For one draw, \(C=\operatorname{diag}(p)-pp^{\mathsf T}\) has kernel exactly the constants. For \(n\ge2\), a zero covariance quadratic form makes \(\sum_i a_iI_i\) constant; singleton occupancy patterns force all coefficients equal, and positive-probability two-box patterns force that common value to zero. Thus \(C\succ0\). Diagonal normalization gives a symmetric positive-definite Z-matrix \(A=I-B\) with \(B\) strictly positive off diagonal and \(\rho(B)<1\); the Neumann series makes \(C^{-1}\) strictly positive. The exact-rational verifier checks formulas, principal minors, inverses, and direct small sample-space reconstructions.
 
-After diagonal normalization, the covariance matrix is \(I-B\) with \(B\) symmetric and strictly positive off the diagonal. Positive definiteness forces the spectral radius of \(B\) below one, so the inverse is the convergent nonnegative Neumann series \(\sum_{k\ge0}B^k\). The identity and first-order terms make every inverse entry strictly positive.
+## originality
 
-## Originality
+PASS
 
-PASS, with a residual risk from classical matrix and occupancy literature. Joag-Dev--Proschan establish multinomial negative association. Dubhashi--Ranjan's complete open report establishes negative association and negative regression for empty-bin indicators. Bogachev--Gnedin--Yakubovich give the exact fixed-sample cross-term appearing in the variance of the occupied-box count.
+The checked occupancy literature gives strong negative dependence and the pairwise covariance cross-term; generic Stieltjes-matrix theory makes inverse nonnegativity standard once positive definiteness is known. No source located gives the occupancy-specific rank transition together with strict inverse positivity and the resulting full-order partial-correlation sign.
 
-Those sources cover the pairwise covariance sign and its broader dependence setting. The inspected statements do not give the exact rank transition at two draws, strict positive definiteness for the whole indicator vector, entrywise positivity of the precision matrix, or the resulting full-order partial-correlation sign.
+## value
 
-Searches using occupancy indicators, empty cells, precision matrices, inverse covariance, Stieltjes matrices, and nonsingular M-matrices did not locate that combined statement. Because the last step is an elementary matrix consequence once positive definiteness is proved, an older equivalent formulation remains a real residual risk.
+PASS
 
-## Value
+The exact rank transition and strict precision sign refine standard pairwise negative dependence for a canonical multinomial statistic and yield a clear structural statement about all full-order linear partial correlations.
 
-PASS. Occupancy-indicator vectors occur in distinct-species counts, empty-cell statistics, coupon-collection problems, and balls-and-bins models. Negative association explains pairwise repulsion, but the inverse covariance controls linear conditioning and least-squares residual dependence. The theorem supplies a global covariance-geometry statement not contained in pairwise covariance signs: a sharp rank transition, nonsingularity from two draws onward, and a fully positive precision matrix.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK formula_checks=69126 offdiag_checks=46630 rank_one_draw_checks=3524 pd_minor_checks=19612 inverse_positive_checks=100838 partial_sign_checks=40613 enumeration_checks=4707`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

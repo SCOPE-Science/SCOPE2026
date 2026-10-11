@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-For random finite probability vectors and sample sizes it verifies:
+## correctness
 
-- the exact diagonal and off-diagonal covariance formulas;
-- strict negativity of every off-diagonal covariance;
-- row-sum zero and rank \(m-1\) when \(n=1\);
-- positivity of every leading principal minor when \(n\ge2\);
-- strict positivity of every entry of the exact rational inverse when \(n\ge2\);
-- negativity of every full-order linear partial correlation sign implied by that inverse.
+PASS
 
-For small models, the checker also enumerates the complete iid sample space, computes each occupancy pattern probability exactly, and reconstructs the covariance matrix directly. This independently verifies the closed formula used by the matrix tests.
+Inclusion-exclusion gives the stated strict negative off-diagonal covariance. For one draw, \(C=\operatorname{diag}(p)-pp^{\mathsf T}\) has kernel exactly the constants. For \(n\ge2\), a zero covariance quadratic form makes \(\sum_i a_iI_i\) constant; singleton occupancy patterns force all coefficients equal, and positive-probability two-box patterns force that common value to zero. Thus \(C\succ0\). Diagonal normalization gives a symmetric positive-definite Z-matrix \(A=I-B\) with \(B\) strictly positive off diagonal and \(\rho(B)<1\); the Neumann series makes \(C^{-1}\) strictly positive. The exact-rational verifier checks formulas, principal minors, inverses, and direct small sample-space reconstructions.
 
-Finite replay is supplementary. Positive definiteness and inverse positivity are proved for all finite positive probability vectors in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK formula_checks=69126 offdiag_checks=46630 rank_one_draw_checks=3524 pd_minor_checks=19612 inverse_positive_checks=100838 partial_sign_checks=40613 enumeration_checks=4707`.
+The checked occupancy literature gives strong negative dependence and the pairwise covariance cross-term; generic Stieltjes-matrix theory makes inverse nonnegativity standard once positive definiteness is known. No source located gives the occupancy-specific rank transition together with strict inverse positivity and the resulting full-order partial-correlation sign.
+
+## value
+
+PASS
+
+The exact rank transition and strict precision sign refine standard pairwise negative dependence for a canonical multinomial statistic and yield a clear structural statement about all full-order linear partial correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
