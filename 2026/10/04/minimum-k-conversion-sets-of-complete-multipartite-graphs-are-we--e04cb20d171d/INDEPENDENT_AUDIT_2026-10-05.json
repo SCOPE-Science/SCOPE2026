@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:19:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "S. S. Adams, Z. Brass, C. Stokes and D. S. Troxell, Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products, arXiv:1102.5361 / Australasian Journal of Combinatorics 56 (2013); primary theorem section and proof inspected.",
+        "P. A. Dreyer Jr. and F. S. Roberts, Irreversible k-threshold processes: Graph-theoretical threshold models of the spread of disease and of opinion, Discrete Applied Mathematics 157 (2009), DOI:10.1016/j.dam.2008.09.012; foundational scope and exact minimum-value coverage compared through primary bibliographic material and the inspected later source.",
+        "P. Dvořák, D. Knop and T. Toufar, Target Set Selection in Dense Graph Classes, SIAM Journal on Discrete Mathematics 36 (2022), DOI:10.1137/20M1337624; broader algorithmic scope compared.",
+        "Resultary semantic search for all minimum target/k-conversion sets of complete multipartite graphs and weighted parking profiles.",
+        "Assigned RESULT.md and verify.py at tree b4f7fdd7f46ca51de3753811c81b851d1114497e."
+      ],
+      "rationale": "Every deficient vertex has degree below \\(k\\) and is forced into any seed set. In the nontrivial case \\(d<k\\), a minimum set has exactly \\(k\\) seeds. Before an incomplete part \\(i\\) activates, one of its unseeded vertices sees exactly \\(k-s_i+U\\) active neighbours, where \\(U\\) is the accumulated number of newly activated vertices outside that part; hence activation is exactly \\(U\\ge s_i\\). Sorting incomplete parts by \\(s_i\\) turns the dynamics into the stated greedy parking recurrence, proving necessity and sufficiency. The binomial count then follows independently within parts. The bundled exhaustive program checks the literal dynamics through order eight but is not used as the infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The algorithmic results are broader in graph class but do not imply the exact family of optimum placements in this dense special class.",
+          "The foundational exact values do not determine all minimizers."
+        ],
+        "reasoning": "Broader optimization or parameterized-complexity coverage does not dominate an exact minimizer classification.",
+        "searches": [
+          "Dvořák–Knop–Toufar dense-graph target-set selection",
+          "Dreyer–Roberts foundational irreversible-threshold theory"
+        ]
+      },
+      "checked_sources": [
+        "S. S. Adams, Z. Brass, C. Stokes and D. S. Troxell, Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products, arXiv:1102.5361 / Australasian Journal of Combinatorics 56 (2013); primary theorem section and proof inspected.",
+        "P. A. Dreyer Jr. and F. S. Roberts, Irreversible k-threshold processes: Graph-theoretical threshold models of the spread of disease and of opinion, Discrete Applied Mathematics 157 (2009), DOI:10.1016/j.dam.2008.09.012; foundational scope and exact minimum-value coverage compared through primary bibliographic material and the inspected later source.",
+        "P. Dvořák, D. Knop and T. Toufar, Target Set Selection in Dense Graph Classes, SIAM Journal on Discrete Mathematics 36 (2022), DOI:10.1137/20M1337624; broader algorithmic scope compared.",
+        "Resultary semantic search for all minimum target/k-conversion sets of complete multipartite graphs and weighted parking profiles.",
+        "Assigned RESULT.md and verify.py at tree b4f7fdd7f46ca51de3753811c81b851d1114497e."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar optimum does not imply which size-k subsets convert.",
+          "The example \\(K_{1,100,100}\\) at threshold 50 has optimum-cardinality seed distributions that stall.",
+          "The proof's new state variable makes a part activate exactly when accumulated newly active mass exceeds its seed count."
+        ],
+        "reasoning": "The all-minimizer theorem is a strict refinement rather than a corollary of the known scalar optimum.",
+        "searches": [
+          "Adams et al. Theorem 1 and proof",
+          "Known minimum-size formula \\(\\max\\{|X|,k\\}\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary theorem states only the minimum cardinality and a sufficient construction.",
+          "The assigned theorem decides all optimum profiles, including optimum-cardinality subsets that stall."
+        ],
+        "reasoning": "The aliases describe the same uniform irreversible threshold process. No inspected source gives the weighted ordered profile criterion or its exact enumerator.",
+        "searches": [
+          "Resultary: minimum k-conversion sets complete multipartite weighted parking profiles all optimal target sets",
+          "Adams–Brass–Stokes–Troxell arXiv:1102.5361, complete-multipartite theorem section",
+          "Search aliases: irreversible conversion set, target set, contagious set, dynamic monopoly"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table or formula for all optimum seed profiles was located."
+        ],
+        "reasoning": "The result is an all-parameter structural theorem, not a finite-table recomputation.",
+        "searches": [
+          "Resultary exact all-minimum-set/profile searches",
+          "Searches for complete multipartite optimum target-set enumerators"
+        ]
+      },
+      "rationale": "The prior complete-multipartite theorem gives the scalar optimum \\(\\max\\{|X|,k\\}\\) and constructs one optimum, but its inspected theorem section does not classify every optimum seed placement or enumerate them. The audited weighted-parking inequalities give a necessary-and-sufficient profile test and exact binomial count. Resultary returned the assigned theorem as the direct hit and no stronger published target-set theorem covering the all-minimum-set refinement.",
+      "residual_risks": [
+        "Older literature may use weakly indexed aliases such as perfect target set, dynamic monopoly or contagious set."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS MINIMUM CARDINALITY AND ONE CONSTRUCTION, NOT ALL MINIMUM SETS",
+          "evidence": "The theorem gives \\(\\min_k(G)=\\max\\{|X|,k\\}\\) and constructs one optimum from whole parts plus at most one partial part.",
+          "identifier_or_url": "arXiv:1102.5361",
+          "material_read": "Primary full theorem section for complete multipartite graphs, including Theorem 1 and its construction proof.",
+          "method": "Open primary full-text inspection.",
+          "title": "Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products",
+          "trigger": "Exact graph family and uniform threshold process; strongest prior-coverage candidate."
+        },
+        {
+          "assessment": "BROADER ALGORITHMIC COVERAGE, NOT THE EXACT MINIMIZER FAMILY",
+          "evidence": "The work concerns tractability/parameterized algorithms rather than a complete profile-and-count theorem for uniform complete multipartite instances.",
+          "identifier_or_url": "DOI:10.1137/20M1337624",
+          "material_read": "Primary abstract/scope and its structural-parameter algorithmic setting.",
+          "method": "Primary source scope comparison.",
+          "title": "Target Set Selection in Dense Graph Classes",
+          "trigger": "Broader modern target-set selection result on dense graph classes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "S. S. Adams, Z. Brass, C. Stokes and D. S. Troxell, Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products, arXiv:1102.5361 / Australasian Journal of Combinatorics 56 (2013); primary theorem section and proof inspected.",
+        "P. A. Dreyer Jr. and F. S. Roberts, Irreversible k-threshold processes: Graph-theoretical threshold models of the spread of disease and of opinion, Discrete Applied Mathematics 157 (2009), DOI:10.1016/j.dam.2008.09.012; foundational scope and exact minimum-value coverage compared through primary bibliographic material and the inspected later source.",
+        "P. Dvořák, D. Knop and T. Toufar, Target Set Selection in Dense Graph Classes, SIAM Journal on Discrete Mathematics 36 (2022), DOI:10.1137/20M1337624; broader algorithmic scope compared.",
+        "Resultary semantic search for all minimum target/k-conversion sets of complete multipartite graphs and weighted parking profiles.",
+        "Assigned RESULT.md and verify.py at tree b4f7fdd7f46ca51de3753811c81b851d1114497e."
+      ],
+      "rationale": "Minimum cardinality alone leaves a genuine intervention-design ambiguity because optimum-size placements can fail. The theorem resolves that ambiguity completely on a canonical dense family, supplies a fast membership test and counts all optimal placements exactly.",
+      "residual_risks": [
+        "Older literature may use weakly indexed aliases such as perfect target set, dynamic monopoly or contagious set."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a complete multipartite graph under a uniform irreversible \\(k\\)-threshold process, every minimum conversion set is characterized exactly by the deficient-part condition and a sorted weighted-parking inequality on the incomplete nondeficient parts; the theorem also gives the exact binomial profile count of all minimum sets.",
+  "limitations": [
+    "Uniform thresholds and complete multipartite graphs only.",
+    "The theorem classifies minimum conversion sets, not all nonminimum conversion sets.",
+    "Older literature may use weakly indexed aliases such as perfect target set, dynamic monopoly or contagious set."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the exact state variable \(U\), the number of newly activated vertices outside a not-yet-activated part. For an incomplete nondeficient part \(i\), the threshold condition is exactly \(k-s_i+U\ge k\), equivalently \(U\ge s_i\). This makes the sorted parking inequalities both necessary and sufficient. The packaged exhaustive verifier agrees with the literal dynamics through order \(8\).
+## correctness
 
-## Originality
-PASS. The closest exact primary source, Adams–Brass–Stokes–Troxell (arXiv:1102.5361), gives the already-known complete-multipartite minimum cardinality and a construction of one minimum set. The checked theorem section does not classify every minimum set or count them. Searches under the aliases irreversible conversion, target set selection, perfect target set, contagious set, and dynamic monopoly found no broader statement implying the weighted profile theorem. The main residual risk is older weakly indexed terminology.
+PASS
 
-## Value
-PASS. Minimum cardinality alone does not say which optimal seed placements work. The theorem exposes the precise obstruction as a weighted parking condition, yields an exact count of optimum placements, and gives an efficient profile test. The explicit \(K_{1,100,100}\), \(k=50\) stalled optimum-cardinality profile shows this is not a formal restatement of the known minimum value.
+Every deficient vertex has degree below \(k\) and is forced into any seed set. In the nontrivial case \(d<k\), a minimum set has exactly \(k\) seeds. Before an incomplete part \(i\) activates, one of its unseeded vertices sees exactly \(k-s_i+U\) active neighbours, where \(U\) is the accumulated number of newly activated vertices outside that part; hence activation is exactly \(U\ge s_i\). Sorting incomplete parts by \(s_i\) turns the dynamics into the stated greedy parking recurrence, proving necessity and sufficiency. The binomial count then follows independently within parts. The bundled exhaustive program checks the literal dynamics through order eight but is not used as the infinite proof.
 
-## Closest literature and limitations
-The scalar minimum \(\max\{|X|,k\}\) for \(N>k\) is prior work and is not claimed as new. The result is restricted to uniform thresholds on complete multipartite graphs and to minimum seed sets. The full Dreyer–Roberts publisher text was not directly available here; its complete-multipartite minimum-value coverage is corroborated by the inspected later primary paper.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The prior complete-multipartite theorem gives the scalar optimum \(\max\{|X|,k\}\) and constructs one optimum, but its inspected theorem section does not classify every optimum seed placement or enumerate them. The audited weighted-parking inequalities give a necessary-and-sufficient profile test and exact binomial count. Resultary returned the assigned theorem as the direct hit and no stronger published target-set theorem covering the all-minimum-set refinement.
+
+## value
+
+PASS
+
+Minimum cardinality alone leaves a genuine intervention-design ambiguity because optimum-size placements can fail. The theorem resolves that ambiguity completely on a canonical dense family, supplies a fast membership test and counts all optimal placements exactly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
