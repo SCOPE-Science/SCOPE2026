@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:57:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The upper bounds were independently replayed from the actual certificate blob: for \\(Q_3\\), 4 reachable policy states cover 81 legal response tuples and 6 nonterminal transitions, giving a 3-cop win within 2 rounds; for \\(Q_4\\), 27 policy states cover 1,790 response tuples and 90 transitions, giving a 4-cop win within 3 rounds. The audit separately solved the lower-bound belief-state games with fewer cops: from the full state, all reachable non-singleton belief states were enumerated (21 for \\(Q_3\\) with 2 cops and 217 for \\(Q_4\\) with 3 cops), and the finite reachability attractor contains none of them, so no finite winning strategy exists with fewer cops. This lower-bound replay uses only singleton legal responses, which remain available when the robber may return one or more neighbors. Thus \\(\\operatorname{dirloc}(Q_3)=3\\) and \\(\\operatorname{dirloc}(Q_4)=4\\) follow without trusting the stored verification log or inaccessible source theorem.",
+      "risks": [
+        "The claim is confined to \\(Q_3,Q_4\\); certificate round bounds are not claimed minimal."
+      ],
+      "sources": [
+        "Actual strategy_certificate.json blob 7bc71b0ba7a4b57207137dca1067484ee82a3b98",
+        "Actual verify.py blob 308116381b64043e70a24a76959348cda6004e59",
+        "Independent audit belief-state solver over the exact game rules",
+        "Jones--Kinnersley arXiv:2609.01745 abstract for game semantics"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "No broader indexed theorem surfaced that fixes the exact value for all hypercubes or for these two cases.",
+          "The source abstract establishes the game framework; the frozen record identifies the source hypercube result only as a dichotomy, not an exact small-case solution."
+        ],
+        "reasoning": "The exact small-case certificates are not implied by the accessible source abstract or any indexed broader result found.",
+        "searches": [
+          "Jones--Kinnersley arXiv:2609.01745v1",
+          "Resultary searches for hypercube localization"
+        ]
+      },
+      "checked_sources": [
+        "Jones--Kinnersley arXiv:2609.01745 abstract",
+        "Academus/arXiv combinatorics indexed mirrors",
+        "Resultary semantic search r4a",
+        "Exact web searches for hypercube small cases",
+        "Actual strategy_certificate.json blob 7bc71b0ba7a4b57207137dca1067484ee82a3b98"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new content is the existence of concrete winning policies at the lower-bound number of cops; a general dichotomy does not imply which side each cube occupies."
+        ],
+        "reasoning": "The exact equalities require new finite certificates/strategy analysis and are not special cases of a stronger exact theorem found in the literature search.",
+        "searches": [
+          "Comparison with the initiating game paper and independently solved finite belief-state game"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned no published SCOPE record on directional localization of \\(Q_3,Q_4\\); nearby hypercube records concern different invariants.",
+          "The current arXiv abstract defines the same directional-response game."
+        ],
+        "reasoning": "Searches covered parameter name, game description, hypercube aliases, and small dimensions.",
+        "searches": [
+          "Resultary: directional localization hypercube exact Q3 Q4 partial feedback cops robber",
+          "Web: directional localization hypercube n or n+1 Jones Kinnersley",
+          "Web: directional localization number hypercube Q3 Q4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or database entry for these values was found."
+        ],
+        "reasoning": "The absence is not treated as proof by itself; it is combined with direct inspection of the current primary-source abstract and independent game solving.",
+        "searches": [
+          "Exact web searches for dirloc(Q3), dirloc(Q4), directional localization cube",
+          "Resultary query r4a"
+        ]
+      },
+      "rationale": "The initiating paper is only weeks old and introduces the parameter; bounded searches for the exact small hypercubes, the \\(n\\)-versus-\\(n+1\\) hypercube dichotomy, partial-feedback aliases, and Resultary records found no prior exact values for \\(Q_3\\) or \\(Q_4\\). The submitted result is not a numerical guess: it supplies complete adversarial strategy certificates, while an independent finite game analysis in this audit also proves the matching lower bounds for two and three cops.",
+      "residual_risks": [
+        "The full primary paper could not be retrieved after the authorized fallback was safety-blocked; no retry or bypass was attempted. A later/unindexed follow-up could create overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_FULL_TEXT_ACCESS_BLOCKED; NO_DECISIVE_COVERAGE_FOUND",
+          "evidence": [
+            "The abstract defines responses as one or more neighbors lying on shortest paths.",
+            "Because returning exactly one legal neighbor is permitted, proving lower bounds in the singleton-response adversarial subgame is valid for the stated game."
+          ],
+          "identifier_or_url": "arXiv:2609.01745v1",
+          "material_read": "Primary arXiv abstract and indexed abstract mirrors. A subsequent authorized fallback request was safety-blocked and was not retried or bypassed.",
+          "method": "Primary abstract for game definition; correctness of the two exact values was independently re-established from the frozen game rules and certificates instead of relying on inaccessible paper details.",
+          "title": "The directional localization game on graphs",
+          "trigger": "Primary source introducing the game and the hypercube question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are the first two non-elementary hypercube cases of a newly posed exact-value problem. Complete finite strategies plus matching impossibility results are a natural finite cutoff and directly discriminate the two sides of the source dichotomy, satisfying the value bar without requiring a general \\(Q_n\\) theorem.",
+      "risks": [
+        "The result does not resolve dimensions \\(n\\ge5\\)."
+      ],
+      "sources": [
+        "Independent exhaustive upper/lower finite-game analysis",
+        "Initiating directional-localization problem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only \\(Q_3\\) and \\(Q_4\\) are settled; no minimum-round claim is made.",
+    "Primary-paper full text was inaccessible after a safety-blocked authorized fallback, but correctness was independently completed without it."
+  ],
+  "schema_version": 1
+}

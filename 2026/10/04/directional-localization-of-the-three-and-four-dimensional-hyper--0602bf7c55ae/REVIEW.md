@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published hypercube dichotomy gives the lower bounds \(3\) and \(4\). The supplied policies are checked branch-by-branch from the game definition: all legal directional responses are enumerated, singleton consistency classes terminate, and every nonsingleton class is replaced by its exact closed neighborhood before the next round. The packaged verifier checks 81 response tuples for \(Q_3\) and 1,790 for \(Q_4\). This is an exhaustive finite certificate for the two stated upper bounds, not a sample.
+## correctness
 
-## Originality
-PASS. The initiating paper arXiv:2609.01745v1 leaves the exact hypercube value open after proving only \(n\le\operatorname{dirloc}(Q_n)\le n+1\). Searches under the exact parameter, hypercube aliases, small dimensions, partial feedback, and the published dichotomy did not find the claimed exact values. Nearby cube records concern different invariants and do not imply a directional-localization strategy. The main residual risk is the recency of the initiating preprint and the possibility of an unindexed follow-up.
+PASS
 
-## Value
-PASS. The result answers the first two unsettled dimensions of a named open problem and gives explicit finite strategies that can serve as benchmark certificates for later work. The restriction to dimensions three and four is mathematically natural because it begins immediately after the elementary cases; no significance is claimed for an arbitrary parameter slice.
+The upper bounds were independently replayed from the actual certificate blob: for \(Q_3\), 4 reachable policy states cover 81 legal response tuples and 6 nonterminal transitions, giving a 3-cop win within 2 rounds; for \(Q_4\), 27 policy states cover 1,790 response tuples and 90 transitions, giving a 4-cop win within 3 rounds. The audit separately solved the lower-bound belief-state games with fewer cops: from the full state, all reachable non-singleton belief states were enumerated (21 for \(Q_3\) with 2 cops and 217 for \(Q_4\) with 3 cops), and the finite reachability attractor contains none of them, so no finite winning strategy exists with fewer cops. This lower-bound replay uses only singleton legal responses, which remain available when the robber may return one or more neighbors. Thus \(\operatorname{dirloc}(Q_3)=3\) and \(\operatorname{dirloc}(Q_4)=4\) follow without trusting the stored verification log or inaccessible source theorem.
 
-## Closest literature and limitations
-Jones and Kinnersley, arXiv:2609.01745v1, is the closest and decisive source. It defines the game, gives the hypercube \(n\)-versus-\(n+1\) interval, and asks for the exact value. The present finding resolves only \(Q_3\) and \(Q_4\), not the general question, and it does not claim minimum winning time. A very recent or incompletely indexed follow-up remains a literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating paper is only weeks old and introduces the parameter; bounded searches for the exact small hypercubes, the \(n\)-versus-\(n+1\) hypercube dichotomy, partial-feedback aliases, and Resultary records found no prior exact values for \(Q_3\) or \(Q_4\). The submitted result is not a numerical guess: it supplies complete adversarial strategy certificates, while an independent finite game analysis in this audit also proves the matching lower bounds for two and three cops.
+
+## value
+
+PASS
+
+These are the first two non-elementary hypercube cases of a newly posed exact-value problem. Complete finite strategies plus matching impossibility results are a natural finite cutoff and directly discriminate the two sides of the source dichotomy, satisfying the value bar without requiring a general \(Q_n\) theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
