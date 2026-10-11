@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:08:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fresh differentiation of the frozen cubic reproduces the exhaustive branch split: when \\(x_{13}=0\\), the remaining gradient equations force \\(x_{12}=x_{23}=0\\); when \\(x_{13}\\ne0\\), they force \\(x_{12}=x_{23}=0\\), \\(x_{11}=x_{33}\\), and \\(x_{22}=x_{33}+x_{13}\\). Pavlov supplies primality and dimension five. The singular locus has dimension three, hence codimension two; the hypersurface is Cohen--Macaulay, so Serre \\(S_2+R_1\\) gives normality. A fresh symbolic replay reproduced the rank-four Hessian certificate on the secondary plane and the diagonal normal-slice kernel with cubic coefficient \\((a-b)(b-c)(a-c)\\), giving the stated \\(A_1\\) and \\(A_2\\) types by the splitting lemma.",
+      "risk": "The lower-dimensional collision strata inside the diagonal plane, including the scalar line, are intentionally unclassified.",
+      "sources": [
+        "Pavlov, arXiv:2301.10042v1 / DOI:10.1007/s13366-024-00753-y",
+        "Pavlov-Sturmfels-Telen, arXiv:2211.15490v1 / DOI:10.1007/s41884-023-00111-2",
+        "frozen RESULT.md and verify.py",
+        "fresh symbolic replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general framework gives construction and irreducibility/primality tools.",
+          "Neither inspected theorem classifies singularities of this explicit closure."
+        ],
+        "reasoning": "General Gibbs-variety machinery does not determine the local Jacobian stratification without the object-specific calculations.",
+        "searches": [
+          "arXiv:2211.15490v1 Gibbs Manifolds",
+          "arXiv:2301.10042v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.10042v1",
+        "arXiv:2211.15490v1",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published equation is input data; the exact radical Jacobian decomposition, normality test and normal-slice coefficients are not stated consequences of a stronger theorem in the inspected sources."
+        ],
+        "reasoning": "The final local classification requires additional symbolic and analytic work rather than parameter substitution into a published singularity theorem.",
+        "searches": [
+          "Pavlov colored 3-chain case and stated prime cubic",
+          "general Gibbs-variety framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source gives the exact cubic and prime-ideal statement.",
+          "No distinct same-cubic singularity classification was returned by Resultary."
+        ],
+        "reasoning": "Jacobian singular locus, normality, transverse ADE type and colored-Gibbs formulations were compared.",
+        "searches": [
+          "Resultary query: colored 3-chain Gibbs cubic singular locus normal transverse A2 A1 Pavlov logarithmically sparse symmetric matrices",
+          "arXiv:2301.10042v1 full-text same-object case"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the audited record matched the explicit two-stratum \\(A_2/A_1\\) classification."
+        ],
+        "reasoning": "No relevant exact database or singularity table was located.",
+        "searches": [
+          "Resultary exact semantic search for the cubic/ADE strata"
+        ]
+      },
+      "rationale": "The same-object Pavlov paper was inspected in full-text form around the colored 3-chain case: it provides the dimension and the prime cubic equation but no singular-locus, normality or ADE-stratification theorem. The general Gibbs-manifold paper supplies implicitization/primality machinery but no local theorem that forces these two strata or their transverse types. Resultary returned the submitted record as the only exact same-object hit among the leading results.",
+      "residual_risks": [
+        "A later unindexed treatment of the same cubic could duplicate the local classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_EQUATION_NOT_LOCAL_CLASSIFICATION",
+          "evidence": "The source supplies the explicit cubic and primality/dimension information used as hypotheses but not the audited singular locus, normality or ADE types.",
+          "identifier_or_url": "arXiv:2301.10042v1; DOI:10.1007/s13366-024-00753-y",
+          "material_read": "Open full-text case discussion containing the dimension and prime cubic generator, together with surrounding colored-chain examples.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Logarithmically Sparse Symmetric Matrices",
+          "trigger": "Defines the exact colored 3-chain Gibbs cubic."
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_LOCAL_COVERAGE",
+          "evidence": "The general statements do not specialize automatically to the two explicit transverse germs.",
+          "identifier_or_url": "arXiv:2211.15490v1; DOI:10.1007/s41884-023-00111-2",
+          "material_read": "Primary-source framework and theorem scope on Gibbs varieties/implicitization.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Gibbs Manifolds",
+          "trigger": "Broader framework potentially dominating the local result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Gibbs model is a named algebraic closure arising from logarithmic sparsity. Its exact nonnormal-looking geometry is resolved structurally: the closure is normal despite a codimension-two singular locus, and the two generic strata have different ADE types. This is a motivated local classification, not a numerical one-off.",
+      "risk": "The result is specific to one colored-chain case and leaves collision sub-strata open.",
+      "sources": [
+        "arXiv:2301.10042v1",
+        "arXiv:2211.15490v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Pavlov's colored 3-chain Gibbs cubic over \\(\\mathbb C\\), the reduced singular locus is the union of the diagonal three-plane and the stated secondary two-plane; the hypersurface is normal, with generic transverse type \\(A_2\\) on the pairwise-distinct diagonal stratum and transverse type \\(A_1\\) on the secondary plane away from the diagonal.",
+  "limitations": [
+    "Over \\(\\mathbb C\\) only.",
+    "The \\(A_2\\) statement assumes pairwise-distinct diagonal entries.",
+    "Collision strata inside the diagonal singular plane are not classified."
+  ],
+  "schema_version": 1
+}
