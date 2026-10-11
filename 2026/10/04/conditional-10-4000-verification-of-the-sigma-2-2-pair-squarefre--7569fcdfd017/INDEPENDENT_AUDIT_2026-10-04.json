@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:06:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary paper proves that every quasisolution is a consecutive pair of the recurrence \\(t_{n+2}=(t_{n+1}^2+t_{n+1}+1)/t_n\\) and explicitly reports that its computer search finds no further prime pair below \\(10^{4000}\\) after the large pair. It separately states Conjecture 9. Independent exact arithmetic in this audit verified all submitted factorizations and primality of every displayed factor: \\(3^2+3+1=13\\), \\(13^2+13+1=3\\cdot61\\), \\(61^2+61+1=3\\cdot13\\cdot97\\), \\(22419767768701^2+22419767768701+1=3\\cdot7\\cdot199\\cdot1119712369\\cdot107419560853453\\), and \\(107419560853453^2+107419560853453+1=3\\cdot7\\cdot24508477928503\\cdot22419767768701\\), all with exponent one. The theorem is explicitly conditional on the source's search statement; the package does not pretend to re-certify that search.",
+      "risk": "The \\(10^{4000}\\) exhaustion itself is a published computational assertion rather than a certificate independently replayed in this audit; the accepted statement is conditional on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source's quasisolution classification and search are broader about pair enumeration but do not include the missing factor-squarefreeness conclusion.",
+          "MathDB reports no universal resolution."
+        ],
+        "reasoning": "No prior theorem located dominates the conjunction of exhaustive pair range and squarefreeness through that range.",
+        "searches": [
+          "INTEGERS 21 (2021), Lemma 5 and Conjecture 9",
+          "MathDB problem page for the squarefreeness conjecture"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.09420v3",
+        "INTEGERS 21 (2021) full text",
+        "MathDB squarefreeness problem",
+        "Resultary semantic corpus",
+        "public recurrence/factor searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source search plus additional exact factorization arithmetic yields the audited finite theorem.",
+          "The source does not itself perform or state that final implication."
+        ],
+        "reasoning": "The increment is computational but real: it closes the conjecture on the entire published finite search range without claiming an infinite proof.",
+        "searches": [
+          "INTEGERS 21 (2021), pp. 5 and 8",
+          "MathDB squarefreeness conjecture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source explicitly labels universal squarefreeness Conjecture 9 and separately reports the pair search below \\(10^{4000}\\).",
+          "No checked source states the conditional all-pairs-below-cutoff verification."
+        ],
+        "reasoning": "The audited claim is a finite conditional verification, not the universal conjecture and not merely the pair classification.",
+        "searches": [
+          "Bibby--Vyncke--Zelinsky, arXiv:1908.09420v3 / INTEGERS 21 (2021)",
+          "web search: \"sigma_{2,2}\" squarefree Bibby Vyncke Zelinsky",
+          "web search for exact large pair and factor 24508477928503"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Public recurrence tables list the large consecutive primes and some neighboring factorizations, but no checked table supplies both submitted cyclotomic factorizations together as a certified finite verification."
+        ],
+        "reasoning": "The arithmetic was independently checked rather than inferred from a table.",
+        "searches": [
+          "OEIS/web searches for 22419767768701 and 107419560853453",
+          "Math StackExchange recurrence/factor listing"
+        ]
+      },
+      "rationale": "The source paper contains the exhaustive-search cutoff and states squarefreeness only as Conjecture 9; it does not state the resulting verified finite range or give the complete squarefree factorizations of the large pair's two cyclotomic values. MathDB still records the unrestricted squarefreeness statement as open. Searches for the exact large factors located the recurrence pair and partial term factorizations but no prior publication of the complete finite verification.",
+      "residual_risks": [
+        "A non-indexed computational note may have observed these exact factorizations already; none was located.",
+        "The source search itself is not independently certified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "The paper states that no later \\(\\sigma_{2,2}\\) pair occurs below \\(10^{4000}\\) after the large pair and separately states the squarefreeness conjecture, but does not state the finite verification.",
+          "identifier_or_url": "arXiv:1908.09420v3; https://math.colgate.edu/~integers/v115/v115.pdf",
+          "material_read": "Full primary PDF at the quasisolution recurrence/search passage and the open-questions passage containing Conjecture 9.",
+          "method": "lawful open full text",
+          "title": "On the Third Largest Prime Divisor of an Odd Perfect Number",
+          "trigger": "Primary source for the recurrence, exhaustive-search cutoff, and Conjecture 9."
+        },
+        {
+          "assessment": "OPEN_PROBLEM_STATUS",
+          "evidence": "The universal conjecture is still recorded without a solution.",
+          "identifier_or_url": "https://mathdb.com/p/343627/squarefreeness-conjecture-for-sigma-2-2-pairs",
+          "material_read": "Problem statement and progress summary.",
+          "method": "public problem database",
+          "title": "Squarefreeness conjecture for sigma-2,2 pairs",
+          "trigger": "Current problem-status check."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff is mathematically motivated by an explicit open conjecture and is extraordinarily large. Establishing the conjecture on the whole published exhaustive range is a meaningful finite verification rather than an arbitrary slice, even though the remaining arithmetic is elementary once the pair list is known.",
+      "risk": "The result is conditional on another paper's exhaustive search and does not advance the infinite conjecture beyond that range.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Assuming the published exhaustive-search statement that, after \\((22419767768701,107419560853453)\\), there is no further \\(\\sigma_{2,2}\\) pair with both primes below \\(10^{4000}\\), Conjecture 9 holds for every \\(\\sigma_{2,2}\\) pair below that cutoff: the three pairs \\((3,13)\\), \\((13,61)\\), and the displayed large pair all have both cyclotomic values squarefree.",
+  "limitations": [
+    "No unconditional claim is made about absence of additional pairs below the cutoff independently of the source search.",
+    "No claim is made for \\(\\sigma_{2,2}\\) pairs beyond \\(10^{4000}\\)."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final statement is deliberately conditional on the primary paper's reported exhaustive search through \(10^{4000}\). Given that input, the candidate set consists of the three displayed prime pairs. The package checks their recurrence locations and cross-divisibilities, and completely factors every distinct value \(x^2+x+1\) into distinct primes. All prime factors are below \(2^{64}\) and receive deterministic primality checks.
+## correctness
 
-## Originality
-PASS. The source states Conjecture 9 and separately reports the search frontier, while OEIS records the same known pair list. Neither inspected source states the resulting conditional finite verification. Searches using the conjecture label, \(\sigma_{2,2}\) aliases, the large pair, and the exact cutoff found no indexed coverage. The main residual risk is an unindexed observation.
+PASS
 
-## Value
-PASS. The \(10^{4000}\) bound is the source paper's own exhaustive-search frontier, not an arbitrary computational slice. Certifying Conjecture 9 on that complete reported window supplies an exact finite status for a structural conjecture the authors identify as useful for tightening odd-perfect-number arguments.
+The primary paper proves that every quasisolution is a consecutive pair of the recurrence \(t_{n+2}=(t_{n+1}^2+t_{n+1}+1)/t_n\) and explicitly reports that its computer search finds no further prime pair below \(10^{4000}\) after the large pair. It separately states Conjecture 9. Independent exact arithmetic in this audit verified all submitted factorizations and primality of every displayed factor: \(3^2+3+1=13\), \(13^2+13+1=3\cdot61\), \(61^2+61+1=3\cdot13\cdot97\), \(22419767768701^2+22419767768701+1=3\cdot7\cdot199\cdot1119712369\cdot107419560853453\), and \(107419560853453^2+107419560853453+1=3\cdot7\cdot24508477928503\cdot22419767768701\), all with exponent one. The theorem is explicitly conditional on the source's search statement; the package does not pretend to re-certify that search.
 
-## Closest literature and limitations
-The closest work is Sean Bibby, Pieter Vyncke, and Joshua Zelinsky, “On the third largest prime divisor of an odd perfect number,” arXiv:1908.09420 / *Integers* 21 (2021), A115. The verification remains conditional because the source does not provide a replayable certificate for its \(10^{4000}\) search. The global squarefreeness conjecture remains open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source paper contains the exhaustive-search cutoff and states squarefreeness only as Conjecture 9; it does not state the resulting verified finite range or give the complete squarefree factorizations of the large pair's two cyclotomic values. MathDB still records the unrestricted squarefreeness statement as open. Searches for the exact large factors located the recurrence pair and partial term factorizations but no prior publication of the complete finite verification.
+
+## value
+
+PASS
+
+The cutoff is mathematically motivated by an explicit open conjecture and is extraordinarily large. Establishing the conjecture on the whole published exhaustive range is a meaningful finite verification rather than an arbitrary slice, even though the remaining arithmetic is elementary once the pair list is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
