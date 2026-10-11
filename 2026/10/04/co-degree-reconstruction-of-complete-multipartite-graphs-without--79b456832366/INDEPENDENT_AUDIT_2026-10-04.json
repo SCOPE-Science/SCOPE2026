@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:57:52.737197Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at tree 4d3b8a70589fe92cd1d1b8ce3a6c25247883a7d8",
+        "verify.py blob 2893d300b7911cb9a5cdbc2c2989e8cd87fc3315",
+        "independent recurrence replay"
+      ],
+      "rationale": "For vertices in one part of size \\(s\\), the defect \\(n-c_{xy}\\) is \\(s\\); for vertices in distinct parts of sizes \\(a,b\\), it is \\(a+b\\). Counting same-part and cross-part pairs gives \\(2F(z)=P(z)^2-z^2P' (z^2)+zP'(z)-P(z)\\). With \\(p_1=0\\), the coefficient of \\(p_s\\) is \\(s-1\\) and every convolution term uses smaller indices, so the stated recurrence uniquely reconstructs all part multiplicities. The checked verifier code exactly implements this recurrence; an independent enumeration reproduced all \\(5574\\) multipartite types through order \\(30\\).",
+      "residual_risks": [
+        "The theorem deliberately excludes singleton parts; the coefficient inversion does not determine \\(p_1\\) by the same triangular step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ascolese--Negrini--Pagani--Pellegrini state a full answer for planar \\(C_4\\)-free graphs.",
+          "A complete multipartite graph with two non-singleton parts contains \\(K_{2,2}\\) and hence a \\(C_4\\), so the cited exact class generally excludes the audited family."
+        ],
+        "reasoning": "The broader problem statement motivates the claim but its solved class does not imply it.",
+        "searches": [
+          "arXiv:2609.08803 abstract and bibliographic record",
+          "Search for general graph reconstruction from common-neighbor sequence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.08803",
+        "Resultary semantic search",
+        "targeted web searches",
+        "assigned RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact theorem is structurally inapplicable to the dense family.",
+          "The recurrence requires separating same-part defects \\(s\\) from cross-part defects \\(a+b\\) and then triangularly inverting their aggregate multiplicities; no checked prior theorem supplies that inversion."
+        ],
+        "reasoning": "The final reconstruction is not a parameter specialization of the source paper.",
+        "searches": [
+          "Compare planar \\(C_4\\)-free theorem with complete multipartite family",
+          "Derive co-degrees directly from multipartition part sizes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned several complete-multipartite findings for unrelated invariants, but no co-degree reconstruction result.",
+          "The initiating paper uses the same co-degree definition; no exact multipartite formula was located."
+        ],
+        "reasoning": "Searches covered the invariant name, the equivalent common-neighbor wording, defect language, and reconstruction of part sizes.",
+        "searches": [
+          "Resultary semantic query: complete multipartite graph co-degree common-neighbor multiset reconstruct part sizes defect sequence",
+          "Web query: co-degree sequence complete multipartite common neighbors",
+          "Web query: common-neighbor multiset uniquely determines complete multipartite graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database entry or table with the recurrence was found; the package verifier generates its own finite stress-test data."
+        ],
+        "reasoning": "The theorem is algebraic and infinite; finite tables are not being used as novelty evidence.",
+        "searches": [
+          "Resultary query for co-degree/common-neighbor complete multipartite reconstruction",
+          "Search for exact defect-frequency recurrences"
+        ]
+      },
+      "rationale": "The initiating 2026 co-degree paper defines exactly the same invariant and announces a complete solution for planar \\(C_4\\)-free graphs. That class does not dominate no-singleton complete multipartite graphs, which already contain a \\(C_4\\) as soon as two parts have size at least two. Targeted Resultary and web searches for co-degree/common-neighbor reconstruction of complete multipartite graphs returned other multipartite invariants but no reconstruction formula. The triangular defect recurrence therefore remains best-of-knowledge original.",
+      "residual_risks": [
+        "Because the highly relevant 2026 primary paper could not be inspected in full during this run, an unadvertised multipartite remark or proposition inside it remains an access-related priority risk.",
+        "Older common-neighbor literature may use terminology not captured by the searched aliases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_SOURCE_PARTIALLY_READ_NOT_DOMINATING_ON_STATED_CLASS",
+          "evidence": "The abstract identifies the exact solved class as planar \\(C_4\\)-free, whereas the audited no-singleton multipartite family is normally \\(C_4\\)-rich.",
+          "identifier_or_url": "arXiv:2609.08803",
+          "material_read": "Primary abstract and bibliographic record, which explicitly state the invariant and that the full solved class is planar \\(C_4\\)-free graphs; exact-title and terminology searches were also performed. Full-text retrieval through ordinary OA paths was not available during this run, and the authorized institutional retrieval request was safety-blocked, so no claim of whole-document noncoverage is made.",
+          "method": "lawful public abstract/metadata plus targeted searches; full-text access blocked",
+          "title": "A graph reconstruction problem involving common neighbors",
+          "trigger": "Primary source defining the identical co-degree invariant and realization problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.08803 motivation",
+        "exact generating-function proof"
+      ],
+      "rationale": "This is a constructive exact solution of a newly posed reconstruction problem on a broad classical dense graph family, with a transparent boundary at singleton parts. The result is not an arbitrary finite census: it supplies an infinite triangular inversion formula and a recognition algorithm for the family.",
+      "residual_risks": [
+        "The no-singleton restriction leaves a natural extension problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Because the highly relevant 2026 primary paper could not be inspected in full during this run, an unadvertised multipartite remark or proposition inside it remains an access-related priority risk.",
+    "Older common-neighbor literature may use terminology not captured by the searched aliases."
+  ],
+  "schema_version": 1
+}
