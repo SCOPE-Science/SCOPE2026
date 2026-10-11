@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` reconstructs the 13-point source poset \(P=\mathbb{P}^2_2\) from the cover data stored in `beat_certificate.json` and reconstructs the four-point target circle \(C\) as two incomparable minima below two incomparable maxima.
+# Independent mathematical audit
 
-It recursively enumerates all order-preserving maps along a fixed linear extension of the source and obtains exactly \(868\) maps. It then constructs the complete pointwise order on those maps and verifies that its undirected comparability graph has a single component.
+## correctness
 
-The verifier replays every one of the \(864\) certificate entries. Before each deletion it recomputes the strict upper and lower sets inside the current induced subposet and checks that the recorded witness is respectively the least strict upper point or greatest strict lower point. The replay totals \(196\) up-beat and \(668\) down-beat deletions.
+PASS
 
-After replay, the only remaining map indices are the four constant maps. Their inherited order is checked entry-by-entry against the target order, and the terminal four-point poset is checked to have no beat point. Thus the certificate establishes a strong-deformation reduction to a core isomorphic to \(C\).
+The source incidence data were reconstructed, all 868 order-preserving maps were independently enumerated, and the complete pointwise order was rebuilt. Every one of the 864 certificate deletions was rechecked in the current induced poset: 196 were valid up-beat deletions and 668 valid down-beat deletions. The only survivors are indices 0,491,814,867, exactly the four constants, and their inherited order is the four-point circle. This proves the finite core claim rather than merely sampling it.
 
-The exact replay output is stored in `verification_output.txt`. The computation is exhaustive for this finite source and target. General theorems identifying the compact-open specialization order with pointwise order and beat-point deletion with strong deformation retraction are cited rather than rederived by the script.
+## originality
+
+PASS
+
+The primary literature fixes the 13-point projective-plane object and supplies general finite function-space/core machinery, but no inspected source computes this directional Hom-poset or its Stong core. Resultary's closest exact finite-space record is the opposite mapping direction, which has a different map count and component structure and cannot imply this result. The 868-point enumeration plus exact core therefore passes best-of-knowledge originality.
+
+## value
+
+PASS
+
+This is a natural mapping-space benchmark between minimal finite models of RP2 and S1. Identifying the entire Stong core is materially stronger than counting homotopy classes and complements the opposite-direction calculation without being implied by it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
