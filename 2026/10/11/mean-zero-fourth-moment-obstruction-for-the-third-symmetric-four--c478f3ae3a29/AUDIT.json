@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The input is visibly unimodular and odd, hence mean-zero. Jacobi–Anger gives precisely four retained Fourier frequencies. Their squared-modulus autocorrelations are directly computed and Parseval gives a closed fourth-moment polynomial in J0,J1,J2. Exact rational alternating-series bounds at t=1 prove the polynomial strictly exceeds one, independently checked by executing verify_bessel.py from its included path. The sixth-order Taylor coefficient 5/576 was reconstructed and independently verified using exact rational polynomial arithmetic. This is an explicit existential counterexample, not an extrapolation from finite numerical samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1005.1842v1, Theorem 1: one-sided Riesz projection (all nonnegative frequencies) is contractive L-infinity to L-four, not the intersection of two one-sided projections that gives S3.",
+        "arxiv:2609.28938v1, Proposition 4.1: symmetric sections are contractive into L-three, not L-four; Remark 4.3 gives a nonzero-mean S1 witness and does not cover a zero-mean S3 witness."
+      ],
+      "reasoning": "One-sided projection contractivity does not pass to composition at L-four, because its input after the first projection is only L-four, not L-infinity. The known symmetric-section theorem is strictly weaker in target exponent, and its counterexample for S1 lacks the present zero-mean property.",
+      "searches": [
+        "Riesz projection centered symmetric partial sums L infinity to L4 failure mean zero low degree",
+        "sharp finite-section L∞0 to L4 noncontractivity symmetric Fourier projection Dirichlet kernel Kozalev Poisson 2026",
+        "arxiv:1005.1842v1, Theorem 1, Riesz projection sharp L-infinity-to-L-four contraction"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.28938v1, entire 13-page article",
+      "arxiv:1005.1842v1, 8-page primary PDF",
+      "arxiv:2001.09465, relevant early theorem statements",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635, published statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kovalev, arxiv:2609.28938v1, proof of Theorem 1.3: P_r is a positive Abel combination of S_N; contractivity of the components in L-three proves the L-three Poisson bound. The paper conjectures, but does not prove, the Poisson L-four endpoint.",
+        "Marzo–Seip, arxiv:1005.1842v1: a different one-sided multiplier satisfies L-infinity-to-L-four contraction.",
+        "Published endpoint-deficit finding 87cdbe27-5635-4eb2-a39f-409ad752b719: its inequality bounds Poisson P_r on one selected family and cannot yield a uniform sharp-section S3 inequality."
+      ],
+      "reasoning": "The new witness refutes a stronger proposed input inequality on the symmetric partial sums, not the Poisson endpoint itself. Neither the known L-three theorem, the one-sided L-four theorem, nor the known strict Poisson example entails a zero-mean S3 L-four norm excess. Its leading t-six coefficient and exact certified t-one witness are distinct quantitative statements.",
+      "searches": [
+        "Schwarz-contractivity Poisson operator complex valued mean zero L infinity to L4 Fourier sharp critical exponent p=4 Kovalev 2026 harmonic maps",
+        "Poisson semigroup circle mean zero complex unimodular perturbations first Fourier mode local stability Lp Schwarz contraction near 4",
+        "Kovalev 2026 Schwarz-contractivity Poisson operator p=4 obstruction to symmetric Fourier partial sum S3 zero mean unimodular f(z)=z exp(i ε cos 2θ) L4 norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.28938v1, Section 4: complex-valued symmetric Fourier sections and the Poisson endpoint question are presented separately; no mean-zero third-section fourth-moment counterexample is stated.",
+        "Published finding 87cdbe27-5635-4eb2-a39f-409ad752b719: its fourth-moment endpoint deficit concerns the Poisson multiplier applied to a different odd unimodular family, not the sharp cutoff at order three."
+      ],
+      "reasoning": "Alternative terms (Dirichlet partial sum, sharp symmetric Fourier projection, Jacobi–Anger phase expansion, odd unimodular zero-mean input) were compared by the operator and quantifiers, rather than title. The closest Poisson result analyzes a different multiplier and does not imply or subsume this claim.",
+      "searches": [
+        "odd unimodular mean-zero Jacobi Anger Bessel J0 J1 J2 symmetric Fourier cutoff S3 L4 fourth norm exceeds one",
+        "Mean-zero fourth-moment obstruction third symmetric Fourier cutoff S3 odd unimodular Bessel 5/576 t^6",
+        "fourth moment Jacobi Anger odd phase e^{it cos2theta} Fourier truncation 3 bounded unimodular"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result searches returned Fourier-support, cyclic projection and Poisson-endpoint records but no indexed exact S3 Bessel-autocorrelation moment certificate.",
+        "Standard Bessel series tabulate individual J-values; the computed joint fourth-moment inequality of the symmetric cutoff is not a direct tabulated identity."
+      ],
+      "reasoning": "An exact table of Bessel values alone neither gives the mixed autocorrelations nor the sharp cutoff noncontractivity. Search nonmatches cannot establish absolute novelty; this is a residual risk.",
+      "searches": [
+        "Fourier partial sum S_3 noncontractive L∞0 L4 zero-mean unimodular sixth order Bessel coefficient",
+        "zero mean L∞ to L4 spectral Dirichlet Fourier partial sum projection noncontraction 2026",
+        "arxiv:2609.28938v1 and arxiv:1005.1842v1 references and theorem statements"
+      ]
+    },
+    "rationale": "The full 2026 Poisson source gives symmetric L-three contraction and a nonzero-mean S-one higher-exponent obstruction; neither implies mean-zero S-three L-four noncontraction. The 2010 Riesz theorem uses a distinct one-sided multiplier. A published Poisson endpoint calculation concerns a different multiplier and family. Actual semantically targeted searches by equivalent input classes, Fourier cutoff, target exponent and Bessel moments found no dominating or exact prior. Unindexed equivalence remains possible.",
+    "residual_risks": [
+      "An inaccessible or unindexed prior result might contain the same mean-zero symmetric-section example under a different description. Search failure is not novelty certification.",
+      "No sharp best operator norm or earliest possible Fourier cutoff for all admissible inputs is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not prove L-four contraction or noncontraction for the mean-zero third symmetric Fourier section. Its higher-exponent S1 obstruction uses nonzero mean.",
+        "evidence": "Pages 10–12, Proposition 4.1; Remark 4.3; Equation (4.4); Section 5, Conjecture 5.1. Primary MSC 31A05 on page 1.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.28938 (v1, 2026-09-24)",
+        "material_read": "All 13 pages; abstract, preliminaries, Theorems 1.3/1.4, Proposition 4.1, Remark 4.3, Proposition 4.4, Conjecture 5.1, references.",
+        "method": "Full article text examined page by page.",
+        "title": "Schwarz-contractivity of the Poisson operator",
+        "trigger": "Foundational fresh source stating the complex Poisson L-four endpoint conjecture and the finite-section L-three proof method."
+      },
+      {
+        "assessment": "Studies one-sided Hardy/Riesz projections in one or multiple variables. The one-sided L-four bound does not imply L-four contractivity of a doubly-truncated symmetric section.",
+        "evidence": "Theorem 1 (PDF page 2); Theorem 4 (PDF pages 5–6); the multipliers are defined at the start of the paper.",
+        "identifier_or_url": "https://arxiv.org/abs/1005.1842 (v1)",
+        "material_read": "Abstract, Theorems 1 and 4 and their proofs, Sections 2–5 and reference-level context in the eight-page primary PDF.",
+        "method": "Open-access PDF text and direct page rendering, including inspection of its later sections.",
+        "title": "L-infinity to L-p constants for Riesz projections",
+        "trigger": "Sharp L-infinity-to-L-four theorem that could imply stronger coverage if its Fourier multiplier matched."
+      },
+      {
+        "assessment": "First-coefficient/harmonic mapping norm results, not finite symmetric third Fourier-section L-four norm comparisons.",
+        "evidence": "Early theorem statements on harmonic coefficient estimates and the limiting first-mode setup.",
+        "identifier_or_url": "https://arxiv.org/abs/2001.09465",
+        "material_read": "PDF introduction, theorem statements and relevance of the first-coefficient extremal problem.",
+        "method": "Open-access PDF rendering and theorem extraction.",
+        "title": "Near-isometric duality of Hardy norms with applications to harmonic mappings",
+        "trigger": "Earlier Fourier-coefficient endpoint estimates referenced by the primary source."
+      },
+      {
+        "assessment": "Its tested operator is P_r (positive Poisson Fourier multiplier), whereas the new claim is the sharp finite projection S3; its theorem neither implies nor excludes the new counterexample.",
+        "evidence": "It gives 1 - ||P_r f_epsilon||_4^4/r^4 > 0 for its rational unimodular family and explicitly leaves the general Poisson endpoint open.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-endpoint-deficit-for-the-canonical-complex-poisson-obstruc--87cdbe275635",
+        "material_read": "Published abstract and recoverable mathematical claim statement, including its fourth-moment deficit identity and quantified domain.",
+        "method": "Published-record semantic lookup and direct comparison of mathematical claim statements.",
+        "title": "Exact endpoint deficit for the canonical complex Poisson obstruction family",
+        "trigger": "Closest published semantic comparison, studying an odd unimodular complex endpoint obstruction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c478f3ae-3a29-482f-bb6f-b9a8ac6d1a2a",
+  "value": {
+    "rationale": "The September 2026 theorem obtains Poisson L-three contractivity by positive Abel combinations of L-three-contracting symmetric Fourier sections, while conjecturing a complex L-four endpoint. The new zero-mean S-three L-four obstruction proves that directly upgrading that entire section argument is impossible. Crucially the first norm excess appears only at sixth order after quadratic and quartic cancellations, giving a mathematically motivated and reproducible explanation for why lower-order endpoint tests are inconclusive. The result is a structural barrier, not merely a change of normalization or a small numerical improvement.",
+    "status": "PASS"
+  }
+}
