@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source concurrence reduces exactly to the sign of \(A-B-4C\). Independent diagonalization of the three-spin Hamiltonian gives the same thermal weights and direct Wootters-concurrence formula. The critical equation has one positive root because its left-minus-right function is strictly increasing for every \(r<1\). Implicit differentiation proves the universal curve is monotone. The two endpoint expansions follow from, respectively, a Lambert-function balance and a regular implicit-function expansion about the unique root of \(z^3-z-4=0\). A standalone direct-density-matrix checker reproduces the formula and both asymptotics.
+PASS
 
-## Originality
+The source concurrence numerator reconstructs exactly as \(A-B-4C\), so its positive-temperature zero is \(e^{6J_1/T}=e^{(2J_1+4J)/T}+4\). With \(u=J_1/T\) and \(r=J/J_1\) this gives the claimed one-variable equation. For every \(r<1\), the derivative in \(u\) is positive on \(u>0\), so the positive root is unique; implicit differentiation gives \(u'(r)>0\). At \(r=1-\delta\), the exact equation forces \(\delta u\to0\) and \(\delta u e^{6u}\sim1\), yielding the Lambert-W law. At \(r=0\), the substitution \(z=e^{2u}\) gives \(z^3-z-4=0\), and differentiating the implicit equation gives the displayed first finite-\(J\) correction. The inspected numerical verifier independently reconstructs the full eight-dimensional Hamiltonian and Wootters concurrence and agrees with these formulas on both signs of \(J\).
 
-**PASS, narrowly scoped.** The direct source reports the concurrence, the critical-temperature plots, monotonicity in impurity strength, and only the leading strong-impurity decimal \(3.41448\). It does not state the universal scaling curve, the first finite-\(J\) correction, or the inverse-logarithmic activation law. Claim-specific searches did not locate those statements. The closest earlier impurity paper is for the anisotropic \(XX\) chain, and a later same-group paper studies global bipartite negativity rather than this pairwise threshold.
+## originality
 
-## Value
+PASS
 
-**PASS.** The critical temperature is the source's operational measure of thermal robustness. The universal collapse turns a family of parameter plots into one exact phase boundary, the Lambert law quantifies how the entangled phase is born at the impurity threshold, and the finite-\(J\) term quantifies the leading error in the source's strong-impurity linear rule. These are structural properties of the same experimentally motivated impurity control parameter rather than arbitrary recomputations.
+Hu and Tian already give the impurity-neighbor concurrence, the activation region, monotone numerical growth of the critical temperature with impurity strength, and the leading strong-impurity slope \(3.41448\). The inspected source does not state the complete dimensionless root curve, its proof of uniqueness, the Lambert-W collapse at \(J_1\downarrow J\), or the first finite-\(J\) strong-impurity correction. Fresh Resultary search for the universal curve and both endpoint laws returned no implication-equivalent prior result. Best-of-knowledge originality is bounded because these sharpenings are short analyses of a published exact concurrence formula.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result gives the complete scaling curve of a published thermal-entanglement phase boundary and resolves both opposite endpoints, including the slow inverse-logarithmic collapse at activation and the first finite-impurity correction to a widely quoted numerical slope. These are natural quantitative invariants of the same phase boundary rather than an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
