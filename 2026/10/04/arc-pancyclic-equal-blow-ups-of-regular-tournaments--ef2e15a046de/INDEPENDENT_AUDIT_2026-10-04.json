@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:10:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Alspach's theorem gives, for each base arc, a containing base cycle of every length \\(3\\le t\\le c\\). For any target \\(\\ell\\), the integer intervals \\([3k,ck]\\), \\(1\\le k\\le\\alpha\\), cover all lengths 3 through \\(c\\alpha\\) when \\(c\\ge5\\). Writing \\(\\ell=t_1+\\cdots+t_k\\) with each \\(t_j\\in[3,c]\\), choose k base cycles containing the prescribed arc and lift them on distinct layer indices. Concatenating each cycle's terminal-to-u arc into the next layer gives a simple directed cycle of length \\(\\ell\\); distinct layers prevent repeated lifted vertices. The c=3 exclusion is genuine.",
+      "risk": "The argument uses equal part sizes and a blow-up orientation inherited from one regular base tournament; it does not extend automatically to arbitrary regular multipartite tournaments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xia is broader in allowing arbitrary regular multipartite orientations, but only for c>=93 and lengths >=4.",
+          "Pan--Zhang is broader in multipartite orientation but tracks partite-set count rather than cycle length."
+        ],
+        "reasoning": "Those broader ambient classes do not dominate the all-c>=5, all-length 3..c alpha statement on the blow-up subclass.",
+        "searches": [
+          "arXiv:2609.12372v1",
+          "Pan--Zhang 2004",
+          "multipartite-tournament Resultary search"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.4153/CMB-1967-028-6",
+        "DOI:10.1007/s10114-004-0327-1",
+        "arXiv:2609.12372v1",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alspach supplies the base cycles but does not itself show how to combine repeated lifted layers into arbitrary larger lengths.",
+          "The submitted interval decomposition \\([3k,ck]\\) and layerwise splicing provide that missing implication."
+        ],
+        "reasoning": "The lift is short but requires a new constructive argument; neither a part-count cycle theorem nor the c>=93 general theorem yields the small-c conclusion.",
+        "searches": [
+          "Alspach 1967 theorem",
+          "Pan--Zhang 2004 theorem",
+          "Xia 2026 theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alspach: every arc of a regular tournament lies on every cycle length 3 through the order.",
+          "Pan--Zhang: every arc lies on a cycle meeting exactly k partite sets for k=4,...,n.",
+          "Xia: general regular equal-part c-partite tournaments are 4-arc-pancyclic for c>=93."
+        ],
+        "reasoning": "No equivalent theorem for lexicographic/equal independent-set blow-ups of an arbitrary regular tournament was located.",
+        "searches": [
+          "Resultary: regular tournament equal blow-up arc pancyclic multipartite tournament",
+          "DOI:10.4153/CMB-1967-028-6",
+          "DOI:10.1007/s10114-004-0327-1",
+          "arXiv:2609.12372v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or database of cycle lengths for equal blow-ups was found."
+        ],
+        "reasoning": "The theorem is proved uniformly by splicing and is not a finite census.",
+        "searches": [
+          "Resultary tournament corpus",
+          "classical multipartite tournament literature searches"
+        ]
+      },
+      "rationale": "Alspach proves arc-pancyclicity only in a regular tournament, while Pan--Zhang's regular multipartite result controls the number of partite sets met, not every vertex length. Xia's 2026 theorem gives all lengths from 4 upward only for arbitrary regular equal-part multipartite tournaments with at least 93 parts. The submitted theorem is an exact full-length result, including triangles, for the natural equal-blow-up subclass for every regular base order \\(c\\ge5\\). No checked composition theorem states this lift.",
+      "residual_risks": [
+        "An older digraph-composition theorem under lexicographic-product terminology may encode the same splicing result; targeted searches did not surface one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING",
+          "evidence": "The theorem states that a regular tournament of order \\(2n+1\\) has property A: every arc lies on cycles of all lengths 3 through the order.",
+          "identifier_or_url": "DOI:10.4153/CMB-1967-028-6",
+          "material_read": "Primary full PDF opening and theorem statement.",
+          "method": "publisher PDF text inspection",
+          "title": "Cycles of Each Length in Regular Tournaments",
+          "trigger": "Exact base theorem used by the proof."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "It guarantees cycles using exactly k partite sets for k=4,...,n, not a cycle of every vertex length.",
+          "identifier_or_url": "DOI:10.1007/s10114-004-0327-1",
+          "material_read": "Primary journal abstract and statement.",
+          "method": "journal page inspection",
+          "title": "On Cycles Containing a Given Arc in Regular Multipartite Tournaments",
+          "trigger": "Closest classical multipartite arc-cycle result."
+        },
+        {
+          "assessment": "BROADER_HIGH_PART_COUNT_ONLY",
+          "evidence": "It proves every arc lies on all cycle lengths 4..c alpha for c>=93; the audited result covers the structured blow-ups for every regular c>=5 and adds length 3.",
+          "identifier_or_url": "arXiv:2609.12372v1",
+          "material_read": "Current primary abstract/metadata.",
+          "method": "lawful public arXiv metadata",
+          "title": "4-Arc-Pancyclicity of Regular Multipartite Tournaments",
+          "trigger": "Current strongest general equal-part regular multipartite result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives complete arc-pancyclicity on a natural infinite subclass of regular multipartite tournaments for every admissible base order \\(c\\ge5\\), far below the current general c>=93 range. It also includes triangles and supplies an explicit cycle construction, so it is a motivated structural special-class theorem rather than a small parameter improvement.",
+      "risk": "The splicing construction is elementary once Alspach's theorem is known, and the result does not classify unequal blow-ups.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If \\(T\\) is a regular tournament on \\(c\\ge5\\) vertices and every vertex is blown up to an independent set of equal size \\(\\alpha\\), then every arc of the blow-up lies on a directed cycle of every length \\(3,4,\\ldots,c\\alpha\\).",
+  "limitations": [
+    "The theorem does not cover unequal blow-ups or arbitrary regular multipartite tournaments.",
+    "The c=3 equal blow-up can miss intermediate lengths for alpha>=2."
+  ],
+  "schema_version": 1
+}
