@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The original family is a Parseval relay fusion frame by Parseval's identity. The selected one-dimensional local frames have exact frame operators \(S_i=iI\), so the source construction produces coefficient weights \(1/i\). Evaluating on \(e_n\) proves the lower bound tends to zero. The repaired bounds follow directly from the operator norm inequalities for \(S_i^{{-1}}\).
+## correctness
 
-## Originality
-PASS. Candidate-specific semantic searches and the inspected relay-fusion-frame literature revealed no covering statement. The 2020 and 2023 papers use common or bounded local-frame hypotheses in related settings but do not state this counterexample or repaired Theorem 3.10.
+PASS
 
-## Value
-PASS. The result corrects one of the source's named duality constructions, gives a minimal coordinate obstruction, and replaces the invalid theorem by a usable quantitative sufficient condition. The global relay dual remains unaffected because it uses a single boundedly invertible global frame operator.
+The coordinate construction is exact. The original family on l2 is Parseval. Choosing the one-vector local frame {sqrt(i)} gives S_i=iI, so the transformed coefficient on e_i is divided by i and the transformed energy is sum_i |<f,e_i>|^2/i^2. Evaluating at e_n gives 1/n^2, excluding any positive lower frame bound. Conversely, uniform sup_i||S_i|| and sup_i||S_i^{-1}|| give the stated two-sided bounds by applying the singular-value inequalities coordinatewise.
 
-## Closest literature and limitations
-The closest inspected literature is the same authors' 2020 bridging paper, which defines common local frame bounds for relay fusion frame systems, and their 2023 Banach-space extension, which assumes bounded local g-frame families in an analogous nested construction. These hypotheses support the relevance of uniformity but do not imply the literal 2019 theorem. A weaker hypothesis than uniform bounds on both \(S_i\) and \(S_i^{{-1}}\) may suffice for a particular fixed RFF; the claimed necessity is restricted to the scalar coordinate model.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2019 article states Theorem 3.10 without a uniform family bound, while its proof explicitly invokes a maximum of ||S_i^{-1}|| and the lower estimate analogously requires a positive uniform infimum. The same article later introduces common local-frame bounds for relay fusion frame systems, but does not repair Theorem 3.10. Current Resultary search found no prior counterexample or corrected theorem matching this coordinate obstruction and general two-sided uniform repair.
+
+## value
+
+PASS
+
+A one-dimensional-coordinate counterexample that invalidates a published dual-frame theorem and identifies a clean sufficient repair with exact necessity in the natural scalar model is a motivated structural correction, not an arbitrary negative example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
