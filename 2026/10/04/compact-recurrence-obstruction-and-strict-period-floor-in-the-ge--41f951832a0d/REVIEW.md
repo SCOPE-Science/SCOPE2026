@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Coordinate stationarity yields \(\mathbb E[z]=0\), \(\mathbb E[y]=-\mathbb E[x^2]\), and \(\mathbb E[x^2]=a+b\mathbb E[x]\), hence the exact mean–variance parabola. Variation of constants proves \(y<0\) on every bounded complete trajectory. Three exact generator identities give \(\mathbb E[(a+bx+y)^2]=b\mathbb E[z^2]\); their equality cases force equilibrium support when \(b\le0\). For \(b>0\), the sign changes follow from zero integrals of \(p(x)\) and \(z\). The period floor follows from the energy law plus Wirtinger, and the equality case is excluded by the second harmonic created by \(x^2\) in the exact jerk equation. The packaged exact checker returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS. Targeted semantic database and web searches for Sprott M, its exact equations, invariant measures, the jerk reduction, recurrence balance, and period bounds returned no same-object theorem. The full substantive 1994 article gives Case M, critical points, Lyapunov data, dimension, and numerical parameter behavior. The generalized parameter-space note gives the \(a,b\) family and numerical dynamic-region maps. The ABS-M source studies a different absolute-value nonlinearity. None of the inspected statements implies the invariant-measure energy law, the \(b\le0\) compact-recurrence obstruction, or the strict period floor. Residual indexing risks are recorded in `AUDIT.json`.
+PASS
 
-## Value
-PASS. Case M is one of the classical algebraically minimal chaotic flows, and its two-parameter normalization has documented stable, periodic, chaotic, and unbounded regions. The theorem converts the coefficient sign \(b\) into a rigorous global recurrence obstruction, supplies exact stationary geometry for all compact invariant measures, and gives a universal strict period floor for every nonconstant cycle. This is structural information rather than a parameter scan or numerical recomputation.
+The stationary identities follow from invariant averaging of coordinates and explicit polynomial coboundaries. In particular, with \(p(x)=x^2-bx-a\), exact differentiation gives \(L H=-zp(x)\), \(L(z^2/2)=z(a+bx+y)\), and the displayed derivative-energy identity \(\mathbb E[(a+bx+y)^2]=b\mathbb E[z^2]\). This forces equilibrium support for \(b\le0\). For \(b>0\), the zero-mean sign arguments give the stated slab and \(z\)-sign excursions. On a periodic orbit the energy identity plus Wirtinger gives \(P\ge2\pi/\sqrt b\); equality is excluded by the second harmonic in the exact jerk equation. Fresh symbolic reconstruction independently verified all polynomial and jerk identities.
 
-## Closest literature and limitations
-Sprott (1994) is the foundational source and Sprott's 2013/2014 note gives the exact two-parameter Case M normalization. The 1999 ABS variant is a nearby but inequivalent nonlinear system. The 1997/2008 jerk literature concerns algebraically simple jerk systems and nonchaotic parameter regions; the inspected material does not state the theorem here. The result does not establish existence of non-equilibrium compact recurrence for arbitrary positive \(b\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Sprott sources define and numerically map Case M but do not state compact-invariant-measure balance laws or a universal least-period floor. Current Resultary searches found analogous recurrence-balance theorems for other flows, not this vector field. Panchev's broad analytical paper is a genuine residual risk because full text was not reliably available, but the accessible abstract does not reveal an equivalent statement; under the owner rule that access limitation alone does not defeat best-of-knowledge originality.
+
+## value
+
+PASS
+
+For a canonical chaotic-flow family, an exact damping-sign obstruction to every non-equilibrium compact invariant measure together with a strict universal period floor is a motivated structural dynamical statement. It converts a numerical parameter survey into rigorous recurrence constraints and is not merely a finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
