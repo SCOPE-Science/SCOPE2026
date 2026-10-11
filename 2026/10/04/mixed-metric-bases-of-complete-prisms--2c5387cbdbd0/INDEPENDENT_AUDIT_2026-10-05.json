@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each matching index \\(j\\), comparing a clique vertex \\(a_i\\) with the clique edge \\(a_i a_j\\) for \\(i\\ne j\\) shows that only \\(a_j\\) or \\(b_j\\) can distinguish them, forcing every mixed generator to meet each matching pair and hence have size at least \\(n\\). Equality is therefore a matching transversal. A transversal with fewer than two selected vertices in either clique layer creates an explicit vertex-edge or edge-edge collision. When both layers contribute at least two selections, the exact zero-distance and distance-two index sets determine every vertex and edge; the only possible cross-layer clique-edge ambiguity would require exactly two selections in each layer, hence \\(n=4\\), which is excluded. A fresh direct mixed-distance enumeration for \\(n=5\\) found exactly 20 bases, agreeing with \\(2^5-10-2\\), and the frozen verifier exhausts \\(5\\le n\\le9\\).",
+      "risk": "The stable classification starts at \\(n=5\\); the \\(n=4\\) boundary genuinely behaves differently.",
+      "sources": [
+        "arXiv:1611.04292",
+        "arXiv:2108.08588",
+        "fresh direct mixed-distance check in this audit",
+        "frozen verify.py at source tree 39a9f7b2ca0d849e6f04f003f5a579ffc6ab8333"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General structural bounds and other graph-family formulas do not specialize to the complete-prism basis classification."
+        ],
+        "reasoning": "No inspected broader product-graph theorem determines this family.",
+        "searches": [
+          "Kelenc et al. 2017 mixed-metric family results",
+          "Sharma-Bhat 2021 prism-related graph paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1611.04292",
+        "DOI:10.1016/j.amc.2017.07.027",
+        "arXiv:2108.08588",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The foundational paper does not contain a theorem whose hypotheses identify complete prisms.",
+          "The prism-allied graph is not isomorphic to \\(K_n\\square K_2\\) and has a different vertex structure."
+        ],
+        "reasoning": "The matching-pair lower bound and exact transversal classification are additional content.",
+        "searches": [
+          "arXiv:1611.04292",
+          "arXiv:2108.08588"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The foundational source contains the exact mixed metric definition but no complete-prism theorem in the inspected material.",
+          "The 2021 paper concerns Web graphs and a distinct planar prism-allied graph family."
+        ],
+        "reasoning": "Complete prism, clique prism, Cartesian product and matching-transversal formulations were compared.",
+        "searches": [
+          "Resultary: mixed metric bases complete prism K_n square K_2 mixed metric dimension n bases 2^n-2n-2",
+          "arXiv:1611.04292 full text",
+          "arXiv:2108.08588 prism-related search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct indexed theorem with value \\(n\\) and count \\(2^n-2n-2\\) was found."
+        ],
+        "reasoning": "Search absence is supporting evidence; the primary-source scope comparison carries the novelty assessment.",
+        "searches": [
+          "Resultary and web searches for exact complete-prism mixed metric dimension and basis count"
+        ]
+      },
+      "rationale": "The foundational mixed-metric paper defines the invariant, studies several graph families and poses broader structural questions, but its inspected full text does not treat \\(K_n\\square K_2\\). The later prism-related paper studies a different planar prism-allied family rather than complete prisms. Targeted searches for complete/clique prisms and the Cartesian product \\(K_n\\square K_2\\) found no equivalent mixed-dimension formula or basis classification.",
+      "residual_risks": [
+        "A differently named or unindexed treatment of clique prisms may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COMPLETE_PRISM",
+          "evidence": "The source defines mixed metric dimension and treats selected families but does not state the audited complete-prism formula in the inspected text.",
+          "identifier_or_url": "arXiv:1611.04292; DOI:10.1016/j.amc.2017.07.027",
+          "material_read": "Open full arXiv text covering the definition, structural propositions and family-study scope.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Mixed metric dimension of graphs",
+          "trigger": "Foundational primary source defining mixed metric dimension."
+        },
+        {
+          "assessment": "DIFFERENT_PRISM_FAMILY",
+          "evidence": "Its prism-allied plane graphs are not the two-clique Cartesian products \\(K_n\\square K_2\\).",
+          "identifier_or_url": "arXiv:2108.08588",
+          "material_read": "Primary abstract/source material identifying its Web graph and prism-allied graph families.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Unbounded Mixed Resolvability of Web Graph and Prism Related Graph",
+          "trigger": "Closest prism-named later source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "\\(K_n\\square K_2\\) is a basic Cartesian-product family. The theorem supplies not only the exact mixed metric dimension but every optimum basis and its count, with a sharp explanation of the exceptional \\(n=4\\) boundary. This is a natural reusable product-graph benchmark.",
+      "risk": "No claim is made for general \\(K_m\\square K_n\\).",
+      "sources": [
+        "arXiv:1611.04292"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the complete prism \\(K_n\\square K_2\\) with \\(n\\ge5\\), the mixed metric dimension is \\(n\\); the mixed metric bases are exactly the matching transversals choosing one endpoint from every matching pair and at least two chosen vertices in each clique layer; hence there are \\(2^n-2n-2\\) bases.",
+  "limitations": [
+    "Restricted to \\(n\\ge5\\).",
+    "The \\(n=4\\) case has a different minimum behavior and is excluded."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs \(K_n\square K_2\) from two complete graphs and a perfect matching, computes all-pairs shortest-path distances, and evaluates mixed distance vectors for every vertex and every edge.
+# Independent mathematical audit
 
-For each \(5\le n\le9\), it exhaustively tests every vertex subset of size below \(n\) and confirms that none is mixed resolving. It then tests every \(n\)-vertex subset and compares the direct result with the structural criterion: exactly one endpoint from every matching edge and at least two selected vertices in each clique layer.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-complete_prisms_checked = 5
-vertex_subsets_checked = 207641
-minimum_mixed_bases_checked = 912
-parameters n = 5..9
-all smaller subsets failed directly
-all size-n mixed bases matched the matching-transversal classification
-all basis counts matched 2^n - 2n - 2
-```
+For each matching index \(j\), comparing a clique vertex \(a_i\) with the clique edge \(a_i a_j\) for \(i\ne j\) shows that only \(a_j\) or \(b_j\) can distinguish them, forcing every mixed generator to meet each matching pair and hence have size at least \(n\). Equality is therefore a matching transversal. A transversal with fewer than two selected vertices in either clique layer creates an explicit vertex-edge or edge-edge collision. When both layers contribute at least two selections, the exact zero-distance and distance-two index sets determine every vertex and edge; the only possible cross-layer clique-edge ambiguity would require exactly two selections in each layer, hence \(n=4\), which is excluded. A fresh direct mixed-distance enumeration for \(n=5\) found exactly 20 bases, agreeing with \(2^5-10-2\), and the frozen verifier exhausts \(5\le n\le9\).
 
-The finite computation is corroborative only. The theorem for every \(n\ge5\) follows from the proof.
+## originality
+
+PASS
+
+The foundational mixed-metric paper defines the invariant, studies several graph families and poses broader structural questions, but its inspected full text does not treat \(K_n\square K_2\). The later prism-related paper studies a different planar prism-allied family rather than complete prisms. Targeted searches for complete/clique prisms and the Cartesian product \(K_n\square K_2\) found no equivalent mixed-dimension formula or basis classification.
+
+## value
+
+PASS
+
+\(K_n\square K_2\) is a basic Cartesian-product family. The theorem supplies not only the exact mixed metric dimension but every optimum basis and its count, with a sharp explanation of the exceptional \(n=4\) boundary. This is a natural reusable product-graph benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
