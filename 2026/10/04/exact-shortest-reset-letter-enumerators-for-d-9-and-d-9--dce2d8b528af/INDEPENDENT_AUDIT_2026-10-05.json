@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:45:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 186827f2db5dc7f3a8eafb4532f18be0a9511414",
+        "assigned verify.py blob 6d7369a93f406c625a20a2656ad5fb040891aa6a",
+        "independent power-automaton reconstruction"
+      ],
+      "rationale": "I reconstructed both two-letter transition tables from the assigned package and independently traversed the complete nonempty power automata. Breadth-first distance to a singleton is 58 for \\(D'_9\\) and 56 for \\(D''_9\\). Independent shortest-path polynomial propagation gives exactly the two displayed coefficient vectors, totals \\(782757789696\\), and unique singleton targets 2 and 1. The finite computation is exhaustive over all 511 nonempty subsets, not a sample.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General threshold theorems and shortest-word algorithms do not determine the complete shortest-path generating function without performing the finite all-path computation."
+        ],
+        "reasoning": "No stronger checked theorem implies the two factorizations.",
+        "searches": [
+          "arXiv:1005.0129 full primary PDF",
+          "Kisielewicz--Kowalski--Szykuła full article"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1005.0129",
+        "DOI:10.1007/s10878-013-9682-0",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reset threshold alone does not determine the number or letter composition of shortest reset words.",
+          "Algorithmic ability to find a shortest word does not imply the enumeration of every shortest path."
+        ],
+        "reasoning": "The audited polynomial identities add information not implied by the checked prior theorems.",
+        "searches": [
+          "Ananichev--Gusev--Volkov Figure 4 and Theorem 4",
+          "Kisielewicz--Kowalski--Szykuła Section 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining paper gives the two thresholds but not the distribution of letter counts over all shortest words.",
+          "The shortest-reset algorithm paper computes optimal words but does not tabulate these two all-word enumerators."
+        ],
+        "reasoning": "Equivalent formulations as weighted shortest-path generating functions, all-shortest-word multiplicities, and letter-composition distributions were compared.",
+        "searches": [
+          "Resultary query: shortest reset word letter enumerator D'_9 D''_9 synchronizing automata multiplicity letter composition",
+          "Ananichev--Gusev--Volkov arXiv:1005.0129",
+          "Kisielewicz--Kowalski--Szykuła DOI:10.1007/s10878-013-9682-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published table or Resultary record with either polynomial or the common total was located."
+        ],
+        "reasoning": "This finite invariant is especially vulnerable to table duplication, so exact-value searches were included.",
+        "searches": [
+          "Resultary semantic search above",
+          "targeted searches for the exact total and factorization"
+        ]
+      },
+      "rationale": "The defining Ananichev--Gusev--Volkov paper proves the reset thresholds and gives the automata, while Kisielewicz--Kowalski--Szykuła give shortest-reset algorithms for slowly synchronizing families. Neither inspected primary source states all-shortest multiplicities or the letter-count generating functions. Targeted Resultary search found no covering exact enumerator.",
+      "residual_risks": [
+        "Unpublished or ancillary exhaustive computations could contain the same finite polynomials."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_THRESHOLDS_ONLY",
+          "evidence": "The paper proves lengths \\(n^2-3n+4\\) and \\(n^2-3n+2\\), not all-shortest multiplicities or letter enumerators.",
+          "identifier_or_url": "arXiv:1005.0129",
+          "material_read": "Full primary PDF around Figure 4, Theorem 4, and the reset-word proof.",
+          "method": "Open-access full-PDF inspection including relevant page images.",
+          "title": "Slowly synchronizing automata and digraphs",
+          "trigger": "Defining source for \\(D'_n,D''_n\\) and their thresholds."
+        },
+        {
+          "assessment": "ALGORITHM_NOT_COVERING_ENUMERATORS",
+          "evidence": "It addresses shortest-word computation/complexity, not the complete weighted shortest-path census at these instances.",
+          "identifier_or_url": "DOI:10.1007/s10878-013-9682-0",
+          "material_read": "Open full-text sections on the algorithm and slowly synchronizing families, including the family discussion.",
+          "method": "Full-text inspection.",
+          "title": "Computing the shortest reset words of synchronizing automata",
+          "trigger": "Closest algorithmic source for these slowly synchronizing families."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ananichev--Gusev--Volkov",
+        "Kisielewicz--Kowalski--Szykuła"
+      ],
+      "rationale": "Nine states are the endpoint of the defining paper's exhaustive small-state census, and shortest-reset multiplicity is a natural structural invariant of synchronizing automata. The two exact distributions sharpen known thresholds and expose the nontrivial fact that different thresholds/colorings have the same very large number of optimal controls but different letter-composition laws.",
+      "residual_risks": [
+        "The result is finite and does not yet explain a general-family factorization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the nine-state Ananichev--Gusev--Volkov colorings \\(D'_9\\) and \\(D''_9\\), the shortest-reset letter enumerators are \\(z^8(1+z)^{30}(2+z)^6\\) and \\(z^7(1+z)^{30}(1+z+z^2)^6\\), with reset thresholds 58 and 56, unique reset targets 2 and 1, and \\(2^{30}3^6=782757789696\\) shortest reset words in each automaton.",
+  "limitations": [
+    "Finite exact result for the two nine-state automata only; no infinite-family factorization is asserted."
+  ],
+  "schema_version": 1
+}

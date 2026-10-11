@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` is a standalone Python verifier using only the standard library. It performs two exact computations from the stated transition tables.
+# Independent mathematical audit
 
-First, a bit-mask breadth-first search computes minimum distances from the full state set and propagates a polynomial on the shortest-path DAG, multiplying by \(z\) on an \(a\)-edge. This proves the first-singleton distances and the complete shortest-word \(a\)-weight distributions.
+## correctness
 
-Second, an independently represented `frozenset` layer propagation tracks integer histograms by \(a\)-weight without using the bit-mask BFS tables. It reaches its first singleton at the same lengths and produces the same coefficients and unique targets.
+PASS
 
-The verifier expands \(z^8(1+z)^{30}(2+z)^6\) and \(z^7(1+z)^{30}(1+z+z^2)^6\) by integer arithmetic and compares them coefficient-for-coefficient with both computations. It also checks that each coefficient sum is \(782{{,}}757{{,}}789{{,}}696\).
+I reconstructed both two-letter transition tables from the assigned package and independently traversed the complete nonempty power automata. Breadth-first distance to a singleton is 58 for \(D'_9\) and 56 for \(D''_9\). Independent shortest-path polynomial propagation gives exactly the two displayed coefficient vectors, totals \(782757789696\), and unique singleton targets 2 and 1. The finite computation is exhaustive over all 511 nonempty subsets, not a sample.
 
-The computation is exhaustive for the finite nine-state power automata. It does not prove an analogous formula for arbitrary \(n\). A successful run ends with `VERIFY_OK`.
+## originality
+
+PASS
+
+The defining Ananichev--Gusev--Volkov paper proves the reset thresholds and gives the automata, while Kisielewicz--Kowalski--Szykuła give shortest-reset algorithms for slowly synchronizing families. Neither inspected primary source states all-shortest multiplicities or the letter-count generating functions. Targeted Resultary search found no covering exact enumerator.
+
+## value
+
+PASS
+
+Nine states are the endpoint of the defining paper's exhaustive small-state census, and shortest-reset multiplicity is a natural structural invariant of synchronizing automata. The two exact distributions sharpen known thresholds and expose the nontrivial fact that different thresholds/colorings have the same very large number of optimal controls but different letter-composition laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

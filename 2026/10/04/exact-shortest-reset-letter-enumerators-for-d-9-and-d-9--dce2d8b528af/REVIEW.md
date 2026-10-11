@@ -1,15 +1,21 @@
-# Review of Exact shortest-reset letter enumerators for \(D'_9\) and \(D''_9\)
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining transition diagram was checked directly. The claim is finite and is certified by exhaustive power-automaton search: the first singleton layers are \(58\) and \(56\). Exact shortest-path polynomial dynamic programming gives the displayed coefficient distributions. A separately written set-based layer propagation reproduces every coefficient, total and target, so the conclusion does not rest on a single state representation.
+## correctness
 
-## Originality
-PASS. The closest primary source proves the reset thresholds and gives one optimal witness, while the closest broader algorithmic source treats how to find shortest reset words efficiently on the same families. Neither checked source states all-shortest-word counts or the \(a\)-weight enumerators. Targeted published-finding corpus and public-web searches for the aliases, exact total and the two factorizations found no covering statement. The closest own results concern rank-compression thresholds rather than shortest-word multiplicity.
+PASS
 
-## Value
-PASS. Nine states are the endpoint of the complete exhaustive census reported in the defining paper. The enumerators therefore refine a natural census frontier and reveal a structural phenomenon invisible from reset length alone: two different colorings with thresholds \(58\) and \(56\) nevertheless have the same \(782{,}757{,}789{,}696\) optimal words, with distinct factorized letter-use distributions.
+I reconstructed both two-letter transition tables from the assigned package and independently traversed the complete nonempty power automata. Breadth-first distance to a singleton is 58 for \(D'_9\) and 56 for \(D''_9\). Independent shortest-path polynomial propagation gives exactly the two displayed coefficient vectors, totals \(782757789696\), and unique singleton targets 2 and 1. The finite computation is exhaustive over all 511 nonempty subsets, not a sample.
 
-## Closest literature and limitations
-The result is finite for \(n=9\); no infinite-family factorization is claimed. The Ananichev–Gusev–Volkov paper covers the automata and reset thresholds, and the Kisielewicz–Kowalski–Szykuła paper covers exact shortest-word computation, but neither inspected text covers the enumerators. A non-indexed ancillary computation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining Ananichev--Gusev--Volkov paper proves the reset thresholds and gives the automata, while Kisielewicz--Kowalski--Szykuła give shortest-reset algorithms for slowly synchronizing families. Neither inspected primary source states all-shortest multiplicities or the letter-count generating functions. Targeted Resultary search found no covering exact enumerator.
+
+## value
+
+PASS
+
+Nine states are the endpoint of the defining paper's exhaustive small-state census, and shortest-reset multiplicity is a natural structural invariant of synchronizing automata. The two exact distributions sharpen known thresholds and expose the nontrivial fact that different thresholds/colorings have the same very large number of optimal controls but different letter-composition laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
