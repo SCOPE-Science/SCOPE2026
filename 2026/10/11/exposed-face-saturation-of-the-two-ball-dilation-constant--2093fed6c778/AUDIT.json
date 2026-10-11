@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The admissible set is compact and the triangle inequality bounds each distance by 3. A maximizing triple with minimum 3 forces both distances 3; norming dual functionals then expose x and z_i=-y_i/2 on a common face, with separation at least 1. The converse is an explicit triple y_i=-2z_i and norming functional equality. For clipped disks the only positive-length exposed faces are vertical with gauge diameter 2sqrt(1-a^2), giving exactly sqrt(3)/2. The modulus zero threshold uses equality for a boundary midpoint and gives sqrt(15)/4. For the regular even polygon the maximal face-star diameter is the two-step chord norm 2sin(2pi/N) (N divisible by 4) or 4sin(pi/N) (N congruent 2 mod 4), with edge norms no larger; direct monotonicity gives equality exactly through N=12 and strictness starting N=14. An independent exact-rational and floating-point checker returned VERIFY_OK; finite checks are not the proof. Boundary cases a=1 and N=12 are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2609.25288v1: general upper bound rho_2<=3-2delta_K(1/2).",
+        "On sqrt(3)/2<a<=sqrt(15)/4, delta_K(1/2)=0 while the new criterion forces rho_2<3."
+      ],
+      "reasoning": "General modulus-of-convexity inequality does not imply the new strictness on the intermediate clipped-disk interval. The source computes the Euclidean case, but that does not dominate the nonsmooth clipped-disk or regular polygon cutoffs.",
+      "searches": [
+        "published-finding corpus: rho_2(K) regular even polygon Rado covering constant 3 threshold twelve-gon 14-gon adjacent facets",
+        "published-finding corpus: two-ball covering dilation polygon 2-neighbor union norm 3 modulus convexity non uniformly convex polyhedral Rado",
+        "published-finding corpus: Exponential improvements in Rado covering problem rho2 clipped disks flat facets 2026 Dall'Ara Dumitrescu"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.25288v1, sections 2.5-3.2 and 5",
+      "published-finding corpus source 2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939, RESULT.md full text",
+      "2026/10/4/SCOPE-exact-covering-radius-profile-of-the-sharp-planar-parallelogram--4ec5985b1498, indexed summary",
+      "2026/10/4/SCOPE-exact-lattice-point-covering-radii-for-all-regular-polygons-with--35b1a362e217, indexed summary",
+      "Mathematics 9 (2021), article 2346, exposed-face/isometry background: abstract/context only; not claimed inspected as complete comparison source"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2609.25288v1 does not rule out equality when delta_K(1/2)=0.",
+        "Full RESULT.md of record 5ecef0f3d939 covers one Euclidean polygon with two unrestricted disk centers, unlike two points constrained in 2K with pair separation >=2."
+      ],
+      "reasoning": "The general <=3 bound by itself allows saturation for every body. The source sufficient condition delta>0 does not supply a converse nor identify the sharp strip and polygon thresholds; the separately published Euclidean formula is not a corollary-dominating theorem for this claim.",
+      "searches": [
+        "published-finding corpus: facet star diameter equality 3 two-ball dilation constant normed plane",
+        "published-finding corpus: Rado 2026 two-neighbor dilation saturation exposed face star diameter polygon threshold",
+        "published-finding corpus: norm ball intersections Euclidean strip Rado two-ball radius delta_K(1/2) zero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.25288v1, Sections 2.5-3.2: rho_2(K) is the same max-min norm dilation problem.",
+        "Hahn-Banach equality in triangle inequality converts distance 3 into a common supporting face; no matching saturation test was identified in the searched records."
+      ],
+      "reasoning": "Searched aliases two-ball dilation, exposed face, common norming functional, Minkowski norm equality and saturation 3. The actual object matches the originating rho_2 but the published source proves only upper estimates; equivalence to generic triangle equality is a proof ingredient, not a published classification of the exact invariant.",
+      "searches": [
+        "published-finding corpus: maximum unit ball distance two separated centers regular 2m-gon Rado rho_2",
+        "published-finding corpus: facet star diameter equality 3 two-ball dilation constant normed plane",
+        "published-finding corpus: Rado 2026 two-neighbor dilation saturation exposed face star diameter polygon threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed 2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939 states rho_2(P_N)=R sqrt(1-3/4 sin^2(pi/N)) for a distinct Euclidean two-center invariant.",
+        "Published 2026/10/4/SCOPE-exact-lattice-point-covering-radii-for-all-regular-polygons-with--35b1a362e217 tabulates an unrelated lattice covering radius."
+      ],
+      "reasoning": "Matching polygon parameters or rho_2 spelling do not make the objectives equivalent. Neither closed formula applies to separated points inside a Minkowski norm ball or implies the threshold N=12.",
+      "searches": [
+        "published-finding corpus: rho_2(K) regular even polygon Rado covering constant 3 threshold twelve-gon 14-gon adjacent facets",
+        "published-finding corpus: 2m regular polygon rho_2(K) 3 12 14 non-uniformly convex",
+        "published-finding corpus: norm ball intersections Euclidean strip Rado two-ball radius delta_K(1/2) zero"
+      ]
+    },
+    "rationale": "The 2026 originating article defines the exact same Rado dilation functional and states the relevant upper and modulus bounds, but not its equality classification or either sharp cutoff. The closest published regular-polygon two-disk source was inspected through its complete primary RESULT.md and instead concerns a different Euclidean continuous two-center problem, with an incompatible objective and normalization. Searches of both existing own weekly ledgers and published-finding corpus for equivalent formulations, support face equality, two-center parameters, clipped disks, regular polygons, and stronger general bounds did not reveal an implication subsuming this exact theorem. Triangle-equality geometry is classical, and an unindexed equivalent special result remains a genuine originality risk.",
+    "residual_risks": [
+      "Unindexed equality-in-the-triangle-inequality characterizations in finite-dimensional Banach geometry might already be phrased as a two-ball saturation criterion.",
+      "The external index cannot prove uniqueness, and no claim is made about unpublished work.",
+      "The strict <3 classifications give no explicit quantitative gap away from saturation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME OBJECT, NOT COVERING: bounds by uniform convexity but does not establish necessary and sufficient equality through exposed-face stars or the two sharp families.",
+        "evidence": [
+          "arxiv:2609.25288v1, posted 2026-09-21",
+          "rho_2(K)<=3-2 delta_K(1/2), Euclidean rho_2=sqrt(5+2sqrt(3))"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.25288v1",
+        "material_read": "Definitions and proof discussion in Sections 2.5-3.2, including the dilation factor and inequality, and Section 5 context.",
+        "method": "Opened lawful full HTML preprint; read the relevant definitions, proposition and nearby explanatory text.",
+        "title": "Exponential improvements in Rado's covering problem",
+        "trigger": "Origin of the exact rho_2(K) and its convexity-modulus bound."
+      },
+      {
+        "assessment": "DISTINCT INVARIANT: least radius of two Euclidean disks covering an entire polygon, not the Rado normed two-ball dilation max-min with centers in 2K.",
+        "evidence": [
+          "Full text states Euclidean two-center formula R sqrt(1-3 sin^2(pi/N)/4).",
+          "Its disks cover P_N, rather than sampling triples x in K and y1,y2 in 2K."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-two-disk-covering-radius-of-every-regular-even-polygon--5ecef0f3d939/RESULT.md",
+        "material_read": "Full RESULT.md including hypotheses, finding, proof, verification, prior work and limitations.",
+        "method": "Read public source RESULT.md through repository read-only access.",
+        "title": "Exact two-disk covering radius of every regular even polygon",
+        "trigger": "Same notation and polygon parameters could have subsumed the polygon classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2093fed6-c778-4f1d-ae59-3e362c67b6fa",
+  "value": {
+    "rationale": "This is a natural exact equality classification for a newly motivated all-dimensional dilation functional governing a Radó covering step, not merely a boundary/tiny perturbation check. The geometric criterion replaces a one-sided uniform-convexity sufficient condition with a necessary and sufficient test, and it resolves whole nontrivial infinite families: the strip-clipped disk has the exact phase boundary a=sqrt(3)/2, and regular even polygons change from saturated at N=12 to strict at N=14. Crucially, the open interval sqrt(3)/2<a<=sqrt(15)/4 is a qualitative strict-improvement regime invisible to the originating modulus estimate, showing a real structural distinction between face diameters 1 and 1/2. This motivates the precise threshold and explains how nonuniformly convex norms may still improve the factor. The work does not claim a better universal planar numerical constant.",
+    "status": "PASS"
+  }
+}
