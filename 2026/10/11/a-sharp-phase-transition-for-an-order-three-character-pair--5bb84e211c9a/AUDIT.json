@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "After exact reduction to three cube-root samples, normalization gives squared samples \\(1+r\\cos(\\phi+2\\pi j/3)\\). Convexity in \\(r\\) forces \\(r=1\\), hence equal coefficient moduli. At \\(r=1\\) the elementary symmetric functions are \\(e_1=3\\), \\(e_2=9/4\\), and \\(e_3=q=(1+\\cos(3\\phi))/4\\). For interior \\(q\\), differentiating the three roots of \\(t^3-3t^2+(9/4)t-q\\) shows that the derivative of the \\(s\\)-th power sum is \\(s\\) times the second divided difference of \\(t^{s-1}\\); its sign is the sign of \\((s-1)(s-2)\\). The endpoint root triples are \\((0,3/2,3/2)\\) and \\((2,1/2,1/2)\\), which give the formulas and complete equality cases. The finite verifier only corroborates these identities and does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Michels' main theorem concerns infinite \\(\\Lambda(p)\\)-sets and equality of operator-ideal limit orders, while its general \\(\\Lambda(p)\\)-system discussion uses \\(K_p\\) as an input rather than computing this finite example.",
+        "Gilbert--Rzeszotnik calculate the norm of the full Fourier transform \\(L^p(G)\\to L^q(\\widehat G)\\), not the Euclidean-to-\\(L^p\\) norm of a prescribed two-character synthesis subspace."
+      ],
+      "reasoning": "Neither broader theorem specializes to the new claim: one is qualitative/asymptotic in the Lambda(p) framework and the other is a norm theorem for a different operator.",
+      "searches": [
+        "arXiv:math/9904176v1",
+        "The norm of the Fourier transform on finite abelian groups Gilbert Rzeszotnik",
+        "finite group Riesz projection sharp endpoint operator norm cyclic group"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/9904176v1",
+      "doi:10.5802/aif.2556",
+      "opaque prior finding 22b99d88-ea1a-487a-96b5-00978ba2a4dd",
+      "published-finding searches under order-three character-pair, Z_3 subspace, cube-root polynomial, phase, and explicit-constant aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Opaque prior finding `22b99d88-ea1a-487a-96b5-00978ba2a4dd` gives an exact binomial formula for even moments of a finite-order character pair and corresponding even-moment equality phases.",
+        "For relative order three, that prior result recovers \\(p=4\\) and even \\(p\\ge6\\) only; it contains no exponent in \\(2<p<4\\) and no statement that the maximizing phase switches sign across \\(p=4\\).",
+        "Michels defines \\(K_p\\) for \\(\\Lambda(p)\\)-systems and proves operator-ideal consequences, not a finite-pair extremal formula."
+      ],
+      "reasoning": "Agreement on the even subsequence is a consistency check, not implication of the continuum theorem. The new divided-difference argument supplies genuinely new information between the even exponents and, most notably, the anti-aligned branch below four.",
+      "searches": [
+        "22b99d88-ea1a-487a-96b5-00978ba2a4dd",
+        "two character spectrum order 3 exact Lambda(p) constant p between 2 and 4",
+        "arXiv:math/9904176v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searches returned no record whose statement gives the sharp norm of the two-dimensional span of \\(\\{1,\\chi\\}\\) on an order-three quotient for all real \\(p>2\\).",
+        "The closest returned harmonic-analysis records concerned different supports, finite-grid phase minimax problems, or \\(L^4\\) extension problems rather than this two-character \\(L^p/L^2\\) constant.",
+        "The inspected Michels source defines \\(\\Lambda(p)\\) constants abstractly but does not evaluate this finite pair."
+      ],
+      "reasoning": "The claim is equivalently a two-character \\(\\Lambda(p)\\) constant, a two-dimensional Fourier-subspace norm on \\(\\mathbb Z_3\\), or a three-sample cube-root moment maximization. Searches covered all three formulations and explicit formula fingerprints.",
+      "searches": [
+        "two character order three Lambda p constant non-even p phase transition p=4",
+        "cube roots of unity two-term polynomial sharp Lp L2 constant 2<p<4",
+        "two-dimensional Fourier subspace Z_3 exact Lp Euclidean norm",
+        "relative phase cube order three character pair Lp extremizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed finding or exact-value record stated either displayed branch formula together with the full real-\\(p\\) phase classification.",
+        "The claim is an analytic continuum-of-exponents theorem, not a recomputation of a finite numerical table."
+      ],
+      "reasoning": "Explicit constants and their natural aliases were searched. The nearest exact indexed pair result is the earlier even-moment theorem, which leaves all non-even p untreated.",
+      "searches": [
+        "(3/2)^(p/2-1) two characters order 3 Lambda(p)",
+        "cube roots of unity two-term polynomial sharp Lp L2 constant 2<p<4",
+        "order three character pair sharp Lp L2 norm phase transition p=4 finite group"
+      ]
+    },
+    "rationale": "The primary \\(\\Lambda(p)\\) source supplies the framework but treats infinite sets and operator-ideal limit orders. The closest prior indexed finite-order character-pair result covers even moments only; for order three it agrees at \\(p=4,6,8,\\ldots\\) but does not imply the non-even interval \\(2<p<4\\), where the extremizing phase reverses, nor the all-real-\\(p\\) monotonicity statement. The finite Fourier-transform norm theorem concerns a different operator. Multiple equivalent-formulation and formula-fingerprint searches found no statement implying the claim.",
+    "residual_risks": [
+      "An older equivalent calculation may exist in finite-dimensional Lp or Banach-space geometry under terminology not retrieved by the harmonic-analysis searches.",
+      "No claim is made that the same one-parameter phase mechanism persists for character orders larger than three."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source supplies the general framework and infinite-set/operator-ideal results but does not compute the finite order-three two-character constant or its phase extremizers.",
+        "evidence": "The version record gives first public date 1999-04-30 and primary MSC including 43A46. Theorem 1 is stated for infinite subsets of characters; the later general-system section treats \\(K_p(B)\\) abstractly.",
+        "identifier_or_url": "arXiv:math/9904176v1",
+        "material_read": "ArXiv abstract/version metadata and full HTML introduction/results, including the Lambda(p)-set definition, Theorem 1, and the general Lambda(p)-system discussion around Proposition 5.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Lambda(p)-sets and the limit order of operator ideals",
+        "trigger": "Primary archive-era source for the Lambda(p) constant and permitted primary MSC 43A46."
+      },
+      {
+        "assessment": "NOT_COVERING: it computes norms of the full Fourier transform between finite-group \\(L^p\\) and \\(L^q\\) spaces, not the norm of a fixed two-character synthesis embedding.",
+        "evidence": "The abstract explicitly states the operator as the Fourier transform from \\(L^p(G)\\) to \\(L^q(\\widehat G)\\).",
+        "identifier_or_url": "doi:10.5802/aif.2556",
+        "material_read": "Publisher/Numdam title, abstract, classification, and stated operator scope.",
+        "method": "Publisher record and abstract inspection.",
+        "title": "The norm of the Fourier transform on finite abelian groups",
+        "trigger": "Potential broader finite-abelian-group norm theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5bb84e21-1c9a-4e73-a5c5-de2e1d5aeb01",
+  "value": {
+    "rationale": "The sharp \\(\\Lambda(p)\\) constant is a standard harmonic-analysis invariant, and order three is the first torsion pair where non-even moments have a nontrivial relative-phase choice. The theorem gives the complete real-\\(p\\) answer and exposes an exact qualitative reversal at \\(p=4\\): anti-alignment below four, complete phase degeneracy at four, and alignment above four. That structural transition is mathematically motivated and is not a routine interpolation of the known even moments.",
+    "status": "PASS"
+  }
+}
