@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A two-dimensional subspace of binary quadrics is a projective line in \(\mathbf P^2\), so its intersection with the rank-one discriminant conic is either two reduced points or one tangent double point; \(\operatorname{PGL}_2\) is transitive on each type. The two resulting Euler-symmetric parametrizations give the stated quartic complete intersection and cubic scroll. Exact ideal-preservation linear algebra gives cone automorphism dimensions \(5\) and \(7\) and Euler-weight decompositions \((3,2)\) and \((1,4,2)\). Hwang–Li's theorem then yields the sharp bounds and equality models.
+## correctness
 
-## Originality
-**PASS.** The 2026 source proves the general symbolic automorphism bound but does not calculate this binary-pencil specialization. Earlier Fu–Hwang sources provide the rank-\(2\) construction and nonsingular background, not the paired secant/tangent equations together with the \(5\)-versus-\(7\) dimensions or the negative-weight symmetry. Searches by source, equations, discriminant stratum, cubic-scroll alias, and automorphism dimension found no covering statement. Residual risk remains from older quadratic-model and surface-automorphism literature using different terminology.
+PASS
 
-## Value
-**PASS.** This is the smallest genuinely two-dimensional quadratic-symbol case of the new Hwang–Li bound. It gives a complete low-dimensional phase diagram and shows that discriminant tangency creates a precise two-dimensional symmetry enhancement, including the hidden grading-shifting symmetry emphasized by the new theory.
+A projective line in P(Sym^2 C^2*) meets the smooth rank-one discriminant conic in either two reduced points or one tangent double point; PGL_2 is transitive on both intersection types, giving the two normal forms. The secant parametrization has ideal (ta-x^2,tb-y^2), a degree-4 codimension-two complete intersection singular along the boundary line and therefore nonnormal by S2 plus failure of R1. The tangent ideal is the 2x2-minor ideal (ta-x^2,tb-xy,xb-ay), the smooth cubic scroll S(1,2). An independent exact symbolic preservation-of-ideal computation gives cone Lie-algebra dimensions 5 and 7 with Euler weight decompositions {0:3,1:2} and {-1:1,0:4,1:2}; this matches, but does not rely on, the saved verifier output. Hwang-Li's theorem then yields the stated sharp upper bounds and equality models.
 
-## Closest literature and limitations
-The closest source is Hwang–Li, arXiv:2608.08442v1, which gives the general bound and equality theorem. Fu–Hwang's earlier Euler-symmetric and quadratic-model papers supply the construction and rank-\(2\) context. The result is restricted to \(\dim W=\dim S^2=2\), concerns linear automorphisms of the affine cone, and does not classify higher-dimensional pencils or all surfaces realizing the same general symbol.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary theorem is genuinely broader: Hwang-Li identify the automorphism algebra of any Euler-symmetric model with its symbol-symmetry algebra and give the general maximality/equality theorem. That result does not evaluate the two binary-pencil strata, their singular/smooth models, or the 5-versus-7 weight decomposition. A fresh Resultary comparison found a separate smooth-scroll theorem that already implies the tangent cubic scroll's projective automorphism dimension 6 (hence cone dimension 7); that tangent total dimension is therefore not claimed as independently new. The surviving combined contribution is the complete secant/tangent symbol stratification, the singular secant dimension 5, and the precise Euler-weight symmetry jump, none of which is implied by the smooth-scroll record or printed in Hwang-Li. On that narrower but substantive basis O passes.
+
+## value
+
+PASS
+
+This is a natural complete classification of the smallest genuinely two-dimensional quadratic-symbol case. It concretely shows how discriminant tangency changes the equality model from a nonnormal quartic to a smooth cubic scroll and creates a negative-weight hidden infinitesimal symmetry. Even after subtracting the already-known tangent automorphism dimension, the secant/tangent weight-stratified phase diagram is a useful exact low-dimensional test case for the new general theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
