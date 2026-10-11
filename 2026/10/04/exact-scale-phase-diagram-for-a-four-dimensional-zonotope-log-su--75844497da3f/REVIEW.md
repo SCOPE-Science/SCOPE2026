@@ -1,17 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces all four volume functions to affine functions of the scaling parameter by the standard maximal-minor formula for zonotope volume. Exact determinant enumeration gives the four affine coefficient pairs, and direct algebra factors the defect as \(4s(2-s)\). The higher-dimensional statement is a unit-cube Cartesian product. The checker recomputes the determinant coefficients with exact integer arithmetic; sampled values are not used to infer the all-parameter sign statement.
+## correctness
 
-## Originality
-PASS. The closest primary source gives the deleted-generator equality endpoint and the unit-scale counterexample but does not state the scaled family. Related 2026 work gives Rayleigh equivalences, generator-count thresholds, a different replacement inequality, and qualitative abundance of failures. Those statements do not determine the roots or sign of this particular deformation without the coefficient computation. Targeted semantic and exact-formula searches found no covering statement.
+PASS
 
-Residual risk remains that an unindexed note contains the same calculation. One highly relevant independent paper was available only through its primary abstract plus a detailed public review; the source paper and a direct follow-up were inspected in full text.
+The zonotope volume formula expresses each volume as a sum of absolute maximal minors. For \(s\ge0\), every minor containing the scaled generator contributes linearly in \(s\), while every other minor is constant. Fresh independent determinant enumeration recovered the four coefficient pairs \((4,10),(12,18),(8,18),(24,32)\). Multiplication gives exactly \(4s(2-s)\), so the all-real sign classification is analytic. Appending independent coordinate segments is a Cartesian product with a unit cube and preserves all four volumes.
 
-## Value
-PASS. The source itself identifies the special generator as the move from a unimodular equality case to its counterexample, so scaling that generator is a mathematically motivated deformation rather than an arbitrary slice. The result gives the complete sharp phase diagram on this ray: a robust failure interval, an unexpected second equality, and restoration beyond it. This complements broad existence/generator-count results with exact boundary information.
+## originality
 
-## Closest literature and limitations
-Skorupinski, arXiv:2608.07702v1, is the closest source. Fradelizi--Hubard--Manui--Ndiaye--Wang--Zvavitch, arXiv:2608.12681v1, and Averkov--von Dichter--Soprunov, arXiv:2608.14909v1, provide broader structural context. Sra, arXiv:2608.29595v1, records qualitative non-isolation. The finding classifies only the displayed one-parameter ray and does not classify arbitrary generator weights.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Skorupinski supplies the natural two endpoints that motivate this deformation: deleting the special generator gives equality and unit scale gives the published counterexample. The source does not state a continuous scale parameter, the second equality at scale two or restoration for larger scale. Resultary returned the assigned finding as the exact match and no prior implication-equivalent scaled theorem.
+
+## value
+
+PASS
+
+The scale is geometrically motivated by the unique special generator whose deletion restores the source's equality case and whose unit value creates the published minimal-dimensional failure. The exact failure window, unexpected second equality and restoration beyond it quantify robustness of the counterexample rather than adding an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
