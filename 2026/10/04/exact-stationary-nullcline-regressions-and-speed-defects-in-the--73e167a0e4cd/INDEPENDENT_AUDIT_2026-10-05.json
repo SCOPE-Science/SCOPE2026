@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:47:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 77576d02f673afec501333036efee4ffc7577cb6",
+        "assigned verify.py blob a82843ad5587e2bff7232710b55d01ee43bc67b2",
+        "Lecar, Morris-Lecar model, DOI:10.4249/scholarpedia.1333",
+        "Cirillo--Sepulchre 2020, DOI:10.1186/s13408-020-00090-z"
+      ],
+      "rationale": "Testing invariance with antiderivatives in V gives \\(\\mathbb E[g_K(V-V_K)W\\mid V]=F(V)\\), including at \\(V=V_K\\) without division. Testing in W and normalizing by \\(q(V)>0\\) gives \\(\\mathbb E_\\nu[W_\\infty(V)\\mid W]=W\\). Orthogonal conditional-variance decompositions yield exactly the two displayed speed defects. Zero voltage defect makes V constant, after which bounded completeness forces the scalar gate equation to its equilibrium; zero gate defect and strict monotonicity of \\(W_\\infty\\) force both coordinates constant. Nonzero zero-mean coordinate speeds therefore cross both signs. The exact checker verifies the abstract regression variance identity and the rate-tilt algebra.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geometric slow--fast and bifurcation results do not imply the all-invariant-measure regression laws."
+        ],
+        "reasoning": "No checked stronger theorem specializes to both defects with equality classification.",
+        "searches": [
+          "Cirillo--Sepulchre 2020 full article",
+          "Lecar 2007 Scholarpedia"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.4249/scholarpedia.1333",
+        "DOI:10.1186/s13408-020-00090-z",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic nullclines are prior, but the second identity requires a nontrivial rate tilt and the variance defects require the stationary projection argument."
+        ],
+        "reasoning": "The final measure-theoretic statement is not a wording variant of the phase-plane analysis.",
+        "searches": [
+          "Morris--Lecar reduced equations in Scholarpedia",
+          "Cirillo--Sepulchre nullcline/critical-manifold analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model/nullcline sources do not state the q-tilted conditional expectation or either variance residual."
+        ],
+        "reasoning": "Aliases through current balance, gate nullcline, tilted stationary law, and conditional projection were compared.",
+        "searches": [
+          "Resultary query: Morris Lecar exact stationary nullcline regression conditional expectation invariant measure speed defect",
+          "DOI:10.4249/scholarpedia.1333",
+          "DOI:10.1186/s13408-020-00090-z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry with these identities was located."
+        ],
+        "reasoning": "The result is formulaic and all-parameter, not a finite lookup.",
+        "searches": [
+          "Resultary same-object search"
+        ]
+      },
+      "rationale": "The authoritative model description and a full modern geometric treatment were inspected. They develop the reduced equations, nullclines, critical manifolds, folds, invariant manifolds, and limit cycles; no exact invariant-measure regression/variance theorem was found. The rate-tilted gate regression is especially not a direct statement of the usual phase-plane nullcline. Resultary search found no same-object exact law.",
+      "residual_risks": [
+        "An equivalent conditional-drift identity could occur in computational-neuroscience literature under statistical-calibration terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_GEOMETRY_NOT_COVERING_STATIONARY_LAWS",
+          "evidence": "It defines the same voltage/gate dynamics but not invariant-measure conditional regressions.",
+          "identifier_or_url": "DOI:10.4249/scholarpedia.1333",
+          "material_read": "Full Scholarpedia article including equations, gating kinetics, nullclines, and dynamical regimes.",
+          "method": "Open full-text inspection.",
+          "title": "Morris-Lecar model",
+          "trigger": "Authoritative exact reduced equations and nullcline description."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "The article studies nullclines, critical/invariant manifolds, folds, and limit cycles rather than the audited stationary disintegrations.",
+          "identifier_or_url": "DOI:10.1186/s13408-020-00090-z",
+          "material_read": "Full open article, with targeted inspection for invariant-measure, average, and variance statements.",
+          "method": "Open full-text inspection.",
+          "title": "The geometry of rest--spike bistability",
+          "trigger": "Modern same-model geometric analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Morris--Lecar authoritative model description",
+        "rest--spike geometric literature"
+      ],
+      "rationale": "Morris--Lecar nullclines are central physiological/geometric objects. The theorem gives an exact statistical calibration of both, including the necessary rate tilt for the gate and quantitative speed residuals, so it can be used to validate recurrent simulations or empirical stationary summaries without solving for the invariant law.",
+      "residual_risks": [
+        "The result does not address stochastic channel noise or parameter inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the standard autonomous two-dimensional Morris--Lecar system with \\(C,g_K>0\\), positive gate rate \\(q(V)\\), and strictly increasing \\(W_\\infty\\), every compact invariant probability measure satisfies the voltage-fiber current regression under \\(\\mu\\) and the gate-nullcline regression under the \\(q\\)-tilted measure \\(\\nu\\), with the two exact variance--speed defects, equilibrium rigidity, and two-sided nullcline crossing stated in RESULT.md.",
+  "limitations": [
+    "Compactly supported invariant measures and constant applied current only.",
+    "The gate regression is under the rate-tilted measure \\(d\\nu\\propto q(V)d\\mu\\), not generally under the physical stationary law.",
+    "No period, firing-rate, bifurcation, or full-density formula."
+  ],
+  "schema_version": 1
+}

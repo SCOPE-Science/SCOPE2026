@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact rational arithmetic.
 
-It checks the abstract conditional-regression moment algebra. Under
-\[
-\mathbb E[A]=\mathbb E[B],
-\qquad
-\mathbb E[AB]=\mathbb E[B^2],
-\]
-the checker verifies exactly that
-\[
-\mathbb E[(A-B)^2]
-=
-\operatorname{Var}(A)-\operatorname{Var}(B).
-\]
+# Independent mathematical audit
 
-It also checks the rate-tilt identity. If
-\[
-\dot W=q\Delta,
-\]
-then
-\[
-q\Delta^2=\frac{\dot W^2}{q}.
-\]
-After normalization by
-\[
-Z=\mathbb E[q],
-\]
-this is precisely the residual term in the tilted variance decomposition.
+## correctness
 
-For
-\[
-q=\frac{\phi}{\tau},
-\]
-the checker verifies the factor conversion
-\[
-\frac{\dot W^2/q}{\mathbb E[q]}
-=
-\frac{\tau\dot W^2}{\phi^2\mathbb E[\tau^{-1}]}
-\]
-at the level of exact scalar factors.
+PASS
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+Testing invariance with antiderivatives in V gives \(\mathbb E[g_K(V-V_K)W\mid V]=F(V)\), including at \(V=V_K\) without division. Testing in W and normalizing by \(q(V)>0\) gives \(\mathbb E_\nu[W_\infty(V)\mid W]=W\). Orthogonal conditional-variance decompositions yield exactly the two displayed speed defects. Zero voltage defect makes V constant, after which bounded completeness forces the scalar gate equation to its equilibrium; zero gate defect and strict monotonicity of \(W_\infty\) force both coordinates constant. Nonzero zero-mean coordinate speeds therefore cross both signs. The exact checker verifies the abstract regression variance identity and the rate-tilt algebra.
 
-The conditional-expectation identities, equality classification, and nullcline crossing are analytic arguments in `RESULT.md`; they are not inferred from finite numerical experiments.
+## originality
+
+PASS
+
+The authoritative model description and a full modern geometric treatment were inspected. They develop the reduced equations, nullclines, critical manifolds, folds, invariant manifolds, and limit cycles; no exact invariant-measure regression/variance theorem was found. The rate-tilted gate regression is especially not a direct statement of the usual phase-plane nullcline. Resultary search found no same-object exact law.
+
+## value
+
+PASS
+
+Morris--Lecar nullclines are central physiological/geometric objects. The theorem gives an exact statistical calibration of both, including the necessary rate tilt for the gate and quantitative speed residuals, so it can be used to validate recurrent simulations or empirical stationary summaries without solving for the invariant law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Stationarity against arbitrary antiderivatives of \(V\) gives the exact conditional potassium-current calibration. Stationarity against arbitrary antiderivatives of \(W\), after the positive rate tilt \(d\nu\propto q(V)d\mu\), gives the recovery-nullcline regression. In each case the coordinate derivative is the regression residual up to a known factor, so conditional orthogonality gives the displayed variance defect. Vanishing of either defect forces a bounded complete support trajectory to be an equilibrium.
+## correctness
 
-Risk: the gate equality classification uses positivity of \(q\) and strict monotonicity of \(W_\infty\).
+PASS
 
-## Originality
-PASS. Same-object literature was checked across the foundational model record, the standard reduced equation description, bifurcation work, a full open slow–fast geometric treatment, and a full recent paper explicitly discussing an invariant measure on a Morris–Lecar stable limit cycle. None of the inspected same-object material implication-wise supplies the two accepted conditional regressions or their exact variance-speed residuals. Direct semantic-index searches returned only unrelated or distinct-system conditional laws.
+Testing invariance with antiderivatives in V gives \(\mathbb E[g_K(V-V_K)W\mid V]=F(V)\), including at \(V=V_K\) without division. Testing in W and normalizing by \(q(V)>0\) gives \(\mathbb E_\nu[W_\infty(V)\mid W]=W\). Orthogonal conditional-variance decompositions yield exactly the two displayed speed defects. Zero voltage defect makes V constant, after which bounded completeness forces the scalar gate equation to its equilibrium; zero gate defect and strict monotonicity of \(W_\infty\) force both coordinates constant. Nonzero zero-mean coordinate speeds therefore cross both signs. The exact checker verifies the abstract regression variance identity and the rate-tilt algebra.
 
-Risk: the original 1981 full text and the complete 2011 article were not stably accessible for exhaustive reading, and the generator calculations are short enough that an equivalent observation could remain unindexed.
+## originality
 
-## Value
-PASS. The two nullclines are the central geometric objects in Morris–Lecar phase-plane analysis. The theorem turns them into exact stationary regression objects and gives each a quantitative fluctuation loss equal to coordinate speed. The rate tilt in the recovery law is dictated by the voltage-dependent gate kinetics, making the result a model-specific stationary diagnostic rather than a generic average-zero observation.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The authoritative model description and a full modern geometric treatment were inspected. They develop the reduced equations, nullclines, critical manifolds, folds, invariant manifolds, and limit cycles; no exact invariant-measure regression/variance theorem was found. The rate-tilted gate regression is especially not a direct statement of the usual phase-plane nullcline. Resultary search found no same-object exact law.
+
+## value
+
+PASS
+
+Morris--Lecar nullclines are central physiological/geometric objects. The theorem gives an exact statistical calibration of both, including the necessary rate tilt for the gate and quantitative speed residuals, so it can be used to validate recurrent simulations or empirical stationary summaries without solving for the invariant law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
