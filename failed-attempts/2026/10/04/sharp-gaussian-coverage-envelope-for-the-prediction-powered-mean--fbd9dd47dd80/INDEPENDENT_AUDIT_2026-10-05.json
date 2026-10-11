@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:39:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ac36e08458f641764e1a4d402833d1ae6db0e76f",
+        "assigned verify.py blob 4cd9987b2883d116929b34d75c47e6c83bc52549",
+        "Richter, DOI:10.3390/stats3030021",
+        "Angelopoulos--Bates--Fannjiang--Jordan--Zrnic, arXiv:2301.09633",
+        "classical majorization/convex-order theory for weighted iid sums"
+      ],
+      "rationale": "Gaussian independence reduces coverage exactly to \\(\\mathbb E h_z(Q)\\), where \\(h_z(q)=2\\Phi(z\\sqrt q)-1\\) is strictly concave and \\(Q\\) is a weighted sum of two independent normalized chi-squares. Expanding both chi-squares into iid \\(\\chi_1^2\\) variables, pairwise averaging of coefficients gives \\(\\chi^2_{N+n-2}/(N+n-2)\\le_{cx}Q\\), while concentration on the block with fewer degrees of freedom gives \\(Q\\le_{cx}\\chi^2_{\\nu_*}/\\nu_*\\). Concavity yields the two central-Student bounds, strictness identifies the upper balance condition, and a boundary variance ratio gives sharpness below. The numerical example \\((n,N,z)=(10,100,1.96)\\) was independently recomputed as \\(0.9183555945395834\\le\\mathrm{coverage}\\le0.9474279305425579<0.9500042097035590\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact nuisance-parameter family is already published, including the three distinguished Student pillars.",
+          "The only additional step is optimizing a concave functional over the coefficient simplex by averaging/majorization."
+        ],
+        "reasoning": "The combination provides stronger raw distributional information than the reported coverage envelope.",
+        "searches": [
+          "Richter 2020 full Student-bridge distribution",
+          "classical majorization and convex-order literature for weighted sums"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/stats3030021",
+        "arXiv:2301.09633",
+        "Proschan 1965 / standard majorization theory",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The balanced coefficient vector gives the \\(t_{N+n-2}\\) distribution exactly, and the endpoint vector gives the smaller-df Student law.",
+          "Pairwise coefficient averaging proves these are respectively the convex-order minimum and maximum among the feasible weights; strict concavity supplies the exact coverage ordering."
+        ],
+        "reasoning": "No new probabilistic mechanism beyond published representation plus routine convex-order optimization is required.",
+        "searches": [
+          "Richter Sections 2--4 and three-pillar discussion",
+          "standard coefficient-majorization lemma for iid weighted sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Richter writes \\(W=\\gamma\\chi_k^2/k+(1-\\gamma)\\chi_m^2/m\\) and the ratio \\(Z/\\sqrt W\\), with exact Student laws at \\(\\gamma=0\\), \\(k/(k+m)\\), and \\(1\\).",
+          "The PPI source supplies only the interpretation of the estimator; it is not needed for the Gaussian extremum.",
+          "Coefficient averaging for an exchangeable iid vector is the standard elementary majorization/Jensen argument used verbatim by the audited proof."
+        ],
+        "reasoning": "The prediction-powered specialization is exactly a two-sample Gaussian Behrens--Fisher statistic after relabeling the two independent mean components.",
+        "searches": [
+          "Resultary: prediction-powered Gaussian mean exact coverage Welch Behrens-Fisher weighted chi-square convex order",
+          "Richter DOI:10.3390/stats3030021 full article",
+          "web: convex order weighted sums iid majorization Proschan",
+          "Angelopoulos et al. arXiv:2301.09633"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary record printing the envelope itself was returned."
+        ],
+        "reasoning": "Absence of the optimized formula verbatim does not restore originality when the published exact family plus standard majorization implies it directly.",
+        "searches": [
+          "Resultary exact prediction-powered Gaussian coverage query"
+        ]
+      },
+      "rationale": "Richter's open full article already gives the exact Student-bridge representation of this Behrens--Fisher statistic for every variance ratio, identifies the two endpoint Student laws and the balanced \\(t_{N+n-2}\\) law, and writes the denominator as the same weighted sum of normalized chi-squares. Once that representation is read, the claimed global envelope follows from the standard one-line majorization fact for weighted iid sums: averaging two coefficients reduces the sum in convex order, while the most concentrated feasible coefficient vector has exactly the smaller degrees of freedom. Applying the strictly concave central-normal function then gives both bounds and the equality condition. Under the required implication-level standard, this is a routine optimization of a stronger published distributional representation, analogous to extracting an extremal profile from a known pointwise formula.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_EXACT_DISTRIBUTIONAL_PREDECESSOR",
+          "evidence": "The paper gives the full variance-ratio-indexed distribution and exact Student endpoints/balance point from which the audited envelope is obtained by standard majorization.",
+          "identifier_or_url": "DOI:10.3390/stats3030021",
+          "material_read": "Complete open primary HTML through the chi-square bridge definition, Student bridge representation, Behrens--Fisher application and three-pillar discussion.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Chi-Square and Student Bridge Distributions and the Behrens--Fisher Statistic",
+          "trigger": "Exact two-sample Gaussian statistic and weighted-chi-square denominator."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Richter 2020",
+        "Prediction-Powered Inference 2023"
+      ],
+      "rationale": "The coverage envelope is practically informative for normal-critical prediction-powered intervals: it quantifies the full finite-Gaussian undercoverage range and identifies the best and worst nuisance ratios. The record fails because this useful conclusion is too direct an optimization of known Behrens--Fisher distributional structure, not because the statistic lacks relevance.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the Gaussian two-sample mean interval \\(I_z=(\\bar A+\\bar B)\\pm z\\sqrt{S_A^2/N+S_B^2/n}\\), including the fixed-predictor prediction-powered mean specialization, coverage over positive variance ratios lies sharply between the central \\(t_{\\min(N-1,n-1)}\\) and \\(t_{N+n-2}\\) probabilities, with the upper endpoint exactly at equal per-degree variance weights and the lower endpoint approached when the smaller-degrees-of-freedom component dominates.",
+  "limitations": [
+    "Independent Gaussian samples, unbiased sample variances and fixed normal critical value only.",
+    "The lower endpoint is an infimum when both variances are strictly positive.",
+    "The result is rejected for implication-level originality, not for correctness."
+  ],
+  "schema_version": 1
+}
