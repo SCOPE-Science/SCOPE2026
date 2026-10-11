@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:50:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 7040147ae4c6b7fbb7745e4eb5da224b07c55009",
+        "arXiv:math/0605767"
+      ],
+      "rationale": "The exact identity x^(2)=alpha_0 alpha_1[(mu_0+mu_1)I-A]b follows from the two Cauchy steps, with each mu_k a Rayleigh quotient. For kappa<=2 the bracket is entrywise nonnegative on a Stieltjes matrix. The diagonal three-mode family gives the stated rational sign formula and a counterexample for every kappa>2. In two spectral dimensions the reciprocal steps sum to lambda_1+lambda_2 and the residual repeats after two steps by a scalar rho in [0,1), yielding explicit even/odd iterate formulas as nonnegative combinations of x* and b. Independent rational arithmetic reproduced the kappa=4 witness exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Knyazev--Lashuk provide geometric convergence theory for SPD steepest descent.",
+          "Gonzaga--Schneider develop the classical Akaike--Forsythe two-mode oscillation picture."
+        ],
+        "reasoning": "Spectral oscillation by itself does not imply positivity after transforming back to original coordinates; the inverse-positive/Stieltjes sign argument is extra.",
+        "searches": [
+          "arXiv:math/0605767",
+          "Optimization Online:4964"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0605767",
+        "DOI:10.1137/060675290",
+        "Optimization Online:4964",
+        "Resultary steepest-descent/Stieltjes positivity searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical two-mode cycle supplies part of the algebra but does not state the positive-orthant consequence, and it does not imply the sharp all-dimensional Stieltjes threshold with matching 3D obstruction."
+        ],
+        "reasoning": "The final combined theorem is not a mere restatement of the known oscillation law.",
+        "searches": [
+          "classical two-mode steepest-descent cycle",
+          "audited coordinate formulas for x^(2) and all 2D iterates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior algorithmic formulations are equivalent, but their stated invariants are convergence/oscillation rather than coordinate signs."
+        ],
+        "reasoning": "Searches under Cauchy method, M-matrix, Stieltjes, positive orthant, and nonnegative iterates found no equivalent theorem.",
+        "searches": [
+          "Knyazev--Lashuk, arXiv:math/0605767, steepest descent for SPD systems",
+          "Gonzaga--Schneider, Optimization Online:4964, exact Cauchy dynamics",
+          "Resultary query: steepest descent exact line search Stieltjes M-matrix positivity nonnegative iterates condition number 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact frontier or three-mode counterexample theorem was found; nearby records concern objective monotonicity and transient amplification."
+        ],
+        "reasoning": "The relevant exact comparison is theorem-level, not a numerical table.",
+        "searches": [
+          "Resultary published SCOPE search for steepest-descent Stieltjes positivity kappa=2"
+        ]
+      },
+      "rationale": "The inspected steepest-descent sources cover the exact Cauchy step, residual orthogonality, convergence factors, and classical two-mode oscillation, but not coordinatewise orthant preservation on Stieltjes systems, the sharp kappa=2 finite-horizon frontier, or the all-iterate two-dimensional consequence. Resultary searches returned nearby objective/norm transient results rather than an implication-equivalent theorem.",
+      "residual_risks": [
+        "Older monotone-iteration or M-matrix literature may contain an equivalent finite-horizon sign result.",
+        "Later iterates in dimension at least three are not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONVERGENCE_FRAMEWORK_NOT_ORTHANT_COVERAGE",
+          "evidence": "The standard exact step is prior, but coordinatewise positivity is not stated in the inspected text.",
+          "identifier_or_url": "arXiv:math/0605767; DOI:10.1137/060675290",
+          "material_read": "Full accessible arXiv text around the residual iteration, steepest-descent specialization, and geometric convergence analysis; searches found no Stieltjes/nonnegative-iterate theorem.",
+          "method": "Full-text statement/implication comparison.",
+          "title": "Steepest Descent and Conjugate Gradient Methods with Variable Preconditioning",
+          "trigger": "Primary SPD steepest-descent framework and convergence theory."
+        },
+        {
+          "assessment": "TWO_MODE_DYNAMICS_NOT_POSITIVE_ORTHANT_THEOREM",
+          "evidence": "The source analyzes spectral zig-zag behavior, not entrywise nonnegativity of iterates.",
+          "identifier_or_url": "Optimization Online:4964",
+          "material_read": "Accessible full preprint material around diagonalization, exact step, successive-gradient orthogonality, and Akaike--Forsythe behavior.",
+          "method": "Full-text comparison with the audited 2D and Stieltjes sign claims.",
+          "title": "On the Steepest Descent Algorithm for Quadratic Functions",
+          "trigger": "Closest open treatment of exact Cauchy dynamics and two-mode oscillation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/0605767",
+        "DOI:10.1137/060675290",
+        "Optimization Online:4964",
+        "Resultary steepest-descent/Stieltjes positivity searches"
+      ],
+      "rationale": "Stieltjes matrices are canonical inverse-positive systems, so transient violation of a physical/nonnegative coordinate constraint is independently meaningful even when the energy decreases. The exact kappa=2 threshold, universal counterexample family, and all-iterate 2D theorem form a motivated structural result.",
+      "residual_risks": [
+        "Older monotone-iteration or M-matrix literature may contain an equivalent finite-horizon sign result.",
+        "Later iterates in dimension at least three are not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0605767",
+    "DOI:10.1137/060675290",
+    "Optimization Online:4964",
+    "Resultary steepest-descent/Stieltjes positivity searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For exact-line-search steepest descent from zero on SPD Stieltjes systems, kappa<=2 guarantees nonnegative first and second iterates for every b>=0; every kappa>2 admits a three-dimensional diagonal second-iterate sign failure, while in dimensions one and two all iterates remain nonnegative whenever b>=0 and the exact solution is nonnegative.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older monotone-iteration or M-matrix literature may contain an equivalent finite-horizon sign result.",
+    "Later iterates in dimension at least three are not classified."
+  ]
+}

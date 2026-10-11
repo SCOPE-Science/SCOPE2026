@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker uses exact rational arithmetic only.
 
-It reconstructs exact-line-search steepest descent from
-\[
-r^{(k)}=b-Ax^{(k)},
-\qquad
-\alpha_k=
-\frac{(r^{(k)})^{\mathsf T}r^{(k)}}
-{(r^{(k)})^{\mathsf T}Ar^{(k)}},
-\]
-and verifies the second-iterate identity used in the proof.
+# Independent mathematical audit
 
-For the diagonal witness
-\[
-A=\operatorname{diag}(1,2,4),
-\qquad
-b=(1,1,1/5)^{\mathsf T},
-\]
-it checks the two exact step lengths, the positive first iterate, the negative third coordinate of the second iterate, and the positive exact solution.
+## correctness
 
-For rational condition numbers larger than \(2\), it checks the closed expression for
-\[
-\kappa-(\mu_0+\mu_1)
-\]
-in the three-mode sharpness family and confirms the predicted sign on both sides of the stated \(\varepsilon\) threshold.
+PASS
 
-For two-dimensional diagonal systems it verifies the two-step residual multiplier and the even/odd iterate formulas over many rational examples. The general Stieltjes and general two-dimensional statements are analytic theorems in RESULT.md, not conclusions from finite enumeration.
+The exact identity x^(2)=alpha_0 alpha_1[(mu_0+mu_1)I-A]b follows from the two Cauchy steps, with each mu_k a Rayleigh quotient. For kappa<=2 the bracket is entrywise nonnegative on a Stieltjes matrix. The diagonal three-mode family gives the stated rational sign formula and a counterexample for every kappa>2. In two spectral dimensions the reciprocal steps sum to lambda_1+lambda_2 and the residual repeats after two steps by a scalar rho in [0,1), yielding explicit even/odd iterate formulas as nonnegative combinations of x* and b. Independent rational arithmetic reproduced the kappa=4 witness exactly.
+
+## originality
+
+PASS
+
+The inspected steepest-descent sources cover the exact Cauchy step, residual orthogonality, convergence factors, and classical two-mode oscillation, but not coordinatewise orthant preservation on Stieltjes systems, the sharp kappa=2 finite-horizon frontier, or the all-iterate two-dimensional consequence. Resultary searches returned nearby objective/norm transient results rather than an implication-equivalent theorem.
+
+## value
+
+PASS
+
+Stieltjes matrices are canonical inverse-positive systems, so transient violation of a physical/nonnegative coordinate constraint is independently meaningful even when the energy decreases. The exact kappa=2 threshold, universal counterexample family, and all-iterate 2D theorem form a motivated structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

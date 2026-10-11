@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The first two steepest-descent updates are reconstructed from the exact residual formula, yielding the identity
-\[
-x^{(2)}=\alpha_0\alpha_1[(\mu_0+\mu_1)I-A]b.
-\]
-For a Stieltjes matrix, the off-diagonal signs of this bracket are favorable, and the Rayleigh bounds \(\mu_0,\mu_1\ge\lambda_{\min}\) prove positivity whenever \(\lambda_{\max}\le2\lambda_{\min}\). Sharpness is established for every larger condition number by an explicit diagonal three-mode family with an exact admissible interval for its third right-hand-side component. The all-iterate two-dimensional statement follows from an exact two-step residual cycle with multiplier \(\rho\in[0,1)\). The packaged rational checker independently replays the critical identities and the explicit witness.
+## correctness
 
-## Originality
-PASS with residual literature risk. Classical sources cover the Cauchy step, residual orthogonality, convergence-rate bounds, and two-mode spectral oscillation; those facts are treated as prior work. Searches for Stieltjes or \(M\)-matrix steepest-descent positivity, positive-orthant invariance, second-iterate sign criteria, and a condition-number-\(2\) frontier did not find an implication-equivalent result. The inspected full texts do not state the universal second-iterate positivity theorem, the all-\(\kappa>2\) diagonal obstruction family, or the all-iterate two-dimensional orthant result. Older monotone-iteration literature remains a plausible residual risk.
+PASS
 
-## Value
-PASS. Stieltjes systems arise from standard elliptic discretizations and have nonnegative inverses, so a negative transient iterate is a meaningful qualitative failure even though the quadratic objective decreases. The result gives a complete sharp second-iterate conditioning frontier, identifies the minimal dimension and iteration where failure can occur, and supplies an exact low-dimensional safe formula. These are directly usable as solver diagnostics and regression tests rather than a routine convergence-rate restatement.
+The exact identity x^(2)=alpha_0 alpha_1[(mu_0+mu_1)I-A]b follows from the two Cauchy steps, with each mu_k a Rayleigh quotient. For kappa<=2 the bracket is entrywise nonnegative on a Stieltjes matrix. The diagonal three-mode family gives the stated rational sign formula and a counterexample for every kappa>2. In two spectral dimensions the reciprocal steps sum to lambda_1+lambda_2 and the residual repeats after two steps by a scalar rho in [0,1), yielding explicit even/odd iterate formulas as nonnegative combinations of x* and b. Independent rational arithmetic reproduced the kappa=4 witness exactly.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected steepest-descent sources cover the exact Cauchy step, residual orthogonality, convergence factors, and classical two-mode oscillation, but not coordinatewise orthant preservation on Stieltjes systems, the sharp kappa=2 finite-horizon frontier, or the all-iterate two-dimensional consequence. Resultary searches returned nearby objective/norm transient results rather than an implication-equivalent theorem.
+
+## value
+
+PASS
+
+Stieltjes matrices are canonical inverse-positive systems, so transient violation of a physical/nonnegative coordinate constraint is independently meaningful even when the energy decreases. The exact kappa=2 threshold, universal counterexample family, and all-iterate 2D theorem form a motivated structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
