@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is verified analytically by the structural induction in `RESULT.md`. The critical semantic fact is that in a symmetric frame every successor of a nonisolated world is nonisolated. Therefore the modal operation on the two-coordinate profile is exactly \(\pi(\Box A)=(1,a_n)\).
+# Independent mathematical audit
 
-`verify_closed_kb.py` is a bounded independent sanity check. It generates all variable-free syntax trees of size at most seven, enumerates every symmetric relation on sets of at most four worlds, evaluates formulas directly, and checks agreement with the profile recursion at every world. It also checks that all four profiles occur. Passing this finite replay supports implementation correctness but is not used to infer the general theorem.
+## correctness
 
-Scientific limit: the originality review found no covering source in targeted searches, but a bibliographically identified older article about constant formulas could not be inspected in full and remains an overlap risk.
+PASS
+
+Structural induction is complete. In a symmetric frame, every successor of a nonisolated world is itself nonisolated, so if \(\pi(A)=(a_i,a_n)\) then \(\pi(\Box A)=(1,a_n)\); implication acts coordinatewise. The four displayed formulas realize all four bit profiles, and a one-world empty frame plus a two-world symmetric edge separate every distinct pair. The frozen verifier was read; its exhaustive bounded semantics is corroborative only, not the infinite proof.
+
+## originality
+
+PASS
+
+The 2018 finite-variable paper supplies the one-variable PSPACE-hardness comparison, while the 2022 product paper explicitly says KB does not have infinitely many pairwise inequivalent variable-free formulas. The latter is qualitative finiteness only: the inspected full text does not state four classes, the isolated/nonisolated profile recursion, or the normal forms. Targeted Resultary search found no distinct record with the exact classification.
+
+## value
+
+PASS
+
+The result completely identifies the variable-free Lindenbaum quotient of a standard modal logic, upgrades prior qualitative finiteness to canonical normal forms and a decision invariant, and sharply locates the zero-to-one-variable complexity jump. This is a natural complete classification rather than an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

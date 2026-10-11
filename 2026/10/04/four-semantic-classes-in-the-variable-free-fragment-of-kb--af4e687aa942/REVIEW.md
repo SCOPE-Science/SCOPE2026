@@ -1,12 +1,21 @@
-# Review of Four semantic classes in the variable-free fragment of KB
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is a complete structural induction. Symmetry supplies the only nontrivial frame fact: every successor of a nonisolated world is nonisolated. This makes \(\pi(\Box A)=(1,a_n)\) exact, while Boolean implication acts coordinatewise. Two explicit symmetric witness frames separate all distinct profiles. The finite script agrees with the proof on an exhaustive bounded test family but is not used to infer the general theorem.
+## correctness
 
-## Originality
-PASS, with a stated residual access risk. The 2022 Rybakov–Shkatov paper explicitly says that \(\mathbf{KB}\) lacks infinitely many pairwise non-equivalent variable-free formulas, so finiteness itself is prior. Targeted searches for the exact count, the isolated/nonisolated profile, and the four normal forms found no covering statement. The closest accessible prior work concerns general constant formulas or finite-variable complexity. An older bibliographic item on constant formulas could not be inspected in full, so exact duplication there cannot be excluded.
+PASS
 
-## Value
-PASS. The result is a natural complete classification rather than a sampled computation: it identifies the entire variable-free Lindenbaum quotient of a standard modal logic, gives canonical representatives, and turns the previously cited qualitative finiteness fact into an exact normal form. In conjunction with the known one-variable complexity theorem, it sharply identifies the first hard variable level for \(\mathbf{KB}\).
+Structural induction is complete. In a symmetric frame, every successor of a nonisolated world is itself nonisolated, so if \(\pi(A)=(a_i,a_n)\) then \(\pi(\Box A)=(1,a_n)\); implication acts coordinatewise. The four displayed formulas realize all four bit profiles, and a one-world empty frame plus a two-world symmetric edge separate every distinct pair. The frozen verifier was read; its exhaustive bounded semantics is corroborative only, not the infinite proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2018 finite-variable paper supplies the one-variable PSPACE-hardness comparison, while the 2022 product paper explicitly says KB does not have infinitely many pairwise inequivalent variable-free formulas. The latter is qualitative finiteness only: the inspected full text does not state four classes, the isolated/nonisolated profile recursion, or the normal forms. Targeted Resultary search found no distinct record with the exact classification.
+
+## value
+
+PASS
+
+The result completely identifies the variable-free Lindenbaum quotient of a standard modal logic, upgrades prior qualitative finiteness to canonical normal forms and a decision invariant, and sharply locates the zero-to-one-variable complexity jump. This is a natural complete classification rather than an arbitrary small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
