@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-level proof is structural. The critical checks are:
+# Independent mathematical audit
 
-1. The Hambly-Kumagai recursion retains every old vertex and replaces each old edge by two new midpoint branches of length two.
-2. The Krawtchouk diagonal is zero, so the new Hamiltonian is block off diagonal between old vertices and new midpoints.
-3. Proposition 2.15 makes the old-to-new block a layer-weighted unsigned incidence matrix, with two identical columns per old edge. Nonzero layer-wise row and column scalings reduce one column from each pair to the ordinary unsigned incidence matrix of the preceding graph.
-4. A connected bipartite graph has unsigned-incidence rank one less than its vertex count.
-5. The graph cardinality formula then gives \(\dim\ker H_\ell=(4^\ell+2)/3=|V(HK_\ell)|/2\). The chiral block involution supplies the equal positive/negative split.
+## correctness
 
-The included `verify.py` uses only the Python standard library. It reconstructs the graphs through level \(6\), computes exact rational incidence ranks, checks the all-level formula in those cases, and explicitly checks the published zero multiplicities \(6\), \(22\), and \(86\). It prints `VERIFY_OK` on success.
+PASS
 
-Limits: finite replay does not prove the theorem; the incidence-rank argument does. The replay does not attempt to reconstruct every weighted Krawtchouk matrix because the proof removes those nonzero weights by exact invertible scalings. No independent audit has been performed.
+At level \(\ell\), all old vertices of \(HK_{\ell-1}\) form one bipartition class and the newly inserted midpoints form the other, while the lifted symmetric Krawtchouk Hamiltonian has zero diagonal. The source entry formula shows that each nonzero off-diagonal weight is a positive layer factor divided by the appropriate forward/backward degree. The two new midpoints replacing a fixed old edge therefore give duplicate columns, and after keeping one from each pair the old-to-new block is diagonally equivalent to the unsigned vertex-edge incidence matrix of \(HK_{\ell-1}\). Because \(HK_{\ell-1}\) is connected and bipartite, that incidence matrix has rank \(|V(HK_{\ell-1})|-1\). Hence the block-off-diagonal Hamiltonian has rank twice this number. Substituting \(|V(HK_j)|=(2\cdot4^j+4)/3\) gives \(\dim\ker H_\ell=(4^\ell+2)/3=|V(HK_\ell)|/2\). Independent exact incidence-rank computations for levels one through six reproduced nullities \(2,6,22,86,342,1366\). The finite calculations only corroborate the arbitrary-level incidence proof. Chiral sign conjugation across the two bipartition classes pairs every nonzero eigenvalue with its negative, so exactly one quarter of the normalized spectrum lies below zero and three quarters at or below zero.
+
+## originality
+
+PASS
+
+The primary Hambly--Kumagai perfect-transfer paper supplies the graph recursion, the lifted Hamiltonian entry formula, explicit spectra at low levels and higher-level IDS plots, but it does not state the all-level half-nullity theorem or the exact IDS jump \(1/4\to3/4\). Its tables show zero multiplicities \(6\), \(22\) and \(86\) at levels two, three and four, which are consistent evidence rather than an all-level theorem. Proposition 5.3 counts all localized eigenvectors, not zero modes. The submitted rank reduction to one copy of the old unsigned incidence matrix is the additional structural step that yields the closed formula. Fresh Resultary and web searches found no prior half-spectrum/zero-mode statement.
+
+## value
+
+PASS
+
+A zero eigenspace occupying exactly half of every finite-volume Hamiltonian is a macroscopic spectral feature, and the corresponding fixed IDS jump is substantially sharper than finite tables or plotted densities. The incidence reduction also gives a concise structural explanation for the observed multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
