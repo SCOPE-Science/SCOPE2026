@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "For each real finite cube and each point, proved the exact finite-dimensional slice/compact-convex-hull criterion. Above b_*=max_i(1-|x_i|), every far point must lie in a negative-coordinate cap. Group weights obey lambda_i<=b_i/(r+b_i); conversely normalized capacities give an explicit finite convex decomposition with every point at distance at least r. When the capacity sum is below one an explicit linear functional separates the point from all far caps by the positive exact gap 1−Phi. A two-point construction supplies the floor. Substituting equal coordinates gives the claimed min formula; solving 3r^2−r−2(1−t)=0 proves the exact radical profile with verified cutoff inequalities. On the unit sphere the capacity bound (n−1)(2−r)/2 gives the global maximum, with equality forcing the unique coordinate orbit for n>=4, and the n=3 exceptional face classification follows from the floor and continuity. Exact-rational checker passes 31,294 constructive and separating tests, and an independent finite LP hull test passes 1,960 cases. Neither experiment replaces the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The publicly available c0 theorem explicitly assumes x in B_c0; it includes an infinite tail coordinate and imposes a universal lower Delta-constant of 1.",
+        "The publicly available C(K) theorem explicitly requires K infinite compact Hausdorff, with non-isolated core K′ nonempty and a lower radius at least 1.",
+        "For x=(4/5,4/5,4/5), the finite 3-cube value is 2/5, whereas its zero extension in c0 has Delta-constant 1. Thus applying either stronger-looking infinite-space formula to the finite cube would yield an incorrect value.",
+        "Martín–Perreau–Rueda Zoca Proposition 4.1 concerns the qualitative threshold Delta-point and super variants, not exact subunit radii."
+      ],
+      "reasoning": "Although infinite-dimensional results use an analogous opposite-cap budget above radius 1, neither has the finite-dimensional domain and both miss the genuine subunit regime. Restricting an infinite-space pointwise Delta constant to an isometric finite-dimensional subspace does not preserve slice radii: the displayed vector gives an explicit failure of such implication. No reviewed broader result implies the finite-cube all-point formula and sharp sphere extremizers.",
+      "searches": [
+        "published-finding corpus semantic search: finite-dimensional ℓ_infty^n Delta-constants exact formula all vectors thresholds 2023 Daugavet points",
+        "published-finding corpus semantic search: exact pointwise Delta-constant delta c(x) on finite dimensional cube ell infinity n for every x Choi Jung 2023 cap union formula max distance convex hull",
+        "published-finding corpus lookup: 2026/10/4/SCOPE-exact-delta-constants-for-every-point-of-c-0--092d7050fe45",
+        "published-finding corpus lookup: 2026/10/4/SCOPE-exact-delta-constants-on-every-real-c-k-space--55e920f38e68",
+        "Primary: arxiv:2301.04433v1 Sections 4.1 and 5",
+        "Primary: arxiv:2307.10647v3 Sections 3.3 and 4.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.10647v3, primary 2023-07-20, full HTML sections with N=3 challenge",
+      "arxiv:2301.04433v1, primary 2023-01-11, targeted sections 4.1 and 5",
+      "2026/10/4/SCOPE-exact-delta-constants-for-every-point-of-c-0--092d7050fe45/RESULT.md",
+      "2026/10/4/SCOPE-exact-delta-constants-on-every-real-c-k-space--55e920f38e68/RESULT.md",
+      "2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81/RESULT.md",
+      "Multiple actual targeted published-finding corpus semantic searches and web queries on finite-cube Delta constants, cap budgets, figure profiles and alternative formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Choi–Jung compute the finite-cube Delta constant only for N=2; for N≥3 they supply lower bounds without the exact all-x formula or the sharp maximum on S_ell∞^N.",
+        "The C(K) all-point statement is restricted to K infinite; the c0 all-point statement is restricted to c0. Neither specializes to the finite 3-cube value 2/5 at (4/5,4/5,4/5).",
+        "The published positive-square classification concerns a distinct property; the listed public results do not imply the finite-cube Delta-radius formula."
+      ],
+      "reasoning": "The new claim strictly extends the 2023 quantitative finite-cube determination from N≤2 to arbitrary finite n and all points, and additionally optimizes over the unit sphere with equality classification. The strongest nearby published C(K)/c0 formulas are non-implying because of their infinite-domain radius floor, as demonstrated by an explicit numerical separation. The finite positive-square classification does not imply a continuum of exact radii.",
+      "searches": [
+        "Source comparison: arxiv:2307.10647v3 Proposition 3.1, Theorem 3.3, Remark 3.4(1), Proposition 4.9",
+        "Published result comparison: 2026/10/4/SCOPE-exact-delta-constants-for-every-point-of-c-0--092d7050fe45/RESULT.md",
+        "Published result comparison: 2026/10/4/SCOPE-exact-delta-constants-on-every-real-c-k-space--55e920f38e68/RESULT.md",
+        "Published result comparison: 2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81/RESULT.md",
+        "published-finding corpus semantic search: Exact Delta constants for all points of finite real ell infinity n cubes with sharp unit sphere supremum 2 minus 2 over n minus 1",
+        "published-finding corpus semantic search: pointwise Delta constant x in l_infty^n sum of opposite face capacities exact for all finite n and unique maximizers",
+        "published-finding corpus semantic search: (2/3,2/3,t) Delta constant (1+sqrt(25-24t))/6 Choi Jung"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2307.10647v3 Definition 2.1 and Proposition 2.3 provide slice/convex-hull equivalence, but Proposition 3.1 gives finite-cube Daugavet values and Delta values only when N=2; Remark 3.4(1) gives a non-sharp general N=3 lower bound.",
+        "Source text explicitly observes that exact Delta-constant evaluation is difficult even at N=3.",
+        "No matching finite-cube all-point capacity or sharp unit-sphere extremizer was returned by the searches recorded."
+      ],
+      "reasoning": "The equivalent slice infimum, far-point convex-hull membership, and face-cap decomposition are all compared at the level of quantified statements. The new result solves the optimization for all x and all n and determines sharp maximizers; the primary work introduces the equivalence but does not give the finite-cube optimization beyond dimension two. A general convex-hull principle alone does not imply a coordinate capacity formula or extremizer classification.",
+      "searches": [
+        "published-finding corpus semantic search: exact Delta constant every point finite-dimensional ℓ∞^n 3-dimensional cube convex hull far coordinate faces formula weighted signed caps",
+        "published-finding corpus semantic search: finite cubes pointwise Delta constants probability mass sign capacities positive negative with threshold 1 plus minus x",
+        "published-finding corpus semantic search: pointwise delta-constant real finite dimensional C(K) arbitrary x exact finite cube hypercube formula",
+        "Web search: \"Delta-constants\" \"finite dimensional\" \"cube\" Banach",
+        "Primary: arxiv:2307.10647v3 Sections 2.1, 3.1, 4.2",
+        "published-finding corpus semantic search: Exact Delta constants for all points of finite real ell infinity n cubes with sharp unit sphere supremum 2 minus 2 over n minus 1",
+        "published-finding corpus semantic search: pointwise Delta constant x in l_infty^n sum of opposite face capacities exact for all finite n and unique maximizers",
+        "published-finding corpus semantic search: (2/3,2/3,t) Delta constant (1+sqrt(25-24t))/6 Choi Jung"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The defining paper plots only a lower estimate for the line (2/3,2/3,t), while the proposed exact profile is the nontrivial radical (1+sqrt(25−24t))/6.",
+        "The published finite-cube positive-square classification counts centers of nonempty proper cube faces; its invariant is a norming functional / signed-square property, not the Choi–Jung pointwise Delta radius.",
+        "The search returned infinite-space formulas and unrelated finite-cube invariants but no exact all-point finite-cube table."
+      ],
+      "reasoning": "Comparing the actual functions and domains rather than shared cube or Delta terminology rules out the known table-type candidates. The Figure 2 estimate is not an exact table, the c0 values differ on displayed input, and the positive-square locus is a distinct yes/no invariant.",
+      "searches": [
+        "published-finding corpus semantic search: ell infinity 3 n delta constant x=(a,a,a) min(1+a,(n−1)(1−a))",
+        "published-finding corpus semantic search: uniform algebra atomic finite discrete compact Delta constant dimension three",
+        "published-finding corpus lookup: 2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81",
+        "Web search: \"delta constant\" \"ell infinity N\" 3 dimensional exact",
+        "Primary: arxiv:2307.10647v3 Remark 3.4 and Figure 2",
+        "published-finding corpus semantic search: (2/3,2/3,t) Delta constant (1+sqrt(25-24t))/6 Choi Jung"
+      ]
+    },
+    "rationale": "The source arxiv:2307.10647 states the precise hard finite-cube Delta-constant calculation in dimension >=3 but supplies only a lower bound; the new result determines every finite-dimensional point and the global sphere maximum and equality orbit. The closest published all-point c0 and infinite C(K) formulas are inapplicable to finite cubes and have a floor 1 contradicted by the finite 3-cube example 2/5. The published finite-cube positive-square classification concerns a different invariant. Full readable primary materials were compared at the level of implication, not titles; independent unpublished/unknown equivalent literature remains a residual risk.",
+    "residual_risks": [
+      "A differently named or unindexed exact finite-dimensional cube Delta-radius formula may exist beyond searched public sources.",
+      "The analogous cap-budget method in public infinite C(K) results motivates overlap caution; the finite-domain quantifiers and sharp extremum are not implied by their stated theorems.",
+      "The full 2018 qualitative paper was not needed for this mathematical implication check beyond the later inspected primary characterizations; a future bibliographic check may discover further related literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: N=2 Delta exact, N≥3 lower-bound/plot only; no exact full-ball formula or sharp sphere maximizers.",
+        "evidence": [
+          "arxiv HTML lines 101–156 define delta and convexification; lines 396–431 give N=2 equality and say N=3 is difficult; lines 504–525 give lower bound and plotted (2/3,2/3,t); lines 1058–1113 give only absolute-sum lower bounds."
+        ],
+        "identifier_or_url": "arxiv:2307.10647v3; https://arxiv.org/html/2307.10647v3",
+        "material_read": "Public full-text HTML: Definition 2.1, Proposition 2.3, Proposition 3.1 and proof, Theorem 3.3, Remark 3.4 and Figure 2 description, Section 3.3 and Section 4.2.",
+        "method": "Line-level full-text reading and comparison of quantifiers, explicit formulas and stronger stability assertions.",
+        "title": "The Daugavet and Delta-constants of points in Banach spaces",
+        "trigger": "Defining paper, finite cubes N=2 and explicit stated difficulty for N=3, same object and parameter."
+      },
+      {
+        "assessment": "NOT_COVERING: c0 only, universal radius floor 1, while finite cubes admit subunit constants.",
+        "evidence": [
+          "Public theorem: infimum over r in [1,2] of an active weighted coordinate sum; limitations explicitly exclude finite-dimensional ℓ∞^N; finite (4/5,4/5,4/5) has 2/5 while its c0 zero-extension has 1."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-delta-constants-for-every-point-of-c-0--092d7050fe45/RESULT.md",
+        "material_read": "Entire available public RESULT.md, including assumptions, both proof directions, limitations, and references.",
+        "method": "Read the complete published mathematical report and compared its exact domain, proof and zero-extended input.",
+        "title": "Exact Delta-constants for every point of c0",
+        "trigger": "Same quantitative invariant and a potentially dominating all-point formula."
+      },
+      {
+        "assessment": "NOT_COVERING: theorem explicitly assumes infinite compact Hausdorff K with nonempty non-isolated core; finite discrete K is excluded, and a subunit finite-cube value contradicts specialization.",
+        "evidence": [
+          "Public full-text statement requires infinite K; proof uses beta(f)=max over non-isolated K′ and radius r≥1+beta(f); finite K has empty K′ and no mandatory radius 1."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-delta-constants-on-every-real-c-k-space--55e920f38e68/RESULT.md",
+        "material_read": "Entire available public RESULT.md: finding, explicit infinite K assumption, topological core argument, isolated-face inequalities, limitations.",
+        "method": "Read primary theorem statement and analytic proof rather than relying on title/summary; checked finite K could not meet infinite-K hypothesis.",
+        "title": "Exact Delta-constants on every real C(K) space",
+        "trigger": "Title suggests all C(K), potentially including finite discrete K and thus the exact claim."
+      },
+      {
+        "assessment": "NOT_COVERING: positive-square condition is a distinct qualitative property; neither the all-point Delta constants nor the unit-sphere maximum is present.",
+        "evidence": [
+          "The reported locus is {-1,0,1}^n minus zero and the functional condition tests ||x+y|| close to 2; no scalar radius optimization is stated."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-positive-square-points-of-ell-infty-n-are-exactly-cube-face-cent--21b262733e81/RESULT.md",
+        "material_read": "Entire available public RESULT.md with definitions and classification proof.",
+        "method": "Compared the quantifiers and tested relation of norming-face condition to quantitative Delta slice-radius function.",
+        "title": "Positive square points of ell-infinity-n are exactly cube-face centers",
+        "trigger": "Exact classification in the same finite cube geometry."
+      },
+      {
+        "assessment": "NOT_COVERING: equivalent qualitative status Delta-point in L1-preduals, not a finite-radius quantitative pointwise function.",
+        "evidence": [
+          "Proposition 4.1 equivalence is at distance 2 / Delta-point status; Section 4.1 characterizes norm attainment on accumulation points and has no subunit exact capacity formula."
+        ],
+        "identifier_or_url": "arxiv:2301.04433v1; https://arxiv.org/html/2301.04433v1",
+        "material_read": "Public full-text HTML abstract, contents, Section 4.1 Proposition 4.1 and the opening of Section 5 on open-ball variants.",
+        "method": "Targeted full-text section reading of the nearest qualitative concepts.",
+        "title": "Diametral notions for elements of the unit ball of a Banach space",
+        "trigger": "Related Delta/super-Delta concepts and C(K) point characterization, possible qualitative covering theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e5afc884-d721-46e8-962f-4ce222522f2d",
+  "value": {
+    "rationale": "The 2023 defining paper explicitly isolates exact finite-cube Delta constants as difficult already in dimension three, with only an unsharp plotted lower estimate for (2/3,2/3,t). The theorem supplies all-point, all-dimensional exact values by a finite cap-budget procedure and resolves the plotted family by an exact radical curve. The accompanying optimal sphere index 2−2/(n−1), equality classification, and limit to 2 quantify how finite-dimensional cubes approach almost-Delta behavior without any finite-dimensional Delta points. These are natural global and pointwise invariants of a canonical Banach space family, not a fabricated parameter slice; the sharp extremizers have a rigid geometric face-cap interpretation.",
+    "status": "PASS"
+  }
+}
