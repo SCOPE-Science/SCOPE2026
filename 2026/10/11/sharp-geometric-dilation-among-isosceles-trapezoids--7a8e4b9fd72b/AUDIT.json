@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The published convex-curve halving-pair identity reduces dilation to the minimum halving chord. Every halving pair of a normalized isosceles trapezoid lies in one of three side-pair regimes, each with an explicit quadratic squared distance. Their constrained minima yield the exact three-branch formula for \\(h\\). After normalization by half-perimeter, two branches decrease in the base-imbalance parameter and one increases. The fixed-leg optimum therefore occurs at a unique crossing; the crossing type switches at a quintic with exactly one root for \\(S>1\\), and the two resulting optimum branches are monotone toward that junction. This proves the unique global extremum.",
+    "risks": [
+      "The numerical boundary sweep is supplementary only; correctness rests on the exact branch derivation and monotonicity proof."
+    ],
+    "sources": [
+      "arXiv:math/0407135v1",
+      "DOI:10.1016/j.comgeo.2005.07.004"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves an exact bound for centrally symmetric convex polygons and a weaker general \\(n\\)-gon bound.",
+        "Its conclusion explicitly asks for a tight lower bound for arbitrary, not only centrally symmetric, convex polygons.",
+        "The isosceles-trapezoid extremizer has unequal bases and dilation below \\(2\\), so it is not covered by the centrally symmetric theorem."
+      ],
+      "reasoning": "The strongest nearby polygon result does not imply the claim: it either assumes central symmetry or gives only a weaker universal lower bound.",
+      "searches": [
+        "geometric dilation arbitrary convex polygons lower bound trapezoid",
+        "geometric dilation quadrilateral minimum",
+        "minimum geometric dilation convex quadrilateral exact",
+        "DOI:10.1016/j.comgeo.2005.07.004 polygon lower bounds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0407135v1",
+      "DOI:10.1016/j.comgeo.2005.07.004",
+      "DOI:10.1007/11534273_22",
+      "DOI:10.1016/j.comgeo.2004.12.009",
+      "Public searches under geometric-dilation, detour/stretch-factor, halving-chord, halving-distance, quadrilateral, trapezoid, and isosceles-trapezoid formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior halving-pair lemma supplies equation \\(\\delta(C)=|C|/(2h)\\), which is used as an input but does not evaluate \\(h\\) for trapezoids.",
+        "The exact prior polygon bound assumes central symmetry; an isosceles trapezoid is centrally symmetric only in the equal-base parallelogram case.",
+        "The source explicitly labels tight nonsymmetric convex-polygon lower bounds as an open direction."
+      ],
+      "reasoning": "The new statement requires a complete halving-chord analysis and global optimization inside a nonsymmetric family. Neither the general identity nor the symmetric-polygon theorem implies the sharp constant or equality class.",
+      "searches": [
+        "arXiv:math/0407135 Lemma 1 halving pair convex curve",
+        "arXiv:math/0407135 Theorem 10 centrally symmetric polygon",
+        "arXiv:math/0407135 conclusion arbitrary convex polygons tight lower bound",
+        "Geometric dilation of closed planar curves new lower bounds trapezoid"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Geometric dilation is also called detour or stretch factor in the computational-geometry literature.",
+        "The full primary paper uses halving distance as the exact convex-curve reduction, so searches included both the invariant and its equivalent halving-chord formulation.",
+        "No searched source stated the sharp isosceles-trapezoid constant or unique algebraic extremizer."
+      ],
+      "reasoning": "The searches cover the invariant name, its common aliases, the exact object class, and the equivalent halving-chord optimization rather than relying on title matching.",
+      "searches": [
+        "\"geometric dilation\" \"isosceles trapezoid\"",
+        "\"geometric dilation\" trapezoid polygon halving chord",
+        "detour stretch factor isosceles trapezoid boundary",
+        "trapezoid geometric dilation halving distance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numerical or algebraic fingerprint matching the theorem was located.",
+        "The searchable primary full text has no occurrence of “trapezoid”."
+      ],
+      "reasoning": "Exact fingerprints are used only as supporting evidence alongside statement-level comparison with the primary source.",
+      "searches": [
+        "\"1.896157652673\" geometric dilation",
+        "\"11S^5-17S^4\" trapezoid dilation",
+        "\"halving distance\" trapezoid geometric dilation",
+        "\"isosceles trapezoid\" detour stretch factor"
+      ]
+    },
+    "rationale": "The most relevant primary full text gives the halving-pair framework and sharp centrally symmetric polygon bound, but explicitly leaves tight nonsymmetric convex-polygon lower bounds as an open direction. Its searchable full text contains no trapezoid occurrence and no isosceles-trapezoid specialization. Exact-object and equivalent-term searches did not locate the sharp constant or quintic extremizer. The theorem is therefore assessed as a new complete solution for a natural nonsymmetric quadrilateral subclass, with an explicit residual risk of an unindexed elementary calculation.",
+    "residual_risks": [
+      "An unindexed specialized calculation could predate or follow the primary paper without appearing in searchable databases.",
+      "The theorem gives the sharp isosceles-trapezoid value, not the sharp value for all convex quadrilaterals.",
+      "The older halving-distance paper supplies general machinery; its abstract-level metadata was compared, while the detailed combined arXiv paper was the materially inspected full source."
+    ],
+    "risks": [
+      "A thesis, exercise, or unindexed note may contain the same specialized optimization.",
+      "The result is a subclass answer and does not settle the source paper's full arbitrary-convex-polygon question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAMEWORK_AND_OPEN_DIRECTION_NOT_COVERING",
+        "evidence": "Lemma 1 gives the exact convex reduction \\(\\delta(C)=|C|/(2h)\\). Theorem 10 treats centrally symmetric polygons; Corollary 2 is weaker for arbitrary polygons. The conclusion asks for a tight lower bound beyond central symmetry. No trapezoid occurrence appears in the searchable text.",
+        "identifier_or_url": "arXiv:math/0407135v1; DOI:10.1016/j.comgeo.2005.07.004",
+        "material_read": "Full 31-page arXiv PDF; materially inspected the halving-pair definition and Lemma 1, Section 8.2 on polygon lower bounds, the regular odd-polygon calculation, and the concluding open question. Full text was also searched for “trapezoid” and “isosceles”.",
+        "method": "Lawful open-access arXiv full-text and page-image inspection.",
+        "title": "On the geometric dilation of closed curves, graphs, and point sets",
+        "trigger": "Defining primary framework, exact convex halving-pair reduction, closest polygon bounds, and explicit nonsymmetric-polygon open direction."
+      }
+    ],
+    "sources": [
+      "arXiv:math/0407135v1",
+      "DOI:10.1016/j.comgeo.2005.07.004",
+      "DOI:10.1016/j.comgeo.2004.12.009"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7a8e4b9f-d72b-42c0-93ea-7b34576ca5b9",
+  "value": {
+    "rationale": "The motivating paper explicitly identifies tight nonsymmetric polygon dilation as an unresolved direction. Isosceles trapezoids are the simplest one-parameter-symmetry enlargement of parallelograms, and the optimum is genuinely nonsymmetric and strictly improves the centrally symmetric value \\(2\\). The result gives a complete natural subclass theorem, a unique equality shape, and an exact algebraic balance of all possible halving-chord mechanisms.",
+    "risks": [
+      "The structural value is confined to isosceles trapezoids; extending the method to arbitrary quadrilaterals requires additional halving-chord regimes."
+    ],
+    "sources": [
+      "arXiv:math/0407135v1",
+      "DOI:10.1016/j.comgeo.2005.07.004"
+    ],
+    "status": "PASS"
+  }
+}
