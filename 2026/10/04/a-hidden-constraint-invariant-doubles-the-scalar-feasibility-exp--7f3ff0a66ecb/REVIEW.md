@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Euclidean source equations were specialized directly to the scalar constraint-only augmented Lagrangian and then reparameterized by \(s=e^{b_t}\) using the assumed equality \(e^{a_t}=\dot b_t\). The resulting first-order system gives the invariant \(sx-z_\lambda\) by one differentiation. The feasibility variable \(w=sx\) then satisfies an exact forced scalar oscillator. A shifted oscillator energy has integrable forcing and a nonpositive coefficient-drift term, which yields uniform boundedness of \(w\). On the zero-invariant family the same energy has a strictly positive lower bound for every nonzero solution, proving that \(w\) cannot vanish asymptotically and hence that the \(e^{-b_t}\) exponent is sharp.
+PASS
 
-The bundled numerical replay independently integrates both the full transformed system and the reduced oscillator. It is supporting evidence only; the quantified claim follows from the exact invariant and energy inequalities.
+Specializing the source's first-order mirror flows to one Euclidean scalar constraint with zero objective and zero Rayleigh friction gives exactly the four equations in the package. Under \(s=e^{b_t}\) and \(\dot s=e^{a_t}s\), direct differentiation shows \(I=sx-z_\lambda\) is constant and \(w=sx\) solves \(w''+(1+\mu/s)w=I\). Subtracting the instantaneous equilibrium \(r=Is/(s+\mu)\) gives an oscillator with integrable forcing. Its energy satisfies \(d\sqrt E/ds\le |f|/\sqrt2\), proving bounded \(w\) and hence \(|x|=O(e^{-b_t})\). On the invariant slice \(I=0\), \(E'=q'w^2/2\) and \(E'\ge(q'/q)E\) give a positive asymptotic energy floor for nonzero solutions; if \(w\to0\), then \(w''\to0\) and the fixed-interval mean-value argument forces \(w'\to0\), contradiction. Thus the exponent is sharp within the scalar family.
 
-## Originality
+## originality
 
-PASS. The primary paper was inspected through its coupled mirror equations, friction extension, and feasibility theorem. It gives the generic undamped squared-residual rate and a stronger residual rate under additional conditions, but no scalar conserved quantity or forced-oscillator reduction was found.
+PASS
 
-The closest accelerated augmented-Lagrangian and primal-dual mirror-flow predecessors were also inspected in full or open-access full text. Their state equations and scaling architectures differ, and neither statement implies the invariant \(e^{b_t}x-z_\lambda\). Targeted published-research searches over aliases and the exact reduction returned no equivalent result.
+Chang–Mesbahi's full text gives the coupled ELR flow and proves only squared feasibility \(\|r(x)\|^2=O(e^{-b_t})\) generically; their full norm \(O(e^{-b_t})\) conclusion requires additional positive Rayleigh friction and boundedness. The exact zero-friction scalar invariant and forced oscillator are absent. The older APDMD and dynamical-ADMM papers use different flow architectures and do not imply this position–lookahead invariant. Resultary returned no equivalent invariant/rate theorem.
 
-Residual risk remains that an elementary scalar calculation may occur in older time-rescaled augmented-Lagrangian literature under different notation.
+## value
 
-## Value
+PASS
 
-PASS. The source theorem makes the distinction between squared feasibility and full residual decay mathematically central. On the canonical scalar equality mode, the finding closes that exponent gap without Rayleigh friction and identifies the exact structural reason: a position/lookahead invariant. The same reduction also proves sharpness of the improved exponent, so the result is not merely a better upper bound on an arbitrary example.
+The result identifies a structural invariant that explains why a natural scalar constraint mode beats the generic undamped feasibility exponent and proves that improved exponent sharp in the same model. This is a motivated boundary case of the source theorem, not merely a numerical special case.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T10:13:29.095150Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verifier source at audited Git tree",
+        "Chang–Mesbahi arXiv:2609.09454v2 full HTML, equations (6)–(7) and Theorem III.4",
+        "Zhao et al., JMLR 24 (2023) full open paper",
+        "Attouch et al., arXiv:2103.12675"
+      ],
+      "rationale": "Specializing the source's first-order mirror flows to one Euclidean scalar constraint with zero objective and zero Rayleigh friction gives exactly the four equations in the package. Under \\(s=e^{b_t}\\) and \\(\\dot s=e^{a_t}s\\), direct differentiation shows \\(I=sx-z_\\lambda\\) is constant and \\(w=sx\\) solves \\(w''+(1+\\mu/s)w=I\\). Subtracting the instantaneous equilibrium \\(r=Is/(s+\\mu)\\) gives an oscillator with integrable forcing. Its energy satisfies \\(d\\sqrt E/ds\\le |f|/\\sqrt2\\), proving bounded \\(w\\) and hence \\(|x|=O(e^{-b_t})\\). On the invariant slice \\(I=0\\), \\(E'=q'w^2/2\\) and \\(E'\\ge(q'/q)E\\) give a positive asymptotic energy floor for nonzero solutions; if \\(w\\to0\\), then \\(w''\\to0\\) and the fixed-interval mean-value argument forces \\(w'\\to0\\), contradiction. Thus the exponent is sharp within the scalar family.",
+      "residual_risks": [
+        "The theorem is a scalar-mode statement and does not justify strengthening the generic multidimensional undamped theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source generic undamped result is squared-feasibility \\(O(e^{-b_t})\\), while the stronger norm rate is tied to friction assumptions; the older papers establish accelerated feasibility for different dynamics."
+        ],
+        "reasoning": "The audited zero-friction scalar rate is not dominated by these broader theorems.",
+        "searches": [
+          "Chang–Mesbahi Theorem III.4",
+          "Zhao et al. JMLR 24 (2023)",
+          "Attouch et al. arXiv:2103.12675"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.09454",
+        "https://www.jmlr.org/papers/v24/22-1069.html",
+        "https://arxiv.org/abs/2103.12675",
+        "Resultary published findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source equations permit the new calculation, but the source theorem alone yields only \\(|x|=O(e^{-b_t/2})\\) in the undamped scalar specialization."
+        ],
+        "reasoning": "The improved exponent requires the new conserved quantity plus oscillator energy argument and is not a corollary of the stated convergence theorem.",
+        "searches": [
+          "Direct comparison with Chang–Mesbahi equations (6)–(7) and Theorem III.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source contains no invariant \\(e^{b_t}x-z_\\lambda\\) or scalar oscillator reduction."
+        ],
+        "reasoning": "No equivalent formulation was located.",
+        "searches": [
+          "Resultary: ELR scalar invariant sx-z_lambda oscillator feasibility",
+          "Chang–Mesbahi full-text search and equations (6),(7), Theorem III.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact invariant record was returned."
+        ],
+        "reasoning": "The result is an analytic invariant/sharp asymptotic theorem, not a finite benchmark.",
+        "searches": [
+          "Resultary exact search on invariant and oscillator"
+        ]
+      },
+      "rationale": "Chang–Mesbahi's full text gives the coupled ELR flow and proves only squared feasibility \\(\\|r(x)\\|^2=O(e^{-b_t})\\) generically; their full norm \\(O(e^{-b_t})\\) conclusion requires additional positive Rayleigh friction and boundedness. The exact zero-friction scalar invariant and forced oscillator are absent. The older APDMD and dynamical-ADMM papers use different flow architectures and do not imply this position–lookahead invariant. Resultary returned no equivalent invariant/rate theorem.",
+      "residual_risks": [
+        "An older scalar augmented-Lagrangian calculation may encode the same oscillator under different notation, but none was found in the closest full texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_SPECIAL_MODE_GAP",
+          "evidence": "It supplies the equations but not the undamped scalar invariant; its generic strong norm rate uses positive friction.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09454",
+          "material_read": "Complete arXiv v2 HTML around the coupled Bregman flows, zero/positive friction forms, and Theorem III.4.",
+          "method": "Lawful arXiv full HTML.",
+          "title": "Unifying Variational View of Accelerated Primal-Dual Methods",
+          "trigger": "Exact source flow and generic convergence theorem."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "The dynamics and Lyapunov structure differ and no identical lookahead invariant is stated.",
+          "identifier_or_url": "https://www.jmlr.org/papers/v24/22-1069.html",
+          "material_read": "Open 59-page primary paper, especially system definitions and convergence-rate statements.",
+          "method": "Lawful JMLR full text.",
+          "title": "Accelerated Primal-Dual Mirror Dynamics for Centralized and Distributed Constrained Convex Optimization Problems",
+          "trigger": "Closest earlier accelerated mirror feasibility dynamics."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "It uses damped inertial/extrapolation dynamics rather than the coupled ELR lookahead pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.12675",
+          "material_read": "Primary preprint/article scope and dynamical-system formulation.",
+          "method": "Lawful arXiv/public material.",
+          "title": "Fast convergence of dynamical ADMM via time scaling of damped inertial dynamics",
+          "trigger": "Closest inertial augmented-Lagrangian time-scaling predecessor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chang–Mesbahi Theorem III.4",
+        "assigned invariant proof"
+      ],
+      "rationale": "The result identifies a structural invariant that explains why a natural scalar constraint mode beats the generic undamped feasibility exponent and proves that improved exponent sharp in the same model. This is a motivated boundary case of the source theorem, not merely a numerical special case.",
+      "residual_risks": [
+        "Its scope is intentionally modal and does not yield a general multidimensional theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.09454",
+    "https://www.jmlr.org/papers/v24/22-1069.html",
+    "https://arxiv.org/abs/2103.12675",
+    "Resultary published findings"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scalar Euclidean zero-objective affine constraint only.",
+    "No claim is made for coupled constraints, nonlinear constraints, or non-Euclidean mirror maps."
+  ],
+  "residual_risks": [
+    "An older scalar augmented-Lagrangian calculation may encode the same oscillator under different notation, but none was found in the closest full texts."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OPEN_SPECIAL_MODE_GAP",
+      "evidence": "It supplies the equations but not the undamped scalar invariant; its generic strong norm rate uses positive friction.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.09454",
+      "material_read": "Complete arXiv v2 HTML around the coupled Bregman flows, zero/positive friction forms, and Theorem III.4.",
+      "method": "Lawful arXiv full HTML.",
+      "title": "Unifying Variational View of Accelerated Primal-Dual Methods",
+      "trigger": "Exact source flow and generic convergence theorem."
+    },
+    {
+      "assessment": "RELATED_NOT_COVERING",
+      "evidence": "The dynamics and Lyapunov structure differ and no identical lookahead invariant is stated.",
+      "identifier_or_url": "https://www.jmlr.org/papers/v24/22-1069.html",
+      "material_read": "Open 59-page primary paper, especially system definitions and convergence-rate statements.",
+      "method": "Lawful JMLR full text.",
+      "title": "Accelerated Primal-Dual Mirror Dynamics for Centralized and Distributed Constrained Convex Optimization Problems",
+      "trigger": "Closest earlier accelerated mirror feasibility dynamics."
+    },
+    {
+      "assessment": "RELATED_NOT_COVERING",
+      "evidence": "It uses damped inertial/extrapolation dynamics rather than the coupled ELR lookahead pair.",
+      "identifier_or_url": "https://arxiv.org/abs/2103.12675",
+      "material_read": "Primary preprint/article scope and dynamical-system formulation.",
+      "method": "Lawful arXiv/public material.",
+      "title": "Fast convergence of dynamical ADMM via time scaling of damped inertial dynamics",
+      "trigger": "Closest inertial augmented-Lagrangian time-scaling predecessor."
+    }
+  ]
+}
