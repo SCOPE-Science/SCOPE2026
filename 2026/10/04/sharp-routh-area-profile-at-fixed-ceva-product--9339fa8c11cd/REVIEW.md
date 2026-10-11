@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the standard Routh area formula in the same positive-ratio convention as the inspected primary source. The logarithm of its denominator is expressed as a cyclic sum of strictly convex log-sum-exp functions. Cyclic averaging at fixed \(\log(xyz)\) gives the equal-parameter minimizer of the denominator, hence the exact upper area envelope. Equality follows from strict convexity. Connectedness of the fixed-product surface together with an explicit degenerating path proves the full attainable interval, and algebraic inversion gives the stated sharp lower bound on \(|\log(xyz)|\). The bundled deterministic checker independently tests all formulas over wide numerical ranges.
+## correctness
 
-## Originality
-PASS with a stated historical-literature risk. Bényi–Ćurgus gives Routh's formula, its generalization, and equal-parameter examples; Abboud develops symmetric Routh-Steiner area patterns and parallelogram analogues. Neither inspected full text states the optimization at fixed Ceva product, the complete interval \((0,F(s)]\), or the exact inverse logarithmic defect law. Targeted published-record searches using the claim's aliases and formulas did not locate an equivalent statement. Because nineteenth- and twentieth-century triangle-geometry literature is broad, an equivalent inequality under different notation remains possible.
+PASS
 
-## Value
-PASS. The Ceva product \(xyz\) is the natural scalar concurrency invariant, while Routh area is the classical geometric measure of the failure of the cevians to concur. Determining the complete sharp area range at fixed product therefore links two canonical quantities rather than optimizing an arbitrary slice. The result identifies the unique balancing extremizer and gives an exact inverse quantitative concurrency bound.
+The proof reconstructs completely. Writing the three positive ratios in logarithmic coordinates makes the log denominator a cyclic sum of a strictly convex log-sum-exp function. Averaging the three cyclic permutations at fixed total log-product yields the equal triple and strict Jensen gives uniqueness. Substitution into Routh's exact formula gives the stated envelope. On a fixed non-Ceva product surface the area ratio is continuous and positive, attains the envelope at the equal triple, and tends to zero along the explicit path with one ratio tending to infinity and another to zero, so the image is exactly the claimed interval. Algebraic inversion gives the defect inequality. The finite verifier is supplementary and not used for the universal claim.
 
-## Closest literature and limitations
-Closest inspected sources are arXiv:1112.4813v1 and arXiv:1403.5652v1. The classical Routh formula and Ceva specialization are prior work and are not claimed as new. The accepted contribution is restricted to the fixed-product sharp profile, its equality/range classification, and its inverse defect inequality. Independent audit has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The complete Bényi--Ćurgus primary text supplies the Routh area formula and broader six-parameter geometry, but does not optimize the denominator at fixed positive Ceva product. Abboud treats further Routh--Steiner area configurations. Resultary and targeted searches did not locate the fixed-product upper envelope, equality classification, full interval, or inverse logarithmic defect inequality. The new step is the strict cyclic log-sum-exp minimization under a fixed log-product constraint.
+
+## value
+
+PASS
+
+The theorem gives a sharp quantitative relation between two canonical cevian quantities: Routh area and multiplicative failure of Ceva concurrence. It identifies the unique balancing extremizer and the full attainable range, so it is a natural structural refinement of a classical theorem rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

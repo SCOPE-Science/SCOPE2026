@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal theorem is proved analytically in `RESULT.md`. The bundled deterministic script `verify_routh_profile.py` is supplementary. It checks the classical Routh formula against the proposed envelope on 30,000 seeded positive triples over wide logarithmic ranges, verifies the exact equal-parameter branch, checks the inverse inequality, and follows explicit fixed-product paths toward zero area.
+# Independent mathematical audit
 
-Replay command:
+## correctness
 
-`python3 verify_routh_profile.py`
+PASS
 
-Observed replay output during packaging:
+The proof reconstructs completely. Writing the three positive ratios in logarithmic coordinates makes the log denominator a cyclic sum of a strictly convex log-sum-exp function. Averaging the three cyclic permutations at fixed total log-product yields the equal triple and strict Jensen gives uniqueness. Substitution into Routh's exact formula gives the stated envelope. On a fixed non-Ceva product surface the area ratio is continuous and positive, attains the envelope at the equal triple, and tends to zero along the explicit path with one ratio tending to infinity and another to zero, so the image is exactly the claimed interval. Algebraic inversion gives the defect inequality. The finite verifier is supplementary and not used for the universal claim.
 
-`VERIFY_OK`
+## originality
 
-`cases=30265`
+PASS
 
-`worst_profile_violation=0.000e+00`
+Originality passes. The complete Bényi--Ćurgus primary text supplies the Routh area formula and broader six-parameter geometry, but does not optimize the denominator at fixed positive Ceva product. Abboud treats further Routh--Steiner area configurations. Resultary and targeted searches did not locate the fixed-product upper envelope, equality classification, full interval, or inverse logarithmic defect inequality. The new step is the strict cyclic log-sum-exp minimization under a fixed log-product constraint.
 
-`worst_equality_error=6.661e-16`
+## value
 
-`worst_inverse_violation=0.000e+00`
+PASS
 
-Finite numerical checks do not certify the universal quantifiers; those are established by the strict-convexity proof.
+The theorem gives a sharp quantitative relation between two canonical cevian quantities: Routh area and multiplicative failure of Ceva concurrence. It identifies the unique balancing extremizer and the full attainable range, so it is a natural structural refinement of a classical theorem rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
