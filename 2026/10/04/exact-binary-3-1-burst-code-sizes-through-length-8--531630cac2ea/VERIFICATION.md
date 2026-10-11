@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is finite: compute the compatibility graph on all binary source words separately for each \(3\le n\le8\), where adjacency means disjoint exact \((3,1)\)-burst balls. A correcting code is a clique.
+# Independent mathematical audit
 
-`verify.py` generates each ball in two independent ways and asserts equality for every source. It then verifies that every ball has \(n-1\) distinct outputs, checks the explicit code in `codes.json`, and computes the graph clique number by exhaustive branch-and-bound. The only pruning rule uses a greedy proper coloring of the current candidate subgraph; if that coloring uses \(k\) colors, no clique in the candidate set can contain more than \(k\) vertices.
+## correctness
 
-The replay gives clique numbers \((1,1,2,2,4,8)\) for lengths \(3\) through \(8\). The corresponding regular sphere-packing floors are \((1,1,2,3,5,9)\). `verification_output.txt` records the exact replay and terminates with `VERIFY_OK profile=1,1,2,2,4,8`.
+PASS
 
-The computation establishes no statement for \(n>8\). The literature comparison and same-model review are not independent validation.
+The exact (3,1)-burst ball definition was reconstructed independently. For every binary word of lengths 3 through 8 the two deletion/insertion descriptions agree and each ball has n−1 distinct outputs. An independent compatibility-graph maximum-clique computation gives exactly 1,1,2,2,4,8, matching the listed witnesses.
+
+## originality
+
+PASS
+
+The primary channel paper provides the constant-ball bound and general/asymptotic constructions, but its exact finite statements do not determine the six short-block maxima. The later asymptotic paper likewise does not imply the values at n≤8. Exact and alias searches found no inspected source containing this profile.
+
+## value
+
+PASS
+
+Maximum correcting-code size is the natural finite invariant of the channel, and the result identifies the first exact short-block frontier and exactly where the regular sphere-packing bound first fails. This is a motivated boundary classification rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

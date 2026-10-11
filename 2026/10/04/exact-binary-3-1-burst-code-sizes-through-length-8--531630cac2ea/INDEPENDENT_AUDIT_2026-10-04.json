@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:05:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact (3,1)-burst ball definition was reconstructed independently. For every binary word of lengths 3 through 8 the two deletion/insertion descriptions agree and each ball has n−1 distinct outputs. An independent compatibility-graph maximum-clique computation gives exactly 1,1,2,2,4,8, matching the listed witnesses.",
+      "risk": "This proves only lengths 3 through 8.",
+      "sources": [
+        "frozen RESULT.md, codes.json and verify.py",
+        "independent finite replay from the channel definition"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper gives a (3,1) construction with redundancy within an additive constant, not exact short-block maxima.",
+          "The follow-up is asymptotic for fixed channel parameters."
+        ],
+        "reasoning": "General rate and redundancy results leave finite gaps and do not dominate the exact profile.",
+        "searches": [
+          "arXiv:2201.10259v2 Section VI and general sphere-packing bound",
+          "arXiv:2403.11750"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.10259v2",
+        "arXiv:2403.11750",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published sphere-packing floors at n=6,7,8 are 3,5,9, while the exact values are 2,4,8.",
+          "The published constructions do not supply matching finite upper bounds."
+        ],
+        "reasoning": "The audited exhaustive upper bounds close finite gaps not implied by the cited general theory.",
+        "searches": [
+          "arXiv:2201.10259v2",
+          "arXiv:2403.11750"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching Resultary exact-profile record was returned.",
+          "Lu–Zhang uses the same disjoint error-ball formulation."
+        ],
+        "reasoning": "The compatibility graph is exactly the published disjoint-ball problem, so searches covered equivalent formulations.",
+        "searches": [
+          "Resultary: binary exact 3 deletion 1 insertion burst correcting code finite exact sizes length 3 4 5 6 7 8",
+          "Web: binary (3,1)-burst exact code size length 8",
+          "arXiv:2201.10259v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact table containing 1,1,2,2,4,8 was found."
+        ],
+        "reasoning": "Negative search is supporting evidence only; novelty rests on comparison with the same-object primary results.",
+        "searches": [
+          "Resultary exact finite burst-code query",
+          "Web literal profile searches"
+        ]
+      },
+      "rationale": "The primary channel paper provides the constant-ball bound and general/asymptotic constructions, but its exact finite statements do not determine the six short-block maxima. The later asymptotic paper likewise does not imply the values at n≤8. Exact and alias searches found no inspected source containing this profile.",
+      "residual_risks": [
+        "An unindexed thesis or unpublished finite table could contain the same values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_EXACT_PROFILE",
+          "evidence": "The paper gives general bounds and construction results rather than the exact short-block table.",
+          "identifier_or_url": "arXiv:2201.10259v2",
+          "material_read": "Full open PDF including definitions, constant-ball/sphere-packing material and the dedicated (3,1) construction section.",
+          "method": "lawful arXiv full text",
+          "title": "t-Deletion-s-Insertion-Burst Correcting Codes",
+          "trigger": "Defines the exact same burst channel and singles out (3,1)."
+        },
+        {
+          "assessment": "NOT_COVERING_FINITE_MAXIMA",
+          "evidence": "Asymptotic redundancy does not determine the six finite maxima.",
+          "identifier_or_url": "arXiv:2403.11750",
+          "material_read": "Open abstract and theorem-level description of fixed-parameter asymptotic redundancy.",
+          "method": "lawful open source",
+          "title": "Asymptotically Optimal Codes for (t,s)-Burst Error",
+          "trigger": "Later broader work on the same channel family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximum correcting-code size is the natural finite invariant of the channel, and the result identifies the first exact short-block frontier and exactly where the regular sphere-packing bound first fails. This is a motivated boundary classification rather than an arbitrary parameter slice.",
+      "risk": "The result is finite and does not imply an asymptotic formula.",
+      "sources": [
+        "arXiv:2201.10259v2"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the binary exact (3,1)-burst channel, the maximum code sizes at lengths 3 through 8 are 1,1,2,2,4,8; the regular sphere-packing bound is already non-tight at lengths 6,7,8.",
+  "limitations": [
+    "Finite exact theorem only for the binary channel and lengths 3 through 8."
+  ],
+  "schema_version": 1
+}

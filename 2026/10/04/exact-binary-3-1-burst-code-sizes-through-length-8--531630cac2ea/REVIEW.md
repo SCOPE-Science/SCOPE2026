@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and fully quantified for the binary exact \((3,1)\)-burst channel at \(3\le n\le8\). The channel implementation was reconstructed directly from the published definition. Two independent ball generators agree on every source word, every computed ball has the source-predicted size \(n-1\), each lower-bound code is checked directly, and the upper bounds come from exhaustive maximum-clique search with a sound proper-coloring bound. The standalone replay terminates with the claimed profile.
+## correctness
 
-## Originality
-PASS within the inspected literature and database scope. The closest primary paper defines the same channel, proves constant ball size and a sphere-packing bound, and gives an asymptotically near-optimal \((3,1)\) construction, but the inspected text does not give this finite profile. The later broader paper gives \(\log n+O(1)\) redundancy for fixed parameters, which does not imply the exact finite values. Searches covered aliases, the disjoint-ball formulation, exact values, the length-\(8\) endpoint, finite tables, and stronger asymptotic coverage. Residual risk remains for unindexed or unpublished finite computations.
+PASS
 
-## Value
-PASS. Maximum correcting-code cardinality is the central finite invariant of this channel. The profile resolves all blocklengths through \(8\) and identifies the first failure, within this range, of the natural constant-ball sphere-packing bound at length \(6\). Because the foundational paper specifically singles out \((3,1)\) as a nontrivial construction problem, this short-block exact boundary is mathematically motivated rather than an arbitrary parameter slice.
+The exact (3,1)-burst ball definition was reconstructed independently. For every binary word of lengths 3 through 8 the two deletion/insertion descriptions agree and each ball has n−1 distinct outputs. An independent compatibility-graph maximum-clique computation gives exactly 1,1,2,2,4,8, matching the listed witnesses.
 
-## Closest literature and limitations
-The main comparison is Lu--Zhang, arXiv:2201.10259v1, together with Sun--Lu--Zhang--Ge, arXiv:2403.11750v1. The result is finite and computationally exhaustive only through length \(8\); no asymptotic or longer-length claim is made, and the literature search does not prove historical uniqueness.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary channel paper provides the constant-ball bound and general/asymptotic constructions, but its exact finite statements do not determine the six short-block maxima. The later asymptotic paper likewise does not imply the values at n≤8. Exact and alias searches found no inspected source containing this profile.
+
+## value
+
+PASS
+
+Maximum correcting-code size is the natural finite invariant of the channel, and the result identifies the first exact short-block frontier and exactly where the regular sphere-packing bound first fails. This is a motivated boundary classification rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
