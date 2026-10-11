@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal estimate is verified analytically. For a great-circle restriction
-\[
-p(t)=A\cos3t+B\sin3t+C\cos t+D\sin t,
-\]
-one has \(p''+p=-8(A\cos3t+B\sin3t)\). After a phase shift, the third-frequency amplitude \(R\) obeys the exact six-point identity
-\[
-R=\frac16\sum_{k=0}^5(-1)^k p(k\pi/3),
-\]
-so \(R\le\|p\|_\infty\). This proves the continuum operator bound without discretization.
+# Independent mathematical audit
 
-For \(q_+\), the norm calculation reduces to maximizing \((1-b^2)b\) on \([0,1]\), whose unique positive interior maximizer is \(b=1/\sqrt3\). The displayed orthonormal pair in `RESULT.md` gives an exact great-circle restriction \(-2\cos(3t)/(3\sqrt3)\), attaining the operator bound and fixing \(M_+\) exactly.
+## correctness
 
-`verify.py` replays the rational coefficient identities after squaring the radicals and checks the endpoint invariant arithmetic. It does not replace the analytic maximization or the support-function argument.
+PASS
 
-Limits: no sharp claim is made for spherical harmonics of degrees other than three or for arbitrary combinations of the two source cubics.
+On a great circle, a harmonic cubic is A cos(3t)+B sin(3t)+C cos(t)+D sin(t), and <Q_q(u)v,v>=p''(0)+p(0)=-8A. The third-frequency amplitude is an exact six-point alternating average and is at most ||q||_infinity, giving the sharp universal factor 8; Re(u1+i u2)^3 attains it. For q_plus, |q_plus|<=a^2 b=(1-b^2)b<=2/(3sqrt(3)), and the displayed orthonormal great circle is exactly a pure third harmonic of that amplitude, so M_plus=16/(3sqrt(3)). Oddness gives both spectral signs, yielding the exact semidefinite and positive-definite epsilon thresholds. Endpoint invariant arithmetic matches the source normalization.
+
+## originality
+
+PASS
+
+Originality passes. Zwierzyński defines q_plus and the support-curvature operator and proves convexity only for sufficiently small perturbations, leaving its operator maximum symbolic. The related SCOPE result solves a different cubic on S2. No checked source gives the universal degree-three bound or the exact q_plus radius.
+
+## value
+
+PASS
+
+The result evaluates a geometric admissibility radius left symbolic in the motivating source and simultaneously supplies a reusable sharp dimension-free operator inequality for every cubic spherical harmonic. It turns a local existence statement into a complete one-parameter convexity classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

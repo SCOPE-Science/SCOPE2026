@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each unit tangent direction, restriction to its great circle is an exact trigonometric polynomial with frequencies one and three. The operator quadratic form is the value of \(p''+p\), which annihilates the first frequency and multiplies the third by \(-8\). A six-point alternating identity bounds the third-frequency amplitude by the global sup norm, proving the universal inequality. The exact \(q_+\) sup norm and equality great circle are derived directly, so \(M_+=16/(3\sqrt3)\). The support-function threshold follows from \(Q_h=r\,\mathrm{Id}+\varepsilon Q_q\), antipodal sign symmetry, and closure of support functions under uniform limits. The endpoint invariants use the lead source's stated normalizations and exact rational substitution.
+## correctness
 
-Risk: the support-function closure step uses standard convex-geometry theory. It is not a numerical inference, and beyond-threshold failure is witnessed by an actual negative curvature direction.
+PASS
 
-## Originality
-PASS. The lead paper explicitly defines \(M_\pm\) but leaves them unevaluated and asserts only sufficiently small perturbations. Targeted searches for the exact source object, \(M_+\), the constant \(16/(3\sqrt3)\), the operator \(\nabla^2q+q\,\mathrm{Id}\), great-circle Fourier aliases, and broader Bernstein-type implications did not locate this sharp statement. The closest retrieved spherical-harmonic records concern \(L^4/L^2\) norms or unrelated Hessian spectra and do not imply the claim. A previous exact cubic support-function threshold for a different three-dimensional harmonic is not an implication of the dimension-free theorem or the \(q_+\) computation.
+On a great circle, a harmonic cubic is A cos(3t)+B sin(3t)+C cos(t)+D sin(t), and <Q_q(u)v,v>=p''(0)+p(0)=-8A. The third-frequency amplitude is an exact six-point alternating average and is at most ||q||_infinity, giving the sharp universal factor 8; Re(u1+i u2)^3 attains it. For q_plus, |q_plus|<=a^2 b=(1-b^2)b<=2/(3sqrt(3)), and the displayed orthonormal great circle is exactly a pure third harmonic of that amplitude, so M_plus=16/(3sqrt(3)). Oddness gives both spectral signs, yielding the exact semidefinite and positive-definite epsilon thresholds. Endpoint invariant arithmetic matches the source normalization.
 
-Residual risk: the six-point coefficient estimate is elementary Fourier analysis, so an unindexed approximation-theory source could contain an equivalent lemma. No inspected source was found to combine it with the support-curvature operator or to evaluate this Wigner deformation's exact convexity radius.
+## originality
 
-## Value
-PASS. The result is not only a parameter evaluation: it gives a sharp, dimension-free structural curvature bound for the entire space of degree-three spherical harmonics. It then closes a concrete quantity deliberately left symbolic in a recent constant-width construction, replacing a local small-perturbation existence statement by the full sharp convexity interval. This provides an exact admissible endpoint and exact quadratic/quartic coordinates for a canonical positive-Wigner direction, useful in studying the source's feasible region.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Originality passes. Zwierzyński defines q_plus and the support-curvature operator and proves convexity only for sufficiently small perturbations, leaving its operator maximum symbolic. The related SCOPE result solves a different cubic on S2. No checked source gives the universal degree-three bound or the exact q_plus radius.
+
+## value
+
+PASS
+
+The result evaluates a geometric admissibility radius left symbolic in the motivating source and simultaneously supplies a reusable sharp dimension-free operator inequality for every cubic spherical harmonic. It turns a local existence statement into a complete one-parameter convexity classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
