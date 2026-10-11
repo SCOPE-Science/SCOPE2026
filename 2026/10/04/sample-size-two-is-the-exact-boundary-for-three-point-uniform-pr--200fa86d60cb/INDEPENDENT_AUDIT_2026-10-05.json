@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:53:05.196547Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 3e01b5d596c9884c61136d40db8730613ff60fb8",
+        "verify.py blob 78c75e2757f46b9519eded30fefa94a076d25388",
+        "Papadatos n=2 prior"
+      ],
+      "rationale": "The exact event partition gives the displayed means, variance and covariance. Differentiating at s=1/3 reduces the sign to -D_k with k=n-1. D_2=6 and D_3=248/9; for k>=4 the leading difference E_k=4(8/3)^k-9*2^k exceeds 27 at k=4 and satisfies E_{k+1}>2E_k, while every remaining term in D_k is positive. Hence rho_n'(1/3)<0 for every n>=3. Exact-rational finite enumeration checks the moment identities but is not the infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Papadatos supplies the n=2 theorem/direction but not larger-n failure.",
+          "Fixed-parent numerical optimization does not dominate probability-vector extremality."
+        ],
+        "reasoning": "No stronger inspected theorem implies the all-n derivative sign.",
+        "searches": [
+          "Papadatos, A discrete analogue of Terrell's characterization of rectangular distributions, arXiv:2205.14360",
+          "López-Blázquez--Salamanca-Miño, Automatic differentiation and maximal correlation of order statistics from discrete parents, DOI:10.1007/s00180-021-01103-5",
+          "Resultary finding 2026/09/20: Sharp min-max correlation over three-point probability weights",
+          "Resultary query: three point order statistics min max correlation n=3 uniform probability counterexample"
+        ]
+      },
+      "checked_sources": [
+        "Papadatos, A discrete analogue of Terrell's characterization of rectangular distributions, arXiv:2205.14360",
+        "López-Blázquez--Salamanca-Miño, Automatic differentiation and maximal correlation of order statistics from discrete parents, DOI:10.1007/s00180-021-01103-5",
+        "Resultary finding 2026/09/20: Sharp min-max correlation over three-point probability weights",
+        "Resultary query: three point order statistics min max correlation n=3 uniform probability counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The derivative numerator is a closed D_k positive for all k>=2.",
+          "An n=2 optimum cannot imply reverse local behavior for all larger samples."
+        ],
+        "reasoning": "The all-sample-size boundary is additional.",
+        "searches": [
+          "Papadatos n=2 result",
+          "exact derivative calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The n=2 and n>=3 statements vary the same parent probability vector but have opposite conclusions.",
+          "Maximal correlation over transformations of a fixed discrete parent is a different optimization problem."
+        ],
+        "reasoning": "Sample-size and optimization-variable distinctions were checked.",
+        "searches": [
+          "Papadatos, A discrete analogue of Terrell's characterization of rectangular distributions, arXiv:2205.14360",
+          "López-Blázquez--Salamanca-Miño, Automatic differentiation and maximal correlation of order statistics from discrete parents, DOI:10.1007/s00180-021-01103-5",
+          "Resultary finding 2026/09/20: Sharp min-max correlation over three-point probability weights",
+          "Resultary query: three point order statistics min max correlation n=3 uniform probability counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact n=2 maximum and unique uniform optimizer are prior.",
+          "No checked table gave the all-n D_k obstruction."
+        ],
+        "reasoning": "The novelty is the n>=3 boundary, not the baseline.",
+        "searches": [
+          "Resultary finding 2026/09/20: Sharp min-max correlation over three-point probability weights",
+          "Resultary query: three point order statistics min max correlation n=3 uniform probability counterexample"
+        ]
+      },
+      "rationale": "Originality passes. Papadatos and the prior Resultary finding establish the sample-size-two uniform extremality baseline. The audited derivative formula proves the opposite local behavior simultaneously for every n at least three; targeted Resultary search found no prior all-n obstruction.",
+      "residual_risks": [
+        "Poorly indexed discrete-order-statistic literature could contain the same elementary derivative obstruction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAMPLE_SIZE_TWO_PRIOR_NOT_LARGER_N_OBSTRUCTION",
+          "evidence": "The relevant uniform-extremality result concerns two observations; the audited theorem starts at three.",
+          "identifier_or_url": "arXiv:2205.14360",
+          "material_read": "Primary result/concluding probability-vector direction as accessible and cited by the package.",
+          "method": "lawful open primary-source comparison",
+          "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+          "trigger": "Primary motivating extremality source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Papadatos, A discrete analogue of Terrell's characterization of rectangular distributions, arXiv:2205.14360",
+        "López-Blázquez--Salamanca-Miño, Automatic differentiation and maximal correlation of order statistics from discrete parents, DOI:10.1007/s00180-021-01103-5",
+        "Resultary finding 2026/09/20: Sharp min-max correlation over three-point probability weights",
+        "Resultary query: three point order statistics min max correlation n=3 uniform probability counterexample"
+      ],
+      "rationale": "This gives the exact first sample-size boundary for a published probability-vector extremality direction on the smallest nontrivial lattice: uniform is uniquely optimal for two observations but already has a strict escape direction for every larger sample size.",
+      "residual_risks": [
+        "The global maximizer for n>=3 is not identified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Poorly indexed discrete-order-statistic literature could contain the same elementary derivative obstruction.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
