@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and exact. The key checks are:
+# Independent mathematical audit
 
-1. For the displayed traceless singular matrix \(V\), Cayley--Hamilton gives \(V^2=0\).
-2. Direct noncommutative expansion gives \(X^4+Y^4-2Z^4=2(UV+VU)^2\).
-3. Entrywise multiplication gives \(UV+VU=\operatorname{tr}(U)V+\operatorname{tr}(UV)I_2\).
-4. With \(V^2=0\), the trace of \((UV+VU)^2\) is \(2\operatorname{tr}(UV)^2\), so vanishing is equivalent to \(\operatorname{tr}(UV)=0\) in characteristic zero.
-5. The explicit integer pair \(V=\begin{pmatrix}2&1\\-4&-2\end{pmatrix}\), \(U=\begin{pmatrix}1&0\\-2&0\end{pmatrix}\) satisfies the source theorem's hypotheses but has unequal diagonal entries and still satisfies the quartic equation.
+## correctness
 
-`verify.py` performs exact integer matrix arithmetic, directly checks the counterexample, and exhaustively compares the quartic equation with the trace criterion for 26,244 bounded pairs. Its expected final status line is:
+PASS
 
-`VERIFY_OK explicit_counterexample=1 exhaustive_pairs=26244 criterion=trace(UV)==0`
+Cayley–Hamilton gives V²=0. In the noncommutative expansion the even-V terms reduce exactly to 2(UV+VU)². Direct 2×2 coordinates give UV+VU=tr(U)V+tr(UV)I. Writing τ=tr(U), α=tr(UV), its square is α²I+2ατV; the trace is 2α², so characteristic zero forces α=0, and α=0 is sufficient. Fresh symbolic reconstruction verified the matrix identity and the quartic residual modulo det(V)=0, and the displayed example has det(V)=0, tr(UV)=0, zero quartic residual, and x≠w.
 
-The finite replay is not used as proof of the universal statement. It is an independent arithmetic stress test of the symbolic identities and the packaged witness.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the corrected trace criterion. The assigned source transcription identifies a narrower necessity claim in the recent Moharana–Jena theorem, while the independent algebra gives a valid point outside that family and an exact hyperplane criterion. Resultary returned the assigned correction as the only direct match. The complete Moharana–Jena body was inaccessible through both open routes and the single authorized fallback, so the exact wording of the source proof remains an access risk rather than a fabricated whole-document noncoverage claim.
+
+## value
+
+PASS
+
+The result is an exact correction to an if-and-only-if classification in a recent Diophantine matrix construction, not a numerical exception. The single trace equation describes the full admissible hyperplane and the explicit counterexample changes the asserted necessity, making the correction mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

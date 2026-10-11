@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the quartic equation exactly to \((UV+VU)^2=0\), derives \(UV+VU=\operatorname{tr}(U)V+\operatorname{tr}(UV)I_2\), and uses \(V^2=0\) to prove equivalence with \(\operatorname{tr}(UV)=0\). The explicit counterexample is checked by exact fourth powers, and `verify.py` corroborates the criterion on 26,244 exact instances.
+## correctness
 
-## Originality
-PASS. The motivating source's Theorem 2.1 claims the narrower necessity \(x=w\), \(y=-nv\), \(z=nt\); the corrected trace hyperplane contains valid points outside that family. published-finding corpus and public-literature searches over the source title, \((UV+VU)^2=0\), \(\operatorname{tr}(UV)=0\), coordinate aliases, and counterexample wording found no prior correction or stronger covering theorem. The cubic predecessor and other structured-matrix results address different equations or matrix classes.
+PASS
 
-## Value
-PASS. Correcting an if-and-only-if classification by an exact one-linear-equation criterion is structurally useful: it both identifies the error mechanism in the necessity proof and describes all \(U\) in the source's nilpotent \(2\times2\) setup. This is substantially more informative than a bare counterexample.
+Cayley–Hamilton gives V²=0. In the noncommutative expansion the even-V terms reduce exactly to 2(UV+VU)². Direct 2×2 coordinates give UV+VU=tr(U)V+tr(UV)I. Writing τ=tr(U), α=tr(UV), its square is α²I+2ατV; the trace is 2α², so characteristic zero forces α=0, and α=0 is sufficient. Fresh symbolic reconstruction verified the matrix identity and the quartic residual modulo det(V)=0, and the displayed example has det(V)=0, tr(UV)=0, zero quartic residual, and x≠w.
 
-## Closest literature and limitations
-The closest source is Moharana--Jena, arXiv:2609.32374, because the finding directly repairs its Theorem 2.1. The result does not classify arbitrary quartic matrix triples or higher-dimensional constructions. A very recent unindexed independent observation remains a bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for the corrected trace criterion. The assigned source transcription identifies a narrower necessity claim in the recent Moharana–Jena theorem, while the independent algebra gives a valid point outside that family and an exact hyperplane criterion. Resultary returned the assigned correction as the only direct match. The complete Moharana–Jena body was inaccessible through both open routes and the single authorized fallback, so the exact wording of the source proof remains an access risk rather than a fabricated whole-document noncoverage claim.
+
+## value
+
+PASS
+
+The result is an exact correction to an if-and-only-if classification in a recent Diophantine matrix construction, not a numerical exception. The single trace equation describes the full admissible hyperplane and the explicit counterexample changes the asserted necessity, making the correction mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
