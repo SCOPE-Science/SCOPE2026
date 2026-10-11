@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is a direct construction from the slice formulation of \(\mathcal T^{cc}\). Each coordinate slice forces all other coordinates into a tail of norm at most \(\eta_\delta\). Equal averaging across \(m\) disjoint active coordinates gives \(\|a\|_p^p\le m^{1-p}\), and the separate center coordinate gives \(\|x_0-a\|_p^p=1+\|a\|_p^p\). The remainder estimate is uniform, and the limits \(\delta\downarrow0\) and, for an infinite index set, \(m\to\infty\), are valid for \(p>1\). No norm attainment is assumed.
+## correctness
 
-## Originality
-PASS. The closest inspected source, arXiv:2005.02045, defines the invariant and proves the exact two-summand \(\ell_p\) value \(2^{1/p}\) under Daugavet hypotheses, together with direct-sum estimates and finite-sum remarks. The inspected statements do not contain the cardinality-sensitive bound \((1+(n-1)^{1-p})^{1/p}\) for \(\mathcal T^{cc}\) or the infinite-family upper bound one. arXiv:1702.03140 treats diameter and roughness properties rather than the required sphere-centered containment radius. The 2014 Oja paper on sums of slices was identified but only metadata could be inspected, so it remains a residual literature risk.
+PASS
 
-## Value
-PASS. The result gives a simple structural mechanism showing that the convex-combination thickness index can be forced below the classical two-coordinate scale merely by having more summand coordinates available. The infinite-family conclusion is cardinality-driven and independent of the geometry of the individual nonzero factors. This clarifies the behavior of a natural quantitative invariant rather than computing an arbitrary special case.
+Choose a unit center on one unused coordinate and average \(m\) slices supported on distinct other coordinates. Slice membership forces each selected vector's off-coordinate tail to have norm at most \(\eta_\delta=(1-(1-\delta)^p)^{1/p}\). The average of the disjoint main coordinates has \(p\)-norm at most \(m^{1/p-1}\), and disjointness from the center gives distance at most \((1+m^{1-p})^{1/p}+\eta_\delta\). Letting \(\delta\downarrow0\) proves the finite bound; choosing arbitrarily large finite \(m\) inside an infinite index set gives the limit one. No norm attainment is assumed, since every norm-one functional has points arbitrarily close to its supremum.
 
-## Closest literature and limitations
-The closest primary comparison is Haller–Langemets–Lima–Nadel–Rueda Zoca, arXiv:2005.02045. The theorem here is an upper bound only; it does not claim optimality or equality for \(n\ge3\), and it does not cover \(p=1\) or \(p=\infty\). The inaccessible full text of the older Oja slice-sum paper is recorded as a residual originality risk rather than treated as evidence of noncoverage.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes. Haller et al. provide the two-summand \(2^{1/p}\) upper scale, while Oja's complete three-page paper proves only that the arithmetic mean of two coordinate slices has diameter below two for a uniformly convex two-dimensional absolute norm. Neither gives the finite \((n-1)^{1-p}\) radius bound or the infinite-index limit \(1\). No stronger published SCOPE hit was found.
+
+## value
+
+PASS
+
+The result reveals a genuine cardinality effect for a standard thickness invariant: averaging more coordinate slices improves the two-summand scale and in infinite sums forces a universal bound of one, without any Daugavet hypothesis on the factors. This is a natural structural bound rather than an arbitrary estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
