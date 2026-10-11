@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:41:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ea27349b974eaddca3278ffaaf8934c8b8229319",
+        "Li--Xia, On the Topological Transitivity of Interval Extensions of Anosov Diffeomorphisms, arXiv:2609.24437v1",
+        "de la Llave--Marco--Moriyón regularity form of Livšic used by Li--Xia"
+      ],
+      "rationale": "Full inspection of Li--Xia's proof isolates analyticity at exactly the places used by the package: Lemma 2.9 needs a finite Taylor leading term for bounded distortion, and Theorem A chooses minimal-order sink/source germs so that lower periodic jets vanish and Livšic normalization can remove them. Smooth finite-order anchors supply the same Taylor expansions. Periodic germs flat to all orders contribute zero to every finite jet and therefore do not obstruct the normalization. The density-of-Birkhoff-sums step then constructs the required finite-order comparison anchors, and positive iterates preserve finite order and weak boundary interconnection. No numerical extrapolation is used.",
+      "residual_risks": [
+        "The proof is a close regularity audit of a very recent argument; a hidden analytic dependence outside the inspected Taylor/Livšic steps would be the main correctness risk, but the complete source proof was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The robust result uses stronger boundary interconnection/hyperbolicity.",
+          "The weak-interconnection source only proves the analytic version."
+        ],
+        "reasoning": "Neither checked theorem dominates the smooth weak-interconnection class with flat non-anchor germs.",
+        "searches": [
+          "Li--Xia 2026 full primary proof",
+          "Li--Shi--Xia, Robust transitivity of partially hyperbolic diffeomorphisms with interval central leaves, arXiv:2509.21954"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.24437v1",
+        "arXiv:2509.21954",
+        "de la Llave--Marco--Moriyón 1986 Livšic regularity",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.9's analytic step reduces to existence of a first nonidentity Taylor term.",
+          "Claims 3.4--3.5 manipulate only finitely many jets and periodic sums once minimal order is fixed."
+        ],
+        "reasoning": "Replacing global analyticity by the precise finite-jet hypotheses at the load-bearing anchors removes a genuine source assumption and is not an immediate parameter substitution.",
+        "searches": [
+          "arXiv:2609.24437v1 proof dependency audit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source theorem assumes analyticity.",
+          "Remark 1.4 says analytic regularity is used only in the central direction, while the proof defines finite order through the analytic finite-Taylor alternative."
+        ],
+        "reasoning": "Smooth finite-order anchors are not just a rephrasing of analytic central regularity because other periodic germs may be genuinely infinitely flat.",
+        "searches": [
+          "Resultary query: smooth weak boundary interconnection finite order germs Li Xia total transitivity interval extensions Anosov",
+          "arXiv:2609.24437v1 Theorem A, Remark 1.4, Lemma 2.9, Claims 3.4--3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the assigned exact finding was returned among directly relevant records."
+        ],
+        "reasoning": "No exact classification/table is expected here; search targeted theorem-level equivalents.",
+        "searches": [
+          "Resultary exact finite-order-anchor smooth-transitivity search"
+        ]
+      },
+      "rationale": "Li--Xia assume analytic central dynamics and explicitly say analyticity is used in the center to handle arbitrary finite-order parabolic degeneracy. Their complete proof shows where it enters but does not state the smooth finite-anchor weakening, and analyticity itself excludes nonidentity infinitely-flat germs. The audited theorem permits exactly those flat germs away from two anchors, a strictly larger smooth class not covered by the source theorem or the stronger robust-interconnection result.",
+      "residual_risks": [
+        "Because this is a very recent proof-level weakening, a later revision of the source may absorb the observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_SOURCE_DOES_NOT_COVER_SMOOTH_FLAT-GERM_EXTENSION",
+          "evidence": "The source repeatedly invokes analyticity to ensure a finite nonidentity Taylor order; it does not permit nonidentity infinitely-flat periodic germs.",
+          "identifier_or_url": "arXiv:2609.24437v1",
+          "material_read": "Complete 22-page primary paper, including Theorem A, Remark 1.4, one-dimensional reparameterization/distortion Lemmas 2.8--2.10, Proposition 2.11, Claims 3.3--3.7, and the final total-transitivity proof.",
+          "method": "Authorized full-primary-PDF inspection after ordinary open-access retrieval did not provide a usable complete text.",
+          "title": "On the Topological Transitivity of Interval Extensions of Anosov Diffeomorphisms",
+          "trigger": "Exact source theorem whose analyticity assumption is weakened."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li--Xia arXiv:2609.24437v1",
+        "Li--Shi--Xia arXiv:2509.21954"
+      ],
+      "rationale": "The result identifies the exact local role of a strong global regularity assumption in a new transitivity mechanism and enlarges the theorem to smooth systems with arbitrarily flat non-anchor periodic fibers. Removing analyticity while preserving weak boundary interconnection is a natural and substantive robustness-of-hypotheses question.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a smooth boundary-preserving partially hyperbolic interval extension with weak boundary interconnection, Li--Xia total transitivity still holds if one boundary supplies a finite-order sink-type periodic return germ and a finite-order source-type periodic return germ; all other periodic return germs may be infinitely flat.",
+  "limitations": [
+    "The theorem still assumes the Li--Xia partially hyperbolic skew-product and weak boundary-interconnection framework.",
+    "At least one finite-order sink and one finite-order source anchor on the relevant boundary are required.",
+    "No mixing statement or sharp finite differentiability threshold is claimed."
+  ],
+  "schema_version": 1
+}
