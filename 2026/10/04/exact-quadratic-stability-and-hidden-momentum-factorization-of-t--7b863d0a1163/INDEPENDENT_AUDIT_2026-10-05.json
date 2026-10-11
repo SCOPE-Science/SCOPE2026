@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:06:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 2018 paper's actual recurrence uses one momentum state and an exponentially averaged gradient-difference state. Restricting an SPD quadratic to one eigenmode yields a four-state linear recurrence. A fresh independent symbolic determinant gives exactly the submitted factorization into a zero root, the passive \\(\\beta\\) root, and a quadratic with product \\(q_\\lambda\\). The second-order Jury conditions reduce to \\(q_\\lambda<1\\) and \\(0<\\eta\\lambda<2(1+q_\\lambda)\\). Over a spectral interval the endpoint \\(L\\) is decisive. The quadratic's smallest possible spectral radius is \\(\\sqrt{q_\\lambda}\\), attained throughout the complex-root interval; since \\(q_\\lambda\\) increases with derivative gain, the stability/rate tradeoff follows.",
+      "risk": "This is deterministic constant-parameter quadratic stability; it is not a stochastic convergence theorem for deep networks.",
+      "sources": [
+        "An et al., CVPR 2018, DOI:10.1109/CVPR.2018.00889, especially equation (10)",
+        "Shi et al., ICME 2020, DOI:10.1109/ICME46284.2020.9102970",
+        "fresh symbolic characteristic-polynomial reconstruction in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 paper is broader experimentally but lacks an exact linear-stability theorem.",
+          "The 2020 work modifies the optimizer to reduce derivative noise rather than proving the submitted source-form spectral boundary.",
+          "Generic heavy-ball results omit the extra derivative-memory state and its \\(\\lambda\\)-dependent effective momentum."
+        ],
+        "reasoning": "No inspected broader theorem directly specializes to the full factorization and exact gain tradeoff.",
+        "searches": [
+          "An et al. 2018 complete primary paper",
+          "Shi et al. 2020 PID rethinking abstract",
+          "generic momentum stability literature located by Resultary"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/CVPR.2018.00889",
+        "DOI:10.1109/ICME46284.2020.9102970",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining paper provides the update equations and qualitative gain intuition.",
+          "The submitted theorem requires forming the autonomous quadratic-mode state matrix, factoring its characteristic polynomial and applying Jury stability."
+        ],
+        "reasoning": "Those algebraic steps and the exact best-rate tradeoff are not logical consequences of the source's empirical acceleration claims.",
+        "searches": [
+          "DOI:10.1109/CVPR.2018.00889 full primary text",
+          "DOI:10.1109/ICME46284.2020.9102970 primary abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The leading Resultary hits concerned Polyak, heavy-ball, extragradient and other optimizers, not this PID recurrence.",
+          "The source equation (10) is the exact recurrence audited; its local quadratic factorization is not stated in the inspected paper."
+        ],
+        "reasoning": "PID-control, hidden-momentum, heavy-ball, Schur/Jury and SPD-quadratic formulations were compared.",
+        "searches": [
+          "Resultary query: Exact quadratic stability and hidden-momentum factorization of the 2018 PID optimizer",
+          "Resultary query: PID optimizer exact quadratic stability factorization hidden momentum derivative gain",
+          "web search for PID optimizer quadratic Schur stability and the 2018 recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact modal-stability table or theorem for this recurrence was located."
+        ],
+        "reasoning": "The result is an analytic all-eigenmode theorem rather than a finite table.",
+        "searches": [
+          "Resultary exact-title and formula searches for the PID optimizer"
+        ]
+      },
+      "rationale": "The complete 2018 primary paper was read after open full-text retrieval failed: it introduces the exact recurrence, discusses overshoot, Laplace heuristics and experiments, but gives no SPD-quadratic Schur boundary or exact modal rate. The 2020 follow-up/rethinking paper is centered on suppressing derivative-term noise and stabilizing training; its accessible primary abstract likewise does not state this exact factorization or stability theorem. Targeted Resultary searches found related optimization stability records but no same-algorithm quadratic classification.",
+      "residual_risks": [
+        "An equivalent factorization may exist in generic discrete PID-control or optimization-control literature under state-space terminology not recovered by the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_RECURRENCE_NOT_EXACT_STABILITY_THEOREM",
+          "evidence": "Equation (10) matches the audited recurrence; the paper provides heuristic damping/overshoot discussion and experiments, not the submitted Schur factorization or boundary.",
+          "identifier_or_url": "DOI:10.1109/CVPR.2018.00889",
+          "material_read": "Complete ten-page primary paper through authorized institutional access after the lawful open PDF returned an access error; equations (9)-(14), algorithmic discussion and experiments were read.",
+          "method": "Authorized institutional full-text inspection after open-access failure.",
+          "title": "A PID Controller Approach for Stochastic Optimization of Deep Networks",
+          "trigger": "Defining source for the exact recurrence."
+        },
+        {
+          "assessment": "RELATED_MODIFIED_METHOD_NOT_COVERING",
+          "evidence": "The accessible source focuses on a modified optimizer and empirical stabilization, not the exact source-form SPD quadratic spectrum.",
+          "identifier_or_url": "DOI:10.1109/ICME46284.2020.9102970",
+          "material_read": "Primary IEEE resource abstract and bibliographic record describing the derivative-noise problem and modified complete PID optimizer.",
+          "method": "Lawful primary-source abstract inspection.",
+          "title": "Rethinking the PID Optimizer for Stochastic Optimization of Deep Networks",
+          "trigger": "Closest later same-optimizer-family paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The derivative state is the defining departure from momentum in the source optimizer. The exact factorization separates passive memory from the active quadratic mode and quantifies a non-obvious design tradeoff: larger derivative gain widens stable steps while raising the best modal contraction floor. This is a motivated structural analysis of a published optimizer.",
+      "risk": "The value is a deterministic spectral benchmark, not evidence that the gain improves stochastic deep-learning performance.",
+      "sources": [
+        "DOI:10.1109/CVPR.2018.00889",
+        "DOI:10.1109/ICME46284.2020.9102970"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the source-form 2018 PID optimizer on an SPD quadratic, each Hessian eigenmode \\(\\lambda\\) has characteristic polynomial \\(z(z-\\beta)[z^2-(1+q_\\lambda-\\eta\\lambda)z+q_\\lambda]\\), where \\(q_\\lambda=\\beta+(1-\\beta)\\kappa\\lambda\\). The mode is Schur stable exactly when \\(\\kappa\\lambda<1\\) and \\(0<\\eta\\lambda<2[1+\\beta+(1-\\beta)\\kappa\\lambda]\\); the best modal factor is \\(\\sqrt{q_\\lambda}\\), so derivative gain enlarges the stable-step ceiling but worsens the best achievable asymptotic rate.",
+  "limitations": [
+    "Constant parameters and SPD quadratics only.",
+    "No stochastic-noise, nonconvex or finite-time general convergence theorem is claimed."
+  ],
+  "schema_version": 1
+}
