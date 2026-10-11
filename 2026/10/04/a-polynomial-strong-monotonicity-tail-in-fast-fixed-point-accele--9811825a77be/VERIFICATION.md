@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof specializes the published FFP2 recurrence to \(T=0\) and \(G(x)=\lambda x\). The critical checks are:
+# Independent mathematical audit
 
-1. \(G_\eta=G\) because the resolvent of the zero operator is the identity.
-2. With \(a=\eta\lambda\) and \(c=\nu\lambda/r\), the assumptions imply \(0<c<a<1\).
-3. The ratio recurrence preserves \(0<x_k/z_k\le1\), so all logarithms in the product argument are well defined after taking absolute values of the common initial sign.
-4. The stable inequality for \(q_k=x_k/z_k\) gives \(q_k=O(1/t_k)\), and the exact scaled recurrence gives \(t_kq_k\to r(1-a)/a\).
-5. The multiplicative decrement of \(z_k\) is \(s/t_k+o(1/t_k)\), with a square-summable remainder, yielding the stated logarithmic exponent.
+## correctness
 
-The bundled script replays the recurrence for \(\lambda=1\), \(\eta=1/2\), \(r=3\), \(\nu=1/2\), and \(t_0=10\). It checks the parameter inequalities and the finite-index approach to the three predicted scaled limits. Its output is `VERIFY_OK` when all checks pass.
+PASS
 
-The computation does not certify the infinite asymptotics by enumeration; those are proved algebraically. No claim is made outside the parameter and model scope stated in the result.
+Specializing the stated FFP2 recurrence to \(T=0\) and \(G(x)=\lambda x\) gives the inspected scalar two-state recurrence. The package's source-bound replay uses \(t_0\ge\max\{r,((r-1)(2r-1)\eta)/((r-1)\eta-\nu),(r-1)/(r+1)\}\), so the proof's \(t_k\ge r\) requirement is satisfied. Positivity and \(0<q_k=x_k/z_k\le1\) follow inductively. The stable comparison \(q_{k+1}\le\theta q_k+\theta r/t_k\), \(\theta=(1-a)/(1-c)<1\), gives \(q_k=O(t_k^{-1})\). For \(p_k=t_kq_k\), the exact recurrence has \(p_{k+1}=(1-a)(p_k+r)+o(1)\), hence \(p_k\to r(1-a)/a\) and \(t_kh_k\to r/a\). The product update for \(z_k\) then has decrements \(\delta_k=s/t_k+o(t_k^{-1})\) with summable squared errors, yielding \(\log z_k=-s\log k+o(\log k)\), and therefore the two claimed iterate exponents and kth-root limit.
+
+## originality
+
+PASS
+
+Fresh Resultary searches found no prior theorem giving the exact FFP2 scalar exponents or ratio limits. The primary preprint's accessible abstract advertises general accelerated/sublinear guarantees for distributed composite monotone inclusions, not a sharp strongly-monotone scalar asymptotic. Full primary text was unavailable through the lawful routes attempted, so no whole-document exclusion is claimed; that access limitation is retained as a residual risk. Nearby strongly-monotone methods use different recurrences and therefore do not imply the polynomial tail of this unmodified FFP2 run.
+
+## value
+
+PASS
+
+A condition-number-one strongly convex scalar witness showing a parameter-dependent polynomial tail in an acceleration scheme is a meaningful algorithmic boundary: it separates the problem's strong monotonicity from the recurrence's actual rate and motivates restart or strong-monotonicity-aware modification. The exact exponents and ratio limits are more informative than a generic sublinear upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
