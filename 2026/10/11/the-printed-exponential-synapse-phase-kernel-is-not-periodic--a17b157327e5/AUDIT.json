@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The reset rule gives the periodic gate exactly: s_phi(t)=exp[-beta((t+phi) mod T)]. Substitution of the printed one-branch expression into the interaction integral factors all phase dependence as exp(-beta phi), so its odd part is proportional to sinh(beta phi), which is nonperiodic and generically lacks the half-period anti-phase zero. The contradiction is exact and does not rely on simulation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ladenbauer et al., DOI:10.1371/journal.pcbi.1002478, develops phase reduction for related adaptive integrate-and-fire neurons and is cited by the focal source.",
+        "General hybrid-oscillator phase reduction makes phase cyclic, but the checked sources did not state the focal equation-23 correction."
+      ],
+      "reasoning": "Background phase-reduction theory explains why periodic extension is natural, but it does not subsume the claim that the focal paper's displayed gate omits a necessary reset and therefore cannot reproduce its own reported phase structure.",
+      "searches": [
+        "weakly coupled integrate fire exponential synapse phase interaction modulo period gating variable",
+        "phase interaction function exponential synapse reset periodic neuron"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04025v1",
+      "DOI:10.1371/journal.pcbi.1002478",
+      "DOI:10.1137/18M1197412"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.04025v1 explicitly says H is periodic before later printing equation (23).",
+        "Ladenbauer et al. provides related phase-reduction background but no statement about Cheng--Campbell equation (23)."
+      ],
+      "reasoning": "The source's own periodicity premise plus its reset rule imply the corrected modulo-T gate directly. Prior background literature neither states nor dominates the specific incompatibility proved here.",
+      "searches": [
+        "weakly coupled integrate fire exponential synapse phase interaction modulo period gating variable",
+        "Impact of adaptation currents synchronization exponential integrate fire phase interaction periodic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.04025v1 equations (21)--(23): the gate resets to 1 at a spike, while equation (23) prints a single exponential branch over the full interaction integral.",
+        "arXiv:2610.04025v1 section 3.1: the interaction is periodic and its odd part has both in-phase and anti-phase zeros."
+      ],
+      "reasoning": "Any equivalent formulation must account for the reset encountered when a shifted presynaptic phase crosses the spike inside one integration period. No searched record identified this missing wrap-around or its consequence for equation (23).",
+      "searches": [
+        "2610.04025 Izhikevich equation 23 synaptic gating periodic phase interaction error",
+        "Izhikevich phase model chemical synapse interaction function periodic wrap correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding record or prior indexed research record returned an equation-23 correction for arXiv:2610.04025v1.",
+        "The focal source's Table 3 reports stable and unstable anti-phase states whose existence requires the periodic interaction structure."
+      ],
+      "reasoning": "The exact source identifier and title/correction aliases were checked; returned records were scientifically unrelated. Table 3 is incompatible with the literal one-branch gate because the resulting odd interaction generically has no half-period zero.",
+      "searches": [
+        "Cheng Campbell Stability Phase-locked Izhikevich neurons correction",
+        "2610.04025"
+      ]
+    },
+    "rationale": "The focal preprint itself states periodicity of the interaction and the anti-phase equilibrium but prints a one-branch exponential gate that cannot have either property. Claim-specific searches found no correction or equivalent published observation. Older hybrid-neuron phase-reduction literature is relevant background but does not imply that this specific 2026 displayed equation is inconsistent.",
+    "residual_risks": [
+      "A later revision may correct equation (23).",
+      "The authors may already use the correct periodic wrap-around in unpublished or unlinked code, in which case the scientific issue is a specification/reproducibility error rather than a numerical-result error."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_SUPPORT_AND_TARGET: equations (21)--(23) expose the missing wrap-around; earlier phase equations require periodicity and an anti-phase zero.",
+        "evidence": [
+          "Equation (21): s_i resets to 1 at each spike.",
+          "Equation (22): interaction integrates over one full period.",
+          "Equation (23): printed gate is exp(-beta(t+phi)) without periodic wrap.",
+          "Section 3.1: H is periodic and H_odd has anti-phase zero."
+        ],
+        "identifier_or_url": "arXiv:2610.04025v1",
+        "material_read": "Abstract; Sections 2.2, 3.1, 3.2.1, 3.2.2, Results, Summary/Conclusions, Table 3, and references.",
+        "method": "arXiv HTML full-text inspection",
+        "title": "Stability of Phase-locked States of Weakly Coupled Izhikevich Neurons",
+        "trigger": "Same model and exact equations under review."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: establishes related adaptive integrate-and-fire phase-reduction context but does not address the focal 2026 formula.",
+        "evidence": [
+          "The article studies phase reduction and phase locking in adaptive integrate-and-fire neurons with synaptic coupling."
+        ],
+        "identifier_or_url": "DOI:10.1371/journal.pcbi.1002478",
+        "material_read": "Open abstract, author summary, and accessible discussion-level material.",
+        "method": "open-access article record",
+        "title": "Impact of Adaptation Currents on Synchronization of Coupled Exponential Integrate-and-Fire Neurons",
+        "trigger": "Cited foundational comparison for discontinuous-neuron phase reduction and synaptic phase locking."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a17b1573-27e5-4013-8520-223bed31c0e1",
+  "value": {
+    "rationale": "Equation (23) is the displayed bridge from the hybrid synapse to the interaction function used for the paper's central phase-locking predictions. Omitting the wrap-around reset is not a cosmetic normalization: the literal formula destroys phase periodicity and the anti-phase equilibrium class reported in Table 3. Correcting it is therefore a substantive reproducibility boundary for the new phase-model calculation.",
+    "status": "PASS"
+  }
+}
