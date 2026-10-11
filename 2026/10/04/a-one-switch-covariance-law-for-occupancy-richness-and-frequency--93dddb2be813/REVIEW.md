@@ -1,32 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The covariance is reconstructed from the box indicators \(I_i=\mathbf 1_{\{N_i>0\}}\) and \(J_{i,r}=\mathbf 1_{\{N_i=r\}}\). The same-box and distinct-box probabilities are exact multinomial probabilities, and summing them gives the displayed closed form.
+PASS
 
-For \(m\ge3\), the covariance sign reduces exactly to whether
-\[
-q^{\,n-1}(q/s)^{n-r}
-\]
-is greater or less than one. The threshold in the finding is therefore exact. Equality would force
-\[
-(m-1)^{n+k-1}=m^{n-1}(m-2)^k,
-\]
-which is impossible because \(m-1\) is coprime to both factors on the right. Hence there is one strict sign switch and no zero case.
+Indicator expansion gives the diagonal term A_r q^n and the off-diagonal term A_r q^n-C(n,r)m^{-r}s^{n-r}, yielding the formula. With k=n-r, the sign is k>kappa. Equality would force (m-1)^(n+k-1)=m^(n-1)(m-2)^k, impossible by coprimality, so the switch is strict and unique.
 
-## Originality
+## originality
 
-PASS with a residual classical-urn risk. The complete Barbour--Gnedin paper was inspected at its definitions of \(K_n\) and \(X_{n,r}\), its statement that \(K_n=\sum_rX_{n,r}\), and its moment/covariance section. It studies joint normal approximation and covariance structures of the \(r\)-counts, including exact Poissonized covariance formulas, but the inspected statements do not give the finite uniform \(\operatorname{Cov}(K,K_r)\) phase diagram.
+PASS
 
-Barbour's univariate occupancy paper was also inspected at its setup and main-statistic discussion. It treats \(K_n\) and the \(r\)-counts separately through distributional approximation rather than the exact cross-covariance sign transition.
+The inspected occupancy literature studies the same richness/frequency statistics but in infinite-box or approximation settings and does not state the exact finite-uniform sign law. No Resultary record supplied an equivalent or stronger theorem.
 
-Semantic and exact-language searches for richness/singleton covariance, \(K_n\) versus \(K_{n,r}\), and finite multinomial occupancy did not locate the explicit one-switch threshold. Search failure is not treated as proof of novelty; the residual risk is recorded below.
+## value
 
-## Value
+PASS
 
-PASS. \(K\) is observed richness and \(K_r\) is the occupancy frequency spectrum used to describe rare versus common classes. The theorem gives a complete finite-sample answer to which frequency counts move with versus against richness under the canonical equal-probability null model. In particular, it explains structurally why singletons always co-move positively with richness while sufficiently high occupancies move negatively, and it locates the unique transition exactly.
+Richness and occupancy-frequency counts are standard statistics, and an exact finite sign spectrum with a strict transition index is a natural dependence classification rather than an arbitrary computation.
 
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK formula_checks=80 brute_checks=80 singleton_checks=9801 nton_checks=9801 nozero_checks=499851 one_switch_checks=9801`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

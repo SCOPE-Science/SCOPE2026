@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and exact.
+# Independent mathematical audit
 
-The accompanying checker independently recomputes the covariance in two ways. First, it uses the closed same-box/off-diagonal multinomial decomposition. Second, for a bounded grid it enumerates every allocation of \(n\) labeled balls to \(m\) boxes, computes \(K\) and each \(K_r\), and compares the exact rational covariance with the formula in `RESULT.md`.
+## correctness
 
-On a larger parameter grid the checker verifies that:
+PASS
 
-- \(\operatorname{Cov}(K,K_1)>0\);
-- \(\operatorname{Cov}(K,K_n)<0\);
-- no covariance is zero;
-- the sign sequence across \(r=1,\ldots,n\) has exactly one transition from positive to negative.
+Indicator expansion gives the diagonal term A_r q^n and the off-diagonal term A_r q^n-C(n,r)m^{-r}s^{n-r}, yielding the formula. With k=n-r, the sign is k>kappa. Equality would force (m-1)^(n+k-1)=m^(n-1)(m-2)^k, impossible by coprimality, so the switch is strict and unique.
 
-The all-parameter no-zero assertion is not based on that finite replay. It is proved in `RESULT.md` by the coprimality contradiction
-\[
-(m-1)^{n+k-1}=m^{n-1}(m-2)^k.
-\]
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK formula_checks=80 brute_checks=80 singleton_checks=9801 nton_checks=9801 nozero_checks=499851 one_switch_checks=9801`.
+The inspected occupancy literature studies the same richness/frequency statistics but in infinite-box or approximation settings and does not state the exact finite-uniform sign law. No Resultary record supplied an equivalent or stronger theorem.
+
+## value
+
+PASS
+
+Richness and occupancy-frequency counts are standard statistics, and an exact finite sign spectrum with a strict transition index is a natural dependence classification rather than an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
