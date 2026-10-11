@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker uses exact rational arithmetic only.
 
-It implements depth-one Anderson acceleration in the affine-combination form
-\[
-x^{(k+1)}=(1-s_k)g(x^{(k-1)})+s_kg(x^{(k)}),
-\]
-with
-\[
-s_k=-\frac{f_{k-1}^{\mathsf T}(f_k-f_{k-1})}{\|f_k-f_{k-1}\|_2^2}.
-\]
+# Independent mathematical audit
 
-At \(\varepsilon=1/200\), it verifies strict positivity of the first five nonzero iterates and the exact negative sixth-coordinate fraction reported in RESULT.md.
+## correctness
 
-It independently reconstructs the scaled limiting recurrence and checks the exact states through
-\[
-S_6^{(0)}=
-\left(
-\frac{2235098625}{2165688769},
--\frac{143897600}{2165688769}
-\right).
-\]
-All limiting least-squares denominators used in the continuity argument are checked to be nonzero.
+PASS
 
-Finally, several rational scalar affine contractions are replayed to verify that depth-one Anderson lands exactly at the positive fixed point at its first accelerated step. The open-family statement itself is proved analytically by rational dependence and continuity, not by enumeration.
+The depth-one least-squares coefficient was re-derived and the exact rational recurrence independently replayed. At \(\varepsilon=1/200\), iterates one through five have both coordinates positive, while the sixth has second coordinate \(-4801559852330482770906299820259/349417867959904066964567555052100\), with positive first coordinate. The scaled limiting recurrence has nonzero least-squares denominators and a strictly negative limiting sixth second coordinate, so rational dependence gives an open small-\(\varepsilon\) family. In one dimension the first accelerated residual can be annihilated exactly and the iterate lands at the positive fixed point.
+
+## originality
+
+PASS
+
+Qualitative loss of nonnegativity under Anderson acceleration is prior: Walker--Ni explicitly warn that AA may create negative entries. The audited claim is substantially narrower and stronger: a two-dimensional diagonal positive strict contraction, an open parameter family, five positive accelerated iterates before a certified sign crossing, and a proof that the analogous scalar affine class cannot fail. Fresh Resultary and web searches found safeguarding and nonnegativity-preserving variants but no implication-equivalent minimal-dimensional theorem or exact family.
+
+## value
+
+PASS
+
+This is a motivated boundary result for an accelerator routinely applied to positive variables. It isolates a genuine multivariate cone-invariance failure even for a decoupled positive strict contraction, proves dimension two is minimal in the stated affine class, and provides an exact regression witness for safeguard design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

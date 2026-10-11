@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:49:21.606736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 84a2c853b5beaf310998449a3a016e37ff850acf",
+        "verify.py blob 6dbea9d3b0a219140ab94a96a1b16a8f058972ba",
+        "Independent Fraction-based recurrence replay in this audit"
+      ],
+      "rationale": "The depth-one least-squares coefficient was re-derived and the exact rational recurrence independently replayed. At \\(\\varepsilon=1/200\\), iterates one through five have both coordinates positive, while the sixth has second coordinate \\(-4801559852330482770906299820259/349417867959904066964567555052100\\), with positive first coordinate. The scaled limiting recurrence has nonzero least-squares denominators and a strictly negative limiting sixth second coordinate, so rational dependence gives an open small-\\(\\varepsilon\\) family. In one dimension the first accelerated residual can be annihilated exactly and the iterate lands at the positive fixed point.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walker--Ni cover the standard algorithm and qualitative negative-entry possibility.",
+          "Potra--Engler cover linear AA/GMRES behavior; convergence theory does not imply transient cone invariance.",
+          "Recent nonnegativity-preserving AA variants motivate safeguards rather than furnishing this unsafeguarded minimal counterexample."
+        ],
+        "reasoning": "These sources are broader algorithmically but do not dominate the coordinatewise positivity claim.",
+        "searches": [
+          "DOI:10.1137/10078356X",
+          "arXiv:1102.0796",
+          "DOI:10.1137/130919398",
+          "DOI:10.1007/s42967-024-00439-1"
+        ]
+      },
+      "checked_sources": [
+        "Walker--Ni, Anderson Acceleration for Fixed-Point Iterations, DOI:10.1137/10078356X",
+        "Potra--Engler, A Characterization of the Behavior of the Anderson Acceleration on Linear Problems, arXiv:1102.0796",
+        "Toth--Kelley, Convergence Analysis for Anderson Acceleration, DOI:10.1137/130919398",
+        "Liu--Hu--Liu, Restarted Nonnegativity Preserving Tensor Splitting Methods via Relaxed Anderson Acceleration, DOI:10.1007/s42967-024-00439-1",
+        "Resultary semantic query: depth one Anderson acceleration positive diagonal affine contraction negative iterate positive orthant two dimensions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Walker--Ni's qualitative warning establishes that negativity itself is not new.",
+          "Neither GMRES equivalence nor convergence of AA on contractions forces or precludes coordinatewise positivity of intermediate depth-one iterates.",
+          "The one-dimensional exact-convergence argument and the robust two-dimensional family therefore are not corollaries of a stronger prior cone-invariance theorem located in the searches."
+        ],
+        "reasoning": "Prior work covers the general phenomenon and convergence framework, but not the exact minimal positive diagonal mechanism.",
+        "searches": [
+          "Full-text implication check against Walker--Ni Section 5.2",
+          "Linear-behavior comparison against Potra--Engler",
+          "Contraction-convergence comparison against Toth--Kelley"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walker--Ni state only the general possibility of negative entries in an NMF context.",
+          "No retrieved source gives the audited diagonal affine family, sixth-iterate crossing, or scalar impossibility result."
+        ],
+        "reasoning": "The claim was searched under cone invariance, negative entries, positivity preservation, short-memory AA, and diagonal affine contraction.",
+        "searches": [
+          "Resultary semantic query: depth one Anderson acceleration positive diagonal affine contraction negative iterate positive orthant two dimensions",
+          "Web search: Anderson acceleration positive orthant diagonal linear fixed point",
+          "Web search: Anderson acceleration negative entries contraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact example or published positivity-threshold table matching the family was retrieved.",
+          "Independent rational replay reproduced the exact negative sixth second coordinate at \\(\\varepsilon=1/200\\)."
+        ],
+        "reasoning": "The witness was not recovered from a known database or table.",
+        "searches": [
+          "Resultary query above; no matching Anderson finding appeared among the top retrieved results",
+          "Exact web search for the rational witness and for a two-dimensional diagonal positive-contraction counterexample"
+        ]
+      },
+      "rationale": "Qualitative loss of nonnegativity under Anderson acceleration is prior: Walker--Ni explicitly warn that AA may create negative entries. The audited claim is substantially narrower and stronger: a two-dimensional diagonal positive strict contraction, an open parameter family, five positive accelerated iterates before a certified sign crossing, and a proof that the analogous scalar affine class cannot fail. Fresh Resultary and web searches found safeguarding and nonnegativity-preserving variants but no implication-equivalent minimal-dimensional theorem or exact family.",
+      "residual_risks": [
+        "Specialized positivity-preserving Anderson literature could contain a comparable diagonal example under different terminology.",
+        "No sharp contraction-factor threshold is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_NEGATIVITY_COVERED_EXACT_MINIMAL_FAMILY_NOT_COVERED",
+          "evidence": "Section 5.2 explicitly notes that Anderson acceleration may in general produce matrices with negative entries, but supplies no positive diagonal contraction counterexample or dimension-minimal theorem.",
+          "identifier_or_url": "DOI:10.1137/10078356X",
+          "material_read": "Author-hosted full PDF, including the standard affine-combination algorithm, linear discussion, and Section 5.2 on nonnegative matrix factorization.",
+          "method": "Lawful author full-text inspection with page-level visual verification.",
+          "title": "Anderson Acceleration for Fixed-Point Iterations",
+          "trigger": "Foundational source and strongest direct prior-coverage risk for negativity."
+        },
+        {
+          "assessment": "LINEAR_CONVERGENCE_BACKGROUND",
+          "evidence": "The paper characterizes AA/GMRES behavior and stagnation rather than positive-cone invariance.",
+          "identifier_or_url": "arXiv:1102.0796",
+          "material_read": "Primary arXiv abstract and theorem-level scope in the retrieved record.",
+          "method": "Primary-record scope comparison.",
+          "title": "A Characterization of the Behavior of the Anderson Acceleration on Linear Problems",
+          "trigger": "Strong linear-AA comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Walker--Ni 2011",
+        "recent nonnegativity-preserving AA literature",
+        "assigned proof",
+        "independent rational replay"
+      ],
+      "rationale": "This is a motivated boundary result for an accelerator routinely applied to positive variables. It isolates a genuine multivariate cone-invariance failure even for a decoupled positive strict contraction, proves dimension two is minimal in the stated affine class, and provides an exact regression witness for safeguard design.",
+      "residual_risks": [
+        "The family approaches contraction factor one and does not determine a universal sharp safety threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized positivity-preserving Anderson literature could contain a comparable diagonal example under different terminology.",
+    "No sharp contraction-factor threshold is claimed."
+  ],
+  "schema_version": 1
+}

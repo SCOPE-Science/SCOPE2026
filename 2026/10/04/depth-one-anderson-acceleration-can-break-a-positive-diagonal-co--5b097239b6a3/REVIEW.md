@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The depth-one least-squares coefficient is reconstructed explicitly, the affine contraction and its positive fixed point are elementary, and the scaled small-parameter recurrence has exact rational limiting states with nonzero residual-difference denominators. Those strict limiting signs imply an open family by continuity. The rational witness at \(\varepsilon=1/200\) is replayed exactly, and the one-dimensional impossibility follows because the first Anderson least-squares problem annihilates the scalar residual and lands at the fixed point.
+## correctness
 
-## Originality
-PASS with a deliberately narrow claim. Walker and Ni explicitly state that Anderson acceleration may in general produce negative matrices in a nonnegative-matrix-factorization application, so qualitative negativity is prior work and is excluded. Potra--Engler cover linear Anderson/GMRES behavior, and Toth--Kelley cover convergence for contractions. Targeted searches did not locate the stronger minimal mechanism proved here: a diagonal strictly positive two-dimensional contraction with an open parameter family, five positive accelerated iterates before a sign crossing, and a proof that one dimension is impossible for positive affine contractions. The main residual risk is specialized positivity-preserving or constrained-Anderson literature using different terminology.
+PASS
 
-## Value
-PASS. Anderson acceleration is often applied to fixed-point maps whose variables have physical nonnegativity constraints. The example shows that neither positivity of the map, diagonal decoupling, nor strict contraction is enough to preserve that cone after residual-minimizing acceleration. The minimal-dimension theorem and exact rational witness provide a compact regression test and isolate why positivity safeguards can be mathematically necessary rather than merely defensive implementation choices.
+The depth-one least-squares coefficient was re-derived and the exact rational recurrence independently replayed. At \(\varepsilon=1/200\), iterates one through five have both coordinates positive, while the sixth has second coordinate \(-4801559852330482770906299820259/349417867959904066964567555052100\), with positive first coordinate. The scaled limiting recurrence has nonzero least-squares denominators and a strictly negative limiting sixth second coordinate, so rational dependence gives an open small-\(\varepsilon\) family. In one dimension the first accelerated residual can be annihilated exactly and the iterate lands at the positive fixed point.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualitative loss of nonnegativity under Anderson acceleration is prior: Walker--Ni explicitly warn that AA may create negative entries. The audited claim is substantially narrower and stronger: a two-dimensional diagonal positive strict contraction, an open parameter family, five positive accelerated iterates before a certified sign crossing, and a proof that the analogous scalar affine class cannot fail. Fresh Resultary and web searches found safeguarding and nonnegativity-preserving variants but no implication-equivalent minimal-dimensional theorem or exact family.
+
+## value
+
+PASS
+
+This is a motivated boundary result for an accelerator routinely applied to positive variables. It isolates a genuine multivariate cone-invariance failure even for a decoupled positive strict contraction, proves dimension two is minimal in the stated affine class, and provides an exact regression witness for safeguard design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
