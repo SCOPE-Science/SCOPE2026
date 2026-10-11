@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Complete exact finite face-poset construction via independent k-set enumeration and all subfaces, for each of five parameters. Sequential toggling by all \\(3k+3\\) vertices yields a valid acyclic matching by the cited general element-matching theorem. The code checks faces=\\(2\\cdot\\mathrm{pairs}+1\\), the only survivor mask 21846 has eight vertices, and the empty face was matched. Forman discrete Morse implies \\(S^7\\). Independent Python enumeration reproduced \\(k\\in\\{4,5,6\\}\\). No claim beyond five finite k values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shen et al. prove k=3 all n, and for k>=3 only n=3k+1,3k+2.",
+        "Bayer et al. prove total 2-cut squared-cycle results, while making a separate higher-k conjecture."
+      ],
+      "reasoning": "The published stronger looking statements either use fixed \\(k=2\\) or \\(k=3\\), or lengths one or two past 3k. They cannot imply the five \\(k\\ge4\\) lengths 3k+3. The \\(k=4\\) homology table has weaker logical content.",
+      "searches": [
+        "Homotopy type Delta^t_k(W_{3k+3}) squared cycle 4-cut 5-cut 6-cut S7",
+        "Total cut complexes of squared cycle graphs exact k=8 n=27 standard vertex Morse critical cell",
+        "Alexander dual cyclic 2-spaced independent k sets on 3k+3 vertices, wedge S7 4<=k<=8",
+        "arXiv:2510.22574v1 Theorems 1.5–1.6",
+        "arXiv:2209.13503v2 Theorem on total 2-cut squared cycles"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.22574v1 (primary full text)",
+      "arXiv:2209.13503v2 (original conjecture full text)",
+      "Topology of Total Cut Complexes and Cut Complexes of Grid Graphs (SIAM, 2026, abstract only)",
+      "Face vector and Euler characteristic of the borderline squared-cycle cut complexes (ordinary cut, distinct length)",
+      "The total 3-cut complex of the Heawood graph is a wedge of 36 eight-spheres (different graph and k)",
+      "The Petersen total 3-cut complex is a wedge of nine 4-spheres (different graph and k)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The indexed borderline result concerns ordinary cut complexes Delta_k(W_{k+5}) and f-vectors, not total Delta_k^t(W_{3k+3}).",
+        "The indexed Heawood and Petersen results concern total three-cut complexes of different graphs.",
+        "The known abstract on total three-cut complexes of the Heawood graph has a distinct graph and k, so it does not cover squared cycles of total k>=4."
+      ],
+      "reasoning": "For \\(k\\ge3\\), ordinary and total cut complexes are generally different. Other-graph total three-cut statements cannot imply homotopy types on these five squared cycles.",
+      "searches": [
+        "Homotopy Type of Total Cut Complexes of Squared Cycle Graphs Shen Song Yu Zhou Zhuang k=4 W15 2025",
+        "Homotopy type Delta^t_k(W_{3k+3}) squared cycle 4-cut 5-cut 6-cut S7",
+        "Total cut complexes of squared cycle graphs exact k=8 n=27 standard vertex Morse critical cell",
+        "arXiv:2510.22574v1",
+        "arXiv:2209.13503v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bayer et al. Conjecture 5.1 predicts the exact five i=3 sphere types but labels the statement a conjecture; see arXiv:2209.13503v2 p.21.",
+        "Shen et al. Theorem 1.6 proves i=1,2, not i=3; see arXiv:2510.22574v1."
+      ],
+      "reasoning": "The total cut complex is the Alexander-dual style facet-complement construction; a homology equality is not equivalent to a homotopy equivalence. The exact \\(i=3\\) parameter family is conjectured but not established in those full texts.",
+      "searches": [
+        "Homotopy Type of Total Cut Complexes of Squared Cycle Graphs Shen Song Yu Zhou Zhuang k=4 W15 2025",
+        "squared cycle 4-total cut n 15 5-total cut n18 6-total cut n21 7-total cut n24 8-total cut n27 single 7 sphere",
+        "Morse element matching k-total cut squares cycles conjecture 3k+3 7-sphere",
+        "arXiv:2510.22574v1 §1,§4,§5",
+        "arXiv:2209.13503v2 §5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shen et al. Table 3 already lists 7:Z for the k=4,n=15 entry, but not a discrete-Morse homotopy certificate.",
+        "Bayer et al. report Sage data for k<=7,n<=21, not k=7,n=24 or k=8,n=27, and state their general claim as conjectural."
+      ],
+      "reasoning": "Known numeric data and conjectural predicted answers were explicitly treated as prior evidence, not new findings. The present certification is a five-case homotopy theorem, which those tables do not establish.",
+      "searches": [
+        "squared cycle 4-total cut n 15 5-total cut n18 6-total cut n21 7-total cut n24 8-total cut n27 single 7 sphere",
+        "total 4-cut complex squared cycle W15 homotopy S7 discrete Morse matching",
+        "Delta_4^t(C_15^2) n=15 four total cut independence cycle graph sphere",
+        "Shen et al. arXiv:2510.22574v1 Table 3",
+        "Bayer et al. arXiv:2209.13503v2 Conjecture 5.1; numerical range k<=7,n<=21"
+      ]
+    },
+    "rationale": "Primary source comparison shows a published conjecture for these same five total-cut homotopy types, with proofs only for \\(k=3\\) and \\(n=3k+1,3k+2\\). At \\((k,n)=(4,15)\\) the older table gives \\(H_7\\cong\\mathbb Z\\), not the homotopy equivalence. Exhaustive finite certificates establish stronger homotopy results across the five cases, including \\((k,n)=(7,24)\\) and \\((k,n)=(8,27)\\) beyond published computational support. Semantic index searches found no stronger/equivalent proof; unindexed overlap remains a risk.",
+    "residual_risks": [
+      "Equivalent unindexed mathematical work may exist; scientific novelty cannot be proven by unsuccessful index searches.",
+      "The 2026 rectangular-grid paper was evaluated from abstract only, although its stated graphs differ from squared cycles.",
+      "The finding proves precisely k=4..8, not the general parameter conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general k results end at n=3k+1 and n=3k+2; k4 n15 homology rank preexists but homotopy classification is not established.",
+        "evidence": [
+          "arXiv:2510.22574v1, introduction Theorem 1.6 and §5 Table 3",
+          "https://arxiv.org/html/2510.22574v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.22574v1",
+        "material_read": "Full HTML preprint; introductory Theorems 1.5–1.6, full discrete-Morse preliminaries Theorems 2.4–2.5, general k proof, final discussion, all three tables and relevant references.",
+        "method": "Direct open full-text comparison of parameter restrictions and implications.",
+        "title": "Homotopy Type of Total Cut Complexes of Squared Cycle Graphs",
+        "trigger": "Exact family, same graph, same invariant, matching approach and the i=3 conjectural gap."
+      },
+      {
+        "assessment": "Predicts the sphere for five cases but does not claim proof; supporting Sage range \\(k\\le7, n\\le21\\). Its squared-cycle theorem is \\(k=2\\).",
+        "evidence": [
+          "arXiv:2209.13503v2 §5 Conjecture 5.1 p.21",
+          "arXiv:2209.13503v2 Appendix §7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.13503",
+        "material_read": "Full PDF inspected with emphasis on definitions, squared-cycle section, Section 5 Conjecture 5.1, scope of Sage support, and Appendix Theorems 7.2 and 7.5; page image of conjecture reviewed.",
+        "method": "Read indexed full PDF text and inspect its Section 5 page image; compare the conjecture and completed theorems.",
+        "title": "Total Cut Complexes of Graphs",
+        "trigger": "Original source of the exact squared-cycle homotopy conjecture and foundational Morse theorem."
+      },
+      {
+        "assessment": "The accessible description is about 2xn and 3xn rectangular grid graphs, not squared cycles. Full text not inspected; residual risk recorded.",
+        "evidence": [
+          "SIAM J. Discrete Math. 40 (2026) 760–788, abstract and keywords"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/24M1687716",
+        "material_read": "Publisher abstract and keywords and graph-family scope; full text not used as an exclusion certificate.",
+        "method": "Compare its graph families (rectangular grids) and abstract to squared cycles.",
+        "title": "Topology of Total Cut Complexes and Cut Complexes of Grid Graphs",
+        "trigger": "Plausible newer publication on total cut complexes and homotopy."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ca34e898-d194-42bf-a53e-90139835d7da",
+  "value": {
+    "rationale": "The cases lie exactly on the \\(i=3\\) diagonal of Bayer et al. Conjecture 5.1, which is unresolved in Shen et al. beyond the \\(i=1,2\\) proof. They prove complete homotopy types, not just previously known \\(k=4\\) Betti numbers; the two larger parameter pairs go beyond Bayer et al. reported Sage parameter range. Five consecutive natural cases make a useful finite cutoff; the claim is not an arbitrary slice or fabricated all-parameter theorem.",
+    "status": "PASS"
+  }
+}
