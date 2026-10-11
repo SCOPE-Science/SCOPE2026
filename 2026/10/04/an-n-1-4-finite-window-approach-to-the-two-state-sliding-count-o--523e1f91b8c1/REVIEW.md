@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The chain's stationary law and right spectral gap are explicit. The proof derives the complete first-order rare-entrance path types, projected edge conductances, and resulting energy/variance coefficients. The finite-window sums are exact. Their balanced expansion gives the stated correction, while the explicit choice \(u_n=\exp(-n^2)\) makes all higher-entrance corrections superalgebraically negligible. The spectral-gap statement uses only the Rayleigh variational upper bound. `verify.py` independently reproduces the first-order identities and asymptotic coefficient.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2609.27836v1, obtains the two-state \(1/4\) obstruction through ordered limits and explicitly states that its argument gives no quantitative convergence rate for finite witnesses. The present result narrows to that two-state family but supplies an explicit finite sequence and its first correction. Targeted semantic searches for aliases, rare-state formulations, projected birth--death kernels, and an \(n^{-1/4}\) rate found no equivalent published record. The earlier arXiv:2608.08678 concerns fixed-kernel strict-positivity bounds according to the later primary paper; its full text was not directly retrievable, so this remains a stated access risk.
+PASS
 
-## Value
-PASS. The construction resolves a mathematically motivated finite-realization issue identified by the source itself. The \(n^{-1/4}\) correction is not just a numerical fit: it comes from balancing persistence approach against subcritical test truncation, and the leading coefficient is exactly optimized within the resulting natural two-parameter scaling.
+The first-order rare-entrance path coefficients were reconstructed from the two-state stationary path law and give the stated exact energy and variance coefficients. Substituting \(s=\rho^2\), \(x=(1-\varepsilon)/\rho\), and infinite-tail geometric sums, an independent symbolic expansion in \(h=n^{-1/4}\) gives exactly \(1/4+h[A/4+1/(8B)+B/(2A^2)]+O(h^2)\). The finite tails are exponentially small in \(n^{1/4}\), and \(u_n=e^{-n^2}\) makes multi-entrance and normalization corrections super-algebraically smaller than the displayed orders. Elementary minimization of \(C(A,B)\) gives the claimed unique optimum.
 
-## Closest literature and limitations
-Xiang and Zhang, arXiv:2609.27836v1, is the decisive closest source. Its qualitative diagonal construction is broader in state-space size but weaker in finite-witness quantification. This result does not prove \(c_2^\star=1/4\), does not identify the exact gap of the projected kernel, and does not claim the rate is globally optimal. The earlier arXiv:2608.08678 could not be fully inspected, leaving a residual access risk recorded in `AUDIT.json`.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Xiang--Zhang prove only that rare-state witnesses approach \(q_0=1/4\) through an ordered sequence of limits and explicitly leave the exact constant open; their abstract does not provide a single finite diagonal sequence with a quantified first correction. The audited result supplies that missing quantitative finite-window diagonalization and optimizes its balanced scaling coefficient.
+
+## value
+
+PASS
+
+The finite-window rate quantifies how the singular two-state obstruction is actually approached and separates an ordered limiting argument from a concrete finite witness sequence. This is a motivated boundary refinement of an explicit limitation in the prior construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

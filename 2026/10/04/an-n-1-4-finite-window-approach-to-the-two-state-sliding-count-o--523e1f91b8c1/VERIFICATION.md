@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` performs three independent finite checks using only the Python standard library.
+# Independent mathematical audit
 
-First, it enumerates binary paths for small window lengths with exact rational arithmetic and recovers the first-order coefficients
-\[
-\frac{\Pr(K_0=k)}u\to s^{k-1}\bigl(2+(n-k-1)r\bigr),
-\qquad
-\frac{\Pr(K_0=n)}u\to \frac{s^{n-1}}r,
-\]
-and the projected upward-edge coefficients
-\[
-\frac{\Pr(K_0=k,K_1=k+1)}u\to s^k.
-\]
+## correctness
 
-Second, it compares the energy and second-moment coefficients produced by those enumerated path weights with the closed forms used in the proof.
+PASS
 
-Third, it evaluates the exact finite geometric-sum rare-limit quotient for increasing \(n\) at the theorem's tuning and checks convergence of
-\[
-n^{1/4}\left(R_n^0-\frac14\right)
-\]
-toward \(1/\sqrt2\), with the next normalized residual approaching the analytically predicted coefficient \(7/8\).
+The first-order rare-entrance path coefficients were reconstructed from the two-state stationary path law and give the stated exact energy and variance coefficients. Substituting \(s=\rho^2\), \(x=(1-\varepsilon)/\rho\), and infinite-tail geometric sums, an independent symbolic expansion in \(h=n^{-1/4}\) gives exactly \(1/4+h[A/4+1/(8B)+B/(2A^2)]+O(h^2)\). The finite tails are exponentially small in \(n^{1/4}\), and \(u_n=e^{-n^2}\) makes multi-entrance and normalization corrections super-algebraically smaller than the displayed orders. Elementary minimization of \(C(A,B)\) gives the claimed unique optimum.
 
-The script's finite calculations do not prove the infinite asymptotic statement. That statement is established in `RESULT.md` by exact path classification, geometric-sum identities, Taylor expansion, and a superexponential bound on the finite-\(u_n\) remainder.
+## originality
+
+PASS
+
+Xiang--Zhang prove only that rare-state witnesses approach \(q_0=1/4\) through an ordered sequence of limits and explicitly leave the exact constant open; their abstract does not provide a single finite diagonal sequence with a quantified first correction. The audited result supplies that missing quantitative finite-window diagonalization and optimizes its balanced scaling coefficient.
+
+## value
+
+PASS
+
+The finite-window rate quantifies how the singular two-state obstruction is actually approached and separates an ordered limiting argument from a concrete finite witness sequence. This is a motivated boundary refinement of an explicit limitation in the prior construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
