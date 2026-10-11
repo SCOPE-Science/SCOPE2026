@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof was checked line by line for the exact domain \(A\subseteq\{0,1\}^d\) with addition in \(\mathbb Z^d\), including the last-coordinate energy decomposition, equality in Cauchy--Schwarz, the sharp scalar equality cases, the difference-multiplicity rigidity lemma, and the converse count.
+## correctness
 
-`verify_extremizers.py` is a supplementary exact finite check. It enumerates all nonempty subsets through \(d=4\), computes energy with integer pair-sum counts, independently recognizes proper affine Boolean cubes, and requires exact agreement. Its stored output is `verification_output.txt` and ends in `VERIFY_OK`.
+PASS
 
-Finite verification is not an infinite proof. The all-dimensional conclusion rests on the induction and rigidity argument in `RESULT.md`. The originality conclusion is literature-dependent and retains the residual risks recorded in `AUDIT.json`.
+The last-coordinate decomposition \(E(A)=E(A_0)+E(A_1)+4\sum_z r_{A_0}(z)r_{A_1}(z)\) is exact. Cauchy--Schwarz, the inductive energy bound, and Kane--Tao's sharp scalar inequality give the claimed bound. Equality with two nonempty slices forces equal sizes, equality in both lower-dimensional slices, and proportional difference functions; equality of sizes fixes the factor to one. For a proper rank-m affine Boolean cube, integer independence makes each difference representation unique, and the nonzero differences of multiplicity \(2^{m-1}\) are exactly the signed generators, so identical difference functions force the two slices to be translates. Adding the last-coordinate translation gives an independent new generator. Conversely the product difference count gives energy \(6^m\). A fresh independent exhaustive check for every subset through dimension three reproduced exactly the affine-cube equality sets; the all-dimensional theorem is analytic.
+
+## originality
+
+PASS
+
+Kane--Tao's full primary theorem proves the sharp exponent and their induction supplies the scalar equality ingredients, but the inspected article does not classify every equality set. Later binary-cube energy/Fourier papers likewise advertise sharp bounds and the full cube as an extremizer, not an iff affine-cube classification in accessible material. The classification needs equality propagation through Cauchy--Schwarz plus a difference-multiplicity rigidity lemma, so it is not merely the prior bound restated.
+
+## value
+
+PASS
+
+Classifying every extremizer of a sharp additive-combinatorial inequality is a natural structural question. The affine-cube rigidity identifies all equality geometry rather than merely recomputing the sharp exponent or displaying one example, and the difference-multiplicity lemma is reusable in related extremizer problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
