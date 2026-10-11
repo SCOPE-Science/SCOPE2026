@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof was checked directly from the positive \(\varepsilon\)-\(\ell^p\) chain definitions. Projection gives the lower bound for every \(p\). For \(p=\infty\), concatenating a chain does not change its error norm, so factor chains can always be synchronized to a common length.
+# Independent mathematical audit
 
-For the finite examples, all distinct metric distances are either \(1\) or \(D\). Below \(D\), the transition graph has only exact orbit edges and one unit reset per factor. A factor return therefore has exactly one unit reset per \(L\)-step block. In the product, the unit-error times in one least common multiple block are the union of multiples of \(L\) and \(M\), whose cardinality is \(M/g+L/g-1\), with \(g=\gcd(L,M)\). This proves the exact finite-\(p\) threshold after choosing \(D\) larger than that norm.
+## correctness
 
-The included checker recomputes shortest finite-state return energies for representative \((L,M,p)\) values and verifies the counting formula. It is a consistency check only; the all-parameter conclusion is established by the symbolic argument above.
+PASS
 
-The motivating coarse-chain paper and the closest classical product-recurrence paper were inspected in full at the relevant definitions and theorems. No positive-threshold synchronization theorem was found. Independent audit was not performed.
+Projection of any product return chain cannot increase an error coordinate, proving the lower bound. For p=infinity, concatenate factor return chains to a common length; the maximum step error is unchanged, giving equality. In the finite systems, any return of cost below the large distance D must follow the deterministic chain and use only the unique unit reset, so factor return lengths are multiples of L or M with one unit reset per block. A product return length must be a common multiple. On one lcm block, the union of reset times has M/g+L/g-1 elements because only the terminal reset is simultaneous, so the l^p cost is exactly the claimed root. Repeating a block increases finite-p cost and any D-jump is more expensive by construction. This is an exact all-parameter proof; no missing verifier artifact is treated as evidence.
+
+## originality
+
+PASS
+
+Yokoyama introduces the positive finite-error/coarse chain-recurrence filtration but the materially inspected searchable full text has no Cartesian-product discussion. Wiseman studies products for zero-threshold chain/strong-chain/generalized recurrence, predating Yokoyama's positive coarse threshold. The fresh Resultary search returned the audited exact synchronization law as the direct match and no prior positive-threshold product formula.
+
+## value
+
+PASS
+
+The result isolates a sharp tensorization dichotomy for a newly introduced control-energy recurrence invariant: perfect max behavior at the stepwise endpoint and arbitrarily bad synchronization for every finite energy exponent. The explicit gcd law supplies a reusable obstruction rather than a one-off counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
