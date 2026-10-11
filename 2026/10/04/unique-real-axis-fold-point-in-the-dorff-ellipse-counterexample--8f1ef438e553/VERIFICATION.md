@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,76 +19,24 @@
 }
 ---
 
-The exact source parameters are
-\[
-a=-\frac{10}{11},
-\qquad
-b=\frac1{44},
-\]
-\[
-A=-\frac{9890884608}{9139543205},
-\qquad
-B=-\frac{251761689}{562995861428},
-\]
-\[
-C=\frac{41190732}{12795360487},
-\qquad
-D=\frac{1373955264}{9139543205}.
-\]
+# Independent mathematical audit
 
-With
-\[
-S_r(x)=\frac{x(2-rx)}{(1-rx)^2},
-\]
-the self-convolution derivatives are reconstructed as
-\[
-p'(x)
-=
-1+A^2S_{a^2}(x)+2ABS_{ab}(x)+B^2S_{b^2}(x),
-\]
-\[
-q'(x)
-=
-D^2S_{a^2}(x)+2DCS_{ab}(x)+C^2S_{b^2}(x).
-\]
+## correctness
 
-Exact simplification gives
-\[
-p'-q'
-=
--\frac{3748096P_4(x)}
-{24606462475(x-1936)^2(100x-121)^2}
-\]
-and
-\[
-p'+q'
-=
--\frac{3748096P_6(x)}
-{818606249961404385845
-(x-1936)^2(5x+242)^2(100x-121)^2}.
-\]
+PASS
 
-The packaged exact-arithmetic checker verifies:
-\[
-\#\{P_4=0\text{ in }(-1,1)\}=0,
-\]
-\[
-\#\{P_6=0\text{ in }(-1,1)\}=1,
-\]
-and
-\[
-P_6(-0.961916078016036)>0,
-\qquad
-P_6(-0.961916078016035)<0.
-\]
+The assigned exact formulas express \(p'-q'\) as a positive-denominator multiple of a quartic \(P_4\) and \(p'+q'\) as a positive-denominator multiple of a sextic \(P_6\), with the displayed overall signs. The inspected verifier reconstructs the rational functions from the source coefficients and proves both factorizations symbolically. Exact Sturm counts give zero roots of \(P_4\) and one root of \(P_6\) in \((-1,1)\); exact rational evaluations at the two decimal endpoints bracket the sextic root. Since \(P_4(0)<0\) and \(P_6(0)<0\), the factor signs yield exactly the stated Jacobian partition. An independent replay of the symbolic factorization and Sturm counts agreed with the package certificate.
 
-It also checks
-\[
-J_F(0)=1
-\]
-and
-\[
-J_F(-99/100)<0.
-\]
+## originality
 
-Therefore the real-axis zero is unique and the Jacobian is negative exactly to its left.
+PASS
+
+The accessible primary record for Wang--Zhong states only that the new bounded convex harmonic self-convolution counterexample has a vanishing Jacobian at some interior point. The assigned exact analysis strengthens this to a complete real-diameter root count and sign partition using a new Sturm certificate. Resultary and targeted source searches returned no prior statement of the unique root or the quoted bracket. Because the full very recent preprint could not be securely inspected in this bounded run, the possibility of an unobserved in-paper remark is retained explicitly as a residual risk rather than being treated as negative evidence.
+
+## value
+
+PASS
+
+The source is a new counterexample to a longstanding harmonic-convolution problem. Determining that its real diameter has one and only one fold, together with the exact orientation-reversing interval, is a natural geometric refinement of the mechanism by which the counterexample fails local univalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

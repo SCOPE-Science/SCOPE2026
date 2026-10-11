@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T07:36:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d84e855c9856010094c41aed128a1b5437a29c51",
+        "assigned artifacts/verify_real_axis_fold.py blob 58d52e9b8f07c3fcd43266377b149d7150207ab5",
+        "assigned artifacts/real_axis_fold_certificate.json blob 240d555afe0b941ae4708460cc5a20b30d29d16a",
+        "Wang--Zhong, arXiv:2609.11556v1",
+        "Dorff, DOI:10.1080/17476930108815381"
+      ],
+      "rationale": "The assigned exact formulas express \\(p'-q'\\) as a positive-denominator multiple of a quartic \\(P_4\\) and \\(p'+q'\\) as a positive-denominator multiple of a sextic \\(P_6\\), with the displayed overall signs. The inspected verifier reconstructs the rational functions from the source coefficients and proves both factorizations symbolically. Exact Sturm counts give zero roots of \\(P_4\\) and one root of \\(P_6\\) in \\((-1,1)\\); exact rational evaluations at the two decimal endpoints bracket the sextic root. Since \\(P_4(0)<0\\) and \\(P_6(0)<0\\), the factor signs yield exactly the stated Jacobian partition. An independent replay of the symbolic factorization and Sturm counts agreed with the package certificate.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier convolution theorems give positive sufficient conditions for special mapping classes and do not analyze this new ellipse example.",
+          "The source's counterexample conclusion needs only one sign change and does not, in the accessible record, supply a real-axis root census."
+        ],
+        "reasoning": "No checked broader theorem controls the exact sextic arising in this counterexample.",
+        "searches": [
+          "Wang--Zhong 2026 counterexample",
+          "Dorff 2001 and later harmonic-convolution univalence literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.11556v1",
+        "DOI:10.1080/17476930108815381",
+        "Resultary semantic search",
+        "harmonic-convolution literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sign change between \\(-99/100\\) and zero proves only existence, not uniqueness or the sign on the rest of \\((-1,1)\\).",
+          "The exact Sturm calculation is additional information needed to exclude further real roots."
+        ],
+        "reasoning": "The complete sign partition is not mechanically implied by an existence witness.",
+        "searches": [
+          "Wang--Zhong existence-of-critical-point statement",
+          "exact source coefficient formulas reproduced in the assigned package"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary public abstract asserts existence of a vanishing Jacobian point for the counterexample.",
+          "No accessible statement gives uniqueness on the real diameter or the full orientation-reversing interval."
+        ],
+        "reasoning": "A zero of the real-axis Jacobian is the same fold condition used by the source; the assigned theorem classifies all such real-axis points rather than finding one witness.",
+        "searches": [
+          "Resultary query: Dorff ellipse counterexample unique real Jacobian zero fold Wang Zhong harmonic convolution",
+          "arXiv:2609.11556v1 public record",
+          "targeted searches for the exact root bracket and real-axis Jacobian sign pattern"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the direct exact Resultary hit; no earlier exact root value or sign table was located."
+        ],
+        "reasoning": "The polynomial root count and rational bracket are exact finite data specific to the source example.",
+        "searches": [
+          "Resultary exact root/bracket query",
+          "exact-string searches for the bracket endpoints"
+        ]
+      },
+      "rationale": "The accessible primary record for Wang--Zhong states only that the new bounded convex harmonic self-convolution counterexample has a vanishing Jacobian at some interior point. The assigned exact analysis strengthens this to a complete real-diameter root count and sign partition using a new Sturm certificate. Resultary and targeted source searches returned no prior statement of the unique root or the quoted bracket. Because the full very recent preprint could not be securely inspected in this bounded run, the possibility of an unobserved in-paper remark is retained explicitly as a residual risk rather than being treated as negative evidence.",
+      "residual_risks": [
+        "The complete very recent Wang--Zhong preprint was not securely inspected in this run; it could contain a real-axis remark not visible in the public abstract/record.",
+        "A follow-up posted after the source could independently contain the same Sturm classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED_SOURCE_STATES_EXISTENCE_NOT_OBSERVED_UNIQUENESS",
+          "evidence": "The accessible source statement establishes a critical point but does not state a unique real-axis fold or the exact bracket.",
+          "identifier_or_url": "arXiv:2609.11556v1",
+          "material_read": "Primary public abstract/record stating construction of the bounded convex counterexample and existence of an interior Jacobian zero; the assigned package's exact coefficients and source-derived formulas were then independently reconstructed.",
+          "method": "Open-access primary record comparison; complete primary full text was not securely available in the bounded audit window, so no whole-document noncoverage inference was made.",
+          "title": "A counterexample to an open problem of Dorff",
+          "trigger": "Exact source of the harmonic ellipse counterexample and its rational coefficient data."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang--Zhong 2026",
+        "Dorff 2001",
+        "later harmonic-convolution univalence literature"
+      ],
+      "rationale": "The source is a new counterexample to a longstanding harmonic-convolution problem. Determining that its real diameter has one and only one fold, together with the exact orientation-reversing interval, is a natural geometric refinement of the mechanism by which the counterexample fails local univalence.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Wang--Zhong Dorff ellipse counterexample, the self-convolution Jacobian on the real diameter has exactly one zero \\(x_*\\), with \\(-0.961916078016036<x_*<-0.961916078016035\\); it is negative on \\((-1,x_*)\\) and positive on \\((x_*,1)\\).",
+  "limitations": [
+    "Only the real diameter is classified; nonreal critical points in the disk are not counted.",
+    "A verified complete copy of the very recent Wang--Zhong preprint was not available through the bounded open-access routes in this run; the source abstract and exact formulas reproduced in the assigned package were compared, and this access limitation remains an originality residual risk."
+  ],
+  "schema_version": 1
+}

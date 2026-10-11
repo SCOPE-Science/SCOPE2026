@@ -1,23 +1,21 @@
-# Review of Unique real-axis fold point in the Dorff ellipse counterexample
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source gives exact rational constants for the two geometric coefficient tails and exact rational formulas for the analytic and co-analytic derivatives of the harmonic self-convolution. Reconstructing those formulas gives an exact factorization of the real-axis Jacobian into a quartic and a sextic over a denominator that is strictly positive on \((-1,1)\).
+PASS
 
-Exact Sturm counts show that the quartic has no root in \((-1,1)\) and the sextic has exactly one. Sign evaluation then proves the full orientation-reversal interval and the unique fold point. The packaged checker replays the calculation with rational arithmetic rather than floating-point root counting.
+The assigned exact formulas express \(p'-q'\) as a positive-denominator multiple of a quartic \(P_4\) and \(p'+q'\) as a positive-denominator multiple of a sextic \(P_6\), with the displayed overall signs. The inspected verifier reconstructs the rational functions from the source coefficients and proves both factorizations symbolically. Exact Sturm counts give zero roots of \(P_4\) and one root of \(P_6\) in \((-1,1)\); exact rational evaluations at the two decimal endpoints bracket the sextic root. Since \(P_4(0)<0\) and \(P_6(0)<0\), the factor signs yield exactly the stated Jacobian partition. An independent replay of the symbolic factorization and Sturm counts agreed with the package certificate.
 
-## Originality
+## originality
 
-PASS. The 2026 primary paper was inspected through Sections 5–8. It proves only a sign change between \(-99/100\) and \(0\), sufficient for existence of a critical point. It does not state uniqueness of the real critical point, the sextic governing it, or the full Jacobian sign partition on the diameter.
+PASS
 
-Published-finding database searches using the exact source, Dorff's problem, ellipse self-convolution, real critical points, Jacobian roots, and orientation reversal returned no implication-equivalent result. Earlier harmonic-convolution literature supplies positive univalence theorems under special dilatations but does not analyze this newly constructed ellipse.
+The accessible primary record for Wang--Zhong states only that the new bounded convex harmonic self-convolution counterexample has a vanishing Jacobian at some interior point. The assigned exact analysis strengthens this to a complete real-diameter root count and sign partition using a new Sturm certificate. Resultary and targeted source searches returned no prior statement of the unique root or the quoted bracket. Because the full very recent preprint could not be securely inspected in this bounded run, the possibility of an unobserved in-paper remark is retained explicitly as a residual risk rather than being treated as negative evidence.
 
-The residual risk is that a later note or computational supplement could record the same root without being indexed by the searches.
+## value
 
-## Value
+PASS
 
-PASS. The source's counterexample is proved by one sign sample and continuity. The new result identifies the actual one-dimensional fold mechanism completely: there is exactly one real critical point, and one entire boundary-side interval is orientation-reversing.
+The source is a new counterexample to a longstanding harmonic-convolution problem. Determining that its real diameter has one and only one fold, together with the exact orientation-reversing interval, is a natural geometric refinement of the mechanism by which the counterexample fails local univalence.
 
-This is a natural quantitative classification of the fresh counterexample rather than an arbitrary numerical refinement. It isolates which factor of the self-convolution derivative causes the fold and provides a reproducible benchmark for proposed quantitative sufficient conditions in harmonic convolution theory.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
