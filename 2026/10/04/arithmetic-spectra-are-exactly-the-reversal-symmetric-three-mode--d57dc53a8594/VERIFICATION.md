@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact proof has two parts. Necessity is symbolic: the two projective reversal equations imply \(\mu'=1-\mu\), and full support forces \(s=1/2\). Sufficiency is replayed by `verify.py` in \(\mathbb Q(\sqrt2)\): the two stated weights are swapped exactly by the normalized \(j=2\) fourth-power weight map and have common normalization \(Z=1/64\).
+# Independent mathematical audit
 
-The checker also verifies exact positivity of the smaller extreme weight and confirms that the general radial expression specializes to \(Q=1/49\) at \(\kappa=3\). The radial formula for arbitrary \(m>h>0\) is proved algebraically in `RESULT.md` by multiplying the two cycle polynomials; the checker is not used as a substitute for that infinite-parameter proof.
+## correctness
 
-No claim is made about arbitrary exceptional cycles, their measure, or their stability. The closest Li--Wang full text was not available for line-by-line originality comparison; that is an access limitation, not evidence of absence.
+PASS
+
+Normalizing the spectrum to \((1,s,0)\), the exact cycle map is \(T_i(p)=p_i|\mu-\beta_i|^4/Z\). The middle coordinate and the two extreme ratios for a reversal pair imply \(\mu'=1-\mu\), while \(\mu+\mu'=1+(2s-1)p_2\); full support forces \(s=1/2\). The remaining equations give exactly the two stated \(\mathbb Q(\sqrt2)\) weight states. Direct multiplication of the two cycle factors yields the common radial factor. The inspected exact verifier was independently replayed and confirms the two-state swap, common normalization \(Z=1/64\), positivity, and the \((3,2,1)\) specialization \(1/49\).
+
+## originality
+
+PASS
+
+Li--Wang's current paper gives the concrete \((1,2,3)\) full-support projective period-two counterexample with four-update factor \(1/49\); Gu proves generic doubly exponential convergence outside a null exceptional set when \(2j>q\). Neither source classifies which three-point spectra support the reversal symmetry or gives the unique weights and condition-number-dependent radial law.
+
+## value
+
+PASS
+
+The result converts a newly discovered isolated counterexample into a complete spectral classification within a natural symmetry class, with unique invariant weights and an exact condition-number-dependent rate. That is a substantive structural description of part of the exceptional set left open by the generic convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
