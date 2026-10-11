@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The published dimension theorem makes the affine hull exactly the intersection of the zero-coordinate-sum hyperplane and the rank hyperplane. Orthogonal projection of the origin onto that affine hull gives \\(c=-r/S\\); every arrow root has norm squared \\(2\\) and rank scalar product \\(-1\\), yielding the exact common squared radius \\(2-1/S\\). The sphere is minimum enclosing exactly when its center lies in the vertex hull. Barycentric membership is equivalent to a nonnegative flow with divergence \\(c\\), and max-flow/min-cut converts this to the lower-ideal centered-rank inequalities. Failure of an ideal inequality gives strict separation and hence a strictly smaller enclosing sphere after a small center shift.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source gives the exact affine rank hyperplane and dimension but no metric sphere theorem.",
+        "The semi-balanced root-polytope source develops dissections and Ehrhart theory from the same potential hyperplane, not Euclidean enclosing spheres.",
+        "The toric source studies reflexive/Fano and rigidity properties and contains no Euclidean, sphere, radius, or circum terminology in the inspected text."
+      ],
+      "reasoning": "The strongest broader results determine affine and combinatorial structure. The final claim additionally needs orthogonal projection in the source metric and a separate convex-flow optimality argument, neither of which is implied by the inspected theorems.",
+      "searches": [
+        "full text: Numata--Takahashi--Tamaki, Theorem 1.1, Lemma 3.3, Definition 3.5, Lemma 3.6, Proposition 3.8",
+        "full-text term searches in arXiv:2203.14521: circumradius, sphere, Euclidean, radius",
+        "full text: Kálmán--Tóthmérész, Definition 2.1 and Theorem 2.6 potential-function hyperplane",
+        "same-object toric literature: Kara--Portakal--Tsuchiya introduction and directed-edge-polytope setup"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.14521v1",
+      "arXiv:2105.00960v3",
+      "arXiv:2103.06404",
+      "Australasian Journal of Combinatorics 88(1) (2024), 77--96",
+      "published-result database searches for directed-edge/root-polytope circumsphere, Chebyshev-center, minimum-enclosing, and rank-variance formulations",
+      "own current cumulative geometry-middle ledger",
+      "own prior-week cumulative geometry-middle ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior own oriented-cycle theorem determines \\(h^*\\)-polynomials and normalized volumes; it does not determine Euclidean sphere centers or enclosing-ball optimality.",
+        "The primary source's rank hyperplane is a premise but does not imply the orthogonal projection formula or the lower-ideal flow criterion.",
+        "No current own finding concerns directed edge polytopes."
+      ],
+      "reasoning": "The final theorem needs a new metric computation and a new equivalence between minimum-enclosing optimality, barycentric flow, and lower-ideal inequalities. Neither the prior lattice result nor the inspected affine face theory contains these implications.",
+      "searches": [
+        "own prior finding e32575b6-6377-4048-b8d6-d804bc28dc7d: exact Ehrhart polynomials of oriented cycle root polytopes",
+        "Numata--Takahashi--Tamaki rank-hyperplane and dimension results",
+        "Kálmán--Tóthmérész semi-balanced root-polytope potential and Ehrhart theory",
+        "own current ledger search: directed edge polytope / rank function / root polytope / graded poset",
+        "own prior ledger search: directed edge polytope / graded poset / rank function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned statement gives the center \\(-r/\\|r\\|^2\\), the squared radius \\(2-1/\\|r\\|^2\\), or an ideal-sum criterion for minimum-enclosing optimality.",
+        "The searches covered direct polytope terminology, root-polytope terminology, Chebyshev/minimum-enclosing language, and the rank-variance formulation."
+      ],
+      "reasoning": "The claim can be formulated as a vertex circumsphere theorem, a rank-variance theorem, a Chebyshev-center theorem, or a nonnegative-flow criterion. The listed searches cover these equivalent formulations without locating a covering result.",
+      "searches": [
+        "published-result database: directed edge polytope rank function Euclidean circumsphere circumcenter",
+        "published-result database: directed edge polytope rank variance sphere center",
+        "published-result database: graded poset directed edge polytope minimum enclosing ball",
+        "published-result database: root polytope rank function circumsphere Euclidean",
+        "published-result database: directed edge polytope Chebyshev center lower ideals",
+        "literature search: \"directed edge polytope\" circumradius",
+        "literature search: \"directed edge polytope\" circumsphere",
+        "literature search: \"directed edge polytope\" \"minimum enclosing ball\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed directed-root-polytope result is an exact Ehrhart theorem for oriented cycles, which is lattice rather than Euclidean metric data.",
+        "No indexed table or formula gives directed-edge-polytope sphere centers or radii from a rank function."
+      ],
+      "reasoning": "Exact-database searches were used to detect either a symbolic formula or low-dimensional table that could imply the final statement. No such coverage was returned.",
+      "searches": [
+        "published-result database: directed edge polytope rank function Euclidean circumsphere circumcenter",
+        "published-result database: directed edge polytope rank variance sphere center",
+        "published-result database: root polytope rank function circumsphere Euclidean"
+      ]
+    },
+    "rationale": "The primary directed-edge-polytope paper was inspected at its vertex lemma, rank-function definition, rank hyperplane, dimension theorem, and graded-poset equivalence. Targeted full-text searches found no circumradius, sphere, Euclidean, or radius occurrence. The semi-balanced root-polytope paper was inspected at its potential-function hyperplane and root-vector setup; the toric directed-edge literature was checked as broader same-object coverage. Targeted published-result searches found no theorem giving either the rank-variance sphere formula or the lower-ideal minimum-enclosing criterion.",
+    "residual_risks": [
+      "A general theorem about equinorm incidence configurations may imply the common-sphere formula without using directed-edge-polytope terminology.",
+      "The max-flow/min-cut reformulation may be known in network optimization language without being connected explicitly to minimum enclosing spheres.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies every affine/combinatorial premise used in the theorem but does not state a Euclidean common-sphere, rank-variance radius, or minimum-enclosing-ball criterion.",
+        "evidence": "The first public version is dated 2022-03-28 and lists MSC 52B05. The paper proves that all arrow vectors are vertices, that a connected rank-function quiver has dimension \\(N-2\\), and that rank-function quivers are Hasse diagrams of graded posets.",
+        "identifier_or_url": "arXiv:2203.14521v1",
+        "material_read": "Abstract and introduction; Definition 3.1; Lemma 3.3; Definition 3.5; Lemma 3.6; Theorem 1.1; Proposition 3.8; direct PDF-page inspection of the rank-hyperplane and graded-poset statements; targeted full-text searches for circumradius, sphere, Euclidean, and radius.",
+        "method": "Open-access arXiv full text plus PDF-page inspection.",
+        "title": "Faces of Directed Edge Polytopes",
+        "trigger": "Exact primary geometry source giving directed-edge vertices, rank functions, affine rank hyperplanes, dimension, and graded-poset interpretation."
+      },
+      {
+        "assessment": "The paper supplies a sign-reversed version of the same affine potential structure and develops triangulations and \\(h^*\\)-theory. It does not state the Euclidean vertex-sphere formula or the lower-ideal minimum-enclosing criterion.",
+        "evidence": "The paper states that a semi-balanced directed graph admits a potential increasing by one along every arrow and that the root polytope lies in the corresponding affine hyperplane.",
+        "identifier_or_url": "arXiv:2105.00960v3",
+        "material_read": "Introduction; Definition 2.1; Theorem 2.6 and the potential-function hyperplane; direct PDF-page inspection of the potential statement; scope of the dissection and Ehrhart results.",
+        "method": "Open-access arXiv full text plus PDF-page inspection.",
+        "title": "Root polytopes and Jaeger-type dissections for directed graphs",
+        "trigger": "Strongest broader root-polytope source using the same potential-function hyperplane for semi-balanced directed graphs."
+      },
+      {
+        "assessment": "The paper studies reflexive polytopes and rigidity of associated toric Fano varieties, not Euclidean enclosing spheres.",
+        "evidence": "The inspected text defines the same incidence-vector directed edge polytope and records its toric applications; the targeted metric terms were absent.",
+        "identifier_or_url": "arXiv:2103.06404",
+        "material_read": "Abstract and Section 1.1 directed-edge-polytope setup; targeted text searches for Euclidean, sphere, radius, and circum terminology.",
+        "method": "Open-access arXiv HTML full-text inspection.",
+        "title": "Rigid Gorenstein toric Fano varieties arising from directed graphs",
+        "trigger": "Same-object directed-edge-polytope literature that could conceivably contain a stronger geometric statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3617e90c-aa4f-4ad0-ba76-441319b84bb4",
+  "value": {
+    "rationale": "Directed edge polytopes are a canonical type-A root configuration with recent complete face theory. For rank-function quivers, the theorem extracts an exact Euclidean invariant from the combinatorial rank data: the entire vertex set lies on a sphere controlled by rank variance. The lower-ideal criterion then cleanly separates when this canonical sphere is genuinely the minimum enclosing sphere, linking convex geometry to feasible transshipment on the graded quiver. The criterion is nonvacuous and fails for natural connected graded quivers, so the result is not merely the observation that all root vectors have equal norm.",
+    "status": "PASS"
+  }
+}
