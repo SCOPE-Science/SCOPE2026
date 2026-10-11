@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:34:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob b7003a599aecebab0fcf2bee9d2af059e35d47fa",
+        "assigned verify.py blob 442baf46c14e5c9ca5b82c5895ad7aecb5840ba8",
+        "Valliappan, Cover Semantics for Intuitionistic Modalities, arXiv:2607.11352, full primary paper"
+      ],
+      "rationale": "On the equality preorder, subset refinement reverses inclusion and every subset is a localized upset. Thus a CM modal cover at one world induces exactly an upset of the Boolean lattice, giving an arbitrary monotone Boolean coordinate. SL modal inclusion restricts each cover to \\(\\varnothing\\) or \\(\\{w\\}\\), yielding exactly false/identity/true behavior. PLL identity removes the false behavior, while transitivity is automatic for the remaining two local cover families. CK-box seriality plus pairwise confluence makes each finite cover family downward directed, so repeated confluence produces its total intersection as an actual least cover; hence the induced operator is exactly a relational Kripke box. The verifier exhaustively checks these reductions for the stated small bases and independently reproduces the Dedekind/local-behavior counts.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "On the discrete base, localized upsets are all subsets, so the source's general modal-algebra statements directly specialize to the claimed operator classes.",
+          "Finite meet-preserving normal powerset operators are standard relational boxes, and monotone Boolean coordinates are counted by Dedekind numbers."
+        ],
+        "reasoning": "The broader source framework dominates the audited discrete special case; the finite hypothesis only makes the standard principal-filter and counting steps explicit.",
+        "searches": [
+          "arXiv:2607.11352 full primary paper",
+          "standard finite Boolean-algebra representation of meet-preserving normal operators"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.11352",
+        "standard Dedekind-number/finite Boolean-algebra facts",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source establishes exactly the hypotheses from which each discrete-base case follows.",
+          "No new nonstandard lemma beyond elementary finite-poset/Boolean-algebra specialization is needed."
+        ],
+        "reasoning": "The final claim is therefore an implication-level corollary rather than an independently uncovered theorem.",
+        "searches": [
+          "arXiv:2607.11352 pages covering CM algebra, SL modal inclusion, PLL modal identity/transitivity, and CK-box seriality/confluence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Valliappan proves CM gives a monotone operator on the algebra of localized upsets.",
+          "The source states the exact added modal conditions for SL, PLL, and CK-box and proves the corresponding algebraic laws."
+        ],
+        "reasoning": "The audited normal forms are equivalent formulations of those source laws after substituting the finite discrete powerset algebra.",
+        "searches": [
+          "Resultary query: modal cover semantics finite discrete base Dedekind CM SL PLL CK box Kripke least cover Valliappan",
+          "arXiv:2607.11352 Propositions 3.4--3.5 and Sections 4.1--4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate printed table with the four numerical count formulas was located."
+        ],
+        "reasoning": "Absence of a table does not restore originality because the counts follow mechanically from the source's general semantic conditions plus standard finite Boolean combinatorics.",
+        "searches": [
+          "Resultary exact finite discrete modal-cover count search"
+        ]
+      },
+      "rationale": "Every load-bearing structural statement is an elementary specialization of Valliappan's published semantic and algebraic theorems. The paper proves that CM modal covers induce arbitrary monotone operators on the localized-upset Heyting algebra; on the discrete base that algebra is exactly the powerset Boolean algebra. It defines SL by modal inclusion, PLL by adding identity and transitivity, and CK-box by seriality and confluence, and proves that the CK-box operator preserves finite meets. On a finite powerset algebra these conditions mechanically yield the three-point SL behavior, fixed-subset PLL nucleus, and principal-filter/Kripke representation. The numerical counts then use standard Boolean-lattice counting. Under the audit rule that corollaries and special cases are covered even without matching wording or numbers, the result is implication-level covered.",
+      "residual_risks": [
+        "The exact four count formulas do not appear verbatim in the source, but they are routine specializations and therefore do not survive the originality standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "The general theorems identify the operator laws for CM, SL, PLL, and CK-box; restricting them to the finite discrete powerset base yields the audited normal forms by standard finite Boolean reasoning.",
+          "identifier_or_url": "arXiv:2607.11352",
+          "material_read": "Complete 19-page primary paper, including the modal operator theorem, algebraic interpretation, SL section, PLL section, CK-box seriality/confluence section, discussion, and appendix.",
+          "method": "Authorized full-primary-PDF inspection after ordinary open retrieval did not expose the complete paper.",
+          "title": "Cover Semantics for Intuitionistic Modalities",
+          "trigger": "Exact primary source defining all four modal-cover systems in the audited claim."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Valliappan arXiv:2607.11352",
+        "standard finite Boolean-lattice and relational-box representation facts"
+      ],
+      "rationale": "The four normal forms are clean expository examples, but once the source's general semantic conditions are specialized to equality refinement and singleton local covers, the deductions are routine: Boolean-lattice upsets for CM, two possible local subsets for SL/PLL, and a finite directed-intersection argument for CK-box. The remaining enumeration is standard. This does not fill a separate motivated mathematical gap under the shared value bar.",
+      "residual_risks": [
+        "The classification may still be useful pedagogically or as a test case for implementations."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "On a finite discrete cover base of \\(n\\) labelled worlds, modal-cover semantics has the exact semantic normal forms and counts \\(M_n^n\\) for CM, \\(3^n\\) for SL, \\(2^n\\) for PLL, and \\(2^{n^2}\\) for \\(\\mathrm{CK}_{\\Box}\\), with the respective operator forms arbitrary monotone set maps, \\(T\\cup(I\\cap X)\\), \\(X\\cup C\\), and ordinary Kripke-box operators \\(\\{w:K_w\\subseteq X\\}\\).",
+  "limitations": [
+    "The base refinement is equality and the only local cover is the singleton \\(\\{w\\}\\).",
+    "The counts are for semantic operators on labelled finite worlds, not raw redundant modal-cover relations or isomorphism classes."
+  ],
+  "schema_version": 1
+}
