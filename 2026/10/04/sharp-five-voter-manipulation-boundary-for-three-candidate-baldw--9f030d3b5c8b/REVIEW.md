@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is a finite exhaustive theorem. Every anonymous three-candidate profile through five voters, every present sincere ranking type, and every unilateral false report are tested. Two independently coded Baldwin implementations agree throughout. A second traversal over all \(7776\) labeled five-voter profiles independently reproduces the same six anonymous bad profiles and the exact multiplicities. The unique normalized event is also checked directly from its Borda scores and final pairwise rounds.
+## correctness
 
-Risk: the lower bound is computational rather than a symbolic inequality proof. The state space is complete and small, and the independent labeled replay plus separate winner implementation reduce ordinary enumeration risk.
+PASS
 
-## Originality
-**PASS.** The 2011 primary paper proves single-manipulator computational hardness for Baldwin but does not give a minimal three-candidate electorate or exact prevalence. Heilmaier's 2020 thesis contains the same five-voter truthful profile as a minimal Black-versus-Baldwin disagreement and computes the Baldwin winner \(C\), but it does not study manipulation and explicitly sets strategyproofness aside. Targeted searches for the five-voter manipulation boundary, exact six-profile orbit, and prevalence fractions found no equivalent published classification.
+The normalized witness is directly verified: truthful first-round Borda scores are \((6,4,5)\), so \(B\) is eliminated and \(C\) beats \(A\); after one \(ABC\) voter reports \(BCA\), the scores become \((4,5,6)\), so \(A\) is eliminated and \(B\) beats \(C\). The frozen verifier contains two independent Baldwin winner implementations, exhaustive anonymous enumeration for every electorate size \(1\) through \(5\), and a separate labeled replay over all \(6^5\) profiles and every distinguished voter/report. A fresh independent anonymous replay reproduced zero bad profiles through four voters, exactly six at five voters, one relabeling class and labeled weight \(180\); inspection of the labeled route verifies the factor two giving \(360\) vulnerable distinguished voter-profile pairs.
 
-Risk: the truthful witness itself is prior, so novelty depends on the strategic transition, sharp four-voter impossibility, orbit completeness, and frequency counts. An unindexed finite census may exist.
+## originality
 
-## Value
-**PASS.** Baldwin's rule is a canonical Condorcet-consistent Borda-elimination rule whose manipulation complexity is a standard computational-social-choice topic. Identifying the exact first electorate where an individual can strategically improve the winner complements asymptotic/complexity hardness with a complete small-market boundary, including prevalence and a unique normal form. The boundary is natural, not an arbitrary parameter slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Narodytska, Walsh and Xia prove broad one-manipulator hardness for unweighted Baldwin but do not give a three-candidate minimum electorate or exact prevalence. Heilmaier's full thesis already contains the same truthful \(2,1,2\) five-voter profile as a minimal Black-versus-Baldwin difference and computes Baldwin winner \(C\), so that profile itself is prior; however, the thesis does not state the unilateral \(ABC\to BCA\) manipulation, the four-voter impossibility, the unique strategic normal form or the exact incidence counts. Resultary exact searches returned no matching strategic census.
+
+## value
+
+PASS
+
+Baldwin manipulation is a standard computational-social-choice problem, and the exact first tie-independent electorate where a single voter can profit gives a natural finite strategyproofness boundary. The complete orbit, prevalence and unique normalized report make this a structural classification rather than an isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

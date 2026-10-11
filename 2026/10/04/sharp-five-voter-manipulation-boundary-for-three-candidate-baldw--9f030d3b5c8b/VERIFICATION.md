@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_baldwin5_manipulation.py` provides an exact finite replay.
 
-Route A enumerates every anonymous three-candidate profile for electorate sizes \(1\) through \(5\). For each unique truthful Baldwin outcome, every sincere ranking type present and every false report are tested. Two independent Baldwin implementations are required to agree on all truthful and deviating profiles.
+# Independent mathematical audit
 
-Route B independently enumerates all \(6^5=7776\) ordered five-voter profiles, every distinguished voter, and every false report. Forgetting voter labels must give exactly the same six anonymous bad profiles as Route A, with the correct multinomial multiplicities.
+## correctness
 
-The replay verifies:
-- zero manipulable anonymous profiles for \(1\) through \(4\) voters;
-- exactly \(6\) manipulable anonymous profiles at \(5\) voters;
-- exactly \(180\) bad labeled profiles among \(7776\);
-- exactly \(6636\) labeled profiles with unique truthful Baldwin outcome;
-- exactly \(360\) vulnerable distinguished voter-profile pairs;
-- one vulnerable ranking type per bad anonymous profile, of multiplicity two;
-- one profitable false report per vulnerable voter;
-- one candidate-relabeling class containing all six anonymous profiles;
-- normalized truthful profile \((2,0,0,1,2,0)\), false report \(BCA\), and winner change \(C\to B\);
-- direct first- and second-round Borda scores for the normalized representative.
+PASS
 
-Run:
+The normalized witness is directly verified: truthful first-round Borda scores are \((6,4,5)\), so \(B\) is eliminated and \(C\) beats \(A\); after one \(ABC\) voter reports \(BCA\), the scores become \((4,5,6)\), so \(A\) is eliminated and \(B\) beats \(C\). The frozen verifier contains two independent Baldwin winner implementations, exhaustive anonymous enumeration for every electorate size \(1\) through \(5\), and a separate labeled replay over all \(6^5\) profiles and every distinguished voter/report. A fresh independent anonymous replay reproduced zero bad profiles through four voters, exactly six at five voters, one relabeling class and labeled weight \(180\); inspection of the labeled route verifies the factor two giving \(360\) vulnerable distinguished voter-profile pairs.
 
-`python3 verify_baldwin5_manipulation.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Narodytska, Walsh and Xia prove broad one-manipulator hardness for unweighted Baldwin but do not give a three-candidate minimum electorate or exact prevalence. Heilmaier's full thesis already contains the same truthful \(2,1,2\) five-voter profile as a minimal Black-versus-Baldwin difference and computes Baldwin winner \(C\), so that profile itself is prior; however, the thesis does not state the unilateral \(ABC\to BCA\) manipulation, the four-voter impossibility, the unique strategic normal form or the exact incidence counts. Resultary exact searches returned no matching strategic census.
 
-The computation proves only the finite tie-independent three-candidate statement above.
+## value
+
+PASS
+
+Baldwin manipulation is a standard computational-social-choice problem, and the exact first tie-independent electorate where a single voter can profit gives a natural finite strategyproofness boundary. The complete orbit, prevalence and unique normalized report make this a structural classification rather than an isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
