@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:07:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Variation of constants gives the unique bounded complete lift \\(w(t)=\\int_0^\\infty e^{-bs}x(t-s)\\,ds\\). Two lifts over the same complete base orbit differ by \\(Ce^{-bt}\\), which is unbounded backward unless \\(C=0\\), so compact invariant sets project injectively and hence are continuous invariant graphs. The branch Jacobians are block lower triangular with invariant vertical line exponent \\(-b\\) and quotient equal to the base tangent cocycle. At a compact-trajectory crossing of \\(x=0\\), one must have \\(y\\ne0\\), so the crossing is transverse; the continuous vector field gives identity saltation. The packaged symbolic verifier was read and independently checks the block factorization on both smooth branches. The source article's baseline \\(b=1\\) numerical four-exponent list omits the mandatory exponent \\(-1\\), and its reported two-positive-exponent intervals under variation of \\(b\\) cannot be asymptotic full tangent spectra of this printed ODE.",
+      "risk": "The Lyapunov statement is for regular ergodic invariant measures and asymptotic tangent exponents, not finite-time numerical estimates.",
+      "sources": [
+        "Zhang et al., DOI:10.3390/e23101341, full text pp. 1--12",
+        "Johnson--Palmer--Sell, DOI:10.1137/0518001",
+        "RESULT.md",
+        "verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited 1987 theory is formulated for linear skew-product flows and invariant measurable subbundles, a broader setting than this four-dimensional tangent cocycle.",
+          "The nonlinear graph formula requires only the elementary scalar stable-filter identity and boundedness in both time directions."
+        ],
+        "reasoning": "The final theorem needs no system-specific nonstandard lemma beyond substituting the printed forcing \\(x(t)\\) and coefficient \\(-b\\) into established machinery.",
+        "searches": [
+          "DOI:10.1137/0518001 publisher abstract and primary-paper metadata",
+          "standard variation-of-constants theory for a scalar exponentially stable forced linear equation"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/e23101341",
+        "PMCID:PMC8534533",
+        "DOI:10.1137/0518001",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source article itself supplies the triangular ODE and reports the numerical claim being corrected.",
+          "The standard invariant-subspace/quotient Lyapunov machinery supplies the spectrum union, while variation of constants supplies the invariant graph."
+        ],
+        "reasoning": "Combining those prior ingredients immediately yields the final scientific conclusion; therefore the claim is covered by implication even though the correction was not printed.",
+        "searches": [
+          "Zhang et al. 2021 equations (2), baseline Lyapunov list and parameter-b sweep",
+          "Johnson--Palmer--Sell 1987 linear skew-product framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 full text prints \\(\\dot w=x-bw\\) while the first three equations are independent of \\(w\\) and \\(b\\).",
+          "Johnson--Palmer--Sell treats Lyapunov exponents and invariant subbundles for linear skew-product flows.",
+          "Resultary found the audited statement but no older system-specific duplicate."
+        ],
+        "reasoning": "Stable-filter, skew-product graph, invariant vertical subbundle, quotient cocycle and Lyapunov-spectrum formulations are the same mathematical mechanism.",
+        "searches": [
+          "Web: A Hidden Chaotic System with Multiple Attractors Zhang Tian Li Wu Cui",
+          "Web: Ergodic Properties of Linear Dynamical Systems Johnson Palmer Sell 1987",
+          "Resultary: stable filter skew product conjugacy Lyapunov exponent -b hidden chaotic system"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier system-specific correction was located."
+        ],
+        "reasoning": "Absence of an exact duplicate does not establish originality because the final claim is already implied by stronger general theory plus the printed equations.",
+        "searches": [
+          "Resultary semantic search for the exact flow and forced exponent",
+          "Web searches combining the article title with skew product, linear filter, Lyapunov spectrum and hyperchaos correction"
+        ]
+      },
+      "rationale": "The scientific correction is valid, but the mathematical claim is a direct specialization of standard stable linear-filter and linear-cocycle theory to an ODE whose triangular structure is printed explicitly in the 2021 source. The bounded graph formula is immediate variation of constants, while the extra \\(-b\\) exponent follows from the invariant one-dimensional subbundle and quotient cocycle, exactly the setting of standard multiplicative-ergodic/skew-product theory. Under the required implication-based originality rule, a system-specific restatement does not become original merely because the source article failed to notice the consequence.",
+      "residual_risks": [
+        "No earlier system-specific erratum was found; this does not alter the implication-based rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_SYSTEM_PRINTS_TRIANGULAR_STRUCTURE_AND_NUMERICAL_CLAIM",
+          "evidence": "The first three equations contain no \\(w\\) or \\(b\\), and the fourth is exactly \\(\\dot w=x-bw\\); the paper nevertheless interprets parts of the \\(b\\)-sweep as hyperchaotic.",
+          "identifier_or_url": "DOI:10.3390/e23101341; PMID:34682065",
+          "material_read": "Authorized full text, pages 1--12. Pages 2--3 give the four-dimensional equations and baseline Lyapunov values; page 6 reports two positive Lyapunov exponents for parts of the \\(b\\)-sweep.",
+          "method": "Full-text inspection after open-web access encountered a browser challenge.",
+          "title": "A Hidden Chaotic System with Multiple Attractors",
+          "trigger": "Exact same ODE and the reported hyperchaos claim."
+        },
+        {
+          "assessment": "BROADER_STANDARD_LINEAR_COCYCLE_FRAMEWORK",
+          "evidence": "The abstract explicitly treats multiplicative ergodic theory for linear skew-product flows and invariant measurable subbundles.",
+          "identifier_or_url": "DOI:10.1137/0518001",
+          "material_read": "Publisher abstract and primary-paper metadata; a public PDF opening was attempted but failed during retrieval.",
+          "method": "Publisher and indexed-primary-source inspection; no access bypass.",
+          "title": "Ergodic Properties of Linear Dynamical Systems",
+          "trigger": "Broader invariant-subbundle and Lyapunov-spectrum framework."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although mathematically routine, the application has substantive scientific motivation because it directly diagnoses a published parameter-induced hyperchaos claim and identifies a mandatory missing exponent in the reported baseline spectrum. The correction is useful as a reliability check for numerical Lyapunov analyses of triangular chaotic systems.",
+      "risk": "Its value is corrective rather than a new structural theorem.",
+      "sources": [
+        "DOI:10.3390/e23101341"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the Zhang--Tian--Li--Wu--Cui four-dimensional flow, the added coordinate \\(\\dot w=x-bw\\) with \\(b>0\\) is a stable linear fiber: compact invariant dynamics are graph-conjugate to the three-dimensional base, and the tangent Lyapunov spectrum is the base spectrum together with the exact exponent \\(-b\\).",
+  "limitations": [
+    "Compact invariant dynamics and asymptotic regular ergodic tangent spectra only.",
+    "No claim is made about finite-time Lyapunov estimates or about classifying the three-dimensional base attractors."
+  ],
+  "schema_version": 1
+}
