@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Character orthogonality reduces the fourth moment to ordered pair fibers. The Gold derivative has kernel \(a\mathbb F_{2^{\gcd(m,k)}}\) for every nonzero step \(a\). The exact deficit splits into three independently nonnegative expressions; simultaneous equality forces constant modulus, a common squared phase, and precisely the stated subfield-line-affine Boolean condition. Both endpoint phase classifications and the explicit nonadditive trace family follow algebraically. The included code checked 21 finite fields/exponents and direct Fourier normalization in four cases. Risk: the finite calculations are corroborative, not proof of the unbounded family; that family follows from the field-kernel argument.
+
+**Originality — PASS, with residual risk.** [1] gives general finite-field extension methods; [2] gives known quadratic differential-uniformity and Walsh-spectral machinery; [3] gives sharp constants for different finite-field surfaces; [4] gives uniform-range large-Sidon restriction bounds. Their examined theorems do not imply the complete arbitrary-input Gold-graph fourth-moment equality geometry or its exact three-part deficit. Relevant semantic research-record searches found no matching statement, but synonyms involving Gold/APN differential tables, Boolean quadratics and additive energy may conceal an earlier equivalent theorem. No claim of exhaustive novelty is made.
+
+**Value — PASS.** The result supplies a sharp Fourier endpoint and complete optimizer criterion for the classical Gold graph across all extension degrees, with a gcd-controlled change between arbitrary signs and subfield-line-compatible phases. For proper intermediate subfields, it constructs a large nonaffine family and gives a quantitative decomposition of all losses from optimality. This identifies an analytic invariant of a motivated nonlinear map rather than an arbitrary small parameter slice.
+
+**Scientific limits.** Only one even endpoint is treated; the total size of the general intermediate-subfield phase class is not evaluated. The Gold differential kernels themselves are established background. Independent review remains outstanding.
+
+Same-model review: passed. Independent audit: not yet performed.
