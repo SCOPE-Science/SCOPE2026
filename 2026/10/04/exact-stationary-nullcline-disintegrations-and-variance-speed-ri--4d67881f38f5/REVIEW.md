@@ -1,30 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Arbitrary antiderivative tests in the two recovery coordinates give
-\[
-\mathbb E[x^2\mid y]=\frac{c-y}{d},
-\qquad
-\mathbb E[x\mid z]=x_R+\frac{z}{s}.
-\]
-Their conditional residuals are exactly \(-\dot y/d\) and \(\dot z/(rs)\), yielding
-\[
-d^2\operatorname{Var}(x^2)-\operatorname{Var}(y)=\mathbb E[\dot y^2]
-\]
-and
-\[
-s^2\operatorname{Var}(x)-\operatorname{Var}(z)=r^{-2}\mathbb E[\dot z^2].
-\]
-Invariant-support rigidity proves the stated equality cases. The packaged checker verifies the polynomial identities exactly.
+## correctness
 
-Risk: the equality classification uses standard invariance of the support and bounded completeness.
+PASS
 
-## Originality
-PASS. The foundational article, a full same-object energy paper, and a modern mathematical treatment were compared. The energy paper's global long-run balance does not imply conditional identities against arbitrary functions of the recovery variables. Direct and alias searches found no same-object theorem stating the conditional laws or the derivative-energy variance defects.
+For arbitrary continuous test functions of y and z, invariance of antiderivatives gives \(\mathbb E[(c-dx^2-y)\phi(y)]=0\) and \(\mathbb E[(s(x-x_R)-z)\psi(z)]=0\), proving the two conditional laws. Orthogonal conditional-residual decompositions give the two variance identities because the residuals are exactly \(-\dot y/d\) and \(\dot z/(rs)\). The mean parabola is the first/second-moment subtraction. If either speed square vanishes, support invariance makes the corresponding coordinate constant on each complete bounded support orbit and the remaining equations force an equilibrium; the mean-parabola equality is stricter and forces one equilibrium atom. The exact checker independently verifies all load-bearing polynomial residual identities.
 
-Risk: because the identities are short, an incidental differently worded observation in unindexed neuroscience or control literature may remain.
+## originality
 
-## Value
-PASS. The result resolves stationary voltage statistics along the two natural recovery coordinates and turns the remaining variance into an exact dynamical activity measure. Equality distinguishes equilibrium-supported states from genuinely active recurrence, providing a reusable analytic and numerical consistency test for a canonical bursting-neuron model.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The defining and later Hindmarsh--Rose literature inspected is organized around the model, equilibria, fast--slow/bifurcation geometry, bursting, perturbations, and energy/synchronization. Targeted Resultary search returned related stationary-law records for other flows but no same-object conditional-nullcline or variance--speed theorem. The generic invariant-generator identity is standard methodology, but no checked primary source already specializes it to these two recovery coordinates together with the exact residual/equality classification.
+
+## value
+
+PASS
+
+The two recovery nullclines are central structural objects in a canonical neuron model. Identifying them as exact stationary regression laws and quantifying their residual fluctuations by physical coordinate speeds yields reusable constraints for periodic, chaotic, or mixed recurrent states and a precise equilibrium-rigidity test; this is more informative than a numerical moment estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:47:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 406fd670644a370bb4f191e3812c74e758764ba3",
+        "assigned verify.py blob 5939c329bf1fa6da409783385ec8894bf4b962e2",
+        "Hindmarsh--Rose 1984, DOI:10.1098/rspb.1984.0024"
+      ],
+      "rationale": "For arbitrary continuous test functions of y and z, invariance of antiderivatives gives \\(\\mathbb E[(c-dx^2-y)\\phi(y)]=0\\) and \\(\\mathbb E[(s(x-x_R)-z)\\psi(z)]=0\\), proving the two conditional laws. Orthogonal conditional-residual decompositions give the two variance identities because the residuals are exactly \\(-\\dot y/d\\) and \\(\\dot z/(rs)\\). The mean parabola is the first/second-moment subtraction. If either speed square vanishes, support invariance makes the corresponding coordinate constant on each complete bounded support orbit and the remaining equations force an equilibrium; the mean-parabola equality is stricter and forces one equilibrium atom. The exact checker independently verifies all load-bearing polynomial residual identities.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The energy balance is a different global scalar identity; perturbation/bifurcation results do not determine conditional expectations under every invariant measure."
+        ],
+        "reasoning": "No inspected broader theorem for the specific Hindmarsh--Rose equations implies the paired regression and rigidity package.",
+        "searches": [
+          "Hindmarsh--Rose 1984",
+          "Torrealdea et al. 2006 energy analysis",
+          "2023 admissible-perturbations paper"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1098/rspb.1984.0024",
+        "DOI:10.1103/PhysRevE.74.011905",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equations are prior; the checked sources do not perform the arbitrary-test-function disintegration or equality-rigidity argument."
+        ],
+        "reasoning": "The final claim is additional invariant-measure structure rather than a restatement of phase-plane nullclines or a published energy balance.",
+        "searches": [
+          "Hindmarsh--Rose equations in DOI:10.1098/rspb.1984.0024",
+          "energy-function treatment DOI:10.1103/PhysRevE.74.011905"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original model source and energy paper concern dynamics/energy rather than conditional stationary disintegrations.",
+          "No same-object Resultary hit with the two conditional laws or speed defects was returned."
+        ],
+        "reasoning": "Conditional drift-zero formulations, nullcline regressions, orthogonal projections, and variance--speed residual laws were treated as equivalent formulations.",
+        "searches": [
+          "Resultary query: Hindmarsh Rose invariant measure conditional expectation nullcline variance speed exact stationary",
+          "DOI:10.1098/rspb.1984.0024",
+          "DOI:10.1103/PhysRevE.74.011905"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry containing the two regression functions or defect equalities was located."
+        ],
+        "reasoning": "These are analytic all-parameter identities, so a table would only cover them if it encoded the same formulas.",
+        "searches": [
+          "Resultary same-object exact-law search"
+        ]
+      },
+      "rationale": "The defining and later Hindmarsh--Rose literature inspected is organized around the model, equilibria, fast--slow/bifurcation geometry, bursting, perturbations, and energy/synchronization. Targeted Resultary search returned related stationary-law records for other flows but no same-object conditional-nullcline or variance--speed theorem. The generic invariant-generator identity is standard methodology, but no checked primary source already specializes it to these two recovery coordinates together with the exact residual/equality classification.",
+      "residual_risks": [
+        "The original 1984 full article was not read line-by-line in this run; an incidental stationary identity there remains a bounded access risk.",
+        "A general stationary-process conditional-drift theorem supplies the proof template, so an equivalent model-specific observation could exist under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_SOURCE; ACCESS_LIMITED_FOR_FULL-TEXT_ORIGINALITY",
+          "evidence": "The accessible material describes the three-variable bursting model and its dynamical behavior, not a stationary conditional-law theorem.",
+          "identifier_or_url": "DOI:10.1098/rspb.1984.0024",
+          "material_read": "Public bibliographic record and abstract/model description; a stable lawful full historical text was not obtained in this run.",
+          "method": "Primary-source abstract/metadata inspection; no whole-document noncoverage inference.",
+          "title": "A model of neuronal bursting using three coupled first order differential equations",
+          "trigger": "Defining same-object source."
+        },
+        {
+          "assessment": "DIFFERENT_GLOBAL_BALANCE",
+          "evidence": "Its energy analysis is not an implication of, nor an implication for, the coordinatewise conditional regressions and variance residuals.",
+          "identifier_or_url": "DOI:10.1103/PhysRevE.74.011905",
+          "material_read": "Primary abstract/result-level material describing the generalized energy function and synchronization analysis.",
+          "method": "Primary-source comparison.",
+          "title": "Energy aspects of the synchronization of model neurons",
+          "trigger": "Closest same-model work on exact balance functions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hindmarsh--Rose model literature",
+        "energy/synchronization literature"
+      ],
+      "rationale": "The two recovery nullclines are central structural objects in a canonical neuron model. Identifying them as exact stationary regression laws and quantifying their residual fluctuations by physical coordinate speeds yields reusable constraints for periodic, chaotic, or mixed recurrent states and a precise equilibrium-rigidity test; this is more informative than a numerical moment estimate.",
+      "residual_risks": [
+        "The result is structural rather than a classification of bursting regimes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the canonical three-dimensional Hindmarsh--Rose flow with \\(d,r,s>0\\), every compactly supported invariant probability measure satisfies \\(\\mathbb E[x^2\\mid y]=(c-y)/d\\) and \\(\\mathbb E[x\\mid z]=x_R+z/s\\), the stated mean-parabola defect, and the exact variance--speed identities \\(d^2\\operatorname{Var}(x^2)-\\operatorname{Var}(y)=\\mathbb E[\\dot y^2]\\) and \\(s^2\\operatorname{Var}(x)-\\operatorname{Var}(z)=r^{-2}\\mathbb E[\\dot z^2]\\), with the stated equilibrium rigidity.",
+  "limitations": [
+    "Compactly supported invariant probabilities only; existence or uniqueness of a non-equilibrium invariant measure is not asserted.",
+    "The identities constrain selected conditional first moments and variances rather than determining firing statistics or the full invariant law."
+  ],
+  "schema_version": 1
+}
