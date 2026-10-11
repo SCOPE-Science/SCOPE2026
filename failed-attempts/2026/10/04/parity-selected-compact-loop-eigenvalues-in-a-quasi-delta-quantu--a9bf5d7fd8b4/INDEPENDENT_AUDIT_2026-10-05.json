@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:36:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 90616af363626b1f603c68db5e1f0eba40a21f3c",
+        "assigned verify.py blob 7bff6a7e2ac46c967d0785e0f6c527e4cce6b520",
+        "Balmaseda--Di Cosmo--Pérez-Pardo, arXiv:1908.04214 / DOI:10.3390/sym11081047"
+      ],
+      "rationale": "With all chain coefficients zero, source equations (4.24)--(4.25) give \\(A+B=0\\) and \\(Ae^{ik}+Be^{-ik}=0\\), hence \\(\\sin k=0\\) for a nonzero loop amplitude. At \\(k=n\\pi\\), equation (4.27) reduces exactly to \\(e^{i(\\alpha_2-\u0007lpha_1)}=(-1)^n\\); the \\(\\delta\\) term vanishes because the common vertex value is zero. Conversely \\(\\sin(n\\pi x)\\) on a single loop satisfies the boundary system when that phase condition holds. The zero-energy Dirichlet solution is trivial. Translation invariance supplies one mutually orthogonal compactly supported eigenfunction on every loop, giving countably infinite multiplicity. The exact verifier checks both parity roots through \\(n=20\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General periodic quantum-graph work explains compactly supported point spectrum but is not needed to derive the exact condition here.",
+          "The same-model source equations already imply the phase selection directly."
+        ],
+        "reasoning": "Same-object boundary equations are decisive coverage.",
+        "searches": [
+          "Balmaseda--Di Cosmo--Pérez-Pardo 2019",
+          "Kuchment, Quantum Graphs II",
+          "magnetic chain-graph compact-state literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.04214",
+        "DOI:10.3390/sym11081047",
+        "Kuchment 2005",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equations (4.24)--(4.25) force \\(B=-A\\) and \\(\\sin k=0\\).",
+          "Equation (4.27) then gives the relative-phase root in one substitution."
+        ],
+        "reasoning": "No nonstandard lemma beyond the published boundary system is required.",
+        "searches": [
+          "source equations (4.24)--(4.27)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source explicitly gives all endpoint-value and derivative equations used by the proof.",
+          "The one-loop support hypothesis simply zeros the chain coefficients in those equations."
+        ],
+        "reasoning": "One-loop compact localization, Dirichlet loop modes, and parity selection by the relative boundary phase were compared.",
+        "searches": [
+          "Resultary: parity-selected compact loop eigenvalues quasi-delta quantum circuit one-loop phase",
+          "Balmaseda--Di Cosmo--Pérez-Pardo equations (4.24)--(4.27)",
+          "searches for compactly supported Dirichlet modes on periodic quantum graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact database hit was found."
+        ],
+        "reasoning": "Database absence cannot restore originality when the primary equations mechanically yield the claim.",
+        "searches": [
+          "Resultary exact one-loop/quasi-delta search"
+        ]
+      },
+      "rationale": "The primary paper prints the exact four boundary equations used here, including the condition that the relative phase \\(\\alpha_2^i-\\alpha_1^i\\) is constant along the graph. Setting all chain amplitudes to zero and imposing support on one loop reduces those equations in a few algebraic steps to Dirichlet loop momenta and the displayed phase parity. Thus the scientifically relevant statement is implication-level covered by the published boundary system even though the paper does not isolate it as a named parity theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "The audited one-loop parity law is obtained by zeroing the chain amplitudes in the source's displayed system.",
+          "identifier_or_url": "arXiv:1908.04214; DOI:10.3390/sym11081047",
+          "material_read": "Primary full-text material around equations (4.24)--(4.27), including the three continuity relations, the derivative balance, and the constant relative phase condition.",
+          "method": "Open primary full-text inspection.",
+          "title": "On \\(\\mathbb Z\\)-invariant self-adjoint extensions of the Laplacian on quantum circuits",
+          "trigger": "Exact circuit and boundary-condition source."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "same-model quantum-circuit paper",
+        "periodic quantum-graph compact-state literature"
+      ],
+      "rationale": "The exact phase selection identifies singular compact localized levels that can be obscured by eliminations dividing by Dirichlet factors, and the resulting infinite multiplicity is spectrally meaningful. The record is rejected for prior implication, not because the localized-state boundary is mathematically unmotivated.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "In the unit-loop quasi-\\(\\delta\\) circuit of Balmaseda--Di Cosmo--Pérez-Pardo, a nonzero eigenfunction supported on exactly one loop and zero on the chain exists precisely at \\(k=n\\pi\\) with relative loop phase satisfying \\(e^{i\\alpha}=(-1)^n\\); every admitted level has countably infinite multiplicity by translation to the different loops.",
+  "limitations": [
+    "Only states supported on exactly one loop are classified; other compactly supported states are not.",
+    "The metric normalization is the source's unit interval realization.",
+    "The conclusion is a direct specialization of the source's explicit boundary equations."
+  ],
+  "schema_version": 1
+}
