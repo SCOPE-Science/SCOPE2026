@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every fixed regular m-gon, n/P-scaled distances to vertices converge via independent endpoint Poisson processes to the maximum of m exact obtuse-angle chord altitudes. The fixed-\\(m\\) expectation converges by an exponential no-near-sample bound and exponentially small complement. Uniform pointwise bounds compare each chord altitude with \\(\\sin(2\\pi/m)\\) times \\(XY/(X+Y)\\), up to a relative \\(O(m^{-2})\\) error; expectation errors are \\(O((\\log m)/m^3)\\). Conditioning on X yields the exact tail \\(2ze^{-2z}K_1(2z)\\) of \\(XY/(X+Y)\\). A Laplace saddle at u=z gives \\(\\sqrt{\\pi z}e^{-4z}\\)(1+O(z^-1)); this implies the stated Gumbel normalization. Two-sided global tail bounds establish centered-maxima uniform integrability, so the Gumbel mean gamma yields the correct second-order constant. Direct standard-library geometric and numeric tests (2894) were run; they supplement, not replace, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fodor, Hug, Ziebarth, arXiv:1409.8105, first page, Introduction, Theorems 1.4–1.6: smooth-body random approximation and mean-width/volume asymptotics, not the regular-polygon boundary-sampling Hausdorff double limit.",
+        "Prochno, Schütt, Sonnleitner, Werner, arXiv:2404.02870; Mathematische Annalen (2025), Theorem 1 Eq. (3), proof and Corollary 4: exact fixed-polygon distribution and expectation, plus only two-sided order proportional to \\((\\log m)/m\\) for regular m-gons.",
+        "Sonnleitner, arXiv:2508.16442, Theorem 1 and introduction: Gumbel limit for growing sample count on fixed smooth positive-curvature bodies under curvature-optimal sampling, not for growing corner count after a polygonal limit.",
+        "Brunel, arXiv:1503.01504, Theorem 1 and introduction: nonasymptotic Hausdorff deviation rates for random convex hulls; no fixed-polygon sharp vertex-count fluctuation normalization."
+      ],
+      "reasoning": "The strongest comparable source proves the complete fixed-polygon limit and a rough regular-polygon order; it does not state the sharp successive-limit Gumbel law. The smooth-body Gumbel theorem assumes positive curvature and uses a different asymptotic variable, so it cannot be applied to polygon vertices. Mean-width/volume and generic Hausdorff bounds do not imply the sharp normalization.",
+      "searches": [
+        "Random approximation of convex bodies in Hausdorff distance Prochno Schütt Sonnleitner Werner 2025 improved asymptotics",
+        "arXiv:2508.16442",
+        "arXiv:1409.8105",
+        "arXiv:1503.01504"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1409.8105 (2014 original PDF, primary MSC 52A22)",
+      "arXiv:2404.02870 (2024 preprint and full 2025 journal HTML)",
+      "arXiv:2508.16442 (2025 original PDF)",
+      "arXiv:1503.01504 (2015 original PDF, different primary category)",
+      "Published research database semantic queries: exact regular polygon Hausdorff, boundary samples, Poisson corner process, exponential-harmonic Bessel tail"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prochno, Schütt, Sonnleitner, Werner, arXiv:2404.02870; Mathematische Annalen (2025), Theorem 1 Eq. (3), proof and Corollary 4: exact fixed-polygon distribution and expectation, plus only two-sided order proportional to \\((\\log m)/m\\) for regular m-gons.",
+        "Sonnleitner, arXiv:2508.16442, Theorem 1 and introduction: Gumbel limit for growing sample count on fixed smooth positive-curvature bodies under curvature-optimal sampling, not for growing corner count after a polygonal limit.",
+        "Corollary 4 in the polygon paper gives only two-sided comparison to \\((\\log m)/m\\). Its formula determines the fixed-\\(m\\) distribution but does not contain an already-evaluated uniform \\(m\\) tending to infinity extreme-value asymptotic."
+      ],
+      "reasoning": "The new theorem is not the fixed-\\(m\\) limit and not merely the leading order of the known comparison. It identifies an asymptotic distribution under a new sequence of polygons, a previously unspecified leading coefficient, an unavoidable loglog term and the additive constant. Those do not follow from the stated prior inequalities; extracting them from the exact integral requires the distinct saddle-point and extreme-value argument. It remains possible that historical equivalent work is unlocated.",
+      "searches": [
+        "Sharp asymptotic of Hausdorff distance between regular polygon and convex hull of uniform random boundary points, first points n→∞ then vertex count m→∞; Gumbel limit and one-half loglog correction",
+        "arXiv:2404.02870",
+        "arXiv:2508.16442"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Prochno, Schütt, Sonnleitner, Werner, arXiv:2404.02870; Mathematische Annalen (2025), Theorem 1 Eq. (3), proof and Corollary 4: exact fixed-polygon distribution and expectation, plus only two-sided order proportional to \\((\\log m)/m\\) for regular m-gons.",
+        "For independent unit exponentials X,Y, the equivalent geometric statement is the extreme-value law of the maximum of \\(XY/(X+Y)\\), with exact tail \\(2ze^{-2z}K_1(2z)\\). No equivalent large-corner-count formula appears in the inspected statements."
+      ],
+      "reasoning": "Fixed-m Poisson vertex-process equivalences are covered and not claimed new. The new quantifier \\(m\\) tending to infinity after \\(n\\) tending to infinity, the Bessel-tail square-root factor, and the additive Gumbel normalization are not consequences of a title match; they require the new large-\\(m\\) asymptotic analysis.",
+      "searches": [
+        "polygon random inscribed hull boundary samples Hausdorff limiting constant angle dependence regular polygon Gumbel max exponential corner",
+        "Poisson points on two rays with nearly straight angle, distance from origin to random chord, extreme value among many regular polygon corners",
+        "arXiv:2404.02870"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic comparisons identified the deterministic convexity gap of regular polygon vertex sets and deterministic harmonic–arithmetic contraction for regular polygons. Neither concerns random boundary sampling, a Poisson-corner law, or a Gumbel second-order term.",
+        "Prochno, Schütt, Sonnleitner, Werner, arXiv:2404.02870; Mathematische Annalen (2025), Theorem 1 Eq. (3), proof and Corollary 4: exact fixed-polygon distribution and expectation, plus only two-sided order proportional to \\((\\log m)/m\\) for regular m-gons."
+      ],
+      "reasoning": "No located exact table lists this sharp two-limit constant or distribution. The fixed-\\(m\\) integral in the 2025 source is explicitly credited as prior art; the claim is not an isolated numerical table lookup.",
+      "searches": [
+        "Exact limiting average Hausdorff error for regular polygons random inscribed points equals (π/(2m))(log m + (1/2)loglog m + gamma + constant), Bessel K_1 exponential harmonic mean",
+        "regular m-gon asymptotic expected Hausdorff distance convex hull of n uniform perimeter boundary points sharp logarithm in number of polygon vertices coefficient pi/2 log m / m, log log m"
+      ]
+    },
+    "rationale": "Prior primary literature establishes random-polytope approximation, fixed-polygon Hausdorff corner-limit distributions, and only an order-of-magnitude regular-polygon estimate. The new statement is the subsequent vertex-number limit with a square-root exponential-tail factor, a nontrivial one-half log-log term, an exact additive constant and Gumbel fluctuations. The 2025 smooth-body Gumbel theorem has different curvature assumptions and varies the sample count rather than the polygonal corner number. Searches did not locate an implication already proved at the sharp two-term level. Residual risk of historically equivalent asymptotics remains.",
+    "residual_risks": [
+      "Published exact fixed-\\(m\\) integral identities encode the distribution in principle; the distinct large-\\(m\\) sharp asymptotic may have been derived in historical work not found by these searches.",
+      "Related material outside accessible primary full texts could state an equivalent large-vertex limit; absence from the inspected sources is not mathematical proof of priority.",
+      "No simultaneous growing-sample-and-vertex theorem is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different sampling geometry (circumscribed random halfspaces or smooth-body approximation) and different functionals; no polygonal Hausdorff Gumbel asymptotic",
+        "evidence": [
+          "Fodor, Hug, Ziebarth, arXiv:1409.8105, first page, Introduction, Theorems 1.4–1.6: smooth-body random approximation and mean-width/volume asymptotics, not the regular-polygon boundary-sampling Hausdorff double limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1409.8105",
+        "material_read": "First-page abstract and primary-MSC line, introduction, named mean-width and volume theorems and discussion of proof strategy",
+        "method": "Original full-text open-access arXiv PDF with page rendering",
+        "title": "The volume of random polytopes circumscribed around a convex body",
+        "trigger": "Earlier primary-MSC convex-geometric approximation results with a verified public date"
+      },
+      {
+        "assessment": "Fixed-polygon distribution and expectation are known. The paper obtains only \\(c_m\\) comparable to \\((\\log m)/m\\); no claimed Gumbel sharp centering or loglog coefficient",
+        "evidence": [
+          "Prochno, Schütt, Sonnleitner, Werner, arXiv:2404.02870; Mathematische Annalen (2025), Theorem 1 Eq. (3), proof and Corollary 4: exact fixed-polygon distribution and expectation, plus only two-sided order proportional to \\((\\log m)/m\\) for regular m-gons."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00208-025-03186-7",
+        "material_read": "Open-access full article: Theorem 1, Corollaries 3–4, Remarks 1–2, Poisson limit proof and bounds, and the comparison proof for regular polygons",
+        "method": "Publisher lawful open-access full HTML including statements and proof sections",
+        "title": "Random approximation of convex bodies in Hausdorff distance",
+        "trigger": "Strongest plausible prior coverage of uniform boundary-sampled polygonal Hausdorff distances"
+      },
+      {
+        "assessment": "The Gumbel result applies to a fixed smooth positive-curvature convex body as sample count increases; it notes separate fixed-polygon laws and does not cover polygon vertex-number growth",
+        "evidence": [
+          "Sonnleitner, arXiv:2508.16442, Theorem 1 and introduction: Gumbel limit for growing sample count on fixed smooth positive-curvature bodies under curvature-optimal sampling, not for growing corner count after a polygonal limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2508.16442",
+        "material_read": "Original PDF abstract, introduction, hypotheses, Theorem 1 and discussion of polygon-versus-smooth regimes",
+        "method": "Open-access arXiv full PDF section inspection",
+        "title": "A limit theorem for Hausdorff approximation by random inscribed polytopes",
+        "trigger": "Plausible overlap because it obtains Gumbel fluctuations for random convex approximation"
+      },
+      {
+        "assessment": "General finite-sample deviation bounds, not the second-stage regular-polygon Gumbel normalization",
+        "evidence": [
+          "Brunel, arXiv:1503.01504, Theorem 1 and introduction: nonasymptotic Hausdorff deviation rates for random convex hulls; no fixed-polygon sharp vertex-count fluctuation normalization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.01504",
+        "material_read": "Original PDF abstract, classification line, introduction, scope and main deviation Theorem 1",
+        "method": "Open-access arXiv full PDF section inspection",
+        "title": "Uniform Behaviors of Random Polytopes under the Hausdorff Metric",
+        "trigger": "Earlier work on random-polytope Hausdorff deviation and polygonal versus smooth regimes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3fe000db-c9a1-4a04-a234-821524ca9918",
+  "value": {
+    "rationale": "The growth of approximation error as polygon complexity increases is an explicitly motivated geometric-probability question. Earlier literature bounds its regular-polygon constant only up to factors. Determining the exact pi/2 leading coefficient, the half-log-log correction, the universal additive constant and the Gumbel fluctuation law exposes the structural extreme-corner mechanism. This is an all-m asymptotic classification, not a routine geometric formula or arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
