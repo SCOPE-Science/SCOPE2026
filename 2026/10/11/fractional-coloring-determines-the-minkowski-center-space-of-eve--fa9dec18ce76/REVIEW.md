@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The full-dimensional stable-set polytope is coordinatewise downward closed. An exact containment equivalence reduces Minkowski asymmetry to membership of the all-ones point in a scaled polytope. Fractional-coloring duality proves the scale exactly, and optimal dual support forces pinned center coordinates; strict slack at finitely many nonoptimal dual vertices constructs independent free directions. Exact-rational verification confirms six diverse graphs, including a fractional \(5/2\) example and two nonunique-center examples. All-size correctness is established analytically, not inferred from the checks.
+
+**Originality — PASS, with residual literature risk.** The closest primary work establishes Minkowski asymmetry for arbitrary convex bodies (arXiv:2112.13590v1), lattice-zonotope asymmetry (arXiv:2301.12182v1), and antiblocking/fractional-coloring duality for stable-set polytopes (arXiv:1412.2103v1). The graph-entropy literature already treats improvement directions at the all-ones fractional point. Those ingredients are credited: the claimed addition is their exact geometric synthesis with the entire center-space dimension and unique-center criterion. No inspected statement directly gives that classification; an equivalent formulation in the wider convex-corner literature is a genuine residual risk. Searches and implications, rather than titles alone, are recorded in the structured review.
+
+**Value — PASS.** The result turns a canonical graph LP invariant, which need not be integral, into the exact affine-invariant asymmetry of a natural full-dimensional polytope family and determines not only one optimal center but the full optimal-center dimension and coordinate rigidity. The support criterion separates vertex-transitive or maximum-clique-covered graphs from graphs with unconstrained center directions; it is a structural classification across all finite graphs, not a numerical recomputation or a single graph exercise.
+
+**Limits.** Fractional coloring and antiblocking are established, not new. The theorem gives no efficient algorithm on arbitrary graphs; finite computations are checks rather than a proof; wider literature may use equivalent terminology.
+
+Same-model review: passed. Independent audit: not yet performed.
