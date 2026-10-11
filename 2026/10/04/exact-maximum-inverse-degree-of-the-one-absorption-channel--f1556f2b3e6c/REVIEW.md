@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every parent is either an ordinary insertion supersequence of the received word or arises from a genuine split in which neither input symbol equals the absorbed output. The insertion sphere has exactly \(q+(n-1)(q-1)\) members, and each received symbol has at most \(\binom{q-1}{2}\) genuine splits. The saturated word attains both contributions without overlap. `verify.py` independently reconstructs the channel in forward and inverse directions and checks the finite instances reported in `verification_output.txt`.
+## correctness
 
-## Originality
-**PASS.** The primary full text, its zero-deletion hypergraph section and conclusion, the closest later absorption-code abstract, targeted public searches, published-results searches under inverse-ball/preimage/list-size/degree aliases, and the previously published finding set were compared. No inspected statement implies the exact incoming-degree formula. The closest previously published absorption finding concerns short ternary correcting-code cardinalities, a different invariant. The main residual risk is the unavailable full text of the 2024 follow-up and unindexed or differently phrased literature.
+PASS
 
-## Value
-**PASS.** The maximum number of possible transmitted parents of a fixed received word is the worst-case ambiguity of the channel and the maximum incoming degree of its incidence graph. The result is an exact all-\(q\), all-\(n\) structural law with an explicit extremizer, not a routine finite increment. It does not claim an optimal code-size consequence or solve the distinct forward-ball problem.
+Every one-absorption parent is either an ordinary one-symbol insertion supersequence of the received word or a genuine split of one received symbol into two symbols neither equal to that received symbol. The insertion sphere has exactly \(q+(n-1)(q-1)\) distinct words by the first-difference encoding. For a received symbol \(c<q-1\), the number of genuine ordered splits is \(\max(c-1,0)\); for the saturated symbol \(q-1\), it is \(\binom{q-1}{2}\). This gives the universal upper bound \(q+(n-1)\binom q2\). For the all-saturated received word, every insertion is a parent and every genuine split at every position is distinct from all insertions and from all other genuine splits, attaining the bound. A fresh independent exhaustive forward-channel check for every \(2\le q\le5\) and \(2\le n\le5\) reproduced the formula exactly; this finite check corroborates rather than replaces the universal counting proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Ye--Elishco define the same absorption channel and study forward one-error balls, code constructions and a restricted hypergraph argument; their conclusion explicitly treats better estimates of the forward one-absorption ball as a future ingredient. The audited invariant fixes the received word and counts all possible parents, which is the opposite incidence degree. Targeted Resultary and literature searches for inverse balls, preimages, list size and received-word degree found no matching theorem. The 2024 Nguyen--Cai--Quek--Immink follow-up advertises improved redundancy constructions rather than an inverse-degree formula. Its complete text was not inspected in this run, so that source remains an access risk rather than negative evidence.
+
+## value
+
+PASS
+
+Worst-case incoming degree is a natural channel invariant measuring exact ambiguity/list size of a received word and is complementary to the forward-ball quantities used in coding bounds. The theorem is uniform in alphabet size and block length and identifies an explicit extremal received word.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
