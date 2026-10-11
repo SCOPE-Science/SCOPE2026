@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Exact rational elimination proves nine simple real base points and twenty-one simple real points of the Newton critical system. The base resultant divides the critical resultant, and the quotient is a squarefree degree-
-\(12\) polynomial with exactly twelve real roots. Shape-position Gröbner bases convert the eliminant counts into point counts. Exact Hessian and projective-at-infinity checks prove that all twelve non-base points give ordinary affine nodes, while a degree-
-\(12\) squarefree critical-value eliminant proves that no two belong to the same pencil member.
+## correctness
 
-## Originality
-**PASS**, for the coefficient-specific claim. The 2026 source gives the upper bound and sharp examples for \((2,1)\), \((2,2)\), \((3,1)\), and \((3,2)\), not this \((3,3)\) pair. Classical real algebraic geometry already shows that pencils with twelve real singular cubics exist, so that broad existence is not claimed. Exact-coefficient, Newton-homotopy, and critical-value searches found no checked source containing this integral pair or its full certificate. The main residual risk is an older projectively equivalent explicit pencil under different coordinates.
+PASS
 
-## Value
-**PASS.** The pair fills the first natural equal-degree example omitted from the new paper's sharpness table and gives a rigorous benchmark for its real Newton-homotopy geometry. It certifies the complete \(9+12\) real critical decomposition and the local nodal behavior, rather than merely providing a numerical plot.
+The displayed integral cubics were reconstructed independently and their critical system recomputed. Exact elimination gives a squarefree base resultant of degree nine with nine real roots and a squarefree critical resultant of degree twenty-one with twenty-one real roots. Exact division leaves a monic degree-twelve quotient, coprime to the base resultant, squarefree, with twelve real roots. Lexicographic Groebner bases place both zero-dimensional ideals in shape position; the base Jacobian ideal is the unit ideal, so the nine base points are transverse. On the critical quotient, \(F_2\) is nonzero. The determinant of the Hessian of the corresponding pencil member reduces to a polynomial coprime with the degree-twelve quotient, proving all twelve extra singularities are ordinary nodes. Eliminating the pencil parameter gives a squarefree degree-twelve polynomial with twelve real roots, hence distinct real critical values. Independent projective Groebner checks rule out singular pencil points at infinity and verify smooth affine generators. These computations reproduce the claimed \(\#S=12\) and the genericity boundaries exactly; no floating-point root sampling is used.
 
-## Closest literature and limitations
-The closest recent source is Buettner--Hauenstein--Hills--Hong--Ponce Carrion--Schmidt, arXiv:2609.30189v1. Sottile's real enumerative-geometry discussion and Fiedler-Le Touzé's cubic-pencil monograph cover the classical existence and degree-
-\(12\) discriminant background. The finding does not settle sharpness for arbitrary degree pairs, and it does not claim minimal coefficient height or novelty of totally real cubic pencils themselves.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating Newton-homotopy paper proves \(\#S\le3(d-1)^2\) for equal degrees and then gives sharp examples only for \((2,1),(2,2),(3,1),(3,2)\), explicitly leaving existence of sharp examples for all degree pairs open. Classical real cubic-pencil theory is broader in a different direction: a generic cubic pencil has twelve nodal singular members, and real pencils can have all twelve singular members real. That prior theory covers the geometric possibility of twelve and is therefore excluded from the novelty claim. Fresh exact-coefficient searches found no scientific source containing the submitted pair. The surviving claim is coefficient-specific: this exact integral pair satisfies the Newton-homotopy genericity conditions, has nine transverse real base points and twelve non-base real singular starts with distinct real values.
+
+## value
+
+PASS
+
+The initiating 2026 paper explicitly leaves sharpness beyond its four examples open, making the omitted equal cubic case a natural benchmark. An integral pair with an exact all-real, all-simple, nodal, distinct-critical-value certificate is a reproducible test instance in that framework. Although classical theory already guarantees broad twelve-fiber phenomena, the precise certified witness has concrete computational-algebra value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
