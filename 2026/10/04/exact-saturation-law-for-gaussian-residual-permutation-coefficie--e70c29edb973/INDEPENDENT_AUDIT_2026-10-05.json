@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:55:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With \\(\\operatorname{col}(X)=v^\\perp\\), the full-model residual is exactly \\(Zv\\), while the null observed coefficient is \\(U=q^\\top\\varepsilon\\); Gaussian orthogonality makes \\(U,Z\\) independent standard normals. For a uniform observation permutation, \\(q^\\top Pv\\) has values \\(-\\sqrt{2/n},0,\\sqrt{2/n}\\) with the stated masses, so conditional rejection reduces exactly to binomial tail counts in four angular wedges. Including the observed statistic in the source empirical distribution gives the stated order index \\(k\\). The Gaussian wedge probabilities, law-of-large-numbers limit for fixed \\(\\alpha<1/4\\), and final \\(n\\)-limit follow directly. An independent recomputation reproduced the reported \\(n=20,m=1000,\\alpha=0.05\\) size to machine precision.",
+      "risks": [
+        "The construction is rank-one residual and the exact formula is tied to the unstudentized one-sided statistic and the source empirical-quantile convention."
+      ],
+      "sources": [
+        "RESULT.md blob e3a3843886f5b7cc8e0655aeb10443e6ff4f4185",
+        "verify.py blob 829ab6175d41004c5cc17c5e79ca67b881453656",
+        "arXiv:1908.04218 Equation (17) and Theorem 4"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 is a sufficient asymptotic validity theorem with \\(p/n=o(1)\\), outside \\(p=n-1\\).",
+          "The later RPT changes the procedure by projecting onto spaces determined by original/permuted designs."
+        ],
+        "reasoning": "No stronger inspected theorem covers the exact saturated design while preserving the same test statistic/procedure.",
+        "searches": [
+          "arXiv:1908.04218 Theorem 4",
+          "arXiv:2211.16182",
+          "Resultary semantic search for permutation-test size inflation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1908.04218",
+        "arXiv:2211.16182",
+        "Resultary published-record search for exact saturated residual-permutation size"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source definition is reused, but its theorem does not imply behavior at residual rank one.",
+          "A different high-dimensional test cannot imply the exact null law of Toulis's full-model residual-permutation procedure."
+        ],
+        "reasoning": "The audited theorem supplies a new boundary obstruction for the exact source procedure.",
+        "searches": [
+          "Statement comparison with arXiv:1908.04218 Equation (17)/Theorem 4",
+          "Statement comparison with arXiv:2211.16182 RPT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Toulis defines exactly the source test but gives a low-dimensional sufficient validity regime rather than this saturated exact failure.",
+          "Wen--Wang--Wang propose a distinct projection-based RPT with finite-sample validity when \\(p<n/2\\)."
+        ],
+        "reasoning": "Aliases through residual bootstrap/permutation, coefficient testing, saturated leverage and rank-one residual space were checked; no exact same-procedure formula was found.",
+        "searches": [
+          "Resultary query: residual permutation regression saturated p=n-1 Gaussian exact null rejection probability",
+          "arXiv:1908.04218 full-text search for Equation (17), residual permutation, Theorem 4",
+          "arXiv:2211.16182 statement search for proportional-dimensional residual permutation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior numerical work can show over-rejection but does not tabulate the submitted closed form for every even \\(n\\), \\(m\\), and \\(\\alpha\\)."
+        ],
+        "reasoning": "The reported 0.402508... value is a consequence of an analytic law rather than a known simulation table.",
+        "searches": [
+          "Resultary exact-claim query",
+          "Toulis simulation/table discussion",
+          "Wen--Wang--Wang numerical-study statement"
+        ]
+      },
+      "rationale": "Toulis Equation (17) was inspected in the full PDF and matches the audited full-model residual randomization construction; Theorem 4 gives asymptotic validity under exchangeability when \\(p/n=o(1)\\), not an exact saturated counterexample. Wen--Wang--Wang later address proportional dimension with a different projected RPT and prove validity only for \\(p<n/2\\). Neither inspected source states the rank-one three-point law, finite-\\(m\\) exact size formula, or the \\(1/2\\) saturation limit. Resultary search returned no covering exact residual-permutation record.",
+      "residual_risks": [
+        "A later analysis of the exact Toulis procedure at saturation could exist under different resampling terminology; none appeared in the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Defines the same test and proves low-dimensional validity conditions, but not the saturated exact null-size law."
+          ],
+          "identifier_or_url": "arXiv:1908.04218",
+          "material_read": "Full PDF around Equation (17), residual permutation Section 4.3, Theorem 4 and its \\(p/n=o(1)\\) discussion; rendered pages 15--16 were visually inspected.",
+          "method": "Public arXiv full-text plus page-image inspection.",
+          "title": "Asymptotic Validity and Finite-Sample Properties of Approximate Randomization Tests",
+          "trigger": "Primary source defining the audited residual-randomization test."
+        },
+        {
+          "assessment": "DIFFERENT_PROCEDURE",
+          "evidence": [
+            "Uses projection against original/permuted design spaces and proves validity for \\(p<n/2\\); does not imply the submitted full-model residual law."
+          ],
+          "identifier_or_url": "arXiv:2211.16182",
+          "material_read": "Primary arXiv abstract/theorem-level method and validity regime.",
+          "method": "Public arXiv primary-record inspection and procedure comparison.",
+          "title": "Residual permutation test for regression coefficient testing",
+          "trigger": "Most relevant later proportional-dimensional coefficient-testing paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an explicit Gaussian boundary family where a widely motivated residual-permutation construction has severe size inflation despite ideal iid errors, with an exact finite-randomization formula and limiting size approaching one half. That sharply delineates the low-dimensional validity theory and is a substantive failure mechanism rather than a numerical anomaly.",
+      "risks": [
+        "It is an explicit saturated family, not a worst-case theorem over all high-dimensional designs or other permutation procedures."
+      ],
+      "sources": [
+        "RESULT.md blob e3a3843886f5b7cc8e0655aeb10443e6ff4f4185",
+        "arXiv:1908.04218",
+        "arXiv:2211.16182"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Even \\(n\\ge4\\), saturated \\(p=n-1\\) design, iid Gaussian errors, full-model ordinary residuals, one-sided unstudentized coefficient statistic, and the source empirical-quantile rule only."
+  ],
+  "schema_version": 1
+}
