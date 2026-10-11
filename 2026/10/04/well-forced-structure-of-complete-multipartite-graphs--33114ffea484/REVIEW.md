@@ -1,12 +1,21 @@
-# Review of Well-forced structure of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. With at least three white vertices, any possible first force leaves at least two whites in one part, after which every blue vertex sees either zero or at least two white neighbors and the process stalls. With exactly two whites, forcing succeeds exactly for a cross-part pair for which at least one of the two parts remains represented by a blue vertex. This gives the minimum sets. Every \((N-1)\)-set in a noncomplete graph contains one such minimum set, so no larger zero forcing set is inclusion-minimal. The irrelevant-vertex classification follows by asking whether an admissible omitted pair can avoid a prescribed vertex. Exhaustive direct simulation through order ten agrees with every part of the claim.
+## correctness
 
-## Originality
-PASS. The 2023 primary paper introduces well-forced graphs and irrelevant vertices but focuses on trees. The 2022 full paper gives a broad framework for minimal zero forcing sets and prior-covers the complete split subclass \(K_a\vee\overline{{K_b}}\), but does not state the arbitrary complete-multipartite result. The 2018 polynomial paper already controls the top three zero-forcing coefficients and the complete-bipartite polynomial, so the numerical count is not claimed as independently novel. What survives the implication comparison is the all-part-profile classification of inclusion-minimal sets, the well-forced theorem beyond the one-non-singleton subclass, and the exact irrelevant-vertex boundary.
+PASS
 
-## Value
-PASS. Well-forcedness was introduced as a structural analogue of well-covered and well-dominated behavior, and the defining paper emphasizes the importance of understanding when minimal zero forcing sets can differ in size and which vertices can be irrelevant. Complete multipartite graphs are a canonical dense class with arbitrary twin classes. The theorem resolves both structural questions on that class and shows that no nonminimum minimal zero forcing set can occur; the star-center exception gives the exact vertex-level obstruction.
+The white-profile argument proves that any zero forcing set leaves at most two whites. Two whites in one part cannot force, and two whites in distinct singleton parts also cannot force; every other cross-part pair is forced in two steps. This gives the exact minimum sets, excludes larger inclusion-minimal sets, and yields the star-center irrelevance criterion. Fresh exhaustive simulation through order nine reproduced the full classification for all 87 multipartite isomorphism types tested. The repaired RESULT preserves this proof and changes the literature interpretation to acknowledge and correct the prior Proposition 3.2.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Grood et al. already state that every complete multipartite graph with at least two parts is well-forced, so that headline is prior-covered. However, their Proposition 3.2 proof asserts that any set omitting two vertices from different parts is zero forcing; this is false when both omitted parts are singletons. The repaired result explicitly acknowledges that prior theorem, corrects the singleton boundary, gives the exact minimal-set classification for every part profile, and derives the exact irrelevant-vertex classification. Those refinements are not supplied by the inspected prior sources.
+
+## value
+
+PASS
+
+Correcting the boundary of a published family-level proposition and giving the exact minimal-set and irrelevant-vertex structure is mathematically useful: the singleton distinction changes which subsets are zero forcing, and the vertex classification answers a named structural question introduced in the same literature. The repaired presentation no longer claims novelty for the already-known well-forced conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
