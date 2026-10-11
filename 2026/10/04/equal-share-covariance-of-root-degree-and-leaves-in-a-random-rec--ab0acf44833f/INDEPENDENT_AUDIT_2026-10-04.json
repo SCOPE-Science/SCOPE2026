@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:47:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_rrt_root_leaves.py at frozen tree",
+        "fresh exact parent-sequence enumeration through n=7"
+      ],
+      "rationale": "The leaf event for label \\(i\\) has probability \\((i-1)/(n-1)\\). For \\(j>i\\), deleting the forbidden parent-choice factor gives \\(\\operatorname{Cov}(A_j,Y_i)=(i-1)/[(n-1)(j-1)(j-2)]\\); for \\(j\\le i\\) independence gives zero. Summing over \\(j\\) telescopes to the labeled-leaf formula; summing over \\(i<j\\) gives exactly \\(1/[2(n-1)]\\) for every \\(j\\ge3\\), and summing over arrivals gives the global covariance. The root-degree variance follows from independent Bernoulli attachments; the leaf variance follows from the exact one-step leaf recursion. A fresh independent enumeration of all parent sequences through \\(n=7\\) reproduced the global and equal-share covariances exactly; the infinite/family claim rests on the analytic calculation, not enumeration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The leaf-process paper develops LLN/CLT/large deviations for leaves; the degree-distribution paper develops asymptotic degree-count covariances; the recent leaf-degree paper studies neighboring-leaf statistics."
+        ],
+        "reasoning": "These broader results do not imply the covariance of the root's own outdegree with the global leaf count, still less the per-arrival equal-share identity.",
+        "searches": [
+          "arXiv:0809.4741 / DOI:10.1239/aap/1253281066",
+          "Janson, DOI:10.1002/rsa.20046",
+          "Hartle--Krapivsky, DOI:10.1088/1742-5468/ae3a6a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0809.4741",
+        "DOI:10.1239/aap/1253281066",
+        "DOI:10.1002/rsa.20046",
+        "DOI:10.1088/1742-5468/ae3a6a",
+        "Resultary root-degree/leaves semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical leaf process determines marginal leaf moments, but the new covariance requires coupling each later parent choice with each labeled leaf-survival event. The telescoping local covariance yields both the linear label profile and constant per-arrival share."
+        ],
+        "reasoning": "The prior marginal theories do not mechanically imply the exact mixed covariance identities.",
+        "searches": [
+          "arXiv:0809.4741 full leaf-process scope versus audited mixed-moment calculation",
+          "assigned exact parent-choice proof and independent enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bryc--Minda--Sethuraman treat leaves as a Markov-chain statistic in random recursive trees; Janson's degree-distribution work concerns counts of vertices of given degree rather than the degree of the distinguished root."
+        ],
+        "reasoning": "The audited pair \\((D_n,L_n)\\) was compared with leaf-count Markov chains, root-degree statistics, degree-count vectors, and leaf-degree statistics; these are not equivalent to the finite-n mixed moment proved here.",
+        "searches": [
+          "Resultary: random recursive tree root degree total leaves covariance joint moment exact finite n",
+          "web: \"root degree\" leaves random recursive tree covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published-result database entry or exact-table match was located for the audited formulas."
+        ],
+        "reasoning": "This is a symbolic finite-n theorem, not a tabulated invariant; exact-formula and theorem-corpus searches are the relevant database checks.",
+        "searches": [
+          "Resultary published-finding corpus for root degree/leaves covariance",
+          "targeted exact-formula searches for (n-2)/(2(n-1)) and root attachment/leaf covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives. The classical random-recursive-tree literature inspected treats the leaf process, large deviations, or degree-count vectors, not the distinguished root degree jointly with the total leaf count. Targeted semantic and web searches did not locate the exact labeled-leaf covariance profile or the equal-share arrival identity. The remaining risk is older mixed-moment literature under different recursive-tree encodings.",
+      "residual_risks": [
+        "Older recursive-tree literature may contain the same mixed moment under an urn, record, or permutation encoding.",
+        "The theorem does not determine the complete joint law or positive association of root degree and leaves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LEAF_MARGINAL_PROCESS_NOT_ROOT_DEGREE_LEAF_MIXED_MOMENT",
+          "evidence": "The paper's random-recursive-tree statistic is the number of leaves and its Markov-chain large-deviation/limit behavior; no distinguished-root covariance theorem was identified in the inspected material.",
+          "identifier_or_url": "arXiv:0809.4741; DOI:10.1239/aap/1253281066",
+          "material_read": "Primary article abstract and accessible full-text/model passages describing the leaf-count Markov chain and its limit theory.",
+          "method": "Object/statistic and theorem-scope comparison.",
+          "title": "Large deviations for the leaves in some random trees",
+          "trigger": "Primary classical source for the leaf process in uniform random recursive trees."
+        },
+        {
+          "assessment": "DEGREE_COUNTS_NOT_DISTINGUISHED_ROOT_MIXED_COVARIANCE",
+          "evidence": "The statistic is the number of vertices of specified outdegrees, not the root's degree paired with total leaves.",
+          "identifier_or_url": "DOI:10.1002/rsa.20046",
+          "material_read": "Primary abstract/scope on degree-count vectors.",
+          "method": "Statistic/implication comparison.",
+          "title": "Asymptotic degree distribution in random recursive trees",
+          "trigger": "Closest classical source on degree covariance in recursive trees."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:0809.4741",
+        "DOI:10.1002/rsa.20046"
+      ],
+      "rationale": "The exact mixed moment links two basic but differently scaled statistics of a canonical random-tree model. The constant per-arrival contribution and linear labeled-leaf profile reveal structure not visible from the marginal laws and give a reusable finite-n identity, so this is a motivated probabilistic result rather than a routine marginal recomputation.",
+      "residual_risks": [
+        "Older recursive-tree literature may contain the same mixed moment under an urn, record, or permutation encoding.",
+        "The theorem does not determine the complete joint law or positive association of root degree and leaves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0809.4741",
+    "DOI:10.1239/aap/1253281066",
+    "DOI:10.1002/rsa.20046",
+    "DOI:10.1088/1742-5468/ae3a6a",
+    "Resultary root-degree/leaves semantic query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the standard random recursive tree, \\(\\operatorname{Cov}(D_n,Y_i)=(n-i)/(n-1)^2\\), every nondeterministic root-attachment indicator satisfies \\(\\operatorname{Cov}(A_j,L_n)=1/[2(n-1)]\\), and therefore \\(\\operatorname{Cov}(D_n,L_n)=(n-2)/[2(n-1)]\\), with the stated exact correlation and asymptotics.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older recursive-tree literature may contain the same mixed moment under an urn, record, or permutation encoding.",
+    "The theorem does not determine the complete joint law or positive association of root degree and leaves."
+  ]
+}
