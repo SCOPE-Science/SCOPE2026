@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof explicitly reconstructs the switched graph as a complete bipartite graph with part sizes \(b+x-y\) and \(a-x+y\), solves the resulting isomorphism condition exactly, and counts selectors by Vandermonde's identity. The \(K_{2,3}\) closure counterexample is an immediate specialization. The standalone verifier independently confirms all selectors for 33 parameter cases with \(1\le a,b\le6\) and \(a+b\le10\).
+## correctness
 
-## Originality
-PASS. The 2026 primary source defines the same identity-switch notion and states the opposite subgroup conclusion. It provides the two example families used by the smallest counterexample but does not classify all selectors of \(K_{a,b}\). Classical switching results show that complete bipartite graphs occupy one switching class, but that broader statement does not identify the return selectors of a fixed biclique or count them. Targeted semantic and public literature searches found no prior correction or exact selector formula. Residual risk remains that older switching literature may contain an equivalent selector-level enumeration under different terminology.
+PASS
 
-## Value
-PASS. The finding is structurally motivated by the primary paper's central algebraic claim and its open problem on possible identity-switch group orders. Showing that the family need not be a group changes the premise of that program, while the exact biclique theorem supplies a transparent reusable family rather than merely one isolated counterexample.
+Writing \(x=|S\cap A|\) and \(y=|S\cap B|\), the switched graph has the explicit bipartition \((S\cap A)\cup(B\setminus S)\) and \((S\cap B)\cup(A\setminus S)\), hence is \(K_{b+x-y,a-x+y}\). Equality of unordered part sizes with \(\{a,b\}\) gives exactly \(x-y=0\) or \(a-b\). Vandermonde counts each selector family, with coincidence exactly in the balanced case. In \(K_{2,3}\), a singleton in the larger part and an edge containing it are both identity switches, while their symmetric difference is a singleton in the smaller part and is not. The frozen verifier independently exhausts all selectors in 33 small parameter cases.
 
-## Closest literature and limitations
-The closest primary source is arXiv:2601.04530v1. The closest older background is the classical result that the switching class of the empty graph consists of complete bipartite graphs. The theorem here is restricted to complete bipartite graphs and does not propose a corrected general algebraic framework.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining 2026 preprint was inspected at its identity-switch definition, the complete-bipartite examples and the subgroup claim. It states the opposite universal closure conclusion. Its own examples are compatible with the \(K_{2,3}\) counterexample but do not classify all selectors. Classical switching-class results identify complete bipartite graphs as one switching class, yet do not determine which selectors return a fixed biclique or count them. Resultary search found no prior exact selector classification or correction.
+
+## value
+
+PASS
+
+The result directly corrects a central algebraic claim of the source paper and replaces an isolated counterexample with a complete transparent classification on the canonical biclique family. This changes the premise of the proposed subgroup program and supplies reusable exact structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

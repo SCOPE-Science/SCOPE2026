@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof determines the switched graph exactly, so the universal theorem does not depend on finite computation. The bundled `verify.py` is an independent finite stress test: it constructs adjacency sets, performs the switch edge by edge, recognizes complete bipartite outputs by traversal and direct adjacency checks, tests the identity criterion and counting formula, and checks the explicit nonclosure witness.
+# Independent mathematical audit
 
-Final replay output:
+## correctness
 
-`ALL CHECKS PASSED; parameter_cases=33; selectors=7684; iss_selectors=2790; a,b_range=1..6 with a+b<=10`
+PASS
 
-The computation covers all selectors for the stated finite range only; it is not used as an infinite proof.
+Writing \(x=|S\cap A|\) and \(y=|S\cap B|\), the switched graph has the explicit bipartition \((S\cap A)\cup(B\setminus S)\) and \((S\cap B)\cup(A\setminus S)\), hence is \(K_{b+x-y,a-x+y}\). Equality of unordered part sizes with \(\{a,b\}\) gives exactly \(x-y=0\) or \(a-b\). Vandermonde counts each selector family, with coincidence exactly in the balanced case. In \(K_{2,3}\), a singleton in the larger part and an edge containing it are both identity switches, while their symmetric difference is a singleton in the smaller part and is not. The frozen verifier independently exhausts all selectors in 33 small parameter cases.
+
+## originality
+
+PASS
+
+The defining 2026 preprint was inspected at its identity-switch definition, the complete-bipartite examples and the subgroup claim. It states the opposite universal closure conclusion. Its own examples are compatible with the \(K_{2,3}\) counterexample but do not classify all selectors. Classical switching-class results identify complete bipartite graphs as one switching class, yet do not determine which selectors return a fixed biclique or count them. Resultary search found no prior exact selector classification or correction.
+
+## value
+
+PASS
+
+The result directly corrects a central algebraic claim of the source paper and replaces an isolated counterexample with a complete transparent classification on the canonical biclique family. This changes the premise of the proposed subgroup program and supplies reusable exact structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

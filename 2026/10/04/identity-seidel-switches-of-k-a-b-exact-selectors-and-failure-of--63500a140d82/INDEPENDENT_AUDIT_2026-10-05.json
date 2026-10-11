@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:57:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing \\(x=|S\\cap A|\\) and \\(y=|S\\cap B|\\), the switched graph has the explicit bipartition \\((S\\cap A)\\cup(B\\setminus S)\\) and \\((S\\cap B)\\cup(A\\setminus S)\\), hence is \\(K_{b+x-y,a-x+y}\\). Equality of unordered part sizes with \\(\\{a,b\\}\\) gives exactly \\(x-y=0\\) or \\(a-b\\). Vandermonde counts each selector family, with coincidence exactly in the balanced case. In \\(K_{2,3}\\), a singleton in the larger part and an edge containing it are both identity switches, while their symmetric difference is a singleton in the smaller part and is not. The frozen verifier independently exhausts all selectors in 33 small parameter cases.",
+      "risk": "The exact selector enumeration may have an older equivalent formulation in switching-class literature under different terminology.",
+      "sources": [
+        "Gervacio, arXiv:2601.04530v1",
+        "Ehrenfeucht-Hage-Harju-Rozenberg, DOI:10.1016/S0020-0190(00)00020-X",
+        "frozen RESULT.md and verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source gives example identity switches but no all-selector theorem.",
+          "The classical orbit statement is about graph types in a switching class, not stabilizer selectors of a specific graph up to isomorphism."
+        ],
+        "reasoning": "Neither broader result implies the exact two affine conditions on \\(x-y\\).",
+        "searches": [
+          "Gervacio 2026 full text",
+          "classical complete-bipartite switching-class literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.04530v1",
+        "DOI:10.1016/S0020-0190(00)00020-X",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source supplies two valid families of selectors and nevertheless claims closure under symmetric difference.",
+          "The explicit \\(K_{2,3}\\) specialization shows that the source conclusion is false under its own definition."
+        ],
+        "reasoning": "The final result corrects rather than follows the source's central algebraic assertion.",
+        "searches": [
+          "arXiv:2601.04530v1 Definition 4.1, Example 4.3, Example 5.4, subgroup conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 source defines the same identity-switch notion and asserts subgroup closure.",
+          "Classical work identifies the complete-bipartite switching class but not the return selectors for one fixed \\(K_{a,b}\\)."
+        ],
+        "reasoning": "Identity-switch, return-selector, complete-bipartite switching class and symmetric-difference closure formulations were compared.",
+        "searches": [
+          "Resultary: identity Seidel switch complete bipartite exact selector classification subgroup symmetric difference",
+          "arXiv:2601.04530v1",
+          "DOI:10.1016/S0020-0190(00)00020-X"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact selector-count theorem or published correction was located."
+        ],
+        "reasoning": "The audited formula is analytic; database search was used to detect duplicate classifications or errata.",
+        "searches": [
+          "Resultary and public exact searches for the selector count and \\(K_{2,3}\\) subgroup counterexample"
+        ]
+      },
+      "rationale": "The defining 2026 preprint was inspected at its identity-switch definition, the complete-bipartite examples and the subgroup claim. It states the opposite universal closure conclusion. Its own examples are compatible with the \\(K_{2,3}\\) counterexample but do not classify all selectors. Classical switching-class results identify complete bipartite graphs as one switching class, yet do not determine which selectors return a fixed biclique or count them. Resultary search found no prior exact selector classification or correction.",
+      "residual_risks": [
+        "Older switching literature may contain an equivalent return-selector count under non-identity-switch terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_CONTAINS_THE_CORRECTED_FALSE_CLAIM",
+          "evidence": "The source asserts that identity switches form a \\(2\\)-subgroup, while its complete-bipartite examples combine to the audited \\(K_{2,3}\\) nonclosure witness.",
+          "identifier_or_url": "arXiv:2601.04530v1",
+          "material_read": "Full open arXiv material around Definition 4.1, the complete-bipartite vertex/edge examples, switching composition discussion and conclusion.",
+          "method": "Lawful open full-text inspection.",
+          "title": "On identity Seidel switches",
+          "trigger": "Primary source introducing identity Seidel switches and asserting subgroup closure."
+        },
+        {
+          "assessment": "ORBIT_LEVEL_RESULT_NOT_SELECTOR_CLASSIFICATION",
+          "evidence": "Knowing which complete bipartite graphs lie in one switching class does not count selectors returning a specified biclique.",
+          "identifier_or_url": "DOI:10.1016/S0020-0190(00)00020-X",
+          "material_read": "Public abstract/bibliographic statement concerning the complete-bipartite switching class.",
+          "method": "Lawful public-source inspection.",
+          "title": "Pancyclicity in Switching Classes",
+          "trigger": "Classical broader switching-class coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result directly corrects a central algebraic claim of the source paper and replaces an isolated counterexample with a complete transparent classification on the canonical biclique family. This changes the premise of the proposed subgroup program and supplies reusable exact structure.",
+      "risk": "The theorem does not supply a replacement algebraic structure for arbitrary graphs.",
+      "sources": [
+        "arXiv:2601.04530v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(K_{a,b}\\), a selector \\(S\\) is an identity Seidel switch exactly when \\(|S\\cap A|-|S\\cap B|\\in\\{0,a-b\\}\\); the exact selector count is \\(\\binom{a+b}{a}\\) when \\(a=b\\) and twice that when \\(a\\ne b\\), and \\(K_{2,3}\\) gives a counterexample to the published subgroup-closure assertion.",
+  "limitations": [
+    "Complete bipartite graphs only.",
+    "No general classification of identity-switch families is claimed."
+  ],
+  "schema_version": 1
+}
