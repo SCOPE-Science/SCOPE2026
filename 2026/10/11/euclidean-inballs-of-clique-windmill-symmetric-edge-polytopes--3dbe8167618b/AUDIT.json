@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For every \\(m\\ge2,\\ q\\ge1\\) the polar is the 1-Lipschitz-potential polytope in the intrinsic zero-sum Euclidean space. Active edge normals span exactly when tight edges are connected, yielding precisely nonzero one-signed binary patterns in every clique blade. For k nonzero leaves and signed sum s, squared centered norm is \\(k-s^2/(mq+1)\\). A maximizing assignment has \\(|s|\\le q\\) (otherwise flip one concordant whole blade); for \\(m\\ge3\\), any zero leaf could be activated with squared-norm gain at least \\((m-2)q/(mq+1)>0\\); for \\(m=2\\) the equality \\(k=mq,\\ s=0\\) proves the same. Thus all extremal patterns use full-blade signs, balanced by parity, giving \\(R^2=mq-(m\\bmod2)q^2/(mq+1)\\). Polarity and central symmetry give maximum inball radius \\(1/R\\) and all tangent facets. Both opposite contact normals annihilate any optimal center. Noncontact vertices have strictly positive slack at the origin, so the affine center set is the annihilator of the contact span. Balanced sign vectors span dimension \\(m-1\\) (even m) or m (odd m); hence dimensions \\(\\(m(q-1)\\)+1\\) or \\(m(q-1)\\). Exact verifier: 18 cases, 126256 enumerated polar vertices, 5 independently enumerated tight-graph facet cases. All ranges and parity boundaries explicitly covered; no infinite proof inferred from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A. Mori, K. Mori, H. Ohsugi, arXiv:2312.11287, PDF §2 Proposition 2.1 and §3: integer facet potentials and total facet multiplicativity for one-sums; does not provide maximized centered polar norm, contact selection, or optimal-ball center dimension.",
+        "T. Chen, R. Davis, E. Korchevskaia, arXiv:2107.12315, PDF pp.1,4 and Theorem 3: facet subgraphs and tight-edge criterion, no evaluated Euclidean metric formula."
+      ],
+      "reasoning": "Mori et al. supply the strong one-sum total-facet product, and Chen et al. the general tight-edge characterization. Those reduce polar-vertex enumeration but do not determine the Euclidean maximizing subset, the radius, or the optimal-center affine rank. The new proof independently establishes all three.",
+      "searches": [
+        "symmetric edge polytope wedge of cliques bowtie friendship graph inball and tangent facets",
+        "clique-sum symmetric edge polytope Euclidean inradius spread tight Lipschitz potentials",
+        "arXiv:2312.11287",
+        "arXiv:2107.12315"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.12315 (original PDF cover, introduction, Theorem 3 and context)",
+      "arXiv:2312.11287 (original PDF introduction, §2 Proposition 2.1, §3)",
+      "arXiv:2008.08621 (PDF abstract and §6 contextual text)",
+      "arXiv:0902.1156 (abstract/background only)",
+      "arXiv:1910.05193 (bibliographic level only; full text inaccessible)",
+      "Semantic published-record queries for exact windmill inradius, graph spread, one-sum facets, tangent facets, center-space dimension"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General facets correspond to connected tight-edge patterns; one-sum product yields \\( (2^{q+1}-2)^m\\) facets.",
+        "At a facet the metric involves \\(k-s^2/(mq+1)\\), which general integer facet-label enumeration does not evaluate.",
+        "A result on unimodality of general-position polynomials for generalized windmill graphs concerns the same graphs but an unrelated invariant, not Euclidean symmetric edge polytopes."
+      ],
+      "reasoning": "The prior total-facet formula is strictly weaker: distinct facet configurations can have different centered norms. The current balance/activation inequalities select the maximizers and their rank. The closest same-graph indexed item studies another invariant and neither implies nor is implied by the present metric theorem.",
+      "searches": [
+        "arXiv:2107.12315 Theorem 3",
+        "arXiv:2312.11287 Proposition 2.1 and one-sum facet-count statement",
+        "symmetric edge polytopes windmill friendship graph glued cliques Euclidean inradius polar facet maximum norm",
+        "graph spread windmill fan bouquet clique graph parity of number of clique blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "L. Addario-Berry, S. Janson, C. McDiarmid, arXiv:0902.1156, abstract: graph spread/variance of Lipschitz functions is a general invariant, requiring a separate evaluation for the present graph.",
+        "Euclidean polar norm equals N times the variance of a centered 1-Lipschitz graph potential."
+      ],
+      "reasoning": "Searched the graph-spread alias and the exact parity-balanced variance profile. The spread definition is general; it does not supply an evaluated windmill parameter formula, tangent facets or the inball-center dimension.",
+      "searches": [
+        "graph spread of friendship graph windmill is number of leaves minus parity correction clique blocks; nearest supporting facets",
+        "exact inradius symmetric edge polytopes complete multipartite graphs center variance maximum Lipschitz",
+        "\"windmill graph\" \"spread\" Lipschitz variance",
+        "arXiv:0902.1156"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "General web searches for exact friendship/windmill inradius and for balanced contacting facets did not surface an exact tabulation. Exact values were generated and checked from the directly constructed graph for small cases."
+      ],
+      "reasoning": "No matching exact inball or center-dimension table was found; absence in search results is not proof of global novelty. The theorem is infinite two-parameter, so small numeric tables alone would not establish it.",
+      "searches": [
+        "inradius of symmetric edge polytope of windmill W(m,q)=K1 join m disjoint cliques: squared polar max mq minus q squared over mq+1 for odd m; balanced clique signs are only closest facets",
+        "symmetric edge polytope free sum one-sum cliques ball radius Euclidean intrinsic, number of tangent facets binomial m floor m/2",
+        "\"friendship graph\" \"symmetric edge polytope\" inradius",
+        "\"clique sum\" \"symmetric edge polytope\" \"inradius\""
+      ]
+    },
+    "rationale": "Closest structural sources give universal facet-label criteria and one-sum facet-count product, not Euclidean norm ranking, central inball formula, precise tight-facet subclass, and affine dimension of all maximal-ball centers. The graph-spread alias was searched and recorded. Fresh evaluation is not logically implied by the published total facet formula alone. Residual equivalence risk remains under differently named Lipschitz variance terminology.",
+    "residual_risks": [
+      "An algebraically identical variance theorem might be indexed under graph spread, Lipschitz variance, clique bouquets or a different metric-normalization convention.",
+      "The full text of arXiv:1910.05193 and arXiv:0902.1156 was not completely inspected and cannot be excluded by abstract comparison.",
+      "No claim of publication priority, database-wide uniqueness, or independent review is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers universal tight-edge/facet structure but neither derives the exact windmill Euclidean polar norm extremum nor the centered contact set/optimal center-space rank.",
+        "evidence": [
+          "T. Chen, R. Davis, E. Korchevskaia, arXiv:2107.12315, PDF pp.1,4 and Theorem 3: facet subgraphs and tight-edge criterion, no evaluated Euclidean metric formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.12315",
+        "material_read": "PDF cover, introduction, Theorem 3 and its related face-subgraph conditions in §§3-4.",
+        "method": "Read the original open-access PDF, including displayed theorem text and representative page images.",
+        "title": "Facets and facet subgraphs of symmetric edge polytopes",
+        "trigger": "Same polytopes and possible classification of polar facets."
+      },
+      {
+        "assessment": "Provides a general method to construct facets and the known total facet count, not the Euclidean distance ordering or all-optimal-center dimension; explicit new optimization is not a corollary without proof.",
+        "evidence": [
+          "A. Mori, K. Mori, H. Ohsugi, arXiv:2312.11287, PDF §2 Proposition 2.1 and §3: integer facet potentials and total facet multiplicativity for one-sums; does not provide maximized centered polar norm, contact selection, or optimal-ball center dimension."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.11287",
+        "material_read": "PDF introduction, §2 Proposition 2.1 on integral facet labels, one-sum enumeration statement, and §3 proofs and graph constructions.",
+        "method": "Read the source PDF and checked for geometric distance terminology.",
+        "title": "Number of facets of symmetric edge polytopes arising from join graphs",
+        "trigger": "Graph joins/one-sums and strongest plausible domination by a general facet theorem."
+      },
+      {
+        "assessment": "Deals with volume/Ehrhart rather than Euclidean inball or polar maximizing facets.",
+        "evidence": [
+          "H. Ohsugi and A. Tsuchiya, arXiv:2008.08621, abstract and paper §§1,6: lattice polytope and Ehrhart/matching invariants, no resulting all-parameter Euclidean inball statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.08621",
+        "material_read": "PDF abstract and initial framing and §6 contextual material.",
+        "method": "Original PDF text inspection with cover-page view.",
+        "title": "Symmetric edge polytopes and matching generating polynomials",
+        "trigger": "Established symmetric-edge-polytope infinite graph-family geometry."
+      },
+      {
+        "assessment": "Supplies broad conceptual terminology; absent full-text comparison leaves risk of equivalent graph-specific variance results.",
+        "evidence": [
+          "L. Addario-Berry, S. Janson, C. McDiarmid, arXiv:0902.1156, abstract: graph spread/variance of Lipschitz functions is a general invariant, requiring a separate evaluation for the present graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+        "material_read": "Abstract and overview, not the entire article.",
+        "method": "Open-access abstract/textual overview.",
+        "title": "On the spread of random graphs",
+        "trigger": "Possible graph-theoretic alias: maximized variance under edge Lipschitz constraints."
+      },
+      {
+        "assessment": "Not used to assert NOT_COVERING. Residual risk documented; this alone does not overturn specific checked primary source comparisons.",
+        "evidence": [
+          "arXiv:1910.05193 bibliographic listing; full text unavailable on this run."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.05193",
+        "material_read": "Bibliographic/abstract level only; open-access full text not retrieved in this attempt.",
+        "method": "Attempted open-access PDF and alternate journal access.",
+        "title": "Many faces of symmetric edge polytopes",
+        "trigger": "Relevant general facet framework might express the same extremal facet class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3dbe8167-618b-4c64-b8bf-f436c49c68ff",
+  "value": {
+    "rationale": "Symmetric edge polytopes of clique bouquets form a natural two-parameter family containing friendship graphs and star graphs, with well-established polyhedral facet questions. The full intrinsic Euclidean inradius and exact closest-facet classification are natural geometric invariants not determined by the existing facet count. The parity effect, independence of tangent-facet number from q, and nonunique-center affine dimensions (with an explicit uniqueness cutoff) are structural information for comparing geometric realizations and inball rigidity. This is not a toy arbitrary slice or an isolated table.",
+    "status": "PASS"
+  }
+}
