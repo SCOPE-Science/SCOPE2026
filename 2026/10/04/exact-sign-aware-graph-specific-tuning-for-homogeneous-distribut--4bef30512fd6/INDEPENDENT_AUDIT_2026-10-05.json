@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:45:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7480220c5ae4f563486aa3547f70a04ab02a53d6",
+        "assigned verify_sign_aware_dgt.py blob c4b87af903ee506a415cf3cd8cd1760b18788a3a",
+        "independent modal-root minimization"
+      ],
+      "rationale": "Starting from the displayed modal polynomial, the positive endpoint root radius and negative endpoint radius reduce to the two closed branches in RESULT.md. On \\(0<\\beta\\le1\\), the average-mode factor decreases while both nonzero endpoint branches increase, so the minimizer is the first crossing. Solving the positive crossing gives \\(1-\\sqrt p\\); solving the negative crossing gives the stated radical. Direct root calculations and independent one-dimensional minimization on representative positive-only, negative-only, and mixed endpoint pairs agree with the formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible prior descriptions concern a sigma-based certified/worst-case design or different DIGing settings; none accessible in this run states the signed fixed-graph radical branch."
+        ],
+        "reasoning": "No accessible stronger theorem was shown to dominate the exact signed-endpoint claim; the inaccessible same-paper body remains a concrete residual risk.",
+        "searches": [
+          "arXiv:2608.03548 abstract",
+          "Tian--Chai--Xu exact worst-case/parameter-design records",
+          "Nedic et al. ATC-DIGing"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.03548",
+        "arXiv:2607.23601",
+        "arXiv:2607.25463",
+        "arXiv:1609.05877",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary abstract says the optimized object is a tractable surrogate based on essential spectral radius; that statement alone does not imply the fixed-graph sign-aware optimum.",
+          "Because the full same-paper proof was inaccessible, whether its internal modal analysis makes the signed branch an immediate corollary remains the principal originality risk."
+        ],
+        "reasoning": "On material actually read, implication-level coverage was not established; the unresolved access risk is recorded rather than converted into a failure.",
+        "searches": [
+          "arXiv:2608.03548 accessible abstract",
+          "secondary technical review used only as orientation, not as whole-document evidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The accessible Wang abstract parameterizes the certified design by \\(\\sigma=\\max(|\\lambda_2|,|\\lambda_N|)\\), which discards endpoint sign.",
+          "The audited formula distinguishes positive and negative endpoints and can improve on the sign-blind negative-only surrogate."
+        ],
+        "reasoning": "Equivalent formulations as fixed-graph exact spectral-radius tuning, signed endpoint minimax, and homogeneous DGT modal optimization were compared.",
+        "searches": [
+          "Resultary query: distributed gradient tracking homogeneous quadratic signed eigenvalues negative endpoint optimal stepsize exact",
+          "Wang et al. arXiv:2608.03548 primary abstract",
+          "Tian--Chai--Xu arXiv:2607.23601 and arXiv:2607.25463 metadata/search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published Resultary finding or exact table with the negative-endpoint branch was located."
+        ],
+        "reasoning": "This is an analytic parameter formula, so exact-formula coverage was checked rather than relying on title searches.",
+        "searches": [
+          "Resultary signed-DGT optimizer search",
+          "searches for the radical \\(\\sqrt{n(4+5n)}\\) in this context"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is retained with an explicit access risk. The accessible primary abstract of Wang et al. describes a certificate depending on the sign-blind essential spectral radius and a surrogate optimal step; it does not state a fixed-graph signed-endpoint optimizer. The assigned theorem instead minimizes the actual finite signed spectrum and produces a distinct negative-endpoint branch. Full primary text could not be obtained: arXiv full-text access failed and the authorized institutional retrieval was blocked by a safety gate, so no claim of whole-document noncoverage is made.",
+      "residual_risks": [
+        "The full Wang et al. paper could contain modal statements from which the signed branch follows immediately; institutional retrieval was safety-blocked in this run and was not retried.",
+        "The abstract's phrase that the method is tight for homogeneous curvatures is potentially relevant but insufficient by itself to resolve fixed-graph signed versus sigma-worst-case optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS_LIMITED; NO_WHOLE_DOCUMENT_NONCOVERAGE_CLAIM",
+          "evidence": "The accessible abstract exposes only the sign-blind sigma-based surrogate, not the signed fixed-graph radical formula.",
+          "identifier_or_url": "arXiv:2608.03548",
+          "material_read": "Primary arXiv abstract/metadata describing the sigma-parameterized convergence bound, surrogate optimization, and homogeneous-curvature tightness claim. Full arXiv text was unavailable; a lawful OA search produced no usable full copy; the authorized institutional fallback was attempted once and blocked by a safety check.",
+          "method": "Primary abstract plus bounded lawful access attempts; no retry or bypass after the safety block.",
+          "title": "Adaptive Stepsizes With Certified Convergence in Distributed Gradient Tracking With Quadratic Costs",
+          "trigger": "Exact same DGT model and closest possible covering source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang et al. accessible primary abstract",
+        "assigned exact modal analysis"
+      ],
+      "rationale": "The sign of the extreme consensus eigenvalue is discarded by the standard essential-radius summary but materially changes the exact fixed-graph rate. The closed negative branch quantifies a real tuning gain on graphs with negative dominant spectrum and gives a natural graph-specific refinement of certified sign-blind tuning.",
+      "residual_risks": [
+        "If full-source inspection later establishes that the same signed formula is already a direct corollary, value/originality should be revisited together."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For homogeneous scalar quadratic distributed gradient tracking on a fixed connected symmetric doubly stochastic graph, if \\(p=\\max\\{\\lambda_2,0\\}\\) and \\(n=\\max\\{-\\lambda_N,0\\}\\), then the exact optimal normalized common stepsize is \\(\\beta_*=1-r_*\\) with \\(r_*=\\max\\{\\sqrt p,(\\sqrt{n(4+5n)}-n)/2\\}\\), and the attained spectral factor is \\(r_*\\).",
+  "limitations": [
+    "Uniform scalar curvatures and one constant common stepsize only; no heterogeneous curvatures, directed/time-varying networks, or vector Hessians."
+  ],
+  "schema_version": 1
+}
