@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The construction was checked directly from the definitions in arXiv:2305.08182v1.
+# Independent mathematical audit
 
-For every \(f\in H\), the negative-index contribution is
-\[
-\sum_{n=0}^{\infty}\|2^{-n}U_nf\|^2=\frac43\|f\|^2,
-\]
-and the positive-index contribution is
-\[
-\sum_{k=1}^{\infty}\|2^{-k}U_+f\|^2=\frac13\|f\|^2.
-\]
-Thus the frame identity is exact and does not depend on finite truncation.
+## correctness
 
-The operator action was checked on every orthogonal block. It gives \(T\Theta_k=\Theta_{k+1}\) for all \(k\in\mathbb Z\), while \(T(U_0x-U_+x)=0\) for nonzero \(x\), so no inverse exists. The dependence \(\Theta_2=\Theta_1/2\) is exact. Infinite-dimensionality of the operator span follows because finite linear combinations of the maps \(U_n\) have orthogonal ranges and therefore have unique coefficients.
+PASS
 
-For the repaired proposition, the only nonstandard step is backward propagation. If \(TA=0\) for a finite linear combination of the \(\Theta_k\), then \(A(H)\) lies in the algebraic span of the \(M_k\). Injectivity of \(T\) on that span forces \(A=0\). Iterating this argument places every negative translate of a finite relation in the same finite-dimensional operator span, yielding the contradiction.
+The block operator has norm \(2\) and a nonzero kernel; the orbit identity \(T\Theta_k=\Theta_{k+1}\) holds for every integer index. The negative and positive geometric-series contributions are \(4/3\) and \(1/3\), giving tight bound \(5/3\). Orthogonal negative-index ranges force infinite-dimensional operator span, while \(\Theta_2=\Theta_1/2\) is an explicit dependence. For the repair, any finite dependence gives a finite forward-invariant span; injectivity on the algebraic range span allows the relation to be propagated backward, forcing the whole bi-infinite orbit into a finite-dimensional space and contradicting the hypothesis.
 
-The journal article associated with DOI:10.1007/s11868-023-00546-2 was accessible only at abstract/preview level for this comparison. Therefore the theorem-level counterclaim is restricted to arXiv:2305.08182v1. No independent audit has been performed.
+## originality
+
+PASS
+
+The primary preprint was read at the disputed statements: Proposition 4.1 asserts linear independence from an infinite-dimensional operator span under forward representation, but its proof uses negative powers of the representing operator without assuming invertibility; Theorem 4.3(ii) invokes that proposition. The explicit noninjective example therefore contradicts the source as stated. The later journal record is described in accessible preview material as a reedited copy, but its full theorem body was not available in this run, so the accepted claim is intentionally scoped to arXiv v1. No prior equivalent counterexample or the same injectivity repair was located.
+
+## value
+
+PASS
+
+The result identifies a genuine missing hypothesis in a structural lemma used downstream and supplies a clean sufficient repair inside the intended tight g-fusion-frame setting, rather than a type or normalization defect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The construction satisfies every definition used in the claim. The block operator \(T\) is bounded and noninjective; the orbit identity holds for all integer indices; the exact energy sum is \(5\|f\|^2/3\); the negative-index operators force infinite-dimensional operator span; and \(\Theta_2=\Theta_1/2\) gives an explicit dependence. The repaired proposition is proved by propagating a finite relation forward and then using injectivity, rather than an unavailable inverse, to propagate it backward.
+# Independent mathematical audit
 
-## Originality
-PASS. The motivating preprint was materially inspected at its definition of representation, Proposition 4.1 and its proof, and Theorem 4.3(ii) and its proof. Targeted searches under the exact proposition, noninjective operator-orbit, tight \(g\)-fusion, perturbation, and injective-repair formulations found no covering indexed finding or correction. The closest ordinary-frame operator-orbit literature distinguishes bounded from bounded-bijective representations and does not imply the disputed statement.
+## correctness
 
-## Value
-PASS. Proposition 4.1 is explicitly used as a structural lemma in the source, and Theorem 4.3(ii) depends on it. The counterexample lives inside the intended frame class and is tight, so the failure is not an artifact of abandoning frame assumptions. The repair identifies the exact algebraic mechanism needed for the proof: injectivity suffices to replace the unjustified use of negative powers.
+PASS
 
-## Closest literature and limitations
-The principal comparison is Jahedi--Javadi--Mehdipour, arXiv:2305.08182v1, together with Christensen--Hasannasab, arXiv:1704.08918. The later journal article DOI:10.1007/s11868-023-00546-2 is described in its accessible preview as a reedited copy, but its complete theorem text was not available for material comparison, so the formal counterclaim is limited to the arXiv version. An unindexed correction or informal observation could still exist.
+The block operator has norm \(2\) and a nonzero kernel; the orbit identity \(T\Theta_k=\Theta_{k+1}\) holds for every integer index. The negative and positive geometric-series contributions are \(4/3\) and \(1/3\), giving tight bound \(5/3\). Orthogonal negative-index ranges force infinite-dimensional operator span, while \(\Theta_2=\Theta_1/2\) is an explicit dependence. For the repair, any finite dependence gives a finite forward-invariant span; injectivity on the algebraic range span allows the relation to be propagated backward, forcing the whole bi-infinite orbit into a finite-dimensional space and contradicting the hypothesis.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary preprint was read at the disputed statements: Proposition 4.1 asserts linear independence from an infinite-dimensional operator span under forward representation, but its proof uses negative powers of the representing operator without assuming invertibility; Theorem 4.3(ii) invokes that proposition. The explicit noninjective example therefore contradicts the source as stated. The later journal record is described in accessible preview material as a reedited copy, but its full theorem body was not available in this run, so the accepted claim is intentionally scoped to arXiv v1. No prior equivalent counterexample or the same injectivity repair was located.
+
+## value
+
+PASS
+
+The result identifies a genuine missing hypothesis in a structural lemma used downstream and supplies a clean sufficient repair inside the intended tight g-fusion-frame setting, rather than a type or normalization defect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
