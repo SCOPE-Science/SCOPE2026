@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_egalitarian_sexequal_boundary.py` is an exact finite replay using only the Python standard library.
 
-Two independent stability tests are implemented. One uses precomputed rank maps; the other compares positions directly in the preference lists. They are required to return exactly the same stable-matching set for every profile.
+# Independent mathematical audit
 
-The replay verifies:
-- all \(16\) strict \(2\times2\) profiles have \(E(I)=S(I)\);
-- all \(46656\) strict \(3\times3\) profiles are exhausted;
-- exactly \(40056\) profiles have equal optimum sets;
-- exactly \(3720\) have \(S(I)\subsetneq E(I)\);
-- exactly \(360\) have \(E(I)\subsetneq S(I)\);
-- exactly \(2520\) have disjoint optimum sets;
-- zero profiles have nonempty nonnested overlap;
-- the stable-count marginal is \(34080,11484,1092\);
-- the displayed \(3\times3\) witness has exactly two stable matchings with objective pairs \((12,2)\) and \((11,3)\).
+## correctness
 
-Run:
+PASS
 
-`python3 verify_egalitarian_sexequal_boundary.py`
+A fresh independent exhaustive enumeration checks every one of the 16 two-pair and 46656 three-pair strict preference profiles, every perfect matching, blocking-pair stability, the two rank-sum objectives and complete tied argmin sets. It reproduces exactly the four stated three-pair counts and the published stable-count marginal 34080, 11484, 1092. The explicit two-stable-matching witness also has objective pairs (12,2) and (11,3), yielding disjoint unique optima. Because the domain is finite and completely enumerated, this establishes the stated boundary without extrapolating beyond three pairs.
 
-The first output line must be:
+## originality
 
-`VERIFY_OK`
+PASS
 
-The computation proves only the stated finite boundary. It does not classify larger markets.
+The literature defines and optimizes both fairness objectives, while the closest exact small-instance source tabulates stable-matching counts and egalitarian data. No inspected source gives the four-way complete argmin-set relation census or the first disjoint-optimum boundary. A fresh exhaustive replay independently reproduces every stated count, so the novelty-bearing object is the new joint finite classification rather than either objective separately.
+
+## value
+
+PASS
+
+Egalitarian and sex-equal matching are standard but genuinely different fairness goals. The smallest market where they force incompatible stable choices is a natural finite boundary, and the complete joint census is substantially more informative than an isolated witness or a one-objective table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
