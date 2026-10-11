@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof was checked symbolically at the level of all cases. For a fixed rank-one idempotent with image \(\operatorname{im}A\), the free entries of \(N\) reduce to the two necessary and sufficient nilpotency equations \(y=-\operatorname{tr}A\) and \(sx=-(\operatorname{tr}A)^2\). This directly gives the \(q+1\) and \(q-1\) nonzero fibers and isolates the unique failed complement \(\ker A\) in the nonnilpotent case.
+# Independent mathematical audit
 
-The zero fiber was independently counted from the geometry of lines in \(\mathbb F_q^2\): \(q^2\) choices arise from \(E=0\), one from \(E=I\), and each of the \(q(q+1)\) rank-one idempotents admits exactly \(q\) nilpotents with image inside its kernel.
+## correctness
 
-`verify_factorization_counts.py` exhaustively enumerates the factorization map over \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\), \(\mathbb F_5\), and \(\mathbb F_7\). The nonprime field \(\mathbb F_4\) is implemented independently as \(\mathbb F_2[t]/(t^2+t+1)\). The replay output is stored in `verification_output.txt` and ends with `VERIFY_OK`.
+PASS
 
-The finite replay is only a consistency check. The theorem for arbitrary prime powers follows from the line-counting proof and field algebra above; no extrapolation from the tested fields is used.
+For nonzero \(A=EN\), a nontrivial idempotent must project onto \(\operatorname{im}A\). Choosing a complement gives \(E=\mathrm{diag}(1,0)\), \(A=\begin{pmatrix}t&s\\0&0\end{pmatrix}\), and every completion \(N=\begin{pmatrix}t&s\\x&y\end{pmatrix}\) is nilpotent exactly when \(y=-t\) and \(sx=-t^2\). If \(t=0\), every one of the \(q\) complements works uniquely plus \(E=I\), giving \(q+1\); if \(t\ne0\), exactly the complement \(\ker A\) fails, giving \(q-1\). The zero fiber is \(q^2+1+q^2(q+1)=q^3+2q^2+1\). Transposition transfers EN fibers of \(A\) to NI fibers of \(A^T\), and the formula depends only on zero/trace/determinant class. A fresh exhaustive replay over prime fields \(q=2,3,5\) matched every target.
+
+## originality
+
+PASS
+
+Dolzan's primary abstract explicitly describes equality of the IN/NI image classes and gives their total image cardinality over finite local principal rings, not targetwise numbers of ordered factor pairs. A detailed public review of that preprint likewise describes orbit/image enumeration, while the 2024 open full text gives solvability criteria, not fiber multiplicities. Fresh Resultary searches returned the submitted record plus distinct multiplicity problems (nilpotent--involution in \(M_3\), t-fine decompositions), not a covering EN/NI fiber theorem. Full focal preprint text was not retrievable through the current arXiv path, so this remains an explicit residual risk.
+
+## value
+
+PASS
+
+After recent work identifies and counts the image class of IN/NI products, the natural next invariant is multiplicity of the factorization map. The complete four-stratum formula reveals nonuniform fibers and exactly decomposes the total number of ordered factor pairs, giving a useful structural refinement rather than a small-field census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

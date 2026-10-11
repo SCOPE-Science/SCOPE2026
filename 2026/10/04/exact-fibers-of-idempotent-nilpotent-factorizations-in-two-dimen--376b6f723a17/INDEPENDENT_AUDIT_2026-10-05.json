@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:05:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonzero \\(A=EN\\), a nontrivial idempotent must project onto \\(\\operatorname{im}A\\). Choosing a complement gives \\(E=\\mathrm{diag}(1,0)\\), \\(A=\\begin{pmatrix}t&s\\\\0&0\\end{pmatrix}\\), and every completion \\(N=\\begin{pmatrix}t&s\\\\x&y\\end{pmatrix}\\) is nilpotent exactly when \\(y=-t\\) and \\(sx=-t^2\\). If \\(t=0\\), every one of the \\(q\\) complements works uniquely plus \\(E=I\\), giving \\(q+1\\); if \\(t\\ne0\\), exactly the complement \\(\\ker A\\) fails, giving \\(q-1\\). The zero fiber is \\(q^2+1+q^2(q+1)=q^3+2q^2+1\\). Transposition transfers EN fibers of \\(A\\) to NI fibers of \\(A^T\\), and the formula depends only on zero/trace/determinant class. A fresh exhaustive replay over prime fields \\(q=2,3,5\\) matched every target.",
+      "risk": "The general proof uses only dimension-two finite-field line geometry; no extrapolation to higher dimensions or non-field local rings is made.",
+      "sources": [
+        "Dolzan, arXiv:2608.20934v1, primary abstract/indexed material",
+        "Calugareanu--Pop, DOI:10.1007/s41980-024-00883-y, open full text",
+        "Fresh finite-field replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolzan works over broader finite local principal rings but states image characterization and total class size.",
+          "Calugareanu--Pop work over broader domain classes but give existence criteria."
+        ],
+        "reasoning": "Broader ring scope with a weaker invariant does not cover the submitted targetwise factor-count refinement over fields.",
+        "searches": [
+          "arXiv:2608.20934v1 primary abstract/indexed material",
+          "DOI:10.1007/s41980-024-00883-y full text"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.20934v1",
+        "DOI:10.1007/s41980-024-00883-y",
+        "Resultary semantic corpus",
+        "Targeted public multiplicity searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing that every singular field matrix belongs to the image and knowing the total number of distinct image matrices does not determine how many ordered factor pairs map to a fixed target.",
+          "Existence criteria likewise leave fiber multiplicity undetermined."
+        ],
+        "reasoning": "A separate line-complement and nilpotent-completion count is required; no inspected prior implication yields the four multiplicities.",
+        "searches": [
+          "Dolzan arXiv:2608.20934v1 image/cardinality statement",
+          "Calugareanu--Pop Theorems on IN/NI solvability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary abstract concerns which matrices lie in IN/NI and total image size.",
+          "Resultary same-area hits concern different factors or dimensions and do not specialize to EN/NE fibers."
+        ],
+        "reasoning": "The invariant formulation is the cardinality of each fiber of the maps \\((E,N)\\mapsto EN\\) and \\((N,E)\\mapsto NE\\); image membership or image cardinality does not determine those multiplicities.",
+        "searches": [
+          "Resultary query: idempotent nilpotent 2x2 finite field ordered factorization fiber counts q+1 q-1",
+          "Public searches: number of factorizations idempotent nilpotent matrix; q+1/q-1 2x2 finite field",
+          "arXiv:2608.20934v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching table or exact EN/NI targetwise count was located.",
+          "The finite checker values were freshly recomputed and agree with the symbolic formula."
+        ],
+        "reasoning": "The result is not a known-table recomputation on the evidence located.",
+        "searches": [
+          "Resultary exact multiplicity search",
+          "Public q+1/q-1 factorization-count searches"
+        ]
+      },
+      "rationale": "Dolzan's primary abstract explicitly describes equality of the IN/NI image classes and gives their total image cardinality over finite local principal rings, not targetwise numbers of ordered factor pairs. A detailed public review of that preprint likewise describes orbit/image enumeration, while the 2024 open full text gives solvability criteria, not fiber multiplicities. Fresh Resultary searches returned the submitted record plus distinct multiplicity problems (nilpotent--involution in \\(M_3\\), t-fine decompositions), not a covering EN/NI fiber theorem. Full focal preprint text was not retrievable through the current arXiv path, so this remains an explicit residual risk.",
+      "residual_risks": [
+        "The full Dolzan preprint was not retrievable through the current arXiv route, so an unstated targetwise count inside the full paper cannot be absolutely excluded from accessible abstract evidence alone.",
+        "Unindexed ring-theory literature could contain the same finite-field multiplicity refinement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMAGE_LEVEL_COVERAGE_WITH_FULLTEXT_ACCESS_LIMITATION",
+          "evidence": "Accessible primary material states image equality/class size, not targetwise ordered factorization multiplicities.",
+          "identifier_or_url": "arXiv:2608.20934v1",
+          "material_read": "Primary abstract/current indexed statement giving equality and explicit description of IN/NI classes and the total cardinality \\(q^{3n-2}(q^n+q^2-1)\\); detailed public review of the preprint methodology was also inspected.",
+          "method": "Lawful primary abstract/indexed inspection; full arXiv text was unavailable through the current route.",
+          "title": "Products of Nilpotent and Idempotent Matrices over Finite Local Rings",
+          "trigger": "Closest recent source defining IN/NI classes and counting their image."
+        },
+        {
+          "assessment": "EXISTENCE_NOT_FIBER_COUNT",
+          "evidence": "The paper characterizes when decompositions exist but does not enumerate all ordered pairs over finite fields.",
+          "identifier_or_url": "DOI:10.1007/s41980-024-00883-y",
+          "material_read": "Open full-text statements and proofs around the IN and NI solvability criteria.",
+          "method": "Lawful open-access HTML full-text inspection.",
+          "title": "2-Products of Idempotent by Nilpotent Matrices",
+          "trigger": "Closest earlier source on 2x2 IN/NI decompositions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "After recent work identifies and counts the image class of IN/NI products, the natural next invariant is multiplicity of the factorization map. The complete four-stratum formula reveals nonuniform fibers and exactly decomposes the total number of ordered factor pairs, giving a useful structural refinement rather than a small-field census.",
+      "risk": "The result is dimension-specific and does not imply analogous formulas for \\(M_n\\), \\(n\\ge3\\), or local rings with radical.",
+      "sources": [
+        "arXiv:2608.20934v1",
+        "DOI:10.1007/s41980-024-00883-y"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every prime power \\(q\\) and \\(A\\in M_2(\\mathbb F_q)\\), the ordered idempotent--nilpotent and nilpotent--idempotent factorization fibers have the common exact sizes \\(q^3+2q^2+1\\) at zero, \\(q+1\\) at each nonzero nilpotent, \\(q-1\\) at each nonnilpotent singular matrix, and \\(0\\) at invertible matrices.",
+  "limitations": [
+    "Only \\(M_2(\\mathbb F_q)\\) and one idempotent/one nilpotent factor are classified.",
+    "Full-text access to the recent Dolzan preprint was unavailable in this run; best-of-knowledge originality records that residual risk."
+  ],
+  "schema_version": 1
+}
