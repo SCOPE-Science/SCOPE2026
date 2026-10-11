@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof identifies the largest \(N+2\) tensor-product entries on both sides throughout the full parameter interval and applies one necessary Nielsen-majorization inequality. Exact algebra reduces it to
-\[
-N(20a-19)(250a-247)\ge40a,
-\]
-whose denominator is positive on the stated interval. The endpoint expansion is elementary. An exact-rational tensor-product checker independently verifies the source's five finite examples and every smaller failing copy count.
+PASS
 
-## Originality
+On the stated interval the largest \(N+2\) source and target tensor-product entries have the fixed ordering used in the proof. Nielsen's prefix inequality reduces exactly to \(N(20a-19)(250a-247)\ge40a\), whose denominator is positive, yielding the claimed necessary lower bound. Expansion at \(a\uparrow19/20\) gives the stated reciprocal divergence. Fresh exact rational tensor-product majorization reproduced success at copy counts \(2,3,4,5,6\) for the five source-table rows and failure for every smaller positive copy count, so the claimed minima are independently certified rather than inferred from the saved log.
 
-**PASS, narrowly scoped.** The direct self-catalysis paper tabulates five nearby source vectors with minimum copy counts \(2\) through \(6\), but does not identify their common affine family, isolate the \(N+2\) prefix as a unified obstruction, or give a divergent copy-number formula. Earlier multiple-copy transformation theory proves that arbitrarily many copies can matter in general, but does not imply this explicit self-catalytic family bound without the specialization and prefix analysis performed here.
+## originality
 
-Targeted searches using the exact Schmidt entries, the affine family, self-catalysis, minimum copy count, and majorization did not surface the formula.
+PASS
 
-## Value
+Best-of-knowledge originality passes for the continuous copy-number obstruction and endpoint divergence. The primary self-catalysis paper already owns the five discrete examples and their minimum copy counts; those rows are treated as prior art. Its inspected text does not give the common affine-family rational lower bound or the divergence law. Resultary searches did not return an earlier covering statement.
 
-**PASS.** Catalyst-copy number is a direct operational resource. The result explains five otherwise separate tabulated minima by one structural inequality and shows that moving the largest source Schmidt coefficient toward the target's largest coefficient creates a precise \(1/(19/20-a)\) resource blow-up. This is a motivated boundary phenomenon in the paper's central multi-copy self-catalysis example family, not an arbitrary numerical slice.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Catalyst copy count is an operational entanglement resource. A single exact prefix inequality explains five separately tabulated minimum-copy examples and reveals a quantitative resource blow-up along a natural one-parameter family, so the result is more than interpolation of the table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
