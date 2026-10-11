@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:06:15Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 7282cf241031a7828115ce6070017486859fa98d",
+        "VERIFICATION.md blob a010c556eab076952c9c64aa57ec49deddcda221",
+        "Independent symbolic determinant check performed this run."
+      ],
+      "rationale": "Conditioning on transmit/drop branches gives the stated exact three-moment operator. Independent symbolic reconstruction gives \\(\\det(I-N)=p s[p s+2p-2s]\\), so eigenvalue \\(1\\) appears precisely at \\(s=2p/(2-p)\\). The package supplies the remaining cubic Jury inequalities and a separate renewal proof for standard zero-residual initialization: geometric waiting time \\(J\\) yields cycle multiplier \\(1-2s/p+(2-p)s^2/p^2\\), which crosses one at the same threshold and is minimized at \\(p/(2-p)\\). The no-memory multiplier \\(1-2ps+ps^2\\) gives the comparison interval.",
+      "risks": [
+        "The compressor is iid Bernoulli and the objective is scalar deterministic quadratic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018/2019 works establish convergence of error-feedback sparsification under broader optimization assumptions.",
+          "The 2025 work gives tight Lyapunov analysis in a simplified single-agent setting.",
+          "Its inspected random-compressor certificate parameterizes only a sufficient tuned rate and contains no Bernoulli waiting-time law."
+        ],
+        "reasoning": "Broader convergence/rate theorems do not imply the exact set of stable constant steps for this iid scalar compressor.",
+        "searches": [
+          "arXiv:1809.07599",
+          "arXiv:1901.09847",
+          "arXiv:2506.05271 / NeurIPS 2025",
+          "GitHub DanielBergThomsen/error-feedback-tight certificates/EF/upper_bound_random_CAS.wls"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fresh query",
+        "arXiv:1809.07599",
+        "arXiv:1901.09847",
+        "arXiv:2506.05271",
+        "official error-feedback-tight random-compressor certificate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic convergence of memory/error-feedback sparsification does not imply that stability is lost at \\(2p/(2-p)\\).",
+          "The 2025 certificate verifies one parameterized Lyapunov rate, not necessity above a threshold or the geometric-cycle optimum."
+        ],
+        "reasoning": "The renewal reduction and complete Jury calculation provide new Bernoulli-specific phase information beyond inspected prior guarantees.",
+        "searches": [
+          "arXiv:1809.07599",
+          "arXiv:1901.09847",
+          "arXiv:2506.05271 plus official random-compressor CAS"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit matched the Bernoulli threshold.",
+          "The classic sparsified-SGD source discusses random-k with memory but not the exact scalar phase boundary.",
+          "The inspected random-compressor CAS certificate uses a generic contraction parameter and proves a chosen Lyapunov rate, not all-step Bernoulli stability."
+        ],
+        "reasoning": "Equivalent descriptions through dropout, omit-or-send compression, random-k ultra-sparsification and geometric waiting times were compared.",
+        "searches": [
+          "Resultary: Bernoulli error feedback scalar quadratic exact mean-square stability threshold 2p/(2-p) geometric waiting time",
+          "Web: error feedback random compressor Bernoulli scalar quadratic",
+          "Official 2025 EF repository random-compressor certificate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest exact stochastic-stability records concern unrelated feedback/delay schemes."
+        ],
+        "reasoning": "No exact Bernoulli EF threshold table or formula was found.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "Fresh Resultary search found no Bernoulli error-feedback threshold. Classic sparsified-SGD/error-feedback sources cover random sparsification and memory but give convergence under scheduled or generic assumptions, not this constant-step scalar necessity-and-sufficiency law. The 2025 tight EF paper is the strongest overlap risk: its official repository contains a random-compressor certificate, which this run inspected directly. That certificate verifies a generic contractive-random-compressor Lyapunov rate with a prescribed stepsize; it does not state or derive the Bernoulli-specific full stability interval, geometric-cycle optimum, or memoryless \\(0<s<2\\) comparison.",
+      "residual_risks": [
+        "The official 2025 repository shows that random-compressor extensions exist beyond the main deterministic presentation; a later paper or supplement could sharpen these to an all-steps theorem.",
+        "An equivalent geometric-delay calculation may exist in quantized-control or networked-optimization literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_RANDOM_SPARSIFICATION_NOT_EXACT_SCALAR_FRONTIER",
+          "evidence": [
+            "Accessible statement gives convergence with sparsification and memory, not the \\(2p/(2-p)\\) threshold."
+          ],
+          "identifier_or_url": "arXiv:1809.07599",
+          "material_read": "Fresh current abstract and public descriptions confirming random-k/top-k sparsification with accumulated-error memory and convergence guarantees.",
+          "method": "Fresh public web retrieval.",
+          "title": "Sparsified SGD with Memory",
+          "trigger": "Foundational random sparsification with residual memory."
+        },
+        {
+          "assessment": "GENERIC_TIGHT_ANALYSIS_WITH_RANDOM_CERTIFICATE_NOT_COVERING_BERNOULLI_FULL_STABILITY_SET",
+          "evidence": [
+            "The certificate verifies a tuned Lyapunov rate under a generic random-compressor second-moment contraction condition; no Bernoulli waiting-time threshold or cycle optimum appears."
+          ],
+          "identifier_or_url": "arXiv:2506.05271; NeurIPS 2025",
+          "material_read": "Fresh primary abstract plus direct inspection of the official repository file certificates/EF/upper_bound_random_CAS.wls.",
+          "method": "Fresh web retrieval and read-only GitHub source inspection.",
+          "title": "Tight analyses of first-order methods with error feedback",
+          "trigger": "Strong modern candidate for broader exact EF coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Necessary-and-sufficient threshold, exact cycle factor and optimizer, and exact no-memory comparison."
+      ],
+      "rationale": "Random sparsification with residual memory is canonical, and the scalar model isolates a nontrivial geometric-delay overshoot mechanism. The exact stability loss relative to memoryless dropout and the exact cycle-optimal step give a sharp, interpretable communication/stability benchmark.",
+      "risks": [
+        "The scalar comparison is unusually favorable to memoryless dropout and should not be generalized to high-dimensional sparse communication."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For classic error feedback on a scalar quadratic with iid Bernoulli transmit-or-drop probability \\(p\\), the exact mean-square constant-step stability interval is \\(0<\\eta\\mu<2p/(2-p)\\); the communication-cycle multiplier is minimized at \\(\\eta\\mu=p/(2-p)\\), while the corresponding memoryless dropout iteration remains stable for \\(0<\\eta\\mu<2\\).",
+  "limitations": [
+    "Scalar deterministic quadratic, iid Bernoulli compressor, constant step."
+  ],
+  "schema_version": 1
+}
