@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:32:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e6bb8ab23b6849b6031a16d47e399400ec09b713",
+        "assigned verify.py blob 3980f1d22a83414b6db566ca985d23767817d174",
+        "Tian--Ramdas, arXiv:1910.04900v2, full HTML Section 3.3",
+        "Fischer, DOI 10.1002/bimj.202300237, full HTML"
+      ],
+      "rationale": "At state \\(j\\), the test level is \\(a_j=\\alpha q\\gamma_j\\). Because \\(a_j\\le\\lambda\\), rejection \\(P\\le a_j\\) and state advancement \\(\\lambda<P\\le\\tau\\) are disjoint and have probabilities \\(a_j\\) and \\(q\\); all other outcomes leave the state unchanged. Conditioning on the almost-sure first occurrence of either terminating event gives rejection probability \\(\\alpha\\gamma_j/(1+\\alpha\\gamma_j)\\) and survival probability \\((1+\\alpha\\gamma_j)^{-1}\\). Multiplying survival through the states and using continuity from above proves the infinite product. The lower envelope follows by expanding \\(\\prod_j(1+\\alpha\\gamma_j)\\ge1+\\alpha\\), with equality only for one-point spending; the strict upper envelope follows from \\(\\sum_j\\log(1+\\alpha\\gamma_j)<\\alpha\\), and uniform-on-\\(N\\) spending approaches the supremum. Euler's product for \\(\\sinh\\) gives the inverse-square specialization. The inspected checker only corroborates finite recursions and numerical identities; the infinite result is proved analytically.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader theorems establish validity and a uniformly stronger procedure but do not determine the original ADDIS-Spending FWER for a fixed spending sequence."
+        ],
+        "reasoning": "The later exhaustive procedure does not dominate this claim logically because it changes the algorithm; its exact global-null exhaustion is not an equality for the original procedure.",
+        "searches": [
+          "Tian--Ramdas ADDIS-Spending theorem",
+          "Fischer exhaustive ADDIS theorem and global-null exact-exhaustion proposition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.04900v2",
+        "DOI:10.1002/bimj.202300237",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published ADDIS proof controls a Bonferroni-type bound and does not condition on the first terminating event within each fixed state.",
+          "Fischer explains why a naive Sidak factorization of history-dependent rejection events is unavailable in general."
+        ],
+        "reasoning": "The audited statewise factorization is a different calculation available only under the exact-uniform complete-null and containment assumptions; it is not a printed corollary of the cited control theorems.",
+        "searches": [
+          "arXiv:1910.04900v2 equations defining ADDIS-Spending",
+          "DOI:10.1002/bimj.202300237 discussion of conservatism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tian--Ramdas define \\(\\alpha_i=\\alpha(\\tau_i-\\lambda_i)\\gamma_{t(i)}\\) with the same state counter and prove control, not equality.",
+          "Fischer explicitly describes ordinary ADDIS as conservative and replaces it by an exhaustive principle."
+        ],
+        "reasoning": "Equivalent formulations as a survival product, a statewise competing-risk law, or an exact complete-null type-I expenditure were compared.",
+        "searches": [
+          "Resultary query: ADDIS-Spending exact complete-null FWER product formula independent uniform p-values gamma sequence inverse-square sinh",
+          "arXiv:1910.04900v2 Section 3.3",
+          "DOI:10.1002/bimj.202300237 Sections 1--4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry or published SCOPE finding giving this product or \\(\\sinh\\) specialization was returned."
+        ],
+        "reasoning": "This is an all-sequence analytic identity rather than a finite lookup, but an exact-formula database search was still performed.",
+        "searches": [
+          "Resultary semantic search for the exact product and inverse-square specialization"
+        ]
+      },
+      "rationale": "Tian--Ramdas give the exact ADDIS-Spending state index and level and prove PFER/FWER control, while Fischer later proves that the original ADDIS principle is conservative and constructs an exhaustive uniform improvement. Neither inspected primary source evaluates the original procedure's complete-null FWER as a gamma-dependent product, gives the sharp spending envelope, or derives the inverse-square \\(\\sinh\\) closed form. A targeted Resultary search found no published SCOPE record with an implication-equivalent formula.",
+      "residual_risks": [
+        "A supplementary note or unpublished calculation could contain the same statewise product, although no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING only.",
+          "evidence": "It supplies the exact algorithm and proves control but does not state the complete-null product equality or its sharp envelope.",
+          "identifier_or_url": "arXiv:1910.04900v2",
+          "material_read": "Full arXiv HTML around Section 3.3, including the state counter, level formula, and FWER-control theorem.",
+          "method": "Open-access full-text inspection.",
+          "title": "Online control of the familywise error rate",
+          "trigger": "Defining primary source for ADDIS-Spending."
+        },
+        {
+          "assessment": "NOT_COVERING the audited equality.",
+          "evidence": "It proves a different exhaustive procedure can use the error budget more fully and treats ordinary ADDIS as conservative, without evaluating the original procedure's exact gamma-dependent complete-null FWER.",
+          "identifier_or_url": "DOI:10.1002/bimj.202300237",
+          "material_read": "Full publisher HTML covering the motivation, exhaustive algorithm, global-null exhaustion result, and ADDIS-Spending improvement.",
+          "method": "Full-text web inspection.",
+          "title": "An exhaustive ADDIS principle for online FWER control",
+          "trigger": "Closest later work explicitly addressing conservatism of ordinary ADDIS."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tian--Ramdas ADDIS-Spending",
+        "Fischer exhaustive ADDIS"
+      ],
+      "rationale": "The result quantifies a known and practically relevant conservatism of a named online FWER method exactly, separates the effect of the spending sequence from the discard thresholds in the complete-null regime, and identifies the sharp possible range together with a closed form for a published inverse-square schedule. This is a natural statistical invariant of the procedure rather than an arbitrary parameter slice.",
+      "residual_risks": [
+        "The law is deliberately confined to the exact-uniform complete null and therefore does not measure power or strong-FWER behavior under alternatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For ADDIS-Spending with fixed \\(0<\\lambda<\\tau\\le1\\), \\(q=\\tau-\\lambda\\), nonnegative \\((\\gamma_j)\\) summing to one, independent exact-uniform complete-null p-values, and \\(\\alpha q\\gamma_j\\le\\lambda\\), the infinite-stream FWER is exactly \\(1-\\prod_{j\\ge1}(1+\\alpha\\gamma_j)^{-1}\\). Over all spending sequences it ranges from the attained minimum \\(\\alpha/(1+\\alpha)\\) to the unattained supremum \\(1-e^{-\\alpha}\\); for \\(\\gamma_j=6/(\\pi^2j^2)\\) it equals \\(1-\\sqrt{6\\alpha}/\\sinh(\\sqrt{6\\alpha})\\).",
+  "limitations": [
+    "The equality uses independent exact-uniform complete-null p-values and fixed thresholds.",
+    "The containment condition \\(\\alpha(\\tau-\\lambda)\\gamma_j\\le\\lambda\\) is essential to the two-competing-events state reduction.",
+    "No formula is claimed for dependent or merely conservative nulls, false-null mixtures, ADDIS-Graph, or exhaustive ADDIS."
+  ],
+  "schema_version": 1
+}

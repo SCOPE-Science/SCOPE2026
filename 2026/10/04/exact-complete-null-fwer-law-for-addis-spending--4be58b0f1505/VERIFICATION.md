@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked in four independent ways within the package:
+# Independent mathematical audit
 
-1. **State recursion.** For a finite spending vector, the checker compares the product formula with a direct dynamic recursion using the state rejection probability \(\alpha\gamma_j/(1+\alpha\gamma_j)\) and advancement probability \(1/(1+\alpha\gamma_j)\).
-2. **Sharp envelope.** Deterministic one-mass and equal-on-\(N\) schedules are evaluated to confirm the lower endpoint \(\alpha/(1+\alpha)\) and convergence toward the upper supremum \(1-e^{-\alpha}\).
-3. **Inverse-square schedule.** Truncated products for \(\gamma_j=6/(\pi^2j^2)\) converge numerically to \(1-\sqrt{6\alpha}/\sinh(\sqrt{6\alpha})\).
-4. **Quoted numerical value.** At \(\alpha=0.2\), the checker reproduces \(0.17515476014878684\).
+## correctness
 
-The numerical checks do not prove the infinite theorem; the analytic state-exit argument and infinite-product limit in `RESULT.md` do. The theorem has not been checked outside independent exact-uniform complete-null p-values, fixed \(\lambda,\tau\), and rejection levels contained in \([0,\lambda]\).
+PASS
+
+At state \(j\), the test level is \(a_j=\alpha q\gamma_j\). Because \(a_j\le\lambda\), rejection \(P\le a_j\) and state advancement \(\lambda<P\le\tau\) are disjoint and have probabilities \(a_j\) and \(q\); all other outcomes leave the state unchanged. Conditioning on the almost-sure first occurrence of either terminating event gives rejection probability \(\alpha\gamma_j/(1+\alpha\gamma_j)\) and survival probability \((1+\alpha\gamma_j)^{-1}\). Multiplying survival through the states and using continuity from above proves the infinite product. The lower envelope follows by expanding \(\prod_j(1+\alpha\gamma_j)\ge1+\alpha\), with equality only for one-point spending; the strict upper envelope follows from \(\sum_j\log(1+\alpha\gamma_j)<\alpha\), and uniform-on-\(N\) spending approaches the supremum. Euler's product for \(\sinh\) gives the inverse-square specialization. The inspected checker only corroborates finite recursions and numerical identities; the infinite result is proved analytically.
+
+## originality
+
+PASS
+
+Tian--Ramdas give the exact ADDIS-Spending state index and level and prove PFER/FWER control, while Fischer later proves that the original ADDIS principle is conservative and constructs an exhaustive uniform improvement. Neither inspected primary source evaluates the original procedure's complete-null FWER as a gamma-dependent product, gives the sharp spending envelope, or derives the inverse-square \(\sinh\) closed form. A targeted Resultary search found no published SCOPE record with an implication-equivalent formula.
+
+## value
+
+PASS
+
+The result quantifies a known and practically relevant conservatism of a named online FWER method exactly, separates the effect of the spending sequence from the discard thresholds in the complete-null regime, and identifies the sharp possible range together with a closed form for a published inverse-square schedule. This is a natural statistical invariant of the procedure rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

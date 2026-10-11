@@ -1,18 +1,21 @@
-# Review: Exact complete-null FWER law for ADDIS-Spending
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Under the stated exact-uniform complete-null assumptions, the ADDIS-Spending state is constant until either a rejection occurs with probability \(a_j=\alpha(\tau-\lambda)\gamma_j\) or a middle-zone p-value advances the state with probability \(q=\tau-\lambda\). The containment condition \(a_j\le\lambda\) makes these exit events disjoint. Conditioning on the first exit gives state-survival probability \((1+\alpha\gamma_j)^{-1}\); multiplying over states and taking the decreasing-event limit yields the exact infinite-product FWER. The product convergence, sharp envelope, and \(\sinh\) specialization follow from elementary inequalities and Euler's product. The checker reproduces the finite recursion and numerical specialization.
+## correctness
 
-Risk: the formula changes if a rejection level exceeds \(\lambda\), so the containment hypothesis is kept explicit throughout.
+PASS
 
-## Originality
-**PASS.** The primary Tian--Ramdas source defines ADDIS-Spending and proves control, but the inspected full text does not state the exact complete-null product law. Fischer's exhaustive-ADDIS paper is the closest comparison: it explicitly says ordinary ADDIS procedures are conservative and constructs a uniform improvement, while also explaining why the history-dependent rejection events prevent a direct ordinary Sidak factorization. Its global-null exactness result concerns the modified exhaustive procedure, not the baseline ADDIS-Spending FWER. Targeted literature and published-finding corpus searches for the product formula, a \(1-\prod(1+\alpha\gamma_j)^{-1}\) representation, and the inverse-square \(\sinh\) form returned no covering result.
+At state \(j\), the test level is \(a_j=\alpha q\gamma_j\). Because \(a_j\le\lambda\), rejection \(P\le a_j\) and state advancement \(\lambda<P\le\tau\) are disjoint and have probabilities \(a_j\) and \(q\); all other outcomes leave the state unchanged. Conditioning on the almost-sure first occurrence of either terminating event gives rejection probability \(\alpha\gamma_j/(1+\alpha\gamma_j)\) and survival probability \((1+\alpha\gamma_j)^{-1}\). Multiplying survival through the states and using continuity from above proves the infinite product. The lower envelope follows by expanding \(\prod_j(1+\alpha\gamma_j)\ge1+\alpha\), with equality only for one-point spending; the strict upper envelope follows from \(\sum_j\log(1+\alpha\gamma_j)<\alpha\), and uniform-on-\(N\) spending approaches the supremum. Euler's product for \(\sinh\) gives the inverse-square specialization. The inspected checker only corroborates finite recursions and numerical identities; the infinite result is proved analytically.
 
-Risk: an equivalent identity may exist in supplementary notes not indexed by the searched sources. This residual risk does not overturn the inspected statement-level comparisons.
+## originality
 
-## Value
-**PASS.** The later literature identifies conservatism of ordinary ADDIS as the reason a uniform improvement is possible. The exact formula measures that conservatism, proves that the complete-null FWER is independent of the discard/candidate thresholds in the stated regime, gives the sharp range over all spending schedules, and supplies a closed-form benchmark for a published inverse-square schedule. This is a natural calibration fact for an established online FWER method rather than an arbitrary parameter slice.
+PASS
 
-Risk: the result is a type-I-error calibration theorem only; it does not establish a power improvement or replace exhaustive ADDIS.
+Tian--Ramdas give the exact ADDIS-Spending state index and level and prove PFER/FWER control, while Fischer later proves that the original ADDIS principle is conservative and constructs an exhaustive uniform improvement. Neither inspected primary source evaluates the original procedure's complete-null FWER as a gamma-dependent product, gives the sharp spending envelope, or derives the inverse-square \(\sinh\) closed form. A targeted Resultary search found no published SCOPE record with an implication-equivalent formula.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result quantifies a known and practically relevant conservatism of a named online FWER method exactly, separates the effect of the spending sequence from the discard thresholds in the complete-null regime, and identifies the sharp possible range together with a closed form for a published inverse-square schedule. This is a natural statistical invariant of the procedure rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
