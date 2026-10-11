@@ -1,12 +1,21 @@
-# Review of All edge general-position sets of spider trees
+# Independent mathematical audit
 
-## Correctness
-PASS. In a spider, every geodesic is contained in one arm or in the union of two arms. Thus an edge set is feasible exactly when each arm contributes at most two selected edges and every pair of arm counts has sum at most two. These inequalities are equivalent to the two stated structural patterns. The enumerator and maximal-set formulas then follow by direct counting. A separate graph-level exhaustive program reproduces the classification and counts on the tested finite spider types.
+## correctness
 
-## Originality
-PASS. The foundational edge general-position paper proves only the extremal tree value \(\operatorname{gp}_{\rm e}(T)=|L(T)|\). The later extremal paper revisits trees and block graphs but, in the inspected full text, does not classify all edge general-position subsets of spiders or give their size enumerator and maximal-set count. Targeted database and literature searches for these formulations found no equivalent result. Residual risk remains for differently phrased or non-indexed work.
+PASS
 
-## Value
-PASS. Spider trees are the simplest tree family with a genuine branching vertex. A full feasible-set classification materially refines the known maximum-cardinality theorem: it gives every coefficient of the size distribution, the exact number of maximum sets, and all inclusion-maximal sets. These data distinguish subdivisions having the same number of leaves, which the known extremal value alone cannot do.
+In a spider, a geodesic uses edges from at most two arms. Three chosen edges in one arm violate edge general position, and if two chosen edges lie in one arm then any chosen edge in another arm lies with them on a cross-arm geodesic. Conversely, at most one chosen edge per arm, or exactly two chosen edges in one arm and none elsewhere, puts at most two chosen edges on every geodesic. The enumerator and maximal-set counts then follow directly. A fresh independent literal shortest-path replay on representative three- and four-arm spiders matched the characterization; the all-orders claim rests on the geodesic proof, not the finite replay.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational edge-general-position paper proves only the maximum value on an arbitrary tree, namely the number of leaves. The later extremal paper again uses that scalar tree theorem and studies small edge-general-position numbers and block-graph extremal bounds; its full text contains no spider classification. The later edge-k-general-position generalization concerns maximum cardinalities in other network families. Current published-finding searches found no prior all-subset spider theorem, size enumerator, or maximal-set classification. Thus the complete feasible-set description is not implied by the inspected prior statements.
+
+## value
+
+PASS
+
+Spiders are the canonical one-branch-vertex trees and edge general position is an established invariant. The theorem gives the entire feasible-set system, all inclusion-maximal sets, and an exact size enumerator, strictly refining the known maximum. This is a natural complete classification rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

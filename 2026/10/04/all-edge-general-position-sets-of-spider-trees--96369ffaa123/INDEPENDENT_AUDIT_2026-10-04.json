@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:07:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 5b59ec645c0f05317fe6367da9dd6bdb62dfe3b6",
+        "assigned verify.py blob 9b60eccf33dc372b4234d6c6eb24bd59e036ce82",
+        "https://arxiv.org/pdf/2105.04292",
+        "https://arxiv.org/pdf/2302.01587"
+      ],
+      "rationale": "In a spider, a geodesic uses edges from at most two arms. Three chosen edges in one arm violate edge general position, and if two chosen edges lie in one arm then any chosen edge in another arm lies with them on a cross-arm geodesic. Conversely, at most one chosen edge per arm, or exactly two chosen edges in one arm and none elsewhere, puts at most two chosen edges on every geodesic. The enumerator and maximal-set counts then follow directly. A fresh independent literal shortest-path replay on representative three- and four-arm spiders matched the characterization; the all-orders claim rests on the geodesic proof, not the finite replay.",
+      "residual_risks": [
+        "The theorem is specific to spiders; no extension to arbitrary branching trees is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.3 gives only gp_e(T)=number of pendant edges.",
+          "The extremal paper proves results for small gp_e and block graphs but has no occurrence of 'spider'.",
+          "The k-generalization studies maximum cardinalities and geodesic covers, not all ordinary edge-GP subsets of spiders."
+        ],
+        "reasoning": "These broader results determine maxima in larger classes but do not determine the full feasible-set system or maximal-set count.",
+        "searches": [
+          "Manuel-Prabha-Klavzar, Edge general position problem, Theorem 3.3",
+          "Tian-Klavzar-Tan, Extremal edge general position sets in some graphs",
+          "Manuel-Prabha-Klavzar, Generalization of edge general position problem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2105.04292",
+        "https://arxiv.org/abs/2302.01587",
+        "https://arxiv.org/abs/2207.07357",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A scalar maximum does not determine which smaller subsets are feasible or inclusion-maximal.",
+          "The later block-graph bounds do not encode the arm-by-arm feasible patterns."
+        ],
+        "reasoning": "The assigned theorem strictly refines the known spider maximum and needs an additional structural argument.",
+        "searches": [
+          "gp_e(T)=number of leaves versus the assigned spider all-set theorem",
+          "block-graph extremal bounds versus the assigned enumerator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard definition is exactly the no-three-selected-edges-on-one-geodesic predicate used by the assigned proof.",
+          "No inspected source states the arm-count dichotomy or its generating polynomial."
+        ],
+        "reasoning": "Aliases involving edge-general-position sets, edge k-general position, maximal sets, and spider trees were compared; the prior literature located is extremal-number rather than all-set enumerative.",
+        "searches": [
+          "Resultary: edge general position spider tree all sets polynomial enumerator inclusion maximal",
+          "Resultary: edge general position tree spider complete classification",
+          "arXiv:2105.04292",
+          "arXiv:2302.01587",
+          "arXiv:2207.07357"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior same-result record was returned; nearby hits concern vertex general-position polynomials or unrelated spider invariants."
+        ],
+        "reasoning": "Database absence is supporting evidence only; direct full-text implication comparison supplies the main novelty evidence.",
+        "searches": [
+          "Resultary exact/semantic searches for spider edge-GP polynomial and all-set classification"
+        ]
+      },
+      "rationale": "The foundational edge-general-position paper proves only the maximum value on an arbitrary tree, namely the number of leaves. The later extremal paper again uses that scalar tree theorem and studies small edge-general-position numbers and block-graph extremal bounds; its full text contains no spider classification. The later edge-k-general-position generalization concerns maximum cardinalities in other network families. Current published-finding searches found no prior all-subset spider theorem, size enumerator, or maximal-set classification. Thus the complete feasible-set description is not implied by the inspected prior statements.",
+      "residual_risks": [
+        "A differently phrased or poorly indexed spider enumerator may exist outside the retrieved literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MAXIMUM_ONLY",
+          "evidence": "Theorem 3.3 states that the edge general-position number of a tree equals its number of pendant edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.04292",
+          "material_read": "Primary PDF through the edge-GP definition and Theorem 3.3 with proof",
+          "method": "Primary full-text PDF inspection with page image verification",
+          "title": "Edge general position problem",
+          "trigger": "Foundational source and exact tree maximum"
+        },
+        {
+          "assessment": "NOT_COVERING_ALL_SPIDER_SETS",
+          "evidence": "The paper recalls the tree maximum and derives extremal/block-graph results, not the spider feasible-set enumerator.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.01587",
+          "material_read": "Full primary PDF, including small-number results and the block-graph section; in-document search found no spider occurrence",
+          "method": "Primary full-text PDF inspection with page image verification",
+          "title": "Extremal edge general position sets in some graphs",
+          "trigger": "Closest later tree/block-graph structural paper"
+        },
+        {
+          "assessment": "MAXIMUM_K_GENERALIZATION_NOT_ALL_SET_COVERAGE",
+          "evidence": "Its scope is the edge k-general-position maximum and geodesic-cover duality on network families.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.07357",
+          "material_read": "Primary abstract and publication record",
+          "method": "Primary record inspection",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Potential generalized formulation of the same notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Manuel-Prabha-Klavzar 2021/2022",
+        "Tian-Klavzar-Tan 2023/2024",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Spiders are the canonical one-branch-vertex trees and edge general position is an established invariant. The theorem gives the entire feasible-set system, all inclusion-maximal sets, and an exact size enumerator, strictly refining the known maximum. This is a natural complete classification rather than an arbitrary finite slice.",
+      "residual_risks": [
+        "The proof is elementary and family-specific, but the exact all-set classification is independently useful."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is specific to spiders; no extension to arbitrary branching trees is claimed.",
+    "A differently phrased or poorly indexed spider enumerator may exist outside the retrieved literature.",
+    "The proof is elementary and family-specific, but the exact all-set classification is independently useful."
+  ]
+}
