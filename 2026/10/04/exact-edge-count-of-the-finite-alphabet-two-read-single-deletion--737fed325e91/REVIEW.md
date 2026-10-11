@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof is a bijective count built on the published Type-A characterization of pairs with two common one-deletion descendants. The first and last differing positions canonically determine the interval, so each edge is counted once. The finite-sum identity was checked algebraically, and the independent verifier reconstructs deletion balls directly and agrees with the structural test throughout its exhaustive test ranges. The universal theorem does not rest on finite experiments.
+## correctness
 
-## Originality
-**PASS.** The closest inspected source supplies the pairwise Type-A characterization but not a global source-pair enumeration. Follow-up reconstruction papers focus on extremal intersections, list sizes, code constructions, or local error-ball counts. Targeted searches of equivalent formulations, broader results, exact tables, the binary numerical sequence, and the closest prior finding produced no statement implying the all-parameter edge formula. The principal residual risk is a differently indexed older deletion-graph enumeration or an unadvertised result in incompletely accessible follow-up text.
+PASS
 
-## Value
-**PASS.** The graph is precisely the forbidden-pair graph for two-read single-deletion reconstruction. Counting all of its edges and obtaining its average degree for every alphabet size and blocklength gives an exact natural channel-collision invariant and a canonical classification of every edge. This is structurally different from a small finite optimum or a routine recomputation of a known table.
+Cai--Kiah--Nguyen--Yaakobi prove that two distinct equal-length words have two common single-deletion descendants exactly when they are Type-A-confusable: they agree outside one interval and inside it are opposite phases of an alternating word on two symbols. For each edge, the first and last differing positions therefore determine a unique interval of length \(L\ge2\); choose its start in \(n-L+1\) ways, the outside word in \(q^{n-L}\) ways, and the unordered symbol pair in \(\binom q2\) ways. The two phases form one unordered edge, so no additional factor occurs. Summing gives the first formula and a finite geometric-derivative calculation gives the closed form and average degree. Independently, direct deletion-ball enumeration matched the formula for 12 \((q,n)\) cases including binary \(n\le7\), ternary \(n\le4\), and selected quaternary cases; the package checker covers a larger grid.
 
-## Closest literature and limitations
-Cai–Kiah–Nguyen–Yaakobi provide the Type-A iff characterization used in the proof. Ye–Liu–Zhang–Ge use related Type-A structure for insertion reconstruction. Abu-Sini–Yaakobi analyze extremal intersections of multiple balls, and Abbasian–Mirmohseni–Nasiri Kenari analyze local error-ball counts. None of the inspected statements gives the aggregate edge count. The result does not determine graph independence numbers or optimal reconstruction-code sizes in general.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2020 sequence-reconstruction paper gives the exact Type-A characterization of when the single-deletion balls of a prescribed pair intersect in two words, but it does not aggregate that pair classification into the all-\(q,n\) edge count, average degree, or unique-interval enumeration. Targeted Resultary and web searches for the graph invariant and its closed form found no prior table or implication-equivalent theorem.
+
+## value
+
+PASS
+
+The graph is the natural confusability object for reconstruction from two distinct deletion reads, and its independent sets are exactly codes avoiding this two-read ambiguity. The theorem gives an all-alphabet, all-length density invariant plus a canonical representation of every edge, providing reusable structural input for extremal, probabilistic, and spectral analysis rather than a small isolated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

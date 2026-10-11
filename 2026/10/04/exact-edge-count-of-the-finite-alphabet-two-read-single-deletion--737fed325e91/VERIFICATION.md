@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two logically separate ingredients. First, the published Type-A characterization identifies the exact source pairs whose one-deletion balls have two common descendants. Second, the present counting argument gives a unique encoding of every such unordered pair by an interval, a common outside word, and an unordered pair of alternating symbols.
+# Independent mathematical audit
 
-`verification/verify.py` independently reconstructs each distinct deletion ball from coordinate deletions and independently tests the canonical alternating-interval condition. It checks that these predicates agree for every unordered source pair for binary blocklengths \(2\) through \(9\), ternary blocklengths \(2\) through \(6\), quaternary blocklengths \(2\) through \(5\), and alphabet size \(5\) at blocklengths \(2\) through \(4\). It also verifies that every tested deletion-ball intersection has size at most two and that brute-force counts equal both the interval sum and the closed form.
+## correctness
 
-The recorded execution ends with `VERIFY_OK`. The binary edge counts at blocklengths \(2\) through \(10\) are \(1,5,17,49,129,321,769,1793,4097\).
+PASS
 
-The finite computation is not a certificate for all \(q\) and \(n\). Universality comes from the published Type-A theorem plus the explicit bijection and finite-sum identity. No claim is made about the degree distribution, independence number, or chromatic number.
+Cai--Kiah--Nguyen--Yaakobi prove that two distinct equal-length words have two common single-deletion descendants exactly when they are Type-A-confusable: they agree outside one interval and inside it are opposite phases of an alternating word on two symbols. For each edge, the first and last differing positions therefore determine a unique interval of length \(L\ge2\); choose its start in \(n-L+1\) ways, the outside word in \(q^{n-L}\) ways, and the unordered symbol pair in \(\binom q2\) ways. The two phases form one unordered edge, so no additional factor occurs. Summing gives the first formula and a finite geometric-derivative calculation gives the closed form and average degree. Independently, direct deletion-ball enumeration matched the formula for 12 \((q,n)\) cases including binary \(n\le7\), ternary \(n\le4\), and selected quaternary cases; the package checker covers a larger grid.
+
+## originality
+
+PASS
+
+The 2020 sequence-reconstruction paper gives the exact Type-A characterization of when the single-deletion balls of a prescribed pair intersect in two words, but it does not aggregate that pair classification into the all-\(q,n\) edge count, average degree, or unique-interval enumeration. Targeted Resultary and web searches for the graph invariant and its closed form found no prior table or implication-equivalent theorem.
+
+## value
+
+PASS
+
+The graph is the natural confusability object for reconstruction from two distinct deletion reads, and its independent sets are exactly codes avoiding this two-read ambiguity. The theorem gives an all-alphabet, all-length density invariant plus a canonical representation of every edge, providing reusable structural input for extremal, probabilistic, and spectral analysis rather than a small isolated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

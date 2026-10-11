@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:38:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f7a9bdc09a98785b32eb5ceae43c20ac199f1a1e",
+        "verification/verify.py blob 9ba2705525725fe3c95b3f466f3dce33c5ec308b",
+        "verification/verify_output.txt blob 6ecd6890bac438946837e51b8cd15e0e4647e71b",
+        "Cai--Kiah--Nguyen--Yaakobi, arXiv:2001.01376, full primary PDF",
+        "independent direct deletion-ball edge census"
+      ],
+      "rationale": "Cai--Kiah--Nguyen--Yaakobi prove that two distinct equal-length words have two common single-deletion descendants exactly when they are Type-A-confusable: they agree outside one interval and inside it are opposite phases of an alternating word on two symbols. For each edge, the first and last differing positions therefore determine a unique interval of length \\(L\\ge2\\); choose its start in \\(n-L+1\\) ways, the outside word in \\(q^{n-L}\\) ways, and the unordered symbol pair in \\(\\binom q2\\) ways. The two phases form one unordered edge, so no additional factor occurs. Summing gives the first formula and a finite geometric-derivative calculation gives the closed form and average degree. Independently, direct deletion-ball enumeration matched the formula for 12 \\((q,n)\\) cases including binary \\(n\\le7\\), ternary \\(n\\le4\\), and selected quaternary cases; the package checker covers a larger grid.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper uses Type-A confusability to derive reconstruction-code bounds and intersection-size structure.",
+          "No inspected broader reconstruction theorem states the global pair enumeration."
+        ],
+        "reasoning": "Pairwise structural classification is necessary input but does not itself state the aggregate closed form; the audited result performs the global enumeration and proves uniqueness of its counting parameters.",
+        "searches": [
+          "arXiv:2001.01376 full primary PDF",
+          "single-edit reconstruction-code literature cited around that result"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.01376",
+        "Resultary semantic search",
+        "single-deletion reconstruction-code literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves iff Type-A confusability for two common deletion descendants but leaves the source pair arbitrary.",
+          "Counting all pairs requires the additional uniqueness observation that first/last disagreements fix the alternating interval and then summing the resulting parameterization."
+        ],
+        "reasoning": "The closed graph invariant is a genuine enumerative corollary not explicitly supplied by, nor numerically tabulated in, the checked primary source.",
+        "searches": [
+          "arXiv:2001.01376 Definition 8 and Proposition 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 8 and Proposition 9 of Cai et al. characterize exactly the source pairs with two common deletion descendants.",
+          "The audited theorem sums all such pairs over interval lengths, starts, outside words, and symbol pairs."
+        ],
+        "reasoning": "Equivalent formulations as the number of Type-A-confusable unordered source pairs, the edge count of the two-read reconstruction graph, or an aggregate two-descendant-overlap count were compared.",
+        "searches": [
+          "Resultary query: single deletion reconstruction graph two reads exact edge count Type-A alternating interval q-ary",
+          "arXiv:2001.01376"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table with the all-alphabet formula or binary closed form was located."
+        ],
+        "reasoning": "An indexed finite table or OEIS-style identification could cover the numeric sequence, but none connected to the same graph invariant was found.",
+        "searches": [
+          "Resultary exact edge-count query",
+          "web exact search for the binary sequence \\(1,5,17,49,129,321,\\ldots\\) with deletion reconstruction terminology"
+        ]
+      },
+      "rationale": "The 2020 sequence-reconstruction paper gives the exact Type-A characterization of when the single-deletion balls of a prescribed pair intersect in two words, but it does not aggregate that pair classification into the all-\\(q,n\\) edge count, average degree, or unique-interval enumeration. Targeted Resultary and web searches for the graph invariant and its closed form found no prior table or implication-equivalent theorem.",
+      "residual_risks": [
+        "An unindexed note may have summed the Type-A classes explicitly; no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_STRUCTURAL_PREMISE_ONLY",
+          "evidence": "It proves the iff Type-A pair characterization but does not state the global edge enumeration or average degree.",
+          "identifier_or_url": "arXiv:2001.01376",
+          "material_read": "Full primary PDF with focused reading of Definition 8, Proposition 9, its proof, and surrounding reconstruction-code discussion; the Type-A page was visually inspected.",
+          "method": "Open-access full-PDF inspection.",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Exact primary theorem characterizing pairs with two common one-deletion reads."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cai--Kiah--Nguyen--Yaakobi arXiv:2001.01376",
+        "single-edit reconstruction literature"
+      ],
+      "rationale": "The graph is the natural confusability object for reconstruction from two distinct deletion reads, and its independent sets are exactly codes avoiding this two-read ambiguity. The theorem gives an all-alphabet, all-length density invariant plus a canonical representation of every edge, providing reusable structural input for extremal, probabilistic, and spectral analysis rather than a small isolated count.",
+      "residual_risks": [
+        "Edge density alone does not determine optimal reconstruction-code size."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the \\(q\\)-ary length-\\(n\\) single-deletion channel, join two distinct source words when their distinct one-deletion descendant sets intersect in exactly two words. For every \\(q\\ge2\\) and \\(n\\ge2\\), the number of edges is \\[\\binom q2\\sum_{L=2}^n(n-L+1)q^{n-L}=\\frac{q\\{1-nq^{n-1}+(n-1)q^n\\}}{2(q-1)}.\\] Every edge has a unique Type-A alternating-interval representation. Consequently the average degree is \\(n-q/(q-1)+q^{1-n}/(q-1)\\); in the binary case the edge count is \\(1+(n-2)2^{n-1}\\).",
+  "limitations": [
+    "Edges are defined by exactly two common distinct one-deletion reads, not merely nonempty confusability.",
+    "The theorem counts edges and gives the canonical edge representation but does not determine the graph's independence number, spectrum, or degree sequence."
+  ],
+  "schema_version": 1
+}
