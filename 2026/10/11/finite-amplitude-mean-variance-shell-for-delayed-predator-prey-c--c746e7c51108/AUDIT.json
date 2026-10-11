@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "For a strictly positive periodic orbit, integrating the logarithmic prey equation gives \\(\\bar x+\\bar y=1\\); integrating the predator equation and shifting a periodic integrand gives \\(\\overline{xy}=x_*\\bar y\\); integrating the prey equation then yields the exact second-moment factorization. Covariance follows algebraically, and Cauchy–Schwarz with its equality condition gives strict predator-variance dominance for every nonconstant orbit. No asymptotic or numerical approximation enters the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Lin–Wang 2014 is broader at the model level, allowing both Holling-I and Holling-II responses, but its results concern equilibrium stability, Hopf branches, and multiple limit cycles rather than finite-amplitude period averages.",
+        "Fan–Wolkowicz cite earlier maturation-delay and global-Hopf literature but present the multicycle/chaos analysis without these quantitative mean laws."
+      ],
+      "reasoning": "Broader dynamical existence and bifurcation results do not imply the exact source-specific mean/variance conclusions as published statements. The theorem here is restricted to the Holling-I structure where the prey equation and delayed recruitment close the second moment exactly.",
+      "searches": [
+        "delayed Lotka Volterra predator prey global Hopf multiple limit cycles time average",
+        "Holling Type I delayed predator prey periodic solution average prey predator"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16140v1",
+      "doi:10.3934/dcdsb.2020263",
+      "doi:10.3934/dcdsb.2014.19.747"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source reports two stable cycles at the same delay with substantially different periods and amplitudes, but does not give their exact means or variances.",
+        "The 2014 global-Hopf theory proves branch existence/geometry but does not fix finite-amplitude cycle means."
+      ],
+      "reasoning": "Existence or bifurcation of cycles does not logically imply the quantitative identities without using the particular balance structure. Conversely, the present identities do not replace the prior existence/stability theory; they constrain any cycle once it exists.",
+      "searches": [
+        "Fan Wolkowicz periodic orbit two stable cycles tau 81 mean prey",
+        "global Hopf branches Type I predator prey exact cycle averages"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fan–Wolkowicz full text states the scaled equations, coexistence equilibrium, Hopf and multicycle dynamics, but contains no mathematical mean/variance/covariance statement.",
+        "Li–Lin–Wang full text covers the same Holling-I structural family and global Hopf branches, but exact-term and statement-level inspection found no mean/variance/covariance theorem."
+      ],
+      "reasoning": "The closest natural equivalent would be a period-average identity derived from the logarithmic prey equation and the delayed predator balance. Neither inspected primary source states the resulting variance shell, covariance identity, or strict mean displacement.",
+      "searches": [
+        "\"Chaotic dynamics in a simple predator-prey model with discrete delay\" mean variance periodic orbit",
+        "delayed Lotka Volterra Type I positive periodic solution time mean covariance variance",
+        "periodic predator prey delay exact identity mean prey equilibrium variance shell"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected public theorem, table, or formula in the motivating paper matches the four exact identities.",
+        "No inspected formula in the closest same-family global-Hopf paper matches them; full-text searches for variance, covariance, mean, and integral returned no relevant statement."
+      ],
+      "reasoning": "The result is not a recomputation of a published numerical table. It is an analytic consequence of integrating the printed equations over an arbitrary positive cycle.",
+      "searches": [
+        "2007.16140 mean prey variance covariance periodic orbit",
+        "10.3934/dcdsb.2014.19.747 mean variance covariance integral periodic"
+      ]
+    },
+    "rationale": "Targeted semantic searches, exact-title/source searches, and full-text comparison with the motivating paper and the closest broader Holling-I/Holling-II global-Hopf paper found no statement implying the exact mean–variance shell, covariance law, or strict finite-amplitude mean displacement.",
+    "residual_risks": [
+      "Because the proof is short, an older paper using different notation could contain an equivalent period-average identity even though targeted semantic and full-text searches did not locate one.",
+      "The result is original as a statement-level finding relative to inspected literature; it does not claim a new predator–prey model or new cycle-existence theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper prints the scaled equations and \\(E_+=(s e^{s\\tau}/Y,1-s e^{s\\tau}/Y)\\), and reports two stable cycles at \\(\\tau=81\\); no mathematical mean, variance, or covariance formula matching the claim is stated.",
+        "identifier_or_url": "arXiv:2007.16140v1; doi:10.3934/dcdsb.2020263",
+        "material_read": "Full public HTML sections covering model definition, scaling, equilibria/persistence, local Hopf analysis, numerical bistability, period doubling, and chaos; exact-term searches for mean, variance, covariance, and average.",
+        "method": "Statement-level full-text inspection.",
+        "title": "Chaotic dynamics in a simple predator-prey model with discrete delay",
+        "trigger": "Exact motivating model and reported bistable/chaotic dynamics."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its Type-I specialization has the same delayed recruitment structure, but the paper develops global Hopf branches and cycle coexistence and does not state the period-average shell or covariance law.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2014.19.747",
+        "material_read": "Open-access full paper, including model equations, coexistence equilibrium, boundedness, linear stability, Hopf conditions, and branch results; exact-term searches for mean, variance, covariance, average, and integral.",
+        "method": "Full-paper statement and implication comparison, including visual inspection of the model page.",
+        "title": "Global Hopf branches and multiple limit cycles in a delayed Lotka-Volterra predator-prey model",
+        "trigger": "Broader same-structure delayed predator–prey model with Holling-I response and multiple limit cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c746e7c5-1108-4448-b736-5bf8b5834872",
+  "value": {
+    "rationale": "The motivating source has coexisting stable cycles, long-period branches, period doubling, and chaos. The theorem gives exact finite-amplitude quantities for every positive periodic branch, independent of proximity to Hopf: a strict prey-mean uplift, predator-mean deficit, an exact prey-variance shell, perfect covariance calibration, and strict predator-variance dominance. These are quantitative constraints that can check or interpret continuation/simulation data for distinct cycles at the same delay and are not supplied by local bifurcation theory alone.",
+    "status": "PASS"
+  }
+}
