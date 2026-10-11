@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:19:58.249461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From \\(J_5(n)=(n/\\operatorname{rad}n)^5\\prod_{p\\mid n}(p^5-1)\\), any collision gives a nonzero signed support vector in \\(\\{-1,0,1\\}\\) whose valuation coordinates vanish modulo \\(5\\). The deletion rule is therefore sound: if one active prime \\(p\\) is the unique active source of a valuation \\(v_\\ell(p^5-1)\\not\\equiv0\\pmod5\\), then its signed coefficient must be zero. I independently rechecked the actual certificate: it contains exactly all \\(5133\\) primes at most \\(50000\\); every displayed factor is prime under deterministic 64-bit Miller–Rabin, every factorization multiplies exactly to \\(p^5-1\\), every witness is unique in its active round, and rounds \\(5074,51,5,3\\) exhaust the active set. Thus no collision can have all prime divisors at most \\(50000\\).",
+      "risks": [
+        "The result is a finite support cutoff; it neither proves global injectivity of \\(J_5\\) nor gives an optimal cutoff."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 2e3d481f30f77b17a82a721d17b5cafcf6990388",
+        "certificate.json blob acbf6c3dd712f1077024d5bcce1f8a56b956df17",
+        "verify.py blob 170ac8b0f70417510853770031613a20c7889ce9",
+        "Hang Fu, arXiv:2609.23901, Algorithm 2.2 and equation (2.2)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Algorithm 2.2 is stated for general \\(k\\), but the paper's proved computational bounds concern \\(k=3,4,6\\)."
+        ],
+        "reasoning": "The general algorithm is broader methodologically, but it does not mechanically imply that the \\(k=5,C=50000\\) run empties without the new factorization certificate.",
+        "searches": [
+          "Fu 2026 full text, especially Section 2 and Theorem 1.1",
+          "current Resultary Jordan-totient findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.23901",
+        "OEIS A059378",
+        "current Resultary Jordan-totient search",
+        "assigned certificate and verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fu gives the sound deletion rule but not the \\(5133\\)-prime factorization data or the four-round exhaustion for \\(k=5\\)."
+        ],
+        "reasoning": "Running a prior algorithm can still yield a new finite theorem when the outcome is not known or mechanically determined without the substantial exact computation.",
+        "searches": [
+          "claim-versus-Fu Algorithm 2.2 implication comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fu's main theorem names only \\(k=3,4,6\\).",
+          "The exact \\(50000\\) \\(J_5\\) cutoff appears only in the audited record among the checked corpus."
+        ],
+        "reasoning": "The equivalent signed-valuation formulation was compared directly; the general algorithm is prior, while its \\(k=5\\) certified outcome is not.",
+        "searches": [
+          "Resultary: Jordan totient \\(J_5\\) prime support cutoff 50000",
+          "web: \\(J_5\\) Jordan totient injective 50000",
+          "Fu arXiv:2609.23901"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS tabulates values of \\(J_5\\) but does not certify absence of collisions by largest prime support through \\(50000\\)."
+        ],
+        "reasoning": "A value table is not an exhaustive signed-support certificate for arbitrarily large exponents on the allowed primes.",
+        "searches": [
+          "OEIS A059378",
+          "current Resultary exact-cutoff search"
+        ]
+      },
+      "rationale": "Fu's primary paper supplies the signed valuation reduction and the recursive elimination algorithm for general \\(k\\), but its theorem treats noninjectivity only for \\(k=3,4,6\\), and its quantitative cutoff results are for those exponents. The inspected full ten-page paper contains no \\(k=5\\) support bound. The present contribution is therefore not a new method, but an exact certified application to the untreated \\(J_5\\) case through all primes at most \\(50000\\). Current Resultary and web searches located no stronger \\(J_5\\) support cutoff.",
+      "residual_risks": [
+        "The cutoff \\(50000\\) is not claimed optimal; an unindexed larger or equivalent \\(J_5\\) computation could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE of method, NOT COVERING the \\(J_5\\) cutoff.",
+          "evidence": "Theorem 1.1 treats \\(k=3,4,6\\); Algorithm 2.2 is general, but no \\(k=5\\) computation or cutoff is stated.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23901",
+          "material_read": "Complete ten-page primary paper, including Theorem 1.1, Section 2 algorithms, and the computational proof section.",
+          "method": "Full primary-text theorem and implication comparison.",
+          "title": "On the noninjectivity of Jordan's totient functions",
+          "trigger": "Closest primary source and source of the valuation-elimination method."
+        },
+        {
+          "assessment": "Valid certificate.",
+          "evidence": "All \\(5133\\) candidate primes are removed in four valid rounds \\(5074,51,5,3\\); \\(8367\\) distinct factor primes were checked, with maximum \\(6154180859137036001\\).",
+          "identifier_or_url": "certificate.json",
+          "material_read": "Complete certificate programmatically validated against the inspected verifier logic.",
+          "method": "Independent exact factorization, primality, and active-set witness verification.",
+          "title": "Assigned exact elimination certificate",
+          "trigger": "Critical finite proof object."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fifth Jordan totient is a natural untreated case in the same collision program, and the certified statement excludes every collision supported on more than five thousand small primes. This is a meaningful finite obstruction that materially narrows any future collision search; its value does not depend on inventing a new elimination algorithm.",
+      "risks": [
+        "The contribution is computational and finite, so it should not be described as progress toward a proof of global injectivity beyond the certified cutoff."
+      ],
+      "sources": [
+        "Fu's quantitative largest-prime-factor framework",
+        "exact 5133-prime elimination certificate"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No global injectivity theorem for \\(J_5\\).",
+    "The \\(50000\\) cutoff is certified but not optimized.",
+    "Originality is best-of-knowledge for the computed cutoff; the general elimination method is prior."
+  ],
+  "schema_version": 1
+}

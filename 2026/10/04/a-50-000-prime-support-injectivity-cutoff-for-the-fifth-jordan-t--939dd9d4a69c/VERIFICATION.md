@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof-critical finite statement is the emptiness of the valuation-support set after recursive unique-coordinate elimination for every prime at most \(50000\).
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python verify.py`
+PASS
 
-Expected output:
+From \(J_5(n)=(n/\operatorname{rad}n)^5\prod_{p\mid n}(p^5-1)\), any collision gives a nonzero signed support vector in \(\{-1,0,1\}\) whose valuation coordinates vanish modulo \(5\). The deletion rule is therefore sound: if one active prime \(p\) is the unique active source of a valuation \(v_\ell(p^5-1)\not\equiv0\pmod5\), then its signed coefficient must be zero. I independently rechecked the actual certificate: it contains exactly all \(5133\) primes at most \(50000\); every displayed factor is prime under deterministic 64-bit Miller–Rabin, every factorization multiplies exactly to \(p^5-1\), every witness is unique in its active round, and rounds \(5074,51,5,3\) exhaust the active set. Thus no collision can have all prime divisors at most \(50000\).
 
-`VERIFY_OK cutoff=50000 primes=5133 rounds=[5074, 51, 5, 3] prime_factors=8367 max_factor=6154180859137036001`
+## originality
 
-The verifier performs the following checks from `certificate.json` rather than trusting a log: it regenerates the \(5133\) primes through \(50000\); checks that the certificate has exactly those keys; verifies every factorization of \(p^5-1\) by exact integer multiplication; verifies primality of every displayed factor using the deterministic seven-base Miller--Rabin criterion valid below \(2^{64}\); and replays every uniqueness witness before deleting its prime. All primes are deleted after four rounds.
+PASS
 
-The computation proves only the stated finite support cutoff. It is not evidence for global injectivity beyond \(50000\), and it does not search a bounded range of values of \(m\) or \(n\).
+Fu's primary paper supplies the signed valuation reduction and the recursive elimination algorithm for general \(k\), but its theorem treats noninjectivity only for \(k=3,4,6\), and its quantitative cutoff results are for those exponents. The inspected full ten-page paper contains no \(k=5\) support bound. The present contribution is therefore not a new method, but an exact certified application to the untreated \(J_5\) case through all primes at most \(50000\). Current Resultary and web searches located no stronger \(J_5\) support cutoff.
+
+## value
+
+PASS
+
+The fifth Jordan totient is a natural untreated case in the same collision program, and the certified statement excludes every collision supported on more than five thousand small primes. This is a meaningful finite obstruction that materially narrows any future collision search; its value does not depend on inventing a new elimination algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
