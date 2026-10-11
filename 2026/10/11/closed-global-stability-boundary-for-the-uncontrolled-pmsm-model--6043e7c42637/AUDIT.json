@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For sigma>0 and gamma<=1 the displayed proper quadratic V has exact derivative -x^2-(y-z)^2-(1-gamma)z^2. The strict case is negative definite. At gamma=1, LaSalle reduces the zero-derivative set x=0,y=z to the origin because xdot=y^2. For gamma>1 explicit nonzero equilibria prevent global attraction. The invariant-measure corollary follows by integrating the nonnegative defect and using invariance of support.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He 2017, DOI 10.1155/2017/4923987, states local stability/bifurcation conditions and numerically reports convergence for 0<gamma<1.",
+        "Hunaish et al. 2026, DOI 10.3390/dynamics6010008, identifies the gamma=1 pitchfork/local stability boundary."
+      ],
+      "reasoning": "These works cover broader bifurcation/control questions but the inspected material does not prove global attraction at the nonhyperbolic endpoint or the invariant-measure uniqueness claimed here.",
+      "searches": [
+        "PMSM gamma<1 global asymptotic Lyapunov",
+        "Dynamics and Stability permanent-magnet synchronous motor gamma stability"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math11143182",
+      "doi:10.1155/2017/4923987",
+      "doi:10.3390/dynamics6010008",
+      "published-finding corpus semantic searches listed in the four originality check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Local stability for 0<gamma<1 and a pitchfork at gamma=1 do not imply global attraction at gamma=1.",
+        "Numerical convergence for selected initial conditions does not imply global asymptotic stability or uniqueness of compact invariant measures."
+      ],
+      "reasoning": "The new claim is not a corollary of the inspected local Routh-Hurwitz results or bifurcation plots; the global conclusion requires the explicit Lyapunov cancellation and LaSalle endpoint argument.",
+      "searches": [
+        "permanent magnet synchronous motor gamma=1 global asymptotic stability origin Lyapunov",
+        "PMSM id iq omega gamma sigma exact global stability threshold gamma 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no same-model PMSM finding among the closest hits.",
+        "He 2017 uses the same normalized zero-input PMSM and classifies gamma<=1 as the one-equilibrium region."
+      ],
+      "reasoning": "Equivalent parameterizations were searched using the state equations and PMSM terminology. The closest exact-object paper is He 2017; its inspected statement is local equilibrium/bifurcation analysis plus numerical global dynamics, not an equivalent global Lyapunov theorem.",
+      "searches": [
+        "permanent magnet synchronous motor gamma=1 global asymptotic stability origin Lyapunov",
+        "PMSM id iq omega gamma sigma exact global stability threshold gamma 1",
+        "xdot=-x+yz ydot=-y-xz+gamma z zdot=sigma(y-z) Lyapunov global stability",
+        "fixed-time adaptive chaotic control PMSM gamma 20 global stability uncontrolled gamma one"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 source lists MSC 34C28 first and gives the normalized PMSM equations at gamma=20, sigma=5.46.",
+        "The 2017 source gives the same normalized model, equilibrium count, local stability and bifurcation diagram."
+      ],
+      "reasoning": "No inspected database/table states the exact closed global theorem gamma<=1 or the compact invariant-measure conclusion.",
+      "searches": [
+        "10.3390/math11143182 global stability gamma one",
+        "10.1155/2017/4923987 gamma one Lyapunov"
+      ]
+    },
+    "rationale": "Statement-level comparison found local equilibrium/bifurcation thresholds and numerical convergence for this PMSM model, but not the closed global Lyapunov theorem, endpoint LaSalle closure, or compact-invariant-measure rigidity. published-finding corpus returned no same-model claim.",
+    "residual_risks": [
+      "Older PMSM control literature is extensive; an inaccessible or differently normalized proof of the same quadratic identity may exist.",
+      "The 2026 same-model paper postdates the introducing source and covers the local threshold, so the originality claim is specifically the closed global theorem, endpoint proof, and invariant-measure rigidity, not discovery of the threshold itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model at gamma=20; does not state the closed uncontrolled global threshold.",
+        "evidence": "Published 2023-07-20; MSC begins 34C28; equation (5) is the three-dimensional normalized PMSM.",
+        "identifier_or_url": "doi:10.3390/math11143182",
+        "material_read": "Abstract, MSC metadata, problem-description equations and equilibrium discussion",
+        "method": "Publisher/repository full text",
+        "title": "Fixed-Time Adaptive Chaotic Control for Permanent Magnet Synchronous Motor Subject to Unknown Parameters and Perturbations",
+        "trigger": "Introducing middle-cohort source and exact normalized equations"
+      },
+      {
+        "assessment": "Closest prior coverage; gives gamma<=1 equilibrium region and numerical convergence for 0<gamma<1, but no global Lyapunov proof or gamma=1 LaSalle closure.",
+        "evidence": "Sections 3-4 state one equilibrium for gamma<=1, stable equilibrium for 0<gamma<1, and simulation-based global dynamics.",
+        "identifier_or_url": "doi:10.1155/2017/4923987",
+        "material_read": "Model, equilibrium classification, local stability/bifurcation discussion, global bifurcation-diagram conclusions",
+        "method": "Publisher HTML full text",
+        "title": "Dynamics and Stability of Permanent-Magnet Synchronous Motor",
+        "trigger": "Closest earlier same-model stability analysis"
+      },
+      {
+        "assessment": "Confirms local threshold/pitchfork and numerical convergence below it; inspected text does not contain the present global storage identity or endpoint theorem.",
+        "evidence": "Reports origin stable for gamma<1 and eigenvalue crossing at gamma=1.",
+        "identifier_or_url": "doi:10.3390/dynamics6010008",
+        "material_read": "System equations, equilibrium/local stability summary, numerical dynamics summary",
+        "method": "Publisher HTML full text",
+        "title": "Stability Analysis and Chaos Control of Permanent-Magnet Synchronous Motor",
+        "trigger": "Later same-model paper explicitly mentioning gamma=1 threshold"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6043e7c4-2637-447b-8411-517d0a3d23f5",
+  "value": {
+    "rationale": "A sharp global boundary for a standard chaotic PMSM benchmark is structurally useful: it identifies exactly when uncontrolled compact recurrence is impossible, closes the nonhyperbolic endpoint, and supplies a rigorous baseline against which chaos-control claims at larger gamma can be interpreted.",
+    "status": "PASS"
+  }
+}
