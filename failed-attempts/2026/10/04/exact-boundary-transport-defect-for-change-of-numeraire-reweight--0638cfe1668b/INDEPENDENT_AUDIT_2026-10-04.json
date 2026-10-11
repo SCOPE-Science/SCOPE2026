@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:53:12.415751Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 961f62073bc5837c3319a76c5053aa4015ae1b99 and verify.py blob 1a68eb32632a92b859a9a4c497b2b74249193cbd",
+        "Shaosai Huang, Stability of Change-of-Numéraire Reweighting: An Exact Wasserstein Boundary, arXiv:2609.30329v1, Proposition 2.1 and Corollary 3.4",
+        "Beiglböck--Pammer--Riess, Change of numeraire for weak martingale transport, arXiv:2406.07523 / SPA 192 (2026) 104779",
+        "Villani, Optimal Transport: Old and New, Theorem 6.9",
+        "Resultary semantic search for change-of-numeraire exact W1 boundary defect and call/put offsets"
+      ],
+      "rationale": "The one-dimensional transport lemma is correct: weak convergence plus convergence of absolute first moments to \\(L\\) gives a limiting \\(W_1\\) defect of \\(L-M\\), with the lower bound from the test \\(|x|\\) and the matching upper bound from clipping. Perspective cancellation gives \\(\\int |z|\\,d\\Gamma_n=\\mathbb E|B_n|/m_n\\), so the missing boundary mass is exactly \\(c/m\\). The call and put limits follow from uniform integrability of \\(|B_n|+RA_n\\) on bounded strike ranges and the boundary values \\(b^+\\) and \\((-b)^+\\); one-Lipschitz strike dependence upgrades pointwise convergence to compact-uniform convergence. The finite three-atom sanity family was independently checked but is not used as a proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang already treats the same map, same weak/UI hypotheses, first moments, option-price perspectives, and vanishing-numeraire boundary.",
+          "The earlier transport paper supplies the broader numeraire-transform setting but is not needed for the decisive coverage."
+        ],
+        "reasoning": "The focal Huang theorem is sufficiently broad to cover all premises of the audited claim; no new object or stronger hypothesis regime is introduced.",
+        "searches": [
+          "Huang 2026 full primary text, Proposition 2.1, first-order discussion, Corollary 3.4",
+          "Beiglböck--Pammer--Riess 2026 change-of-numeraire transport paper"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob 961f62073bc5837c3319a76c5053aa4015ae1b99 and verify.py blob 1a68eb32632a92b859a9a4c497b2b74249193cbd",
+        "Shaosai Huang, Stability of Change-of-Numéraire Reweighting: An Exact Wasserstein Boundary, arXiv:2609.30329v1, Proposition 2.1 and Corollary 3.4",
+        "Beiglböck--Pammer--Riess, Change of numeraire for weak martingale transport, arXiv:2406.07523 / SPA 192 (2026) 104779",
+        "Villani, Optimal Transport: Old and New, Theorem 6.9",
+        "Resultary semantic search for change-of-numeraire exact W1 boundary defect and call/put offsets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huang's proof already computes the input first absolute moment and the limit-law first absolute moment; their difference is \\(m^{-1}\\int_{a=0}|b|\\,dQ\\).",
+          "The standard \\(W_1\\) formula makes that difference the exact limiting transport cost.",
+          "At \\(a=0\\), the call/put perspective integrands reduce to \\(b^+\\) and \\((-b)^+\\), giving the two constants directly."
+        ],
+        "reasoning": "Each advertised refinement follows by routine completion of formulas already present in the focal source, with no additional nonstandard lemma.",
+        "searches": [
+          "Apply Huang Corollary 3.4 proof ingredients without setting the residue to zero",
+          "Apply the standard one-dimensional \\(W_1\\) weak-plus-first-moment formula",
+          "Split Huang's call perspective limit over \\(a>0\\) and \\(a=0\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang states the exact first-moment/perspective cancellation and identifies zero-numeraire payoff mass as the sole first-order obstruction.",
+          "The standard \\(W_1\\) characterization turns the source's convergent input first moment and smaller limit first moment into the exact missing-mass distance."
+        ],
+        "reasoning": "The audited nonzero defect is the quantitative equivalent of the focal paper's boundary-residue obstruction once the standard \\(W_1\\) identity is applied.",
+        "searches": [
+          "arXiv:2609.30329v1, Proposition 2.1 and Corollary 3.4",
+          "Villani, Optimal Transport: Old and New, Theorem 6.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite table is relevant to this analytic claim.",
+          "The decisive coverage is theorem-level in the focal paper rather than a database lookup."
+        ],
+        "reasoning": "This check is specifically inapplicable as a finite-data novelty route; the source implication already decides originality.",
+        "searches": [
+          "Resultary query: change of numeraire reweighting exact W1 nonzero boundary defect call put offsets",
+          "Primary-paper search for boundary residue and call perspective formulas"
+        ]
+      },
+      "rationale": "The final claim is mathematically implication-covered by Huang's focal primary paper plus the standard one-dimensional \\(W_1\\) moment characterization. Huang Proposition 2.1 already gives the exact perspective identities for calls and first absolute moments; Corollary 3.4 identifies the boundary residue \\(\\int_{a=0}|b|\\,dQ\\) as the sole first-order obstruction and proves the zero-defect criterion through convergence of absolute first moments. Replacing the binary question 'is the defect zero?' by the numerical limit \\(L-M\\) is the standard weak-plus-first-moment formula, and splitting \\(|b|=b^++(-b)^+\\) in the already printed call perspective identity gives the two one-sided offsets. Under the required implication standard this is covered even though the exact nonzero constants are not highlighted as a standalone theorem in the source.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_IMPLICATION",
+          "evidence": "The source contains all nonstandard numeraire-specific ingredients; the audited constants result from the standard moment characterization and splitting the same boundary residue by sign.",
+          "identifier_or_url": "arXiv:2609.30329v1",
+          "material_read": "Primary full-text Proposition 2.1 on perspective cancellation, first-order boundary discussion, and Corollary 3.4 with its proof identifying the boundary absolute-payoff residue and the \\(W_1\\) criterion.",
+          "method": "lawful open-access primary full text",
+          "title": "Stability of Change-of-Numéraire Reweighting: An Exact Wasserstein Boundary",
+          "trigger": "Same object, same hypotheses, and obvious strongest coverage risk."
+        },
+        {
+          "assessment": "BACKGROUND_NOT_NEEDED_FOR_DECISIVE_COVERAGE",
+          "evidence": "The decisive implication already comes from Huang's same-object paper.",
+          "identifier_or_url": "arXiv:2406.07523",
+          "material_read": "Primary abstract/statement-level material on the structural numeraire correspondence and moment assumptions.",
+          "method": "lawful open-access primary record",
+          "title": "Change of numeraire for weak martingale transport",
+          "trigger": "Broader transport context cited by the focal source and package."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 961f62073bc5837c3319a76c5053aa4015ae1b99 and verify.py blob 1a68eb32632a92b859a9a4c497b2b74249193cbd",
+        "Shaosai Huang, Stability of Change-of-Numéraire Reweighting: An Exact Wasserstein Boundary, arXiv:2609.30329v1, Proposition 2.1 and Corollary 3.4",
+        "Beiglböck--Pammer--Riess, Change of numeraire for weak martingale transport, arXiv:2406.07523 / SPA 192 (2026) 104779",
+        "Villani, Optimal Transport: Old and New, Theorem 6.9",
+        "Resultary semantic search for change-of-numeraire exact W1 boundary defect and call/put offsets"
+      ],
+      "rationale": "The statement is correct and clean, but after Huang's exact first-order boundary theorem and perspective identities are accounted for, the nonzero \\(W_1\\) constant is a standard first-moment remainder and the call/put constants are the positive/negative parts of the same residue. Compact-uniformity follows from routine Lipschitz equicontinuity. Under the stated value bar this is a useful explanatory corollary, not a separately motivated mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [],
+  "schema_version": 1
+}
