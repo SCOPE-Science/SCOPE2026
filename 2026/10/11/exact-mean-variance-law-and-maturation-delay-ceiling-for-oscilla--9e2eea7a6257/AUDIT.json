@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The two equations share the same instantaneous consumption flux \\(G(n,p)p\\), while predator recruitment receives its delayed copy multiplied by \\(e^{-\beta\tau}\\). Integrating a positive periodic solution over one period and shifting the delayed term gives \\(\\overline{Gp}=e^{\beta\tau}\bar p\\). The prey integral then gives the exact mean law, and the identity \\(\\overline{n^2}=\bar n^2+\\operatorname{Var}(n)\\) gives the variance form. Fixed positive prey makes the prey-loss function strictly increasing in predator density, so a nonconstant cycle has positive prey variance. The logistic parabola gives the strict mean ceiling. Since \\(G<1/h_1\\), the integrated predator equation forces \\(h_1e^{\beta\tau}<1\\). The bundled symbolic checker verifies the algebra and monotonicity; no simulation is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 source studies equilibrium stability, bifurcation diagrams, oscillatory coexistence and delay-driven coexistence collapse for the same printed equations.",
+        "The 2025 Peng–Jiang paper studies Hopf, period doubling and chaos in a different model whose delay lies in prey logistic growth rather than delayed predator recruitment.",
+        "The 2021 Tiwari et al. paper concerns a distinct seasonally forced fear/refuge/cooperation model and establishes positive periodic solutions there."
+      ],
+      "reasoning": "Local Hopf results and numerical cycle existence do not imply a finite-amplitude exact period-mean balance. The closely titled later paper is inapplicable because its delayed flux is structurally different.",
+      "searches": [
+        "doi:10.1080/17513758.2024.2332279 full text delayed model Hopf periodic coexistence",
+        "doi:10.3390/modelling6030084 hunting cooperation delay periodic solution",
+        "doi:10.1142/S0218339021500236 positive periodic solution hunting cooperation delay",
+        "maturation delay time average predator prey hunting cooperation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/17513758.2024.2332279",
+      "pmid:38517146",
+      "doi:10.3390/modelling6030084",
+      "doi:10.1142/S0218339021500236",
+      "doi:10.1080/17513758.2020.1737740"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source condition comparing \\(\\kappa/(1+h_1\\kappa)\\) with \\(e^{\beta\tau}\\) is a local predator-free equilibrium stability statement; it does not imply the exact mean–variance identity on an existing positive cycle.",
+        "The accepted ceiling applies to every positive nonconstant periodic orbit at arbitrary amplitude and separates the finite-amplitude prey-variance penalty from the juvenile-survival factor.",
+        "The handling-time obstruction follows from a period-integrated recruitment inequality and rules out positive cycles in its parameter region; it is not a restatement of a computed Hopf point."
+      ],
+      "reasoning": "Statement-level implication comparison distinguishes local equilibrium stability and bifurcation thresholds from the global-in-time integral identities asserted here.",
+      "searches": [
+        "source equation (15) maturation delay predator growth local stability Hopf",
+        "periodic solution hunting cooperation predator prey delay average mean variance",
+        "predator-free equilibrium kappa/(1+h1 kappa) exp(beta tau) Enatsu Roy Banerjee"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The accepted identity is equivalently a cancellation law for the shared predation/recruitment flux, a variance defect below the logistic mean curve, or the strict ceiling \\(\bar p<\\sigma\\kappa e^{-\beta\tau}/4\\).",
+        "The condition \\(h_1e^{\beta\tau}<1\\) is equivalently the requirement that the maximal handling-limited recruitment factor \\(1/h_1\\) exceed juvenile-survival-adjusted replacement \\(e^{\beta\tau}\\).",
+        "No returned published-index hit stated these equivalent formulations for the Enatsu–Roy–Banerjee delayed model."
+      ],
+      "reasoning": "Searches covered the exact source title, period-average language, variance language, exponential-delay scaling, and the handling-time obstruction rather than relying on title similarity.",
+      "searches": [
+        "Hunting cooperation in a prey–predator model with maturation delay Enatsu Roy Banerjee",
+        "maturation delay predator mean ceiling periodic solution variance identity logistic prey",
+        "hunting cooperation prey predator exact periodic average identity mean predator",
+        "h1 exp(beta tau) no positive periodic orbit predator maturation delay",
+        "\"sigma e^{-beta tau}\" predator periodic mean",
+        "\"variance\" maturation delay predator prey periodic",
+        "\"mean predator\" \"maturation delay\" prey logistic periodic",
+        "\"h_1\" \"e^{-beta tau}\" predator periodic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index searches returned only thematically related records on age-structured thresholds, spatial-memory pattern obstructions, and feedback-cycle recurrence balances; none concerns the same delayed predator-recruitment equations.",
+        "The introducing source and later closely titled papers were compared directly at statement and model level; none of the inspected material states the accepted mean–variance law."
+      ],
+      "reasoning": "Database and source searches used the exact object name together with mean, variance, periodic-orbit, maturation-delay and handling-time aliases; thematic analogues do not imply the source-specific flux cancellation.",
+      "searches": [
+        "Hunting cooperation in a prey–predator model with maturation delay Enatsu Roy Banerjee",
+        "maturation delay predator mean ceiling periodic solution variance identity logistic prey",
+        "h1 exp(beta tau) no positive periodic orbit predator maturation delay",
+        "doi:10.1080/17513758.2024.2332279 exact periodic average identity"
+      ]
+    },
+    "rationale": "Full-text comparison of the introducing 2024 paper shows equilibrium and bifurcation analysis for the same equations but not the accepted finite-amplitude period-mean/variance law in the material inspected. Published-literature searches across exact-title, variance, mean-predator, exponential-delay, and handling-time aliases returned only different delay or recurrence systems. Later and adjacent hunting-cooperation papers inspected use different equations and do not implication-wise dominate the claim.",
+    "residual_risks": [
+      "The proof is short and an equivalent period-averaging identity could appear in unindexed ecological-dynamics literature under different terminology.",
+      "The 2020 stage-structured mutual-interference article was accessible only at abstract/index level during this run and is not used for a whole-document noncoverage claim.",
+      "No novelty is claimed for the source equations, equilibrium conditions, Hopf bifurcations, numerical limit cycles, or predator-free stability criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact equations needed for the proof and motivates oscillatory coexistence. The inspected text does not state the accepted period-mean/variance identity or universal predator-mean ceiling.",
+        "evidence": "The full article prints delayed predator recruitment multiplied by \\(e^{-\beta\tau}\\), while the prey equation contains the matching current predation flux; the discussion emphasizes delay-induced oscillations and predator extinction.",
+        "identifier_or_url": "doi:10.1080/17513758.2024.2332279",
+        "material_read": "Full publisher HTML as exposed by the indexed full-article record, including the nondelayed equations, delayed equations (15a)–(15b), model interpretation, and discussion of equilibrium stability, Hopf oscillations, bistability and delay-driven coexistence collapse.",
+        "method": "Full-text equation reconstruction and statement/implication comparison.",
+        "title": "Hunting cooperation in a prey–predator model with maturation delay",
+        "trigger": "Exact source model, ownership and date anchor."
+      },
+      {
+        "assessment": "Studies a different system with the delay in prey logistic growth and no delayed predator recruitment factor \\(e^{-\beta\tau}\\); therefore its cycle results do not imply the accepted cancellation law.",
+        "evidence": "Its displayed model has \\(u(t-\tau)\\) in the prey logistic term and an instantaneous predator equation.",
+        "identifier_or_url": "doi:10.3390/modelling6030084",
+        "material_read": "Full open HTML, including model equations, Hopf theorem, normal-form discussion, numerical periodic and period-doubling sections, and conclusions.",
+        "method": "Full-text model and implication comparison.",
+        "title": "Dynamical Regimes in a Delayed Predator–Prey Model with Predator Hunting Cooperation: Bifurcations, Stability, and Complex Dynamics",
+        "trigger": "Closely titled later work that could plausibly dominate a periodic-orbit claim."
+      },
+      {
+        "assessment": "Concerns a seasonally forced fear/refuge/cooperation model and proves positive periodic-solution existence there. It is structurally different; the available material is not used to claim complete noncoverage.",
+        "evidence": "The abstract explicitly describes seasonality, fear, refuge and delayed cooperation, unlike the autonomous maturation-recruitment model here.",
+        "identifier_or_url": "doi:10.1142/S0218339021500236",
+        "material_read": "Published abstract and bibliographic record.",
+        "method": "Abstract-level scope comparison only; no whole-document noncoverage assertion.",
+        "title": "A delay nonautonomous predator–prey model for the effects of fear, refuge and hunting cooperation",
+        "trigger": "Earlier hunting-cooperation delay paper explicitly discussing positive periodic solutions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e2eea7a-6257-4e7c-972a-c9c558040c90",
+  "value": {
+    "rationale": "The source is explicitly about how maturation delay changes oscillatory coexistence and predator extinction. The accepted identity gives a finite-amplitude quantitative law for those oscillations: juvenile mortality contributes the exact factor \\(e^{-\beta\tau}\\), prey variability subtracts an exact variance penalty, and every positive cycle obeys a simple handling-time/delay obstruction. This supplies a model-specific diagnostic and parameter ceiling for the recurrent states studied in the paper, rather than a routine restatement of a local linear condition.",
+    "status": "PASS"
+  }
+}
