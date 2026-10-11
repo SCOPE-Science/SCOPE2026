@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The matching recursion chooses the least unused vertex and pairs it with every possible partner, which enumerates each perfect matching of sixteen labeled vertices exactly once. Its total \(2{,}027{,}025\) independently matches \(15!!\). A separate nondecreasing-tuple recursion enumerates every eight-element multiset of nonzero vectors exactly once and filters by the necessary XOR-zero condition; it returns \(20{,}295\). Exact equality of this profile set with the matching-derived profile set proves exhaustive realization. The histogram is an integer tally over all matchings, and its two checksum identities hold. The unique-profile characterization is also directly checked and has an elementary converse for constant differences.
+## correctness
 
-## Originality
-PASS. Prior work proves existence in dimension four and, more recently, exact signed/permanent coefficient information in the all-crossing Hall subfamily. The checked recent paper explicitly distinguishes the full BGS problem from Hall and says dimensions at most five are already solvable, but it does not provide the full dimension-four realization-count distribution. Focused published-finding corpus and web searches for the exact \(20{,}295\)-profile census, multiplicity spectrum, uniqueness characterization, prescribed-difference matching counts, and dimension-four aliases located no covering result. The full-space spectrum is not implied by the all-crossing coefficient theorem because many profiles are mixed with respect to a chosen hyperplane.
+PASS
 
-## Value
-PASS. The BGS problem is an active finite-geometry/coding-theory matching problem, and the recent literature explicitly highlights enumerative information beyond mere existence. This classification upgrades the first nontrivial solved ambient dimension from a yes/no theorem to a complete robustness profile: it identifies the exact number of admissible batches, the exact number of solutions for every batch through a global histogram, and a sharp uniqueness-versus-four-solutions gap. Those data give a reproducible benchmark for proposed higher-dimensional counting methods and algorithms.
+The claim is a finite exact classification. An independent least-unused-vertex recursion enumerated every perfect matching of the 16 labeled vertices exactly once and returned 2,027,025=15!! matchings. Independently enumerating all nondecreasing 8-tuples from the 15 nonzero vectors and XOR-filtering at zero returned 20,295 admissible multisets, and the two profile sets agreed exactly. Re-tallying multiplicities produced the sixteen claimed realization counts with frequencies (15,210,105,1365,735,420,1890,840,840,3360,105,3360,2520,1575,2520,435); exactly 15 profiles had multiplicity one, all constant, and the least nonconstant multiplicity was four.
 
-## Closest literature and limitations
-The closest source is arXiv:2607.08630, which proves a two-hole theorem and derives exact realization-count coefficients for the Hall subfamily; it also records that ambient dimensions at most five were already known solvable. arXiv:2501.11122 gives functional-batch reformulations and sufficient conditions, while Balister--Győri--Schelp is the foundational prescribed-difference source. None of the inspected statements supplies the complete full-space dimension-four multiplicity spectrum. The present result is finite and does not claim a closed formula or a higher-dimensional theorem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives for the full-space realization-count spectrum. The closest primary work establishes existence in small ambient dimensions and develops exact counting coefficients for the all-crossing Hall subfamily, but it does not determine R(M) for every zero-sum dimension-four profile or imply the sixteen-cell full-space histogram.
+
+## value
+
+PASS
+
+This is the complete quantitative refinement of the first nontrivial fully solved BGS dimension: every admissible request profile is classified by its exact number of realizations, and the sharp uniqueness-versus-at-least-four gap supplies a natural robustness invariant rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

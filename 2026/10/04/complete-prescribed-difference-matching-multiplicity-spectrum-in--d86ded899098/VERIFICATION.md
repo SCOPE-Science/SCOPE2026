@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite classification is rebuilt from first principles by `verify_bgs_s4_counts.py`.
+# Independent mathematical audit
 
-* Vertex set: the sixteen four-bit vectors, encoded by integers \(0,\ldots,15\).
-* Matching enumeration: repeatedly pair the least unused vertex with each possible partner. This is bijective with unordered perfect matchings and returns \(2{,}027{,}025=15!!\).
-* Profile extraction: each edge contributes the nonzero XOR of its endpoints; each matching profile is sorted canonically.
-* Independent domain enumeration: every nondecreasing eight-tuple over \(1,\ldots,15\) is generated exactly once and retained exactly when its XOR is zero. The result is \(20{,}295\) admissible profiles.
-* Exhaustiveness: the admissible-profile set equals the set produced by the matching census exactly.
-* Counts: the verifier checks the complete sixteen-row multiplicity histogram, its total profile count, and the multiplicity-weighted total of all perfect matchings.
-* Boundary characterization: exactly fifteen profiles have one realization, all are constant; every nonconstant profile has realization count at least four.
+## correctness
 
-The verifier stores no list of matchings or accepted profiles, so the central table is recomputed rather than merely compared against a packaged certificate. A separate optimized C++ implementation of the same canonical matching recursion was run during review and independently produced the same totals and histogram.
+PASS
 
-Unproved limits: no higher-dimensional extrapolation, orbit classification, or closed formula for \(R(M)\) is claimed. Literature search is evidence for originality, not a proof of novelty.
+The claim is a finite exact classification. An independent least-unused-vertex recursion enumerated every perfect matching of the 16 labeled vertices exactly once and returned 2,027,025=15!! matchings. Independently enumerating all nondecreasing 8-tuples from the 15 nonzero vectors and XOR-filtering at zero returned 20,295 admissible multisets, and the two profile sets agreed exactly. Re-tallying multiplicities produced the sixteen claimed realization counts with frequencies (15,210,105,1365,735,420,1890,840,840,3360,105,3360,2520,1575,2520,435); exactly 15 profiles had multiplicity one, all constant, and the least nonconstant multiplicity was four.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives for the full-space realization-count spectrum. The closest primary work establishes existence in small ambient dimensions and develops exact counting coefficients for the all-crossing Hall subfamily, but it does not determine R(M) for every zero-sum dimension-four profile or imply the sixteen-cell full-space histogram.
+
+## value
+
+PASS
+
+This is the complete quantitative refinement of the first nontrivial fully solved BGS dimension: every admissible request profile is classified by its exact number of realizations, and the sharp uniqueness-versus-at-least-four gap supplies a natural robustness invariant rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
