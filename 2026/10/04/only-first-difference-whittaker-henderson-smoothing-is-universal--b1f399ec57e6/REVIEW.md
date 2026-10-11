@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For order one, the normal matrix is identity plus a path-graph Laplacian, hence a nonsingular irreducible \(M\)-matrix; its inverse is strictly positive and fixes the all-ones vector, so every smoother row is a probability vector. For every order \(p\ge2\), the minimal sample size \(p+1\) reduces the penalty to one binomial difference row. Sherman–Morrison gives the smoother exactly, and the \(p-2\) entry of a terminal step is \(-\alpha\binom p2\). An affine perturbation lies in the penalty nullspace and converts the witness to strictly positive, strictly increasing data. Exact-rational replay returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with residual literature risk. Explicit order-one Whittaker–Henderson weights and explicit order-two Hodrick–Prescott weights are prior work; order-one positivity itself is not claimed as a new formula, and negative HP coefficients are not claimed as a new observation. The accepted contribution is the all-order if-and-only-if classification together with the minimal-length, every-\(\lambda\) obstruction and strict monotone witnesses for all \(p\ge2\). Searches under range preservation, monotone data, positive smoother, negative weights, and equivalent difference-penalty language did not locate that classification. Older graduation or positive-linear-operator literature remains the main risk.
+PASS
 
-## Value
-PASS. Difference order is a basic modeling choice in a widely used smoothing family. The theorem separates an unconditional shape-safety property of first-difference smoothing from all higher orders, shows that the loss occurs at the smallest possible sample length and at arbitrarily weak smoothing, and provides closed-form witnesses that can serve as regression tests or motivate constrained variants when nonnegativity or range preservation matters.
+For \(p=1\), \(I+\lambda D_1^{\mathsf T}D_1\) is an irreducible nonsingular M-matrix; its inverse is strictly positive, and annihilation of constants gives unit row sums, hence strict convex-combination range preservation. For \(p\ge2\) at \(n=p+1\), \(D_p\) is one binomial row \(d\) and Sherman--Morrison gives \(S=I-\alpha d^{\mathsf T}d\), \(\alpha=\lambda/(1+\lambda\binom{2p}{p})\). Applying it to the final unit vector makes coordinate \(p-2\) equal \(-\alpha\binom p2<0\). Adding a sufficiently small positive affine sequence preserves this negative output because \(D_p\) annihilates affine data. The finite verifier was read and is consistent with, but not needed for, this analytic proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the all-order range-preservation dichotomy. The author-uploaded full text of Yamada--Tuj Jahra was read: it derives order-one smoother weights and records unit row sums, while the order-two/HP literature supplies exact weights and known sign-changing phenomena. Neither source states that order one is the unique universally range-preserving difference order or gives the uniform minimal-length counterexample for every higher order. Fresh Resultary search returned no implication-equivalent theorem.
+
+## value
+
+PASS
+
+Universal range preservation is a natural qualitative safety property of a linear smoother. The theorem gives a sharp all-order boundary, a minimal-sample obstruction for every higher order, and a robust strictly increasing positive witness; this is more informative than isolated negative HP weights and can guide whether unconstrained smoothing can overshoot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

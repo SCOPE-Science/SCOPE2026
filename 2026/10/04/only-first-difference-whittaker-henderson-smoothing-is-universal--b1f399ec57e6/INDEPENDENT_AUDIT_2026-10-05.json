@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:56:00.361901Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 95d3345876cd19a666051d24c9ab93a863b5cffd",
+        "verify.py blob ee8955930a0a516078586978445ae787876f2f63",
+        "independent M-matrix and Sherman--Morrison reconstruction"
+      ],
+      "rationale": "For \\(p=1\\), \\(I+\\lambda D_1^{\\mathsf T}D_1\\) is an irreducible nonsingular M-matrix; its inverse is strictly positive, and annihilation of constants gives unit row sums, hence strict convex-combination range preservation. For \\(p\\ge2\\) at \\(n=p+1\\), \\(D_p\\) is one binomial row \\(d\\) and Sherman--Morrison gives \\(S=I-\\alpha d^{\\mathsf T}d\\), \\(\\alpha=\\lambda/(1+\\lambda\\binom{2p}{p})\\). Applying it to the final unit vector makes coordinate \\(p-2\\) equal \\(-\\alpha\\binom p2<0\\). Adding a sufficiently small positive affine sequence preserves this negative output because \\(D_p\\) annihilates affine data. The finite verifier was read and is consistent with, but not needed for, this analytic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Order-one explicit formulas and order-two HP formulas are special orders, not an all-order classification.",
+          "The rank-one minimal-length identity for arbitrary \\(p\\) is not supplied by the inspected sources."
+        ],
+        "reasoning": "No broader inspected smoothing theorem dominates both the positive and negative branches.",
+        "searches": [
+          "Yamada--Tuj Jahra, Explicit formulas for the smoother weights of the Whittaker--Henderson graduation of order 1, DOI:10.1080/03610926.2018.1476713",
+          "McElroy, Exact formulas for the Hodrick--Prescott filter, DOI:10.1111/j.1368-423X.2008.00230.x",
+          "Resultary query: Whittaker Henderson smoothing range preserving first difference higher order negative weights monotone data"
+        ]
+      },
+      "checked_sources": [
+        "Yamada--Tuj Jahra, Explicit formulas for the smoother weights of the Whittaker--Henderson graduation of order 1, DOI:10.1080/03610926.2018.1476713",
+        "McElroy, Exact formulas for the Hodrick--Prescott filter, DOI:10.1111/j.1368-423X.2008.00230.x",
+        "Resultary query: Whittaker Henderson smoothing range preserving first difference higher order negative weights monotone data"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior order-specific formulas do not imply failure at minimal length for every higher order.",
+          "For \\(n=p+1\\), Sherman--Morrison gives a uniform explicit negative coefficient at position \\(p-2\\), while the \\(p=1\\) M-matrix argument gives strict positivity."
+        ],
+        "reasoning": "The final theorem requires combining two genuinely different mechanisms across all orders rather than substituting a parameter into one prior result.",
+        "searches": [
+          "DOI:10.1080/03610926.2018.1476713",
+          "DOI:10.1111/j.1368-423X.2008.00230.x",
+          "independent rank-one proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The order-one paper treats only \\(p=1\\) and provides formulas for its smoother matrix.",
+          "The audited negative branch works for every \\(p\\ge2\\) and every \\(\\lambda>0\\) already at \\(n=p+1\\)."
+        ],
+        "reasoning": "Range preservation is equivalent to nonnegative row-stochastic smoother weights; the comparison therefore covered positive-linear-smoother and WH/HP formulations.",
+        "searches": [
+          "Yamada--Tuj Jahra, Explicit formulas for the smoother weights of the Whittaker--Henderson graduation of order 1, DOI:10.1080/03610926.2018.1476713",
+          "McElroy, Exact formulas for the Hodrick--Prescott filter, DOI:10.1111/j.1368-423X.2008.00230.x",
+          "Resultary query: Whittaker Henderson smoothing range preserving first difference higher order negative weights monotone data"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked published-result database entry supplied the exact cross-order dichotomy."
+        ],
+        "reasoning": "Search absence is supporting evidence only; direct source comparison carries the assessment.",
+        "searches": [
+          "Resultary query: Whittaker Henderson smoothing range preserving first difference higher order negative weights monotone data",
+          "targeted searches for Whittaker--Henderson positive smoother, negative weights, range preservation and monotone data"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes for the all-order range-preservation dichotomy. The author-uploaded full text of Yamada--Tuj Jahra was read: it derives order-one smoother weights and records unit row sums, while the order-two/HP literature supplies exact weights and known sign-changing phenomena. Neither source states that order one is the unique universally range-preserving difference order or gives the uniform minimal-length counterexample for every higher order. Fresh Resultary search returned no implication-equivalent theorem.",
+      "residual_risks": [
+        "An older positivity-preserving graduation or linear-smoother paper could state the same all-order dichotomy under different terminology; no such source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORDER_ONE_ONLY_NOT_ALL_ORDER_DICHOTOMY",
+          "evidence": "The paper treats \\(p=1\\); it does not state the all-order uniqueness/failure theorem.",
+          "identifier_or_url": "DOI:10.1080/03610926.2018.1476713",
+          "material_read": "Author-uploaded full article, including the WH objective, smoother-matrix definition, order-one spectral/formula development, and conclusion noting unit row sums.",
+          "method": "lawful author-uploaded full text",
+          "title": "Explicit formulas for the smoother weights of the Whittaker--Henderson graduation of order 1",
+          "trigger": "Closest primary source for the positive order-one branch."
+        },
+        {
+          "assessment": "ORDER_TWO_CONTEXT_ONLY",
+          "evidence": "Exact HP weights do not supply a theorem for all \\(p\\ge2\\).",
+          "identifier_or_url": "DOI:10.1111/j.1368-423X.2008.00230.x",
+          "material_read": "Primary bibliographic/abstract-level material and the order-two relationship as cited and discussed in the inspected order-one article.",
+          "method": "lawful accessible primary material",
+          "title": "Exact formulas for the Hodrick--Prescott filter",
+          "trigger": "Closest order-two exact-weight literature and sign-risk comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yamada--Tuj Jahra 2019",
+        "McElroy 2008"
+      ],
+      "rationale": "Universal range preservation is a natural qualitative safety property of a linear smoother. The theorem gives a sharp all-order boundary, a minimal-sample obstruction for every higher order, and a robust strictly increasing positive witness; this is more informative than isolated negative HP weights and can guide whether unconstrained smoothing can overshoot.",
+      "residual_risks": [
+        "The theorem is restricted to identity fidelity weights, uniform grids and ordinary forward differences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
