@@ -1,0 +1,15 @@
+# Same-model mathematical review
+
+## Correctness — PASS
+With counting-measure coordinate normalization \(1/\sqrt{\varphi(N)}\), the squared Gram entries equal squared normalized Ramanujan sums. The prime-power trichotomy gives coefficients \(\beta_p=(p-1)^{-2}\) and \(\gamma_p=1-\beta_p\), both nonnegative, so the CRT product expands into a convex combination of divisibility kernels. Pair summation converts each kernel to a squared residue-count sum. Balanced integer counts achieve the sharp minimum simultaneously for a consecutive interval; the identity \(\sum(m-q)(m-q-1)\) proves nonnegative deficit and all equality conditions, including the vanishing \(\gamma_2\) channel. The exact independent divisor-sum checker passed 10,209 exhaustive small-set comparisons and 124 consecutive test cases. Finite tests do not substitute for the universal proof.
+
+## Originality — PASS, qualified
+The nearest primary general frame-potential results concern unrestricted frames (Benedetto–Fickus/Mixon et al.), translation-generated frame systems over additive subgroups (Johnson–Okoudjou and Fickus et al.), and Ramanujan expansions/filter banks (Vaidyanathan). The target rows are \(U_N\), ordinarily not an additive subgroup, and only a subset of rigid Fourier columns is selectable. None of the inspected theorems gives the exact weighted minimum, consecutive-band global optimality, or complete nonnegative deficit across all moduli and sizes. Searches included the equivalent squared Ramanujan-energy wording, frequency-subset frame-potential design, modular-balance aliases, and stronger constrained frame coverage. A historically equivalent combinatorial design or harmonic-frame statement remains possible, and a highly relevant journal article was not accessible in full.
+
+## Value — PASS
+The family is dictated by primitive-unit sampling and the classical frame potential, not an arbitrary finite slice. The theorem solves its all-cardinality, all-moduli selection problem by one explicit arithmetic formula and gives a computable exact certificate and necessary-and-sufficient equality conditions for any proposed design. Simultaneous balance over divisors is nontrivial when the modulus has several prime factors. Its numerical values are exact, not experimental; no stronger condition-number claim is made.
+
+## Closest literature and limitations
+Johnson–Okoudjou, arXiv:0801.3813, Theorem 4.2 and Corollary 4.3: translate-orbit frames from additive subgroups; distinct admissible family. Mixon–Needham–Shonkwiler–Villar, arXiv:2112.02916, Proposition 1 and Theorems 2.1, 3.1, 4.1: general frame-potential geometry, not rigid primitive-row column selection. Vaidyanathan, *Ramanujan-Sum Expansions for FIR Sequences*: Ramanujan bases and periodicity, not column-subset minimization. Restriction to the squared potential, not a maximum inner product or a condition number. A pre-existing equivalent formula in historical literature remains a priority risk; independent validation is not claimed.
+
+Same-model review: passed. Independent audit: not yet performed.
