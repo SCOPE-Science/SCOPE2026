@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T13:44:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every element of the nontrivial generalized-dihedral coset is an involution. If such an element shared a cyclic subgroup with a nonidentity kernel element, the two would commute, forcing the kernel element to be an involution; a cyclic group cannot contain two distinct involutions, so every coset element is a leaf adjacent only to the identity. The only kernel leaves are exactly \\(T(A)\\), so \\(At\\cup T(A)\\) is a false-twin class and forces distinct colors, while the universal identity forces one more. The proposed upper coloring injectively pairs every remaining kernel vertex with a distinct leaf; a nonidentity neighbor of the kernel vertex distinguishes the repeated-color pair. For non-2-groups any involution multiplied by a nontrivial odd-order element lies in a larger cyclic subgroup. For abelian 2-groups, \\(T(A)=A[2]\\setminus2A\\), giving \\(2^r-2^s\\). The frozen group/graph verifier was read and independently checks twelve cyclic/noncyclic kernels.",
+      "risk": "The proof is specific to inversion semidirect products with abelian kernel.",
+      "sources": [
+        "DOI:10.5614/ejgta.2022.10.1.6",
+        "arXiv:2108.13006v1",
+        "Chartrand-Erwin-Henning-Slater-Zhang 2002 locating-chromatic definition",
+        "frozen artifacts/verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General twin lemmas can explain the lower bound once the graph structure is known, but do not identify the full leaf class or construct the matching coloring for this group family.",
+          "Metric dimension and Laplacian spectra do not determine locating chromatic number."
+        ],
+        "reasoning": "No inspected broader theorem supplies both the group-specific obstruction and the exact upper construction.",
+        "searches": [
+          "general locating-coloring false-twin lower bounds",
+          "survey of enhanced power graphs",
+          "nonabelian enhanced-power metric-dimension literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.5614/ejgta.2022.10.1.6",
+        "arXiv:2108.13006v1",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The survey is an open problem, not a theorem determining the value.",
+          "The 2021 paper's metric and spectral formulas do not imply a locating coloring or false-twin equality."
+        ],
+        "reasoning": "The final formula requires the new complete leaf classification and a sharp locating coloring.",
+        "searches": [
+          "DOI:10.5614/ejgta.2022.10.1.6 Problem 15",
+          "arXiv:2108.13006v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The survey formulates the locating-chromatic problem explicitly.",
+          "The closest group-family paper studies other metric/spectral invariants, not locating colorings.",
+          "Resultary returned the audited theorem as the exact same-invariant family hit."
+        ],
+        "reasoning": "Enhanced-power/cyclic-graph, generalized-dihedral/ordinary-dihedral and false-twin/locating-coloring formulations were compared.",
+        "searches": [
+          "Resultary: locating chromatic number enhanced power graph generalized dihedral group",
+          "2022 enhanced-power survey Problem 15",
+          "arXiv:2108.13006v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table/formula was located; other Resultary generalized-dihedral records concern matching, independence, domination or noncommuting graphs."
+        ],
+        "reasoning": "Exact database search supports, but does not by itself establish, novelty.",
+        "searches": [
+          "Resultary exact generalized-dihedral locating-chromatic query",
+          "searches for the ordinary-dihedral specialization \\(n+1\\) except \\(n=2\\)"
+        ]
+      },
+      "rationale": "The 2022 enhanced-power survey explicitly poses describing the locating chromatic number as an open problem. The closest 2021 nonabelian-family paper studies metric dimension, resolving polynomials, distance data and Laplacian spectra for related groups but not locating chromatic number. Resultary's exact generalized-dihedral query returned this audited record as the top matching locating-chromatic result; the other generalized-dihedral hits concern different graph invariants. No stronger theorem was found that implies the false-twin correction \\(|T(A)|\\) or its invariant-factor formula.",
+      "residual_risks": [
+        "An equivalent theorem may be indexed under the cyclic-graph name for enhanced power graphs.",
+        "A general locating-coloring theorem for universal-vertex graphs could shorten the coloring proof, though no group-specific formula was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_PROBLEM_SOURCE",
+          "evidence": "Problem 15 asks for a description of the locating chromatic number of the enhanced power graph of a finite group.",
+          "identifier_or_url": "DOI:10.5614/ejgta.2022.10.1.6",
+          "material_read": "Full-text problem-section material defining locating chromatic number and stating Problem 15, plus surrounding enhanced-power context.",
+          "method": "Lawful public full-text inspection.",
+          "title": "A survey on enhanced power graphs of finite groups",
+          "trigger": "Explicit published locating-chromatic open problem."
+        },
+        {
+          "assessment": "RELATED_INVARIANTS_NOT_COVERING",
+          "evidence": "The paper does not state a locating-chromatic theorem for generalized dihedral groups.",
+          "identifier_or_url": "arXiv:2108.13006v1",
+          "material_read": "Primary source material covering its metric-dimension, resolving-polynomial, distance and spectral scope.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Enhanced Power Graph of Certain Non-abelian Groups",
+          "trigger": "Closest pre-existing dihedral/nonabelian enhanced-power family study."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact solution of an explicit published graph-invariant problem on a natural infinite group family with arbitrary finite abelian kernel. The answer is structural: isolated involutions are precisely the correction term, and finite abelian 2-group structure converts that obstruction into a closed invariant-factor formula.",
+      "risk": "It does not extend automatically to arbitrary semidirect products or nonabelian kernels.",
+      "sources": [
+        "DOI:10.5614/ejgta.2022.10.1.6",
+        "arXiv:2108.13006v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every nontrivial finite abelian group \\(A\\), the enhanced power graph of \\(\\operatorname{Dih}(A)\\) has locating chromatic number \\(|A|+|T(A)|+1\\), where \\(T(A)\\) consists of kernel involutions contained in no larger cyclic subgroup; this gives \\(T(A)=\\varnothing\\) outside the 2-group case and \\(|T(A)|=2^r-2^s\\) for \\(A\\cong\\prod_i C_{2^{a_i}}\\), with the stated ordinary-dihedral specialization.",
+  "limitations": [
+    "Finite abelian kernels under inversion action only.",
+    "No locating-chromatic formula for arbitrary finite groups."
+  ],
+  "schema_version": 1
+}

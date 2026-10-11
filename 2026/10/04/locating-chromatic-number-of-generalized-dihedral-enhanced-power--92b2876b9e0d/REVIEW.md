@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the exact false-twin leaf class in the enhanced power graph of a generalized dihedral group. Every coset element is an involution adjacent only to the identity, and the only additional leaves are kernel involutions contained in no larger cyclic subgroup. These vertices force distinct colors, while the universal identity forces one more. The proposed upper-bound coloring is proper and locating: each reused color pairs one leaf with one nonleaf kernel vertex, and a nonidentity neighbor of the latter separates their color codes. The invariant-factor count follows from the exact criterion \(T(A)=A[2]\setminus2A\) for abelian \(2\)-groups.
+## correctness
 
-## Originality
-PASS. The 2022 enhanced-power survey explicitly poses the locating-chromatic problem. The closest inspected nonabelian-family paper computes metric dimension, resolving polynomials, distance data, and Laplacian spectra but not locating chromatic number. Targeted statement-level searches under enhanced-power/cyclic-graph and dihedral/generalized-dihedral aliases found no formula matching the theorem or its ordinary-dihedral corollary.
+PASS
 
-## Value
-PASS. This solves the published locating-chromatic problem on the full generalized-dihedral family with arbitrary finite abelian kernel. The answer is structural: a group-theoretic set of isolated involutions is exactly the correction to the base value, and the correction has a closed invariant-factor formula on all abelian \(2\)-groups.
+Every element of the nontrivial generalized-dihedral coset is an involution. If such an element shared a cyclic subgroup with a nonidentity kernel element, the two would commute, forcing the kernel element to be an involution; a cyclic group cannot contain two distinct involutions, so every coset element is a leaf adjacent only to the identity. The only kernel leaves are exactly \(T(A)\), so \(At\cup T(A)\) is a false-twin class and forces distinct colors, while the universal identity forces one more. The proposed upper coloring injectively pairs every remaining kernel vertex with a distinct leaf; a nonidentity neighbor of the kernel vertex distinguishes the repeated-color pair. For non-2-groups any involution multiplied by a nontrivial odd-order element lies in a larger cyclic subgroup. For abelian 2-groups, \(T(A)=A[2]\setminus2A\), giving \(2^r-2^s\). The frozen group/graph verifier was read and independently checks twelve cyclic/noncyclic kernels.
 
-The principal residual risk is bibliographic: an equivalent result may be phrased under the cyclic-graph name or as a general locating-coloring lemma specialized implicitly to this group graph.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2022 enhanced-power survey explicitly poses describing the locating chromatic number as an open problem. The closest 2021 nonabelian-family paper studies metric dimension, resolving polynomials, distance data and Laplacian spectra for related groups but not locating chromatic number. Resultary's exact generalized-dihedral query returned this audited record as the top matching locating-chromatic result; the other generalized-dihedral hits concern different graph invariants. No stronger theorem was found that implies the false-twin correction \(|T(A)|\) or its invariant-factor formula.
+
+## value
+
+PASS
+
+This gives an exact solution of an explicit published graph-invariant problem on a natural infinite group family with arbitrary finite abelian kernel. The answer is structural: isolated involutions are precisely the correction term, and finite abelian 2-group structure converts that obstruction into a closed invariant-factor formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
