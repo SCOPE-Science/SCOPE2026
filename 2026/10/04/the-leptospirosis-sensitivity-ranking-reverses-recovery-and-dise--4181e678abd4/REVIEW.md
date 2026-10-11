@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The disease-free infected subsystem is reconstructed directly from the five printed model equations. Its next-generation matrix has characteristic polynomial
-\[
-z^2-az-c,
-\]
-which gives the stated spectral radius. The direct-plus-vector type threshold
-\[
-\mathcal T=a+c
-\]
-crosses \(1\) at exactly the same parameter boundary. Differentiating the exact formulas proves that \(\lambda_h\) has zero sensitivity and that \(\delta_h\) and \(\gamma_h\) have negative sensitivity under both conventions. Exact rational arithmetic reproduces the type-threshold table, and high-precision eigenvalue and finite-difference checks replay the spectral calculation.
+PASS
 
-## Originality
+Reconstructing the disease-free infected subsystem gives K with characteristic polynomial z^2-a z-c. Neither threshold depends on lambda_h; both a and c decrease in delta_h and gamma_h, so their sensitivities are strictly negative. Fresh exact arithmetic reproduced the source-parameter threshold 1.3188521516976628 and elasticities -0.7532247434 and -0.2353827323 for delta_h and gamma_h.
 
-PASS. Next-generation and normalized-sensitivity methods are prior art. The earlier leptospirosis model already uses a direct-plus-vector threshold, so that construction is not claimed as new. The surviving contribution is the source-specific correction of the 2022 sensitivity paragraph and the exact ranking at its own parameter set. Searches by DOI, title, loss-of-immunity/recovery aliases, sensitivity terminology, and erratum terminology found no published correction.
+## originality
 
-## Value
+PASS
 
-PASS. The source says its sensitivity analysis is intended to identify parameters useful for reducing infection spread and informing controls. The corrected analysis changes that interpretation substantially: recovery and human disease removal decrease the invasion threshold, loss of immunity does not affect invasion at all, and the vector-mediated elasticities are tiny relative to direct human transmission for the source parameter set.
+The contribution is a source-specific correction rather than a new next-generation method. The primary paper's stated sensitivity analysis is inconsistent with the exact infected subsystem, and targeted Resultary searching found no published correction.
 
-## Closest literature and limitations
+## value
 
-The 2012 same-family leptospirosis paper provides the closest prior threshold formula and establishes the direct-plus-vector convention as prior. A 2013 host-vector paper develops related global threshold dynamics. A separate 2022 human-rodent leptospirosis model gives conventional signed sensitivity indices but does not cover the source-specific correction.
+PASS
 
-The report distinguishes the standard next-generation spectral radius from the threshold-equivalent human-generation quantity because their numerical elasticities are not identical away from the invasion boundary. The sign correction is common to both.
+The corrected signs reverse the interpretation of recovery and disease-induced removal and make loss of immunity exactly irrelevant to invasion. Because the source explicitly uses sensitivity analysis to prioritize epidemic controls, this is a substantive correction despite the short derivative calculation.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

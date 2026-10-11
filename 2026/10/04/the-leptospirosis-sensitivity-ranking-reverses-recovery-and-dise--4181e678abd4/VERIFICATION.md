@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,38 +18,25 @@
   "schema_version": 1
 }
 ---
-The bundled checker reconstructs the source parameter set with exact rational numbers.
 
-It verifies the disease-free levels
-\[
-S_h^0=10,
-\qquad
-S_v^0=\frac{1}{115},
-\]
-then computes
-\[
-a=\frac{\beta_1S_h^0}{q_h},
-\qquad
-c=\frac{\beta_2\beta_3S_h^0S_v^0}{q_hq_v},
-\qquad
-\mathcal T=a+c.
-\]
+# Independent mathematical audit
 
-Every normalized sensitivity of \(\mathcal T\) is checked from its exact symbolic dependence. In particular,
-\[
-S_{\lambda_h}^{\mathcal T}=0,
-\qquad
-S_{\delta_h}^{\mathcal T}<0,
-\qquad
-S_{\gamma_h}^{\mathcal T}<0.
-\]
+## correctness
 
-The checker also evaluates
-\[
-\mathcal R_{\mathrm{NGM}}
-=
-\frac{a+\sqrt{a^2+4c}}2
-\]
-at 60-digit precision and verifies its characteristic equation.
+PASS
 
-Centered finite differences independently replay the signs and magnitudes for selected sensitivities. These numerical checks support the algebra; they are not used to infer the general sign result.
+Reconstructing the disease-free infected subsystem gives K with characteristic polynomial z^2-a z-c. Neither threshold depends on lambda_h; both a and c decrease in delta_h and gamma_h, so their sensitivities are strictly negative. Fresh exact arithmetic reproduced the source-parameter threshold 1.3188521516976628 and elasticities -0.7532247434 and -0.2353827323 for delta_h and gamma_h.
+
+## originality
+
+PASS
+
+The contribution is a source-specific correction rather than a new next-generation method. The primary paper's stated sensitivity analysis is inconsistent with the exact infected subsystem, and targeted Resultary searching found no published correction.
+
+## value
+
+PASS
+
+The corrected signs reverse the interpretation of recovery and disease-induced removal and make loss of immunity exactly irrelevant to invasion. Because the source explicitly uses sensitivity analysis to prioritize epidemic controls, this is a substantive correction despite the short derivative calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
