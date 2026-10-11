@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed algebraically from the formulas in `RESULT.md`. The critical checks are: the box-coordinate reduction under \(y=Ux\); the facet Jacobian \(|\det U|^{-1}\); the equal area of opposite facets; the mass equations \(\alpha_i^\pm=(a_i^\pm)^{1-p}A_i\); and the product identity that gives the unique positive scale with exponent \(n-p\).
+# Independent mathematical audit
 
-The standalone `verify.py` was executed from its packaged path. It checks two nonorthogonal cases, in dimensions \(2\) and \(3\), with unequal opposite masses. It reconstructs the facet areas and reports maximum mass residuals below \(4\times10^{-15}\), ending with `VERIFY_OK`.
+## correctness
 
-The computation is not an exhaustive or symbolic proof of the all-dimensional theorem. The infinite claim is justified by the analytic derivation in `RESULT.md`. No uniqueness is asserted for supports larger than \(n\) antipodal pairs.
+PASS
+
+Shan's support-transfer lemma implies that any solution for this discrete antipodal measure is a polytope whose facet normals are exactly \(\pm u_i\). With exactly \(n\) independent antipodal pairs, the polytope is therefore a parallelotope. Writing \(y=Ux\) turns it into an axis box with widths \(w_i=a_i^++a_i^-\). Because the rows of \(U\) are unit normals, the Euclidean area of either facet normal to \(u_i\) is \(d^{-1}\prod_{j\ne i}w_j\), where \(d=|\det U|\). The discrete \(L_p\) mass equation \(\alpha_i^\pm=(a_i^\pm)^{1-p}A_i\) determines the plus/minus split of each width. Taking \(q=1-p\), summing the \(q\)-th roots fixes \(w_i\), and multiplying the resulting equations determines the common scale uniquely, giving exactly the displayed \(b_i,B_i,\lambda,a_i^\pm\) formulas. Independent random-dimensional numerical reconstruction for \(n=2,3,4,5\) reproduced all prescribed masses to floating-point residual below \(2\times10^{-15}\).
+
+## originality
+
+PASS
+
+Shan proves a complete existence characterization for arbitrary positive masses on antipodal supports and, for even data, existence of a symmetric solution. The complete paper does not state uniqueness or an explicit inverse formula in the minimal-support case of exactly \(n\) independent antipodal pairs. Targeted searches for a negative-\(p\) antipodal parallelotope uniqueness formula found no equivalent theorem. The audited result uses Shan's existence/support theorem as a starting ingredient, but the algebraic inversion and uniqueness are additional.
+
+## value
+
+PASS
+
+Negative-\(p\) Minkowski problems are generally nonunique, so a minimal-support regime with global uniqueness and a closed inverse map from masses to support numbers is a meaningful structural boundary. The result is exact for every dimension and all positive masses and is not a finite or arbitrarily sliced computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

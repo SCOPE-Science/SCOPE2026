@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:21:04.492813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "J. Shan, The Discrete L_p Minkowski Problem for Negative p, arXiv:2609.01429, complete 26-page primary text",
+        "Assigned RESULT.md and verifier at tree cb87daf0fb7b303cd28b272e0d37b9e883dd8878"
+      ],
+      "rationale": "Shan's support-transfer lemma implies that any solution for this discrete antipodal measure is a polytope whose facet normals are exactly \\(\\pm u_i\\). With exactly \\(n\\) independent antipodal pairs, the polytope is therefore a parallelotope. Writing \\(y=Ux\\) turns it into an axis box with widths \\(w_i=a_i^++a_i^-\\). Because the rows of \\(U\\) are unit normals, the Euclidean area of either facet normal to \\(u_i\\) is \\(d^{-1}\\prod_{j\\ne i}w_j\\), where \\(d=|\\det U|\\). The discrete \\(L_p\\) mass equation \\(\\alpha_i^\\pm=(a_i^\\pm)^{1-p}A_i\\) determines the plus/minus split of each width. Taking \\(q=1-p\\), summing the \\(q\\)-th roots fixes \\(w_i\\), and multiplying the resulting equations determines the common scale uniquely, giving exactly the displayed \\(b_i,B_i,\\lambda,a_i^\\pm\\) formulas. Independent random-dimensional numerical reconstruction for \\(n=2,3,4,5\\) reproduced all prescribed masses to floating-point residual below \\(2\\times10^{-15}\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper gives the antipodal existence iff spanning result and an origin-symmetric existence theorem for even masses.",
+          "It also emphasizes nonuniqueness phenomena elsewhere in negative-\\(p\\) Minkowski theory, making a uniqueness island mathematically nontrivial."
+        ],
+        "reasoning": "The broader existence theorem supplies support control but does not dominate the minimal-support closed form.",
+        "searches": [
+          "Shan arXiv:2609.01429 complete full text, especially Lemma 2.1, Theorem 1.2 proof, Section 5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.01429",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work establishes that a solution polytope exists with exactly the prescribed normals.",
+          "The audited theorem solves the resulting coupled facet-area/support equations and proves injectivity in this minimal support regime."
+        ],
+        "reasoning": "The explicit algebraic inverse is not stated by the prior theorem and requires a separate determinant/facet-area calculation.",
+        "searches": [
+          "Direct comparison with Shan Lemma 2.1 and Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No prior explicit uniqueness/closed-form theorem for the \\(2n\\)-point independent antipodal support was located.",
+          "Shan's current abstract and full Theorem 1.2 concern existence, not uniqueness."
+        ],
+        "reasoning": "Minimal antipodal support forces a parallelotope, but existence alone does not determine the support numbers until the mass system is solved.",
+        "searches": [
+          "Resultary query: negative p discrete Lp Minkowski minimal antipodal support uniqueness parallelotope closed form",
+          "Web search: minimal antipodal L_p Minkowski parallelotope uniqueness negative p"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula holds for arbitrary independent directions and arbitrary positive masses."
+        ],
+        "reasoning": "Database/table coverage is inapplicable.",
+        "searches": [
+          "No table/database; analytic comparison with complete primary paper"
+        ]
+      },
+      "rationale": "Shan proves a complete existence characterization for arbitrary positive masses on antipodal supports and, for even data, existence of a symmetric solution. The complete paper does not state uniqueness or an explicit inverse formula in the minimal-support case of exactly \\(n\\) independent antipodal pairs. Targeted searches for a negative-\\(p\\) antipodal parallelotope uniqueness formula found no equivalent theorem. The audited result uses Shan's existence/support theorem as a starting ingredient, but the algebraic inversion and uniqueness are additional.",
+      "residual_risks": [
+        "The minimal-support parallelotope inversion is elementary enough that an older convex-geometry source may contain it without negative-\\(p\\) indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_PRIOR_NOT_COVERING",
+          "evidence": "It proves existence characterization for antipodal supports but no uniqueness or closed-form support numbers for the minimal \\(2n\\)-point support.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.01429",
+          "material_read": "Complete 26-page primary text, including discrete mass formula, support lemma, antipodal Theorem 1.2, even-data section, counterexample, and references.",
+          "method": "Open full-text routes were checked first; complete text was then read through authorized institutional access.",
+          "title": "The Discrete L_p Minkowski Problem for Negative p",
+          "trigger": "Direct motivating source and strongest plausible same-paper coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Shan 2026 complete primary text"
+      ],
+      "rationale": "Negative-\\(p\\) Minkowski problems are generally nonunique, so a minimal-support regime with global uniqueness and a closed inverse map from masses to support numbers is a meaningful structural boundary. The result is exact for every dimension and all positive masses and is not a finite or arbitrarily sliced computation.",
+      "residual_risks": [
+        "The theorem does not claim uniqueness once more than \\(n\\) antipodal direction pairs are allowed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.01429",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The directions are exactly \\(n\\) linearly independent antipodal pairs.",
+    "No uniqueness claim is made for larger antipodal supports."
+  ],
+  "residual_risks": [
+    "The minimal-support parallelotope inversion is elementary enough that an older convex-geometry source may contain it without negative-\\(p\\) indexing."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "EXISTENCE_PRIOR_NOT_COVERING",
+      "evidence": "It proves existence characterization for antipodal supports but no uniqueness or closed-form support numbers for the minimal \\(2n\\)-point support.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.01429",
+      "material_read": "Complete 26-page primary text, including discrete mass formula, support lemma, antipodal Theorem 1.2, even-data section, counterexample, and references.",
+      "method": "Open full-text routes were checked first; complete text was then read through authorized institutional access.",
+      "title": "The Discrete L_p Minkowski Problem for Negative p",
+      "trigger": "Direct motivating source and strongest plausible same-paper coverage."
+    }
+  ]
+}
