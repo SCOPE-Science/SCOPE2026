@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-The theorem is verified along four structural branches.
+# Independent mathematical audit
 
-1. For composition length \(2\), every possible module type gives isolated vertices, so a total dominating set cannot exist.
-2. For nonsemisimple length at least \(3\), \(\operatorname{Soc}(M)\) is a proper universal vertex and has an adjacent proper submodule, yielding a two-vertex total dominating set.
-3. For mixed semisimple modules, submodules split across isotypic components; explicit overlapping component sums give a two-vertex total dominating set.
-4. For homogeneous semisimple modules, the published ordinary lower bound is \(q+1\), while the \(q+1\) hyperplanes through a fixed codimension-two subspace form a total dominating set because the common subspace is nonzero when the composition length is at least \(3\).
+## correctness
 
-The standalone verifier constructs several small module/subspace intersection graphs and searches total dominating sets exhaustively. Its output is:
+PASS
 
-```text
-VERIFY_OK
-F_2^2: subspaces=5, vertices=3, gamma_t=None
-F_2^3: subspaces=16, vertices=14, gamma_t=3
-F_2^4: subspaces=67, vertices=65, gamma_t=3
-F_3^3: subspaces=28, vertices=26, gamma_t=4
-Z/4Z: total_domination=undefined (isolated vertex)
-Z/8Z: gamma_t=2
-C2^2 (+) C3: gamma_t=2
-C2 (+) C3 (+) C5: gamma_t=2
-```
+The length-two obstruction is exhaustive: a nonsemisimple length-two module has one simple proper submodule, while a semisimple length-two module has only simple proper submodules with pairwise zero intersection, so an isolated vertex always occurs. For nonsemisimple \(\ell\ge3\), \(\operatorname{Soc}(M)\) is a proper universal vertex and always has a distinct adjacent proper submodule, giving a two-set. For mixed semisimple modules, the isotypic decomposition gives explicit adjacent proper submodules whose two open neighborhoods cover every nonzero proper submodule. For homogeneous semisimple modules, the ordinary domination lower bound \(q+1\) is prior; the \(q+1\) hyperplanes through a codimension-two subspace cover the vector space and, because \(\ell\ge3\), share a nonzero common subspace, so the selected hyperplanes also dominate one another. The inspected verifier independently checks representative finite lattices but is not used as the infinite proof.
 
-These finite checks confirm the boundary cases but are not used as a proof for arbitrary finite modules.
+## originality
+
+PASS
+
+The closest primary source classifies ordinary domination on exactly these module intersection graphs. It gives ordinary value one for nonsemisimple Artinian modules, \(q+1\) for homogeneous semisimple modules, and two for mixed semisimple modules, but does not address total domination, the length-two obstruction, or whether the ordinary witnesses dominate one another. Fresh Resultary comparison found the assigned record but no earlier total-domination theorem on the same module graph.
+
+## value
+
+PASS
+
+This is a complete classification of a natural strengthened domination invariant on a standard algebraic graph family. It identifies the exact existence boundary and precisely how the classical ordinary-domination trichotomy changes under the requirement that selected vertices also have selected neighbors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

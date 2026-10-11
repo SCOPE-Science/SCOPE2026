@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The length-two obstruction is exhaustive. For nonsemisimple finite-length modules, the socle is a proper universal vertex and a second adjacent proper submodule always exists when the length is at least three. For mixed semisimple modules, isotypic splitting gives explicit adjacent two-vertex total dominating sets. For homogeneous semisimple modules, the published ordinary lower bound \(q+1\) combines with \(q+1\) hyperplanes through a nonzero codimension-two subspace to give equality for total domination. Exhaustive checks on small examples reproduce every branch.
+PASS
 
-Risk: the statement depends on excluding the zero submodule from the vertex set; this convention is stated explicitly.
+The length-two obstruction is exhaustive: a nonsemisimple length-two module has one simple proper submodule, while a semisimple length-two module has only simple proper submodules with pairwise zero intersection, so an isolated vertex always occurs. For nonsemisimple \(\ell\ge3\), \(\operatorname{Soc}(M)\) is a proper universal vertex and always has a distinct adjacent proper submodule, giving a two-set. For mixed semisimple modules, the isotypic decomposition gives explicit adjacent proper submodules whose two open neighborhoods cover every nonzero proper submodule. For homogeneous semisimple modules, the ordinary domination lower bound \(q+1\) is prior; the \(q+1\) hyperplanes through a codimension-two subspace cover the vector space and, because \(\ell\ge3\), share a nonzero common subspace, so the selected hyperplanes also dominate one another. The inspected verifier independently checks representative finite lattices but is not used as the infinite proof.
 
-## Originality
+## originality
 
-PASS. The closest primary paper gives the ordinary domination classification for the same graph, not total domination. Targeted searches using “total domination”, “total dominating set”, submodule-intersection aliases, socle language, and the \(q+1\) formula returned no matching theorem. Later structural papers located in the search results likewise discuss ordinary domination, connectedness, diameter, coloring, or variants of the intersection graph.
+PASS
 
-Risk: absence from the searched indexes is not a proof of global novelty; an unindexed source may exist.
+The closest primary source classifies ordinary domination on exactly these module intersection graphs. It gives ordinary value one for nonsemisimple Artinian modules, \(q+1\) for homogeneous semisimple modules, and two for mixed semisimple modules, but does not address total domination, the length-two obstruction, or whether the ordinary witnesses dominate one another. Fresh Resultary comparison found the assigned record but no earlier total-domination theorem on the same module graph.
 
-## Value
+## value
 
-PASS. The result gives a complete finite-module classification rather than an isolated computation, identifies composition length two as the exact obstruction to existence, and shows precisely how the classical ordinary-domination trichotomy changes under the backup-neighbor requirement of total domination.
+PASS
 
-Risk: the classification is not extended to infinite modules.
+This is a complete classification of a natural strengthened domination invariant on a standard algebraic graph family. It identifies the exact existence boundary and precisely how the classical ordinary-domination trichotomy changes under the requirement that selected vertices also have selected neighbors.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
