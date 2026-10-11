@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem was checked at four interfaces.
+# Independent mathematical audit
 
-First, representative independence was proved directly. If \(b\) and \(b+r_j\) represent the same element of \(\mathbb Z_{r_j}\), their images differ by \((1-k_i)r_j\) in \(\mathbb Z_{r_i}\). This vanishes exactly under the stated divisibility condition.
+## correctness
 
-Second, after descent, right translation by an element of fiber \(j\) restricts on fiber \(i\) to an affine map with linear part multiplication by \(k_j\). It is a permutation exactly when \(\gcd(k_j,r_i)=1\).
+PASS
 
-Third, right self-distributivity was expanded symbolically. Both sides reduce to
-\[
-k_\ell k_j a+(1-k_i)k_\ell b+(1-k_i)c.
-\]
-Thus no hidden compatibility condition is omitted once all cross terms are legitimate.
+Representative independence is exact: changing b by r_j changes the target residue by \((1-k_i)r_j\), yielding the necessary and sufficient divisibility condition. Once the operation descends, each right translation restricted to target fiber i is affine with linear part multiplication by k_j, so bijectivity is exactly \(\gcd(k_j,r_i)=1\). Direct coefficient expansion makes right self-distributivity automatic under well-definedness; idempotence is immediate. Reducing pairwise divisibilities by gcd and taking lcms yields the compact criterion. Fresh exhaustive replay over 1,225 small two-fiber own-unit systems independently confirmed the descent and cross-unit tests, including the two source examples.
 
-Fourth, the embedded standalone checker exhaustively explores small two-fiber systems, compares the pairwise and least-common-multiple criteria, produces representative-dependence witnesses on descent failures, checks nonbijective right translations on unit failures, and verifies all quandle axioms whenever the theorem predicts success. Its output is:
+## originality
 
-`VERIFY_OK systems=484 criterion_true=160 checked_quandles=160 descent_failure_witnesses=318 example7.3=PASS example7.5_k2_k3_k4=FAIL_DESCENT`
+PASS
 
-The source examples are included as explicit regression tests: Example 7.3 passes; Example 7.5 with \(k=2,3,4\) fails canonical quotient descent.
+The recent source itself says non-identical-order class-(iii) solutions exist only in certain cases and prints examples, but gives no necessary-and-sufficient representative-independence criterion. Classical affine-mesh theory broadly requires explicit homomorphisms between heterogeneous component groups, explaining the conceptual issue without supplying the target-specific arithmetic specialization. A separate published correction finds a missing equal-order prime-field family; it concerns a different defect and does not imply the cross-modulus descent conditions.
 
-Finite tests are not used as proof of the infinite statement. The conclusion about Example 7.5 is not a claim that its printed Cayley tables fail the quandle axioms; it concerns whether those tables arise canonically from the literal quotient-module expression without extra cross-fiber data.
+## value
 
-The independent-audit channel has not been performed.
+PASS
+
+The theorem converts a recent source's vague 'certain cases' caveat into a complete decidable criterion and distinguishes canonical quotient descent from the weaker existence of a printed set-theoretic table. This is a natural correctness boundary for the construction and directly clarifies its concrete examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
