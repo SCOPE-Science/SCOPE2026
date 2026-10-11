@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For N>=5 the deleted-character support is exactly two, three, or four sites depending on lag; the resulting Fourier polynomials are 1+u, 1+u+u^2, or (1+u)(1+v). K=0 ambiguity never vanishes. Exact congruence counts give H_N, d solutions to u=-1, (q/2)J_d intersection, and 4d primitive-cube-root zeros, with the q=2 exceptional lag treated separately. By Goldberger--Kang--Okoudjou Theorem 1 the count equals rank deficiency. The packaged standard-library checker independently calculates integer residues modulo cyclotomic polynomials for all 589 pairs 5<=N<=35 and agrees exactly. It is finite corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original general spectral rank theorem reduces the problem to Fourier zero counts, but does not calculate the nonunit-distance family.",
+        "Two-sparse Gabor windows have only two nonzero coordinates; the present window has N-2 nonzero coordinates, and its DFT is not generally two-sparse.",
+        "Previously derived adjacent rectangular rank laws imply coprime gaps but have no nonunit gap parameter."
+      ],
+      "reasoning": "Every fixed-N computation can be performed under the general theorem, which is credited. The exact all-N divisor formula with spacing order q is not implied by the title or scope of two-sparse support results; the two missing sites are not two surviving sites, nor is there a general Fourier duality making them so. The N=15 nonunit gap changes the rank while adjacent-gap formula holds fixed.",
+      "searches": [
+        "informationally complete Gabor projectors for binary cyclic support Z_n excluding two positions, rank deficiency",
+        "two holes binary window Gabor informationally complete odd length divisibility three",
+        "arXiv:2106.01509v1 Proposition 3, Theorem 1, Proposition 8",
+        "Public indexed two-sparse Gabor support-pair study f88f4760cf3b",
+        "Public indexed two-point STFT support study f7682ff5d741"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.01509v1 (Goldberger--Kang--Okoudjou, primary 42C15, first public 2021-06-02)",
+      "arXiv:1503.05800v2 (Bojarovska--Flinth, 2015)",
+      "Public indexed results f88f4760cf3b and f7682ff5d741 (titles and summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldberger--Kang--Okoudjou give rank/ambiguity equivalence and small-support classifications, hence general machinery and n=5 possible-rank coverage are not new.",
+        "Bojarovska--Flinth study characteristic functions of difference sets, while a two-hole complement with N>=5 has nonintegral difference-set parameter (N-2)(N-3)/(N-1).",
+        "Unit-step two-hole windows are affine reindexings of consecutive (N-2)-site rectangular windows, but nonunit steps are not."
+      ],
+      "reasoning": "The coprime-gap and abstract rank-criterion portions are excluded from novelty. The specific nonunit-spacing formula and 3-torsion zero criterion require fresh overlap-pattern and inclusion-exclusion analysis. At N=15, gap a=3 has rank 225 whereas gap a=1 has rank 221, so the prior adjacent-window conclusion cannot cover all gaps.",
+      "searches": [
+        "arXiv:2106.01509v1, Section 2.1 and Section 3",
+        "arXiv:1503.05800v2, Theorem 2.3 and Section 2.3.2",
+        "Public indexed support-geometry f7682ff5d741",
+        "cyclic Fourier ambiguity indicator complement two points arbitrary separation phase retrieval 3-torsion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2106.01509v1 states rank equals count of nonzero ambiguity coefficients; it does not express the specific two-hole count with gcd and 2/3 torsion.",
+        "arXiv:1503.05800v2 Theorem 2.3 gives a nonvanishing sufficient criterion, not the nonunit two-hole arithmetic classification."
+      ],
+      "reasoning": "Equivalent language includes Weyl-covariant POVM operator Gram rank, discrete STFT autoambiguity zeros, and Fourier transforms of indicator overlap sets. The general equivalence explains the computation but has no matching family-specific closed count. Affine unit reindexing handles only gcd(N,a)=1, leaving gcd(N,a)>1 untouched.",
+      "searches": [
+        "cyclic Gabor projector rank binary window two zero coordinates separated distance incomplete informationally complete exact ambiguity zero count arithmetic 2 3 torsion",
+        "two-puncture flat cyclic Gabor window support complement of 2 points phase retrieval rank classification",
+        "cyclic Fourier ambiguity indicator complement two points arbitrary separation phase retrieval 3-torsion",
+        "two erasures of an all-ones cyclic fiducial vector Gabor POVM exact rank nonzero Weyl ambiguity parameter gcd modulus 3",
+        "two-hole or twice-punctured constant mask character ambiguity Gabor phase retrieval N odd order 3",
+        "Goldberger--Kang--Okoudjou, arXiv:2106.01509v1, Theorem 1 and Proposition 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No queried indexed summary displayed a database or count for two-hole flat-window Gabor projector ranks.",
+        "Goldberger--Kang--Okoudjou Proposition 8 lists possible ranks in dimensions 4 and 5 for windows with sparse zeros; a list of possible ranks is not the spacing-dependent all-N formula."
+      ],
+      "reasoning": "An all-N closed expression and its nonunit spacing classification, rather than reproducing any known numerical rank table, is the candidate claim. A missed table or older discrete Fourier overlap count remains possible; the search result itself is not a uniqueness proof.",
+      "searches": [
+        "cyclic Gabor projector rank binary window two zero coordinates separated distance incomplete informationally complete exact ambiguity zero count arithmetic 2 3 torsion",
+        "two-puncture flat cyclic Gabor window support complement of 2 points phase retrieval rank classification",
+        "two-hole or twice-punctured constant mask character ambiguity Gabor phase retrieval N odd order 3",
+        "informationally complete Gabor projectors for binary cyclic support Z_n excluding two positions, rank deficiency",
+        "finite Gabor projector rank indicator of complement of two points arbitrary spacing"
+      ]
+    },
+    "rationale": "The independent all-N rank/ambiguity equivalence is due to Goldberger--Kang--Okoudjou; Bojarovska--Flinth already establish injectivity for suitable generators, and the coprime missing-point spacings are covered by earlier adjacent-block arithmetic. The distinct contribution surviving implication checks is the closed all-N nonunit-spacing rank classification: on Z_15, gaps 1,3,5 produce deficiencies 4,0,20. No checked source or indexed result asserts this nonunit-distance formula. Unindexed coverage is a residual risk, not excluded by search.",
+    "residual_risks": [
+      "A published but unindexed two-hole overlap-DFT rank theorem or a nontrivial reduction not found in the inspected sources could subsume the claim.",
+      "Indexed two-sparse and two-point-window sources were compared using titles and abstracts only, not treated as whole-document NOT_COVERING.",
+      "Only operator-span rank, not robustness or nonlinear pure-state phase retrieval, is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the rank criterion and relevant prior special cases, but no general nonunit two-hole rank formula in inspected sections.",
+        "evidence": [
+          "Theorem 1 identifies rank with nonzero Weyl ambiguity count.",
+          "Proposition 3 gives support-one/two ranks, and Proposition 8 lists possible ranks for N=4,5."
+        ],
+        "identifier_or_url": "arXiv:2106.01509v1",
+        "material_read": "Full-text HTML, Introduction, Theorem 1, Section 2.1 spectrum, Proposition 3 on support 1/2, Section 3 and Proposition 8 small-dimensional support ranks.",
+        "method": "Read original arXiv full-text HTML and compared the theorem statements and quantifiers with the two-hole mask.",
+        "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+        "trigger": "Direct predecessor on exact operator-Gram rank for full cyclic Gabor POVMs."
+      },
+      {
+        "assessment": "Offers nonvanishing ambiguity sufficiency and certain difference-set constructions; complement-of-two support is not an admissible difference set.",
+        "evidence": [
+          "Theorem 2.3 states nonzero-ambiguity sufficiency.",
+          "Proposition 2.2 imposes difference-set hypotheses, which fail for complements of two points for N>=5."
+        ],
+        "identifier_or_url": "arXiv:1503.05800v2",
+        "material_read": "Full-text HTML Section 2.2 Theorems 2.2/2.3, Section 2.3.2 difference sets and Section 2.4 counterexamples.",
+        "method": "Read arXiv original HTML and compared sufficient hypotheses and supports.",
+        "title": "Phase Retrieval from Gabor Measurements",
+        "trigger": "Earliest directly relevant characteristic-function Gabor injectivity and Fourier ambiguity work."
+      },
+      {
+        "assessment": "The described two-nonzero-support STFT support-pair problem is materially different; full-text coverage not certified.",
+        "evidence": [
+          "Indexed summary concerns generic windows with exactly two supported positions and short-time Fourier signal support pairs."
+        ],
+        "identifier_or_url": "f88f4760cf3b",
+        "material_read": "Search-index title and summary only; full manuscript inaccessible in this inspection.",
+        "method": "Compared accessible description with the actual two-hole operator-span family.",
+        "title": "The two-sparse support-pair correspondence for generic cyclic Gabor windows",
+        "trigger": "Nearest indexed title mentioning two-coordinate Gabor windows."
+      },
+      {
+        "assessment": "Two-point window STFT minimum support is not the operator rank of a two-missing-point flat window; residual cross-reduction risk is disclosed.",
+        "evidence": [
+          "Indexed summary evaluates the minimum STFT support of signals under the two-point window."
+        ],
+        "identifier_or_url": "f7682ff5d741",
+        "material_read": "Search-index title and summary only; full manuscript inaccessible in this inspection.",
+        "method": "Compared indexed object, quantifiers and computed invariant.",
+        "title": "Exact support geometry for a two-point cyclic short-time Fourier window",
+        "trigger": "Possible Fourier/duality alternative involving two-point supports."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6aad2559-8ee0-41e2-9320-96b91366b43e",
+  "value": {
+    "rationale": "The full-rank threshold for a natural two-dead-coordinate constant Gabor measurement fiducial has a subtle arithmetic dependence on the deleted-site separation. The complete classification for all cyclic orders, not a chosen numerical slice, identifies a sharp 3-torsion obstruction in odd dimensions and both 2-torsion obstructions and exact multiplicities in even dimensions. In composite odd order 15, changing only the two-hole spacing switches exact linear informational completeness and produces distinct rank deficits 0, 4, and 20. This is a motivated exact structured measurement invariant useful in selecting fiducial masks, without claiming a general conditioning theorem or paper-sized contribution.",
+    "status": "PASS"
+  }
+}
