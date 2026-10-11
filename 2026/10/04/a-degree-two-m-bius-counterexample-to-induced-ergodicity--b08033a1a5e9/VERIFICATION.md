@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-The correspondence consists of the two Möbius graphs of the identity and \(R(z)=e^{2\pi i(\sqrt2-1)}z\). Both coordinate projections of each graph are bijective, so the generic topological degree is two.
 
-Normalized arclength \(\mu\) on \(\mathbb S^1\) is invariant under \(R\), hence
-\[
-\frac12\int\left(f(z)+f(R^{-1}z)\right)d\mu(z)=\int f\,d\mu
-\]
-for every continuous \(f\).
+# Independent mathematical audit
 
-For an almost-invariant Borel set \(A\), the defining full-measure subset \(A'\) satisfies \(R^{-1}(A')\subseteq A\). Since \(A'=A\) modulo \(\mu\), this gives \(R^{-1}(A)=A\) modulo \(\mu\), and irrational-rotation ergodicity forces \(\mu(A)\) to be zero or one.
+## correctness
 
-For the arc \(E\) of angular length \(1/10\), its rotation by \(\sqrt2-1\) is disjoint from \(E\). Thus the identity branch realizes first return at time one and
-\[
-\mathcal F_E(z)=\{z\}
-\]
-for every \(z\in E\). The half-arc \(B\) is induced-almost-invariant with \(\mu_E(B)=1/2\), so the induced measure is not ergodic.
+PASS
 
-The full primary manuscript was inspected at the definitions and proof locations relevant to this claim. A public audit was compared at statement level; it identifies the proof gap but does not supply or imply this counterexample.
+Normalized arclength is invariant under the irrational rotation, so averaging the identity and inverse-rotation pullbacks gives the required normalized pullback invariance. If \(A\) is almost invariant for the two-branch correspondence, the full-measure representative satisfies \(R^{-1}(A)\subseteq A\) modulo measure; equality of measures makes this \(R^{-1}(A)=A\) modulo measure, and irrational-rotation ergodicity forces measure zero or one. For the arc of angular length \(1/10\), its rotation by \(\sqrt2-1\) is disjoint, while the identity branch returns at time one. Under the source's minimum-return definition the induced correspondence is therefore exactly the identity, and the half-arc is induced-almost-invariant with normalized measure \(1/2\).
 
-Limits: this verifies only the stated counterexample to the literal theorem and does not establish a general repair theorem.
+## originality
+
+PASS
+
+The primary paper states the opposite inheritance theorem. The public audit identifies the same gap in the reverse almost-invariance argument but stops at non-verification and provides no counterexample. The explicit two-Möbius-branch example therefore gives a strictly stronger conclusion: falsity of the theorem under its literal definitions. Resultary returned the current record as the exact counterexample hit.
+
+## value
+
+PASS
+
+The source presents induced ergodicity as a central structural theorem. Replacing a proof-gap diagnosis with a transparent non-atomic degree-two counterexample decisively changes the mathematical status of that theorem and isolates the branch-discarding mechanism any repair must address.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof directly checks the holomorphic correspondence, normalized pullback invariance, original almost-invariant-set ergodicity, exact first return, and failure of induced ergodicity. No finite experiment is used as proof.
+## correctness
 
-## Originality
-PASS. The primary manuscript claims the opposite conclusion. A public audit identifies the proof gap but stops at non-verification and supplies no counterexample. Targeted searches for Möbius, irrational-rotation, two-branch, and multivalued-first-return variants found no implication-equivalent public result.
+PASS
 
-## Value
-PASS. The example converts an open proof defect in a central recent theorem into a decisive counterexample and isolates the structural mechanism: minimum first return can erase a branch that supplies ergodicity.
+Normalized arclength is invariant under the irrational rotation, so averaging the identity and inverse-rotation pullbacks gives the required normalized pullback invariance. If \(A\) is almost invariant for the two-branch correspondence, the full-measure representative satisfies \(R^{-1}(A)\subseteq A\) modulo measure; equality of measures makes this \(R^{-1}(A)=A\) modulo measure, and irrational-rotation ergodicity forces measure zero or one. For the arc of angular length \(1/10\), its rotation by \(\sqrt2-1\) is disjoint, while the identity branch returns at time one. Under the source's minimum-return definition the induced correspondence is therefore exactly the identity, and the half-arc is induced-almost-invariant with normalized measure \(1/2\).
 
-The closest literature is the source theorem itself, Londhe's underlying ergodicity framework, and a public audit that identifies the proof gap without disproving the theorem. The result does not characterize corrected hypotheses or alternative saturation-based induced correspondences.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper states the opposite inheritance theorem. The public audit identifies the same gap in the reverse almost-invariance argument but stops at non-verification and provides no counterexample. The explicit two-Möbius-branch example therefore gives a strictly stronger conclusion: falsity of the theorem under its literal definitions. Resultary returned the current record as the exact counterexample hit.
+
+## value
+
+PASS
+
+The source presents induced ergodicity as a central structural theorem. Replacing a proof-gap diagnosis with a transparent non-atomic degree-two counterexample decisively changes the mathematical status of that theorem and isolates the branch-discarding mechanism any repair must address.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
