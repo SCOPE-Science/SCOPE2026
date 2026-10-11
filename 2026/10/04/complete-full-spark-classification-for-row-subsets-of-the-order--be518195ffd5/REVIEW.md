@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Published general necessity reduces the problem to uniformly distributed row sets. Affine invariance and complementary-minor symmetry are exact. Exhaustive enumeration gives 38 affine orbits and 20 representatives up to complement. For every maximal minor of each low-cardinality representative, nonvanishing is certified by at least one of two exact finite-field reductions unless the representative is one of four listed obstructions; those four have explicit determinant polynomials divisible by \(\Phi_{14}\). The standalone verifier reproduces all counts and witnesses.
+## correctness
 
-## Originality
-PASS on the inspected evidence. The closest primary literature gives the prime-power iff theorem, general necessity, the order-10 counterexample, and partial criteria for products of two primes. Searches across full-spark, universal-sampling, partial-DFT, affine-orbit, and explicit order-14 formulations did not locate a complete order-14 iff classification. Residual risk remains for unindexed or substantially differently phrased literature.
+PASS
 
-## Value
-PASS. Order \(14\) is the next small product-of-two-primes case beyond the canonical order-10 obstruction and is directly within the composite-order gap highlighted by prior work. The result identifies every obstruction orbit, gives exact counts by cardinality, and separates modular screening from exact complex zero certification.
+The package's all-order-14 claim was reconstructed as a finite exact classification. Uniform-distribution enumeration gives exactly 2142 nonempty proper admissible row sets, 38 affine orbits, and 20 representatives of size at most seven after complement symmetry. I independently replayed the modular maximal-minor certificate over primitive 14th roots in \(\mathbb F_{29}\) and \(\mathbb F_{43}\): across 33086 maximal-minor tests, exactly four low-cardinality representatives have minors vanishing in both reductions. Exact cyclotomic reduction modulo \(\Phi_{14}\) verifies a genuine zero witness for each of those four. Their affine orbits and complements contain exactly 308 row sets, leaving 1834 full-spark sets with the displayed cardinality counts. Nonzero reduction in either field is a valid certificate of nonzero characteristic-zero determinant; exact cyclotomic zero witnesses establish the converse bad cases.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The central primary source, Alexeev–Cahill–Mixon, was inspected in full-text PDF around its characterization theorem and composite-order discussion. It proves uniform distribution is sufficient exactly in the prime-power theorem, proves necessity for arbitrary order, and gives an order-10 composite counterexample showing sufficiency fails in general. It therefore motivates but does not imply an order-14 classification. Osgood–Siripuram–Wu develops the equivalent universal-sampling viewpoint in the prime-power setting, while the inspected Achanta line treats restricted composite constructions. Targeted Resultary and web searches found no complete order-14 affine-orbit classification. The exact exceptional-orbit theorem is therefore original to the best of the inspected evidence.
+
+## value
+
+PASS
+
+Composite Fourier orders are exactly where the clean prime-power characterization breaks. Order 14 is a natural small square-free composite boundary, and the result gives a complete exact classification, explicit obstruction orbits and witnesses, and exact counts rather than a single counterexample. A natural complete finite classification of this kind meets the stated value bar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
