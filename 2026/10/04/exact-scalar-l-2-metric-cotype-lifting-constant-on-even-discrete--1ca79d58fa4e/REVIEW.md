@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim was reconstructed from the definitions on \(G_{m,n}\). The two quadratic forms diagonalize on Fourier characters. Their multipliers are \(4r(k)/n\) and \(2(1-\prod_j\cos(\pi k_j/m))\). For even \(m\), the extremal frequency has every coordinate odd and of minimum angular size; monotonicity of \(r/(1-c^r)\) proves global optimality. The real-scalar constant equals the complex Fourier optimum because the extremizing character and its conjugate span an invariant real plane. Wang's quotient-duality theorem then transfers the exact constant to adjoint liftings. The normalized formula and the \(m/\sqrt n\) limit follow algebraically.
+## correctness
 
-## Originality
-PASS. The focal source defines these constants and proves exact regular norms and a uniform nonlinear upper bound, but direct full-text inspection found no exact scalar \(L_2\) Fourier formula, no \(\cos(\pi/m)^n\) expression, and no sharp-scale scalar profile. The existing ledger contains a different finding from the same source concerning arbitrary-coordinate \(\ell_\infty\)-valued liftings and parity of solvability; that statement neither contains nor implies this exact even-scale scalar constant. Searches for equivalent metric-cotype, Fourier, Poincaré, antipodal/sign-increment, and divergence-lifting formulations found no covering statement. The principal residual risk is an older equivalent finite-torus spectral calculation under generic Poincaré terminology.
+PASS
 
-## Value
-PASS. The exact constant is a natural invariant defined by the focal work, not an arbitrary slice. It gives a sharp scalar baseline for the new lifting problem, resolves the whole even \((n,m)\) parameter family at \(p=2\), and yields an explicit continuum sharp-scale profile. It also isolates an exact structural separation: datum-dependent scalar liftings remain bounded at \(m\asymp\sqrt n\) while every regular linear realization has norm \(\sqrt n\).
+Fourier characters diagonalize both quadratic difference forms. If \(r(k)\) coordinates of a frequency are odd, the long-difference energy is \(4r(k)/n\), while averaging over independent signs gives sign energy \(2(1-\prod_j\cos(\pi k_j/m))\). For \(c=\cos(\pi/m)\), any positive cosine product is at most \(c^{r(k)}\), and \(r/(1-c^r)\) is increasing in positive \(r\); nonpositive products give no larger ratio. Hence the maximum is at \(k=(1,\ldots,1)\) and equals \(2/(1-c^n)\). The conjugate-pair real span attains the same ratio, so the complex Fourier computation is valid over real scalars. Wang's exact quotient duality then transfers this to the adjoint lifting constant; normalization gives the displayed \(L_{n,m}\), and the Taylor expansion of \(\log\cos(\pi/m)\) gives the sharp-scale limit. Independent enumeration for small \(n\) and even \(m\), including \(m=2\), reproduced the maximizing frequency and formula.
 
-## Closest literature and limitations
-The closest source is Wang's 2026 paper, which supplies the definitions, quotient-duality identity, and exact regular-factorization norm. Mendel–Naor supplies the foundational discrete-torus metric-cotype framework. Neither inspected statement gives the exact scalar sign-edge constant derived here. The result does not cover odd \(m\), non-scalar targets, or exponents other than \(2\); an equivalent older Fourier/Poincaré calculation remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Wang's primary paper defines exactly these difference and divergence-lifting constants, proves their quotient-duality equality, and computes the optimal regular factorization norm; at the normalized \(p=q=2\) scale this regular norm is \(\sqrt n\). The complete paper does not state the real-scalar Fourier constant \(\sqrt{2/(1-\cos(\pi/m)^n)}\): targeted full-text searches found no Fourier or cosine calculation supplying it. Mendel and Naor provide the metric-cotype discrete-torus framework but not this exact finite scalar extremum. Current Resultary search returned the assigned formula as the exact same-object hit and no stronger scalar theorem.
+
+## value
+
+PASS
+
+The result exactly evaluates the scalar Hilbert benchmark inside a current metric-cotype lifting framework and exposes a sharp qualitative separation: datum-dependent liftings remain bounded at \(m\asymp\sqrt n\) while every regular linear realization has cost \(\sqrt n\). The exact frequency extremizer and limit profile are natural invariants of the canonical torus model and give a meaningful baseline for the Banach-valued theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
