@@ -72,24 +72,28 @@ Q(3)=11
 \]
 and \(3\) is a quadratic residue modulo \(11\). Therefore every prime factor of \(\tau(n)\) below \(19\) must be \(11\).
 
-If \(\tau(n)<209=11\cdot19\), it follows that
+We first exclude the possibility that \(\tau(n)\) itself is prime. If
 \[
-\tau(n)\in\{11,121\}.
+\tau(n)=r
 \]
+is prime, then the divisor-count factorization forces
+\[
+n=a^{r-1}
+\]
+for some prime \(a\). As noted above \(r\nmid n\), hence \(r\nmid a\); Fermat's theorem gives
+\[
+n=a^{r-1}\equiv1\pmod r,
+\]
+so
+\[
+Q(n)\equiv Q(1)\equiv1\pmod r,
+\]
+contradicting \(r\mid Q(n)\).
 
-If \(\tau(n)=11\), then the divisor-count factorization forces
+Now suppose that \(\tau(n)<209=11\cdot19\) is composite. Every prime divisor below \(19\) must be \(11\). If a prime divisor were at least \(19\), the remaining nontrivial factor would be at least \(11\), giving \(\tau(n)\ge 11\cdot19=209\). Hence every prime divisor of the composite number \(\tau(n)\) is \(11\), and the only possibility below \(209\) is
 \[
-n=a^{10}
+\tau(n)=121.
 \]
-for some prime \(a\). Since \(11\nmid a\), Fermat's theorem gives
-\[
-a^{10}\equiv1\pmod{11},
-\]
-hence
-\[
-Q(n)\equiv Q(1)\equiv1\pmod{11},
-\]
-contradicting \(11\mid Q(n)\).
 
 If \(\tau(n)=121=11^2\), then either
 \[

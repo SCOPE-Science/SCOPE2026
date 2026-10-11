@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:56:48Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Fresh residue replay found only r=11 among 3,5,7,11,13,17 with a quadratic-residue root.",
+        "Fresh congruence checks verified the 209 family for several primes p congruent to 4 modulo 19.",
+        "Abel-Lauer-Redi 2021 primary PDF states x^2+x-1 had only n=1 through 10^8 and poses Open Problem 2 on possible tau(n) values."
+      ],
+      "rationale": "The original lower-bound proof omitted the case where tau(n)<209 is a prime at least 19. The corrected proof now excludes every prime value tau(n)=r uniformly: tau(n)=r forces n=a^(r-1), r does not divide a, and Fermat gives n congruent to 1 mod r, contradicting Q(n) congruent to 0 mod r because Q(1)=1. For composite tau(n)<209, all prime factors below 19 except 11 are excluded by the quadratic-residue check; any factor at least 19 would force a remaining factor at least 11 and hence tau(n)>=209, so the sole composite possibility is 121, which the existing Fermat argument excludes. The 209 construction was independently replayed and the source family remains valid.",
+      "risks": [
+        "The repair changes only the proof; the theorem statement and construction are unchanged."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary PDF gives sufficient existence theorems and explicitly lists x^2+x-1 among type-II polynomials with only n=1 found through 10^8."
+        ],
+        "reasoning": "Those results do not imply an exact lower bound on tau(n).",
+        "searches": [
+          "Abel-Lauer-Redi DOI 10.12697/ACUTM.2021.25.07"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "DOI:10.12697/ACUTM.2021.25.07"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Open Problem 2 asks for possible tau(n) values for a fixed polynomial.",
+          "The repaired lower bound requires the prime-tau exclusion plus local residue restrictions; it is not supplied by the source's existence theorem."
+        ],
+        "reasoning": "No inspected prior theorem mechanically yields the 209 minimum.",
+        "searches": [
+          "Abel-Lauer-Redi Theorem 1/open problems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's closest related published SCOPE result concerns x^2-x+1, a different polynomial.",
+          "No independent exact-minimum statement was located."
+        ],
+        "reasoning": "Equivalent formulations through relative tau-numbers and divisor-count values were checked.",
+        "searches": [
+          "Resultary: tau(n) divides n^2+n-1 least divisor count 209",
+          "Exact web searches for tau(n), n^2+n-1, 209"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact 209 row or minimum was located.",
+          "The source's table/search only reaches n<=10^8, while the displayed first family member has 41 digits."
+        ],
+        "reasoning": "The claim is an infinite exact minimum, not a recomputation of the source's finite search.",
+        "searches": [
+          "Resultary exact polynomial/value search",
+          "Primary-paper computational statement"
+        ]
+      },
+      "rationale": "The primary source reports only a finite search through 10^8 for this type-II polynomial and asks for possible divisor-count values. Its general existence results do not provide a least possible divisor count. Resultary and exact-web searches found no prior 209 minimum.",
+      "residual_risks": [
+        "An unindexed note may contain the same elementary minimum argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATES_AND_DOES_NOT_COVER_EXACT_MINIMUM",
+          "evidence": [
+            "Section 6 lists x^2+x-1 among type-II polynomials with only n=1 found through 10^8 and asks for possible tau(n) values."
+          ],
+          "identifier_or_url": "DOI:10.12697/ACUTM.2021.25.07",
+          "material_read": "Full primary PDF, including definitions, existence theorem, Section 6 open problems, the x^2+x-1 search-through-10^8 statement and Open Problem 2.",
+          "method": "Open publisher PDF text plus rendered-page inspection.",
+          "title": "About the number of tau-numbers relative to polynomials with integer coefficients",
+          "trigger": "Exact motivating polynomial and open problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Sharp minimum 209 plus an infinite attaining family."
+      ],
+      "rationale": "The theorem gives the first nontrivial divisor-count value for a polynomial explicitly highlighted by a published open problem and explains why the published finite search missed it. This is a natural exact invariant, not an arbitrary numerical slice.",
+      "risks": [
+        "It does not classify all attainable divisor counts or the least attaining integer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "For Q(x)=x^2+x-1, the least divisor count among nontrivial relative tau-numbers is 209, and it is attained infinitely often by n=p^10 31^18 for primes p congruent to 4 modulo 19.",
+  "limitations": [
+    "No classification of all larger tau(n) values.",
+    "No least-n statement."
+  ],
+  "schema_version": 1
+}
