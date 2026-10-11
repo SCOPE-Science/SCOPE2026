@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:36:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 11bdd46d81ae6a3c9e14a38b3e5182fdaab4d074",
+        "assigned verify.py blob 0e3de1b9d4c124cf889884a4e79e8863a2c9bdf1",
+        "J. C. Sprott, Some simple chaotic flows, DOI:10.1103/PhysRevE.50.R647"
+      ],
+      "rationale": "The coordinate generator identities give \\(\\mathbb E[x]=\\gamma\\), \\(\\mathbb E[y]=\\beta\\mathbb E[x^2]\\), and \\(\\mathbb E[z]=-(\\beta/\\alpha)\\mathbb E[x^2]\\). With \\(v=\\gamma-x\\), \\(w=-(y+\\alpha z)\\), the inspected package certificate differentiates exactly to \\(\\dot C=\\alpha v^2-w^2\\), so stationarity gives the derivative-energy law and hence the exact height defect. Equality forces \\(x=\\gamma\\) on invariant support and then the unique equilibrium. Variation of constants in \\(\\dot y+y=\\beta x^2\\) on a bounded complete orbit gives a positive past integral; vanishing would force an impossible bounded complete trajectory with \\(x\\) identically zero on a backward half-line while \\(\\gamma>0\\). On a periodic orbit, \\(v\\) has mean zero and \\(\\int \\dot v^2=\\alpha\\int v^2\\); Wirtinger's inequality yields \\(P\\ge2\\pi/\\sqrt\\alpha\\), while equality would make \\(v\\) a first harmonic and the exact jerk equation would force \\((\\gamma-v)^2\\) constant, impossible for a nonconstant harmonic. Thus the bound is strict.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The analogous Resultary records concern different polynomial flows and their certificates do not transform to the Sprott L equations.",
+          "No inspected broader theorem states the exact \\(L^2\\) derivative-energy identity for this flow."
+        ],
+        "reasoning": "Generic Wirtinger and invariant-measure generator identities are tools, not a prior theorem supplying the system-specific certificate or strict equality obstruction.",
+        "searches": [
+          "Sprott 1994 full article",
+          "Resultary analogous records: exact recurrence balances and a sharp period floor for the Genesio system; exact recurrence balances and a strict period floor for the Moore--Spiegel oscillator"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1103/PhysRevE.50.R647",
+        "Resultary semantic search",
+        "published stationary-balance/period-floor results for other polynomial flows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed ODE and a general inequality do not by themselves imply the required energy equality; the polynomial coboundary is the additional nonstandard step.",
+          "Strictness of the period bound further requires excluding the Wirtinger equality case through the system's jerk relation."
+        ],
+        "reasoning": "The final theorem is not a parameter substitution into a published Sprott theorem.",
+        "searches": [
+          "Sprott 1994 Case L equations and numerical spectrum",
+          "standard Wirtinger inequality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sprott's Table I contains Case L \\(\\dot x=y+3.9z\\), \\(\\dot y=0.9x^2-y\\), \\(\\dot z=1-x\\).",
+          "The primary paper treats numerical chaos, critical points, Lyapunov exponents and phase-volume rate rather than stationary probability measures or a period theorem."
+        ],
+        "reasoning": "The generalized family specializes to Sprott's Case L, so same-model period and invariant-measure statements were searched under both the Case L and generalized-flow formulations.",
+        "searches": [
+          "Resultary: stationary derivative energy law strict period lower bound generalized Sprott L invariant measure y positivity",
+          "DOI:10.1103/PhysRevE.50.R647"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published-result record with the same Sprott L energy law or the numerical boundary \\(2\\pi/\\sqrt\\alpha\\) was returned."
+        ],
+        "reasoning": "The relevant exact object is an analytic identity rather than a finite table; the published-result database was nevertheless searched for the exact same-model invariant.",
+        "searches": [
+          "Resultary exact Sprott L stationary-law/period-floor query"
+        ]
+      },
+      "rationale": "Sprott's complete primary article was inspected through authorized institutional access after open full-text retrieval failed. It introduces Case L, tabulates its critical point and numerical Lyapunov exponents, and discusses divergence and parameter variation, but it contains no compact-invariant-measure moment law, positivity theorem for \\(y\\) on bounded complete trajectories, or period floor. Targeted Resultary searches returned structurally analogous stationary-balance and period-floor records for other vector fields, not a same-object theorem implying this result.",
+      "residual_risks": [
+        "An older system-specific note on Sprott L periodic orbits could contain an equivalent period estimate under different terminology; none was found in the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INTRODUCES_MODEL_NOT_STATIONARY_LAW_OR_PERIOD_BOUND",
+          "evidence": "The article gives Case L equations and numerical dynamical descriptors but no invariant-probability moment identity, bounded-complete positivity result or universal least-period estimate.",
+          "identifier_or_url": "DOI:10.1103/PhysRevE.50.R647",
+          "material_read": "Complete primary article obtained through authorized institutional access after open full-text routes failed; the Case L table, numerical Lyapunov/divergence discussion and concluding parameter discussion were read.",
+          "method": "Authorized primary full-PDF text inspection after open-access attempts failed.",
+          "title": "Some simple chaotic flows",
+          "trigger": "Original source introducing Sprott Case L and the strongest same-object predecessor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sprott 1994",
+        "analogous exact-balance literature for polynomial chaotic flows"
+      ],
+      "rationale": "Sprott L is a canonical simple chaotic flow. The theorem extracts an exact stationary energy law and a strict universal period floor from the ODE, together with a pointwise positivity property of all bounded complete trajectories. These are reusable global constraints on recurrence and are substantially stronger than the source's numerical orbit descriptions.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the positive-parameter generalized Sprott L flow \\(\\dot x=y+\\alpha z\\), \\(\\dot y=\\beta x^2-y\\), \\(\\dot z=\\gamma-x\\), every compactly supported invariant probability measure satisfies the stated first-moment identities and the exact derivative-energy law \\(\\mathbb E[(y+\\alpha z)^2]=\\alpha\\mathbb E[(x-\\gamma)^2]\\); the equilibrium-height defect equals \\((\\beta/\\alpha)\\operatorname{Var}(x)\\), every bounded complete trajectory has \\(y>0\\), and every nonconstant periodic orbit has least period strictly greater than \\(2\\pi/\\sqrt\\alpha\\).",
+  "limitations": [
+    "Parameters \\(\\alpha,\\beta,\\gamma\\) are strictly positive.",
+    "Invariant-measure statements assume compact support.",
+    "The theorem gives a universal lower period bound but does not assert existence of periodic or non-equilibrium compact invariant sets for every parameter triple."
+  ],
+  "schema_version": 1
+}
