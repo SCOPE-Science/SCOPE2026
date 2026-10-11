@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The primary theorem requires a monic \(\lambda\)-constacyclic generator to divide \(x^n-\lambda\). For the first Table 2 tuple, exact division in \(\mathbb F_4[x]\) leaves the nonzero remainder
-\[
-1+\omega^2x+\omega x^3.
-\]
-Reversing the coefficient order also leaves a nonzero remainder. The auxiliary ordinary six-shift span was exhaustively checked over all \(4^6\) messages and has exact parameters \([10,6,3]_4\) with Hermitian hull dimension \(0\).
+PASS
 
-## Originality
+Using \(\mathbb F_4=\mathbb F_2(\omega)\) with \(\omega^2=\omega+1\), independent exact division gives remainders \(1+\omega^2x+\omega x^3\) for the listed-order polynomial and \(\omega+\omega x+\omega^2x^2+\omega^2x^3\) for the reverse ordering. Both are nonzero, contradicting the defining generator divisibility condition for an \(\omega\)-constacyclic code. As a separate check, the six unwrapped shifts have rank six, minimum distance three, Hermitian Gram rank six and hull dimension zero, with the stored weight distribution reproduced exactly.
 
-PASS. The primary article states the disputed \([10,6,4]_4\) row and its \([[10,4,4;2]]_4\) application. Searches by DOI, title, exact row, generator tuple, both parameter strings, and correction terminology found no public correction or earlier statement of this exact divisibility failure. Related small-hull constructions do not imply validity of this printed generator.
+## originality
 
-## Value
+PASS
 
-PASS. The row is explicitly presented as an optimal constacyclic input for an almost-EAQMDS code. The displayed generator fails the defining constacyclic divisor condition, so the issue changes the status of a named quantum-code construction rather than only a secondary invariant. The short algebraic obstruction and complete finite replay make the correction independently checkable.
+The full primary article itself is decisive: Table 2 prints the disputed tuple, parameters and EAQECC application, while the constacyclic framework requires a generator divisor of the modulus. Focused searches found no public correction or erratum for this row. The claim is therefore a source-specific mathematical correction rather than a restatement of coding-theory background.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The error affects a published optimal-code row and its advertised entanglement-assisted quantum-code application. Identifying the exact divisibility failure, removing coefficient-order ambiguity and quantifying the direct shift-span mismatch is a substantive reproducibility correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

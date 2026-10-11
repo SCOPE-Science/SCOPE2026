@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:36:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 703fe4145cf60a4bfdf877b06306f0b5c4dd3f9f",
+        "artifacts/verify.py blob bae33f6249b5dc23ac79c56e99e142ffd04afcbf",
+        "Debnath--Islam--Yadav--Prakash, DOI:10.3934/amc.2025054"
+      ],
+      "rationale": "Using \\(\\mathbb F_4=\\mathbb F_2(\\omega)\\) with \\(\\omega^2=\\omega+1\\), independent exact division gives remainders \\(1+\\omega^2x+\\omega x^3\\) for the listed-order polynomial and \\(\\omega+\\omega x+\\omega^2x^2+\\omega^2x^3\\) for the reverse ordering. Both are nonzero, contradicting the defining generator divisibility condition for an \\(\\omega\\)-constacyclic code. As a separate check, the six unwrapped shifts have rank six, minimum distance three, Hermitian Gram rank six and hull dimension zero, with the stored weight distribution reproduced exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General theory supplies the necessary divisor criterion but does not identify this published row as erroneous.",
+          "No checked broader correction paper covers the exact row."
+        ],
+        "reasoning": "The source-specific contradiction remains additional information.",
+        "searches": [
+          "Debnath et al. 2026 complete article",
+          "standard constacyclic-generator theory"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/amc.2025054",
+        "Resultary semantic search",
+        "constacyclic-code background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper asserts rather than refutes the row.",
+          "Applying its own generator criterion to the printed coefficients gives the opposite conclusion."
+        ],
+        "reasoning": "The correction is not implied as a stated result of the source.",
+        "searches": [
+          "Debnath et al. Table 2 and constacyclic definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Table 2 prints \\(l=1\\), \\(\\lambda=\\omega\\), generator \\((1,\\omega,1,1,1)\\), \\([10,6,4]_4\\), hull dimension 2 and \\([[10,4,4;2]]_4\\).",
+          "Exact polynomial division in both conventional coefficient orders fails."
+        ],
+        "reasoning": "The printed-row validity question is equivalent to whether its alleged generator is a divisor of \\(x^{10}-\\omega\\).",
+        "searches": [
+          "Resultary: quaternary constacyclic Table 2 [10,6,4] [[10,4,4;2]] omega generator Galois hull",
+          "DOI:10.3934/amc.2025054 full primary HTML",
+          "searches for correction/erratum and the exact printed tuple"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact database-like object is the primary paper's own table, and the audited row is the first listed entry.",
+          "No corrected public table was found."
+        ],
+        "reasoning": "This check directly targets the tabulated claim.",
+        "searches": [
+          "Primary Table 2",
+          "Resultary exact parameter/tuple query"
+        ]
+      },
+      "rationale": "The full primary article itself is decisive: Table 2 prints the disputed tuple, parameters and EAQECC application, while the constacyclic framework requires a generator divisor of the modulus. Focused searches found no public correction or erratum for this row. The claim is therefore a source-specific mathematical correction rather than a restatement of coding-theory background.",
+      "residual_risks": [
+        "The authors may have intended a different polynomial and could issue an unindexed correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_ROW_CONTRADICTS_CONSTACYCLIC_DIVISIBILITY_TEST",
+          "evidence": "Table 2 explicitly contains the disputed tuple and advertised parameters; exact finite-field division shows the tuple is not a divisor of the required modulus.",
+          "identifier_or_url": "DOI:10.3934/amc.2025054",
+          "material_read": "Primary full HTML including Table 2; the first row with the printed generator, classical code parameters, hull dimension and EAQECC was inspected directly.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Study of small Galois hull dimensions of constacyclic codes",
+          "trigger": "Exact source of the disputed table row."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Debnath et al. 2026"
+      ],
+      "rationale": "The error affects a published optimal-code row and its advertised entanglement-assisted quantum-code application. Identifying the exact divisibility failure, removing coefficient-order ambiguity and quantifying the direct shift-span mismatch is a substantive reproducibility correction.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The first quaternary row of Debnath--Islam--Yadav--Prakash Table 2 is not \\(\\omega\\)-constacyclic as printed: neither coefficient ordering of \\((1,\\omega,1,1,1)\\) divides \\(x^{10}-\\omega\\) over \\(\\mathbb F_4\\), so that printed generator does not certify the advertised \\([10,6,4]_4\\) code, hull dimension two, or \\([[10,4,4;2]]_4\\) application.",
+  "limitations": [
+    "This diagnoses the first Table 2 row as printed; it does not rule out a typographical correction or another code with the advertised parameters.",
+    "The auxiliary ordinary shift-span calculation is only a consistency check and is not proposed as the intended replacement constacyclic code."
+  ],
+  "schema_version": 1
+}
