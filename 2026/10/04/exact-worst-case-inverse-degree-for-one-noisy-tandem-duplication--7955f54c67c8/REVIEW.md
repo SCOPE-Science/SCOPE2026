@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reduced exactly to a binary mismatch profile. The legal-start condition is a weight-one length-\(k\) window. Equality of parents from starts \(i<j\) is equivalent to a zero mismatch interval \([i+k,j+k-1]\). This yields a local packing lemma: at most two representatives of distinct parents can occur among \(k+1\) consecutive starts. The periodic mismatch construction meets that bound, and its realizability over any alphabet with at least two symbols is explicit. The bundled verifier checks the raw channel independently on thousands of received words and checks the witness family on a broad parameter grid.
+## correctness
 
-## Originality
-PASS with residual risk. The closest primary source is Tang–Farnoud’s noisy-duplication paper, which defines the same Hamming-distance-one copied-block operation and develops root-based error characterization and coding. Relevant full-text portions and the conclusion were inspected, together with targeted searches for inverse-ball aliases; no theorem counting distinct one-step parents was located. Exact tandem-duplication sphere work by Lenz–Wachter-Zeh–Yaakobi was compared at the statement level: its adjacent blocks must agree, whereas the present inverse event is a weight-one mismatch window, so its sphere formulas do not imply this law. Published-result searches under parent, preimage, inverse-ball, list-size, ambiguity, and mismatch-profile aliases returned no matching claim. A negative search is not a novelty proof, so an unindexed or differently phrased derivation remains a stated risk.
+PASS
 
-## Value
-PASS. The maximum received-word inverse degree is the sharp worst-case list ambiguity of the one-noisy-duplication channel. It is a natural channel invariant directly tied to unique/list decoding and sphere-packing viewpoints, and the formula resolves all alphabet sizes, duplication lengths, and parent lengths rather than an isolated finite instance.
+The mismatch profile z_t=1[y_t≠y_{t+k}] makes a start legal exactly when its length-k window has weight one. Direct comparison of deletions gives the stated collision criterion. Three representatives of distinct parents cannot lie in k+1 consecutive start positions, yielding the block-packing upper bound. The periodic profile 1,0^(k−1),1 realizes exactly two legal distinct-parent starts per full block and the correct truncated remainder; any such profile is realizable over two symbols recursively along distance-k chains. Fresh independent exhaustive binary checks for fifteen small (n,k) cases reproduced the formula exactly.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Tang–Farnoud define and analyze exactly the one-noisy-duplication channel but focus on roots, derived sequences and correcting codes; the inspected complete text does not give a one-step received-word inverse-degree theorem. Exact noiseless duplication sphere formulas use equality windows rather than the audited weight-one mismatch windows and do not imply this packing law. Targeted Resultary searches returned no covering formula. Best-of-knowledge originality therefore passes with the ordinary risk of differently phrased inverse-sphere literature.
+
+## value
+
+PASS
+
+Maximum inverse degree is the exact worst-case uncoded list ambiguity of the one-noisy-duplication channel, directly relevant to list decoding and sphere-packing interpretations. The theorem resolves the invariant uniformly over all alphabet sizes, duplication lengths and parent lengths with a sharp construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and all-parameter; computation is used only as an independent check.
+# Independent mathematical audit
 
-`verify.py` constructs the inverse parent set directly from the channel definition: for every possible start it tests whether the two adjacent length-\(k\) blocks differ in exactly one coordinate, deletes the second block when legal, and deduplicates the resulting parents. It separately computes the mismatch profile and checks the exact parent-collision criterion for every legal pair in each exhaustive instance.
+## correctness
 
-Exhaustive tests cover \(27\) binary/ternary parameter cases and \(7{,}829\) received words. The script then constructs the periodic extremal mismatch profile and checks the claimed maximum for \(1\le k\le12\) and \(k\le n\le100\), totaling \(1{,}134\) witness cases. The recorded replay result is:
+PASS
 
-`VERIFY_OK exhaustive_cases=27 received_words=7829 witness_cases=1134 k<=12_n<=100`
+The mismatch profile z_t=1[y_t≠y_{t+k}] makes a start legal exactly when its length-k window has weight one. Direct comparison of deletions gives the stated collision criterion. Three representatives of distinct parents cannot lie in k+1 consecutive start positions, yielding the block-packing upper bound. The periodic profile 1,0^(k−1),1 realizes exactly two legal distinct-parent starts per full block and the correct truncated remainder; any such profile is realizable over two symbols recursively along distance-k chains. Fresh independent exhaustive binary checks for fifteen small (n,k) cases reproduced the formula exactly.
 
-The computation does not certify parameters outside its finite ranges; those are covered by the proof in `RESULT.md`. No claim is made about more than one noisy duplication, variable duplication length, or more than one substituted coordinate in the copied block.
+## originality
+
+PASS
+
+Tang–Farnoud define and analyze exactly the one-noisy-duplication channel but focus on roots, derived sequences and correcting codes; the inspected complete text does not give a one-step received-word inverse-degree theorem. Exact noiseless duplication sphere formulas use equality windows rather than the audited weight-one mismatch windows and do not imply this packing law. Targeted Resultary searches returned no covering formula. Best-of-knowledge originality therefore passes with the ordinary risk of differently phrased inverse-sphere literature.
+
+## value
+
+PASS
+
+Maximum inverse degree is the exact worst-case uncoded list ambiguity of the one-noisy-duplication channel, directly relevant to list decoding and sphere-packing interpretations. The theorem resolves the invariant uniformly over all alphabet sizes, duplication lengths and parent lengths with a sharp construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

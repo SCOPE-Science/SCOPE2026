@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:52:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Y. Tang, F. Farnoud, Error-correcting Codes for Noisy Duplication Channels, arXiv:2008.08174 / IEEE Transactions on Information Theory 67 (2021); complete primary PDF inspected for the Hamming-distance-one noisy-duplication model, derivative/root representation and code construction.",
+        "A. Lenz, A. Wachter-Zeh, E. Yaakobi, Duplication-Correcting Codes, arXiv:1712.09345; exact noiseless tandem/palindromic sphere results compared.",
+        "Y. Tang, Y. Yehezkeally, M. Schwartz, F. Farnoud, Single-Error Detection and Correction for Duplication and Substitution Channels, arXiv:1911.05413; nearby error model compared.",
+        "Resultary semantic searches for noisy-tandem inverse parents, preimages, inverse balls, ambiguity and mismatch-window formulas.",
+        "Assigned RESULT.md and verify.py at tree be6f5d0c2db1f3db8b9b49be9da5c9d98db51588.",
+        "Fresh independent exhaustive binary replay for fifteen small (n,k) cases."
+      ],
+      "rationale": "The mismatch profile z_t=1[y_t≠y_{t+k}] makes a start legal exactly when its length-k window has weight one. Direct comparison of deletions gives the stated collision criterion. Three representatives of distinct parents cannot lie in k+1 consecutive start positions, yielding the block-packing upper bound. The periodic profile 1,0^(k−1),1 realizes exactly two legal distinct-parent starts per full block and the correct truncated remainder; any such profile is realizable over two symbols recursively along distance-k chains. Fresh independent exhaustive binary checks for fifteen small (n,k) cases reproduced the formula exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Farnoud treat codes robust to exact duplications plus a noisy duplication.",
+          "Lenz et al. give sphere formulas for noiseless channels, whose inverse condition is equality rather than one mismatch."
+        ],
+        "reasoning": "Broader coding/sphere results do not dominate the exact noisy inverse-list invariant.",
+        "searches": [
+          "Tang–Farnoud noisy-duplication coding theory",
+          "Lenz–Wachter-Zeh–Yaakobi exact duplication sphere theory"
+        ]
+      },
+      "checked_sources": [
+        "Y. Tang, F. Farnoud, Error-correcting Codes for Noisy Duplication Channels, arXiv:2008.08174 / IEEE Transactions on Information Theory 67 (2021); complete primary PDF inspected for the Hamming-distance-one noisy-duplication model, derivative/root representation and code construction.",
+        "A. Lenz, A. Wachter-Zeh, E. Yaakobi, Duplication-Correcting Codes, arXiv:1712.09345; exact noiseless tandem/palindromic sphere results compared.",
+        "Y. Tang, Y. Yehezkeally, M. Schwartz, F. Farnoud, Single-Error Detection and Correction for Duplication and Substitution Channels, arXiv:1911.05413; nearby error model compared.",
+        "Resultary semantic searches for noisy-tandem inverse parents, preimages, inverse balls, ambiguity and mismatch-window formulas.",
+        "Assigned RESULT.md and verify.py at tree be6f5d0c2db1f3db8b9b49be9da5c9d98db51588.",
+        "Fresh independent exhaustive binary replay for fifteen small (n,k) cases."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The noisy inverse condition becomes a sliding binary mismatch profile with window weight exactly one.",
+          "Parent collisions depend on overlap of these weight-one windows, producing the new 'at most two representatives per k+1 starts' packing lemma.",
+          "Noiseless sphere theory has a different local condition and does not yield this collision rule."
+        ],
+        "reasoning": "The exact formula requires a distinct overlap argument rather than mechanical specialization of the prior code constructions.",
+        "searches": [
+          "Tang–Farnoud root/error-pattern analysis",
+          "Noiseless tandem-deletion sphere formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source uses the same condition that the duplicated copy is at Hamming distance one from the source block.",
+          "No inspected theorem counts distinct parents of a fixed received word."
+        ],
+        "reasoning": "Inverse degree, worst-case one-step list size and maximum number of legal deletion parents are equivalent formulations.",
+        "searches": [
+          "Resultary: noisy tandem duplication one error inverse parents mismatch windows",
+          "Searches under preimage, inverse ball, list ambiguity and one-step deletion sphere",
+          "Tang–Farnoud arXiv:2008.08174 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact formula or table was located."
+        ],
+        "reasoning": "The claim is an all-q,n,k symbolic law, not a finite-table extrapolation.",
+        "searches": [
+          "Resultary exact formula searches for 2 floor(m/(k+1))+min(2,m mod(k+1))",
+          "Primary-source full-text alias searches"
+        ]
+      },
+      "rationale": "Tang–Farnoud define and analyze exactly the one-noisy-duplication channel but focus on roots, derived sequences and correcting codes; the inspected complete text does not give a one-step received-word inverse-degree theorem. Exact noiseless duplication sphere formulas use equality windows rather than the audited weight-one mismatch windows and do not imply this packing law. Targeted Resultary searches returned no covering formula. Best-of-knowledge originality therefore passes with the ordinary risk of differently phrased inverse-sphere literature.",
+      "residual_risks": [
+        "An unindexed coding-theory result may phrase the same invariant as an inverse sphere or list-ambiguity bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME CHANNEL, NO INSPECTED ONE-STEP INVERSE-DEGREE THEOREM",
+          "evidence": "The source characterizes noisy-duplication effects for coding but does not state the maximum number of distinct immediate parents of a received word.",
+          "identifier_or_url": "arXiv:2008.08174",
+          "material_read": "Complete primary PDF including channel definition, derived-sequence/root error characterization and code construction sections; targeted inverse/parent/sphere terminology was checked.",
+          "method": "Open primary full-text inspection.",
+          "title": "Error-correcting Codes for Noisy Duplication Channels",
+          "trigger": "Exact same noisy tandem-duplication model."
+        },
+        {
+          "assessment": "DIFFERENT LOCAL CHANNEL CONDITION",
+          "evidence": "The noiseless inverse event requires an exact repeated block; the audited channel requires Hamming distance exactly one.",
+          "identifier_or_url": "arXiv:1712.09345",
+          "material_read": "Complete primary PDF with tandem/palindromic sphere statements.",
+          "method": "Open primary full-text inspection.",
+          "title": "Duplication-Correcting Codes",
+          "trigger": "Strong exact sphere-information source for nearby duplication channels."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Y. Tang, F. Farnoud, Error-correcting Codes for Noisy Duplication Channels, arXiv:2008.08174 / IEEE Transactions on Information Theory 67 (2021); complete primary PDF inspected for the Hamming-distance-one noisy-duplication model, derivative/root representation and code construction.",
+        "A. Lenz, A. Wachter-Zeh, E. Yaakobi, Duplication-Correcting Codes, arXiv:1712.09345; exact noiseless tandem/palindromic sphere results compared.",
+        "Y. Tang, Y. Yehezkeally, M. Schwartz, F. Farnoud, Single-Error Detection and Correction for Duplication and Substitution Channels, arXiv:1911.05413; nearby error model compared.",
+        "Resultary semantic searches for noisy-tandem inverse parents, preimages, inverse balls, ambiguity and mismatch-window formulas.",
+        "Assigned RESULT.md and verify.py at tree be6f5d0c2db1f3db8b9b49be9da5c9d98db51588.",
+        "Fresh independent exhaustive binary replay for fifteen small (n,k) cases."
+      ],
+      "rationale": "Maximum inverse degree is the exact worst-case uncoded list ambiguity of the one-noisy-duplication channel, directly relevant to list decoding and sphere-packing interpretations. The theorem resolves the invariant uniformly over all alphabet sizes, duplication lengths and parent lengths with a sharp construction.",
+      "residual_risks": [
+        "An unindexed coding-theory result may phrase the same invariant as an inverse sphere or list-ambiguity bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exactly one noisy tandem duplication of fixed length k, where the copied block differs in exactly one coordinate, the worst-case number of distinct length-n parents is 2 floor(m/(k+1))+min(2,m mod(k+1)) with m=n−k+1, independently of alphabet size q≥2.",
+  "limitations": [
+    "Exactly one noisy duplication with exactly one substituted coordinate in the copied block.",
+    "No multiple-noisy-error code-size or capacity theorem.",
+    "An unindexed coding-theory result may phrase the same invariant as an inverse sphere or list-ambiguity bound."
+  ],
+  "schema_version": 1
+}
