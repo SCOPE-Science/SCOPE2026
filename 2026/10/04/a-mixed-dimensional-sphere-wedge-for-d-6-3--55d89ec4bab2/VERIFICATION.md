@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 artifacts/verify.py`. The program uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs the entire complex from the definition “domination number at least \(3\)” on the \(15\) possible edges of a labeled six-vertex graph. It then rebuilds the explicit staged matching, checks all matching pairs and all Hasse cover relations, and topologically sorts the modified Hasse diagram to prove acyclicity.
+## correctness
 
-The program performs exact integer algebraic Morse cancellation and verifies that the complete Morse boundary \(C_5^M\to C_4^M\) is the zero \(115\times24\) matrix. It separately computes the full ordinary simplicial boundary ranks over both \(\mathbb F_2\) and \(\mathbb F_3\), checks the Euler characteristic, and verifies the stated critical-cell counts.
+PASS
 
-A successful run ends with `D63_MIXED_WEDGE_VERIFY_OK`. The computation is exhaustive for this finite complex. It does not test or certify any statement for other parameters.
+The domination complex was independently rebuilt from all 2^15 labeled graphs on six vertices. Exactly 4502 nonempty simplices occur, with face counts 15,105,455,1185,1647,915,180. Replaying the package's staged edge matching produced 2181 disjoint pairs, a full 21300-cover Hasse orientation with no directed cycle, and exactly one critical 0-cell, 115 critical 4-cells, and 24 critical 5-cells. Independent integer algebraic Morse reduction gave the entire C_5^M to C_4^M differential as zero. Hence the 4-skeleton is a wedge of 115 four-spheres; it is 3-connected, so Hurewicz identifies pi_4 with H_4 and each zero Morse-boundary column makes the corresponding 5-cell attaching map null-homotopic. The claimed mixed-dimensional wedge follows.
+
+## originality
+
+PASS
+
+Gonzalez and Hoekstra-Mendoza explicitly single out D_{6,3}, report only Euler characteristic 92, and ask whether any D_{n,k} is a wedge of spheres of different dimensions. A same-day published computation determines the mod-2 Betti ranks 115 and 24 but explicitly does not determine the attaching maps or a wedge decomposition. The audited integral Morse differential and Hurewicz step supply exactly that missing information. Current searches found no earlier full homotopy classification of D_{6,3}.
+
+## value
+
+PASS
+
+The theorem answers an explicit published structural question using the very boundary case the source singled out, and upgrades a mixed-dimensional homology signal to a complete homotopy decomposition. The exact finite certificate is therefore a natural classification result, not merely a Betti-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
