@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:18:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob c44abbf716d261507f0e7c8f0569bdd8ec4d8aff",
+        "assigned verify.py blob 5be88ec7917e90050fef9b3717fe1ae4e0fef5fb",
+        "Vyas et al., SOAP: Improving and Stabilizing Shampoo using Adam, arXiv:2409.11321",
+        "Khona et al., SOAP, Muon, and Beyond: Pushing LLM Pretraining Scales, arXiv:2607.20548"
+      ],
+      "rationale": "The stationary calculation is correct under the stated frozen-basis, constant-gradient assumptions. With the \\(45^\\circ\\)-rotated SPD family, entrywise SOAP normalization gives \\(p=(\\kappa+1)/(\\kappa+1+2\\varepsilon)\\) and \\(r=(\\kappa-1)/(\\kappa-1+2\\varepsilon)\\), so the singular values are \\(p+r\\) and \\(p-r\\). Direct algebra gives \\(\\kappa_2=\\kappa+(\\kappa^2-1)/(2\\varepsilon)\\) and \\(\\sigma_{\\min}=4\\varepsilon/((\\kappa+1+2\\varepsilon)(\\kappa-1+2\\varepsilon))\\). In the refreshed eigenbasis the update is diagonal and has condition number \\(\\kappa(1+\\varepsilon)/(\\kappa+\\varepsilon)\\). The angular half-saturation law follows directly from the rotated off-diagonal entry. The assigned verifier independently replays these identities over randomized parameters; the proof itself is exact algebra, not numerical evidence.",
+      "residual_risks": [
+        "The mechanism is stationary and two-dimensional; it does not by itself establish training divergence.",
+        "The singular perturbation depends on taking the small regularizer limit relative to a nonzero stale-basis off-diagonal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior work gives the algorithm and qualitative/empirical basis-freshness problem.",
+          "No inspected source gives an exact spectral condition-number formula for the stationary stale-coordinate map."
+        ],
+        "reasoning": "The source framework is broader algorithmically but does not mechanically imply the audited closed singular law without the new exact calculation.",
+        "searches": [
+          "full SOAP defining paper",
+          "full 2026 SOAP large-scale instability paper",
+          "Resultary current optimization-method corpus"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.11321",
+        "arXiv:2607.20548",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published update does not supply the singular values after entrywise normalization in a rotated SPD family.",
+          "The later instability observations do not imply the exact divergence rate in \\(\\varepsilon\\) or the angular boundary layer."
+        ],
+        "reasoning": "The final claim requires an additional exact matrix calculation and is not a textual or parameter-only specialization.",
+        "searches": [
+          "Algorithm 3 SOAP update versus the exact constant-gradient two-by-two family",
+          "stale-preconditioner empirical instability versus analytic stationary rank collapse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SOAP normalizes first moments by entrywise second moments in the current preconditioner basis and refreshes that basis only at a preconditioning frequency.",
+          "The later source reports that lag between current gradient statistics and a stale preconditioner can destabilize large-scale training."
+        ],
+        "reasoning": "The audited matrix map is the exact frozen-basis stationary specialization of the published SOAP update, so the comparison is on the same mechanism.",
+        "searches": [
+          "Resultary query: SOAP stale basis stationary singular value collapse eigenbasis error Adam normalization condition number",
+          "Vyas et al. arXiv:2409.11321, Algorithm 3",
+          "Khona et al. arXiv:2607.20548, stale-preconditioner discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact same-result record was retrieved."
+        ],
+        "reasoning": "Search absence is supporting only; the decisive comparison is with the complete defining and follow-up SOAP papers.",
+        "searches": [
+          "Resultary exact searches for the displayed condition-number and half-saturation formulas"
+        ]
+      },
+      "rationale": "The defining SOAP paper gives the same rotate-normalize-rotate-back algorithm and explicitly permits an eigenbasis to remain stale between preconditioner refreshes, while the later large-scale paper identifies stale preconditioner statistics as an empirical instability mechanism. Neither inspected primary source states the exact \\(2\\times2\\) stationary singular-value collapse, the closed condition-number law, the half-saturation angle, or the noncommuting angle-regularizer limits. Current Resultary searches found no implication-equivalent same-object theorem.",
+      "residual_risks": [
+        "A separate optimizer-analysis note could contain the same two-dimensional frozen-basis calculation under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_AND_STALE_BASIS_CONTEXT_NOT_EXACT_COLLAPSE",
+          "evidence": "Algorithm 3 matches the audited rotate, elementwise normalize and rotate-back mechanism but contains no closed two-dimensional singular-value collapse formula.",
+          "identifier_or_url": "arXiv:2409.11321",
+          "material_read": "complete primary paper with Algorithm 3 and the preconditioner-frequency discussion inspected",
+          "method": "primary full-text/PDF inspection",
+          "title": "SOAP: Improving and Stabilizing Shampoo using Adam",
+          "trigger": "defining source for the exact update rule"
+        },
+        {
+          "assessment": "EMPIRICAL_STALENESS_MECHANISM_NOT_CLOSED_FORM",
+          "evidence": "The paper identifies stale statistics as an instability source and proposes fresher updates, but does not state the audited exact stationary law.",
+          "identifier_or_url": "arXiv:2607.20548",
+          "material_read": "complete primary paper with the instability and per-step basis-update sections inspected",
+          "method": "primary full-text/PDF inspection",
+          "title": "SOAP, Muon, and Beyond: Pushing LLM Pretraining Scales",
+          "trigger": "closest current empirical stale-preconditioner source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Vyas et al. 2024",
+        "Khona et al. 2026",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Basis-refresh frequency is an explicit SOAP design parameter and has current empirical stability relevance. The theorem isolates a sharp spectral failure mode: arbitrarily small fixed basis error can become nearly rank-one when \\(\\varepsilon\\) is smaller than the induced off-diagonal scale, while a refreshed basis remains well conditioned. The closed condition-number and angular boundary-layer formulas provide a natural diagnostic benchmark rather than an arbitrary toy computation.",
+      "residual_risks": [
+        "Practical importance depends on how closely real training intervals approximate the frozen-gradient model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The mechanism is stationary and two-dimensional; it does not by itself establish training divergence.",
+    "The singular perturbation depends on taking the small regularizer limit relative to a nonzero stale-basis off-diagonal.",
+    "A separate optimizer-analysis note could contain the same two-dimensional frozen-basis calculation under different terminology.",
+    "Practical importance depends on how closely real training intervals approximate the frozen-gradient model."
+  ]
+}
