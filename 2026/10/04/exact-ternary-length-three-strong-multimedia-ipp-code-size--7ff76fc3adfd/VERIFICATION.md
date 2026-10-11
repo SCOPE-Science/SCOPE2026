@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`. The program uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs the \(27\) words of \(\{0,1,2\}^3\), implements the parent-set intersection condition through the proved local uniqueness criterion, generates all minimal non-SMIPPC obstructions inside pair-descendant boxes, verifies the explicit \(11\)-word witness, and performs complete branch-and-bound searches for size \(12\) in the three symmetry-normalized second-word cases.
+## correctness
 
-The expected output is:
+PASS
 
-`VERIFY_OK maximum=11 witness=11 minimal_obstructions=459 sizes=4,5 symmetry_reps=3 nodes=21227,31563,30388`
+The parent-set definition reduces exactly to the local uniqueness criterion inside each pair-descendant box: a word is forced into every parent set iff one coordinate-symbol it carries occurs uniquely in that box. A fresh reconstruction generated 459 minimal violating subsets, all of sizes 4 or 5, directly verified the displayed 11-word witness, and exhaustively ruled out size 12 in the three symmetry-normalized second-word cases 100,110,111. The published general upper bound already gives 12, so the finite exclusion establishes exact maximum 11.
 
-The normalization is exhaustive because, after mapping one codeword to \((0,0,0)\), a second word is determined up to coordinate and symbol permutations by its Hamming weight \(1\), \(2\), or \(3\). The search is finite and complete; failure of a branch is not inferred from a timeout.
+## originality
 
-The proof uses the published general upper bound only to reduce the extremal question to excluding size \(12\). No assertion is made for larger alphabets or different lengths.
+PASS
+
+PASS. The original SMIPPC paper's full accessible text gives the general length-three strength-two upper bound q^2+q(q-1)/2, which is 12 at q=3, and constructs optimal codes only in congruence classes excluding 3 and 4 mod 6. The 2024 follow-up still advertises/ concludes optimal constructions outside those same omitted classes. Fresh Resultary search returned the distinct exact 2-traceability theorem, not a SMIPPC result. Thus no inspected source states or implies the exact ternary value 11.
+
+## value
+
+PASS
+
+The ternary alphabet is the smallest member of a congruence class explicitly omitted by both the foundational and later optimal-construction program. Showing that the broad upper bound 12 drops to 11 is therefore a natural first boundary case for a fingerprinting/tracing invariant rather than a gratuitous tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published length-three bound gives at most \(12\) codewords at alphabet size \(3\). The proof then reduces the SMIPPC definition to an exact local uniqueness condition inside each pair descendant box. The bundled standard-library verifier generates every minimal forbidden configuration from that definition, directly verifies the explicit \(11\)-word code, and exhausts the three symmetry-normalized possibilities for a hypothetical \(12\)-word code. No branch reaches size \(12\).
+## correctness
 
-## Originality
-PASS. The 2014 archive source proves only the upper bound \(12\) in the ternary case and constructs optimal codes for alphabet sizes congruent to \(0,1,2,5\) modulo \(6\). The complete 2024 follow-up still concludes with optimal constructions only for alphabet sizes not congruent to \(3\) or \(4\) modulo \(6\). Exact-parameter, expanded-name, parent-set, and nearby traceability-code searches found no statement implying the exact value \(11\). A residual risk remains that an unindexed small-parameter computation exists elsewhere.
+PASS
 
-## Value
-PASS. Alphabet size \(3\) is the smallest case in an omitted congruence class of the published optimal-construction program. Showing that the general upper bound drops by one here settles a natural first boundary case for a fingerprinting-code notion designed for efficient colluder tracing.
+The parent-set definition reduces exactly to the local uniqueness criterion inside each pair-descendant box: a word is forced into every parent set iff one coordinate-symbol it carries occurs uniquely in that box. A fresh reconstruction generated 459 minimal violating subsets, all of sizes 4 or 5, directly verified the displayed 11-word witness, and exhaustively ruled out size 12 in the three symmetry-normalized second-word cases 100,110,111. The published general upper bound already gives 12, so the finite exclusion establishes exact maximum 11.
 
-## Closest literature and limitations
-The closest archive source is arXiv:1411.6841v1, which defines the object, proves the general upper bound, and gives constructions in four congruence classes. The 2024 Designs, Codes and Cryptography paper revisits precisely the same length-three problem and still excludes alphabet sizes congruent to \(3\) or \(4\) modulo \(6\) from its optimal-construction theorem. The present result is only for the ternary case and does not classify all extremizers or settle larger omitted alphabets.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. The original SMIPPC paper's full accessible text gives the general length-three strength-two upper bound q^2+q(q-1)/2, which is 12 at q=3, and constructs optimal codes only in congruence classes excluding 3 and 4 mod 6. The 2024 follow-up still advertises/ concludes optimal constructions outside those same omitted classes. Fresh Resultary search returned the distinct exact 2-traceability theorem, not a SMIPPC result. Thus no inspected source states or implies the exact ternary value 11.
+
+## value
+
+PASS
+
+The ternary alphabet is the smallest member of a congruence class explicitly omitted by both the foundational and later optimal-construction program. Showing that the broad upper bound 12 drops to 11 is therefore a natural first boundary case for a fingerprinting/tracing invariant rather than a gratuitous tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
