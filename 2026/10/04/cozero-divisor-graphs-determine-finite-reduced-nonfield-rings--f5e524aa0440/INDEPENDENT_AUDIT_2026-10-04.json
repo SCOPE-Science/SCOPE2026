@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:01:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 30de233a515c6d09188be265d18cb6944500487a",
+        "assigned verify.py blob 200855d554a5eef70557290ac63a98d9e8e33673",
+        "Cain-Mathewson-Wilkens 2010 primary-text mirror/roadmap",
+        "Afkhami-Khashyarmanesh 2012 cozero-divisor paper scope"
+      ],
+      "rationale": "A finite reduced ring is a product of finite fields. In that product, the principal ideal of a vertex is determined exactly by its nonempty proper coordinate support, so cozero adjacency is support incomparability and each support class has size \\(\\prod_{i\\in A}(q_i-1)\\). Distinct supports have distinct open neighborhoods, making these precisely the false-twin classes. Their quotient is the incomparability graph of the proper nonempty Boolean lattice and has \\(2^r-2\\) vertices, recovering \\(r\\). For \\(r\\ge3\\), its minimum-degree vertices are exactly singleton and co-singleton supports, forming two \\(K_r\\) cliques joined by a perfect matching. One side’s twin-class sizes recover \\(q_i-1\\); swapping the sides can satisfy both matched multiplicity equations only when all factors are \\(\\mathbb F_2\\), where no ambiguity remains. For \\(r=2\\), the graph is \\(K_{q_1-1,q_2-1}\\). The packaged exhaustive verifier was inspected, and the symbolic reconstruction independently checks the side-swap argument.",
+      "residual_risks": [
+        "The theorem is explicitly within the finite reduced nonfield class; no claim is made against nonreduced graph twins."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older reduced-graph program relates graph structure to direct-product decomposition but intentionally identifies generators of the same principal ideal, losing field-size multiplicities.",
+          "The known two-field result is recovered as the \\(r=2\\) boundary but does not imply arbitrary-rank reconstruction."
+        ],
+        "reasoning": "No inspected broader result was found that preserves and decodes all multiplicities for arbitrary finite products of fields.",
+        "searches": [
+          "Cain-Mathewson-Wilkens 2010/2011 reduced cozero-divisor work",
+          "Afkhami-Khashyarmanesh 2012 complete-bipartite/two-field results",
+          "2022-2026 cozero-divisor spectral/genus literature"
+        ]
+      },
+      "checked_sources": [
+        "Cain-Mathewson-Wilkens 2010/2011",
+        "Afkhami-Khashyarmanesh 2012",
+        "Mathil-Baloda-Kumar 2022",
+        "Resultary current corpus search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the reduced Boolean-support graph alone does not recover the numbers \\(q_i\\).",
+          "For \\(r\\ge3\\), one must intrinsically identify singleton/co-singleton support classes and rule out side-swap ambiguity using multiplicities."
+        ],
+        "reasoning": "The reconstruction argument adds graph-intrinsic multiplicity decoding not supplied by the inspected prior statements.",
+        "searches": [
+          "reduced cozero-divisor quotient results versus full false-twin blow-up",
+          "two-field complete-bipartite theorem versus arbitrary number of factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For products of fields, the reduced graph records only support inclusion/incomparability; the full graph is its multiplicity blow-up.",
+          "The reconstruction theorem is equivalent to recovering the unordered field-order multiset from these blow-up multiplicities."
+        ],
+        "reasoning": "Full-graph, reduced-graph and ring-isomorphism formulations were compared.",
+        "searches": [
+          "Resultary: cozero-divisor graph finite reduced ring product fields graph determines ring isomorphism false twins",
+          "web searches: cozero-divisor graph isomorphic rings product of finite fields",
+          "reduced cozero-divisor/principal-ideal quotient formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the only exact same-result hit; nearby current results concern other ring graphs or graph parameters."
+        ],
+        "reasoning": "This is an isomorphism-classification theorem, not a finite table; the database search checked statement-level duplicates.",
+        "searches": [
+          "Resultary exact semantic search for full cozero-divisor reconstruction of finite reduced rings",
+          "searches for graph-isomorphism classifications of cozero-divisor graphs"
+        ]
+      },
+      "rationale": "Earlier work develops the reduced cozero-divisor graph precisely by collapsing principal-ideal multiplicities and studies decomposition into fields/local rings; the available primary-text roadmap confirms that emphasis. Afkhami-Khashyarmanesh supply the two-field complete-bipartite structure, and later work focuses on genus, spectra and other graph parameters. The assigned reconstruction exploits information the reduced graph discards: false-twin multiplicities over Boolean supports. Targeted current searches found no theorem that the full cozero-divisor graph determines every finite reduced nonfield ring or recovers all field orders. The highly relevant 2010/2011 full PDFs could not be completely retrieved through the available lawful access paths, so this remains a stated literature risk rather than negative evidence.",
+      "residual_risks": [
+        "The inaccessible complete 2010/2011 text is the main literature-access risk; inaccessible literature alone is not treated as an originality failure.",
+        "A theorem under principal-ideal multiplicity or graph blow-up terminology could be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGHLY_RELEVANT_REDUCED_GRAPH_CONTEXT_WITH_ACCESS_LIMITATION",
+          "evidence": "The roadmap says the paper develops the reduced graph and relates it to decomposition into direct products of fields/local rings; the available material does not establish full-graph recovery of field orders.",
+          "identifier_or_url": "https://scholar.rose-hulman.edu/rhumj/vol11/iss2/5/",
+          "material_read": "primary abstract plus accessible primary-text mirror through the introduction/section roadmap and beginning of the cozero-divisor section; direct PDF retrieval was access-blocked",
+          "method": "primary-source partial-text inspection",
+          "title": "Graphs and principal ideals of finite commutative rings",
+          "trigger": "foundational paper developing the reduced cozero-divisor graph and product decomposition"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION_RETAINED_AS_RISK",
+          "evidence": "The work is explicitly about the reduced graph, whose vertices are principal ideals rather than all element multiplicities.",
+          "identifier_or_url": "International Journal of Algebra 5 (2011), 935-950",
+          "material_read": "publisher first-page/abstract material and secondary bibliographic record; complete text was unavailable through the inspected access paths",
+          "method": "primary bibliographic/partial inspection",
+          "title": "Reduced Cozero-Divisor Graphs of Commutative Rings",
+          "trigger": "same authors’ reduced-graph treatment"
+        },
+        {
+          "assessment": "TWO_FACTOR_SPECIAL_CASE_ONLY",
+          "evidence": "The paper classifies special graph shapes; it supplies the complete-bipartite two-field boundary but not arbitrary-factor ring reconstruction.",
+          "identifier_or_url": "Bulletin of the Malaysian Mathematical Sciences Society 35 (2012), 935-944",
+          "material_read": "publisher abstract/scope and the two-field complete-bipartite result as cited and compared in the assigned package",
+          "method": "primary-source scope inspection",
+          "title": "On the Cozero-Divisor Graphs of Commutative Rings and Their Complements",
+          "trigger": "closest established structural result for products of fields"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "foundational/reduced cozero-divisor literature",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Graph reconstruction of the complete finite reduced ring within a natural ring class is a strong structural statement: the graph recovers not only the number of field factors but every field order. The false-twin/Boolean-quotient mechanism explains exactly which information the reduced graph loses and how the full graph restores it. This is a natural classification result, not a small numerical invariant.",
+      "residual_risks": [
+        "The reduced and nonfield hypotheses are essential, so the theorem is not a classification of arbitrary finite rings from cozero-divisor graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is explicitly within the finite reduced nonfield class; no claim is made against nonreduced graph twins.",
+    "The inaccessible complete 2010/2011 text is the main literature-access risk; inaccessible literature alone is not treated as an originality failure.",
+    "A theorem under principal-ideal multiplicity or graph blow-up terminology could be poorly indexed.",
+    "The reduced and nonfield hypotheses are essential, so the theorem is not a classification of arbitrary finite rings from cozero-divisor graphs."
+  ]
+}
