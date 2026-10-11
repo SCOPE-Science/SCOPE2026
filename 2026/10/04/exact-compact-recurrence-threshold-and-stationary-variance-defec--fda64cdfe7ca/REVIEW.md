@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Stationarity of \(x\), \(y\), \(x^2/2\), and \(xy\) reconstructs the mean identities and rigidity step. Averaging the \(z\)-equation gives the exact quadratic-plus-nonnegative-defect decomposition. The sign property \(z\operatorname{erf}(z)\ge0\) holds globally, with equality only at \(z=0\). The compact-set obstruction uses an invariant probability measure supported on a compact invariant set, so it is not inferred from finite simulation. Exact hidden-parameter arithmetic was independently replayed from the bundled checker.
+## correctness
 
-## Originality
-PASS. The closest source is the introducing Rasul–Salih article itself; its inspected sections provide equation (4.1), equilibria, local bifurcations, and numerical hidden/self-excited attractors but not the compact-recurrence threshold or invariant-measure defect identity. Searches for the exact error-function term, DOI, stationary-measure aliases, and mean/variance formulations found no same-system prior result. The closest published-finding corpus analogue is a Rössler variance-gap theorem, which has a different vector field and does not imply this result. Quadratic jerk papers checked for broader coverage do not include the nonpolynomial \(z\operatorname{erf}(z)\) term.
+PASS
 
-## Value
-PASS. The result converts the source’s forcing/equilibrium discriminant into an exact global threshold for compact recurrent dynamics and gives a sharp, quantitative stationary envelope in the hidden-attractor regime. These conclusions materially sharpen the source’s numerical bifurcation picture and are useful for checking future simulations or invariant-state computations.
+Invariant averaging of x, y and x^2/2 gives E[y]=E[z]=E[xy]=0. Averaging the z equation then yields a quadratic in the mean m plus (33/100)Var(x) and (5/2)E[z erf(z)], whose latter two terms are nonnegative. Factoring the quadratic by the equilibrium roots proves the defect identity and excludes Delta<0; conversely Delta>=0 supplies an equilibrium compact invariant set. At Delta=0 or an endpoint mean, vanishing of all nonnegative terms fixes x and z, and the xy test fixes y. The midpoint mixture of equilibrium atoms attains the sharp variance bound, while any non-equilibrium ergodic measure is strict. Fresh symbolic algebra independently reproduced the discriminant factorization and the hidden-parameter constants.
 
-## Closest literature and limitations
-The primary comparison is Rasul–Salih (2024), DOI 10.22436/jmcs.035.03.05. Additional comparisons are Liu–Sang–Wang–Ahmad (2021), DOI 10.3390/axioms10030227, and Llibre–Makhlouf (2025), DOI 10.1007/s00010-025-01182-5. The proof does not certify the numerical hidden attractor’s existence or ergodicity and does not classify every possible nonrecurrent compact set at the critical parameter. A residual originality risk remains for unindexed or unpublished work.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Rasul--Salih primary paper was read in full from its public 17-page PDF. It analyzes equilibria, local bifurcations, Lyapunov exponents and hidden/self-excited attractors, including the exact a=1.69 hidden regime, but text search found no invariant-measure or variance theorem. The audited stationary defect therefore addresses a distinct global statistical question not implied by the source's local/numerical analysis.
+
+## value
+
+PASS
+
+The result converts the source's equilibrium discriminant and numerically observed hidden-chaos regime into an exact global recurrence threshold and quantitative stationary envelope. Such invariant-measure constraints are directly useful for validating or falsifying long-time numerical states and distinguish local bifurcation information from global recurrent statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

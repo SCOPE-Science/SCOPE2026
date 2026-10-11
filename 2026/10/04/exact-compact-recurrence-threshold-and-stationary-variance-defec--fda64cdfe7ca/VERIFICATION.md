@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the printed vector field rather than inferred from phase portraits or finite-time Lyapunov calculations. For a compactly supported invariant probability measure, the generator identities for \(x\), \(y\), \(x^2/2\), and \(xy\) were checked explicitly. These identities remove the linear \(y\), linear \(z\), and \(xy\) terms from the stationary average and establish the rigidity step when the nonnegative defects vanish.
+# Independent mathematical audit
 
-The sign check uses the elementary global fact that \(\operatorname{erf}(z)\) has the same sign as \(z\); hence \(z\operatorname{erf}(z)\ge0\), with equality only at \(z=0\). The equilibrium quadratic was factored exactly, and its discriminant was checked as \(a^2+(33/25)\mu\).
+## correctness
 
-The bundled `verify.py` was executed after packaging and returned `VERIFY_OK`. It checks exact rational normalization, the hidden-case equilibria, the critical forcing, and the sharp half-gap bound. Those computations support the arithmetic but do not replace the invariant-measure proof.
+PASS
 
-Limits: the verification does not prove that the source’s numerically displayed hidden attractor exists as a compact invariant set, does not certify its Lyapunov spectrum, and does not exclude nonrecurrent compact orbit structures at the critical parameter. Independent audit has not been performed.
+Invariant averaging of x, y and x^2/2 gives E[y]=E[z]=E[xy]=0. Averaging the z equation then yields a quadratic in the mean m plus (33/100)Var(x) and (5/2)E[z erf(z)], whose latter two terms are nonnegative. Factoring the quadratic by the equilibrium roots proves the defect identity and excludes Delta<0; conversely Delta>=0 supplies an equilibrium compact invariant set. At Delta=0 or an endpoint mean, vanishing of all nonnegative terms fixes x and z, and the xy test fixes y. The midpoint mixture of equilibrium atoms attains the sharp variance bound, while any non-equilibrium ergodic measure is strict. Fresh symbolic algebra independently reproduced the discriminant factorization and the hidden-parameter constants.
+
+## originality
+
+PASS
+
+The Rasul--Salih primary paper was read in full from its public 17-page PDF. It analyzes equilibria, local bifurcations, Lyapunov exponents and hidden/self-excited attractors, including the exact a=1.69 hidden regime, but text search found no invariant-measure or variance theorem. The audited stationary defect therefore addresses a distinct global statistical question not implied by the source's local/numerical analysis.
+
+## value
+
+PASS
+
+The result converts the source's equilibrium discriminant and numerically observed hidden-chaos regime into an exact global recurrence threshold and quantitative stationary envelope. Such invariant-measure constraints are directly useful for validating or falsifying long-time numerical states and distinguish local bifurcation information from global recurrent statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
