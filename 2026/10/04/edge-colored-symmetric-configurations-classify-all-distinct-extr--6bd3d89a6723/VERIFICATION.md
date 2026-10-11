@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is proved symbolically in `RESULT.md`. The bundled `verify.py` is a finite structural stress test, not the proof of the universal quantifier.
+# Independent mathematical audit
 
-Running `python3 verify.py` constructs the projective plane \(PG(2,5)\) from normalized nonzero triples over \(\mathbb F_5\), checks that it has \(31\) points and \(31\) lines of degree \(6\), and verifies that every pair of lines intersects once. It then repeatedly finds perfect matchings in the Levi graph to obtain six edge colors, converts those colors to symbols of a seven-ary composition-\(\llbracket1,1,1,1,1,1\rrbracket\) code, and checks all pairwise Hamming distances.
+## correctness
 
-Expected output:
+PASS
 
-`VERIFY_OK points=31 blocks=31 degree=6 edge_colors=6 code_size=31 min_distance=11 max_distance=11`
+For two words of composition \(\llbracket1,\ldots,1\rrbracket\), if their supports intersect in \(r\) coordinates and agree in symbol on \(t\) of them, then \(d_H=2w-r-t\). Distance at least \(2w-1\) forces \(r+t\le1\), so supports meet at most once and no nonzero symbol repeats at a coordinate. Thus each coordinate is used by at most \(w\) words and incidence counting gives \(|C|\le n\). At equality, all point and block degrees are \(w\), producing a symmetric configuration \(n_w\); the symbols form a proper \(w\)-edge-coloring of its Levi graph. Conversely, König's line-coloring theorem gives such an edge-coloring for every \(w\)-regular bipartite Levi graph, and the resulting code has distance \(2w\) or \(2w-1\). The published \(n_6\) spectrum then gives equality exactly at \(n=31\) or \(n\ge34\), hence the threshold \(34\).
 
-The computation does not verify the historical nonexistence search for \(33_6\) or the full existence spectrum \(n=31\) or \(n\ge34\); those are cited published premises. It also does not enumerate all proper edge-colorings or all equality codes.
+## originality
+
+PASS
+
+Chee--Dau--Ling--Ling's complete primary paper treats the exact same all-distinct weight-six family and explicitly leaves the \(n=33,34\) values undetermined, with only a threshold interval. Kaski--Östergård's complete primary paper independently gives the exact symmetric-configuration spectrum but does not state the coding correspondence. The audited two-way correspondence, including the symbol assignment as a proper Levi-graph edge-coloring and the König converse, is the missing bridge. Targeted Resultary and literature searches found no prior statement of that bridge.
+
+## value
+
+PASS
+
+The correspondence resolves the only all-distinct total-weight-six gap explicitly left in the inspected coding table and converts the entire extremal equality layer into a classical configuration existence/classification problem. This is a motivated structural bridge with an exact threshold consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For two composition-\(\llbracket1^w\rrbracket\) words, the exact distance identity is \(d_H=2w-r-t\), where \(r\) is support intersection size and \(t\) counts equal nonzero symbols inside that intersection. Thus distance at least \(2w-1\) forces \(r+t\le1\). This gives the per-coordinate degree bound \(w\), and equality in the global incidence count forces a symmetric \(n_w\) configuration. The symbols are a proper Levi-graph edge-coloring. Conversely König's line-coloring theorem colors every \(w\)-regular bipartite Levi graph with \(w\) colors and yields a code whose pairwise distances are \(2w\) or \(2w-1\). The bundled verifier independently realizes the construction on \(PG(2,5)\).
+## correctness
 
-## Originality
-**PASS.** The closest primary coding source, arXiv:1008.1611, explicitly leaves \(A_7(33,11,\llbracket1^6\rrbracket)\) and \(A_7(34,11,\llbracket1^6\rrbracket)\) undetermined and records only \(N_{\mathrm{ccc}}(\llbracket1^6\rrbracket)\in[33,35]\). The closest configuration source proves the exact \(n_6\) existence spectrum but does not state a constant-composition coding correspondence. Targeted searches for the coding parameters, all-distinct composition, Levi graphs, symmetric configurations, and edge-coloring formulations returned no implication-equivalent indexed result. The residual risk is an older design/coding source using different terminology for the same bridge.
+PASS
 
-## Value
-**PASS.** The bridge is not an arbitrary translation: it closes the only undetermined weight-at-most-six all-distinct case singled out by the 2010 coding tables, giving the exact threshold \(34\), and converts an entire equality problem into the established existence/classification theory of symmetric configurations. The structural correspondence also identifies the missing symbol assignment as precisely a bipartite edge-coloring, so every configuration in the known spectrum automatically supplies a valid code.
+For two words of composition \(\llbracket1,\ldots,1\rrbracket\), if their supports intersect in \(r\) coordinates and agree in symbol on \(t\) of them, then \(d_H=2w-r-t\). Distance at least \(2w-1\) forces \(r+t\le1\), so supports meet at most once and no nonzero symbol repeats at a coordinate. Thus each coordinate is used by at most \(w\) words and incidence counting gives \(|C|\le n\). At equality, all point and block degrees are \(w\), producing a symmetric configuration \(n_w\); the symbols form a proper \(w\)-edge-coloring of its Levi graph. Conversely, König's line-coloring theorem gives such an edge-coloring for every \(w\)-regular bipartite Levi graph, and the resulting code has distance \(2w\) or \(2w-1\). The published \(n_6\) spectrum then gives equality exactly at \(n=31\) or \(n\ge34\), hence the threshold \(34\).
 
-## Closest literature and limitations
-Kaski–Östergård supply the line-size-six configuration spectrum; Chee–Dau–Ling–Ling supply the coding problem, upper-bound layer, and the unresolved \(33,34\) cases; Davydov et al. survey the configuration language and known spectrum. The result does not determine subextremal values at nonexistence lengths and does not enumerate code/configuration isomorphism classes. Originality remains subject to the possibility of an unindexed equivalent formulation in older design-coding literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Chee--Dau--Ling--Ling's complete primary paper treats the exact same all-distinct weight-six family and explicitly leaves the \(n=33,34\) values undetermined, with only a threshold interval. Kaski--Östergård's complete primary paper independently gives the exact symmetric-configuration spectrum but does not state the coding correspondence. The audited two-way correspondence, including the symbol assignment as a proper Levi-graph edge-coloring and the König converse, is the missing bridge. Targeted Resultary and literature searches found no prior statement of that bridge.
+
+## value
+
+PASS
+
+The correspondence resolves the only all-distinct total-weight-six gap explicitly left in the inspected coding table and converts the entire extremal equality layer into a classical configuration existence/classification problem. This is a motivated structural bridge with an exact threshold consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
