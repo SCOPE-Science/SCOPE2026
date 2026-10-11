@@ -1,15 +1,21 @@
-# Review of Closed-range \(K\)-frame reconstruction requires range compression
+# Independent mathematical audit
 
-## Correctness
-PASS. In the explicit \(\mathbb C^3\) example, the coefficient energy is \(|x_1|^2+|x_1+x_2|^2\), which dominates \(\|K^*x\|^2=|x_1|^2\). The resulting frame operator is exactly \(\begin{pmatrix}2&1&0\\1&1&0\\0&0&0\end{pmatrix}\), so \(S(R(K))\not\subseteq R(K)\) and \((S|_{R(K)})^{-1}e_1\) is undefined. For the repair, \((K^\dagger)^*K^*x=x\) on \(R(K)\) gives the stated coercive bound for \(C=P_{R(K)}S|_{R(K)}\), which implies bounded invertibility and both reconstruction identities.
+## correctness
 
-## Originality
-PASS. Searches covered the target source, exact inverse-on-range formulation, range-to-range formulation, compression aliases, and the reconstruction formula. The closest checked literature states the correct map \(S:R(K)\to S(R(K))\) or adds the extra invariance \(S(R(K))=R(K)\); it does not imply the universal compression theorem or provide the displayed three-dimensional obstruction to formula (2.10). The main residual risk is an unindexed correction or informal observation.
+PASS
 
-## Value
-PASS. The issue is structural rather than cosmetic: without range invariance the published reconstruction expression can be undefined even for a two-operator finite-dimensional \(K\)-g-fusion frame. The compression theorem supplies a direct, quantitative replacement valid for every closed-range \(K\), preserving the intended reconstruction on \(R(K)\) without adding an unnecessary invariance hypothesis.
+The counterexample is exact: the coefficient energy \(|x_1|^2+|x_1+x_2|^2\) dominates \(|x_1|^2=\|K^*x\|^2\), while the resulting frame operator satisfies \(Se_1=2e_1+e_2\notin R(K)\). Thus \((S|_{R(K)})^{-1}e_1\) is undefined when the inverse is correctly viewed on \(S(R(K))\). For the repair, \((K^\dagger)^*K^*x=x\) on \(R(K)\) gives \(\langle P_RSx,x\rangle\ge A\|K^\dagger\|^{-2}\|x\|^2\); bounded self-adjoint coercivity makes the compression invertible and both reconstruction identities follow by substitution.
 
-## Closest literature and limitations
-Huang--Yang (2020) is the target source. Cheshmavar--Rezaei Sarkhaei (2018/2021) uses similar inverse-on-\(R(K)\) shorthand. Alvani--Janfada--Sadeghi (2025) explicitly gives the correct codomain \(S(R(K))\), while the 2022 equal-norm Parseval \(K\)-frame paper imposes \(S(R(K))=R(K)\) before using an inverse on \(R(K)\). The finding does not invalidate results formulated with the correct range-to-range inverse, and it does not exclude prior unindexed observations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The published formula is genuinely ill-typed without range invariance, and the displayed three-dimensional example is an exact witness. Later literature explicitly distinguishes the invertible map \(S:R(K)\to S(R(K))\) or adds \(S(R(K))=R(K)\), but the checked sources do not give this concrete obstruction to Huang--Yang equation (2.10). The universal compression itself is close to a standard corollary of Huang--Yang Theorem 3.3(2): on \(R(K)\) the same coefficient family is an ordinary g-fusion frame, whose subspace frame operator is the compression. That prior ingredient materially narrows the novelty claim, but it does not itself expose the domain error or supply the counterexample. Best-of-knowledge originality is therefore retained for the correction/obstruction, not for the abstract existence of a positive invertible compression alone.
+
+## value
+
+PASS
+
+Although the positive compression theorem is close to standard frame theory, the source-specific defect is substantive: a published reconstruction formula can be undefined under its stated hypotheses, and a minimal exact frame demonstrates the failure while the projection repair gives a usable corrected formula without adding range invariance. This is a motivated correction rather than a free-standing normalization exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

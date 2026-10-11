@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:57:52.737197Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at tree 60ce0e254fd272d443256e9651eeadd9fb7e815f",
+        "Huang--Yang primary full text"
+      ],
+      "rationale": "The counterexample is exact: the coefficient energy \\(|x_1|^2+|x_1+x_2|^2\\) dominates \\(|x_1|^2=\\|K^*x\\|^2\\), while the resulting frame operator satisfies \\(Se_1=2e_1+e_2\\notin R(K)\\). Thus \\((S|_{R(K)})^{-1}e_1\\) is undefined when the inverse is correctly viewed on \\(S(R(K))\\). For the repair, \\((K^\\dagger)^*K^*x=x\\) on \\(R(K)\\) gives \\(\\langle P_RSx,x\\rangle\\ge A\\|K^\\dagger\\|^{-2}\\|x\\|^2\\); bounded self-adjoint coercivity makes the compression invertible and both reconstruction identities follow by substitution.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang--Yang Theorem 3.3(2) proves every closed-range \\(K\\)-g-fusion frame is a g-fusion frame on \\(R(K)\\), which essentially supplies coercivity of the compressed subspace frame operator.",
+          "Alvani--Janfada--Sadeghi explicitly state that the \\(K\\)-frame operator is invertible from \\(R(K)\\) onto \\(S(R(K))\\).",
+          "The 2022 Parseval \\(K\\)-frame paper separately assumes \\(S(R(K))=R(K)\\) before using an inverse on \\(R(K)\\)."
+        ],
+        "reasoning": "These sources cover the standard range-to-range inverse and most of the compression coercivity mechanism, so the independent novelty is confined to identifying the erroneous reconstruction domain, giving an exact counterexample, and spelling out the projection repair in that setting.",
+        "searches": [
+          "Huang--Yang Theorem 3.3(2)",
+          "Alvani--Janfada--Sadeghi DOI 10.7153/oam-2025-19-24",
+          "Sadri--Rahimlou DOI 10.1186/s13660-022-02862-5"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1186/s13660-020-02320-0",
+        "DOI:10.7153/oam-2025-19-24",
+        "DOI:10.1186/s13660-022-02862-5",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.3(2) implies a valid ordinary frame operator on \\(R(K)\\), namely the projected compression, but does not imply that the ambient \\(S\\) maps \\(R(K)\\) into itself.",
+          "The later range-to-range theorem likewise leaves open equality \\(S(R(K))=R(K)\\).",
+          "The explicit witness proves the missing equality can fail."
+        ],
+        "reasoning": "Prior theory mechanically yields the compression once one recognizes the correct subspace operator, but it does not imply the negative statement that the printed formula can be undefined. The final finding is therefore judged original only in its source-specific obstruction/correction aspect.",
+        "searches": [
+          "Specialize Huang--Yang Theorem 3.3(2) to the subspace \\(R(K)\\)",
+          "Compare equation (2.10) with the later range-to-range statement \\(S:R(K)\\to S(R(K))\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang--Yang equation (2.10) applies \\((S|_{R(K)})^{-1}\\) to arbitrary \\(f\\in R(K)\\).",
+          "The exact \\(3\\)-dimensional matrix in the audited package has \\(Se_1=2e_1+e_2\\notin R(K)\\), so that inverse cannot be evaluated at \\(e_1\\).",
+          "Resultary returned the audited correction as the exact semantic match and no older equivalent correction."
+        ],
+        "reasoning": "The domain/codomain formulation and the explicit obstruction were compared directly rather than by title. The later range-to-range formulation is compatible with, rather than equivalent to, the invalid inverse-on-\\(R(K)\\) formula.",
+        "searches": [
+          "Resultary semantic query: closed range K-frame frame operator compression P_R S reconstruction range invariance inverse R(K)",
+          "Web query: S(R(K)) K-frame frame operator R(K) S(R(K))",
+          "Huang--Yang DOI 10.1186/s13660-020-02320-0, equations (2.10) and Theorem 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked indexed record predating the audited finding gave the displayed \\(3\\)-dimensional obstruction or identified Huang--Yang equation (2.10) by this correction."
+        ],
+        "reasoning": "This is not a table lookup; the exact finite matrix is a counterexample used to separate two operator-domain statements.",
+        "searches": [
+          "Resultary semantic search for K-frame range compression and reconstruction",
+          "Web search for exact \\(P_{R(K)}S|_{R(K)}\\) correction to equation (2.10)"
+        ]
+      },
+      "rationale": "The published formula is genuinely ill-typed without range invariance, and the displayed three-dimensional example is an exact witness. Later literature explicitly distinguishes the invertible map \\(S:R(K)\\to S(R(K))\\) or adds \\(S(R(K))=R(K)\\), but the checked sources do not give this concrete obstruction to Huang--Yang equation (2.10). The universal compression itself is close to a standard corollary of Huang--Yang Theorem 3.3(2): on \\(R(K)\\) the same coefficient family is an ordinary g-fusion frame, whose subspace frame operator is the compression. That prior ingredient materially narrows the novelty claim, but it does not itself expose the domain error or supply the counterexample. Best-of-knowledge originality is therefore retained for the correction/obstruction, not for the abstract existence of a positive invertible compression alone.",
+      "residual_risks": [
+        "The compression theorem by itself is largely a standard subspace-frame consequence of Huang--Yang Theorem 3.3(2); novelty is not claimed for that abstract frame-theoretic mechanism alone.",
+        "An unindexed erratum or informal correction could already contain the same explicit domain objection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TARGET_ERROR_WITH_BROADER_INGREDIENT",
+          "evidence": "Equation (2.10) applies the restricted inverse to arbitrary \\(f\\in R(K)\\), while Theorem 3.3(2) only establishes ordinary frame bounds on \\(R(K)\\) and does not establish \\(S(R(K))=R(K)\\).",
+          "identifier_or_url": "DOI:10.1186/s13660-020-02320-0",
+          "material_read": "Open-access full text around equations (2.6)--(2.10) and Theorem 3.3, including the proof of the lower frame bound on \\(R(K)\\).",
+          "method": "lawful open-access full text",
+          "title": "K-g-fusion frames in Hilbert spaces",
+          "trigger": "Primary source of the challenged reconstruction and the closest broader theorem."
+        },
+        {
+          "assessment": "COMPATIBLE_RANGE_TO_RANGE_COVERAGE",
+          "evidence": "The paper explicitly uses codomain \\(S(R(K))\\), which is consistent with the audited counterexample and does not restore equation (2.10) without invariance.",
+          "identifier_or_url": "DOI:10.7153/oam-2025-19-24",
+          "material_read": "Primary PDF passage stating that for closed-range \\(K\\), \\(S\\) is invertible from \\(R(K)\\) onto \\(S(R(K))\\).",
+          "method": "lawful primary PDF",
+          "title": "On K-frames generated by operators on Hilbert spaces",
+          "trigger": "Closest later statement about the frame-operator domain."
+        },
+        {
+          "assessment": "INVARIANCE_WORKAROUND",
+          "evidence": "The extra range-equality hypothesis is precisely what the challenged source formula lacks.",
+          "identifier_or_url": "DOI:10.1186/s13660-022-02862-5",
+          "material_read": "Primary PDF proposition assuming \\(S(R(K))=R(K)\\) before using the inverse as an operator on \\(R(K)\\).",
+          "method": "lawful primary PDF",
+          "title": "Equal-norm Parseval K-frames in Hilbert spaces with a new inequality",
+          "trigger": "Possible prior correction by an invariance hypothesis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Huang--Yang equation (2.10)",
+        "later range-to-range and invariance formulations"
+      ],
+      "rationale": "Although the positive compression theorem is close to standard frame theory, the source-specific defect is substantive: a published reconstruction formula can be undefined under its stated hypotheses, and a minimal exact frame demonstrates the failure while the projection repair gives a usable corrected formula without adding range invariance. This is a motivated correction rather than a free-standing normalization exercise.",
+      "residual_risks": [
+        "The value is concentrated in the correction/counterexample, not in presenting ordinary subspace-frame coercivity as new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The compression theorem by itself is largely a standard subspace-frame consequence of Huang--Yang Theorem 3.3(2); novelty is not claimed for that abstract frame-theoretic mechanism alone.",
+    "An unindexed erratum or informal correction could already contain the same explicit domain objection."
+  ],
+  "schema_version": 1
+}

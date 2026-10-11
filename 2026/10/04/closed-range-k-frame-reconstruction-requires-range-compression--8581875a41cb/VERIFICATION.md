@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The target is the closed-range reconstruction formula for a \(K\)-g-fusion-frame operator. The primary source defines
-\[
-S=\sum_jv_j^2P_{W_j}\Lambda_j^*\Lambda_jP_{W_j}
-\]
-and states \(AKK^*\le S\). Its formula (2.10) applies \((S|_{R(K)})^{-1}\) directly to every \(f\in R(K)\).
+# Independent mathematical audit
 
-The explicit check uses \(\mathcal H=\mathbb C^3\), \(K=P_{\operatorname{span}\{e_1\}}\), and two scalar analysis operators \(\Lambda_1x=x_1\), \(\Lambda_2x=x_1+x_2\). The coefficient energy is \(|x_1|^2+|x_1+x_2|^2\), so the lower \(K\)-bound is at least \(1\). The associated matrix is
-\[
-S=\begin{pmatrix}2&1&0\\1&1&0\\0&0&0\end{pmatrix},
-\]
-and therefore \(Se_1=2e_1+e_2\). Since \(R(K)=\operatorname{span}\{e_1\}\), the inverse of \(S|_{R(K)}:R(K)\to S(R(K))\) cannot be evaluated at \(e_1\).
+## correctness
 
-For the corrected operator \(C=P_{R(K)}S|_{R(K)}\), the identity \((K^\dagger)^*K^*x=x\) for \(x\in R(K)\) gives
-\[
-\langle Cx,x\rangle\ge A\|K^*x\|^2\ge A\|K^\dagger\|^{-2}\|x\|^2.
-\]
-Thus \(C\) is positive, self-adjoint, onto, and boundedly invertible on \(R(K)\), with
-\[
-\|C^{-1}\|\le \|K^\dagger\|^2/A.
-\]
-Substitution verifies \(P_RSC^{-1}=I_R\) and \(C^{-1}P_RS|_R=I_R\).
+PASS
 
-Limits: the verification does not assert that \(S:R(K)\to S(R(K))\) fails to be invertible; later literature correctly states that range-to-range result. It also does not assert novelty over material unavailable to indexed search.
+The counterexample is exact: the coefficient energy \(|x_1|^2+|x_1+x_2|^2\) dominates \(|x_1|^2=\|K^*x\|^2\), while the resulting frame operator satisfies \(Se_1=2e_1+e_2\notin R(K)\). Thus \((S|_{R(K)})^{-1}e_1\) is undefined when the inverse is correctly viewed on \(S(R(K))\). For the repair, \((K^\dagger)^*K^*x=x\) on \(R(K)\) gives \(\langle P_RSx,x\rangle\ge A\|K^\dagger\|^{-2}\|x\|^2\); bounded self-adjoint coercivity makes the compression invertible and both reconstruction identities follow by substitution.
+
+## originality
+
+PASS
+
+The published formula is genuinely ill-typed without range invariance, and the displayed three-dimensional example is an exact witness. Later literature explicitly distinguishes the invertible map \(S:R(K)\to S(R(K))\) or adds \(S(R(K))=R(K)\), but the checked sources do not give this concrete obstruction to Huang--Yang equation (2.10). The universal compression itself is close to a standard corollary of Huang--Yang Theorem 3.3(2): on \(R(K)\) the same coefficient family is an ordinary g-fusion frame, whose subspace frame operator is the compression. That prior ingredient materially narrows the novelty claim, but it does not itself expose the domain error or supply the counterexample. Best-of-knowledge originality is therefore retained for the correction/obstruction, not for the abstract existence of a positive invertible compression alone.
+
+## value
+
+PASS
+
+Although the positive compression theorem is close to standard frame theory, the source-specific defect is substantive: a published reconstruction formula can be undefined under its stated hypotheses, and a minimal exact frame demonstrates the failure while the projection repair gives a usable corrected formula without adding range invariance. This is a motivated correction rather than a free-standing normalization exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
