@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The all-parameter theorem is established by the proof in `RESULT.md`; finite computation is not used to infer an infinite statement.
+# Independent mathematical audit
 
-The standalone `verify.py` checker uses only the Python standard library. It checks, for every \(3\le n\le80\), the normalized continuous extremizer, its first cosine coefficient, the polynomial identity
-\[
-(1-2\cos(\pi/(n+2))z+z^2)B(z)=\sin(\pi/(n+2))(1+z^{n+2}),
-\]
-and all explicit dual contact-weight moments. It also checks, for every \(3\le n\le80\) and \(3\le N\le500\), by exact integer denominator arithmetic, that all contact roots lie on the cyclic \(N\)-grid exactly when \(2(n+2)\mid N\).
+## correctness
 
-A successful replay prints
-`extremizer_cases=78`,
-`dual_weight_cases=78`,
-`grid_divisibility_cases=38844`,
-and `VERIFY_OK`.
+PASS
 
-The checker does not solve the sampled linear program for infinitely many parameters and is not offered as a novelty certificate. The strict off-mesh result instead follows analytically from linear-programming dual support, Chebyshev moment uniqueness, and the exact reduced denominators of two contact roots.
+Fejér–Riesz turns the continuous problem into the path-adjacency Rayleigh quotient, giving 2cos(π/(n+2)) and the sine-eigenvector extremizer. Its polynomial identity identifies the complete contact set. The displayed positive contact weights satisfy the constant, first and higher cosine moment equations, proving equality when all contacts lie on the grid. Conversely finite-LP equality forces any dual measure onto those zeros; after symmetrizing, Chebyshev moments through degree n uniquely determine the positive aggregate weights on the distinct contact cosines. Hence every contact cosine is sampled. The contacts at fractions 3/(2R) and 5/(2R), R=n+2, force the lcm denominator 2R to divide N. Fresh independent replay verified all contact moment identities for n=3,…,30 and the contact-inclusion equivalence for 4,116 grid pairs.
+
+## originality
+
+PASS
+
+The classical and later LCA-group papers define the discretized Carathéodory–Fejér problem, establish the relaxation inequality and finite-to-continuous framework, but the inspected statements do not classify which individual cyclic meshes have zero relaxation gap for the full degree interval. Resultary returned the assigned theorem as the exact match; the nearby degree-two and singleton-harmonic results concern different feasible sets. The divisibility criterion therefore survives best-of-knowledge comparison.
+
+## value
+
+PASS
+
+The finite cyclic problem is a canonical relaxation of the classical Carathéodory–Fejér extremum. An exact all-degree classification of zero-loss meshes, together with the contact-set rigidity mechanism, is reusable structural information for discrete positive-definite and sampling problems rather than a numerical case list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

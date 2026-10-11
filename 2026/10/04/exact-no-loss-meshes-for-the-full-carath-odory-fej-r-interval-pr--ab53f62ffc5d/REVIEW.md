@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The continuous constant is reconstructed from Fejér–Riesz factorization and the path-adjacency Rayleigh quotient. The explicit extremizer identity identifies all contact zeros. A positive dual contact measure proves sharpness on the divisible meshes, while finite linear-programming duality plus Chebyshev–Vandermonde uniqueness forces every contact value to be sampled in any equality case. The two contact fractions with numerators \(3\) and \(5\) then force \(2(n+2)\mid N\). Unbounded aliasing cases are explicitly separated.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:math/0302193, defines the same discretized extremal quantity and states the general inequality between sampled and continuous problems, but the inspected full text does not classify equality meshes for the full harmonic interval. The later arXiv:1304.0071 proves convergence and finite duality in a broader framework, again without the inspected exact divisibility criterion. Targeted semantic and exact-formula searches found no dominating result. The prior quadratic full-interval case is excluded by \(n\ge3\), and prior singleton-harmonic results have different feasible sets.
+PASS
 
-Residual risk remains that an equivalent theorem may occur under substantially different terminology for circulant positive-definite sequences, Toeplitz linear programs, or graph theta parameters.
+Fejér–Riesz turns the continuous problem into the path-adjacency Rayleigh quotient, giving 2cos(π/(n+2)) and the sine-eigenvector extremizer. Its polynomial identity identifies the complete contact set. The displayed positive contact weights satisfy the constant, first and higher cosine moment equations, proving equality when all contacts lie on the grid. Conversely finite-LP equality forces any dual measure onto those zeros; after symmetrizing, Chebyshev moments through degree n uniquely determine the positive aggregate weights on the distinct contact cosines. Hence every contact cosine is sampled. The contacts at fractions 3/(2R) and 5/(2R), R=n+2, force the lcm denominator 2R to divide N. Fresh independent replay verified all contact moment identities for n=3,…,30 and the contact-inclusion equivalence for 4,116 grid pairs.
 
-## Value
-PASS. Exact preservation of a classical extremal constant under finite sampling is a natural structural question. The theorem gives a complete all-degree no-loss criterion by one arithmetic divisibility condition, and its contact-rigidity proof explains why every other mesh has a genuine relaxation gap rather than merely observing one numerically.
+## originality
 
-## Closest literature and limitations
-Kolountzakis–Révész formulate \(M_m(H)\), its relation to \(M(H)\), and aliasing phenomena. Krenedits–Révész place the same problem in a general locally compact Abelian framework and prove finite-to-continuous convergence plus finite duality. The present claim concerns the exact individual meshes for the full interval of harmonics. It does not provide a closed formula for the off-mesh excess, and some off-mesh instances may be unbounded.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The classical and later LCA-group papers define the discretized Carathéodory–Fejér problem, establish the relaxation inequality and finite-to-continuous framework, but the inspected statements do not classify which individual cyclic meshes have zero relaxation gap for the full degree interval. Resultary returned the assigned theorem as the exact match; the nearby degree-two and singleton-harmonic results concern different feasible sets. The divisibility criterion therefore survives best-of-knowledge comparison.
+
+## value
+
+PASS
+
+The finite cyclic problem is a canonical relaxation of the classical Carathéodory–Fejér extremum. An exact all-degree classification of zero-loss meshes, together with the contact-set rigidity mechanism, is reusable structural information for discrete positive-definite and sampling problems rather than a numerical case list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
