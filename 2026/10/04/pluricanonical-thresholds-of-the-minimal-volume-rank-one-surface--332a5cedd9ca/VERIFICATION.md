@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,44 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier reconstructs the two Hirzebruch--Jung chains
-\[
-[2^9,4,2,2],\qquad [2^4,10,2]
-\]
-from their self-intersection data. It checks determinant and tail-determinant pairs
-\[
-(73,66),\qquad (87,70),
-\]
-and therefore local canonical indices \(73\) and \(87\), global index \(6351\), and
-\[
-6351\cdot\frac1{6351}=1.
-\]
+# Independent mathematical audit
 
-For each chain, the script forms the exact intersection matrix \(M\) and solves
-\[
-M b=(2-e)
-\]
-over the rational numbers. It checks the discrepancy-coefficient vectors
-\[
-\frac1{73}(6,12,18,24,30,36,42,48,54,60,40,20)
-\]
-and
-\[
-\frac1{87}(16,32,48,64,80,40).
-\]
+## correctness
 
-For every \(2\le n\le98\), it computes the fractional part vector \(\{nb\}\), evaluates
-\[
-\delta_n=\frac12\left(K_Y+\{nB_Y\}\right)\cdot\{nB_Y\},
-\]
-and then evaluates
-\[
-P_n=1+\frac{n(n-1)}{2\cdot6351}+\delta_n.
-\]
-Every result is checked to be a nonnegative integer. The exact set with \(P_n=1\) for \(2\le n\le97\) is checked against the list in `RESULT.md`; all other values in that interval are \(0\), and \(P_{98}=2\).
+PASS
 
-This proves only the finite threshold claims stated in the result. It does not infer the behavior of the full canonical ring beyond degree \(98\).
+The arithmetic was independently reconstructed from the two Hirzebruch--Jung strings. Their determinants and tail determinants are \((73,66)\) and \((87,70)\), giving quotient types \(1/73(1,66)\) and \(1/87(1,70)\) and local canonical indices 73 and 87. Their least common multiple is 6351, so with \(K_X^2=1/6351\) the index-volume product is one. Solving the discrepancy linear systems gives exactly the vectors printed in RESULT.md. Substitution into Blache's correction formula using exact rational arithmetic yields integer plurigenera: zero for degrees 2 through 10, one at 11, no value above one through 97, and two at 98, with the listed degree-one-section set. The inspected verifier recomputes every rational step and every claimed degree; the finite computation is exhaustive for the explicitly bounded threshold claim.
 
-The stored output must end in `VERIFY_OK`.
+## originality
+
+PASS
+
+Originality passes. Liu--Liu prove uniqueness of the rank-one stable surface at the minimal volume and use plurigenus inequalities/filters, while Alexeev--Liu provide the underlying surface construction and cyclic quotient data. The inspected current full Liu--Liu text does not state the global canonical index 6351, the equality between index times volume and one, or the first section thresholds 11 and 98; targeted text searches likewise did not locate those values as pluricanonical thresholds. Fresh Resultary search returned the audited theorem as the exact hit and no prior source with the same threshold computation.
+
+## value
+
+PASS
+
+The surface is the unique rank-one stable surface at the sharp minimal volume, so its canonical Cartier index and first nonzero/positive-dimensional pluricanonical systems are natural intrinsic invariants. The calculation converts the classification basket into concrete canonical-section thresholds that are useful for understanding the canonical ring of the extremal surface, without claiming uncomputed base-point or birational thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

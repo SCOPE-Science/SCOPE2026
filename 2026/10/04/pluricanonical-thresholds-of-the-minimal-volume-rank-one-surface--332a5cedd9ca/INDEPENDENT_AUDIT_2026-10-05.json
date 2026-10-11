@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:48:46.260927Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9c35b875095d91f5b48db32aa965c6d3f766518b",
+        "verify.py blob a16f3f7576e61351619499316a47f418ea0e6a61",
+        "verification_output.txt blob 12c4170368e4bcadaa33722fcb312ad413c56686",
+        "independent Hirzebruch--Jung/index and Riemann--Roch reconstruction"
+      ],
+      "rationale": "The arithmetic was independently reconstructed from the two Hirzebruch--Jung strings. Their determinants and tail determinants are \\((73,66)\\) and \\((87,70)\\), giving quotient types \\(1/73(1,66)\\) and \\(1/87(1,70)\\) and local canonical indices 73 and 87. Their least common multiple is 6351, so with \\(K_X^2=1/6351\\) the index-volume product is one. Solving the discrepancy linear systems gives exactly the vectors printed in RESULT.md. Substitution into Blache's correction formula using exact rational arithmetic yields integer plurigenera: zero for degrees 2 through 10, one at 11, no value above one through 97, and two at 98, with the listed degree-one-section set. The inspected verifier recomputes every rational step and every claimed degree; the finite computation is exhaustive for the explicitly bounded threshold claim.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu--Liu give broader classification and plurigenus filtering tools but no inspected theorem determines the two exact first degrees for this surface.",
+          "Blache supplies the general Riemann--Roch correction formula, an ingredient rather than the evaluated answer."
+        ],
+        "reasoning": "No inspected broader result mechanically provides the evaluated discrepancy vectors and threshold list without doing the surface-specific arithmetic.",
+        "searches": [
+          "Liu--Liu, The minimal volume of stable surfaces of rank one, arXiv:2605.05641v1",
+          "Blache, Riemann--Roch theorem for normal surfaces and applications, Abh. Math. Sem. Univ. Hamburg 65 (1995), 307--340"
+        ]
+      },
+      "checked_sources": [
+        "Liu--Liu, The minimal volume of stable surfaces of rank one, arXiv:2605.05641v1",
+        "Alexeev--Liu, Open surfaces of small volume, arXiv:1612.09116",
+        "Blache, Riemann--Roch theorem for normal surfaces and applications, Abh. Math. Sem. Univ. Hamburg 65 (1995), 307--340",
+        "Resultary query: minimal volume stable surfaces rank one T(2,2,4,10) plurigenus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local strings yield quotient orders 73 and 87 and canonical local indices 73 and 87, hence global index 6351.",
+          "Exact fractional-part corrections give zero through degree ten, one section at 11, no dimension above one through 97, and two sections at 98."
+        ],
+        "reasoning": "These values are surface-specific evaluations, not direct quoted corollaries of the general Riemann--Roch statement or volume-minimality theorem.",
+        "searches": [
+          "Liu--Liu, The minimal volume of stable surfaces of rank one, arXiv:2605.05641v1",
+          "Alexeev--Liu, Open surfaces of small volume, arXiv:1612.09116",
+          "Blache, Riemann--Roch theorem for normal surfaces and applications, Abh. Math. Sem. Univ. Hamburg 65 (1995), 307--340",
+          "exact discrepancy and Blache-correction evaluation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior papers identify the distinguished surface and its singularity/resolution data.",
+          "The audited statement evaluates the canonical Cartier index and exact reflexive plurigenera through the first two section-dimension thresholds."
+        ],
+        "reasoning": "Surface identification/minimal-volume uniqueness and explicit pluricanonical thresholds are different invariants; the latter require local-index and orbifold Riemann--Roch computation.",
+        "searches": [
+          "Liu--Liu, The minimal volume of stable surfaces of rank one, arXiv:2605.05641v1",
+          "Alexeev--Liu, Open surfaces of small volume, arXiv:1612.09116",
+          "Resultary query: minimal volume stable surfaces rank one T(2,2,4,10) plurigenus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact match is the audited finding; no checked prior table listed the two threshold degrees or global index identity."
+        ],
+        "reasoning": "Search absence is supporting evidence; the full Liu--Liu source was also directly inspected around its minimal-volume theorem and plurigenus-filter discussion.",
+        "searches": [
+          "Resultary query: minimal volume stable surfaces rank one T(2,2,4,10) plurigenus",
+          "targeted searches for 6351, P_11, P_98, T(2,2,4,10), and first pluricanonical degree"
+        ]
+      },
+      "rationale": "Originality passes. Liu--Liu prove uniqueness of the rank-one stable surface at the minimal volume and use plurigenus inequalities/filters, while Alexeev--Liu provide the underlying surface construction and cyclic quotient data. The inspected current full Liu--Liu text does not state the global canonical index 6351, the equality between index times volume and one, or the first section thresholds 11 and 98; targeted text searches likewise did not locate those values as pluricanonical thresholds. Fresh Resultary search returned the audited theorem as the exact hit and no prior source with the same threshold computation.",
+      "residual_risks": [
+        "The complete Alexeev--Liu 2019 paper was not independently reread in this run; an unindexed canonical-ring computation under different terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IDENTIFIES_SURFACE_AND_FILTERS_BUT_NOT_INSPECTED_THRESHOLD_THEOREM",
+          "evidence": "The source proves the minimal-volume uniqueness and provides plurigenus machinery, while the audited exact index and first threshold values were not stated in the inspected text.",
+          "identifier_or_url": "arXiv:2605.05641v1",
+          "material_read": "Accessible full arXiv/HTML material around the minimal-volume uniqueness theorem, classification/filter discussion, and relevant numerical data; targeted full-text searches for the claimed threshold values.",
+          "method": "lawful open-access primary full text",
+          "title": "The minimal volume of stable surfaces of rank one",
+          "trigger": "Current primary theorem identifying the unique minimal-volume rank-one stable surface and using plurigenus filters."
+        },
+        {
+          "assessment": "CONSTRUCTION_BACKGROUND_WITH_RESIDUAL_FULL_TEXT_RISK",
+          "evidence": "The source supplies the family context rather than an inspected P_11/P_98 threshold statement; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "arXiv:1612.09116",
+          "material_read": "Primary abstract/current record and source data as cited by the current classification paper; the complete paper was not independently reread in this run.",
+          "method": "lawful primary record",
+          "title": "Open surfaces of small volume",
+          "trigger": "Earlier construction/background source for the special surface family and quotient geometry."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu--Liu, The minimal volume of stable surfaces of rank one, arXiv:2605.05641v1",
+        "Alexeev--Liu, Open surfaces of small volume, arXiv:1612.09116",
+        "Blache, Riemann--Roch theorem for normal surfaces and applications, Abh. Math. Sem. Univ. Hamburg 65 (1995), 307--340",
+        "Resultary query: minimal volume stable surfaces rank one T(2,2,4,10) plurigenus"
+      ],
+      "rationale": "The surface is the unique rank-one stable surface at the sharp minimal volume, so its canonical Cartier index and first nonzero/positive-dimensional pluricanonical systems are natural intrinsic invariants. The calculation converts the classification basket into concrete canonical-section thresholds that are useful for understanding the canonical ring of the extremal surface, without claiming uncomputed base-point or birational thresholds.",
+      "residual_risks": [
+        "The calculation stops at the first dimension-two threshold and does not determine canonical-ring generators, relations, base loci, or birationality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The complete Alexeev--Liu 2019 paper was not independently reread in this run; an unindexed canonical-ring computation under different terminology remains possible.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
