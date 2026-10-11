@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:37:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md f794749930b8e205bcc3d6e52894e50a1fb9b656",
+        "verification/check.py 4c8c19c082bfb049b8a788f146d3b717bfd39396",
+        "Nestor et al. DOI:10.3390/sym14020424"
+      ],
+      "rationale": "Direct differentiation of the actual vector field gives diagonal Jacobian entries \\(\\beta_1(1-\\epsilon\\cosh x_1)/5,-1,0,0\\). Since \\(\\cosh x_1\\ge1\\), the supremum divergence is \\(\\beta_1(1-\\epsilon)/5-1\\), yielding the exact boundary and the \\(-1/10\\) showcase margin. Liouville's determinant formula integrates the time-varying divergence rather than freezing \\(\\cosh x_1\\); Oseledets plus compact support gives the divergence-average Lyapunov sum. The inspected exact checker verifies coefficient reconstruction and the showcase arithmetic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later papers cite the system but no checked source corrects this model-specific divergence or derives the boundary."
+        ],
+        "reasoning": "Generic Liouville/Oseledets theory supplies methodology but not the model-specific corrected formula.",
+        "searches": [
+          "Nestor et al. full open article",
+          "searches for later analyses/corrections of the same system"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/sym14020424",
+        "Resultary semantic search",
+        "later citing hyperchaotic-system literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source's stated conclusion is mathematically inconsistent with its vector field; it therefore does not imply the corrected parameter boundary.",
+          "The corrected result follows from re-deriving rather than accepting the published divergence."
+        ],
+        "reasoning": "The claim is a correction, not a corollary of the source's asserted formula.",
+        "searches": [
+          "Nestor et al. equations (1)--(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's equations give \\(\\dot x_1=\\beta_1[x_2+0.2(x_1-\\epsilon\\sinh x_1)]\\), while its dissipativity section prints \\(-0.8-\\epsilon\\cosh x_1\\)."
+        ],
+        "reasoning": "Divergence negativity, infinitesimal phase-volume contraction and the determinant growth rate are equivalent formulations here.",
+        "searches": [
+          "Resultary query: hyperbolic sine four-dimensional flow divergence correction phase volume contraction beta1 epsilon",
+          "web exact searches for the printed divergence and the source model",
+          "DOI:10.3390/sym14020424"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact corrected threshold record was located."
+        ],
+        "reasoning": "The decisive evidence is the mismatch in the primary source itself.",
+        "searches": [
+          "Resultary exact model/divergence search"
+        ]
+      },
+      "rationale": "The introducing 2022 article prints the same vector field but reports \\(-0.8-\\epsilon\\cosh x_1\\) as its divergence and then treats that state-dependent quantity as a time constant in a phase-volume formula. The audited coefficient calculation shows those printed expressions are incompatible with the vector field for any positive \\(\\epsilon\\). No checked later source was found correcting the formula or stating the sharp \\(\\beta_1(1-\\epsilon)=5\\) boundary.",
+      "residual_risks": [
+        "A correction or commentary outside indexed literature may already note the differentiation error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_CONTAINS_THE_CORRECTED_ERROR",
+          "evidence": "The source displays the \\(\\beta_1\\)-scaled sinh equation but its printed divergence omits the corresponding \\(\\beta_1/5\\) coefficients.",
+          "identifier_or_url": "DOI:10.3390/sym14020424",
+          "material_read": "Open primary article plus indexed full-text extraction of Section 3.1 showing the vector field and printed equations (2)--(3).",
+          "method": "Open-access primary-source inspection.",
+          "title": "A New 4D Hyperchaotic System with Dynamics Analysis, Synchronization, and Application to Image Encryption",
+          "trigger": "Exact source of the vector field and published dissipativity calculation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nestor et al. 2022",
+        "standard dynamical-systems volume-contraction theory"
+      ],
+      "rationale": "Although the calculus is elementary, it corrects a published dissipativity claim for a model whose chaotic and cryptographic interpretation relies on volume contraction. The corrected boundary identifies parameter regimes where instantaneous expansion occurs and prevents the erroneous all-\\(\\epsilon>0\\) conclusion; this is substantive model validation rather than an unmotivated normalization check.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the displayed four-dimensional hyperbolic-sine flow, the exact divergence is \\(D(x_1)=\\beta_1(1-\\epsilon\\cosh x_1)/5-1\\), so uniform strict phase-volume contraction holds exactly when \\(\\beta_1(1-\\epsilon)<5\\); at \\((\\beta_1,\\epsilon)=(9,1/2)\\) the contraction exponent is at most \\(-1/10\\), and every compactly supported ergodic invariant measure has Lyapunov-exponent sum equal to the stated divergence average.",
+  "limitations": [
+    "Phase-volume contraction only, not existence/boundedness/hyperchaos of an attractor.",
+    "Lyapunov-sum statement restricted to compactly supported ergodic invariant measures.",
+    "Liouville formula is asserted only along existing classical trajectories."
+  ],
+  "schema_version": 1
+}
