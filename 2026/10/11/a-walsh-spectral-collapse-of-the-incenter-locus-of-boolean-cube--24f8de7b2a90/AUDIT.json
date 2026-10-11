@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Support-function coarea decomposition rigorously identifies the optimal radius and full set of feasible ball centers from every cut. The inductive isoperimetric bound with power-of-two equality rigidity and a strictly unimodal one-variable comparison isolate all optimal halfcube/singleton cuts, without an unproved enumeration step. Independent contact-normal rank via Walsh characters determines all dimensions. Exact finite checks exhaust \\(d=1,2,3,4\\); for \\(d\\ge5\\) the assertion follows from proof, not numerical evidence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rashtchian–Raynaud Theorem 1 gives classical unnormalized edge-isoperimetric optimum at each fixed cardinality.",
+        "The new proof compares normalized cuts across all cardinalities, determines all global equality classes, and computes ranks of active facets."
+      ],
+      "reasoning": "Classical isoperimetry and generic support-function minimization are stronger in their respective domains but do not individually entail incenter-locus dimension or Walsh spectral span. The supplied proof expressly covers those missing equality and rank steps.",
+      "searches": [
+        "Hypercube graph graphical zonotope exact Euclidean inradius transition dimension five central cut versus singleton cut",
+        "Edge isoperimetric inequality hypercube graph normalized cut denominator square root cut size radius",
+        "arxiv:1909.10435v1"
+      ]
+    },
+    "checked_sources": [
+      "Padrol–Pilaud–Poullot, Deformed Graphical Zonotopes (arXiv:2111.12422; OA article full text).",
+      "Rashtchian–Raynaud, Edge Isoperimetric Inequalities for Powers of the Hypercube (arXiv:1909.10435, PDF introduction and Theorem 1).",
+      "Pešović–Stojadinović, Between Graphical Zonotope and Graph-Associahedron (arXiv:2209.12053, open full-text preprint).",
+      "Semantic publication searches for the Euclidean incenter locus, graph total variation, and hypercube cut endpoint transitions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The normalized Euclidean cut formulation measures |boundary|/sqrt(|S|(N-|S|)/N), unlike the classical fixed-cardinality objective.",
+        "Equality is achieved only at coordinate halfcubes through \\(d=4\\) and singletons from \\(d=5\\); the active-normal ranks give incenter dimension \\(2^d-d-1\\) or 0."
+      ],
+      "reasoning": "A generic zonotope cut-radius characterization is background and the numerical radius alone is not presented as the contribution. The independent structural conclusions require a strict cardinality endpoint comparison plus power-of-two equality rigidity and a Walsh-rank argument; the inspected published literature does not state or imply that conjunction without further work.",
+      "searches": [
+        "Graph total variation over Euclidean norm optimal two level vectors cut expansion normalized sqrt size hypercube",
+        "graphical zonotope exact Euclidean incenter center polytope phase transition hypercube graph",
+        "arxiv:2111.12422v1",
+        "arxiv:1909.10435v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Graphical-zonotope normal fan rays correspond to cuts with connected sides (Padrol–Pilaud–Poullot, Proposition 1.4).",
+        "Full centered inball centers are the intersection of the Euclidean cut support inequalities, proved directly."
+      ],
+      "reasoning": "The equivalent formulations in terms of Chebyshev centers, erosion by a ball and cut-normal supports were examined. The graph-fan source specifies facet directions but gives no Euclidean offset or center polytope; equivalence of definitions is not equivalence of results.",
+      "searches": [
+        "graphical zonotope exact Euclidean incenter center polytope phase transition hypercube graph",
+        "incenter locus of hypercube graphical zonotope unique Chebyshev center dimension contact faces transition",
+        "https://link.springer.com/article/10.1007/s00454-023-00586-x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pešović–Stojadinović study face and quasisymmetric enumerators of related graph polytopes, not Euclidean incenter centers.",
+        "The exact-rational verifier exhausts the new cut minimizers for \\(d=1,2,3,4\\), but is not a replacement for a published all-d theorem."
+      ],
+      "reasoning": "Searched for an exact table of Euclidean inradii, touching facets, or unique centers for the Boolean-cube graphical zonotope. No matching table or formula appeared in inspected full texts or semantic records; this is a bounded negative result, not a novelty proof.",
+      "searches": [
+        "Graphical zonotope Q_d inscribed ball facets closest cube edge isoperimetry balanced cut singleton",
+        "hypercube graphical zonotope Euclidean maximal inball balanced coordinate cuts singleton cuts dimension five",
+        "https://arxiv.org/abs/2209.12053"
+      ]
+    },
+    "rationale": "The conclusion is the full Boolean-cube graphical-zonotope Euclidean incenter locus, its Walsh affine hull, and its sharp uniqueness/contact transition. The original zonotope literature describes facet fans, deformation cones or enumerators, and the relevant hypercube isoperimetry paper supplies cut extremality but not a Euclidean incenter classification. Normalized-cut radius reduction alone does not specify equality sets or ranks. Focused semantic and textual comparisons found no source logically covering the claimed structural theorem; nonexhaustive-literature residual risks are stated.",
+    "residual_risks": [
+      "Not all historical convex-geometry treatments of Chebyshev centers can be ruled out by electronic search.",
+      "The primary article studies deformation cones rather than a Euclidean metric; novelty assessment depends on statement-level comparisons with available full texts.",
+      "The general graph-zonotope cut-radius reduction is mathematically standard background, not the new claim; if an unlocated theorem already classifies Boolean-cube centers, originality would need reassessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same polytope class and relevant facet rays, but treats normal-fan combinatorics and deformation cones, not Euclidean maximum-inscribed-ball center loci or Boolean cube spectral transition.",
+        "evidence": [
+          "Proposition 1.4: normal fan rays indexed by biconnected vertex subsets.",
+          "Theorem 2.6: facet description of the deformation cone (not the original zonotope's Euclidean inball)."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-023-00586-x",
+        "material_read": "Full publicly accessible article sections on graphical zonotope normal fans, biconnected cuts, and all deformation-cone theorem statements and examples, including Proposition 1.4 and Theorem 2.6.",
+        "method": "Read full open-access HTML and examined equations and enumerated facet normals; searched within text for inradius and Euclidean metrics.",
+        "title": "Deformed Graphical Zonotopes",
+        "trigger": "Exact same class of graphical zonotopes; potential generalized facet or center classification."
+      },
+      {
+        "assessment": "Studies graph-polytope interpolation and combinatorial enumerators, not hypercube Euclidean inball contact or all incenter centers.",
+        "evidence": [
+          "Definition 2.1 introduces the interpolating polytopes, with the first a graphical zonotope.",
+          "The paper's main constructions are quasisymmetric enumerators and Hopf-algebra descriptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.12053",
+        "material_read": "Public full-text preprint hosted on the journal-linked ResearchGate page; definitions of its generalized permutohedra and sections describing weighted lattice-point, Hopf-algebra and face enumerators.",
+        "method": "Read full-text HTML presentation including source mathematical statements; searched within the full-text for inradius and Euclidean.",
+        "title": "Between Graphical Zonotope and Graph-Associahedron",
+        "trigger": "Exact initial family graphical zonotope and potentially competing metric or face data."
+      },
+      {
+        "assessment": "Provides foundational hypercube cut bounds but no graphical-zonotope metric, full incenter locus, or Walsh phase change; the new proof independently derives its needed power-of-two equality case.",
+        "evidence": [
+          "Introduction Theorem 1 describes binary-order extremal edge sets.",
+          "Page 2 states the general induced-edge estimate and identifies subcubes at power-of-two cardinality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.10435",
+        "material_read": "PDF introduction, graph-boundary identities and Theorem 1 on classical hypercube edge isoperimetry, including its immediate induced-edge consequence on page 2.",
+        "method": "Inspected first pages of the original arXiv full-text PDF and page image, comparing objective and equality cases.",
+        "title": "Edge Isoperimetric Inequalities for Powers of the Hypercube",
+        "trigger": "The exact graph-cut inequality may dominate the geometric radius problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24f8de7b-2a90-4d83-a5c0-bffd32c47daa",
+  "value": {
+    "rationale": "The theorem exactly classifies a natural and highly symmetric family of incenter loci. A drastic shift from an 11-dimensional set of maximum-ball centers for \\(d=4\\) to a unique center for \\(d=5\\) despite increasing ambient dimension is a genuine uniqueness transition. Walsh-degree support identifies all permissible infinitesimal and finite center motions, and the facet-contact spectrum has independent geometric meaning. This is not simply a recomputation of the radius or a small unmotivated enumerated case.",
+    "status": "PASS"
+  }
+}
