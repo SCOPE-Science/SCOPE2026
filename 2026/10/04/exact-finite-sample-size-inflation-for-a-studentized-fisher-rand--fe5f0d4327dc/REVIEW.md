@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The six treatment effects sum exactly to \(0\), so the stated weak null holds. The test statistic is the treatment-control studentized statistic used by Wu and Ding, and comparing \(T\) is equivalent to comparing \(T^2\). Exact rational enumeration covers every one of the \(20\) realized assignments and, conditional on each, every one of the \(20\) sharp-null rerandomizations. The p-value multiplicities are \(7,3,3,7\) at \(1/10,1/5,9/10,1\), respectively, so the exact size at \(\alpha=0.1\) is \(7/20\). The minimum standard-error denominator over all \(400\) comparisons is \(246719/2250000>0\).
+PASS
 
-## Originality
+The six displayed unit effects sum exactly to zero, so the finite-population weak null holds. For each of the 20 actual assignments, sharp-null Fisher imputation fixes the observed outcome vector and reassigns all 20 treatment triples. Exact-rational enumeration of the squared studentized statistic reproduces p-value multiplicities 7 at 1/10, 3 at 1/5, 3 at 9/10 and 7 at 1, with all 400 variance denominators positive. Hence the exact weak-null rejection probability at nominal 0.1 is 7/20=0.35.
 
-PASS. The primary paper proves finite-sample exactness only for the sharp null and asymptotic weak-null control for the studentized statistic. Its finite-sample simulation section studies three- and four-arm designs rather than this balanced two-arm exact enumeration. A later prepivoting paper explains the general possibility of anti-conservatism when a sharp-null reference distribution is used for a weak null and recovers studentization as an asymptotic fix in completely randomized designs, but it does not state or imply this six-unit p-value law or exact \(7/20\) size. Focused semantic-database and web searches found no equivalent finite-sample witness. Residual risk remains that an older or obscure permutation-test example could contain an equivalent numerical construction.
+## originality
 
-## Value
+PASS
 
-PASS. The finding pinpoints a practically meaningful boundary of a standard recommendation: asymptotic weak-null validity does not prevent severe finite-sample inflation, even with balanced treatment allocation and a fully defined studentized statistic. The natural nominal level \(0.1\), tiny finite population, and exact full randomization calculation make the example a reusable stress test for weak-null randomization methods and finite-sample refinements.
+Wu--Ding prove exact sharp-null validity and asymptotic weak-null conservativeness for the studentized Fisher randomization test, while emphasizing asymptotic rather than finite-sample weak-null control. Cohen--Fogarty likewise explain that sharp-null randomization reference distributions may be anti-conservative for weak nulls. Those general statements establish possibility but do not imply this exact balanced six-unit finite population, its complete p-value distribution, or the 7/20 size. Targeted searches for the exact witness/count did not locate prior coverage.
 
-## Closest literature and limitations
+## value
 
-The closest source is Wu and Ding, arXiv:1809.07419, especially their treatment-control specialization and finite-sample simulation discussion. Cohen and Fogarty, DOI 10.1111/rssb.12439, gives broader conceptual coverage of sharp-versus-weak randomization inference but only asymptotic weak-null protection for the completely randomized studentized statistic. The present claim is not a worst-case or minimality result.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The studentized Fisher test is specifically promoted for weak-null asymptotic validity. An exact balanced two-arm finite population where nominal 10 percent size becomes 35 percent is a motivated counterexample that sharply illustrates the finite-sample boundary without contradicting the asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
