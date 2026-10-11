@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The phase reduction is exact: after writing the two free phases relative to the quadratic coefficient, every sampled squared modulus is \(F_c(\cos y_k)=1+4c\cos y_k+4\cos^2y_k\). For each rotated grid, convexity reduces the maximum to the two extreme sampled cosines. Their values are monotone in opposite directions as a function of \(c\), so balancing them at \(c=r-p\) proves the exact fixed-rotation optimum \(1+4pr\). The remaining odd/even regular-polygon minimization is elementary and yields the stated formulas. The explicit phases realize the balancing parameter. The finite verifier only corroborates these identities.
+## correctness
 
-## Originality
-PASS. The closest primary source, Neuwirth's continuous trigonometric-trinomial analysis (arXiv:math/0703236), studies the maximum on the entire circle with prescribed coefficient moduli. Its continuous result does not imply an exact maximum on each finite root-of-unity grid, and it contains no finite-cyclic or roots-of-unity-grid theorem located in the inspected text. Graham--Ramsey's finite-group Sidon result classifies extremal three-element sets for a different coefficient optimization and touches \(N=3,4\) without implying the all-\(N\) phase-only formula. Semantic searches under finite-cyclic, roots-of-unity, phase-only, Sidon, and crest-factor formulations found no covering statement. Residual risk remains from differently indexed engineering literature.
+PASS
 
-## Value
-PASS. The object is the minimal nontrivial phase-only trigonometric polynomial and a direct finite-grid analogue of the classical complex Mandel'shtam problem. The theorem is not a small-modulus table: it gives every modulus, explicit extremizers, a sharp parity transition, and the exact second-order approach to the continuous optimum. This supplies a structural benchmark for finite character sampling.
+Writing \(u=e^{i\alpha}\), \(v=e^{i\beta}\), \(c=\cos(\alpha-\beta/2)\), and \(y_k=\beta/2+2\pi k/N\) gives the exact quadratic sample formula \(1+4c\cos y_k+4\cos^2y_k\). For fixed grid rotation, convexity reduces the worst sample to the two extreme cosines \(p\) and \(-r\); balancing them at \(c=r-p\) gives the exact value \(1+4pr\). Regular-polygon geometry then yields \(\min pr=\cos^2(\pi/N)\) for even \(N\) and \(\cos(\pi/N)\) for odd \(N\), with the displayed phases realizing the balance. The verifier checks the extremizers through \(N=1200\) and the endpoint reduction on multiple rotations. An independent dense rotation scan for \(3\le N\le30\) matched the analytic formulas to numerical tolerance.
 
-## Closest literature and limitations
-The result is limited to equal coefficient moduli and consecutive frequencies. It neither classifies all minimizers nor treats arbitrary three-point spectra. The closest literature uses the continuous circle or a different coefficient optimization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Neuwirth solves the continuous maximum-modulus phase problem for trigonometric trinomials with prescribed coefficient moduli and gives the continuous consecutive equal-modulus benchmark. The audited problem is a different optimization: the norm is sampled only on the complete \(N\)-th-root grid. The exact parity law and explicit finite-grid extremizers are not implied by the continuous theorem. Resultary search returned the assigned result as the direct finite-grid match and no earlier covering theorem.
+
+## value
+
+PASS
+
+Finite root-of-unity sampling is the natural discrete counterpart of the classical continuous phase-minimax problem and is directly relevant to finite Fourier systems. The exact all-\(N\) parity law, explicit extremizers, and sharp second-order discretization deficit provide structural information beyond a finite numerical benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

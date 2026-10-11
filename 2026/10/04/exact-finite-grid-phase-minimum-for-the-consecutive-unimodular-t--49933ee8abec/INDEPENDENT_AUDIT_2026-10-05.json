@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:34:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7d7bc963f383166f99fa5a85f6a2294903a1d588",
+        "assigned verify.py blob 83fe7b1bd8415b3c8aa082fca0e0ac144c834cf6",
+        "independent direct finite-grid phase scan for N=3..30",
+        "Neuwirth, The maximum modulus of a trigonometric trinomial"
+      ],
+      "rationale": "Writing \\(u=e^{i\\alpha}\\), \\(v=e^{i\\beta}\\), \\(c=\\cos(\\alpha-\\beta/2)\\), and \\(y_k=\\beta/2+2\\pi k/N\\) gives the exact quadratic sample formula \\(1+4c\\cos y_k+4\\cos^2y_k\\). For fixed grid rotation, convexity reduces the worst sample to the two extreme cosines \\(p\\) and \\(-r\\); balancing them at \\(c=r-p\\) gives the exact value \\(1+4pr\\). Regular-polygon geometry then yields \\(\\min pr=\\cos^2(\\pi/N)\\) for even \\(N\\) and \\(\\cos(\\pi/N)\\) for odd \\(N\\), with the displayed phases realizing the balance. The verifier checks the extremizers through \\(N=1200\\) and the endpoint reduction on multiple rotations. An independent dense rotation scan for \\(3\\le N\\le30\\) matched the analytic formulas to numerical tolerance.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuous theorem supplies the limiting value but not the sampled-grid geometry.",
+          "Sidon-constant results vary coefficient magnitudes and optimize a different ratio."
+        ],
+        "reasoning": "No checked broader result dominates the equal-modulus finite-grid minimax for every \\(N\\).",
+        "searches": [
+          "Neuwirth continuous trinomial theorem",
+          "Graham--Ramsey Sidon-constant literature",
+          "Resultary finite cyclic Fourier invariants"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0703236",
+        "Graham--Ramsey Sidon-set literature",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous maximum sees every cosine value; the finite grid sees only a rotated regular polygon and therefore admits a parity-sensitive reduction through its extreme sampled cosines."
+        ],
+        "reasoning": "The finite-grid theorem requires a new polygon optimization and is not a special case of the continuous result.",
+        "searches": [
+          "Neuwirth continuous circle problem versus finite sampled grid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source optimizes maximum modulus over the continuous circle.",
+          "The audited theorem replaces the continuous maximum by a finite-grid maximum and obtains distinct odd/even formulas."
+        ],
+        "reasoning": "Equivalent formulations as phase-only crest-factor minimization, sampled trigonometric-trinomial minimax, and three-tone cyclic-grid flatness were checked.",
+        "searches": [
+          "Resultary query: finite roots of unity grid phase minimax consecutive unimodular trinomial equal coefficients",
+          "Neuwirth, arXiv:math/0703236"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-\\(N\\) table with these odd/even formulas was located."
+        ],
+        "reasoning": "A communications or sequence-design table could in principle contain the same values, so exact formula searches were included.",
+        "searches": [
+          "Resultary exact finite-grid phase-minimum search",
+          "web searches using roots-of-unity, crest-factor, and unimodular-trinomial terminology"
+        ]
+      },
+      "rationale": "Neuwirth solves the continuous maximum-modulus phase problem for trigonometric trinomials with prescribed coefficient moduli and gives the continuous consecutive equal-modulus benchmark. The audited problem is a different optimization: the norm is sampled only on the complete \\(N\\)-th-root grid. The exact parity law and explicit finite-grid extremizers are not implied by the continuous theorem. Resultary search returned the assigned result as the direct finite-grid match and no earlier covering theorem.",
+      "residual_risks": [
+        "Unindexed crest-factor or sequence-design literature may formulate the same sampled problem under engineering terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTINUOUS_PROBLEM_NOT_COVERING_FINITE_GRID",
+          "evidence": "The source maximizes over the full circle and contains no \\(N\\)-th-root sampling or parity-dependent finite-grid formula.",
+          "identifier_or_url": "arXiv:math/0703236",
+          "material_read": "Primary full PDF with detailed reading of the continuous phase-minimax setup, theorem statements, and prescribed-modulus formulation; relevant PDF pages were visually inspected.",
+          "method": "Open-access full-PDF inspection.",
+          "title": "The maximum modulus of a trigonometric trinomial",
+          "trigger": "Closest primary source for the same consecutive three-frequency equal-modulus phase problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Neuwirth continuous trigonometric-trinomial work",
+        "finite cyclic Fourier/Sidon literature"
+      ],
+      "rationale": "Finite root-of-unity sampling is the natural discrete counterpart of the classical continuous phase-minimax problem and is directly relevant to finite Fourier systems. The exact all-\\(N\\) parity law, explicit extremizers, and sharp second-order discretization deficit provide structural information beyond a finite numerical benchmark.",
+      "residual_risks": [
+        "The result treats only the smallest consecutive three-frequency support."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every \\(N\\ge3\\), the minimum over unimodular coefficients \\(u,v\\) of the largest sampled squared modulus \\(\\max_{k\\in\\mathbb Z_N}|1+u\\zeta_N^k+v\\zeta_N^{2k}|^2\\) is \\(1+4\\cos(\\pi/N)\\) for odd \\(N\\) and \\(1+4\\cos^2(\\pi/N)\\) for even \\(N\\), with the stated explicit extremizing phases and parity-dependent \\(N^{-2}\\) deficits from the continuous value \\(5\\).",
+  "limitations": [
+    "Only three consecutive frequencies and equal coefficient moduli are covered.",
+    "The result does not classify all minimizers or nonconsecutive three-frequency supports."
+  ],
+  "schema_version": 1
+}
