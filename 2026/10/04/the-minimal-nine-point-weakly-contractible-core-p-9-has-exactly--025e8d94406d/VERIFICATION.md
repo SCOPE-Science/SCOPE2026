@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier `verify.py` reconstructs the finite order from the thirteen covering relations of \(P(9)\). It then exhausts all \(2^9=512\) subsets and accepts a subset as open exactly when it is a lower set.
+# Independent mathematical audit
 
-For each nonempty open, contractibility is checked by recursively applying only valid beat-point deletions until either a singleton is reached or no successful reduction exists. Every deletion in a successful certificate is revalidated in the stage at which it occurs. The final space \(P(9)\) is separately checked to have no beat point.
+## correctness
 
-The expected result is exactly \(27\) opens, \(11\) nonempty contractible opens, two inclusion-maximal contractible opens,
-\[
-\{c_0,c_1,c_2,p,q,g\}
-\quad\text{and}\quad
-\{c_0,c_1,c_2,p,q,y,h,k\},
-\]
-and one unordered pair of contractible opens whose union is the entire space.
+PASS
 
-The calculation is finite and exhaustive. It does not certify any statement about other nine-point spaces, the order dual, or larger families.
+The exact 13 cover relations were independently closed transitively. Exhausting all \(2^9=512\) subsets yields 27 lower sets, including the empty set. Recursive beat-point reduction finds exactly eleven nonempty contractible opens; inclusion comparison has exactly two maximal elements, \(U_g\) and \(P(9)\setminus\{g\}\), and all unordered pairs contain exactly one covering pair. The full nine-point space has no beat point. This is an exhaustive finite proof, not an extrapolation.
+
+## originality
+
+PASS
+
+The complete current primary paper proves exactly the ingredients making one two-open cover easy—P(9) is noncontractible and deleting g is contractible—but it does not compute geometric category of P(9), enumerate all contractible opens, or establish uniqueness. General covering algorithms likewise do not imply the object-specific census. Fresh exhaustive reconstruction establishes the stronger maximal-open classification.
+
+## value
+
+PASS
+
+P(9) is the minimum-cardinality weakly contractible noncontractible finite-space example, and complete classification of its contractible-open covering geometry is a natural exact invariant. Uniqueness of the minimal cover is stronger and more reusable than merely reporting a category value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The poset is reconstructed from the thirteen displayed covering relations. Open subsets are lower sets under the stated convention. Exhaustive enumeration of all \(512\) subsets gives exactly \(27\) opens. Recursive beat-point reduction gives exactly \(11\) nonempty contractible opens, exactly two inclusion-maximal contractible opens, and exactly one unordered pair covering \(P(9)\). The full space has no beat point and more than one point, so it is noncontractible. The embedded verifier rechecks every beat deletion at the stage where it is used.
+## correctness
 
-## Originality
-PASS. The closest literature was compared at the statement and implication level. The foundational 2015 paper defines geometric category; the 2022/2025 covering paper develops algorithms but does not treat the Cianci--Ottina nine-point example; the 2026 paper gives the exact \(P(9)\) relations and proves that deleting \(g\) leaves a contractible space, but it does not enumerate all contractible opens or prove uniqueness of the two-set geometric cover. Prior work therefore nearly supplies existence of the displayed cover, but not the accepted maximal-open classification.
+PASS
 
-## Value
-PASS. The nine-point object is extremal among weakly contractible noncontractible finite spaces, while geometric category is sensitive to finite-space structure invisible to weak homotopy type. The complete classification of maximal contractible opens and the unique minimal geometric cover are natural exact data for this canonical example and provide a benchmark for finite-space category algorithms.
+The exact 13 cover relations were independently closed transitively. Exhausting all \(2^9=512\) subsets yields 27 lower sets, including the empty set. Recursive beat-point reduction finds exactly eleven nonempty contractible opens; inclusion comparison has exactly two maximal elements, \(U_g\) and \(P(9)\setminus\{g\}\), and all unordered pairs contain exactly one covering pair. The full nine-point space has no beat point. This is an exhaustive finite proof, not an extrapolation.
 
-The main residual risk is an uncatalogued older computation of this exact cover census; no such source was found in the targeted literature and published-result searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete current primary paper proves exactly the ingredients making one two-open cover easy—P(9) is noncontractible and deleting g is contractible—but it does not compute geometric category of P(9), enumerate all contractible opens, or establish uniqueness. General covering algorithms likewise do not imply the object-specific census. Fresh exhaustive reconstruction establishes the stronger maximal-open classification.
+
+## value
+
+PASS
+
+P(9) is the minimum-cardinality weakly contractible noncontractible finite-space example, and complete classification of its contractible-open covering geometry is a natural exact invariant. Uniqueness of the minimal cover is stronger and more reusable than merely reporting a category value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
