@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a fixed specialization of rank \(2s\), the new universal-vertex border lies in the image of the old alternating matrix in exactly \(q^{2s}\) cases. In those cases a congruence removes the border and preserves rank; every other border couples the new coordinate to the old radical and adds exactly one nondegenerate alternating plane, raising rank by \(2\). This partitions all cone specializations and proves the recurrence. The complete-tripartite formula follows by substituting the standard rectangular matrix rank count. The proof is valid in every characteristic, and the finite replay independently confirms all small cases stated in the verification scope.
+## correctness
 
-## Originality
-PASS. The primary 2021/2022 source asks the character-enumeration question and gives only an odd-characteristic rank reduction. The nearest later published result makes that reduction all-characteristic and solves complete bipartite graphs, but does not state a cone transformation. The 2025 join paper controls ask zeta functions and graphical-group class counting, not the full finite-field rank histogram or character-degree multiplicities. Statement-level searches across cone, universal-vertex, bordered-alternating, complete-tripartite, and character-degree formulations found no equivalent recurrence.
+PASS
 
-## Value
-PASS. Coning is a canonical graph operation, and the recurrence is a closure theorem for a named character-enumeration problem rather than a single numerical instance. It turns every polynomial rank-enumeration family into an infinite tower of new character-polynomial families. In particular, it gives explicit all-characteristic degree multiplicities for \(K_{1,a,b}\) and, recursively, for \(K_t\vee K_{a,b}\).
+For fixed old alternating matrix \(B\) of rank \(2s\), bordering by \(x\) preserves rank exactly when \(x\in\operatorname{im}B\), and otherwise adds one nondegenerate alternating plane, increasing rank by two. Thus exactly \(q^{2s}\) borders preserve rank and the remaining \(q^n-q^{2s}\) raise it, giving the recurrence by partitioning the old rank strata. The argument is valid in characteristic two. The inspected verifier exhaustively checks every graph on at most four vertices over \(\mathbf F_2,\mathbf F_3\) and the stated small tripartite formulas, corroborating the symbolic proof.
 
-Residual risk is bibliographic: the elementary bordered-alternating rank lemma may be standard, and an equivalent cone recurrence could exist under different matrix terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+No checked source gives the full finite-field rank-distribution transformation under adjoining a universal vertex. Rossmann--Voll give join formulas for ask zeta functions, which encode average kernel sizes over finite quotients and are used for conjugacy-class counting; their full paper does not state the two-stratum finite-field recurrence or irreducible-character-degree formula. Resultary found the assigned theorem as the exact hit, with other graphical-group results treating cycles and trees.
+
+## value
+
+PASS
+
+The recurrence gives an exact closure operation for an open character-enumeration problem and produces explicit new complete-multipartite families; the elementary bordered lemma has a nontrivial counting consequence across every rank stratum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
