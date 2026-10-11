@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:11:44.207184Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-\\(r\\) proof is correct. If a spine endpoint were selected, convexity of the complement would leave at most one of its pairwise nonadjacent neighbors outside, while general position forbids two selected neighbors using the selected endpoint as a geodesic interior point; \\(r\\ge2\\) gives a contradiction. Convexity then forces page vertices to be selected in complete pairs, and two selected page pairs violate general position along a length-three geodesic. Conversely, deleting one internal page pair leaves a convex complement because every path entering that deleted page contains the length-three spine detour and is strictly shortened by the common edge. An independent direct shortest-path enumeration for \\(r=2,3,4,5,6\\) found exactly \\(r\\) nonempty dual-general-position sets, all the internal pairs; the finite checks corroborate rather than replace the universal proof.",
+      "risks": [
+        "The boundary \\(r=1\\) is excluded and behaves differently."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "assigned verify.py",
+        "independent shortest-path reconstruction for r=2..6",
+        "Tian–Klavžar arXiv:2402.17338 Proposition 3.6"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized-theta source gives a zero-versus-positive criterion, not an exact positive value/all-set theorem.",
+          "The later product paper studies strong/lexicographic products, not this family."
+        ],
+        "reasoning": "The broad source is closer in graph class but weaker in conclusion, so it does not dominate the audited classification.",
+        "searches": [
+          "arXiv:2402.17338 generalized-theta section",
+          "arXiv:2408.15951 product-paper scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.17338",
+        "DOI 10.1007/s40840-024-01788-z",
+        "arXiv:2408.15951",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exhibiting one two-vertex dual-general-position set proves only positivity/lower bound.",
+          "It does not exclude larger sets or other two-vertex sets and therefore cannot imply uniqueness-by-page or the exact count r."
+        ],
+        "reasoning": "The audited spine/convexity argument supplies the missing upper bound and complete set classification.",
+        "searches": [
+          "direct implication comparison with Proposition 3.6 of arXiv:2402.17338"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source recognizes the same family as a generalized theta case and proves only \\(\\operatorname{gp}_d\\ge2\\) there.",
+          "No returned Resultary finding states the all-set book classification."
+        ],
+        "reasoning": "Book graphs were compared under both 'book' and \\(\\Theta(1,3,\\ldots,3)\\) terminology.",
+        "searches": [
+          "Tian–Klavžar arXiv:2402.17338, Proposition 3.6",
+          "Resultary query: dual general position sets book graphs generalized theta",
+          "generalized theta dual general position book graph exact sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database giving all dual-general-position sets of \\(B_r\\) was located."
+        ],
+        "reasoning": "The theorem is symbolic for all r rather than a recomputation of a known finite graph table.",
+        "searches": [
+          "current Resultary graph-general-position search",
+          "primary paper's theta statements"
+        ]
+      },
+      "rationale": "The initiating dual-general-position paper explicitly treats generalized theta graphs. For \\(\\Theta(1,3,\\ldots,3)\\), its Proposition 3.6 only establishes positivity by exhibiting the two internal vertices of a length-three path; it does not give the exact maximum, classify all dual-general-position sets, or count them. The audited theorem supplies those non-implied statements for the book family. Resultary searches found no earlier exact book-graph classification.",
+      "residual_risks": [
+        "A short family-specific note under book-graph terminology could be weakly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "For the \\(l_1=1,l_2=3\\) theta regime the proof merely exhibits a 2-set; it does not determine all sets or the maximum exactly.",
+          "identifier_or_url": "arXiv:2402.17338; DOI 10.1007/s40840-024-01788-z",
+          "material_read": "Full arXiv text around the definitions, dual-GP convex-complement equivalence, generalized-theta setup, and Proposition 3.6.",
+          "method": "Full theorem/proof implication comparison.",
+          "title": "Variety of general position problems in graphs",
+          "trigger": "Primary source introducing/studying dual general position and generalized theta graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact structure of dual-general-position sets refines a published generalized-theta positivity result on a standard graph family. Classifying every nonempty set and counting all maximizers for arbitrary page number is a natural structural completion, not a finite spot check.",
+      "risks": [
+        "The theorem is specific to square-page books."
+      ],
+      "sources": [
+        "Tian–Klavžar generalized-theta result",
+        "all-r convexity/geodesic classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Square-page books \\(B_r\\) with \\(r\\ge2\\) only.",
+    "No claim for triangular books, longer pages, or arbitrary generalized theta graphs."
+  ],
+  "schema_version": 1
+}

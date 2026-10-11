@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs each \(B_r\) from its common spine and square pages, computes all-pairs shortest-path distances, and tests the dual general position definition directly.
+# Independent mathematical audit
 
-For a selected set \(X\), it checks every pair both in \(X\) and every pair both outside \(X\). A selected vertex \(z\) is recognized as lying on some shortest \(u,v\)-path exactly when
-\[
-d(u,z)+d(z,v)=d(u,v).
-\]
+## correctness
 
-For every \(2\le r\le9\), all vertex subsets are enumerated and the complete nonempty family is compared with the theorem's page pairs.
+PASS
 
-Recorded output:
+The all-\(r\) proof is correct. If a spine endpoint were selected, convexity of the complement would leave at most one of its pairwise nonadjacent neighbors outside, while general position forbids two selected neighbors using the selected endpoint as a geodesic interior point; \(r\ge2\) gives a contradiction. Convexity then forces page vertices to be selected in complete pairs, and two selected page pairs violate general position along a length-three geodesic. Conversely, deleting one internal page pair leaves a convex complement because every path entering that deleted page contains the length-three spine detour and is strictly shortened by the common edge. An independent direct shortest-path enumeration for \(r=2,3,4,5,6\) found exactly \(r\) nonempty dual-general-position sets, all the internal pairs; the finite checks corroborate rather than replace the universal proof.
 
-```text
-VERIFY_OK
-book_parameters_checked = 8
-vertex_subsets_checked = 1398080
-dual_general_position_sets_checked = 52
-parameters r = 2..9
-all nonempty dual general-position sets are exactly the internal page pairs
-all dual general-position numbers equal 2
-all maximum-set counts equal r
-```
+## originality
 
-The finite computation is corroborative only. The theorem for all \(r\ge2\) follows from the structural proof.
+PASS
+
+The initiating dual-general-position paper explicitly treats generalized theta graphs. For \(\Theta(1,3,\ldots,3)\), its Proposition 3.6 only establishes positivity by exhibiting the two internal vertices of a length-three path; it does not give the exact maximum, classify all dual-general-position sets, or count them. The audited theorem supplies those non-implied statements for the book family. Resultary searches found no earlier exact book-graph classification.
+
+## value
+
+PASS
+
+The exact structure of dual-general-position sets refines a published generalized-theta positivity result on a standard graph family. Classifying every nonempty set and counting all maximizers for arbitrary page number is a natural structural completion, not a finite spot check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

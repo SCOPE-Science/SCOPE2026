@@ -1,12 +1,21 @@
-# Review of Dual general position sets of book graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The dual condition is reconstructed from the definition as general position plus convexity of the complement. If a spine endpoint were selected, convexity would force all but at most one of its pairwise nonadjacent neighbors into the set, and then general position would fail. Once both spine endpoints are excluded, convexity forces \(a_i\) and \(b_i\) to be selected together on every touched page. Two touched pages violate general position through a length-three geodesic whose internal page vertex is selected. Conversely, deleting one complete internal page pair leaves a convex complement because any path using that page contains a three-edge \(x\)-to-\(y\) detour that can be replaced by the spine edge. Exhaustive checks over \(2\le r\le9\) agree exactly.
+## correctness
 
-## Originality
-PASS. The foundational 2024 source treats generalized theta graphs and, for \(\Theta(1,3,\ldots,3)\), proves only the existence of a two-vertex dual general position set. It does not establish the matching upper bound, classify all nonempty dual general position sets, or count the maxima. Targeted semantic and web searches under book, generalized-theta, square-page, and convex-complement terminology found no stronger book-graph statement. The later 2024 same-invariant product paper contains no book or theta occurrence.
+PASS
 
-## Value
-PASS. Book graphs are a standard named theta subfamily. The result closes an explicit exact-value gap inside the foundational paper's generalized-theta discussion and strengthens a mere nonzero witness to a complete set classification and exact count. The proof also isolates a simple structural mechanism—spine exclusion, page-pair closure, and a two-page geodesic obstruction—that can guide exact work on nearby theta families.
+The all-\(r\) proof is correct. If a spine endpoint were selected, convexity of the complement would leave at most one of its pairwise nonadjacent neighbors outside, while general position forbids two selected neighbors using the selected endpoint as a geodesic interior point; \(r\ge2\) gives a contradiction. Convexity then forces page vertices to be selected in complete pairs, and two selected page pairs violate general position along a length-three geodesic. Conversely, deleting one internal page pair leaves a convex complement because every path entering that deleted page contains the length-three spine detour and is strictly shortened by the common edge. An independent direct shortest-path enumeration for \(r=2,3,4,5,6\) found exactly \(r\) nonempty dual-general-position sets, all the internal pairs; the finite checks corroborate rather than replace the universal proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The initiating dual-general-position paper explicitly treats generalized theta graphs. For \(\Theta(1,3,\ldots,3)\), its Proposition 3.6 only establishes positivity by exhibiting the two internal vertices of a length-three path; it does not give the exact maximum, classify all dual-general-position sets, or count them. The audited theorem supplies those non-implied statements for the book family. Resultary searches found no earlier exact book-graph classification.
+
+## value
+
+PASS
+
+The exact structure of dual-general-position sets refines a published generalized-theta positivity result on a standard graph family. Classifying every nonempty set and counting all maximizers for arbitrary page number is a natural structural completion, not a finite spot check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
