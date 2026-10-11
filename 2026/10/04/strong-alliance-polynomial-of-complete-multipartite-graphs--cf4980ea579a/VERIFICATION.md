@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof was reconstructed from the literal strong defensive alliance inequality. For \(G=K_{n_1,\ldots,n_r}\), a vertex in \(V_i\) has exactly \(s-s_i\) neighbors inside \(S\) and \((N-n_i)-(s-s_i)\) outside \(S\), which gives the exact part-capacity criterion. The half-order bound, upper-ideal property, tight-part deletion test, parity minimum, coefficient formula, and normalized level-density inequality were then checked as separate logical steps.
 
-The standalone `verify.py` was run from the packaged source and exhaustively checked every ordered positive part profile of total order at most \(9\). It tested every nonempty vertex subset against literal adjacency, compared that result with the structural criterion, checked connectivity of every accepted set, checked every one-vertex upper extension, checked inclusion-minimality against the two-tight-part rule, reconstructed every coefficient independently by dynamic binomial convolution, checked the parity minimum, checked the normalized density inequality, and compared every bipartite profile with the published two-tail formula.
+# Independent mathematical audit
 
-Exact replay output:
+## correctness
 
-`VERIFY_OK profiles=502 subset_checks=173238 criterion_checks=173238 coefficient_checks=4554 upset_checks=179490 minimal_checks=62544 density_checks=3550 bipartite_checks=36 max_order=9`
+PASS
 
-The computation is finite and does not certify the infinite theorem. Its role is to stress-test boundaries, parity cases, singleton parts, and the consistency of the derived formulas. The proof supplies the infinite argument.
+For a selected vertex in part \(V_i\), the exact internal and external neighbor counts are \(s-s_i\) and \((N-n_i)-(s-s_i)\); the strong defensive condition is therefore exactly \(s-s_i\ge\lceil(N-n_i)/2\rceil\). Summing over occupied parts yields the half-order lower bound. Adding one vertex can only preserve or improve every relevant cross-part count, proving upper closure. Under deletion from part \(k\), every other occupied-part slack falls by one while the surviving \(k\)-part slack is unchanged; requiring every deletion to fail is therefore equivalent to at least two tight occupied parts. For fixed size \(s\), the criterion is precisely the stated partwise capacity bound, giving the coefficient-extraction formula. Evaluating capacities at half order gives the parity law for the minimum. Double counting cover relations in the upper ideal gives the normalized level-density inequality. I independently brute-forced the literal adjacency criterion against the capacity criterion on several nontrivial multipartite profiles; the inspected package verifier exhausts all ordered profiles through total order nine and separately checks the known complete-bipartite specialization.
+
+## originality
+
+PASS
+
+The complete foundational strong-alliance-polynomial preprint was inspected. It defines the invariant and computes paths, cycles, complete graphs, stars, complete bipartite graphs and double stars; Theorem 3.3 gives the exact complete-bipartite factorization. It does not treat arbitrary complete multipartite graphs. The submitted theorem recovers that two-part boundary case but adds an all-part capacity classification, complete polynomial, inclusion-minimal characterization and parity minimum law. Targeted Resultary search returned the audited arbitrary-multipartite result as the exact hit and no earlier equivalent theorem.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical graph family, and the strong alliance polynomial is the defining all-cardinality refinement of the minimum alliance number. The theorem classifies every contributing set, every inclusion-minimal set and the exact minimum across arbitrary part profiles, while strictly extending the foundational complete-bipartite formula. That is a natural complete classification rather than an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

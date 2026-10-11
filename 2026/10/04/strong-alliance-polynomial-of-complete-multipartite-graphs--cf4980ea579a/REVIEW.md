@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. For a vertex in part \(V_i\), the proof reconstructs both internal and external neighbor counts and reduces the strong defensive condition to \(s-s_i\ge\lceil(N-n_i)/2\rceil\). Summing these inequalities over occupied parts proves the half-order lower bound. The upper-ideal statement is then checked under both kinds of one-vertex extensions. The inclusion-minimal characterization follows by tracking exactly which partwise inequalities lose one unit after deletion. The parity formula follows from evaluating the part capacities at \(\lceil N/2\rceil\) and, in the only failing parity case, one level higher. The polynomial is a direct coefficient count over all feasible part profiles. Exact exhaustive replay through order \(9\) agrees with every structural claim.
+# Independent mathematical audit
 
-## Originality
-PASS. The 2015 primary preprint was inspected at its definition, scope, and complete-bipartite theorem. It explicitly computes the complete-bipartite case and several other named families, but not arbitrary complete multipartite graphs. A later full-text defensive-alliance-polynomial source again lists complete bipartite graphs among its explicit families and relates its polynomial to the strong alliance polynomial. published-finding corpus searches for arbitrary complete-multipartite strong alliances, parity formulas, upper-ideal structure, and minimal tight-part descriptions returned no statement implying this theorem. The complete-bipartite slice is treated as prior-covered rather than claimed as new. Residual risk from older literature under “cohesive set” terminology is retained.
+## correctness
 
-## Value
-PASS. The finding turns an established graph polynomial from a two-part special case into a closed arbitrary-part description. It gives the entire family of contributing subsets, identifies its order-theoretic structure and minimal generators, and reduces the minimum invariant to a parity law depending only on the order and whether an even-order graph has any odd part. These are reusable structural facts, not a finite table or a single numerical instance.
+PASS
 
-## Closest literature and limitations
-The closest source is Carballosa–Hernández-Gómez–Rosario–Torres-Nuñez, arXiv:1507.08654v1, whose Theorem 3.3 gives the complete-bipartite strong alliance polynomial. Ibrahim's later defensive-alliance-polynomial paper also treats complete bipartite graphs and recovers the strong alliance polynomial as a specialization. No arbitrary complete-multipartite theorem was located in the inspected sources or database searches. The current proof relies essentially on complete multipartite adjacency and makes no general multipartite or universal unimodality claim.
+For a selected vertex in part \(V_i\), the exact internal and external neighbor counts are \(s-s_i\) and \((N-n_i)-(s-s_i)\); the strong defensive condition is therefore exactly \(s-s_i\ge\lceil(N-n_i)/2\rceil\). Summing over occupied parts yields the half-order lower bound. Adding one vertex can only preserve or improve every relevant cross-part count, proving upper closure. Under deletion from part \(k\), every other occupied-part slack falls by one while the surviving \(k\)-part slack is unchanged; requiring every deletion to fail is therefore equivalent to at least two tight occupied parts. For fixed size \(s\), the criterion is precisely the stated partwise capacity bound, giving the coefficient-extraction formula. Evaluating capacities at half order gives the parity law for the minimum. Double counting cover relations in the upper ideal gives the normalized level-density inequality. I independently brute-forced the literal adjacency criterion against the capacity criterion on several nontrivial multipartite profiles; the inspected package verifier exhausts all ordered profiles through total order nine and separately checks the known complete-bipartite specialization.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The complete foundational strong-alliance-polynomial preprint was inspected. It defines the invariant and computes paths, cycles, complete graphs, stars, complete bipartite graphs and double stars; Theorem 3.3 gives the exact complete-bipartite factorization. It does not treat arbitrary complete multipartite graphs. The submitted theorem recovers that two-part boundary case but adds an all-part capacity classification, complete polynomial, inclusion-minimal characterization and parity minimum law. Targeted Resultary search returned the audited arbitrary-multipartite result as the exact hit and no earlier equivalent theorem.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical graph family, and the strong alliance polynomial is the defining all-cardinality refinement of the minimum alliance number. The theorem classifies every contributing set, every inclusion-minimal set and the exact minimum across arbitrary part profiles, while strictly extending the foundational complete-bipartite formula. That is a natural complete classification rather than an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
