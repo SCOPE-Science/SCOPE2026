@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:48:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_properization.py at tree 3e729ef5a91392810978cd752f428cd1e5381fc3",
+        "Bjorndahl--Sink, arXiv:2506.17142, full primary PDF"
+      ],
+      "rationale": "The construction is sound. For all nondistinguished agents, constant second-coordinate layers give disjoint copies of the target relation; for the distinguished agent, the levels \\(t-c(x)\\) give the same. Hence all five listed relation properties transfer. If two distinct lifted worlds were jointly related by every agent, a nondistinguished relation forces equal second coordinates and the distinguished relation forces equal colors; their projections would then form a conflict edge with equal colors, impossible. Projection satisfies forth immediately and back by choosing either the same second coordinate or the unique shifted coordinate. In the universal two-agent S5 target, every equivalence class of either lifted relation maps surjectively by back and therefore has at least \\(m\\) points; one class meets at least \\(m\\) distinct classes of the other relation, giving \\(m^2\\). The one-agent obstruction follows directly from back on any off-diagonal target edge. The actual verifier checks the construction, bounded-morphism conditions, and property preservation on many finite instances, but the proof is symbolic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published construction supplies the skew-layer mechanism but uses all \\(m\\) labels.",
+          "Earlier unwinding methods are not property-preserving in the same way and do not give the chromatic bound."
+        ],
+        "reasoning": "No broader checked theorem automatically compresses the label group to \\(\\chi(G_N)\\).",
+        "searches": [
+          "Bjorndahl--Sink Propositions 2.1--2.4",
+          "STACS 2022 simplicial-model unwinding context"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.17142",
+        "STACS 2022 properization/unwinding context",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bjorndahl--Sink require the second-coordinate labels to distinguish all projected worlds because they choose an injective enumeration.",
+          "The audited proof identifies the strictly weaker necessary separation relation and proves it is exactly a graph-coloring constraint for this construction."
+        ],
+        "reasoning": "The chromatic compression and sharp S5 lower bound are not mechanically implied by the published theorem statement.",
+        "searches": [
+          "arXiv:2506.17142 finite \\(X\\times X\\) construction versus conflict coloring"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The semantic search returned no exact compression theorem.",
+          "The primary finite construction explicitly takes \\(\\widetilde X=X\\times X\\), yielding \\(m^2\\) worlds."
+        ],
+        "reasoning": "The audited coloring formulation is not just a reparameterization: it allows equal labels precisely for nonconflicting pairs and can be strictly smaller than the published construction.",
+        "searches": [
+          "Resultary query: proper relational structures chromatic compression bounded morphism conflict graph cover W x W",
+          "arXiv:2506.17142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database result or cover-size table was located."
+        ],
+        "reasoning": "The theorem is an all-model construction and worst-case lower bound, not a finite lookup.",
+        "searches": [
+          "Resultary search for proper relational cover size/chromatic number"
+        ]
+      },
+      "rationale": "Bjorndahl--Sink's finite properization uses \\(X\\times X\\), equivalently an injective \\(m\\)-labeling, and proves the same property-preserving bounded-morphism mechanism. The inspected paper does not replace injective labels by a coloring of only jointly accessible conflicts, does not give the \\(m\\chi(G_N)\\) bound, and does not contain the universal-S5 lower bound or the exact one-agent obstruction. Targeted Resultary and literature searches found no prior conflict-graph compression.",
+      "residual_risks": [
+        "A graph-coloring reformulation could appear under different terminology in modal or covering literature; none was found in the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING only.",
+          "evidence": "The source gives an \\(m^2\\)-world skew-layer cover, but not chromatic compression, the quadratic lower bound, or the one-agent iff boundary.",
+          "identifier_or_url": "arXiv:2506.17142",
+          "material_read": "Complete six-page primary PDF, especially the finite \\(X\\times X\\) construction, Propositions 2.1--2.3, and the relation-property preservation paragraph; construction pages were visually inspected.",
+          "method": "Open-access full-text inspection.",
+          "title": "A Note on Proper Relational Structures",
+          "trigger": "Exact predecessor construction and preservation theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bjorndahl--Sink 2025",
+        "simplicial epistemic-model literature"
+      ],
+      "rationale": "The result improves a general finite construction from a fixed quadratic size to an instance-sensitive chromatic parameter, identifies when that compression is strict, proves the quadratic worst case remains genuine in S5, and cleanly isolates the one-agent boundary. This is a motivated structural refinement rather than a cosmetic rewrite.",
+      "residual_risks": [
+        "The chromatic bound need not be globally optimal for every target."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite relational model with \\(m\\) worlds and at least two agents, if \\(q\\) is the chromatic number of the joint-accessibility conflict graph, there is a proper bounded-morphic cover with exactly \\(mq\\) worlds that preserves reflexivity, symmetry, transitivity, seriality, and Euclideanness relationwise; the quadratic bound is sharp on the two-agent universal S5 target, while with one agent a proper surjective bounded-morphic cover exists exactly when the target is already proper.",
+  "limitations": [
+    "The achieved size \\(m\\chi(G_N)\\) is not claimed minimal for every individual target.",
+    "The quadratic lower bound assumes the two lifted relations are equivalence relations, matching the S5 setting."
+  ],
+  "schema_version": 1
+}

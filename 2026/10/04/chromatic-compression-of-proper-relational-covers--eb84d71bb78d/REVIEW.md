@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The coloring construction is explicit. Properness uses the existence of a second agent to force equality of layer coordinates, after which the distinguished skew relation forces equal colors; joint accessibility would then contradict proper coloring. The back and forth conditions are checked directly. Each lifted relation decomposes into copies of its source relation, so the listed frame properties transfer. The two-agent S5 lower bound follows from two equivalence partitions whose classes each surject to all \(m\) target worlds and whose pairwise intersections have size at most one.
+## correctness
 
-## Originality
-PASS, with residual risk. The 2025 Bjorndahl--Sink paper was read in full around its finite construction: it uses \(W\times W\), hence \(m^2\) worlds, and an injective modular labeling. The 2026 belief paper repeats that construction. Targeted published-finding corpus and web searches for chromatic/color-compressed proper relational covers, the arXiv identifier, and bounded-morphism size bounds returned no equivalent statement. The older STACS 2022 paper uses an unwinding method rather than this quantitative finite construction. No inspected source gives \(m\chi(G)\), the conflict graph, the one-agent iff boundary, or the stated S5 lower bound.
+PASS
 
-Residual risk: an equivalent idea may exist under graph-cover or modal-unravelling terminology not surfaced by the searches.
+The construction is sound. For all nondistinguished agents, constant second-coordinate layers give disjoint copies of the target relation; for the distinguished agent, the levels \(t-c(x)\) give the same. Hence all five listed relation properties transfer. If two distinct lifted worlds were jointly related by every agent, a nondistinguished relation forces equal second coordinates and the distinguished relation forces equal colors; their projections would then form a conflict edge with equal colors, impossible. Projection satisfies forth immediately and back by choosing either the same second coordinate or the unique shifted coordinate. In the universal two-agent S5 target, every equivalence class of either lifted relation maps surjectively by back and therefore has at least \(m\) points; one class meets at least \(m\) distinct classes of the other relation, giving \(m^2\). The one-agent obstruction follows directly from back on any off-diagonal target edge. The actual verifier checks the construction, bounded-morphism conditions, and property preservation on many finite instances, but the proof is symbolic.
 
-## Value
-PASS. Properization is used to move relational epistemic models into simplicial semantics. Replacing a universal \(m^2\) blow-up by a model-sensitive \(m\chi(G)\) bound exposes exactly which pairs force duplication and can reduce finite model size from quadratic to linear when the conflict graph has bounded chromatic number. The complete-conflict lower bound shows the original quadratic construction is still worst-case optimal in a central two-agent S5 regime, so the improvement is structural rather than a cosmetic rewrite.
+## originality
 
-## Closest literature and limitations
-The closest source is Bjorndahl--Sink 2025, arXiv:2506.17142v1. Goubault--Ledent--Rajsbaum 2022 provides the prior unwinding context. Bjorndahl--Sink 2026 reuses the \(W\times W\) construction. The present theorem is finite, assumes at least two agents for compression, and does not claim per-instance minimality.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Bjorndahl--Sink's finite properization uses \(X\times X\), equivalently an injective \(m\)-labeling, and proves the same property-preserving bounded-morphism mechanism. The inspected paper does not replace injective labels by a coloring of only jointly accessible conflicts, does not give the \(m\chi(G_N)\) bound, and does not contain the universal-S5 lower bound or the exact one-agent obstruction. Targeted Resultary and literature searches found no prior conflict-graph compression.
+
+## value
+
+PASS
+
+The result improves a general finite construction from a fixed quadratic size to an instance-sensitive chromatic parameter, identifies when that compression is strict, proves the quadratic worst case remains genuine in S5, and cleanly isolates the one-agent boundary. This is a motivated structural refinement rather than a cosmetic rewrite.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

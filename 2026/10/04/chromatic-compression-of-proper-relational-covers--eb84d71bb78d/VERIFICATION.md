@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof was checked symbolically from the definitions of properness and bounded morphism. The key finite construction has world set \(W\times\mathbb Z_q\), with ordinary layers for all non-distinguished agents and skew layers \(t-c(x)=\ell\) for the distinguished agent.
 
-`verify_properization.py` uses only the Python standard library. It checks randomized two/three-agent finite relations for properness and every bounded-morphism forth/back condition after exact small-graph coloring. It separately checks preservation of reflexivity, symmetry, transitivity, seriality, and Euclideanness on randomized equivalence-relation inputs, and confirms \(\chi(C_5)=3\) and \(\chi(K_5)=5\). Expected output: `VERIFY_OK`.
+# Independent mathematical audit
 
-The checker is finite evidence only. The general theorem and the \(m^2\) lower bound are established by the written proof, not by enumeration.
+## correctness
+
+PASS
+
+The construction is sound. For all nondistinguished agents, constant second-coordinate layers give disjoint copies of the target relation; for the distinguished agent, the levels \(t-c(x)\) give the same. Hence all five listed relation properties transfer. If two distinct lifted worlds were jointly related by every agent, a nondistinguished relation forces equal second coordinates and the distinguished relation forces equal colors; their projections would then form a conflict edge with equal colors, impossible. Projection satisfies forth immediately and back by choosing either the same second coordinate or the unique shifted coordinate. In the universal two-agent S5 target, every equivalence class of either lifted relation maps surjectively by back and therefore has at least \(m\) points; one class meets at least \(m\) distinct classes of the other relation, giving \(m^2\). The one-agent obstruction follows directly from back on any off-diagonal target edge. The actual verifier checks the construction, bounded-morphism conditions, and property preservation on many finite instances, but the proof is symbolic.
+
+## originality
+
+PASS
+
+Bjorndahl--Sink's finite properization uses \(X\times X\), equivalently an injective \(m\)-labeling, and proves the same property-preserving bounded-morphism mechanism. The inspected paper does not replace injective labels by a coloring of only jointly accessible conflicts, does not give the \(m\chi(G_N)\) bound, and does not contain the universal-S5 lower bound or the exact one-agent obstruction. Targeted Resultary and literature searches found no prior conflict-graph compression.
+
+## value
+
+PASS
+
+The result improves a general finite construction from a fixed quadratic size to an instance-sensitive chromatic parameter, identifies when that compression is strict, proves the quadratic worst case remains genuine in S5, and cleanly isolates the one-agent boundary. This is a motivated structural refinement rather than a cosmetic rewrite.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
