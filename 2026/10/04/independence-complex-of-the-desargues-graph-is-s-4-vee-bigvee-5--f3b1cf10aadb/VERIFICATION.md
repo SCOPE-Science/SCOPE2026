@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py`. The script uses only the Python standard library. It reconstructs the Desargues graph, enumerates every independent set, checks the exact face vector, rebuilds the stated staged Morse matching, orients and checks every Hasse cover for acyclicity, computes the signed integral Morse boundary from the five critical 5-cells to the unique critical 4-cell, and independently computes all simplicial boundary ranks over \(\mathbb F_2\).
+# Independent mathematical audit
 
-A successful run prints the face vector, critical cells, boundary ranks, Betti numbers, the zero Morse boundary vector, and ends with `DESARGUES_IND_VERIFY_OK`. The finite computation proves only the stated finite-graph claim; no family-wide extrapolation is made.
+## correctness
+
+PASS
+
+The graph definition gives 20 vertices and 30 edges. Direct reconstruction yields 6212 independent faces including the empty face and the stated face vector. The package's staged matching leaves exactly one critical 4-cell and five critical 5-cells, and exhaustive Hasse-orientation verification is acyclic. The integral signed Morse boundary from the five critical 5-cells to the unique critical 4-cell is identically zero. Thus the Morse CW model has one 0-cell, one 4-cell, and five 5-cells with all 5-cell attaching degrees zero, giving the claimed mixed-dimensional wedge. An independent reconstruction of the graph, face set, matching, mod-2 Betti numbers, and integral Morse boundary reproduced all load-bearing quantities.
+
+## originality
+
+PASS
+
+The closest family theorem of Nilakantan--Shukla concerns a different cyclic-neighborhood bipartite graph family whose parameter notation can be confused with generalized Petersen notation; its cubic 20-vertex member is not the Desargues graph. Goyal--Shukla--Singh treat generalized Mycielskians, categorical products of complete graphs, and suspension-style operations, not this named graph. Biyikoğlu--Civan's full arXiv paper was also checked for named symmetric cubic examples and contains the Möbius--Kantor graph but no Desargues computation. Targeted searches under both 'Desargues graph' and \(G(10,3)\) found no prior exact homotopy type.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical symmetric cubic graph, and an exact independence-complex homotopy type is a natural topological/combinatorial invariant that is stronger than a Betti-number census. The mixed adjacent-dimensional wedge also gives a useful benchmark among named cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

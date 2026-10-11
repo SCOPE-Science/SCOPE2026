@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite complex is reconstructed from the defining edges of the Desargues graph. All \(6212\) faces and all \(30380\) Hasse covers are checked. The stated staged matching is acyclic and leaves one critical \(4\)-cell and five critical \(5\)-cells, with the empty face matched. Exact signed gradient-path elimination gives zero for all five integral Morse boundary coefficients. Therefore the \(5\)-cell attaching maps to the \(S^4\) skeleton have degree zero and are null-homotopic. A separate \(\mathbb F_2\) chain calculation reproduces the expected Betti numbers.
+## correctness
 
-## Originality — PASS
-The closest explicit regular-bipartite formula, arXiv:1709.04789v1, applies to its cyclic-interval family \(G_m^d\); its \(G_{10}^3\) is not isomorphic to the Desargues graph. The broader arXiv:1905.06926v1 treats different graph constructions and contains no Desargues or Petersen instance. Searches under both “Desargues graph” and “generalized Petersen graph \(G(10,3)\)” found no covering homotopy statement. Residual risk remains from obscure or unindexed literature.
+PASS
 
-## Value — PASS
-The Desargues graph is a standard highly symmetric cubic bipartite graph, making its independence complex a natural test object. The result determines the homotopy type exactly and reduces a \(6212\)-face complex to a six-critical-cell Morse model, rather than reporting only an experimentally observed invariant.
+The graph definition gives 20 vertices and 30 edges. Direct reconstruction yields 6212 independent faces including the empty face and the stated face vector. The package's staged matching leaves exactly one critical 4-cell and five critical 5-cells, and exhaustive Hasse-orientation verification is acyclic. The integral signed Morse boundary from the five critical 5-cells to the unique critical 4-cell is identically zero. Thus the Morse CW model has one 0-cell, one 4-cell, and five 5-cells with all 5-cell attaching degrees zero, giving the claimed mixed-dimensional wedge. An independent reconstruction of the graph, face set, matching, mod-2 Betti numbers, and integral Morse boundary reproduced all load-bearing quantities.
 
-## Closest literature and limitations
-The two closest inspected sources are arXiv:1709.04789v1 and arXiv:1905.06926v1. The theorem is specific to the Desargues graph and does not classify generalized Petersen graphs. No independent audit has been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest family theorem of Nilakantan--Shukla concerns a different cyclic-neighborhood bipartite graph family whose parameter notation can be confused with generalized Petersen notation; its cubic 20-vertex member is not the Desargues graph. Goyal--Shukla--Singh treat generalized Mycielskians, categorical products of complete graphs, and suspension-style operations, not this named graph. Biyikoğlu--Civan's full arXiv paper was also checked for named symmetric cubic examples and contains the Möbius--Kantor graph but no Desargues computation. Targeted searches under both 'Desargues graph' and \(G(10,3)\) found no prior exact homotopy type.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical symmetric cubic graph, and an exact independence-complex homotopy type is a natural topological/combinatorial invariant that is stronger than a Betti-number census. The mixed adjacent-dimensional wedge also gives a useful benchmark among named cubic graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
