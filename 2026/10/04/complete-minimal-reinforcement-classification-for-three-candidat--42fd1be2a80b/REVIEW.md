@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The final claim is finite and completely exhausted. One route enumerates all eligible profile pairs for every total through \(9\); a second route enumerates every nine-voter union and all of its componentwise two-part decompositions. The two routes produce the identical set of \(12\) paradox pairs. Exact candidate permutations then give two pair classes, while exact union multiplicities give six labeled unions in one orbit with two paradox partitions each. The embedded verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the classification is computational rather than a closed-form counting derivation. The independent traversal directions and exact set equality materially reduce implementation risk, but no independent external audit has been performed.
+PASS
 
-## Originality
-**PASS.** The closest fully inspected source, Brandt--Matthäus--Saile, establishes the three-candidate nine-voter minimum for Black's reinforcement paradox and displays a witness, but does not give an exhaustive count or symmetry classification. Exact-count searches and semantic published-finding corpus searches did not locate the \(12\)-pair, two-pair-class, six-union, one-union-orbit, or two-partitions-per-union statement.
+Black's rule was reimplemented directly from pairwise majorities plus the Borda fallback. Independent exact enumeration over all anonymous profile pairs gives zero reinforcement failures for totals 2 through 8 and exactly 12 at total 9, split 6 of size 1+8 and 6 of size 4+5. Candidate symmetry gives exactly two pair classes of orbit size 6; the 12 pairs have six distinct unions, each occurring twice, and those unions form one candidate orbit. The two independent route logic in the assigned verifier is consistent with this replay.
 
-Risk: search failure is not a proof of novelty. An unpublished enumeration, thesis, course note, software table, or supplementary file may contain the same finite census. The older Felsenthal survey chapter was not fully accessible in the current lawful search path and is therefore not used to exclude detailed overlap.
+## originality
 
-## Value
-**PASS.** Reinforcement is a standard consistency axiom, and Black's rule is a canonical Condorcet extension. The result resolves the complete first failing boundary rather than adding another witness: it shows that the entire minimal phenomenon consists of one union orbit with exactly two inequivalent decompositions, and it explains the two failures by whether one or both subelections invoke the Borda fallback. This is a compact structural classification of the minimal mechanism failure.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The sharp nine-voter existence is prior, but the complete boundary structure was not found in the inspected literature. The audited result identifies all 12 unordered pairs, exactly two pair orbits, one union orbit, exactly two paradox-producing decompositions per union, and the distinct Condorcet/Borda mechanism patterns.
+
+## value
+
+PASS
+
+A complete classification of the first reinforcement boundary for Black's canonical Condorcet-then-Borda rule is a natural finite structural result. The pair-orbit, union-orbit, partition multiplicity, and rule-branch split add mathematically meaningful information beyond a minimal witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

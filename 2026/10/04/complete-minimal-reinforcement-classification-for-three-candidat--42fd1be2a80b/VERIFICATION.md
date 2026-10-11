@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_black9_reinforcement.py` provides an exact finite replay using only Python's standard library.
 
-Route A enumerates every anonymous three-candidate profile for electorate sizes \(1\) through \(9\), computes the unique Black winner where defined, and tests every unordered pair of eligible subelectorates for totals through \(9\). It verifies zero reinforcement failures for totals \(2\) through \(8\) and exactly \(12\) at total \(9\).
+# Independent mathematical audit
 
-Route B independently enumerates every anonymous nine-voter union profile and every componentwise split into two nonempty subprofiles. It recomputes all three Black outcomes and is required to recover exactly the same \(12\)-pair set as Route A.
+## correctness
 
-The replay additionally verifies the \(6\) pairs of type \(1+8\), the \(6\) pairs of type \(4+5\), exactly two candidate-relabeling pair classes of orbit size \(6\), exactly six labeled union profiles in one candidate orbit, exactly two paradox-producing partitions per union, and the two Condorcet/Borda branch patterns.
+PASS
 
-Run:
+Black's rule was reimplemented directly from pairwise majorities plus the Borda fallback. Independent exact enumeration over all anonymous profile pairs gives zero reinforcement failures for totals 2 through 8 and exactly 12 at total 9, split 6 of size 1+8 and 6 of size 4+5. Candidate symmetry gives exactly two pair classes of orbit size 6; the 12 pairs have six distinct unions, each occurring twice, and those unions form one candidate orbit. The two independent route logic in the assigned verifier is consistent with this replay.
 
-`python3 verify_black9_reinforcement.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+The sharp nine-voter existence is prior, but the complete boundary structure was not found in the inspected literature. The audited result identifies all 12 unordered pairs, exactly two pair orbits, one union orbit, exactly two paradox-producing decompositions per union, and the distinct Condorcet/Borda mechanism patterns.
 
-The computation proves only the finite three-candidate, tie-independent statements above. It does not claim a formula for larger electorates or more candidates.
+## value
+
+PASS
+
+A complete classification of the first reinforcement boundary for Black's canonical Condorcet-then-Borda rule is a natural finite structural result. The pair-orbit, union-orbit, partition multiplicity, and rule-branch split add mathematically meaningful information beyond a minimal witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
