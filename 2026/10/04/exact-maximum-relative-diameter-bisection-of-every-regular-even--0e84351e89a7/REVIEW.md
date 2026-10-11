@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published centrally symmetric-body reduction justifies restricting the global optimization to straight lines through the center. Parameterizing one endpoint on a side by \(x=(a,t)\), the farthest polygon vertex is one of the two vertices bracketing the antipodal direction. This gives the exact objective
-\[
-d_M^2=4a^2+(b+|t|)^2,
-\]
-whose unique minimum on that side is \(t=0\). Substitution of \(a=R\cos(\pi/n)\) and \(b=R\sin(\pi/n)\) gives the stated closed form. The \(n=6\) specialization matches the previously published value \(\sqrt{13}\,R/2\).
+PASS
 
-## Originality
+The published centrally symmetric-body reduction legitimately restricts the global optimum to center-passing straight-line bisections. For a regular even polygon, after choosing one side with endpoints \(A=(a,-b)\), \(B=(a,b)\), every such line may be represented by an endpoint \(x=(a,t)\), \(-b\le t\le b\). The antipodal direction \(-x\) lies between the vertex directions \(-A\) and \(-B\), so a farthest polygon vertex from \(x\) is one of those two. Hence the maximum relative diameter squared is exactly \(\max\{4a^2+(t-b)^2,4a^2+(t+b)^2\}=4a^2+(b+|t|)^2\), uniquely minimized at \(t=0\). Substituting \(a=R\cos(\pi/n)\), \(b=R\sin(\pi/n)\) gives \(R^2(4-3\sin^2(\pi/n))\). The \(n=6\) specialization agrees with the independently published \(\sqrt{13}R/2\) standard-partition value.
 
-PASS with residual risk. Searches were made for regular-even-polygon bisections, regular \(2m\)-gons, standard two-partitions, side-midpoint cuts, and the explicit maximum-relative-diameter objective. The 2018 bisection paper was inspected at its definition, center-line reduction, standard-bisection section, and examples; it gives general structural criteria but no all-regular-even formula. The earlier multi-rotational paper gives the regular-hexagon value as a special computation but does not state the uniform formula.
+## originality
 
-The new statement is not merely the 2016 hexagon computation: it proves the exact optimum for every even \(n\), including global optimality over arbitrary bisection curves through the 2018 reduction, and classifies all minimizing center-passing directions.
+PASS
 
-## Value
+The 2018 primary paper supplies the broad structural reduction from arbitrary bisections of centrally symmetric convex bodies to center-passing segments and gives general optimality criteria, but does not compute the regular-even family. The 2016 multi-rotational paper gives the regular-hexagon standard two-partition value only. Fresh Resultary and regular-polygon searches found no prior all-even-n formula or side-midpoint optimizer classification. The audited work is therefore the family-specific exact optimization left after the published general reduction, not a restatement of the reduction itself.
 
-PASS. The literature explicitly emphasizes that the optimal center-passing line is not characterized in general for centrally symmetric bodies and that standard bisections need not be optimal. Regular even polygons are the canonical infinite centrally symmetric polygon family. A closed formula and equality classification solve that family completely, recover the published hexagon value, and give exact test cases for the general bisection theory.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The maximum-relative-diameter bisection problem is an established geometric optimization problem, and regular even polygons form a canonical infinite family. The theorem converts a general existence/reduction theorem into a complete closed form and optimizer direction for every even order, while recovering a known hexagon special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
