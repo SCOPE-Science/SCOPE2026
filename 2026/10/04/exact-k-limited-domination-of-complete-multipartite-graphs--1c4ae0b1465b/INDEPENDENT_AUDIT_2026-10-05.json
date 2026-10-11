@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:52:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let \\(X=V(G)\\setminus D\\), \\(q=|X|\\), and \\(t=q-k\\). For a selected vertex in part \\(V_i\\), the number of outside neighbors is exactly \\(q-x_i\\); the capacity condition is therefore \\(x_i\\ge t\\), equivalently \\(d_i\\le n_i-t\\). A minimum solution has \\(q\\ge k\\), cannot be a singleton in the range \\(k<\\Delta(G)\\), and when \\(t>0\\) cannot lie in a single part, giving the stated bounds on \\(t\\). Summing the part capacities yields \\(\\sum_i\\min(n_i,t)\\le k+t\\). Conversely, any feasible \\(t\\) provides at least two positive part capacities whose total is at least \\(N-k-t\\), so one can choose a dominating set meeting two parts and satisfying every capacity inequality. The balanced specialization reduces exactly to \\((r-1)t\\le k\\).",
+      "risks": [
+        "The theorem is only for the stated nontrivial range \\(1\\le k<\\Delta(G)\\); the finite order-11 verifier is corroborative and not used as the universal proof."
+      ],
+      "sources": [
+        "RESULT.md blob 8ae5eae33be1f7f239f28ff2450160425e11ef1f",
+        "verify.py blob 8bfcbf5c7921fa19143b2f9541b7506c001d36cb",
+        "Božović--Radić--Kovijanić-Vukićević--Tepeh, DOI:10.1007/s40314-026-03902-2"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper proves general bounds and a regular-graph connection to \\((1,t)\\)-domination, but no arbitrary complete-multipartite evaluation.",
+          "Its conclusion explicitly names determination on additional graph families as future work."
+        ],
+        "reasoning": "The available broader theorems do not collapse the arbitrary part-size optimization to the submitted one-dimensional threshold.",
+        "searches": [
+          "DOI:10.1007/s40314-026-03902-2 full open-access article",
+          "Resultary complete-multipartite domination searches",
+          "arXiv:2606.22422"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s40314-026-03902-2",
+        "arXiv:2606.22422",
+        "DOI:10.1142/S1793830920500251",
+        "Resultary same-invariant and complete-multipartite searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published biclique formula is recovered by setting \\(r=2\\).",
+          "The regular-graph relation covers only the balanced regular subfamily and does not imply the arbitrary part-profile threshold."
+        ],
+        "reasoning": "No inspected prior result logically implies the full theorem; the closest exact theorem is a proper special case.",
+        "searches": [
+          "Statement comparison with Proposition 1(iv) of DOI:10.1007/s40314-026-03902-2",
+          "Statement comparison with the regular-graph \\((1,t)\\)-domination connection in arXiv:2606.22422"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source defines the same invariant and Proposition 1(iv) treats only \\(K_{m,n}\\).",
+          "The source identifies k-limited domination with the \\((0,k)\\)-pitchfork special case while reporting that the pitchfork literature had focused on a different lower-bound regime."
+        ],
+        "reasoning": "The aliases and notation searched describe the same invariant; no equivalent complete-multipartite formula was located.",
+        "searches": [
+          "Resultary: k-limited domination complete multipartite graphs exact formula pitchfork domination",
+          "Web/primary: arXiv:2606.22422 and DOI:10.1007/s40314-026-03902-2",
+          "Web: (0,k)-pitchfork domination complete multipartite exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed same-invariant complete-multipartite table or formula was returned; nearby records concern distinct domination variants."
+        ],
+        "reasoning": "The claim is an infinite structural formula rather than a recomputation of a located table.",
+        "searches": [
+          "Resultary: k-limited domination complete multipartite graphs exact formula pitchfork domination",
+          "Resultary: complete multipartite limited dominating set"
+        ]
+      },
+      "rationale": "The initiating 2026 paper gives exact values for paths, stars, complete graphs, and complete bipartite graphs, and explicitly lists determination on additional graph families as future work. Its regular-graph connection to \\((1,t)\\)-domination does not determine arbitrary unbalanced complete multipartite profiles. Fresh Resultary and literature searches found no same-invariant complete-multipartite threshold formula or stronger theorem implying it. The biclique result is strictly a specialization of the audited formula, not the other way around.",
+      "residual_risks": [
+        "An older or poorly indexed treatment under \\((0,k)\\)-pitchfork terminology may exist; the initiating paper's literature review reduces but does not eliminate this bibliographic risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Proposition 1(iv) is complete bipartite only; the conclusion asks for additional graph families."
+          ],
+          "identifier_or_url": "DOI:10.1007/s40314-026-03902-2 / arXiv:2606.22422",
+          "material_read": "Open-access full article sections containing the definition, Proposition 1, the pitchfork relation, general bounds, regular-graph connection, and conclusion/future directions.",
+          "method": "Direct full-text HTML inspection with targeted searches.",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Primary source introducing the invariant and closest exact family result."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The worked regime is not the general \\((0,k)\\) case used here."
+          ],
+          "identifier_or_url": "DOI:10.1142/S1793830920500251",
+          "material_read": "Public abstract/bibliographic material plus the initiating paper's discussion of this source.",
+          "method": "Public source comparison.",
+          "title": "Pitchfork domination in graphs",
+          "trigger": "Alias check because k-limited domination is the zero-lower-bound pitchfork case."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete multipartite graphs are a standard structural family containing cliques, stars, bicliques, and Turán graphs. The theorem strictly extends the initiating paper's exact biclique result, gives a sharp one-dimensional criterion for every part profile, and yields a closed balanced formula. This is a motivated complete family classification rather than an arbitrary slice.",
+      "risks": [
+        "Its value is family-specific and does not address algorithmic complexity on general graphs."
+      ],
+      "sources": [
+        "DOI:10.1007/s40314-026-03902-2 conclusion and Proposition 1(iv)",
+        "RESULT.md blob 8ae5eae33be1f7f239f28ff2450160425e11ef1f"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim is made outside complete multipartite graphs or beyond the stated \\(k\\)-range."
+  ],
+  "schema_version": 1
+}
