@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Jacobian trace of the uncontrolled system is exactly \(c-a-b\), and the controlled trace is exactly \(c-a-b+r_1+r_2+r_3+r_4\). Liouville's formula converts these traces into exact determinant growth identities. At the source parameters, exact decimal arithmetic reproduces the five printed sums and shows gaps of \(40.5159\), \(42.3152\), \(44.3169\), \(57.3704\), and \(57.9806\) from the required sums. `verify.py` replays these checks and returns `VERIFY_OK`. The finite-time QR replay is supporting evidence only.
+## correctness
 
-## Originality
-PASS. Searches by DOI, full title, exact exponent values, parameter tuple, and phase-volume terminology found the primary article, mirrors, later citations, and semantically related published records, but no located statement of this five-case inconsistency. The closest records use Lyapunov-sum or finite-time cocycle arguments for different systems and do not imply this correction. Residual risk remains from possible unindexed errata or commentary.
+PASS
 
-## Value
-PASS. Lyapunov exponents are a central quantitative diagnostic in the source's claims of hyperchaos and successful feedback control. Showing that all five showcased spectra violate an exact determinant identity is mathematically consequential because those vectors cannot be the Lyapunov spectra of the stated ODEs. The result carefully leaves the qualitative hyperchaos and stabilization questions open.
+The printed uncontrolled Jacobian has constant trace \(c-a-b\), so Liouville fixes the finite-time determinant growth and hence the sum of finite-time singular-value growth rates; any asymptotic Lyapunov spectrum must have the same sum. At \(a=40,b=2,c=22\) the exact sum is \(-20\). Exact decimal addition reproduces source sums \(20.5159,22.3152,24.3169\). Adding diagonal feedback shifts the trace by \(r_1+r_2+r_3+r_4\), giving required sums \(-120\) and \(-140\), versus the printed \(-62.6296\) and \(-82.0194\). The finite QR replay is supporting evidence only.
 
-## Closest literature and limitations
-The introducing paper is Liu, Zhou, and Guo, *Mathematics* 11 (2023), 2699, DOI 10.3390/math11122699. Later citing literature located in the search does not provide this correction. The general Liouville determinant formula is standard background; the assessed contribution is its source-specific application to all five published spectra. The packaged numerical QR run is finite-time and does not establish a unique asymptotic spectrum or rule out multistability.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2023 article contains the equations and all five exponent vectors but does not perform the constant-divergence Lyapunov-sum check. Exact-number, DOI/title, correction, divergence and Liouville searches surfaced the source and later citations but no prior publication stating the five-case inconsistency. The Liouville determinant theorem is classical background, but no inspected source had already combined it with these published numerical vectors.
+
+## value
+
+PASS
+
+Although the decisive test is a standard trace/Liouville identity, it is substantively motivated: all five spectra are central quantitative diagnostics for the source’s hyperchaos/control discussion and every one is impossible for the printed equations, with very large sum discrepancies. This is a meaningful published-data consistency correction, not an arbitrary normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

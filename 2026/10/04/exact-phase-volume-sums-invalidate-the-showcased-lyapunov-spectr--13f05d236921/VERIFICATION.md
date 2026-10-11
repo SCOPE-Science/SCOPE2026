@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact checker is `verify.py`. It evaluates the uncontrolled trace \(c-a-b\), the controlled trace \(c-a-b+r_1+r_2+r_3+r_4\), and the sums of all five printed exponent vectors using exact decimal arithmetic. A successful replay ends with `VERIFY_OK`.
+# Independent mathematical audit
 
-The supporting numerical script `qr_replay.py` integrates the state and variational equations for the uncontrolled parameter choice \(a=40\), \(b=2\), \(c=22\), \(e=1/2\), starting from \((1,1,1,1)\). It uses fourth-order Runge–Kutta with step \(0.002\), an \(80\)-time-unit burn-in, a \(100\)-time-unit accumulation window, and QR orthogonalization every \(0.02\) time units. The replay obtained finite-time rates approximately \((1.0824255160,0.0927137433,-0.0209768592,-21.1541613287)\), summing to \(-19.9999989286\). This numerical run is not an infinite-time certificate and is not used to prove the contradiction.
+## correctness
 
-The exact proof limit is: any true finite-time singular-value exponent sum, and any asymptotic Lyapunov spectrum when defined, must satisfy the trace identity. The verification does not establish the uniqueness of an attractor, does not prove or disprove hyperchaos, and does not certify the source's bifurcation calculations.
+PASS
+
+The printed uncontrolled Jacobian has constant trace \(c-a-b\), so Liouville fixes the finite-time determinant growth and hence the sum of finite-time singular-value growth rates; any asymptotic Lyapunov spectrum must have the same sum. At \(a=40,b=2,c=22\) the exact sum is \(-20\). Exact decimal addition reproduces source sums \(20.5159,22.3152,24.3169\). Adding diagonal feedback shifts the trace by \(r_1+r_2+r_3+r_4\), giving required sums \(-120\) and \(-140\), versus the printed \(-62.6296\) and \(-82.0194\). The finite QR replay is supporting evidence only.
+
+## originality
+
+PASS
+
+The primary 2023 article contains the equations and all five exponent vectors but does not perform the constant-divergence Lyapunov-sum check. Exact-number, DOI/title, correction, divergence and Liouville searches surfaced the source and later citations but no prior publication stating the five-case inconsistency. The Liouville determinant theorem is classical background, but no inspected source had already combined it with these published numerical vectors.
+
+## value
+
+PASS
+
+Although the decisive test is a standard trace/Liouville identity, it is substantively motivated: all five spectra are central quantitative diagnostics for the source’s hyperchaos/control discussion and every one is impossible for the printed equations, with very large sum discrepancies. This is a meaningful published-data consistency correction, not an arbitrary normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

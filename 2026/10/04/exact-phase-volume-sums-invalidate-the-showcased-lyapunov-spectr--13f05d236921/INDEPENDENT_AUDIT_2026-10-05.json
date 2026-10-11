@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:52:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The printed uncontrolled Jacobian has constant trace \\(c-a-b\\), so Liouville fixes the finite-time determinant growth and hence the sum of finite-time singular-value growth rates; any asymptotic Lyapunov spectrum must have the same sum. At \\(a=40,b=2,c=22\\) the exact sum is \\(-20\\). Exact decimal addition reproduces source sums \\(20.5159,22.3152,24.3169\\). Adding diagonal feedback shifts the trace by \\(r_1+r_2+r_3+r_4\\), giving required sums \\(-120\\) and \\(-140\\), versus the printed \\(-62.6296\\) and \\(-82.0194\\). The finite QR replay is supporting evidence only.",
+      "risks": [
+        "The contradiction invalidates only the five quoted exponent vectors; it does not prove absence of hyperchaos or failure of stabilization."
+      ],
+      "sources": [
+        "RESULT.md blob 28d78cb61c1f66700467eebc780317095bc4cdcc",
+        "verify.py blob 99c2e5aba8417e50d8890f729434f0e3cbc8af0a",
+        "doi:10.3390/math11122699"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liouville is a universal background theorem and directly supplies the required sum once the printed vector field is inserted.",
+          "Published SCOPE analogues apply the same tool to different systems and do not contain these numerical vectors."
+        ],
+        "reasoning": "The generic theorem is a method, while the final claim is the source-specific falsification of five published spectra; no same-system broader result was located.",
+        "searches": [
+          "classical Liouville determinant identity for variational equations",
+          "Resultary phase-volume/Lyapunov-sum records"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math11122699",
+        "Resultary:2026/10/4/SCOPE-exact-phase-volume-sums-invalidate-the-showcased-lyapunov-spectr--13f05d236921"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior article asserts the quoted spectra and qualitative conclusions.",
+          "Liouville plus the printed ODE implies the required sums, but the five explicit contradictions were not stated in the prior literature located."
+        ],
+        "reasoning": "The final statement is a motivated source correction. Its originality is source-specific rather than originality of the determinant theorem.",
+        "searches": [
+          "Statement comparison with Liu-Zhou-Guo 2023",
+          "Statement comparison with classical Liouville formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source prints the differential equations and showcased spectra but no exact trace-sum consistency check.",
+          "Fresh Resultary search returned the present record as the same-system correction; other phase-volume records treat different models."
+        ],
+        "reasoning": "Equivalent formulations such as constant Jacobian trace, determinant growth, or exponent-sum inconsistency were not stated for these five vectors in inspected prior sources.",
+        "searches": [
+          "doi:10.3390/math11122699 full text Lyapunov vectors divergence",
+          "exact searches for 16.9402 6.9890 and controlled vectors",
+          "Resultary 4D Liu Zhou Guo Lyapunov divergence trace correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searches returned the introducing article, mirrors or later citations, not a correction database/table."
+        ],
+        "reasoning": "The source itself is the exact numerical table under audit; the new content is the incompatibility certificate rather than recomputation of the values.",
+        "searches": [
+          "DOI/title/erratum searches for math11122699",
+          "exact exponent-vector web searches"
+        ]
+      },
+      "rationale": "The primary 2023 article contains the equations and all five exponent vectors but does not perform the constant-divergence Lyapunov-sum check. Exact-number, DOI/title, correction, divergence and Liouville searches surfaced the source and later citations but no prior publication stating the five-case inconsistency. The Liouville determinant theorem is classical background, but no inspected source had already combined it with these published numerical vectors.",
+      "residual_risks": [
+        "An unindexed erratum or later commentary may have noticed the same inconsistency."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_OF_CONTRADICTED_DATA_NOT_COVERING_CORRECTION",
+          "evidence": [
+            "Provides the five vectors and equations but not the exact trace-sum audit."
+          ],
+          "identifier_or_url": "doi:10.3390/math11122699",
+          "material_read": "Full open text at the system equations, parameter choices, uncontrolled Lyapunov examples, controlled feedback examples, and conclusions.",
+          "method": "Publisher/full-text inspection plus exact-value comparison.",
+          "title": "Hopf Bifurcation, Periodic Solutions, and Control of a New 4D Hyperchaotic System",
+          "trigger": "Primary source defining the model and reporting all exponent vectors."
+        },
+        {
+          "assessment": "METHOD_BACKGROUND",
+          "evidence": [
+            "It supplies the universal sum identity but does not itself identify the five erroneous published spectra."
+          ],
+          "identifier_or_url": "standard ODE theorem",
+          "material_read": "The determinant-growth implication used in the proof.",
+          "method": "Theorem-level implication comparison.",
+          "title": "Classical Liouville determinant formula for linear variational equations",
+          "trigger": "Potential broader theorem that could dominate the source-specific correction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Although the decisive test is a standard trace/Liouville identity, it is substantively motivated: all five spectra are central quantitative diagnostics for the source’s hyperchaos/control discussion and every one is impossible for the printed equations, with very large sum discrepancies. This is a meaningful published-data consistency correction, not an arbitrary normalization check.",
+      "risks": [
+        "No stronger qualitative conclusion about hyperchaos or stabilization should be inferred from the sum contradiction alone."
+      ],
+      "sources": [
+        "RESULT.md blob 28d78cb61c1f66700467eebc780317095bc4cdcc",
+        "doi:10.3390/math11122699"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Five printed spectra are rejected quantitatively; qualitative hyperchaos and stabilization are left open."
+  ],
+  "schema_version": 1
+}
