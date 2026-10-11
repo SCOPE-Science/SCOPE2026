@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:02:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source lower-bound proof gives the complete equality budget: a shortest reset must enter the critical configuration after either \\(ac\\) or \\(c^2\\), every proper merge has length at least three, and between nonfinal merges at least \\(n-3\\) transport letters are needed. The source's complete minimum merge list shows the only length-three candidates are \\(bcc\\) and \\(bca\\); a nonfinal \\(bca\\) returns the merged coin to the wrong location and costs one extra transport step, so equality forces \\(bcc\\) at every nonfinal merge and \\(c^{n-3}\\) between them. The last merge can use either minimum option, yielding exactly the displayed four words. A fresh independent power-set BFS for \\(5\\le n\\le10\\) reproduced lengths \\(10,17,26,37,50,65\\), exactly four shortest words, and target split \\(2+2\\).",
+      "risk": "The universal count rests on the equality-case reading of the published lower-bound proof; finite BFS is corroborative only.",
+      "sources": [
+        "Ananichev-Volkov-Zaks, DOI:10.1016/j.tcs.2007.01.010, Theorem 1.2 and Section 3 equality constraints",
+        "Kisielewicz-Kowalski-Szykuła, DOI:10.1007/s10878-013-9682-0",
+        "fresh independent BFS in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining theorem supplies the exact optimum length but not multiplicity.",
+          "Generic exact algorithms do not imply a symbolic all-\\(n\\) multiplicity formula."
+        ],
+        "reasoning": "Neither broader result determines every optimum control word.",
+        "searches": [
+          "DOI:10.1016/j.tcs.2007.01.010",
+          "DOI:10.1007/s10878-013-9682-0"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.tcs.2007.01.010",
+        "DOI:10.1007/s10878-013-9682-0",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proof leaves equality choices implicit; threshold plus one witness does not logically imply the number of optimum words.",
+          "The equality analysis resolving every minimum merge and transport choice supplies the additional conclusion."
+        ],
+        "reasoning": "The final claim is an equality-case refinement, not a restatement of the published threshold.",
+        "searches": [
+          "Ananichev-Volkov-Zaks Section 3",
+          "Kisielewicz-Kowalski-Szykuła algorithm paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining source states only the threshold \\((n-2)^2+1\\) and one witness.",
+          "The closest algorithmic paper is about finding shortest words/lengths, not enumerating all shortest words."
+        ],
+        "reasoning": "Searches covered shortest/minimum reset words, deficiency-two/dromedary terminology and the family name \\(D_n\\).",
+        "searches": [
+          "Resultary: shortest reset words deficiency-two automata D_n exactly four optimal words",
+          "Web: D_n shortest reset words Ananichev Volkov Zaks",
+          "DOI:10.1016/j.tcs.2007.01.010 full-text equality proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct indexed four-word classification was found."
+        ],
+        "reasoning": "Database absence is supporting only; novelty rests on comparison with the full source theorem and proof.",
+        "searches": [
+          "Resultary exact family/multiplicity search",
+          "web exact phrase searches for all shortest reset words in \\(D_n\\)"
+        ]
+      },
+      "rationale": "The defining paper proves only the shortest length and exhibits one shortest word; it does not enumerate all equality cases. The later shortest-reset-word algorithm paper optimizes or finds a shortest word but does not state an all-optimal-word classification for this family. Fresh Resultary and web searches found no distinct statement of the four-word set or the exact two-target split.",
+      "residual_risks": [
+        "A non-indexed ancillary enumeration of the \\(D_n\\) equality cases could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THRESHOLD_AND_PREMISES_NOT_COMPLETE_CLASSIFICATION",
+          "evidence": "The paper gives length \\((n-2)^2+1\\), one shortest word and the merge/transport constraints, but no all-shortest-word formula.",
+          "identifier_or_url": "DOI:10.1016/j.tcs.2007.01.010",
+          "material_read": "Lawful full text including Theorem 1.2, transition table, the source witness, initial-prefix alternatives, proper-merging-word list and transport-count lower bound.",
+          "method": "Full-text statement and equality-case implication comparison.",
+          "title": "Synchronizing Automata with a Letter of Deficiency 2",
+          "trigger": "Defines \\(D_n\\) and proves its shortest reset length."
+        },
+        {
+          "assessment": "ALGORITHM_NOT_FAMILY_CLASSIFICATION",
+          "evidence": "The paper finds optimum words or lengths; it does not state the four-word formula for \\(D_n\\).",
+          "identifier_or_url": "DOI:10.1007/s10878-013-9682-0",
+          "material_read": "Open full-text/abstract material describing the bidirectional BFS objective and slowly synchronizing applications.",
+          "method": "Primary-source statement comparison.",
+          "title": "Computing the shortest reset words of synchronizing automata",
+          "trigger": "Closest broader exact shortest-word algorithm."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result classifies every optimal synchronization control in an infinite extremal family, determines the only two reset targets, and shows the deficiency-two letter can appear optimally only at the boundaries. That is structural equality information beyond the known threshold.",
+      "risk": "It refines rather than improves the known reset threshold.",
+      "sources": [
+        "DOI:10.1016/j.tcs.2007.01.010"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer \\(n>4\\), the deficiency-two automaton \\(D_n\\) has exactly four shortest reset words, namely \\(x c (b c^{n-1})^{n-4} b c y\\) with \\(x,y\\in\\{a,c\\}\\); all have length \\((n-2)^2+1\\), two reset to state \\(1\\) and two to state \\(4\\).",
+  "limitations": [
+    "The theorem concerns the specific three-letter family \\(D_n\\).",
+    "Finite BFS checks are not used as an infinite proof."
+  ],
+  "schema_version": 1
+}

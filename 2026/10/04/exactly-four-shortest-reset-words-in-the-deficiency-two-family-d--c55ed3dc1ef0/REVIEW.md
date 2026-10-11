@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the transition convention and the equality cases in the published lower-bound argument. The two possible minimum entry prefixes are \(ac\) and \(c^2\). Minimum proper merges at the critical pair are \(bcc\) and \(bca\); only \(bcc\) can be nonfinal without exceeding the exact transport budget, and equality forces every inter-merge transport to be \(c^{n-3}\). The last merge may use either minimum option. Exact power-automaton breadth-first search for \(5\le n\le16\) and direct replay for \(5\le n\le100\) agree with the theorem.
+## correctness
 
-## Originality
-PASS. The defining paper states the automata, exact reset threshold, a witness, and the structural lower-bound proof, but not the complete four-word classification or multiplicity. The inspected shortest-reset-word algorithm paper addresses finding an optimum word or length rather than enumerating every optimum word in this family. Searches for the family name, deficiency-two terminology, shortest/minimal reset words, multiplicity, and the exact formula found no statement implying the classification. The closest “minimal reset word” literature uses a different notion: reset words minimal under the factor order.
+PASS
 
-## Value
-PASS. This is a structural equality-case theorem for an infinite extremal family introduced specifically to study slow synchronization under a deficiency-two letter. It determines every optimal control, not merely one witness, and shows that the distinguished letter \(a\) may occur in an optimal word only at the two boundaries. The exact split between two reset targets is an additional invariant of the optimum set.
+The source lower-bound proof gives the complete equality budget: a shortest reset must enter the critical configuration after either \(ac\) or \(c^2\), every proper merge has length at least three, and between nonfinal merges at least \(n-3\) transport letters are needed. The source's complete minimum merge list shows the only length-three candidates are \(bcc\) and \(bca\); a nonfinal \(bca\) returns the merged coin to the wrong location and costs one extra transport step, so equality forces \(bcc\) at every nonfinal merge and \(c^{n-3}\) between them. The last merge can use either minimum option, yielding exactly the displayed four words. A fresh independent power-set BFS for \(5\le n\le10\) reproduced lengths \(10,17,26,37,50,65\), exactly four shortest words, and target split \(2+2\).
 
-## Closest literature and limitations
-The closest source is the defining 2006 paper, because its lower-bound proof supplies the sharp equality constraints. The closest broader computational source is the 2015 shortest-reset-word algorithm paper. The result does not improve the reset threshold, and a non-indexed ancillary or unpublished enumeration could duplicate the count.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining paper proves only the shortest length and exhibits one shortest word; it does not enumerate all equality cases. The later shortest-reset-word algorithm paper optimizes or finds a shortest word but does not state an all-optimal-word classification for this family. Fresh Resultary and web searches found no distinct statement of the four-word set or the exact two-target split.
+
+## value
+
+PASS
+
+The result classifies every optimal synchronization control in an infinite extremal family, determines the only two reset targets, and shows the deficiency-two letter can appear optimally only at the boundaries. That is structural equality information beyond the known threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
