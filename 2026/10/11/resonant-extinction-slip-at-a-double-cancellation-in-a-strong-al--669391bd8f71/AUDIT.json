@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The original-time scaling yields the exact ratio equations (6); their Jacobian has eigenvalues -M and -2M and the exact resonant coefficient is -2 delta. The proof covers positive global trajectories, proves an open extinction basin, establishes ratio convergence, then proves a strictly positive exponential prey amplitude L and an L1 error in the resonant variation equation. This gives the finite constant H, the nonzero limit -2 delta and the cubic prey/predator expansions. The standalone SymPy checker validates algebra and coefficient balances; no finite numerical data are used as infinite-time proofs. The result excludes delta=0 and explicitly separates accelerated vs physical time.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem and extinction discussion in Arancibia-Ibarra et al. (2019) establishes attracting origin, but not a physical-time third-order expansion or an explicit forced resonance coefficient.",
+        "Liu et al. (2023) addresses equilibrium bifurcations and normal forms near positive equilibria, while our resonance concerns the zero-population boundary.",
+        "Generic stable-node resonance normal forms explain theta times exponential factors but not the exact coefficient for this ecology system."
+      ],
+      "reasoning": "Neither a qualitative attractor theorem nor general hyperbolic resonance machinery gives the exact physical-model coefficient without computation of the tuned vector field and integrable remainder estimates. Broader literature may still contain unlocated model-specific treatments; this is the principal residual priority risk.",
+      "searches": [
+        "\"Holling-Tanner\" \"strong Allee\" \"resonant\" prey predator",
+        "\"Holling-Tanner\" \"strong Allee\" \"asymptotic expansion\" extinction",
+        "2023 Liu Li He Holling Tanner predator prey double cancellation cubic forcing logarithmic resonant predator extinction",
+        "https://www.aimspress.com/aimspress-data/mbe/2023/5/PDF/mbe-20-05-379.pdf relevant theorem and appendix passages"
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.3934/mbe.2023379 (2023 same-system full OA paper)",
+      "arXiv:1809.05854 and DOI 10.1142/S0218127419300325 (2019 same-system full OA preprint)",
+      "DOI 10.3934/mbe.2023693 (2023 different-model full OA paper)",
+      "Relevant published mathematical-record semantic queries for resonance, extinction, Allee, double cancellation and nonlinear correction",
+      "Ordinary literature searches for exact phrases and model equivalences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 blow-up linearization proves source attraction and identifies eigenvalue and eigendirection information; it does not compute or state the nonlinear term -2 delta u^2 in the smooth physical-time ratio equation.",
+        "2023 Liu–Li–He polynomial time system is orbit-equivalent, not equal as a time-parametrized dynamical system near u=0.",
+        "2023 Huang–Jia–Li modified model has predator logistic carrying capacity x+m, whereas the present system uses x; its extinction dynamics are not equivalent."
+      ],
+      "reasoning": "Source theorems cover the qualitative extinction attractor and first-order cancellation, not the full higher-order resonant asymptotics. In particular the limit of (v/u-2)/(theta u^2) requires a forced resonant differential equation, a positive amplitude limit, and an L1 remainder comparison not established in those earlier claims. The present single new claim is the sharp physical-time resonant expansion rather than any of its covered lower-order prerequisites.",
+      "searches": [
+        "\"Bifurcation analysis in a Holling-Tanner predator-prey model with strong Allee effect\" logarithmic extinction",
+        "\"A Holling-Tanner Predator-Prey Model with Strong Allee Effect\" \"S=M\" \"Q\"",
+        "https://arxiv.org/pdf/1809.05854 Sections 3–4 and Figure 4",
+        "https://www.aimspress.com/aimspress-data/mbe/2023/8/PDF/mbe-20-08-693.pdf equation (5)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arancibia-Ibarra et al. (2019), arXiv:1809.05854, p. 10: blow-up fixed point with eigenvalues -AS and -AMS/(M+S), and printed eigendirection; the zero-curvature and 1:2 resonance loci are recoverable from these data.",
+        "Liu et al. (2023), DOI 10.3934/mbe.2023379, equation (1.5), uses the same phase curves after a singular time change, not physical time."
+      ],
+      "reasoning": "The pre-existing slope calculation is covered and excluded from the novelty claim. Under the smooth ratio coordinates in original time, a resonant quadratic forcing remains when the first curvature vanishes; the new nonzero forced coefficient and finite asymptotic phase require an additional nonlinear analysis. A smooth time change at extinction is not available, so original-time expansion cannot be identified with the polynomial-clock statement.",
+      "searches": [
+        "2019 Arancibia-Ibarra Flores Pettet van Heijster strong Allee Holling Tanner physical-time decay resonance S=M Q=A(1+M)/2",
+        "Holling Tanner strong Allee effect asymptotic extinction rate 1/t logarithmic time prey predator Arancibia Ibarra 2019",
+        "https://arxiv.org/pdf/1809.05854 pp. 9–10 (blow-up eigenvector)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record semantic retrieval returned unrelated porous-diffusion equilibria and a five-dimensional Lorenz logarithmic correction, not a table or exact certificate for the present predator–prey vector field.",
+        "The source articles contain bifurcation tables and an extinction eigendirection, but the inspected material does not tabulate the resonant extinction correction."
+      ],
+      "reasoning": "No exact database entry or table that determines the forced coefficient or finite physical-time phase for S=M, Q=A(1+M)/2 was found. Failure of search is not a proof of uniqueness; the risk is documented.",
+      "searches": [
+        "\"Holling-Tanner\" \"Allee\" \"1:2 resonance\" predator prey extinction logarithmic correction",
+        "predator prey ratio u v extinction e^(-M t) t e^(-3M t) resonance",
+        "nonhyperbolic planar Kolmogorov predator prey ratio v/u =1+M/S and logarithmic coefficient of 1/u"
+      ]
+    },
+    "rationale": "The matched 2019 same-model paper proves nonhyperbolic-origin attraction and prints the blow-up eigendirection, implying the first curvature cancellation; those facts are explicitly credited. Its nonlinear analysis does not state or imply without additional resonant forcing and nonlinear asymptotic computation the exact physical-time theta exp(-3M theta) predator law with coefficient -2 delta L^3. The 2023 primary paper studies bifurcation geometry in an accelerated clock, not this high-order original-time decay law. A later 2023 modified Holling–Tanner paper has a different predator denominator. No covering result was identified in searched published mathematical records or primary literature by semantic and implication comparisons; generic resonance results cover the phenomenon qualitatively only. Exhaustive novelty is not certified.",
+    "residual_risks": [
+      "A more general resonance theorem might imply the shape after new coefficient evaluation, but not the exact model-specific amplitude without that evaluation.",
+      "Published-record and bibliographic searches are incomplete; priority among inaccessible, non-indexed, and unpublished works is not certified.",
+      "Not every line of every relevant source was read; decisive nonhyperbolic-origin sections and primary equations were inspected in full.",
+      "Nonlinear population models with other Holling or modified predator terms are not equivalent and were not exhaustively classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers attraction and first-order cancellation, but no physical-time third-order resonance calculation found in inspected material.",
+        "evidence": [
+          "Page 10 prints eigenvalues -AS and -AMS/(M+S) and first-order eigenvector at the blow-up sink.",
+          "The 1:2 equality at S=M follows, yet the paper uses these data to establish attraction, not the forced nonlinear amplitude term."
+        ],
+        "identifier_or_url": "arXiv:1809.05854; DOI 10.1142/S0218127419300325",
+        "material_read": "26-page lawful arXiv PDF; model derivation and transformation, blow-up sections, Jacobian eigenvalues and eigenvectors at the origin (particularly p. 10), conclusions; full-text topic searches for asymptotic, logarithmic and resonance.",
+        "method": "Primary preprint read and compared via exact equations, eigenvalues, first-order eigenvectors and implication of source claims.",
+        "title": "A Holling–Tanner Predator–Prey Model with Strong Allee Effect",
+        "trigger": "Exact predecessor with same polynomial phase-field equations and nonhyperbolic extinction attractor."
+      },
+      {
+        "assessment": "Identical model and source for the parameter definitions; no model-specific original-time resonant extinction asymptotic in inspected passages.",
+        "evidence": [
+          "PDF p. 1 gives physical-time model (1.3); p. 3 gives desingularized polynomial system (1.5).",
+          "Abstract and main statements concern positive-equilibrium Hopf, Bogdanov–Takens and bistability, not near-origin high-order relaxation."
+        ],
+        "identifier_or_url": "DOI 10.3934/mbe.2023379; https://www.aimspress.com/aimspress-data/mbe/2023/5/PDF/mbe-20-05-379.pdf",
+        "material_read": "34-page OA PDF; title, date, equations (1.3)–(1.5), equilibrium stability setup, normal-form/bifurcation sections, discussion and paper-wide topic searches.",
+        "method": "Mathematical comparison of original-time and polynomial-time vector fields; targeted reading of mathematical results and scope.",
+        "title": "Bifurcation analysis in a Holling-Tanner predator-prey model with strong Allee effect",
+        "trigger": "Primary motivating source for the same mathematical model and dated 2023-03-06."
+      },
+      {
+        "assessment": "Different predator equation: added positive constant in logistic carrying capacity; not the same extinction boundary.",
+        "evidence": [
+          "System (5) gives dv/dt=c v(1-d v/(u+b)) with b>0, versus S v(1-v/u) here."
+        ],
+        "identifier_or_url": "DOI 10.3934/mbe.2023693; https://www.aimspress.com/aimspress-data/mbe/2023/8/PDF/mbe-20-08-693.pdf",
+        "material_read": "Full open PDF, introduction and explicit equations (4)–(5) on PDF p. 3.",
+        "method": "Compare population equations and structural predator carrying-capacity parameter.",
+        "title": "Analysis of modified Holling-Tanner model with strong Allee effect",
+        "trigger": "Very similar title; possible stronger or competing Allee bifurcation treatment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "669391bd-8f71-4874-94cb-c2884fb08bc3",
+  "value": {
+    "rationale": "The two tuned relations have intrinsic meaning: Q=A(1+M)/2 eliminates the first orbit-curvature coefficient when S=M, and S=M produces the 1:2 decay-rate resonance. Although the lower-order attraction and tangent eigenvector were published, the surviving nonlinear resonant obstruction quantifies a sharp theta exp(-3M theta) predator lag in actual physical time, with a sign switch at A=1+M and an open extinction basin. This is a meaningful boundary mechanism of predator/prey synchronization, not a renamed generic normal form or an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
