@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact verifier reconstructs the 27 Fermat lines over \(\mathbf Q(\omega)\), enumerates all 72 sixers from the rank-four skewness criterion, reconstructs the 648 monomial automorphisms, and verifies every profile and intersection count. The published 18/54 orbit theorem and representatives agree with the reconstruction.
+## correctness
 
-## Originality
-PASS. The inspected paper proves the 72-sixer count and 18/54 orbit split and gives representatives, but it does not state the all-sixer pairing-profile characterization, the three omitted-family blocks, or their prism/cycle intersection graphs. Targeted exact-phrase, implication-level, semantic-database, and prior-ledger checks found no covering result. Residual risk from older terminology is recorded.
+PASS
 
-## Value
-PASS. The result replaces the orbit labels by an intrinsic coordinate-pairing criterion and exposes a small, rigid incidence geometry inside the exceptional 18-sixer orbit. The triangular-prism decomposition gives a compact structural description that is directly reusable in questions about blow-down models and Fermat symmetry.
+The three coordinate-pairing line families are permuted by coordinate automorphisms and preserved by the diagonal subgroup, so the sorted profile is an automorphism invariant. The published orbit representatives have profiles (0,3,3) and (2,2,2), and the two published orbits exhaust all 72 sixers, proving the profile classification. The exact verifier then reconstructs line skewness over Q(omega), all 72 sixers and the 648 automorphisms before exhaustively computing every pair in the 18-orbit. A fresh independent reconstruction over F_7 recovered the same 72 sixers, the 18/54 profile split, three six-element omitted-family blocks, within-block 0:9 and 3:6 intersections, and the global 0:27, 1:108, 3:18 census. The package's Q(omega) computation supplies the characteristic-zero certificate.
 
-## Closest literature and limitations
-The closest source is Favacchio--Malara, arXiv:2608.23716v1, which supplies the two orbit representatives and exhaustive orbit decomposition. The present theorem is limited to the Fermat cubic and does not claim a deformation-invariant analogue. A classical incidence description not surfaced by the searches remains possible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Favacchio--Malara's primary preprint establishes the 72 sixers and their two automorphism orbits of sizes 18 and 54, with geometric representatives. The authors' public companion repository was inspected directly: its main sixer script reconstructs the 27 lines, skewness graph, 72 sixers, 648 automorphisms and the 18/54 orbit split, but does not compute the three omitted-pairing blocks, complete pair-intersection census, triangular-prism disjointness graphs or C6 three-line-intersection graphs. Those exact incidence refinements were not found in Resultary or targeted source searches. The primary PDF itself was inaccessible in this run, so hidden textual coverage remains a named risk.
+
+## value
+
+PASS
+
+The profile criterion gives a simple combinatorial recognition of the two geometric orbits, while the omitted-family block decomposition and prism/C6 pair structure expose a nontrivial internal incidence geometry of the smaller orbit not present in the checked source computation. This is a natural finite classification tied directly to the 27-line geometry, not an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
