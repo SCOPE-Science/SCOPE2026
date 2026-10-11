@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces necessity to a scalar Clarkson inequality that is derived in full, including the strict equality case for \(p>2\). The three sufficiency regimes are independent and exhaustive: Hilbert orthogonality for \(p=2\), a coordinate outside a finite union of countable supports for uncountable \(\Gamma\), and coordinate decay plus continuity for the strict interior of countable \(\ell_p\). On the countable boundary, a full-support unit vector and strict Clarkson equality force any proposed witness to vanish coordinatewise. The packaged checker returned `VERIFY_OK 6894`; its finite tests are only supplementary sanity checks.
+## correctness
 
-## Originality
-PASS. The closest inspected primary source is Avilés–Ciaci–Langemets–Lissitsin–Rueda Zoca, arXiv:2204.13449v1. It introduces \((r,s)\)-\(\mathrm{SQ}_{<\kappa}\) and records only the diagonal benchmark \(r=s=2^{-1/n}\) for \(\ell_n(\kappa)\), together with the disjoint-coordinate proof and an approximate countable variant. Its parameter-monotonicity lemma yields only the rectangle beneath that diagonal point, not the full curved region or the strict separable boundary. The 2020 Oja–Saealle–Zolk paper treats one-parameter \(s\)-ASQ with \(\varepsilon\)-slack. Bibliographic and exact web searches for the full \(\ell_p(\Gamma)\) parameter region did not locate a matching or stronger statement.
+PASS
 
-## Value
-PASS. A complete parameter region for the canonical \(\ell_p\) family is a natural benchmark for the quantitative almost-square property, not a routine substitution. The sharp difference between countable and uncountable index sets on \(r^p+s^p=1\) for \(p>2\), together with the exceptional Hilbert behavior at \(p=2\), exposes a structural separability threshold that the previously published diagonal example does not show.
+The scalar inequality |a+b|^p+|a-b|^p>=2(|a|^p+|b|^p) is obtained by convexity applied to the squared terms; for p>2 equality forces ab=0. Integrating coordinatewise gives necessity r^p+s^p<=1. For uncountable Gamma, a finite family has countable total support, so one coordinate outside it gives exact disjointness even on the boundary. For countably infinite Gamma and strict inequality, a tail coordinate makes all finitely many x-values small enough. Boundary failure follows by choosing a full-support unit vector x: equality in both signs would force the witness y to be coordinatewise disjoint from x, hence zero. At p=2 the parallelogram identity gives the exact disk r^2+s^2<=1. The proof is infinite-dimensional and does not infer necessity from finite sampling.
 
-## Closest literature and limitations
-The closest sources are DOI 10.12697/ACUTM.2020.24.09 and arXiv:2204.13449v1. The claim is restricted to real \(\ell_p(\Gamma)\), infinite \(\Gamma\), \(2\le p<\infty\), and finite test sets. It does not classify \(p<2\), complex spaces, finite-dimensional spaces, or larger transfinite test families. A differently named equivalent statement outside the inspected sources remains a residual bibliographic risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes with chronology explicitly resolved. The 2022 primary source defines (r,s)-SQ and gives only selected diagonal examples such as ell_n(kappa) at r=s=2^{-1/n}; it does not provide the full two-parameter ell_p(Gamma) phase diagram or the countable-versus-uncountable boundary split. A later SCOPE theorem in the same frozen repository does imply this result through the weak-unit criterion, but read-only Git chronology shows the ell_p(Gamma) record was committed first and the broader L_p result two commits later, so the later generalization does not defeat originality of the earlier record.
+
+## value
+
+PASS
+
+The result resolves the entire two-parameter square region on the canonical ell_p(Gamma) family and identifies a sharp boundary phenomenon invisible in the original diagonal example: uncountable and countable index sets differ exactly at equality for p>2. At its publication point this is a natural complete classification, even though it was subsequently subsumed by the broader weak-unit theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
