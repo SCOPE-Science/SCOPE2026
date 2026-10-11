@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The lower bound is exact: at the unrotated position the diagonal support radius is
-\[
-q=\frac{\cos(\pi/N)}{\sqrt2\cos(\pi/(2N))},
-\]
-and the published coordinate-symmetry criterion forces every admissible dilation to satisfy \(tq\ge1/2\). For the upper bound, the support-line equations give an exact formula for the half-chord excess \(h-q\) as a product of nonnegative factors. The sign is uniform on the full parameter range. The two cases \(N\equiv2\pmod8\) and \(N\equiv6\pmod8\) exhaust the family, and the latter's only change of active lower side is explicitly covered. Scaling then invokes the published Steiner-symmetrization sufficient criterion. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality
+The lower bound follows from the published necessary square-containment criterion in the unrotated centrally symmetric position. For the reverse inequality, the record reduces relative rotation to \(0\le\theta\le\delta\) by dihedral and lattice symmetries and proves that the vertical chord at the critical abscissa has half-height at least the same critical value \(q\). The displayed support-line identity has positive denominator in the full parameter range and its numerator is nonnegative because both \(1-\cos u\) and the bracketed factor are nonnegative. The two classes \(N\equiv2\pmod8\) and \(N\equiv6\pmod8\) exhaust the theorem's domain, including the one side-switch in the second class. Steiner symmetrization therefore contains the required square in every rotation, giving the matching upper bound. As an independent check, direct support-half-plane computation over dense rotation grids for every \(N=6,10,\ldots,78\) found no chord below the claimed threshold, and the formula reproduces the published hexagon and decagon values. The numerical check is corroborative; the proof is the uniform support-line inequality.
 
-PASS with a close-prior-art warning. The primary source gives exact results for regular \(4m\)-gons and only the hexagon and decagon in the \(4m+2\) family. Its Remark 11 says that all regular \(4m+2\)-gons can be dealt with similarly, so the direction is explicitly anticipated. However, the source does not state the all-\(N\) value, does not supply the uniform support-line identity, and its theorem limits the \(4m+2\) equivalence to the two small cases. The author's doctoral-thesis abstract likewise lists the regular hexagon, regular octagon, and regular \(4m\)-gons rather than the full missing residue class.
+## originality
 
-Targeted semantic-index and web searches for the exact expression, \(Z(H_{14})\), regular \(14\)-gon lattice-point covering, and general regular \(4m+2\)-gon covering radii did not locate an equivalent explicit theorem. This is evidence of noncoverage, not proof of universal novelty.
+PASS
 
-## Value
+Xue's primary paper proves the full \(4m\)-gon family and gives exact separate calculations for the regular hexagon and decagon. Remark 5.4 then lists the general Steiner-symmetrization vertex pattern and says all regular \(4m+2\)-gons can be dealt with similarly, which is a significant residual originality risk. However, the source does not state the all-\(4m+2\) radius, and its two special-case appendix inequalities do not mechanically imply the uniform chord bound across both modulo-eight side patterns. The audited support-line identity supplies that missing uniform inequality and yields one closed formula completing all even regular polygons. Current Resultary and web searches for the regular 14-gon, the exact trigonometric expression and general \(4m+2\) radii found no later explicit theorem.
 
-PASS. The result closes the only even-order residue class not covered by the source's general formula. Together with the published regular-\(4m\) theorem, it supplies exact lattice-point covering radii for every even regular polygon. It also replaces a source method described as increasingly technical when extended case-by-case by a single two-parameter identity with a uniform sign argument. This is a natural complete classification of an infinite family rather than a one-off additional polygon.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The missing \(4m+2\) family is the only gap after the published \(4m\) theorem and the hexagon/decagon cases, so a uniform exact radius closes a natural classification of all even regular polygons. The contribution is not merely one more polygon value: the same support-line identity resolves both modulo-eight geometries at once. The prior remark makes the proof less surprising but does not make the complete exact family mathematically arbitrary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
