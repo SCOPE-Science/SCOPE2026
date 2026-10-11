@@ -1,31 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The upper bound is exact: \(\mathrm{ML}\)-refutability is r.e., so \(\mathrm{ML}\) theoremhood is co-r.e.; \(\mathrm{Skvo}\) theoremhood is r.e., so its complement is co-r.e.; their intersection is co-r.e.
+PASS
 
-For hardness, a fixed strongly aperiodic Wang tileset \(A\) is used. The coordinatewise product \(W\otimes A\) tiles iff \(W\) tiles because \(A\) tiles, and it cannot tile periodically because every periodic product tiling would project to a periodic \(A\)-tiling. The primary source's two canonical-formula correspondences then give
-\[
-W\text{ tiles}
-\iff
-\alpha_{W\otimes A}\in\mathrm{ML}\setminus\mathrm{Skvo}.
-\]
-The map is computable, so Berger's \(\Pi^0_1\)-complete tiling problem many-one reduces to the separation set.
+ML theoremhood is co-r.e. and non-theoremhood in recursively axiomatizable Skvo is co-r.e., so their intersection is \(\Pi^0_1\). For a fixed strongly aperiodic tileset \(A\), a product \(W\otimes A\) tiles exactly when \(W\) tiles and cannot tile periodically, by coordinate projection and pairing. The primary source's two canonical-formula equivalences then give \(W\) tiles iff the product formula lies in \(\mathrm{ML}\setminus\mathrm{Skvo}\). The construction is effective, so ordinary Wang tileability supplies many-one hardness.
 
-## Originality
+## originality
 
-PASS. Almeida–Knudstorp prove proper inclusion by applying their two correspondences to a single aperiodic tileset. They do not state a complexity classification of the whole difference. Pawlowski proves \(\Pi^0_1\)-completeness of \(\mathrm{ML}\) itself, which does not imply hardness after imposing non-membership in \(\mathrm{Skvo}\).
+PASS
 
-The added ingredient is a uniform aperiodicization: tensor every input tileset with one fixed strongly aperiodic set. Candidate-specific database and literature searches for the difference, co-r.e. completeness, product tiles, and aperiodicization located no equivalent theorem.
+The primary 2026 paper proves undecidability of ML and Skvo and obtains one separator from any fixed aperiodic tileset, but it does not classify the entire set difference. Pawlowski classifies ML theoremhood, not the difference. The audited product with a fixed strongly aperiodic factor uniformizes every ordinary tileability instance into a separator while preserving tileability, which is the missing many-one hardness step.
 
-## Value
+## value
 
-PASS. The primary paper settles both undecidability questions and proper inclusion, making the natural next structural question the size of the gap. The theorem gives the sharp arithmetical-hierarchy answer: recognizing formulas that witness the inclusion is already maximally co-r.e. hard. It strengthens a single-separator existence result to a complete uniform classification of the separation set.
+PASS
 
-## Closest literature and limitations
+The result upgrades mere proper inclusion and separate undecidability results to a sharp completeness classification of the full logical separation set. That is a natural metalogical invariant with a clear uniform reduction, not an arbitrary special case.
 
-Almeida–Knudstorp (2026), especially Theorems 2.16 and 2.19, the tiling equivalences in Sections 4 and 5, and Corollary 5.7, is the direct source. Pawlowski (2026) supplies an independent exact complexity result for \(\mathrm{ML}\), while Jeandel–Rao supplies a concrete fixed strongly aperiodic Wang set.
-
-The reduction is computability-theoretic and does not imply a sharp finite-time or formula-size bound.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,63 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at the level of exact logical equivalences.
+# Independent mathematical audit
 
-For the upper bound:
+## correctness
 
-\[
-\mathrm{ML}\in\Pi^0_1
-\]
-because the primary source states that refutability in \(\mathrm{ML}\) is recursively enumerable.
+PASS
 
-Also,
-\[
-\mathrm{Form}\setminus\mathrm{Skvo}\in\Pi^0_1
-\]
-because \(\mathrm{Skvo}\) is recursively axiomatizable.
+ML theoremhood is co-r.e. and non-theoremhood in recursively axiomatizable Skvo is co-r.e., so their intersection is \(\Pi^0_1\). For a fixed strongly aperiodic tileset \(A\), a product \(W\otimes A\) tiles exactly when \(W\) tiles and cannot tile periodically, by coordinate projection and pairing. The primary source's two canonical-formula equivalences then give \(W\) tiles iff the product formula lies in \(\mathrm{ML}\setminus\mathrm{Skvo}\). The construction is effective, so ordinary Wang tileability supplies many-one hardness.
 
-Their intersection is therefore \(\Pi^0_1\).
+## originality
 
-For the lower bound, fix a finite strongly aperiodic Wang tileset \(A\). The product construction uses ordered-pair edge colors. Projection and coordinatewise pairing prove
-\[
-W\otimes A\text{ tiles}
-\iff
-W\text{ tiles}.
-\]
-Projection of a periodic product tiling would be a periodic \(A\)-tiling, so
-\[
-W\otimes A
-\]
-never tiles periodically.
+PASS
 
-The primary source supplies the exact canonical-formula equivalences
-\[
-\alpha_U\notin\mathrm{ML}
-\iff
-U\text{ tiles periodically},
-\]
-and
-\[
-\alpha_U\notin\mathrm{Skvo}
-\iff
-U\text{ tiles}.
-\]
+The primary 2026 paper proves undecidability of ML and Skvo and obtains one separator from any fixed aperiodic tileset, but it does not classify the entire set difference. Pawlowski classifies ML theoremhood, not the difference. The audited product with a fixed strongly aperiodic factor uniformizes every ordinary tileability instance into a separator while preserving tileability, which is the missing many-one hardness step.
 
-Putting
-\[
-U=W\otimes A
-\]
-therefore gives
-\[
-W\text{ tiles}
-\iff
-\alpha_U\in\mathrm{ML}\setminus\mathrm{Skvo}.
-\]
+## value
 
-The tileset product and canonical-formula construction are effective. Since ordinary Wang tileability is \(\Pi^0_1\)-complete, this is a computable many-one hardness reduction.
+PASS
 
-## Limits
+The result upgrades mere proper inclusion and separate undecidability results to a sharp completeness classification of the full logical separation set. That is a natural metalogical invariant with a clear uniform reduction, not an arbitrary special case.
 
-No bounded finite computation is used as evidence for the infinite tiling correspondences. The verification does not claim polynomial-time efficiency or a restricted-fragment completeness theorem.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
