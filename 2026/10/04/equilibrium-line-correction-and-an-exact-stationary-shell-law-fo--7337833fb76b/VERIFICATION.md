@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-The finding was checked by direct symbolic reconstruction from the displayed integer-order vector field. The equilibrium equations force \(x=y=z=w=0\) and leave \(u\) arbitrary. At every such point the Jacobian has characteristic polynomial \(\lambda(\lambda+a)(\lambda+b)(\lambda^2-c\lambda+d)\).
 
-For the stationary identity, the following exact generator balances were checked:
-\[
-\langle w\rangle=\langle x\rangle=0,
-\qquad
-\langle xw\rangle=\langle x^2\rangle=b\langle z\rangle,
-\]
-\[
-b\langle z^2\rangle=c\langle w^2\rangle,
-\qquad
-\langle\dot x^2\rangle=a^2(\langle w^2\rangle-\langle x^2\rangle).
-\]
-Combining them gives the claimed shell identity exactly. The equality case was checked separately using compactness of invariant support and the complete-orbit equations; it is not inferred from a numerical tolerance.
+# Independent mathematical audit
 
-The accompanying `verify.py` uses only the Python standard library and exact integer/rational algebra. Running it from the package returns `VERIFY_OK` after checking the energy cancellation, factorized characteristic polynomial coefficients, and the specialization \(a=20\), \(b=2\), \(c=10\).
+## correctness
 
-Limits: no existence theorem for a non-equilibrium invariant measure is claimed; no finite trajectory is used to prove recurrence; and the stationary-measure argument is not transferred to the Caputo fractional-memory system.
+PASS
+
+The equilibrium equations successively force \(w=x=z=y=0\) while leaving the memristive coordinate \(u\) free, so the source's single origin is incomplete. At any point of that line the zero \(u\)-column yields the tangent eigenvalue and the remaining factors are \((\lambda+a)(\lambda+b)(\lambda^2-c\lambda+d)\). Stationarity of \(z\) and \(x^2\) gives \(b\langle z\rangle=\langle xw\rangle=\langle x^2\rangle\). For \(E=(z^2+w^2+d y^2)/2\), all mixed terms cancel and \(\dot E=-bz^2+cw^2\), which combined with \(\dot x=a(w-x)\) gives the shell identity. Equality forces \(\dot x=0\) on invariant compact support; bounded complete-orbit arguments then force \(x=w=z=y=0\), leaving only the equilibrium line. The exact checker corroborates the factorization, cancellation, and parameter specialization.
+
+## originality
+
+PASS
+
+The primary open-access article prints the exact five-dimensional integer-order system and in Section 2.1 states only the origin as its equilibrium. Direct algebra shows a whole free-\(u\) line, and the source contains no stationary shell law in the inspected full web rendering. Resultary searches found no same-vector-field correction or shell theorem other than the audited record.
+
+## value
+
+PASS
+
+Correct equilibrium geometry is essential for interpreting hidden/self-excited dynamics in a memristive system, and the exact shell law adds a global recurrence constraint that is stronger than the source's finite-time Lyapunov diagnostics. The combination is a meaningful structural correction to a current published model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

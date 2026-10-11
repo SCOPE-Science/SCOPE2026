@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:07:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The equilibrium equations successively force \\(w=x=z=y=0\\) while leaving the memristive coordinate \\(u\\) free, so the source's single origin is incomplete. At any point of that line the zero \\(u\\)-column yields the tangent eigenvalue and the remaining factors are \\((\\lambda+a)(\\lambda+b)(\\lambda^2-c\\lambda+d)\\). Stationarity of \\(z\\) and \\(x^2\\) gives \\(b\\langle z\\rangle=\\langle xw\\rangle=\\langle x^2\\rangle\\). For \\(E=(z^2+w^2+d y^2)/2\\), all mixed terms cancel and \\(\\dot E=-bz^2+cw^2\\), which combined with \\(\\dot x=a(w-x)\\) gives the shell identity. Equality forces \\(\\dot x=0\\) on invariant compact support; bounded complete-orbit arguments then force \\(x=w=z=y=0\\), leaving only the equilibrium line. The exact checker corroborates the factorization, cancellation, and parameter specialization.",
+      "risk": "The invariant-measure theorem is for the classical autonomous integer-order flow, not the Caputo fractional-memory model.",
+      "sources": [
+        "Frozen RESULT.md and verify.py at the assigned tree",
+        "F. Yu et al., Fractal and Fractional 8 (2024) 271, DOI 10.3390/fractalfract8050271"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 source broadly studies Lyapunov spectra, coexisting attractors, fractional dynamics and FPGA implementation but asserts only one equilibrium.",
+          "Other line-equilibrium memristor literature found by semantic search concerns different vector fields and does not imply this shell identity."
+        ],
+        "reasoning": "Broader memristor dynamics literature motivates checking equilibrium lines but does not dominate the source-specific correction or balance law.",
+        "searches": [
+          "DOI 10.3390/fractalfract8050271",
+          "Resultary memristive line-equilibrium and stationary-balance searches"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/fractalfract8050271",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source prints \\(\\dot u=-w+kx(m+3nu^2)\\), so after \\(x=w=0\\) the equilibrium equation imposes no condition on \\(u\\), contrary to its displayed single equilibrium.",
+          "The shell law comes from a new exact quadratic cancellation and stationarity calculation."
+        ],
+        "reasoning": "The equilibrium correction is a direct check against the source equations, while the invariant-measure shell is not implied by the source's numerical dynamical analysis.",
+        "searches": [
+          "DOI 10.3390/fractalfract8050271, Section 2 and 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited record is the only direct Resultary hit; nearby memristor records concern different systems.",
+          "The primary article explicitly writes the system and its claimed equilibrium \\(E=(0,0,0,0,0)\\)."
+        ],
+        "reasoning": "Searches included line equilibria, memristor-state freedom, zero eigenvalue, stationary energy balance and slab excursion aliases.",
+        "searches": [
+          "Resultary: 5D fractional-order memristive hyperchaotic system equilibrium line stationary shell law",
+          "Web: exact paper title plus equilibrium line, free memristor state, invariant measure stationary balance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database gives the equilibrium line or stationary shell for this vector field."
+        ],
+        "reasoning": "The claim is an all-measure analytic identity and cannot be supplied by a trajectory table or Lyapunov scan.",
+        "searches": [
+          "Resultary 5D memristive system searches"
+        ]
+      },
+      "rationale": "The primary open-access article prints the exact five-dimensional integer-order system and in Section 2.1 states only the origin as its equilibrium. Direct algebra shows a whole free-\\(u\\) line, and the source contains no stationary shell law in the inspected full web rendering. Resultary searches found no same-vector-field correction or shell theorem other than the audited record.",
+      "residual_risks": [
+        "The four-dimensional base model cited by the 2024 paper could contain related energy balances, but no checked source states this five-dimensional equilibrium-line correction together with the shell law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_OF_EQUILIBRIUM_ERROR_NOT_SHELL",
+          "evidence": "The printed \\(u\\)-equation vanishes for every \\(u\\) when \\(x=w=0\\), so the source's singleton equilibrium omits the full line; no stationary shell is stated.",
+          "identifier_or_url": "DOI:10.3390/fractalfract8050271",
+          "material_read": "Open-access full web/search rendering including Section 2's integer-order equations and Section 2.1's displayed equilibrium \\(E=(0,0,0,0,0)\\), plus surrounding dynamics discussion.",
+          "method": "lawful publisher full web rendering",
+          "title": "Dynamic Analysis and Field-Programmable Gate Array Implementation of a 5D Fractional-Order Memristive Hyperchaotic System with Multiple Coexisting Attractors",
+          "trigger": "Primary source of the exact vector field and equilibrium assertion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correct equilibrium geometry is essential for interpreting hidden/self-excited dynamics in a memristive system, and the exact shell law adds a global recurrence constraint that is stronger than the source's finite-time Lyapunov diagnostics. The combination is a meaningful structural correction to a current published model.",
+      "risk": "The result does not invalidate existence of the reported attractors and does not transfer the stationary-measure argument to fractional order.",
+      "sources": [
+        "DOI:10.3390/fractalfract8050271"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the classical integer-order five-dimensional memristive system in the source, the full equilibrium set is the line \\(\\{(0,0,0,0,s):s\\in\\mathbb R\\}\\), with characteristic polynomial \\(\\lambda(\\lambda+a)(\\lambda+b)(\\lambda^2-c\\lambda+d)\\); every compact invariant probability measure satisfies \\(b\\langle z\\rangle=\\langle x^2\\rangle\\) and \\(\\langle(z-c/2)^2\\rangle=c^2/4+c\\langle\\dot x^2\\rangle/(a^2b)\\), with equality exactly on equilibrium-line measures and strict recurrence outside the slab \\(0\\le z\\le c\\) otherwise.",
+  "limitations": [
+    "The stationary shell is not asserted for the Caputo fractional-order model.",
+    "No existence, uniqueness or attraction theorem for non-equilibrium invariant measures is claimed."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed directly from the displayed integer-order vector field. Solving the five equilibrium equations with \(a,b,c,d>0\) leaves \(u\) free and forces the other four coordinates to zero. The characteristic polynomial follows from the exact block structure at the equilibrium line. The stationary identities follow from invariant-measure generator equalities for \(y\), \(x\), \(z\), \(x^2\), and \(E=(z^2+w^2+dy^2)/2\). The equality case uses compact two-sided recurrence rather than a finite-time experiment. The packaged checker independently confirms the algebra and the published-parameter specialization.
+## correctness
 
-Risk: the invariant-measure argument requires the classical autonomous integer-order flow. It is deliberately not extended to the Caputo fractional model.
+PASS
 
-## Originality
-PASS. The introducing article states only the origin as equilibrium, although its vector field leaves the memristive coordinate free there, and it does not state the shell law or its equality/escape consequences. Searches for the exact DOI with “line equilibrium,” for the exact vector-field fragments, for “invariant measure,” “balance law,” and “stationary moment law,” and for broader memristive line-equilibrium literature found related but different systems. General line-equilibrium literature and earlier memristive examples do not imply this source-specific stationary identity.
+The equilibrium equations successively force \(w=x=z=y=0\) while leaving the memristive coordinate \(u\) free, so the source's single origin is incomplete. At any point of that line the zero \(u\)-column yields the tangent eigenvalue and the remaining factors are \((\lambda+a)(\lambda+b)(\lambda^2-c\lambda+d)\). Stationarity of \(z\) and \(x^2\) gives \(b\langle z\rangle=\langle xw\rangle=\langle x^2\rangle\). For \(E=(z^2+w^2+d y^2)/2\), all mixed terms cancel and \(\dot E=-bz^2+cw^2\), which combined with \(\dot x=a(w-x)\) gives the shell identity. Equality forces \(\dot x=0\) on invariant compact support; bounded complete-orbit arguments then force \(x=w=z=y=0\), leaving only the equilibrium line. The exact checker corroborates the factorization, cancellation, and parameter specialization.
 
-Residual risk: the introducing article cites an earlier four-dimensional base system whose complete accessible text was not recovered in the search. That source could contain a related quadratic cancellation, but no checked source covers the five-dimensional equilibrium-line correction together with the exact shell identity and equality characterization.
+## originality
 
-## Value
-PASS. The result changes the local geometric interpretation of the published model from an isolated equilibrium to a one-dimensional equilibrium manifold and explains its exact zero eigenvalue. More importantly, it gives a global, parameter-explicit stationary constraint for every compact recurrent statistical state, including periodic, chaotic, and hyperchaotic regimes. The strict excursion consequence at the paper's parameter values supplies a mathematically testable boundary condition for long-time computations and coexistence studies; it is not merely a recomputation of a table entry.
+PASS
 
-## Closest literature and limitations
-The closest literature concerns different memristive systems with lines or absence of equilibria and general bifurcation theory for equilibrium manifolds. Those papers establish that nonisolated equilibria are structurally meaningful but do not dominate the claim here. The theorem does not establish existence of an attractor and does not apply the invariant-measure argument to fractional-memory dynamics.
+The primary open-access article prints the exact five-dimensional integer-order system and in Section 2.1 states only the origin as its equilibrium. Direct algebra shows a whole free-\(u\) line, and the source contains no stationary shell law in the inspected full web rendering. Resultary searches found no same-vector-field correction or shell theorem other than the audited record.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Correct equilibrium geometry is essential for interpreting hidden/self-excited dynamics in a memristive system, and the exact shell law adds a global recurrence constraint that is stronger than the source's finite-time Lyapunov diagnostics. The combination is a meaningful structural correction to a current published model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
