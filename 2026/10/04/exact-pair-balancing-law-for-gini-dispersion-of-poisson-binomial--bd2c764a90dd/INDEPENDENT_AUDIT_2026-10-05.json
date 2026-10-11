@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:58:15.595957Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 81743ebd2435f1df638ab2816c42da085e483d22",
+        "verify_poisson_binomial_gini.py blob 2ffc56175dba56c4f84e4bfe86b85f0626cf4739",
+        "independent exact rational transfer-law replay"
+      ],
+      "rationale": "The proof reconstructs exactly. With U=B_p+B_q and r=pq at fixed s=p+q, the law of U is affine in r. Expanding V=U-U' and conditioning on the frozen difference Z=A-A' reduces the r-dependence of E|Z+V| to the integer second-difference identities for |z|. Differentiation/integration in r gives the stated transfer formula. Cauchy--Schwarz gives c1<=c0, while feasibility gives r+r_tilde<=s, making every nontrivial balancing step strictly increase the Gini mean difference. Repeated T-transforms yield strict Schur-concavity. The extreme fixed-mean parameter vector has k deterministic ones plus one Bernoulli delta and gives 2 delta(1-delta); the equal vector gives the upper endpoint, and continuity on the connected mean slice gives every intermediate value. Independent exact rational enumeration reproduced the local identity on nine test families but was not used as proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 abstract lists Bernoulli and binomial Gini formulas among several standard discrete laws, but does not mention heterogeneous Poisson-binomial laws or majorization.",
+          "The classical fixed-mean results cover broader families of one-variable observables but do not dominate the two-copy transfer identity."
+        ],
+        "reasoning": "No inspected broader result was found whose specialization yields the exact local transfer law and strict fixed-mean Schur ordering.",
+        "searches": [
+          "Hoeffding 1956 fixed-mean extremal theorems",
+          "Wang 1993 homogeneous-probability variance theorem",
+          "2015 discrete mean-difference repository abstract"
+        ]
+      },
+      "checked_sources": [
+        "Hoeffding, On the Distribution of the Number of Successes in Independent Trials, DOI:10.1214/AOMS/1177728178",
+        "Wang, On the Number of Successes in Independent Trials, Statistica Sinica 3 (1993), 295-312",
+        "Manca--D'Uggento--Girone, The mean difference of discrete distribution models, 2015 repository record handle:11586/141891",
+        "Resultary semantic query: Poisson binomial Gini mean difference fixed mean pair balancing exact transfer formula Schur concave",
+        "web exact searches: \"Poisson binomial\" \"Gini mean difference\"; \"Gini\" \"Poisson-binomial\" Schur concave; \"absolute difference\" \"Poisson binomial\" majorization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a frozen remainder A, the new theorem depends on c0=P(A-A'=0) and c1=P(A-A'=1), data absent from the classical one-copy extremal statements.",
+          "Independent rational checks reproduced the exact transfer formula on nine nontrivial parameter/remainder instances."
+        ],
+        "reasoning": "The equal-probability maximizer is directionally consonant with classical homogenization, but the exact identity, strictness mechanism, lower endpoint and connected attainable range are not consequences of the inspected prior statements without additional model-specific work.",
+        "searches": [
+          "Hoeffding 1956 Theorem-3 summary on strictly convex g",
+          "Wang 1993 primary first page and variance statement",
+          "independent derivation of the pair transfer from the two-Bernoulli difference law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hoeffding studies extrema of E[g(S)] at fixed mean and proves the binomial maximizes strictly convex one-variable expectations.",
+          "Wang states that Poisson-binomial variance increases under homogenization.",
+          "Neither inspected statement is an equivalent formulation of E|W-W'| or supplies the pair-product transfer coefficient involving c0 and c1."
+        ],
+        "reasoning": "The audited Gini mean difference was compared both as a dispersion functional of the Poisson-binomial law and as an absolute first moment of the iid difference W-W'. Classical convex-order homogenization is relevant background but does not directly evaluate a functional in which both iid copies change with the parameter vector.",
+        "searches": [
+          "DOI:10.1214/AOMS/1177728178 primary summary/full OCR route",
+          "Statistica Sinica 3 (1993) primary PDF/abstract",
+          "Resultary query: Poisson binomial Gini mean difference fixed mean pair balancing exact transfer formula Schur concave"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked exact database/table supplied the pair-transfer formula, the strict Schur-concavity conclusion, or the full interval between the deterministic-plus-one-Bernoulli and equal-probability endpoints."
+        ],
+        "reasoning": "The claim is an analytic all-parameter identity and extremal theorem rather than a finite table; database absence is supporting evidence only.",
+        "searches": [
+          "Resultary semantic query above",
+          "web exact searches for Poisson-binomial Gini/mean-difference formulas and Schur concavity"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. Hoeffding and Wang establish classical fixed-mean homogenization phenomena for Poisson-binomial sums, especially convex-function expectations and variance, but the audited statistic depends on two iid copies and is not itself a one-variable convex expectation of the sum. Fresh searches found no prior pair-transfer identity, strict Schur-concavity theorem, or complete fixed-mean Gini range for heterogeneous Bernoulli sums. The inaccessible 2015 discrete-Gini paper is retained as a concrete residual risk rather than treated as evidence of novelty.",
+      "residual_risks": [
+        "The 2015 Manca--D'Uggento--Girone paper is directly about Gini mean difference for discrete laws but its public repository file is restricted. Two bounded authorized retrieval attempts after the open route both returned no verified PDF; whole-document noncoverage is not asserted.",
+        "A differently worded stochastic-order result could in principle imply monotonicity of Gini dispersion without mentioning Poisson-binomial Gini mean difference explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_ONE_COPY_EXTREMAL_RESULTS_NOT_GINI_TRANSFER",
+          "evidence": "The inspected theorem synopsis concerns E[g(S)] for one Poisson-binomial sum and strictly convex g, not E|W-W'| with both iid copies depending on the Bernoulli parameter vector.",
+          "identifier_or_url": "DOI:10.1214/AOMS/1177728178",
+          "material_read": "Primary summary/OCR text of the introduction and theorem synopsis. The authorized scanned journal copy was obtained but its body pages had no extractable text, so no whole-document negative search was inferred from that scan.",
+          "method": "lawful open OCR/search material plus authorized institutional scan",
+          "title": "On the Distribution of the Number of Successes in Independent Trials",
+          "trigger": "Foundational fixed-mean Poisson-binomial extremal result and strongest classical implication check."
+        },
+        {
+          "assessment": "VARIANCE_HOMOGENIZATION_NOT_GINI_IDENTITY",
+          "evidence": "The source's stated homogenization theorem is for variance, while the audited result gives an exact Gini transfer and strict Schur-concavity.",
+          "identifier_or_url": "Statistica Sinica 3 (1993), 295-312",
+          "material_read": "Primary PDF first page and abstract/introduction material, including the explicit statement that variance increases as success probabilities become more homogeneous.",
+          "method": "lawful open-access primary PDF with visual page inspection",
+          "title": "On the Number of Successes in Independent Trials",
+          "trigger": "Classical homogenization result for the same Poisson-binomial family."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_RISK",
+          "evidence": "The accessible abstract does not mention heterogeneous Poisson-binomial laws; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "handle:11586/141891",
+          "material_read": "Repository abstract stating formulas for Bernoulli, binomial, Poisson, negative binomial, geometric, hypergeometric, logarithmic and Zipf distributions. The attached postprint is marked private/restricted; two bounded authorized retrieval attempts found no verified PDF.",
+          "method": "lawful public repository abstract plus bounded authorized access attempt",
+          "title": "The mean difference of discrete distribution models",
+          "trigger": "Most directly relevant title concerning Gini mean difference for discrete distributions."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hoeffding 1956",
+        "Wang 1993",
+        "assigned theorem and independent transfer reconstruction"
+      ],
+      "rationale": "Gini mean difference is a standard dispersion functional, and heterogeneous Bernoulli sums are the canonical Poisson-binomial family. The theorem does more than re-evaluate a known endpoint: it gives an exact local balancing law, a strict global majorization theorem, and the full fixed-mean attainable interval with equality cases. That is a motivated structural sharpening of classical homogenization results.",
+      "residual_risks": [
+        "The theorem assumes independent Bernoulli summands and does not address dependent trials."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 2015 Manca--D'Uggento--Girone paper is directly about Gini mean difference for discrete laws but its public repository file is restricted. Two bounded authorized retrieval attempts after the open route both returned no verified PDF; whole-document noncoverage is not asserted.",
+    "A differently worded stochastic-order result could in principle imply monotonicity of Gini dispersion without mentioning Poisson-binomial Gini mean difference explicitly.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

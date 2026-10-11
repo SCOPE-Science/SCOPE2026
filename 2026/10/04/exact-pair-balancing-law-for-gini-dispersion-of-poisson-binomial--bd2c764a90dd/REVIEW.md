@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The pair-difference law and integer-shift identities reduce the two-copy Gini functional to a quadratic function of the pair product. Integration yields the exact transfer formula. Cauchy--Schwarz gives \(c_1\le c_0\), feasibility gives \(r+	ilde r\le s\), and majorization plus continuity yields the global range.
+PASS
 
-Exact-rational replay: `VERIFY_OK increment_checks=10241 autocorrelation_checks=238 strict_checks=8722 cdf_checks=990 grid_groups=138 grid_vectors=2776`.
+The proof reconstructs exactly. With U=B_p+B_q and r=pq at fixed s=p+q, the law of U is affine in r. Expanding V=U-U' and conditioning on the frozen difference Z=A-A' reduces the r-dependence of E|Z+V| to the integer second-difference identities for |z|. Differentiation/integration in r gives the stated transfer formula. Cauchy--Schwarz gives c1<=c0, while feasibility gives r+r_tilde<=s, making every nontrivial balancing step strictly increase the Gini mean difference. Repeated T-transforms yield strict Schur-concavity. The extreme fixed-mean parameter vector has k deterministic ones plus one Bernoulli delta and gives 2 delta(1-delta); the equal vector gives the upper endpoint, and continuity on the connected mean slice gives every intermediate value. Independent exact rational enumeration reproduced the local identity on nine test families but was not used as proof.
 
-## Originality
+## originality
 
-PASS, with an explicit older-literature risk. Hoeffding's theorem concerns expectations of a fixed scalar function of the count, while Wang's homogenization result includes variance. Neither inspected statement gives the two-copy Gini increment or its \(c_0,c_1\) factor. The inspected Čiginas--Pumputis source treats Gini mean difference in finite-population scale estimation.
+PASS
 
-A 2015 paper on mean differences of discrete models was located, but only its public abstract was available. It remains a residual comparison risk.
+Best-of-knowledge originality passes. Hoeffding and Wang establish classical fixed-mean homogenization phenomena for Poisson-binomial sums, especially convex-function expectations and variance, but the audited statistic depends on two iid copies and is not itself a one-variable convex expectation of the sum. Fresh searches found no prior pair-transfer identity, strict Schur-concavity theorem, or complete fixed-mean Gini range for heterogeneous Bernoulli sums. The inaccessible 2015 discrete-Gini paper is retained as a concrete residual risk rather than treated as evidence of novelty.
 
-## Value
+## value
 
-PASS. Gini's mean difference is a standard robust dispersion functional. The theorem gives an exact quantitative law for how Bernoulli heterogeneity changes it and converts that law into explicit fixed-mean extrema and the complete attainable interval.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Gini mean difference is a standard dispersion functional, and heterogeneous Bernoulli sums are the canonical Poisson-binomial family. The theorem does more than re-evaluate a known endpoint: it gives an exact local balancing law, a strict global majorization theorem, and the full fixed-mean attainable interval with equality cases. That is a motivated structural sharpening of classical homogenization results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
