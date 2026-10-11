@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:54:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 10e265ea122e59057fe2bb257a468ad2c6d55e53",
+        "verify.py blob d3e459b01202c35e3d419cf372e280a1a94ddcd7",
+        "Sermutlu Table 1",
+        "fresh exact Newton–Cotes moment-system reconstruction"
+      ],
+      "rationale": "Writing a monotone data vector through its nonnegative increments turns the quadrature value into a linear function over a simplex, so its exact extrema are the prefix/tail sums of the symmetric weight vector. Symmetry converts the minimum to \\(m_n=\\min(0,\\min P_k)\\) and the maximum to \\(1-m_n\\), proving the general iff criterion. Exact moment-system reconstruction independently reproduced all proper prefix minima through \\(n=13\\): every \\(n\\le11\\) is nonnegative, \\(P_6=-147227/750750\\) at \\(n=12\\), and the \\(n=13\\) minimum is positive. The published coefficient table independently agrees with the \\(n=12\\) exact weights, and the verifier constructs a strictly increasing positive witness for the undershoot.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sermutlu supplies coefficients and truncation errors through orders beyond the claimed boundary.",
+          "The located bibliographic description of Newman's paper does not expose an exact closed-Newton–Cotes prefix criterion or the 12/13 boundary."
+        ],
+        "reasoning": "No inspected broader source was found that implies the complete monotone-data image interval.",
+        "searches": [
+          "Sermutlu full primary PDF",
+          "Newman 1974 bibliographic trail",
+          "general quadrature monotonicity searches"
+        ]
+      },
+      "checked_sources": [
+        "Sermutlu 2019 full primary PDF",
+        "Newman 1974 bibliographic record",
+        "Resultary Newton–Cotes monotone-range search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the weights does not by itself state that cumulative rather than individual signs are the necessary and sufficient range condition.",
+          "The submitted simplex argument proves the exact interval for every symmetric normalized rule; exact arithmetic then locates the first failure and subsequent recovery."
+        ],
+        "reasoning": "The general criterion and sharp transition require additional structure beyond the published coefficient list.",
+        "searches": [
+          "Sermutlu exact coefficient table",
+          "audited order-simplex increment argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a normalized symmetric quadrature rule, the image of the order simplex \\(0\\le y_0\\le\\cdots\\le y_n\\le M\\) is determined by prefix/tail sums of the weights.",
+          "Negative individual Newton–Cotes weights first occur much earlier than the submitted monotone-range failure, so coefficient sign alone is not equivalent to the claim."
+        ],
+        "reasoning": "The theorem is an ordered-cone/partial-sum statement, not merely another observation that high-order Newton–Cotes rules have negative weights.",
+        "searches": [
+          "Sermutlu, A close look at Newton–Cotes integration rules, Results in Nonlinear Analysis 2 (2019)",
+          "D. J. Newman, Monotonicity of quadrature approximations, Proc. AMS 42 (1974), bibliographic comparison",
+          "Resultary query: closed Newton-Cotes monotone data cumulative weights range preservation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary coefficient table contains the exact \\(n=12\\) weights, including negative entries, but does not tabulate cumulative-prefix minima or monotone output ranges.",
+          "No exact published table with the submitted prefix minima was located."
+        ],
+        "reasoning": "The coefficient table is input data, not prior statement-level coverage of the theorem.",
+        "searches": [
+          "Sermutlu Table 1 of exact closed Newton–Cotes coefficients",
+          "Resultary exact 12-panel/13-panel search"
+        ]
+      },
+      "rationale": "Sermutlu's primary paper was materially read in full and its coefficient table was visually inspected. It explicitly lists closed Newton–Cotes coefficients through 19 points and discusses negative weights as a source of roundoff, but it does not analyze the image of bounded monotone data or cumulative-weight positivity. Older work titled 'Monotonicity of quadrature approximations' was identified bibliographically, but no checked source statement supplied this ordered-data range criterion or the exact 12-panel failure/13-panel recovery. Resultary searches returned no covering theorem.",
+      "residual_risks": [
+        "The complete Newman 1974 text was not materially available in this run; an equivalent ordered-data lemma there remains a bounded literature risk.",
+        "The general partial-sum lemma may occur in older quadrature literature under a different monotonicity notion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_WEIGHTS_PRIOR_MONOTONE_RANGE_CRITERION_NOT_STATED",
+          "evidence": "The source lists the \\(n=12\\) coefficients and discusses roundoff from negative weights, but its stated aim is truncation/roundoff performance rather than bounded monotone-data range preservation.",
+          "identifier_or_url": "Results in Nonlinear Analysis 2 (2019), 48–60",
+          "material_read": "Complete 13-page open PDF; Table 1 and the surrounding negative-coefficient discussion were read, and the coefficient page was visually inspected.",
+          "method": "Full-text coefficient/theorem-scope comparison.",
+          "title": "A close look at Newton–Cotes integration rules",
+          "trigger": "Primary source giving exact high-order closed Newton–Cotes coefficients."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_TERMINOLOGY_RISK",
+          "evidence": "The source was identified as classical monotonicity work, but no accessible theorem statement was found that establishes the submitted partial-sum criterion or first failure.",
+          "identifier_or_url": "Proc. Amer. Math. Soc. 42 (1974), 251–257",
+          "material_read": "Bibliographic citation and indexed context only; complete primary text was not materially available in this run.",
+          "method": "Access-limited terminology-risk check.",
+          "title": "Monotonicity of quadrature approximations",
+          "trigger": "Potentially overlapping classical title found through quadrature references."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sermutlu 2019 full primary PDF",
+        "Newman 1974 bibliographic record",
+        "Resultary Newton–Cotes monotone-range search"
+      ],
+      "rationale": "Whether a quadrature rule maps monotone bounded samples back into their physical data range is a natural stability property distinct from coefficient positivity. The theorem supplies an exact general criterion and locates a nonmonotone first-failure/recovery boundary, so it is more than a coefficient-table recomputation.",
+      "residual_risks": [
+        "The complete Newman 1974 text was not materially available in this run; an equivalent ordered-data lemma there remains a bounded literature risk.",
+        "The general partial-sum lemma may occur in older quadrature literature under a different monotonicity notion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sermutlu 2019 full primary PDF",
+    "Newman 1974 bibliographic record",
+    "Resultary Newton–Cotes monotone-range search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For normalized closed Newton–Cotes rules applied to bounded nondecreasing samples, range preservation is equivalent to nonnegativity of all proper cumulative weights; the first failure is the 13-point rule with 12 panels, whose sharp undershoot is \\(147227/750750\\), while the 14-point rule with 13 panels restores range preservation.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete Newman 1974 text was not materially available in this run; an equivalent ordered-data lemma there remains a bounded literature risk.",
+    "The general partial-sum lemma may occur in older quadrature literature under a different monotonicity notion.",
+    "The result concerns one closed rule on monotone sampled data, not truncation accuracy, composite-rule convergence, or arbitrary data vectors."
+  ]
+}
