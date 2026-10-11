@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof has two layers. First, the prime tail beginning with \(5\) is shown to be an interval. The fixed exceptional indices \(3,4,6,9\) reduce to exact rational inequalities of the form \(\pi^2<B_j\), each stronger than the classical upper bound \(\pi^2<(22/7)^2\). The remaining tail indices use the published prime-ratio lemma and its monotonicity calculation. The bundled checker verifies the finite prime-ratio computation through index \(3099\), exactly as required by the finite part of that lemma; the analytic continuation beyond that range is the published argument.
+# Independent mathematical audit
 
-Second, once
-\[
-\mathcal T_3=\left[1,\frac{54}{5\pi^2}\right]
-\]
-is established, all remaining steps are finite interval arithmetic. The checker verifies each overlap or separation using the classical rigorous bounds
-\[
-\frac{223}{71}<\pi<\frac{22}{7}.
-\]
-In particular, it checks the bridge from the low \(3\)-adic interval into the exponent-one \(3\)-adic interval, the overlap of all exponent-at-least-two \(2\)-adic copies, and the final strict gap
-\[
-\frac{41}{3\pi^2}<\frac{25}{18}.
-\]
+## correctness
 
-Run `python3 verify.py`. Expected final line begins `VERIFY_OK` and reports the two gap endpoints. The decimal output is corroborative; acceptance rests on the exact rational inequalities and the symbolic interval decomposition.
+PASS
 
-Unproved limits: no statement is made for any parameter other than \(t=-2\), and no independent audit has been performed.
+Using Defant's unitary greedy-tail criterion, the package proves the prime tail beginning at \(5\) fills \([1,54/(5\pi^2)]\): the four exceptional prime indices are checked exactly and the source prime-ratio lemma handles the infinite remainder. Adjoining the prime \(3\) yields precisely the two intermediate blocks \(A=[1,164/(15\pi^2)]\) and \(B=[10/9,12/\pi^2]\). Adjoining the prime \(2\), all exponent choices except simultaneous exponent one at \(2\) and \(3\) overlap into \([1,41/(3\pi^2)]\); the remaining fiber is \([25/18,15/\pi^2]\). The Archimedean rational bounds used for every overlap and the final separation were independently rechecked; the gap endpoints are approximately \(1.3847228431\) and \(1.3888888889\).
+
+## originality
+
+PASS
+
+Defant's unitary paper proves connectedness exactly up to its critical parameter \(\eta^*\approx1.9742550\), so \(r=2\) is known to be disconnected, but the paper then poses the component-count sets \(\mathcal E_m^*\) as a further problem. The exact two-block decomposition at \(-2\) is not implied by merely knowing disconnectedness. Later component-count papers found in search concern the ordinary divisor function rather than the unitary one.
+
+## value
+
+PASS
+
+This evaluates a natural first integer point beyond the unitary connectedness transition and gives a concrete answer to the source's component-count program. The exact interval geometry distinguishes the unitary family from the later ordinary-divisor component theory and supplies a reusable test case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
