@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The involutory anti-automorphisms of the infinite cyclic group are exhausted by the identity and inversion. Inversion forces the admissible fixed parameter to be \(1\), reducing to the standard Chein theorem. Identity involution makes the double the abelian group with relation \(u^2=a^k\); Smith normal form gives \(\mathbb Z\oplus\mathbb Z/\gcd(2,k)\mathbb Z\), so the parity criterion follows exactly.
+## correctness
 
-## Originality
-PASS. The recent primary source explicitly asks which admissible triples satisfy the loop-level generalized-double equivalence. Its standard theorem covers the inversion case, while its generalized theorem is about loop algebras and assumes a nonabelian base. Searches for cyclic, parameter, parity, and equivalent presentation formulations found no result implying the identity-involution classification. The older generalized-construction paper does not address just-infiniteness.
+PASS
 
-## Value
-PASS. This is a natural complete classification for the minimal abelian just-infinite base group, not an arbitrary finite slice. It both settles that test case of the explicit open question and exhibits a sharp infinite counterfamily: even central exponent yields \(\mathbb Z\oplus C_2\).
+Aut(Z)={±1}. Inversion plus g0*=g0 forces g0=1 and gives the standard just-infinite Chein double. Under the identity involution the rules reduce to [a,u]=1 and u^2=a^k, hence Z^2/<(-k,2)> and Smith normal form gives Z plus a gcd(2,k) torsion factor. Odd k gives Z; even k leaves a nontrivial finite normal C2 of infinite index.
 
-## Closest literature and limitations
-The closest source is Paiva, arXiv:2609.21016v1, which supplies the generalized Chein rules, proves the standard Chein equivalence, and formulates Question 9.2. Kinyon, Phillips, and Vojtěchovský, arXiv:math/0506085, is the earlier generalized-construction reference. The result here is limited to \(G\cong\mathbb Z\), and finite search cannot certify absolute literature novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating 2026 source gives the standard-Chein equivalence and a generalized nonabelian algebra result, while the older generalized-Chein paper predates just-infiniteness. Resultary returned no prior parity classification for the infinite-cyclic base.
+
+## value
+
+PASS
+
+This completely resolves the generalized loop-level question for the basic just-infinite abelian group, with an exact parity obstruction and explicit isomorphism type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
