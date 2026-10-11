@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The quantitative log-product estimate follows from Taylor expansion plus Abel summation of two zero-mean periodic sequences. Uniform estimates hold for all start indices and all horizons, and convergence of the normalized products follows from convergence of the correction series. The orthogonal-coordinate orbit formula proves all three regimes with a separate witness disproving strong asymptotic expansivity for negative drift. Compact perturbation, Fredholm index and explicit approximate boundary eigenvectors yield the spectral sets. Finite checks in the accompanying script passed and are not asserted to prove infinite statements.
+
+**Originality — PASS, with stated residual risk.** Bag--Mandal--Das define the hierarchy and exhibit one shift-spectrum comparison; that prior spectral-blindness observation is acknowledged. Bernardes et al. already give the positive-expansivity product criterion; the positive branch agrees with it but requires the new all-period variance-drift estimate. Inspected relevant primary literature and published-record searches did not reveal the explicit \(\alpha-v/2\) threshold or the full strong/asymptotic/critical classification. An unindexed equivalent weighted-shift result remains possible, and a nearby norm-profile record was readable at summary level only.
+
+**Mathematical value — PASS.** The square-root oscillation is a natural critical scale: its first-order contribution cancels over a period but its second-order logarithmic contribution does not. The exact period-variance law gives a complete dynamical classification, demonstrates different behavior despite fixed full/point/approximate spectra, and identifies a sharp boundary valid for every finite periodic waveform. The statement is limited to unilateral shifts on the specified Hilbert space, rather than arbitrary operators or noises.
+
+Same-model review: passed. Independent audit: not yet performed.
