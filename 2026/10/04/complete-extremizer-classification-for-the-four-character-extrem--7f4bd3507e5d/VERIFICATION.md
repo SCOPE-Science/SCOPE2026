@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is primary. The only finite certificate needed is the root-of-unity bookkeeping after the equilateral-triple reduction.
+# Independent mathematical audit
 
-`verify.py` uses exponents modulo \(15\). It enumerates all six permutations \((p,q,r)\) of \((0,1,2)\) and all fifth-root choices solving \(t^5=\omega^q\). It then forms the normalized coefficient triples dictated by the proof, deduplicates them, and checks equality with the two canonical families
-\[
-(1,t\omega,t^2\omega,t^3),\qquad (1,t\omega^2,t^2\omega^2,t^3),\qquad t^5=1.
-\]
-The result is exactly ten normalized vectors. For every canonical vector, each of the two independent cyclic autocorrelations is checked to be a rotated copy of the three cube roots, so it vanishes exactly through \(1+\omega+\omega^2=0\).
+## correctness
 
-The checker also verifies that the third-root witness and the fifteenth-root witness recorded in arXiv:1910.00924v1 occur in the classified set.
+PASS
 
-Limits: the checker does not replace the geometric lemma that three unit complex numbers summing to zero form an equilateral triple; that lemma is proved directly in the mathematical argument. No claim is made for supports other than \(\{0,1,2,3\}\subset\mathbb Z_5\).
+Flat Fourier modulus is equivalent to vanishing nonzero cyclic autocorrelations. The first equation has three unit summands, forcing an equilateral triple; substitution into the second gives the fifth-root condition and exactly two cube-root branches. The converse is immediate from \(1+\omega+\omega^2=0\). The mod-15 verifier exactly confirms ten branches.
+
+## originality
+
+PASS
+
+Classical work proves the support is extreme and gives witnesses, but the inspected full later treatment does not classify all coefficient equality cases.
+
+## value
+
+PASS
+
+Complete equality cases on a canonical smallest nontrivial extreme support form a natural extremal classification and explain known witness nonuniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
