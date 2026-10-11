@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:55:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With alpha_1=1 and spectrum exactly {mu,1}, the first residual is (I-A)r_0=(1-mu)P_mu r_0, so the top eigenspace is annihilated. In the nontrivial branch all later residuals remain in the mu-eigenspace. If q_k is in [0,1-mu], then 1-mu(1+q_k) is at least (1-mu)^2>0, so the norm ratio is exactly q_{k+1}=1-mu-mu q_k and remains in the invariant interval. Solving this affine recurrence gives the stated fixed point, alternating error law, and convergence of alpha to 2/(1+mu), the minimax fixed GD step.",
+      "risks": [
+        "The exact scalar reduction fails once interior eigenvalues survive the first step or the top eigenvalue is not normalized exactly to one."
+      ],
+      "sources": [
+        "Frozen RESULT.md blob 9c1aca8ee379eb5ae51576936cb32e692fc20168",
+        "Hu--Pollock--Xue--Zhu, arXiv:2602.13620v1 full HTML text"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 treats the computational spectral-radius oracle.",
+          "The practical l=1 analysis treats general spectra via bounds."
+        ],
+        "reasoning": "Neither inspected theorem supplies the exact practical trajectory under the two-endpoint structural restriction.",
+        "searches": [
+          "arXiv:2602.13620v1 Theorem 2.1 and Theorem 2.7",
+          "Resultary adaptive-gradient searches"
+        ]
+      },
+      "checked_sources": [
+        "Full arXiv:2602.13620v1 HTML text",
+        "Fresh Resultary adaptive-gradient searches",
+        "Author publication page confirming the preprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves ratio/error bounds for the practical estimator and separately exact convergence for a different oracle estimator."
+        ],
+        "reasoning": "The equality arises from the extra observation that alpha_1 exactly projects onto the minimal eigenspace on a two-point spectrum; this implication is not stated by the inspected theorems.",
+        "searches": [
+          "Statement-level comparison with arXiv:2602.13620v1 lines defining the practical rule and Theorem 2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source defines rho_k from successive residual norms for l=1.",
+          "The source practical theorem states bounds, not the exact affine recurrence on a two-point spectrum."
+        ],
+        "reasoning": "Residual-ratio, endpoint-spectrum, parameter-identification, and alternating-step formulations were compared.",
+        "searches": [
+          "Resultary: adaptive gradient residual ratio two eigenvalue spectrum exact recurrence optimal step",
+          "Resultary: Hu Pollock Xue Zhu residual norm ratio two endpoint spectrum alternating stepsize",
+          "Full-text arXiv:2602.13620 searches around Algorithm 1, equation (3), and Theorem 2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top hits were neighboring Richardson, CGAOS, and AdOGD spectral analyses; no exact current-rule recurrence was returned."
+        ],
+        "reasoning": "There is no table issue; this is an analytic trajectory identity.",
+        "searches": [
+          "Fresh Resultary two-endpoint residual-ratio queries"
+        ]
+      },
+      "rationale": "The complete current arXiv HTML defines the residual-ratio practical rule and proves bounds for it, while its exact geometric-contraction theorem concerns the spectral-radius oracle. The inspected l=1 theorem gives error bounds rather than the submitted two-endpoint equality and closed form. Fresh Resultary searches returned adjacent adaptive-step analyses, especially AdOGD endpoint-persistence counterexamples, but no result for this residual-ratio map.",
+      "residual_risks": [
+        "The source is recent and a later revision could add this special case.",
+        "The result is intentionally narrow and close to the source update rule; originality is limited to the exact structural trajectory, not to a new general convergence theory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_EXACT_TWO_ENDPOINT_PRACTICAL_RECURRENCE",
+          "evidence": [
+            "Algorithm 1 sets alpha_1=1 and alpha_{k+1}=1+rho_k.",
+            "For l=1 the source uses the successive residual norm ratio.",
+            "The practical theorem provides bounds; the exact oracle theorem concerns rho(I-alpha A), a different observable."
+          ],
+          "identifier_or_url": "arXiv:2602.13620v1",
+          "material_read": "Complete current arXiv HTML text, with focused reading of Section 2.1, Algorithm 1, the spectral-radius theorem, the practical ratio definition, Lemma 2.5, and Theorem 2.7.",
+          "method": "Estimator-by-estimator and theorem-by-theorem implication comparison.",
+          "title": "An adaptive framework for first-order gradient methods",
+          "trigger": "Same algorithm and same practical l=1 residual-ratio estimator."
+        },
+        {
+          "assessment": "NO_SAME_RULE_COVERING_RESULT_FOUND",
+          "evidence": [
+            "Adjacent records use different step estimators or different algorithms."
+          ],
+          "identifier_or_url": "Fresh adaptive-gradient semantic searches",
+          "material_read": "Top ranked titles and summaries, including the AdOGD spectral-persistence counterexample record.",
+          "method": "Algorithm/observable and implication comparison.",
+          "title": "Published SCOPE/Resultary corpus",
+          "trigger": "Required published-SCOPE comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-endpoint spectrum is the canonical model behind optimal strongly-convex GD tuning, and endpoint annihilation is a structurally meaningful boundary case for adaptive identification. The exact alternating law explains how this residual-ratio rule still reconstructs the minimax step after the top mode disappears, contrasting with nearby adaptive estimators where endpoint loss can destroy identification.",
+      "risks": [
+        "This is a compact structural special case, not a general acceleration theorem."
+      ],
+      "sources": [
+        "arXiv:2602.13620 practical estimator and optimal-GD parameter relation",
+        "Exact two-endpoint reduction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact two-point spectrum {mu,1}, exact largest-eigenvalue normalization, deterministic SPD quadratic, practical l=1 rule only."
+  ],
+  "schema_version": 1
+}

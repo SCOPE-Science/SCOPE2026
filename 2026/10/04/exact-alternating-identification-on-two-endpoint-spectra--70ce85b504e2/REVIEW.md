@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the source residual recurrence, uses the exact first-step filter \(I-A\), proves that the surviving residual lies in the \(\mu\)-eigenspace, and verifies that the later scalar multiplier remains strictly positive. This gives the equality \(q_{k+1}=1-\mu-\mu q_k\), not merely a norm bound. Solving the affine recurrence and the endpoint minimax problem is elementary and complete. A direct numerical replay on random endpoint-spectrum instances matched the recurrence to floating-point precision; the computation is corroborative rather than foundational.
+## correctness
 
-## Originality
-PASS. The closest source is the Hu--Pollock--Xue--Zhu preprint itself. Its practical \(l=1\) analysis provides bounds and numerical observations, while its exact contraction analysis concerns a distinct spectral-radius oracle. Focused searches found no statement of the practical two-endpoint closed form or the strict alternating law. A published result on AdOGD contains an endpoint-annihilation mechanism, but its estimator and conclusion differ: endpoint loss obstructs spectral identification there, whereas the present residual-ratio feedback still identifies the original normalized endpoint optimum. Earlier Malitsky--Mishchenko methods use gradient differences rather than successive residual ratios.
+PASS
 
-## Value
-PASS. Two-point endpoint spectra are canonical extremal models for strongly convex gradient descent, and exact top-eigenvalue normalization is the intended operating regime of the source framework. The result identifies a non-obvious mechanism: the method discards the top eigenspace immediately yet retains enough encoded scale information to recover the original minimax step. The exact alternating transient sharpens the source's one-sided bounds and explains observed oscillatory parameter estimates on a mathematically natural class.
+With alpha_1=1 and spectrum exactly {mu,1}, the first residual is (I-A)r_0=(1-mu)P_mu r_0, so the top eigenspace is annihilated. In the nontrivial branch all later residuals remain in the mu-eigenspace. If q_k is in [0,1-mu], then 1-mu(1+q_k) is at least (1-mu)^2>0, so the norm ratio is exactly q_{k+1}=1-mu-mu q_k and remains in the invariant interval. Solving this affine recurrence gives the stated fixed point, alternating error law, and convergence of alpha to 2/(1+mu), the minimax fixed GD step.
 
-## Closest literature and limitations
-The primary source is arXiv:2602.13620. The closest adjacent adaptive-gradient literature inspected was Malitsky--Mishchenko's gradient-difference adaptation and a published AdOGD endpoint-persistence analysis. The claim is deliberately restricted to exact two-endpoint spectra with \(l=1\); it should not be extrapolated to interior spectra, inaccurate scaling, or accelerated variants.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete current arXiv HTML defines the residual-ratio practical rule and proves bounds for it, while its exact geometric-contraction theorem concerns the spectral-radius oracle. The inspected l=1 theorem gives error bounds rather than the submitted two-endpoint equality and closed form. Fresh Resultary searches returned adjacent adaptive-step analyses, especially AdOGD endpoint-persistence counterexamples, but no result for this residual-ratio map.
+
+## value
+
+PASS
+
+The two-endpoint spectrum is the canonical model behind optimal strongly-convex GD tuning, and endpoint annihilation is a structurally meaningful boundary case for adaptive identification. The exact alternating law explains how this residual-ratio rule still reconstructs the minimax step after the top mode disappears, contrasting with nearby adaptive estimators where endpoint loss can destroy identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
