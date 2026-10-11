@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof is independent of finite enumeration.
 
-For an outside element \(y\), the critical map is
-\[
-\delta_y:K\to K,
-\qquad
-\delta_y(a)=[a,y].
-\]
-Because \(K\) is abelian, this is a group endomorphism. Its kernel is \(C_K(y)=1\) by the Frobenius property, so \(\delta_y\) is bijective. Hence a nontrivial kernel commutator can never become trivial by repeated commutation with \(y\).
+# Independent mathematical audit
 
-For an outside element \(x\) and nonidentity kernel element \(y\),
-\[
-[x,y]\in K\setminus\{1\},
-\qquad
-[x,{}_{2}y]=1,
-\]
-so the one-way arc to the kernel has exact depth \(2\).
+## correctness
 
-The packaged checker `artifacts/verify.py` reconstructs six fixed-point-free semidirect products:
-\[
-C_3\rtimes C_2,
-\quad C_5\rtimes C_4,
-\quad C_7\rtimes C_3,
-\quad C_9\rtimes C_2,
-\quad C_5^2\rtimes C_4,
-\quad C_7^2\rtimes C_6.
-\]
-It computes every ordered Engel relation by iterating commutators until the identity or a repeated state appears. It then independently checks the predicted block partition, exact depths, all strong components, condensation arcs, indegrees, outdegrees, and total arc counts.
+PASS
 
-The resulting arc totals are
-\[
-8,\ 102,\ 128,\ 128,\ 2502,\ 14996.
-\]
-The checker returns `VERIFY_OK`.
+The proof reconstructs every arc. Fixed-point-freeness gives trivial center and hypercenter. For an outside target \(y\), the map \(a\mapsto[a,y]\) is an endomorphism of the finite abelian kernel with trivial kernel \(C_K(y)\), hence an automorphism; therefore a kernel-origin Engel commutator cannot die. For an outside source and kernel target, the first commutator is a nontrivial kernel element and the second vanishes because the kernel is abelian, giving exact depth two. Since the quotient is cyclic, outside-outside commutators lie in the kernel and can vanish under iteration exactly when the elements already commute; the outside centralizer is the unique cyclic conjugate complement containing the target. These facts prove the component partition and all formulas. The packaged finite replay was inspected as corroboration only, not as the universal proof.
 
-Finite computation is not used to infer the universal theorem.
+## originality
+
+PASS
+
+The closest general source proves only that Frobenius groups obstruct strong connectivity and, specifically, that no nontrivial kernel element has an Engel arc to an outside element. The later co-Engel paper computes dihedral and prime-by-prime special families. Neither inspected source classifies every directed arc for arbitrary finite abelian Frobenius kernels with cyclic complement, nor gives the full strong-component star or the uniform equality with the 2-Engel graph. The fresh Resultary search returned the assigned finding itself as the exact match and only non-covering neighboring group-graph results.
+
+## value
+
+PASS
+
+Frobenius groups are singled out by the foundational connectivity theorem as the principal soluble obstruction to strong connectivity. Replacing that qualitative obstruction by the complete directed graph, exact Engel depth, condensation, degrees, and arc count on a broad natural family is a substantive structural refinement rather than an isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

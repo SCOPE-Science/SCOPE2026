@@ -1,12 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Fixed-point-freeness gives trivial center and hence trivial hypercenter. The Frobenius partition gives exactly \(|K|\) conjugate complements. For an outside target \(y\), the commutator map \(a\mapsto[a,y]\) is an injective endomorphism of the finite abelian kernel and therefore an automorphism, so an iterated Engel commutator cannot die unless its first kernel commutator is already trivial. For a kernel target, every outside-to-kernel arc has exact depth \(2\). Cyclicity of the complement identifies outside commutation with membership in the same conjugate complement. These facts prove every arc and nonarc, not merely connectivity. The packaged checker independently exhausts six semidirect products and reproduces the strong components and all numerical formulas.
+## correctness
 
-## Originality
-PASS. The 2022 primary source proves the Frobenius obstruction to strong connectivity and the absence of kernel-to-outside arcs, but does not classify the remaining directed graph. The 2024 Engel/co-Engel paper gives explicit special cases, notably dihedral groups and nonabelian groups of order the product of two primes. Those special cases are acknowledged. The inspected literature and targeted searches did not locate the general abelian-kernel, cyclic-complement directed decomposition, the exact \(|K|+1\) strong-component formula, or \(\Gamma(G)=\Gamma_2(G)\) for the whole family. Residual risk remains that an equivalent statement is recorded under older affine, metacyclic, or co-Engel terminology.
+PASS
 
-## Value
-PASS. The motivating theorem singles out Frobenius groups as the natural soluble exception to strong connectivity. The result resolves the full component structure for a broad standard Frobenius family and adds exact depth, degree, arc-count, and co-Engel consequences. This is structural information about the principal exceptional class, not a routine parameter increment or isolated computation.
+The proof reconstructs every arc. Fixed-point-freeness gives trivial center and hypercenter. For an outside target \(y\), the map \(a\mapsto[a,y]\) is an endomorphism of the finite abelian kernel with trivial kernel \(C_K(y)\), hence an automorphism; therefore a kernel-origin Engel commutator cannot die. For an outside source and kernel target, the first commutator is a nontrivial kernel element and the second vanishes because the kernel is abelian, giving exact depth two. Since the quotient is cyclic, outside-outside commutators lie in the kernel and can vanish under iteration exactly when the elements already commute; the outside centralizer is the unique cyclic conjugate complement containing the target. These facts prove the component partition and all formulas. The packaged finite replay was inspected as corroboration only, not as the universal proof.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest general source proves only that Frobenius groups obstruct strong connectivity and, specifically, that no nontrivial kernel element has an Engel arc to an outside element. The later co-Engel paper computes dihedral and prime-by-prime special families. Neither inspected source classifies every directed arc for arbitrary finite abelian Frobenius kernels with cyclic complement, nor gives the full strong-component star or the uniform equality with the 2-Engel graph. The fresh Resultary search returned the assigned finding itself as the exact match and only non-covering neighboring group-graph results.
+
+## value
+
+PASS
+
+Frobenius groups are singled out by the foundational connectivity theorem as the principal soluble obstruction to strong connectivity. Replacing that qualitative obstruction by the complete directed graph, exact Engel depth, condensation, degrees, and arc count on a broad natural family is a substantive structural refinement rather than an isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:44:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "E. Detomi, A. Lucchini, D. Nemmi, The Engel graph of a finite group, arXiv:2202.13737v1 / Forum Mathematicum 35 (2023), 111–122; primary full text inspected, especially the graph definition and Lemma 3.1 on the Frobenius obstruction.",
+        "P. J. Cameron, R. Chakraborty, R. K. Nath, D. Nongsiang, Engel and co-Engel graphs of finite groups, arXiv:2408.03879v5; primary full text inspected, especially Theorems 6.1 and 6.2.",
+        "Resultary semantic search: Engel digraph Frobenius abelian kernel cyclic complement strong components Gamma2.",
+        "Assigned package RESULT.md, VERIFICATION.md, and the transparent finite replay source artifacts/verify.py at the frozen tree."
+      ],
+      "rationale": "The proof reconstructs every arc. Fixed-point-freeness gives trivial center and hypercenter. For an outside target \\(y\\), the map \\(a\\mapsto[a,y]\\) is an endomorphism of the finite abelian kernel with trivial kernel \\(C_K(y)\\), hence an automorphism; therefore a kernel-origin Engel commutator cannot die. For an outside source and kernel target, the first commutator is a nontrivial kernel element and the second vanishes because the kernel is abelian, giving exact depth two. Since the quotient is cyclic, outside-outside commutators lie in the kernel and can vanish under iteration exactly when the elements already commute; the outside centralizer is the unique cyclic conjugate complement containing the target. These facts prove the component partition and all formulas. The packaged finite replay was inspected as corroboration only, not as the universal proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Frobenius theorem is broader in allowing arbitrary Frobenius kernels/complements, but concludes only non-strong-connectivity and the kernel-to-outside obstruction.",
+          "Theorem 6.2 of the later co-Engel paper gives a complete multipartite graph for the nonabelian group of order pq, a strict special case."
+        ],
+        "reasoning": "A theorem broader in group class but weaker in graph information does not imply the assigned all-arc classification; the explicit later families cover only special parameter boundaries.",
+        "searches": [
+          "Detomi–Lucchini–Nemmi main strong-connectivity theorem and Lemma 3.1",
+          "Cameron et al. Theorems 6.1 and 6.2"
+        ]
+      },
+      "checked_sources": [
+        "E. Detomi, A. Lucchini, D. Nemmi, The Engel graph of a finite group, arXiv:2202.13737v1 / Forum Mathematicum 35 (2023), 111–122; primary full text inspected, especially the graph definition and Lemma 3.1 on the Frobenius obstruction.",
+        "P. J. Cameron, R. Chakraborty, R. K. Nath, D. Nongsiang, Engel and co-Engel graphs of finite groups, arXiv:2408.03879v5; primary full text inspected, especially Theorems 6.1 and 6.2.",
+        "Resultary semantic search: Engel digraph Frobenius abelian kernel cyclic complement strong components Gamma2.",
+        "Assigned package RESULT.md, VERIFICATION.md, and the transparent finite replay source artifacts/verify.py at the frozen tree."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Frobenius lemma rules out only kernel-to-outside arcs.",
+          "The assigned proof additionally shows that for every outside target the commutator map on the finite abelian kernel is an automorphism and identifies outside commutation with membership in the unique conjugate complement.",
+          "Those two steps determine all remaining arcs and exact depth two for outside-to-kernel arcs."
+        ],
+        "reasoning": "The complete claim is not a mechanical corollary of the prior obstruction. It requires a new all-target commutator analysis and centralizer decomposition; the prime-order and dihedral special cases are correctly treated as prior-covered boundaries.",
+        "searches": [
+          "arXiv:2202.13737v1, Lemma 3.1",
+          "arXiv:2408.03879v5, Theorems 6.1–6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Detomi–Lucchini–Nemmi define the same direction convention and prove one forbidden direction in arbitrary Frobenius groups.",
+          "Cameron–Chakraborty–Nath–Nongsiang use the complementary co-Engel formulation and explicitly realize narrower Frobenius-like families.",
+          "No inspected statement is equivalent to the complete arbitrary-abelian-kernel/cyclic-complement directed decomposition."
+        ],
+        "reasoning": "Both the directed Engel and complementary co-Engel formulations were compared, including the common reverse-arrow convention. The known statements recover boundary cases or one direction only, not the whole assigned graph.",
+        "searches": [
+          "Resultary query: Engel digraph Frobenius abelian kernel cyclic complement strong components Gamma2",
+          "arXiv:2202.13737v1, directed Engel convention and Lemma 3.1",
+          "arXiv:2408.03879v5, co-Engel terminology and Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit was the assigned finding.",
+          "Nearby records concern invariable-generation, conjugacy-class, cyclic-subgroup, or other graph constructions rather than Engel arcs."
+        ],
+        "reasoning": "No existing indexed table or published SCOPE result supplies the arc count, degree pairs, component count, and directed star for this Engel family.",
+        "searches": [
+          "Resultary semantic search on the exact structural description",
+          "Resultary neighboring hits for abelian-by-cyclic Frobenius group graphs"
+        ]
+      },
+      "rationale": "The closest general source proves only that Frobenius groups obstruct strong connectivity and, specifically, that no nontrivial kernel element has an Engel arc to an outside element. The later co-Engel paper computes dihedral and prime-by-prime special families. Neither inspected source classifies every directed arc for arbitrary finite abelian Frobenius kernels with cyclic complement, nor gives the full strong-component star or the uniform equality with the 2-Engel graph. The fresh Resultary search returned the assigned finding itself as the exact match and only non-covering neighboring group-graph results.",
+      "residual_risks": [
+        "An older equivalent formulation under affine, metacyclic, or co-Engel terminology may be poorly indexed.",
+        "The prime-by-prime and ordinary-dihedral special cases are already covered and are not novel by themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL GENERAL COVERAGE, NOT THE EXACT DECOMPOSITION",
+          "evidence": "Lemma 3.1 excludes arcs from nontrivial kernel elements to outside elements but does not determine outside-to-kernel arcs, outside-outside arcs, exact depths, or strong components.",
+          "identifier_or_url": "arXiv:2202.13737v1; DOI:10.1515/forum-2022-0070",
+          "material_read": "Primary full text around the graph definition, connectivity theorems, and Lemma 3.1 with its Frobenius proof.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "The Engel graph of a finite group",
+          "trigger": "Primary source for the exact directed Engel graph and the general Frobenius obstruction."
+        },
+        {
+          "assessment": "SPECIAL-CASE COVERAGE ONLY",
+          "evidence": "Theorem 6.2 computes the prime-kernel/prime-complement case and Theorem 6.1 treats dihedral/quaternion families; no arbitrary abelian-kernel cyclic-complement directed theorem is stated.",
+          "identifier_or_url": "arXiv:2408.03879v5",
+          "material_read": "Primary full text including the general directed/co-Engel setup and Section 6, especially Theorems 6.1 and 6.2.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Engel and co-Engel graphs of finite groups",
+          "trigger": "Closest later source with explicit co-Engel calculations for Frobenius-like families."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "E. Detomi, A. Lucchini, D. Nemmi, The Engel graph of a finite group, arXiv:2202.13737v1 / Forum Mathematicum 35 (2023), 111–122; primary full text inspected, especially the graph definition and Lemma 3.1 on the Frobenius obstruction.",
+        "P. J. Cameron, R. Chakraborty, R. K. Nath, D. Nongsiang, Engel and co-Engel graphs of finite groups, arXiv:2408.03879v5; primary full text inspected, especially Theorems 6.1 and 6.2.",
+        "Resultary semantic search: Engel digraph Frobenius abelian kernel cyclic complement strong components Gamma2.",
+        "Assigned package RESULT.md, VERIFICATION.md, and the transparent finite replay source artifacts/verify.py at the frozen tree."
+      ],
+      "rationale": "Frobenius groups are singled out by the foundational connectivity theorem as the principal soluble obstruction to strong connectivity. Replacing that qualitative obstruction by the complete directed graph, exact Engel depth, condensation, degrees, and arc count on a broad natural family is a substantive structural refinement rather than an isolated computation.",
+      "residual_risks": [
+        "An older equivalent formulation under affine, metacyclic, or co-Engel terminology may be poorly indexed.",
+        "The prime-by-prime and ordinary-dihedral special cases are already covered and are not novel by themselves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite Frobenius group \\(G=K\\rtimes C_m\\) with nontrivial abelian kernel \\(K\\), the directed Engel graph on non-hypercentral elements equals its 2-Engel graph; its strong components are \\(K^\\#\\) and the \\(|K|\\) conjugate-complement blocks, with every intercomponent arc directed from a complement block to the kernel block, yielding the stated underlying join graph, degrees, diameter, and arc count.",
+  "limitations": [
+    "The kernel must be abelian and the complement cyclic.",
+    "Nonabelian kernels or noncyclic complements can have different internal Engel structure.",
+    "An older equivalent formulation under affine, metacyclic, or co-Engel terminology may be poorly indexed.",
+    "The prime-by-prime and ordinary-dihedral special cases are already covered and are not novel by themselves."
+  ],
+  "schema_version": 1
+}
