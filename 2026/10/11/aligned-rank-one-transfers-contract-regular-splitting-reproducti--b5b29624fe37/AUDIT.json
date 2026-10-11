@@ -1,0 +1,153 @@
+{
+  "claim_to_evidence": {
+    "computations": "Exact symbolic algebra only; no finite enumeration, numerical fit, timeout, or external certificate.",
+    "critical_proof_steps": [
+      "Rank-one nonnegative spectral-radius reduction.",
+      "Sherman--Morrison inversion with denominator \\(1+ts\\).",
+      "Entrywise inverse-positivity equivalence for post-transfer regularity.",
+      "Exact simplification of the two source reproduction-number formulas to a common threshold numerator."
+    ],
+    "domain": "All finite dimensions \\(n\\) for regular splittings \\(J=u f^{\\mathsf T}-V\\) with nonnegative \\(u,f,w\\) and aligned updates \\(tuw^{\\mathsf T}\\); source corollary assumes positive derivatives \\(A,B,C,D\\).",
+    "unproved_limits": [
+      "No analogous scalar law is claimed for unaligned updates or higher-rank \\(F\\).",
+      "No exhaustive bibliographic uniqueness claim is made beyond the stated searches and inspected sources."
+    ]
+  },
+  "correctness": {
+    "rationale": "For \\(F=u f^{\\mathsf T}\\), the nonnegative rank-one matrix \\(FV^{-1}\\) has spectral radius \\(f^{\\mathsf T}V^{-1}u\\). Sherman--Morrison applied to \\(V+tuw^{\\mathsf T}\\) has denominator \\(1+t w^{\\mathsf T}V^{-1}u>0\\), gives the displayed inverse exactly, and yields \\(V_t^{-1}u=V^{-1}u/(1+ts)\\). Under the explicitly stated inverse-positivity condition, \\(F_tV_t^{-1}\\) is nonnegative rank one, so its spectral radius is exactly \\((R_0+ts)/(1+ts)\\). The concrete source formulas reduce to the common numerator \\(AD-B(C+D)\\), proving their stated contraction factor. No numerical inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 comparison-theorem paper provides qualitative spectral-radius comparisons for regular or related splittings under entrywise hypotheses, not an exact formula under an aligned rank-one transfer.",
+        "arXiv:2603.06778v4 proves existence and threshold validity of regular splittings and notes that meaningful splittings may give different reproduction numbers with the same threshold; its examples do not give the claimed transfer law."
+      ],
+      "reasoning": "The broader matrix-splitting results control threshold side or spectral-radius order but do not imply the exact fractional-linear dependence on the transfer scalar \\(s=w^{\\mathsf T}V^{-1}u\\), nor the exact inverse-positivity criterion after the update.",
+      "searches": [
+        "rank one regular splitting aligned rank one update reproduction number exact transformation law",
+        "next generation matrix nonunique splitting affine contraction toward one rank one",
+        "Sherman Morrison rank one next generation matrix reproduction number",
+        "same Metzler matrix two regular splittings rank one spectral radius relation",
+        "doi:10.1155/2014/573024",
+        "arXiv:2603.06778v4 §§2–4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.06778v4",
+      "arXiv:2610.01636v1",
+      "arXiv:2311.16686v2",
+      "doi:10.1155/2014/573024"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.06778v4 gives threshold equivalence \\(\\rho(FV^{-1})<1\\) for any regular splitting but no relation between two rank-one splittings.",
+        "arXiv:2610.01636v1 gives common-target rank reduction and same-threshold examples, but its theorem and algorithm stop short of a numerical relation between reproduction numbers.",
+        "arXiv:2311.16686v2 contains explicit nonunique decompositions and formulas but no aligned-transfer theorem.",
+        "The 2014 matrix-splitting comparison results provide inequalities rather than equality with a computable contraction factor."
+      ],
+      "reasoning": "The new claim is not a special case of any located stronger statement: threshold equivalence gives only the sign of \\(R-1\\), comparison theorems give order, while the claimed identity determines the full value after transfer and exactly characterizes when inverse positivity survives.",
+      "searches": [
+        "arXiv:2603.06778v4 Definition 4, Corollaries 1–2, Example 1",
+        "arXiv:2610.01636v1 Example 3.12 and Algorithm 1",
+        "arXiv:2311.16686v2 §§4–5",
+        "doi:10.1155/2014/573024 comparison theorems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01636v1 states that different ALT-graph splittings may yield different reproduction numbers with the same bifurcation set and gives equations (16) and (17), but no threshold-distance contraction formula.",
+        "arXiv:2311.16686v2 emphasizes non-uniqueness of the \\((F,V)\\) decomposition and gives examples of different reproduction numbers, including square relations, but no aligned rank-one transfer identity."
+      ],
+      "reasoning": "The searched aliases covered regular splitting, next-generation matrix, rank-one updates, common-row/common-target transfers, Möbius or affine contraction, and the exact source formulas. No equivalent statement was located.",
+      "searches": [
+        "arXiv 2610.01636 autocatalysis boundary stability chemical reaction systems ALT graph next-generation matrix",
+        "different valid next-generation matrix splittings reproduction numbers same bifurcation threshold relation",
+        "rank one next-generation matrix catalytic splitting autocatalytic splitting spectral radius",
+        "chemical reaction network reproduction number splitting invariance threshold affine relation",
+        "common target vertex next-generation matrix rank one reproduction number contraction toward one",
+        "aligned rank-one regular splitting exact reproduction number transformation common row",
+        "Möbius contraction reproduction number regular splitting common row",
+        "autocatalytic catalytic reproduction number closer to one equations 16 17",
+        "arXiv:2610.01636v1 §§3.3–3.5",
+        "arXiv:2311.16686v2 §§2.2, 5.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned semantic record had a statement combining nonunique regular splittings, an aligned rank-one update, Sherman--Morrison, and an exact contraction of reproduction-number distance to one. The closest reproduction-number hit concerned an unrelated coupled-SEIR bracketing counterexample."
+      ],
+      "reasoning": "This is negative search evidence only; it supports but does not by itself prove originality.",
+      "searches": [
+        "arXiv 2610.01636 autocatalysis boundary stability chemical reaction systems ALT graph next-generation matrix",
+        "different valid next-generation matrix splittings reproduction numbers same bifurcation threshold relation",
+        "rank one next-generation matrix catalytic splitting autocatalytic splitting spectral radius",
+        "chemical reaction network reproduction number splitting invariance threshold affine relation",
+        "rank one regular splitting aligned rank one update reproduction number exact transformation law",
+        "next generation matrix nonunique splitting affine contraction toward one rank one",
+        "Sherman Morrison rank one next generation matrix reproduction number",
+        "same Metzler matrix two regular splittings rank one spectral radius relation",
+        "autocatalytic catalytic splitting reproduction number formulas 16 17 arXiv 2610.01636",
+        "common target vertex next-generation matrix rank one reproduction number contraction toward one",
+        "aligned rank-one regular splitting exact reproduction number transformation common row",
+        "Möbius contraction reproduction number regular splitting common row",
+        "autocatalytic catalytic reproduction number closer to one equations 16 17"
+      ]
+    },
+    "rationale": "The closest recent source explicitly foregrounds non-uniqueness of regular splittings and, separately, a common-target heuristic for keeping the next-generation matrix low rank, but it does not state an exact transformation law for the reproduction number. The older non-uniqueness paper gives several competing formulas and threshold equivalences, and classical regular-splitting comparison theorems give qualitative spectral-radius ordering. None of the inspected sources or semantic database results supplies the exact aligned-transfer inverse-positivity criterion together with \\(R_t-1=(R_0-1)/(1+ts)\\), nor the strict source-specific contraction between equations (16) and (17).",
+    "residual_risks": [
+      "The exact identity may exist in older numerical-linear-algebra literature as an unstated or differently named special case of rank-one updates to regular splittings.",
+      "The matrix theorem is elementary once the aligned update is recognized; originality rests on the exact structural formulation and its connection to nonunique reproduction numbers, not on novelty of the Sherman--Morrison identity itself.",
+      "Negative semantic/database searches do not constitute a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: establishes regular-splitting threshold validity and nonuniqueness, but not an exact relation between values for aligned rank-one transfers.",
+        "evidence": "The paper states that different meaningful splittings may yield different reproduction numbers with the same threshold and illustrates this with \\(\\sqrt{\\mathcal R}\\) versus \\(\\mathcal R\\); no aligned-update formula is stated.",
+        "identifier_or_url": "arXiv:2603.06778v4",
+        "material_read": "Primary arXiv full text: Definition 4, Section 3 through Corollaries 1–3, Remark 7, Problem 1, and the SEIR Example 1.",
+        "method": "Primary arXiv HTML full-text inspection.",
+        "title": "Triangularity of the Jacobian on siphon faces, the Metzler property of its transversal component, and other results",
+        "trigger": "Fresh eligible source with primary MSC 34C10; it defines regular splittings and explicitly raises the issue of meaningful nonunique splittings."
+      },
+      {
+        "assessment": "NOT_COVERING: it states same-threshold nonuniqueness and recommends common-target rank reduction, but does not derive the aligned transfer law or the strict contraction relation between its equations (16) and (17).",
+        "evidence": "Example 3.12 gives the two formulas and only notes their common threshold; Section 3.5 explains that common-target selection keeps terms in one row of \\(F\\).",
+        "identifier_or_url": "arXiv:2610.01636v1",
+        "material_read": "Primary arXiv PDF: Sections 2.3 and 3.3–3.5, Theorem 3.10, Corollary 3.11, Examples 3.9 and 3.12, Algorithm 1, plus full-text searches for Sherman--Morrison, threshold-distance language, and common-row terminology.",
+        "method": "Primary PDF text inspection with page-image checks of the equations (16)–(17) page and the following common-target discussion.",
+        "title": "Autocatalysis and Boundary Stability in Chemical Reaction Systems",
+        "trigger": "Same next-generation-matrix objects, low-rank construction, common-target heuristic, and explicit competing reproduction numbers."
+      },
+      {
+        "assessment": "NOT_COVERING: examples show distinct reproduction numbers and threshold equivalences, but no exact aligned rank-one update theorem or inverse-positivity criterion.",
+        "evidence": "Section 5.1 explicitly calls the setting an example of non-uniqueness and compares lower-rank and alternative \\((F,V)\\) choices without giving the claimed transformation law.",
+        "identifier_or_url": "arXiv:2311.16686v2",
+        "material_read": "Primary arXiv PDF: abstract and introduction, Sections 2.2, 4, and 5.1, including the two admissible decompositions and their threshold comparison; full-text searches for Sherman--Morrison, Möbius, and common-row terminology.",
+        "method": "Primary PDF text inspection with a page-image check of the abstract.",
+        "title": "Algorithmic approach for an unique definition of the next generation matrix",
+        "trigger": "Closest primary paper focused on nonuniqueness of \\((F,V)\\) decompositions and rank-one next-generation matrices."
+      },
+      {
+        "assessment": "NOT_COVERING: provides qualitative inequalities/equality alternatives for spectral radii under matrix-order hypotheses, not the exact fractional-linear formula for an aligned rank-one transfer.",
+        "evidence": "The comparison results distinguish below-threshold, threshold, and above-threshold cases, but do not identify \\(R_t\\) as an explicit function of \\(R_0\\) and \\(s\\).",
+        "identifier_or_url": "doi:10.1155/2014/573024",
+        "material_read": "Abstract, definitions, quoted comparison lemmas, and main comparison-theorem statements available in the full web article.",
+        "method": "Publisher full-text webpage inspection.",
+        "title": "Comparison Theorems of Spectral Radius for Splittings of Matrices",
+        "trigger": "Potentially stronger classical matrix-splitting comparison results that could subsume a monotonicity claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5b29624-fe37-492c-adba-7a73101d1d7c",
+  "value": {
+    "rationale": "The result addresses a mathematically explicit gap created by nonunique next-generation splittings: threshold equivalence alone does not say how far two valid reproduction numbers can differ. The theorem gives an exact deformation law and an exact admissibility test for the rank-one/common-row regime singled out by recent low-rank splitting algorithms. The source-specific corollary turns two published competing formulas into a strict quantitative ordering around the bifurcation threshold. This is a reusable structural lemma rather than an arbitrary parameter slice or a numerical recomputation.",
+    "status": "PASS"
+  }
+}
