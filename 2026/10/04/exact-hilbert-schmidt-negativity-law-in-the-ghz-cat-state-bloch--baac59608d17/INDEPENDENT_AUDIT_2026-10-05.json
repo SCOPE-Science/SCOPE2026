@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:23:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a7b93f7f1483bd7b171e86b8ddfd489996383ede",
+        "assigned verify.py blob 0fb8745561be71631f1e9ef9eae145014b829617",
+        "Zhou--Joynt full primary PDF and page inspection",
+        "fresh independent symbolic check of the density normalization and second moment"
+      ],
+      "rationale": "For any nontrivial bipartition, partial transpose moves the cat-state off-diagonal entry into a \\(2\\times2\\) block with eigenvalues \\(\\pm|c|\\), so \\(\\mathcal N=\\frac12\\sqrt{n_x^2+n_y^2}\\), independent of \\(N\\) and the split. The restricted Hilbert--Schmidt metric is Euclidean in Bloch coordinates, hence normalized measure is uniform ball volume. Radius and direction are independent with \\(R^2\\sim\\operatorname{Beta}(3/2,1)\\) and \\(1-Z^2\\sim\\operatorname{Beta}(1,1/2)\\). Cylindrical shells give \\(f_E(e)=12e\\sqrt{1-4e^2}\\) and therefore \\(4E^2\\sim\\operatorname{Beta}(1,3/2)\\). Direct integration gives \\(\\mathbb E E=3\\pi/32\\) and \\(\\mathbb E E^2=1/10\\), and the CDF expansion gives the stated tube law. The verifier numerically checks normalization, moments, derivative, conditional decomposition, and higher moment factorization; it is supplementary to the analytic derivation.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pointwise geometry is prior.",
+          "No inspected broader theorem specializes to the complete negativity CDF, purity factorization, and small-tube law in this stated ensemble."
+        ],
+        "reasoning": "Generic uniform-ball coordinate laws make the derivation elementary once the model is recognized, but no checked quantum-information source states the complete result.",
+        "searches": [
+          "Zhou--Joynt GHZ Bloch-ball geometry",
+          "general Hilbert--Schmidt qubit geometry",
+          "coherence-negativity relations for maximally correlated states"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1006.5474v3",
+        "DOI:10.1007/s11128-011-0272-8",
+        "arXiv:1704.02896",
+        "Resultary GHZ/random-qubit negativity query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform Hilbert--Schmidt measure on the two-dimensional cat support becomes uniform Euclidean volume on the Bloch ball.",
+          "Integrating cylindrical shells then gives the beta law and, with independent radius/direction, the purity factorization."
+        ],
+        "reasoning": "The probabilistic law is a new exact refinement of the prior pointwise/topological description rather than a corollary explicitly supplied by it.",
+        "searches": [
+          "Zhou--Joynt Eq. (17) and Bloch-ball statement versus the audited cylindrical-volume calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou--Joynt state that the GHZ dynamical state space is a three-dimensional Bloch ball, give the negativity as the transverse \\((n_x,n_y)\\) radius divided by two, and place zero negativity on the vertical axis.",
+          "The coherence/negativity literature supplies pointwise relations for maximally correlated structures, not the restricted Hilbert--Schmidt distribution.",
+          "No searched source returned the \\(\\operatorname{Beta}(1,3/2)\\) law."
+        ],
+        "reasoning": "The audited distribution is equivalently the distribution of the squared transverse radius of a point uniformly distributed in the three-dimensional unit ball.",
+        "searches": [
+          "Zhou--Joynt, arXiv:1006.5474v3, Section III and Eq. (17)",
+          "Zhu--Hayashi--Chen, arXiv:1704.02896, coherence/negativity connection",
+          "Resultary query: GHZ cat state Hilbert Schmidt random qubit negativity distribution coherence beta",
+          "web searches: random qubit Hilbert--Schmidt l1-coherence distribution; GHZ negativity distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table or same-law paper was located."
+        ],
+        "reasoning": "The closest source gives topology and a pointwise formula, not a distribution table.",
+        "searches": [
+          "Resultary GHZ negativity-distribution query",
+          "targeted web searches for random-qubit \\(l_1\\) coherence and Hilbert--Schmidt negativity distributions"
+        ]
+      },
+      "rationale": "Zhou--Joynt's full primary PDF identifies the GHZ cat-state support as a three-dimensional Bloch ball, gives the negativity as the transverse Bloch radius divided by two, and identifies the zero-negativity vertical axis. It is qualitative/topological and does not state a Hilbert--Schmidt probability law. Searches under random-qubit coherence and GHZ negativity did not locate the audited beta law, purity factorization, or tube asymptotic.",
+      "residual_risks": [
+        "Because the final integration is elementary uniform-ball geometry, an equivalent beta law may exist in random-qubit coherence literature under another normalization.",
+        "The result concerns Hilbert--Schmidt volume restricted to the cat-support affine state space, not the full \\(2^N\\)-dimensional state ensemble."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BLOCH_BALL_AND_POINTWISE_NEGATIVITY_PRIOR_DISTRIBUTION_NOT_STATED",
+          "evidence": "The source calls the GHZ subspace a three-dimensional Bloch ball, gives negativity from the transverse coordinates, and says zero-negativity states form the vertical symmetry axis.",
+          "identifier_or_url": "arXiv:1006.5474v3; DOI:10.1007/s11128-011-0272-8",
+          "material_read": "Full primary PDF Section III around equations (16)--(17) and Figure 4; the relevant page was visually inspected.",
+          "method": "Primary full-text pointwise-geometry and implication comparison.",
+          "title": "Disappearance of entanglement: a topological point of view",
+          "trigger": "Primary source for the same GHZ cat-state Bloch-ball geometry and negativity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Zhou--Joynt",
+        "Zhu--Hayashi--Chen",
+        "Resultary/web searches"
+      ],
+      "rationale": "Negativity under a specified random-state measure is a natural quantitative invariant. The exact law and purity/angle factorization sharpen the known codimension-two separable-axis picture into a reusable probability distribution and exact low-entanglement mass, while clearly restricting scope to the cat-support ensemble.",
+      "residual_risks": [
+        "Because the final integration is elementary uniform-ball geometry, an equivalent beta law may exist in random-qubit coherence literature under another normalization.",
+        "The result concerns Hilbert--Schmidt volume restricted to the cat-support affine state space, not the full \\(2^N\\)-dimensional state ensemble."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1006.5474v3",
+    "DOI:10.1007/s11128-011-0272-8",
+    "arXiv:1704.02896",
+    "Resultary GHZ/random-qubit negativity query"
+  ],
+  "disposition": "passed",
+  "final_claim": "Under normalized Hilbert--Schmidt volume on the GHZ cat-state Bloch ball, for every \\(N\\ge2\\) and every nontrivial bipartition the squared normalized negativity \\(X=4\\mathcal N^2\\) has law \\(\\operatorname{Beta}(1,3/2)\\); the purity radius is independent of the angular entanglement fraction, with the stated conditional mean, moments, and low-negativity tube expansion.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Because the final integration is elementary uniform-ball geometry, an equivalent beta law may exist in random-qubit coherence literature under another normalization.",
+    "The result concerns Hilbert--Schmidt volume restricted to the cat-support affine state space, not the full \\(2^N\\)-dimensional state ensemble."
+  ]
+}

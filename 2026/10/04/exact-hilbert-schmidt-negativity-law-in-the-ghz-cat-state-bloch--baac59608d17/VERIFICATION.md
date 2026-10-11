@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is analytic and self-contained. The verification script is a supplementary consistency check rather than a substitute for the proof.
+## correctness
 
-It checks the following normalized formulas numerically with deterministic quadrature:
+PASS
 
-- \(f_E(e)=12e\sqrt{1-4e^2}\) integrates to one on \([0,1/2]\).
-- Its first two moments agree with \(3\pi/32\) and \(1/10\).
-- The derivative of \(1-(1-4e^2)^{3/2}\) agrees with the density at interior test points.
-- Integrating the fixed-radius conditional density against the Hilbert–Schmidt radial density reproduces the marginal density.
-- The moment identity induced by \(R^2\sim\operatorname{Beta}(3/2,1)\) and \(U\sim\operatorname{Beta}(1,1/2)\) agrees with direct marginal integration for several integer powers.
+For any nontrivial bipartition, partial transpose moves the cat-state off-diagonal entry into a \(2\times2\) block with eigenvalues \(\pm|c|\), so \(\mathcal N=\frac12\sqrt{n_x^2+n_y^2}\), independent of \(N\) and the split. The restricted Hilbert--Schmidt metric is Euclidean in Bloch coordinates, hence normalized measure is uniform ball volume. Radius and direction are independent with \(R^2\sim\operatorname{Beta}(3/2,1)\) and \(1-Z^2\sim\operatorname{Beta}(1,1/2)\). Cylindrical shells give \(f_E(e)=12e\sqrt{1-4e^2}\) and therefore \(4E^2\sim\operatorname{Beta}(1,3/2)\). Direct integration gives \(\mathbb E E=3\pi/32\) and \(\mathbb E E^2=1/10\), and the CDF expansion gives the stated tube law. The verifier numerically checks normalization, moments, derivative, conditional decomposition, and higher moment factorization; it is supplementary to the analytic derivation.
 
-Scientific limits: these checks do not establish anything about other state-space measures or about states outside the GHZ cat support. The infinite-dimensional quantifiers in the statement are discharged by the analytic partial-transpose and volume arguments in `RESULT.md`, not by finite numerical tests.
+## originality
+
+PASS
+
+Zhou--Joynt's full primary PDF identifies the GHZ cat-state support as a three-dimensional Bloch ball, gives the negativity as the transverse Bloch radius divided by two, and identifies the zero-negativity vertical axis. It is qualitative/topological and does not state a Hilbert--Schmidt probability law. Searches under random-qubit coherence and GHZ negativity did not locate the audited beta law, purity factorization, or tube asymptotic.
+
+## value
+
+PASS
+
+Negativity under a specified random-state measure is a natural quantitative invariant. The exact law and purity/angle factorization sharpen the known codimension-two separable-axis picture into a reusable probability distribution and exact low-entanglement mass, while clearly restricting scope to the cat-support ensemble.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
