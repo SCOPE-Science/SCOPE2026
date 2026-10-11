@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The matrix multiplication law gives the commutator subgroup and center exactly, and the finite-
-\(2\)-group Frattini identity reduces \(\Phi(H(q))\) to the same central subgroup because every central coordinate occurs as a square. The square formula \(g(a,b,c)^2=g(0,0,ab)\) partitions all \(q^3\) elements into the identity, \(2q^2-q-1\) involutions, and \(q(q-1)^2\) elements of order \(4\). Summing those orders gives the claimed polynomial. The packaged replay independently checks the complete distribution for \(q=2,4,8,16\).
+## correctness
 
-## Originality
-PASS. The inspected 2024 primary source explicitly states that the formula for a nonabelian special \(2\)-group remains open and then solves narrower extraspecial/generalized/almost extraspecial families. Those solved \(2\)-group families have derived subgroup of order \(2\). For \(q\ge4\), \(UT_3(\mathbf F_q)\) has derived subgroup of order \(q\), so the final claim is not implied by the cited formulas. Targeted searches across the matrix-group, Heisenberg, order-spectrum, and sum-of-element-orders formulations found no arbitrary-\(m\) equivalent statement.
+PASS
 
-## Value
-PASS. The result advances an explicitly named finite-group problem on a canonical infinite family lying immediately beyond the solved extraspecial boundary. It supplies both the entire order distribution and a closed \(\psi\)-formula for every extension degree, together with a clean limiting average element order.
+The matrix multiplication law gives the commutator \(g(0,0,ab'+a'b)\), so the derived subgroup and center are exactly the central coordinate subgroup. In characteristic two, \(g(a,b,c)^2=g(0,0,ab)\), and every central coordinate is a square, hence \(H'=Z=\Phi\). A nonidentity element has order two exactly when \(ab=0\); counting those pairs gives \(2q^2-q-1\), and every remaining element has order four. The resulting sum-of-orders formula follows algebraically. A fresh independent \(q=4\) replay gave order counts \(1,27,36\) and total \(199\), matching the formula.
 
-The principal residual risk is bibliographic: the same order distribution may have appeared in older unitriangular-group literature under different notation.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lazorec explicitly frames an explicit formula for the sum of element orders of a nonabelian special two-group as open and then treats narrower extraspecial/generalized/almost extraspecial families whose derived subgroup has order two. Here the standard Heisenberg family has derived subgroup of order \(q>2\) for \(m\ge2\), so it lies outside those solved families. Targeted Resultary and web searches found no prior arbitrary-\(m\) formula.
+
+## value
+
+PASS
+
+This is a canonical infinite nonextraspecial special-two-group family that crosses exactly the structural boundary left open in the motivating literature. The closed order distribution and normalized limit are natural group invariants rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
