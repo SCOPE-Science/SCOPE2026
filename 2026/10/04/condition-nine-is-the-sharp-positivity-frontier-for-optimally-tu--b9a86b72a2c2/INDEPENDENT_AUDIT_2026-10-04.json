@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:50:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 33ab06bc165e45da4b37cbe67c454694a073db06",
+        "arXiv:1408.3595"
+      ],
+      "rationale": "The first two updates give x^(2)=alpha[(2+beta)I-alpha A]b, so for a Stieltjes matrix positivity for every b>=0 is equivalent to alpha a_ii<=2+beta. Uniformly over spectra [mu,L] this is alpha L<=2+beta, and substitution of Polyak's optimal parameters is exactly kappa<=9. For diagonal modes the normalized error satisfies the stated Chebyshev-U recurrence; q<=1/2 bounds every error above by 1, while at the L endpoint q>1/2 gives e_2=q^2(3+2q)>1. Independent exact arithmetic reproduced the kappa=16 negative second coordinate; the infinite all-mode statement is analytic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Danilova et al. establish non-monotone transient/peak behavior on positive-definite quadratics; that does not imply a coordinate sign threshold.",
+          "Lessard et al. give the standard optimal tuning and robust convergence framework."
+        ],
+        "reasoning": "The broader convergence and transient results do not dominate coordinatewise positivity in the original basis.",
+        "searches": [
+          "Danilova--Kulakova--Polyak, arXiv:1811.00658",
+          "Lessard--Recht--Packard, arXiv:1408.3595"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1408.3595",
+        "DOI:10.1137/15M1009597",
+        "arXiv:1811.00658",
+        "Resultary heavy-ball/Stieltjes positivity searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither source's stated results imply alpha[(2+beta)I-alpha A] being entrywise nonnegative or the diagonal all-iterate kappa=9 equivalence."
+        ],
+        "reasoning": "The audited conclusion requires a separate entrywise Stieltjes argument and modal sign analysis, not a specialization of the prior convergence theorems.",
+        "searches": [
+          "arXiv:1408.3595 optimal heavy-ball parameters",
+          "arXiv:1811.00658 peak/non-monotonicity analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior heavy-ball formulation is equivalent algorithmically but its claims concern stability/convergence, not entrywise signs."
+        ],
+        "reasoning": "No equivalent orthant-invariance formulation was located under Stieltjes, M-matrix, positive orthant, or nonnegative-iterate terminology.",
+        "searches": [
+          "Lessard--Recht--Packard, arXiv:1408.3595, heavy-ball recurrence and optimal parameters",
+          "Resultary query: heavy ball Stieltjes M-matrix nonnegative iterates positivity condition number 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby published records concern objective monotonicity, real-root barriers, Richardson safety, and Jacobi damping, not this coordinatewise invariant."
+        ],
+        "reasoning": "There is no natural exact-value table for this theorem; theorem-corpus search is the relevant exact check.",
+        "searches": [
+          "Resultary published SCOPE search for heavy-ball positivity/Stieltjes/condition 9"
+        ]
+      },
+      "rationale": "The inspected heavy-ball sources provide the classical recurrence, optimal quadratic tuning, convergence rates, and non-monotone peak phenomena, but not coordinatewise positive-orthant preservation on Stieltjes systems, the sharp kappa=9 second-iterate frontier, or the all-iterate diagonal iff theorem. Resultary searches for Stieltjes/M-matrix and nonnegative-iterate aliases returned nearby norm/objective frontiers rather than an implication-equivalent result.",
+      "residual_risks": [
+        "Older positive-systems or M-matrix iteration literature may contain an equivalent low-order orthant criterion under different terminology.",
+        "The all-iterate theorem is only for diagonal systems; higher iterates for non-diagonal Stieltjes matrices are not classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_NOT_ORTHANT_COVERAGE",
+          "evidence": "It supplies the classical algorithm and tuning, not a positivity theorem.",
+          "identifier_or_url": "arXiv:1408.3595; DOI:10.1137/15M1009597",
+          "material_read": "Accessible full arXiv text around the heavy-ball setup, parameter choice, and convergence analysis; searches for Stieltjes/nonnegative formulations found no coordinatewise result.",
+          "method": "Full-text statement/implication comparison.",
+          "title": "Analysis and Design of Optimization Algorithms via Integral Quadratic Constraints",
+          "trigger": "Primary modern source for the heavy-ball recurrence and optimal quadratic parameters."
+        },
+        {
+          "assessment": "TRANSIENT_NORM_BEHAVIOR_NOT_COORDINATE_POSITIVITY",
+          "evidence": "Peak/non-monotonicity results do not state or imply the Stieltjes kappa=9 orthant frontier.",
+          "identifier_or_url": "arXiv:1811.00658",
+          "material_read": "Accessible full arXiv text around the quadratic recurrence, optimal parameters, and peak-effect analysis.",
+          "method": "Full-text comparison of transient claims with coordinatewise sign claims.",
+          "title": "Non-monotone Behavior of the Heavy Ball Method",
+          "trigger": "Closest primary source on transient behavior of optimally tuned heavy-ball."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1408.3595",
+        "DOI:10.1137/15M1009597",
+        "arXiv:1811.00658",
+        "Resultary heavy-ball/Stieltjes positivity searches"
+      ],
+      "rationale": "Coordinatewise positivity is a natural structural constraint for inverse-positive/Stieltjes systems and is independent of ordinary convergence-rate monotonicity. The exact kappa=9 boundary, minimal failing dimension/iterate, and all-iterate diagonal characterization give a sharp reusable diagnostic rather than a routine parameter substitution.",
+      "residual_risks": [
+        "Older positive-systems or M-matrix iteration literature may contain an equivalent low-order orthant criterion under different terminology.",
+        "The all-iterate theorem is only for diagonal systems; higher iterates for non-diagonal Stieltjes matrices are not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1408.3595",
+    "DOI:10.1137/15M1009597",
+    "arXiv:1811.00658",
+    "Resultary heavy-ball/Stieltjes positivity searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For optimally tuned Polyak heavy-ball on SPD Stieltjes systems from zero momentum, universal second-iterate coordinatewise positivity holds exactly through condition number 9; on diagonal systems all iterates are nonnegative for every nonnegative right-hand side exactly through the same threshold, and every kappa>9 already fails in dimension two at iterate two.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older positive-systems or M-matrix iteration literature may contain an equivalent low-order orthant criterion under different terminology.",
+    "The all-iterate theorem is only for diagonal systems; higher iterates for non-diagonal Stieltjes matrices are not classified."
+  ]
+}
