@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact sparse-polynomial arithmetic.
 
-It verifies the algebraic decompositions
-\[
-\dot X=(k_1A-k_2X)Y+k_3BX-2k_4X^2
-\]
-and
-\[
-\dot Z=k_3BX-k_5Z.
-\]
+# Independent mathematical audit
 
-For the historical 1974 parameter values
-\[
-k_3=8\times10^3,
-\qquad
-B=0.06,
-\qquad
-k_5=1,
-\]
-it verifies exactly
-\[
-k_3B=480,
-\qquad
-\frac{k_5}{k_3B}=\frac1{480},
-\qquad
-\frac1{(k_3B)^2}=\frac1{230400}.
-\]
+## correctness
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+PASS
 
-The checker validates algebraic certificates only. Conditional expectations and equality rigidity are analytic consequences of stationarity and bounded complete trajectories as proved in `RESULT.md`.
+Antiderivative tests in \(X\) and \(Z\) give the two conditional laws, with the first kept undivided at its degenerate slice. Substituting the conditional means identifies \(\dot X\) and \(\dot Z/(k_3B)\) as conditional residuals, yielding the defect identities by conditional variance orthogonality. If either speed vanishes on invariant support, bounded complete solutions of the remaining affine coordinates force equilibrium. The actual frozen verify.py was read and its polynomial/rational specializations were independently checked.
+
+## originality
+
+PASS
+
+The inspected source lineage treats Oregonator derivation, limit cycles, reduced bifurcations, waves and global Hopf structure. Resultary searches for stationary nullcline calibration, catalyst regression and variance-speed defects returned only analogous results for other systems. No inspected theorem implication-wise supplies the accepted conditional disintegrations.
+
+## value
+
+PASS
+
+The theorem turns physically meaningful Oregonator nullclines and catalyst relaxation into exact phase-independent stationary calibration laws. The variance gaps equal measurable coordinate-speed energies and vanish exactly on equilibrium-supported dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
