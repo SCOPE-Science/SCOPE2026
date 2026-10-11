@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:08:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exponent differences generate the full lattice and the convex hull is the \\(5\\times5\\) square. The six homogenized sections have bidegree \\((5,5)\\) with no base point, and the dense-torus inverse \\(y=z_3/z_2\\), \\(x=z_2^3/(z_0z_3^2)\\) proves birationality. Each facet contains only its two endpoints, separated by lattice length five, so the boundary restriction is a fifth-power map. Thus the normalization is \\(\\mathbb P^1\\times\\mathbb P^1\\), generic boundary fibers have five points, the boundary is singular and the dense torus is smooth. The degree is the normalized square area, equivalently \\((5H_1+5H_2)^2=50\\). A fresh arithmetic replay reproduced the lattice-generation, four facet lengths and degree.",
+      "risk": "No scheme-theoretic conductor or analytic corner type is claimed.",
+      "sources": [
+        "Forsgård-de Wolff, arXiv:1905.04776, Example 8.4",
+        "Cox-Little-Schenck, Toric Varieties, Theorem 3.A.5",
+        "GKZ, Discriminants, Resultants and Multidimensional Determinants, Chapter 5 branch theorem for \\(X_A\\) normalization",
+        "frozen RESULT.md and artifacts/verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The normalization theorem covers arbitrary projective toric \\(X_A\\), strictly broader than this one six-point support.",
+          "The branch theorem covers arbitrary faces and therefore the four index-five facets."
+        ],
+        "reasoning": "These general theorems dominate the object-specific normalization and branch statements.",
+        "searches": [
+          "Cox-Little-Schenck, Toric Varieties, Theorem 3.A.5",
+          "GKZ, Chapter 5, normalization fibers over torus orbits"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.04776",
+        "Cox-Little-Schenck Toric Varieties Theorem 3.A.5",
+        "GKZ Chapter 5 toric normalization theory",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square normal fan gives \\(\\mathbb P^1\\times\\mathbb P^1\\).",
+          "Facet lattice index is five on all four sides.",
+          "Normalized area is fifty."
+        ],
+        "reasoning": "Together these prior results imply every substantive component of the final claim after routine support arithmetic.",
+        "searches": [
+          "Cox-Little-Schenck normalization theorem",
+          "GKZ face-branch theorem",
+          "standard toric degree equals normalized volume"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normal-fan theorem identifies the normalization for every finite support \\(A\\).",
+          "The face-index theorem gives the five branches on each facet in this exact support."
+        ],
+        "reasoning": "The direct monomial-map proof and the standard toric normalization/face-index formulation are mathematically equivalent for this claim.",
+        "searches": [
+          "Resultary query: six monomial toric surface support normalization singular locus",
+          "Cox-Little-Schenck Toric Varieties Theorem 3.A.5",
+          "GKZ projective toric normalization branch-index theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate table with the numbers five and fifty was located.",
+          "The absence of an object-specific table does not restore originality because stronger general theorems compute them mechanically."
+        ],
+        "reasoning": "The exact numbers are substitutions of the support into general lattice-volume and face-index formulas.",
+        "searches": [
+          "Resultary exact support search",
+          "Forsgård-de Wolff Example 8.4"
+        ]
+      },
+      "rationale": "The object-specific arithmetic is correct, but the final geometric package is a direct specialization of standard projective toric normalization theory. Cox-Little-Schenck Theorem 3.A.5 states that the normalization of \\(X_A\\) is the toric variety of the normal fan of \\(\\operatorname{Conv}(A)\\); for this square that is \\(\\mathbb P^1\\times\\mathbb P^1\\). Classical toric branch theory states that the normalization separates a number of branches equal to the face-lattice index; every edge here has index five. The degree of a projective toric variety is the normalized volume. Those general results, plus the six published exponents, implication-wise determine the submitted normalization, degree and generic boundary branching; smoothness of the dense torus and closedness then give the stated singular locus. Exact wording in the SONC paper is unnecessary for coverage.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "OBJECT_SOURCE_NOT_GEOMETRIC_THEOREM",
+          "evidence": "The source's scientific question is SONC versus nonnegativity; it supplies the support used as input.",
+          "identifier_or_url": "arXiv:1905.04776",
+          "material_read": "Open full-text Example 8.4 and surrounding SONC discussion.",
+          "method": "Lawful open full-text inspection.",
+          "title": "The algebraic boundary of the SONC-cone",
+          "trigger": "Defines the exact six-point support."
+        },
+        {
+          "assessment": "DECISIVE_BROADER_COVERAGE",
+          "evidence": "For the \\(5\\times5\\) square normal fan this immediately yields \\(\\mathbb P^1\\times\\mathbb P^1\\).",
+          "identifier_or_url": "Cox-Little-Schenck, GSM 124 (2011), Theorem 3.A.5",
+          "material_read": "Accessible theorem text stating that the normalization of \\(X_A\\) is the toric variety of the normal fan of \\(\\operatorname{Conv}(A)\\).",
+          "method": "Lawful public book-text inspection.",
+          "title": "Toric Varieties",
+          "trigger": "General theorem directly covering normalization of projective monomial varieties."
+        },
+        {
+          "assessment": "DECISIVE_BROADER_BOUNDARY_COVERAGE",
+          "evidence": "Each facet support has lattice index five, which yields the submitted generic five-preimage boundary behavior.",
+          "identifier_or_url": "GKZ toric-variety chapter, normalization branch theorem",
+          "material_read": "Accessible chapter text stating that normalization fibers over a face orbit split into the face-lattice-index number of branches and giving the associated smoothness criterion.",
+          "method": "Lawful public text inspection.",
+          "title": "Discriminants, Resultants and Multidimensional Determinants, Chapter 5",
+          "trigger": "General branch-count theorem for nonnormal \\(X_A\\)."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The support is a useful SONC benchmark and the geometric description is correct, but once recognized as a projective toric variety, the normalization, degree and generic boundary multiplicities follow by textbook normal-fan, normalized-volume and face-index formulas. The remaining singular-locus statement is an immediate closure argument. Under the common value bar this is a routine specialization rather than a new structural theorem or independently nontrivial exact invariant.",
+      "risk": "It remains pedagogically useful as an explicit worked example, but that does not supply the required scientific novelty/value.",
+      "sources": [
+        "Cox-Little-Schenck, Toric Varieties",
+        "GKZ, Chapter 5",
+        "arXiv:1905.04776"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the six-point support \\(\\{(0,0),(0,5),(1,2),(1,3),(5,0),(5,5)\\}\\), the associated projective monomial surface has normalization \\(\\mathbb P^1\\times\\mathbb P^1\\), degree \\(50\\), singular locus equal to the four toric boundary lines, and generic normalization fiber of cardinality five along each boundary line.",
+  "limitations": [
+    "The scientific rejection is for prior general-theorem coverage and routine value, not correctness.",
+    "No claim is made about the conductor scheme or analytic corner types."
+  ],
+  "schema_version": 1
+}
