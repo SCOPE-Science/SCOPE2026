@@ -1,15 +1,21 @@
-# Review: Sharp inradius bound for triangles contained in a rectangle
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the containment reduction, derives the exact corner-triangle quotient, excludes every interior local maximum by a signed second derivative, and optimizes all four boundary families. The bound is attained by an explicit isosceles triangle. The verifier checks identities and deterministic stress tests but is not used in place of the analytic proof.
+## correctness
 
-## Originality
-PASS. The closest primary paper is Abi-Khuzam--Barbara (2001), which proves exactly the unit-square slice. Searches for the rectangle formulation, exact closed form, aliases, and broader implications in published-finding corpus and public literature found no covering statement. The principal residual risk is an unindexed printed or differently phrased prior result.
+PASS
 
-## Value
-PASS. The theorem closes the full two-parameter rectangular version of a published square extremal problem and explains why the square result is not transferred by affine scaling. It supplies an exact sharp profile rather than a sufficient bound.
+The standard boundary-enlargement reduction takes a contained triangle to a corner triangle without decreasing its inradius. For the normalized rectangle, the submitted quotient \(r=(h-xy)/P\) is correct. At any interior critical point, the second derivative in direction \((1,-1)\) is positive because \(A P''<2P\), excluding an interior maximum. The four boundary families reduce by convexity or direct differentiation to explicit one-variable values, and the long-side-base value \(h/(1+\sqrt{1+4h^2})\) dominates the other three for \(0<h\le1\). Rescaling gives the claimed formula and the midpoint-apex triangle attains it. An independent random containment check at five aspect ratios found no violation and approached the stated extremal value.
 
-## Closest literature and limitations
-The 2001 paper supplies the square theorem and its geometric corner reduction. The present result is restricted to rectangles and does not claim a formula for arbitrary parallelograms or convex quadrilaterals. The benchmark source is recorded by the publisher in the April 2001 issue; the stored date follows the issue-date convention 2001-04-01.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Abi-Khuzam--Barbara's complete primary article proves the sharp square case and develops the same kind of corner reduction, but it fixes aspect ratio one. The exact rectangular profile is not obtainable by anisotropic scaling because Euclidean inradii are not affine invariant. Targeted literature and Resultary searches for the rectangle formula returned the submitted record as the direct exact hit and no earlier rectangular theorem implying it.
+
+## value
+
+PASS
+
+This is the sharp aspect-ratio completion of a published extremal square problem, with an explicit extremizer for every rectangle. The problem is a natural geometric invariant and the result is an all-parameter theorem rather than an isolated numerical case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
