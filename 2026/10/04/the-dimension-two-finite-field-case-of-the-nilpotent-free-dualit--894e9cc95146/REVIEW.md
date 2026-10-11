@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The construction is linear and dimensionally exact. For \(T=L_a\circ\sigma\), the identity \(T^2=N_{K/F}(a)I\), non-scalarity for \(a\neq0\), and Cayley--Hamilton force \(\operatorname{tr}(T)=0\). Nonzero elements of \(U\) are invertible. A trace-one complement \(E\) makes \(W=U\oplus FE\) three-dimensional, and any nilpotent in \(W\) has trace zero, hence lies in \(U\), where invertibility forces it to be zero. The checker independently exhausts representative finite fields, including characteristic two and the non-prime field \(\mathbb F_4\).
+## correctness
 
-## Originality
-PASS with stated residual risk. The directly relevant recent source arXiv:2609.29177v1 explicitly formulates the desired finite-field construction as Conjecture 8 and says it is unclear over finite fields. Its degree-two extension construction yields only a two-dimensional totally nonsingular space, not the required three-dimensional nilpotent-free space. Searches for the exact small-dimensional statement and natural aliases found no implication-equivalent result. The closest records concern different matrix-space properties. Older literature under different terminology was not exhaustively searched, so this remains a residual risk rather than a claim of bibliographic completeness.
+PASS
 
-## Value
-PASS. This resolves the first nontrivial case of a newly posed finite-field matrix-space conjecture at the exact target dimension, using a structural construction rather than an isolated enumeration. The Galois-twist mechanism also identifies why a quadratic extension can contribute one more dimension than the untwisted field-embedding construction in this nilpotency problem.
+The construction is correct over every finite field. For the quadratic extension K/F with nontrivial automorphism sigma, T=L_a sigma satisfies T^2=N(a)I and is nonscalar for a nonzero a. Cayley--Hamilton then forces tr(T)=0, while T is invertible whenever a is nonzero. Thus U={L_a sigma} is a two-dimensional trace-zero subspace with no nonzero nilpotents. Adding any trace-one matrix E gives a direct three-dimensional space W. A nilpotent u+cE has trace zero, hence c=0, and the remaining u is either zero or invertible. Characteristic two causes no exception because trace and Cayley--Hamilton retain these identities.
 
-## Closest literature and limitations
-The closest source is Yuval Wigderson, *Duality for matrix space questions*, arXiv:2609.29177v1, especially Conjecture 8 and Proposition 9. The result does not address \(n\geq3\), and it does not claim an exhaustive historical novelty search.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes with the same-paper access limitation stated. Resultary's exact search returns the assigned n=2 theorem and later n=3 partial/classification records, not a prior n=2 solution. Targeted searches under nilpotent-free, trivial-spectrum, and finite-field matrix-space language did not find a three-dimensional M2(F_q) construction. The visible Wigderson primary record confirms the relevant matrix-space duality paper but its full text was inaccessible here, so no whole-document noncoverage claim is made.
+
+## value
+
+PASS
+
+The construction settles the first nontrivial dimensional instance of a newly posed finite-field matrix-space problem at the exact target dimension and works uniformly in all characteristics. The Galois-twist mechanism explains how to gain one dimension beyond the ordinary quadratic-field all-invertible space, so the result is a motivated structural boundary rather than a small-field census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
