@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:41:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8dbfd3ea1d105c4fde3d09254e37300a662eb474",
+        "assigned verify.py blob f3faf3b7308bc86165ba0e2aa916e2271a7d4c17",
+        "Dalmonte--de Groot, Intuitionistic Monotone Modal Logic: Proof Theory and Semantics, arXiv:2606.31870 / DOI:10.4204/EPTCS.447.16"
+      ],
+      "rationale": "Because the carrier is finite, each neighbourhood family is finite. Repeated binary intersection puts its total intersection back in the family, and pairwise nonempty intersection applied at the last step makes that core nonempty. Since the core lies in every neighbourhood, existential subset tests and universal hitting tests are both exactly equivalent to their core versions, so structural induction preserves all formulas. Seriality and the converse singleton-family construction are immediate, and the tail example correctly separates the infinite case. The inspected verifier independently exhausts carriers through four worlds; the universal theorem rests on the finite-intersection proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general source framework is stronger in semantic scope; the audited statement is a finite structural specialization of its frame clauses."
+        ],
+        "reasoning": "No new nonstandard lemma is needed beyond elementary finite-set intersection.",
+        "searches": [
+          "Dalmonte--de Groot 2026 constructive-neighbourhood semantics",
+          "de Groot, Intuitionistic monotone modal logic via translation, arXiv:2507.13746"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31870",
+        "arXiv:2507.13746",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Box clause is an existential neighbourhood-subset test and the Diamond clause is a universal neighbourhood-hitting test.",
+          "A least neighbourhood makes both tests depend only on that least set."
+        ],
+        "reasoning": "Thus the final claim is a routine implication of the checked source conditions plus finiteness.",
+        "searches": [
+          "arXiv:2606.31870 forcing clauses versus finite intersection closure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives the two modal forcing clauses and the exact N/D/K structural conditions used by the claim.",
+          "Finite binary-intersection closure turns any nonempty finite neighbourhood family into one having a least member; pairwise intersection makes it nonempty."
+        ],
+        "reasoning": "Principal-core semantics, a least neighbourhood, and a serial successor set are equivalent descriptions once the finite least member is formed.",
+        "searches": [
+          "Resultary query: constructive neighbourhood frames finite N K D principal core serial relation Dalmonte de Groot",
+          "arXiv:2606.31870 Definition 2.3 and Lemma 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate table with \\((2^m-1)^m\\) was found."
+        ],
+        "reasoning": "Absence of the count verbatim does not restore originality because it follows immediately after choosing a nonempty successor set independently at each labelled world.",
+        "searches": [
+          "Resultary exact finite NKD core/census search"
+        ]
+      },
+      "rationale": "The primary source already supplies exactly the constructive forcing clauses and the three structural hypotheses: nonempty neighbourhood families for N, pairwise nonempty intersections for D, and binary-intersection closure for K. On a finite carrier, obtaining a least nonempty member by intersecting the finite family is an elementary consequence; once that member exists, both published modal clauses reduce to it by one-line subset/hitting equivalences. The serial relation and labelled count are then routine repackaging. Under the audit rule that corollaries and special cases are covered even without matching wording or counts, the claimed theorem is implication-level covered.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "The only additional step needed for the finite collapse is the elementary fact that a finite binary-intersection-closed family has its total intersection as a member.",
+          "identifier_or_url": "arXiv:2606.31870; DOI:10.4204/EPTCS.447.16",
+          "material_read": "Primary-source material containing Definition 2.3 forcing semantics and Lemma 2.4's N, D, and K frame conditions.",
+          "method": "Open primary full-text/section inspection.",
+          "title": "Intuitionistic Monotone Modal Logic: Proof Theory and Semantics",
+          "trigger": "Exact source of the constructive neighbourhood forcing and the N/K/D structural conditions."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Dalmonte--de Groot 2026"
+      ],
+      "rationale": "The serial-core presentation is tidy and useful pedagogically, but after the source's structural clauses are fixed the collapse is a routine finite-intersection exercise and the census is immediate. It does not resolve a separate mathematical obstruction or supply a nontrivial finite classification beyond that elementary corollary.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "On every finite constructive neighbourhood frame whose neighbourhood families are nonempty, binary-intersection closed, and pairwise intersecting, the total intersection at each world is a nonempty least neighbourhood; replacing each family by that singleton core preserves both constructive modal clauses and yields a serial relational presentation, with \\((2^m-1)^m\\) labelled cores on an \\(m\\)-world carrier.",
+  "limitations": [
+    "This concerns the structural N/K/D frame conditions, not every frame that validates the corresponding formulas semantically.",
+    "The finite carrier is essential to the least-neighbourhood argument; the tail-family example only establishes failure of this principal reduction in general on infinite carriers."
+  ],
+  "schema_version": 1
+}
