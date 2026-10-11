@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:02:03Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob 633d6eedab83d02fca45aa23caee1e4af0df6b1e.",
+        "Frozen verify.py blob 2d2b2031a59720adb5c9e5f219c6cede78436fee.",
+        "Vovk--Wang journal full text, equations (4.4)--(4.6) and Section 6, directly supplies the exact admissible factor, dominated quadratic factor, Gaussian assay model, natural tuning, and leading e-power."
+      ],
+      "rationale": "The published factor is \\(e^{\\theta Z}/\\cosh(\\theta Z)\\). The global inequality \\(\\log\\cosh x\\le x^2/2\\), strict off zero, gives pointwise domination of the quadratic surrogate. Substituting the standard expansion of \\(\\log\\cosh x\\) and the exact Gaussian moments of \\(Z\\sim N(\\theta,1)\\) gives \\(a(\\theta)=\\theta^2/2-\\theta^4/4+\\theta^6/6-5\\theta^8/24+O(\\theta^{10})\\); the quadratic factor has exact e-power \\(q(\\theta)=\\theta^2/2-\\theta^4/2\\). Independent symbolic replay reproduced those coefficients and ordinary formal inversion yields the stated continuous-budget series.",
+      "risks": [
+        "The sample-budget statement is continuous; integer ceilings need not have a convergent difference."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact factor formulas are strictly stronger data than the finite Taylor coefficients claimed here.",
+          "No broader database hit is needed for the failure because the same primary source already determines the expansion."
+        ],
+        "reasoning": "A published exact analytic expression covers all orders of its local Taylor series once standard Gaussian moments are inserted.",
+        "searches": [
+          "Vovk--Wang full text equations (4.4)--(4.6), Section 6",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search",
+        "arXiv:2208.08925 / public journal full text",
+        "arXiv:2009.03167"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taylor expanding \\(\\log\\cosh(\\theta Z)\\) and using the Gaussian raw moments mechanically yields every displayed coefficient.",
+          "Formal inversion of \\(a(\\theta)\\) and \\(q(\\theta)\\) mechanically yields the continuous sample-budget difference."
+        ],
+        "reasoning": "The whole final claim follows from prior exact expressions by routine textbook operations; it is therefore covered even though the prior paper stops its exposition at first-order ARE.",
+        "searches": [
+          "Vovk--Wang equations (4.4)--(4.6), Section 6 lines computing Gaussian Fisher e-power"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper gives exactly \\(E_\\lambda=\\prod e^{\\lambda z_i}/\\cosh(\\lambda z_i)\\) and \\(E'_\\lambda=\\prod e^{\\lambda z_i-\\lambda^2z_i^2/2}\\), with \\(E'\\le E\\).",
+          "Its Section 6 uses \\(N(\\theta,1)\\), \\(\\lambda=\\theta\\), and obtains e-power asymptotic \\(n\\theta^2/2\\)."
+        ],
+        "reasoning": "The submitted one-observation and sample-budget quantities are direct scalar restatements of the same exact factors in the same Gaussian assay.",
+        "searches": [
+          "Resultary semantic query: Fisher symmetry e-test admissible factor exp(lambda z)/cosh(lambda z) quadratic surrogate second-order e-power theta fourth sample budget",
+          "Direct full-text search in Nonparametric E-tests of Symmetry for equations 4.4, 4.5, 4.6, cosh, and Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact coefficient record was returned, but exact-word absence is not probative because the primary closed formula already implies the coefficients."
+        ],
+        "reasoning": "This check does not rescue novelty: the decisive evidence is the stronger exact formula, not a table match.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "The final claim is mathematically implied by the exact formulas already published by Vovk and Wang together with textbook Taylor expansion and Gaussian moments. Their full text gives the admissible factor exactly, gives the quadratic factor exactly, proves the pointwise domination inequality, explicitly says the inequality is close for small signals, and in the same Gaussian assay sets \\(\\lambda=\\theta\\) and computes the leading e-power. Expanding their exact denominator two more orders and inverting the resulting scalar series is routine; the absence of the coefficients \\(1/4,13/6,19/12\\) from the paper does not create implication-level originality.",
+      "residual_risks": [
+        "None material to the O failure: the primary exact factor and Gaussian assay are directly readable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_BROADER_EXACT_FORMULA_COVERAGE",
+          "evidence": [
+            "The paper gives both exact factors, their pointwise domination, natural Gaussian tuning, and leading e-power; the submitted coefficients are routine Taylor consequences."
+          ],
+          "identifier_or_url": "arXiv:2208.08925; journal full text",
+          "material_read": "Full-text equations (4.3)--(4.6), Remark 4, Pitman-type efficiency definition, and Section 6 Gaussian Fisher-e-power calculation.",
+          "method": "Public journal full-text inspection.",
+          "title": "Nonparametric E-tests of Symmetry / Efficiency of nonparametric e-tests",
+          "trigger": "Exact source introducing both factors and the same Gaussian efficiency assay."
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": [
+            "General admissibility theory is not needed once the exact Fisher factor already determines the claim."
+          ],
+          "identifier_or_url": "arXiv:2009.03167",
+          "material_read": "Bibliographic/abstract scope only; not needed for the decisive failure.",
+          "method": "Public source inspection.",
+          "title": "Admissible anytime-valid sequential inference must rely on nonnegative martingales",
+          "trigger": "Broader admissibility source cited by the Fisher paper."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "The source already emphasizes small-signal closeness and first-order efficiency one.",
+        "No new structural lemma, boundary phenomenon, or non-implied invariant is required to obtain the coefficients."
+      ],
+      "rationale": "The higher-order coefficients quantify a motivated efficiency comparison, but as a scientific contribution they are only a routine Taylor-and-moment unpacking of an exact published factor. Under the stated value bar, correctness and a useful numerical interpretation do not turn such a textbook deduction into a substantive mathematical gap; the continuous-budget constant is likewise just scalar series inversion.",
+      "risks": [
+        "The calculation may still be useful pedagogically, but that is below the acceptance value threshold."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Under the Gaussian local alternative and natural tuning \\(\\lambda=\\theta\\), the admissible Fisher symmetry e-factor has the displayed higher-order e-power expansion, pointwise dominates the quadratic surrogate, and reduces the continuous fixed-e-power sample budget by \\(\\beta+o(1)\\).",
+  "limitations": [
+    "Scientific rejection is originality and value, not correctness."
+  ],
+  "schema_version": 1
+}
