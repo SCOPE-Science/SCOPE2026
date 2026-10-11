@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The construction is an exact infinite-dimensional diagonal calculation. The full g-frame sum equals sum_k (1+2 epsilon_k+1/15)|x_k|^2, while the scaled sum is exactly (1/3)||x||^2. Each scaling block is positive and bounded, but its norm is 2^j, so the direct-sum block operator is unbounded. No finite experiment is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper's preceding Theorem 3.1 uses the block operator only on the analysis range rather than requiring ambient boundedness.",
+        "The 2024 paper's preceding Theorem 23 likewise formulates a range-based scaling criterion before Theorem 24 adds global boundedness.",
+        "Related frame-scaling results distinguish boundedness of a multiplier composition from boundedness of the ambient diagonal multiplier."
+      ],
+      "reasoning": "Broader results support a range-restricted formulation but do not dominate the explicit counterexample. The accepted claim is the failure of the extra global-boundedness inference.",
+      "searches": [
+        "\"liminf\" \"minimum modulus\" \"g-frame\" diagonal operators scalability",
+        "\"bounded below\" \"liminf\" diagonal operator g-frame block scaling",
+        "\"Scalability of G-frames by diagonal operators\" analysis range block diagonal operator"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.30546/2409-4994.47.2.215, Theorem 3.1 and Proposition 3.1",
+      "doi:10.1155/2024/8358987, Theorem 23 and Theorem 24",
+      "Exact-title and erratum searches for both target papers",
+      "Semantic searches for minimum modulus, operator norm, bounded block diagonal scaling, and analysis-range formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A close published result shows that an unbounded scalar diagonal multiplier may preserve a K-frame through a bounded composition on the analysis range.",
+        "That result uses scalar K-frame coefficients and does not satisfy the present hypothesis that every g-frame analysis block is bounded below with liminf operator norm positive.",
+        "The present example instead uses invertible operator-valued blocks and isolates the norm-versus-minimum-modulus error in the two published scalability statements."
+      ],
+      "reasoning": "The nearest result shares the range-restricted philosophy but neither implies nor contains the operator-valued counterexample to the two named statements.",
+      "searches": [
+        "\"unbounded diagonal scaling\" K-frame analysis range",
+        "\"bounded block diagonal\" g-frame minimum modulus",
+        "\"liminf operator norm\" \"minimum modulus\" frame"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ahmadi--Rahimi Proposition 3.1 says that a scaled g-frame forces the block diagonal operator to be bounded under individual bounded-below hypotheses and positive liminf of the operator norms.",
+        "Kumar--Malhotra--Khanna Theorem 24 repeats the same bounded-block necessity for K-g-frames.",
+        "For K=I, the latter specializes to the ordinary g-frame setting, so one counterexample addresses both statements."
+      ],
+      "reasoning": "The literal theorems and their specialization relation were compared. The new example violates the shared necessity conclusion while satisfying all common hypotheses.",
+      "searches": [
+        "\"Scalability of G-frames by diagonal operators\" \"Proposition 3.1\" correction",
+        "\"Scalability of Generalized Frames for Operators\" \"Theorem 24\" correction",
+        "doi:10.30546/2409-4994.47.2.215 Proposition 3.1",
+        "doi:10.1155/2024/8358987 Theorem 24"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2021 article lists 42C15 first in its Mathematics Subject Classification.",
+        "A public author-uploaded full text of the 2021 article is recorded on 2021-04-08.",
+        "The 2024 publisher page records first publication on 2024-04-16.",
+        "No indexed correction of the specific bounded-block statements was located in the exact-source searches."
+      ],
+      "reasoning": "Exact identifiers, title variants, and theorem labels were checked in addition to semantic searches. Search absence is not used alone as novelty evidence.",
+      "searches": [
+        "\"10.30546/2409-4994.47.2.215\"",
+        "\"10.1155/2024/8358987\"",
+        "\"Scalability of G-frames by diagonal operators\" erratum",
+        "\"Scalability of Generalized Frames for Operators\" erratum"
+      ]
+    },
+    "rationale": "The earlier 2021 proposition was identified as the direct predecessor of the 2024 theorem and was compared statement-for-statement rather than treated as unrelated. Exact-source and semantic searches covered the proposition, theorem, operator-norm/minimum-modulus distinction, ambient-block boundedness, and analysis-range formulations. No checked source supplied the present explicit counterexample or repaired the common inference.",
+    "residual_risks": [
+      "A nonindexed erratum, thesis remark, or informal author note may contain the same explicit construction.",
+      "The accepted result does not classify all additional hypotheses under which ambient block boundedness can be recovered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 3.1 infers eventual uniform lower frame-block constants from liminf operator norms. The inference is invalid.",
+        "evidence": "Proposition 3.1 on published pages 220--221.",
+        "identifier_or_url": "doi:10.30546/2409-4994.47.2.215",
+        "material_read": "Title-page classification; Theorem 3.1; complete Proposition 3.1 statement and proof; Proposition 3.2 for downstream use.",
+        "method": "Open-access PDF text plus page-image inspection.",
+        "title": "Scalability of G-frames by diagonal operators",
+        "trigger": "Direct predecessor and first source of the bounded-block necessity."
+      },
+      {
+        "assessment": "Theorem 24 repeats the inference from liminf ||Lambda_j|| to uniform lower constants c_j and concludes global boundedness of the block operator.",
+        "evidence": "Theorem 24 on published pages 6--7.",
+        "identifier_or_url": "doi:10.1155/2024/8358987",
+        "material_read": "Publisher metadata; Definitions 8--11; Theorem 23; complete Theorem 24 statement and proof.",
+        "method": "Publisher open-access PDF text plus page-image inspection.",
+        "title": "Scalability of Generalized Frames for Operators",
+        "trigger": "K-g-frame extension repeating the same bounded-block mechanism."
+      },
+      {
+        "assessment": "It concerns scalar K-frame scaling and does not cover invertible operator-valued g-frame blocks satisfying the hypotheses of the two target results.",
+        "evidence": "The closest result controls the composition on the analysis range, not the ambient diagonal operator.",
+        "identifier_or_url": "published record on unbounded diagonal scaling for K-frames",
+        "material_read": "Statement and summary of the range-bounded-composition result.",
+        "method": "Indexed scientific-record comparison.",
+        "title": "Closest range-restricted diagonal-scaling result",
+        "trigger": "Implication comparison with a closely related unbounded-multiplier phenomenon."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b5a91c2d-b24c-4815-b790-3071a44a1dec",
+  "value": {
+    "rationale": "The bounded-block assertion is used to turn local diagonal scalings into a globally bounded preconditioner and is repeated from the 2021 g-frame theory into the 2024 K-g-frame extension. The counterexample shows that the claimed necessity fails even when every analysis block is positive, diagonal, and invertible, while the scaled family is exactly tight. It also identifies the mathematically relevant replacement: control of the scaling on the analysis range.",
+    "status": "PASS"
+  }
+}
