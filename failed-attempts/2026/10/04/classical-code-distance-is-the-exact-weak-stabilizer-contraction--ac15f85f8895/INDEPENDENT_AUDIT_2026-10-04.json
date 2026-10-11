@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:21:10.857423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The channel calculation is correct. The primary weak-measurement definition has \\(\\zeta=\\operatorname{sech}\\epsilon\\) and stabilizer measurements commute. On a stabilizer-character sector, one elementary nonselective measurement acts as identity when the character is even and multiplies by \\(\\zeta\\) when it is odd; composing a schedule therefore multiplies these factors to \\(\\zeta^{\\operatorname{wt}(u^{\\mathsf T}G)}\\). Full row rank makes \\(u\\mapsto u^{\\mathsf T}G\\) injective, so the largest residual eigenvalue on nontrivial orthogonal sectors is \\(\\zeta^{d(C_G)}\\); deficient rank leaves a nonzero left-kernel sector fixed. The finite checker independently confirms both endpoint spectra and the stated \\(r=3\\) schedules.",
+      "risks": [
+        "The norm is the Hilbert--Schmidt measurement-layer norm, not a full open-system trace-distance bound.",
+        "Equal measurement strengths are essential to ordinary Hamming weight."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 65868dbb9cbabe5e563b2d9f0be9cd1d6194d090",
+        "assigned verify.py blob 89f3224ff2e4f171acb71af5a28a1efc6bea5701",
+        "Dominy et al., arXiv:1207.5880 / DOI 10.1088/1751-8113/46/7/075306"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source already handles the two endpoint products; allowing an arbitrary submultiset changes only which commuting factors appear.",
+          "Classical minimum distance is exactly the minimum nonzero row-space weight once the schedule matrix is written down."
+        ],
+        "reasoning": "No additional nonstandard theorem is needed to pass from the source channel to the claimed optimization.",
+        "searches": [
+          "arXiv:1207.5880",
+          "classical linear-code minimum-distance framework",
+          "current Resultary code search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1207.5880",
+        "DOI 10.1088/1751-8113/46/7/075306",
+        "current Resultary semantic search",
+        "assigned proof/checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The channel factors commute and are simultaneously diagonal by stabilizer characters; multiplying them gives exactly the exponent sum.",
+          "Maximizing the minimum exponent over full-rank binary matrices is exactly the definition of best binary linear-code minimum distance."
+        ],
+        "reasoning": "The final theorem is a short formal corollary of published premises plus standard definitions, so it is covered even without identical wording.",
+        "searches": [
+          "direct implication comparison with Dominy et al. weak channel and equations defining full-group/generator products"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source defines \\(\\zeta=\\operatorname{sech}\\epsilon\\) and products of commuting weak stabilizer channels.",
+          "The arbitrary-schedule formula is the direct product of the same per-character factors."
+        ],
+        "reasoning": "The codeword-weight formulation is an equivalent re-labeling of the product exponents.",
+        "searches": [
+          "arXiv:1207.5880 full-text weak-measurement and protocol equations",
+          "Resultary query: weak stabilizer measurement arbitrary schedule code distance contraction exponent classical linear code"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known code tables may supply values of \\(d_2(L,r)\\), but the audited optimization merely invokes that pre-existing extremal function."
+        ],
+        "reasoning": "The quantum statement does not create a new code parameter; it maps directly onto the standard one.",
+        "searches": [
+          "Grassl-style binary code parameter tables conceptually",
+          "current Resultary query"
+        ]
+      },
+      "rationale": "The final claim is a routine implication of the published weak-measurement channel plus standard binary-code terminology. Dominy et al. explicitly define the same commuting products for the full stabilizer group and for a generating set, and their single-observable channel already separates commuting from anticommuting character sectors by the factor \\(\\zeta\\). For an arbitrary list, multiplying those diagonal factors yields Hamming weight immediately; calling the image of \\(u\\mapsto u^{\\mathsf T}G\\) a linear code makes the minimum-distance optimization definitional. Under the required implication-based originality bar, absence of the exact code-distance wording does not make this independent work.",
+      "residual_risks": [
+        "The institutional publisher route did not return a PDF, but the accessible arXiv material was sufficient for the implication comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_PREMISES",
+          "evidence": "The source's commuting channel products and per-observable attenuation make the arbitrary-list Hamming-weight exponent immediate.",
+          "identifier_or_url": "arXiv:1207.5880; DOI 10.1088/1751-8113/46/7/075306",
+          "material_read": "ArXiv full-text material covering the weak-measurement POVM/channel, \\(\\zeta=\\operatorname{sech}\\epsilon\\), and the products over the full stabilizer group and over a minimal generator set; the institutional PDF fallback returned no verified PDF.",
+          "method": "Primary-text equation and implication comparison; no access bypass.",
+          "title": "Analysis of the quantum Zeno effect for quantum control and computation",
+          "trigger": "Primary source for the exact nonselective weak stabilizer channel and endpoint protocols."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The coding interpretation is potentially useful engineering language, but as a mathematical finding it is a routine multiplication of published diagonal channel factors followed by the definition of binary minimum distance. The endpoint interpolation and \\([4,3,2]\\) example do not add a motivated non-implied structural fact under the stated value bar.",
+      "risks": [
+        "A hardware-cost model or a nontrivial dynamical bound for coded schedules could create substantive value, but neither is part of the claim."
+      ],
+      "sources": [
+        "Dominy et al. weak-channel formulas",
+        "standard binary linear-code minimum distance"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Equal-strength nonselective stabilizer measurements only.",
+    "Measurement-layer Hilbert--Schmidt contraction only.",
+    "Scientific rejection is for originality/value, not correctness."
+  ],
+  "schema_version": 1
+}
