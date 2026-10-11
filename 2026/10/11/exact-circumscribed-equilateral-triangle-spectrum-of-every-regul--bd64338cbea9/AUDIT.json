@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For any three support normals separated by 120 degrees, summing the three line equations cancels the incenter term and makes the equilateral-triangle inradius the arithmetic mean of the support values. The regular-polygon support function is the circumradius times the cosine of angular distance to the vertex-direction lattice. If three divides the side count, the three phases coincide modulo that lattice. Otherwise the phases are exactly zero and plus/minus one third of a vertex spacing after reduction, so their sum is one cosine times a constant. This proves the full intervals, equality orientations, and the two asymptotic constants. The bundled checker reconstructs the triangles from vertex maxima and line intersections.",
+    "risks": [
+      "The finite checker is diagnostic only; the universal statement rests on the exact support-phase proof."
+    ],
+    "sources": [
+      "DOI:10.1007/s00010-013-0213-y",
+      "DOI:10.1007/s00010-015-0352-4"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The enclosing-triangle implementation paper explicitly records that for regular n-gons with n=3k the minimum enclosing triangle is known to be equilateral.",
+        "The 2015 evolutoid sequel proves a circle characterization from all circumscribed equilateral triangles rather than computing their regular-polygon areas.",
+        "The later circumscribed-equiangular-polygon abstract states a circle characterization, not an orientation spectrum."
+      ],
+      "reasoning": "The strongest nearby global-minimum result covers one endpoint only when three divides n. It does not imply the complete one-parameter spectrum or either nonzero residue class.",
+      "searches": [
+        "minimum area equilateral triangle containing regular polygon circumscribed",
+        "smallest equilateral triangle enclosing regular n-gon",
+        "minimum area enclosing triangle regular polygon equilateral n=3k",
+        "Some characterizations of the circle related to circumscribed equiangular polygons"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s00010-013-0213-y",
+      "DOI:10.1007/s00010-015-0352-4",
+      "DOI:10.1007/s40314-014-0198-8",
+      "DOI:10.1007/s40590-021-00372-w",
+      "Published searches under circumscribed/enclosing equilateral triangles, regular polygons, support functions, modulo-three orientation spectra, and exact formula fingerprints"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 source defines T(t), m(t), and r(t) and proves rigidity under a midpoint hypothesis; it does not state the regular-polygon formula.",
+        "The minimum-enclosing-triangle source supplies the prior-covered n=3k global minimum fact only.",
+        "The 2021 abstract concerns a universal midpoint characterization of the circle."
+      ],
+      "reasoning": "A known global minimum at one arithmetic subfamily cannot imply the orientation maximum, the full interval, the nonzero modulo-three residue formulas, or the asymptotic factor-nine split.",
+      "searches": [
+        "DOI:10.1007/s00010-015-0352-4 circumscribed equilateral triangle incenter inradius",
+        "DOI:10.1007/s40314-014-0198-8 regular convex n-gons equilateral minimum enclosing triangle",
+        "DOI:10.1007/s40590-021-00372-w circumscribed equiangular polygons"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same object can be described as a circumscribed equilateral triangle, an equilateral support triangle, or an orientation-constrained enclosing triangle.",
+        "The direct evolutoid sequel defines the orientation family T(t), its incenter m(t), and its inradius r(t).",
+        "No searched record stated the claimed complete regular-polygon orientation spectrum."
+      ],
+      "reasoning": "The search deliberately covered support-function, circumscribed, enclosing and equiangular terminology, so the comparison does not depend on one naming convention.",
+      "searches": [
+        "regular polygon circumscribed equilateral triangle minimum area maximum area",
+        "regular n-gon circumscribed equilateral triangle support function",
+        "circumscribed equilateral triangle regular polygon inradius orientation",
+        "equiangular circumscribed triangle regular polygon exact area",
+        "regular polygon circumscribed equilateral triangle orientation spectrum modulo 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact trigonometric fingerprint searches returned other regular-polygon invariants and inscribed-triangle results, not the support-triangle spectrum.",
+        "No numerical table or formula matching C_n or the two spread constants was located."
+      ],
+      "reasoning": "Formula fingerprints supplement the statement-level source comparison; their absence is not used alone as novelty proof.",
+      "searches": [
+        "regular polygon circumscribed equilateral triangle 1+2 cos 2pi/(3n)",
+        "regular polygon enclosing equilateral triangle 3sqrt3 cos squared pi/n",
+        "1+2 cos equilateral triangle regular polygon"
+      ]
+    },
+    "rationale": "The direct 2015 source materially inspected introduces the complete orientation family of circumscribed equilateral triangles and their incenter/inradius functions, but uses it for circle rigidity rather than a regular-polygon spectrum. Minimum-enclosing-triangle literature covers the equilateral global minimum for regular side counts divisible by three, and that fact is explicitly excluded from the novelty claim. Semantic, equivalent-formulation and exact-fingerprint searches did not locate the all-orientation formulas, the nonzero modulo-three residue cases, or the factor-nine sensitivity law.",
+    "residual_risks": [
+      "Older rotor or circumscribed-polygon literature may contain the same short support-function calculation.",
+      "The full text of the 2021 circumscribed-equiangular-polygon article was not materially inspected in this run.",
+      "The n=3k global minimum fact is established prior work and is deliberately not claimed as new."
+    ],
+    "risks": [
+      "Older rotor or circumscribed-polygon literature may contain an unindexed equivalent calculation.",
+      "The 2021 circumscribed-equiangular-polygon article was available only through its abstract for this comparison.",
+      "The global minimum-enclosure specialization for regular polygons with side count divisible by three is prior-covered and not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORT_FUNCTION_FRAMEWORK_NOT_SPECTRUM",
+        "evidence": "The paper sets up the support-line formalism used by the proof and lists MSC 53A04; it predates the sequel that introduces the circumscribed equilateral family.",
+        "identifier_or_url": "DOI:10.1007/s00010-013-0213-y",
+        "material_read": "Public full text around the introduction and support-line definition, including the outward normal u(t), support value p(t), online publication line, and Mathematics Subject Classification.",
+        "method": "Public author full-text inspection.",
+        "title": "On evolutoids of planar convex curves",
+        "trigger": "Primary support-function source with exact classification and public date."
+      },
+      {
+        "assessment": "DIRECT_OBJECT_AND_RIGIDITY_NOT_REGULAR_POLYGON_SPECTRUM",
+        "evidence": "The paper uses T(t) and r(t) to prove a circle characterization. The inspected material does not compute r(t) or the area spectrum for regular polygons.",
+        "identifier_or_url": "DOI:10.1007/s00010-015-0352-4",
+        "material_read": "Public author full text around Lemma 3, including the definition of T(t), incenter m(t), inradius r(t), its periodicity, and the surrounding regular-polygon/rotor discussion.",
+        "method": "Public author full-text inspection.",
+        "title": "On evolutoids of planar convex curves II",
+        "trigger": "Direct motivating source because it introduces the orientation-indexed circumscribed equilateral triangle T(t)."
+      },
+      {
+        "assessment": "PRIOR_COVERS_ONE_MINIMUM_ENDPOINT_ONLY",
+        "evidence": "The source explicitly records the equilateral global minimum for regular n=3k, which is excluded from the new-content claim; it does not give the orientation spectrum.",
+        "identifier_or_url": "DOI:10.1007/s40314-014-0198-8",
+        "material_read": "Full public HTML, especially the correctness section describing regular convex n-gons with n=3k and their known equilateral minimum enclosing triangles.",
+        "method": "Public full-text inspection.",
+        "title": "Implementation of linear minimum area enclosing triangle algorithm",
+        "trigger": "Closest broader source that could cover a minimum endpoint."
+      },
+      {
+        "assessment": "PLAUSIBLE_LATER_SOURCE_RETAINED_AS_RESIDUAL_RISK",
+        "evidence": "The abstract states a circle characterization from midpoint conditions. No whole-document noncoverage conclusion is made.",
+        "identifier_or_url": "DOI:10.1007/s40590-021-00372-w",
+        "material_read": "Published abstract and bibliographic metadata only.",
+        "method": "Abstract-level inspection after full text was not lawfully accessible in the available sources.",
+        "title": "Some characterizations of the circle related to circumscribed equiangular polygons",
+        "trigger": "Later paper on the same broad family of circumscribed equiangular polygons."
+      }
+    ],
+    "sources": [
+      "DOI:10.1007/s00010-013-0213-y",
+      "DOI:10.1007/s00010-015-0352-4",
+      "DOI:10.1007/s40314-014-0198-8",
+      "DOI:10.1007/s40590-021-00372-w"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bd64338c-bea9-48d4-a310-cfd9f422e7b6",
+  "value": {
+    "rationale": "The direct literature treats the inradius function of all circumscribed equilateral triangles as a circle-rigidity diagnostic. Regular polygons are the canonical discrete approximants to a circle, so their exact orientation dependence is a natural benchmark. The result gives the complete one-parameter range for every side count, extends beyond the prior-covered n=3k minimum endpoint, and reveals a sharp modulo-three arithmetic transition whose leading orientation oscillations differ by a factor of nine.",
+    "risks": [
+      "The result is restricted to equilateral support triangles and does not solve the unrestricted minimum-enclosing-triangle problem for n not divisible by three."
+    ],
+    "sources": [
+      "DOI:10.1007/s00010-015-0352-4",
+      "DOI:10.1007/s40314-014-0198-8"
+    ],
+    "status": "PASS"
+  }
+}
