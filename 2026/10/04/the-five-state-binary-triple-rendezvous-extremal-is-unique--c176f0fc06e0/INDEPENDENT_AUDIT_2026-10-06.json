@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:36:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 7128ec3242d5565050ba93f3f4650d60d9b249c1",
+        "verify.py blob 9dced23ae19d46a9e6c24b5cff505902a3c48720",
+        "census.c blob 2a265d00b16d29a53ea65b6ba5e9019a1f868a27",
+        "Behague--Johnson, arXiv:2008.12166 / JIS 25 (2022)",
+        "Gonze--Jungers, DOI:10.1137/15M1024603",
+        "Zhang, arXiv:2609.19173"
+      ],
+      "rationale": "The power-automaton distance from each nonempty subset to the singleton layer exactly equals the shortest merging-word length. The repository census visits all \\(3125^2=9,765,625\\) ordered transition-map pairs and applies reverse BFS on the 31 nonempty subsets. An independent compiled implementation reproduced 8,063,385 synchronizing automata, the exact histogram \\(1:4183905,2:3369480,3:387600,4:93600,5:23760,6:4800,7:240\\), maximum seven, and a single canonical orbit among all extremals. The package verifier separately checks the canonical representative, all ten triple distances, reset word and orbit size 240.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General asymptotic/upper bounds do not determine the exact five-state maximum or number of extremizers.",
+          "The recent construction theorem applies only from nine states upward."
+        ],
+        "reasoning": "No accessible broader theorem specializes to the full five-state binary census.",
+        "searches": [
+          "Behague--Johnson general \\(rdv(3,n)\\) upper bound",
+          "Gonze--Jungers general triple-rendezvous bounds",
+          "Zhang 2026 binary construction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.12166",
+        "DOI:10.1137/15M1024603",
+        "arXiv:2609.19173",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither result implies a maximum of seven at \\(n=5\\).",
+          "Even a restricted finite enumeration of permutation/rank-four examples would not by itself establish the global upper bound over all binary transition-map pairs."
+        ],
+        "reasoning": "The exhaustive global census adds implication content beyond the checked literature.",
+        "searches": [
+          "Behague--Johnson bound",
+          "Zhang n>=9 construction theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical definition agrees with the shortest word whose image has a preimage of size at least three.",
+          "Zhang's abstract explicitly starts its construction at \\(n\\ge9\\), not five."
+        ],
+        "reasoning": "The package's \\(m_3\\) is the standard triple-rendezvous time specialized to binary five-state automata.",
+        "searches": [
+          "Resultary: binary synchronizing automaton triple rendezvous five states exact census m3 7 unique orbit",
+          "Behague--Johnson arXiv:2008.12166",
+          "Gonze--Jungers triple-rendezvous literature",
+          "Zhang arXiv:2609.19173 and public computational-data description"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table with the histogram or 240-extremal count was located.",
+          "The recent supplement could not be directly inspected."
+        ],
+        "reasoning": "The exact census is the main finite database component of the claim.",
+        "searches": [
+          "Resultary exact five-state/binary query",
+          "web searches for five-state m3=7, 240 extremals and unique orbit"
+        ]
+      },
+      "rationale": "Gonze--Jungers and Behague--Johnson develop the triple-rendezvous parameter and general upper bounds, not an exact binary five-state census. Zhang's 2026 paper constructs a binary family only for \\(n\\ge9\\); its public record says the paper includes computational notes and links a supplement, but accessible statements do not give a global five-state census or unique extremal orbit. Resultary and exact small-state searches found no prior equivalent. The inaccessible supplement is retained as a concrete residual risk rather than treated as negative evidence.",
+      "residual_risks": [
+        "Zhang's 2026 computational supplement is highly relevant and inaccessible here; it may contain overlapping restricted-class five-state data, though no accessible statement gives the global census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "N_GE_9_CONSTRUCTION_WITH_ACCESS_LIMITED_SUPPLEMENT",
+          "evidence": "The accessible theorem begins at nine states and does not state the five-state global maximum, histogram or unique orbit.",
+          "identifier_or_url": "arXiv:2609.19173",
+          "material_read": "Primary abstract and public article record stating the theorem for every \\(n\\ge9\\), the two-letter structure, and the existence of additional computational notes/data.",
+          "method": "Open-access primary record inspection; the linked supplement was not directly accessible in the audit window.",
+          "title": "The triple rendezvous time of a synchronizing automaton can be floor(4n/3)",
+          "trigger": "Very recent binary construction with computational notes and the closest plausible finite-data overlap."
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_FIVE_STATE_BINARY_CENSUS",
+          "evidence": "The published result is a bound in general \\(n\\), not an exhaustive five-state binary classification.",
+          "identifier_or_url": "arXiv:2008.12166; Journal of Integer Sequences 25 (2022)",
+          "material_read": "Accessible theorem/abstract material defining the extremal parameter and giving general upper bounds for \\(k=3\\).",
+          "method": "Open-access primary-source comparison.",
+          "title": "Synchronizing Times for k-sets in Automata",
+          "trigger": "Primary general upper-bound source for the triple-rendezvous parameter."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gonze--Jungers 2016",
+        "Behague--Johnson 2022",
+        "Zhang 2026"
+      ],
+      "rationale": "The triple-rendezvous time is a standard intermediate synchronization invariant. A complete smallest-scale binary extremal census with an exact maximum and unique symmetry orbit gives a natural finite benchmark for the recent construction and bound literature; it is not an arbitrary sample.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among synchronizing complete binary automata on five labeled states, the maximum length of the shortest word merging some three-state subset is \\(7\\); exactly \\(240\\) of the \\(5^{10}\\) ordered labeled automata attain it, and all \\(240\\) form one orbit under state relabeling and interchange of the two letters.",
+  "limitations": [
+    "Exactly five states and a binary alphabet.",
+    "The claim is global only in that finite binary class; it does not determine unrestricted \\(rdv(3,5)\\) for larger alphabets or a general formula in \\(n\\).",
+    "A highly relevant 2026 supplement accompanying Zhang's recent paper was not directly inspectable; its public description mentions computational notes but not this five-state global census."
+  ],
+  "schema_version": 1
+}
