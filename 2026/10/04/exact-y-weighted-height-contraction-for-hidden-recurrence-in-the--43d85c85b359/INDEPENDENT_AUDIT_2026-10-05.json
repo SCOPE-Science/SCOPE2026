@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:53:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f16c10eaef6d5873d278eb217587b5ebcdf70cc5",
+        "verify.py blob ad5230372060c98faf0540d3895fb04184529adb",
+        "Wang--Chen defining equations",
+        "fresh generator and bounded-complete-trajectory reconstruction"
+      ],
+      "rationale": "On every bounded complete support trajectory, variation of constants gives y(t)=integral_{-infinity}^t exp(-(t-u))x(u)^2 du. Equality y=0 would force x=0 on an entire backward half-orbit and then zdot=1 there, contradicting bounded completeness, so y>0. Generator invariance with arbitrary antiderivative test functions of x gives E[yz|x]=-a. The same argument in z and y yields E[x|z]=1/4 and E[x^2|y]=y, hence Ex=1/4 and Ey=1/16+Var(x). Since D=E[(1-4x)^2]=16 Var(x), Ey=(1+D)/16 and y-weighting gives E_nu[z]=-16a/(1+D). If D=0 then x=1/4 on the support; bounded completeness of ydot=1/16-y forces y=1/16 and tangency of xdot forces z=-16a, so the measure is the equilibrium Dirac mass. The strict excursion conclusions then follow from equivalence of mu and the positive y-weighted measure. The exact verifier independently checks the polynomial and moment algebra.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Wang--Chen literature emphasizes equilibrium/Hopf/synchronization/global geometry rather than invariant-measure disintegration.",
+          "Zero-forcing stationary identities from the unchanged Sprott-E equations determine E[x|z] and E[x^2|y], but they do not produce E[yz|x]=-a when a>0."
+        ],
+        "reasoning": "No broader inspected theorem dominates the forcing-specific weighted-height contraction or its strict excursion consequences.",
+        "searches": [
+          "Wei--Wang, Kybernetika 49 (2013), DML-CZ 143372",
+          "Chen--Liu--Wei--Feng, DOI:10.1002/mma.6619",
+          "published SCOPE stationary identities for Sprott-type flows"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1101.4067",
+        "DOI:10.1142/S0218127413500934",
+        "DML-CZ 143372",
+        "DOI:10.1002/mma.6619",
+        "Resultary Wang--Chen stationary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unchanged equations imply Ex=1/4 and Ey=Ex^2 for compact stationary states.",
+          "The forcing term in xdot=yz+a is essential to derive E[yz|x]=-a; combining the three identities yields the new defect denominator 1+D and the strict height excursions."
+        ],
+        "reasoning": "The forcing-specific law and weighted contraction are not a corollary of the zero-forcing identities alone.",
+        "searches": [
+          "Wang--Chen defining vector field",
+          "stationary identities from the unchanged ydot=x^2-y and zdot=1-4x equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source equations and equilibrium coincide exactly with the audited model.",
+          "Resultary returned related stationary identities for other chaotic flows but no same-system forcing-specific theorem."
+        ],
+        "reasoning": "The conditional law is equivalently a generator coboundary statement for arbitrary antiderivative test functions of x; the weighted-height identity combines it with stationary moment identities from y and z.",
+        "searches": [
+          "Wang--Chen, arXiv:1101.4067 / DOI:10.1016/j.cnsns.2011.07.017",
+          "Sprott--Wang--Chen, DOI:10.1142/S0218127413500934",
+          "Resultary query: Wang Chen flow y-weighted height contraction E[yz|x]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The leading Resultary hits concern different Wang/Chen or Sprott-family flows and different balance laws.",
+          "No same-system exact table or published finding with -16a/(1+D) was located."
+        ],
+        "reasoning": "The claim is an invariant-measure theorem rather than a numerical database entry; the search chiefly checks for already-published same-system identities.",
+        "searches": [
+          "Resultary search: Wang Chen invariant measure stationary weighted height yz conditional x",
+          "Resultary search for Sprott E stationary conditional identities"
+        ]
+      },
+      "rationale": "The Wang--Chen and follow-up dynamics literature studies the same flow through equilibrium stability, chaos, coexistence, bifurcations and global geometry. The forcing-specific conditional stationary law E[yz|x]=-a and its y-weighted height contraction were not found in those inspected sources or in the Resultary stationary-flow search. Previously published stationary identities for the degenerate a=0 Sprott-E equations cover only the unchanged y and z equations and do not imply the forcing-specific yz law.",
+      "residual_risks": [
+        "The complete 2020 global-geometry article was not materially available in full text; a hidden stationary identity there remains a specific priority risk.",
+        "Related stationary-balance results for neighboring Sprott/Chen systems are abundant and may contain an equivalent method, though no same-system implication was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DYNAMICAL_NUMERICS_AND_LOCAL_STABILITY_NOT_STATIONARY_DISINTEGRATION",
+          "evidence": "The source identifies the system and its stable equilibrium but does not state the audited invariant-measure conditional law.",
+          "identifier_or_url": "arXiv:1101.4067; DOI:10.1016/j.cnsns.2011.07.017",
+          "material_read": "Accessible primary source/abstract and equation-level material describing the system, equilibrium stability and chaotic dynamics.",
+          "method": "Same-system theorem-scope comparison.",
+          "title": "A chaotic system with only one stable equilibrium",
+          "trigger": "Defining source for the exact Wang--Chen vector field and equilibrium."
+        },
+        {
+          "assessment": "COEXISTENCE_NUMERICS_NOT_WEIGHTED_STATIONARY_LAW",
+          "evidence": "The source motivates application at a=0.01 but does not supply the forcing-specific invariant-measure identities.",
+          "identifier_or_url": "DOI:10.1142/S0218127413500934",
+          "material_read": "Accessible source description of the same equations and coexistence regime; the audited package's numerical interpretation was cross-checked against that scope.",
+          "method": "Same-parameter implication comparison.",
+          "title": "Coexistence of Point, Periodic and Strange Attractors",
+          "trigger": "Primary same-system source for the a=0.01 coexistence interpretation."
+        },
+        {
+          "assessment": "RESIDUAL_LITERATURE_RISK",
+          "evidence": "Available description concerns global geometry/equilibrium/periodic-orbit analysis; an unindexed stationary identity in the unavailable full text remains possible.",
+          "identifier_or_url": "DOI:10.1002/mma.6619",
+          "material_read": "Accessible abstract/metadata and cited scope; complete article text was not securely inspectable in this run.",
+          "method": "Access-limited scope comparison.",
+          "title": "New insights into a chaotic system with only a Lyapunov stable equilibrium",
+          "trigger": "Highly relevant later global-geometry study."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1101.4067",
+        "DOI:10.1142/S0218127413500934",
+        "DML-CZ 143372",
+        "DOI:10.1002/mma.6619",
+        "Resultary Wang--Chen stationary searches"
+      ],
+      "rationale": "The theorem converts a numerically studied hidden-recurrence/coexistence flow into exact invariant-measure constraints that separate the equilibrium from every non-equilibrium recurrent state and force observable height excursions. This is a natural structural diagnostic for the system, not a routine equilibrium calculation.",
+      "residual_risks": [
+        "The complete 2020 global-geometry article was not materially available in full text; a hidden stationary identity there remains a specific priority risk.",
+        "Related stationary-balance results for neighboring Sprott/Chen systems are abundant and may contain an equivalent method, though no same-system implication was found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1101.4067",
+    "DOI:10.1142/S0218127413500934",
+    "DML-CZ 143372",
+    "DOI:10.1002/mma.6619",
+    "Resultary Wang--Chen stationary searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the Wang--Chen flow xdot=yz+a, ydot=x^2-y, zdot=1-4x with a>0, every compactly supported invariant probability measure has y>0 on its support, E[yz|x]=-a, and under y-weighting satisfies E_nu[z]=-16a/(1+D), D=E[(1-4x)^2]; D=0 exactly for the equilibrium Dirac mass, so every non-equilibrium compact stationary state has weighted mean strictly between -16a and 0 and positive mass both above the equilibrium height and below zero.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete 2020 global-geometry article was not materially available in full text; a hidden stationary identity there remains a specific priority risk.",
+    "Related stationary-balance results for neighboring Sprott/Chen systems are abundant and may contain an equivalent method, though no same-system implication was found.",
+    "The theorem assumes compact support and does not prove existence or basin structure of the non-point attractors.",
+    "The y-weighted measure is a diagnostic reweighting and is not claimed to be invariant."
+  ]
+}

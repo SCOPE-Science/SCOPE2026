@@ -1,42 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Bounded completeness gives
-\[
-y(t)=\int_{-\infty}^{t}e^{-(t-u)}x(u)^2\,du>0.
-\]
-Arbitrary antiderivative tests in \(x\) give
-\[
-\mathbb E[yz\mid x]=-a.
-\]
-Using the two stationary identities inherited from the unchanged \(y\)- and \(z\)-equations yields
-\[
-\mathbb E[y]=\frac{1+\mathbb E[\dot z^2]}{16}.
-\]
-Therefore the \(y\)-weighted height is exactly
-\[
-\mathbb E_\nu[z]
-=
--\frac{16a}{1+\mathbb E[\dot z^2]}.
-\]
-Zero defect forces the unique equilibrium by invariant-support tangency; positive defect gives the two strict mass consequences.
+## correctness
 
-Risk: the proof uses standard disintegration and invariance of the support of a compactly supported invariant probability measure.
+PASS
 
-## Originality
-PASS. The full foundational paper, full coexistence paper, and full generalized Sprott-E paper were compared. Previously known zero-forcing Sprott-E stationary identities were treated as prior coverage and are not claimed as new. The surviving positive-forcing theorem
-\[
-\mathbb E[yz\mid x]=-a,
-\qquad
-\mathbb E_\nu[z]
-=
--\frac{16a}{1+D}
-\]
-and its rigidity and excursion consequences were not found in the inspected same-object sources or targeted semantic searches.
+On every bounded complete support trajectory, variation of constants gives y(t)=integral_{-infinity}^t exp(-(t-u))x(u)^2 du. Equality y=0 would force x=0 on an entire backward half-orbit and then zdot=1 there, contradicting bounded completeness, so y>0. Generator invariance with arbitrary antiderivative test functions of x gives E[yz|x]=-a. The same argument in z and y yields E[x|z]=1/4 and E[x^2|y]=y, hence Ex=1/4 and Ey=1/16+Var(x). Since D=E[(1-4x)^2]=16 Var(x), Ey=(1+D)/16 and y-weighting gives E_nu[z]=-16a/(1+D). If D=0 then x=1/4 on the support; bounded completeness of ydot=1/16-y forces y=1/16 and tangency of xdot forces z=-16a, so the measure is the equilibrium Dirac mass. The strict excursion conclusions then follow from equivalence of mu and the positive y-weighted measure. The exact verifier independently checks the polynomial and moment algebra.
 
-Risk: the complete 2020 global-geometry article was not securely available, so a differently phrased stationary identity there remains a specific residual risk.
+## originality
 
-## Value
-PASS. The result constrains exactly the phenomenon that motivates the model: nontrivial recurrent dynamics coexisting with a stable equilibrium. At the published coexistence value \(a=0.01\), any periodic or strange invariant measure must have \(y\)-weighted mean height strictly between \(-0.16\) and zero and must place mass above the equilibrium height while retaining negative-height mass. This is a reusable invariant-measure diagnostic rather than a re-estimation of Lyapunov exponents.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The Wang--Chen and follow-up dynamics literature studies the same flow through equilibrium stability, chaos, coexistence, bifurcations and global geometry. The forcing-specific conditional stationary law E[yz|x]=-a and its y-weighted height contraction were not found in those inspected sources or in the Resultary stationary-flow search. Previously published stationary identities for the degenerate a=0 Sprott-E equations cover only the unchanged y and z equations and do not imply the forcing-specific yz law.
+
+## value
+
+PASS
+
+The theorem converts a numerically studied hidden-recurrence/coexistence flow into exact invariant-measure constraints that separate the equilibrium from every non-equilibrium recurrent state and force observable height excursions. This is a natural structural diagnostic for the system, not a routine equilibrium calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

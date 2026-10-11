@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses only the Python standard library and exact rational sparse-polynomial arithmetic.
 
-For
-\[
-\dot x=yz+a,\qquad
-\dot y=x^2-y,\qquad
-\dot z=1-4x,
-\]
-it verifies the polynomial vector field and the equilibrium
-\[
-\left(\frac14,\frac1{16},-16a\right).
-\]
+# Independent mathematical audit
 
-It verifies the Jacobian characteristic polynomial
-\[
-\lambda^3+\lambda^2+\left(8a+\frac14\right)\lambda+\frac14,
-\]
-and confirms that the Routh–Hurwitz determinant reduces to
-\[
-8a.
-\]
+## correctness
 
-It also verifies the exact algebra
-\[
-D
-=
-\mathbb E[(1-4x)^2]
-=
-16\operatorname{Var}(x)
-\]
-under
-\[
-\mathbb E[x]=\frac14,
-\]
-and
-\[
-\frac{-a}{(1+D)/16}
-=
--\frac{16a}{1+D}.
-\]
+PASS
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+On every bounded complete support trajectory, variation of constants gives y(t)=integral_{-infinity}^t exp(-(t-u))x(u)^2 du. Equality y=0 would force x=0 on an entire backward half-orbit and then zdot=1 there, contradicting bounded completeness, so y>0. Generator invariance with arbitrary antiderivative test functions of x gives E[yz|x]=-a. The same argument in z and y yields E[x|z]=1/4 and E[x^2|y]=y, hence Ex=1/4 and Ey=1/16+Var(x). Since D=E[(1-4x)^2]=16 Var(x), Ey=(1+D)/16 and y-weighting gives E_nu[z]=-16a/(1+D). If D=0 then x=1/4 on the support; bounded completeness of ydot=1/16-y forces y=1/16 and tangency of xdot forces z=-16a, so the measure is the equilibrium Dirac mass. The strict excursion conclusions then follow from equivalence of mu and the positive y-weighted measure. The exact verifier independently checks the polynomial and moment algebra.
 
-The checker validates the algebraic certificates. The conditional expectation uses arbitrary one-variable antiderivative tests; positivity of \(y\), defect rigidity, and the strict mass conclusions use bounded-complete trajectories and invariant-support arguments.
+## originality
+
+PASS
+
+The Wang--Chen and follow-up dynamics literature studies the same flow through equilibrium stability, chaos, coexistence, bifurcations and global geometry. The forcing-specific conditional stationary law E[yz|x]=-a and its y-weighted height contraction were not found in those inspected sources or in the Resultary stationary-flow search. Previously published stationary identities for the degenerate a=0 Sprott-E equations cover only the unchanged y and z equations and do not imply the forcing-specific yz law.
+
+## value
+
+PASS
+
+The theorem converts a numerically studied hidden-recurrence/coexistence flow into exact invariant-measure constraints that separate the equilibrium from every non-equilibrium recurrent state and force observable height excursions. This is a natural structural diagnostic for the system, not a routine equilibrium calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
