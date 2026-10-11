@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For 0<alpha<1, the standard uniform interior Gegenbauer expansion has a leading oscillatory amplitude proportional to (2alpha)_k/(alpha+1)_k, which decreases like k^(alpha-1), and a uniformly summable O(k^(alpha-2)) remainder. Dirichlet summation makes the partial sums converge uniformly on compact subsets to the Abel value (2-2x)^(-alpha), hence they are eventually positive there. The derivative identity raises the parameter to alpha+1 in (1,2), where the primary theorem gives all-real derivative zeros and arcsine density. Rolle counting in shrinking endpoint layers, together with positivity on x>=1 and monotonicity on x<-1, yields R_n(alpha)/n -> 0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruscheweyh's theorem concerns a polynomial in an auxiliary variable whose coefficients are normalized Gegenbauer values and proves a unit-disk zero-free statement.",
+        "Gasper's classical positivity theorem concerns weighted Jacobi sums with Pochhammer coefficients.",
+        "Neither statement implies the distribution of zeros, in the spatial variable, of the unweighted sum S_n^(alpha).",
+        "The recent Tran--White paper cites only the Chebyshev special case as an all-real predecessor and treats the Legendre case as qualitatively different."
+      ],
+      "reasoning": "Broader positivity and zero-free theorems were checked because they could potentially dominate the compact-positivity step or the final root count. Their objects and variables differ, and none supplies a real-zero proportion theorem for the present partial sums.",
+      "searches": [
+        "\"Gegenbauer polynomial sums\" positivity unweighted sum C_k alpha x",
+        "\"partial sums\" \"Gegenbauer polynomials\" positivity",
+        "\"Hilbert\" Gegenbauer sums zero distribution real zeros",
+        "\"On the Kakeya–Eneström Theorem and Gegenbauer Polynomial Sums\"",
+        "\"Positive Sums of the Classical Orthogonal Polynomials\" Gegenbauer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.38669v1 full primary text",
+      "NIST DLMF §18.15(ii), formulas 18.15.10–18.15.11",
+      "DOI:10.1137/0509049 published abstract and theorem scope",
+      "DOI:10.1137/0508032 published abstract and theorem scope",
+      "targeted public searches for subcritical Gegenbauer real-zero proportions and partial-sum zero distributions",
+      "published-finding database searches under exact-source, phase-transition, converse, and real-zero-density formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tran--White prove alpha>=1 eventual real-rootedness and the arcsine limiting density, but their proof is explicitly restricted to the supercritical parameter after a derivative reduction.",
+        "Their displayed Legendre example establishes only that one subcritical degree can have nonreal zeros.",
+        "DLMF supplies the uniform alpha in (0,1) asymptotic for individual Gegenbauer polynomials, but does not state the partial-sum zero-count consequence.",
+        "The classical normalized Gegenbauer-sum theorem of Ruscheweyh addresses zeros in an auxiliary generating variable, not zeros of S_n^(alpha)(z) as a polynomial in z."
+      ],
+      "reasoning": "The accepted theorem needs two new implications not supplied by prior statements: uniform interior convergence of the unweighted partial sums below alpha=1, and a Rolle/arcsine counting argument converting that positivity into an o(n) real-zero bound.",
+      "searches": [
+        "\"On zero distribution of the sum of Gegenbauer polynomials\" alpha<1",
+        "\"sum of Gegenbauer polynomials\" all zeros real alpha >= 1",
+        "\"Gegenbauer\" partial sums zeros theorem positive coefficients real zeros",
+        "\"On the Kakeya–Eneström Theorem and Gegenbauer Polynomial Sums\" zeros"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding search returned a theorem asserting that the real-zero proportion tends to zero for the unweighted Gegenbauer partial sums.",
+        "The exact primary source states only the alpha>=1 eventual real-rootedness theorem and shows a finite Legendre example.",
+        "Queries under phase-transition, converse, nonreal-zero, and real-zero-density formulations returned only different Gegenbauer problems or unrelated zero-count results."
+      ],
+      "reasoning": "The formulations 'real-zero fraction tends to zero', 'asymptotically almost all zeros are nonreal', and 'sharp real-rootedness phase transition at alpha=1' are implication-equivalent once the primary alpha>=1 theorem is included. Searches covered all three descriptions.",
+      "searches": [
+        "Gegenbauer sums alpha less than one asymptotically nonreal zeros real zero proportion",
+        "sum Gegenbauer polynomials real-zero proportion alpha below 1 phase transition",
+        "S_n alpha Gegenbauer partial sums zero counting real zeros alpha 0 1",
+        "arXiv 2609.38669 alpha less than 1 converse real zeros",
+        "\"sum of Gegenbauer polynomials\" alpha less than 1 real zeros asymptotic nonreal",
+        "\"S_n^{(alpha)}\" Gegenbauer alpha<1 zeros nonreal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed findings concerned largest-zero complete-Bernstein thresholds, a Gegenbauer Pólya integral, and unrelated ultraspherical envelope questions.",
+        "No exact-source indexed finding paired arXiv:2609.38669 with a subcritical real-zero-density conclusion.",
+        "No finite table or computation is used to establish the theorem."
+      ],
+      "reasoning": "Exact-source and same-family database searches were used to exclude a previously recorded corollary of the new paper and to distinguish the claim from other ultraspherical zero questions.",
+      "searches": [
+        "Gegenbauer partial sums zeros all degrees alpha at least one real rooted",
+        "sum first n Gegenbauer polynomials exact finite n real-rootedness threshold alpha",
+        "arXiv 2609.38669 zero distribution sum Gegenbauer",
+        "Gegenbauer sums alpha less than one asymptotically nonreal zeros real zero proportion"
+      ]
+    },
+    "rationale": "The 2026 primary source proves eventual all-real zeros for alpha>=1 and only illustrates failure at the Legendre parameter. It does not state a subcritical real-zero density theorem. Classical Gegenbauer/Jacobi positivity papers located in the search concern weighted or normalized sums and auxiliary generating variables rather than the zeros of the unweighted spatial polynomial. No searched source implied the zero-fraction dichotomy.",
+    "residual_risks": [
+      "An older orthogonal-polynomial paper may contain the same subcritical corollary under terminology not surfaced by the searches.",
+      "The classical positivity papers were compared from their published theorem/abstract scope rather than by full-text line-by-line exclusion.",
+      "The complex limiting zero measure for 0<alpha<1 remains unidentified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_ONLY. It proves the alpha>=1 phase and illustrates the Legendre case, but contains no theorem giving the real-zero proportion for 0<alpha<1.",
+        "evidence": "Theorem 1 states eventual real-rootedness for alpha>=1; the final section derives the arcsine density. The introduction only shows a finite Legendre nonreal-zero example below the threshold.",
+        "identifier_or_url": "arXiv:2609.38669v1",
+        "material_read": "Full primary HTML through the abstract and MSC, generating function, derivative identity, Theorem 1, the zero-count argument, the exterior-zero lemma, and the limiting arcsine-density calculation.",
+        "method": "Direct full-text primary inspection.",
+        "title": "On zero distribution of the sum of Gegenbauer polynomials",
+        "trigger": "Fresh primary source defining the exact polynomial family and proving eventual all-real zeros above the proposed threshold."
+      },
+      {
+        "assessment": "SUPPORTING_PREMISE. The formula gives the oscillatory k^(alpha-1) leading term and O(k^(alpha-2)) next-order control used in the tail argument; it does not state the zero-count theorem.",
+        "evidence": "DLMF specifies the expansion for fixed lambda in (0,1), uniformly for theta in [delta, pi-delta], and cites Szego Theorem 8.21.11 for error bounds.",
+        "identifier_or_url": "https://dlmf.nist.gov/18.15.ii",
+        "material_read": "Formula 18.15.10, its uniformity statement for theta away from the endpoints, and the phase definition 18.15.11.",
+        "method": "Direct authoritative reference inspection.",
+        "title": "DLMF §18.15(ii), Ultraspherical asymptotic approximations",
+        "trigger": "Needed to verify the subcritical uniform interior asymptotic independently of the fresh source's alpha>1 proof."
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT. Its zero-free theorem is in the auxiliary coefficient-generating variable and uses normalized/weighted coefficients; it does not cover zeros of the unweighted spatial partial sum.",
+        "evidence": "The stated polynomial is sum a_k C_k^(lambda)(x)/C_k^(lambda)(1) z^k with fixed x and |z|<=1.",
+        "identifier_or_url": "DOI:10.1137/0509049",
+        "material_read": "Published abstract and theorem scope describing normalized Gegenbauer values as coefficients of a polynomial in an auxiliary variable z.",
+        "method": "Publisher abstract-level implication comparison.",
+        "title": "On the Kakeya–Eneström Theorem and Gegenbauer Polynomial Sums",
+        "trigger": "Closest older title explicitly about Gegenbauer polynomial sums and zeros."
+      },
+      {
+        "assessment": "DIFFERENT_WEIGHTING. The theorem concerns specially weighted Jacobi sums and does not imply the asymptotic real-zero proportion of the unweighted Gegenbauer partial sums.",
+        "evidence": "The displayed sum contains parameter-dependent Pochhammer weights rather than unit coefficients.",
+        "identifier_or_url": "DOI:10.1137/0508032",
+        "material_read": "Published abstract specifying Pochhammer-weighted Jacobi sums and their positivity range.",
+        "method": "Publisher abstract-level implication comparison.",
+        "title": "Positive Sums of the Classical Orthogonal Polynomials",
+        "trigger": "Plausible broader positivity theorem that might subsume the compact-positivity step."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "679ff5c7-7dc6-4c40-b791-6ab03426e6f1",
+  "value": {
+    "rationale": "The primary theorem naturally raises the question whether alpha=1 is a true threshold. The accepted result gives a sharp and unexpectedly strong answer: the real-zero fraction changes from one at and above the threshold to zero below it. This is a structural phase transition, not a finite example or a small constant improvement, and it isolates a reusable derivative/interior-convergence mechanism for related orthogonal-polynomial partial sums.",
+    "status": "PASS"
+  }
+}
