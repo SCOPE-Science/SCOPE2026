@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:06:59Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob e652d31350222513543d1d5c4a80f09a4f7b71ce",
+        "artifacts/verify.py blob 1b3223e2d7fff5d0b2dd0b6377734b0513a063f1",
+        "Fresh exact rational reductions reproduced the Gröbner-basis and standard-monomial formulas over a larger finite sample"
+      ],
+      "rationale": "For \\(g_n=x^{n+1}+x^ny+y^nz+z^n\\), the projective Jacobian forces the unique singular point and multiplicity \\(n=d-1\\). Factoring \\(g_x=x^{n-1}L\\) and using additivity of local intersection multiplicity gives \\(\\mu=(n-1)(n^2+1)\\). The affine Euler relation puts \\(z^n\\) in the Tjurina ideal; the displayed six-element lexicographic Gröbner basis has initial ideal \\((x^n,x^{n-1}y,x^{n-1}z^{n-1},xy^{n-1}z,y^n,z^n)\\), whose standard monomials number \\((n-1)(n^2-n+3)\\). Hence \\(\\mu-\\tau=(n-1)(n-2)\\), and Saito’s isolated-hypersurface criterion gives the stated quasihomogeneity boundary. A fresh exact rational Buchberger replay checked all S-polynomial reductions and the count for multiple values through n=25; it corroborates, rather than replaces, the symbolic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader toric-polar and Cremona results concern inverse degree, multidegrees and characteristic classes, not the exact local algebra dimensions here."
+        ],
+        "reasoning": "General toric-polar theory does not mechanically specialize to the displayed Milnor/Tjurina formulas without the submitted local calculation.",
+        "searches": [
+          "arXiv:2206.04847 Example 3.2 Theorem 3.3",
+          "arXiv:2205.03957 toric polar maps characteristic classes local singularities"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.04847",
+        "doi:10.1080/00927872.2022.2145609",
+        "arXiv:2205.03957",
+        "Resultary semantic query: Milnor Tjurina extremal monomial Cremona surface singularity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the unique singular point and the inverse-degree extremality does not determine \\(\\dim \\mathbb C\\{x,y,z\\}/J_g\\) or the Tjurina algebra dimension.",
+          "The same-object source does not provide an implication yielding the defect \\((d-2)(d-3)\\)."
+        ],
+        "reasoning": "The audited local-invariant profile is additional mathematical content, not a formal corollary of the extremal birational statement.",
+        "searches": [
+          "Fassarella Medeiros extremal monomial Cremona singular point Milnor Tjurina",
+          "Johnson monomial Cremona extremal example local singularity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-object primary source states the singular point and extremal inverse degree, not \\(\\mu\\), \\(\\tau\\), their defect, or the analytic quasihomogeneity boundary.",
+          "Resultary returned the audited record plus unrelated singularity records."
+        ],
+        "reasoning": "An equivalent formulation would determine the local Jacobian/Tjurina algebra dimensions or an analytic type that forces them. No such statement was found for this family.",
+        "searches": [
+          "Resultary: Milnor Tjurina extremal monomial Cremona surface singularity",
+          "exact polynomial searches combining x0^d+x0^(d-1)x1+x1^(d-1)x2+x2^(d-1)x3 with Milnor/Tjurina"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No standard singularity table or database entry for this exact infinite family was located."
+        ],
+        "reasoning": "The formulas are symbolic in d and arise from the family’s local algebra, not from recomputing a known finite table.",
+        "searches": [
+          "exact family + Milnor number + Tjurina number",
+          "Resultary exact-family semantic query"
+        ]
+      },
+      "rationale": "The exact same extremal family was inspected in the Fassarella–Medeiros source. That source identifies the polynomial, its unique singular point and the sharp inverse-degree role, but does not state the local Milnor/Tjurina formulas or the quasihomogeneity transition in the material read. Exact-family web searches and Resultary did not locate an equivalent local-invariant profile. Thus the result is not merely rebranding the known extremal Cremona construction.",
+      "residual_risks": [
+        "An unindexed singularity-theory computation under chain-polynomial terminology could duplicate the formulas.",
+        "The finite Gröbner replay is only corroborative; the universal result depends on the symbolic identities and standard-monomial count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_NOT_COVERING_LOCAL_MILNOR_TJURINA_PROFILE",
+          "evidence": [
+            "The inspected source identifies the exact family and singular point but does not state the submitted \\(\\mu\\), \\(\\tau\\), defect or quasihomogeneity formulas."
+          ],
+          "identifier_or_url": "arXiv:2206.04847; doi:10.1080/00927872.2022.2145609",
+          "material_read": "Publicly accessible full-text copy around Example 3.2 and the equality/extremal discussion: same \\(f_d\\), smoothness at d=2, unique singular point for d>=3, and sharp inverse degree.",
+          "method": "Lawful public full-text comparison after public arXiv retrieval was not directly available.",
+          "title": "Monomial Cremona transformations and toric polar maps",
+          "trigger": "Exact same polynomial family and extremal inverse-degree theorem."
+        },
+        {
+          "assessment": "BROADER_CONTEXT_NOT_IMPLYING_EXACT_LOCAL_FORMULAS",
+          "evidence": [
+            "No inspected theorem specializes to the displayed local Milnor/Tjurina dimensions of \\(f_d\\)."
+          ],
+          "identifier_or_url": "arXiv:2205.03957",
+          "material_read": "Abstract/scope and searchable material on toric-polar characteristic-class formulas.",
+          "method": "Public preprint comparison.",
+          "title": "Toric polar maps and characteristic classes",
+          "trigger": "Broader work by overlapping authors that could conceivably dominate the local calculation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact formulas for two standard local invariants of a distinguished infinite family.",
+        "Structural quasihomogeneity boundary derived from their defect."
+      ],
+      "rationale": "The family is mathematically distinguished as the sharp inverse-degree monomial Cremona family. Its exact Milnor–Tjurina profile gives natural deformation-theoretic invariants of the unique singularity and reveals a qualitative transition: only the cubic singular member has \\(\\mu=\\tau\\), while the defect then grows exactly as \\((d-2)(d-3)\\). This is a motivated infinite-family invariant, not an arbitrary slice or a tiny numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Over \\(\\mathbb C\\) and d>=3 only; no classification of all monomial Cremona singularities is claimed."
+  ],
+  "schema_version": 1
+}

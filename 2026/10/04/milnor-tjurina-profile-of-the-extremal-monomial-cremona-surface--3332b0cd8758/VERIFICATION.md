@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is in `RESULT.md`. The bundled `artifacts/verify.py` is a finite exact-arithmetic regression check, not an infinite proof.
+# Independent mathematical audit
 
-It performs the following checks for every integer \(n\) from \(2\) through \(10\):
+## correctness
 
-1. reconstructs \(g_n=x^{n+1}+x^ny+y^nz+z^n\) and its three partial derivatives as sparse exact polynomials;
-2. verifies \((n+1)g_n-xg_x-yg_y-zg_z=z^n\);
-3. constructs the six proposed generators of the Tjurina Gröbner basis and checks exact Buchberger reduction of every S-polynomial to zero in lexicographic order \(x>y>z\);
-4. verifies that the original Tjurina generators reduce to zero by that basis;
-5. counts standard monomials of its initial ideal and obtains \((n-1)(n^2-n+3)\);
-6. checks the displayed closed formulas for \(\mu\), \(\tau\), and \(\mu-\tau\).
+PASS
 
-The checker does not establish the all-\(n\) Milnor intersection formula; that formula is proved symbolically in `RESULT.md`. It also does not perform an independent literature audit.
+For \(g_n=x^{n+1}+x^ny+y^nz+z^n\), the projective Jacobian forces the unique singular point and multiplicity \(n=d-1\). Factoring \(g_x=x^{n-1}L\) and using additivity of local intersection multiplicity gives \(\mu=(n-1)(n^2+1)\). The affine Euler relation puts \(z^n\) in the Tjurina ideal; the displayed six-element lexicographic Gröbner basis has initial ideal \((x^n,x^{n-1}y,x^{n-1}z^{n-1},xy^{n-1}z,y^n,z^n)\), whose standard monomials number \((n-1)(n^2-n+3)\). Hence \(\mu-\tau=(n-1)(n-2)\), and Saito’s isolated-hypersurface criterion gives the stated quasihomogeneity boundary. A fresh exact rational Buchberger replay checked all S-polynomial reductions and the count for multiple values through n=25; it corroborates, rather than replaces, the symbolic proof.
+
+## originality
+
+PASS
+
+The exact same extremal family was inspected in the Fassarella–Medeiros source. That source identifies the polynomial, its unique singular point and the sharp inverse-degree role, but does not state the local Milnor/Tjurina formulas or the quasihomogeneity transition in the material read. Exact-family web searches and Resultary did not locate an equivalent local-invariant profile. Thus the result is not merely rebranding the known extremal Cremona construction.
+
+## value
+
+PASS
+
+The family is mathematically distinguished as the sharp inverse-degree monomial Cremona family. Its exact Milnor–Tjurina profile gives natural deformation-theoretic invariants of the unique singularity and reveals a qualitative transition: only the cubic singular member has \(\mu=\tau\), while the defect then grows exactly as \((d-2)(d-3)\). This is a motivated infinite-family invariant, not an arbitrary slice or a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
