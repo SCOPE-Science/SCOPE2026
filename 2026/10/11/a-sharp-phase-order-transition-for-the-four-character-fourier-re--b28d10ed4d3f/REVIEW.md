@@ -1,0 +1,15 @@
+# Same-model scientific review
+
+## Correctness — PASS
+The precise hypotheses are fixed positive amplitudes, four distinct characters of the two-torus and finite real exponent \(p>0\). The phase reduction leaves the unique invariant \(\arg(ad/(bc))\). The binomial/hypergeometric coefficient recurrence verifies the exact mixed-derivative formula for the circular-average function; its sign is a strict cosine covariance with sign \(p-2\). The circular-arc intersection formula yields monotonic joint-survival probabilities for the cosine coupling, and the four-corner supermodular/submodular argument gives the claimed strict phase monotonicity and equality cases. The proof explicitly handles \(p=2\), zero amplitudes, and possible diagonal singularities via continuity and finite rectangular differences. Supplementary checks run from the enclosed checker: 944 assertions, including exact fourth/sixth moments. They are not the proof of the continuum theorem.
+
+## Originality — PASS, with bibliographic risk
+The full arXiv HTML of Gressman et al., arXiv:2106.12538 (Theorem 1, Proposition 10, Lemma 12, Proposition 13) gives general dependence criteria, some failure intervals and the automatic even-exponent majorant. It does not state or imply the all-positive-exponent monotonic ordering, both sharp phase extrema and their uniqueness for this fixed dependent rectangular support. Rains (1978), full accessible PDF, proves a global group-level majorant failure, not an exact restriction to four frequencies. The full published rectangle Fourier-zero result counts finite-grid zeros under equal magnitudes; the full cyclic-prime fourth-moment result instead minimizes one-dimensional phase-only moments. Neither implies the stated continuous variable-exponent result. Search did not disclose an exact equivalent, but an unindexed application of classical rearrangement in earlier majorant literature remains possible; this is not an independent priority certification.
+
+## Value — PASS
+The rectangle is the smallest dependent configuration spanning the two-dimensional Fourier torus. The theorem determines, uniformly for **all** positive coefficient magnitudes, the sharp exponent separating opposing optimal phase geometries, the strict ordering of the entire one-parameter phase family, and the equality cases. This is a structural classification of a natural harmonic-analysis extremal problem, not merely the previously standard even-integer moment inequality or a single small numerical instance. It also provides an explicit dependent set with fixed-modulus phase majorization throughout all \(p>2\), despite the general dependent-set failure at some exponent.
+
+## Limitations
+The result is not a coefficientwise-amplitude majorant, and it makes no claim on nonrectangular supports or finite sampling. Bibliographic risk remains, especially in classical rearrangement theory; independent mathematical validation has not occurred.
+
+Same-model review: passed. Independent audit: not yet performed.
