@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:34:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 13eac94ae283f4f71ebbfe2b448467e94ca201f5",
+        "assigned verify_isolated_totient.py blob 58bd8dfd81010c17b04ce544f16d09e96d10114d",
+        "published triangular classification of canonical and terminal two-heavy weighted projective spaces",
+        "Kasprzyk, arXiv:1304.3029"
+      ],
+      "rationale": "All singular points lie on the heavy-coordinate line. Its generic stabilizer has order \\(\\gcd(a,b)\\), so a positive-dimensional singular stratum occurs exactly when that gcd exceeds one; if the gcd is one, only the two endpoints can be singular. Writing \\(d=b-a\\), the canonical and terminal regions are respectively \\(0\\le d\\le r,1\\le a\\le r+d\\) and their strict versions. Since \\(\\gcd(a,b)=\\gcd(a,d)\\), counting coprime lattice points in those triangles gives \\(1+\\Phi(r)+(2\\Phi(r)-1)=3\\Phi(r)\\) and the terminal formula with \\(r-1\\). Subtraction gives \\(3\\varphi(r)\\), and the two boundary descriptions follow by the same gcd reduction. The actual verifier blob was inspected and an independent finite regression through \\(r=100\\) reproduced both census formulas.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior family classification supplies every feasible \\((a,b)\\), not merely a bound.",
+          "Generic stabilizer order on a coordinate stratum is the gcd of its weights."
+        ],
+        "reasoning": "Together these sources provide stronger geometric input than the assigned census needs.",
+        "searches": [
+          "published triangular classification of the same two-heavy family",
+          "standard weighted-projective quotient/stabilizer theory",
+          "Kasprzyk arXiv:1304.3029"
+        ]
+      },
+      "checked_sources": [
+        "published triangular-classification RESULT.md",
+        "arXiv:1304.3029",
+        "Resultary semantic search",
+        "standard weighted-projective stabilizer theory"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute \\(b=a+d\\); then isolated singular locus becomes \\(\\gcd(a,d)=1\\).",
+          "The triangular count is immediately \\(1+\\sum_{d=1}^r\\varphi(d)\\) plus the symmetric coprime-square count \\(2\\Phi(r)-1\\)."
+        ],
+        "reasoning": "No additional nonstandard geometric or number-theoretic lemma is required.",
+        "searches": [
+          "same-family triangular classification plus standard heavy-stratum stabilizer rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior triangular theorem gives exactly the full canonical and terminal domains used in the assigned proof.",
+          "The quotient description makes the heavy-line generic stabilizer order exactly \\(\\gcd(a,b)\\)."
+        ],
+        "reasoning": "The isolated-singularity census is therefore the count of gcd-one points in a previously classified integer triangle.",
+        "searches": [
+          "Resultary query: two heavy weighted projective spaces isolated singular locus totient 3 Phi(r)",
+          "Resultary query: triangular classification canonical terminal two-heavy weighted projective spaces P(1^r,a,b)",
+          "published triangular-classification RESULT.md at audited snapshot"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact \\(3\\Phi(r)\\) finding appears as the assigned record.",
+          "A later broader stabilizer-distribution result contains this gcd-one count as its \\(g=1\\) slice, confirming the natural generalization but not serving as the historical basis of rejection."
+        ],
+        "reasoning": "Verbatim absence before the assigned record does not restore originality when the count is mechanically obtained from already-published exact structural data.",
+        "searches": [
+          "Resultary exact totient-census query",
+          "published exact stabilizer-order distribution in the same family"
+        ]
+      },
+      "rationale": "At the audited snapshot, a published result for the exact same family already gives the complete canonical and terminal parameter triangles \\(0\\le d\\le r,1\\le a\\le r+d\\) and the strict terminal version. Standard weighted-projective quotient geometry identifies the generic stabilizer on the heavy-coordinate line as \\(\\mu_{\\gcd(a,b)}\\), so zero-dimensional singular locus is exactly \\(\\gcd(a,b)=1\\). The assigned formulas then reduce to the elementary count of coprime lattice points in the already-known triangle, using symmetry and the definition of the summatory totient. Under the required implication-level standard, this is a routine arithmetic corollary of stronger published structural data rather than an independent original theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_FEASIBLE_SET_PREDECESSOR",
+          "evidence": "It states exactly \\(d\\le r,a\\le r+d\\) for canonicity and strict inequalities for terminality.",
+          "identifier_or_url": "published repository RESULT.md, audited snapshot",
+          "material_read": "Complete RESULT.md including the all-dimensional Reid--Tai proof, canonical/terminal inequalities and exact total counts.",
+          "method": "Read-only source-tree inspection.",
+          "title": "A triangular classification of canonical and terminal two-heavy weighted projective spaces",
+          "trigger": "Exact same family and the complete feasible regions used by the assigned theorem."
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND",
+          "evidence": "It provides the standard singularity framework; the decisive implication-level coverage here comes from the already-published two-heavy triangular specialization.",
+          "identifier_or_url": "arXiv:1304.3029",
+          "material_read": "Primary-source scope and general canonical/terminal weighted-projective criteria.",
+          "method": "Open-access primary-source inspection.",
+          "title": "Classifying terminal weighted projective space",
+          "trigger": "Primary weighted-projective singularity background for the Reid--Tai classification."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "two-heavy triangular classification",
+        "weighted-projective quotient geometry"
+      ],
+      "rationale": "Counting precisely which canonical and terminal members have isolated singularities is a natural geometric census, and the totient formulas give a useful asymptotic density. The record is rejected only because that census is too direct a consequence of an existing exact parameter classification plus the standard stabilizer criterion.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For \\(X_{r,a,b}=\\mathbb P(1^r,a,b)\\), \\(r\\ge2\\), the members with zero-dimensional singular locus are exactly those with \\(\\gcd(a,b)=1\\); inside the canonical and terminal two-heavy regions their counts are respectively \\(3\\Phi(r)\\) and \\(3\\Phi(r-1)\\), so the canonical non-terminal boundary contributes \\(3\\varphi(r)\\), with the explicit boundary families stated in RESULT.md.",
+  "limitations": [
+    "Ordinary two-heavy weighted projective spaces over \\(\\mathbb C\\) only.",
+    "The result is mathematically correct but is rejected because the complete feasible triangles were already available and the remaining isolated-locus criterion/count is a routine consequence."
+  ],
+  "schema_version": 1
+}
