@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:57:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent continuous jitters encode uniform tie-breaking. Conditioning on the lower of the two high scores gives the stated three-bin integral. I independently rebuilt the full \\(3^4\\) exact score-vector sum and the integral in SymPy; they agree identically. Re-centering at \\(h=p-(1-\\delta)/2\\) factors \\(P(p)-P(\\mathrm{center})\\) exactly as \\(\\delta h^2G_\\delta(h^2)/24\\). The polynomial \\(G_\\delta\\) decreases in \\(u=h^2\\) on the admissible interval, and its endpoint value \\(7+110\\delta+14\\delta^2-2\\delta^3-\\delta^4\\) is positive for \\(0<\\delta<1\\), proving the unique minimum.",
+      "risks": [
+        "Uniform tie-breaking and the exact k=4,t=2,n=2 design are essential."
+      ],
+      "sources": [
+        "RESULT.md blob 2c5179972188f057eed2f96e91935baa500d946a",
+        "verify.py blob 42cd96142253f2a19d0653c7ff62fed716106b6c",
+        "Independent exact SymPy replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu--Chen's eventual theorem leaves an unknown finite threshold.",
+          "Tovey is explicitly two alternatives.",
+          "Accessible Wang material did not provide this four-population centered-location theorem."
+        ],
+        "reasoning": "Closest results differ in number of populations or sample-size quantifier.",
+        "searches": [
+          "Wu--Chen arXiv:2609.03466 abstract/conclusion quote",
+          "Tovey DOI:10.1080/07474946.2014.961854",
+          "Wang Syracuse dissertation 2023"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.03466 abstract",
+        "Indexed Section 5 conclusion quotation",
+        "DOI:10.1080/07474946.2014.961854",
+        "Syracuse dissertation metadata",
+        "Fresh Resultary search",
+        "Source tree 9cc4e14cb1104c351be8cfbce5dc556e898845e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary exact finite theorem is two-population; balanced k=4,t=2 is only eventually centered.",
+          "The conclusion explicitly conjectures every even n."
+        ],
+        "reasoning": "The exact n=2 factorization adds finite-sample content left open by the source.",
+        "searches": [
+          "Statement comparison with arXiv:2609.03466 abstract",
+          "Indexed Section 5 conclusion quote"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The abstract states exact two-population centering and only eventual balanced centering.",
+          "The indexed conclusion quote states the all-even balanced statement as a conjecture."
+        ],
+        "reasoning": "Compared least-favorable-location, PCS, balanced top-two and exact-parameter formulations.",
+        "searches": [
+          "Resultary: balanced binomial top t selection k=4 t=2 n=2 least favorable location symmetric center",
+          "Web: Least-Favorable Location for Binomial Top-t Selection 2609.03466",
+          "Web: balanced binomial top-two selection symmetric center sample size two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact factorization or universal positivity table was found."
+        ],
+        "reasoning": "Finite numerical evidence would not imply the quantified delta theorem.",
+        "searches": [
+          "Fresh Resultary exact-parameter query",
+          "Web exact balanced top-two n=2 searches"
+        ]
+      },
+      "rationale": "Wu--Chen's current abstract proves exact centering for two populations and eventual exact centering for fixed balanced k=2t. An indexed quotation of their conclusion explicitly leaves unique centering for every balanced even n>=2 as a conjecture. Thus the submitted k=4,t=2,n=2 case is not implied by their eventual theorem and is the smallest nontrivial balanced instance beyond the exact two-population result. The primary arXiv PDF could not be fetched and the authorized fallback failed, so whole-body noncoverage is not asserted; that access gap remains a residual risk. Fresh Resultary search found no covering published SCOPE result.",
+      "residual_risks": [
+        "The full Wu--Chen body was inaccessible in this run.",
+        "Only abstract-level dissertation material was available."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_MOTIVATING_SOURCE_NOT_PROVING_FINITE_CASE_IN_MATERIAL_READ; FULL_TEXT_ACCESS_RISK",
+          "evidence": [
+            "Abstract: exact two-population centering for all n>=2; balanced k=2t only eventual centering.",
+            "Conclusion quote: every balanced even n>=2 is conjectured."
+          ],
+          "identifier_or_url": "arXiv:2609.03466",
+          "material_read": "Current primary abstract plus an indexed Section 5 conclusion quotation; direct PDF retrieval was disabled and authorized fallback failed.",
+          "method": "Compared proved quantifiers and retained access limitation.",
+          "title": "Least-Favorable Location for Binomial Top-t Selection",
+          "trigger": "Direct source of the balanced finite-sample conjecture."
+        },
+        {
+          "assessment": "NOT_COVERING_FOUR_POPULATIONS",
+          "evidence": [
+            "The theorem is explicitly for two alternatives."
+          ],
+          "identifier_or_url": "DOI:10.1080/07474946.2014.961854",
+          "material_read": "Published abstract/bibliographic statement.",
+          "method": "Checked number of alternatives.",
+          "title": "The Slippage Configuration Is Always the Least Favorable Configuration for Two Alternatives",
+          "trigger": "Potential broad least-favorable theorem."
+        },
+        {
+          "assessment": "NO_COVERING_IMPLICATION_IDENTIFIED_IN_MATERIAL_READ",
+          "evidence": [
+            "Accessible description concerns related exact selection procedures but not this four-population centered polynomial identity."
+          ],
+          "identifier_or_url": "Syracuse University dissertation, 2023",
+          "material_read": "Accessible metadata/abstract-level description.",
+          "method": "Compared model/control structure and scope.",
+          "title": "On Selecting the t Best of k Binomial Populations",
+          "trigger": "Potential finite-sample ranking-selection coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the smallest balanced top-selection case beyond two populations and the smallest even sample size covered by the explicit open conjecture. The exact positive factorization is a motivated base case rather than an arbitrary finite check.",
+      "risks": [
+        "Does not resolve n>=4 or larger balanced systems."
+      ],
+      "sources": [
+        "Wu--Chen all-even conjecture",
+        "Exact symbolic enumeration/factorization"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only k=4,t=2,n=2 with uniform tie-breaking."
+  ],
+  "schema_version": 1
+}
