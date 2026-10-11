@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:10:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stabilization-to-semigroup step is exact: after subtracting the \\(j\\) padding copies of \\(1^k\\), a fixed offset is eventually representable precisely when it lies in \\(S_k\\). Every even-base generator reduces recursively by \\((2m)^k-1=(m^k-1)+m^k(2^k-1)\\), leaving the odd generator \\(A_k\\) plus even odd-base generators. Splitting the coefficient of \\(A_k\\) by parity gives the disjoint decomposition. \\(T_k\\) is numerical because \\(A_k\\) is odd and \\(\\gcd(A_k,(A_k^k-1)/2)=1\\). Even gaps of \\(S_k\\) are twice the positive gaps of \\(T_k\\); odd gaps consist of the \\((A_k-1)/2\\) positive odds below \\(A_k\\) plus \\(A_k+2t\\) for positive gaps \\(t\\) of \\(T_k\\). This yields the displayed Frobenius/genus formulas and parity. No finite table is used to infer the all-\\(k\\) theorem.",
+      "risk": "The result proves the parity conjecture only; it does not settle the neighboring structural conjectures or give closed forms for \\(F(T_k)\\) or \\(g(T_k)\\).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026-09-17 semigroup-correction record gives the gap-set model and modular corrections, but its claim does not prove parity.",
+          "The tenth-power record proves a finite \\(k=10\\) identity only."
+        ],
+        "reasoning": "The closest structural source supplies a premise used here but no stronger theorem implying the parity result for arbitrary \\(k\\).",
+        "searches": [
+          "Resultary: SCOPE-stable-waring-exceptions-semigroup-correction--04e8548696c7",
+          "Resultary: SCOPE-exact-tenth-power-obstruction-semigroup--a3858d8ef09c",
+          "web search for Benfield--Lippard Conjecture 10.4 proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.08193v2",
+        "Resultary:2026/9/17/SCOPE-stable-waring-exceptions-semigroup-correction--04e8548696c7",
+        "Resultary:2026/9/17/SCOPE-exact-tenth-power-obstruction-semigroup--a3858d8ef09c",
+        "OEIS Waring-exception entries linked to arXiv:2404.08193"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source leaves the conclusion as Conjecture 10.4.",
+          "Identifying the stabilized set with gaps of \\(S_k\\) does not by itself imply parity of its Frobenius number and genus."
+        ],
+        "reasoning": "The new parity decomposition of \\(S_k\\) into two affine copies of \\(T_k\\) is the additional implication needed to prove the conjecture.",
+        "searches": [
+          "arXiv:2404.08193v2",
+          "Resultary prior semigroup-correction record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Benfield--Lippard print “Conjecture 10.4. \\(a_k\\) and \\(b_k\\) are odd for all \\(k\\).”",
+          "Resultary returned the audited theorem itself plus the earlier semigroup-correction and \\(k=10\\) special-case records, not an equivalent proof."
+        ],
+        "reasoning": "The exact conjecture statement and numerical-semigroup aliases were checked; no pre-existing equivalent decomposition or all-parameter parity theorem was located.",
+        "searches": [
+          "arXiv:2404.08193v2, Section 10 / Conjecture 10.4",
+          "Resultary semantic search: stable Waring exceptions parity numerical semigroup Frobenius genus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source table records \\(a_k,b_k\\) only for \\(2\\le k\\le9\\) and all displayed values are odd.",
+          "Finite OEIS exception lists do not encode the universal parity theorem."
+        ],
+        "reasoning": "The submitted result is not a recomputation of a finite table; it explains and proves the observed parity for every exponent.",
+        "searches": [
+          "Benfield--Lippard Table 2",
+          "OEIS searches linked from the Waring-exception paper"
+        ]
+      },
+      "rationale": "Benfield--Lippard explicitly state the oddness assertion as Conjecture 10.4 and provide only finite data through \\(k=9\\). The relevant earlier SCOPE record identifies stable exceptions with gaps of \\(\\langle n^k-1\\rangle\\) while addressing a different modular theorem; a second record computes only the special \\(k=10\\) semigroup. None of the checked sources states the two-adic semigroup decomposition or the general Frobenius/genus transfer formulas.",
+      "residual_risks": [
+        "An unindexed numerical-semigroup note could contain the same parity decomposition; exact phrase and semantic searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_CONJECTURE_IN_SOURCE",
+          "evidence": "Page 10 lists the finite values for \\(2\\le k\\le9\\) and explicitly states Conjecture 10.4 that \\(a_k\\) and \\(b_k\\) are odd for all \\(k\\).",
+          "identifier_or_url": "arXiv:2404.08193v2",
+          "material_read": "Full PDF at Section 10, including Table 2, Conjectures 10.1--10.6, and the surrounding definitions.",
+          "method": "lawful arXiv full text",
+          "title": "Integers that are not the sum of positive powers",
+          "trigger": "Primary source of the stabilized sets and Conjecture 10.4."
+        },
+        {
+          "assessment": "PARTIAL_PREMISE_NOT_COVERING",
+          "evidence": "It identifies the stable exceptions with gaps of \\(\\langle n^k-1:n\\ge2\\rangle\\) and addresses a different modular obstruction.",
+          "identifier_or_url": "Resultary:2026/9/17/SCOPE-stable-waring-exceptions-semigroup-correction--04e8548696c7",
+          "material_read": "Resultary scientific record/summary returned by semantic search.",
+          "method": "Resultary published-finding search",
+          "title": "Stable Waring exceptions as numerical-semigroup gaps: correcting Theorem 10.7 and extending its modular obstruction",
+          "trigger": "Closest published SCOPE structural result."
+        },
+        {
+          "assessment": "SPECIAL_CASE_ONLY",
+          "evidence": "It determines \\(a_{10}\\) and \\(b_{10}\\) and proves \\(a_{10}=2b_{10}-1\\), without an all-\\(k\\) parity theorem.",
+          "identifier_or_url": "Resultary:2026/9/17/SCOPE-exact-tenth-power-obstruction-semigroup--a3858d8ef09c",
+          "material_read": "Resultary scientific record/summary returned by semantic search.",
+          "method": "Resultary published-finding search",
+          "title": "Exact tenth-power stable obstruction set via a numerical semigroup",
+          "trigger": "Same invariants at one exponent."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This settles an explicit published all-exponent conjecture and does so through a reusable structural decomposition that additionally transfers Frobenius number and genus. It is an infinite theorem explaining a finite observed pattern, not a table extrapolation.",
+      "risk": "The theorem is focused on one parity conjecture and leaves the harder neighboring Waring-exception questions open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer \\(k\\ge2\\), if \\(S_k=\\langle n^k-1:n\\ge2\\rangle\\), \\(A_k=2^k-1\\), and \\(T_k=\\langle A_k,(u^k-1)/2:u\\ge3\\text{ odd}\\rangle\\), then \\(S_k=2T_k\\sqcup(A_k+2T_k)\\). Consequently the stabilized Waring-exception maximum and cardinality satisfy \\(a_k=A_k+2F(T_k)\\) and \\(b_k=2g(T_k)+(A_k-1)/2\\), so both are odd for all \\(k\\ge2\\).",
+  "limitations": [
+    "The finite source table and checker are corroborative only; the universal conclusion is supplied by the symbolic semigroup argument."
+  ],
+  "schema_version": 1
+}

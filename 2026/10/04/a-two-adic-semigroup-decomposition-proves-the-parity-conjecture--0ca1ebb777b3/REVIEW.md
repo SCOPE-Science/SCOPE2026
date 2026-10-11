@@ -1,23 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stabilization definition is reconstructed exactly: after subtracting the mandatory \(j\) copies of \(1^k\), eventual representability is membership in \(S_k=\langle n^k-1:n\ge2\rangle\). The identity
-\[
-(2m)^k-1=(m^k-1)+m^k(2^k-1)
-\]
-reduces all even-base generators to \(A_k=2^k-1\) plus even odd-base generators. This makes membership split exactly by parity as
-\[
-S_k=2T_k\sqcup(A_k+2T_k).
-\]
-The auxiliary \(T_k\) is numerical because it contains a coprime pair. The complete even/odd gap classification then gives the Frobenius and genus formulas and their parity consequences. The regression checker reproduces the source table for \(2\le k\le9\), but the infinite theorem does not depend on those computations.
+## correctness
 
-## Originality
-PASS. The current primary source, revised 31 March 2025, still states the parity assertion as Conjecture 10.4. The closest published semigroup result already identifies stable exceptions with gaps of \(\langle n^k-1\rangle\), but its indexed claim concerns a different modular-obstruction correction and does not state the new parity decomposition or transfer formulas. A separate published computation handles only \(k=10\). Exact and semantic searches for the conjecture, its semigroup formulation, and the stronger formulas found no general proof. A residual risk remains from unindexed numerical-semigroup work and from the unavailable full text of the closest published semigroup record.
+PASS
 
-## Value
-PASS. This settles a named all-\(k\) conjecture with a short structural theorem, not a finite census. The same argument gives explicit transfer formulas for both the Frobenius number and genus, explaining why the observed parities persist and providing a reusable reduction for further work on the stable obstruction sets.
+The stabilization-to-semigroup step is exact: after subtracting the \(j\) padding copies of \(1^k\), a fixed offset is eventually representable precisely when it lies in \(S_k\). Every even-base generator reduces recursively by \((2m)^k-1=(m^k-1)+m^k(2^k-1)\), leaving the odd generator \(A_k\) plus even odd-base generators. Splitting the coefficient of \(A_k\) by parity gives the disjoint decomposition. \(T_k\) is numerical because \(A_k\) is odd and \(\gcd(A_k,(A_k^k-1)/2)=1\). Even gaps of \(S_k\) are twice the positive gaps of \(T_k\); odd gaps consist of the \((A_k-1)/2\) positive odds below \(A_k\) plus \(A_k+2t\) for positive gaps \(t\) of \(T_k\). This yields the displayed Frobenius/genus formulas and parity. No finite table is used to infer the all-\(k\) theorem.
 
-## Closest literature and limitations
-The primary source is Brennan Benfield and Oliver Lippard, “Integers that are not the sum of positive powers,” arXiv:2404.08193. The closest later published results identify the obstruction sets with numerical-semigroup gaps and compute the \(k=10\) case. The present theorem does not settle the source's neighboring conjectures and does not compute \(F(T_k)\) or \(g(T_k)\) in closed form.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Benfield--Lippard explicitly state the oddness assertion as Conjecture 10.4 and provide only finite data through \(k=9\). The relevant earlier SCOPE record identifies stable exceptions with gaps of \(\langle n^k-1\rangle\) while addressing a different modular theorem; a second record computes only the special \(k=10\) semigroup. None of the checked sources states the two-adic semigroup decomposition or the general Frobenius/genus transfer formulas.
+
+## value
+
+PASS
+
+This settles an explicit published all-exponent conjecture and does so through a reusable structural decomposition that additionally transfers Frobenius number and genus. It is an infinite theorem explaining a finite observed pattern, not a table extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
