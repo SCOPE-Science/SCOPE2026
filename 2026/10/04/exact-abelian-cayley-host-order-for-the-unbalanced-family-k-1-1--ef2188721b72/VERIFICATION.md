@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is analytic. Its critical steps are:
+# Independent mathematical audit
 
-1. Translate one singleton label to \(0\).
-2. Use the exact induced-difference criterion to separate every nonzero difference from \(A-A\) from the edge-difference sets \(-A\) and \(z-A\).
-3. If an element lay in both \(-A\) and \(z-A\), then \(z\) itself would lie in \(A-A\), colliding with the edge between the two singleton vertices.
-4. Count the three disjoint sets: \(|A-A|\ge n\), \(|-A|=n\), and \(|z-A|=n\).
-5. Check the matching construction inside \(\operatorname{Cay}(\mathbb Z_3\times\mathbb Z_n,S)\), where \(S\) consists of elements with nonzero first coordinate.
+## correctness
 
-The bundled `verify.py` independently enumerates every finite abelian group type of orders below \(3n\) and every normalized labeling candidate for \(2\le n\le5\); it finds no smaller host. It then checks the explicit order-\(3n\) construction and the three-set disjointness identities for every \(2\le n\le50\). This finite computation is a stress test only and does not extend the universal claim by enumeration.
+PASS
 
-Scientific limit: no assertion is made for complete multipartite graphs outside the \(K_{1,1,n}\) family.
+After translating one singleton label to zero, let A be the n labels in the large part and z the other singleton. Every element of -A and z-A is an edge difference, while every nonzero difference in A-A is a nonedge difference. The induced-embedding criterion therefore makes A-A disjoint from both translates. If -a=z-b, then z=b-a is simultaneously the singleton-edge difference and a nonedge difference inside A, so the two translates are also disjoint. Since |A-A|>=n and each translate has n elements, every host has at least 3n elements. The explicit host Z_3 x Z_n with all nonzero first-coordinate differences is K_{n,n,n} and contains the required induced K_{1,1,n}. The universal argument does not rely on the finite verifier.
 
-Replay output: `ALL CHECKS PASSED; exhaustive_n=2..5; host_types=30; normalized_label_candidates=26938; constructions_n=2..50`
+## originality
+
+PASS
+
+Fresh searches found the initiating eta paper and no stronger exact K_{1,1,n} theorem. The current public paper record lists unbalanced complete multipartite graphs among its open problems, while its abstract reports exact paths, complete bipartite graphs, selected graph values, and small double stars rather than this family. The full arXiv PDF was not retrievable in this run and the authorized institutional fallback returned a worker-unavailable error, so whole-document noncoverage is not asserted; that access gap is retained as a residual risk.
+
+## value
+
+PASS
+
+The family is a natural unresolved complete-multipartite test case highlighted by the initiating problem, and the proof gives a reusable multi-neighborhood difference-set obstruction rather than an isolated computation. It closes the concrete K_{1,1,5} gap as part of an infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
