@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The primary model equations, food-total constraint, and disease-free proposition were checked against the published full text.
 
-The general proof is symbolic. For \(q=p_f-\alpha_4F>0\), the characteristic cubic of the infected/environmental block is expanded explicitly and the Routh–Hurwitz conditions are verified algebraically from \(\mathcal R_F<1\). If \(\mathcal R_F>1\), the constant term is negative and continuity forces a positive real root.
+# Independent mathematical audit
 
-The bundled verifier uses exact rational arithmetic for the concrete witness. It checks that the published zero-food point has nonzero food derivative, that the clean-food point satisfies the equilibrium equations, that the published and corrected thresholds are \(1/3\) and \(4/3\), respectively, and that the cubic is \(\lambda^3+5\lambda^2+6\lambda-1\).
+## correctness
 
-No global-stability, endemic-equilibrium, or critical \(p_f=\alpha_4F\) assertion is verified or claimed.
+PASS
+
+The primary equations impose \(F_u+F_c=F\), and substituting the published zero-food state gives \(F_u'=p_fF>0\). Eliminating \(F_u=F-F_c\) at the clean-food equilibrium yields the displayed \(3\times3\) infected/environmental block. Its characteristic cubic has constant term \(kd_Bq(1-\mathcal R_F)\). For \(q>0\), \(\mathcal R_F<1\) implies \(a\xi_l<kd_B\); the remaining Routh--Hurwitz inequalities are strictly positive. A fresh symbolic check confirmed the package identity for \(A_1A_2-A_3\). The exact witness gives published \(1/3\), corrected \(4/3\), and cubic \(\lambda^3+5\lambda^2+6\lambda-1\).
+
+## originality
+
+PASS
+
+The inspected primary paper prints the listeriosis-only equations, the food-total constraint, a disease-free point with both food compartments zero, and a threshold omitting the contaminated-food return path. The corrected equilibrium and factor are not in that source. Resultary and source-specific searches found no published correction.
+
+## value
+
+PASS
+
+The correction changes both the existence of the printed disease-free equilibrium and the invasion threshold. An exact positive-parameter witness reverses the source's stability prediction, so this is a substantive model correction rather than a cosmetic normalization issue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
