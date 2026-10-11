@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:06:57.066462Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "J. Liu, Refinements of the Erdös-Mordell inequality, Barrow's inequality, and Oppenheim's inequality, DOI 10.1186/s13660-015-0947-2, Conjecture 6.3",
+        "assigned RESULT.md blob f5cc7d86a040dcb49c1e4f5dccc3c9cd192396a8",
+        "assigned verify.py blob ccb1a7f135771bddd4563f6667e84369a997a72b"
+      ],
+      "rationale": "Writing s=sum r_i, T=sum R_i, D=sum r_i R_i-2 sum r_i r_j and E=s(T-2s), direct expansion of Liu's middle term gives the exact identities ((k+2)s/2)(M_k-2s)=E+(k-1)D and (k+2)s(T-M_k)=kE+2(1-k)D. Away from the equilateral center D>0, so with alpha=E/D the two sides reduce exactly to k>=1-alpha and, when alpha<2, k<=2/(2-alpha). For the normalized isosceles side-midpoint boundary family, half-angle parameter u gives alpha(u)=-(u⁴-12u³+4u-1)/(4u³), whose derivative is -(u⁴-8u+3)/(4u⁴). The relevant quartic has a unique minimizer u*=0.377539568391..., yielding alpha*=0.535565054837... and therefore the necessary window 0.464434945162939...<=k<=1.365714473426112.... Continuity transfers strict boundary failure outside this window to genuine interior points. Independent exact/symbolic checks reproduced the derivative and high-precision endpoints.",
+      "residual_risks": [
+        "Finite randomized verification in verification_output.txt is corroborative only; the all-parameter statements are proved analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu's article develops several refinements and poses Conjecture 6.3 as open.",
+          "Tran develops other weighted families with multiplicative weights satisfying xyz=uvw=1."
+        ],
+        "reasoning": "Neither broader family implies the exact linear defect conditions or the boundary-alpha minimum.",
+        "searches": [
+          "DOI 10.1186/s13660-015-0947-2 complete open text",
+          "arXiv:2105.07885 complete arXiv text"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1186/s13660-015-0947-2",
+        "https://arxiv.org/abs/2105.07885",
+        "DOI 10.1007/s00454-017-9917-4",
+        "DOI 10.3390/math7080726",
+        "DOI 10.1080/0025570X.2026.2653460",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source interval lies strictly inside the audited necessary outer window, so the audited theorem neither restates nor proves the conjecture.",
+          "The scalar reduction identifies exactly which global defect ratio would control both halves and the boundary family computes a new necessary parameter obstruction."
+        ],
+        "reasoning": "The source conjecture and later weighted inequalities do not imply the audited outer window; new algebraic reduction and boundary optimization are required.",
+        "searches": [
+          "direct comparison with Liu Conjecture 6.3",
+          "comparison with Tran 2021 weighted families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu 2016 states the exact source conjecture on [0.48,1.36].",
+          "No searched source states the alpha=E/D reduction or endpoints 0.464434945... and 1.365714473...."
+        ],
+        "reasoning": "Defect-ratio, middle-term, weighted Erdős-Mordell, and parameter-window formulations were compared.",
+        "searches": [
+          "Resultary: Jian Liu parameterized Erdos Mordell conjecture 0.48 1.36 defect ratio boundary obstruction",
+          "web/literature search: Liu Conjecture 6.3 parameter k Erdős-Mordell",
+          "arXiv:2105.07885 weighted Erdős-Mordell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table or database with the algebraic obstruction endpoints was located."
+        ],
+        "reasoning": "The endpoints arise from a symbolic minimization of a continuous boundary family.",
+        "searches": [
+          "Resultary exact endpoint search"
+        ]
+      },
+      "rationale": "Liu's complete open primary article states Conjecture 6.3 exactly on 0.48<=k<=1.36 but does not reduce it to a one-dimensional defect ratio or derive the optimal isosceles boundary obstruction. A later open weighted Erdős-Mordell paper by Tran was read in full enough to compare its main weighted families; they are different coefficient systems and do not state this defect-ratio reduction. Resultary returns the assigned theorem as the exact hit and no prior source with the algebraic endpoints. Plausible later papers listed in the package metadata that were not fully accessible are retained as residual priority risks rather than treated as non-covering evidence.",
+      "residual_risks": [
+        "Full text of several plausible later triangle-inequality papers listed by the package was not independently inspected in this run; accessible indexing/searches did not expose an equivalent defect-ratio theorem.",
+        "The isosceles boundary family need not be the globally strongest obstruction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_OPEN_CONJECTURE_NOT_OBSTRUCTION",
+          "evidence": "Conjecture 6.3 asserts the double inequality for 0.48<=k<=1.36 and does not state the defect-ratio reduction or the wider necessary outer bounds.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-015-0947-2",
+          "material_read": "Complete open publisher article, including Sections 4-6 and the exact Conjecture 6.3 statement.",
+          "method": "Lawful open-access full-text inspection.",
+          "title": "Refinements of the Erdös-Mordell inequality, Barrow's inequality, and Oppenheim's inequality",
+          "trigger": "Exact source of Conjecture 6.3 and definitions used in the reduction."
+        },
+        {
+          "assessment": "DIFFERENT_WEIGHTED_FAMILY",
+          "evidence": "Its weights satisfy multiplicative constraints and yield different weighted inequalities; it does not state Liu Conjecture 6.3's defect-ratio parameter reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.07885",
+          "material_read": "ArXiv full text covering introduction, weighted main theorems, coefficient constraints and applications.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "A family of weighted Erdős-Mordell inequality and applications",
+          "trigger": "Later primary work with a broad weighted Erdős-Mordell title and potential stronger coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI 10.1186/s13660-015-0947-2",
+        "arXiv:2105.07885"
+      ],
+      "rationale": "The theorem isolates an exact scalar invariant alpha=E/D governing both halves of a published parameter conjecture and computes a sharp algebraic obstruction from a canonical boundary family. Although it does not prove the conjectured interval, it gives a mathematically interpretable outer parameter envelope and a reusable reduction for any future sufficiency analysis.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI 10.1186/s13660-015-0947-2",
+    "https://arxiv.org/abs/2105.07885",
+    "DOI 10.1007/s00454-017-9917-4",
+    "DOI 10.3390/math7080726",
+    "DOI 10.1080/0025570X.2026.2653460",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only a necessary outer parameter window is proved; sufficiency is not claimed.",
+    "The boundary family is not claimed globally strongest."
+  ],
+  "residual_risks": [
+    "Full text of several plausible later triangle-inequality papers listed by the package was not independently inspected in this run; accessible indexing/searches did not expose an equivalent defect-ratio theorem.",
+    "The isosceles boundary family need not be the globally strongest obstruction."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "EXACT_OPEN_CONJECTURE_NOT_OBSTRUCTION",
+      "evidence": "Conjecture 6.3 asserts the double inequality for 0.48<=k<=1.36 and does not state the defect-ratio reduction or the wider necessary outer bounds.",
+      "identifier_or_url": "https://doi.org/10.1186/s13660-015-0947-2",
+      "material_read": "Complete open publisher article, including Sections 4-6 and the exact Conjecture 6.3 statement.",
+      "method": "Lawful open-access full-text inspection.",
+      "title": "Refinements of the Erdös-Mordell inequality, Barrow's inequality, and Oppenheim's inequality",
+      "trigger": "Exact source of Conjecture 6.3 and definitions used in the reduction."
+    },
+    {
+      "assessment": "DIFFERENT_WEIGHTED_FAMILY",
+      "evidence": "Its weights satisfy multiplicative constraints and yield different weighted inequalities; it does not state Liu Conjecture 6.3's defect-ratio parameter reduction.",
+      "identifier_or_url": "https://arxiv.org/abs/2105.07885",
+      "material_read": "ArXiv full text covering introduction, weighted main theorems, coefficient constraints and applications.",
+      "method": "Lawful arXiv full-text inspection.",
+      "title": "A family of weighted Erdős-Mordell inequality and applications",
+      "trigger": "Later primary work with a broad weighted Erdős-Mordell title and potential stronger coverage."
+    }
+  ]
+}
