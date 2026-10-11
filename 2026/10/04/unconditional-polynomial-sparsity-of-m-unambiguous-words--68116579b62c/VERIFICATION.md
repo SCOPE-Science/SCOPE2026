@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run:
+# Independent mathematical audit
 
-`python3 verify.py`
+## correctness
 
-The script builds the full Parikh signature from scattered occurrences of every consecutive alphabet block. It enumerates every binary word of length at most \(9\) and every ternary word of length at most \(7\), groups words by exact signature, and verifies that the number of singleton fibers is at most both the number of realized signatures and
-\[
-\prod_{\ell=1}^{s}\left(\binom{n}{\ell}+1\right)^{s-\ell+1}.
-\]
-For every enumerated word it also checks each length-\(\ell\) entry against the cap \(\binom{n}{\ell}\).
+PASS
 
-As a separate implementation check, the exact binary number of \(M\)-unambiguous words of length \(m\) is verified to equal \(6m-10\) for \(4\le m\le9\), matching the formula quoted in the 2020 source. The polynomial exponent identity
-\[
-\sum_{\ell=1}^{s}\ell(s-\ell+1)=\binom{s+2}{3}
-\]
-is checked for \(2\le s\le50\).
+For every consecutive alphabet block of length \(\ell\), the corresponding Parikh-matrix entry is a scattered-subword count between zero and \(\binom n\ell\), and there are exactly \(s-\ell+1\) such nonconstant entries. Treating them independently therefore bounds the total matrix image by the displayed product. Two distinct \(M\)-unambiguous words cannot share a matrix, so singleton fibers inject into that image. The exponent is \(\sum_{\ell=1}^s\ell(s-\ell+1)=\binom{s+2}{3}\), while the total word count is geometric. Fresh independent arithmetic verified the exponent identity for \(2\le s<20\); no finite experiment is used to prove the all-\(n\) bound.
 
-These finite computations do not certify the theorem for unbounded \(n\). The infinite claim is proved by the symbolic matrix-range counting argument in `RESULT.md`.
+## originality
+
+PASS
+
+Teh's 2020 primary paper was materially inspected in full: Theorem 3.1 proves density zero only under Şerbănuţă's conjecture, and the paragraph immediately afterward explicitly leaves the unconditional conclusion open. Later Hahn–Cheon–Han work solves the structural \(M\)-unambiguity problem for the ternary alphabet, while its current abstract says the problem had remained open for larger alphabets; it does not imply an arbitrary-fixed-alphabet density theorem. Fresh Resultary searches returned no covering result.
+
+## value
+
+PASS
+
+The theorem directly resolves an explicit published open density question without the conjectural hypothesis used in the source and strengthens the answer to polynomial sparsity for every fixed alphabet. It remains useful independently of the much harder word-by-word structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

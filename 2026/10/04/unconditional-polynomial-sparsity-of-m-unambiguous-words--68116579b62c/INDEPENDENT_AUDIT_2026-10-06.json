@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T07:58:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 6c4fbe8b593d8114cce489d54bca80ffd541be1e",
+        "verify.py blob bbcd8c275b10d9827388e5d4a442c34cfe2ce925",
+        "Teh Parikh-matrix entry definition",
+        "fresh exponent-identity replay"
+      ],
+      "rationale": "For every consecutive alphabet block of length \\(\\ell\\), the corresponding Parikh-matrix entry is a scattered-subword count between zero and \\(\\binom n\\ell\\), and there are exactly \\(s-\\ell+1\\) such nonconstant entries. Treating them independently therefore bounds the total matrix image by the displayed product. Two distinct \\(M\\)-unambiguous words cannot share a matrix, so singleton fibers inject into that image. The exponent is \\(\\sum_{\\ell=1}^s\\ell(s-\\ell+1)=\\binom{s+2}{3}\\), while the total word count is geometric. Fresh independent arithmetic verified the exponent identity for \\(2\\le s<20\\); no finite experiment is used to prove the all-\\(n\\) bound.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Teh's density theorem depends on a conjecture and explicitly leaves unconditional density zero open.",
+          "The later work gives a complete ternary structural characterization and describes the larger-alphabet characterization as open, not a general density theorem."
+        ],
+        "reasoning": "A ternary characterization is finer for three letters but does not dominate a theorem for every fixed alphabet size.",
+        "searches": [
+          "Teh 2020 full open PDF",
+          "Hahn–Cheon–Han 2023 ternary full-text publication",
+          "Hahn–Cheon–Han journal expansion DOI:10.1142/S0129054125410047"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.19184/ijc.2020.4.1.1",
+        "DOI:10.1007/978-3-031-40247-0_10",
+        "DOI:10.1142/S0129054125410047",
+        "Resultary M-unambiguous density search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Teh's theorem cannot imply the submitted result without the conjectural hypothesis that the new argument removes.",
+          "For fixed alphabet size \\(s\\), every Parikh-matrix entry counting a consecutive block of length \\(\\ell\\) lies in \\(0,\\ldots,\\binom n\\ell\\), while there are only \\(s-\\ell+1\\) such entries.",
+          "Distinct \\(M\\)-unambiguous words must have distinct matrices, so the entire exceptional set injects into this polynomial-size range."
+        ],
+        "reasoning": "The polynomial image-size argument is a separate unconditional implication, not a corollary of the conditional or ternary prior results.",
+        "searches": [
+          "Teh Theorem 3.1",
+          "Teh open-problem paragraph",
+          "Hahn–Cheon–Han ternary characterization",
+          "audited finite-range counting proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Density zero of \\(M\\)-unambiguous words is equivalent to saying singleton fibers of the Parikh-matrix map are negligible among all words.",
+          "The submitted theorem proves the stronger statement that the total number of singleton-fiber words up to length \\(n\\) is polynomial for every fixed alphabet."
+        ],
+        "reasoning": "The matrix-image counting formulation is quantitatively stronger than the open density formulation and directly implies it.",
+        "searches": [
+          "Teh, DOI:10.19184/ijc.2020.4.1.1, Theorem 3.1 and following paragraph",
+          "Hahn–Cheon–Han, DOI:10.1007/978-3-031-40247-0_10",
+          "Resultary query: M-unambiguous Parikh matrices density zero polynomial sparsity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact Resultary theorem or standard table of singleton Parikh-matrix fibers was located."
+        ],
+        "reasoning": "The result is an asymptotic theorem, so no numerical table is naturally decisive; the exact comparison is Teh's stated open unconditional implication.",
+        "searches": [
+          "Resultary Parikh-matrix density/sparsity query, top 12 results",
+          "targeted web searches for M-unambiguous polynomial count and number of Parikh matrices"
+        ]
+      },
+      "rationale": "Teh's 2020 primary paper was materially inspected in full: Theorem 3.1 proves density zero only under Şerbănuţă's conjecture, and the paragraph immediately afterward explicitly leaves the unconditional conclusion open. Later Hahn–Cheon–Han work solves the structural \\(M\\)-unambiguity problem for the ternary alphabet, while its current abstract says the problem had remained open for larger alphabets; it does not imply an arbitrary-fixed-alphabet density theorem. Fresh Resultary searches returned no covering result.",
+      "residual_risks": [
+        "Because the counting proof is elementary, an unindexed note, thesis or short remark may have observed the same polynomial image bound.",
+        "The exponent is only a convenient upper bound and is not claimed optimal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONDITIONAL_DENSITY_THEOREM_EXPLICITLY_LEAVES_UNCONDITIONAL_CASE_OPEN",
+          "evidence": "Theorem 3.1 assumes Şerbănuţă's conjecture, and the next paragraph says the same conclusion without that assumption is left open.",
+          "identifier_or_url": "DOI:10.19184/ijc.2020.4.1.1",
+          "material_read": "Complete nine-page open-access PDF, including the Parikh-matrix entry formula, Theorem 3.1, its proof, and the following open-problem paragraph; the critical theorem/open-problem pages were visually inspected.",
+          "method": "Full-text hypothesis and implication comparison.",
+          "title": "On M-unambiguity of Parikh matrices",
+          "trigger": "Direct source of the conditional density theorem and explicit open question."
+        },
+        {
+          "assessment": "TERNARY_STRUCTURAL_RESULT_NOT_GENERAL_DENSITY_THEOREM",
+          "evidence": "The paper solves the ternary characterization; it does not state the arbitrary-fixed-alphabet polynomial image bound.",
+          "identifier_or_url": "DOI:10.1007/978-3-031-40247-0_10",
+          "material_read": "Primary full-text material covering the ternary \\(M\\)-equivalence and \\(M\\)-unambiguity characterization and conclusion.",
+          "method": "Alphabet-scope and implication comparison.",
+          "title": "M-equivalence of Parikh Matrix over a Ternary Alphabet",
+          "trigger": "Most relevant later structural solution."
+        },
+        {
+          "assessment": "TERNARY_SCOPE_NOT_COVERING",
+          "evidence": "The abstract advertises a solution of \\(M\\)-unambiguity for a ternary alphabet and a weak-\\(M\\) relation generalization, not a global density theorem.",
+          "identifier_or_url": "DOI:10.1142/S0129054125410047",
+          "material_read": "Publisher abstract and current scope statement.",
+          "method": "Later-publication scope check.",
+          "title": "Characterizations of M-Equivalence and Weak M-Relation",
+          "trigger": "Current journal expansion of the ternary work."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.19184/ijc.2020.4.1.1",
+        "DOI:10.1007/978-3-031-40247-0_10",
+        "DOI:10.1142/S0129054125410047",
+        "Resultary M-unambiguous density search"
+      ],
+      "rationale": "The theorem directly resolves an explicit published open density question without the conjectural hypothesis used in the source and strengthens the answer to polynomial sparsity for every fixed alphabet. It remains useful independently of the much harder word-by-word structural classification.",
+      "residual_risks": [
+        "Because the counting proof is elementary, an unindexed note, thesis or short remark may have observed the same polynomial image bound.",
+        "The exponent is only a convenient upper bound and is not claimed optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.19184/ijc.2020.4.1.1",
+    "DOI:10.1007/978-3-031-40247-0_10",
+    "DOI:10.1142/S0129054125410047",
+    "Resultary M-unambiguous density search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every fixed ordered alphabet of size \\(s\\ge2\\), the number \\(U_\\Sigma(n)\\) of \\(M\\)-unambiguous words of length at most \\(n\\) is at most \\(\\prod_{\\ell=1}^s(\\binom n\\ell+1)^{s-\\ell+1}\\), hence is \\(O_s(n^{\\binom{s+2}{3}})\\) and has density \\(O_s(n^{\\binom{s+2}{3}}s^{-n})\\to0\\) among words of length at most \\(n\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Because the counting proof is elementary, an unindexed note, thesis or short remark may have observed the same polynomial image bound.",
+    "The exponent is only a convenient upper bound and is not claimed optimal.",
+    "The theorem does not characterize \\(M\\)-unambiguous words for alphabets of size at least four or claim a sharp polynomial exponent."
+  ]
+}
