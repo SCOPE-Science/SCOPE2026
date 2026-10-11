@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob cae2ce4bc0b81ff2b4f4cb63a34c19a1145cb128",
+        "assigned verify.py blob 1d2ae915184e1e95b54a89dd4f08c54e295fd741",
+        "Gorbunov--Burlachenko--Li--Richtárik arXiv:2102.07845"
+      ],
+      "rationale": "The regenerative proof closes the stated necessary-and-sufficient mean-square boundary. With normalized estimator \\(y_k=g_k/\\lambda\\), a compressed step multiplies it by \\(R=1-sZ\\), where \\(Z=(2/n)\\sum_i\\delta_i\\), \\(\\mathbb E Z=1\\), and \\(\\mathbb E Z^2=1+1/n\\). Between full-gradient refreshes, the geometric-length series \\(S\\) satisfies \\(S\\overset d=1+BRS'\\) with \\(B\\sim\\mathrm{Bernoulli}(1/2)\\). Its first two moment recursions give \\(m=2/(1+s)\\) and, after substitution into \\(\\psi_n(s)=\\mathbb E(1-sS)^2\\), \\(\\psi_n(s)-1=2s((n+2)s^2-ns-2n)/((1+s)(n+2ns-(n+1)s^2))\\). Independent symbolic reconstruction reproduced this identity exactly. On the candidate stable interval the denominator and within-cycle second moment are finite, so refresh-epoch contraction plus the regenerative convolution gives all-time second-moment convergence. At or above the positive root, the refresh subsequence does not converge in mean square; when the cycle second moment itself ceases to be finite this only strengthens necessity. The positive root is exactly \\(s_n=(n+\\sqrt{9n^2+16n})/(2(n+2))\\), with \\(s_1=1\\), strict increase to 2, and the stated expansion.",
+      "residual_risks": [
+        "The theorem is restricted to identical scalar Hessians, independent half-dropout compressors, and density-matched refresh probability one half.",
+        "Equivalent regenerative stability formulas may exist in randomly switched linear-system literature under non-MARINA terminology."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original paper gives general convergence guarantees and the density-matched choice \\(p=\\zeta_Q/d\\).",
+          "The permutation-compressor paper extends MARINA to correlated compressors and refines complexity via Hessian variance."
+        ],
+        "reasoning": "Those broader theorems control general objectives/communication complexity and do not imply the exact second-moment Schur/regenerative threshold of this scalar half-dropout model.",
+        "searches": [
+          "Gorbunov et al., MARINA: Faster Non-Convex Distributed Learning with Compression, arXiv:2102.07845",
+          "Szlendak--Tyurin--Richtárik, Permutation Compressors for Provably Faster Distributed Nonconvex Optimization, arXiv:2110.03300"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.07845",
+        "arXiv:2110.03300",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sufficient bound tending to one cannot imply the larger exact stable interval whose endpoint tends to two.",
+          "The exact root requires evaluating the refresh-to-refresh second-moment multiplier, which is absent from the inspected prior theorem."
+        ],
+        "reasoning": "The new claim is not a corollary of the known guarantee; it quantifies its conservatism on a canonical exact model.",
+        "searches": [
+          "MARINA sufficient bound \\(s\\le(1+n^{-1/2})^{-1}\\) versus audited exact root",
+          "general correlated-compressor complexity bounds versus scalar regenerative multiplier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's scalar specialization uses the same \\(p=1/2\\), \\(\\omega=1\\), and density one half but states a sufficient stepsize only.",
+          "No retrieved published finding states the same necessary-and-sufficient root \\(s_n\\)."
+        ],
+        "reasoning": "The regenerative-cycle formulation and the source's compressed-gradient formulation describe the same scalar process; the exact cycle multiplier is additional analysis.",
+        "searches": [
+          "Resultary: MARINA scalar quadratic half-dropout mean-square stability exact frontier refresh probability one half client averaging",
+          "arXiv:2102.07845 density-matched refresh and independent-compressor stepsize corollary",
+          "search aliases: regenerative random-coefficient recursion MARINA scalar compressed gradient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-result record or tabulated frontier was retrieved."
+        ],
+        "reasoning": "This is not a finite-table result; the database check targets the exact method/compressor/mean-square invariant.",
+        "searches": [
+          "Resultary current query for half-dropout MARINA exact mean-square stability frontier",
+          "targeted web search for MARINA scalar quadratic exact stability and half-dropout"
+        ]
+      },
+      "rationale": "The defining MARINA paper was inspected at the algorithm, expected-density definition and the independent-compressor stepsize corollary. For scalar half dropout its density-matched choice is exactly \\(p=1/2\\), and its theorem yields the sufficient restriction \\(s\\le(1+n^{-1/2})^{-1}\\); it does not give a necessary-and-sufficient scalar mean-square frontier. The later permutation-compressor paper broadens compressor structure and Hessian-variance analysis but does not supply this half-dropout regenerative boundary in the material inspected. Fresh Resultary searches for the same method, compressor, scalar quadratic and exact stability formula returned no equivalent published finding. The audited statement therefore survives implication-based comparison: it sharpens a sufficient theorem to an exact phase boundary on a natural benchmark rather than merely restating the source.",
+      "residual_risks": [
+        "A control-theory paper on regenerative/randomly switched scalar recursions could contain an equivalent formula without MARINA terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SUFFICIENT_BOUND_NOT_EXACT_SCALAR_FRONTIER",
+          "evidence": "The corollary specializes to \\(s\\le(1+n^{-1/2})^{-1}\\) for the audited scalar half-dropout setting.",
+          "identifier_or_url": "arXiv:2102.07845",
+          "material_read": "full accessible article sections containing the MARINA update, expected-density definition, independent-compressor theorem/corollary, and the choice p=zeta_Q/d",
+          "method": "primary full-text web inspection",
+          "title": "MARINA: Faster Non-Convex Distributed Learning with Compression",
+          "trigger": "defining paper and exact source of the compared density-matched stepsize"
+        },
+        {
+          "assessment": "BROADER_COMPLEXITY_CONTEXT",
+          "evidence": "The accessible material concerns refined general complexity and correlated compression, not an exact half-dropout mean-square phase boundary.",
+          "identifier_or_url": "arXiv:2110.03300",
+          "material_read": "primary abstract and scope describing correlated compressors, Hessian variance and quadratic experiments",
+          "method": "primary-source scope inspection",
+          "title": "Permutation Compressors for Provably Faster Distributed Nonconvex Optimization",
+          "trigger": "closest later MARINA refinement with quadratic experiments and compressor structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "MARINA defining paper",
+        "assigned exact regenerative proof"
+      ],
+      "rationale": "The model is the smallest density-matched MARINA benchmark and the exact boundary answers a concrete stability question left hidden by a general sufficient theorem. The dependence on client count is structurally informative: independent averaging continuously recovers the uncompressed ceiling two while the generic theorem saturates at one. An exact necessary-and-sufficient benchmark of a standard distributed optimizer is a motivated reusable fact, not an arbitrary scalar exercise.",
+      "residual_risks": [
+        "The result does not address heterogeneous Hessians or rate-optimal tuning inside the stable interval."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is restricted to identical scalar Hessians, independent half-dropout compressors, and density-matched refresh probability one half.",
+    "Equivalent regenerative stability formulas may exist in randomly switched linear-system literature under non-MARINA terminology.",
+    "A control-theory paper on regenerative/randomly switched scalar recursions could contain an equivalent formula without MARINA terminology.",
+    "The result does not address heterogeneous Hessians or rate-optimal tuning inside the stable interval."
+  ]
+}
