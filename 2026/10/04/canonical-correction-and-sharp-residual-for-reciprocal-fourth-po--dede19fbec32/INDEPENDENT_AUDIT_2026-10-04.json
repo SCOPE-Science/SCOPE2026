@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:10:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Panda–Dash–Dutta, arXiv:2609.31548, complete 12-page primary text obtained through authorized institutional access after open full-text retrieval failed",
+        "assigned RESULT.md blob 159b253f960c7909d87b5ae0c70bafb6dc119797",
+        "assigned verify.py blob 32025404b1cf74080f03a5f6f2dd329e8cd1e2a3",
+        "fresh independent high-precision Binet/tail replay"
+      ],
+      "rationale": "With lambda=3+2 sqrt(2), rho=lambda^-2=17-12 sqrt(2), and t=rho^n, Binet gives the tail in the convergent form S_n=1024 t^2 F(t), where F(t)=sum_{m>=0} binom(m+3,3)t^m/(1-rho^(m+2)). Formal inversion at t=0 and the exact Binet expansions of B_n^4-B_{n-1}^4 and B_{2n-1} show that only c=1/280 cancels the growing t^-1 term. For this c, coefficient comparison gives the stated constant 11001 sqrt(2)/2665600 and first correction -114672321(4+3 sqrt(2))/6933059000 rho^n with O(rho^(2n)). A fresh 70-digit independent tail computation at n=3,5,8 converged to the displayed constant and correction coefficient; choosing c=1/279 or 1/281 left a nonzero rho^-n-scale growth.",
+      "residual_risks": [
+        "The expansion is for the fourth-power balancing tail and does not claim an analogous formula for other powers or recurrences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper contains Binet preliminaries and sandwich inequalities but no expansion of the real inverse-tail residual.",
+          "The analogous cubic Fibonacci result concerns a different recurrence and power."
+        ],
+        "reasoning": "No inspected broader theorem specializes to the stated balancing fourth-power constants.",
+        "searches": [
+          "Complete Panda–Dash–Dutta paper",
+          "Resultary reciprocal Fibonacci/balancing tail residual searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.31548",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The floor theorem can imply boundedness for c=1/280 and divergence for c different from 1/280, so that portion is prior-covered.",
+          "It cannot identify where inside the unit floor interval the inverse tail lies, hence does not imply the residual limit or first correction."
+        ],
+        "reasoning": "The final claim survives originality because its sharp residual asymptotics are strictly stronger than the source integer-part theorem.",
+        "searches": [
+          "Primary floor formula versus real residual expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source floor theorem controls the residual only within a unit interval after an integer correction.",
+          "The audited result determines the actual residual limit and first exponential correction."
+        ],
+        "reasoning": "Floor information and real residual asymptotics are not equivalent; the latter strictly refines the former.",
+        "searches": [
+          "Resultary: balancing numbers reciprocal fourth powers inverse tail asymptotic residual unique 1/280",
+          "Panda–Dash–Dutta arXiv:2609.31548 complete paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact-constant hit was retrieved."
+        ],
+        "reasoning": "The constants arise from an analytic local series, not a known-table recomputation.",
+        "searches": [
+          "Resultary exact searches for 11001 sqrt(2)/2665600 and 114672321(4+3 sqrt(2))/6933059000"
+        ]
+      },
+      "rationale": "The primary paper proves an exact floor formula whose smooth correction contains B_{2n-1}/280. That theorem already makes 1/280 a natural coefficient and, together with elementary growth, essentially covers the bounded-versus-unbounded uniqueness portion. However, the complete 12-page paper does not determine the real residual S_n^{-1}-(B_n^4-B_{n-1}^4-B_{2n-1}/280), its limiting constant, or its exponentially small first correction. Those sharper real-valued asymptotics are not consequences of the floor identity alone. Current Resultary search found no earlier balancing-number residual expansion; the closest retrieved result is an analogous but different cubic Fibonacci-tail expansion.",
+      "residual_risks": [
+        "The uniqueness of 1/280 as a bounded correction is not itself novel; originality rests on the exact residual asymptotic expansion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FLOOR_FORMULA_BUT_NO_REAL_RESIDUAL_EXPANSION",
+          "evidence": "The theorem determines floor(S_n^{-1}); nowhere does the paper state the limiting real residual or its rho^n correction.",
+          "identifier_or_url": "arXiv:2609.31548",
+          "material_read": "Complete 12-page primary text, including Theorem 1.1, Binet preliminaries, key inequalities and proof",
+          "method": "Authorized institutional full-text inspection after arXiv/OA full-text fetch failure",
+          "title": "On the infinite sum of reciprocals of the fourth powers of balancing numbers",
+          "trigger": "Exact source of the fourth-power floor formula and coefficient 1/280"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Panda–Dash–Dutta primary paper",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The sharp residual explains the real analytic content hidden behind a recent exact floor theorem, identifies the canonical smooth correction, and gives a reusable exponentially accurate approximation. Exact residual expansions for reciprocal recurrence tails are a natural number-theoretic refinement, not a finite numerical slice.",
+      "residual_risks": [
+        "The main added value is the residual expansion; the boundedness uniqueness is a simple consequence of the source floor theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The expansion is for the fourth-power balancing tail and does not claim an analogous formula for other powers or recurrences.",
+    "The uniqueness of 1/280 as a bounded correction is not itself novel; originality rests on the exact residual asymptotic expansion.",
+    "The main added value is the residual expansion; the boundedness uniqueness is a simple consequence of the source floor theorem."
+  ]
+}

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the reciprocal tail from the Binet formula, obtains an exact analytic series in \(t=(17-12\sqrt2)^n\), and matches singular coefficients against the two natural balancing-number terms. The coefficient of \(t^{-1}\) is proportional to \(c-1/280\), proving uniqueness. Exact series inversion gives the limit and first correction. The packaged verifier independently checks the symbolic coefficients in \(\mathbb Q(\sqrt2)\) and finite direct tails.
+## correctness
 
-## Originality
-PASS. The directly relevant source arXiv:2609.31548v1 was inspected through its full HTML text. It proves the floor identity and uses the smooth term with coefficient \(1/280\), but it does not state a bounded-residual uniqueness theorem or an asymptotic residual expansion. Targeted semantic searches and exact-expression web searches did not find the claimed constants or an equivalent balancing-number statement. The closest published semantic match is a cubic Fibonacci-tail residual expansion, which is analogous in method but not in object, power, normalization or constants.
+PASS
 
-## Value
-PASS. The result explains why the source's denominator \(280\) is canonical: every other constant leaves an exponentially growing residual. The limiting offset and first correction quantify the source's smooth approximant and provide a reusable local expansion for further rounding or error questions.
+With lambda=3+2 sqrt(2), rho=lambda^-2=17-12 sqrt(2), and t=rho^n, Binet gives the tail in the convergent form S_n=1024 t^2 F(t), where F(t)=sum_{m>=0} binom(m+3,3)t^m/(1-rho^(m+2)). Formal inversion at t=0 and the exact Binet expansions of B_n^4-B_{n-1}^4 and B_{2n-1} show that only c=1/280 cancels the growing t^-1 term. For this c, coefficient comparison gives the stated constant 11001 sqrt(2)/2665600 and first correction -114672321(4+3 sqrt(2))/6933059000 rho^n with O(rho^(2n)). A fresh 70-digit independent tail computation at n=3,5,8 converged to the displayed constant and correction coefficient; choosing c=1/279 or 1/281 left a nonzero rho^-n-scale growth.
 
-## Closest literature and limitations
-The closest primary source is Panda, Dash and Dutta, arXiv:2609.31548v1. The closest semantic analogue located is the published published-finding corpus record on cubic reciprocal Fibonacci tails. The present claim is asymptotic and does not replace the source's exact all-\(n\) floor theorem; global monotonicity of the residual is not claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary paper proves an exact floor formula whose smooth correction contains B_{2n-1}/280. That theorem already makes 1/280 a natural coefficient and, together with elementary growth, essentially covers the bounded-versus-unbounded uniqueness portion. However, the complete 12-page paper does not determine the real residual S_n^{-1}-(B_n^4-B_{n-1}^4-B_{2n-1}/280), its limiting constant, or its exponentially small first correction. Those sharper real-valued asymptotics are not consequences of the floor identity alone. Current Resultary search found no earlier balancing-number residual expansion; the closest retrieved result is an analogous but different cubic Fibonacci-tail expansion.
+
+## value
+
+PASS
+
+The sharp residual explains the real analytic content hidden behind a recent exact floor theorem, identifies the canonical smooth correction, and gives a reusable exponentially accurate approximation. Exact residual expansions for reciprocal recurrence tails are a natural number-theoretic refinement, not a finite numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
