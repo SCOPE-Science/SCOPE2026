@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The infinite operator matrix is computed directly from the classical Cesàro matrix. Its exact positive Gram expansion has finite trace \(1\) and trivial kernel. For each integer \(n\ge1\), an \(n\)-dimensional consecutive-coordinate test space yields the lower eigenvalue bound using the norm-\(2\) backward difference. For \(n\ge2\), dyadic zero-sum blocks have codimension below \(7n\) and give the upper eigenvalue estimate. Both are min--max bounds on the infinite operator, not extrapolated from finite tests. The \(p>1/3\) criterion follows from the resulting two-sided cubic estimates. The bundled checker checks rational identities and block arithmetic; it cannot establish asymptotics by itself.
+
+**Originality (PASS, with bibliographic uncertainty).** Sang's August 2026 work concerns membership in a Toeplitz C*-algebra, a substantially weaker assertion concerning the compact self-commutator's individual eigenvalue decay. Feldman's complete public mathematical exposition of Berger--Shaw self-commutator results proves trace-class/compactness and trace estimates, not a cubic singular-value classification for this operator. Ma's related 2026 abstract gives hyponormality and a positive lower quadratic-form estimate for generalized Cesàro matrices; neither supplies both cubic min--max bounds or the exact Schatten threshold. Closest matched mathematical-research records concern Mellin-semigroup defects or a quasinilpotent weighted shift, mathematically distinct objects. The full text of Sang's plausible source and Ma's preprint could not be accessed, so exact duplicate coverage is a residual risk, not a verified absence.
+
+**Value (PASS).** The classical Cesàro matrix is a canonical nonnormal operator. Knowing only that its self-commutator has finite trace says nothing about the exact Schatten boundary below \(p=1\); the cubic spectral law gives the first explicit quantitative control across all quasi-ideals and a sharp weak endpoint for this naturally associated positivity defect. The result is not an arbitrary finite table or numerical bound.
+
+**Limits.** No leading spectral constant or generalized-parameter theorem is claimed. Independence and external mathematical certification have not occurred.
+
+Same-model review: passed. Independent audit: not yet performed.
