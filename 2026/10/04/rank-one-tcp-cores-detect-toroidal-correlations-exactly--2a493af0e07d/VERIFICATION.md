@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The mathematical proof is analytic. The packaged checker `artifacts/verify.py` was executed from its package path and returned `VERIFY_OK`.
 
-It verifies in exact arithmetic that the displayed \(Z_*\) equals \(U^*U\), has rank \(2\), has eigenvalues
-\[
-0,\quad 0,\quad 2-\frac{1}{\sqrt2},\quad 2+\frac{1}{\sqrt2},
-\]
-and that the coefficient matrix for the four Hermitian extremality constraints has determinant \(-1\). It also verifies the endpoint identities \(r_1=1\), \(s_1=4\), and \(M_1=J_4\), together with the PPT entry inequalities for the explicit witness.
+# Independent mathematical audit
 
-The checker does not certify the infinite family over all \(d\). That part is established by the rank-one TCP argument in `RESULT.md`: positivity of the sum \(J_d=\sum_k z_kz_k^*\) forces every \(z_k\) into the one-dimensional range of \(J_d\), after which the third TCP factor is automatically a toroidal convex decomposition. No finite experiment is used as a substitute for that proof.
+## correctness
+
+PASS
+
+In a TCP factorization, the all-ones second Gram matrix has rank one, so each factor vector product lies in its one-dimensional range. Coordinatewise moduli then force each vector contributing to the third Gram matrix to have constant modulus; the unit diagonal normalizes their squared moduli to convex weights, yielding a toroidal decomposition. The converse is the standard toroidal-core construction. The explicit four-dimensional Gram matrix has rank two and the four Hermitian face constraints have determinant minus one, proving extremality and therefore non-toroidality. Fresh exact symbolic reconstruction reproduced the rank, eigenvalues and extremality determinant.
+
+## originality
+
+PASS
+
+The defining recent abstract states a sufficient toroidal-core method and says every member of its four-dimensional family with parameter not equal to one is non-entanglement-breaking, leaving the endpoint outside that public conclusion. The older TCP/LDOI source connects triplewise complete positivity with separability but no inspected statement gives the necessity that an all-ones rank-one core forces the third correlation matrix to be toroidal. The assigned proof supplies that converse by a rank-one positive-sum argument and thereby converts the omitted endpoint into an exact iff classification. Full current-paper body access failed, so same-paper overlap remains an explicit residual risk rather than being denied.
+
+## value
+
+PASS
+
+The result supplies a reusable necessity theorem for a natural rank-one TCP core and resolves the single endpoint excluded from the recent family's public non-entanglement-breaking statement. The explicit higher-rank extreme correlation witness shows that both endpoint behaviors genuinely occur.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
