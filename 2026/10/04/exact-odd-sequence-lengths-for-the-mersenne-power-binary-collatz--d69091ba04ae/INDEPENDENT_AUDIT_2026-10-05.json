@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:10:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing \\(y=M_1\\) and \\(z=y+1=x(x+1)\\), the simultaneous \\(x\\)- and \\(x+1\\)-valuation reduces on \\(\\mathbb F_2[y]\\) to the \\(z\\)-valuation. For the normalized states \\(B_n\\), the submitted factorization gives an exact block transition \\(B_n\\mapsto B_{n+t}\\) in exactly \\(t\\) odd steps, with all but the last block step having valuation one. The block index strictly increases, cannot pass the next power of two, and its two-adic valuation increases at block boundaries, so the total step count telescopes to the distance from \\(n\\) to that power of two. A fresh exact bit-polynomial implementation independently replayed every allowed starting index through \\(R=8\\), checking each block endpoint and intermediate valuation; the universal conclusion rests on the symbolic block proof.",
+      "risk": "The proof is specific to the stated Mersenne-power family and does not settle the source paper's other length conjectures.",
+      "sources": [
+        "Gallardo--Rahavandrainy, arXiv:2510.07530v1, Conjecture 3.1",
+        "independent exact \\(\\mathbb F_2[y]\\) replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source proves eventual behavior and finite bounds for the general map, then separately poses the submitted family-length statement as a conjecture."
+        ],
+        "reasoning": "General eventual periodicity/stopping results do not determine the exact number of odd terms in this special family.",
+        "searches": [
+          "arXiv:2510.07530v1 full text and references to Behajaina--Paran and Alon--Behajaina--Paran"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.07530v1",
+        "DOI:10.33044/REVUMA.5555",
+        "Resultary semantic corpus",
+        "primary references on polynomial Collatz dynamics named by the focal paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source says, in substance, that for \\(n=2^R-j\\) the observed odd-sequence length should be \\(j+1\\), and presents examples.",
+          "No preceding theorem in the paper supplies the exact block transition or a length formula strong enough to imply that conjecture."
+        ],
+        "reasoning": "The submitted valuation-factorization argument resolves rather than specializes an already proved source result.",
+        "searches": [
+          "arXiv:2510.07530v1 Section 3.1 / Conjecture 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper explicitly labels the statement Conjecture 3.1 and illustrates it computationally.",
+          "No distinct proof of Conjecture 3.1 was located in the focused searches."
+        ],
+        "reasoning": "The family was searched by the original polynomial notation, sequence-length wording, and valuation/block-dynamics aliases.",
+        "searches": [
+          "Resultary query: binary polynomial Collatz Mersenne power odd sequence length Gallardo Rahavandrainy Conjecture 3.1",
+          "web searches for \\(M_1^{2^R-j}+1\\) and odd-sequence length \\(j+1\\)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary source's finite table supports the conjecture but is not a proof; no independent exact all-\\(R\\) table/theorem was found."
+        ],
+        "reasoning": "Finite computations cannot imply the all-\\(R\\) statement; the novelty is the universal block proof.",
+        "searches": [
+          "Resultary exact Conjecture 3.1 query",
+          "targeted exact-family web search"
+        ]
+      },
+      "rationale": "The focal paper states this exact formula as Conjecture 3.1 after presenting computations; its full text contains examples but no proof. Fresh Resultary and web searches for the family, exponent window, and \\(j+1\\) sequence length did not locate a later proof or stronger theorem. Related polynomial-Collatz papers study general stopping/periodicity questions or different families and do not imply this exact block identity.",
+      "residual_risks": [
+        "A very recent proof under different notation could be unindexed; no such source appeared in bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_CONJECTURE",
+          "evidence": "The paper states the family-length formula as Conjecture 3.1 and supplies examples for exponents 9 through 16, not a proof.",
+          "identifier_or_url": "arXiv:2510.07530v1",
+          "material_read": "Full open PDF around the general dynamics, computational section, and Section 3.1; Conjecture 3.1 and its examples were visually inspected on the page.",
+          "method": "Lawful open full-text PDF inspection with screenshot.",
+          "title": "A variant of Collatz's Conjecture over Binary Polynomials",
+          "trigger": "Exact source of Conjecture 3.1."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result proves a named, explicit conjecture about an infinite family in a current polynomial-Collatz paper and explains the exact length through a structural block transition rather than extending a finite census. This is a natural exact dynamical fact with clear mathematical motivation.",
+      "risk": "It resolves only Conjecture 3.1, not the source paper's other conjectures or a general worst-case stopping-time problem.",
+      "sources": [
+        "arXiv:2510.07530v1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Gallardo--Rahavandrainy Conjecture 3.1 holds: for \\(M_1=x^2+x+1\\), \\(R\\ge1\\), and \\(0\\le j\\le2^{R-1}-1\\), the odd binary-polynomial Collatz sequence starting from \\(M_1^{2^R-j}+1\\) has exactly \\(j+1\\) terms.",
+  "limitations": [
+    "All algebra is over \\(\\mathbb F_2\\) and the claim is restricted to the stated \\(M_1\\)-power family.",
+    "The finite replay through \\(R=8\\) is corroborative, not the infinite proof."
+  ],
+  "schema_version": 1
+}
