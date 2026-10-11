@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:52:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8a76f87218e9534de4ffec9fad4a2d10371f90cb",
+        "arXiv:2212.13642 full primary PDF",
+        "independent SVD/eigenvalue checks"
+      ],
+      "rationale": "For U=P Sigma Q^T, orthogonal similarity by diag(P,Q) gives [[i gamma I,Sigma],[Sigma,-i gamma I]], then a coordinate permutation yields blocks B_j=[[i gamma,sigma_j],[sigma_j,-i gamma]]. Each satisfies B_j^2=(sigma_j^2-gamma^2)I. At gamma=sigma_j>0 the block is nonzero rank-one nilpotent with square zero, hence J_2(0); repeated singular values give independent copies. At gamma=0 zero singular values are semisimple. The algebraic proof is complete.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem directly applies to arbitrary real U; the scalar gain/loss blocks remain invariant under the same basis changes."
+        ],
+        "reasoning": "The standard theorem plus a two-by-two calculation dominates the full spectral claim.",
+        "searches": [
+          "standard SVD theorem",
+          "Jordan--Wielandt/Hermitian dilation theorem",
+          "Moreno-Rodriguez et al. model"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2212.13642",
+        "DOI:10.1063/5.0199771",
+        "standard SVD/Jordan--Wielandt theorem",
+        "Resultary model query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjugating by diag(P,Q) produces [[i gamma I,Sigma],[Sigma,-i gamma I]]; interlacing yields the claimed blocks. At sigma=gamma>0 each block is rank-one nilpotent and hence J_2(0)."
+        ],
+        "reasoning": "Every substantive conclusion is mechanically implied.",
+        "searches": [
+          "SVD U=P Sigma Q^T applied to the exact source Hamiltonian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper uses H=[[i gamma I,U],[U^T,-i gamma I]] and for larger networks studies real/imaginary fractions numerically; standard SVD diagonalizes U under separate orthogonal changes of basis."
+        ],
+        "reasoning": "The audited dimer form is exactly the SVD normal form of the bipartite coupling with a scalar diagonal perturbation.",
+        "searches": [
+          "Moreno-Rodriguez et al. arXiv:2212.13642 / Chaos 34, 053116 (2024)",
+          "standard singular-value decomposition and Jordan--Wielandt matrix",
+          "Resultary query: balanced bipartite gain loss Hamiltonian singular values dimer reduction exceptional point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No model-specific table is needed because stronger general implication is decisive."
+        ],
+        "reasoning": "Failure to find identical wording does not restore novelty.",
+        "searches": [
+          "Resultary model query",
+          "standard linear-algebra theorem corpus"
+        ]
+      },
+      "rationale": "The model paper writes exactly the balanced block matrix with scalar +/- i gamma identity blocks and U/U^T coupling. The claimed all-size reduction is a direct application of standard SVD/Jordan--Wielandt theory: U=P Sigma Q^T and diag(P,Q) immediately produces independent 2 by 2 dimers because the diagonal gain/loss blocks are scalar. The eigenvalue counts and size-two Jordan behavior then follow routinely. Under implication-level originality, the result is covered by standard linear algebra even though the application paper itself uses finite-size formulas and numerics.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STANDARD_SVD_DECISIVELY_IMPLIES_AUDITED_REDUCTION",
+          "evidence": "The off-diagonal blocks are U and U^T and the gain/loss blocks are scalar identities, exactly the setting where left/right singular-vector bases diagonalize the coupling.",
+          "identifier_or_url": "arXiv:2212.13642; DOI:10.1063/5.0199771",
+          "material_read": "Full primary PDF portions defining the balanced block Hamiltonian and discussing N=4 formulas followed by larger-N numerical real/imaginary eigenvalue fractions; PDF page images were inspected.",
+          "method": "Same-matrix comparison against standard SVD.",
+          "title": "Stability mapping of bipartite tight-binding graphs with losses and gain: PT-symmetry and beyond",
+          "trigger": "Primary same-model source."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "standard SVD/Jordan--Wielandt theorem",
+        "Moreno-Rodriguez et al."
+      ],
+      "rationale": "For this exact block form the result is an immediate textbook SVD reduction followed by a two-by-two calculation. It is explanatory for the application paper but, under the stated bar rejecting routine textbook deductions and mechanically implied corollaries, it is not an independently valuable mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2212.13642",
+    "DOI:10.1063/5.0199771",
+    "standard SVD/Jordan--Wielandt theorem",
+    "Resultary model query"
+  ],
+  "disposition": "failed",
+  "final_claim": "For H_gamma(U)=[[i gamma I,U],[U^T,-i gamma I]], SVD reduces the matrix to independent 2 by 2 dimers indexed by singular values; the characteristic polynomial, real/imaginary counts, and EP2-only Jordan structure follow.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for decisive standard-theorem implication and routine-value status, not for correctness."
+  ]
+}
