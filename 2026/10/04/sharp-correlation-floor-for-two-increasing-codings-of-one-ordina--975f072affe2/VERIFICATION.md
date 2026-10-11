@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic for the covariance and squared-correlation inequalities.
+# Independent mathematical audit
 
-For random rational probability profiles and two random strictly increasing rational score vectors it verifies:
+## correctness
 
-- the centered cumulative-cut decomposition;
-- the exact cut covariance matrix;
-- that the least cut-pair correlation occurs at the first and last cuts;
-- the strict global lower correlation inequality for \(m\ge3\);
-- exact correlation one for positive affine recodings;
-- the two-category equality case;
-- the equal-mass floor \(1/(m-1)\).
+PASS
 
-It also constructs opposite one-dominant-gap score families and numerically checks convergence toward the sharp endpoint.
+The cut-indicator proof reconstructs. With positive adjacent gaps, centered scores are positive combinations of nested upper-cut indicators H_j. Their covariance is P_min(1-P_max), and the normalized cut correlation is minimized by j=1,k=m-1, giving squared floor p1*pm/((1-p1)(1-pm)). Positivity plus the L2 triangle inequality transfers this floor to arbitrary strict codings; diagonal terms make it strict for m>=3. Dominant first-versus-last gap sequences approach the floor, Cauchy--Schwarz gives correlation at most one with equality exactly for positive affine recodings, and connectedness gives the entire interval. An independent random-gap stress test for m=3,...,7 approached but never crossed the bound.
 
-Finite replay is supplementary. The universal result is established by the exact cut covariance formula and the Hilbert-space triangle inequality in `RESULT.md`.
+## originality
 
-Independent audit has not been performed.
+PASS
 
-Exact-rational replay result: `VERIFY_OK decomposition_checks=5000 cut_covariance_checks=97406 cut_minimum_checks=2500 global_lower_checks=2127 affine_checks=2500 binary_checks=373 boundary_checks=2127 equal_mass_checks=98`.
+Best-of-knowledge originality passes. Checked sources establish qualitative association or optimize correlation with fixed marginals/couplings, but no inspected result gives the exact endpoint-mass floor when both score vectors vary over all strict increasing codings of one fixed ordinal law.
+
+## value
+
+PASS
+
+The exact worst Pearson agreement between arbitrary order-preserving codings of a fixed ordinal law is a natural robustness question. The theorem identifies the full attainable range and shows that only endpoint category masses control the worst case, substantially sharpening qualitative positive association.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,36 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every centered increasing coding is a positive combination of centered cumulative-cut indicators. Their covariance is explicit:
-\[
-\operatorname{Cov}(H_j,H_k)
-=
-P_{\min(j,k)}
-\left(1-P_{\max(j,k)}\right).
-\]
-The normalized cut correlation is minimized uniquely at the two most separated cuts, producing the endpoint-mass constant.
+PASS
 
-Applying this minimum ray correlation to the positive bilinear gap expansion, then using the \(L^2\) triangle inequality for each score vector, proves the lower bound. Positive gaps make the bound strict for at least three categories. Opposite one-dominant-gap limits prove sharpness. Cauchy--Schwarz gives the upper endpoint and its exact affine equality condition.
+The cut-indicator proof reconstructs. With positive adjacent gaps, centered scores are positive combinations of nested upper-cut indicators H_j. Their covariance is P_min(1-P_max), and the normalized cut correlation is minimized by j=1,k=m-1, giving squared floor p1*pm/((1-p1)(1-pm)). Positivity plus the L2 triangle inequality transfers this floor to arbitrary strict codings; diagonal terms make it strict for m>=3. Dominant first-versus-last gap sequences approach the floor, Cauchy--Schwarz gives correlation at most one with equality exactly for positive affine recodings, and connectedness gives the entire interval. An independent random-gap stress test for m=3,...,7 approached but never crossed the bound.
 
-## Originality
+## originality
 
-PASS, with a residual classical association/isotonic-cone risk. Karlin's complete article was inspected through the association-array definition, the indicator-function reduction for monotone functions, examples, and extensions. It provides the relevant cone decomposition but does not state the fixed-profile Pearson-correlation floor or its endpoint-mass formula.
+PASS
 
-Cuadras--Cuadras provide a covariance-kernel framework for correlations between functions, while Barbiero studies attainable correlations by changing couplings with fixed ordinal margins. Neither accessible statement solves the present problem, where the common category probabilities are fixed and both order-preserving numerical score vectors vary.
+Best-of-knowledge originality passes. Checked sources establish qualitative association or optimize correlation with fixed marginals/couplings, but no inspected result gives the exact endpoint-mass floor when both score vectors vary over all strict increasing codings of one fixed ordinal law.
 
-The closest prior fixed-profile ridit theorem fixes one score vector and therefore has a different, stronger profile-dependent lower bound. It does not imply the two-free-score minimum, and the present result does not imply the ridit-specific constant.
+## value
 
-Exact-formula, alias, and semantic searches did not locate the claimed endpoint-mass floor.
+PASS
 
-## Value
+The exact worst Pearson agreement between arbitrary order-preserving codings of a fixed ordinal law is a natural robustness question. The theorem identifies the full attainable range and shows that only endpoint category masses control the worst case, substantially sharpening qualitative positive association.
 
-PASS. Numerical coding of ordinal categories is inherently nonunique. The theorem gives the complete worst-case Pearson agreement between any two order-preserving codings once category frequencies are known. It identifies a simple endpoint-frequency robustness certificate, characterizes the extremal recodings, and gives the transparent equal-frequency benchmark
-\[
-\frac1{m-1}.
-\]
-This is a natural complete classification of coding sensitivity rather than a selected finite example.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-Exact-rational replay: `VERIFY_OK decomposition_checks=5000 cut_covariance_checks=97406 cut_minimum_checks=2500 global_lower_checks=2127 affine_checks=2500 binary_checks=373 boundary_checks=2127 equal_mass_checks=98`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
