@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem was checked from the stated definitions and cited source results, with no numerical or finite-exhaustion step.
+# Independent mathematical audit
 
-For correctness, the decisive calculation is the exact \(N-1\)-prototype distortion. Any set of at most \(N-1\) centers forces two of the \(N\) empirical-limit atoms to use the same center. If their weights are \(p_i\le p_j\), their two distortion contributions are at least \(p_i d_W(\nu_i,\nu_j)\) by the triangle inequality. Minimizing over pairs gives the global lower bound \(\Delta\). Deleting the smaller-weight atom from a pair attaining \(\Delta\) gives an explicit center set with distortion at most \(\Delta\), hence equality.
+## correctness
 
-The argument was also checked for boundary cases. The theorem assumes \(N\ge2\). Every basin weight is positive, since a zero-weight basin could be removed without affecting the empirical-limit law and would contradict the minimal finite small-scale value. Distinctness of the finitely many empirical limits makes \(\Delta>0\). Because the emergence definition requires distortion strictly below \(\varepsilon\), the value remains \(N\) at \(\varepsilon=\Delta\).
+PASS
 
-No assertion is made about the exact emergence value after the first drop, nor about \(k\le N-2\) quantization errors. Those are outside the proved scope.
+Berger's finite-emergence theorem supplies N distinct almost-everywhere empirical limits and positive basin weights, and the quantization characterization identifies metric emergence with minimum average distance to a finite prototype set. For any N-1 centers, assigning each of the N atoms to a nearest center forces two atoms i,j to share one center c; their weighted contribution is at least \(\min(p_i,p_j)(d_i(c)+d_j(c))\ge\min(p_i,p_j)d_W(\nu_i,\nu_j)\ge\Delta\). Conversely, remove the lighter atom of a pair attaining Delta and retain every other atom as a center; the cost is at most Delta. Hence the optimal N-1 distortion is exactly Delta. The source's strict error convention then gives equality N at epsilon=Delta and a drop for every epsilon>Delta. The argument allows arbitrary centers, not only empirical atoms.
+
+## originality
+
+PASS
+
+Berger–Bochi provide the general identification of metric emergence with quantization of the ergodic decomposition, while Berger's new survey supplies the qualitative finite-basin conclusion. Neither inspected source evaluates the N-1 prototype distortion of a finite atomic law. Resultary and targeted facility-location/quantization searches did not locate the arbitrary-metric formula as an emergence breakpoint. The new content is the exact first finite-resolution threshold, not the general quantization formalism.
+
+## value
+
+PASS
+
+The first loss of a required statistical prototype is the natural finite-resolution invariant immediately after a qualitative finite-emergence theorem. The exact threshold is usable, depends transparently on basin mass and Wasserstein separation, and sharply preserves the source's strict endpoint convention. This is a meaningful finite cutoff rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

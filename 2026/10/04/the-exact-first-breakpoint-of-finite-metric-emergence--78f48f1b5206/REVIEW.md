@@ -1,15 +1,21 @@
-# Review of The exact first breakpoint of finite metric emergence
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite-basin premise is taken exactly from Berger's Theorem 1.4. The proof then reduces the emergence problem to the finite atomic empirical-limit law and computes the optimal \(N-1\)-prototype distortion. The lower bound allows arbitrary prototype measures and uses only a nearest-center assignment, pigeonhole principle, positive weights, and the triangle inequality. The explicit deletion of the smaller-weight member of a minimizing pair gives the matching upper bound. Endpoint behavior respects the source's strict \(<\varepsilon\) convention.
+## correctness
 
-## Originality
-PASS. The closest primary statements are Berger's finite-basin theorem and emergence-to-quantization theorem, together with Berger-Bochi's general quantization reformulation. They reduce the question to an optimization problem but do not state the exact \(N-1\)-center value in the inspected text. Targeted searches for finite-support quantization, weighted pair separation, physical-measure emergence thresholds, and k-median aliases did not locate an equivalent or stronger published claim. The main residual risk is that the elementary finite-metric lemma may be folklore in broad quantization or facility-location literature.
+PASS
 
-## Value
-PASS. The result supplies a canonical finite-resolution margin for a qualitative finite-emergence theorem. It answers the first nontrivial compression question exactly: how much average Wasserstein error is unavoidable before \(N\) distinct asymptotic statistics can be represented by fewer than \(N\) prototypes. The margin depends naturally on both basin mass and statistical separation.
+Berger's finite-emergence theorem supplies N distinct almost-everywhere empirical limits and positive basin weights, and the quantization characterization identifies metric emergence with minimum average distance to a finite prototype set. For any N-1 centers, assigning each of the N atoms to a nearest center forces two atoms i,j to share one center c; their weighted contribution is at least \(\min(p_i,p_j)(d_i(c)+d_j(c))\ge\min(p_i,p_j)d_W(\nu_i,\nu_j)\ge\Delta\). Conversely, remove the lighter atom of a pair attaining Delta and retain every other atom as a center; the cost is at most Delta. Hence the optimal N-1 distortion is exactly Delta. The source's strict error convention then gives equality N at epsilon=Delta and a drop for every epsilon>Delta. The argument allows arbitrary centers, not only empirical atoms.
 
-## Closest literature and limitations
-Berger, arXiv:2609.28264v1, gives the motivating finite-basin theorem and the quantization characterization. Berger-Bochi, arXiv:1901.03300 / *Advances in Mathematics* 390 (2021), gives the general Wasserstein quantization formulation. General quantization references were checked for broader coverage; no explicit arbitrary-metric formula matching the breakpoint was found, although a folklore occurrence cannot be excluded. The theorem does not solve lower prototype counts \(k\le N-2\), where the full weighted \(k\)-median geometry enters.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Berger–Bochi provide the general identification of metric emergence with quantization of the ergodic decomposition, while Berger's new survey supplies the qualitative finite-basin conclusion. Neither inspected source evaluates the N-1 prototype distortion of a finite atomic law. Resultary and targeted facility-location/quantization searches did not locate the arbitrary-metric formula as an emergence breakpoint. The new content is the exact first finite-resolution threshold, not the general quantization formalism.
+
+## value
+
+PASS
+
+The first loss of a required statistical prototype is the natural finite-resolution invariant immediately after a qualitative finite-emergence theorem. The exact threshold is usable, depends transparently on basin mass and Wasserstein separation, and sharply preserves the source's strict endpoint convention. This is a meaningful finite cutoff rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
