@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:53:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. In the incidence poset, a graph vertex is an up beat point exactly when it has degree one; an edge with both endpoints present has a two-point incomparable lower set and is not down beat. Deleting a leaf vertex makes its unique incident edge a down beat point, so the paired deletion exactly realizes one graph leaf-pruning step. Iteration leaves the incidence poset of each cyclic component's graph 2-core and one isolated point from each tree component. The surviving 2-core vertices have degree at least two, surviving edges have two incomparable endpoints, and isolated points have no strict upper/lower set, so the result has no beat points. Stong core uniqueness gives the homotopy classification, and a poset isomorphism of nontrivial incidence components preserves minimal vertices, maximal edges and incidence, hence recovers the simple graph. The exhaustive n<=6 replay is corroborative only.",
+      "risks": [
+        "The theorem is only for nonempty finite simple graphs; loops, multiedges and higher-dimensional face posets may change the beat-point analysis."
+      ],
+      "sources": [
+        "RESULT.md blob 23286cb2a914f06b4bc8538126f857a4fe7957ff",
+        "verify.py blob e53c231a12be54728ad3aa94f64f659a5eae6b9c",
+        "Costoya--Gomes--Viruel DOI:10.1007/s00025-024-02199-z"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barmak--Minian's graph results concern minimum cardinality within a weak homotopy type.",
+          "Costoya--Gomes--Viruel use minimum-degree-at-least-two incidence posets as minimal examples, which verifies the terminal mechanism but not the arbitrary-graph reduction."
+        ],
+        "reasoning": "The prior theory contains the ingredients, but no inspected theorem performs the complete graph-specific reduction and classification for every finite simple graph.",
+        "searches": [
+          "Barmak--Minian Minimal Finite Models",
+          "Costoya--Gomes--Viruel full open-access Section 3",
+          "general Stong core theorem searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0611156",
+        "DOI:10.1007/s00025-024-02199-z",
+        "Barmak LNM 2032 background",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general core theorem says homotopy classes are determined by beat-point-free cores but does not identify that core for graph incidence posets.",
+          "The leaf vertex + incident edge two-step deletion is exactly graph leaf pruning and yields C2(G), while tree components leave singleton cores."
+        ],
+        "reasoning": "The graph-specific identification is a genuine additional lemma; once established, the iff criterion follows from Stong uniqueness and graph recovery from incidence.",
+        "searches": [
+          "Direct beat-point/core theorem comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Costoya--Gomes--Viruel define exactly the incidence poset P_G and use graph degree >=2 in their minimal-space construction.",
+          "General finite-space sources identify beat-point-free cores as homotopy invariants but do not supply the graph-specific formula."
+        ],
+        "reasoning": "The searches cover incidence poset/face poset, Stong core, dismantling/beat points, graph leaf pruning and 2-core terminology.",
+        "searches": [
+          "Resultary: incidence poset graph Stong core graph 2-core leaf pruning homotopy classification",
+          "Barmak--Minian arXiv:math/0611156",
+          "Costoya--Gomes--Viruel DOI:10.1007/s00025-024-02199-z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database entry can subsume this all-graph structural formula; no independent exact record with the same classification was found."
+        ],
+        "reasoning": "Small graph enumerations would not prove the quantified classification.",
+        "searches": [
+          "Resultary same-object query",
+          "searches for 2-core face poset graph homotopy"
+        ]
+      },
+      "rationale": "PASS. Standard Stong theory gives beat-point reduction and uniqueness of the core, while Barmak--Minian study smallest finite models of graph homotopy types. The closest same-object 2024 paper explicitly defines graph incidence posets and arranges minimum graph degree at least two so the associated finite spaces are minimal, but its inspected full text does not state arbitrary leaf pruning, identify the core with the graph 2-core, or give the iff classification by C2(G) plus the number of tree components. A Resultary query for incidence-poset/2-core classification returned the audited record as the only direct match; neighboring Stong-core records concern different constructions.",
+      "residual_risks": [
+        "A short equivalent observation could occur in older dismantlable-poset or graph-poset literature under different terminology; search non-detection is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "It studies smallest finite models of graph homotopy types, a different extremal problem from the core of a given graph incidence poset.",
+          "identifier_or_url": "arXiv:math/0611156",
+          "material_read": "Abstract/full-text material on minimal finite models of finite graphs and core/beat-point background as surfaced in public copies.",
+          "method": "Primary/background statement comparison.",
+          "title": "Minimal Finite Models",
+          "trigger": "Foundational finite-space source likely to contain a stronger graph statement."
+        },
+        {
+          "assessment": "CLOSEST_SAME_OBJECT_NOT_COVERING",
+          "evidence": "It defines P_G and ensures selected graphs have degree at least two to obtain minimal finite spaces, but does not reduce arbitrary G by leaf pruning or state the 2-core classification.",
+          "identifier_or_url": "DOI:10.1007/s00025-024-02199-z",
+          "material_read": "Open-access full HTML around the graph construction and Section 3 incidence-poset definition.",
+          "method": "Direct primary full-text inspection.",
+          "title": "Realization of Permutation Modules via Alexandroff Spaces",
+          "trigger": "Closest published paper using exactly graph incidence posets and minimum-degree hypotheses."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. This is a natural complete classification for a standard graph-to-finite-space construction. It identifies a canonical, efficiently computable graph invariant exactly with the Stong core, distinguishes finite-space homotopy from weak graph homotopy, and gives an immediate decision criterion. Although the local beat-point moves are elementary, the all-graph core formula and classification are structurally reusable rather than a textbook one-line deduction.",
+      "risks": [
+        "Value is limited to graph incidence posets, not arbitrary height-two posets."
+      ],
+      "sources": [
+        "standard graph 2-core",
+        "Stong core uniqueness",
+        "Costoya--Gomes--Viruel incidence-poset construction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite regression through six vertices is not evidence for the infinite theorem; the symbolic reduction is the proof."
+  ],
+  "schema_version": 1
+}
