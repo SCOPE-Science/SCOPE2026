@@ -1,11 +1,21 @@
-# Review
-## Correctness
-PASS. The graph is specified combinatorially and reconstructed exactly. At scale \(1\), four legal elementary collapses reduce the clique complex to a connected graph of cycle rank \(3\). At scale \(2\), complete face enumeration gives \( (12,42,48,12)\), and the supplied 54-pair Forman matching has exactly one critical vertex and five critical triangles. Both stepwise free-face replay and an independent directed-Hasse acyclicity check pass. Diameter \(3\) closes the remaining scale.
+# Independent mathematical audit
 
-## Originality
-PASS with residual literature risk. The closest primary source, arXiv:2302.14388, classifies the Platonic solids and explicitly points toward Archimedean solids; it does not state a truncated-tetrahedron graph-metric result. A 2023 dissertation by Saleh mentions Archimedean point clouds in a Euclidean/spherical computational setting, which is a different metric problem. Targeted searches for the truncated tetrahedron together with Vietoris--Rips, clique-complex, graph-metric, and persistent-homology terminology found no statement implying the present complete four-regime classification. Search absence is not treated as proof of novelty.
+## correctness
 
-## Value
-PASS. The source literature names Archimedean solids as a natural extension of the completed Platonic calculation. This result gives a small exact Archimedean benchmark with a nontrivial change of homotopy dimension, and it supplies a compact certificate that can be reused when testing broader conjectures or methods for semiregular polyhedral graphs.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The ordered-pair definition reconstructs a 12-vertex cubic graph with 18 edges and diameter three. Independent clique enumeration gives face vectors (12,18,4) at scale one and (12,42,48,12) at scale two. At scale one, four free triangle-edge collapses leave a connected graph of cycle rank three. At scale two, an independent acyclic discrete-Morse matching was constructed with 54 matched pairs and critical-cell profile one vertex, no edges, five triangles and no tetrahedra; direct orientation of the full Hasse graph is acyclic. Thus the scale-two complex is a wedge of five 2-spheres, and diameter three makes the final scale a simplex.
+
+## originality
+
+PASS
+
+The closest primary source completely treats the five Platonic solids and explicitly presents Archimedean solids as a natural extension, but it does not include the truncated tetrahedron. Its metric is the same combinatorial shortest-path setting relevant here. A related Euclidean/spherical point-cloud direction does not imply this graph-power clique-complex filtration. Targeted Resultary search returned the audited truncated-tetrahedron result and later related graph examples, not an earlier covering theorem.
+
+## value
+
+PASS
+
+The closest primary work explicitly identifies Archimedean solids as a natural next class. The truncated tetrahedron is the smallest canonical benchmark in that direction, and the scale-two shift to a five-sphere wedge is a nontrivial exact homotopy invariant with a compact finite certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

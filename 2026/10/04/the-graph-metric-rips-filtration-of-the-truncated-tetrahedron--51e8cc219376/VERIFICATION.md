@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite verifier reconstructs the 12-vertex truncated tetrahedral graph from the ordered-pair definition and checks all graph distances. It verifies 18 edges, degree 3 at every vertex, and diameter 3.
+# Independent mathematical audit
 
-At scale \(1\), it enumerates the face vector \( (12,18,4)\), replays four legal elementary collapses, and confirms that the remainder is a connected graph with first Betti number \(3\).
+## correctness
 
-At scale \(2\), it enumerates the face vector \( (12,42,48,12)\), reads the complete matching certificate, checks all 54 matched pairs and six critical cells, and verifies that every matching step uses a unique active immediate coface. It separately orients the full Hasse diagram according to Forman's rule and confirms acyclicity. The critical-cell profile is \(c_0=1\), \(c_1=0\), \(c_2=5\), \(c_3=0\).
+PASS
 
-The verifier ends with `VERIFY_OK`. This is a finite exact check of the stated graph and matching; it does not constitute an independent audit and it does not address any Euclidean embedding metric.
+The ordered-pair definition reconstructs a 12-vertex cubic graph with 18 edges and diameter three. Independent clique enumeration gives face vectors (12,18,4) at scale one and (12,42,48,12) at scale two. At scale one, four free triangle-edge collapses leave a connected graph of cycle rank three. At scale two, an independent acyclic discrete-Morse matching was constructed with 54 matched pairs and critical-cell profile one vertex, no edges, five triangles and no tetrahedra; direct orientation of the full Hasse graph is acyclic. Thus the scale-two complex is a wedge of five 2-spheres, and diameter three makes the final scale a simplex.
+
+## originality
+
+PASS
+
+The closest primary source completely treats the five Platonic solids and explicitly presents Archimedean solids as a natural extension, but it does not include the truncated tetrahedron. Its metric is the same combinatorial shortest-path setting relevant here. A related Euclidean/spherical point-cloud direction does not imply this graph-power clique-complex filtration. Targeted Resultary search returned the audited truncated-tetrahedron result and later related graph examples, not an earlier covering theorem.
+
+## value
+
+PASS
+
+The closest primary work explicitly identifies Archimedean solids as a natural next class. The truncated tetrahedron is the smallest canonical benchmark in that direction, and the scale-two shift to a five-sphere wedge is a nontrivial exact homotopy invariant with a compact finite certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
