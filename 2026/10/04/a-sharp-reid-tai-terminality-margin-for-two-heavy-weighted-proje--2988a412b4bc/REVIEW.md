@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The local cyclic quotient ages are written explicitly in both heavy-coordinate charts. The proof shows that, throughout the canonical parameter triangle, every \(k\ge2\) age is bounded below by the \(k=1\) age. The canonical boundary is then exactly the locus where one of those first ages is \(1\), and terminality gives the sharp lower bound \(1+1/(3r-3)\). Exact rational replay through \(r=60\) confirms every step on all canonical parameter pairs in that range.
+## correctness
 
-## Originality
-PASS. Borisov's cyclic-quotient criterion and Kasprzyk's weighted-projective criterion cover the general Reid–Tai/fractional-part test, but the inspected sources do not state the two-heavy first-element minimization or the sharp all-dimensional terminality margin. Targeted published-finding corpus searches for the family, Reid–Tai ages, minimal-discrepancy language, and terminal weighted projective spaces returned no dominating statement. The closest indexed weighted-projective result concerned a different reflexive-simplex h-star problem.
+PASS
 
-Residual risk: an equivalent statement could be indexed under discrepancy-margin or epsilon-terminality terminology not reached by the searches.
+In each heavy chart the nontrivial ages are explicitly \((rk+(kb\bmod a))/a\) and \((rk+(ka\bmod b))/b\). Within the canonical triangle \(d=b-a\le r\), \(a\le r+d\), the displayed inequalities show every \(k\ge2\) age is at least the \(k=1\) age, giving the closed minimum formula. On the canonical boundary one first age equals one, while strict terminal inequalities make both chart minima greater than one. For terminal \(d>0\), \(B_1=1+(r-d)/b\), with \(d\le r-1\) and \(b\le r+2d-1\le3r-3\); equality forces \(d=r-1\), \(a=2r-2\), \(b=3r-3\), and the other chart is strictly higher. The inspected exact verifier exhausts all group elements through \(r=60\) as a regression check; the infinite theorem is established by the symbolic inequalities.
 
-## Value
-PASS. The theorem replaces all local group-element tests by two closed formulas and isolates a unique family closest to the canonical threshold in each dimension. This is a structural quantitative refinement of the terminal/canonical boundary, not a routine restatement of the qualitative criterion.
+## originality
 
-## Closest literature and limitations
-Primary background: A. Borisov, arXiv:math/0505167; A. M. Kasprzyk, arXiv:1304.3029. The theorem is restricted to \(\mathbb P(1^r,a,b)\), and the bundled finite computation is a regression check rather than the proof. The invariant is explicitly the minimum local Reid–Tai age in the heavy charts; no broader global minimal-log-discrepancy normalization is asserted.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Kasprzyk's primary work supplies the general weighted-projective fractional-part/Reid–Tai criterion, not the all-dimensional two-heavy quantitative margin. A highly relevant published SCOPE theorem was inspected in full: it already classifies the canonical/terminal parameter triangle and therefore covers that qualitative input. Its proof does not state the exact chart-minimum formula or optimize the terminal excess. The audited finding adds those quantitative steps and the unique sharp family \((2r-2,3r-3)\). Resultary also contains later/same-day consequences using this family for different invariants, but no prior theorem was found that implies the local-age margin itself.
+
+## value
+
+PASS
+
+The theorem turns qualitative terminality into an exact quantitative distance from the Reid–Tai threshold and identifies the unique weakest-terminal family in every dimension. That is a natural structural invariant of the already-motivated two-heavy classification, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
