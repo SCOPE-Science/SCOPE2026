@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T07:01:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gcd scaling and triangular count are correct. Fixing \\(g=\\gcd(a,b)\\) and writing \\(a=gc\\), \\(b-a=ge\\) turns the canonical region into the primitive two-heavy triangle with radius \\(R=\\lfloor r/g\\rfloor\\), and the terminal region into the same triangle with \\(R=\\lfloor(r-1)/g\\rfloor\\). The primitive count is \\(3\\Phi(R)\\). Fresh enumeration at \\(r=2,3,5,10\\) reproduced every per-g count.",
+      "risks": [
+        "The statement concerns the generic stabilizer order on the heavy-coordinate line, not every local analytic singularity type."
+      ],
+      "sources": [
+        "RESULT.md blob d8d64269011c73d484218b6ec9686e1f2d107bc9",
+        "verify_stabilizer_totient_distribution.py blob 3e77e13e4de901a400afda31750bd89ee35faab7",
+        "Published SCOPE totient-census RESULT blob 13eac94ae283f4f71ebbfe2b448467e94ca201f5"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The triangular-classification theorem gives \\(0\\le d\\le r, 1\\le a\\le r+d\\) and the strict terminal analogue.",
+          "The totient-census theorem gives the gcd interpretation and primitive triangular count for every radius."
+        ],
+        "reasoning": "Together these broader prior results dominate the submitted family-wide distribution after an elementary gcd scaling.",
+        "searches": [
+          "Published SCOPE: A triangular classification of canonical and terminal two-heavy weighted projective spaces",
+          "Published SCOPE: Totient census of isolated singular loci in two-heavy weighted projective spaces"
+        ]
+      },
+      "checked_sources": [
+        "Resultary prior-record search",
+        "Published SCOPE totient-census RESULT blob 13eac94ae283f4f71ebbfe2b448467e94ca201f5",
+        "Published SCOPE triangular-classification RESULT blob 2f011333a8976ebbc719313b464f57cc6613386e",
+        "arXiv:1304.3029"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed g, the submitted canonical constraints divide to \\(0\\le e\\le\\lfloor r/g\\rfloor\\), \\(1\\le c\\le\\lfloor r/g\\rfloor+e\\), exactly the prior primitive triangle at radius \\(R=\\lfloor r/g\\rfloor\\).",
+          "The terminal case is identically the prior primitive triangle at \\(R=\\lfloor(r-1)/g\\rfloor\\)."
+        ],
+        "reasoning": "The claim is a mechanical parameter substitution into the earlier exact primitive census, so the prior results imply the final theorem in full.",
+        "searches": [
+          "Implication comparison with published totient-census RESULT blob 13eac94ae283f4f71ebbfe2b448467e94ca201f5",
+          "Implication comparison with published triangular-classification RESULT blob 2f011333a8976ebbc719313b464f57cc6613386e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the prior totient-census theorem with exact counts \\(3\\Phi(r)\\), \\(3\\Phi(r-1)\\) and the same gcd(a,b) stabilizer criterion.",
+          "Its proof already counts primitive lattice points in the identical triangular region."
+        ],
+        "reasoning": "The all-g statement is exactly the prior primitive-count theorem after the scaling substitution \\(a=gc, d=ge\\).",
+        "searches": [
+          "Resultary: weighted projective P(1^r,a,b) zero-dimensional singular locus gcd(a,b)=1 3 Phi(r) 3 Phi(r-1) canonical terminal",
+          "Full published SCOPE RESULT: Totient census of isolated singular loci..."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior database entry 2026/10/4/SCOPE-totient-census-of-isolated-singular-loci-in-two-heavy-weighted-p--673851603aa9 was retrieved, along with the triangular-classification entry."
+        ],
+        "reasoning": "This is not merely similar database material: the retrieved prior formulas are the exact ingredients whose substitution yields every submitted value.",
+        "searches": [
+          "Resultary weighted-projective exact-count query"
+        ]
+      },
+      "rationale": "The final formulas are a direct rescaling corollary of two already published SCOPE results. The published triangular classification gives exactly the canonical/terminal parameter triangles. The published totient census proves both that the generic heavy-line stabilizer is governed by gcd(a,b) and that primitive points in those triangles are counted by \\(3\\Phi(R)\\) and \\(3\\Phi(R-1)\\). After fixing gcd g, division by g literally replaces r by \\(\\lfloor r/g\\rfloor\\) (or \\(\\lfloor(r-1)/g\\rfloor\\)); no new structural lemma is needed. This prior implication decisively covers the claimed all-g distribution.",
+      "residual_risks": [
+        "No residual originality risk can overturn the decisive direct implication from the two retrieved prior exact results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BY_DIRECT_RESCALING",
+          "evidence": [
+            "Proves gcd(a,b)=1 is exactly the primitive/generic-stabilizer-one condition and counts primitive canonical/terminal triangles as 3 Phi(r) and 3 Phi(r-1)."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-totient-census-of-isolated-singular-loci-in-two-heavy-weighted-p--673851603aa9; RESULT blob 13eac94ae283f4f71ebbfe2b448467e94ca201f5",
+          "material_read": "Complete published RESULT.md, including theorem, generic-stabilizer argument, primitive triangular count, and boundary count.",
+          "method": "Resultary semantic retrieval followed by full GitHub RESULT inspection.",
+          "title": "Totient census of isolated singular loci in two-heavy weighted projective spaces",
+          "trigger": "Closest published SCOPE theorem: same family, same gcd condition, same summatory-totient count."
+        },
+        {
+          "assessment": "FOUNDATIONAL_AND_COMBINED_COVERAGE",
+          "evidence": [
+            "Gives exactly the two inequalities whose division by fixed gcd g produces the smaller primitive triangle."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-a-triangular-classification-of-canonical-and-terminal-two-heavy--7f218dfae0e7; RESULT blob 2f011333a8976ebbc719313b464f57cc6613386e",
+          "material_read": "Complete published RESULT.md, including the Reid--Tai proof and exact canonical/terminal triangles.",
+          "method": "Resultary retrieval followed by full GitHub RESULT inspection.",
+          "title": "A triangular classification of canonical and terminal two-heavy weighted projective spaces",
+          "trigger": "Prior exact description of the parameter region used in the submitted scaling step."
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": [
+            "General weighted-projective classification background; the decisive coverage here comes from the published exact two-heavy SCOPE results."
+          ],
+          "identifier_or_url": "arXiv:1304.3029",
+          "material_read": "Primary arXiv abstract/bibliographic record.",
+          "method": "Primary record inspection.",
+          "title": "Classifying terminal weighted projective space",
+          "trigger": "Primary literature background for weighted-projective canonical/terminal criteria."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the stabilizer distribution is a natural way to package the data and the formulas are correct, obtaining it requires only fixing gcd g, dividing by g, and applying the already published primitive-triangle count at a smaller radius. Under the stated value standard this is a renaming/rescaling substitution rather than a new motivated structural result, classification, or non-implied invariant.",
+      "risks": [
+        "The formulas may still be convenient for exposition, but convenience does not satisfy the required scientific-value bar once the calculation is mechanically implied."
+      ],
+      "sources": [
+        "Published SCOPE totient-census RESULT blob 13eac94ae283f4f71ebbfe2b448467e94ca201f5",
+        "Published SCOPE triangular-classification RESULT blob 2f011333a8976ebbc719313b464f57cc6613386e",
+        "RESULT.md blob d8d64269011c73d484218b6ec9686e1f2d107bc9"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is for originality/value, not correctness. The finite verifier is consistent with the formulas but does not alter the implication-level coverage."
+  ],
+  "schema_version": 1
+}
