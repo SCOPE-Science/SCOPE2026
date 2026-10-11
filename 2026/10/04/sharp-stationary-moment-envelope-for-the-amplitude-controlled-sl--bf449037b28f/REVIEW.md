@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. The claim follows from three invariant-measure generator identities, variance nonnegativity, Cauchy--Schwarz, and an explicit equality-case analysis on invariant support. The proof separately handles the zero-second-moment case and does not divide by a quantity that may vanish. Compact support supplies the integrability required for the polynomial observables. The equilibrium equations were solved directly and the published-parameter constants were simplified exactly.
+# Independent mathematical audit
 
-## Originality
-PASS. The introducing article states the scaling role of the amplitude/frequency parameter and presents numerical average-absolute-value and Lyapunov evidence, but it does not state the invariant-measure moment identities, the sharp RMS envelope, or the extremal-measure classification. The foundational SL8 paper gives the seed system and scaling mechanism but likewise does not contain these stationary laws. Targeted searches for the exact system, its DOI, stationary moments, invariant measures, variance laws, and sharp RMS bounds returned no covering statement. Closest database findings concern analogous balance laws for different vector fields and therefore do not imply this claim.
+## correctness
 
-## Value
-PASS. The source's main theme is amplitude control, while its evidence for amplitude size is numerical. The theorem gives a rigorous, parameter-explicit and sharp amplitude budget for every compact recurrent statistical state of the printed system, not just for one simulated trajectory. It also identifies exactly which invariant measures saturate the bounds, so the result distinguishes equilibrium extremizers from every genuinely recurrent non-equilibrium regime.
+PASS
 
-## Closest literature and limitations
-The closest primary sources are the 2023 introducing article and the 2014 Li--Sprott SL8 paper. Both discuss amplitude/frequency scaling, but neither states the exact stationary moment cone or equality classification proved here. The theorem does not establish global boundedness or existence of a chaotic invariant measure, and database coverage cannot exclude every obscure or unpublished treatment.
+Integrating the three coordinate derivatives under an invariant compactly supported measure gives \(\langle y^2\rangle=m\langle y\rangle\), \(\langle xy\rangle=-a\langle z^2\rangle\), and \(\langle x^2\rangle=(ac/b)\langle z^2\rangle\). Variance nonnegativity yields \(0\le\langle y\rangle\le m\). Cauchy--Schwarz applied to \(\langle xy\rangle\), followed by the exact \(x^2/z^2\) ratio, gives the sharp outer bounds. Equality forces zero variance in \(y\), after which support invariance reduces the support to the explicitly solved equilibria. Fresh symbolic simplification independently reproduced \(ac/b=1\), \(c/(ab)=4\), and \(c^2/b^2=4\) at the published coefficients.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The introducing open-access article analyzes the same system through scaling substitutions, waveforms, spectra, phase portraits, Lyapunov exponents and average values; it does not state invariant-measure moment identities or sharp equality cases. Li--Sprott 2014 supplies the SL8 seed and general amplitude/frequency-control mechanism but likewise does not state this stationary envelope. Fresh Resultary search found the audited result as the only same-system exact moment hit; nearby records concern different vector fields.
+
+## value
+
+PASS
+
+The source's central theme is amplitude control, so an exact all-invariant-measure amplitude budget is a natural and useful structural fact. The complete equality classification distinguishes equilibrium saturation from every genuinely recurrent non-equilibrium ergodic regime and replaces simulation-specific amplitude summaries by rigorous universal laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The claim was checked directly against the printed three-dimensional vector field.
 
-For every compactly supported invariant probability measure, stationarity of the coordinate observables gives
-\[
-\langle y^2\rangle=m\langle y\rangle,
-\qquad
-\langle xy\rangle=-a\langle z^2\rangle,
-\qquad
-b\langle x^2\rangle=ac\langle z^2\rangle.
-\]
-The first identity gives \(\operatorname{Var}(y)=\langle y\rangle(m-\langle y\rangle)\). The latter two identities and Cauchy--Schwarz give
-\[
-\langle z^2\rangle\le \frac c{{ab}}\langle y^2\rangle,
-\]
-hence the asserted absolute bounds. The zero case was handled separately before cancellation.
+# Independent mathematical audit
 
-The equality cases were checked by solving the equilibrium equations and by using invariance of the support when \(y\) has zero variance. With \(y=m\), the only support points compatible with invariance are
-\[
-(0,m,0)
-\quad\text{{and}}\quad
-\left(-\frac{{cm}}b,m,\pm m\sqrt{{\frac c{{ab}}}}\right).
-\]
-At the source parameters \(a=1/2\), \(b=3/5\), and \(c=6/5\), exact rational arithmetic gives
-\[
-\frac{{ac}}b=1,
-\qquad
-\frac c{{ab}}=4,
-\qquad
-\frac{{c^2}}{{b^2}}=4.
-\]
+## correctness
 
-Limits: this verification does not establish compactness of all trajectories, existence of a physical chaotic measure, or ergodicity of the numerically illustrated attractor. No numerical trajectory or finite sampling is used to justify the universal statement.
+PASS
+
+Integrating the three coordinate derivatives under an invariant compactly supported measure gives \(\langle y^2\rangle=m\langle y\rangle\), \(\langle xy\rangle=-a\langle z^2\rangle\), and \(\langle x^2\rangle=(ac/b)\langle z^2\rangle\). Variance nonnegativity yields \(0\le\langle y\rangle\le m\). Cauchy--Schwarz applied to \(\langle xy\rangle\), followed by the exact \(x^2/z^2\) ratio, gives the sharp outer bounds. Equality forces zero variance in \(y\), after which support invariance reduces the support to the explicitly solved equilibria. Fresh symbolic simplification independently reproduced \(ac/b=1\), \(c/(ab)=4\), and \(c^2/b^2=4\) at the published coefficients.
+
+## originality
+
+PASS
+
+The introducing open-access article analyzes the same system through scaling substitutions, waveforms, spectra, phase portraits, Lyapunov exponents and average values; it does not state invariant-measure moment identities or sharp equality cases. Li--Sprott 2014 supplies the SL8 seed and general amplitude/frequency-control mechanism but likewise does not state this stationary envelope. Fresh Resultary search found the audited result as the only same-system exact moment hit; nearby records concern different vector fields.
+
+## value
+
+PASS
+
+The source's central theme is amplitude control, so an exact all-invariant-measure amplitude budget is a natural and useful structural fact. The complete equality classification distinguishes equilibrium saturation from every genuinely recurrent non-equilibrium ergodic regime and replaces simulation-specific amplitude summaries by rigorous universal laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

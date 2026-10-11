@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:55:37Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob a9c455a32c44a2474ccf4950fa695940bc5079eb.",
+        "VERIFICATION.md blob de36ca4d6eb3d0c9bca28a9799c307d0f32f79c5.",
+        "Sheng et al. DOI:10.3390/math11030618 prints exactly system (5) and states the linear amplitude/frequency scaling role of \\(m\\).",
+        "Fresh exact rational simplification of the source coefficient specialization."
+      ],
+      "rationale": "Integrating the three coordinate derivatives under an invariant compactly supported measure gives \\(\\langle y^2\\rangle=m\\langle y\\rangle\\), \\(\\langle xy\\rangle=-a\\langle z^2\\rangle\\), and \\(\\langle x^2\\rangle=(ac/b)\\langle z^2\\rangle\\). Variance nonnegativity yields \\(0\\le\\langle y\\rangle\\le m\\). Cauchy--Schwarz applied to \\(\\langle xy\\rangle\\), followed by the exact \\(x^2/z^2\\) ratio, gives the sharp outer bounds. Equality forces zero variance in \\(y\\), after which support invariance reduces the support to the explicitly solved equilibria. Fresh symbolic simplification independently reproduced \\(ac/b=1\\), \\(c/(ab)=4\\), and \\(c^2/b^2=4\\) at the published coefficients.",
+      "risks": [
+        "The theorem is conditional on compact support and does not prove existence/ergodicity of the numerically displayed chaotic attractor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 article prints system (5) and states that \\(m\\) rescales all variables and frequency in positive proportion.",
+          "Li--Sprott 2014 states that the coefficient of the single nonquadratic term provides amplitude/frequency scaling for the SL family."
+        ],
+        "reasoning": "Scaling conjugacy explains how a known trajectory rescales with \\(m\\), but does not itself state the parameter-explicit universal stationary inequalities or classify all invariant measures attaining them.",
+        "searches": [
+          "DOI:10.3390/math11030618 full open article",
+          "DOI:10.1016/j.physleta.2013.11.004 author-hosted full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Fresh Resultary query",
+        "DOI:10.3390/math11030618",
+        "DOI:10.1016/j.physleta.2013.11.004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior scaling gives proportionality across controller values but does not supply an absolute sharp coefficient for every recurrent statistical state.",
+          "The generator identities plus variance/Cauchy equality analysis are additional structural information."
+        ],
+        "reasoning": "The final theorem is a stationary-measure law and equality classification, not a renamed form of the scaling substitution.",
+        "searches": [
+          "Sheng et al. 2023 amplitude/frequency scaling section",
+          "Li--Sprott 2014 scaling mechanism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary top hit is the audited finding; the rest are different flows or unrelated bounds.",
+          "The 2023 primary article's analysis section presents trajectory scaling and numerical averages, not invariant-measure second-moment identities."
+        ],
+        "reasoning": "Aliases through RMS amplitude, invariant stationary statistics, time-average moment balance, and amplitude-controller scaling were searched.",
+        "searches": [
+          "Resultary: SL8I amplitude controlled flow stationary moment envelope invariant measure RMS sharp",
+          "Web: A Switchable Chaotic Oscillator multiscale amplitude frequency control invariant measure RMS moments",
+          "Web: SL8I exact mean square stationary balance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source table states the stationary moment cone or the sharp RMS equality classification."
+        ],
+        "reasoning": "The bound is derived for every compact invariant measure rather than read from simulated trajectories or a table.",
+        "searches": [
+          "Resultary exact-system query above",
+          "Search of source tables/equilibrium descriptions"
+        ]
+      },
+      "rationale": "The introducing open-access article analyzes the same system through scaling substitutions, waveforms, spectra, phase portraits, Lyapunov exponents and average values; it does not state invariant-measure moment identities or sharp equality cases. Li--Sprott 2014 supplies the SL8 seed and general amplitude/frequency-control mechanism but likewise does not state this stationary envelope. Fresh Resultary search found the audited result as the only same-system exact moment hit; nearby records concern different vector fields.",
+      "residual_risks": [
+        "A control/synchronization paper may have written one of the elementary time-average identities without emphasizing invariant measures or sharp equality cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_SYSTEM_AND_SCALING; NO_STATIONARY_MEASURE_ENVELOPE",
+          "evidence": [
+            "The source states that \\(m\\) scales variables/frequency and illustrates this numerically."
+          ],
+          "identifier_or_url": "DOI:10.3390/math11030618",
+          "material_read": "Full open-access article, especially system (5), Section 3 scaling analysis, numerical amplitude/frequency comparisons, and conclusions.",
+          "method": "Direct open-access HTML inspection.",
+          "title": "A Switchable Chaotic Oscillator with Multiscale Amplitude/Frequency Control",
+          "trigger": "Exact same-system source."
+        },
+        {
+          "assessment": "SEED_AND_SCALING_BACKGROUND_NOT_COVERING_MOMENT_RIGIDITY",
+          "evidence": [
+            "The paper describes equilibria/stability and amplitude/frequency scaling by the nonquadratic coefficient."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.physleta.2013.11.004",
+          "material_read": "Author-hosted full PDF at abstract/introduction and SL-family/scaling setup.",
+          "method": "Lawful author-hosted full-text inspection.",
+          "title": "Chaotic flows with a single nonquadratic term",
+          "trigger": "Foundational SL8 source and plausible broader scaling theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Sharp parameter-explicit second-moment bounds.",
+        "Complete extremal-measure classification."
+      ],
+      "rationale": "The source's central theme is amplitude control, so an exact all-invariant-measure amplitude budget is a natural and useful structural fact. The complete equality classification distinguishes equilibrium saturation from every genuinely recurrent non-equilibrium ergodic regime and replaces simulation-specific amplitude summaries by rigorous universal laws.",
+      "risks": [
+        "It does not establish global boundedness or identify a physical/SRB measure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the printed amplitude-controlled SL8I flow \\(\\dot x=my-y^2,\\ \\dot y=az^2+xy,\\ \\dot z=bx^2+cxy\\) with positive parameters, every compactly supported invariant probability measure obeys the exact stationary identities and the sharp second-moment envelope stated in the package, with complete equality classification; at \\((a,b,c)=(1/2,3/5,6/5)\\), every non-equilibrium ergodic compact recurrent state has \\(\\operatorname{RMS}(y)<m\\) and \\(\\operatorname{RMS}(x)=\\operatorname{RMS}(z)<2m\\).",
+  "limitations": [
+    "Compactly supported invariant measures only.",
+    "No existence, uniqueness, or physicality theorem for chaotic measures."
+  ],
+  "schema_version": 1
+}
