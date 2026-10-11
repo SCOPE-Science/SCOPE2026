@@ -1,0 +1,11 @@
+# Same-model scientific review
+
+**Correctness — PASS.** The proposed section-radius splitting is derived in orthonormal coordinates for the exact compact support interval. Both integrals are elementary for every integer \(d\ge3\). The beta normalization cancels correctly with the exact cone volume. The affine section Jacobian gives invariance. The strict three-dimensional comparison follows from a finite positive binomial truncation and an exact rational inequality, independently of floating-point values; `verify.py` provides supplementary checks.
+
+**Originality — PASS, with residual uncertainty.** Saroglou's publicly available 2014 paper introduces the same three-dimensional max-direction sectional quotient as Conjecture 1.6, but its proof treats an axial double-cone direction in a different lower-bound problem, not the exact bisector section profile or its beta benchmark. Earlier 2011 work evaluates projection-body volumes rather than the sectional square-root integral; only an abstract-level comparison of that older paper was possible. Searches for equivalent tilted sections and gamma/beta formulations found no decisive stronger coverage. A classical unrecognized cone-section identity remains a risk, so this is not independent novelty certification.
+
+**Value — PASS.** The canonical double cone is singled out as an equality body in a neighboring sharp affine problem, yet its axial quotient is smaller than the ellipsoidal benchmark; the oblique exact calculation supplies the required strict separation. The all-dimensional section profile and affine-invariant beta evaluation are meaningful reproducible benchmarks for a stated geometric conjecture, not an arbitrary parameter slice. The result deliberately avoids claiming a global maximum or proof of the general conjecture.
+
+**Scope and limitations.** The strict conjecture comparison is only three-dimensional and only for linear images of a circular double cone; the all-dimensional beta identity holds at the transported bisector direction. The literature comparison does not exclude an equivalent historical formula. Numerical tests are supplementary and do not replace proof.
+
+Same-model review: passed. Independent audit: not yet performed.
