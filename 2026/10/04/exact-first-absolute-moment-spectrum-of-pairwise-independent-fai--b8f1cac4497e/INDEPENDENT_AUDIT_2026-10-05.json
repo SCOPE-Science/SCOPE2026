@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:54:37.675168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 122699a2223fe4a836e74bb73ef81cf457868d0d",
+        "verify_pairwise_rademacher_l1.py blob 9f6e82e024d1e8fab5f382ace8993daf668bbde6",
+        "independent exact parity-lattice and Hamming-slice checks through n=200"
+      ],
+      "rationale": "Pairwise independence and fairness force \\(E[S]=0\\) and \\(E[S^2]=n\\), while \\(|S|\\) lies on the parity lattice. The even and odd lower bounds and the upper bound are exact pointwise affine certificates in \\(r^2\\); equality therefore forces exactly the stated two-point supports. For attainability, symmetrizing a prescribed absolute-sum law and then choosing uniformly on the Hamming slice with \\(K=(n+S)/2\\) gives \\(E[K]=n/2\\) and \\(E[K(K-1)]=n(n-1)/4\\), hence every pair has the product fair-sign law. Convex mixtures preserve those marginals. Independent exact arithmetic through \\(n=200\\) verified all lattice inequalities, endpoint second moments, first moments, and factorial-moment realizations.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general k-wise theorem controls higher moments but does not imply the discrete \\(L^1\\) upper envelope.",
+          "The closest published SCOPE hit concerns a maximal-to-terminal tail ratio rather than \\(E|S|\\)."
+        ],
+        "reasoning": "Higher-moment inequalities and tail inflation do not determine the two endpoints of the first-moment spectrum.",
+        "searches": [
+          "Pass--Spektor 2017 k-wise Khintchine theorem",
+          "limited-independence Rademacher literature surfaced by the primary paper",
+          "Resultary related pairwise-independent Rademacher findings"
+        ]
+      },
+      "checked_sources": [
+        "Pass and Spektor, On Khinchine type inequalities for pairwise independent Rademacher random variables, arXiv:1412.7859",
+        "Pass and Spektor, On Khintchine type inequalities for k-wise independent Rademacher random variables, arXiv:1708.08775; DOI:10.1016/j.spl.2017.09.002",
+        "Resultary semantic search: pairwise independent Rademacher equal coefficients first absolute moment exact range lower Khintchine",
+        "Published SCOPE comparison: 2026/9/20/SCOPE-sharp-levy-tail-inflation-pairwise-independent-rademachers--be082b5ae3c3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published sharp theorem's exponent hypothesis excludes \\(p=1\\), and its objective direction changes at the first-moment problem.",
+          "The audited upper bound is the affine chord through the two parity-compatible magnitudes surrounding \\(\\sqrt n\\), a support not supplied by Pass--Spektor.",
+          "Independent exact checks through \\(n=200\\) verified the pointwise certificates and both Hamming-slice endpoint constructions."
+        ],
+        "reasoning": "The first-moment classification is not a corollary of the higher-moment theorem; it uses a different discrete moment envelope and supplies both attainable endpoints.",
+        "searches": [
+          "test whether the Pass--Spektor \\(p\\ge2\\) theorem specializes to \\(p=1\\)",
+          "reduce pairwise independence to \\(E[S^2]=n\\) on the parity lattice",
+          "check exchangeable Hamming-slice realization from the first two factorial moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pass--Spektor Theorem 3.1 is explicitly for all \\(p\\ge2\\) at even length.",
+          "The construction concentrates the absolute sum on zero and the unanimous magnitude, which is the audited even-length lower extremizer, not its upper first-moment extremizer.",
+          "No retrieved result states the finite parity-lattice interval \\([L_n,U_n]\\)."
+        ],
+        "reasoning": "Searches covered first absolute moment, lower Khintchine, exchangeable pairwise-independent signs, and exact attainable ranges; the closest papers solve a different exponent regime.",
+        "searches": [
+          "arXiv:1412.7859 full text",
+          "arXiv:1708.08775 full text, Theorem 3.1 and equality discussion",
+          "Resultary query: pairwise independent Rademacher equal coefficients first absolute moment exact range lower Khintchine"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked table/database contained the formulas \\(L_n\\), \\(U_n\\), or the parity-compatible equality supports.",
+          "The result is symbolic for every \\(n\\ge2\\), not a finite lookup."
+        ],
+        "reasoning": "No exact tabulation was found; the meaningful comparison is against analytic limited-independence moment theorems.",
+        "searches": [
+          "searches for exact expected absolute pairwise-independent Rademacher sums",
+          "searches for lower Khintchine pairwise independence at \\(p=1\\)",
+          "Resultary search using the endpoint/support description"
+        ]
+      },
+      "rationale": "The closest primary limited-independence Khintchine papers were inspected in full at their sharp pairwise theorems. Their equal-weight extremal construction is for \\(p\\ge2\\) (and in the older version particularly \\(p=4\\)); it does not solve the first absolute moment. In fact, the even-length zero/unanimous law that maximizes their higher moments becomes the lower \\(L^1\\) extremizer here, while the upper \\(L^1\\) extremizer has a different two-shell support bracketing \\(\\sqrt n\\). Fresh Resultary searches found related pairwise-independent Rademacher tail results but no equivalent first-moment interval.",
+      "residual_risks": [
+        "An equivalent elementary moment-polytope statement could appear in older orthogonal-array, coding, or limited-independence literature under terminology not reached by the targeted searches.",
+        "The theorem classifies the attainable first absolute moment and supplies exchangeable extremizers; it does not classify every nonsymmetric extremizing joint law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGHER_MOMENT_THEOREM_NOT_L1_SPECTRUM",
+          "evidence": "The sharp equal-weight theorem is stated for \\(p\\ge2\\); it does not state the first-moment minimum, parity-lattice maximum, or full attainable interval.",
+          "identifier_or_url": "arXiv:1708.08775; DOI:10.1016/j.spl.2017.09.002",
+          "material_read": "Full text around the problem definition, pairwise-independence section, Theorem 3.1, its explicit extremal law, and equality discussion.",
+          "method": "lawful open/full-text inspection",
+          "title": "On Khintchine type inequalities for k-wise independent Rademacher random variables",
+          "trigger": "Closest revised primary theorem on sharp pairwise-independent equal-weight moments."
+        },
+        {
+          "assessment": "NOT_COVERING_P1",
+          "evidence": "The older result focuses on higher moments and does not give the audited \\(p=1\\) classification.",
+          "identifier_or_url": "arXiv:1412.7859",
+          "material_read": "Full primary paper scope and its exchangeable sharp result.",
+          "method": "lawful open primary full-text inspection",
+          "title": "On Khinchine type inequalities for pairwise independent Rademacher random variables",
+          "trigger": "Earlier primary version checked for possible first-moment coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pass--Spektor 2014 and 2017",
+        "published SCOPE related-tail comparison",
+        "independent moment reconstruction"
+      ],
+      "rationale": "The first absolute moment is the natural \\(L^1\\) endpoint of the Khintchine problem, and the theorem gives a complete finite-length attainable interval rather than one counterexample. It shows that with fixed \\(L^2\\) norm from pairwise independence, the normalized \\(L^1\\) size can range asymptotically from zero to one, with sharp parity corrections and explicit extremal laws. That is a motivated structural classification.",
+      "residual_risks": [
+        "Value and originality are confined to equal coefficients and the first absolute moment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent elementary moment-polytope statement could appear in older orthogonal-array, coding, or limited-independence literature under terminology not reached by the targeted searches.",
+    "The theorem classifies the attainable first absolute moment and supplies exchangeable extremizers; it does not classify every nonsymmetric extremizing joint law."
+  ],
+  "schema_version": 1
+}
