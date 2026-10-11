@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic verification has four steps.
+# Independent mathematical audit
 
-1. A strongly nil-clean residue matrix has a commuting idempotent, hence a direct sum of a generalized \(1\)-primary block \(I+N_1\) and a generalized \(0\)-primary block \(N_0\). Conversely, the coprime primary decomposition for \(t\) and \(t-1\) constructs that commuting idempotent.
-2. For a dual lift \(A+\varepsilon B\), the off-diagonal correction equations are Sylvester equations between the \(1\)-primary and \(0\)-primary blocks. Their minimal polynomials are coprime, so the Sylvester map is invertible over every field. Thus every \(B\) lifts.
-3. For fixed generalized \(1\)-primary dimension \(r\), count ordered decompositions by \({n\brack r}_q q^{r(n-r)}\), then use the classical \(q^{m^2-m}\) count for each nilpotent block and multiply by \(q^{n^2}\) arbitrary dual coefficients.
-4. Summing over \(0\le r\le n\) gives the displayed formula.
+## correctness
 
-`verify_count.py` independently exhausts the residue matrices for six small prime-field cases and compares the brute-force count to the formula. Its captured output ends in `CHECK_OK`. These finite cases are consistency checks only; no finite enumeration is used to prove the arbitrary-prime-power statement.
+PASS
+
+For \(R_q=\mathbb F_q[\varepsilon]/(\varepsilon^2)\), the lifting argument is field-independent: a residue matrix \(A\) is strongly nil-clean exactly when its generalized eigenspaces are supported at \(0\) and \(1\), and the off-diagonal idempotent correction is solved by a Sylvester map between coprime primary blocks. Thus every dual part \(B\) lifts. For generalized one-eigenspace dimension \(r\), there are \({n\brack r}_q q^{r(n-r)}\) ordered complementary decompositions, and the two nilpotent blocks contribute \(q^{r^2-r}\) and \(q^{(n-r)^2-(n-r)}\). Multiplying by all \(q^{n^2}\) dual parts gives the stated summand. An independent brute-force check for \(n=2\) over \(q=2,3,5\) counted 14, 30 and 80 strongly nil-clean residue matrices, exactly matching the residue formula.
+
+## originality
+
+PASS
+
+The complete Senturk--Ozbay paper proves for real dual matrices that strong nil-cleanness of \(A+B\varepsilon\) is equivalent to strong nil-cleanness of \(A\), and displays the Sylvester lifting mechanism, but it contains no finite-field census. Fine--Herstein supplies the nilpotent-block count, not the two-primary strong-nil-clean census. Combining the field-independent lifting with a decomposition count yields a natural all-\(n,q\) formula not found in Resultary or the inspected matrix-clean literature. The result is more than a fixed-table computation because it identifies the exact density symbolically for every prime power and every dimension.
+
+## value
+
+PASS
+
+Strong nil-cleanness is a standard decomposition property, and the finite dual-number matrix ring provides a natural setting where nil-clean and strongly nil-clean behavior diverge. The all-dimension exact density, including the concrete 224/256 binary dual example, is a motivated finite-ring invariant and a useful quantitative complement to existence-only clean-ring results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
