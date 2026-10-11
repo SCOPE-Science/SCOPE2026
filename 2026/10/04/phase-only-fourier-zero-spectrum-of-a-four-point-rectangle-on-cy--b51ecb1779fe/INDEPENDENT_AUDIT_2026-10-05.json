@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:48:46.260845Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 3090c3f72738aec79dec4562d56aa1df3b3ba9cf",
+        "artifacts/verify.py blob 1c5b0ec0dc0128af3c26f6a1d1a6c863ad8c3586",
+        "independent cross-phase unit-torus reconstruction"
+      ],
+      "rationale": "After normalizing one coefficient, the Fourier polynomial is \\(1+Z+W+\\eta ZW\\) with \\(Z,W,\\eta\\) unimodular. For \\(\\eta=1\\) it factors as \\((1+Z)(1+W)\\), so the zero set is at most one complete row and one complete column, giving counts \\(0,n,m,m+n-1\\). For \\(\\eta\ne1\\), the zero equation and unit-modulus condition imply \\(Z^2=\\eta^{-1}\\), hence exactly two unit-torus solutions \\((s,-s)\\) and \\((-s,s)\\). A rotated root grid contains both simultaneously exactly when both moduli are even; otherwise at most one is present. The explicit coefficient quadruples in RESULT.md realize every listed count. This proves the complete all-\\(m,n\\ge2\\) spectrum; the finite verifier is only corroborative.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonami--Ghobber give broader group-family uncertainty minima/equality cases but not this fixed-support all-zero-count spectrum.",
+          "The prime-cyclic phase-only theorem concerns arbitrary four-point support in one cyclic group and does not imply the product-rectangle row/column strata."
+        ],
+        "reasoning": "No inspected broader theorem dominates the rectangle cross-phase dichotomy.",
+        "searches": [
+          "Bonami--Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060",
+          "Resultary comparator: phase-only four-sparse uncertainty over prime cyclic groups, 2026/10/04"
+        ]
+      },
+      "checked_sources": [
+        "Bonami--Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060",
+        "Delvaux--Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, DOI:10.1016/j.laa.2007.05.009",
+        "Resultary query: four point rectangle cyclic product group phase-only Fourier zeros unimodular cross phase",
+        "Resultary comparator: phase-only four-sparse uncertainty over prime cyclic groups, 2026/10/04"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When \\(\\eta=1\\), factorization produces full row/column zero sets; when \\(\\eta\ne1\\), the unit-torus equation has exactly the antipodal pair \\((s,-s),(-s,s)\\).",
+          "Ordinary rank-deficiency results allow arbitrary coefficients and therefore do not imply this cross-phase structure."
+        ],
+        "reasoning": "The final zero spectrum requires a phase-rigidity argument beyond prior linear-algebraic uncertainty statements.",
+        "searches": [
+          "Delvaux--Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, DOI:10.1016/j.laa.2007.05.009",
+          "unit-torus solution of 1+Z+W+eta ZW=0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rectangle Fourier polynomial is \\(1+Z+W+\\eta ZW\\), and equal magnitudes restrict \\(Z,W,\\eta\\) to the unit circle.",
+          "Unrestricted Fourier submatrix rank deficiency does not determine whether a null vector can be chosen unimodular."
+        ],
+        "reasoning": "The phase-only constraint makes the problem nonlinear and is not equivalent to ordinary Fourier-submatrix singularity.",
+        "searches": [
+          "Bonami--Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060",
+          "Delvaux--Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, DOI:10.1016/j.laa.2007.05.009",
+          "Resultary query: four point rectangle cyclic product group phase-only Fourier zeros unimodular cross phase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked table or prior source supplied the five attainable cardinalities with the even-even parity split."
+        ],
+        "reasoning": "The exact count classification is analytic; database absence only supplements the source comparisons.",
+        "searches": [
+          "Resultary query: four point rectangle cyclic product group phase-only Fourier zeros unimodular cross phase",
+          "targeted searches for unimodular null vectors of four-column Kronecker Fourier rectangles"
+        ]
+      },
+      "rationale": "Originality passes. Finite-Abelian equality-case work and Kronecker-Fourier rank-deficiency work allow unrestricted coefficient vectors and address support minima or linear nullspaces. The audited theorem instead fixes one Cartesian four-point support and classifies the complete Fourier-zero spectrum under the nonlinear equal-magnitude constraint through the cross phase. Fresh Resultary comparison returned the audited theorem as the exact hit and no earlier result with the same all-(m,n) phase-only spectrum.",
+      "residual_risks": [
+        "The Delvaux--Van Barel complete report was not independently read; an equivalent unimodular four-column special case hidden there remains a literature risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_UNCERTAINTY_NOT_FIXED_RECTANGLE_PHASE_ONLY_SPECTRUM",
+          "evidence": "The inspected results optimize/support arbitrary coefficients rather than classify equal-magnitude coefficients on one fixed rectangle.",
+          "identifier_or_url": "arXiv:1003.5060",
+          "material_read": "Accessible full primary text covering tensor-product groups and equality cases.",
+          "method": "lawful open-access primary full text",
+          "title": "Equality cases for the uncertainty principle in finite Abelian groups",
+          "trigger": "Closest full-text finite-product-group uncertainty source."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_UNRESTRICTED_NULLSPACE_FRAMEWORK",
+          "evidence": "The accessible statement concerns rank deficiency/maximal deficiency without an equal-magnitude null-vector classification; whole-document noncoverage is not asserted.",
+          "identifier_or_url": "DOI:10.1016/j.laa.2007.05.009",
+          "material_read": "Accessible primary abstract describing rank-deficient submatrices of Kronecker Fourier matrices. Complete report was not independently read in this run.",
+          "method": "lawful primary abstract",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Direct Kronecker-Fourier submatrix framework and strongest linear-algebra coverage risk."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bonami--Ghobber, Equality cases for the uncertainty principle in finite Abelian groups, arXiv:1003.5060",
+        "Delvaux--Van Barel, Rank-deficient submatrices of Kronecker products of Fourier matrices, DOI:10.1016/j.laa.2007.05.009",
+        "Resultary query: four point rectangle cyclic product group phase-only Fourier zeros unimodular cross phase",
+        "Resultary comparator: phase-only four-sparse uncertainty over prime cyclic groups, 2026/10/04"
+      ],
+      "rationale": "A Cartesian four-point rectangle is the smallest nontrivial product support where one can see both entire Fourier rows/columns and isolated zeros. The exact phase-only spectrum cleanly separates factorable and nonfactorable cross phase and shows a sharp parity transition, furnishing a reusable model for unimodular sparse Fourier cancellation rather than a raw enumeration.",
+      "residual_risks": [
+        "The theorem does not cover non-Cartesian four-point supports or unequal magnitudes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Delvaux--Van Barel complete report was not independently read; an equivalent unimodular four-column special case hidden there remains a literature risk.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

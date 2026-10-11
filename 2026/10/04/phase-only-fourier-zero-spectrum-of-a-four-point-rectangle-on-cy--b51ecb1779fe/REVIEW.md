@@ -1,22 +1,22 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The proof reduces the fixed four-point Fourier transform to the bilinear unit-torus equation
-\[
-1+Z+W+\eta ZW=0.
-\]
-When \(\eta=1\), factorization gives only full character rows and columns. When \(\eta\ne1\), the unit-modulus constraint forces
-\[
-Z^2=\eta^{-1},
-\]
-so the continuous torus has exactly the antipodal pair \((s,-s)\), \((-s,s)\). A rotated root grid contains both points exactly when both cyclic orders are even. Explicit unimodular coefficient choices realize every count in the theorem. The finite checker corroborates the witnesses but is not used as an infinite proof.
+## correctness
 
-## Originality
-The closest inspected primary source, Bonami--Ghobber, classifies equality cases for global finite-Abelian uncertainty minima, including \(\mathbb Z_p\times\mathbb Z_p\); it does not give the complete Fourier-zero spectrum on one prescribed rectangle under equal coefficient magnitudes. Delvaux--Van Barel study rank-deficient submatrices of Kronecker Fourier matrices, but their inspected abstract imposes no equal-modulus null-vector condition. Prior unrestricted fixed-support computations over \(\mathbb F_3\) and \(\mathbb F_5\) permit additional zero counts and do not imply the present phase-only theorem.
+PASS
 
-A residual literature risk remains because the full Delvaux--Van Barel report was not accessible for statement-level inspection, and older sequence-design literature may use different terminology for unimodular null vectors.
+After normalizing one coefficient, the Fourier polynomial is \(1+Z+W+\eta ZW\) with \(Z,W,\eta\) unimodular. For \(\eta=1\) it factors as \((1+Z)(1+W)\), so the zero set is at most one complete row and one complete column, giving counts \(0,n,m,m+n-1\). For \(\eta
+e1\), the zero equation and unit-modulus condition imply \(Z^2=\eta^{-1}\), hence exactly two unit-torus solutions \((s,-s)\) and \((-s,s)\). A rotated root grid contains both simultaneously exactly when both moduli are even; otherwise at most one is present. The explicit coefficient quadruples in RESULT.md realize every listed count. This proves the complete all-\(m,n\ge2\) spectrum; the finite verifier is only corroborative.
 
-## Value
-A four-point Cartesian rectangle is the basic tensor support in two-dimensional finite Fourier analysis, while equal-magnitude coefficients form a natural phase-only subclass. The theorem gives an all-modulus structural classification with a sharp parity transition and explicit witnesses, rather than a finite census. The invariant \(\eta=ad/(bc)\) cleanly separates factorized row/column zeros from isolated antipodal zeros.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. Finite-Abelian equality-case work and Kronecker-Fourier rank-deficiency work allow unrestricted coefficient vectors and address support minima or linear nullspaces. The audited theorem instead fixes one Cartesian four-point support and classifies the complete Fourier-zero spectrum under the nonlinear equal-magnitude constraint through the cross phase. Fresh Resultary comparison returned the audited theorem as the exact hit and no earlier result with the same all-(m,n) phase-only spectrum.
+
+## value
+
+PASS
+
+A Cartesian four-point rectangle is the smallest nontrivial product support where one can see both entire Fourier rows/columns and isolated zeros. The exact phase-only spectrum cleanly separates factorable and nonfactorable cross phase and shows a sharp parity transition, furnishing a reusable model for unimodular sparse Fourier cancellation rather than a raw enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
