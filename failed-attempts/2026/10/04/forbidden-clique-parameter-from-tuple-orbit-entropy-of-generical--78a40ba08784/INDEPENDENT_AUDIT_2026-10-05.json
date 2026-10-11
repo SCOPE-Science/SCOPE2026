@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:02:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3dc50de56ba8278c4d33e36f0efd1e6572892bde",
+        "assigned artifacts/verify.py blob 98e38768931ee48c0f0661c81c7f4a5b42678dd1",
+        "Cherlin, Homogeneous Ordered Graphs, Metrically Homogeneous Graphs, and Beyond, Volume I",
+        "Erdős--Kleitman--Rothschild \\(K_r\\)-free graph-count theorem as recalled in arXiv:2107.14798",
+        "independent triangle-free enumeration through n=5"
+      ],
+      "rationale": "For the generically ordered \\(K_r\\)-free Fraïssé limit, an injective ordered \\(n\\)-tuple induces on coordinate set \\([n]\\) a labeled \\(K_r\\)-free graph together with one of \\(n!\\) linear orders. Universality realizes every such finite ordered graph, and homogeneity says two tuples are in the same automorphism orbit exactly when their coordinate-induced ordered structures agree. Hence \\(a_r(n)=n!f_r(n)\\). The Erdős--Kleitman--Rothschild theorem gives \\(\\log_2 f_r(n)=\\operatorname{ex}(n,K_r)+o(n^2)\\), and Turán's theorem gives the coefficient \\((r-2)/(2(r-1))\\); the \\(n!\\) factor is \\(2^{o(n^2)}\\). The inversion formula for \\(r\\) is elementary algebra. Independent small enumeration reproduced the triangle-free counts \\(1,1,2,7,41,388\\), agreeing with the package verifier. No correctness defect is present.",
+      "residual_risks": [
+        "No correctness defect is asserted; rejection is based on prior implication and independent value."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cherlin supplies the exact homogeneous ordered structures and their ages.",
+          "EKR supplies \\(f_r(n)=2^{\\operatorname{ex}(n,K_r)+o(n^2)}\\).",
+          "The profile literature treats finite-substructure counts as canonical invariants of relational structures and permutation groups."
+        ],
+        "reasoning": "These established results already determine the quadratic orbit entropy after the routine \\(n!\\) labeling factor.",
+        "searches": [
+          "Cherlin, Homogeneous Ordered Graphs, Metrically Homogeneous Graphs, and Beyond",
+          "Erdős--Kleitman--Rothschild \\(K_r\\)-free enumeration",
+          "Pouzet--Thiéry profile literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1017/9781009229661",
+        "arXiv:2107.14798",
+        "arXiv:1402.3090",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first pair of facts gives \\(a_r(n)=n!f_r(n)\\) immediately.",
+          "The second pair gives the entropy coefficient immediately, and solving the rational expression for \\(r\\) gives the fingerprint statement."
+        ],
+        "reasoning": "No nonstandard lemma, new asymptotic estimate, or difficult classification remains after inserting the prior theorems.",
+        "searches": [
+          "generic ordered \\(K_r\\)-free homogeneity plus age description",
+          "EKR asymptotic plus Turán coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relational-structure profile is classically the count of finite induced isomorphism types.",
+          "The generic ordered Henson structure has age equal to all finite ordered \\(K_r\\)-free graphs."
+        ],
+        "reasoning": "The audited injective tuple orbit count is just the labeled version of the standard age/profile correspondence.",
+        "searches": [
+          "Resultary query: Henson graph generically ordered tuple orbit growth entropy forbidden clique K_r free graphs",
+          "profile/age literature: orbit counts versus isomorphism types of finite induced structures",
+          "Cherlin homogeneous ordered graph catalog"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately indexed formula \\(a_r(n)=n!f_r(n)\\) or parameter-recovery statement was retrieved."
+        ],
+        "reasoning": "Absence of a named formula does not establish originality when the result is a direct combination of standard age/homogeneity and graph-enumeration theorems.",
+        "searches": [
+          "Resultary current Henson tuple-orbit search",
+          "current web search for ordered Henson orbit growth and forbidden-clique entropy"
+        ]
+      },
+      "rationale": "The final entropy formula is mechanically determined by standard prior facts. For a homogeneous relational structure, automorphism orbits on injective tuples are exactly isomorphism types of labeled induced finite structures; the profile/age literature formalizes the same orbit-versus-finite-structure correspondence. Cherlin's classification supplies the generic ordered \\(K_r\\)-free structures. Erdős--Kleitman--Rothschild already gives the quadratic logarithmic count of labeled \\(K_r\\)-free graphs, and Turán gives its coefficient. Multiplying by the \\(n!\\) possible linear orders and dividing by \\(n^2\\) leaves that coefficient unchanged. The recovery formula for \\(r\\) is a one-line inversion. Although no source located states the combined formula under the title 'tuple-orbit entropy,' every novelty-bearing clause is a direct corollary of these stronger established ingredients.",
+      "residual_risks": [
+        "No same-title antecedent was found, but the implication-based coverage is already decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERIC_ORDERED_HENSON_STRUCTURE_PRIOR",
+          "evidence": "The generic ordered \\(K_r\\)-free structures are established prior objects; the audited orbit identity follows from their defining universality and homogeneity.",
+          "identifier_or_url": "DOI 10.1017/9781009229661",
+          "material_read": "publisher book description/catalog scope plus author-hosted homogeneous-ordered-graph materials identifying the generically ordered Henson graphs; complete book text was not needed for the decisive implication",
+          "method": "primary-author/publisher scope inspection",
+          "title": "Homogeneous Ordered Graphs, Metrically Homogeneous Graphs, and Beyond, Volume I",
+          "trigger": "primary classification source for the generic ordered Henson branch"
+        },
+        {
+          "assessment": "DECISIVE_ENUMERATIVE_INPUT_PRIOR",
+          "evidence": "This gives the exact quadratic logarithmic growth used by the audited entropy calculation.",
+          "identifier_or_url": "arXiv:2107.14798",
+          "material_read": "primary abstract and theorem context stating that the number of labeled \\(K_r\\)-free graphs is \\(2^{\\operatorname{ex}(n,K_r)+o(n^2)}\\)",
+          "method": "primary-source theorem comparison",
+          "title": "Counting r-graphs without forbidden configurations",
+          "trigger": "modern primary source explicitly recalling the Erdős--Kleitman--Rothschild graph-count theorem"
+        },
+        {
+          "assessment": "STANDARD_PROFILE_FRAMEWORK",
+          "evidence": "The orbit/finite-structure count is a standard invariant framework, not a new construction.",
+          "identifier_or_url": "arXiv:1402.3090",
+          "material_read": "primary abstract defining the profile as the number of induced \\(n\\)-element substructures up to isomorphism",
+          "method": "primary-source framework comparison",
+          "title": "Some relational structures with polynomial growth and their associated algebras I",
+          "trigger": "standard profile terminology linking relational structures and finite induced isomorphism types"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Cherlin classification",
+        "EKR enumeration",
+        "profile literature",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The entropy is a natural invariant, but in this family its exact value is obtained by attaching an \\(n!\\) order factor to the classical labeled \\(K_r\\)-free graph count and then reading off Turán density. Parameter recovery is elementary inversion. This cross-literature packaging is informative, yet it does not introduce a new structural lemma, asymptotic estimate, or classification beyond standard prior results, so it falls below the independent-value bar.",
+      "residual_risks": [
+        "The formula may still be useful as a compact descriptive invariant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "No correctness defect is asserted; rejection is based on prior implication and independent value.",
+    "No same-title antecedent was found, but the implication-based coverage is already decisive.",
+    "The formula may still be useful as a compact descriptive invariant."
+  ]
+}
