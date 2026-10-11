@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The polynomial family reduces exactly to \\(\\dot r=\\lambda r(1-r^2)\\) and \\(\\dot\\theta=\\omega+c(1-r^2)\\). The unit circle is hyperbolically attracting because the radial derivative there is \\(-2\\lambda\\). The function \\(\\Phi_c=\\theta-(c/\\lambda)\\log r\\) satisfies \\(d\\Phi_c/dt=\\omega\\) identically for \\(r>0\\), and its on-cycle gradient is \\((-\\sin\\theta,\\cos\\theta)-(c/\\lambda)(\\cos\\theta,\\sin\\theta)\\). Thus the entire on-cycle state/velocity/phase dataset is parameter-independent while the PRC is not.",
+    "risks": [
+      "The asymptotic phase chart excludes the repelling origin, which is outside the phase basin used for the attracting cycle.",
+      "The theorem is about identifiability from on-cycle support, not about numerical performance under additional inductive biases."
+    ],
+    "sources": [
+      "arXiv:2607.15472v1, Sec. II.1-II.2 and Appendix S7",
+      "arXiv:2403.06992v1, Sec. II and IV.1-IV.2"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.15472v1, Sec. II.2 states that the main first step needs no off-cycle samples and does not explicitly constrain transversal gradients; Appendix S6 notes insufficient transverse information for Jacobian estimation; Appendix S7 adds adjoint regularisation.",
+        "Yawata et al., doi:10.1063/5.0205718, generate off-cycle initial conditions and explicitly report that zero off-cycle displacement prevents accurate phase and phase-sensitivity estimation."
+      ],
+      "reasoning": "Methods using off-cycle transients, Jacobians, adjoint equations, or perturbation-response data have strictly richer information and therefore do not cover the on-cycle-only impossibility statement. The focal source is the relevant broader claim because it asserts practical PRC recovery in the restricted data regime.",
+      "searches": [
+        "arXiv 2607.15472 dynamical clock phase response curve limit cycle data",
+        "phase autoencoder limit cycle samples cannot determine isochrons PRC",
+        "neural ODE limit-cycle samples transverse vector field nonidentifiability phase response",
+        "Phase autoencoder for limit-cycle oscillators doi:10.1063/5.0205718"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.15472v1",
+      "doi:10.1063/5.0205718",
+      "arXiv:2403.06992v1",
+      "published-finding corpus:2026/9/21/SCOPE-lorenz84-exact-phase-and-critical-log-spiral--187e77a447b4",
+      "published-finding corpus:2026/9/18/SCOPE-exact-cubic-counterterm-stuart-landau-phase-reduction--40d4eb3f4497"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The focal source enforces only \\(Z\\cdot F=\\omega\\) in its main on-cycle loss and explicitly adds the adjoint equation only in an optional extension.",
+        "The focal Appendix S4 says zero trajectory loss is expected to recover the underlying dynamics by solution uniqueness; the counterfamily disproves that implication because infinitely many vector fields share the same observed solution.",
+        "Yawata et al. use off-cycle perturbations and report degraded PSF recovery when the off-cycle displacement is zero."
+      ],
+      "reasoning": "The prior sources motivate the problem but do not imply the exact impossibility. ODE uniqueness determines a trajectory from a vector field and initial condition; it does not determine a vector field from one trajectory. The counterfamily makes that converse failure and its PRC consequence exact.",
+      "searches": [
+        "arXiv:2607.15472v1 Sections II.1-II.2, Appendix S4, Appendix S6, Appendix S7",
+        "arXiv:2403.06992v1 Sections II.2-II.3 and IV.1-IV.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no item stating that identical complete limit-cycle state and velocity data can coexist with an arbitrary transverse PRC component.",
+        "The closest published-finding corpus hits included the Lorenz-84 logarithmic-isochron result 2026/9/21/SCOPE-lorenz84-exact-phase-and-critical-log-spiral--187e77a447b4 and a Stuart-Landau coupling result 2026/9/18/SCOPE-exact-cubic-counterterm-stuart-landau-phase-reduction--40d4eb3f4497; neither is an identifiability theorem."
+      ],
+      "reasoning": "Searches used phase-response, isochron, same-orbit, shear, and transverse-gradient aliases. Standard logarithmic isochron formulas do not imply the data-identifiability conclusion; the new statement compares an entire family with exactly identical observations.",
+      "searches": [
+        "phase response curve identifiability limit-cycle data transverse gradient isochrons",
+        "Stuart Landau shear identical limit cycle different isochrons phase response curve",
+        "asymptotic phase nonidentifiability trajectory data on limit cycle",
+        "limit-cycle-only phase data do not identify full phase response curve transverse component",
+        "same limit cycle same velocity different phase response curve Stuart Landau shear"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The focal full text and supplementary sections were inspected directly; no database or table states the counterfamily theorem.",
+        "The earlier Stuart-Landau example gives a single logarithmic phase formula with fixed shear and uses off-cycle data; it is not a table of equivalent counterexamples."
+      ],
+      "reasoning": "The claim is an analytic identifiability theorem rather than a finite invariant or table lookup. Exact source inspection was used to ensure that a displayed Stuart-Landau formula was not being repackaged as the new conclusion.",
+      "searches": [
+        "arXiv:2607.15472v1",
+        "arXiv:2403.06992v1",
+        "doi:10.1063/5.0205718"
+      ]
+    },
+    "rationale": "The focal source uses on-cycle differential constraints to learn phase and a PRC, and its data-driven extension argues that zero trajectory loss should recover the underlying vector field. It also acknowledges that transverse Jacobian information is insufficient in limit-cycle samples. The new contribution is an explicit exact family proving that the full PRC and neighboring vector field are mathematically non-identifiable from those data, even noiselessly and continuously. The closest earlier phase-autoencoder work instead trains on off-cycle transients and empirically reports failure when the off-cycle displacement is removed.",
+    "residual_risks": [
+      "A general observability or system-identification paper may contain an equivalent abstract theorem under terminology not surfaced by the targeted searches.",
+      "A later revision of the focal preprint may explicitly add an identifiability qualification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper states that the main first step needs no off-cycle samples, notes unconstrained transversal gradients, reports limit-cycle-only PRC performance, and separately adds adjoint regularisation; it does not prove the exact non-identifiability theorem.",
+        "identifier_or_url": "arXiv:2607.15472v1",
+        "material_read": "Full HTML text around Sections II.1-II.2 and supplementary Appendices S4, S6, and S7.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Ptolemy’s Equant Equates to a Universal Dynamical Clock via Machine Learning",
+        "trigger": "Focal recent source claims phase/PRC construction from limit-cycle-only information and supplies the relevant loss and data-driven extension."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Training states are randomly displaced from the limit cycle; the authors report that zero displacement prevents accurate phase/PSF estimation. The paper gives a fixed logarithmic phase formula but no same-data/different-PRC identifiability theorem.",
+        "identifier_or_url": "doi:10.1063/5.0205718; arXiv:2403.06992v1",
+        "material_read": "Full HTML text through the phase-reduction definitions, training-data construction, and Stuart-Landau experiment.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Phase autoencoder for limit-cycle oscillators",
+        "trigger": "Closest predecessor on data-driven phase and phase-sensitivity recovery, including a Stuart-Landau test."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6ed1f7d9-1395-4b50-bced-a21320d85d00",
+  "value": {
+    "rationale": "The full PRC is the coefficient controlling first-order response to arbitrary weak perturbations, so its transverse component is operationally important. The theorem shows that perfect on-cycle fit cannot certify that component and directly separates data fit from identification. It also gives concrete sufficient remedies: off-cycle trajectories, Jacobian/adjoint information, controlled perturbations, or a justified restrictive model class.",
+    "risks": [
+      "The result constrains universal scientific interpretation of on-cycle-only learning; it does not quantify the empirical error of any particular trained network."
+    ],
+    "sources": [
+      "arXiv:2607.15472v1, Eq. (3)-(5), Sec. II.2, Appendices S4/S6/S7",
+      "doi:10.1063/5.0205718, training-data and Stuart-Landau sections"
+    ],
+    "status": "PASS"
+  }
+}
