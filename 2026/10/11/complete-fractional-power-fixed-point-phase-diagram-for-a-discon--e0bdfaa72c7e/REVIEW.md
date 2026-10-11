@@ -1,0 +1,11 @@
+# Scientific review: fractional-power fixed-point classification
+
+**Correctness — PASS.** The proof reduces the original map's fixed-point equations to a strictly convex left expression and a strictly concave right expression. Exact tangency conditions give the two closed parameter thresholds, and all endpoint inequalities, switches, equality cases and multipliers are checked. The exact-rational four-fixed-point witness verifies sharpness without using a numerical root count. The theorem covers all parameters in its stated open box; no dynamical claim beyond fixed points and their local stability is made.
+
+**Originality — PASS, subject to publication-priority uncertainty.** The originating paper's Equation (15) and Remark 4 are directly compared with the claim. Its Lemma 1 addresses the disjoint regime \(d\ge1\), while its discussion for \(\(d<1\)\) gives qualitative dependence and numerical examples, not the exact threshold functions, all five possible counts, saddle-node locations and local types. Closest accessible prior papers employ different constructions. The same authors' 2024 follow-up has a relevant title, but its available abstract describes a different construction and its full text could not be inspected. Its full contents therefore remain a specific residual novelty risk. Matching broad terminology does not establish equivalence, and a failed database search is not a proof of global novelty.
+
+**Value — PASS.** The original paper explicitly identifies analytical parameter dependence for \(\(d<1\)\) as difficult and presents examples instead of a classification. The result gives a natural, complete answer for that unresolved part of the very same four-parameter dynamical family, sharp phase-transition surfaces, the otherwise unexpected possibility of four equilibria, and stability types relevant to avoiding attracting fixed points. This goes beyond a generic fixed-point existence test or arbitrary parameter sampling.
+
+**Scope and residual limitations.** The conclusion is confined to fixed points, not all attractors or chaoticity. The full text of the closely related 2024 follow-up was inaccessible, leaving publication-priority uncertainty. The exact rational checker verifies a witness, while the full proof is analytical.
+
+Same-model review: passed. Independent audit: not yet performed.
