@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T19:50:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 80005070c5547144d1d2ecca88528766acd10065",
+        "artifacts/verify.py blob bd419f6e7dc256c8d576efdc07ab038d5b626ddb",
+        "fresh element-order and gcd reconstruction",
+        "independent arithmetic sweep over 53 feasible small parameter triples"
+      ],
+      "rationale": "Every nonidentity kernel element has order p. For j=1,…,q-1, fixed-point-freeness makes c^j-1 invertible, while (1+c^j+…+c^{(q-1)j})(c^j-1)=0, so every vc^j has order exactly q. This gives the two ψ formulas. Frobenius orbits on V\\{0} give q|(p^r-1); hence D=p^{r+1}-p+1 is congruent to one modulo p and q. The gcd therefore reduces to gcd(D,q-1), which is strictly smaller than D because q-1<p^r<D. An independent arithmetic sweep checked the gcd identity on 53 feasible small (p,r,q) triples; the proof is universal.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 paper's semidirect-product obstruction assumes a cyclic normal Sylow subgroup in the relevant ZM setting.",
+          "The 2022/2023 graph paper studies ψ-divisibility principally for cyclic groups and still records the nonabelian existence problem as open.",
+          "The published cyclic-Sylow SCOPE obstruction explicitly requires a cyclic normal Sylow subgroup and therefore excludes C_p^r for r≥2."
+        ],
+        "reasoning": "No checked broader result rules out this noncyclic elementary-abelian Frobenius family.",
+        "searches": [
+          "Lazorec, arXiv:2003.01678v1",
+          "Lazorec, arXiv:2203.00071v1",
+          "Resultary published finding: A cyclic-Sylow obstruction to ψ-divisibility and the classification of Z-groups"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.01678v1",
+        "arXiv:2203.00071v1",
+        "Resultary cyclic-Sylow ψ-divisibility finding",
+        "Resultary elementary-abelian Frobenius ψ query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-point-free action gives q | p^r-1 and hence D=p(p^r-1)+1 is congruent to one modulo both p and q.",
+          "This makes gcd(D,ψ(G))=gcd(D,q-1), and q-1<D, so the kernel itself witnesses nondivisibility."
+        ],
+        "reasoning": "The argument is not a specialization of the cyclic-normal-Sylow theorem because the witness subgroup and its sum of element orders are genuinely different for rank r≥2.",
+        "searches": [
+          "Lazorec 2020 ZM/cyclic-Sylow proof",
+          "Frobenius fixed-point-free orbit condition",
+          "audited gcd calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a Frobenius semidirect product C_p^r⋊C_q with q prime, every element outside the kernel has order q.",
+          "Thus the problem is equivalently whether D=1+(p^r-1)p can divide D+p^r q(q-1)."
+        ],
+        "reasoning": "The element-order formulation reduces the group question to a clean arithmetic divisibility obstruction but is not the cyclic-kernel ZM situation treated in the prior source.",
+        "searches": [
+          "Lazorec, arXiv:2003.01678v1, §2 ZM-group/ψ-divisibility arguments",
+          "Resultary query: psi divisible Frobenius elementary abelian kernel prime complement sum of element orders"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited theorem was the direct exact hit; no older published Resultary theorem with the same elementary-abelian Frobenius obstruction was returned."
+        ],
+        "reasoning": "The exact ψ formulas are elementary but the database contains no pre-existing classification of this ψ-divisibility family.",
+        "searches": [
+          "Resultary semantic query listed above"
+        ]
+      },
+      "rationale": "Lazorec's foundational ψ-divisibility paper treats ZM and cyclic-by-cyclic cases and uses cyclic normal Sylow obstructions; it does not cover an elementary abelian Frobenius kernel of rank at least two. The later ψ-divisibility-graph paper keeps the existence of a nonabelian ψ-divisible group open. A fresh Resultary search returned the audited theorem as the exact match and a separate cyclic-Sylow obstruction, whose cyclic-kernel hypothesis does not dominate this family.",
+      "residual_risks": [
+        "An equivalent obstruction could occur in unindexed Frobenius-group sum-of-element-orders literature without the term ψ-divisible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CYCLIC_KERNEL_OBSTRUCTION_PRIOR_NONCYCLIC_ELEMENTARY_ABELIAN_FROBENIUS_CASE_NOT_COVERED",
+          "evidence": "The relevant prior semidirect-product arguments use cyclic normal Sylow structure, whereas the audited kernel C_p^r has rank at least two.",
+          "identifier_or_url": "arXiv:2003.01678v1; DOI:10.1007/s40840-020-00987-8",
+          "material_read": "Full accessible arXiv text around the §2 ZM-group results and the cyclic-normal-Sylow obstruction was inspected.",
+          "method": "Hypothesis and implication comparison.",
+          "title": "On a divisibility property involving the sum of element orders",
+          "trigger": "Foundational primary source for ψ-divisibility beyond abelian groups."
+        },
+        {
+          "assessment": "NONABELIAN_EXISTENCE_PROBLEM_REMAINS_OPEN_NO_FROBENIUS_CLASSIFICATION_STATED",
+          "evidence": "The source focuses on the divisibility graph and principally cyclic cases rather than this Frobenius family.",
+          "identifier_or_url": "arXiv:2203.00071v1; DOI:10.55016/ojs/cdm.v18i2.73182",
+          "material_read": "Primary abstract and stated problem scope were inspected.",
+          "method": "Problem-status and family-coverage comparison.",
+          "title": "A graph related to the sum of element orders of a finite group",
+          "trigger": "Later primary source tracking the ψ-divisibility problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2003.01678v1",
+        "arXiv:2203.00071v1",
+        "Resultary cyclic-Sylow ψ-divisibility finding",
+        "Resultary elementary-abelian Frobenius ψ query"
+      ],
+      "rationale": "The theorem removes a natural infinite noncyclic-kernel Frobenius family from the open search for nonabelian ψ-divisible groups and identifies the kernel itself as a uniform exact obstruction. That is a motivated structural exclusion rather than a small-instance computation.",
+      "residual_risks": [
+        "An equivalent obstruction could occur in unindexed Frobenius-group sum-of-element-orders literature without the term ψ-divisible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2003.01678v1",
+    "arXiv:2203.00071v1",
+    "Resultary cyclic-Sylow ψ-divisibility finding",
+    "Resultary elementary-abelian Frobenius ψ query"
+  ],
+  "disposition": "passed",
+  "final_claim": "If G=C_p^r⋊C_q is a Frobenius group with distinct primes p,q, rank r≥2 and prime complement, then ψ(C_p^r)=p^{r+1}-p+1, ψ(G)=p^{r+1}-p+1+p^r q(q-1), and gcd(ψ(C_p^r),ψ(G))=gcd(p^{r+1}-p+1,q-1)<ψ(C_p^r); hence G is not ψ-divisible.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent obstruction could occur in unindexed Frobenius-group sum-of-element-orders literature without the term ψ-divisible.",
+    "The complement is required to have prime order and the kernel to be elementary abelian."
+  ]
+}

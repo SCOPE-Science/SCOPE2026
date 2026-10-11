@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof uses only the Frobenius fixed-point-free action and elementary arithmetic.
 
-Critical checks:
-- \(V\cong C_p^r\) has
-  \[
-  \psi(V)=1+(p^r-1)p=p^{r+1}-p+1;
-  \]
-- for every nontrivial complement element \(c^j\), the operator \(c^j-1\) is invertible and
-  \[
-  (1+c^j+\cdots+c^{(q-1)j})(c^j-1)=0,
-  \]
-  hence the geometric-sum operator is zero;
-- every element outside \(V\) therefore has order \(q\);
-- the complement acts in orbits of size \(q\) on \(V\setminus\{0\}\), so \(q\mid p^r-1\);
-- if \(D=p^{r+1}-p+1\), then \(\gcd(D,pq)=1\);
-- consequently
-  \[
-  \gcd(\psi(V),\psi(G))=\gcd(D,q-1)<D.
-  \]
+# Independent mathematical audit
 
-The packaged checker `artifacts/verify.py` constructs several explicit fixed-point-free linear actions, enumerates every group element, computes element orders by repeated multiplication, and verifies both the closed \(\psi\)-formula and the exact gcd formula. It includes scalar actions and the nonscalar actions giving the \((2,2,3)\) and \((2,3,7)\) examples.
+## correctness
 
-The replay returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is not used as the proof of the universal theorem.
+Every nonidentity kernel element has order p. For j=1,…,q-1, fixed-point-freeness makes c^j-1 invertible, while (1+c^j+…+c^{(q-1)j})(c^j-1)=0, so every vc^j has order exactly q. This gives the two ψ formulas. Frobenius orbits on V\{0} give q|(p^r-1); hence D=p^{r+1}-p+1 is congruent to one modulo p and q. The gcd therefore reduces to gcd(D,q-1), which is strictly smaller than D because q-1<p^r<D. An independent arithmetic sweep checked the gcd identity on 53 feasible small (p,r,q) triples; the proof is universal.
+
+## originality
+
+PASS
+
+Lazorec's foundational ψ-divisibility paper treats ZM and cyclic-by-cyclic cases and uses cyclic normal Sylow obstructions; it does not cover an elementary abelian Frobenius kernel of rank at least two. The later ψ-divisibility-graph paper keeps the existence of a nonabelian ψ-divisible group open. A fresh Resultary search returned the audited theorem as the exact match and a separate cyclic-Sylow obstruction, whose cyclic-kernel hypothesis does not dominate this family.
+
+## value
+
+PASS
+
+The theorem removes a natural infinite noncyclic-kernel Frobenius family from the open search for nonabelian ψ-divisible groups and identifies the kernel itself as a uniform exact obstruction. That is a motivated structural exclusion rather than a small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
