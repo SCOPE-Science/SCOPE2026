@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The centered coefficients are reconstructed directly from the derivative of the Lagrange cardinal basis. Rewriting monotone data in nonnegative increments reduces the optimization to the minimum cumulative tail of the stencil coefficients. Alternating strictly decreasing coefficient magnitudes make the second positive-side tail uniquely most negative up to reflection. A beta-integral identity evaluates the positive-side coefficient sum exactly as \(H_{2m}-H_m\), yielding the claimed constant. The strict increase in \(m\) follows from an explicit difference of two rational increments, and the limit follows from the standard harmonic-number limit. The packaged exact-rational replay independently checks the identities for \(1\le m\le40\).
+## correctness
 
-## Originality
-PASS with residual literature risk. Classical sources cover the weights, their order of accuracy, and general sign/monotonicity concerns in high-order reconstruction. Those are excluded from the novelty claim. Searches for centered derivative monotonicity, sign reversal, cumulative finite-difference weights, harmonic-number formulas, and variation-diminishing differentiation did not find an implication-equivalent result giving the exact monotone-cone minimum, its extremizers, monotone dependence on order, and limit \(1-\log2\). The inaccessible full text of the 1988 Fornberg paper and older variation-diminishing literature remain explicit risks.
+PASS
 
-## Value
-PASS. Monotonicity is one of the weakest and most common structural properties of sampled data, while centered high-order differentiation is ubiquitous. The result gives a complete all-order quantitative tradeoff: the only sign-safe stencil in this family is the three-point rule, and nominally higher order worsens the exact worst-case sign defect to a nonzero limiting fraction. The harmonic closed form and exact step extremizers make the result directly usable as a regression test and as a design benchmark for sign-preserving differentiation or reconstruction.
+Writing monotone data as nonnegative increments converts the derivative functional to cumulative coefficient tails. The positive-side weights alternate with strictly decreasing magnitude, so every even tail is negative and A_2 is strictly the most negative tail. The exact beta-integral/binomial identity gives sum_j alpha_{m,j}=H_{2m}-H_m, hence A_2=-V_m. The displayed difference formula proves strict growth and the harmonic asymptotic gives 1-log(2). Independent exact-rational replay through m=20 reproduced the tail minimum and constants; the package verifier extends analogous finite checks through m=40, while the proof itself is all-order.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The standard centered weights and their accuracy are classical, and sign preservation is a recognized design goal in nonlinear reconstruction, but no inspected source or Resultary record gives the exact optimization of the classical centered derivative over the bounded monotone cone, the harmonic-number defect formula, the exact two step extremizers, or its monotone all-order limit. The theorem is therefore best-of-knowledge original as an exact stability boundary rather than as a new stencil construction.
+
+## value
+
+PASS
+
+This is a motivated sharp stability boundary for a ubiquitous numerical differentiation family: it identifies exactly when monotone samples can produce the wrong derivative sign, quantifies the worst possible defect at every order, and shows that higher formal order worsens this cone-stability defect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

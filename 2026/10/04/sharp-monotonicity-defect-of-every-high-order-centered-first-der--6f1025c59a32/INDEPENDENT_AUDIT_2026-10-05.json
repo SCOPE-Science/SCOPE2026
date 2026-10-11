@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:50:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Sadiq and Viswanath, Finite Difference Weights, Spectral Differentiation, and Superconvergence, arXiv:1102.3203; primary full text inspected for uniqueness/construction of finite-difference weights, standard centered formulas, accuracy and superconvergence.",
+        "Fjordholm and Ray, A Sign Preserving WENO Reconstruction Method, arXiv:1510.09038 / Journal of Scientific Computing 68 (2016); primary abstract/scope inspected for the distinct nonlinear sign-preserving reconstruction problem.",
+        "Resultary semantic search: centered finite difference first derivative monotone data sharp negative defect cumulative stencil weights harmonic numbers.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 6673af97e7d3f343d3f175d14a117d165ef5547e.",
+        "Fresh independent exact-rational replay of tail minima and V_m for m through 20."
+      ],
+      "rationale": "Writing monotone data as nonnegative increments converts the derivative functional to cumulative coefficient tails. The positive-side weights alternate with strictly decreasing magnitude, so every even tail is negative and A_2 is strictly the most negative tail. The exact beta-integral/binomial identity gives sum_j alpha_{m,j}=H_{2m}-H_m, hence A_2=-V_m. The displayed difference formula proves strict growth and the harmonic asymptotic gives 1-log(2). Independent exact-rational replay through m=20 reproduced the tail minimum and constants; the package verifier extends analogous finite checks through m=40, while the proof itself is all-order.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arbitrary-grid weight algorithms are broader in grids but address coefficient generation and accuracy, not positivity of the derivative functional on the monotone cone.",
+          "SP-WENO enforces a sign property by a nonlinear reconstruction and therefore does not dominate the behavior of the unchanged classical linear stencil."
+        ],
+        "reasoning": "Broader weight-generation and nonlinear sign-preservation theories do not imply the exact defect of the fixed classical centered rule.",
+        "searches": [
+          "Sadiq–Viswanath arbitrary-grid finite-difference weights",
+          "Fjordholm–Ray sign-preserving WENO reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "Sadiq and Viswanath, Finite Difference Weights, Spectral Differentiation, and Superconvergence, arXiv:1102.3203; primary full text inspected for uniqueness/construction of finite-difference weights, standard centered formulas, accuracy and superconvergence.",
+        "Fjordholm and Ray, A Sign Preserving WENO Reconstruction Method, arXiv:1510.09038 / Journal of Scientific Computing 68 (2016); primary abstract/scope inspected for the distinct nonlinear sign-preserving reconstruction problem.",
+        "Resultary semantic search: centered finite difference first derivative monotone data sharp negative defect cumulative stencil weights harmonic numbers.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 6673af97e7d3f343d3f175d14a117d165ef5547e.",
+        "Fresh independent exact-rational replay of tail minima and V_m for m through 20."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "These ingredients reduce the extremum to a tail-sum problem but do not by themselves state which tail is worst, its harmonic closed form, strict deterioration with order, or the 1-log(2) limit.",
+          "The alternating-decreasing tail comparison and exact beta-integral/binomial summation provide those missing conclusions."
+        ],
+        "reasoning": "The result uses elementary classical tools, but it is not a parameter substitution into a stronger published extremal theorem located in the audit.",
+        "searches": [
+          "Classical centered-weight formula",
+          "Standard summation-by-parts/linear-programming reduction on monotone sequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sharp cone minimum is equivalently the most negative cumulative tail of the antisymmetric coefficient vector.",
+          "The inspected finite-difference source develops weights and accuracy but does not optimize them on monotone bounded sample vectors."
+        ],
+        "reasoning": "Abel/summation-by-parts converts monotone data to nonnegative increments, so cumulative-tail and monotonicity-defect formulations are equivalent; the exact all-order tail evaluation is the audited contribution.",
+        "searches": [
+          "Resultary: centered finite difference first derivative monotone data sharp negative defect cumulative stencil weights harmonic numbers",
+          "Sadiq–Viswanath arXiv:1102.3203",
+          "Search alias: sign preservation / variation diminishing / cumulative finite-difference weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact formula/table matching the harmonic-number sequence was located."
+        ],
+        "reasoning": "The theorem is symbolic for every order m, so a finite weight table would not cover its all-order statement even if individual low-order sign reversals were known.",
+        "searches": [
+          "Resultary exact searches for V_m=m/(m+1)-(H_2m-H_m), centered-tail defects and monotone centered derivatives"
+        ]
+      },
+      "rationale": "The standard centered weights and their accuracy are classical, and sign preservation is a recognized design goal in nonlinear reconstruction, but no inspected source or Resultary record gives the exact optimization of the classical centered derivative over the bounded monotone cone, the harmonic-number defect formula, the exact two step extremizers, or its monotone all-order limit. The theorem is therefore best-of-knowledge original as an exact stability boundary rather than as a new stencil construction.",
+      "residual_risks": [
+        "Older variation-diminishing or positive-linear-functional literature may encode the same cumulative-tail calculation under terminology not surfaced by the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "WEIGHTS AND ACCURACY COVERED; MONOTONE-CONE EXTREMUM NOT COVERED",
+          "evidence": "The paper develops weight generation and boosted accuracy, whereas the audited theorem fixes those weights and solves a different sign/monotonicity optimization.",
+          "identifier_or_url": "arXiv:1102.3203",
+          "material_read": "Primary full text around the definition/uniqueness of finite-difference weights, common centered formulas and superconvergence discussion.",
+          "method": "Open primary PDF plus rendered-page inspection.",
+          "title": "Finite Difference Weights, Spectral Differentiation, and Superconvergence",
+          "trigger": "Strongest primary candidate covering the exact centered coefficients used by the theorem."
+        },
+        {
+          "assessment": "MOTIVATING BUT DIFFERENT RECONSTRUCTION",
+          "evidence": "The source changes the reconstruction to enforce sign preservation rather than measuring the sharp failure of the standard centered derivative.",
+          "identifier_or_url": "arXiv:1510.09038",
+          "material_read": "Primary abstract and scope describing a nonlinear WENO reconstruction satisfying a sign property.",
+          "method": "Primary arXiv source inspection.",
+          "title": "A Sign Preserving WENO Reconstruction Method",
+          "trigger": "Closest sign-preservation terminology in high-order finite-difference reconstruction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sadiq and Viswanath, Finite Difference Weights, Spectral Differentiation, and Superconvergence, arXiv:1102.3203; primary full text inspected for uniqueness/construction of finite-difference weights, standard centered formulas, accuracy and superconvergence.",
+        "Fjordholm and Ray, A Sign Preserving WENO Reconstruction Method, arXiv:1510.09038 / Journal of Scientific Computing 68 (2016); primary abstract/scope inspected for the distinct nonlinear sign-preserving reconstruction problem.",
+        "Resultary semantic search: centered finite difference first derivative monotone data sharp negative defect cumulative stencil weights harmonic numbers.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py from exact tree 6673af97e7d3f343d3f175d14a117d165ef5547e.",
+        "Fresh independent exact-rational replay of tail minima and V_m for m through 20."
+      ],
+      "rationale": "This is a motivated sharp stability boundary for a ubiquitous numerical differentiation family: it identifies exactly when monotone samples can produce the wrong derivative sign, quantifies the worst possible defect at every order, and shows that higher formal order worsens this cone-stability defect.",
+      "residual_risks": [
+        "Older variation-diminishing or positive-linear-functional literature may encode the same cumulative-tail calculation under terminology not surfaced by the searches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every maximal-order centered first-derivative stencil on 2m+1 equispaced nodes, the exact minimum over bounded nondecreasing sample data is zero for m=1 and minus (M/h) times V_m for m at least two, where V_m=m/(m+1)-(H_{2m}-H_m); the sharp defect increases strictly to 1-log(2), with the displayed one-step extremizers.",
+  "limitations": [
+    "Specific to symmetric equispaced maximal-order first-derivative stencils.",
+    "Monotone sample data alone are weaker than smooth-function asymptotics, so the theorem is a finite-stencil inference bound rather than a consistency obstruction.",
+    "Older variation-diminishing or positive-linear-functional literature may encode the same cumulative-tail calculation under terminology not surfaced by the searches."
+  ],
+  "schema_version": 1
+}
