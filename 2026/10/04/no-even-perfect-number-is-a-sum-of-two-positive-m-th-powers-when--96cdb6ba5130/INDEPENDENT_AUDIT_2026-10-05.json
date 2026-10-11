@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:57:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 8ccaee0e3e6890200d435b5108571a3451f1ebf4",
+        "verify.py blob fd53838527339851de15e8166433822be1b9b40c",
+        "Fresh independent residue replay over the full parity period gives residues {1,5}."
+      ],
+      "rationale": "Writing an even perfect number as \\(2^{p-1}(2^p-1)\\) and removing the common power of two from \\(x,y\\) reduces to positive \\(u,v\\) not both even. Opposite parity would make both \\(u+v\\) and the alternating cofactor nontrivial odd factors of the unique odd prime, impossible. Thus \\(u,v\\) are odd and the odd cofactor \\(B_m\\) must equal the Mersenne prime. For \\(m=4k+1\\), setting \\(r\\equiv uv^{-1}\\pmod8\\) gives \\(B_m\\equiv1+2k(1-r)\\pmod8\\), hence only 1 or 5 modulo 8, never the required 7 for \\(p\\ge3\\). The \\(p=2\\) perfect number 6 is excluded directly. A fresh residue replay over the complete odd residue classes reproduced only \\(\\{1,5\\}\\); the infinite conclusion rests on the symbolic formula, not the finite replay.",
+      "risks": [
+        "The proof intentionally leaves exponents \\(m\\equiv3\\pmod4\\), beyond the known cubic case, untreated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary work proves/repairs the cubic case and discusses higher powers but does not establish the \\(m\\equiv1\\pmod4\\) family.",
+          "The source specifically reports its method as insufficient already at \\(m=5\\)."
+        ],
+        "reasoning": "No inspected broader theorem dominates the submitted congruence-class result.",
+        "searches": [
+          "Gallardo Zelinsky arXiv:2310.07077 higher powers",
+          "EMS DOI:10.4171/EM/558"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query above",
+        "arXiv:2310.07077",
+        "DOI:10.4171/EM/558"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior factorization methods stop short of the modulo-8 obstruction and do not imply the first unresolved fifth-power case."
+        ],
+        "reasoning": "The new congruence computation is the substantive missing implication rather than a parameter substitution into the cited theorem.",
+        "searches": [
+          "arXiv:2310.07077 theorem/discussion of higher powers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record as the only directly matching finding among the top results.",
+          "Gallardo–Zelinsky explicitly identify higher odd powers as the remaining issue."
+        ],
+        "reasoning": "Equivalent forms via the Euclid–Euler parameterization and the factor \\((u^m+v^m)/(u+v)\\) were included in the searches.",
+        "searches": [
+          "Resultary: even perfect number sum of two m-th powers m congruent 1 mod 4 fifth powers",
+          "web: Gallardo Zelinsky m=5 even perfect number sum fifth powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry with a prior \\(m=5\\) impossibility or the full \\(1\\pmod4\\) exponent class was located."
+        ],
+        "reasoning": "The claim is an infinite arithmetic theorem rather than a finite table recomputation.",
+        "searches": [
+          "Resultary exact exponent-class query",
+          "web exact m=5 query"
+        ]
+      },
+      "rationale": "Gallardo–Zelinsky's primary treatment formulates the higher-power problem and explicitly leaves the first odd case \\(m=5\\) beyond its method. The inspected source does not contain the modulo-8 alternating-cofactor obstruction, while the submitted argument settles \\(m=5\\) and the entire class \\(m\\equiv1\\pmod4\\). Targeted Resultary and web searches did not locate an earlier theorem with this implication.",
+      "residual_risks": [
+        "Because the final proof is elementary, an unindexed earlier observation under different perfect-number terminology remains possible; no such source was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LEAVES_M5_OPEN_AND_DOES_NOT_CONTAIN_MOD8_OBSTRUCTION",
+          "evidence": [
+            "The inspected discussion explicitly says the method is insufficient even for \\(m=5\\)."
+          ],
+          "identifier_or_url": "arXiv:2310.07077; DOI:10.4171/EM/558",
+          "material_read": "Open arXiv body material from the higher-power discussion, including the treatment that reaches the fifth-power case without resolving it; publisher metadata was also checked.",
+          "method": "Public arXiv/web full-text inspection and publisher metadata comparison.",
+          "title": "A Note on a Result of Makowski",
+          "trigger": "Exact primary source for the conjecture and strongest overlap risk."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "It settles \\(m=5\\), the first case highlighted as unresolved by the source.",
+        "It simultaneously settles every exponent \\(m\\equiv1\\pmod4\\), not a single isolated computation."
+      ],
+      "rationale": "The result closes the first explicitly unresolved odd exponent and an infinite congruence class in a natural Diophantine problem about even perfect numbers. The modulo-8 obstruction is short but substantive and sharply reduces the remaining conjectural exponent set.",
+      "risks": [
+        "The full conjecture remains open for \\(m\\equiv3\\pmod4\\), \\(m>3\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "No even perfect number is a sum of two positive \\(m\\)-th powers for any \\(m\\ge5\\) with \\(m\\equiv1\\pmod4\\).",
+  "limitations": [
+    "No conclusion is claimed for odd exponents congruent to 3 modulo 4 beyond the cubic case."
+  ],
+  "schema_version": 1
+}

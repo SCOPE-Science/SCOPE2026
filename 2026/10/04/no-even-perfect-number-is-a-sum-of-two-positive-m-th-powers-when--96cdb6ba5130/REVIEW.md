@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Removing the common power of \(2\) from the two bases shows that opposite reduced parity would split the unique odd Mersenne-prime factor into two nontrivial odd factors. Hence the reduced bases are both odd, and the alternating cofactor in the factorization of \(u^m+v^m\) must equal the Mersenne prime. For \(m\equiv1\pmod4\), that cofactor is always \(1\) or \(5\pmod8\), while a Mersenne prime \(2^p-1\) with \(p\ge3\) is \(7\pmod8\). The remaining perfect number \(6\) is excluded directly.
+## correctness
 
-## Originality
-PASS. Gallardo and Zelinsky explicitly leave \(m=5\) beyond their method. Their inspected full text does not contain the modulo-\(8\) cofactor obstruction, and targeted searches for the exact fifth-power case, the whole \(m\equiv1\pmod4\) class, author/title aliases, and equivalent sum-of-two-powers formulations did not locate a covering theorem. The residual risk is an unindexed or differently phrased elementary observation.
+PASS
 
-## Value
-PASS. The theorem proves an infinite congruence class of exponents in a stated open conjecture and settles the first odd exponent that the source explicitly leaves unresolved. It reduces the remaining odd exponents to \(m\equiv3\pmod4\) beyond the already-known cubic case.
+Writing an even perfect number as \(2^{p-1}(2^p-1)\) and removing the common power of two from \(x,y\) reduces to positive \(u,v\) not both even. Opposite parity would make both \(u+v\) and the alternating cofactor nontrivial odd factors of the unique odd prime, impossible. Thus \(u,v\) are odd and the odd cofactor \(B_m\) must equal the Mersenne prime. For \(m=4k+1\), setting \(r\equiv uv^{-1}\pmod8\) gives \(B_m\equiv1+2k(1-r)\pmod8\), hence only 1 or 5 modulo 8, never the required 7 for \(p\ge3\). The \(p=2\) perfect number 6 is excluded directly. A fresh residue replay over the complete odd residue classes reproduced only \(\{1,5\}\); the infinite conclusion rests on the symbolic formula, not the finite replay.
 
-## Closest literature and limitations
-The closest source is Luis H. Gallardo and Joshua Zelinsky, “A Note on a Result of Makowski,” arXiv:2310.07077 / DOI 10.4171/EM/558. The theorem does not address \(m\equiv3\pmod4\) for \(m>3\), so the full conjecture remains open.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Gallardo–Zelinsky's primary treatment formulates the higher-power problem and explicitly leaves the first odd case \(m=5\) beyond its method. The inspected source does not contain the modulo-8 alternating-cofactor obstruction, while the submitted argument settles \(m=5\) and the entire class \(m\equiv1\pmod4\). Targeted Resultary and web searches did not locate an earlier theorem with this implication.
+
+## value
+
+PASS
+
+The result closes the first explicitly unresolved odd exponent and an infinite congruence class in a natural Diophantine problem about even perfect numbers. The modulo-8 obstruction is short but substantive and sharply reduces the remaining conjectural exponent set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
