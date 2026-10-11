@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:00:11.623301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py",
+        "Xie et al. ICML 2022 complete primary PDF, Algorithm 2",
+        "independent substitution into the actual source recurrence"
+      ],
+      "rationale": "The final claim audits the wrong Adai recurrence. The published Algorithm 2 sets \\(\\beta_{1,t}=\\operatorname{Clip}(1-\\beta_0\\widehat v_t/\\bar v_t,0,1-\\epsilon)\\), whereas the package uses the reciprocal ratio \\(1-\\beta_0\\bar v_t/\\widehat v_t\\). This inversion reverses the intended parameterwise inertia dependence. For the package witness with squared-amplitude ratios \\((1.6,0.4)\\), \\(\\beta_0=0.1\\), the actual source rule gives inertias \\((0.84,0.96)\\); the alternating-response amplitudes are approximately \\((0.173913,0.020408)\\) times the global step, so the larger raw-gradient coordinate remains larger rather than being reversed. Thus the advertised source-form Adai amplitude reversal is false.",
+      "reason": "The final claim audits the wrong Adai recurrence. The published Algorithm 2 sets \\(\\beta_{1,t}=\\operatorname{Clip}(1-\\beta_0\\widehat v_t/\\bar v_t,0,1-\\epsilon)\\), whereas the package uses the reciprocal ratio \\(1-\\beta_0\\bar v_t/\\widehat v_t\\). This inversion reverses the intended parameterwise inertia dependence. For the package witness with squared-amplitude ratios \\((1.6,0.4)\\), \\(\\beta_0=0.1\\), the actual source rule gives inertias \\((0.84,0.96)\\); the alternating-response amplitudes are approximately \\((0.173913,0.020408)\\) times the global step, so the larger raw-gradient coordinate remains larger rather than being reversed. Thus the advertised source-form Adai amplitude reversal is false.",
+      "residual_risks": [],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source explicitly states both Algorithm 2 and the ideal adaptive update with the same \\(\\widehat v/\\bar v\\) orientation."
+        ],
+        "reasoning": "The source definition decisively controls which recurrence is being studied.",
+        "searches": [
+          "complete primary Adai paper"
+        ]
+      },
+      "checked_sources": [
+        "Xie et al. complete PMLR paper",
+        "Resultary semantic search",
+        "independent actual-rule calculation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two ratios are reciprocals and yield opposite parameterwise inertia ordering."
+        ],
+        "reasoning": "The final claim is not a new consequence of the published algorithm; it is a conclusion about a different update rule.",
+        "searches": [
+          "compare package formula with source Algorithm 2 and Section 5 ideal adaptive update"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary algorithm uses \\(1-\\beta_0\\widehat v_t/\\bar v_t\\), not the reciprocal ratio used in the audited proof.",
+          "Resultary returned no prior amplitude-reversal theorem, but this does not matter because the audited object is misidentified."
+        ],
+        "reasoning": "The package is not an equivalent formulation of Adai; it changes the algorithm.",
+        "searches": [
+          "Xie et al. arXiv:2006.15815 / PMLR v162 Algorithm 2",
+          "Resultary semantic query: Adaptive Inertia Adai alternating gradient coordinate response amplitude reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior hit was returned."
+        ],
+        "reasoning": "Absence of a prior hit cannot create originality for a claim about the wrong recurrence.",
+        "searches": [
+          "Resultary search for Adai alternating-gradient reversal"
+        ]
+      },
+      "rationale": "There is no valid original statement about the claimed source algorithm because the defining recurrence is miscopied. The algebra may describe a different reciprocal-ratio optimizer, but that is not Adai as published. A false attribution cannot be rescued as an original theorem about Adai, and no repaired claim was supplied in the package.",
+      "reason": "There is no valid original statement about the claimed source algorithm because the defining recurrence is miscopied. The algebra may describe a different reciprocal-ratio optimizer, but that is not Adai as published. A false attribution cannot be rescued as an original theorem about Adai, and no repaired claim was supplied in the package.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_CONTRADICTION",
+          "evidence": "Algorithm 2 uses \\(\\widehat v_t/\\bar v_t\\); the package uses its reciprocal.",
+          "identifier_or_url": "https://proceedings.mlr.press/v162/xie22d/xie22d.pdf",
+          "material_read": "complete primary paper; Algorithm 2 visually checked on page 5 and Section 5 text checked, with the PDF page itself inspected",
+          "method": "lawful open-access PMLR full text",
+          "title": "Adaptive Inertia: Disentangling the Effects of Adaptive Learning Rate and Momentum",
+          "trigger": "defining source for Adai and the disputed adaptive-inertia formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "primary Adai Algorithm 2",
+        "independent source-rule computation"
+      ],
+      "rationale": "The claimed reversal is tied to a reciprocal-ratio update that is not the published Adai algorithm. Under the actual rule the displayed witness has the ordinary amplitude ordering, so no surviving correct Adai phenomenon remains to motivate publication. A separate study of the invented reciprocal-ratio method would be a different research question, not a repair of this claim.",
+      "reason": "The claimed reversal is tied to a reciprocal-ratio update that is not the published Adai algorithm. Under the actual rule the displayed witness has the ordinary amplitude ordering, so no surviving correct Adai phenomenon remains to motivate publication. A separate study of the invented reciprocal-ratio method would be a different research question, not a repair of this claim.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}
