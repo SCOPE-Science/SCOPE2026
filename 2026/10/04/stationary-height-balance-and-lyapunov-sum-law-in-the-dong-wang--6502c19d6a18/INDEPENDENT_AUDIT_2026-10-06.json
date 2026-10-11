@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T00:36:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 9c0fcba2833716e275b32f5a5cd9aca1766112e2",
+        "assigned verify.py blob abc5a34f598f15fa5eb24f84b1cd072c8277e6c0",
+        "C. Dong and J. Wang, Hidden and Coexisting Attractors in a Novel 4D Hyperchaotic System with No Equilibrium Point, DOI:10.3390/fractalfract6060306"
+      ],
+      "rationale": "For \\(Q=y^2+z^2\\), direct differentiation in the inspected source tree gives exactly \\(LQ=-2cy^2-2bz\\), so stationarity yields \\(b\\mathbb E[z]=-c\\mathbb E[y^2]\\). Stationarity of \\(z\\) gives \\(\\mathbb E[xy]=b\\), which rules out \\(y=0\\) almost surely and makes the mean-height inequality strict. Any nonempty compact invariant set would carry an invariant probability measure, so containment in \\(z\\ge0\\) contradicts the negative mean. The divergence is exactly \\(-a-c+kz\\); compact support makes the derivative cocycle bounded, and Liouville plus ergodicity identifies the Lyapunov-exponent sum with the mean divergence. Substituting the stationary height balance proves the displayed law.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General mean-divergence theory supplies only \\(\\sum\\lambda_j=\\int\\operatorname{div}F\\); it does not evaluate \\(\\int z\\) for this system.",
+          "The source paper's pointwise dissipativity discussion likewise does not determine the invariant mean."
+        ],
+        "reasoning": "The system-specific quadratic balance is additional mathematical content not supplied by the generic theorem.",
+        "searches": [
+          "Dong--Wang 2022 full article",
+          "general Liouville/Oseledets mean-divergence theory",
+          "Resultary analogous hyperchaotic-flow stationary-law records"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/fractalfract6060306",
+        "general Liouville/Oseledets theory",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those ingredients leave the unknown quantity \\(\\int z\\,d\\mu\\).",
+          "The audited cancellation \\(L(y^2+z^2)=-2cy^2-2bz\\) is needed to eliminate it exactly."
+        ],
+        "reasoning": "The final explicit law therefore is not mechanically implied by the source's stated results.",
+        "searches": [
+          "Dong--Wang pointwise divergence formula",
+          "general Lyapunov-sum equals mean-divergence theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's pointwise divergence is \\(-a-c+kz\\), so a stationary mean-height identity is exactly what is needed to turn it into the audited recurrent Lyapunov-sum law.",
+          "The source analyzes numerical phase portraits and spectra rather than invariant probability measures."
+        ],
+        "reasoning": "Mean phase-volume rate, Lyapunov-sum law and stationary mean height were compared as equivalent consequences once the invariant measure is fixed.",
+        "searches": [
+          "Resultary: stationary height balance Lyapunov exponent sum Dong Wang four dimensional hyperchaotic flow invariant measure",
+          "DOI:10.3390/fractalfract6060306"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct same-model hit was the assigned finding; no earlier published-result item with the balance \\(b\\langle z\\rangle=-c\\langle y^2\\rangle\\) was returned."
+        ],
+        "reasoning": "No external exact table is relevant; the published-result corpus was searched for the symbolic identity.",
+        "searches": [
+          "Resultary exact Dong--Wang stationary-height/Lyapunov-sum query"
+        ]
+      },
+      "rationale": "The complete open primary Dong--Wang article prints the same system, its pointwise divergence, numerical Lyapunov spectra, bifurcations, coexisting attractors, unstable periodic orbits and circuit realization. It does not derive the cancellation in \\(L(y^2+z^2)\\), the resulting negative stationary mean height, the half-space exclusion, or a system-specific exact Lyapunov-sum formula in terms of \\(\\mathbb E[y^2]\\). Resultary searches returned the assigned finding and analogous laws for different flows, with no stronger same-model predecessor.",
+      "residual_risks": [
+        "A later same-system note may derive time-averaged identities without using invariant-measure terminology; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_AND_POINTWISE_DIVERGENCE_NOT_STATIONARY_BALANCE",
+          "evidence": "The article gives \\(-a-c+kz\\) pointwise but does not replace the recurrent mean of \\(z\\) by the exact negative quadratic moment or state the half-space obstruction.",
+          "identifier_or_url": "DOI:10.3390/fractalfract6060306",
+          "material_read": "Complete open primary article sections defining the system, divergence/dissipativity calculation, numerical Lyapunov spectra, bifurcations and attractor analysis.",
+          "method": "Open-access primary full-text web inspection.",
+          "title": "Hidden and Coexisting Attractors in a Novel 4D Hyperchaotic System with No Equilibrium Point",
+          "trigger": "Exact primary source of the four-dimensional flow and its numerical Lyapunov analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dong--Wang 2022",
+        "general phase-volume/Lyapunov theory"
+      ],
+      "rationale": "The source interprets hyperchaos partly through numerical Lyapunov spectra and state-dependent divergence. The audited balance turns that into an exact recurrent-statistics law, fixes the sign of the mean height, excludes an entire half-space for compact recurrence and gives a consistency equation for any claimed asymptotic spectrum. Those are substantive model-level constraints.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Dong--Wang four-dimensional flow with \\(b,c>0\\), every compactly supported invariant probability measure satisfies \\(\\mathbb E[xy]=b\\) and \\(b\\mathbb E[z]=-c\\mathbb E[y^2]<0\\); no compact invariant set lies entirely in \\(z\\ge0\\), and every compactly supported ergodic invariant measure satisfies the exact Lyapunov-sum law \\(\\sum_{j=1}^4\\lambda_j=-a-c-(kc/b)\\mathbb E[y^2]\\).",
+  "limitations": [
+    "The strict sign conclusions assume \\(b>0\\) and \\(c>0\\).",
+    "The Lyapunov-sum conclusion is for compactly supported ergodic invariant measures.",
+    "The theorem supplies necessary recurrent-statistics constraints, not existence, uniqueness or hyperchaos of a particular attractor."
+  ],
+  "schema_version": 1
+}

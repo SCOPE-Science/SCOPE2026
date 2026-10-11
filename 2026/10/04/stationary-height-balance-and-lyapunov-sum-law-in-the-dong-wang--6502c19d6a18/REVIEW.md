@@ -1,15 +1,21 @@
-# Review of Stationary height balance and Lyapunov-sum law in the Dong–Wang four-dimensional flow
+# Independent mathematical audit
 
-## Correctness
-PASS. The generator calculation is exact: \(L(y^2+z^2)=-2cy^2-2bz\), while \(Lz=-b+xy\). Invariance on compact support therefore gives \(b\langle z\rangle=-c\langle y^2\rangle\) and \(\langle xy\rangle=b\). For \(b,c>0\), the latter excludes \(\langle y^2\rangle=0\), so the mean height is strictly negative. The compact-half-space obstruction follows by existence of an invariant probability measure on any compact invariant set. The Lyapunov-sum formula follows from Liouville's determinant identity plus ergodicity. The included exact polynomial replay checks the algebra and source-parameter arithmetic.
+## correctness
 
-## Originality
-PASS. The introducing four-dimensional article was inspected at the system definition, divergence analysis, Lyapunov calculations, multistability sections, conclusion, and references. It gives a pointwise divergence criterion but not the stationary \(y^2+z^2\) balance, negative mean-height theorem, compact half-space obstruction, or explicit invariant-measure Lyapunov-sum law. The three-dimensional precursor was separately inspected because it shares the same \(y,z\) core; it also does not state these invariant-measure consequences. Exact-title, equation, formula, alias, and semantic searches found analogous recurrence identities only for different flows. General mean-divergence/Lyapunov literature does not imply the system-specific height law.
+PASS
 
-## Value
-PASS. The claim converts a pointwise, state-dependent divergence expression into an exact recurrent-statistics law valid for every compact invariant state. It forces all compact recurrence to have negative mean \(z\), rules out compact invariant dynamics in an entire half-space, and supplies an exact Lyapunov-sum consistency relation for the published hyperchaos model. These are structural constraints on the flow rather than a finite numerical recomputation.
+For \(Q=y^2+z^2\), direct differentiation in the inspected source tree gives exactly \(LQ=-2cy^2-2bz\), so stationarity yields \(b\mathbb E[z]=-c\mathbb E[y^2]\). Stationarity of \(z\) gives \(\mathbb E[xy]=b\), which rules out \(y=0\) almost surely and makes the mean-height inequality strict. Any nonempty compact invariant set would carry an invariant probability measure, so containment in \(z\ge0\) contradicts the negative mean. The divergence is exactly \(-a-c+kz\); compact support makes the derivative cocycle bounded, and Liouville plus ergodicity identifies the Lyapunov-exponent sum with the mean divergence. Substituting the stationary height balance proves the displayed law.
 
-## Closest literature and limitations
-The closest same-object sources are the 2022 four-dimensional article and its 2022 three-dimensional precursor. The closest methodological literature concerns mean divergence and Lyapunov sums for smooth flows. Search coverage is not exhaustive, so a poorly indexed later derivation of the same balance remains a residual originality risk. The theorem is necessary, not sufficient, for any particular attractor or spectrum.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete open primary Dong--Wang article prints the same system, its pointwise divergence, numerical Lyapunov spectra, bifurcations, coexisting attractors, unstable periodic orbits and circuit realization. It does not derive the cancellation in \(L(y^2+z^2)\), the resulting negative stationary mean height, the half-space exclusion, or a system-specific exact Lyapunov-sum formula in terms of \(\mathbb E[y^2]\). Resultary searches returned the assigned finding and analogous laws for different flows, with no stronger same-model predecessor.
+
+## value
+
+PASS
+
+The source interprets hyperchaos partly through numerical Lyapunov spectra and state-dependent divergence. The audited balance turns that into an exact recurrent-statistics law, fixes the sign of the mean height, excludes an entire half-space for compact recurrence and gives a consistency equation for any claimed asymptotic spectrum. Those are substantive model-level constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
