@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` performs only reproducibility and algebra checks. It evaluates the positive Kummer series for even modes, reconstructs \(\lambda_k\), checks representative Hessian coefficients, verifies the analytic all-mode margin \(2-8(\sqrt e-1)<0\), checks the second-order support-to-radial expansion numerically, and cross-checks the zero-mode normalization against the exact radial-ball second derivative.
+# Independent mathematical audit
 
-The mathematical proof of the infinite statement does not depend on a finite enumeration. It uses the exact inequality \(\lambda_k>k\) for every \(k\ge1\), which follows from the positive-coefficient hypergeometric representation. For the centrally symmetric fixed-perimeter tangent space, only even \(k\ge2\) occur, and then \(k^2+2\lambda_k>8\).
+## correctness
 
-The only general analytic input not reproved from first principles is standard smooth dependence of the Dirichlet solution of a uniformly elliptic equation with smooth coefficients under a smooth boundary perturbation. The proof states this dependency and derives all resulting boundary and integral coefficients explicitly.
+PASS
+
+The second-variation calculation was independently reconstructed from the frozen proof. Cauchy's support formula makes perimeter exactly constant for zero-mean f. Converting support to radial graph gives rho=1+epsilon f-(epsilon^2/2)(f')^2+O(epsilon^3). The first two Eulerian corrections solve the homogeneous OU equation with the displayed Dirichlet data. Fourier separation gives F_k and lambda_k=F_k'(1); positivity of the hypergeometric series yields lambda_k>k. The constant angular part of u_2 contributes G(a k^2/4-b/4+a lambda_k/2), and the moving collar contributes -a w/4, giving exactly A/(4 sqrt(e))[2-A(k^2+2lambda_k)] in the epsilon^2 coefficient and the stated doubled Hessian. Independent evaluation gave negative coefficients -0.7199,-2.7768,-5.8459,-9.9332 for k=2,4,6,8, while the all-mode proof is lambda_k>k, not finite sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with explicit primary-text access risk. Nguyen--Stancu's current primary abstract proves failure of positive-power Brunn--Minkowski convexity for Gaussian torsional rigidity and identifies a first-order ball perturbation mechanism; it does not state the fixed-Euclidean-perimeter Fourier/Kummer Hessian. Resultary returned the audited record as the direct match, with nearby Gaussian-volume-product Hessians involving a different functional. No covering fixed-perimeter OU-torsion second-variation theorem was found. The complete Nguyen--Stancu preprint text was not retrievable in this run, so unseen full-text overlap remains a residual risk rather than a failure.
+
+## value
+
+PASS
+
+The result computes the complete smooth centrally symmetric fixed-perimeter tangent Hessian for a weighted torsion problem whose recent literature is actively studying geometric extremality. The exact Kummer spectral mechanism and strict sign in every admissible Fourier mode provide a meaningful local stability theorem, not a routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

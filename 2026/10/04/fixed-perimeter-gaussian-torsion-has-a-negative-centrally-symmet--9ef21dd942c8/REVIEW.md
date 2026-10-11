@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the support-function geometry, the first and second Eulerian boundary data, the Ornstein--Uhlenbeck Fourier modes, the moving-domain integral, and the final sign. The critical nonstandard quantity is the OU Dirichlet-to-Neumann eigenvalue \(\lambda_k\); its Kummer formula is derived from the radial ODE, and \(\lambda_k>k\) follows from positivity of the Kummer series. The infinite-dimensional sign is analytic, not inferred from a finite sweep. The packaged checker verifies normalization and representative coefficients.
+## correctness
 
-## Originality
-PASS. Direct full-text comparison with arXiv:2608.29941v1 and arXiv:2603.19164v1 found no fixed-perimeter support Hessian. The lead paper explicitly leaves the centrally symmetric fixed-perimeter maximization question open and states that it does not establish the exact first variation underlying its own lower bound. published-finding corpus searches over Gaussian torsion, Ornstein--Uhlenbeck torsion, Hadamard/shape derivative, Kummer/Fourier Hessian, and local fixed-perimeter maximizer aliases found no covering record. Classical Laplace-torsion second variations are methodologically related but do not imply the weighted OU coefficients.
+PASS
 
-## Value
-PASS. The result answers the first decisive local stability test for an explicit open geometric optimization question in the lead paper. It gives an exact spectral formula and strict sign for every admissible centrally symmetric smooth perimeter-preserving direction, while carefully stopping short of a global inequality or an unsupported neighborhood theorem.
+The second-variation calculation was independently reconstructed from the frozen proof. Cauchy's support formula makes perimeter exactly constant for zero-mean f. Converting support to radial graph gives rho=1+epsilon f-(epsilon^2/2)(f')^2+O(epsilon^3). The first two Eulerian corrections solve the homogeneous OU equation with the displayed Dirichlet data. Fourier separation gives F_k and lambda_k=F_k'(1); positivity of the hypergeometric series yields lambda_k>k. The constant angular part of u_2 contributes G(a k^2/4-b/4+a lambda_k/2), and the moving collar contributes -a w/4, giving exactly A/(4 sqrt(e))[2-A(k^2+2lambda_k)] in the epsilon^2 coefficient and the stated doubled Hessian. Independent evaluation gave negative coefficients -0.7199,-2.7768,-5.8459,-9.9332 for k=2,4,6,8, while the all-mode proof is lambda_k>k, not finite sampling.
 
-## Closest literature and limitations
-The closest literature is arXiv:2608.29941v1, which provides the planar disk ODE and poses the global fixed-perimeter question, and arXiv:2603.19164v1, which studies Minkowski convexity and centered balls. Residual originality risk remains from unindexed weighted shape-calculus literature. Scientifically, the theorem is local, smooth, planar, centrally symmetric, and at radius one; it does not establish global maximization.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with explicit primary-text access risk. Nguyen--Stancu's current primary abstract proves failure of positive-power Brunn--Minkowski convexity for Gaussian torsional rigidity and identifies a first-order ball perturbation mechanism; it does not state the fixed-Euclidean-perimeter Fourier/Kummer Hessian. Resultary returned the audited record as the direct match, with nearby Gaussian-volume-product Hessians involving a different functional. No covering fixed-perimeter OU-torsion second-variation theorem was found. The complete Nguyen--Stancu preprint text was not retrievable in this run, so unseen full-text overlap remains a residual risk rather than a failure.
+
+## value
+
+PASS
+
+The result computes the complete smooth centrally symmetric fixed-perimeter tangent Hessian for a weighted torsion problem whose recent literature is actively studying geometric extremality. The exact Kummer spectral mechanism and strict sign in every admissible Fourier mode provide a meaningful local stability theorem, not a routine normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:57:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The second-variation calculation was independently reconstructed from the frozen proof. Cauchy's support formula makes perimeter exactly constant for zero-mean f. Converting support to radial graph gives rho=1+epsilon f-(epsilon^2/2)(f')^2+O(epsilon^3). The first two Eulerian corrections solve the homogeneous OU equation with the displayed Dirichlet data. Fourier separation gives F_k and lambda_k=F_k'(1); positivity of the hypergeometric series yields lambda_k>k. The constant angular part of u_2 contributes G(a k^2/4-b/4+a lambda_k/2), and the moving collar contributes -a w/4, giving exactly A/(4 sqrt(e))[2-A(k^2+2lambda_k)] in the epsilon^2 coefficient and the stated doubled Hessian. Independent evaluation gave negative coefficients -0.7199,-2.7768,-5.8459,-9.9332 for k=2,4,6,8, while the all-mode proof is lambda_k>k, not finite sampling.",
+      "risks": [
+        "Standard smooth-domain differentiability for the OU Dirichlet problem is invoked rather than reproved."
+      ],
+      "sources": [
+        "RESULT.md blob 07abba0387cfa556e0dfb7faafb0174c469456c1",
+        "verify.py blob f3511261de942e74d0f26bd2385a0629df1cef11"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen--Stancu is broader for global BM counterexamples but gives a different first-order statement.",
+          "Classical torsion uses a different operator/measure and hence a different boundary spectrum."
+        ],
+        "reasoning": "None of the broader results implication-wise supplies the displayed OU/Kummer fixed-perimeter Hessian.",
+        "searches": [
+          "arXiv:2608.29941",
+          "Marín Sola--Salerno OU torsion literature",
+          "classical Laplace torsion second-variation literature searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.29941",
+        "Resultary semantic index",
+        "Gaussian torsional-rigidity literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A first-order increase along selected Minkowski rays does not determine the second derivative on the zero-mean support-function tangent space.",
+          "The audited proof derives the full Fourier diagonalization and sign mode-by-mode."
+        ],
+        "reasoning": "The final theorem is not a corollary of the accessible first-order BM-failure statement.",
+        "searches": [
+          "Direct comparison to the arXiv:2608.29941 abstract's first-order mechanism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary abstract discusses BM failure and a first-order lower bound at a ball, not a perimeter-tangent Hessian.",
+          "No independent Resultary hit matches the Kummer Fourier coefficients."
+        ],
+        "reasoning": "Aliases checked included Gaussian/OU torsion, support perturbation, shape Hessian, fixed perimeter, local disk maximizer, and Kummer Dirichlet-to-Neumann spectrum.",
+        "searches": [
+          "Resultary: Gaussian torsional rigidity unit disk fixed perimeter second variation support function Kummer Ornstein Uhlenbeck",
+          "web: Gaussian torsional rigidity fixed perimeter disk centrally symmetric Nguyen Stancu",
+          "arXiv:2608.29941"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest separate SCOPE hit is a Gaussian volume-product Hessian, not Gaussian torsional rigidity."
+        ],
+        "reasoning": "This is a continuous spectral shape derivative, not a finite lookup; no exact table/database covers the coefficient.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with explicit primary-text access risk. Nguyen--Stancu's current primary abstract proves failure of positive-power Brunn--Minkowski convexity for Gaussian torsional rigidity and identifies a first-order ball perturbation mechanism; it does not state the fixed-Euclidean-perimeter Fourier/Kummer Hessian. Resultary returned the audited record as the direct match, with nearby Gaussian-volume-product Hessians involving a different functional. No covering fixed-perimeter OU-torsion second-variation theorem was found. The complete Nguyen--Stancu preprint text was not retrievable in this run, so unseen full-text overlap remains a residual risk rather than a failure.",
+      "residual_risks": [
+        "The complete Nguyen--Stancu preprint was inaccessible in this run.",
+        "An older weighted shape-calculus paper under different terminology could contain the same Hessian.",
+        "Strict directional negativity is not itself a uniform Banach-neighborhood local-maximizer theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ACCESS_NOT_COVERING on material read; full-text overlap remains a residual risk.",
+          "evidence": "The abstract proves global BM failures and identifies a first-order lower bound at a ball under Minkowski perturbations.",
+          "identifier_or_url": "arXiv:2608.29941",
+          "material_read": "Current primary abstract and accessible public abstract mirror; full preprint text was not retrievable in this run.",
+          "method": "Statement/implication comparison on accessible primary material.",
+          "title": "Failure of a Brunn-Minkowski-type inequality for the Gaussian torsional rigidity",
+          "trigger": "Closest same-functional primary source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result computes the complete smooth centrally symmetric fixed-perimeter tangent Hessian for a weighted torsion problem whose recent literature is actively studying geometric extremality. The exact Kummer spectral mechanism and strict sign in every admissible Fourier mode provide a meaningful local stability theorem, not a routine normalization check.",
+      "risks": [
+        "It remains local and directional, not a global perimeter inequality."
+      ],
+      "sources": [
+        "arXiv:2608.29941",
+        "RESULT.md Hessian theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is a smooth second-directional-variation result only; it does not prove global fixed-perimeter maximality.",
+    "Full text of the closest 2026 preprint was inaccessible in this run; this is retained as an originality risk."
+  ],
+  "schema_version": 1
+}
