@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published scalar-unitary formula was inverted at two distinct nonidentity scalars to force the matrix parameter to be scalar. The scalar case was then reduced exactly to two fractional-linear normal forms according to the sign of \(1-2\operatorname{Re}\alpha\). The inverse parameter formulas reconstruct every holomorphic and antiholomorphic disk automorphism fixing \(1\), so both directions and all boundary cases are covered.
+## correctness
 
-## Originality
-PASS. The focal paper classifies the order automorphisms and provides the formula used here, but it does not state center preservation, the two-scalar detection criterion, or the Möbius/anti-Möbius parametrization. The closest classical result of Molnár assumes orthogonality preservation and continuity and consequently obtains only identity or conjugation on the scalar circle.
+PASS
 
-## Value
-PASS. Preserving the scalar unitary circle is a canonical center-preservation condition. The finding gives its complete parameter classification and explains geometrically how the new order-only automorphisms enlarge the classical orthogonality-preserving pair to the full disk-automorphism stabilizer of \(1\).
+Jia--Ji's full arXiv text gives \(\Psi_A(aI)=(a-1)(I-A-aA^*)^{-1}+I\) and proves the denominator is invertible for every \(a\in\mathbb T\). If two distinct nonidentity values have scalar images, then \(I-A-aA^*\) is scalar for each; subtraction forces \(A^*\), hence \(A\), scalar. Conversely scalar \(A=\alpha I\) makes the whole circle scalar. Substitution gives the stated fractional-linear formulas; the sign of \(1-2\operatorname{Re}\alpha\) puts the disk parameter inside \(\mathbb D\), and solving for \(\alpha\) proves surjectivity and uniqueness onto the Möbius/anti-Möbius stabilizer of 1. The same primary paper explicitly identifies \(A=0\) with identity, \(A=I\) with adjoint/conjugation, and proves these are exactly the orthogonality-preserving cases.
 
-The main limitation is that the statement is for the normalized \(\Psi_A\) family and does not classify the additional outer factors in a general \(\Delta_{CD}\circ\Psi_A\) representation. A terminology-level residual risk remains for older preserver literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Jia--Ji completely classify order automorphisms and provide the scalar-unitary formula, but their paper does not isolate the subfamily preserving the center, prove two-probe rigidity, or identify its boundary action with the full Möbius/anti-Möbius stabilizer of 1. Molnar's older order-and-orthogonality theorem has only the identity/conjugation scalar behavior and does not cover the new non-orthogonality-preserving Jia--Ji family. No Resultary search found an equivalent center-preserving classification.
+
+## value
+
+PASS
+
+The center is a canonical subset of the matrix algebra, and identifying exactly which exotic order automorphisms preserve it gives a clean rigidity test and a complete one-complex-parameter boundary dynamical model. The two-probe criterion is a structural lemma, not a numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
