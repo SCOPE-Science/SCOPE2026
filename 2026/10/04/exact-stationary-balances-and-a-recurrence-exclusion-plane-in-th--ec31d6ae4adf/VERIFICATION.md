@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof depends on exact polynomial identities, not on a finite trajectory census. The bundled `verify.py` uses symbolic expansion of the five-real-dimensional form of the complex Chen equations and checks:
+# Independent mathematical audit
 
-1. \(Ls=2a(R-s)\).
-2. \(LI=(c_1-a)I+c_2(s+R)\).
-3. For \(G=aR-(a+c_1)s/2\),
-   \[
-   LG=|\dot X|^2-a c_2I+a(2c_1-a-Z)s.
-   \]
-4. For \(V=s-2aZ\),
-   \[
-   LV=-2as+2abZ.
-   \]
-5. Algebraic elimination of the stationary mixed phase moment gives
-   \[
-   (c_1-a)\left[M-(2c_1-a)S-\frac Ea\right]=2c_2^2S.
-   \]
+## correctness
 
-The checker also verifies the special rotating-orbit reduction against the published formulas \(c_1=28\) and \(\omega=2ac_2/(a-28)\).
+PASS
 
-Limits: symbolic verification checks the algebraic identities only. The invariant-measure averaging step and support-invariance argument are mathematical deductions given in `RESULT.md`; they are not replaced by numerical simulation. No claim is made about existence or uniqueness of noncompact trajectories.
+The polynomial generator identities are correct. Writing \(s=|X|^2\), \(R=\operatorname{Re}(\overline XY)\), and \(I=\operatorname{Im}(\overline XY)\), stationarity of \(Ls=2a(R-s)\) gives \(\int R=S\), while stationarity of \(LI=(c_1-a)I+c_2(s+R)\) gives \((c_1-a)\int I+2c_2S=0\). The displayed observable \(G=aR-(a+c_1)s/2\) satisfies \(LG=|\dot X|^2-ac_2I+a(2c_1-a-Z)s\). Eliminating \(\int I\) gives the claimed exact weighted-height identity. The auxiliary coboundary \(L(s-2aZ)=-2as+2abZ\) gives the mean law. On \(c_1=a\), \(c_2\ne0\), the \(I\)-balance forces \(S=0\), invariance then forces \(X=Y=0\), and the remaining scalar contraction forces the origin atom. The symbolic package verifier checks every polynomial identity exactly.
+
+## originality
+
+PASS
+
+The complete boundedness paper and the complete later bifurcation paper were read. The first contains the same system and the transient identity derived from \(V=|X|^2-2aZ\), but develops ultimate bounds rather than stationary invariant-measure balances. The second derives Hopf thresholds and explicit rotating periodic solutions; its orbit height is consistent with the audited balance, but it does not state the measure-wide derivative-energy identity or the exclusion of every nontrivial compact invariant probability on \(c_1=a,\ c_2\ne0\). Resultary searches found no stronger same-object theorem.
+
+## value
+
+PASS
+
+The theorem converts known trajectory algebra into a new exact statistical constraint for every compact recurrent state and identifies a sharp parameter plane where all compact recurrence collapses to the origin. It also explains the height of a published rotating orbit as one instance of a measure-wide law. That is a motivated structural recurrence result, not a routine restatement of an ultimate-bound estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

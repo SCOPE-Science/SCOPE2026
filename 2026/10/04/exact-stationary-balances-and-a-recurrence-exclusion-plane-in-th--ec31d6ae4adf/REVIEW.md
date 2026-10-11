@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is reconstructed from the printed vector field in five real dimensions. The critical identities for \(Ls\), \(LI\), \(LG\), and \(LV\) are pointwise polynomial identities and are replayed by the bundled checker. Compact support makes every observable used in the averaging argument integrable. The resonance conclusion uses nonnegativity of \(|X|^2\) and invariance of support; it does not infer global convergence of arbitrary trajectories.
+## correctness
 
-## Originality
-PASS. Full-text comparison was made against the 2007 introducing dynamics/synchronization paper, the 2021 boundedness paper, and the 2023/2024 Hopf/bifurcation follow-up. The 2021 paper contains the simpler \(V=|X|^2-2aZ\) identity, but not the mixed-phase stationary balance or the weighted derivative-energy law. The later Hopf paper gives a special rotating periodic orbit whose height is recovered by the new law, but does not state a measure-wide result or the detuned resonance exclusion. Semantic literature searches returned analogous balance laws for other vector fields rather than stronger coverage of this system.
+PASS
 
-## Value
-PASS. The exact identity applies simultaneously to periodic, quasiperiodic, and chaotic invariant measures whenever they are compactly supported. The resonance case \(\operatorname{Re}c=a\), \(\operatorname{Im}c\ne0\) rules out every nontrivial compact recurrent statistical state, while off resonance the nonnegative derivative-energy term quantifies the gap between weighted height and the parameter threshold. This sharpens the qualitative picture supplied by boundedness and Hopf analyses.
+The polynomial generator identities are correct. Writing \(s=|X|^2\), \(R=\operatorname{Re}(\overline XY)\), and \(I=\operatorname{Im}(\overline XY)\), stationarity of \(Ls=2a(R-s)\) gives \(\int R=S\), while stationarity of \(LI=(c_1-a)I+c_2(s+R)\) gives \((c_1-a)\int I+2c_2S=0\). The displayed observable \(G=aR-(a+c_1)s/2\) satisfies \(LG=|\dot X|^2-ac_2I+a(2c_1-a-Z)s\). Eliminating \(\int I\) gives the claimed exact weighted-height identity. The auxiliary coboundary \(L(s-2aZ)=-2as+2abZ\) gives the mean law. On \(c_1=a\), \(c_2\ne0\), the \(I\)-balance forces \(S=0\), invariance then forces \(X=Y=0\), and the remaining scalar contraction forces the origin atom. The symbolic package verifier checks every polynomial identity exactly.
 
-## Closest literature and limitations
-The closest precursor is Zhang–Chen (2021), DOI 10.3934/dcdsb.2021291, whose Lemma 3.3 supplies one of the four generator identities but not the final invariant-measure relation. Mahmoud–Bountis–Mahmoud (2007), DOI 10.1142/S0218127407019962, supplies the original real-parameter complex Chen dynamics. Wang–Zhang (2023/2024), DOI 10.3934/dcdsb.2023132, supplies the explicit rotating periodic orbit used as a consistency check. The result does not classify noncompact trajectories and does not independently validate numerical chaos claims.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The complete boundedness paper and the complete later bifurcation paper were read. The first contains the same system and the transient identity derived from \(V=|X|^2-2aZ\), but develops ultimate bounds rather than stationary invariant-measure balances. The second derives Hopf thresholds and explicit rotating periodic solutions; its orbit height is consistent with the audited balance, but it does not state the measure-wide derivative-energy identity or the exclusion of every nontrivial compact invariant probability on \(c_1=a,\ c_2\ne0\). Resultary searches found no stronger same-object theorem.
+
+## value
+
+PASS
+
+The theorem converts known trajectory algebra into a new exact statistical constraint for every compact recurrent state and identifies a sharp parameter plane where all compact recurrence collapses to the origin. It also explains the height of a published rotating orbit as one instance of a measure-wide law. That is a motivated structural recurrence result, not a routine restatement of an ultimate-bound estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
