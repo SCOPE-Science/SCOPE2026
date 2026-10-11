@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:17:18.241632Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a symmetric nonzero orbit x_t=±a with β1=0, squared gradients are constant. Starting from v0=0, the bias-corrected second moment is exactly h^2a^2 for every β2<1, so the source AdamW update reduces to x^+=(1−δ)x−α h x/(ha+ε). Requiring x^+=−x gives a=α/(2−δ)−ε/h and existence exactly c=αh/ε>2−δ. The minimizer linearization has multiplier 1−δ−c, crossing −1 at the same threshold. When β2=0 the exact odd scalar map has magnitude multiplier M(z)=1−δ−αh/(hz+ε), strictly increasing from 1−δ−c to 1−δ; for c≤2−δ it lies strictly in (−1,1) for every z>0, giving global magnitude contraction to zero. Above threshold the unique symmetric two-cycle has derivative d=1−δ−(2−δ)^2/c with −1<d<1, hence is locally attracting. I independently checked the cycle and derivative numerically for several δ; the proof is analytic.",
+      "risks": [
+        "Global convergence/stability classification is only for β2=0; positive β2 is covered for exact orbit existence and minimizer linearization.",
+        "β1 is fixed to zero and the objective is scalar deterministic quadratic."
+      ],
+      "sources": [
+        "assigned RESULT.md and verify.py",
+        "Loshchilov–Hutter, arXiv:1711.05101 / ICLR 2019 Algorithm 2",
+        "Bock–Weiß, arXiv:2210.02070"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing Adam cycle theorems concern the optimizer without the added decoupled multiplicative shrinkage.",
+          "AdamW's regularization analysis concerns inequivalence/generalization, not deterministic periodic-orbit thresholds."
+        ],
+        "reasoning": "Neither prior line by itself dominates the coupled dynamical statement.",
+        "searches": [
+          "Bock–Weiß period-two analysis",
+          "AdamW source algorithm",
+          "current Resultary optimization search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1711.05101",
+        "arXiv:2210.02070",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting a scalar quadratic into AdamW gives the recurrence but still requires solving the bias-corrected orbit and proving the global β2=0 dichotomy.",
+          "Adam's known two-cycle existence does not imply how an added decay factor shifts the threshold or destabilizes a previously convergent parameter strip."
+        ],
+        "reasoning": "The final result requires new recurrence analysis and yields a different parameter boundary.",
+        "searches": [
+          "direct implication comparison with AdamW Algorithm 2 and Bock–Weiß quadratic-cycle theorem scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AdamW Algorithm 2 applies decoupled decay outside the adaptive gradient term.",
+          "Bock–Weiß explicitly studies Adam quadratic two-cycles with bias correction but no decoupled weight decay.",
+          "No Resultary hit states the 2−δ threshold."
+        ],
+        "reasoning": "Equivalent formulations as a flip bifurcation threshold, exact symmetric period-two orbit, and a decay-induced chattering strip were compared.",
+        "searches": [
+          "Resultary: AdamW quadratic two-cycle decoupled weight decay threshold 2-delta chattering",
+          "Loshchilov–Hutter arXiv:1711.05101 full PDF Algorithm 2",
+          "Bock–Weiß arXiv:2210.02070 full PDF / weight-decay text search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table of the threshold or amplitude formula was located."
+        ],
+        "reasoning": "The claim is a closed-form dynamical theorem, not a finite benchmark recomputation.",
+        "searches": [
+          "Resultary exact threshold/amplitude search",
+          "targeted web search for AdamW quadratic period-two threshold"
+        ]
+      },
+      "rationale": "The AdamW primary paper was inspected at Algorithm 2 and establishes the decoupled update but does not analyze quadratic periodic dynamics. Bock–Weiß's primary paper establishes period-two limit cycles for Adam on quadratics with bias correction, and its accessible full text contains no weight-decay discussion. Resultary searches for an AdamW quadratic two-cycle threshold produced no matching theorem. The audited claim therefore combines two prior lines in a way not implied by either: adding a decoupled shrinkage term changes the exact threshold to 2−δ, creates a strip where decay turns convergence into a stable nonzero cycle, and yields a global below-threshold classification in the β2=0 slice.",
+      "residual_risks": [
+        "A practitioner note or unindexed dynamical-systems analysis of AdamW could contain the same scalar threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES THE UPDATE, DOES NOT COVER PERIOD-TWO THRESHOLDS.",
+          "evidence": "Algorithm 2 places weight decay in the parameter update outside adaptive moments; the inspected discussion focuses on regularization inequivalence and empirical generalization.",
+          "identifier_or_url": "arXiv:1711.05101; ICLR 2019",
+          "material_read": "Full primary PDF around Section 2 and Algorithm 2; page image inspected.",
+          "method": "Primary algorithm and scope comparison.",
+          "title": "Decoupled Weight Decay Regularization",
+          "trigger": "Primary definition of AdamW and exact decoupled update."
+        },
+        {
+          "assessment": "COVERS ADAM LIMIT CYCLES, NOT ADAMW DECAY DYNAMICS.",
+          "evidence": "The paper states period-two cycles for Adam on quadratic objectives with bias correction, without a decoupled weight-decay term.",
+          "identifier_or_url": "arXiv:2210.02070",
+          "material_read": "Primary full PDF/abstract and searchable text; title page image inspected; text search found no weight-decay discussion.",
+          "method": "Primary scope and terminology comparison.",
+          "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+          "trigger": "Closest primary quadratic limit-cycle analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result isolates a counterintuitive stability effect of a widely used optimizer modification: decoupled decay can lower the flip threshold and create a stable nonzero cycle in a parameter strip where the same memoryless adaptive method converges without decay. The exact threshold, amplitude, stability multiplier and global convergent side make this a motivated boundary theorem, not a routine numerical example.",
+      "risks": [
+        "The slice β1=β2=0 is deliberately simplified and does not establish behavior for default AdamW momentum settings."
+      ],
+      "sources": [
+        "AdamW source motivation",
+        "published Adam quadratic-cycle literature",
+        "exact scalar phase boundary"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar deterministic quadratic.",
+    "β1=0; global dichotomy only β2=0.",
+    "No claim about stochastic training or generalization."
+  ],
+  "schema_version": 1
+}
