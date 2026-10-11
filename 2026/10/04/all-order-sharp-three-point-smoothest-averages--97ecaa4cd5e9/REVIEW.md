@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Fourier multiplier calculation is exact: a symmetric radius-one normalized kernel has multiplier \(1-b\sin^2(\xi/2)\), while \(\nabla^k\) contributes \(2^k\sin^k(\xi/2)\). The resulting scalar minimax problem is solved by elementary differentiation on the positive and negative branches. The unrestricted branch maxima are exactly \(c_rb^{-r}\) and \(b-1\), so the equal-ripple equation gives a unique global minimizer. The Fourier-nonnegative constraint is exactly \(b\le1\), whose unique optimum is \(b=1\). The Lambert-\(W\) limit follows directly from the same defining equation. The supplementary verifier reproduces representative instances but is not needed for the proof.
+## correctness
 
-## Originality
-**PASS, with residual literature risk.** The closest recent primary paper formulates exactly this smoothest-average problem, solves selected derivative orders, and states in its open-problem table that several other orders remain unresolved. Its searchable full text does not give an all-order solution at radius one. The 2021 and 2023 predecessors cover only low derivative orders. Targeted published-finding corpus searches using the three-point/radius-one formulation, the weighted minimax form, and the explicit equal-ripple equation found no covering result. The main residual risk is an older equivalent degree-one weighted-Chebyshev statement under different terminology.
+PASS
 
-## Value
-**PASS.** Radius one is the first nontrivial support size in the source problem, so a complete all-order classification there is a mathematically natural finite cutoff rather than an arbitrary slice. It supplies exact instances in open derivative-order regimes, shows that Fourier positivity rigidly selects the same triangle kernel for every order, and gives an explicit asymptotic comparison with the unrestricted optimum.
+For a symmetric normalized radius-one kernel, write endpoint weight \(a\) and \(b=4a\). Plancherel reduces the norm exactly to \(2^k\max_{0\le t\le1}t^r|1-bt|\). When \(b\le1\), pointwise monotonicity in \(b\) forces the best value at \(b=1\), and differentiation gives the unique interior maximum \(c_r\); Fourier nonnegativity is exactly \(b\le1\). When \(b>1\), the positive branch has maximum \(c_rb^{-r}\) at \(t=r/((r+1)b)\), while the negative branch is increasing and has maximum \(b-1\) at \(t=1\). Their unique crossing gives the unique global minimizer and the displayed equation. Setting \(y=r(b_r-1)\) gives \(y(1+y/r)^r=rc_r\to e^{-1}\), hence \(y\to W(e^{-1})\) and the two asymptotics follow. The packaged numerical verifier is consistent with these exact branch formulas but is not needed for the proof.
 
-## Closest literature and limitations
-Gaitán–Garzón–Madrid (2026) is the closest source: it solves unrestricted \(k=3\), Fourier-nonnegative \(k=4,6\), and records remaining cases as open. Kravitz–Steinerberger (2021) and Richardson (2023/2026) provide the foundational \(k=1,2\) results. The present result is only for support radius \(n=1\); it does not solve the multivariate larger-support problem. An uncatalogued equivalent radius-one formula remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The highly relevant 2026 primary paper was read in full HTML through its introduction and main theorem statements. It establishes unrestricted orders \(1,2,3\) (with earlier sources for \(1,2\)) and Fourier-nonnegative orders \(2,4,6\) for arbitrary support radius, together with a general relation, but it does not state the all-order radius-one minimax formula. The older Kravitz--Steinerberger and Richardson results cover the low-order specializations. Resultary searches found no prior equivalent all-\(k\), three-tap formula or Lambert-\(W\) asymptotic.
+
+## value
+
+PASS
+
+Support radius one is the first nontrivial averaging window and gives a natural boundary of the general smoothest-average problem. Solving it for every derivative order provides exact sharp constants and optimizers in rows where arbitrary-radius questions remain substantially harder, and the Lambert-\(W\) limit gives a clean quantitative comparison between unrestricted and Fourier-positive smoothing. This is a natural complete classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

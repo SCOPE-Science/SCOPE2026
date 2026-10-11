@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T13:06:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a symmetric normalized radius-one kernel, write endpoint weight \\(a\\) and \\(b=4a\\). Plancherel reduces the norm exactly to \\(2^k\\max_{0\\le t\\le1}t^r|1-bt|\\). When \\(b\\le1\\), pointwise monotonicity in \\(b\\) forces the best value at \\(b=1\\), and differentiation gives the unique interior maximum \\(c_r\\); Fourier nonnegativity is exactly \\(b\\le1\\). When \\(b>1\\), the positive branch has maximum \\(c_rb^{-r}\\) at \\(t=r/((r+1)b)\\), while the negative branch is increasing and has maximum \\(b-1\\) at \\(t=1\\). Their unique crossing gives the unique global minimizer and the displayed equation. Setting \\(y=r(b_r-1)\\) gives \\(y(1+y/r)^r=rc_r\\to e^{-1}\\), hence \\(y\\to W(e^{-1})\\) and the two asymptotics follow. The packaged numerical verifier is consistent with these exact branch formulas but is not needed for the proof.",
+      "risk": "The proof depends crucially on support radius one, where the normalized symmetric kernel has a single free scalar.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaitán--Garzón--Madrid treats arbitrary radius for order 3 and nonnegative-Fourier orders 4 and 6, and recounts the order-1/order-2 results.",
+          "Kravitz--Steinerberger and Richardson give broader-radius theorems for low orders."
+        ],
+        "reasoning": "Those theorems dominate individual low-order cases but not the submitted infinitely many higher-order radius-one instances.",
+        "searches": [
+          "J. Gaitán, C. Garzón, J. Madrid, arXiv:2604.25074",
+          "N. Kravitz, S. Steinerberger, arXiv:2007.13700",
+          "S. Richardson, arXiv:2310.09713"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.25074",
+        "arXiv:2007.13700",
+        "arXiv:2310.09713",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general relation between order \\(k\\) and \\(2k\\) in the recent paper does not determine the radius-one optimizer for every order without solving the scalar minimax problem.",
+          "The submitted proof solves that remaining one-parameter problem directly for all real \\(r=k/2\\)."
+        ],
+        "reasoning": "Prior low-order and relation theorems provide consistency checks but do not mechanically yield the entire all-order sequence and Lambert-\\(W\\) limit.",
+        "searches": [
+          "arXiv:2604.25074 main theorem statements and general relation",
+          "low-order sharp theorems of Kravitz--Steinerberger and Richardson"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct Resultary match is the audited record; no independent equivalent formula was found.",
+          "The primary literature formulates the problem as weighted polynomial minimax, but the located theorems cover selected derivative orders rather than every order at radius one."
+        ],
+        "reasoning": "Three-tap filtering, radius-one kernels, and degree-one weighted minimax are equivalent formulations of the audited problem; no prior all-order solution under those aliases was located.",
+        "searches": [
+          "Resultary semantic search: smoothest average three-point radius one all derivative orders discrete difference minimax Fourier nonnegative triangle kernel",
+          "Web search: three-tap smoothest average arbitrary derivative order minimax"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database giving the arbitrary-order radius-one constants or optimizers was located."
+        ],
+        "reasoning": "The claim is an analytic infinite family; finite low-order tables cannot imply the closed equation or asymptotic.",
+        "searches": [
+          "Resultary smoothest-average corpus",
+          "Full-text theorem search in arXiv:2604.25074"
+        ]
+      },
+      "rationale": "The highly relevant 2026 primary paper was read in full HTML through its introduction and main theorem statements. It establishes unrestricted orders \\(1,2,3\\) (with earlier sources for \\(1,2\\)) and Fourier-nonnegative orders \\(2,4,6\\) for arbitrary support radius, together with a general relation, but it does not state the all-order radius-one minimax formula. The older Kravitz--Steinerberger and Richardson results cover the low-order specializations. Resultary searches found no prior equivalent all-\\(k\\), three-tap formula or Lambert-\\(W\\) asymptotic.",
+      "residual_risks": [
+        "An equivalent three-tap weighted-minimax calculation may exist in older signal-processing or approximation literature under different terminology; targeted searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LOW_ORDER_AND_BROADER_RADIUS_PARTIAL_COVERAGE",
+          "evidence": "The paper explicitly identifies its \\(k>2\\) contributions as \\(k=3\\) and the nonnegative-Fourier cases \\(k=4,6\\); it does not give an all-derivative-order three-point theorem.",
+          "identifier_or_url": "arXiv:2604.25074",
+          "material_read": "Full public HTML introduction and theorem statements describing the general problem, the earlier \\(k=1,2\\) results, unrestricted \\(k=3\\), Fourier-nonnegative \\(k=4,6\\), and the general relation.",
+          "method": "lawful arXiv full HTML",
+          "title": "The smoothest average and some extremal problems for polynomials",
+          "trigger": "Most recent primary paper on the same \\(\\nabla^k\\) extremal problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Support radius one is the first nontrivial averaging window and gives a natural boundary of the general smoothest-average problem. Solving it for every derivative order provides exact sharp constants and optimizers in rows where arbitrary-radius questions remain substantially harder, and the Lambert-\\(W\\) limit gives a clean quantitative comparison between unrestricted and Fourier-positive smoothing. This is a natural complete classification, not an arbitrary slice.",
+      "risk": "The one-dimensional minimax reduction makes the proof elementary compared with the general-radius problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer \\(k\\ge1\\), among symmetric normalized kernels supported on \\(\\{-1,0,1\\}\\), writing \\(r=k/2\\) and \\(c_r=r^r/(r+1)^{r+1}\\), the unrestricted sharp minimizer has endpoint parameter \\(b_r>1\\) determined uniquely by \\((b_r-1)b_r^r=c_r\\) and sharp constant \\(2^k(b_r-1)\\). Under \\(\\widehat u\\ge0\\), the unique minimizer for every \\(k\\) is the triangle kernel \\((1/4,1/2,1/4)\\) with sharp constant \\(2^kc_r\\). The asymptotic ratio tends to \\(eW(e^{-1})\\).",
+  "limitations": [
+    "No claim is made for support radius greater than one.",
+    "Low-order instances covered by prior broader-radius theorems are treated as prior consistency cases, not as novelty."
+  ],
+  "schema_version": 1
+}
