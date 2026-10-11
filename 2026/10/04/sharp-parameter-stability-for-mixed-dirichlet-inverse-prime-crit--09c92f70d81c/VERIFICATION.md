@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof was checked case by case against the exact local formulas in arXiv:2609.33278v2. In particular:
+# Independent mathematical audit
 
-- primes satisfy \(H_k(p)=0\) and \(\mu(p)+1=0\), so the parameter disappears exactly;
-- even-parity squarefree composites have \(H_k(n)\ge4\), hence remain positive after adding \(2t\) whenever \(t>-2\);
-- odd-parity squarefree composites have \(\mu(n)+1=0\) and the source's exact difference-of-products bound makes \(H_k(n)<0\);
-- prime-cube divisibility gives \(P_{k,t}(n)=J_k(n)+2+t>1\);
-- cube-free nonsquarefree integers satisfy the new exact bound
-\[
-\frac{\sigma_k(a)}{J_k(a)}<\frac{\zeta(k)^2}{\zeta(2k)}\le\frac52<3\le J_k(b),
-\]
-which forces the relevant integer bracket to be at least \(1\), hence \(P_{k,t}(n)>4\);
-- at \(t=-2\), \(P_{k,-2}(1)=0\), proving sharpness of the connected interval containing the two source criteria.
+## correctness
 
-`verify.py` independently replays the arithmetic functions by trial division and exact rational arithmetic. It checks \(2\le k\le6\), \(1\le n\le5000\), several rational values of \(t\) in \((-2,\infty)\), the boundary \(t=-2\), and the positivity of all tested cube-free nonsquarefree cases. The finite replay is corroboration only and is not used to justify the universal quantifiers.
+PASS
 
-Scientific limit: no assertion is made for \(k=1\) or for all disconnected parameter values below \(-2\).
+The prime and \(n=1\) evaluations are exact. Squarefree composites split by Möbius sign: odd support removes the parameter and the product difference is strictly larger than two, while even support gives a uniform positive margin surviving all \(t>-2\). If a prime cube divides \(n\), both the inverse divisor term and Möbius term vanish and positivity is immediate. In the cube-free nonsquarefree case \(n=ab^2\), the only delicate odd-\(\mu(a)\) branch reduces to proving \(J_k(a)J_k(b)>\sigma_k(a)\); the Euler-product bound \(\sigma_k(a)/J_k(a)<\zeta(k)^2/\zeta(2k)\le5/2<3\le J_k(b)\) proves this strictly. Fresh exact arithmetic through \(n=2000\), \(2\le k\le5\), and several rational \(t>-2\) reproduced prime-only zeros.
+
+## originality
+
+PASS
+
+Liu explicitly publishes both endpoint criteria \(t=0\) and \(t=1\), and its full proof gives the factorization cases. However, in the crucial cube-free nonsquarefree case that proof uses only divisibility/integrality to exclude one target value; it does not establish the strict sign needed to interpolate an arbitrary real coefficient. The new Euler-product sign lemma is therefore not implied by the published zero classifications. Resultary search found the audited interval itself but no earlier theorem giving a parameter-stability region.
+
+## value
+
+PASS
+
+The result identifies the maximal coefficient-stability region joining two published prime characterizations and locates its exact first obstruction. The required strict sign lemma clarifies which part of the original factorization proof is robust under perturbation, making this more than a cosmetic interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

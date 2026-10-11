@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:09:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prime and \\(n=1\\) evaluations are exact. Squarefree composites split by Möbius sign: odd support removes the parameter and the product difference is strictly larger than two, while even support gives a uniform positive margin surviving all \\(t>-2\\). If a prime cube divides \\(n\\), both the inverse divisor term and Möbius term vanish and positivity is immediate. In the cube-free nonsquarefree case \\(n=ab^2\\), the only delicate odd-\\(\\mu(a)\\) branch reduces to proving \\(J_k(a)J_k(b)>\\sigma_k(a)\\); the Euler-product bound \\(\\sigma_k(a)/J_k(a)<\\zeta(k)^2/\\zeta(2k)\\le5/2<3\\le J_k(b)\\) proves this strictly. Fresh exact arithmetic through \\(n=2000\\), \\(2\\le k\\le5\\), and several rational \\(t>-2\\) reproduced prime-only zeros.",
+      "risk": "The theorem is a structural characterization, not an efficient primality test because direct evaluation typically presupposes factorization.",
+      "sources": [
+        "arXiv:2609.33278v2",
+        "frozen RESULT.md, verification_output.txt, and verify.py",
+        "fresh exact-integer replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source covers every prime-exponent pattern for its two fixed coefficients.",
+          "It does not prove the positivity bound \\(J_k(a)J_k(b)>\\sigma_k(a)\\) needed uniformly in \\(t\\)."
+        ],
+        "reasoning": "The final interval requires a genuinely stronger inequality in the only branch where the source's divisibility argument is sign-indeterminate.",
+        "searches": [
+          "arXiv:2609.33278v2 full HTML, prime-exponent case analysis and intermediate-divisor relation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33278v2",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the zero sets at two parameter values does not imply the whole open ray of zero-free parameters.",
+          "The source permits \\(T<0\\) in its logic as long as the divisibility target is missed; the submitted Euler-product comparison rules that out for \\(k\\ge2\\)."
+        ],
+        "reasoning": "The new strict sign control is exactly what upgrades two isolated criteria to a maximal stability interval.",
+        "searches": [
+          "Liu Theorem/abstract for \\(\\sigma_k^{(-1)}+J_k+2\\) and \\(\\sigma_k^{(-1)}+\\mu+J_k+3\\)",
+          "Liu equations for the cube-free nonsquarefree factor \\(T\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary abstract explicitly states the \\(t=0\\) and \\(t=1\\) prime criteria.",
+          "The source's cube-free nonsquarefree proof only shows a certain integer cannot equal \\(-3\\), allowing either sign a priori."
+        ],
+        "reasoning": "Linear interpolation of the two published formulas was compared against the actual factorization proof, not inferred from matching notation.",
+        "searches": [
+          "Resultary query: Dirichlet inverse sigma_k Jordan totient Mobius prime criterion parameter t interval t>-2 prime detecting",
+          "arXiv:2609.33278v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent published interval other than the assigned record was located."
+        ],
+        "reasoning": "The proof is symbolic; finite verification was not used as novelty evidence.",
+        "searches": [
+          "Resultary semantic search for the full real-parameter interval and boundary \\(t=-2\\)"
+        ]
+      },
+      "rationale": "Liu explicitly publishes both endpoint criteria \\(t=0\\) and \\(t=1\\), and its full proof gives the factorization cases. However, in the crucial cube-free nonsquarefree case that proof uses only divisibility/integrality to exclude one target value; it does not establish the strict sign needed to interpolate an arbitrary real coefficient. The new Euler-product sign lemma is therefore not implied by the published zero classifications. Resultary search found the audited interval itself but no earlier theorem giving a parameter-stability region.",
+      "residual_risks": [
+        "A later revision after the frozen audit date could add the same parameter interval; no such revision was present in the inspected v2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ANCHOR_CRITERIA_AND_CASE_SPLIT_NOT_PARAMETER_INTERVAL",
+          "evidence": "The source states the \\(t=0\\) and \\(t=1\\) criteria and, in the delicate case, excludes only one divisibility target rather than proving the submitted uniform sign.",
+          "identifier_or_url": "arXiv:2609.33278v2",
+          "material_read": "Complete accessible arXiv HTML, including the introduction, local prime-power formulas, full zero-set proof, and intermediate-divisor relation.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Prime-Detecting Identities from Dirichlet Inversion",
+          "trigger": "Same arithmetic functions and both anchor criteria."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies the maximal coefficient-stability region joining two published prime characterizations and locates its exact first obstruction. The required strict sign lemma clarifies which part of the original factorization proof is robust under perturbation, making this more than a cosmetic interpolation.",
+      "risk": "It does not improve computational primality testing.",
+      "sources": [
+        "arXiv:2609.33278v2"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer \\(k\\ge2\\), the equation \\(\\sigma_k^{(-1)}(n)+J_k(n)+2+t(\\mu(n)+1)=0\\) detects exactly the primes for every real \\(t>-2\\), and \\((-2,\\infty)\\) is the maximal open interval containing the published cases \\(t=0\\) and \\(t=1\\), because \\(t=-2\\) also annihilates \\(n=1\\).",
+  "limitations": [
+    "Integers \\(k\\ge2\\) only; \\(k=1\\) has different behavior.",
+    "Structural criterion rather than an efficient algorithm."
+  ],
+  "schema_version": 1
+}

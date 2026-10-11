@@ -1,16 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the source's exact prime-power formulas and exhaustive factorization cases, then strengthens the only delicate case. For cube-free nonsquarefree \(n=ab^2\), the new estimate
-\[
-\frac{\sigma_k(a)}{J_k(a)}<\frac{\zeta(k)^2}{\zeta(2k)}\le\frac52<3\le J_k(b)
-\]
-forces the bracket \(\mu(a)\sigma_k(a)+J_k(a)J_k(b)\) to be positive for every \(k\ge2\). All parameter-dependent cases then have a strict positive margin for \(t>-2\); odd squarefree composites are parameter-independent and strictly negative. The endpoint \(t=-2\) is checked exactly at \(n=1\). The supplied finite replay is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The full current text of arXiv:2609.33278v2 was inspected. It states the isolated criteria corresponding to \(t=0\) and \(t=1\), but it does not state a real parameter family, the strict positivity lemma above, or the sharp interval \((-2,\infty)\). Its proof in the cube-free nonsquarefree case explicitly allows a negative bracket and uses divisibility only to exclude a single target. published-finding corpus searches for the source, aliases, parameter families, Jordan-totient/Dirichlet-inverse combinations, and stronger prime-characterization coverage returned no statement implying this interval theorem. Haukkanen and Brown provide inverse-function background, not the mixed parameter classification in the material inspected. Residual priority risk remains because search cannot prove absence from all literature.
+PASS
 
-## Value
-PASS. The result is a motivated stability theorem joining two adjacent criteria from the same recent source into a sharp connected parameter range. Its mathematical content is not merely interpolation: the proof needs a new global sign estimate in the source's delicate factorization case, and the left endpoint is exact because \(n=1\) becomes a zero at \(t=-2\). This clarifies which perturbations of the Möbius term preserve the prime-only zero set and exposes additional structure hidden by the endpoint proofs.
+The prime and \(n=1\) evaluations are exact. Squarefree composites split by Möbius sign: odd support removes the parameter and the product difference is strictly larger than two, while even support gives a uniform positive margin surviving all \(t>-2\). If a prime cube divides \(n\), both the inverse divisor term and Möbius term vanish and positivity is immediate. In the cube-free nonsquarefree case \(n=ab^2\), the only delicate odd-\(\mu(a)\) branch reduces to proving \(J_k(a)J_k(b)>\sigma_k(a)\); the Euler-product bound \(\sigma_k(a)/J_k(a)<\zeta(k)^2/\zeta(2k)\le5/2<3\le J_k(b)\) proves this strictly. Fresh exact arithmetic through \(n=2000\), \(2\le k\le5\), and several rational \(t>-2\) reproduced prime-only zeros.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Liu explicitly publishes both endpoint criteria \(t=0\) and \(t=1\), and its full proof gives the factorization cases. However, in the crucial cube-free nonsquarefree case that proof uses only divisibility/integrality to exclude one target value; it does not establish the strict sign needed to interpolate an arbitrary real coefficient. The new Euler-product sign lemma is therefore not implied by the published zero classifications. Resultary search found the audited interval itself but no earlier theorem giving a parameter-stability region.
+
+## value
+
+PASS
+
+The result identifies the maximal coefficient-stability region joining two published prime characterizations and locates its exact first obstruction. The required strict sign lemma clarifies which part of the original factorization proof is robust under perturbation, making this more than a cosmetic interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
