@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each level \(s<1\), the conditional rejection probability is bounded pointwise by a decreasing envelope \(g_s(P)\). Super-uniformity gives stochastic dominance over a uniform variable, so integrating that envelope is a valid worst-case bound. The envelope integral is exactly \(h_1t_1+(h_2-h_1)t_2\), and its three regions are below the diagonal precisely when \(h_1/b_1+(h_2-h_1)/b_2\le1\). Necessity uses an exactly uniform \(P\) and a proxy label chosen as a deterministic function of \(P\) to attain the envelope at a small level. Boundary cases \(s=1\), capped thresholds, and the ordering assumptions are handled explicitly.
+## correctness
 
-## Originality
-PASS. The closest primary source, arXiv:2512.01423, writes the exact active-p tail condition but proceeds through a sufficient decomposition and explicitly states that decomposition is not necessary. Its supplement gives only the baseline nondecomposable construction with \(a\equiv b\equiv1\). Full-text searches for finite/two-point/two-value formulations and parameter aliases did not reveal the two-bin necessary-and-sufficient multiplier frontier. arXiv:2502.05715 proves a particular arbitrary-dependence active-p construction but does not characterize the two-bin nonquery-one family. Targeted database and web searches returned no equivalent formula or implication. The residual risk is an equivalent robust-randomization result under different terminology.
+PASS
 
-## Value
-PASS. Two bins are the smallest nonconstant discretization of an auxiliary proxy and are directly usable when side information is binned for budget allocation. The theorem replaces a conservative sufficient rule with an exact power frontier under the same harsh arbitrary-dependence regime. The boundary example \((1/5,4/5,1/2,1)\) proves the improvement is substantive: it permits halving queried p-values in the low-query bin while no common split parameter can certify the construction. This is a structural validity budget, not a routine reparameterization or a numerical table entry.
+At testing level \(s\), an adversarial proxy chooses the bin giving the larger activation probability among bins whose scaled threshold contains the realized \(P\). This produces the decreasing envelope \(g_s(p)=h_2\) for \(p\le s/b_2\), \(h_1\) for \(s/b_2<p\le s/b_1\), and zero afterward, with thresholds capped at one. Since every valid null p-value stochastically dominates Uniform\([0,1]\), the worst expectation is the uniform integral \(W(s)=h_1\min(1,s/b_1)+(h_2-h_1)\min(1,s/b_2)\). Piecewise inspection shows \(W(s)\le s\) for every \(s\) exactly when the displayed coefficient is at most one. Necessity is attained by a uniform \(P\) and a deterministic proxy-bin selection realizing the envelope for sufficiently small \(s\). A fresh randomized grid replay found exact agreement between the criterion and the envelope test in 5000 parameter draws; this is supplementary to the analytic proof.
 
-## Closest literature and limitations
-The primary comparison is Qi Kuang, Bowen Gang, and Yin Xia, arXiv:2512.01423, especially Definition 2, equation (3), Remark 3, Theorems 2--3, and Supplement F. A second comparison is Ziyu Xu et al., arXiv:2502.05715, especially its arbitrary-dependence active p-value construction and Proposition 2. The result does not claim a full functional characterization, more than two bins, or a new FDR theorem. An equivalent statement hidden under unrelated randomized-test terminology remains the main residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The most relevant active-p-value paper explicitly gives sufficient decomposition conditions under arbitrary dependence and notes that they are not necessary; its general-dependence construction does not state an exact frontier for this two-bin multiplier family. Xu et al. use a different randomized active-p-value map. Resultary and targeted exact searches found no equivalent necessary-and-sufficient two-bin calibration condition.
+
+## value
+
+PASS
+
+The result gives an exact robust-calibration frontier under arbitrary dependence in the smallest nontrivial proxy discretization, including a necessity construction and examples beyond the source's sufficient class. Such a finite-bin characterization is directly useful for designing valid active tests rather than merely checking one parameter choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

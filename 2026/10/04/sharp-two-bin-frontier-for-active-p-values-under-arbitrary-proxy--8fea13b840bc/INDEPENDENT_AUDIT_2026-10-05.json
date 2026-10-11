@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:01:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At testing level \\(s\\), an adversarial proxy chooses the bin giving the larger activation probability among bins whose scaled threshold contains the realized \\(P\\). This produces the decreasing envelope \\(g_s(p)=h_2\\) for \\(p\\le s/b_2\\), \\(h_1\\) for \\(s/b_2<p\\le s/b_1\\), and zero afterward, with thresholds capped at one. Since every valid null p-value stochastically dominates Uniform\\([0,1]\\), the worst expectation is the uniform integral \\(W(s)=h_1\\min(1,s/b_1)+(h_2-h_1)\\min(1,s/b_2)\\). Piecewise inspection shows \\(W(s)\\le s\\) for every \\(s\\) exactly when the displayed coefficient is at most one. Necessity is attained by a uniform \\(P\\) and a deterministic proxy-bin selection realizing the envelope for sufficiently small \\(s\\). A fresh randomized grid replay found exact agreement between the criterion and the envelope test in 5000 parameter draws; this is supplementary to the analytic proof.",
+      "risk": "The theorem is specific to two ordered bins and this particular nonquery-one active rule.",
+      "sources": [
+        "Kuang--Gang--Xia, arXiv:2512.01423",
+        "Xu et al., arXiv:2502.05715",
+        "frozen RESULT.md",
+        "frozen verify.py",
+        "fresh envelope replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest source's Appendix F demonstrates validity outside its sufficient decomposition class, leaving room for exact subclasses.",
+          "No inspected theorem provides the two-bin necessary-and-sufficient coefficient."
+        ],
+        "reasoning": "The audited theorem closes one natural finite-bin robust-calibration subclass rather than restating the broader sufficient framework.",
+        "searches": [
+          "Kuang--Gang--Xia theorem and Appendix F",
+          "Xu et al. arbitrary-dependence active-p construction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.01423",
+        "arXiv:2502.05715",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source sufficient conditions do not characterize all valid rules, and the audited boundary example lies outside that sufficient split-tail class.",
+          "The different Xu update cannot be specialized to the submitted rule by choosing the two bin parameters."
+        ],
+        "reasoning": "The final criterion needs a worst-coupling optimization that is not supplied by the inspected primary theorems.",
+        "searches": [
+          "arXiv:2512.01423 general-dependence section and Appendix F",
+          "arXiv:2502.05715 active-p definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuang--Gang--Xia explicitly characterize a useful sufficient class but state that it is not necessary.",
+          "Xu et al. randomize between the proxy and an inflated true p-value rather than the submitted nonquery-one rule."
+        ],
+        "reasoning": "Robust calibration, worst-case proxy coupling, decreasing-envelope, randomized testing and two-bin multiplier formulations were compared.",
+        "searches": [
+          "Resultary: active p-value two proxy bins arbitrary dependence exact validity frontier",
+          "arXiv:2512.01423 full text",
+          "arXiv:2502.05715 full text",
+          "Web exact search for h1/b1 and active p-value"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact frontier or table matching the formula was located."
+        ],
+        "reasoning": "The condition is symbolic and all-parameter; the database check sought duplicate formulas, not numerical support.",
+        "searches": [
+          "Resultary semantic search for two-bin active p-value frontiers",
+          "Web exact searches for the displayed coefficient"
+        ]
+      },
+      "rationale": "The most relevant active-p-value paper explicitly gives sufficient decomposition conditions under arbitrary dependence and notes that they are not necessary; its general-dependence construction does not state an exact frontier for this two-bin multiplier family. Xu et al. use a different randomized active-p-value map. Resultary and targeted exact searches found no equivalent necessary-and-sufficient two-bin calibration condition.",
+      "residual_risks": [
+        "A general robust-testing lemma outside the active-p-value literature may encode the same two-step decreasing-envelope calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_FRAMEWORK_NOT_EXACT_TWO_BIN_FRONTIER",
+          "evidence": "The paper deliberately does not give a necessary-and-sufficient characterization for this two-bin multiplier subclass.",
+          "identifier_or_url": "arXiv:2512.01423",
+          "material_read": "Primary full text including the decomposition constraints, the remark that they are sufficient but not necessary, the general-dependence construction, and Appendix F's valid counterexample to necessity.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Active multiple testing with proxy information",
+          "trigger": "Closest source on arbitrary-dependence active p-values and the submitted motivating framework."
+        },
+        {
+          "assessment": "DIFFERENT_RANDOMIZED_MAP",
+          "evidence": "Its output mixes the proxy with an inflated true p-value and does not imply the submitted nonquery-one two-bin frontier.",
+          "identifier_or_url": "arXiv:2502.05715",
+          "material_read": "Primary full text around the active-p definition and arbitrary-dependence validity argument.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Active p-values and multiple testing",
+          "trigger": "Earlier primary active-p-value construction under arbitrary proxy dependence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives an exact robust-calibration frontier under arbitrary dependence in the smallest nontrivial proxy discretization, including a necessity construction and examples beyond the source's sufficient class. Such a finite-bin characterization is directly useful for designing valid active tests rather than merely checking one parameter choice.",
+      "risk": "The theorem does not yet give the corresponding exact polytope for three or more bins.",
+      "sources": [
+        "arXiv:2512.01423",
+        "arXiv:2502.05715"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the two-bin active p-value rule that, in proxy bin \\(J=i\\), reports \\(b_iP\\) with probability \\(h_i\\) and otherwise reports one, where \\(0\\le h_1\\le h_2\\le1\\), \\(0<b_1\\le b_2\\le1\\), and the proxy may depend arbitrarily on a valid null p-value \\(P\\), universal superuniformity holds exactly when \\(h_1/b_1+(h_2-h_1)/b_2\\le1\\).",
+  "limitations": [
+    "Two proxy bins only.",
+    "The auxiliary randomizer is independent, while the proxy bin may depend arbitrarily on \\(P\\).",
+    "Parameters are ordered as stated; no multi-bin extension is claimed."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. For each rejection level \(s<1\), arbitrary dependence of the proxy bin on the true p-value is absorbed into the decreasing envelope
+# Independent mathematical audit
 
-\[
-g_s(p)=\max\{h_1\mathbf{1}\{p\le s/b_1\},h_2\mathbf{1}\{p\le s/b_2\}\}.
-\]
+## correctness
 
-Super-uniformity of \(P\) implies \(\mathbb E[g_s(P)]\le\int_0^1g_s(p)\,dp\), and the integral equals \(h_1\min(1,s/b_1)+(h_2-h_1)\min(1,s/b_2)\). The three threshold regions yield the stated necessary-and-sufficient coefficient inequality. Necessity is witnessed by \(P\sim\mathrm{Unif}(0,1)\) and a proxy label that chooses the maximizing bin on the two rejection intervals at one sufficiently small \(s\).
+PASS
 
-`verify.py` uses exact rational arithmetic to check the boundary example \((h_1,h_2,b_1,b_2)=(1/5,4/5,1/2,1)\), the contradiction \(\beta\ge4/5\) versus \(\beta\le3/5\) for the prior split-tail sufficient conditions, and the piecewise envelope on rational test grids. It also checks a finite set of rational parameter tuples as corroboration. Finite checks are not treated as a proof of the universal theorem.
+At testing level \(s\), an adversarial proxy chooses the bin giving the larger activation probability among bins whose scaled threshold contains the realized \(P\). This produces the decreasing envelope \(g_s(p)=h_2\) for \(p\le s/b_2\), \(h_1\) for \(s/b_2<p\le s/b_1\), and zero afterward, with thresholds capped at one. Since every valid null p-value stochastically dominates Uniform\([0,1]\), the worst expectation is the uniform integral \(W(s)=h_1\min(1,s/b_1)+(h_2-h_1)\min(1,s/b_2)\). Piecewise inspection shows \(W(s)\le s\) for every \(s\) exactly when the displayed coefficient is at most one. Necessity is attained by a uniform \(P\) and a deterministic proxy-bin selection realizing the envelope for sufficiently small \(s\). A fresh randomized grid replay found exact agreement between the criterion and the envelope test in 5000 parameter draws; this is supplementary to the analytic proof.
 
-Limit: no computation here certifies novelty, a result for more than two bins, or any multiple-testing guarantee beyond ordinary use of a valid p-value.
+## originality
+
+PASS
+
+The most relevant active-p-value paper explicitly gives sufficient decomposition conditions under arbitrary dependence and notes that they are not necessary; its general-dependence construction does not state an exact frontier for this two-bin multiplier family. Xu et al. use a different randomized active-p-value map. Resultary and targeted exact searches found no equivalent necessary-and-sufficient two-bin calibration condition.
+
+## value
+
+PASS
+
+The result gives an exact robust-calibration frontier under arbitrary dependence in the smallest nontrivial proxy discretization, including a necessity construction and examples beyond the source's sufficient class. Such a finite-bin characterization is directly useful for designing valid active tests rather than merely checking one parameter choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
