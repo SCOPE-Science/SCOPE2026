@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:40:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f6676bf142a27593848328d32cfeced01eabc2cf",
+        "verify.py blob 0532f88e6ccc76fe59c29ff5b2c855888f85ff0a",
+        "Tibshirani--Barber--Candes--Ramdas, arXiv:1904.06019, complete 17-page paper",
+        "Chatterjee--Diaconis, arXiv:1511.01437"
+      ],
+      "rationale": "The likelihood-ratio representations are \\(W_i=e^{-\\delta_n^2/2+\\delta_nZ_i}\\) and \\(W_*=e^{\\delta_n^2/2+\\delta_nZ_*}\\). Below \\(\\beta=2\\), the Gaussian maximum gives a source-weight exponent exceeding the target exponent. Above it, the stated fractional-moment/Markov choice gives a strictly negative exponent and forces \\(S_n/W_*\\to0\\). At criticality, truncating calibration weights at \\(n\\) gives exactly \\(E A_i=1/2\\), \\(E A_i^2=n^2\\bar\\Phi(\\sqrt{2\\log n})\\), whence \\(S_n/n\\to1/2\\), while \\(W_*/n=e^{\\sqrt{2\\log n}Z_*}\\) tends to zero or infinity by the sign of \\(Z_*\\). The weighted-quantile infinity event is therefore exactly controlled by this atom.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The KL cutoff is broader but does not determine the critical conformal atom.",
+          "Later conformal analyses emphasize coverage/divergence or clipping rather than this triangular-array atom law."
+        ],
+        "reasoning": "No broader checked theorem implies the exact critical \\(1/2\\) distributional limit.",
+        "searches": [
+          "importance-sampling cutoff theory",
+          "training-conditional weighted conformal work"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.06019",
+        "arXiv:1511.01437",
+        "arXiv:2609.33456",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sample-size cutoff near \\(e^{D_{KL}}\\) explains the location of the transition only qualitatively.",
+          "At the boundary, the audited proof needs the truncated lognormal calibration sum and an independent target draw, producing a Bernoulli limit absent from the prior theorem."
+        ],
+        "reasoning": "The critical law and its conformal interpretation are not mechanical corollaries of generic importance-sampling theory.",
+        "searches": [
+          "Chatterjee--Diaconis cutoff versus conformal atom law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conformal paper's Theorem 2/Lemma 3 uses a discrete weighted distribution with the test point at \\(+\\infty\\).",
+          "The importance-sampling paper identifies \\(e^{D_{KL}}\\) as the generic sample-size scale but studies a different statistic."
+        ],
+        "reasoning": "Equivalent formulations via normalized test weight, all-real prediction sets, importance-weight degeneracy, and KL overlap were compared.",
+        "searches": [
+          "Tibshirani et al. arXiv:1904.06019 full text",
+          "Chatterjee--Diaconis arXiv:1511.01437",
+          "Resultary: Gaussian weighted conformal critical KL log n infinity atom"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior result/table for the test-point infinity atom was located."
+        ],
+        "reasoning": "A table is inapplicable to this asymptotic distributional theorem.",
+        "searches": [
+          "Resultary published corpus",
+          "targeted searches for Gaussian weighted-conformal phase threshold"
+        ]
+      },
+      "rationale": "The weighted-conformal primary paper explicitly places the test point's normalized likelihood-ratio mass at \\(+\\infty\\), but its full text contains no growing-Gaussian-shift phase theorem. Chatterjee--Diaconis establish the broad importance-sampling cutoff \\(n\\asymp e^{D_{KL}}\\), which anticipates the KL scale but does not imply the independent target-weight atom or the critical Bernoulli law. No checked source states the three-regime conformal result.",
+      "residual_risks": [
+        "Related critical lognormal-sum phenomena may appear in random-energy or importance-sampling literature under different normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING.",
+          "evidence": "It defines the test-point mass at infinity and oracle likelihood weights, but gives no growing-Gaussian overlap threshold or critical law.",
+          "identifier_or_url": "arXiv:1904.06019",
+          "material_read": "Complete 17-page primary paper via authorized retrieval, including weighted exchangeability, Lemma 3, Theorem 2, Corollary 1, and discussion.",
+          "method": "Primary full-text inspection after direct arXiv HTML fetch failed.",
+          "title": "Conformal Prediction Under Covariate Shift",
+          "trigger": "Exact weighted-conformal construction and infinity atom."
+        },
+        {
+          "assessment": "BROADER_CONTEXT_ONLY.",
+          "evidence": "It proves sample size approximately \\(e^{D(\\nu\\|\\mu)}\\) for importance sampling, not the conformal test-point atom.",
+          "identifier_or_url": "arXiv:1511.01437",
+          "material_read": "Primary abstract and theorem-level public description.",
+          "method": "Primary-source comparison.",
+          "title": "The sample size required in importance sampling",
+          "trigger": "Closest broad KL-cutoff theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tibshirani et al. 2019",
+        "Chatterjee--Diaconis 2018",
+        "recent weighted-conformal coverage literature"
+      ],
+      "rationale": "The result turns a practical failure mode of weighted conformal prediction—an infinite quantile/all-real prediction set—into a sharp overlap phase transition and identifies a nondegenerate critical law. This materially refines the generic KL heuristic on a canonical model.",
+      "residual_risks": [
+        "Second-order critical windows remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Gaussian covariate shift \\(P=N(0,1)\\), \\(Q_n=N(\\delta_n,1)\\), the weighted-conformal test-point mass at \\(+\\infty\\) tends to \\(0\\) when \\(\\delta_n^2/\\log n\\to\\beta<2\\), to \\(1\\) when \\(\\beta>2\\), and at \\(\\delta_n=\\sqrt{2\\log n}\\) converges to \\(\\mathrm{Bernoulli}(1/2)\\); equivalently the infinite-quantile transition occurs at \\(D_{\\mathrm{KL}}(Q_n\\|P)=\\log n\\).",
+  "limitations": [
+    "The exact critical law is proved only at the exact scaling \\(\\delta_n=\\sqrt{2\\log n}\\), not a second-order critical window.",
+    "One-dimensional equal-variance Gaussian shift and exact likelihood ratios only.",
+    "The theorem characterizes the infinite-quantile event, not finite interval widths below threshold."
+  ],
+  "schema_version": 1
+}

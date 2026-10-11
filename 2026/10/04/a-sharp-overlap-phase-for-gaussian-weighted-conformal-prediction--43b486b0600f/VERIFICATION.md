@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof is contained in `RESULT.md`; the checker is supplementary.
+# Independent mathematical audit
 
-`verify.py` performs the following finite checks:
+## correctness
 
-1. It confirms that the subcritical exponent gap \(\sqrt{2\beta}-\beta\) is positive for representative \(0<\beta<2\).
-2. It evaluates the explicit supercritical choice \(q=1-\sqrt{(\beta-2)/(2\beta)}\) and \(\varepsilon=(\beta-2)/(8q)\), confirming that the Markov exponent is exactly \(- (\beta-2)/8\) up to floating-point roundoff.
-3. At the exact critical scaling \(\delta=\sqrt{2\log n}\), it checks the closed-form truncated moments \(\mathbb E[W\mathbf 1\{W\le n\}]=1/2\) and \(\mathbb E[W^2\mathbf 1\{W\le n\}]=n^2\overline\Phi(\delta)\), and confirms numerically that the common bound \(n\overline\Phi(\delta)\) decreases toward zero over increasing \(n\).
+PASS
 
-The checker does not certify an infinite limit by finite enumeration. The asymptotic limits rely on the explicit inequalities and probability arguments in the proof. No second-order critical-window claim is verified or made.
+The likelihood-ratio representations are \(W_i=e^{-\delta_n^2/2+\delta_nZ_i}\) and \(W_*=e^{\delta_n^2/2+\delta_nZ_*}\). Below \(\beta=2\), the Gaussian maximum gives a source-weight exponent exceeding the target exponent. Above it, the stated fractional-moment/Markov choice gives a strictly negative exponent and forces \(S_n/W_*\to0\). At criticality, truncating calibration weights at \(n\) gives exactly \(E A_i=1/2\), \(E A_i^2=n^2\bar\Phi(\sqrt{2\log n})\), whence \(S_n/n\to1/2\), while \(W_*/n=e^{\sqrt{2\log n}Z_*}\) tends to zero or infinity by the sign of \(Z_*\). The weighted-quantile infinity event is therefore exactly controlled by this atom.
+
+## originality
+
+PASS
+
+The weighted-conformal primary paper explicitly places the test point's normalized likelihood-ratio mass at \(+\infty\), but its full text contains no growing-Gaussian-shift phase theorem. Chatterjee--Diaconis establish the broad importance-sampling cutoff \(n\asymp e^{D_{KL}}\), which anticipates the KL scale but does not imply the independent target-weight atom or the critical Bernoulli law. No checked source states the three-regime conformal result.
+
+## value
+
+PASS
+
+The result turns a practical failure mode of weighted conformal prediction—an infinite quantile/all-real prediction set—into a sharp overlap phase transition and identifies a nondegenerate critical law. This materially refines the generic KL heuristic on a canonical model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

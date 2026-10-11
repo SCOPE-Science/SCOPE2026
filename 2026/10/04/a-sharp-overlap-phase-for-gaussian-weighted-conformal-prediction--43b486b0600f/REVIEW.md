@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim was reconstructed from the published weighted-conformal infinity mass. The Gaussian likelihood-ratio representation, subcritical maximum comparison, supercritical fractional-moment bound, and critical truncation calculation jointly prove all three regimes. The critical identities are exact, and the argument separates analytic proof from supplementary computational checks.
+## correctness
 
-## Originality
-PASS. The closest direct source, Tibshirani et al. (arXiv:1904.06019), defines the weighted infinity atom and exponential tilting but does not state the growing-shift phase law. Chatterjee and Diaconis (arXiv:1511.01437) give the broader \(\exp(D_{\mathrm{KL}})\) importance-sampling sample-size scale and a source-weight degeneracy diagnostic; that prior coverage is explicitly excluded from the novelty claim. The surviving statement is the weighted-conformal independent-target atom law and, in particular, the exact critical \(1/2\) limit. A recent training-conditional weighted-conformal paper (arXiv:2609.33456) studies different coverage and clipping functionals. Targeted published-finding corpus searches found no equivalent statement. Residual risk remains from specialized lognormal triangular-array literature under different terminology.
+PASS
 
-## Value
-PASS. The result identifies when exact weighted conformal prediction becomes vacuous because the test-point infinity atom consumes the miscoverage budget. The phase boundary \(D_{\mathrm{KL}}(Q_n\|P)=\log n\) is operationally interpretable, while the critical \(1/2\) law is a precise boundary phenomenon not supplied by generic importance-sampling order results.
+The likelihood-ratio representations are \(W_i=e^{-\delta_n^2/2+\delta_nZ_i}\) and \(W_*=e^{\delta_n^2/2+\delta_nZ_*}\). Below \(\beta=2\), the Gaussian maximum gives a source-weight exponent exceeding the target exponent. Above it, the stated fractional-moment/Markov choice gives a strictly negative exponent and forces \(S_n/W_*\to0\). At criticality, truncating calibration weights at \(n\) gives exactly \(E A_i=1/2\), \(E A_i^2=n^2\bar\Phi(\sqrt{2\log n})\), whence \(S_n/n\to1/2\), while \(W_*/n=e^{\sqrt{2\log n}Z_*}\) tends to zero or infinity by the sign of \(Z_*\). The weighted-quantile infinity event is therefore exactly controlled by this atom.
 
-## Limitations and closest literature
-The theorem assumes a one-dimensional unit-variance Gaussian shift, known weights, fixed \(\alpha\), and finite calibration scores. It does not classify second-order critical windows or clipped/estimated weights. Generic KL-scale importance-sampling cutoff results are broader in model class but do not imply the exact conformal critical law stated here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted-conformal primary paper explicitly places the test point's normalized likelihood-ratio mass at \(+\infty\), but its full text contains no growing-Gaussian-shift phase theorem. Chatterjee--Diaconis establish the broad importance-sampling cutoff \(n\asymp e^{D_{KL}}\), which anticipates the KL scale but does not imply the independent target-weight atom or the critical Bernoulli law. No checked source states the three-regime conformal result.
+
+## value
+
+PASS
+
+The result turns a practical failure mode of weighted conformal prediction—an infinite quantile/all-real prediction set—into a sharp overlap phase transition and identifies a nondegenerate critical law. This materially refines the generic KL heuristic on a canonical model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
