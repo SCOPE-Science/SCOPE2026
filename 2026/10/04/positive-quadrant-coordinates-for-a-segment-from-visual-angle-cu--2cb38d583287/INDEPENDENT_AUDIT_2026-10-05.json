@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:58:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the published endpoint formulas \\(x=(v-u)/(uv)\\) and \\(y=(v-u)/((L-u)(L-v))\\), midpoint and half-length variables give \\(m^2=r^2+2r/x\\) and \\((L-m)^2=r^2+2r/y\\). For arbitrary positive \\(x,y\\), the sum of the two positive square roots is continuous and strictly increasing from zero to infinity as \\(r>0\\) varies, so there is exactly one root equal to the chord length. Each square root exceeds \\(r\\), which forces \\(0<u<v<L\\), proving existence as well as uniqueness. Direct differentiation gives the stated determinant, whose remaining numerator factor equals \\(u(L-v)+v(L-u)>0\\), so the determinant is everywhere negative. Analytic bijectivity plus the local inverse theorem yields the global analytic inverse.",
+      "risks": [
+        "The theorem is for a single proper subsegment of a known circle chord and normalized cusp slopes only."
+      ],
+      "sources": [
+        "Lukács, Symmetric Masking Function of Segments, DOI:10.36890/iejg.742248, Lemma 2.2 and its proof.",
+        "Frozen RESULT.md blob a573fa0f873e5f308625c691d1be07fa2d646d10 and VERIFICATION.md blob abfce9b4510ba40a346cf5d39d3e837a3c4cfa3e."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest source reconstructs segments from richer or already-realizable visual data.",
+          "No inspected theorem characterizes the feasible two-slope data set as all positive pairs."
+        ],
+        "reasoning": "Broader visual-reconstruction results do not dominate the exact range classification for these two first-order endpoint invariants.",
+        "searches": [
+          "Lukács Symmetric Masking Function of Segments DOI:10.36890/iejg.742248",
+          "Visual distinguishability of segments reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: visual angle masking function segment endpoint derivative positive quadrant Jacobian diffeomorphism",
+        "DOI:10.36890/iejg.742248 full PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2020 proof starts with a segment satisfying \\(-1<b<a<1\\), derives positive \\(x,y\\), and solves for the unique admissible algebraic branch.",
+          "It does not start with arbitrary \\(x,y>0\\) and prove that the recovered branch always lies in the segment domain."
+        ],
+        "reasoning": "Prior uniqueness gives at most one preimage for points already in the image. The submitted monotone root argument proves that every positive pair has a valid preimage and supplies a nonzero-Jacobian global coordinate theorem.",
+        "searches": [
+          "Lukács 2020 Lemma 2.2 full proof",
+          "Resultary query above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct Resultary hit is the audited record; no returned neighboring result states the positive-quadrant image theorem.",
+          "Lukács Lemma 2.2 gives uniqueness for an existing segment and explicit formulas for its endpoint data."
+        ],
+        "reasoning": "Injectivity on the realizable image is not equivalent to surjectivity onto the entire positive quadrant. The new scalar equation proves the missing existence statement.",
+        "searches": [
+          "Resultary: visual angle masking function segment endpoint derivative positive quadrant Jacobian diffeomorphism",
+          "Web: Symmetric Masking Function of Segments Lemma 2.2 endpoint derivatives"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or indexed theorem with this image/Jacobian classification was located."
+        ],
+        "reasoning": "The result is an analytic range theorem, not a finite table recomputation.",
+        "searches": [
+          "Resultary exact semantic query above",
+          "Web searches for endpoint derivative range, positive quadrant, Jacobian, and diffeomorphism"
+        ]
+      },
+      "rationale": "Lukács's Lemma 2.2 is very close prior art: it derives the same rational endpoint data and proves that data arising from an existing segment determine that segment, even writing explicit algebraic candidate coordinates. But the proof assumes realizable data and does not establish that every positive pair lies in the image, nor state the full positive-quadrant range, a global diffeomorphism theorem, or the Jacobian factorization. The submitted scalar inversion supplies the missing existence/domain argument for arbitrary positive data. Targeted Resultary searches found no stronger published range theorem.",
+      "residual_risks": [
+        "Because the new range argument is elementary and the predecessor already writes algebraic inversion formulas, an unindexed note may have recorded the same surjectivity observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE_PREDECESSOR_NOT_COVERING_SURJECTIVITY_OR_GLOBAL_JACOBIAN",
+          "evidence": [
+            "Lemma 2.2 assumes an existing segment and proves uniqueness from its derivative data.",
+            "The inspected proof does not assert that arbitrary positive data are realizable or identify the image as the whole positive quadrant."
+          ],
+          "identifier_or_url": "DOI:10.36890/iejg.742248",
+          "material_read": "Open full-text PDF and rendered page containing Lemma 2.2, the normalized derivative formulas, quadratic inversion, exclusion of one algebraic root, and the conclusion that the two derivative values determine the segment.",
+          "method": "Lawful open-access PDF inspection, including visual page inspection of the relevant proof.",
+          "title": "Symmetric Masking Function of Segments",
+          "trigger": "Exact primary predecessor using the same endpoint cusp derivatives."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural complete classification of the feasible first-order data for the simplest one-segment masking inverse problem. It upgrades prior uniqueness-on-the-image to exact existence and uniqueness for all positive data, gives a constructive one-dimensional inverse, and supplies the Jacobian needed for sensitivity analysis. Natural complete range classifications are substantive even when the final proof is elementary.",
+      "risks": [
+        "The contribution is intentionally narrow and does not solve multi-segment pairing, general observation curves, or uniform noise stability."
+      ],
+      "sources": [
+        "Lukács 2020 Lemma 2.2 as the uniqueness predecessor.",
+        "Frozen RESULT.md scalar inversion and Jacobian calculation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a fixed circle chord, the two normalized endpoint visual-angle cusp slopes form global real-analytic coordinates on proper interior subsegments: every positive pair is realized uniquely, and the coordinate map has the displayed everywhere-negative Jacobian.",
+  "limitations": [
+    "Only one proper subsegment of a fixed known circle chord is treated.",
+    "No quantitative global condition-number bound near the parameter-space boundary is claimed."
+  ],
+  "schema_version": 1
+}

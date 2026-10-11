@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The forward formulas agree with the published endpoint-derivative calculation after translating from signed midpoint coordinates to chord coordinates. The inverse is proved without assuming existence: for arbitrary \(x,y>0\), the scalar function
-\[
-r\longmapsto
-\sqrt{r^2+\frac{2r}{x}}
-+
-\sqrt{r^2+\frac{2r}{y}}
-\]
-is continuous and strictly increasing from \(0\) to infinity, so it crosses the fixed chord length exactly once. The resulting midpoint lies more than \(r\) from both chord endpoints, yielding a valid unique segment. The exact Jacobian is strictly negative on the whole domain, which upgrades the bijection to a real-analytic diffeomorphism.
+PASS
 
-## Originality
+Starting from the published endpoint formulas \(x=(v-u)/(uv)\) and \(y=(v-u)/((L-u)(L-v))\), midpoint and half-length variables give \(m^2=r^2+2r/x\) and \((L-m)^2=r^2+2r/y\). For arbitrary positive \(x,y\), the sum of the two positive square roots is continuous and strictly increasing from zero to infinity as \(r>0\) varies, so there is exactly one root equal to the chord length. Each square root exceeds \(r\), which forces \(0<u<v<L\), proving existence as well as uniqueness. Direct differentiation gives the stated determinant, whose remaining numerator factor equals \(u(L-v)+v(L-u)>0\), so the determinant is everywhere negative. Analytic bijectivity plus the local inverse theorem yields the global analytic inverse.
 
-PASS, with a clearly identified close predecessor. Lukács's 2017 article and its 2020 English follow-up prove that two endpoint derivative values determine a segment on a known chord and give explicit rational formulas for the forward map. The inspected texts do not state the image of that map, surjectivity onto all positive data pairs, a global diffeomorphism theorem, or the Jacobian factorization.
+## originality
 
-Targeted literature and record searches were run for endpoint-derivative reconstruction, positive data ranges, global coordinates, diffeomorphism formulations, and Jacobians. No stronger or equivalent range theorem was located. The logical gap is genuine: an injective reconstruction map can have a proper image, so the earlier uniqueness theorem does not itself imply that every positive pair is feasible. The new monotone inverse equation closes that range question.
+PASS
 
-Residual risk remains because the extension is elementary and could have appeared under different terminology or in material not indexed by the searched records.
+Lukács's Lemma 2.2 is very close prior art: it derives the same rational endpoint data and proves that data arising from an existing segment determine that segment, even writing explicit algebraic candidate coordinates. But the proof assumes realizable data and does not establish that every positive pair lies in the image, nor state the full positive-quadrant range, a global diffeomorphism theorem, or the Jacobian factorization. The submitted scalar inversion supplies the missing existence/domain argument for arbitrary positive data. Targeted Resultary searches found no stronger published range theorem.
 
-## Value
+## value
 
-PASS. This is a natural complete classification of the first-order data for the basic one-segment inverse problem: it says exactly which normalized cusp-slope pairs can occur, not only that realizable data determine the segment. The result removes any hidden feasibility constraint, gives a one-dimensional constructive inverse, and exposes the exact nondegenerate Jacobian needed for local sensitivity analysis. It is deliberately limited to the one-segment, known-chord setting and is not presented as a solution of the harder multi-segment reconstruction problem.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+This is a natural complete classification of the feasible first-order data for the simplest one-segment masking inverse problem. It upgrades prior uniqueness-on-the-image to exact existence and uniqueness for all positive data, gives a constructive one-dimensional inverse, and supplies the Jacobian needed for sensitivity analysis. Natural complete range classifications are substantive even when the final proof is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
