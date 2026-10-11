@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "At a nonobtuse vertex of a parallelogram, adjacent side vectors have nonnegative dot product. Squared distance from that vertex is strictly increasing along each of the two boundary chains to the opposite vertex, because the only nontrivial derivatives are 2 a·b + 2 t|b|^2 and 2 a·b + 2 t|a|^2. Thus any centered circle meets each chain at most once. Every boundary point of a nondegenerate polygon has a sufficiently small centered circle with two boundary intersections, giving the reverse inequality. The package checker independently verifies the derivative algebra and critical-radius intersection sweeps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bárány--Roldán-Pensado prove finiteness for every planar convex body and exhibit value 6, but their full searchable article has no occurrence of parallelogram, quadrilateral, or centrally symmetric.",
+        "A later polygon-complexity result proves only N(K)<=4 for arbitrary convex quadrilaterals.",
+        "The new claim improves that bound on the entire centrally symmetric quadrilateral class."
+      ],
+      "reasoning": "General finiteness does not determine the exact constant. Likewise, N<=4 for all quadrilaterals does not imply the exact value 2 for parallelograms. No stronger retrieved theorem dominates the claim.",
+      "searches": [
+        "\"A Question from a Famous Paper of Erdős\" parallelogram",
+        "\"centrally symmetric quadrilateral\" \"every circle\" boundary",
+        "\"N(K)=2\" parallelogram convex body circle",
+        "\"circle-intersection invariant\" parallelogram convex"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s00454-013-9507-z",
+      "UCL Discovery eprint 1388895, Problems in Convex Geometry, Chapter 3",
+      "Published/searchable literature queries under parallelogram, centrally symmetric quadrilateral, N(K), and circle-centered-at-a-vertex formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 primary article states Erdős's original N<=2 conjecture, the regular odd-polygon obstruction, the existence of N=6 bodies, and general finiteness, but no parallelogram theorem.",
+        "The UCL thesis chapter visually and textually inspected states the same problem and results, again without a parallelogram special case in searchable text.",
+        "The general quadrilateral bound N<=4 leaves a genuine factor-two gap on parallelograms."
+      ],
+      "reasoning": "The new claim is not a corollary of affine equivalence to the square because Euclidean circles become ellipses under a general affine map. Its proof uses the Euclidean nonobtuse vertex of each specific parallelogram.",
+      "searches": [
+        "DOI:10.1007/s00454-013-9507-z full text parallelogram",
+        "UCL Problems in Convex Geometry Chapter 3 Erdős parallelogram",
+        "Erdos convex curve N(K) regular polygon even odd",
+        "parallelogram Erdős circle centered boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The invariant can be reformulated as existence of a boundary center for which the radial-distance function on each of the two boundary arcs has at most one preimage per radius.",
+        "For a parallelogram, choosing a nonobtuse vertex turns those two radial-distance functions into strictly increasing functions by an explicit dot-product derivative.",
+        "No retrieved published source stated the resulting exact value for all parallelograms."
+      ],
+      "reasoning": "The searches cover both the named invariant and the elementary geometric equivalent formulation. Because circles are Euclidean rather than affine objects, a square-only statement would not automatically cover arbitrary parallelograms.",
+      "searches": [
+        "\"parallelogram\" \"Erdős\" circle-intersection invariant",
+        "\"parallelogram\" N(K) circle boundary centered point convex",
+        "Erdos circle intersection parallelogram N=2",
+        "convex parallelogram every circle centered vertex intersects boundary at most two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact object-name searches did not return a parallelogram entry or table for this invariant.",
+        "The closest structured-search result is the general polygon-complexity bound, whose quadrilateral value is 4 rather than the exact parallelogram value."
+      ],
+      "reasoning": "There is no standard numerical database for this invariant, so exact object-name plus invariant-name searches are the appropriate table-level check. They found no exact parallelogram evaluation.",
+      "searches": [
+        "\"parallelogram\" \"A Question from a Famous Paper of Erdős\"",
+        "\"parallelogram\" \"every circle\" convex boundary center point",
+        "\"N(K)\" parallelogram convex circle boundary Erdős",
+        "\"circle centered at a vertex\" parallelogram boundary convex"
+      ]
+    },
+    "rationale": "The full primary source defining the invariant and the thesis chapter containing the same problem were materially inspected. Neither searchable text contains a parallelogram or centrally symmetric special-case statement. Searches under parallelogram, centrally symmetric quadrilateral, the notation N(K), circle-centered-at-a-vertex terminology, and the Erdős formulation did not locate an implication-equivalent theorem. The closest general quadrilateral statement gives only N<=4, which does not imply N=2.",
+    "residual_risks": [
+      "The proof is elementary enough that the exact parallelogram value may have circulated as an unindexed observation or exercise.",
+      "The result does not extend by the same argument to arbitrary centrally symmetric polygons or smooth centrally symmetric bodies.",
+      "The thesis is dated only by month in its front matter; the exact date field uses the earliest exact public date verified for the journal source rather than inventing a day for month-only evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "The paper defines N(K), explains the failure of the universal value 2, notes regular odd-polygon obstructions, proves existence of N=6 and general finiteness, but has no searchable parallelogram or centrally symmetric special-case theorem.",
+        "identifier_or_url": "DOI:10.1007/s00454-013-9507-z",
+        "material_read": "The full publicly accessible article text, including the introduction, definitions, Theorems 1.1--1.4, and searchable full text for parallelogram, quadrilateral, and centrally symmetric terminology.",
+        "method": "Public publisher full-text HTML inspection.",
+        "title": "A Question from a Famous Paper of Erdős",
+        "trigger": "Primary journal source defining N(K) and framing the exact constant problem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected chapter frames the same invariant and general problem; targeted searchable-text checks did not locate a parallelogram or centrally symmetric result.",
+        "identifier_or_url": "UCL Discovery eprint 1388895, Chapter 3",
+        "material_read": "Chapter 3 opening page and surrounding extracted text were inspected; the page states the Erdős conjecture, the regular odd-polygon obstruction, and the definition of N(K).",
+        "method": "Public UCL repository PDF, including visual page inspection.",
+        "title": "Problems in Convex Geometry",
+        "trigger": "Earlier thesis-era primary treatment of the same problem and a possible source of special cases omitted from the journal summary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "42eb792b-9982-46eb-a548-7674cf88d984",
+  "value": {
+    "rationale": "Parallelograms are exactly the centrally symmetric convex quadrilaterals and form a canonical Euclidean family spanning all aspect ratios and shears. The invariant is not affine-invariant, so this is not a square renaming. The theorem restores Erdős's original sharp constant 2 on a full natural class and strictly improves the known general quadrilateral upper bound 4.",
+    "status": "PASS"
+  }
+}
