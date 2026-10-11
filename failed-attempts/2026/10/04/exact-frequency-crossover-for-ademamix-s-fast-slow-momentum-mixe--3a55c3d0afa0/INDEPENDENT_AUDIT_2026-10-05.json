@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T01:47:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 96ce49270843381e215b76d60c10aefa12c2f7a7",
+        "assigned verify.py blob d9af7413295787afb6470db70ca2ce78df284d55",
+        "Pagliardini--Ablin--Grangier, arXiv:2409.03137",
+        "independent evaluation of crossover periods for the published parameter settings"
+      ],
+      "rationale": "The source recurrences are scalar first-order stable EMAs. Substituting a harmonic input gives the standard transfer function \\(H_\\beta(\\omega)=(1-\\beta)/(1-\\beta e^{-i\\omega})\\). Squaring the slow/fast ratio yields a quotient affine in \\(\\cos\\omega\\); differentiation gives \\(2(\\beta_3-\\beta_1)(1-\\beta_1\\beta_3)/(1+\\beta_3^2-2\\beta_3\\cos\\omega)^2>0\\) with respect to \\(\\cos\\omega\\), hence strict decrease in \\(\\omega\\). The endpoint values and crossover formula follow algebraically. For constant or alternating gradients of fixed magnitude, bias correction makes the second moment exactly \\(G^2\\), so it cancels in the gain ratio. The actual verifier replays the recurrences and source-parameter periods; independent calculations reproduced the four quoted crossover periods and Nyquist gains.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining optimizer paper supplies every recurrence and parameter used by the theorem.",
+          "The later optimizer-analysis paper gives broader optimization connections, while elementary LTI theory already supplies the needed frequency response."
+        ],
+        "reasoning": "The combination of the defining recurrence and textbook one-pole filter analysis dominates the final claim mathematically.",
+        "searches": [
+          "arXiv:2409.03137 full primary HTML",
+          "Morwani--Vyas--Zhang--Kakade, arXiv:2502.02431",
+          "standard digital-filter theory"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.03137",
+        "arXiv:2502.02431",
+        "standard EMA digital-filter theory",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No nonstandard optimizer theorem is needed after these inputs; strict monotonicity and the endpoint gains are one-line algebraic consequences."
+        ],
+        "reasoning": "Under the rule that corollaries are covered without matching wording, the result fails originality despite its potentially useful interpretation.",
+        "searches": [
+          "arXiv:2409.03137 equations for the two EMAs and update mixture",
+          "standard scalar EMA transfer-function identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The AdEMAMix source explicitly defines the fast EMA, slow EMA, multiplier \\(\\alpha\\), and the fact that the slow EMA is not bias-corrected.",
+          "Standard EMA-filter references give the exact one-pole transfer function \\(H(z)=\\eta/(1-(1-\\eta)z^{-1})\\), equivalent after parameter relabeling."
+        ],
+        "reasoning": "Equivalent formulations as a ratio of two one-pole low-pass magnitude responses, a fast/slow momentum crossover, or a frequency-selective EMA mixer are the same computation.",
+        "searches": [
+          "Resultary query: AdEMAMix frequency response EMA transfer function crossover",
+          "Pagliardini--Ablin--Grangier, arXiv:2409.03137",
+          "standard EMA filter transfer-function references"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior AdEMAMix-specific table with the four quoted periods was found."
+        ],
+        "reasoning": "The absence of a numerical table is irrelevant because the periods are direct substitutions into the standard derived crossover formula.",
+        "searches": [
+          "Resultary search for AdEMAMix crossover",
+          "standard EMA frequency-response formulas"
+        ]
+      },
+      "rationale": "The mathematical claim is an implication-level corollary of two already-public ingredients: the AdEMAMix paper states the exact fast and slow EMA recurrences and their linear mixture, while the transfer function and frequency response of a scalar exponential moving-average filter are standard signal-processing facts. Taking the quotient of two first-order EMA magnitude responses, differentiating a fractional-linear function of \\(\\cos\\omega\\), and evaluating DC/Nyquist are routine algebra. The source paper need not print the crossover formula verbatim for the result to be covered under the audit rule.",
+      "residual_risks": [
+        "The exact numerical periods may be new exposition, but they do not constitute a new mathematical result once the recurrence and transfer function are known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_RECURRENCES; combined with standard filter theory it implication-covers the theorem.",
+          "evidence": "The audited transfer functions are obtained directly by applying the standard harmonic-response formula to these printed first-order recurrences.",
+          "identifier_or_url": "arXiv:2409.03137",
+          "material_read": "Full primary HTML around the EMA definition and AdEMAMix algorithm, including the fast \\(\\beta_1\\) state, slow \\(\\beta_3\\) state, multiplier \\(\\alpha\\), source parameter values, and slow-state bias-correction choice.",
+          "method": "Open-access full-text inspection.",
+          "title": "The AdEMAMix Optimizer: Better, Faster, Older",
+          "trigger": "Defining primary source for the exact fast/slow momentum recurrences and parameter regime."
+        },
+        {
+          "assessment": "COVERING_STANDARD_LEMMA",
+          "evidence": "After identifying \\(\\eta=1-\\beta\\), the audited \\(H_\\beta\\) is exactly the textbook transfer function.",
+          "identifier_or_url": "standard digital signal-processing one-pole EMA filter identity",
+          "material_read": "Published/web signal-processing derivations of \\(H(z)=\\eta/(1-(1-\\eta)z^{-1})\\) and its low-pass magnitude response.",
+          "method": "Primary/technical reference comparison.",
+          "title": "Standard exponential moving-average filter frequency response",
+          "trigger": "Exact mathematical tool converting the published recurrence into the frequency response."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Pagliardini--Ablin--Grangier 2024",
+        "standard EMA filter theory"
+      ],
+      "rationale": "The frequency-domain interpretation is useful for understanding the optimizer, but the mathematical content is a routine textbook analysis of two first-order EMA filters followed by direct substitution of published hyperparameters. It does not introduce a nonstandard structural lemma, natural unresolved exact invariant, or difficult boundary beyond what the recurrences already encode. Under the shared value standard, this is explanatory analysis rather than a separate worthwhile mathematical result.",
+      "residual_risks": [
+        "The interpretation could still be valuable pedagogically for optimizer practitioners."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "After AdEMAMix's slow-decay and slow-multiplier schedules settle at fixed \\(0\\le\\beta_1<\\beta_3<1\\) and \\(\\alpha>0\\), the slow-to-fast first-moment magnitude ratio is \\(R(\\omega)=\\alpha|H_{\\beta_3}(\\omega)|/|H_{\\beta_1}(\\omega)|\\) with \\(H_\\beta(\\omega)=(1-\\beta)/(1-\\beta e^{-i\\omega})\\); it decreases strictly from \\(\\alpha\\) to \\(\\alpha(1-\\beta_3)(1+\\beta_1)/((1+\\beta_3)(1-\\beta_1))\\), giving the displayed unique crossover frequency when the endpoints straddle one, and the stated exact DC/Nyquist normalized-update gains for constant-magnitude inputs.",
+  "limitations": [
+    "This is a steady-state one-coordinate linear-filter statement after schedules settle.",
+    "The crossover concerns the two numerator EMA channels, not the full adaptive update at intermediate frequency.",
+    "The exact normalized-update comparisons apply only to constant and alternating constant-magnitude inputs where the second moment is exactly controlled."
+  ],
+  "schema_version": 1
+}
