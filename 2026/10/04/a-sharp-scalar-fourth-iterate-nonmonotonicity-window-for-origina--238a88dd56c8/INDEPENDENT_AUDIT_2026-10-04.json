@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:26:41.955554Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the invariant eigendirection, the exact global-L FISTA step is multiplication by \\(r=1-q\\). With \\(\\beta_1=0\\), the first coordinates satisfy \\(x_1=rx_0\\), \\(x_2=r^2x_0\\), \\(x_3=r^2A(r)x_0\\), and \\(x_4=r^3B(r)x_0\\), where \\(A=(1+\\beta_2)r-\\beta_2\\) and \\(B=(1+\\beta_3)A-\\beta_3\\). Since \\(|A|<1\\) on \\(0<r<1\\), the first three objective comparisons are strict decreases. The fourth rise is equivalent to \\((rB-A)(rB+A)>0\\); the two quadratic factors have the stated roots \\(r_-\\), \\(1\\), and the unique positive \\(r_+\\), giving exactly \\(r_-<r<r_+\\). At \\(r_0=\\beta_2/(1+\\beta_2)\\), \\(A=0\\) but \\(B=-\\beta_3\\), so the bare recurrence hits the minimizer at the third point and leaves it at the fourth. The inspected high-precision checker corroborates the root order and direct iterates; the proof is algebraic.",
+      "risks": [
+        "The resonance concerns the uninterrupted mathematical recurrence; a stationarity stopping test would stop at the minimizer."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 7f79fd9a4c6daa5bc1178c9f3accf761f6e6d0ba",
+        "assigned check.py blob 127d43916c69a41ab441c48c1e9f5b6a0f4f5587",
+        "Beck–Teboulle 2009 FISTA source",
+        "Beck–Teboulle monotone-FISTA follow-up",
+        "Liang–Fadili–Peyré arXiv:1503.03703"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary's closest hits concern Polyak/BB frontiers and a different Nesterov objective-spike construction.",
+          "Known nonmonotonicity is broader qualitatively but does not determine this exact first-rise interval."
+        ],
+        "reasoning": "A qualitative broader phenomenon does not imply the sharp finite-horizon boundary or resonance.",
+        "searches": [
+          "current Resultary acceleration/objective-spike findings",
+          "monotone FISTA literature",
+          "local inertial-FB oscillation literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1137/080716542",
+        "DOI 10.1109/TIP.2009.2028250",
+        "arXiv:1503.03703",
+        "current Resultary semantic search",
+        "assigned recurrence checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original recurrence mechanically permits the four-step calculation, but the published global rate does not imply when the first local objective increase occurs.",
+          "The existence of a monotone variant shows the qualitative issue is known, not the exact boundary claimed here."
+        ],
+        "reasoning": "The final claim is a motivated sharp boundary calculation on the original recurrence, rather than a restatement of the qualitative nonmonotonicity fact.",
+        "searches": [
+          "comparison with the original FISTA recurrence and monotone-FISTA motivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original paper defines FISTA and proves a global rate; the monotone follow-up explicitly introduces a monotone FISTA variant.",
+          "Liang–Fadili–Peyré states that FISTA locally oscillates, but the accessible theorem scope does not contain the audited fourth-iterate interval."
+        ],
+        "reasoning": "Equivalent formulations as FISTA objective nonmonotonicity, inertial overshoot, and a finite-horizon scalar eigendirection classification were compared.",
+        "searches": [
+          "Resultary: FISTA exact first objective increase fourth iterate scalar quadratic hit minimizer leave optimizer",
+          "Beck–Teboulle DOI 10.1137/080716542",
+          "Beck–Teboulle DOI 10.1109/TIP.2009.2028250",
+          "Liang–Fadili–Peyré arXiv:1503.03703"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table entry was located for \\(r_-\\), \\(r_+\\), or \\(r_0\\)."
+        ],
+        "reasoning": "The claim is an analytic recurrence classification rather than a table lookup.",
+        "searches": [
+          "current Resultary FISTA query"
+        ]
+      },
+      "rationale": "The original FISTA source and later literature establish the recurrence, global accelerated rate, and the broad fact that FISTA can be nonmonotone/oscillatory. The monotone-FISTA follow-up explicitly motivates a monotone variant, and Liang–Fadili–Peyré explains local oscillation. No inspected statement gives the exact earliest objective-rise index and sharp curvature interval for the original constant-L recurrence, nor the exact hit-and-leave resonance. Resultary search found related spike/frontier results for other methods or Nesterov parameterizations but no implication-equivalent FISTA theorem. Full primary FISTA text was not accessible through the available publisher route during closeout, so that is retained as a literature risk rather than treated as novelty evidence.",
+      "residual_risks": [
+        "The full original FISTA article was not re-read in this execution, so a low-dimensional example buried in its full text remains a residual risk.",
+        "A differently worded finite-step overshoot calculation could exist in instructional or implementation literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ACCESS-LIMITED residual risk.",
+          "evidence": "The accessible source material establishes the algorithm and global-rate scope, not the audited exact fourth-iterate classification.",
+          "identifier_or_url": "https://doi.org/10.1137/080716542",
+          "material_read": "Publisher abstract, bibliographic record, and accessible algorithm scope; full primary text was not available through the current route before closeout.",
+          "method": "Access-limited source comparison; no whole-document noncoverage inference.",
+          "title": "A Fast Iterative Shrinkage-Thresholding Algorithm for Linear Inverse Problems",
+          "trigger": "Primary source defining the exact FISTA recurrence."
+        },
+        {
+          "assessment": "COVERS qualitative nonmonotonicity motivation only.",
+          "evidence": "The abstract explicitly introduces a monotone version of FISTA, but gives no exact scalar first-rise boundary.",
+          "identifier_or_url": "https://doi.org/10.1109/TIP.2009.2028250",
+          "material_read": "Publisher/PubMed abstract and bibliographic material.",
+          "method": "Statement-scope comparison.",
+          "title": "Fast gradient-based algorithms for constrained total variation image denoising and deblurring problems",
+          "trigger": "Primary follow-up introducing monotone FISTA because ordinary FISTA need not be monotone."
+        },
+        {
+          "assessment": "COVERS local oscillation qualitatively, not the exact finite-horizon theorem.",
+          "evidence": "It explains why FISTA can locally oscillate and be slower than forward-backward splitting.",
+          "identifier_or_url": "arXiv:1503.03703",
+          "material_read": "Accessible arXiv abstract and theorem scope.",
+          "method": "Scope comparison.",
+          "title": "Activity Identification and Local Linear Convergence of Forward--Backward-type Methods",
+          "trigger": "Later analysis of FISTA oscillation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "FISTA's nonmonotonicity is important enough to have motivated monotone variants. Pinning down the earliest possible rise and the exact curvature window on an exact-global-L quadratic gives a clean mechanism, while the optimizer-hit-and-immediate-leave resonance sharply illustrates the role of inertial history. This is a motivated boundary/counterexample rather than an arbitrary tiny-instance computation.",
+      "risks": [
+        "The result is finite-horizon and one-eigendirection; it does not classify later or nonsmooth behavior."
+      ],
+      "sources": [
+        "original FISTA recurrence",
+        "monotone-FISTA motivation",
+        "assigned sharp factorization"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Smooth quadratic invariant eigendirection only.",
+    "Constant exact global majorization parameter only.",
+    "No statement about later rises, backtracking, or nonsmooth active sets."
+  ],
+  "schema_version": 1
+}
