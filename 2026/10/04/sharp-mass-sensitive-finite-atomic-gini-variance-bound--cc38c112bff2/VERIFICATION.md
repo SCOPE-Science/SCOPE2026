@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the definitions. For a quantile-bin index \(J\), the conditional uniform variance is \(p_i^2/12\), hence total variance gives \(\operatorname{Var}(\mathbb E[U\mid J])=(1-\sum_i p_i^3)/12\). The second L-moment identity then reduces the theorem to Cauchy--Schwarz.
+# Independent mathematical audit
 
-A random numerical stress test over 20,000 finite atomic laws with between two and eight atoms found no violation beyond floating-point roundoff. Separate fixed-mass tests set each atom equal to its quantile-bin midpoint and reproduced equality to floating-point precision. These computations do not replace the analytic proof.
+## correctness
 
-The source comparison inspected the full Papadatos arXiv article, the full La Haye--Zizler article, the open full Jones--Balakrishnan PDF, and the open full Miao--Ge--Peng PDF. The direct retrieval attempt for the older Cerone--Dragomir empirical-Gini paper did not return the requested article; this is disclosed as a residual originality risk.
+PASS
+
+The quantile identity gives \(\lambda_2=2\operatorname{Cov}(Q(U),U)\). Conditioning on the atom-bin index \(J\) replaces \(U\) by its conditional midpoint \(m_J\), so Cauchy--Schwarz yields \(\lambda_2^2\le4\sigma^2\operatorname{Var}(m_J)\). Total variance of a uniform variable gives \(\operatorname{Var}(m_J)=(1-\sum_i p_i^3)/12\). Equality in Cauchy--Schwarz is exactly the stated affine-midpoint geometry, and strict convexity of \(t^3\) gives the support-count corollary. The derivation was reconstructed directly from RESULT.md; the numerical stress test is not needed for the proof.
+
+## originality
+
+PASS
+
+Fresh Resultary search did not return a prior cubic-mass Gini/variance theorem. The classical La Haye--Zizler result is distribution-free and therefore weaker. Current search recovered closely related Cerone--Dragomir empirical-Gini literature, but no accessible statement with the variance-sensitive factor \(1-\sum p_i^3\); the exact 2006 body was not recovered, so this remains a named residual risk rather than negative evidence.
+
+## value
+
+PASS
+
+This is a sharp structural refinement of a standard scale inequality for every prescribed finite mass vector, with complete equality geometry and a sharp support-size envelope. It quantifies exactly how atomicity improves the universal Gini/variance constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

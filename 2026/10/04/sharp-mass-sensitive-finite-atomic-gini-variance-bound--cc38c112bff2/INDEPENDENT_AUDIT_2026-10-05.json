@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:06:15Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 79ac3cdb511c607585791f56e4c4e231eb48e8e4",
+        "VERIFICATION.md blob 7282f93092a9b86110bc1efb67f4801654170d19",
+        "Current web inspection of La Haye--Zizler 2019 confirms the classical Gini/variance inequality as prior background."
+      ],
+      "rationale": "The quantile identity gives \\(\\lambda_2=2\\operatorname{Cov}(Q(U),U)\\). Conditioning on the atom-bin index \\(J\\) replaces \\(U\\) by its conditional midpoint \\(m_J\\), so Cauchy--Schwarz yields \\(\\lambda_2^2\\le4\\sigma^2\\operatorname{Var}(m_J)\\). Total variance of a uniform variable gives \\(\\operatorname{Var}(m_J)=(1-\\sum_i p_i^3)/12\\). Equality in Cauchy--Schwarz is exactly the stated affine-midpoint geometry, and strict convexity of \\(t^3\\) gives the support-count corollary. The derivation was reconstructed directly from RESULT.md; the numerical stress test is not needed for the proof.",
+      "risks": [
+        "The theorem is finite-atomic only; no countably infinite-support extension is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 abstract describes a previously known universal standard-deviation/Gini inequality and higher-moment extensions.",
+          "Accessible empirical-Gini material concerns empirical/weighted bounds but did not expose the submitted variance-plus-cubic-mass theorem."
+        ],
+        "reasoning": "The known universal bound follows from the submitted sharper finite-atomic inequality by discarding the positive cubic correction, not conversely.",
+        "searches": [
+          "DOI:10.1007/s40300-019-00149-2",
+          "DOI:10.1016/j.aml.2005.05.009",
+          "Cerone--Dragomir r-weighted empirical-Gini full-text search result"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fresh query",
+        "DOI:10.1007/s40300-019-00149-2",
+        "DOI:10.1016/j.aml.2005.05.009",
+        "Cerone--Dragomir weighted empirical-Gini source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A universal \\(\\lambda_2\\le\\sigma/\\sqrt3\\) inequality does not imply the strictly smaller fixed-mass constant.",
+          "Empirical-Gini bounds based on other quantities do not imply the displayed variance correction from the accessible statements."
+        ],
+        "reasoning": "The conditional-variance identity for quantile-bin midpoints is the substantive extra step producing the new factor.",
+        "searches": [
+          "La Haye--Zizler 2019",
+          "Cerone--Dragomir empirical-Gini literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No top Resultary hit states the cubic-mass factor or affine quantile-bin equality geometry.",
+          "La Haye--Zizler 2019 states the classical Gini/variance relation, not the fixed-mass correction."
+        ],
+        "reasoning": "Aliases through Gini mean difference, second L-moment, finite support, weighted empirical Gini and quantile-bin midpoints were compared.",
+        "searches": [
+          "Resultary query: sharp mass-sensitive finite atomic Gini variance bound second L-moment fixed mass vector sum p_i^3 equality quantile bin midpoints",
+          "Web query: Gini mean difference variance finite support atoms sum p_i^3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest returned finite-discrete item was a min--max correlation result on three atoms, a different functional."
+        ],
+        "reasoning": "No exact database/table statement of the mass-vector sharp constant was located; this is an all-mass-vector analytic theorem rather than table recomputation.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "Fresh Resultary search did not return a prior cubic-mass Gini/variance theorem. The classical La Haye--Zizler result is distribution-free and therefore weaker. Current search recovered closely related Cerone--Dragomir empirical-Gini literature, but no accessible statement with the variance-sensitive factor \\(1-\\sum p_i^3\\); the exact 2006 body was not recovered, so this remains a named residual risk rather than negative evidence.",
+      "residual_risks": [
+        "The full 2006 Cerone--Dragomir paper was not recovered in this run; an unindexed theorem there or older inequality literature could reduce originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_MASS_VECTOR_REFINEMENT",
+          "evidence": [
+            "Accessible statement contains no finite-mass cubic correction."
+          ],
+          "identifier_or_url": "DOI:10.1007/s40300-019-00149-2",
+          "material_read": "Current abstract plus bibliographic statement that it proves/sharpens a previously known Gini versus standard-deviation inequality.",
+          "method": "Fresh web retrieval.",
+          "title": "The Gini mean difference and variance",
+          "trigger": "Closest standard Gini/variance source."
+        },
+        {
+          "assessment": "ACCESS_RISK_NOT_DECISIVE",
+          "evidence": [
+            "No accessible statement located the submitted variance-sensitive factor."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.aml.2005.05.009",
+          "material_read": "Current bibliographic/search material; complete original body not recovered. Related accessible Cerone--Dragomir weighted-empirical paper was inspected at abstract/body level.",
+          "method": "Fresh web search; access limitation retained.",
+          "title": "Bounds for the Gini mean difference of an empirical distribution",
+          "trigger": "Plausible older same-object source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact fixed-mass sharp constant and equality case.",
+        "Exact support-count corollary for all \\(N\\ge2\\)."
+      ],
+      "rationale": "This is a sharp structural refinement of a standard scale inequality for every prescribed finite mass vector, with complete equality geometry and a sharp support-size envelope. It quantifies exactly how atomicity improves the universal Gini/variance constant.",
+      "risks": [
+        "The result does not address continuous-discrete mixtures or higher L-moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate finitely supported real law with positive atom masses \\(p_i\\), the second L-moment obeys \\(\\lambda_2^2\\le \\sigma^2(1-\\sum_i p_i^3)/3\\), sharply for each fixed mass vector, with equality exactly at affine quantile-bin midpoints; consequently \\(G/\\sigma\\le 2\\sqrt{(1-N^{-2})/3}\\) for exactly \\(N\\) atoms, with equality only for a uniform equally spaced lattice.",
+  "limitations": [
+    "Finite positive atom masses and nonzero variance only."
+  ],
+  "schema_version": 1
+}
