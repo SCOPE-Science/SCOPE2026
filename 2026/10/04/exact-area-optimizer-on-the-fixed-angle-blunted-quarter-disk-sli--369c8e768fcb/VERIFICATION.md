@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The package verifier is `verify.py`. It uses exact rational arithmetic only. Alternating Taylor sums enclose \(\sin(15/16)\) and \(\cos(15/16)\); alternating arctangent sums together with Machin's formula enclose \(\pi/4\).
+# Independent mathematical audit
 
-The replay verifies the following scientific checkpoints:
+## correctness
 
-- \(0.7080841391075816<\varepsilon_*<0.7080841391075818\).
-- The center value of \(r\) at \(\varepsilon_*\) is above \(0.17058\), while the endpoint value equals \(1/2\) by definition.
-- The quadratic area coefficient satisfies \(C_2<0\).
-- The endpoint derivative satisfies \(A'(\varepsilon_*)>0.016\); therefore \(A'(\varepsilon)>0\) on the entire interval \(0\le\varepsilon\le\varepsilon_*\).
-- \(0.7871835266964052<A(\varepsilon_*)<0.7871835266964056\).
-- The new area exceeds the source parameter \(\varepsilon=13/20\) by more than \(0.00096\).
-- The lower area bound is strictly greater than the independently enclosed \(\pi/4\).
+PASS
 
-The verifier does not test any claim outside the stated one-parameter slice, and no finite numerical sampling is used to establish the continuum monotonicity statement.
+For the stated support radius \(r_\varepsilon=k+\varepsilon(1-q\cos(\theta-m))\), monotonicity of the cosine on the active interval makes the endpoint value \(r=1/2\) the first curvature-feasibility obstruction and keeps the complementary curvature radius nonnegative throughout the slice. The source's area functional reduces to a quadratic \(C_0+C_1\varepsilon+C_2\varepsilon^2\). Fresh independent evaluation gives \(C_2=-0.002656771865422791<0\) and endpoint derivative \(0.01650985384639112>0\); since the derivative is decreasing, area increases on the entire feasible interval. The independently evaluated endpoint area is \(0.7871835266964052\), compared with \(0.786215602719126\) at \(13/20\) and \(\pi/4\approx0.7853981633974483\). The package's exact rational interval certificate removes floating-point dependence.
+
+## originality
+
+PASS
+
+The accessible primary abstract records one explicit reduced body of area \(0.786215\ldots\) obtained from a support-function construction. Exact searches for the fixed \(m=15/16\) slice optimizer, the endpoint parameter, and the improved area returned the assigned finding rather than a prior source. The same-paper full text remained inaccessible, so no whole-document noncoverage claim is made; it is retained as an explicit originality risk. Under the owner rule, that access limitation alone does not defeat a completed best-of-knowledge originality assessment.
+
+## value
+
+PASS
+
+The source construction disproves a natural extremal conjecture but leaves quantitative improvement immediately relevant. Optimizing the source's own fixed-angle slice to its geometric feasibility boundary gives a rigorously stronger counterexample and an exact benchmark for subsequent global optimization. The gain is small numerically but mathematically motivated by the extremal problem and certified at the precise curvature boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
