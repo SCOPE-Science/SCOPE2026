@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:52:01.100767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9ee794c9ad2b05f4be8777e9d27d8c2c80d0d1fc",
+        "verify.py blob 16a18eb9bd87b300a384e7a854bd912ee90b497a",
+        "independent brute shortest-path enumeration over all multipartite types through order nine"
+      ],
+      "rationale": "For a complete multipartite graph, a three-vertex set lies on a geodesic of length at most two exactly when its part-multiplicity pattern is two plus one. From that characterization, a \\((3,2)\\)-clique meets at most two parts and uses at most two vertices from each, giving \\(2+\\min\\{2,s\\}\\), where \\(s\\) is the number of non-singleton parts. For domination, a two-set in one part dominates exactly when that whole part has order two, while a cross-part two-set dominates exactly in the bipartite case; otherwise two vertices in a part of size at least three plus one outside give a dominating three-set. Independent shortest-path brute force over every complete multipartite type of total order at most nine reproduced both formulas for 87 graph types.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cody--Detore define the \\(k,d\\)-clique and domination invariants and give general hypergraph machinery, but the full text has no occurrence of 'multipartite'; its open Question 6.1 explicitly asks for other classical families and lists complete bipartite graphs.",
+          "Anand et al. classify classical general-position sets, a complementary avoidance notion, not the audited clique/domination quantities."
+        ],
+        "reasoning": "The foundational framework does not give these multipartite values as a printed specialization; the local geodesic pattern still has to be analyzed.",
+        "searches": [
+          "Cody--Detore, arXiv:2601.04351, complete primary arXiv text",
+          "Anand et al., arXiv:1812.08460, general-position characterization for diameter-two graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.04351",
+        "arXiv:1812.08460",
+        "Resultary exact-title and complete-multipartite \\((3,2)\\) searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Definition 1.1 supplies the parameter but not the multipartite geodesic classification.",
+          "Question 6.1 calls for computing these invariants on further classical families, including complete bipartite graphs, supporting that no general formula in the paper already covers this case."
+        ],
+        "reasoning": "The result is a direct but nontrivial completion of an explicitly motivated family calculation, not a renamed classical domination theorem.",
+        "searches": [
+          "Inspect Cody--Detore Definition 1.1 and hypergraph translation",
+          "Inspect Cody--Detore open questions for complete bipartite/classical families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No prior exact formula under the new \\(k,d\\)-invariant terminology was located.",
+          "Classical general-position results on complete multipartite graphs concern sets with no geodesic triples, not sets whose every triple is geodesic or the new domination parameter."
+        ],
+        "reasoning": "Both the direct Cody--Detore terminology and older general-position terminology were checked to avoid missing an equivalent reformulation.",
+        "searches": [
+          "Web searches: complete multipartite \\((3,2)\\)-domination graph",
+          "Web searches: complete multipartite \\(k,d\\)-clique and geodesic domination",
+          "Resultary semantic search for \\((3,2)\\) clique/domination on complete multipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned many distinct domination variants on complete multipartite graphs but no prior published SCOPE finding for this exact \\((3,2)\\) invariant pair."
+        ],
+        "reasoning": "The nearby SCOPE records concern different domination definitions and do not imply the geodesic \\((3,2)\\) formulas.",
+        "searches": [
+          "Resultary exact-title query: Exact \\((3,2)\\)-clique and \\((3,2)\\)-domination numbers of complete multipartite graphs",
+          "Resultary queries across complete-multipartite domination variants"
+        ]
+      },
+      "rationale": "No prior source found the exact formulas. The complete Cody--Detore paper defines the invariants but leaves classical families beyond its path/cycle program open and specifically lists complete bipartite graphs; older multipartite general-position results concern a different avoidance invariant. The package's multipartite geodesic characterization therefore survives implication-level comparison.",
+      "residual_risks": [
+        "Because the framework is very recent, later or unindexed follow-up notes may contain the same elementary family computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_DEFINITION_AND_OPEN_DIRECTION_NOT_COVERAGE",
+          "evidence": "The source motivates the exact computation but does not imply the multipartite formula without analyzing its geodesics.",
+          "identifier_or_url": "arXiv:2601.04351",
+          "material_read": "Complete arXiv HTML around Definition 1.1, the hypergraph correspondence, stated exact-family results, and Section 6 open questions. The text contains no 'multipartite' result and explicitly asks for formulas on other classical graph families including complete bipartite graphs.",
+          "method": "lawful open-access arXiv full text",
+          "title": "Metric general position extensions of classical graph invariants",
+          "trigger": "Foundational primary source defining exactly the audited \\((k,d)\\)-clique and domination parameters."
+        },
+        {
+          "assessment": "DIFFERENT_COMPLEMENTARY_INVARIANT",
+          "evidence": "Ordinary general position forbids triples on a geodesic; the audited \\((3,2)\\)-clique requires every triple to lie on one, and the domination notion is also distinct.",
+          "identifier_or_url": "arXiv:1812.08460",
+          "material_read": "Primary abstract/public record describing the diameter-two characterization of ordinary general-position sets.",
+          "method": "lawful primary arXiv record",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "Closest older complete-multipartite/general-position literature under related geodesic terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cody--Detore full text",
+        "Anand et al. primary record",
+        "assigned proof and independent brute replay"
+      ],
+      "rationale": "Complete multipartite graphs are a canonical diameter-two family, and the foundational 2026 paper explicitly asks for exact \\(k,d\\)-invariants on other classical families, including the bipartite subfamily. Simultaneously determining the clique and domination numbers from the same geodesic-type lemma is a natural structural classification, even though the resulting formulas are short.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Because the framework is very recent, later or unindexed follow-up notes may contain the same elementary family computation."
+  ],
+  "schema_version": 1
+}
