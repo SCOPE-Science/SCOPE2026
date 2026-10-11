@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:35:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 028d8c1c74e9bf98b529c3d30332ce7f23624255",
+        "verify.py blob c25423008a7d371d48152436fd4b16778b392564",
+        "Fu--Xie--Li DOI:10.2298/FIL2317601F full PDF",
+        "Sain--Ghosh--Paul DOI:10.1007/s00010-022-00909-y"
+      ],
+      "rationale": "Using Fu--Xie--Li's equivalent unit-sphere formulation, set \\(u=x+y\\), \\(v=x-y\\), \\(a=\\|u\\|\\), \\(b=\\|v\\|\\), and assume \\(a\\ge b\\). The objective is \\((a+b)\\|bu-av\\|/(2ab)\\). Since \\(u-v=2y\\), the triangle inequality gives \\(\\|bu-av\\|\\le2b+(a-b)b\\). With \\(t=b/a\\) and \\(a\\le2\\), this becomes at most \\((1+t)(2-t)=9/4-(t-1/2)^2\\). The explicit pair \\(x=(0,1),y=(1,1)\\) in \\(\\ell_\\infty^2\\) has \\((a,b)=(2,1)\\) and attains \\(9/4\\). The inspected rational verifier independently checks the scalar identity and witness.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 paper treats a different orthogonality constant, and the background paper does not supply the missing isosceles bound.",
+          "The defining 2023 paper explicitly leaves the universal optimum open."
+        ],
+        "reasoning": "No checked broader geometric-constant theorem implies 9/4 universally.",
+        "searches": [
+          "Fu--Xie--Li 2023 full paper",
+          "Fu--Xie--Li 2024 Birkhoff-orthogonal analogue",
+          "Sain--Ghosh--Paul 2023"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.2298/FIL2317601F",
+        "DOI:10.1007/s00010-022-00909-y",
+        "DOI:10.1007/s41980-023-00853-w",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those results bracket the optimum but do not imply the stronger universal upper 9/4; the source expressly says this step was unproved."
+        ],
+        "reasoning": "The audited scalar envelope is the missing implication.",
+        "searches": [
+          "Fu--Xie--Li upper \\(\\sqrt2+1\\) theorem and \\(\\ell_\\infty^2\\) example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.4 provides the exact unit-sphere expression used by the proof.",
+          "The paper itself computes 9/4 on \\(\\ell_\\infty^2\\) but does not prove a universal 9/4 upper bound."
+        ],
+        "reasoning": "The original isosceles-orthogonal definition and the unit-sphere expression were compared as equivalent formulations.",
+        "searches": [
+          "Resultary: isosceles Dunkl-Williams constant 9/4 sharp universal Fu Xie Li",
+          "Fu--Xie--Li DOI:10.2298/FIL2317601F Proposition 3.4 and Example 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned result is the direct exact Resultary hit; no earlier independent record resolving the conjecture was returned."
+        ],
+        "reasoning": "A single-space computation of 9/4 is a lower bound on the universal optimum, not a universal table.",
+        "searches": [
+          "Resultary exact DW_I 9/4 query"
+        ]
+      },
+      "rationale": "The defining Fu--Xie--Li paper was inspected in full. It proves the equivalent formula, gives the previous universal upper bound \\(\\sqrt2+1\\), computes \\(DW_I(\\ell_\\infty^2)=9/4\\), then explicitly conjectures that \\(9/4\\) is the best universal upper bound and says they cannot prove it; its closing questions again ask for the best bound. Resultary and adjacent-literature searches found no intervening theorem resolving that stated problem. The audited triangle-inequality reduction therefore closes an explicit published gap.",
+      "residual_risks": [
+        "A very recent or unindexed note could independently have resolved the same explicit conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_PROBLEM_RESOLVED",
+          "evidence": "After obtaining \\(DW_I(\\ell_\\infty^2)=9/4\\), the authors state that they suspect 9/4 is the best universal upper bound and cannot prove it.",
+          "identifier_or_url": "DOI:10.2298/FIL2317601F",
+          "material_read": "Full primary PDF, including Proposition 3.4, Example 3.5 and the discussion immediately following it, plus the closing open-question section; the Example/discussion page was visually inspected.",
+          "method": "Open full-PDF text and page-image inspection.",
+          "title": "The Dunkl-Williams constant related to the Singer orthogonality and red isosceles orthogonality in Banach spaces",
+          "trigger": "Defining primary paper and explicit conjecture source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fu--Xie--Li 2023",
+        "isosceles-orthogonality geometric-constant literature"
+      ],
+      "rationale": "The theorem gives the exact best universal value of a named Banach-space geometric constant and resolves the defining paper's explicit conjecture, with a sharp witness. The simplicity of the final estimate does not make the exact universal endpoint a routine or unmotivated fact.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every real Banach space of dimension at least two, the isosceles Dunkl--Williams constant satisfies \\(DW_I(X)\\le9/4\\), and this universal constant is sharp because \\(DW_I(\\ell_\\infty^2)=9/4\\).",
+  "limitations": [
+    "Real Banach spaces only.",
+    "No classification of all equality spaces or equality pairs is claimed."
+  ],
+  "schema_version": 1
+}
