@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:03:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Affine normalization reduces the problem to the unit ball \\(D\\subseteq c+TD\\). For a unit normal \\(u\\), let \\(s=\\|T^{\\mathsf T}u\\|\\). Nesting gives the support inequality \\(c\\cdot u+s\\ge1\\). If the unit-ball cap of fraction \\(\\alpha\\le1/2\\) has threshold \\(t\\in[0,1]\\), then the same halfspace cuts the outer ellipsoid at normalized threshold \\((t-c\\cdot u)/s\\). For \\(c_0=c\\cdot u\\ge0\\), \\(c_0+ts-t=t(c_0+s-1)+(1-t)c_0\\ge0\\), so \\((t-c_0)/s\\le t\\). Monotonicity of the rotationally symmetric cap function gives the desired outer fraction. This argument is uniform in \\(t\\), hence in all \\(\\alpha\\), and handles thresholds outside the unit interval by the evident full/empty-cap convention. A fresh exact-rational stress check independently verified the scalar implication; the frozen verifier was also read.",
+      "risk": "The theorem is limited to ellipsoids; support-function control alone does not extend the same proof to arbitrary convex bodies.",
+      "sources": [
+        "arXiv:1509.02090",
+        "arXiv:1509.02084",
+        "DOI:10.1016/j.aim.2007.09.015",
+        "RESULT.md",
+        "verify.py",
+        "fresh exact-rational scalar check"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The planar theorem is broader in body class but not dimension.",
+          "The well-separated-body theorem is broader in dimension but excludes the nested setting by hypothesis."
+        ],
+        "reasoning": "No inspected theorem dominates the intersection of arbitrary dimension and nested ellipsoids.",
+        "searches": [
+          "Fruchard--Magazinov 2015 abstract and theorem statement",
+          "Chevallier--Fruchard--Vîlcu alpha-section literature",
+          "Kincses 2008 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1509.02090",
+        "arXiv:1509.02084",
+        "DOI:10.1016/j.aim.2007.09.015",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The planar theorem cannot be dimension-lifted by affine invariance alone.",
+          "The well-separated theorem cannot be specialized to nested bodies because nesting violates its separation hypothesis."
+        ],
+        "reasoning": "The submitted support-function reduction exploits ellipsoidal affine symmetry absent from both prior settings.",
+        "searches": [
+          "arXiv:1509.02090 planar theorem",
+          "DOI:10.1016/j.aim.2007.09.015 well-separated theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The planar source states exactly the alpha-to-beta dominance theorem and says the question is open if 'planar' is removed.",
+          "The Kincses theorem concerns well-separated families, which nested ellipsoids are not."
+        ],
+        "reasoning": "Cap-fraction, oriented-section, support-function, and simultaneous parallel-hyperplane formulations were compared.",
+        "searches": [
+          "Resultary query: nested ellipsoids alpha section dominance all dimensions cap fraction",
+          "arXiv:1509.02090",
+          "arXiv:1509.02084",
+          "DOI:10.1016/j.aim.2007.09.015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact ellipsoid theorem with a single direction working for all \\(\\alpha\\) was located."
+        ],
+        "reasoning": "This is a structural theorem, not a numerical table; failed search is not used as novelty proof.",
+        "searches": [
+          "Resultary exact semantic search for nested ellipsoid alpha sections",
+          "Targeted web searches for ellipsoid cap dominance under nesting"
+        ]
+      },
+      "rationale": "Fruchard--Magazinov prove the analogous dominance theorem for arbitrary nested planar convex bodies and explicitly leave the nonplanar problem open. Chevallier--Fruchard--Vîlcu develop the planar \\(\\alpha\\)-section framework, while Kincses' arbitrary-dimensional theorem assumes a well-separated family and therefore does not apply to nested bodies. Resultary searches found the assigned ellipsoid theorem but no earlier all-dimensional nested-ellipsoid specialization. The proof is elementary, but it supplies a genuine special-class resolution in the higher-dimensional direction and the stronger simultaneous-in-\\(\\alpha\\) normal family.",
+      "residual_risks": [
+        "An older elementary ellipsoid observation may exist under support-function or floating-body terminology without being indexed as an alpha-section theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLANAR_ONLY",
+          "evidence": "It proves the result for planar convex bodies and explicitly leaves higher dimensions open.",
+          "identifier_or_url": "arXiv:1509.02090",
+          "material_read": "Public primary abstract containing the complete planar theorem and the explicit statement that the nonplanar question remains open.",
+          "method": "Lawful open-source inspection.",
+          "title": "Fair partitioning by straight lines",
+          "trigger": "Same alpha-to-beta dominance question."
+        },
+        {
+          "assessment": "PLANAR_FRAMEWORK_NOT_TWO_ELLIPSOID_HIGHER_DIMENSION_RESULT",
+          "evidence": "The article studies planar convex bodies and alpha-section envelopes.",
+          "identifier_or_url": "arXiv:1509.02084",
+          "material_read": "Public arXiv abstract and indexed bibliographic scope.",
+          "method": "Lawful open-source inspection.",
+          "title": "Envelopes of alpha-sections",
+          "trigger": "Primary systematic source on alpha-sections and related open questions."
+        },
+        {
+          "assessment": "HYPOTHESIS_INAPPLICABLE_TO_NESTED_PAIR",
+          "evidence": "Its prescribed simultaneous sections require a well-separated family of strictly convex bodies.",
+          "identifier_or_url": "DOI:10.1016/j.aim.2007.09.015",
+          "material_read": "Public primary abstract with its well-separated-family hypothesis and main theorem.",
+          "method": "Lawful public-source inspection.",
+          "title": "The topological type of the alpha-sections of convex sets",
+          "trigger": "Potential arbitrary-dimensional simultaneous-section theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves a natural, explicitly open higher-dimensional section-dominance question on a central geometric class and strengthens it by finding a fixed family of parallel cuts valid for every lower-half volume fraction. Its short proof reflects strong ellipsoidal structure rather than an arbitrary exercise.",
+      "risk": "It does not advance the unrestricted arbitrary-convex-body case.",
+      "sources": [
+        "arXiv:1509.02090",
+        "arXiv:1509.02084"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any nested nondegenerate ellipsoids \\(A\\subseteq B\\subset\\mathbb R^d\\), \\(d\\ge2\\), there is one oriented normal direction that works simultaneously for every \\(\\alpha\\in(0,1/2]\\): the corresponding \\(\\alpha\\)-cap of \\(A\\) lies in a halfspace containing at least an \\(\\alpha\\) fraction of \\(B\\). After normalizing \\(A\\) to the unit ball and writing \\(B=c+TD\\), every unit normal \\(u\\) with \\(c\\cdot u\\ge0\\) works.",
+  "limitations": [
+    "Ellipsoids only.",
+    "No uniqueness of the working direction is claimed.",
+    "No result for arbitrary nested convex bodies is implied."
+  ],
+  "schema_version": 1
+}
