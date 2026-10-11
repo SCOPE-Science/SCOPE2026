@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:54:27.251703Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ea0414272ae3c6dd415fd929ee723bfe27c10774",
+        "artifacts/verify.py blob 61a8e1fbfe84aaeb90340aeb204228f39288e297",
+        "independent symbolic partner-count and difference verification",
+        "Lazorec 2019 definitions/problem statement"
+      ],
+      "rationale": "The subgroup classification is exhaustive. With kernel \\(A=C_r\\) and cyclic complement \\(B=C_{pq}\\), subgroups containing \\(A\\) are inverse images of subgroups of \\(B\\), while subgroups disjoint from \\(A\\) inject into \\(B\\) and are cyclic of order \\(1,p,q,pq\\). Fixed-point-freeness gives normalizers \\(N_G(P)=N_G(Q)=N_G(B)=B\\), so each nonnormal cyclic type has exactly \\(r\\) conjugates and \\(|L_1(G)|=3r+2\\). The only permuting partners of a nonnormal cyclic subgroup are \\(1,A\\) and the three cyclic subgroups in its unique complement, hence exactly five. Summing partner counts over \\(L_1(H)\\) gives every displayed formula. Independent algebra reproduces the four successive positive differences \\(3(r-1)/(2L)\\), \\(3(r-1)/(4L)\\), \\(3(r-1)(r-6)/(4(r+2)L)\\), and \\(12r(r-1)/((r+2)L^2)\\); since \\(pq\\mid r-1\\) with distinct primes, \\(r\\ge7\\). The packaged finite semidirect-product checks are corroborative only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 'five relative commutativity degrees' classification uses elementwise relative commutativity, not relative cyclic subgroup commutativity.",
+          "Related Frobenius results with prime complement, elementary-abelian kernel, or cyclic-subgroup graph structure do not state every \\(\\operatorname{csd}(H,G)\\) value for this square-free complement family."
+        ],
+        "reasoning": "No inspected broader theorem mechanically supplies the complete five-value relative cyclic function.",
+        "searches": [
+          "DOI:10.1007/s00025-021-01591-3",
+          "Resultary related Frobenius-family records"
+        ]
+      },
+      "checked_sources": [
+        "Lazorec, Relative Cyclic Subgroup Commutativity Degrees of Finite Groups, Filomat 33(13) (2019), DOI:10.2298/FIL1913021L",
+        "published primary PDF pages 4031--4032, Problem 5.3 discussion",
+        "Farrokhi Derakhshandeh Ghouchan, Finite Groups with Five Relative Commutativity Degrees, arXiv:1912.04550 / DOI:10.1007/s00025-021-01591-3",
+        "Resultary semantic query: relative cyclic subgroup commutativity degrees C_r semidirect C_pq finite groups five values",
+        "Resultary comparisons with later SCOPE Frobenius-family subgroup/cyclic-subgroup graph results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source identifies which relative degrees require comparison but does not compute them.",
+          "The audited proof shows every nonnormal cyclic subgroup has exactly five cyclic permuting partners, which determines all six requested relative degrees and their pairwise collapses."
+        ],
+        "reasoning": "The final theorem supplies the counting argument specifically requested by the source.",
+        "searches": [
+          "Lazorec 2019 Problem 5.3 discussion",
+          "independent subgroup-partner counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper names the exact family and lists \\(G,C_{pq},C_p,C_q,C_r\\rtimes C_p,C_r\\rtimes C_q\\) as the degrees needing computation.",
+          "It frames the calculation as part of Problem 5.3 for groups with three or four nonnormal subgroup conjugacy classes."
+        ],
+        "reasoning": "The audited theorem is the direct resolution of an explicit published research direction, not merely a parameter match inferred from a title.",
+        "searches": [
+          "Filomat 33(13) (2019) pp. 4031--4032",
+          "Resultary query above"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior indexed formula covering the arbitrary \\(p,q,r\\) family was found; the exact semantic hit is the audited finding."
+        ],
+        "reasoning": "Search absence supplements the stronger evidence that the published primary paper explicitly left this calculation open.",
+        "searches": [
+          "Resultary query above",
+          "targeted searches using the exact Frobenius presentation and divisibility condition"
+        ]
+      },
+      "rationale": "Originality passes decisively against the motivating literature. The published final Filomat paper was read through its further-research section. It explicitly singles out the Frobenius group \\(C_r\\rtimes C_{pq}\\), with distinct primes and \\(pq\\mid r-1\\), states that one must compute exactly the six nontrivial relative cyclic subgroup commutativity degrees appearing in the audited theorem, and leaves their comparison to future work. The audited proof performs that requested calculation and shows the six types collapse pairwise to four nontrivial values plus 1. The later paper with 'five relative commutativity degrees' studies the different elementwise invariant \\(d(H,G)\\), so it is not covering.",
+      "residual_risks": [
+        "An equivalent calculation could exist under ZM-group or subgroup-permutability terminology despite the targeted searches.",
+        "Related later/same-day SCOPE results cover other Frobenius families or cyclic-subgroup graphs but did not supply the full relative cyclic degree function for arbitrary distinct \\(p,q,r\\) here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICITLY_LEAVES_THE_AUDITED_FAMILY_CALCULATION_OPEN",
+          "evidence": "The final page names \\(C_r\\rtimes C_{pq}\\), states \\(pq\\mid r-1\\), lists the six relative cyclic degrees to compute, and asks how many distinct values result.",
+          "identifier_or_url": "DOI:10.2298/FIL1913021L",
+          "material_read": "Complete relevant published PDF, including the final Further research section; pages 4031 and 4032 were visually inspected.",
+          "method": "lawful open-access publisher PDF with page inspection",
+          "title": "Relative Cyclic Subgroup Commutativity Degrees of Finite Groups",
+          "trigger": "Motivating primary paper and explicit research direction for this exact Frobenius family."
+        },
+        {
+          "assessment": "DIFFERENT_ELEMENTWISE_INVARIANT",
+          "evidence": "Its relative commutativity degree counts commuting elements rather than permuting cyclic subgroups.",
+          "identifier_or_url": "arXiv:1912.04550; DOI:10.1007/s00025-021-01591-3",
+          "material_read": "Primary abstract and accessible article text defining its invariant.",
+          "method": "lawful open primary material",
+          "title": "Finite Groups with Five Relative Commutativity Degrees",
+          "trigger": "Potential title-level coverage because it also studies 'five relative commutativity degrees'."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lazorec, Relative Cyclic Subgroup Commutativity Degrees of Finite Groups, Filomat 33(13) (2019), DOI:10.2298/FIL1913021L",
+        "published primary PDF pages 4031--4032, Problem 5.3 discussion",
+        "Farrokhi Derakhshandeh Ghouchan, Finite Groups with Five Relative Commutativity Degrees, arXiv:1912.04550 / DOI:10.1007/s00025-021-01591-3",
+        "Resultary semantic query: relative cyclic subgroup commutativity degrees C_r semidirect C_pq finite groups five values",
+        "Resultary comparisons with later SCOPE Frobenius-family subgroup/cyclic-subgroup graph results"
+      ],
+      "rationale": "The theorem resolves the exact infinite Frobenius family singled out in the foundational paper as a difficult three-nonnormal-class test case. It determines the entire relative cyclic subgroup commutativity function on every subgroup type and reveals nonobvious pairwise collapses. That is a directly motivated completion of an explicit research problem, not a narrow arbitrary invariant computation.",
+      "residual_risks": [
+        "The result assumes a faithful cyclic square-free complement and does not classify all groups with three or four nonnormal subgroup-conjugacy classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent calculation could exist under ZM-group or subgroup-permutability terminology despite the targeted searches.",
+    "Related later/same-day SCOPE results cover other Frobenius families or cyclic-subgroup graphs but did not supply the full relative cyclic degree function for arbitrary distinct \\(p,q,r\\) here.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

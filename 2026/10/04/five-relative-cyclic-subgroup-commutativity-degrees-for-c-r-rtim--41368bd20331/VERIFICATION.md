@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal argument rests on four exact checks.
 
-First, every subgroup is either above the normal kernel \(A=C_r\) or disjoint from it. The first kind is the inverse image of a subgroup of \(C_{pq}\); the second kind injects into \(C_{pq}\) and is cyclic of order \(1\), \(p\), \(q\), or \(pq\).
+# Independent mathematical audit
 
-Second, fixed-point-freeness implies
-\[
-N_G(P)=N_G(Q)=N_G(B)=B,
-\]
-so the order-\(p\), order-\(q\), and order-\(pq\) cyclic subgroups each form a conjugacy class of size \(r\).
+## correctness
 
-Third, the cyclic-subgroup permuting-partner counts are exactly
-\[
-3r+2
-\]
-for \(1\) and \(C_r\), and exactly \(5\) for every other cyclic subgroup. The latter five partners are \(1\), \(C_r\), and the three cyclic subgroups inside the unique complement containing the subgroup.
+PASS
 
-Fourth, substituting these counts into the definition of \(\operatorname{csd}(H,G)\) gives the five formulas. Their successive differences factor as
-\[
-\frac{3(r-1)}{2L},\quad
-\frac{3(r-1)}{4L},\quad
-\frac{3(r-1)(r-6)}{4(r+2)L},\quad
-\frac{12r(r-1)}{(r+2)L^2},
-\]
-where \(L=3r+2\). All are positive because \(r\ge7\).
+The subgroup classification is exhaustive. With kernel \(A=C_r\) and cyclic complement \(B=C_{pq}\), subgroups containing \(A\) are inverse images of subgroups of \(B\), while subgroups disjoint from \(A\) inject into \(B\) and are cyclic of order \(1,p,q,pq\). Fixed-point-freeness gives normalizers \(N_G(P)=N_G(Q)=N_G(B)=B\), so each nonnormal cyclic type has exactly \(r\) conjugates and \(|L_1(G)|=3r+2\). The only permuting partners of a nonnormal cyclic subgroup are \(1,A\) and the three cyclic subgroups in its unique complement, hence exactly five. Summing partner counts over \(L_1(H)\) gives every displayed formula. Independent algebra reproduces the four successive positive differences \(3(r-1)/(2L)\), \(3(r-1)/(4L)\), \(3(r-1)(r-6)/(4(r+2)L)\), and \(12r(r-1)/((r+2)L^2)\); since \(pq\mid r-1\) with distinct primes, \(r\ge7\). The packaged finite semidirect-product checks are corroborative only.
 
-The packaged checker `artifacts/verify.py` constructs the semidirect products for
-\[
-(p,q,r)=(2,3,7),\quad(2,5,11),\quad(2,3,13),
-\]
-enumerates all cyclic subgroups, tests every ordered pair for permutability, and recomputes every relative degree directly from the definition.
+## originality
 
-It returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is not used to prove the universal theorem.
+Originality passes decisively against the motivating literature. The published final Filomat paper was read through its further-research section. It explicitly singles out the Frobenius group \(C_r\rtimes C_{pq}\), with distinct primes and \(pq\mid r-1\), states that one must compute exactly the six nontrivial relative cyclic subgroup commutativity degrees appearing in the audited theorem, and leaves their comparison to future work. The audited proof performs that requested calculation and shows the six types collapse pairwise to four nontrivial values plus 1. The later paper with 'five relative commutativity degrees' studies the different elementwise invariant \(d(H,G)\), so it is not covering.
+
+## value
+
+PASS
+
+The theorem resolves the exact infinite Frobenius family singled out in the foundational paper as a difficult three-nonnormal-class test case. It determines the entire relative cyclic subgroup commutativity function on every subgroup type and reveals nonobvious pairwise collapses. That is a directly motivated completion of an explicit research problem, not a narrow arbitrary invariant computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

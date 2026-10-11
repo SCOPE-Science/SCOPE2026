@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof classifies every subgroup from the normal Frobenius kernel \(C_r\) and the quotient \(C_{pq}\). Fixed-point-freeness gives normalizers \(N_G(C_p)=N_G(C_q)=N_G(C_{pq})=C_{pq}\), so the three nonnormal cyclic types each have exactly \(r\) conjugates. This yields \(3r+2\) cyclic subgroups. The two normal cyclic subgroups permute with all cyclic subgroups, while every nonnormal cyclic subgroup has exactly five partners: the two universal subgroups and the three cyclic subgroups in its unique complement. Summing these exact partner counts gives all five formulas. Their successive differences are explicitly positive because \(pq\mid r-1\) forces \(r\ge7\). The packaged replay verifies every cyclic-subgroup permutability relation in three admissible groups.
+## correctness
 
-## Originality
-PASS. The published final primary source explicitly names \(C_r\rtimes C_{pq}\), with \(pq\mid r-1\), as a Frobenius family with three nonnormal subgroup-conjugacy classes and states that the six listed relative cyclic subgroup commutativity degrees still need to be computed and compared. The theorem performs exactly those computations and obtains \(|\operatorname{Im}f_1|=5\). Exact and equivalent-formulation searches found no covering formula. A later classification with “five relative commutativity degrees” concerns the different elementwise invariant \(d(H,G)\).
+PASS
 
-## Value
-PASS. This is the exact infinite family singled out in the motivating paper's final research section, not an arbitrary parameter slice. The theorem completely determines the relative cyclic subgroup commutativity function by subgroup type, proves the image size, and explains why the \(p\)- and \(q\)-types pair off despite involving different primes.
+The subgroup classification is exhaustive. With kernel \(A=C_r\) and cyclic complement \(B=C_{pq}\), subgroups containing \(A\) are inverse images of subgroups of \(B\), while subgroups disjoint from \(A\) inject into \(B\) and are cyclic of order \(1,p,q,pq\). Fixed-point-freeness gives normalizers \(N_G(P)=N_G(Q)=N_G(B)=B\), so each nonnormal cyclic type has exactly \(r\) conjugates and \(|L_1(G)|=3r+2\). The only permuting partners of a nonnormal cyclic subgroup are \(1,A\) and the three cyclic subgroups in its unique complement, hence exactly five. Summing partner counts over \(L_1(H)\) gives every displayed formula. Independent algebra reproduces the four successive positive differences \(3(r-1)/(2L)\), \(3(r-1)/(4L)\), \(3(r-1)(r-6)/(4(r+2)L)\), and \(12r(r-1)/((r+2)L^2)\); since \(pq\mid r-1\) with distinct primes, \(r\ge7\). The packaged finite semidirect-product checks are corroborative only.
 
-The principal residual risk is bibliographic: an equivalent computation could have appeared under ZM-group or subgroup-permutability terminology not exposed by the indexed searches.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes decisively against the motivating literature. The published final Filomat paper was read through its further-research section. It explicitly singles out the Frobenius group \(C_r\rtimes C_{pq}\), with distinct primes and \(pq\mid r-1\), states that one must compute exactly the six nontrivial relative cyclic subgroup commutativity degrees appearing in the audited theorem, and leaves their comparison to future work. The audited proof performs that requested calculation and shows the six types collapse pairwise to four nontrivial values plus 1. The later paper with 'five relative commutativity degrees' studies the different elementwise invariant \(d(H,G)\), so it is not covering.
+
+## value
+
+PASS
+
+The theorem resolves the exact infinite Frobenius family singled out in the foundational paper as a difficult three-nonnormal-class test case. It determines the entire relative cyclic subgroup commutativity function on every subgroup type and reveals nonobvious pairwise collapses. That is a directly motivated completion of an explicit research problem, not a narrow arbitrary invariant computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
