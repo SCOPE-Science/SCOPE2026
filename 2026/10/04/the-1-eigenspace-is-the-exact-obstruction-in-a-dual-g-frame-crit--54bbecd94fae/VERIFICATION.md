@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-The primary source definitions, Theorem 3.1, and its proof were read directly. The core identity was independently reconstructed:
-\[
-\sum_i(\Lambda_i-\Lambda_iS^{-1})^*(\Gamma_i-\Omega_i)
-=(I-S^{-1})T_\Lambda T_{\Gamma-\Omega}^*.
-\]
-Thus the published orthogonality condition is equivalent to placing the mixed duality defect in \(\ker(S-I)\).
 
-The explicit \(\mathbb C^2\) example was checked symbolically. Its frame operators and bounds follow from diagonal quadratic forms; the orthogonality operator is exactly zero; and the reconstruction operator is exactly \(\operatorname{diag}(2,1)\), not the identity.
+# Independent mathematical audit
 
-For the sharp general boundary, the synthesis operator of a \(g\)-frame is surjective and \(T_\Lambda^*S^{-1}\) is an explicit bounded right inverse. Therefore any nonzero operator with range in \(\ker(S-I)\) can be realized as the mixed defect of a \(g\)-Bessel perturbation of a fixed dual. This proves necessity of excluding eigenvalue \(1\) when the criterion is required to work for every \(g\)-Bessel candidate.
+## correctness
 
-No numerical computation, finite enumeration, or unproved extrapolation is used. The literature comparison did not find an indexed erratum or an equivalent spectral correction; unindexed overlap remains possible.
+PASS
+
+With X=T_Lambda T_{Gamma-Omega}^*, duality is exactly X=0, while the published orthogonality sum equals (I-S^{-1})X. Thus the criterion is equivalent to range(X) lying in ker(S-I). If this eigenspace is zero, injectivity gives duality. Conversely, when it is nonzero, the bounded right inverse T_Lambda^* S^{-1} realizes any nonzero operator into that eigenspace as a Bessel-family defect, proving sharp necessity. In the concrete C^2 example, the frame operator is diag(1,2), the orthogonality operator is exactly zero and the reconstruction operator is diag(2,1), so the candidate is not a dual.
+
+## originality
+
+PASS
+
+The 2022 source states an unrestricted iff criterion and its proof reaches (I-S^{-1})X=0 before incorrectly treating I-S^{-1} as invertible for an arbitrary frame operator. The audited result identifies the exact kernel obstruction, proves sufficiency of injectivity, proves necessity by realizing every defect with range in the 1-eigenspace, and supplies a concrete non-Parseval counterexample. No indexed erratum or prior source with this exact correction was located.
+
+## value
+
+PASS
+
+This is a sharp correction to a published iff theorem: it identifies the exact spectral obstruction, proves the corrected boundary in arbitrary Hilbert space and supplies a minimal explicit counterexample. Such a repair is directly useful for future dual-frame arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

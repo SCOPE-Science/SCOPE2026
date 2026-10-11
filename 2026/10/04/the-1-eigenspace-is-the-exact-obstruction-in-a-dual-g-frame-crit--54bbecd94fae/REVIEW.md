@@ -1,11 +1,21 @@
-# Review of The \(1\)-eigenspace is the exact obstruction in a dual \(g\)-frame criterion
+# Independent mathematical audit
 
-Correctness: **PASS.** The mixed-operator calculation gives the exact relation \((I-S^{-1})X=0\), the kernel is exactly \(\ker(S-I)\), and the two-dimensional example verifies all hypotheses and the failure of duality by exact arithmetic. The converse boundary is proved using a bounded right inverse of the synthesis operator.
+## correctness
 
-Originality: **PASS.** Exact-formula, theorem-specific, alternate-dual, approximate-dual, correction/erratum, and semantic searches were compared against the primary 2022 paper and the most relevant earlier duality literature. No checked source states the same \(1\)-eigenspace classification or the displayed counterexample. The closest literature gives general alternate/approximate-dual operator descriptions rather than this correction. Residual risk remains from unindexed literature and from limited formula-level access to one 2013 paper.
+PASS
 
-Value: **PASS.** The result corrects a published iff characterization with a sharp spectral boundary. It explains precisely why the orthogonality condition can miss a nonzero duality defect and tells users when the criterion is safe without requiring the stronger bounded invertibility of \(I-S^{-1}\).
+With X=T_Lambda T_{Gamma-Omega}^*, duality is exactly X=0, while the published orthogonality sum equals (I-S^{-1})X. Thus the criterion is equivalent to range(X) lying in ker(S-I). If this eigenspace is zero, injectivity gives duality. Conversely, when it is nonzero, the bounded right inverse T_Lambda^* S^{-1} realizes any nonzero operator into that eigenspace as a Bessel-family defect, proving sharp necessity. In the concrete C^2 example, the frame operator is diag(1,2), the orthogonality operator is exactly zero and the reconstruction operator is diag(2,1), so the candidate is not a dual.
 
-Closest literature and limitations: Arefijamaal--Ghasemi (2013) and Fu--Zhang (2018) provide nearby alternate/approximately dual \(g\)-frame theory, while Najati--Faroughi--Rahimi (2008) provides general stability results. The accepted claim is restricted to the corrected converse mechanism of Rajeswari--George Theorem 3.1 and does not assert defects in unrelated results.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2022 source states an unrestricted iff criterion and its proof reaches (I-S^{-1})X=0 before incorrectly treating I-S^{-1} as invertible for an arbitrary frame operator. The audited result identifies the exact kernel obstruction, proves sufficiency of injectivity, proves necessity by realizing every defect with range in the 1-eigenspace, and supplies a concrete non-Parseval counterexample. No indexed erratum or prior source with this exact correction was located.
+
+## value
+
+PASS
+
+This is a sharp correction to a published iff theorem: it identifies the exact spectral obstruction, proves the corrected boundary in arbitrary Hilbert space and supplies a minimal explicit counterexample. Such a repair is directly useful for future dual-frame arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
