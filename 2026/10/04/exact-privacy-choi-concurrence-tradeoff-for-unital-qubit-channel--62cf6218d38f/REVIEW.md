@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The privacy parameter follows from a two-sided spectral enclosure that is attained by antipodal inputs along a top right-singular direction of the Bloch matrix. The Choi concurrence identity reduces by unitary canonicalization to the standard Bell-diagonal formula and the unital entanglement-breaking octahedron. The final optimization uses only \(s_2,s_3\le s_1\), and depolarizing channels attain equality for every privacy value. Boundary cases \(\varepsilon=0\), \(\varepsilon=\log 2\), and the limit \(\varepsilon\to\infty\) are consistent.
+## correctness
 
-## Originality
-PASS. The closest recent source proves the sharp entanglement-breaking threshold but does not give a positive-branch quantitative Choi-entanglement optimum. The earlier privacy–utility paper gives the exact depolarizing privacy condition for state-utility objectives, while standard unital-qubit geometry and Wootters' formula supply separate structural ingredients. Targeted semantic-index and web searches found no statement of the exact curve \(C_{\max}(\varepsilon)=[3\tanh(\varepsilon/2)-1]_+/2\). The residual risk is that the same curve may have appeared under resource-theoretic channel terminology not captured by the searches.
+PASS
 
-## Value
-PASS. The result upgrades a newly established binary privacy threshold into a sharp resource curve over a complete and widely used class of qubit channels. It identifies the exact amount of Choi entanglement compatible with a privacy budget and proves that the canonical depolarizing mechanism is simultaneously sharp for this channel-entanglement objective. The threshold \(\varepsilon=\log 2\) becomes the zero crossing of the curve rather than an isolated constant.
+The output Bloch radius is at most the largest singular value, giving uniform lower/upper eigenvalue bounds; antipodal singular-vector inputs and the aligned rank-one measurement attain their likelihood-ratio quotient, proving the exact privacy parameter. Local unitaries diagonalize a unital qubit channel to Pauli form, where the normalized Choi state is Bell diagonal and Wootters' formula plus the CP tetrahedron gives concurrence equal to one half of the positive part of the singular-value sum minus one. Privacy bounds every singular value by tanh(epsilon/2), and depolarizing noise saturates all three simultaneously. Fresh checks over 10,000 random Pauli channels matched the singular-value concurrence formula to machine precision and representative depolarizing points saturated the frontier.
 
-## Closest literature and limitations
-The principal comparison is arXiv:2609.13418v1, whose all-channel theorem owns the zero-entanglement privacy threshold. arXiv:2602.10510v1 owns the exact depolarizing privacy relation for several state-utility tasks. Classical unital-qubit channel geometry and two-qubit concurrence supply the canonical ingredients. The present theorem is limited to unital qubit channels and pure QLDP; no quantitative claim is made for the nonunital or higher-dimensional cases.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The recent all-channel privacy theorem proves only the sharp entanglement-breaking threshold, while the privacy–utility paper optimizes state fidelity and trace-distance objectives. Standard unital-qubit geometry and Wootters concurrence supply static ingredients but contain no privacy constraint. The audited positive-branch concurrence optimum therefore requires a new exact privacy parameter for an arbitrary unital Bloch map and a constrained singular-value optimization; no equivalent Resultary record was found.
+
+## value
+
+PASS
+
+The theorem turns a newly established binary privacy threshold into an exact quantitative entanglement-resource curve and identifies the sharp mechanism throughout the unital-qubit class. That is a natural and interpretable resource tradeoff, not a routine restatement of the zero-entanglement threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
