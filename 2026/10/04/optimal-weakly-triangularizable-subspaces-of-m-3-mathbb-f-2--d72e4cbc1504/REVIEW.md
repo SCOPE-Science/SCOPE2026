@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and exhaustively checkable. The checker enumerates all \({9\brack6}_2=788035\) six-dimensional subspaces and all \({9\brack7}_2=43435\) seven-dimensional subspaces through unique RREF bases. Triangularizability is tested exactly through the four split monic cubics over \(\mathbb F_2\). A second enumeration via three-dimensional orthogonal complements returns exactly the same \(35\) six-spaces. Exact conjugation by all \(168\) elements of \(\mathrm{GL}_3(\mathbb F_2)\) yields three disjoint orbits of sizes \(21,7,7\), whose union is the full set of \(35\) spaces. The model representatives are also verified directly by the block form and the split characteristic polynomial of trace-zero \(2\times2\) blocks.
+## correctness
 
-## Originality
-PASS. The recent primary source explicitly separates the dimension problem from classification of optimal weakly triangularizable spaces. Its dimension theorem already implies \(t_3(\mathbb F_2)=6\), so that equality is not treated as new. The quoted prior classification theorem assumes \(|\mathbb F|\geq n\), excluding \((\mathbb F_2,3)\). Targeted literature and published-finding database searches found no statement giving the complete binary \(3\times3\) classification or the census \(35=21+7+7\). The source also states that the \(\mathbb F_2\) case resists its methods. Residual risk remains that an older or poorly indexed source contains this small-field classification.
+PASS
 
-## Value
-PASS. Classification of optimal spaces is one of the two explicit structural problems highlighted by the recent source. The binary field is the exceptional case left outside the structural theorem, and \(n=3\) is the first dimension where that theorem's field-size hypothesis fails while optimal spaces are nontrivial. The result supplies a complete base case, shows that no extra binary exceptional similarity type occurs, and quantifies the entire labeled population.
+The finite classification was independently replayed from the definition. Exactly 352 of the 512 binary 3-by-3 matrices have split characteristic polynomial. Enumerating every reduced-row-echelon basis gives all 788035 six-dimensional subspaces and finds exactly 35 in which all 64 matrices are triangularizable; enumerating all 43435 seven-dimensional subspaces finds none. A separate exact conjugation replay over all 168 elements of \(\mathrm{GL}_3(\mathbb F_2)\) partitions those 35 spaces into orbits of sizes \(21,7,7\), matching the three displayed representatives. This establishes both maximality and exhaustive similarity classification independently of the saved certificate.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Originality passes. The complete open HTML of the 2026 characteristic-two paper was inspected. It explicitly identifies classification of optimal weakly triangularizable spaces as a remaining problem and says the methods for larger perfect characteristic-two fields fail for the field of two elements and require a different approach. The known dimension formula already covers \((\mathbb F_2,n=3)\) because the previously possible exception was only fields with cardinality strictly less than \(n-1\), but the larger-field structural classification does not cover this binary case. Fresh Resultary search found only the audited classification and adjacent binary matrix-space problems, not a prior 35-space/three-orbit theorem.
+
+## value
+
+PASS
+
+The result addresses the smallest binary case specifically left outside the available structural methods. A complete classification of all optimal spaces, including exact conjugacy orbits, is a natural finite boundary for an active matrix-space problem and distinguishes whether exceptional binary similarity types appear.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:56:00.362003Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0b75d9819ebdedde53124c15d94f7744ab6f1d1e",
+        "artifacts/verify.py blob 6b361229dbb298f9d5c4dee2663aa2419b6360ff",
+        "artifacts/certificate.json blob c535511db7801fd2d2063a6c94b0db5152031b6a",
+        "fresh exhaustive enumeration: 788035 six-spaces -> 35 good; 43435 seven-spaces -> 0; GL3 orbit sizes 7,7,21"
+      ],
+      "rationale": "The finite classification was independently replayed from the definition. Exactly 352 of the 512 binary 3-by-3 matrices have split characteristic polynomial. Enumerating every reduced-row-echelon basis gives all 788035 six-dimensional subspaces and finds exactly 35 in which all 64 matrices are triangularizable; enumerating all 43435 seven-dimensional subspaces finds none. A separate exact conjugation replay over all 168 elements of \\(\\mathrm{GL}_3(\\mathbb F_2)\\) partitions those 35 spaces into orbits of sizes \\(21,7,7\\), matching the three displayed representatives. This establishes both maximality and exhaustive similarity classification independently of the saved certificate.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dimension theorem is broader but determines only \\(t_3(\\mathbb F_2)=6\\), not which six-spaces occur.",
+          "Existing structural theorems impose field-size/infinite-field hypotheses excluding \\(\\mathbb F_2\\) from the classification."
+        ],
+        "reasoning": "No inspected broader theorem dominates the exceptional binary classification.",
+        "searches": [
+          "de Seguins Pazzis, Spaces of triangularizable matrices (III): Perfect non-quadratically closed fields with characteristic 2, arXiv:2608.28863v1",
+          "de Seguins Pazzis, Spaces of triangularizable matrices, DOI:10.1007/s44146-025-00190-w"
+        ]
+      },
+      "checked_sources": [
+        "de Seguins Pazzis, Spaces of triangularizable matrices (III): Perfect non-quadratically closed fields with characteristic 2, arXiv:2608.28863v1",
+        "de Seguins Pazzis, Spaces of triangularizable matrices, DOI:10.1007/s44146-025-00190-w",
+        "Resultary query: weakly triangularizable subspaces M3 F2 six dimensional classification de Seguins Pazzis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly leaves optimal-space classification in finite characteristic two and emphasizes failure of its methods for \\(\\mathbb F_2\\).",
+          "Fresh exhaustive enumeration finds exactly 35 optimal six-spaces and partitions them into three conjugacy orbits of sizes 21,7,7."
+        ],
+        "reasoning": "The classification resolves the first small binary instance not implied by the dimension theorem.",
+        "searches": [
+          "arXiv:2608.28863v1 introduction/open problems",
+          "fresh exhaustive subspace/orbit enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses exactly the same elementwise triangularizable-space invariant and calls dimension-maximizing spaces optimal.",
+          "The three audited representatives are instances of structural forms known over larger fields, but the binary exhaustiveness statement is not an equivalent formulation already proved there."
+        ],
+        "reasoning": "The comparison was made at the exact field/dimension and conjugacy-class level.",
+        "searches": [
+          "de Seguins Pazzis, Spaces of triangularizable matrices (III): Perfect non-quadratically closed fields with characteristic 2, arXiv:2608.28863v1",
+          "de Seguins Pazzis, Spaces of triangularizable matrices, DOI:10.1007/s44146-025-00190-w",
+          "Resultary query: weakly triangularizable subspaces M3 F2 six dimensional classification de Seguins Pazzis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the audited record as the exact match and nearby but different binary matrix-space classifications.",
+          "No checked table/database supplied the same weak-triangularizability census."
+        ],
+        "reasoning": "The exact finite census was compared with the stated open classification problem rather than inferred novel from search absence alone.",
+        "searches": [
+          "Resultary query: weakly triangularizable subspaces M3 F2 six dimensional classification de Seguins Pazzis",
+          "targeted searches for 35 six-spaces and orbit sizes 21,7,7"
+        ]
+      },
+      "rationale": "Originality passes. The complete open HTML of the 2026 characteristic-two paper was inspected. It explicitly identifies classification of optimal weakly triangularizable spaces as a remaining problem and says the methods for larger perfect characteristic-two fields fail for the field of two elements and require a different approach. The known dimension formula already covers \\((\\mathbb F_2,n=3)\\) because the previously possible exception was only fields with cardinality strictly less than \\(n-1\\), but the larger-field structural classification does not cover this binary case. Fresh Resultary search found only the audited classification and adjacent binary matrix-space problems, not a prior 35-space/three-orbit theorem.",
+      "residual_risks": [
+        "An unindexed older finite-geometry computation of the same 35 spaces could exist; no such classification was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_BINARY_CLASSIFICATION_GAP",
+          "evidence": "The paper solves dimension questions over larger perfect characteristic-two fields and prepares future optimal-space classification, while specifically excluding \\(\\mathbb F_2\\) from its methods.",
+          "identifier_or_url": "arXiv:2608.28863v1",
+          "material_read": "Complete accessible arXiv HTML at the abstract, introduction, open problems, discussion of previous optimal-space results, and explicit explanation that cardinality two resists the methods and needs a different approach.",
+          "method": "lawful open-access full HTML",
+          "title": "Spaces of triangularizable matrices (III): Perfect non-quadratically closed fields with characteristic 2",
+          "trigger": "Immediate focal source for the unresolved characteristic-two optimal-space classification."
+        },
+        {
+          "assessment": "DIMENSION_PRIOR_CLASSIFICATION_HYPOTHESES_EXCLUDE_BINARY_CASE",
+          "evidence": "It does not provide the audited \\(M_3(\\mathbb F_2)\\) orbit census.",
+          "identifier_or_url": "DOI:10.1007/s44146-025-00190-w",
+          "material_read": "Accessible primary publisher theorem material on the dimension invariant and structural results with stronger field hypotheses.",
+          "method": "lawful primary source",
+          "title": "Spaces of triangularizable matrices",
+          "trigger": "Previous dimension/structure paper summarized by the 2026 source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2608.28863v1",
+        "DOI:10.1007/s44146-025-00190-w"
+      ],
+      "rationale": "The result addresses the smallest binary case specifically left outside the available structural methods. A complete classification of all optimal spaces, including exact conjugacy orbits, is a natural finite boundary for an active matrix-space problem and distinguishes whether exceptional binary similarity types appear.",
+      "residual_risks": [
+        "The result is confined to dimension three and does not solve the binary classification for \\(n\\ge4\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}

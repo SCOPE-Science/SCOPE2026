@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The verification package is finite and exact. Running `python artifacts/verify.py` enumerates all six- and seven-dimensional subspaces of the nine-dimensional binary matrix space using unique reduced-row-echelon bases. It independently repeats the six-dimensional enumeration through codimension-three orthogonal complements.
+# Independent mathematical audit
 
-A matrix in \(M_3(\mathbb F_2)\) is accepted exactly when its characteristic polynomial is one of the four split monic cubics \(t^3\), \(t^2(t+1)\), \(t(t+1)^2\), or \((t+1)^3\). The replay reports \(352\) accepted matrices, \(35\) accepted six-spaces among \(788035\), and no accepted seven-space among \(43435\).
+## correctness
 
-The same checker enumerates all \(168\) invertible \(3\times3\) binary matrices and computes the simultaneous-conjugation orbits of the three displayed model spaces. The orbit sizes are \(21,7,7\), the orbits are pairwise disjoint, and their union is exactly the complete set of \(35\) accepted six-spaces.
+PASS
 
-No claim is made beyond \(M_3(\mathbb F_2)\). The computation is exhaustive for the stated finite domain and does not constitute evidence for higher-dimensional binary cases.
+The finite classification was independently replayed from the definition. Exactly 352 of the 512 binary 3-by-3 matrices have split characteristic polynomial. Enumerating every reduced-row-echelon basis gives all 788035 six-dimensional subspaces and finds exactly 35 in which all 64 matrices are triangularizable; enumerating all 43435 seven-dimensional subspaces finds none. A separate exact conjugation replay over all 168 elements of \(\mathrm{GL}_3(\mathbb F_2)\) partitions those 35 spaces into orbits of sizes \(21,7,7\), matching the three displayed representatives. This establishes both maximality and exhaustive similarity classification independently of the saved certificate.
+
+## originality
+
+PASS
+
+Originality passes. The complete open HTML of the 2026 characteristic-two paper was inspected. It explicitly identifies classification of optimal weakly triangularizable spaces as a remaining problem and says the methods for larger perfect characteristic-two fields fail for the field of two elements and require a different approach. The known dimension formula already covers \((\mathbb F_2,n=3)\) because the previously possible exception was only fields with cardinality strictly less than \(n-1\), but the larger-field structural classification does not cover this binary case. Fresh Resultary search found only the audited classification and adjacent binary matrix-space problems, not a prior 35-space/three-orbit theorem.
+
+## value
+
+PASS
+
+The result addresses the smallest binary case specifically left outside the available structural methods. A complete classification of all optimal spaces, including exact conjugacy orbits, is a natural finite boundary for an active matrix-space problem and distinguishes whether exceptional binary similarity types appear.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
