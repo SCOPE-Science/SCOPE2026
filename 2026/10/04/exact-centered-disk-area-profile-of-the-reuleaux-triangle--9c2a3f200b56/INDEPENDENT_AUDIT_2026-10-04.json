@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:57:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The incircle and circumcircle regimes are exact. In the intermediate range, two excluded generating-disk lunes cannot overlap in area: if \\(x\\) were outside two radius-\\(w\\) disks, the sum of the two squared distances would exceed \\(2w^2\\), while the equilateral-vector identity gives at most \\(2r^2+2d^2+2rd<6d^2=2w^2\\) for \\(r<d\\). Standard two-circle segment geometry gives \\(L(r)\\), and polar coarea gives \\(A'(r)=2r(\\pi-3\\alpha)\\); endpoint angles are \\(0\\) and \\(\\pi/3\\). Independent polar quadrature at three interior radii matched the closed form to about \\(10^{-10}\\).",
+      "risks": [
+        "Numerical integration is supplementary only."
+      ],
+      "sources": [
+        "RESULT.md blob 9c434d16d42bc422e189e20c31c64cf31b3135ac",
+        "verify_reuleaux_radial_profile.py blob e702d1279e29b9231c4af83d146a14bb25dd3c9b",
+        "Independent polar quadrature"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bezdek treats global disk-polygon geometry; Bogosel treats inner parallel sets; Harrell treats global Blaschke--Lebesgue minimization."
+        ],
+        "reasoning": "None of these broader theories directly specializes to area(K∩B(O,r)).",
+        "searches": [
+          "Bezdek arXiv:0903.5361",
+          "Bogosel arXiv:2303.15559",
+          "Harrell arXiv:math/0009137"
+        ]
+      },
+      "checked_sources": [
+        "Fresh Resultary query",
+        "arXiv:0903.5361",
+        "arXiv:2303.15559",
+        "arXiv:math/0009137",
+        "DOI:10.1007/BF03322004 metadata/abstract",
+        "Source tree 5811b04d2dad4f824e346249bf0765417a9ef195"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No inspected stronger theorem yields the middle three-lune formula by substitution.",
+          "The 2000 paper remains an unresolved access risk."
+        ],
+        "reasoning": "The exact profile requires a specific disjoint-lune and circle-segment argument.",
+        "searches": [
+          "Statement comparison with disk-polygon and inner-parallel-set sources",
+          "Gleißner--Zeitler DOI:10.1007/BF03322004 access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No prior exact three-piece cumulative radial function or density was located."
+        ],
+        "reasoning": "Searches covered geometric-intersection and probabilistic-distance formulations.",
+        "searches": [
+          "Resultary: Reuleaux triangle exact centered disk area radial profile concentric disk intersection distribution",
+          "Web: Reuleaux triangle concentric disk intersection area",
+          "Web: random point Reuleaux triangle distance center distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact formula/table matching the middle profile was found."
+        ],
+        "reasoning": "Statement-level comparison is decisive; search absence is corroborative.",
+        "searches": [
+          "Fresh Resultary radial-profile query",
+          "Web radial-area/concentric-circle searches"
+        ]
+      },
+      "rationale": "Fresh Resultary comparison found no prior centered-radius area profile. Related disk-polygon work gives global area/radius information, and inner-parallel-set work varies boundary erosion rather than intersecting the fixed body with a concentric disk. The plausible 2000 Gleißner--Zeitler center-of-mass paper remained unavailable in full: metadata/abstract were read and two authorized retrieval attempts timed out. This inaccessible source is retained as a residual risk, not as novelty proof or failure.",
+      "residual_risks": [
+        "The inaccessible Gleißner--Zeitler paper may contain an equivalent radial integral.",
+        "Older constant-width literature may use different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE_BACKGROUND_NOT_COVERING",
+          "evidence": [
+            "Global geometry is given, not r↦area(K∩B(O,r))."
+          ],
+          "identifier_or_url": "arXiv:0903.5361; DOI:10.55016/ojs/cdm.v6i1.61918",
+          "material_read": "Relevant full-text sections on construction, global area/radii and extremality.",
+          "method": "Compared parameterized quantity.",
+          "title": "On a generalization of the Blaschke-Lebesgue theorem for disk-polygons",
+          "trigger": "Direct primary treatment of Reuleaux disk-polygons."
+        },
+        {
+          "assessment": "ADJACENT_DIFFERENT_PROFILE",
+          "evidence": [
+            "Inner parallel sets are not K∩B(O,r)."
+          ],
+          "identifier_or_url": "arXiv:2303.15559",
+          "material_read": "Relevant full-text definitions and main inner-parallel-set results.",
+          "method": "Compared varying sets: erosion versus concentric intersection.",
+          "title": "On the Blaschke-Lebesgue theorem for the Cheeger constant via areas and perimeters of inner parallel sets",
+          "trigger": "Recent exact one-parameter Reuleaux area/perimeter analysis."
+        },
+        {
+          "assessment": "UNRESOLVED_ACCESS_RISK",
+          "evidence": [
+            "Equivalent radial integration cannot be excluded without full text."
+          ],
+          "identifier_or_url": "DOI:10.1007/BF03322004",
+          "material_read": "Metadata and abstract only; open full text unavailable and two authorized retrieval attempts timed out.",
+          "method": "Access-risk assessment only.",
+          "title": "The Reuleaux Triangle and its Center of Mass",
+          "trigger": "Plausible historical central-integration source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full radial area function is a natural invariant of the canonical noncircular constant-width body and immediately yields the exact center-distance distribution for a uniform point. It is a complete profile, not an arbitrary slice.",
+      "risks": [
+        "Specific to the Reuleaux triangle and concentric disks."
+      ],
+      "sources": [
+        "Exact three-lune proof",
+        "Related disk-polygon literature"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specific to the Reuleaux triangle and its symmetry center.",
+    "Closest historical source remains an access risk."
+  ],
+  "schema_version": 1
+}

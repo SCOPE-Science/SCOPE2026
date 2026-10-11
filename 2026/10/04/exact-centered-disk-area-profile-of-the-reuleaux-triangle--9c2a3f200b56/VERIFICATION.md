@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal statement is verified symbolically in `RESULT.md`. The key checks are: the inradius and circumradius endpoint regimes; pairwise disjointness of the three excluded lunes in the intermediate annulus; the exact two-circle segment computation for one lune; and the angular coarea computation of the radial derivative.
+# Independent mathematical audit
 
-The included `verify_reuleaux_radial_profile.py` independently represents the Reuleaux triangle by its radial boundary. It integrates \(\frac12\min(r,\rho_K(\theta))^2\) over a dense deterministic angular grid for several widths and test radii, compares against the closed formula, checks the derivative by centered finite differences away from breakpoints, and checks both endpoint identities. The run passed with worst normalized area discrepancy below \(3.3\times10^{-11}\).
+## correctness
 
-Finite quadrature does not establish the continuum theorem and is not used as a substitute for the symbolic proof. No external formal certificate or independent audit has been performed.
+PASS
+
+The incircle and circumcircle regimes are exact. In the intermediate range, two excluded generating-disk lunes cannot overlap in area: if \(x\) were outside two radius-\(w\) disks, the sum of the two squared distances would exceed \(2w^2\), while the equilateral-vector identity gives at most \(2r^2+2d^2+2rd<6d^2=2w^2\) for \(r<d\). Standard two-circle segment geometry gives \(L(r)\), and polar coarea gives \(A'(r)=2r(\pi-3\alpha)\); endpoint angles are \(0\) and \(\pi/3\). Independent polar quadrature at three interior radii matched the closed form to about \(10^{-10}\).
+
+## originality
+
+PASS
+
+Fresh Resultary comparison found no prior centered-radius area profile. Related disk-polygon work gives global area/radius information, and inner-parallel-set work varies boundary erosion rather than intersecting the fixed body with a concentric disk. The plausible 2000 Gleißner--Zeitler center-of-mass paper remained unavailable in full: metadata/abstract were read and two authorized retrieval attempts timed out. This inaccessible source is retained as a residual risk, not as novelty proof or failure.
+
+## value
+
+PASS
+
+The full radial area function is a natural invariant of the canonical noncircular constant-width body and immediately yields the exact center-distance distribution for a uniform point. It is a complete profile, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

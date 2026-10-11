@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof is complete for every width \(w>0\) and radius \(r\ge0\). The nontrivial step is the annular regime between the inradius and circumradius: the three regions of the centered disk excluded by the generating disks are proved pairwise disjoint, so one exact two-circle lune calculation suffices. The derivative follows from the surviving angular measure on each centered circle. Endpoint values and derivatives match. A separate deterministic polar quadrature and finite-difference checker passed at several scales; those computations are supplementary only.
+## correctness
 
-## Originality
-PASS with residual historical-access risk. Statement-level searches in the published-finding index and on the web found no exact formula for \(\operatorname{area}(K\cap B(O,r))\), its radial derivative, or the corresponding distance distribution. Bezdek's full disk-polygon paper gives the same three-disk model and global Reuleaux measurements but not the centered radial profile. Bogosel's full treatment of inner parallel sets studies a different one-parameter family obtained by boundary erosion. A 2000 paper specifically concerning the Reuleaux triangle and its center of mass could not be inspected in full, so an equivalent older formula there remains the main residual risk.
+PASS
 
-## Value
-PASS. The result supplies a complete radial area invariant for the standard Reuleaux triangle, with direct geometric-probability meaning. It converts the familiar endpoint data—incircle, circumcircle, and total area—into an exact continuous profile and density across the whole domain. This is useful as a closed benchmark for uniform sampling, distance statistics, and numerical integration on a canonical constant-width set.
+The incircle and circumcircle regimes are exact. In the intermediate range, two excluded generating-disk lunes cannot overlap in area: if \(x\) were outside two radius-\(w\) disks, the sum of the two squared distances would exceed \(2w^2\), while the equilateral-vector identity gives at most \(2r^2+2d^2+2rd<6d^2=2w^2\) for \(r<d\). Standard two-circle segment geometry gives \(L(r)\), and polar coarea gives \(A'(r)=2r(\pi-3\alpha)\); endpoint angles are \(0\) and \(\pi/3\). Independent polar quadrature at three interior radii matched the closed form to about \(10^{-10}\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fresh Resultary comparison found no prior centered-radius area profile. Related disk-polygon work gives global area/radius information, and inner-parallel-set work varies boundary erosion rather than intersecting the fixed body with a concentric disk. The plausible 2000 Gleißner--Zeitler center-of-mass paper remained unavailable in full: metadata/abstract were read and two authorized retrieval attempts timed out. This inaccessible source is retained as a residual risk, not as novelty proof or failure.
+
+## value
+
+PASS
+
+The full radial area function is a natural invariant of the canonical noncircular constant-width body and immediately yields the exact center-distance distribution for a uniform point. It is a complete profile, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
