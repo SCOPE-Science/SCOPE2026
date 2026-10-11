@@ -1,0 +1,11 @@
+# Same-model scientific review
+
+**Correctness (PASS).** Simultaneous diagonalization makes every column of the sum a weighted average of left-polar directions. For \(1\le p\le2\), strict Schur--Horn concavity and column bounds prove the unit constant; equality below \(2\) forces orthogonal common-polar directions. For \(p\ge2\), the diagonal multiplier map has sharp-purpose endpoint bounds \(1\) in Hilbert--Schmidt norm and \(\sqrt m\) in operator norm, yielding the interpolated constant. Explicit examples attain both phases. Boundary cases \(p=1,2,\infty\), zero supports and all dimensions are addressed. Numerical checks are supplementary.
+
+**Originality (PASS, residual risk noted).** Tang and Zhang, arXiv:2510.16846, determine unrestricted constants that are strictly larger at the Hilbert exponent; the synopsis inspected does not contain the restricted phase diagram. Zeng, Liu and Ratnavelu, arXiv:2608.15558, provide a noncommuting counterexample below \(2\), rank-one sharp results above \(2\), and an unrestricted fourth-order two-summand bound. Their accessible full text gives no commuting-modulus theorem or lower-exponent polar equality classification. Zhang, arXiv:2603.01046, treats different symmetrized moduli. Search and own-claim comparisons did not identify a covering result. The original Tang--Zhang PDF and potentially unindexed operator-ideal identities remain the main risks; lack of a hit alone does not establish originality.
+
+**Mathematical value (PASS).** A common-spectral hypothesis restores coefficient one for every Schatten exponent below two, identifies a sharp power-law penalty above two, and rigidly classifies low-exponent extremizers. This answers an exact natural restricted form of the recent general matrix-modulus problem, with meaningful structural differences from the unrestricted results; it is not a relabeling or a dimension-specific routine computation.
+
+**Scientific limitations.** Only complex finite-dimensional matrices with commuting positive moduli are covered. No general noncommuting claim or full higher-exponent equality classification is asserted. Numerical experiments cannot substitute for proofs and do not certify originality.
+
+Same-model review: passed. Independent audit: not yet performed.
