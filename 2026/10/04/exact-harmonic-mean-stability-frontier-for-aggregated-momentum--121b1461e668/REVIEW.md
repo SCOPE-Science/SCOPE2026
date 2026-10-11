@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The AggMo quadratic dynamics decouple exactly along Hessian eigenvectors. For each scalar mode, the characteristic equation is
-\[
-z-1+\frac{s z}{K}\sum_i\frac{1}{z-\beta_i}=0.
-\]
-The root at \(z=1\) moves into the unit disk for small positive \(s\). A direct phase calculation shows that no nonreal point on the unit circle can solve the characteristic equation for real positive \(s\). The only possible crossing is \(z=-1\), which occurs exactly at
-\[
-s_\star=\frac{2K}{\sum_i(1+\beta_i)^{-1}}.
-\]
-The exact sign of \((-1)^{K+1}P_s(-1)\) then rules out Schur stability for every larger \(s\). Modal monotonicity in \(s=\gamma\lambda\) gives the full SPD condition \(0<\gamma L<s_\star\).
+PASS
 
-Risk: this is an outer stability theorem, not a formula for the optimal interior spectral radius.
+Diagonalizing the positive-definite Hessian reduces AggMo to independent scalar curvature modes with \(s=\gamma\lambda\). Eliminating the buffer coordinates gives the exact characteristic equation \(z-1+(sz/K)\sum_i(z-\beta_i)^{-1}=0\), with the polynomial form retaining repeated damping coefficients. For a nonreal unit-circle candidate \(z=e^{i\theta}\), the imaginary part of \((1-z)\overline{H(z)}\) equals \(-\sin\theta\sum_i(1-\beta_i)/(1-2\beta_i\cos\theta+\beta_i^2)\), so no such crossing exists for positive \(s\). The root at one moves inward for small positive \(s\); the only possible boundary is therefore \(z=-1\), which gives \(s_\star=2K/\sum_i(1+\beta_i)^{-1}\). The sign of the monic polynomial at minus one excludes Schur stability above the boundary. Independent numerical root reconstruction for representative damping vectors found all roots inside at \(0.99s_\star\), a root at minus one at the boundary, and a root outside at \(1.01s_\star\), matching the exact proof. Applying the scalar condition to every Hessian eigenvalue yields the iff condition \(0<\gamma L<s_\star\).
 
-## Originality
+## originality
 
-PASS. The defining AggMo paper was inspected in full. It derives the exact quadratic state matrix and uses direct eigenvalue computation for convergence-rate plots; its open-questions section explicitly proposes closed-form spectral analysis of the reduced modal block as future work. The inspected QHM paper later relates extended AggMo to QHM and compares their damping behavior, but does not state the harmonic-mean Schur boundary for the original equal-weight multi-buffer update.
+PASS
 
-Focused database and literature searches for AggMo, quadratic Schur stability, unit-circle crossings, harmonic-mean damping formulas, and exact learning-rate ceilings found only adjacent stability results for other momentum and splitting methods. No inspected source implied the complete claim.
+The defining AggMo paper was inspected at the exact update, quadratic state-space analysis, default damping vectors and its discussion of open spectral questions. It analyzes quadratic convergence numerically/structurally but does not give the all-damping-vector harmonic-mean Schur frontier. Fresh Resultary searches for AggMo, exact quadratic stability, harmonic mean, Schur boundary and damping coefficients returned no equivalent published theorem. The later QHM/AggMo comparison concerns algorithmic equivalence of extended variants rather than the original equal-weight outer Schur boundary. The audited unit-circle exclusion and minus-one crossing therefore supply a genuine closed-form piece of the spectral problem rather than substituting parameters into a known formula.
 
-## Value
+## value
 
-PASS. The source paper's central motivation is that heterogeneous damping suppresses oscillations while retaining aggressive momentum. The exact boundary clarifies what that mechanism can and cannot do: the absolute quadratic stepsize ceiling is twice the harmonic mean of \(1+\beta_i\), so it always lies between the individual single-buffer ceilings. This separates passive damping's genuine interior spectral benefit from any mistaken interpretation that aggregation enlarges the outer Schur region. The formula also gives immediate safety constants for the paper's default damping vectors and asymptotic \(K\)-families.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact outer stability limit is a basic property of a published optimizer whose motivation is passive damping, and the original work itself leaves closed spectral analysis as a theoretical direction. The harmonic-mean law cleanly separates absolute stability from interior damping benefits, gives immediate bounds and a limit for the proposed geometric damping family, and is useful for safe step-size design. This is a motivated structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

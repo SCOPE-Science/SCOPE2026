@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 0d2be24cfa62fbc30dcc1656191d5ae163b8ff4d",
+        "assigned verify.py blob 23bbd8f0898b7ffce0eb0a50352eea66de11a3f5",
+        "Lucas--Sun--Zemel--Grosse arXiv:1804.00325 full primary text"
+      ],
+      "rationale": "Diagonalizing the positive-definite Hessian reduces AggMo to independent scalar curvature modes with \\(s=\\gamma\\lambda\\). Eliminating the buffer coordinates gives the exact characteristic equation \\(z-1+(sz/K)\\sum_i(z-\\beta_i)^{-1}=0\\), with the polynomial form retaining repeated damping coefficients. For a nonreal unit-circle candidate \\(z=e^{i\\theta}\\), the imaginary part of \\((1-z)\\overline{H(z)}\\) equals \\(-\\sin\\theta\\sum_i(1-\\beta_i)/(1-2\\beta_i\\cos\\theta+\\beta_i^2)\\), so no such crossing exists for positive \\(s\\). The root at one moves inward for small positive \\(s\\); the only possible boundary is therefore \\(z=-1\\), which gives \\(s_\\star=2K/\\sum_i(1+\\beta_i)^{-1}\\). The sign of the monic polynomial at minus one excludes Schur stability above the boundary. Independent numerical root reconstruction for representative damping vectors found all roots inside at \\(0.99s_\\star\\), a root at minus one at the boundary, and a root outside at \\(1.01s_\\star\\), matching the exact proof. Applying the scalar condition to every Hessian eigenvalue yields the iff condition \\(0<\\gamma L<s_\\star\\).",
+      "residual_risks": [
+        "The theorem assumes equal buffer weights, one common constant learning rate, and a symmetric positive-definite quadratic objective."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lucas et al. introduce AggMo and analyze rates on quadratics without the closed all-vector outer boundary.",
+          "Ma--Yarats compare QHM with an extended two-buffer AggMo formulation and do not dominate the original K-buffer equal-weight theorem in the inspected scope."
+        ],
+        "reasoning": "The broader optimization papers establish the method and related parametrizations, not this exact Schur phase boundary.",
+        "searches": [
+          "Lucas--Sun--Zemel--Grosse, Aggregated Momentum: Stability Through Passive Damping, arXiv:1804.00325",
+          "Ma--Yarats, Quasi-hyperbolic momentum and Adam for deep learning, arXiv:1810.06801"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.00325",
+        "arXiv:1810.06801",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing the matrix does not identify which unit-circle crossing occurs first for arbitrary K and arbitrary damping vector.",
+          "Bounds between the smallest and largest single-buffer ceilings do not imply their harmonic-mean interpolation."
+        ],
+        "reasoning": "The no-nonreal-crossing identity is the nonstandard step that makes the exact boundary follow.",
+        "searches": [
+          "source quadratic state matrix versus closed Schur frontier",
+          "single-buffer momentum ceilings versus harmonic mean of heterogeneous buffers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's modal matrix is the same linear system whose characteristic equation is solved in the audited proof.",
+          "No retrieved source states \\(2K/\\sum_i(1+\\beta_i)^{-1}\\) as the exact stability ceiling."
+        ],
+        "reasoning": "State-matrix spectral radius, characteristic polynomial and Schur stability are equivalent formulations of the same quadratic stability problem.",
+        "searches": [
+          "Resultary: Aggregated Momentum exact quadratic stability boundary harmonic mean damping coefficients beta",
+          "Resultary: AggMo Schur stability unit-circle root learning-rate ceiling",
+          "Lucas et al. arXiv:1804.00325 quadratic state matrix and open spectral discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same-result published finding or stability table was retrieved."
+        ],
+        "reasoning": "The invariant is an all-parameter closed formula, so a finite numerical rate table would not subsume it.",
+        "searches": [
+          "Resultary current query for exact harmonic-mean stability frontier of Aggregated Momentum",
+          "targeted web search for AggMo quadratic eigenvalues, stability and exact learning-rate boundary"
+        ]
+      },
+      "rationale": "The defining AggMo paper was inspected at the exact update, quadratic state-space analysis, default damping vectors and its discussion of open spectral questions. It analyzes quadratic convergence numerically/structurally but does not give the all-damping-vector harmonic-mean Schur frontier. Fresh Resultary searches for AggMo, exact quadratic stability, harmonic mean, Schur boundary and damping coefficients returned no equivalent published theorem. The later QHM/AggMo comparison concerns algorithmic equivalence of extended variants rather than the original equal-weight outer Schur boundary. The audited unit-circle exclusion and minus-one crossing therefore supply a genuine closed-form piece of the spectral problem rather than substituting parameters into a known formula.",
+      "residual_risks": [
+        "A control-theory treatment of the same rational characteristic equation could contain the boundary without using AggMo terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_AND_NUMERICAL_SPECTRAL_CONTEXT_NOT_CLOSED_BOUNDARY",
+          "evidence": "The source supplies the state model but not the harmonic-mean iff Schur condition.",
+          "identifier_or_url": "arXiv:1804.00325",
+          "material_read": "full accessible primary text around the AggMo update, quadratic modal/block analysis, recommended geometric damping vectors and open spectral-analysis discussion",
+          "method": "primary full-text web inspection",
+          "title": "Aggregated Momentum: Stability Through Passive Damping",
+          "trigger": "defining source and closest quadratic spectral analysis"
+        },
+        {
+          "assessment": "RELATED_PARAMETERIZATION_NOT_STRONGER_STABILITY_THEOREM",
+          "evidence": "The comparison concerns representational/algorithmic relations rather than an all-K equal-weight stability frontier.",
+          "identifier_or_url": "arXiv:1810.06801",
+          "material_read": "primary scope/material on the AggMo comparison and two-buffer weighted representation",
+          "method": "primary-source comparison",
+          "title": "Quasi-hyperbolic momentum and Adam for deep learning",
+          "trigger": "later paper relating QHM and extended AggMo parametrizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lucas et al. 2018",
+        "Ma--Yarats 2018",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The exact outer stability limit is a basic property of a published optimizer whose motivation is passive damping, and the original work itself leaves closed spectral analysis as a theoretical direction. The harmonic-mean law cleanly separates absolute stability from interior damping benefits, gives immediate bounds and a limit for the proposed geometric damping family, and is useful for safe step-size design. This is a motivated structural theorem.",
+      "residual_risks": [
+        "The theorem does not optimize convergence rate inside the stable region or cover stochastic/nonquadratic dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem assumes equal buffer weights, one common constant learning rate, and a symmetric positive-definite quadratic objective.",
+    "A control-theory treatment of the same rational characteristic equation could contain the boundary without using AggMo terminology.",
+    "The theorem does not optimize convergence rate inside the stable region or cover stochastic/nonquadratic dynamics."
+  ]
+}
