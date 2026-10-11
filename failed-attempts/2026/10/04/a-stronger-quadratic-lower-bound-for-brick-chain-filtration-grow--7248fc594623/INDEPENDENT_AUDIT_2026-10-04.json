@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:11:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.10217",
+        "repository RESULT.md blob f37aa44bd48de87c199132dc353cbf6d60c9489d",
+        "repository artifacts/verify.py blob 7ea1cd509a139ae4fff829617a05cbf95352fa4e",
+        "published four-arrow Kronecker comparison record"
+      ],
+      "rationale": "Enomoto's general lower-bound formula, specialized to \\(q=7,a=2n,b=n\\) and the full \\(2n\\)-by-\\(n\\) rectangle, gives modules of length \\(11n\\) and the stated factorial/hook-product lower bound. The rectangular hook identity is exact. Stirling summation gives \\(\\log L_n=(4+8\\log2-7\\log3)n^2+O(n\\log n)\\), hence the normalized coefficient after dividing by \\(121n^2\\). A fresh exact hook-product replay for \\(1\\le n\\le6\\) and a fresh numerical comparison confirmed \\(0.015329681188\\ldots>(1-\\log2)/25\\).",
+      "residual_risks": [
+        "The theorem is only a lower bound along one parameter family and does not identify the global limsup."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic theorem covers all \\(q\\ge3\\), positive \\(a,b\\), and every partition fitting the prescribed rectangle.",
+          "The published four-arrow result already shows that source-parameter optimization improves the source's displayed three-arrow endpoint."
+        ],
+        "reasoning": "The stronger general construction already contains the assigned family as a literal special case.",
+        "searches": [
+          "Enomoto general q-Kronecker construction",
+          "published four-arrow Kronecker modules sharpen the brick-chain growth constant"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.10217",
+        "published four-arrow Kronecker Resultary record",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting \\(q=7,a=2n,b=n,\nu=(n^{2n})\\) produces the exact finite lower bound used by the record.",
+          "The remaining coefficient is an elementary asymptotic evaluation of that prior formula."
+        ],
+        "reasoning": "The final headline lower bound is mechanically implied by the prior general theorem plus standard asymptotic tools.",
+        "searches": [
+          "Enomoto generic lower bound \\(K(q,a,b)\\) with hook-length factor",
+          "standard rectangular hook-length formula and Stirling asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The final lower bound is exactly Enomoto's generic hook-product bound evaluated on one rectangular partition family.",
+          "The four-arrow published record uses the same generic theorem with a different elementary specialization."
+        ],
+        "reasoning": "Changing \\(q,a,b,\nu\\) within the source theorem is a parameter specialization, not a distinct structural formulation.",
+        "searches": [
+          "Resultary query: Enomoto brick chain q=7 rectangle seven-arrow 0.015329681",
+          "Enomoto arXiv:2609.10217",
+          "published four-arrow Kronecker endpoint record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the only exact-number hit; a nearby published record gives a different improved endpoint \\(0.014155149\\ldots\\).",
+          "Exact-number absence is not originality when the number follows mechanically from the source formula."
+        ],
+        "reasoning": "This is an asymptotic specialization, not a new database value.",
+        "searches": [
+          "Resultary exact search for \\(0.0153296811884528\\) and seven-arrow rectangle"
+        ]
+      },
+      "rationale": "The source's general \\(q\\)-Kronecker theorem already gives the filtration-count lower bound for every admissible \\(q,a,b,\nu\\). The assigned result chooses \\(q=7,a=2n,b=n\\), inserts the standard rectangular hook product, and applies Stirling/Riemann-sum asymptotics. A current published four-arrow result already demonstrates the same strategy of improving the endpoint by parameter specialization. Under the implication bar, the seven-arrow number is therefore a routine special-case optimization of a stronger prior theorem, not a new theorem merely because this parameter choice was not printed in the source.",
+      "residual_risks": [
+        "No correctness defect is asserted.",
+        "The source full text was not accessible through the open HTML route in this audit, but the implication comparison is independently corroborated by the complete published four-arrow record quoting and applying the same generic theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CONSTRUCTION_INPUT",
+          "evidence": "The source establishes square-exponential filtration growth using the q-Kronecker construction and hook-length methods; the assigned record itself specializes that generic source theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10217",
+          "material_read": "Current primary abstract and bibliographic record; full-text HTML was unavailable in this audit",
+          "method": "Primary-record inspection with explicit access limitation",
+          "title": "Finiteness and growth of brick chain filtrations",
+          "trigger": "Primary source of the generic Kronecker filtration-count construction"
+        },
+        {
+          "assessment": "SAME_SPECIALIZATION_STRATEGY_ALREADY_PUBLISHED",
+          "evidence": "It explicitly states Enomoto's generic lower bound and improves the source endpoint by choosing \\(q=4\\) in a square-staircase family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-arrow-kronecker-modules-sharpen-the-brick-chain-growth-cons--4aec30cac473",
+          "material_read": "Complete published RESULT.md",
+          "method": "Published-record full-text inspection",
+          "title": "Four-arrow Kronecker modules sharpen the brick-chain growth constant",
+          "trigger": "Published same-problem optimization using the same generic source theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Enomoto 2026 source",
+        "published four-arrow comparison",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The approximately \\(24.9\\%\\) numerical improvement is nontrivial as a benchmark, but it is obtained by an elementary parameter/partition substitution into a general theorem specifically designed for such choices, followed by standard hook asymptotics. Without an optimality theorem or new mechanism, this does not clear the bar against routine parameter specialization.",
+      "residual_risks": [
+        "The numerical family may still guide future optimization of the open global limsup."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is only a lower bound along one parameter family and does not identify the global limsup.",
+    "No correctness defect is asserted.",
+    "The source full text was not accessible through the open HTML route in this audit, but the implication comparison is independently corroborated by the complete published four-arrow record quoting and applying the same generic theorem.",
+    "The numerical family may still guide future optimization of the open global limsup."
+  ]
+}
