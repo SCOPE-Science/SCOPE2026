@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the incidence model to a constant-rank relative quadric with local equation \(d^2-4ce=0\), proves normality by Serre's criterion, proves finiteness of the proper birational map, and resolves the marked-pair collision with two explicit blow-up charts. The exact verifier checks the polynomial identities and chart overlap.
+## correctness
 
-## Originality
-PASS. The lead source states birationality and the double cover over \(Y_4\), but targeted full-text and web searches did not locate the normalization, universal-family, branch-locus, or normalization-singular-locus identifications. General Hilbert-scheme literature supplies only the independent standard fact that the universal family over \(\operatorname{Hilb}^2(S)\) is the blow-up of \(S\times S\) along the diagonal. A residual risk remains that older classical pencil-of-conics literature contains an equivalent description in different notation.
+PASS
 
-## Value
-PASS. The result gives a canonical moduli interpretation of the nonnormality of the source's \(Y_5\): the conductor is the universal length-two family, with collision divisor exactly controlling both branching and the singularities of the normalization. This is a structural invariant of the orbit closure rather than a routine recomputation of its equations.
+The source gives the birational marked-line model as the rank-three relative quadric in \(\mathbb P(E)\) and says it is double over \(Y_4\). Locally its equation is \(d^2-4ce=0\) with two kernel coordinates, so the singular locus is the kernel \(\mathbb P^1\)-bundle of codimension two; hypersurface \(S_2\) plus \(R_1\) gives normality. The proper map is quasi-finite because a conic pencil cannot contain a projective line inside the Veronese surface of double lines, hence finite and therefore the normalization. Over reduced pairs the preimage marks one of the two lines; the explicit collision charts extend this as the blow-up of the diagonal. A fresh polynomial replay verified both quadric and blow-up-chart equations. The exceptional divisor equals the kernel bundle and is the branch divisor over the nonreduced locus \(Y_3\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The full Hauenstein-Manivel-Szendrői text was inspected: Proposition 1.1 states that \(Y_5\) is birational to the quadric bundle, is nonnormal with singular locus \(Y_4\), and that the marked model is a double cover over \(Y_4\); it identifies \(Y_4\) with \(\operatorname{Hilb}^2\mathbb P^2\) and \(Y_3\) with the nonreduced divisor. It does not identify the marked model as the normalization, its own singular locus, or the reduced conductor preimage as the universal family. Song gives the independent general fact that the universal family for \(n=2\) is the diagonal blow-up, but does not identify the HMS preimage with it. The submitted collision charts supply that object-specific bridge. Resultary found no distinct same-object theorem.
+
+## value
+
+PASS
+
+The result upgrades a published nonnormal orbit closure from a birational model to an explicit normalization/conductor picture and ties branching, collision geometry and singularities of the normalization to the universal Hilbert family. This is a coherent structural identification of the source's main orbit strata rather than a numerical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses two exact local models. First, after fixing the marked double line, the relative quadric is \(d^2-4ce=0\), whose singular locus is exactly \(c=d=e=0\). This gives the rank-two kernel projective bundle and, together with the hypersurface Serre criterion, normality.
+# Independent mathematical audit
 
-Second, a nearby second line \(m=x+\beta y+\gamma z\) gives projective coordinates \([2\beta:2\gamma:\beta^2:2\beta\gamma:\gamma^2]\). The two blow-up charts extend this map across \(\beta=\gamma=0\) as \([2:2t:s:2st:st^2]\) and \([2t:2:st^2:2st:s]\), and the overlap is projectively identical. Their exceptional loci map exactly to \(c=d=e=0\).
+## correctness
 
-`verify_target.py` checks these identities using exact integer polynomial arithmetic and returns `VERIFY_OK` when every check succeeds.
+PASS
 
-Limits: the verifier certifies the local formulas, not the general theorems that proper plus quasi-finite implies finite or Serre's criterion for normality. Those are standard algebraic-geometric deductions used explicitly in the proof.
+The source gives the birational marked-line model as the rank-three relative quadric in \(\mathbb P(E)\) and says it is double over \(Y_4\). Locally its equation is \(d^2-4ce=0\) with two kernel coordinates, so the singular locus is the kernel \(\mathbb P^1\)-bundle of codimension two; hypersurface \(S_2\) plus \(R_1\) gives normality. The proper map is quasi-finite because a conic pencil cannot contain a projective line inside the Veronese surface of double lines, hence finite and therefore the normalization. Over reduced pairs the preimage marks one of the two lines; the explicit collision charts extend this as the blow-up of the diagonal. A fresh polynomial replay verified both quadric and blow-up-chart equations. The exceptional divisor equals the kernel bundle and is the branch divisor over the nonreduced locus \(Y_3\).
+
+## originality
+
+PASS
+
+The full Hauenstein-Manivel-Szendrői text was inspected: Proposition 1.1 states that \(Y_5\) is birational to the quadric bundle, is nonnormal with singular locus \(Y_4\), and that the marked model is a double cover over \(Y_4\); it identifies \(Y_4\) with \(\operatorname{Hilb}^2\mathbb P^2\) and \(Y_3\) with the nonreduced divisor. It does not identify the marked model as the normalization, its own singular locus, or the reduced conductor preimage as the universal family. Song gives the independent general fact that the universal family for \(n=2\) is the diagonal blow-up, but does not identify the HMS preimage with it. The submitted collision charts supply that object-specific bridge. Resultary found no distinct same-object theorem.
+
+## value
+
+PASS
+
+The result upgrades a published nonnormal orbit closure from a birational model to an explicit normalization/conductor picture and ties branching, collision geometry and singularities of the normalization to the universal Hilbert family. This is a coherent structural identification of the source's main orbit strata rather than a numerical invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:08:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source gives the birational marked-line model as the rank-three relative quadric in \\(\\mathbb P(E)\\) and says it is double over \\(Y_4\\). Locally its equation is \\(d^2-4ce=0\\) with two kernel coordinates, so the singular locus is the kernel \\(\\mathbb P^1\\)-bundle of codimension two; hypersurface \\(S_2\\) plus \\(R_1\\) gives normality. The proper map is quasi-finite because a conic pencil cannot contain a projective line inside the Veronese surface of double lines, hence finite and therefore the normalization. Over reduced pairs the preimage marks one of the two lines; the explicit collision charts extend this as the blow-up of the diagonal. A fresh polynomial replay verified both quadric and blow-up-chart equations. The exceptional divisor equals the kernel bundle and is the branch divisor over the nonreduced locus \\(Y_3\\).",
+      "risk": "The homogeneous conductor ideal itself is not computed.",
+      "sources": [
+        "Hauenstein-Manivel-Szendrői, arXiv:2103.16363 / DOI:10.1007/s10013-021-00545-0, Proposition 1.1",
+        "Song, DOI:10.1016/j.jalgebra.2016.03.005",
+        "frozen RESULT.md and verify_target.py",
+        "fresh local-equation replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "HMS supplies the orbit and incidence geometry but not normality/finiteness of the marked model.",
+          "Song supplies the abstract universal family once the preimage is identified."
+        ],
+        "reasoning": "Neither source alone or as a stated corollary identifies all four components of the submitted structural package; the local incidence calculation is needed.",
+        "searches": [
+          "HMS Proposition 1.1",
+          "Song universal-family theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.16363",
+        "DOI:10.1016/j.jalgebra.2016.03.005",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior source stops at a birational quadric model and double cover; being a birational model does not by itself imply it is the normalization.",
+          "The general blow-up theorem does not identify an arbitrary double cover with the universal family."
+        ],
+        "reasoning": "Normality, quasi-finiteness and the explicit collision charts are additional hypotheses/proofs needed to connect the two prior frameworks.",
+        "searches": [
+          "arXiv:2103.16363 Proposition 1.1 lines on \\(Y_5,Y_4,Y_3\\)",
+          "Song 2016 universal family result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "HMS explicitly state birationality, nonnormality and double cover over \\(Y_4\\), but not normalization/universal-family identification.",
+          "Song states the general \\(n=2\\) universal-family blow-up."
+        ],
+        "reasoning": "Marked double lines, ordered-versus-unordered length-two subschemes, conductor preimage and universal-family formulations were compared.",
+        "searches": [
+          "Resultary query: tangent double line pencil orbit closure Y5 normalization conductor universal family Hilb2 plane conics",
+          "arXiv:2103.16363 full text",
+          "DOI:10.1016/j.jalgebra.2016.03.005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited record was the only exact same-object normalization/conductor hit among leading results."
+        ],
+        "reasoning": "No exact database or classical orbit table with this package was located.",
+        "searches": [
+          "Resultary exact Y5 normalization/conductor search"
+        ]
+      },
+      "rationale": "The full Hauenstein-Manivel-Szendrői text was inspected: Proposition 1.1 states that \\(Y_5\\) is birational to the quadric bundle, is nonnormal with singular locus \\(Y_4\\), and that the marked model is a double cover over \\(Y_4\\); it identifies \\(Y_4\\) with \\(\\operatorname{Hilb}^2\\mathbb P^2\\) and \\(Y_3\\) with the nonreduced divisor. It does not identify the marked model as the normalization, its own singular locus, or the reduced conductor preimage as the universal family. Song gives the independent general fact that the universal family for \\(n=2\\) is the diagonal blow-up, but does not identify the HMS preimage with it. The submitted collision charts supply that object-specific bridge. Resultary found no distinct same-object theorem.",
+      "residual_risks": [
+        "Older classical literature on pencils of conics may contain the same normalization description in different orbit notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_INPUT_GEOMETRY_NOT_FULL_NORMALIZATION_PACKAGE",
+          "evidence": "The source explicitly calls \\(Y_5\\) nonnormal but does not call the marked model its normalization or identify its singular/ramification bundle.",
+          "identifier_or_url": "arXiv:2103.16363; DOI:10.1007/s10013-021-00545-0",
+          "material_read": "Open full text through Proposition 1.1 and its proof, including the rank-three quadric bundle, birationality, double cover over \\(Y_4\\), \\(Y_4\\simeq\\operatorname{Hilb}^2\\mathbb P^2\\), and \\(Y_3\\) diagonal description.",
+          "method": "Lawful open full-text inspection.",
+          "title": "On the equations defining some Hilbert schemes",
+          "trigger": "Defines \\(Y_5\\), its marked incidence model and the \\(Y_3\\subset Y_4\\) strata."
+        },
+        {
+          "assessment": "GENERAL_UNIVERSAL_FAMILY_FACT_REQUIRES_OBJECT_SPECIFIC_IDENTIFICATION",
+          "evidence": "It identifies the standard universal family but not the HMS incidence preimage.",
+          "identifier_or_url": "DOI:10.1016/j.jalgebra.2016.03.005",
+          "material_read": "Public bibliographic/abstract material confirming that for \\(n=2\\) the universal family is smooth and isomorphic to the blow-up of \\(X\\times X\\) along the diagonal.",
+          "method": "Lawful public-source inspection.",
+          "title": "On the universal family of Hilbert schemes of points on a surface",
+          "trigger": "Potential broader coverage of the claimed conductor preimage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result upgrades a published nonnormal orbit closure from a birational model to an explicit normalization/conductor picture and ties branching, collision geometry and singularities of the normalization to the universal Hilbert family. This is a coherent structural identification of the source's main orbit strata rather than a numerical invariant.",
+      "risk": "The conductor ideal in the homogeneous coordinate ring is still unknown.",
+      "sources": [
+        "arXiv:2103.16363",
+        "DOI:10.1016/j.jalgebra.2016.03.005"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Hauenstein-Manivel-Szendrői orbit closure \\(Y_5\\), the marked-double-line incidence quadric bundle is the normalization; its reduced preimage of \\(Y_4\\simeq\\operatorname{Hilb}^2\\mathbb P^2\\) is the universal length-two family \\(\\operatorname{Bl}_\\Delta(\\mathbb P^2\\times\\mathbb P^2)\\), whose degree-two map branches along \\(Y_3\\), and the normalization's singular locus is the same ramification \\(\\mathbb P^1\\)-bundle mapping isomorphically to \\(Y_3\\).",
+  "limitations": [
+    "Characteristic zero and this specific conic-pencil orbit closure only.",
+    "No global presentation of the normalization ring or conductor ideal is claimed."
+  ],
+  "schema_version": 1
+}
