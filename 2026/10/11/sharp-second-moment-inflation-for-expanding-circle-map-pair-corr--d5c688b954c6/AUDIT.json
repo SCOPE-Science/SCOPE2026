@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "A direct Fourier integration yields the exact two-frequency periodic-Bernoulli covariance kernel. Every unequal orbital-lag pair is summably negligible at leading variance scale by the gcd identity for \\(b^d-1\\), while equal-lag terms sum to \\(4s+8s/(b-1)\\). Exact fraction geometric integration independently matched the covariance and finite-sample variance formulas in 153 checks. The infinite conclusion is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baker–Todd Theorem B proves first-order pair-correlation convergence under mixing hypotheses; its Section 4 obtains a decaying normalized second-moment bound.",
+        "Chaubey–Yesha Proposition 8 controls a smoothed weighted variance by \\(O(N^{-1+\\eta})\\)."
+      ],
+      "reasoning": "Broader classes of maps or lacunary sequences and higher correlations do not dominate this precise leading sharp-window variance constant: the published bounds allow many possible nonzero limits after multiplication by \\(N\\).",
+      "searches": [
+        "variance pair correlation lacunary sequence b^n exact second moment asymptotic constant",
+        "lacunary sequences pair correlation central limit variance sharp threshold",
+        "arXiv:2606.17880, Sections 3–4",
+        "arXiv:2108.00431, Section 3.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.17880",
+      "arXiv:math/9912103",
+      "arXiv:2001.08820",
+      "arXiv:2108.00431",
+      "Peres–Yang, Maximal Gaps for Dilated Lacunary Integer Sequences, arXiv:2606.28860 (abstract only; treats maximal gaps, not pair-correlation variance)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baker–Todd equation (4.7) is a decaying relative second-moment estimate for almost-sure convergence.",
+        "Rudnick–Zaharescu Proposition 4.1 and Chaubey–Yesha Proposition 8 are upper bounds at scale \\(N^{-1+\u000barepsilon}\\), not equivalents of a sharp \\(N^{-1}\\) coefficient."
+      ],
+      "reasoning": "Even knowing the pair statistic converges to \\(2s\\) almost surely and has variance \\(O(N^{-1+\u000barepsilon})\\) does not imply any nonzero normalized variance limit. The new gcd/kernel calculation and equal-lag isolation are essential.",
+      "searches": [
+        "arXiv:2606.17880, Introduction and Section 4.3",
+        "arXiv:math/9912103, Proposition 4.1",
+        "arXiv:2108.00431, Proposition 8",
+        "pair correlations variance doubling map geometric progression Bernoulli polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For circular arcs, the collision test is the sharp two-point correlation statistic of the geometric sequence \\(b^jU\\) modulo one.",
+        "Rudnick–Zaharescu Proposition 4.1 bounds smoothed correlation variance by \\(O(N^{-1+\u000barepsilon})\\), not a leading constant."
+      ],
+      "reasoning": "The statement was compared to both dynamical-circle and lacunary-sequence formulations. Classical metric Poissonianity is weaker; it specifies a first-order limit and does not determine \\(N\\operatorname{Var}\\) or the radius-dependent prefactor.",
+      "searches": [
+        "variance pair correlation lacunary sequence b^n exact second moment asymptotic constant",
+        "pair correlations variance doubling map geometric progression Bernoulli polynomial",
+        "arXiv:math/9912103, Sections 1 and 4",
+        "arXiv:2001.08820, Section 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected articles present bounds and limiting Poissonianity, not a finite table or recorded closed variance constant for all integer bases."
+      ],
+      "reasoning": "This concerns an all-parameter analytic constant, not a finite database entry. No exact table with matching normalization and parameter coverage was located; this negative search is not itself evidence of novelty.",
+      "searches": [
+        "pair correlation variance constant (b+1)/(b-1) expanding circle map",
+        "lacunary sequences second moment exact table geometric q^n",
+        "arXiv:2001.08820, Section 2.2"
+      ]
+    },
+    "rationale": "The exact leading sharp-window variance for a geometric expanding circle orbit is not implied by almost-sure Poissonian pair correlations or by existing nonsharp \\(O(N^{-1+\u000barepsilon})\\) smooth-test variance estimates. Full-text sections of the most pertinent papers were inspected and compared by implication; older unindexed equivalents remain a genuine residual risk.",
+    "residual_risks": [
+      "An older unindexed exact sharp-cutoff second-moment computation might be equivalent.",
+      "The nearby maximal-gap literature concerns another observable; its full text was not accessed, although the accessible abstract does not claim a pair-collision variance result.",
+      "No distributional fluctuation theorem is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general normalized almost-sure convergence and second-moment inequalities, but not the claimed exact sharp-window variance factor",
+        "evidence": [
+          "Introduction cites integer circle expanding maps and Rudnick–Zaharescu; PDF pages 2–4.",
+          "Section 4.3 second moment bound (4.7), PDF page 38."
+        ],
+        "identifier_or_url": "arXiv:2606.17880 (https://arxiv.org/pdf/2606.17880)",
+        "material_read": "Full-text Introduction, definitions and normalization, Sections 3–4 including Section 4.3 and equation (4.7)",
+        "method": "Read arXiv PDF text and inspected rendered introduction pages",
+        "title": "Pair correlation statistics for dynamical systems",
+        "trigger": "Same dynamics and critical pair-collision statistic; direct motivating source"
+      },
+      {
+        "assessment": "Proves asymptotic Poissonian correlation and variance decay \\(O(N^{-1+\u000barepsilon})\\) for smoothed tests, not exact indicator leading variance",
+        "evidence": [
+          "Theorem 1.2, introduction; Section 4 Proposition 4.1 (page 11)."
+        ],
+        "identifier_or_url": "arXiv:math/9912103 (https://arxiv.org/pdf/math/9912103)",
+        "material_read": "Introduction and Section 4, Proposition 4.1 and proof",
+        "method": "Read arXiv PDF textual pages/sections",
+        "title": "The distribution of spacings between fractional parts of lacunary sequences",
+        "trigger": "Original geometric-lacunary case including powers of integers"
+      },
+      {
+        "assessment": "Bounds the smoothed-statistic variance rather than calculating this circle sharp-radius limiting coefficient",
+        "evidence": [
+          "Section 2.2 Proposition 2.2 and formulas (2.4)–(2.6), PDF pages 4–5."
+        ],
+        "identifier_or_url": "arXiv:2001.08820 (https://arxiv.org/pdf/2001.08820)",
+        "material_read": "Introduction and Section 2.2, Proposition 2.2 and Fourier/Diophantine variance formula (2.6)",
+        "method": "Read arXiv PDF sections using full-text retrieval",
+        "title": "The metric theory of the pair correlation function of real-valued lacunary sequences",
+        "trigger": "Broader lacunary pair-correlation theorem with explicit variance expression"
+      },
+      {
+        "assessment": "Obtains nonsharp variance decay for smooth weighted statistics, without the claimed unsmoothed geometric-base variance limit",
+        "evidence": [
+          "Section 3.1 Proposition 8, PDF pages 9–10."
+        ],
+        "identifier_or_url": "arXiv:2108.00431 (https://arxiv.org/pdf/2108.00431)",
+        "material_read": "Introduction and Section 3.1 including Proposition 8 and its proof",
+        "method": "Read arXiv PDF sections",
+        "title": "The distribution of spacings of real-valued lacunary sequences modulo one",
+        "trigger": "Higher-order lacunary correlations and variance estimates could subsume the new case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d5c688b9-54c6-4c82-9602-d7139f3e2ee9",
+  "value": {
+    "rationale": "Pair-correlation Poissonianity does not settle second-order dispersion. The exact all-base variance inflation \\((b+1)/(b-1)\\) differentiates deterministic expanding dynamics from independent sampling at the critical window and gives a sharp benchmark for second-moment estimates beyond qualitative convergence.",
+    "status": "PASS"
+  }
+}
