@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic check starts from the exact maximal-coherence formula
-\[
-s_n(t)=\inf_{z>0}\frac{\sqrt{n!}[1-t+t(-1)^nL_n(z)]}{2z^{n/2}}.
-\]
-With \(\varepsilon=t^{1/n}\), \(A=(n!)^{1/n}\), and \(z=A u/\varepsilon\), the exact polynomial coefficients give
-\[
-\frac{s_n(t)}{\sqrt t}=\min_{u>0}\left[\frac12(u^{-n/2}+u^{n/2})-\frac{n^2}{2A}\varepsilon u^{n/2-1}+\frac{n^2(n-1)^2}{4A^2}\varepsilon^2u^{n/2-2}+O(\varepsilon^3)\right].
-\]
-The leading function has its unique global minimum at \(u=1\), with second derivative \(n^2/4\). Expanding the stationary point gives \(u=1+(n-2)\varepsilon/A+O(\varepsilon^2)\), and substitution gives the claimed coherence coefficients.
+# Independent mathematical audit
 
-`artifacts/verify.py` reconstructs the relevant Laguerre coefficients from the defining finite sum and numerically minimizes the exact objective for representative fixed \(n\). These checks test algebra and normalization only; they do not replace the analytic localization and asymptotic proof.
+## correctness
 
-No uniform-in-\(n\) remainder, global entropy optimum, or classification of all Wigner-positive boundary points is verified or claimed.
+PASS
+
+After z=A_n u/t^(1/n), the exact radial objective divided by sqrt(t) has a uniform local expansion g_0+epsilon g_1+epsilon^2 g_2+O(epsilon^3), with g_0=(u^(-n/2)+u^(n/2))/2 uniquely minimized at u=1 and g_0''(1)=n^2/4. The source's leading limit plus the exact rescaling localizes every global minimizer near u=1; the implicit-function expansion yields u=1+(n-2)epsilon/A_n+O(epsilon^2), and the perturbed-minimum formula gives the two displayed coherence coefficients. Squaring reproduces the stated coefficient n^2(n^2-1)/(2A_n^2). Fresh coefficient checks for n=3 through 7 matched the exact Laguerre sum.
+
+## originality
+
+PASS
+
+The defining 2026 paper gives the exact radial infimum and proves only the leading boundary behavior s_n(t)^2=t+o(t); its Appendix B does not give the first two correction coefficients or the minimizing-radius boundary layer. The audited perturbative minimization extracts those genuinely finer terms and the location of the first saturation zero. No Resultary or inspected source supplied the same expansion.
+
+## value
+
+PASS
+
+The theorem sharpens the precise boundary of a newly important Wigner-positive counterexample family, locating both the maximal coherence and the phase-space zero that enforces positivity. These higher-order terms quantify how the boundary approaches the vacuum beyond the source's leading equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
