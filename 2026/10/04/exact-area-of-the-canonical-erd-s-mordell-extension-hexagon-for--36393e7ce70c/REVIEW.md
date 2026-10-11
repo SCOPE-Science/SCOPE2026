@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof specializes the primary source's one-vertex inequalities to the equilateral case, converts each relevant corner component to two half-planes, intersects the six lines exactly, and evaluates the resulting hexagon by the shoelace formula. The exact verifier reproduces the algebra in \(\mathbb Q(\sqrt2,\sqrt3)\). No infinite conclusion is inferred from sampling.
+## correctness
 
-## Originality
-PASS. The 2012 source defines the polygon \(M\) only qualitatively as a quadrilateral or hexagon and poses an area problem for the larger curve-bounded region \(E'\). The 2013 follow-up numerically studies \(E'\), not the exact canonical \(M\) invariant. Exact-expression, alias, database, and current-ledger searches found no covering statement. Residual risk remains for unindexed literature and incomplete full-text accessibility of the 2013 paper.
+PASS
 
-## Value
-PASS. The quantity is directly motivated by the source's area-gap problem: \(M\) is its canonical rigorously guaranteed subset of \(E'\), and the equilateral triangle is the source's proposed extremal case. The exact area ratio is therefore a reusable analytic benchmark rather than an arbitrary coordinate computation.
+Specializing the source's one-vertex inequalities to the equilateral triangle gives the stated pair of linear wedge boundaries, and the other four boundaries follow by \(120\)-degree rotation. Solving adjacent active pairs gives exactly the six listed vertices. Fresh symbolic shoelace arithmetic in \(\mathbb Q(\sqrt2,\sqrt3)\) reproduced the absolute area \(12\sqrt2/5-4\sqrt3/5\) and normalized ratio \(4(\sqrt6-1)/5\). Exact halfplane substitution in the packaged certificate independently confirms every vertex lies in all six defining halfplanes.
 
-## Closest literature and limitations
-The closest primary literature is arXiv:1204.1003, which defines \(M\subset E\subset E'\), and arXiv:1309.7927, which numerically estimates the full equilateral \(E'\)-area. The present result computes only \(M\); it does not determine \(E'\), establish a universal area gap, or prove equilateral extremality.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating paper defines the canonical inner extension set \(M\) as a quadrilateral or hexagon and proves \(M\subset E\), but does not give the exact equilateral vertex coordinates or its area in the inspected material. The audited computation turns that source construction into a closed exact lower certificate for the equilateral area-gap problem. Searches of the later Erdős–Mordell computational literature did not locate the same hexagon-area constant.
+
+## value
+
+PASS
+
+The source explicitly uses \(M\) as a rigorous inner certificate for the planar Erdős–Mordell extension and leaves quantitative area questions open. The equilateral case is the canonical symmetric benchmark, and the exact hexagon area supplies a clean rigorous lower certificate for that program rather than an arbitrary radical evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
