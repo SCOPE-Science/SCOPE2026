@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:49:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Xavier Bardina, Marco Ferrante and Carles Rovira, A stochastic epidemic model of COVID-19 disease, AIMS Mathematics 5 (2020), DOI:10.3934/math.2020490; complete primary PDF inspected at the model assumptions and pages 7664-7665, including rendered pages.",
+        "Henry C. Tuckwell and Ruth J. Williams, Some properties of a simple stochastic epidemic model of SIR type, Mathematical Biosciences 208 (2007), DOI:10.1016/j.mbs.2006.09.018; complete open primary PDF inspected around Section 2.3, including the explicit large-population qualifier for the binomial approximation and rendered page 81.",
+        "Ferrante, Ferraris and Rovira, On a stochastic epidemic SEIHR model and its diffusion approximation, DOI:10.1007/s11749-015-0465-z; primary metadata/abstract inspected in this run.",
+        "Resultary query: COVID stochastic epidemic multinomial hypergeometric contact law finite population correction.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py at exact tree 2accb3379541007b61d9b02e85cfce982b7cf391."
+      ],
+      "rationale": "The publisher PDF explicitly contains both laws. Under distinct sampling, conditioning on symptomatic and asymptomatic counts gives the displayed multivariate-hypergeometric no-infection average. With one infective, inclusion probability is exactly N/M and subsequent transmission probability is q, hence beta=Nq/M. The source power formula is strictly smaller for N>1 by Bernoulli's inequality, and at M=N=2,q=1 it equals 3/4 while without replacement every contact set contains the infective and gives probability 1. Conversely, independent with-replacement contact events imply a binomial susceptible-contact count, not hypergeometric.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The predecessor primary paper explicitly introduces the binomial meeting law only as an approximation under n much greater than N.",
+          "The broader predecessor literature therefore covers the general approximation distinction, but not the later paper's simultaneous exact statements."
+        ],
+        "reasoning": "The audit does not claim novelty for finite-population hypergeometric sampling; the source-specific inconsistency remains additional.",
+        "searches": [
+          "Tuckwell-Williams DOI:10.1016/j.mbs.2006.09.018",
+          "Ferrante-Ferraris-Rovira DOI:10.1007/s11749-015-0465-z"
+        ]
+      },
+      "checked_sources": [
+        "Xavier Bardina, Marco Ferrante and Carles Rovira, A stochastic epidemic model of COVID-19 disease, AIMS Mathematics 5 (2020), DOI:10.3934/math.2020490; complete primary PDF inspected at the model assumptions and pages 7664-7665, including rendered pages.",
+        "Henry C. Tuckwell and Ruth J. Williams, Some properties of a simple stochastic epidemic model of SIR type, Mathematical Biosciences 208 (2007), DOI:10.1016/j.mbs.2006.09.018; complete open primary PDF inspected around Section 2.3, including the explicit large-population qualifier for the binomial approximation and rendered page 81.",
+        "Ferrante, Ferraris and Rovira, On a stochastic epidemic SEIHR model and its diffusion approximation, DOI:10.1007/s11749-015-0465-z; primary metadata/abstract inspected in this run.",
+        "Resultary query: COVID stochastic epidemic multinomial hypergeometric contact law finite population correction.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py at exact tree 2accb3379541007b61d9b02e85cfce982b7cf391."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2020 formula 1-(1-(qI*yI+qA*yA)/M)^N is exact for independent category draws with replacement.",
+          "Its later hypergeometric Zi statement is exact for sampling distinct individuals without replacement.",
+          "The predecessor labels the binomial contact law an approximation when n is much greater than the daily contact count."
+        ],
+        "reasoning": "The older theory makes the modeling distinction prior knowledge but does not itself state the contradiction in the later two-infectious-class COVID paper or its multivariate exact correction.",
+        "searches": [
+          "2020 AIMS primary paper pages 7664-7665",
+          "2007 predecessor primary paper Section 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper's page 7664 explicitly says the contact-class counts use a multinomial distribution.",
+          "Page 7665 then states that the number of susceptible contacts follows a hypergeometric distribution.",
+          "No erratum or source-specific correction was located."
+        ],
+        "reasoning": "Replacement-versus-nonreplacement, multinomial-versus-hypergeometric, and the saturation-state discrepancy are equivalent formulations of the same exact-law conflict.",
+        "searches": [
+          "Resultary: COVID stochastic epidemic multinomial hypergeometric contact law finite population correction",
+          "DOI:10.3934/math.2020490 multinomial hypergeometric correction/erratum searches",
+          "arXiv:2005.02859 and publisher record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed correction matching the exact finite-population discrepancy was found."
+        ],
+        "reasoning": "Negative search is supporting evidence only; the primary printed formulas themselves are the decisive comparison.",
+        "searches": [
+          "Exact DOI/title correction and erratum searches",
+          "Resultary exact source-specific query"
+        ]
+      },
+      "rationale": "The sampling distinction itself is classical and is explicitly recognized by the predecessor SIR paper, which invokes the binomial law only after assuming the population is much larger than the contact count. The 2020 primary paper, however, prints a multinomial/power contagion calculation and later a hypergeometric susceptible-contact count as exact statements within the same finite-population model. Searches found no correction or erratum identifying this source-specific incompatibility. The accepted originality is the diagnosis and exact two-class correction, not the hypergeometric distribution itself.",
+      "residual_risks": [
+        "The 2020 authors may have intended the multinomial formula as an unstated large-population approximation; under that reading the correction is to the missing approximation qualifier rather than the intended simulation mechanism.",
+        "At the source's large population and small daily contact counts, the numerical discrepancy can be small."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INTERNALLY INCOMPATIBLE AS TWO SIMULTANEOUS EXACT SAMPLING LAWS",
+          "evidence": "The paper explicitly derives the contagion law from a multinomial count, then on the next page states that susceptible contacts among N are hypergeometric.",
+          "identifier_or_url": "DOI:10.3934/math.2020490",
+          "material_read": "Complete primary publisher PDF with focused reading of daily-encounter assumptions, the multinomial contact-class calculation and closed-form contagion probability on pages 7664-7665, and the later hypergeometric susceptible-contact statement. Both formula pages were visually inspected.",
+          "method": "Primary PDF text plus rendered-page inspection.",
+          "title": "A stochastic epidemic model of COVID-19 disease",
+          "trigger": "Exact paper whose finite-population contact law is being assessed."
+        },
+        {
+          "assessment": "GENERAL DISTINCTION ALREADY KNOWN; BINOMIAL FORMULA EXPLICITLY APPROXIMATE",
+          "evidence": "The paper says the binomial approximation may be used only after assuming n is much greater than the individual's contact count.",
+          "identifier_or_url": "DOI:10.1016/j.mbs.2006.09.018",
+          "material_read": "Complete open primary PDF with focused reading of Section 2.3; page 81 was visually inspected.",
+          "method": "Primary PDF text and rendered-page inspection.",
+          "title": "Some properties of a simple stochastic epidemic model of SIR type",
+          "trigger": "Primary predecessor cited for the discrete contact mechanism."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Xavier Bardina, Marco Ferrante and Carles Rovira, A stochastic epidemic model of COVID-19 disease, AIMS Mathematics 5 (2020), DOI:10.3934/math.2020490; complete primary PDF inspected at the model assumptions and pages 7664-7665, including rendered pages.",
+        "Henry C. Tuckwell and Ruth J. Williams, Some properties of a simple stochastic epidemic model of SIR type, Mathematical Biosciences 208 (2007), DOI:10.1016/j.mbs.2006.09.018; complete open primary PDF inspected around Section 2.3, including the explicit large-population qualifier for the binomial approximation and rendered page 81.",
+        "Ferrante, Ferraris and Rovira, On a stochastic epidemic SEIHR model and its diffusion approximation, DOI:10.1007/s11749-015-0465-z; primary metadata/abstract inspected in this run.",
+        "Resultary query: COVID stochastic epidemic multinomial hypergeometric contact law finite population correction.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py at exact tree 2accb3379541007b61d9b02e85cfce982b7cf391."
+      ],
+      "rationale": "This is a substantive correction to the exact transition law of a finite-population epidemic model, not a cosmetic normalization check. It identifies which of two incompatible mechanisms must be changed, supplies the correct two-infectious-class formula, and explains why the paper's large-population first-order reproduction approximation can nevertheless survive.",
+      "residual_risks": [
+        "The 2020 authors may have intended the multinomial formula as an unstated large-population approximation; under that reading the correction is to the missing approximation qualifier rather than the intended simulation mechanism.",
+        "At the source's large population and small daily contact counts, the numerical discrepancy can be small."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The 2020 stochastic COVID model combines two incompatible exact finite-population contact laws: a multinomial with-replacement contagion formula and a hypergeometric without-replacement susceptible-contact count. Under distinct-contact sampling the exact two-infectious-class contagion probability is multivariate hypergeometric; with one infective it equals N*q/M, giving the sharp M=N=2, q=1 discrepancy 1 versus 3/4.",
+  "limitations": [
+    "The correction does not assert a material change in the paper's reported large-population simulations.",
+    "It does not reassess unrelated clinical transition parameters.",
+    "The 2020 authors may have intended the multinomial formula as an unstated large-population approximation; under that reading the correction is to the missing approximation qualifier rather than the intended simulation mechanism.",
+    "At the source's large population and small daily contact counts, the numerical discrepancy can be small."
+  ],
+  "schema_version": 1
+}
