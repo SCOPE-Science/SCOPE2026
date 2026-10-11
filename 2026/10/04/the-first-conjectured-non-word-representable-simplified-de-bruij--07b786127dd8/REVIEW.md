@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph is reconstructed directly from the published simplified de Bruijn definition. The explicit certificate colours all \(81\) vertices and every one of the \(237\) edges properly with three colours. The triangle \(0000,0001,1000\) proves that two colours cannot suffice, so \(\chi(S(4,3))=3\). The published theorem that every \(3\)-colourable graph is word-representable then gives the claimed consequence.
+## correctness
 
-## Originality
-PASS. Petyuk's source conjectures the opposite statement for every \(n\ge4\), \(k\ge3\). Huang, Kitaev, and Pyatkin later restate that conjecture and study restricted induced subgraphs; their full text does not cover the positive full graph \(S(4,3)\). Exact database and web searches under colouring, word-representability, and counterexample formulations found no prior statement, while a current problem database still marks the conjecture open.
+PASS
 
-Residual risk remains from unindexed or unpublished computations.
+Reconstructing the graph from the published overlap definition gives exactly 81 vertices and 237 undirected loop-free edges. The supplied colouring assigns all vertices to three classes of sizes 28, 30 and 23 and the verifier checks every edge is bichromatic. The three vertices 0000, 0001 and 1000 form a triangle, so two colours are impossible. A fresh independent DSATUR-style reconstruction found a valid three-colouring and independently confirmed the same vertex/edge counts and triangle. The standard theorem then implies word-representability.
 
-## Value
-PASS. \(S(4,3)\) is the first parameter pair in the conjectured region. A verified positive result there directly refutes the universal conjecture and identifies the true boundary problem, rather than merely adding another parameter to a known positive family.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Petyuk's defining paper states the opposite universal conjecture for all \(n\ge4,k\ge3\). The later Huang–Kitaev–Pyatkin paper was materially read in full: it explicitly restates that conjecture, recalls that every 3-colourable graph is word-representable, and proves positive results only for restricted induced subgraphs \(S_m(n,k)\), not the full \(S(4,3)\). A current MathDB entry still labels the conjecture open and records no progress. Resultary searches found no prior colouring or positive full-graph statement.
+
+## value
+
+PASS
+
+This is the smallest parameter pair in the conjectured negative region and a complete finite certificate directly refutes an explicit conjecture that a later paper and current problem database still treat as open. That is a decisive natural boundary result, not an arbitrary graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:54:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 69f827b9a0821e079a66f0ff6c684fb86373ffa2",
+        "verify.py blob ccf2f350d7fb99b91ed70c2a8a2d5b80f0d4ddf9",
+        "coloring.json blob 8ca786106b9a57a517b2eea3b827a229623c5406",
+        "Huang–Kitaev–Pyatkin Theorem 2",
+        "fresh independent graph reconstruction"
+      ],
+      "rationale": "Reconstructing the graph from the published overlap definition gives exactly 81 vertices and 237 undirected loop-free edges. The supplied colouring assigns all vertices to three classes of sizes 28, 30 and 23 and the verifier checks every edge is bichromatic. The three vertices 0000, 0001 and 1000 form a triangle, so two colours are impossible. A fresh independent DSATUR-style reconstruction found a valid three-colouring and independently confirmed the same vertex/edge counts and triangle. The standard theorem then implies word-representability.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later paper proves word-representability of certain \\(S_m(n,k)\\) induced subgraphs and the overlapping-permutation graph, while continuing to state the full-graph conjecture.",
+          "Petyuk proves binary positive cases and \\(S(2,k),S(3,k)\\) negative cases."
+        ],
+        "reasoning": "Neither broader family contains a positive theorem for \\(S(4,3)=S_0(4,3)\\).",
+        "searches": [
+          "Huang–Kitaev–Pyatkin full paper, Theorems 2–5",
+          "Petyuk defining paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.14762",
+        "DOI:10.1016/j.dam.2023.12.017",
+        "MathDB problem 356624",
+        "Resultary simplified-de-Bruijn search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The induced-subgraph results do not imply the full graph is word-representable.",
+          "The explicit three-colouring directly contradicts the universal conjecture at its smallest covered parameter pair."
+        ],
+        "reasoning": "The final claim changes the conjecture's status rather than instantiating an existing theorem.",
+        "searches": [
+          "Huang–Kitaev–Pyatkin Conjecture 1 and Theorem 5",
+          "audited 81-vertex colouring certificate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A proper 3-colouring is a stronger certificate than word-representability because the later primary paper states the standard theorem that every 3-colourable graph is word-representable.",
+          "The conjecture explicitly includes \\(S(4,3)\\) as its first parameter pair."
+        ],
+        "reasoning": "Searching both the colouring formulation and the word-representability formulation found no earlier positive result for the full graph.",
+        "searches": [
+          "Petyuk, arXiv:2210.14762",
+          "Huang–Kitaev–Pyatkin, DOI:10.1016/j.dam.2023.12.017, full open PDF",
+          "MathDB problem 356624",
+          "Resultary query: simplified de Bruijn S(4,3) 3-colorable word-representable"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathDB still marks the conjecture open and reports no progress.",
+          "No Resultary or web result supplied an 81-vertex 3-colouring or chromatic-number table for the full \\(S(4,3)\\)."
+        ],
+        "reasoning": "The submitted colouring is not copied from a located database or published table.",
+        "searches": [
+          "MathDB current conjecture page",
+          "Resultary exact S(4,3) search"
+        ]
+      },
+      "rationale": "Petyuk's defining paper states the opposite universal conjecture for all \\(n\\ge4,k\\ge3\\). The later Huang–Kitaev–Pyatkin paper was materially read in full: it explicitly restates that conjecture, recalls that every 3-colourable graph is word-representable, and proves positive results only for restricted induced subgraphs \\(S_m(n,k)\\), not the full \\(S(4,3)\\). A current MathDB entry still labels the conjecture open and records no progress. Resultary searches found no prior colouring or positive full-graph statement.",
+      "residual_risks": [
+        "An unindexed or unpublished colouring computation could already contain the same \\(S(4,3)\\) observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_SOURCE_CONJECTURES_THE_OPPOSITE",
+          "evidence": "It proves \\(S(n,2)\\) word-representable, \\(S(2,k)\\) and \\(S(3,k)\\) non-word-representable for \\(k\\ge3\\), and conjectures all \\(S(n,k)\\) with \\(n\\ge4,k\\ge3\\) are non-word-representable.",
+          "identifier_or_url": "arXiv:2210.14762",
+          "material_read": "Primary arXiv material covering the definition, proved binary/low-length cases and conjecture.",
+          "method": "Direct statement and parameter comparison.",
+          "title": "On word-representability of simplified de Bruijn graphs",
+          "trigger": "Original source defining the problem and conjecture."
+        },
+        {
+          "assessment": "LATER_PAPER_RESTATES_CONJECTURE_AND_ONLY_COVERS_RESTRICTED_SUBGRAPHS",
+          "evidence": "Theorem 2 gives 3-colourable implies word-representable; Conjecture 1 repeats the full \\(n\\ge4,k\\ge3\\) negative conjecture; Theorem 5 concerns \\(S_m(n,k)\\).",
+          "identifier_or_url": "DOI:10.1016/j.dam.2023.12.017",
+          "material_read": "Complete 13-page open published PDF; the page containing the 3-colourability theorem, Petyuk's results and Conjecture 1 was visually inspected.",
+          "method": "Full-text theorem-scope comparison.",
+          "title": "An embedding technique in the study of word-representability of graphs",
+          "trigger": "Most directly relevant later paper on simplified de Bruijn word-representability."
+        },
+        {
+          "assessment": "CURRENTLY_LISTED_OPEN_WITH_NO_RECORDED_PROGRESS",
+          "evidence": "The page states the same universal conjecture and records no progress.",
+          "identifier_or_url": "MathDB problem 356624",
+          "material_read": "Current conjecture statement and progress summary.",
+          "method": "Current-status database check.",
+          "title": "Non-word-representability conjecture for simplified de Bruijn graphs",
+          "trigger": "Current problem-status database."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2210.14762",
+        "DOI:10.1016/j.dam.2023.12.017",
+        "MathDB problem 356624",
+        "Resultary simplified-de-Bruijn search"
+      ],
+      "rationale": "This is the smallest parameter pair in the conjectured negative region and a complete finite certificate directly refutes an explicit conjecture that a later paper and current problem database still treat as open. That is a decisive natural boundary result, not an arbitrary graph computation.",
+      "residual_risks": [
+        "An unindexed or unpublished colouring computation could already contain the same \\(S(4,3)\\) observation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2210.14762",
+    "DOI:10.1016/j.dam.2023.12.017",
+    "MathDB problem 356624",
+    "Resultary simplified-de-Bruijn search"
+  ],
+  "disposition": "passed",
+  "final_claim": "The full simplified de Bruijn graph \\(S(4,3)\\) has chromatic number exactly 3 and is therefore word-representable; this refutes the published conjecture that every \\(S(n,k)\\) with \\(n\\ge4\\) and \\(k\\ge3\\) is non-word-representable.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed or unpublished colouring computation could already contain the same \\(S(4,3)\\) observation.",
+    "The theorem does not classify other \\(n,k\\), a minimum representing word, or the representation number."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the same directory as `coloring.json`.
+# Independent mathematical audit
 
-The verifier independently reconstructs \(S(4,3)\) from the overlap definition: all \(81\) length-\(4\) ternary words are generated, outgoing one-symbol shifts are symmetrized, loops are removed, and duplicate edges are collapsed. It obtains \(237\) edges.
+## correctness
 
-It then checks that `coloring.json` assigns exactly one colour in \(\{0,1,2\}\) to every vertex and that no edge is monochromatic. The three colour classes have sizes \(28,30,23\). Finally it reconstructs the three edges of the triangle \(0000,0001,1000\), giving the matching lower bound \(\chi(S(4,3))\ge3\).
+PASS
 
-The word-representability conclusion uses the published theorem that every \(3\)-colourable graph is word-representable. The verifier does not attempt to construct or minimize an explicit representing word.
+Reconstructing the graph from the published overlap definition gives exactly 81 vertices and 237 undirected loop-free edges. The supplied colouring assigns all vertices to three classes of sizes 28, 30 and 23 and the verifier checks every edge is bichromatic. The three vertices 0000, 0001 and 1000 form a triangle, so two colours are impossible. A fresh independent DSATUR-style reconstruction found a valid three-colouring and independently confirmed the same vertex/edge counts and triangle. The standard theorem then implies word-representability.
+
+## originality
+
+PASS
+
+Petyuk's defining paper states the opposite universal conjecture for all \(n\ge4,k\ge3\). The later Huang–Kitaev–Pyatkin paper was materially read in full: it explicitly restates that conjecture, recalls that every 3-colourable graph is word-representable, and proves positive results only for restricted induced subgraphs \(S_m(n,k)\), not the full \(S(4,3)\). A current MathDB entry still labels the conjecture open and records no progress. Resultary searches found no prior colouring or positive full-graph statement.
+
+## value
+
+PASS
+
+This is the smallest parameter pair in the conjectured negative region and a complete finite certificate directly refutes an explicit conjecture that a later paper and current problem database still treat as open. That is a decisive natural boundary result, not an arbitrary graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
