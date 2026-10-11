@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical verification has two layers. First, the proof uses the classical Ljunggren--Jacobsthal congruence at \(a=q p^{j-1}\), \(b=p^{j-1}\), giving the p-adic precision \(B_j\equiv B_{j-1}\pmod{p^{3j}}\). This establishes convergence of the binomial sequence and provides much more precision than the required modulus \(p^r\). Second, LTE proves convergence of \(q^{p^m}\) to the Teichmuller lift and gives the required modulus at level \(r\).
+## correctness
 
-`verify.py` was run from the packaged path and returned:
+PASS
 
-`VERIFY_OK cases=60 lifts=30 primes=[5, 7, 11] bases=[2, 3, 5, 7, 11, 13] r=1..4`
+Jacobsthal--Ljunggren gives \(B_j\equiv B_{j-1}\pmod{p^{3j}}\), so \(B_r\) converges and already equals its limit modulo \(p^r\). LTE gives the analogous Teichmüller convergence for \(q^{p^r}\). Their difference therefore controls the congruence exactly. The first binomial lift is \(q\) modulo \(p^3\), which yields the two stated low-level Wieferich equivalences. The verifier independently checks 60 cases through \(r=4\) and selected lift valuations.
 
-The finite replay checks sixty original congruences against the stated p-adic criterion and thirty explicit lifting increments. It is corroborative only; the quantified theorem for all \(r\ge1\) is proved symbolically above. No assertion is made for \(p=2,3\), and no finite computation is used to infer p-adic convergence or novelty.
+## originality
+
+PASS
+
+The full Guedes--Machado paper, obtained through authorized institutional access after open retrieval failed, proves only the square \(p^2\) layer as a base-\(q\) Wieferich criterion and otherwise studies the different family \(n=q^t p\). No all-\(p^r\) tower or p-adic limit criterion appears there, and targeted searches found no predecessor.
+
+## value
+
+PASS
+
+The theorem organizes every higher prime-power layer of a natural congruence into one p-adic invariant, proves an initial-segment law, and identifies the cubic layer as a higher-Wieferich condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

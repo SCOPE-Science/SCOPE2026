@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the original congruence at \(n=p^r\) to equality modulo \(p^r\) between two convergent p-adic sequences. Jacobsthal--Ljunggren lifting gives \(B_j\equiv B_{j-1}\pmod{p^{3j}}\), which is more than enough to identify \(B_r\) with its p-adic limit modulo \(p^r\). LTE gives the corresponding approximation of \(q^{p^r}\) by the Teichmuller lift. The valuation criterion is then an exact equivalence, not an extrapolation from computation. The low-layer Wieferich statements follow from \(\binom{qp}{p}\equiv q\pmod{p^3}\).
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The closest recent source proves only the \(p^2\) layer. Classical Jacobsthal lifting and higher Wieferich congruences supply ingredients, but targeted searches did not locate the exact all-exponent initial-segment classification or its binomial-limit/Teichmuller formulation. The result is not a restatement of the source's square theorem because it determines the implication structure for every \(r\ge1\).
+PASS
 
-## Value
-PASS. Prime powers are a natural structured subfamily of the source problem, and the source itself singles out squares because of the Wieferich connection. The theorem explains the whole tower at once, proves monotonicity in the exponent, identifies the cubic layer exactly, and marks the structural transition after \(p^3\), where the binomial p-adic limit becomes essential.
+Jacobsthal--Ljunggren gives \(B_j\equiv B_{j-1}\pmod{p^{3j}}\), so \(B_r\) converges and already equals its limit modulo \(p^r\). LTE gives the analogous Teichmüller convergence for \(q^{p^r}\). Their difference therefore controls the congruence exactly. The first binomial lift is \(q\) modulo \(p^3\), which yields the two stated low-level Wieferich equivalences. The verifier independently checks 60 cases through \(r=4\) and selected lift valuations.
 
-The result excludes \(p=2,3\), does not prove \(H_{p,q}\) finite, and does not give a closed formula for higher thresholds. These are genuine limits rather than hidden assumptions.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full Guedes--Machado paper, obtained through authorized institutional access after open retrieval failed, proves only the square \(p^2\) layer as a base-\(q\) Wieferich criterion and otherwise studies the different family \(n=q^t p\). No all-\(p^r\) tower or p-adic limit criterion appears there, and targeted searches found no predecessor.
+
+## value
+
+PASS
+
+The theorem organizes every higher prime-power layer of a natural congruence into one p-adic invariant, proves an initial-segment law, and identifies the cubic layer as a higher-Wieferich condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
