@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact outer-cycle matrix is \((1-\alpha)I+\alpha(I-\eta H)^k\). Diagonalization reduces both convergence and minimax rate to the polynomial \(p(\lambda)=1-\alpha+\alpha(1-\eta\lambda)^k\). For even \(k\), positivity of the inner power makes the classical \(\eta L<2\) frontier unavoidable. For odd \(k\), direct solution of \(-1<p(\lambda)<1\) gives the larger sharp ceiling. The minimax proof treats even and odd parity separately; in the odd case the endpoint-balancing factor is bounded below by the standard repeated-gradient factor through the monotonic auxiliary function \(H(x)\). Equality conditions give the stated unique minimizer for \(k\ge2\).
+PASS
 
-Risk: the theorem is asymptotic and fixed-parameter. It does not compare stochastic variance or finite-horizon objective transients.
+One outer cycle is the polynomial \(p(\lambda)=1-\alpha+\alpha(1-\eta\lambda)^k\). For even \(k\), the lower stability inequality is automatic and the upper one is exactly \(|1-\eta\lambda|<1\), giving \(\eta L<2\); for odd \(k\), the upper inequality is automatic and the lower gives the stated real-root ceiling, with multipliers \(+1\) and \(-1\) at the respective boundaries. For the minimax problem, even powers are nonnegative, so interpolation can only move modal factors toward one and cannot beat the classical equioscillating step. For odd powers the endpoint values are monotone in curvature; before the equioscillation point \(\alpha=1\) is optimal, while after it balancing endpoints yields \(F(x)=(b-a)/(2-a-b)\). The displayed auxiliary function has nonnegative derivative because \(|1-\kappa x|\ge|1-x|\) and \(\kappa(1-Q)\ge1+Q\), proving \(F\ge Q\). Equality is unique for \(k\ge2\). The verifier checks boundary multipliers, exact optimum values and dense grids as transcription guards.
 
-## Originality
+## originality
 
-PASS. The original Lookahead paper contains the algorithm, a noisy quadratic analysis, a general deterministic quadratic state-space construction, and an adaptive line-minimizing slow step. Its deterministic appendix says the relevant eigenvalues can be computed numerically; it does not state the closed fixed-\(\alpha\) parity frontier or solve the robust interval minimax problem. The adaptive line-minimization proposition is explicitly not used as a novelty claim here.
+PASS
 
-Later convergence and generalization papers address stationary points, excess risk, or broad nonexpansive interpolation guarantees. The strongest broad comparison inspected proves convergence when the base optimizer is quasi-nonexpansive and gives the classical gradient-step sufficient region. That result does not cover the present odd-\(k\) regime where the individual gradient map is expansive, and it does not imply the exact interval minimax no-acceleration theorem.
+The original Lookahead paper already writes the expectation multiplier \(1-\alpha+\alpha(I-\gamma A)^k\), studies noisy quadratics, and analyzes deterministic quadratics with momentum through a linear dynamical system. It emphasizes larger inner learning rates and fixed interpolation empirically, but it does not state the even/odd fixed-\(\alpha\) stability frontier or solve the robust spectral-interval minimax problem for plain-gradient inner steps. Resultary searches found related optimization stability/minimax records but no covering Lookahead theorem.
 
-Focused semantic searches for Lookahead scalar quadratic stability, odd/even synchronization, supercritical inner steps, exact annihilation, and the slow multiplier found no matching published record. Residual risk remains that an equivalent fixed-polynomial minimax observation appears under stationary iterative-method or relaxation terminology outside the Lookahead literature.
+## value
 
-## Value
+PASS
 
-PASS. The source paper explicitly motivates Lookahead partly by its ability to tolerate larger inner learning rates. The parity theorem identifies exactly when that stabilization is mathematically possible on positive-definite quadratics and describes the sharp boundary dynamics. The minimax theorem then separates stability from acceleration: interpolation can enlarge the stable stepsize region for odd \(k\), but cannot beat optimally tuned repeated gradient descent in worst-case spectral contraction. This resolves two practically distinct questions with one exact benchmark.
+The theorem sharply separates stability enlargement from worst-case acceleration: odd synchronization lengths can stabilize learning rates beyond the inner GD limit, yet no fixed interpolation improves the best robust spectral contraction. This directly clarifies a central motivation of Lookahead on a canonical model.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

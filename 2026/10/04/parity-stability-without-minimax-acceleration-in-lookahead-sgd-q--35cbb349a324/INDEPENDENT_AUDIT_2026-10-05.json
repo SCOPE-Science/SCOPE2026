@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:36:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e8d4c6ca72ff95369a7c2bdd52ac1c7ebe5197fb",
+        "assigned verify.py blob bb1aea372d2064378f8823da61543d6822fc80d9",
+        "Zhang--Lucas--Hinton--Ba, arXiv:1907.08610"
+      ],
+      "rationale": "One outer cycle is the polynomial \\(p(\\lambda)=1-\\alpha+\\alpha(1-\\eta\\lambda)^k\\). For even \\(k\\), the lower stability inequality is automatic and the upper one is exactly \\(|1-\\eta\\lambda|<1\\), giving \\(\\eta L<2\\); for odd \\(k\\), the upper inequality is automatic and the lower gives the stated real-root ceiling, with multipliers \\(+1\\) and \\(-1\\) at the respective boundaries. For the minimax problem, even powers are nonnegative, so interpolation can only move modal factors toward one and cannot beat the classical equioscillating step. For odd powers the endpoint values are monotone in curvature; before the equioscillation point \\(\\alpha=1\\) is optimal, while after it balancing endpoints yields \\(F(x)=(b-a)/(2-a-b)\\). The displayed auxiliary function has nonnegative derivative because \\(|1-\\kappa x|\\ge|1-x|\\) and \\(\\kappa(1-Q)\\ge1+Q\\), proving \\(F\\ge Q\\). Equality is unique for \\(k\\ge2\\). The verifier checks boundary multipliers, exact optimum values and dense grids as transcription guards.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General convergence results give sufficient conditions but do not imply the odd supercritical stability window.",
+          "Classical gradient-descent minimax theory supplies the comparison factor but not the proof that fixed Lookahead interpolation cannot improve it."
+        ],
+        "reasoning": "No checked broader theorem specializes to both parts of the final claim.",
+        "searches": [
+          "original Lookahead paper",
+          "subsequent stationary-point and interpolation convergence analyses",
+          "classical gradient-descent Chebyshev/equioscillation theory"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.08610",
+        "subsequent Lookahead convergence literature",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the multiplier does not itself determine the optimized uniform spectral contraction when \\(\\eta\\) may enter the odd supercritical regime.",
+          "The source reports broader empirical stability but not the sharp parity ceiling."
+        ],
+        "reasoning": "The final theorem adds a complete stability classification and a separate minimax no-acceleration result.",
+        "searches": [
+          "arXiv:1907.08610 exact expectation multiplier and deterministic quadratic appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source contains the same outer polynomial in its expectation dynamics.",
+          "Its deterministic spectral study focuses on momentum and numerical eigenvalue computation rather than the exact plain-GD parity/minimax theorem."
+        ],
+        "reasoning": "Fixed Lookahead interpolation, a degree-\\(k\\) scalar spectral polynomial, and robust interval contraction were compared.",
+        "searches": [
+          "Resultary: Lookahead fixed alpha quadratic exact stability odd even k minimax no acceleration",
+          "Zhang--Lucas--Hinton--Ba arXiv:1907.08610 Sections 3 and Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table or theorem with these boundaries was located."
+        ],
+        "reasoning": "The claim is an analytic all-parameter classification rather than a finite table.",
+        "searches": [
+          "Resultary exact Lookahead parity/minimax search"
+        ]
+      },
+      "rationale": "The original Lookahead paper already writes the expectation multiplier \\(1-\\alpha+\\alpha(I-\\gamma A)^k\\), studies noisy quadratics, and analyzes deterministic quadratics with momentum through a linear dynamical system. It emphasizes larger inner learning rates and fixed interpolation empirically, but it does not state the even/odd fixed-\\(\\alpha\\) stability frontier or solve the robust spectral-interval minimax problem for plain-gradient inner steps. Resultary searches found related optimization stability/minimax records but no covering Lookahead theorem.",
+      "residual_risks": [
+        "A control/iterative-method paper may analyze the same two-parameter polynomial without using Lookahead terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_OUTER_POLYNOMIAL_NOT_SHARP_FRONTIER",
+          "evidence": "The source gives the outer polynomial and momentum-system analysis but not the parity-resolved plain-GD stability boundary or interval minimax theorem.",
+          "identifier_or_url": "arXiv:1907.08610",
+          "material_read": "Full accessible primary HTML around the noisy quadratic section, deterministic quadratic section and Appendix B; the exact expectation multiplier and fixed-\\(\\alpha\\) discussion were inspected.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Lookahead Optimizer: \\(k\\) steps forward, 1 step back",
+          "trigger": "Defining algorithm and closest quadratic analysis."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "original Lookahead quadratic analysis",
+        "related fixed-parameter optimization stability literature"
+      ],
+      "rationale": "The theorem sharply separates stability enlargement from worst-case acceleration: odd synchronization lengths can stabilize learning rates beyond the inner GD limit, yet no fixed interpolation improves the best robust spectral contraction. This directly clarifies a central motivation of Lookahead on a canonical model.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For deterministic Lookahead with plain gradient descent on an SPD quadratic, the exact universal fixed-parameter stability boundary is \\(\\eta L<2\\) for even \\(k\\) and \\(\\eta L<1+(2/\\alpha-1)^{1/k}\\) for odd \\(k\\); nevertheless the minimax contraction over a known spectral interval is exactly \\(((\\kappa-1)/(\\kappa+1))^k\\), uniquely attained for \\(k\\ge2\\) by \\(\\eta=2/(L+\\mu)\\) and \\(\\alpha=1\\).",
+  "limitations": [
+    "Deterministic SPD quadratics, plain gradient-descent inner optimizer, and fixed global \\(\\eta,\\alpha\\) only.",
+    "The theorem does not address stochastic variance reduction, momentum/Adam inner states, adaptive interpolation, or nonquadratic objectives."
+  ],
+  "schema_version": 1
+}
