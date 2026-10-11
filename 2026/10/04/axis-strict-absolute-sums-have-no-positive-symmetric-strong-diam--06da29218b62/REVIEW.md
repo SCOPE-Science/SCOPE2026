@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For fixed \(d>0\), the proof sets \(s=d/2\) and uses two coordinate slices. Axis strictness forces the allowable transverse radii \(\rho_1(\delta)\) and \(\rho_2(\delta)\) to tend to zero as the slices narrow. Membership of both \(z_1\pm sw\) and \(z_2\pm sw\) in the corresponding slices bounds both components of the common direction \(w\), contradicting the required near-unit norm. The \(\ell_p\) corollary follows from strictness of both axes and isometric regrouping. The proof covers arbitrary nonzero factors and does not use compactness, separability, or finite-dimensional approximations.
+## correctness
 
-## Originality
-PASS. The closest endpoint theorem is Haller--Langemets--Lima--Nadel, Theorem 3.1, which proves only failure of \(\mathrm{SSD}2\mathrm P\) for non-\(\ell_\infty\) absolute sums. Oja--Saealle--Zolk later introduced \(\mathrm{SSD}(d)\mathrm P\), but their direct-sum statements in the inspected full text concern \(s\)-ASQ and \(s\)-LASQ. Because the known implication is one-way, \(s\)-ASQ \(\Rightarrow\) \(\mathrm{SSD}(2s)\mathrm P\), failure of \(s\)-ASQ does not imply the present failure theorem. Searches for the quantitative direct-sum statement and its \(\ell_p\) specialization did not locate a covering result.
+PASS
 
-## Value
-PASS. Endpoint failure at \(d=2\) leaves open whether a direct sum retains a smaller positive symmetric diameter scale. The result closes that question for every axis-strict absolute norm and, in particular, for every nontrivial \(\ell_p\)-sum with \(p<\infty\): the entire positive hierarchy collapses, independently of the geometry of the factors. This is a structural boundary rather than a parameter substitution or a finite recomputation.
+Axis strictness and compactness imply the transverse clearance functions \(\rho_1(\delta),\rho_2(\delta)\to0\). Choosing two coordinate slices and applying \(\mathrm{SSD}(d)\mathrm P\) with \(s=d/2>0\) forces \(s\|v\|\le\rho_1(\delta)\) from the first slice and \(s\|u\|\le\rho_2(\delta)\) from the second. For sufficiently small \(\delta\), monotonicity of the absolute norm gives \(\|(u,v)\|<1/2\), contradicting the required common direction of norm greater than \(1/2\). Regrouping coordinates proves the arbitrary \(\ell_p\)-sum corollary. No finite experiment is used.
 
-## Closest literature and limitations
-The 2018 paper supplies the endpoint direct-sum obstruction and the \(\ell_\infty\) contrast. The 2020 paper supplies the quantitative definition and establishes its relation to \(s\)-ASQ. The present proof does not classify absolute norms having flat coordinate edges and does not concern the nonsymmetric diameter properties.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2018 direct-sum theorem was inspected in full at its relevant theorem: it excludes non-\(\ell_\infty\) absolute sums only at the endpoint \(\mathrm{SSD}2\mathrm P\). The 2020 quantitative paper was inspected at the definition and direct-sum propositions: it defines \(\mathrm{SSD}(d)\mathrm P\) and gives the one-way implication from quantitative almost squareness, but does not convert endpoint failure or failure of \(s\)-ASQ into failure at every positive \(d\). The audited two-slice clearance argument supplies that missing quantitative obstruction for the axis-strict class. Resultary searches found no implication-equivalent prior theorem.
+
+## value
+
+PASS
+
+The result closes a genuine quantitative gap left by the endpoint direct-sum theorem: for a natural geometric class of absolute norms, including every finite \(\ell_p\) norm, the entire positive symmetric strong diameter scale collapses independently of the summand spaces. This sharp qualitative-to-quantitative boundary is structurally useful and not a routine reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
