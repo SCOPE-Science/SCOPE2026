@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers, boundaries, and definitions checked. Girth makes every (k+1)-set a forest, hence full dual skeleton. For every connected k-set, removal of an internal tree vertex gives a codimension-one private face: any other connection creates a cycle on at most k+1 vertices. The private rows yield an integral unit diagonal, split injectivity and free homology. Standard combinatorial Alexander duality followed by simple connectivity, Hurewicz and Whitehead establishes the exact wedge. Complete verifier checked 23 finite pairs, including a noncactus theta graph and the Heawood graph; these are corroborating computations, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayer 2024: general \\(k=2\\) triangle-free connected graphs, arbitrary forests, and individual cycles; Bayer II: squared paths and rectangular grids.",
+        "Chandrakar 2025 establishes \\(k=3\\) for hexagonal grids; \\(k\\ge4\\) shellability posed as question."
+      ],
+      "reasoning": "Neither the special graph families nor k=2 cases dominate arbitrary high-girth graphs for all k>=3; the new theorem contains families with interacting cycles and unbounded degree. It does not subsume methods relying on short cycles, and does not assert shellability.",
+      "searches": [
+        "Every finite graph of girth at least k+2 has k-cut complex homotopy equivalent to wedge of binomial(n-1,k-1) minus connected k-vertex induced subgraphs spheres of dimension n-k-1",
+        "Homotopy type of 4-cut complexes of hexagonal grids and high-girth graphs 2025 2026",
+        "arxiv:2304.13675 Theorem 6.4 Proposition 7.12 Proposition 7.13",
+        "arxiv:2407.08158 Sections 4 and 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2512.21755, Sections 1–5, notably Question 5.1",
+      "arxiv:2304.13675, Sections 3–7, Theorem 6.1, Proposition 6.2",
+      "arxiv:2407.08158, Sections 4–5",
+      "published-finding corpus published findings for exact theorem, aliases, parameters and duality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.1 and Proposition 6.2 imply torsion-free homology may occupy two adjacent dimensions and the signed Euler characteristic equals \\(\\binom{N-1}{k-1}-c_k(G)\\).",
+        "Chandrakar 2025 Question 5.1 explicitly asks about shellability for higher k; the 2025 paper proves 3-cut only.",
+        "New lemma: each connected k-set admits a private codimension-one dual face, forcing split injectivity of the top dual boundary and vanishing of the extra degree."
+      ],
+      "reasoning": "Previous statements plus the Euler formula cannot rule out simultaneous nonzero groups in adjacent dimensions. The primitive-boundary lemma is an independent extra fact in arbitrary high-girth graphs; only after it is proved do Alexander duality and Whitehead yield the claimed top-dimensional wedge.",
+      "searches": [
+        "On Shellability of 3-Cut Complexes of Hexagonal Grid Graphs arxiv:2512.21755 Question 5.1; Topology of Cut Complexes of Graphs arxiv:2304.13675 Theorem 6.1 Proposition 6.2; Topology of Cut Complexes II arxiv:2407.08158 Section 5",
+        "Every finite graph of girth at least k+2 has k-cut complex homotopy equivalent to wedge of binomial(n-1,k-1) minus connected k-vertex induced subgraphs spheres of dimension n-k-1",
+        "arxiv:2304.13675 Theorem 6.1 Proposition 6.2",
+        "arxiv:2407.08158 Sections 4-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ordinary cut complex is Alexander dual to the hypergraph of connected induced \\(k\\)-sets; the proof checks this and its complete lower skeleton directly.",
+        "The exact private-deletion lemma removes \\(H_{N-k-2}\\), whereas Bayer 2024 Theorem 6.1 leaves two possible degrees."
+      ],
+      "reasoning": "Searched synonyms: Alexander dual, connected induced k-set hypergraph, girth, private faces, higher cut, wedge-of-spheres. The known skeleton/Euler formula is weaker and does not logically entail vanishing of the lower homology without the new primitive boundary argument.",
+      "searches": [
+        "Every finite graph of girth at least k+2 has k-cut complex homotopy equivalent to wedge of binomial(n-1,k-1) minus connected k-vertex induced subgraphs spheres of dimension n-k-1",
+        "Alexander dual of high girth k-cut complexes connected k-set private codimension-one face simplicial homology",
+        "high girth graph disconnected k vertex subsets cut complex shellability Cohen Macaulay homotopy wedge",
+        "arxiv:2304.13675 Section 6 Alexander dual",
+        "arxiv:2512.21755 Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact original 3-cut hexagonal Betti formula is in Chandrakar 2025; no indexed table giving all 4-cut high-girth homotopy types surfaced.",
+        "The 10/14-vertex hexagon chain values 64 and 252 were independently recomputed, but novelty rests on the general theorem, not those values."
+      ],
+      "reasoning": "Same numeric Euler formula (Bayer 2024) is already known whenever the lower skeleton is full, but a table of Euler numbers or Betti guesses cannot imply homotopy or vanishing of the second possible homology group. No stronger exact tabulation or homotopy entry was identified.",
+      "searches": [
+        "Homotopy type of 4-cut complexes of hexagonal grids and high-girth graphs 2025 2026",
+        "Every finite graph of girth at least k+2 has k-cut complex homotopy equivalent to wedge of binomial(n-1,k-1) minus connected k-vertex induced subgraphs spheres of dimension n-k-1",
+        "2026/10/4/SCOPE-the-4-times4-grid-refutes-all-k-cut-complex-shellability--2bb3bc2c65c6"
+      ]
+    },
+    "rationale": "Materially compared Bayer 2024 Theorem 6.1 and Proposition 6.2, Bayer II 2025 graph-family theorems, and Chandrakar 2025 three-cut hexagonal-grid theorem/Question 5.1. Earlier general results left two potential nonzero homology degrees and gave Euler count only; new private-face argument kills one degree for all k>=3 at high girth. Published mathematical-record queries and comparisons with related known claims revealed no equivalent dominant theorem, with explicit residual search risks.",
+    "residual_risks": [
+      "Unindexed, unpublished or newly posted equivalent high-girth k-cut homotopy theorems are not excluded by search.",
+      "Other graph-complex literature might imply special cases by reductions not indexed under cut-complex vocabulary.",
+      "The theorem intentionally does not assert shellability for the hexagonal-grid open question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: classifies 3-cut shellability; asks whether all higher cuts are shellable. No 4-cut homotopy classification is stated.",
+        "evidence": [
+          "arXiv:2512.21755, Abstract and Section 5 (Question 5.1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2512.21755",
+        "material_read": "Full preprint: abstract, graph definitions, three-cut main theorem, Section 5 Future directions and Question 5.1, references.",
+        "method": "Public arXiv PDF text and page images (including pages 1 and 23).",
+        "title": "On Shellability of 3-Cut Complexes of Hexagonal Grid Graphs",
+        "trigger": "Recent primary literature with a higher-cut question for hexagonal grids, and first public date Dec 25 2025."
+      },
+      {
+        "assessment": "Not covering: establishes complete lower skeleton, torsion-free homology in at most two adjacent dimensions, Euler value, and special family wedge results, not arbitrary k>=3 high-girth homotopy.",
+        "evidence": [
+          "arXiv:2304.13675, Theorem 6.1, Proposition 6.2, Theorem 6.4, Propositions 7.12-7.13."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+        "material_read": "Sections 3-7: definition, Theorem 6.1, Proposition 6.2, Section 6.1 k=2, Section 7 forest/cycle results; page images including pages 17-18.",
+        "method": "Full public arXiv PDF text and page images, exact theorem and proof comparisons.",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Original definitions, strongest general high-girth theorem and Euler formula."
+      },
+      {
+        "assessment": "Not covering: classifies k=4 for rectangular grids with 4-cycles; not universal high-girth k-cut complexes.",
+        "evidence": [
+          "arXiv:2407.08158, Introduction, Sections 4-5, especially 4-cut rectangular grid homotopy discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+        "material_read": "Introduction, definitions, Section 4 squared paths and Section 5 rectangular grid theorems, including page image for grid propositions.",
+        "method": "Full public arXiv PDF text and page images.",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "Plausible stronger subsequent topological classifications by original authors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ec8bbe3d-352b-4334-9854-4137e78dcd55",
+  "value": {
+    "rationale": "A parameter-uniform homotopy theorem for arbitrary high-girth graphs and unbounded k, answering a topological part of Chandrakar’s motivated higher-cut hexagonal-grid direction; includes graphs with overlapping long cycles. The private-face lemma closes the previously unresolved additional homology degree, while k=4 yields a natural local degree formula and nontrivial examples. Not just a renaming of Euler characteristic or a single computational table.",
+    "status": "PASS"
+  }
+}
