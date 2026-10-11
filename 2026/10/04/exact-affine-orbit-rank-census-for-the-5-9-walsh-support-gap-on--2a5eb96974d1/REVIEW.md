@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim reduces exact support \(5\) and exact Fourier support \(9\) to a finite row-space criterion for \(7\times5\) Walsh restrictions. The criterion is proved by annihilator duality and the fact that finitely many proper subspaces cannot cover a nonzero complex vector space. The affine generators exhaust all \(4368\) five-point supports in two orbits. Every rank-deficient representative case is recomputed over exact rational arithmetic; modular arithmetic is used only to certify full rank when a nonzero minor survives modulo a prime. The packaged verifier reproduces the orbit sizes, rank distributions and obstruction counts and ends with `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS for the structural census stated in the Finding. Krahmer--Pfander--Rashkov provide the general rank criterion and a numerical support-pair diagram for groups of order at most \(16\), so novelty is not claimed for the bare plotted absence of \((5,9)\). The inspected primary text does not give the two five-support affine orbits, the exact \(3248\) and \(160\) deficient-set counts, the rank split, or the \(3184/64/160\) obstruction split. Targeted searches under Walsh, Hadamard, exact-support, affine-orbit and rank-deficient-submatrix terminology found no equivalent statement. Residual risk remains for an unindexed small-matrix census under different terminology.
+PASS
 
-## Value
-PASS. This is a complete, natural finite classification of the mechanism behind a historically numerical uncertainty-diagram entry. It reduces all five-point supports to two affine types and distinguishes two substantive failure mechanisms: a forced zero coefficient in time or an unavoidable eighth Fourier zero. That structural compression is more informative than simply rerunning the original numerical support-pair test.
+For fixed five-support S and seven-frequency zero set T, exact support (5,9) is feasible exactly when W[T,S] has nonzero kernel and neither a coordinate functional nor any outside Walsh row vanishes identically on that kernel; the row-space formulation is standard annihilator duality, and over C finitely many proper hyperplanes cannot cover a nonzero kernel. The bundled verifier constructs the affine group action and exhausts both five-support orbits and every seven-set T using exact rational row reduction after a sound modular full-rank filter. I independently replayed the census and reproduced orbit sizes 1680 and 2688, the 3248/160 deficient counts, the rank distributions, the 3184/64/160 obstruction split, and zero admissible cases.
 
-## Closest literature and limitations
-The closest source is Krahmer--Pfander--Rashkov, arXiv:math/0611493, especially Lemma 3.4 and Figure 2. Meshulam's finite-Abelian uncertainty inequality supplies broader lower bounds but does not decide this exact support pattern. The result is finite and does not classify the full order-16 diagram or any infinite family.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The bare absence of a (5,9) support pair is not new: the Krahmer--Pfander--Rashkov primary paper presents the order-at-most-16 uncertainty diagrams as numerical evidence and includes the elementary abelian order-16 group. The surviving final claim is the exact affine-orbit/rank/obstruction census. Full primary-text inspection found the general rank criterion and the numerical diagram discussion, but not the two support orbits, exact deficient-rank counts, or the forced-coordinate versus forced-extra-zero split.
+
+## value
+
+PASS
+
+This is a natural complete classification of the mechanism behind a historically numerical boundary point. It compresses a large singular-value census into two affine support types and exact row-space obstructions, providing reusable finite Walsh-matrix structure rather than a bare recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

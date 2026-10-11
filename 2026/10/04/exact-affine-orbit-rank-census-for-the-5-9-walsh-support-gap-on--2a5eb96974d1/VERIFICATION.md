@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_f2_4_5_9.py` from the directory containing this file. The verifier uses only the Python standard library.
+# Independent mathematical audit
 
-It verifies that the affine generators partition all \(\binom{16}{5}=4368\) five-point supports into orbits of sizes \(1680\) and \(2688\). For each representative it checks all \(\binom{16}{7}=11440\) seven-character zero sets. A rank-five result modulo \(1000003\) proves rank five over the rationals because it exhibits a nonzero integer minor modulo that prime. Every case not certified full-rank in this way is recomputed by exact rational row reduction.
+## correctness
 
-Expected exact census:
+PASS
 
-- Representative \(\{0,1,2,3,4\}\): \(3248\) rank-deficient sets; ranks \(4\) in \(3200\) cases and \(3\) in \(48\) cases; \(3184\) force a zero time coefficient and the remaining \(64\) force an additional Fourier zero.
-- Representative \(\{0,1,2,4,8\}\): \(160\) rank-deficient sets, all rank \(4\), all forcing a zero time coefficient.
-- Admissible exact \((5,9)\) cases: \(0\).
+For fixed five-support S and seven-frequency zero set T, exact support (5,9) is feasible exactly when W[T,S] has nonzero kernel and neither a coordinate functional nor any outside Walsh row vanishes identically on that kernel; the row-space formulation is standard annihilator duality, and over C finitely many proper hyperplanes cannot cover a nonzero kernel. The bundled verifier constructs the affine group action and exhausts both five-support orbits and every seven-set T using exact rational row reduction after a sound modular full-rank filter. I independently replayed the census and reproduced orbit sizes 1680 and 2688, the 3248/160 deficient counts, the rank distributions, the 3184/64/160 obstruction split, and zero admissible cases.
 
-The final line must be `VERIFY_OK`. No floating-point computation or tolerance is used. The verification is exhaustive only for the finite domain stated in the claim and does not establish results for other support sizes, groups or orders.
+## originality
+
+PASS
+
+The bare absence of a (5,9) support pair is not new: the Krahmer--Pfander--Rashkov primary paper presents the order-at-most-16 uncertainty diagrams as numerical evidence and includes the elementary abelian order-16 group. The surviving final claim is the exact affine-orbit/rank/obstruction census. Full primary-text inspection found the general rank criterion and the numerical diagram discussion, but not the two support orbits, exact deficient-rank counts, or the forced-coordinate versus forced-extra-zero split.
+
+## value
+
+PASS
+
+This is a natural complete classification of the mechanism behind a historically numerical boundary point. It compresses a large singular-value census into two affine support types and exact row-space obstructions, providing reusable finite Walsh-matrix structure rather than a bare recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
