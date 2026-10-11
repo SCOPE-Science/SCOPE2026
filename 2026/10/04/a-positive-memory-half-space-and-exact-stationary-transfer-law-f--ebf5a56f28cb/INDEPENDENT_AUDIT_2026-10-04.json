@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:17:12.130038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any bounded complete trajectory, variation of constants backwards in \\(\\dot v=y^2-v\\) gives \\(v(t)=\\int_{-\\infty}^{t}e^{-(t-s)}y(s)^2\\,ds\\ge0\\). If it vanished, then \\(y=0\\) on a backward half-line; bounded backward solutions of \\(\\dot z=-dz\\) with \\(d>0\\) force \\(z=0\\) there, and then \\(\\dot y=k\\ne0\\), a contradiction. Thus every compact invariant set lies a positive distance inside \\(v>0\\). The generator identities for \\(u,v,v^2/2,y^2/2,z^2/2\\) give \\(\\langle y\\rangle=0\\), \\(\\langle v\\rangle=\\langle y^2\\rangle\\), \\(\\langle v^2\\rangle=\\langle vy^2\\rangle\\), and \\(d\\langle z^2\\rangle=c\\langle y^2\\tanh v\\rangle\\). Strict positivity and \\(0<\\tanh v<v\\) on the compact support give the strict transfer chain.",
+      "risks": [
+        "The statement is for compact invariant sets/measures and the continuous-time ODE; transient or discretized dynamics are outside scope."
+      ],
+      "sources": [
+        "assigned RESULT.md",
+        "verify.py",
+        "Guo–Wen–Mou, DOI 10.3390/math11010024"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nearby memristor results use different memory equations or different vector fields."
+        ],
+        "reasoning": "General memristor dynamics literature does not mechanically imply this exact source-specific stationary identity.",
+        "searches": [
+          "current Resultary memristor-flow findings",
+          "primary source"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/math11010024",
+        "current Resultary semantic search",
+        "assigned symbolic generator checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper's absence-of-equilibria observation for \\(k\\ne0\\) does not imply that every compact complete trajectory satisfies \\(v>0\\), nor the measure identity linking \\(z^2\\), \\(y^2\\tanh v\\), and \\(v^2\\)."
+        ],
+        "reasoning": "The audited result adds a backward-time compactness argument and stationary generator identities beyond the source's numerical analysis.",
+        "searches": [
+          "claim-versus-source system and equilibrium analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source prints \\(\\dot v=y^2-v\\) and studies numerical hidden attractors but does not state the backward-convolution positivity theorem.",
+          "No other Resultary hit concerns the same six-dimensional vector field and transfer chain."
+        ],
+        "reasoning": "Equivalent formulations via a stable memory convolution, positive invariant half-space, and invariant-measure energy transfer were compared.",
+        "searches": [
+          "Resultary semantic query: six dimensional memristor y squared minus v compact invariant set positive v stationary transfer tanh v",
+          "DOI 10.3390/math11010024 exact-equation/full-text search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database of the stationary transfer quantities was located in the primary article or indexed findings."
+        ],
+        "reasoning": "The theorem is uniform over all compact stationary states, not a finite numerical recomputation.",
+        "searches": [
+          "exact DOI search",
+          "current Resultary exact-system search"
+        ]
+      },
+      "rationale": "The introducing 2023 paper was inspected in full-text HTML around the model, equilibrium discussion, hidden-attractor computations, bifurcations, coexistence/offset boosting and DSP realization. It contains the exact memory equation but no bounded-complete-trajectory half-space theorem or invariant-measure transfer law. Fresh Resultary search found the audited result itself and otherwise different memristor systems or stationary laws, with no stronger theorem covering this source-specific chain.",
+      "residual_risks": [
+        "A source-specific identity could exist in later or poorly indexed engineering literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the compact-invariant-set positivity and stationary transfer theorem.",
+          "evidence": "The paper prints the memory equation and numerical dynamics but no invariant-measure balance or uniform positive-memory half-space result.",
+          "identifier_or_url": "https://doi.org/10.3390/math11010024",
+          "material_read": "Full-text HTML model and mathematical-analysis sections, hidden-attractor/bifurcation/coexistence/offset-boosting discussion, DSP section and conclusion; exact equations were compared directly.",
+          "method": "Primary full-text equation and implication comparison.",
+          "title": "Dynamic Analysis and DSP Implementation of Memristor Chaotic Systems with Multiple Forms of Hidden Attractors",
+          "trigger": "Primary source for the exact six-dimensional model."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result converts a numerically explored hidden-attractor model into an exact geometric constraint and a strict stationary transfer law valid for every compact recurrent regime. The positive-memory half-space is also a useful simulation/validation invariant, so the theorem has structural value beyond a routine moment calculation.",
+      "risks": [
+        "It gives no existence theorem or numerical lower bound for the distance from \\(v=0\\)."
+      ],
+      "sources": [
+        "primary six-dimensional memristor model",
+        "backward convolution and stationary transfer identities"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires \\(c,d>0\\), \\(g\\ne0\\), \\(k\\ne0\\), compact recurrence and the exact continuous-time model.",
+    "No claim of attractor existence, chaos/hyperchaos, basin geometry or DSP-discretization equivalence.",
+    "Originality is best-of-knowledge."
+  ],
+  "schema_version": 1
+}

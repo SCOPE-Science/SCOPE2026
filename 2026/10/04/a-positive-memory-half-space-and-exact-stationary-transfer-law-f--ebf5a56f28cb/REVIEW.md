@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is reconstructed directly from the printed six-dimensional vector field. On a bounded complete trajectory, solving \(\dot v+v=y^2\) backwards gives a nonnegative convolution representation. If \(v=0\), then the entire past has \(y=0\); with \(d>0\), backward boundedness forces \(z=0\), and then \(\dot y=k\) contradicts \(k\ne0\). The invariant-measure identities follow from the generator applied to \(u\), \(v\), \(v^2/2\), \(y^2/2\), and \(z^2/2\). The strict upper inequality uses \(0<\tanh v<v\) on the compact support.
+## correctness
 
-## Originality
-PASS. Statement-level searches covered the exact source title and DOI, the equation \(\dot v=y^2-v\), stationary balance formulations, positive-half-space formulations, and broader compact-invariant-measure language. The introducing paper discusses equilibria, hidden attractors, Lyapunov exponents, bifurcations, transient degradation, offset boosting, and DSP implementation, but not this theorem. The nearest indexed records concern stationary balances or memory identities in different systems and do not imply the source-specific equality or strict half-space geometry.
+PASS
 
-## Value
-PASS. The source is primarily numerical. The new statement supplies an exact geometric constraint on every compact recurrent regime and a strict moment law that can be used to validate simulations or rule out purported recurrent statistics. The result is parameter-robust over \(a,b,e\) and directly covers the paper's hidden-attractor parameter choice.
+For any bounded complete trajectory, variation of constants backwards in \(\dot v=y^2-v\) gives \(v(t)=\int_{-\infty}^{t}e^{-(t-s)}y(s)^2\,ds\ge0\). If it vanished, then \(y=0\) on a backward half-line; bounded backward solutions of \(\dot z=-dz\) with \(d>0\) force \(z=0\) there, and then \(\dot y=k\ne0\), a contradiction. Thus every compact invariant set lies a positive distance inside \(v>0\). The generator identities for \(u,v,v^2/2,y^2/2,z^2/2\) give \(\langle y\rangle=0\), \(\langle v\rangle=\langle y^2\rangle\), \(\langle v^2\rangle=\langle vy^2\rangle\), and \(d\langle z^2\rangle=c\langle y^2\tanh v\rangle\). Strict positivity and \(0<\tanh v<v\) on the compact support give the strict transfer chain.
 
-## Closest literature and residual limits
-The introducing article is the closest source because it contains the exact vector field. A later memristive hyperchaotic-system paper located during comparison uses a different memory equation, \(\dot v=x\), so it does not imply the present convolution positivity or transfer identity. The principal residual risk is that a less discoverable paper may have derived the same stationary law for this exact model without using the searched terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The introducing 2023 paper was inspected in full-text HTML around the model, equilibrium discussion, hidden-attractor computations, bifurcations, coexistence/offset boosting and DSP realization. It contains the exact memory equation but no bounded-complete-trajectory half-space theorem or invariant-measure transfer law. Fresh Resultary search found the audited result itself and otherwise different memristor systems or stationary laws, with no stronger theorem covering this source-specific chain.
+
+## value
+
+PASS
+
+The result converts a numerically explored hidden-attractor model into an exact geometric constraint and a strict stationary transfer law valid for every compact recurrent regime. The positive-memory half-space is also a useful simulation/validation invariant, so the theorem has structural value beyond a routine moment calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

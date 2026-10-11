@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked at three levels.
+# Independent mathematical audit
 
-First, the scalar memory equation \(\dot v+v=y^2\) was solved on a bounded complete trajectory, yielding \(v(t)=\int_{-\infty}^{t}e^{-(t-s)}y(s)^2\,ds\). This establishes \(v\ge0\) without numerical approximation. The contradiction at \(v=0\) uses only \(d>0\) and \(k\ne0\).
+## correctness
 
-Second, the stationary identities were reconstructed from the generator. The symbolic checker verifies
-\[
-L(y^2/2)+L(z^2/2)-k y=c y^2\tanh v-dz^2
-\]
-and
-\[
-L(v^2/2)=vy^2-v^2.
-\]
-Together with \(L u=gy\), these identities imply the stated moment law for every compactly supported invariant measure.
+PASS
 
-Third, the checker substitutes the source parameters \(c=7\), \(d=31\), \(g=1/20\), and \(k=7\) and confirms the specialized coefficients exactly.
+For any bounded complete trajectory, variation of constants backwards in \(\dot v=y^2-v\) gives \(v(t)=\int_{-\infty}^{t}e^{-(t-s)}y(s)^2\,ds\ge0\). If it vanished, then \(y=0\) on a backward half-line; bounded backward solutions of \(\dot z=-dz\) with \(d>0\) force \(z=0\) there, and then \(\dot y=k\ne0\), a contradiction. Thus every compact invariant set lies a positive distance inside \(v>0\). The generator identities for \(u,v,v^2/2,y^2/2,z^2/2\) give \(\langle y\rangle=0\), \(\langle v\rangle=\langle y^2\rangle\), \(\langle v^2\rangle=\langle vy^2\rangle\), and \(d\langle z^2\rangle=c\langle y^2\tanh v\rangle\). Strict positivity and \(0<\tanh v<v\) on the compact support give the strict transfer chain.
 
-The verification does not certify existence of a compact attractor, does not infer chaos from the identities, and does not replace the analytic bounded-complete-trajectory argument with finite-time computation.
+## originality
+
+PASS
+
+The introducing 2023 paper was inspected in full-text HTML around the model, equilibrium discussion, hidden-attractor computations, bifurcations, coexistence/offset boosting and DSP realization. It contains the exact memory equation but no bounded-complete-trajectory half-space theorem or invariant-measure transfer law. Fresh Resultary search found the audited result itself and otherwise different memristor systems or stationary laws, with no stronger theorem covering this source-specific chain.
+
+## value
+
+PASS
+
+The result converts a numerically explored hidden-attractor model into an exact geometric constraint and a strict stationary transfer law valid for every compact recurrent regime. The positive-memory half-space is also a useful simulation/validation invariant, so the theorem has structural value beyond a routine moment calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
