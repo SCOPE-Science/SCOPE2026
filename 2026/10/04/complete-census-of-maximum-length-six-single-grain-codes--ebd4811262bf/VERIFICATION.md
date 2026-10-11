@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` uses only the Python standard library. It constructs all \(64\) binary length-six words and, for each word, the exact no-error/single-transition-smear error ball from the stated channel definition. It joins two words exactly when their balls are disjoint, then performs deterministic Bron--Kerbosch enumeration of maximal cliques with a cardinality prune that can discard only branches incapable of reaching the current maximum.
+# Independent mathematical audit
 
-The program compares the recomputed maximum-clique list byte-for-byte at the word-list level against the four codebooks in the package, directly rechecks pairwise ball disjointness, checks closure under binary addition, and checks the global-complement action. Expected output is:
+## correctness
 
-`VERIFY_OK maximum=16 labeled_maxima=4 linear_maxima=1 complement_closed=2 complement_map=3,1,2,0`
+PASS
 
-The verified domain is finite and complete. No claim is made for other lengths or for more than one grain error.
+A fresh definition-level reconstruction formed every one-grain error ball for all \(64\) binary words, joined words with disjoint balls, and exactly enumerated maximum cliques. It independently reproduced maximum size \(16\), exactly four maxima, one xor-closed maximum, and two complement-fixed maxima; complement swaps the other two. The finite exhaustive calculation is the proof of this finite claim, not evidence for any infinite extrapolation.
+
+## originality
+
+PASS
+
+The exact optimum size \(M(6,1)=16\) is prior, but the inspected primary full text gives bounds and constructions rather than an extremizer census. Fresh semantic search found no earlier statement classifying all four labeled maxima or the linear/complement symmetry split. A still-more-direct 2014 Sharov--Roth source is retained as a priority risk because this round did not obtain its full text.
+
+## value
+
+PASS
+
+The optimum size was known, but the complete extremizer census answers a natural finite classification question at the first short parameter where several inequivalent-looking optima coexist. The linearity and complement-action split exposes structure not contained in the scalar value \(M(6,1)=16\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

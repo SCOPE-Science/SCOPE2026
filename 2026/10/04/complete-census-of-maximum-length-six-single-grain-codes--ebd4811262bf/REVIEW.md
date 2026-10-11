@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the channel problem to maximum cliques in the full 64-vertex compatibility graph and exhaustively enumerates all maximum cliques. The verifier also directly rechecks every listed extremizer and both structural properties.
+## correctness
 
-## Originality
-PASS. The known value \(M(6,1)=16\) is prior work and is not claimed as new. Exact-parameter, alias, mineral-error, and structural searches plus inspection of the main full text found no four-code extremizer census or implication-equivalent theorem. The older Sharov--Roth full text was inaccessible, so an unadvertised census there remains a residual risk.
+PASS
 
-## Value
-PASS. The complete maximum-code census is a natural structural refinement of a standard small-parameter benchmark. Because the literature emphasizes group constructions, the fact that exactly one of four maxima is linear is mathematically informative rather than a cosmetic enumeration.
+A fresh definition-level reconstruction formed every one-grain error ball for all \(64\) binary words, joined words with disjoint balls, and exactly enumerated maximum cliques. It independently reproduced maximum size \(16\), exactly four maxima, one xor-closed maximum, and two complement-fixed maxima; complement swaps the other two. The finite exhaustive calculation is the proof of this finite claim, not evidence for any infinite extrapolation.
 
-## Closest literature and limitations
-Gabrys--Yaakobi--Dolecek provide the same model, notation, bounds, construction framework, and the small-length cardinality table. Sharov--Roth is the principal earlier granular-media source. This result is finite at length \(6\) only and does not improve the known extremal cardinality.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact optimum size \(M(6,1)=16\) is prior, but the inspected primary full text gives bounds and constructions rather than an extremizer census. Fresh semantic search found no earlier statement classifying all four labeled maxima or the linear/complement symmetry split. A still-more-direct 2014 Sharov--Roth source is retained as a priority risk because this round did not obtain its full text.
+
+## value
+
+PASS
+
+The optimum size was known, but the complete extremizer census answers a natural finite classification question at the first short parameter where several inequivalent-looking optima coexist. The linearity and complement-action split exposes structure not contained in the scalar value \(M(6,1)=16\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
