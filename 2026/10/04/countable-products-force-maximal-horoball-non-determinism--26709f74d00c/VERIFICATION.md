@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed directly from the definitions.
+# Independent mathematical audit
 
-For a prescribed \(\varepsilon>0\), choose bounded compatible factor metrics and the weighted product metric \(\delta(x,y)=\sum_{i\ge1}2^{-i}d_i(x_i,y_i)\). Compactness makes the identity from \((X,\delta)\) to the given metric space \((X,d)\) uniformly continuous. Therefore agreement on a sufficiently long finite prefix implies \(d\)-distance below \(\varepsilon\).
+## correctness
 
-A nontrivial coordinate beyond that prefix exists because infinitely many factors are non-singletons. Two points differing only there remain equal on the controlling prefix after every coordinatewise group action, so their distance stays below \(\varepsilon\) for every group element. This is stronger than the definition requiring closeness only on one horoball, and therefore places every horofunction in \(\operatorname{ND}_{\varepsilon}(X)\). Intersecting over all positive \(\varepsilon\) gives the asserted equality for \(\operatorname{ND}(X)\).
+PASS
 
-The finite-support expansiveness boundary was checked separately: with finitely many non-singleton factors the system is a finite product, while a nonexpansive factor can be isolated by taking two product points equal in all other coordinates. No numerical computation or finite experiment is part of the proof.
+For any compatible metric \(d\) on the compact countable product, uniform equivalence with a standard summable product metric gives a finite coordinate prefix whose equality forces \(d<\varepsilon\). Infinitely many non-singleton factors supply a distinct pair differing only beyond that prefix. Coordinatewise dynamics preserve equality of the prefix for every group element, so that same pair stays \(\varepsilon\)-close under the whole group. The horoball conclusion is therefore immediate for every horofunction. The expansiveness boundary follows: infinitely many non-singletons forbid any expansivity constant, while a finite product is expansive exactly when each non-singleton factor is expansive.
 
-Scientific limits: the argument assumes coordinatewise action on a countable compact metrizable product. It does not apply unchanged to skew products in which a tail difference can feed into finitely many controlling coordinates.
+## originality
+
+PASS
+
+The new horofunction invariant paper defines the non-deterministic sets and proves broad group-dependent restrictions, but its inspected text does not state this countable-product mechanism. A 2014 paper does state that a countable product is expansive iff every factor is expansive, but its converse proof tries to extract a uniform positive constant from coordinate constants divided by exponentially shrinking weights; the tail construction directly refutes that countable-product direction. Current published-finding search returned no earlier correct finite-support expansiveness classification or the stronger global-orbit-closeness implication for every horoball.
+
+## value
+
+PASS
+
+The theorem gives a sharp if-and-only-if boundary for expansiveness of countable coordinate products and immediately forces the newly introduced horoball nondeterminism invariant to be maximal. It also corrects a published countable-product expansiveness claim. The argument is elementary, but the boundary and correction are structurally motivated rather than a routine isolated exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

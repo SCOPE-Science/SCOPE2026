@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the arbitrary compatible metric to a bounded weighted product metric by uniform continuity on the compact product. At scale \(\varepsilon\), agreement on a finite coordinate prefix forces \(\varepsilon\)-closeness. A distinct pair placed in a nontrivial tail coordinate stays equal on that prefix under every coordinatewise group element, so the required inequality holds for the whole group and hence for every horoball. The expansiveness classification follows by combining this obstruction with finite-product expansiveness.
+## correctness
 
-## Originality
-PASS. The September 2026 primary source defines \(\operatorname{ND}_{\varepsilon}(X)\) and \(\operatorname{ND}(X)\) but no product theorem was located in the inspected full text. The 2024 predecessor has only a qualitative product-structure remark for asymptotic pairs. Targeted searches did not locate the universal countable-product equality with the horofunction boundary. Mangang's 2014 Theorem 2.16 states an incompatible countable-product expansiveness assertion, so it is not prior coverage; the present theorem supplies the finite-support boundary its statement misses.
+PASS
 
-Residual risk: the elementary global-nonexpansiveness lemma may be folklore under older terminology. No stronger checked source implied the exact maximal horofunction statement.
+For any compatible metric \(d\) on the compact countable product, uniform equivalence with a standard summable product metric gives a finite coordinate prefix whose equality forces \(d<\varepsilon\). Infinitely many non-singleton factors supply a distinct pair differing only beyond that prefix. Coordinatewise dynamics preserve equality of the prefix for every group element, so that same pair stays \(\varepsilon\)-close under the whole group. The horoball conclusion is therefore immediate for every horofunction. The expansiveness boundary follows: infinitely many non-singletons forbid any expansivity constant, while a finite product is expansive exactly when each non-singleton factor is expansive.
 
-## Value
-PASS. The result gives an exact phase transition for the new horofunction non-determinism invariant and a sharp warning about countable product constructions: infinitely many nontrivial coordinates erase all directional discrimination at every scale. It also resolves a concrete mismatch in the countable-product expansiveness literature by identifying the necessary finite-support condition.
+## originality
 
-## Closest literature and limitations
-Closest inspected sources are Bitar--Donoso--Petite (arXiv:2609.26479v1), Donoso--Maass--Petite (arXiv:2210.00115; DOI 10.1090/tran/9269), and Mangang, *Product Dynamical Systems* (2014). The claim is limited to coordinatewise countable products of compact metrizable systems; it does not cover coordinate-coupled skew products or nonmetrizable uncountable products.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The new horofunction invariant paper defines the non-deterministic sets and proves broad group-dependent restrictions, but its inspected text does not state this countable-product mechanism. A 2014 paper does state that a countable product is expansive iff every factor is expansive, but its converse proof tries to extract a uniform positive constant from coordinate constants divided by exponentially shrinking weights; the tail construction directly refutes that countable-product direction. Current published-finding search returned no earlier correct finite-support expansiveness classification or the stronger global-orbit-closeness implication for every horoball.
+
+## value
+
+PASS
+
+The theorem gives a sharp if-and-only-if boundary for expansiveness of countable coordinate products and immediately forces the newly introduced horoball nondeterminism invariant to be maximal. It also corrects a published countable-product expansiveness claim. The argument is elementary, but the boundary and correction are structurally motivated rather than a routine isolated exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
