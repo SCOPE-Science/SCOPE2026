@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:05:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from Wang--Ramdas equation (41), setting \\(x=c^2\\) yields an exact rational expression for \\(G_n^{(c)2}\\). Differentiating its logarithm gives sign proportional to \\(n-x(t-1)\\): the function increases to the unique optimizer \\(x=n/(t-1)\\) for \\(t>1\\), and increases to the limiting value one for \\(t\\le1\\). Substitution gives the displayed envelope. The barrier equation, monotonicity in n, and Lambert-W limiting solution follow by direct algebra/asymptotics. The repository verifier numerically checks the algebra and representative barriers; it is not used as the proof.",
+      "risk": "The optimized envelope is a pointwise, data-dependent oracle and is not itself a valid martingale obtained by adaptively tuning c.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liang et al. treat arbitrary Gaussian regression models and model-specific F statistics, so the one-mean t problem is a strict special case.",
+          "Wang--Ramdas explicitly identify c^2 as Gaussian prior precision and give the same t-statistic Bayes-factor/martingale expression."
+        ],
+        "reasoning": "The established regression result is broader and dominates the submitted fixed-time optimization step.",
+        "searches": [
+          "Liang et al., Mixtures of g Priors for Bayesian Variable Selection, full text",
+          "George--Foster local/type-II empirical Bayes line of work",
+          "Wang--Ramdas arXiv:2310.03722v5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.03722v5",
+        "Liang et al. 2008 DOI:10.1198/016214507000001337",
+        "arXiv:1704.02479",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theory says maximize the g-prior marginal likelihood at g=F-1 for a one-regressor model; identifying F=T^2 and g=n/c^2 yields c^2=n/(T^2-1).",
+          "Plugging that optimizer into the already-published fixed-time Bayes factor gives the submitted envelope; inversion gives the barrier."
+        ],
+        "reasoning": "The claim is therefore a renamed/specialized local empirical-Bayes calculation, not an independent mathematical finding.",
+        "searches": [
+          "Liang et al. 2008 equation (9)",
+          "Wang--Ramdas 2024 equation (41)",
+          "normal-prior Bayesian t-test formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gönen-style normal-effect-size t Bayes factors have the same fixed-time functional form after g=1/c^2.",
+          "Liang et al. (2008), equation (9), gives local EB \\(\\hat g=\\max\\{F-1,0\\}\\)."
+        ],
+        "reasoning": "For a one-sample mean model the regression g parameter equals n times the effect-size prior variance and F=T^2, giving precisely the submitted optimizer.",
+        "searches": [
+          "Wang--Ramdas equation (41) compared algebraically to the normal g-prior t-test Bayes factor",
+          "Liang et al. local empirical Bayes g-prior formula",
+          "web: maximum Bayes factor normal g-prior t statistic empirical Bayes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numerical table is needed; the decisive coverage is theorem/formula based."
+        ],
+        "reasoning": "Database coverage is inapplicable because the result follows symbolically from a prior general formula.",
+        "searches": [
+          "Resultary sequential-t searches",
+          "Bayesian t-test literature searches"
+        ]
+      },
+      "rationale": "The fixed-time Wang--Ramdas martingale is exactly the normal-g-prior Bayes factor for a one-sample t statistic after the parameter conversion \\(g_{\\mathrm{reg}}=n/c^2\\). The established local empirical-Bayes g-prior literature maximizes this marginal likelihood and gives \\(\\widehat g_{\\mathrm{reg}}=\\max\\{F-1,0\\}\\). For the one-parameter mean test \\(F=T^2\\), this is exactly \\(c_*^2=n/(T^2-1)\\) when \\(T^2>1\\), with the boundary solution when \\(T^2\\le1\\). Thus the central optimizer/envelope is a direct specialization of prior empirical-Bayes theory; the crossing barrier and Lambert-W limit are routine algebraic consequences of that covered envelope.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL",
+          "evidence": "Equation (41) gives the exact c-dependent t-statistic expression and the text identifies c^2 as prior precision.",
+          "identifier_or_url": "arXiv:2310.03722v5",
+          "material_read": "Full HTML around Theorem 4.9, equations (35)--(41), tuning discussion, and Proposition 4.10.",
+          "method": "lawful arXiv full text",
+          "title": "Anytime-valid t-tests and confidence sequences for Gaussian means with unknown variance",
+          "trigger": "Exact source of the Gaussian-mixture sequential t-martingale."
+        },
+        {
+          "assessment": "DECISIVE_COVERAGE",
+          "evidence": "Equation (9) states the local empirical-Bayes optimizer \\(\\widehat g_\\gamma=\\max\\{F_\\gamma-1,0\\}\\), which specializes exactly to the submitted optimizer.",
+          "identifier_or_url": "Liang, Paulo, Molina, Clyde & Berger, JASA 103 (2008), DOI 10.1198/016214507000001337",
+          "material_read": "Full article text around Section 2.4, especially equation (9), plus surrounding Bayes-factor discussion.",
+          "method": "lawfully accessible full text copy",
+          "title": "Mixtures of g Priors for Bayesian Variable Selection",
+          "trigger": "Broader primary empirical-Bayes theory for maximizing Gaussian g-prior marginal likelihoods."
+        },
+        {
+          "assessment": "EQUIVALENT_FIXED_TIME_FORMULATION",
+          "evidence": "The normal effect-size prior yields a closed t-statistic Bayes factor matching Wang--Ramdas after parameter conversion.",
+          "identifier_or_url": "Gronau, Ly & Wagenmakers, The American Statistician 2020 / arXiv:1704.02479",
+          "material_read": "Full publisher formula and one-sample specialization discussion.",
+          "method": "lawful publisher full text",
+          "title": "Informed Bayesian t-Tests",
+          "trigger": "Confirms the normal effect-size g-prior representation of the classical one-sample t Bayes factor."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Once the prior local empirical-Bayes identity \\(\\hat g=F-1\\) is recognized, the optimizer is substitution and the envelope/barrier are routine one-variable algebra. Recasting the same covered fixed-time Bayes-factor optimization as an oracle diagnostic for a sequential martingale does not add a new structural theorem, and the pointwise maximized process is not itself sequentially valid.",
+      "risk": "The barrier formulas may be practically informative, but utility of a repackaging does not meet the scientific-value bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "At fixed sample size \\(n\\) and observed \\(t=T_{n-1}^2\\), maximizing the Wang--Ramdas scale-invariant Gaussian-mixture t-martingale over prior precision \\(c^2\\) gives \\(1\\) for \\(t\\le1\\), while for \\(t>1\\) the optimizer is \\(c_*^2=n/(t-1)\\) and the envelope is \\([(1+(t-1)/n)^n/t]^{1/2}\\), with the corresponding fixed-time crossing barriers and Lambert-W limit. ",
+  "limitations": [
+    "Scientific rejection is for prior coverage and routine-value status, not for correctness.",
+    "No adaptive validity is claimed for the pointwise supremum itself."
+  ],
+  "schema_version": 1
+}
