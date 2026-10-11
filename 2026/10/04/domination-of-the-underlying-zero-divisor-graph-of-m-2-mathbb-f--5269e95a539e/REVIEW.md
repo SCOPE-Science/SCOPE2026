@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every nonzero singular matrix in \(M_2(\mathbb F_q)\) has rank one and is classified by an image line, a kernel line, and a nonzero scalar. The product criterion reduces exactly to concatenation of those projective coordinates. The upper bound uses one vertex from each diagonal fiber. For \(q>2\), the lower bound counts the unavoidable rectangle of projective types and then uses the multiplicity \(q-1\ge2\) of an off-diagonal fiber to produce an undominated scalar multiple. The exceptional \(q=2\) pair is checked directly and no universal vertex exists.
+PASS
 
-Risk: the finite verifier is not used to infer the arbitrary-\(q\) theorem; the general lower bound is symbolic.
+Every nonzero singular \(2\times2\) matrix has rank one and is determined up to \(q-1\) nonzero scalars by its image line \(L\) and kernel line \(K\). For types \((L,K)\), \((L',K')\), adjacency is exactly \(L'=K\) or \(L=K'\). One diagonal representative per projective line gives a dominating set of size \(q+1\). For \(q>2\), the support-deficit rectangle argument forces any hypothetical support below \(q+1\) into the equality pattern where a selected off-diagonal type has no selected type-neighbor; because its fiber has at least two scalar copies, an unselected copy remains undominated. For \(q=2\), fibers are singletons and the displayed two projective types dominate all nine vertices, while no vertex is universal. Independent finite reconstruction of the actual \(q=2,3\) matrix graphs agrees with \(2\) and \(4\).
 
-## Originality
+## originality
 
-PASS. The closest full-text source proves directed in- and out-domination number \(q+1\) for \(M_2(\mathbb F_q)\). That statement does not imply ordinary domination after directions are forgotten, because symmetrization adds edges; indeed the final theorem shows a strict drop from \(3\) to \(2\) at \(q=2\). The matrix zero-divisor literature and a later survey were searched under the underlying-graph, undirected, symmetrized, image-kernel, and \(AB=0\) or \(BA=0\) formulations. No source inspected states the final piecewise formula.
+PASS
 
-Risk: older noncommutative zero-divisor literature uses more than one graph convention, and an unindexed paper could have enumerated this exact \(2\times2\) case.
+Jafari--Jafari Rad prove directed out- and in-domination \((q^n-1)/(q-1)\); at \(n=2\) this is \(q+1\). Passing to the underlying undirected graph adds all reverse-arc adjacencies, so their directed lower bound does not transfer. The audited binary case, where the undirected value is \(2\) instead of \(3\), explicitly demonstrates non-implication. Resultary searches found no prior exact theorem for this undirected symmetrization.
 
-## Value
+## value
 
-PASS. The result closes the natural undirected counterpart of a known directed matrix-domination formula for the first nontrivial full matrix size. It identifies the exact mechanism by which symmetrization can lower domination and isolates the binary field as the unique exception. The projective image-kernel model is reusable for other invariants of the same graph.
+PASS
 
-Risk: the theorem does not yet extend to higher matrix dimension.
+The result gives the exact undirected counterpart of a classical matrix-ring domination problem and isolates the unique binary failure of invariance under forgetting arc direction. The image/kernel projective model and the scalar-fiber obstruction are reusable structural tools rather than a numerical curiosity.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

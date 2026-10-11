@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:05:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every nonzero singular \\(2\\times2\\) matrix has rank one and is determined up to \\(q-1\\) nonzero scalars by its image line \\(L\\) and kernel line \\(K\\). For types \\((L,K)\\), \\((L',K')\\), adjacency is exactly \\(L'=K\\) or \\(L=K'\\). One diagonal representative per projective line gives a dominating set of size \\(q+1\\). For \\(q>2\\), the support-deficit rectangle argument forces any hypothetical support below \\(q+1\\) into the equality pattern where a selected off-diagonal type has no selected type-neighbor; because its fiber has at least two scalar copies, an unselected copy remains undominated. For \\(q=2\\), fibers are singletons and the displayed two projective types dominate all nine vertices, while no vertex is universal. Independent finite reconstruction of the actual \\(q=2,3\\) matrix graphs agrees with \\(2\\) and \\(4\\).",
+      "risk": "The projective-fiber lower bound is specific to matrix size \\(2\\); higher dimensions have more complicated rank strata.",
+      "sources": [
+        "Jafari--Jafari Rad, Canadian Mathematical Bulletin 58 (2015), DOI 10.4153/CMB-2015-017-6, full public PDF",
+        "Frozen RESULT.md and verify.py at the assigned tree"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 theorem covers all matrix dimensions but for directed in/out domination.",
+          "The stronger-dimensional scope is attached to a different domination notion and therefore does not dominate the undirected claim."
+        ],
+        "reasoning": "The relevant prior theorem is broader in matrix size but incomparable in graph adjacency/dominating condition after symmetrization.",
+        "searches": [
+          "DOI 10.4153/CMB-2015-017-6 full PDF",
+          "matrix zero-divisor graph literature searches"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.4153/CMB-2015-017-6",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior directed value is \\(q+1\\) for \\(n=2\\).",
+          "The submitted undirected value at \\(q=2\\) is \\(2\\), proving that directed domination does not imply the final theorem after forgetting directions."
+        ],
+        "reasoning": "A new lower bound is required for \\(q>2\\), and the strict binary drop rules out treating the result as a directed corollary.",
+        "searches": [
+          "Jafari--Jafari Rad Theorem 2.7 and Corollary 2.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper works with directed domination and gives Theorem 2.7/Corollary 2.9.",
+          "The exact undirected Resultary query returned the audited record as the direct match."
+        ],
+        "reasoning": "Underlying, undirected, symmetrized, and two-sided-product formulations were checked; no prior equal statement was located.",
+        "searches": [
+          "Resultary: underlying undirected zero divisor graph M2 finite field domination",
+          "Jafari--Jafari Rad DOI 10.4153/CMB-2015-017-6",
+          "public searches using AB=0 or BA=0 and symmetrized matrix zero-divisor graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or formula for the underlying undirected graph was located."
+        ],
+        "reasoning": "The binary exception and all-\\(q\\) theorem are proved structurally rather than read from a finite table.",
+        "searches": [
+          "Resultary exact \\(M_2(\\mathbb F_q)\\) undirected domination query"
+        ]
+      },
+      "rationale": "Jafari--Jafari Rad prove directed out- and in-domination \\((q^n-1)/(q-1)\\); at \\(n=2\\) this is \\(q+1\\). Passing to the underlying undirected graph adds all reverse-arc adjacencies, so their directed lower bound does not transfer. The audited binary case, where the undirected value is \\(2\\) instead of \\(3\\), explicitly demonstrates non-implication. Resultary searches found no prior exact theorem for this undirected symmetrization.",
+      "residual_risks": [
+        "An older paper using the undirected noncommutative convention could be poorly indexed and escape the searched terminology.",
+        "An authorized institutional retrieval attempt returned an operational error and was not retried; a lawful public Cambridge PDF was subsequently located independently and read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTED_PRIOR_NOT_COVERING_UNDIRECTED",
+          "evidence": "It proves directed out-/in-domination \\((q^n-1)/(q-1)\\), not ordinary domination of the graph with adjacency \\(AB=0\\) or \\(BA=0\\).",
+          "identifier_or_url": "doi:10.4153/CMB-2015-017-6",
+          "material_read": "Full public five-page Cambridge PDF, including Theorem 2.7 and Corollary 2.9; page image was inspected for the theorem statement.",
+          "method": "lawful public publisher PDF",
+          "title": "On Domination of Zero-divisor Graphs of Matrix Rings",
+          "trigger": "Closest primary source: same matrix rings and domination invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives the exact undirected counterpart of a classical matrix-ring domination problem and isolates the unique binary failure of invariance under forgetting arc direction. The image/kernel projective model and the scalar-fiber obstruction are reusable structural tools rather than a numerical curiosity.",
+      "risk": "The scope is limited to \\(2\\times2\\) full matrix rings over finite fields.",
+      "sources": [
+        "Jafari--Jafari Rad 2015 establishes the directed benchmark."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the simple undirected zero-divisor graph on the nonzero singular matrices of \\(M_2(\\mathbb F_q)\\), with distinct \\(A,B\\) adjacent when \\(AB=0\\) or \\(BA=0\\), the domination number is \\(2\\) for \\(q=2\\) and \\(q+1\\) for every \\(q>2\\).",
+  "limitations": [
+    "No formula is claimed for \\(M_n(\\mathbb F_q)\\) with \\(n\\ge3\\)."
+  ],
+  "schema_version": 1
+}

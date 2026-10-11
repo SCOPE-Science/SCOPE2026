@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,36 +19,24 @@
 }
 ---
 
-The proof has three independently checkable components.
+# Independent mathematical audit
 
-1. **Rank-one classification.** Every nonzero singular element of \(M_2(\mathbb F_q)\) has a unique image line and kernel line. For each ordered pair of lines there are exactly \(q-1\) matrices, differing by nonzero scalar.
+## correctness
 
-2. **Adjacency reduction.** For types \((L,K)\) and \((L',K')\),
-\[
-AB=0\iff L'=K,
-\qquad
-BA=0\iff L=K'.
-\]
-This is the only graph-theoretic input used by the general proof.
+PASS
 
-3. **Lower-bound accounting.** Any support that dominates all absent projective types contains the rectangle \(X\times Y\). The coordinate deficits force at least
-\[
-|X||Y|+m-|X|-|Y|
-=
-m-1+(|X|-1)(|Y|-1)
-\]
-represented types. Equality below \(m=q+1\) leaves an isolated selected off-diagonal type. When \(q>2\), that fiber has another scalar multiple outside the dominating set, giving the contradiction.
+Every nonzero singular \(2\times2\) matrix has rank one and is determined up to \(q-1\) nonzero scalars by its image line \(L\) and kernel line \(K\). For types \((L,K)\), \((L',K')\), adjacency is exactly \(L'=K\) or \(L=K'\). One diagonal representative per projective line gives a dominating set of size \(q+1\). For \(q>2\), the support-deficit rectangle argument forces any hypothetical support below \(q+1\) into the equality pattern where a selected off-diagonal type has no selected type-neighbor; because its fiber has at least two scalar copies, an unselected copy remains undominated. For \(q=2\), fibers are singletons and the displayed two projective types dominate all nine vertices, while no vertex is universal. Independent finite reconstruction of the actual \(q=2,3\) matrix graphs agrees with \(2\) and \(4\).
 
-The standalone verifier additionally reconstructs the actual matrix graphs over \(\mathbb F_2\) and \(\mathbb F_3\), exhaustively searches their dominating sets through the proved optimum, and checks the projective support mechanism for \(q\in\{2,3,4,5\}\).
+## originality
 
-Exact output:
+PASS
 
-```text
-VERIFY_OK
-actual_q2_vertices=9 gamma=2
-actual_q3_vertices=32 gamma=4
-projective_support_checks=q2,q3,q4,q5
-theorem_values=q2:2,q3:4,q4:5,q5:6
-```
+Jafari--Jafari Rad prove directed out- and in-domination \((q^n-1)/(q-1)\); at \(n=2\) this is \(q+1\). Passing to the underlying undirected graph adds all reverse-arc adjacencies, so their directed lower bound does not transfer. The audited binary case, where the undirected value is \(2\) instead of \(3\), explicitly demonstrates non-implication. Resultary searches found no prior exact theorem for this undirected symmetrization.
 
-The finite computations are corroborative only; the arbitrary-prime-power theorem is proved symbolically.
+## value
+
+PASS
+
+The result gives the exact undirected counterpart of a classical matrix-ring domination problem and isolates the unique binary failure of invariance under forgetting arc direction. The image/kernel projective model and the scalar-fiber obstruction are reusable structural tools rather than a numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
