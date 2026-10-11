@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:38:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob bb20269f0854eb7d3227638fc82ba3a7e641c3d9",
+        "artifacts/verify_cerny_deficiency.py blob 2c009073dab673a583a5348387099e9dd817600c",
+        "artifacts/verification_output.txt blob 0fbd39684ea0a0ffc02681f290c9a3d49e7dd4b2",
+        "independent subset-BFS for 34 early-deficiency cases"
+      ],
+      "rationale": "Only \\(b\\) can reduce image size and each application reduces rank by at most one, so deficiency \\(s\\) needs at least \\(s\\) effective \\(b\\)'s. After an effective \\(b\\), state \\(n-1\\) is missing. A subsequent effective \\(b\\) requires at least two intervening \\(a\\)'s: zero leaves \\(n-1\\) absent, while one rotates the unique relevant gap so that applying \\(b\\) cannot reduce cardinality. Thus every such word has length at least \\(s+2(s-1)=3s-2\\). For the displayed witness, induction gives the exact missing set after each effective \\(b\\); the range \\(s\\le\\lceil n/2\\rceil\\) ensures the odd missing states do not wrap into the two states needed for the next contraction. Independently, subset-BFS for all \\(3\\le n\\le11\\) and every admissible \\(s\\) reproduced \\(3s-2\\) in 34 cases; the package artifact checks through \\(n=12\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pin proves the broader circular-automaton rank-conjecture upper bound in the relevant high-rank range, but it is not sharp enough to imply \\(3s-2\\) for \\(s\\ge3\\).",
+          "The recent monoid and completely-reachable results give class-wide upper bounds rather than an exact profile of the specific extremal automaton."
+        ],
+        "reasoning": "Broad rank/reaching theorems leave substantial slack and therefore do not cover the exact linear profile.",
+        "searches": [
+          "Jean-Éric Pin, Sur un cas particulier de la conjecture de Černý",
+          "arXiv:2501.19166 full primary PDF",
+          "ACM 2026 completely-reachable reaching-threshold paper"
+        ]
+      },
+      "checked_sources": [
+        "Pin 1977 rank-word paper and 1978 circular-automaton result",
+        "arXiv:2501.19166",
+        "Resultary ID 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Worst prescribed-set avoidance is an upper envelope over targets, whereas the audited deficiency threshold is a lower envelope over which states are omitted.",
+          "General rank upper bounds do not provide the audited matching lower bound or the explicit missing-state witness."
+        ],
+        "reasoning": "The exact formula therefore survives implication-level comparison with the strongest checked neighboring results.",
+        "searches": [
+          "Pin circular rank theorem",
+          "Resultary k-avoiding threshold",
+          "Rystsov Černý-type rank theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published SCOPE avoiding result is a worst-case threshold for avoiding a specified \\(k\\)-set.",
+          "Pin's circular-automaton theorem supplies an upper bound of quadratic deficiency scale in the high-rank regime, not the exact Černý-family minimum over images.",
+          "Rystsov proves broad rank-conjecture bounds for Černý-type monoids."
+        ],
+        "reasoning": "Equivalent formulations as shortest word of rank at most \\(n-s\\), minimum over all omitted \\(s\\)-sets, and early rank-collapse/deficiency threshold were compared against reaching and avoiding thresholds.",
+        "searches": [
+          "Resultary query: Cerny automaton shortest word rank deficiency intermediate rank lambda_n(s) 3s-2",
+          "Resultary ID 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+          "Pin 1977/1978 circular-automaton rank results",
+          "arXiv:2501.19166"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table of \\(\\lambda_n(s)=3s-2\\) in the first-half range was located.",
+          "The closest indexed Černý result was the distinct \\(k\\)-avoiding threshold."
+        ],
+        "reasoning": "A rank-threshold table would directly cover the claim if present; none was found in the bounded searches.",
+        "searches": [
+          "Resultary exact \\(3s-2\\) search",
+          "web searches: Černý automaton rank n-k shortest word; Černý deficiency shortest word"
+        ]
+      },
+      "rationale": "Classical rank-threshold work gives general polynomial/quadratic upper bounds, including Pin's circular-automaton rank conjecture results and recent Černý-type monoid bounds, but not this exact first-half profile. A relevant published SCOPE result determines the worst prescribed \\(k\\)-set avoiding threshold \\(kn\\) in the Černý family; that is a maximum-over-target-sets problem and does not imply the minimum length to lose any \\(s\\) states. No exact \\(3s-2\\) profile was located.",
+      "residual_risks": [
+        "A specialized older Černý-family calculation could be absent from modern search indexes, although exact-phrase and rank-threshold searches found none."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_CLASS_BUT_WEAKER_BOUND",
+          "evidence": "It proves existence of rank-\\(k\\) words within a quadratic deficiency bound, not the exact \\(3s-2\\) threshold.",
+          "identifier_or_url": "https://www.liafa.univ-paris-diderot.fr/~jep/Resumes/CernyICALP.html",
+          "material_read": "Author-hosted abstract/result statement giving the \\((n-k)^2\\) rank-conjecture bound for the relevant high-rank range.",
+          "method": "Primary-author web source comparison.",
+          "title": "Sur un cas particulier de la conjecture de Černý",
+          "trigger": "Classical primary-author result on words of prescribed rank in circular automata, directly including the Černý family."
+        },
+        {
+          "assessment": "NOT_COVERING_EXACT_INTERMEDIATE_PROFILE",
+          "evidence": "The theorem concerns general monoid rank thresholds and reset bounds, not the specific \\(C_n\\) minimum deficiency profile.",
+          "identifier_or_url": "arXiv:2501.19166",
+          "material_read": "Full primary PDF with focused reading of the rank-conjecture formulation and Černý-type monoid section; the relevant page was visually inspected.",
+          "method": "Open-access full-PDF inspection.",
+          "title": "Cerny type automata and rank conjecture",
+          "trigger": "Recent primary source claiming rank-conjecture results for the broader Černý-type class."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pin rank-word literature",
+        "Rystsov Černý-type rank work",
+        "published Černý avoiding-threshold result"
+      ],
+      "rationale": "Intermediate rank collapse is a standard refinement of synchronization, and the Černý family is the canonical extremal family. Determining the exact early half of its deficiency profile, with a matching lower-bound mechanism and explicit optimal witnesses, is a natural structural result rather than a finite census. It also separates the cheapest initial contractions from the much slower final reset phase.",
+      "residual_risks": [
+        "The later deficiency range remains open in this record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the standard \\(n\\)-state Černý automaton \\(C_n\\), let \\(\\lambda_n(s)\\) be the minimum word length whose image has size at most \\(n-s\\). For every \\(n\\ge3\\) and \\(1\\le s\\le\\lceil n/2\\rceil\\), \\[\\lambda_n(s)=3s-2,\\] attained by \\(b(a^2b)^{s-1}\\); after the \\(j\\)-th effective \\(b\\), the missing-state set is \\(\\{1,3,\\ldots,2j-3,n-1\\}\\).",
+  "limitations": [
+    "Only the early deficiency range \\(s\\le\\lceil n/2\\rceil\\) is determined.",
+    "The result does not classify all shortest words, all reachable subsets, or the later deficiency/reset profile."
+  ],
+  "schema_version": 1
+}
