@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation on the stated parameter slice gives the exact identity \\(\\dot H=-g x^2\\). Compact-support invariance gives \\(\\int \\dot H\\,d\\mu=0\\), hence \\(x=0\\) on the support; flow invariance then forces \\(y=v=u=0\\). For recurrent points, the nonnegative accumulated defect \\(g\\int_0^t x(s)^2\\,ds\\) must vanish because the continuous observable \\(H\\) returns to its initial value along a recurrence sequence. An exact coefficient checker in `verify.py` reproduces the algebra and source-parameter specialization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source itself proves a different no-chaos criterion under unrelated parameter equalities; that criterion does not include the line-equilibrium slice used here.",
+        "General Lyapunov/invariance principles are abstract implication tools, but they require a strict monotone observable. They do not provide the source-specific observable \\(H\\) or the cancellation \\(\\dot H=-g x^2\\)."
+      ],
+      "reasoning": "No located broader theorem, when combined only with conditions already stated in the source, yields this slice-specific recurrence collapse without first establishing the new exact identity.",
+      "searches": [
+        "segmented disc dynamo line equilibrium no bounded chaos Lyapunov function",
+        "line equilibrium chaotic flow strict Lyapunov function recurrence exclusion",
+        "5D dynamo line equilibrium invariant measure x squared"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdsb.2019130",
+      "doi:10.1186/s13662-019-2284-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI 10.3934/dcdsb.2019130 reports positive finite-time Lyapunov exponents and plotted attractors; those numerical statements do not imply, and in the line-equilibrium examples conflict with, the analytic recurrence exclusion.",
+        "DOI 10.1186/s13662-019-2284-0 studies a modified system with different placements of the additional variables and parameters, so its line-equilibrium statements do not imply the present formula."
+      ],
+      "reasoning": "The proposed claim is not a corollary or parameter substitution of the inspected literature: its key implication comes from a new exact scalar coboundary for the specific printed 2019 DCDS-B system.",
+      "searches": [
+        "Bao Chen Liu Deng 5D segmented disc dynamo line equilibrium exact identity",
+        "segmented disc dynamo recurrent state equilibrium line",
+        "coexisting hidden attractors 5D segmented disc dynamo correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/dcdsb.2019130, system (2.2) and Section 2.3: the exact source gives the vector field, identifies the equilibrium line, and reports chaotic/hyperchaotic examples, but does not state an equivalent monotone-coboundary or recurrence theorem.",
+        "DOI 10.1186/s13662-019-2284-0: the related open-access paper uses a different five-dimensional vector field and therefore cannot algebraically specialize to the present identity."
+      ],
+      "reasoning": "An equivalent formulation would have to force zero stationary \\(x\\)-energy or monotonicity of an affine-quadratic observable on the same parameter slice. No inspected statement does so.",
+      "searches": [
+        "\"Coexisting hidden attractors in a 5D segmented disc dynamo\" Lyapunov recurrence monotone",
+        "\"10.3934/dcdsb.2019130\" correction line equilibrium chaos",
+        "\"segmented disc dynamo\" compact invariant recurrence",
+        "5D segmented disc dynamo k2 equals g k3 zero k1 zero compact invariant set line equilibrium"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned the original article and related segmented-disc-dynamo literature, but no erratum or published table/theorem recording the monotone identity or the collapse of recurrent dynamics on the stated slice.",
+        "The original article's Section 2.3 explicitly supplies the parameter vector to which the identity specializes."
+      ],
+      "reasoning": "Absence from an index is not by itself novelty evidence; the PASS rests on statement-level inspection of the exact paper and the closest related full text, with the searches serving as coverage support.",
+      "searches": [
+        "\"dcdsb.2019130\" erratum correction",
+        "\"dcdsb.2019130\" line equilibrium chaos periodic quasiperiodic",
+        "Bao Chen Liu Deng segmented disc dynamo line equilibrium monotone Lyapunov x squared no recurrence"
+      ]
+    },
+    "rationale": "The same-model article was inspected at the vector-field, equilibrium-classification, and line-equilibrium example level. It reports chaotic and hyperchaotic attractors on the slice but does not contain the monotone observable, invariant-measure classification, or recurrence exclusion. Exact-source, alias, parameter, recurrence, correction, and related-model searches found no statement whose conclusion implies the claim.",
+    "residual_risks": [
+      "An unindexed note or thesis may contain the same coboundary or an equivalent recurrence exclusion.",
+      "The source has multiple closely related segmented-disc-dynamo variants; care is required not to transfer this identity to a different printed vector field.",
+      "The result does not identify the numerical discretization or implementation error responsible for the reported figures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING and scientifically conflicting on the line-equilibrium slice: the source does not contain the monotone identity or recurrence theorem and reports non-equilibrium recurrent attractors where the exact identity permits only equilibrium-supported recurrent statistics.",
+        "evidence": "System (2.2) is printed on p. 6054; Section 2.3 on p. 6057 uses \\((m,r,g,k_1,k_2,k_3,k_4,k_5,k_6)=(1.1,6.1,12,0,12,0,0,0,-100)\\) and reports a chaotic attractor plus a hyperchaotic attractor from the origin.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2019130",
+        "material_read": "Published article pages 6053–6059, including system (2.2), equilibrium classification, Section 2.3, the stated parameter vector, initial conditions, and finite-time Lyapunov claims.",
+        "method": "Compared the printed differential equations and source claims directly with the derived coboundary and its recurrence consequences.",
+        "title": "Coexisting hidden attractors in a 5D segmented disc dynamo with three types of equilibria",
+        "trigger": "Exact same vector field and the paper containing the line-equilibrium chaotic/hyperchaotic examples."
+      },
+      {
+        "assessment": "NOT_COVERING: its five-dimensional extension is algebraically different, so its recurrence and bifurcation statements neither specialize to nor imply the present coboundary.",
+        "evidence": "The related system places the added variables and coefficients differently, including \\(\\dot x=r(y-x)\\) and a distinct \\(\\dot z\\) coupling; the claimed identity here is for the DCDS-B vector field.",
+        "identifier_or_url": "doi:10.1186/s13662-019-2284-0",
+        "material_read": "Open full text, especially system (2.2), Theorem 2.1, equilibrium classification, and the line-equilibrium multistability section.",
+        "method": "Compared equations, parameter roles, and theorem implications rather than titles.",
+        "title": "Multistability and bifurcations in a 5D segmented disc dynamo with a curve of equilibria",
+        "trigger": "Closest same-authorship, same physical-model family, same-year full-text paper with line-equilibrium dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ed9a3605-b311-46c6-8e05-1308ddaca347",
+  "value": {
+    "rationale": "The result is a global structural obstruction on a parameter slice that the source uses to demonstrate hidden chaos and hyperchaos. It classifies all compact stationary measures, identifies the recurrent set, and turns the source's own origin initial condition into an immediate exact consistency check. This is materially stronger than a local eigenvalue calculation, a finite-time recomputation, or a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
