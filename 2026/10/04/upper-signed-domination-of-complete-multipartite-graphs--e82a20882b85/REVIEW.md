@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces every closed-neighborhood sum in a part to the exact count of negative labels outside that part. The standard minimality witness criterion then forces the global lower bound on the number of negative labels. The largest-part construction attains the bound and its signed-domination inequalities and minimality witnesses are checked explicitly. The bundled exhaustive verifier agrees through order \(10\).
+## correctness
 
-## Originality
-**PASS.** The closest exact full-text result found is the complete-bipartite formula. Complete-multipartite signed-domination papers found in the literature compute minimum signed/minus parameters rather than the maximum weight of a minimal signed dominating function. Broader upper signed \(k\)-domination sources give complexity statements and general bounds. The present formula recovers the bipartite theorem but is not implied by it for three or more parts.
+PASS
 
-## Value
-**PASS.** This is an exact structural evaluation of an established graph invariant on a canonical graph family. It extends a known bipartite theorem to arbitrary complete multipartite graphs and reduces the answer to two transparent statistics, \(N\) and the largest part size \(L\), with an explicit extremal construction.
+The theorem is correct. In any part, the closed-neighborhood sum equals the number of vertices outside the part minus twice the number of negative labels outside it, plus the label of the tested vertex. The standard minimality witness for a positive vertex then forces at least floor((N-L)/2) negative vertices, whether its tight witness is positive or negative. Placing exactly that many negatives outside a largest part satisfies every closed-neighborhood inequality, and every positive vertex sees a tight witness in the largest part, so the function is minimal. Fresh independent brute force over every unordered multipartite profile through total order eight and every sign labeling matched the formula.
 
-## Closest literature and limitations
-The closest source is the 2014 complete-bipartite upper signed domination theorem. The 2010 and 2012 complete-multipartite sources concern minimum signed/minus parameters. Older literature is not uniformly indexed, and one directly relevant 2010 source was available only at abstract level, so a residual bibliographic risk remains. The finite verifier is a stress test, not an infinite proof.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The closest exact full-text source gives the upper signed domination number only for complete bipartite graphs, exactly matching the two-part specialization. Liang's complete-multipartite paper was read in open full text and computes minimum signed, signed-total, and minus domination parameters rather than the upper minimal-function parameter. The general Tang--Chen degree bound quoted in the full 2014 paper is not an exact multipartite evaluation and can be far above the assigned formula. Resultary returned no stronger complete-multipartite upper theorem.
+
+## value
+
+PASS
+
+The result extends a published complete-bipartite exact theorem to the full complete-multipartite family and collapses the answer to the order and largest part size, with a transparent extremal construction. Upper signed domination is a standard graph invariant distinct from the previously solved minimum parameters, so this is a natural structural infinite-family evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

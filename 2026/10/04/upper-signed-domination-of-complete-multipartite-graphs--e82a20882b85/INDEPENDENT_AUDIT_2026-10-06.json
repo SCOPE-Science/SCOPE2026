@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:52:07.292318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 1915299d606e61d0f7649b44b5e85e54f85553f6",
+        "verify.py blob 3caa6a976df3eb48f607d94b57b21af000686b80",
+        "fresh independent brute-force replay through total order eight"
+      ],
+      "rationale": "The theorem is correct. In any part, the closed-neighborhood sum equals the number of vertices outside the part minus twice the number of negative labels outside it, plus the label of the tested vertex. The standard minimality witness for a positive vertex then forces at least floor((N-L)/2) negative vertices, whether its tight witness is positive or negative. Placing exactly that many negatives outside a largest part satisfies every closed-neighborhood inequality, and every positive vertex sees a tight witness in the largest part, so the function is minimal. Fresh independent brute force over every unordered multipartite profile through total order eight and every sign labeling matched the formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walikar et al. explicitly state that their exact structured-family result is for complete bipartite graphs.",
+          "The quoted Tang--Chen bound depends on degree extrema and is only an upper bound. For example, on three equal parts of size three it gives a much weaker ceiling than the exact assigned value."
+        ],
+        "reasoning": "The known general bound does not imply equality throughout the multipartite class.",
+        "searches": [
+          "Walikar--Motammanavar--Venkatesh, Upper Singed Domination Number of Graphs, International Journal of Mathematics and Combinatorics 1 (2014), 87--92",
+          "Tang--Chen, Upper signed domination number, Discrete Mathematics 308 (2008), 3416--3419"
+        ]
+      },
+      "checked_sources": [
+        "Walikar--Motammanavar--Venkatesh, Upper Singed Domination Number of Graphs, International Journal of Mathematics and Combinatorics 1 (2014), 87--92",
+        "Liang, Signed and Minus Domination in Complete Multipartite Graphs, arXiv:1205.0343",
+        "Tang--Chen, Upper signed domination number, Discrete Mathematics 308 (2008), 3416--3419",
+        "Resultary query: upper signed domination complete multipartite graph maximum minimal signed dominating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bipartite theorem cannot infer dependence only on the largest part once a third part is introduced.",
+          "The package proof derives a global lower bound on the number of negative labels from the minimality witness identity and matches it by placing all negatives outside a largest part."
+        ],
+        "reasoning": "The final multipartite extension is not a routine substitution into the known degree bound or the minimum-parameter formulas.",
+        "searches": [
+          "Walikar--Motammanavar--Venkatesh, Upper Singed Domination Number of Graphs, International Journal of Mathematics and Combinatorics 1 (2014), 87--92",
+          "Liang, Signed and Minus Domination in Complete Multipartite Graphs, arXiv:1205.0343",
+          "Tang--Chen, Upper signed domination number, Discrete Mathematics 308 (2008), 3416--3419",
+          "independent negative-label count proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Upper signed domination maximizes the weight of a minimal signed dominating function under closed-neighborhood inequalities.",
+          "Liang's complete-multipartite quantities minimize weight and therefore are not equivalent.",
+          "The complete-bipartite theorem is exactly the r=2 specialization but does not determine three or more parts."
+        ],
+        "reasoning": "Upper/minimum optimization and bipartite/multipartite coverage were compared at the statement level.",
+        "searches": [
+          "Walikar--Motammanavar--Venkatesh, Upper Singed Domination Number of Graphs, International Journal of Mathematics and Combinatorics 1 (2014), 87--92",
+          "Liang, Signed and Minus Domination in Complete Multipartite Graphs, arXiv:1205.0343",
+          "Tang--Chen, Upper signed domination number, Discrete Mathematics 308 (2008), 3416--3419",
+          "Resultary query: upper signed domination complete multipartite graph maximum minimal signed dominating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned theorem as the exact top hit and no earlier equivalent record.",
+          "The exact full-text structured theorem located externally is the complete-bipartite case."
+        ],
+        "reasoning": "No all-part-size exact table was found.",
+        "searches": [
+          "Resultary query: upper signed domination complete multipartite graph maximum minimal signed dominating function",
+          "targeted web search for complete multipartite upper signed domination"
+        ]
+      },
+      "rationale": "Originality passes. The closest exact full-text source gives the upper signed domination number only for complete bipartite graphs, exactly matching the two-part specialization. Liang's complete-multipartite paper was read in open full text and computes minimum signed, signed-total, and minus domination parameters rather than the upper minimal-function parameter. The general Tang--Chen degree bound quoted in the full 2014 paper is not an exact multipartite evaluation and can be far above the assigned formula. Resultary returned no stronger complete-multipartite upper theorem.",
+      "residual_risks": [
+        "An older exact upper result under alternate spelling or terminology may remain poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_BIPARTITE_SPECIAL_CASE_ONLY",
+          "evidence": "Theorem 3.1 states the complete-bipartite formula and the introduction says the paper treats paths, cycles, and complete bipartite graphs.",
+          "identifier_or_url": "International Journal of Mathematics and Combinatorics 1 (2014), 87--92",
+          "material_read": "Complete open primary PDF text, including Section 3 and Theorem 3.1 for complete bipartite graphs; a page-image request was attempted but the host rejected the screenshot request.",
+          "method": "Lawful open primary PDF text extraction.",
+          "title": "Upper Singed Domination Number of Graphs",
+          "trigger": "Closest exact prior source for the same upper signed parameter."
+        },
+        {
+          "assessment": "MINIMUM_PARAMETERS_NOT_UPPER_SIGNED_DOMINATION",
+          "evidence": "The paper defines and computes minimum signed domination, signed total domination, and minus domination.",
+          "identifier_or_url": "arXiv:1205.0343",
+          "material_read": "Complete open arXiv HTML through the definitions and complete-multipartite theorem development.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Signed and Minus Domination in Complete Multipartite Graphs",
+          "trigger": "Same graph class and signed-domination terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Walikar--Motammanavar--Venkatesh, Upper Singed Domination Number of Graphs, International Journal of Mathematics and Combinatorics 1 (2014), 87--92",
+        "Liang, Signed and Minus Domination in Complete Multipartite Graphs, arXiv:1205.0343",
+        "Tang--Chen, Upper signed domination number, Discrete Mathematics 308 (2008), 3416--3419",
+        "Resultary query: upper signed domination complete multipartite graph maximum minimal signed dominating function"
+      ],
+      "rationale": "The result extends a published complete-bipartite exact theorem to the full complete-multipartite family and collapses the answer to the order and largest part size, with a transparent extremal construction. Upper signed domination is a standard graph invariant distinct from the previously solved minimum parameters, so this is a natural structural infinite-family evaluation.",
+      "residual_risks": [
+        "The result does not classify all maximizing minimal signed dominating functions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older exact upper result under alternate spelling or terminology may remain poorly indexed.",
+    "Publication is withheld because each frozen package contains operational audit and workflow state in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files. The complete 36-file recursive inventory was obtained. RESULT.md, SLOGAN.txt, verification output, and verifier sources were separately checked and contained none of the platform or workflow disclosures tested in this run. Exact guarded sanitizing replacement bytes were not prepared."
+  ],
+  "schema_version": 1
+}
