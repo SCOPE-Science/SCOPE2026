@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof uses the published inscribed-parallelogram reduction, then exhausts the three possible boundary-side separations for a centrally symmetric inscribed parallelogram in a regular decagon. The first two cases yield bounds stronger than required. In the third, three explicit vertex gauges give a lower bound whose complete parameter square is covered by monotonicity and exact factorization at the relevant crossings and boundary points. The published coordinate-axis construction attains the same constant. The symbolic checker replays the exact algebraic identities used in the proof but is supplementary rather than evidentiary for the geometric quantifiers.
+PASS
 
-## Originality
+Lassak's reduction allows restriction to inscribed centrally symmetric parallelograms. The package's three side-separation cases exhaust such parallelograms in the regular decagon up to dihedral symmetry and exchange of generators. The same-side and adjacent-side cases give lower bounds at least \(2\varphi\) and \(\varphi\), respectively, both above the target. In the remaining separated-by-one-side case, the displayed gauge coordinates \(A/E,B/E,C/E\), monotonicities, crossing locations, and residual factorizations correctly prove \(\max\{A,B,C\}/E\ge(3\sqrt5-1)/4\). An independent dense numerical sweep over all side pairs and side parameters found the same minimum at a vertex/midpoint configuration. Lassak's coordinate-axis construction gives the matching upper bound, so the exact distance follows.
 
-PASS with a stated residual risk. The primary source proves only the upper estimate for every affine-regular \(P_{8j+2}\) and explicitly conjectures equality. The present theorem is exactly the first case \(j=1\). Searches using the decagon, polygon notation, the exact radical constant, affine-regular aliases, and the published conjecture located no later exact solution. Broader planar Banach–Mazur results inspected do not imply this specific value.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem resolves the first open member of a named published family of exact Banach–Mazur distance questions. The pair is canonical, the answer is closed form, and the proof isolates a finite side-separation mechanism that may inform attacks on higher members rather than merely recomputing a tabulated number.
+Lassak's open full article explicitly proves exact values only for the \(8j\) and \(8j+4\) families, gives an upper bound for \(8j+2\), and then conjectures equality for that family. At \(j=1\) this is exactly the decagon constant proved here. Targeted current searches for the decagon, the exact radical, and the Lassak \(8j+2\) conjecture found no later proof, and Resultary returned the assigned record as the exact hit. The lower bound is therefore a genuine resolution of the first open case rather than a specialization of a proved general theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem settles the first unresolved member of an explicit published Banach–Mazur distance conjecture with an exact algebraic constant. The lower-bound case analysis is a motivated extremal geometry result, not an arbitrary finite polygon calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
