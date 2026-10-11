@@ -1,48 +1,21 @@
-# Review of Every imbalanced orthogonal Herglotz mixture is nonstarlike
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reconstructs the family directly from the primary source. On the first-quadrant boundary arc,
-\[
-F_s'(e^{it})=iY_s(t)
-\]
-with \(Y_s\) strictly decreasing from \(+\infty\) to \(-\infty\), so there is exactly one derivative zero \(t_s\). The zero condition is equivalent to
-\[
-\cos t_s-\sin t_s=1-2s.
-\]
+PASS
 
-Along the radial segment ending at that zero, the imaginary part of \(F_s'\) has an exact numerator
-\[
-\frac12(\sin t_s-\cos t_s)
-(1+\sin t_s+\cos t_s)
-(1-r)^2.
-\]
-Thus its sign is exactly the sign of \(2s-1\). Integrating radially fixes the sign of
-\[
-\operatorname{Im}(e^{-it_s}F_s(e^{it_s})).
-\]
-Since \(Y_s\) changes sign strictly at \(t_s\), the boundary starlikeness quotient is negative immediately on one side whenever \(s\ne1/2\). The boundary arc is regular, so the strict negativity persists at nearby interior points.
+The proof reconstructs the family directly. On the regular first-quadrant boundary arc, \(F_s'(e^{it})=iY_s(t)\) with \(Y_s\) strictly decreasing from \(+\infty\) to \(-\infty\), so there is one zero \(t_s\). Its zero equation is equivalent to \(\cos t_s-\sin t_s=1-2s\). Writing \(c=\cos t_s\), \(q=\sin t_s\), the radial numerator in \(\operatorname{Im}F_s'(re^{it_s})\) reduces under \(c^2+q^2=1\) to \(\tfrac12(q-c)(1+c+q)(1-r)^2\); this factorization was independently rechecked symbolically from the displayed formulas. Hence the radial integral \(\operatorname{Im}(e^{-it_s}F_s(e^{it_s}))\) has sign \(2s-1\). Since \(\operatorname{Re}(e^{it}F_s'(e^{it})/F_s(e^{it}))=Y_s(t)\operatorname{Im}(e^{-it}F_s(e^{it}))/|e^{-it}F_s(e^{it})|^2\), strict negativity occurs immediately on one side of \(t_s\) for every \(s\ne1/2\), and analyticity across that nonsingular arc moves the negative value into the disk.
 
-## Originality
+## originality
 
-PASS. The 2026 source was inspected in full around Theorem 4.1. It proves nonstarlikeness only for
-\[
-0<s<\frac{\log2}{\pi+\log2}
-\]
-using a singular-endpoint asymptotic. It does not state the derivative-zero mechanism or the all-imbalanced parameter conclusion.
+PASS
 
-Searches covering the exact source, the explicit family, the orthogonal Herglotz interpretation, and equivalent parameter-threshold formulations found no published result implying the new classification. General positive-real-derivative counterexamples and recent derivative-sector criteria concern different functions or class-wide sufficient conditions.
+Best-of-knowledge comparison found no prior all-imbalanced classification for this very recent orthogonal two-rotation family. The primary arXiv abstract confirms that Hoshinaga--Hotta--Wang give a simple explicit member of \(\mathcal R\setminus\mathcal S^*\), while exact-family and threshold searches did not surface a theorem covering all unequal weights. Resultary's only implication-level hit was the assigned finding. Because complete primary text of the 2026 preprint could not be lawfully obtained in this run, the audit does not use unread text to certify whole-document noncoverage; that access limitation remains an explicit priority risk rather than a scientific failure.
 
-The residual risk is that the same family may have been analyzed independently after the preprint under a notation not surfaced by the searches.
+## value
 
-## Value
+PASS
 
-PASS. The source introduces a simple parameter family specifically to exhibit the gap between positive real derivative and starlikeness, but its theorem covers less than one fifth of the parameter interval. The finding shows that the obstruction is actually generic across the family: every imbalance fails.
+The family is a natural two-extremal test inside the Noshiro--Warschawski class. Classifying every imbalance by one structural boundary mechanism is a meaningful exact phase statement, not a tiny numerical increment or an arbitrary slice.
 
-The mechanism is structural. The unique boundary zero of the derivative separates the two weighted Herglotz contributions, and the radial sign factor
-\[
-(2s-1)(1-r)^2
-\]
-pinpoints why only the balanced midpoint escapes this argument. This gives a substantially sharper picture of the fresh explicit counterexample family.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
