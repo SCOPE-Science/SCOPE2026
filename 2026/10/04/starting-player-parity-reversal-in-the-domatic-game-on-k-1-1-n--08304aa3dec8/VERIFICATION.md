@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. Its critical checks are:
+# Independent mathematical audit
 
-1. In a completed two-coloring of \(K_{1,1,n}\), a color class that misses both universal vertices dominates only when it contains every vertex of the independent part. Exhausting terminal colorings in the bundled checker confirms this characterization for \(2\le n\le7\).
-2. The four parity/starting-player strategies in `RESULT.md` are finite pairing strategies and do not depend on the computational range.
-3. Hartnell--Rall's published even-minimum-degree bound gives \(\operatorname{dom}_g,\operatorname{dom}^\prime_g\le2\) when \(\delta=2\). The proof does not infer this infinite upper bound from finite experiments.
-4. `verify.py` independently constructs the adjacency relation, computes domination directly, solves the alternating game by exact minimax, and checks the ordinary three-class domatic partition for every \(2\le n\le7\).
+## correctness
 
-Reproduction command:
+PASS
 
-`python3 verify.py`
+In a terminal two-coloring, a color class missing both universal vertices dominates only if it equals all of the independent part. Hence Alice wins exactly when the two universal vertices have different colors, or when they have the same color and every independent vertex has the opposite color. The four parity/starting-player strategies in the proof are exhaustive pairing strategies: the player controlling the universal pair can force opposite colors in the winning parity and Bob can force equal universal colors plus a mixed independent part in the losing parity. Hartnell--Rall's even-minimum-degree bound gives the global palette upper bound two because \(\delta=2\), while one color is trivially winnable. The ordinary partition \(\{u\},\{v\},W\) gives domatic number three and \(\delta+1\) is the matching upper bound. The packaged exact minimax verifier was read and independently confirms both starting conventions through \(n=7\); the infinite proof is the pairing argument.
 
-Expected output is recorded verbatim in `verification_output.txt`.
+## originality
 
-The finite replay is not an exhaustive proof for arbitrary \(n\); it is a stress test of the terminal characterization and strategy outcomes. No independent audit has been performed.
+PASS
+
+Hartnell--Rall determine exact values for complete bipartite graphs and provide the minimum-degree upper bounds, but \(K_{1,1,n}\) is non-bipartite and the exact starting-player parity reversal is not implied by those formulas. English--Swan gives broader later bounds/comparisons but targeted searches found no exact theorem for this split graph. Resultary returned no same-invariant family result.
+
+## value
+
+PASS
+
+The family is the simplest non-bipartite complete-multipartite extension of the complete-bipartite benchmark, and it cleanly isolates a starting-player effect: the two game values swap with parity while the ordinary domatic number remains three. That is a motivated infinite game-theoretic classification rather than a small computational table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

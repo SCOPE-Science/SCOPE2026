@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For a completed two-coloring of \(K_{1,1,n}\), the proof identifies exactly when each color class dominates: a class must contain one of the two universal vertices unless it is all of the independent part. This yields the exact terminal criterion used by all four parity strategies. The pairing arguments cover both starting conventions and both parities. The published even-minimum-degree bound gives the required global upper bound \(2\), while one color is trivially winnable. The bundled exact minimax replay agrees for every \(2\le n\le7\).
+## correctness
 
-## Originality
-**PASS.** The closest primary result is Hartnell--Rall's exact theorem for complete bipartite graphs; \(K_{1,1,n}\) is complete tripartite, so that theorem neither states nor implies this starting-player parity reversal. The later English--Swan paper gives general domatic-game comparisons but no exact formula for this family in the inspected material. Targeted searches under complete-tripartite, split-graph, join, and universal-vertex formulations found no covering statement. Residual risk is ordinary literature-index incompleteness.
+PASS
 
-## Value
-**PASS.** The family is the simplest non-bipartite complete multipartite extension beyond the complete-bipartite class treated explicitly in the initiating paper. It exhibits an exact infinite parity reversal between the two starting conventions while the ordinary domatic number remains fixed at \(3\), isolating a genuine game-theoretic effect rather than a change in static domination structure.
+In a terminal two-coloring, a color class missing both universal vertices dominates only if it equals all of the independent part. Hence Alice wins exactly when the two universal vertices have different colors, or when they have the same color and every independent vertex has the opposite color. The four parity/starting-player strategies in the proof are exhaustive pairing strategies: the player controlling the universal pair can force opposite colors in the winning parity and Bob can force equal universal colors plus a mixed independent part in the losing parity. Hartnell--Rall's even-minimum-degree bound gives the global palette upper bound two because \(\delta=2\), while one color is trivially winnable. The ordinary partition \(\{u\},\{v\},W\) gives domatic number three and \(\delta+1\) is the matching upper bound. The packaged exact minimax verifier was read and independently confirms both starting conventions through \(n=7\); the infinite proof is the pairing argument.
 
-## Closest literature and limitations
-Hartnell--Rall supplies the game definition, a sharp general upper bound at minimum degree \(2\), and the complete-bipartite benchmark. English--Swan supplies later general context. The present classification is only for \(K_{1,1,n}\); extension to general complete multipartite or split graphs is open here.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hartnell--Rall determine exact values for complete bipartite graphs and provide the minimum-degree upper bounds, but \(K_{1,1,n}\) is non-bipartite and the exact starting-player parity reversal is not implied by those formulas. English--Swan gives broader later bounds/comparisons but targeted searches found no exact theorem for this split graph. Resultary returned no same-invariant family result.
+
+## value
+
+PASS
+
+The family is the simplest non-bipartite complete-multipartite extension of the complete-bipartite benchmark, and it cleanly isolates a starting-player effect: the two game values swap with parity while the ordinary domatic number remains three. That is a motivated infinite game-theoretic classification rather than a small computational table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

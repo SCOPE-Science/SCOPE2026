@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:07:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a terminal two-coloring, a color class missing both universal vertices dominates only if it equals all of the independent part. Hence Alice wins exactly when the two universal vertices have different colors, or when they have the same color and every independent vertex has the opposite color. The four parity/starting-player strategies in the proof are exhaustive pairing strategies: the player controlling the universal pair can force opposite colors in the winning parity and Bob can force equal universal colors plus a mixed independent part in the losing parity. Hartnell--Rall's even-minimum-degree bound gives the global palette upper bound two because \\(\\delta=2\\), while one color is trivially winnable. The ordinary partition \\(\\{u\\},\\{v\\},W\\) gives domatic number three and \\(\\delta+1\\) is the matching upper bound. The packaged exact minimax verifier was read and independently confirms both starting conventions through \\(n=7\\); the infinite proof is the pairing argument.",
+      "risk": "The result is confined to the one-parameter split/complete-tripartite family.",
+      "sources": [
+        "Hartnell--Rall, arXiv:2508.10754 / DOI:10.61091/ars165-03",
+        "English--Swan, arXiv:2603.13522",
+        "RESULT.md",
+        "verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source gives broad graph upper bounds and complete-bipartite exact values.",
+          "The later paper develops general domatic-game comparisons but no retrieved statement dominates this exact one-parameter family."
+        ],
+        "reasoning": "The final parity theorem requires family-specific terminal-state characterization and pairing strategies not supplied by the inspected broader results.",
+        "searches": [
+          "Hartnell--Rall primary article and PDF theorem page",
+          "English--Swan arXiv:2603.13522 abstract and indexed material"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.10754",
+        "DOI:10.61091/ars165-03",
+        "arXiv:2603.13522",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper bound two is prior, but neither source fixes whether Alice can force two colors on this non-bipartite graph.",
+          "The family-specific pairing game proves alternating starter dependence while the ordinary domatic number stays fixed."
+        ],
+        "reasoning": "The final equality pattern is not a corollary of the prior upper bound.",
+        "searches": [
+          "Hartnell--Rall complete-bipartite theorem and even-minimum-degree upper bound",
+          "English--Swan general starting-player comparison results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit stated this family formula.",
+          "The primary article abstract lists complete bipartite graphs, trees, cycles and narrow grids among exact classes, not this complete-tripartite family.",
+          "The exact theorem page inspected in the primary PDF supplies the minimum-degree upper bound, not the parity classification."
+        ],
+        "reasoning": "Complete tripartite, split-graph join, universal-pair and starter-parity formulations were compared.",
+        "searches": [
+          "Resultary: domatic game K_{1,1,n} complete tripartite split graph starting player parity",
+          "Web: The domatic number game played on graphs Hartnell Rall K 1 1 n complete tripartite",
+          "Searches for split graph, join \\(K_2\\vee\\overline{K_n}\\), universal vertices and starting-player variants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or theorem with the alternating parity values was found."
+        ],
+        "reasoning": "The bundled n=2..7 table is verification, not novelty evidence.",
+        "searches": [
+          "Resultary exact semantic query for \\(K_{1,1,n}\\) domatic game parity",
+          "Web exact searches for \\(K_2\\vee\\overline{K_n}\\) and both game-domatic variants"
+        ]
+      },
+      "rationale": "Hartnell--Rall determine exact values for complete bipartite graphs and provide the minimum-degree upper bounds, but \\(K_{1,1,n}\\) is non-bipartite and the exact starting-player parity reversal is not implied by those formulas. English--Swan gives broader later bounds/comparisons but targeted searches found no exact theorem for this split graph. Resultary returned no same-invariant family result.",
+      "residual_risks": [
+        "The game is recent and additional 2026 work may not yet be fully indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPLIES_UPPER_BOUND_AND_BIPARTITE_BENCHMARK_NOT_PARITY_FAMILY",
+          "evidence": "The paper states exact values for complete bipartite graphs and a general upper bound; no inspected statement gives \\(K_{1,1,n}\\).",
+          "identifier_or_url": "arXiv:2508.10754; DOI:10.61091/ars165-03",
+          "material_read": "Primary article abstract plus inspected PDF theorem page containing the even-minimum-degree upper bound and surrounding definitions.",
+          "method": "Open primary-source inspection including PDF page image inspection.",
+          "title": "The domatic number game played on graphs",
+          "trigger": "Defining source, closest exact graph-family results and the palette upper bound."
+        },
+        {
+          "assessment": "BROADER_CONTEXT_NO_EXACT_K_1_1_N_STATEMENT_FOUND",
+          "evidence": "No retrieved theorem or abstract statement covers the parity-reversal family.",
+          "identifier_or_url": "arXiv:2603.13522",
+          "material_read": "Primary abstract and indexed statement-level material.",
+          "method": "Open source and exact-family search.",
+          "title": "On the Domatic Game",
+          "trigger": "Later paper on the same game and starting-player comparisons."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is the simplest non-bipartite complete-multipartite extension of the complete-bipartite benchmark, and it cleanly isolates a starting-player effect: the two game values swap with parity while the ordinary domatic number remains three. That is a motivated infinite game-theoretic classification rather than a small computational table.",
+      "risk": "No claim is made for general complete multipartite or split graphs.",
+      "sources": [
+        "arXiv:2508.10754",
+        "arXiv:2603.13522"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(G_n=K_{1,1,n}\\) with \\(n\\ge2\\), Alice-start game domatic number is \\(2\\) for odd \\(n\\) and \\(1\\) for even \\(n\\), while Bob-start has the reversed parity values; the ordinary domatic number is always \\(3\\).",
+  "limitations": [
+    "Only \\(K_{1,1,n}\\), \\(n\\ge2\\).",
+    "Finite minimax checks are stress tests rather than the proof."
+  ],
+  "schema_version": 1
+}
