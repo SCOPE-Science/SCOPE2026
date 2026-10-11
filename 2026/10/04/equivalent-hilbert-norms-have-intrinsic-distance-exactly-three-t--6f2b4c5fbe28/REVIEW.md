@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof was reconstructed from the definitions. For the relative positive operator \(A\), the numerator in the rationalized triangular defect is trapped between \(m(1-\langle u,v\rangle_p)\) and \(M(1-\langle u,v\rangle_p)\) by Cauchy--Schwarz applied to \(A-mI\) and \(MI-A\). The denominator comparison supplies the factors \(1/\sqrt M\) and \(1/\sqrt m\). Spectral subspaces near \(M\) and \(m\), followed by a second-order perturbation, prove optimality even when the endpoints are not eigenvalues. The focal source supplies the intrinsic-part criterion and metric formula.
+## correctness
 
-## Originality
-**PASS.** The closest statement is Example 5.6 of arXiv:2609.28922v1, which treats only \(\mathbb R^2\) with a single diagonal parameter. Targeted searches for arbitrary Hilbertian norms, positive relative operators, the factor \(3\), and the exact defect constants found no covering statement. Classical Hilbert metrics on positive-definite matrices use a different cone order and therefore do not imply this claim. Residual risk remains because the focal preprint is recent and an equivalent observation could be unindexed.
+PASS
 
-## Value
-**PASS.** The theorem classifies a natural subgeometry rather than producing another isolated example: all equivalent Hilbert norms on any real Hilbert space form one intrinsic part, and the new intrinsic metric restricts exactly to three times the standard symmetric logarithmic metric. The exact spectral-endpoint constants explain why the two-dimensional factor \(3\) is universal and remain valid in infinite dimension.
+The proof reconstructs correctly from the relative positive invertible operator. Rationalizing the triangular defect and applying Cauchy--Schwarz to \(A-mI\) and \(MI-A\) gives the global constants \(m/\sqrt M\) and \(M/\sqrt m\). Sharpness follows from orthogonal spectral vectors in arbitrarily small endpoint spectral windows: for \(p\)-orthonormal \(u,v\), \(\Delta_p(u,u+tv)=t^2/4+O(t^4)\), while for \(A\)-orthogonal endpoint vectors the \(q\)-defect coefficient is \(\beta/(4\sqrt\alpha)\), yielding the two endpoint ratios. Combining those exact defect constants with the pointwise norm ratios \(\sqrt m,\sqrt M\) in the published intrinsic-metric formula gives \(\log[(M/\sqrt m)/(m/\sqrt M)]=(3/2)\log(M/m)\). The continuous-spectrum case is handled by spectral subspaces, so no eigenvalue assumption is hidden.
 
-## Closest literature and limitations
-The focal source is J. R. Acosta-Portilla, *Intrinsic Hilbert metrics on cones of equivalent norms*, arXiv:2609.28922v1. The claim is restricted to Hilbertian renormings and does not classify non-Hilbert norms or metric geodesics.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining 2026 preprint introduces the triangular-defect criterion and an explicit intrinsic metric formula, but the fresh searchable primary record does not state an arbitrary-Hilbertian factor-three theorem or the sharp spectral-endpoint defect constants. Resultary searches by the metric, factor three, relative positive operator, and defect constants returned the assigned theorem as the only exact match. The load-bearing new content is the operator inequality plus sharp spectral endpoint analysis, not merely substitution into the source metric formula.
+
+## value
+
+PASS
+
+The theorem identifies the complete intrinsic metric geometry of the natural Hilbertian subcone, with a dimension-free exact factor and sharp constants valid even for continuous spectrum. This is a structural result about the newly introduced metric, not a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
