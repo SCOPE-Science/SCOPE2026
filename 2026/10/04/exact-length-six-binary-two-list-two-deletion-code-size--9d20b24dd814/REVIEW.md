@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The seven-word construction is checked exhaustively against all length-four deletion outputs. The upper bound follows from an explicit rational weighting certificate checked on all \(64\) ambient words; summing the pointwise inequalities over an arbitrary code yields \(|C|\le36/5\), hence \(|C|\le7\).
+## correctness
 
-## Originality
-PASS. The full motivating 2026 manuscript and the full relevant list-decoding section of Guruswami--Håstad were compared by statement and implication. They provide asymptotic bounds and constructions but no exact finite optimum at \(n=6\). Direct semantic-database and literature searches under coding and deletion-hypergraph aliases found no matching exact value. Residual risk remains that an unindexed finite computation could exist.
+PASS
 
-## Value
-PASS. Binary two-deletion list decoding with list size two is a central concrete case in the cited literature. The exact length-six extremum is a natural finite benchmark for the \((2,2)\)-deletion hypergraph and is supported by a short, reusable rational certificate rather than only by optimization software.
+Fresh exact enumeration of all 64 ambient words reproduces the pointwise certificate: for every word x, the sum of the stated received-word weights over its two-deletion descendants, plus the 2/5 endpoint correction for 000000 or 111111, is at least one. The eight weights sum to 16/5, so any list-size-two code has size at most 2(16/5)+4/5=36/5<8. Independently, the seven displayed codewords have maximum received-word multiplicity exactly two. This proves the upper bound and attainment without extrapolating from finite experiments.
 
-## Closest literature and limitations
-Lin's 2026 paper supplies the exact definition and asymptotic framework. Guruswami--Håstad supply the earlier binary two-deletion list-two construction. Neither determines this finite optimum. The claim is restricted to length six and does not extend automatically to other lengths or list sizes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality passes for the exact finite value. Lin's recent paper establishes asymptotic lower bounds for list-decodable deletion codes and explicitly highlights the 2-list, 2-deletion regime, but the accessible primary material does not state the length-six optimum. Exact-value searches returned no independent prior finite theorem. The complete Lin body could not be retrieved through the open routes used in this run, and the single authorized institutional fallback returned a transport-level unavailable/request-invalid error, so a hidden finite example remains an explicit residual risk rather than being declared absent.
+
+## value
+
+PASS
+
+This is a natural first exact finite benchmark in the recently studied 2-list, 2-deletion regime. The short rational dual certificate and explicit extremizer provide a reusable test instance for future finite and asymptotic methods rather than an arbitrary isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
