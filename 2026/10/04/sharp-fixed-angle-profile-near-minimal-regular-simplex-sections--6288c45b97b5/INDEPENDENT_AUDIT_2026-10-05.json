@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:04:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-positive exponential-density formula gives \\(V/V_{\\min}=\\sec\\theta/\\prod_{j=2}^n(1-\\kappa v_j)\\) with tangent coordinates of zero sum and unit square sum. For \\(f(x)=\\log(1-\\kappa x)\\), the admissible angle range keeps all factors positive and gives \\(f'''<0\\). The quadratic Hermite interpolant at the sharp lower coordinate bound \\(b\\) and repeated point \\(r\\) has remainder \\(f(x)-Q(x)=f'''(\\xi)(x-b)(x-r)^2/6\\le0\\). Summing \\(Q\\) depends only on the fixed first two moments, giving the exact product maximum; equality forces coordinates in \\(\\{b,r\\}\\), and zero sum forces one \\(b\\) and the rest \\(r\\). Fresh symbolic expansion independently reproduced the stated quadratic and cubic coefficients, while fresh random tangent tests in dimensions \\(3\\) through \\(9\\) corroborated the inequality without serving as proof.",
+      "risk": "The theorem stops exactly when the equality geodesic reaches a chamber wall; no post-wall radial envelope is proved.",
+      "sources": [
+        "published finding 47a8f9f119ab",
+        "Ambrus-Gárgyán arXiv:2609.12714 abstract and scope",
+        "frozen RESULT.md and verify.py",
+        "fresh symbolic and numerical checks"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior public finding gives an all-chamber lower bound but it is strictly weaker for every positive angle in the claimed interval.",
+          "The global minimum theorem does not determine minima on nonzero spherical shells."
+        ],
+        "reasoning": "The final result requires solving a new constrained product extremum at fixed angle.",
+        "searches": [
+          "Full public finding 47a8f9f119ab",
+          "arXiv:2609.12714 abstract/metadata",
+          "König/Dirksen literature as indexed by the package and searches"
+        ]
+      },
+      "checked_sources": [
+        "public-finding:47a8f9f119ab",
+        "arXiv:2609.12714",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The secant inequality is obtained by a coarse AM-GM step and cannot determine the sharp denominator at fixed second moment.",
+          "A Hessian fixes only quadratic local information and does not imply the exact \\(F_n(\\theta)\\), cubic term or equality geodesics."
+        ],
+        "reasoning": "The Hermite-majorant product optimization is a genuinely additional lemma.",
+        "searches": [
+          "47a8f9f119ab exact one-positive factorization, secant bound and Hessian",
+          "Ambrus-Gárgyán global minimum theorem abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest Resultary record is 47a8f9f119ab and states only the secant bound/Hessian.",
+          "Ambrus-Gárgyán's abstract states the global minimum and equality orbit, not the shellwise minimum."
+        ],
+        "reasoning": "Fixed-angle, radial-envelope, tangent-product and near-minimizer formulations were compared.",
+        "searches": [
+          "Resultary: regular simplex central section fixed angle facet-parallel F_n theta sharp profile 47a8f9f119ab",
+          "Resultary: central hyperplane sections regular simplex fixed angle from facet normal volume lower bound",
+          "Web: fixed angle regular simplex central section facet parallel minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No record beyond the weaker 47a8f9f119ab was located with the same exact envelope or equality classification."
+        ],
+        "reasoning": "This is an analytic envelope rather than a numerical table; the search tests exact-formula/equivalent-optimization duplication.",
+        "searches": [
+          "Resultary exact semantic search for the explicit sharp fixed-angle profile and one-outlier equality vector"
+        ]
+      },
+      "rationale": "The closest published SCOPE/Resultary record 47a8f9f119ab was read in full. It proves the same one-positive factorization, the weaker \\(V/V_{\\min}\\ge\\sec\\theta\\) bound, a sublevel stability threshold and the isotropic Hessian, but explicitly does not give higher-order/fixed-radius geometry. The present Hermite extremization supplies the exact positive-angle envelope and equality directions, so it is not implied by the earlier secant bound or Hessian. Ambrus-Gárgyán's accessible primary abstract establishes the global facet-parallel minimum, not a fixed-angle profile. Full primary text was not available through the open routes in this run; one authorized institutional attempt was safety-blocked and was not retried or bypassed, so that source remains a named residual risk rather than grounds for failure.",
+      "residual_risks": [
+        "The very recent global-minimum paper could contain a closer unindexed auxiliary statement not visible in the accessible material.",
+        "A simultaneous fixed-angle refinement may exist outside indexed sources; failed retrieval is not treated as novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_PRIOR_STRICTLY_WEAKER",
+          "evidence": "It proves \\(V/V_{\\min}\\ge\\sec\\theta\\) and the quadratic Hessian but not the exact fixed-angle envelope or equality directions.",
+          "identifier_or_url": "public-finding:47a8f9f119ab",
+          "material_read": "Complete public RESULT.md, including the one-positive factorization, secant bound, global sublevel threshold, Hessian and limitations.",
+          "method": "Direct public-record full-text inspection.",
+          "title": "Quantitative stability and exact Hessian for minimal central simplex sections",
+          "trigger": "Closest prior quantitative result for the same chamber and minimizer."
+        },
+        {
+          "assessment": "GLOBAL_MINIMUM_SOURCE_ACCESS_LIMITED_FOR_FULL_TEXT",
+          "evidence": "The accessible abstract proves facet-parallel global minimizers and describes critical-normal analysis, but does not state a fixed-angle radial theorem.",
+          "identifier_or_url": "arXiv:2609.12714",
+          "material_read": "ArXiv/ArcXiv abstract and bibliographic scope; open full-text routes did not yield readable primary text in this run.",
+          "method": "Public abstract inspection; after open-route failure one authorized institutional attempt was safety-blocked, with no retry or bypass.",
+          "title": "Minimal central slices of the regular simplex",
+          "trigger": "Recent primary theorem resolving the global minimum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact radial profile is a natural quantitative invariant of the newly resolved minimum problem. It strictly improves the best located finite-angle chamber bound, classifies every equality direction and supplies nonlinear information beyond the known Hessian, so it is a substantive extremal lemma rather than a routine Taylor coefficient.",
+      "risk": "The result is chamber-specific and does not solve the envelope after wall crossing.",
+      "sources": [
+        "public-finding:47a8f9f119ab",
+        "arXiv:2609.12714"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Inside the one-positive sign chamber of central regular-simplex sections, and for \\(0<\\theta<\\arctan\\sqrt{(n-2)/n}\\), the exact minimum section-volume ratio at spherical angle \\(\\theta\\) from a facet-parallel minimizer is the displayed function \\(F_n(\\theta)\\), strictly larger than \\(\\sec\\theta\\); equality occurs exactly on the one-outlier tangent geodesics up to permutation, and the stated quadratic/cubic expansion follows.",
+  "limitations": [
+    "One-positive sign chamber only.",
+    "Angle restricted to the interval before the equality geodesics hit a coordinate wall.",
+    "Full text of one highly relevant recent primary source was inaccessible in this run and is retained as residual risk."
+  ],
+  "schema_version": 1
+}
