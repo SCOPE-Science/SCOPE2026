@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof first identifies annihilator classes with valuation vectors in the canonical product of finite chain rings. Adjacency is exactly the coordinatewise threshold condition, giving the exact degree formula. For at least two factors, degree-one vertices are precisely the coordinate vectors with a single valuation one; their unique neighbors encode each chain length through an invertible degree formula. The small orders \\(T=2,3,4,5,6\\) are treated separately, and the sole unresolved numerical overlap is shown to be the genuine \\(K_2\\) collision \\(\\{3\\}\\leftrightarrow\\{1,1\\}\\). The standalone verifier independently replays the formulas on a broad finite grid.
+PASS
 
-Risk: the argument assumes the standard structure theorem that a finite commutative principal ideal ring is a finite product of finite chain rings. This theorem is classical and is stated as an explicit scope assumption in the proof.
+In a finite chain factor of length \(\ell\), annihilator classes are exactly the valuation levels \(0,\ldots,\ell\). For a product, vertices are all valuation vectors except the unit and zero vectors, and adjacency is the coordinatewise condition \(a_i+b_i\ge\ell_i\). Hence \(T=|V|+2=\prod_i(\ell_i+1)\) and \(d(a)=\prod_i(a_i+1)-1-\delta(a)\), with the self-exclusion term exactly when \(2a_i\ge\ell_i\) for all coordinates. When there are at least two factors, the leaves are exactly the coordinate vectors \(e_i\). Their unique neighbors have degrees \(T/2-1\) for \(\ell_i=1\) and \(T\ell_i/(\ell_i+1)-2\) for \(\ell_i\ge2\), recovering every length. The only numerical overlap is harmless at \(T=6\) and exceptional at \(T=4\), where \(\{3\}\) and \(\{1,1\}\) both give \(K_2\). One-factor cases are separated by order and leaf count. Fresh direct graph reconstruction reproduced the exceptional collision and representative mixed-length degree profiles; the bundled verifier stress-tests 225 additional length multisets.
 
-## Originality
+## originality
 
-PASS. The decisive closest source is Alvir’s 2015 full text: it proves sufficiency of matching exponent patterns for UFD principal quotients, explicitly exhibits the unlooped \\(p^3\\) versus \\(pq\\) collision, and proves necessity only for pure prime powers and square-free products. Targeted searches for annihilator-compressed graph isomorphism, principal ideal rings, chain-ring products, exponent patterns, and the \\(p^3/pq\\) ambiguity found no source giving the general “only exception” classification proved here. Spiroff--Wickham supplies the exact simple graph definition and algebra-primary setting; the later associatedness compression is a different, finer construction.
+PASS
 
-Risk: Anderson--LaGrange (2016) is broad enough to be relevant, but only abstract/rendered-summary material was inspected here. Its advertised topics do not state the finite-principal-ideal-ring isomorphism classification, but an unadvertised result inside the full article remains a residual originality risk.
+Alvir proves that matching irreducible-exponent patterns are sufficient for compressed-graph isomorphism for principal quotients of UFDs, explicitly observes the unlooped collision between a cube prime-power quotient and a product of two distinct prime quotients, and proves necessity only in the pure-prime-power and square-free subfamilies. The audited theorem extends this to all finite commutative principal ideal rings and proves that the displayed \(K_2\) collision is the only failure of chain-length recovery. Anderson--LaGrange study structural properties of the compressed graph but the accessible scope does not state this classification. Current Resultary search returned the assigned theorem as the exact hit and no stronger prior reconstruction theorem.
 
-## Value
+## value
 
-PASS. The simple compressed graph was introduced specifically to retain ring-theoretic information while discarding duplicate zero-divisor behavior. Alvir showed that simple-graph compression creates a genuine exponent-pattern ambiguity but left the mixed-exponent necessity problem open beyond special families. The theorem closes that structural gap for the natural finite principal-ideal-ring class and isolates the exact information loss: one \\(K_2\\) factorization collision plus the already unavoidable loss of residue-field sizes.
+PASS
 
-Risk: the result is a reconstruction theorem for one important ring class, not a classification for arbitrary finite commutative rings or looped compressed graphs.
+Recovering ring structure from compressed zero-divisor graphs is the motivating question of the literature. The theorem gives a complete reconstruction invariant for all finite commutative principal ideal rings and proves that a previously known collision is uniquely exceptional. This is a natural classification theorem, not a recomputation of a few graph tables.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
