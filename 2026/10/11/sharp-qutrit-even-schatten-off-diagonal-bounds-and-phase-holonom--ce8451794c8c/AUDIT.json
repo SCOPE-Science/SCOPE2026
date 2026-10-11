@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed exact domain 3-by-3 Hermitian PSD trace-one, t in [1/3,1], m integer >=3. Orthogonal diagonal/offdiagonal trace-square split yields u<=t-1/3. The cubic trace equals six times real triangular product and AM-GM gives v^2<=u^3/6. Cayley-Hamilton recurrence with nonnegative coefficients and strict positive v^2 term at every even order >=6 gives the sharp moment bound. Equality requires flat diagonal/edge moduli and holonomy 0 or pi. Explicit eigenvalues prove the negative branch is PSD iff t<=1/2; all positive forms have exact purity. Determinant and principal-minor criteria give the complete entrywise-l1 phase family. The extracted standalone verifier passed 41205 checks; finite checks cannot establish the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Streltsov et al. Theorem 2 and Appendix A optimize min over diagonal states of a Schatten distance at fixed spectrum; their first preprint is dated 2016-12-22.",
+        "Rana et al. define coherence distances as minima over diagonal states, not the direct norm of rho-Delta rho.",
+        "Singh et al. Theorem 1 bounds entrywise l1 coherence at fixed normalized linear entropy, not the Schatten 6 or higher off-diagonal spectral norm."
+      ],
+      "reasoning": "A fixed-spectrum minimized-distance theorem or an entrywise-l1 bound does not imply the sharp fixed-purity spectrum-of-offdiagonal norm or its complete triangle-holonomy equality cases. Both the later strong source and the earliest source were materially inspected.",
+      "searches": [
+        "qutrit density matrix fixed purity maximum Schatten six eight norm of off diagonal coherence traceless Hermitian cubic trace",
+        "qutrit density matrix fixed purity maximum Schatten six eight norm of off diagonal coherence traceless Hermitian cubic trace",
+        "https://arxiv.org/pdf/1612.07570"
+      ]
+    },
+    "checked_sources": [
+      "Singh et al., arXiv:1503.06303, Theorems 1–2 and Eqs. (3), (9), (14)–(17); DOI:10.1103/PhysRevA.91.052115",
+      "Rana et al., arXiv:1511.01854, Schatten-p section (nonmonotonicity and optimization over diagonal states); DOI:10.1103/PhysRevA.93.012110",
+      "Yao et al., Scientific Reports 6, 32010 (2016), Results and Methods, DOI:10.1038/srep32010",
+      "Streltsov et al., arXiv:1612.07570, Theorem 2 and Appendix A, later contextual comparison",
+      "Published research record 2026/9/18/SCOPE-quartic-trace-rigidity-schatten-sum-normal-tuples--0e05327e8eba (different operators and identity)",
+      "Published research record 2026/10/4/SCOPE-exact-hilbertian-dimension-of-s-4-2--1512c2d24fe2 (different geometry and Schatten exponent)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Singh et al. Eq. (9) positive pseudo-pure states show one set of equality witnesses but do not distinguish triangular phase classes.",
+        "The algebraic quartic trace identity tr(B^4)=tr(B^2)^2/2 gives no strict phase dependence; the sixth moment tr(B^6)=u^3/4+v^2/3 does.",
+        "Yao et al. use Frobenius norms, which are phase-blind at fixed u, unlike the sixth and higher spectral moments."
+      ],
+      "reasoning": "Neither the older l1 maximum nor the three-dimensional quartic identity determines the nontrivial phase-threshold equality classification. The new spectral-moment formula requires an additional cubic-trace inequality and strictness argument, and the phase range uses PSD determinants.",
+      "searches": [
+        "Singh Bera Dhar Pati maximally coherent mixed states 2015 theorem 2 negative off diagonal qutrit triangle phase counterexample uniqueness",
+        "Schatten 6 norm coherence purity inequality three level quantum state",
+        "https://arxiv.org/pdf/1503.06303",
+        "https://www.nature.com/articles/srep32010"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Singh et al., Theorem 2, Eq. (9) displays only the positive-sign pseudo-pure family, while Eqs. (3), (14) give the known entrywise-l1 maximum.",
+        "For the second branch, the gauge-invariant triangle product rho12*rho23*rho31 is negative, unlike the displayed positive branch; a direct 3-by-3 eigenvalue check makes it PSD at 1/3<t<=1/2.",
+        "The higher even moments additionally require absolute triangle phase 0 or pi by the strict cubic-trace-square term."
+      ],
+      "reasoning": "The existing entrywise-l1 optimum is recovered, not claimed as new. The full equality phase family and strict spectral phase selection are not equivalent to the earlier numerical l1 bound or its exhibited sufficient maximizing family.",
+      "searches": [
+        "At fixed purity tr rho squared, qutrit maximal sixth Schatten norm of offdiagonal rho minus dephased rho, exact 11/36 times purity excess cubed, all equality states",
+        "Traceless Hermitian 3x3 matrix sharp even spectral moment bound trace A^(2m) <= (2^(2m)+2)(trace A^2/6)^m equality double eigenvalue",
+        "Singh Bera Dhar Pati maximally coherent mixed states 2015 theorem 2 negative off diagonal qutrit triangle phase counterexample uniqueness",
+        "qutrit maximally coherent mixed states frustrated triangle negative coherence phases same purity C_l1 extremizers",
+        "https://arxiv.org/pdf/1503.06303"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published record about Schatten tuple selfcommutators is an identity for a commuting tuple, not a purity-constrained dephased qutrit.",
+        "The published record on the Hilbertian dimension of S4^2 is about Banach geometry in size two, not sixth spectral moments of 3-by-3 off-diagonal density matrices.",
+        "Targeted result searches for the exact numerical sixth-moment constant and the negative-sign phase cutoff returned no matching table or identity."
+      ],
+      "reasoning": "Checked published-index hits against object, optimization parameter, invariant, extremizers, and implications, not only title. Lack of a database match is not by itself proof of novelty.",
+      "searches": [
+        "At fixed purity tr rho squared, qutrit maximal sixth Schatten norm of offdiagonal rho minus dephased rho, exact 11/36 times purity excess cubed, all equality states",
+        "Traceless Hermitian 3x3 matrix sharp even spectral moment bound trace A^(2m) <= (2^(2m)+2)(trace A^2/6)^m equality double eigenvalue",
+        "Maximally coherent mixed qutrit states equal diagonal, Schatten six offdiagonal spectral coherence, negative phase second extremal branch purity threshold 1/2",
+        "Density matrix Schatten p norm offdiagonal maximal fixed purity, Schatten six eight analytic pure mixed qutrit",
+        "2026/9/18/SCOPE-quartic-trace-rigidity-schatten-sum-normal-tuples--0e05327e8eba",
+        "2026/10/4/SCOPE-exact-hilbertian-dimension-of-s-4-2--1512c2d24fe2"
+      ]
+    },
+    "rationale": "The 2015 purity–entrywise-l1 bound and its positive-sign maximizers are explicitly credited. Direct comparison of Theorem 2, its Eq. (9), and the proof shows that a negative phase triangle has identical entrywise-l1 optimum, is PSD through purity 1/2, and has a gauge-invariant sign not represented by the positive pseudo-pure family. New claims are the sharp all-higher-even Schatten norms, their complete equality classes, and the 1/2 phase cutoff. The Schatten-p coherence functionals of Rana et al. and later Streltsov et al. minimize over diagonal states, unlike the fixed dephasing norm here. Yao et al. study quadratic/Frobenius information rather than sixth and higher moments. The closest published research-index hits study different objects. A historical unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An older matrix-analysis paper may already contain the exact extremal trace-moment inequality or an equivalent phase classification under different terminology.",
+      "The paper-level uniqueness comparison was checked against displayed statements and the direct counterexample but has not received independent scholarly adjudication.",
+      "Published semantic discovery is incomplete and cannot establish global priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Numerical entrywise-l1 maximum already known; positive maximizing family given. The displayed uniqueness does not account for negative triangle holonomy when t<=1/2; higher even-Schatten objective and complete phase family not established.",
+        "evidence": [
+          "2015-03-21 is the verified arXiv v1 submission date.",
+          "Theorem 2, Eq. (9), characterizes a positive-sign pseudo-pure form; Eq. (14) gives the l1 maximum.",
+          "A qutrit state with equal negative offdiagonal entries has product phase pi, remains PSD through t=1/2, and attains the same Eq. (14)."
+        ],
+        "identifier_or_url": "arXiv:1503.06303; https://arxiv.org/pdf/1503.06303",
+        "material_read": "Full public eight-page PDF was available. Relevant material read: Section III inequality (3), Section IV Theorem 2 and proof (displayed Eq. (9), optimized phases (14)–(17)), and discussion of equality.",
+        "method": "PDF text by pages and page image of page 4 (zero-indexed 3); direct equation/assumption comparison",
+        "title": "Maximally coherent mixed states: Complementarity between maximal coherence and mixedness",
+        "trigger": "Direct fixed-purity maximally-coherent-mixed-state antecedent and potentially dominating uniqueness assertion"
+      },
+      {
+        "assessment": "Different functional: min over incoherent diagonal sigma of norm(rho-sigma), not norm(rho-Delta rho); no fixed-purity maximum with triangle-phase equality classification.",
+        "evidence": [
+          "The first arXiv version was public 2015-11-05.",
+          "Schatten-p-based candidate measures are shown not to meet monotonicity axioms for p>1."
+        ],
+        "identifier_or_url": "arXiv:1511.01854; https://arxiv.org/pdf/1511.01854",
+        "material_read": "Seven-page primary PDF; Section IV Schatten-p discussion and conclusion of failures of strong monotonicity, with the definitions of minimized distance.",
+        "method": "PDF full text searched and relevant page visually inspected",
+        "title": "Trace-distance measure of coherence",
+        "trigger": "Schatten-p coherence norm potentially broader than present direct offdiagonal invariant"
+      },
+      {
+        "assessment": "Quadratic/Frobenius norm setting, not the phase-sensitive sixth and higher even Schatten norm of the dephased offdiagonal matrix.",
+        "evidence": [
+          "Scientific Reports 6, 32010, 2016-08-25, relevant sections on purity and Frobenius quantifiers."
+        ],
+        "identifier_or_url": "DOI:10.1038/srep32010; https://www.nature.com/articles/srep32010",
+        "material_read": "Open-access article sections on Frobenius quantities, relation to purity, and Methods normalization; results on unital channels read.",
+        "method": "Full-text HTML heading/section reading and targeted text searching",
+        "title": "Frobenius-norm-based measures of quantum coherence and asymmetry",
+        "trigger": "Purity-dependent operator norm inequalities on density matrices"
+      },
+      {
+        "assessment": "Maximized minimized-distance coherence at a fixed spectrum and maximal unitary orbit; not the direct norm of rho-Delta rho at fixed quadratic purity, with classification of triangular phase equality.",
+        "evidence": [
+          "arXiv first submitted 2016-12-22 (after archival cutoff; used only to assess stronger later coverage).",
+          "Theorem 2 Eq. (19) specifically Cp=min over incoherent diagonal sigma ||rho-sigma||p."
+        ],
+        "identifier_or_url": "arXiv:1612.07570; https://arxiv.org/pdf/1612.07570",
+        "material_read": "Eleven-page full PDF; main Theorem 2 and Eq. (18)-(19), Appendix A proof including Schatten extension, and contextual conclusions.",
+        "method": "PDF text by relevant pages and page image of page 6 (zero-indexed 5)",
+        "title": "Maximal Coherence and the Resource Theory of Purity",
+        "trigger": "Later universal maximal coherence theorem for Schatten-p distances might dominate target"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ce845179-4c8c-47e9-9c42-986274bb3805",
+  "value": {
+    "rationale": "The sharp family of higher-even spectral coherence magnitudes is a natural purity-conditioned matrix invariant, not a made-up slice. It exposes a gauge-invariant phase distinction invisible to Frobenius and entrywise-l1 extrema, gives all equality matrices for arbitrarily many natural even powers, and establishes a sharp positivity cutoff t=1/2. It clarifies a materially overrestricted earlier pseudo-pure maximizing-family assertion without claiming the existing l1 numerical optimum as new. The result is quantitatively useful for spectral sensitivity of qutrit offdiagonal matrices, without pretending to be a coherence monotone or a general quantum resource theorem.",
+    "status": "PASS"
+  }
+}
