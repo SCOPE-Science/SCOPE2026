@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "After centering \\(Y=y-1/b\\), exact differentiation gives \\(\\dot V=(1/b-a)x^2-bY^2-cz^2\\); the standalone checker verifies the polynomial cancellation coefficient-by-coefficient. For \\(a>1/b\\) this gives the global exponential estimate with \\(m=\\min\\{a-1/b,b,c\\}\\). At equality \\(V\\) is proper and nonincreasing, and the largest invariant subset of \\(\\{Y=0,z=0\\}\\) is \\(Q_0\\) because \\(\\dot z=-x\\). The bounded-complete formula follows by integrating \\(\\dot y+by=1-x^2\\) backwards and taking \\(T\\to\\infty\\). The invariant-measure conclusion follows by integrating the nonpositive generator identity over compact invariant measures.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yao et al. 2022 study fixed-time neural synchronization of the same uncontrolled plant but provide no open-loop global-stability half-space.",
+        "Rao–Zhong 2020 prove stability results for delayed/impulsively controlled variants, principally around a positive-interest-rate equilibrium, not the uncontrolled \\(Q_0\\) theorem.",
+        "Szumiński 2017 proves meromorphic non-integrability of the same system, a logically different property.",
+        "Cândido–Llibre–Valls 2018 study Hopf bifurcation and algebraic invariant surfaces, not the full global half-space or strict y ceiling."
+      ],
+      "reasoning": "No inspected source has a theorem whose hypotheses cover all \\(a\\ge1/b\\) and whose conclusion implies global attraction of \\(Q_0\\) plus the strict pointwise bound for every bounded complete non-equilibrium trajectory. Controlled, local, and integrability results do not dominate the claim.",
+      "searches": [
+        "financial system xdot z +(y-a)x ydot 1-by-x^2 zdot -x-cz Lyapunov global stability",
+        "Huang Li nonlinear financial system xdot z +(y-a)x ydot 1-by-x^2 zdot -x-cz",
+        "Huang Li financial system global asymptotic stability a >= 1/b unique invariant measure investment demand ceiling",
+        "Aybar quadratic invariant finance model b=c c(a-c)=1 exponential decay"
+      ]
+    },
+    "checked_sources": [
+      "Semantic published-result index with fourteen scientific claim/source/alias queries",
+      "Ma–Chen (2001) Part I full PDF",
+      "Ma–Chen (2001) Part II full PDF",
+      "Szumiński (2017) arXiv record",
+      "Cândido–Llibre–Valls (2018) public abstract/repository metadata",
+      "Aybar (2020) full PDF",
+      "Rao–Zhong (2020) full open-access article",
+      "Yao et al. (2022) full public article"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Chen's local stability conditions do not imply global attraction; their papers explicitly proceed through local eigenvalue and bifurcation analyses.",
+        "Aybar's special Darboux identity implies exponential attraction only on \\(b=c\\) and \\(c(a-c)=1\\), not for arbitrary \\(b,c\\) with \\(a>1/b\\), and it does not supply the \\(a=1/b\\) endpoint or bounded-complete ceiling.",
+        "The filter representation \\(y(t)=1/b-\\int_0^\\infty e^{-bs}x(t-s)^2\\,ds\\) is a statement about all bounded complete trajectories and is not implied by local Hopf/bifurcation classifications."
+      ],
+      "reasoning": "The new theorem strictly broadens a known exact special case and adds independent global recurrence information. No inspected prior statement has an implication chain reaching all parts of the final claim.",
+      "searches": [
+        "chaotic financial system xdot = z + (y-a)x ydot = 1 - b y - x^2 zdot = -x - c z global stability a >= 1/b Lyapunov",
+        "xdot z +(y-a)x ydot 1-by-x^2 zdot -x-cz compact invariant measure recurrence",
+        "Huang Li financial system global asymptotic stability a >= 1/b unique invariant measure investment demand ceiling",
+        "Aybar quadratic invariant finance model b=c c(a-c)=1 exponential decay"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic-index searches returned no same-model item for the exact centered-energy expression or the condition \\(a\\ge1/b\\) among the closest ranked findings.",
+        "Ma–Chen I and II were inspected in full; they center the same equilibrium and analyze local eigenvalues, center manifolds, pitchfork/Hopf bifurcations, and numerical regimes, but do not state the global quadratic identity or bounded-complete filter ceiling.",
+        "Aybar 2020 contains the special quadratic Darboux polynomial \\(I^*=x^2+(y-1/c)^2+z^2\\) when \\(b=c\\) and \\(c(a-c)=1\\); on that curve it equals \\(2V\\) and is therefore a genuine special-case equivalent formulation."
+      ],
+      "reasoning": "The known Aybar identity covers a codimension-two parameter curve inside \\(a>1/b\\). The new claim is not merely a restatement: it extends the energy argument to every positive \\(b,c\\) throughout the full closed half-space \\(a\\ge1/b\\), includes the semidefinite boundary \\(a=1/b\\), and proves a parameter-independent strict recurrence ceiling.",
+      "searches": [
+        "chaotic financial system xdot = z + (y-a)x ydot = 1 - b y - x^2 zdot = -x - c z global stability a >= 1/b Lyapunov",
+        "financial system Ma Chen global stability equilibrium (0,1/b,0) Lyapunov x^2 + (y-1/b)^2 + z^2",
+        "Lyapunov V = 1/2 [x^2 + (y-1/b)^2 + z^2] financial",
+        "Huang Li finance Lyapunov x^2 +(y-1/b)^2 + z^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dedicated semantic-index searches for the DOI, exact vector field, centered energy, and strict \\(y<1/b\\) ceiling returned only findings on other dynamical systems.",
+        "The reviewed published-result index contained no matching same-system claim."
+      ],
+      "reasoning": "There is no known numerical table or catalog entry that would subsume the analytic theorem. The finding is an exact identity plus invariant-set consequences, not a recomputation of a tabulated quantity.",
+      "searches": [
+        "doi:10.3390/math10193682",
+        "Huang Li finance model y less than 1/b bounded complete trajectory",
+        "Aybar quadratic invariant finance model b=c c(a-c)=1 exponential decay"
+      ]
+    },
+    "rationale": "The full foundational Ma–Chen pair, the same-model Aybar invariant paper, the Rao–Zhong control paper, the selected Yao source, a semantic published-result index, and additional same-model literature were compared at the statement/implication level. Aybar provides an exact special Darboux curve, but no inspected source covers the full closed half-space \\(a\\ge1/b\\), its LaSalle endpoint, and the strict bounded-complete \\(y<1/b\\) ceiling together.",
+    "residual_risks": [
+      "The publisher full text of Cândido–Llibre–Valls (2018) was not inspected; the publicly available abstract and later Aybar full text were used to delimit its stated scope.",
+      "Unindexed books, theses, or non-digitized literature could contain a related Lyapunov observation, although the foundational same-model papers and several later structural studies were directly checked.",
+      "The claim deliberately does not assert that \\(a=1/b\\) is the complete global-stability boundary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same plant; focus is controlled master–slave synchronization. It does not state the open-loop energy theorem.",
+        "evidence": "Published 8 October 2022; Eq. (34) is the displayed three-state financial system; MSC begins 34C28.",
+        "identifier_or_url": "doi:10.3390/math10193682",
+        "material_read": "Full public HTML including publication metadata, MSC list, introduction, model equation, simulation parameters, and conclusions.",
+        "method": "Full-text web inspection.",
+        "title": "Fixed-Time Output-Constrained Synchronization of Unknown Chaotic Financial Systems Using Neural Learning",
+        "trigger": "Selected middle-window primary source with primary MSC 34C28 and the exact Huang–Li plant in Eq. (34)."
+      },
+      {
+        "assessment": "Covers local topology and bifurcation, not the global energy identity or strict bounded-complete ceiling.",
+        "evidence": "The paper centers \\(Q_0=(0,1/b,0)\\), derives local characteristic conditions, and organizes its analyses by local cases; no Lyapunov occurrence was found in the full parsed text.",
+        "identifier_or_url": "doi:10.1007/BF02437847",
+        "material_read": "Full 12-page public PDF, including model derivation, equilibrium classification, local linearization, center-manifold discussion, Hopf conditions, and numerical examples.",
+        "method": "Full-text PDF inspection.",
+        "title": "Study for the Bifurcation Topological Structure and the Global Complicated Character of a Kind of Nonlinear Finance System (I)",
+        "trigger": "Foundational same-model paper and strongest plausible older coverage source."
+      },
+      {
+        "assessment": "No matching global energy theorem; the paper develops local/topological bifurcation structure and simulations.",
+        "evidence": "The parsed full text describes local geometry and stability and contains no Lyapunov match.",
+        "identifier_or_url": "doi:10.1007/BF02435540",
+        "material_read": "Full 8-page public PDF, including equilibrium branches, pitchfork/Hopf analysis, numerical simulations, and concluding parameter discussion.",
+        "method": "Full-text PDF inspection.",
+        "title": "Study for the Bifurcation Topological Structure and the Global Complicated Character of a Kind of Nonlinear Finance System (II)",
+        "trigger": "Companion foundational paper that could have contained stronger global coverage."
+      },
+      {
+        "assessment": "Contains a genuine special case: for \\(b=c\\) and \\(c(a-c)=1\\), \\(I^*=x^2+(y-1/c)^2+z^2\\) has cofactor \\(-2c\\). This is \\(2V\\) on that curve but does not cover the full half-space or endpoint/ceiling.",
+        "evidence": "Section III states the parameter condition and quadratic invariant explicitly.",
+        "identifier_or_url": "doi:10.29130/dubited.644487",
+        "material_read": "Full 13-page public PDF, including local stability and Section III on algebraic invariant surfaces; page image inspected.",
+        "method": "Full-text PDF and page-image inspection.",
+        "title": "Dynamical Analysis of a Nonlinear Financial System with Computational Algebra Methods",
+        "trigger": "Same-model article explicitly about stability and algebraic invariants; plausible source of an equivalent quadratic identity."
+      },
+      {
+        "assessment": "Proves meromorphic non-integrability by differential-Galois methods; it does not imply or cover the energy half-space theorem.",
+        "evidence": "The arXiv abstract states the exact model and its non-integrability objective.",
+        "identifier_or_url": "arXiv:1703.06623v1",
+        "material_read": "Public arXiv abstract and equation statement.",
+        "method": "ArXiv record inspection.",
+        "title": "Non-integrability of the Huang–Li nonlinear financial model",
+        "trigger": "Same exact vector field and a structural theorem potentially related to global dynamics."
+      },
+      {
+        "assessment": "Abstract scope is Hopf bifurcation and algebraic invariant surfaces; no claim of the global half-space or strict recurrence ceiling was located.",
+        "evidence": "Public abstract identifies a small-amplitude Hopf cycle and invariant-algebraic-surface analysis.",
+        "identifier_or_url": "doi:10.1142/S021812741850150X",
+        "material_read": "Public abstract, repository metadata, and bibliographic record; publisher full text not inspected.",
+        "method": "Repository/metadata inspection after open-web search.",
+        "title": "Invariant Algebraic Surfaces and Hopf Bifurcation of a Finance Model",
+        "trigger": "Same-model paper on Hopf bifurcation and invariant surfaces, close to the algebraic aspect of V."
+      },
+      {
+        "assessment": "Global exponential criteria are for delayed/impulsively controlled systems and a positive-interest-rate equilibrium; they do not cover the uncontrolled \\(Q_0\\) theorem.",
+        "evidence": "The article explicitly frames its results under impulse control and delayed feedback.",
+        "identifier_or_url": "doi:10.1186/s13662-020-2524-3",
+        "material_read": "Full open-access HTML, including model, equilibrium conditions, control assumptions, main theorems, and conclusions.",
+        "method": "Full-text web inspection.",
+        "title": "Impulsive control on delayed feedback chaotic financial system with Markovian jumping",
+        "trigger": "Same model with explicit global-stability language and therefore plausible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2849f977-d064-43ba-8468-2013147f1785",
+  "value": {
+    "rationale": "The result isolates a mathematically natural open-loop no-recurrence region in a repeatedly used chaotic-finance benchmark, gives an explicit global exponential rate away from the boundary, closes the semidefinite endpoint, and provides a pointwise ceiling for every bounded complete non-equilibrium trajectory. It strictly extends the exact Aybar Darboux identity from one special parameter curve to a full closed half-space \\(a\\ge1/b\\) rather than selecting an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
