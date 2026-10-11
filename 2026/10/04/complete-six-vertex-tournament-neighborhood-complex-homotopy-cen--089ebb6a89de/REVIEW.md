@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite domain is exhaustive: all \(2^{15}=32768\) labeled tournaments are generated and partitioned into 56 vertex-permutation orbits. For each canonical representative, the out-neighborhood complex is reconstructed from the published definition. The packaged verifier checks an acyclic Hasse matching with no critical cells above dimension \(1\), with one critical vertex per connected component; this proves the stated graph homotopy types. The unique \(\beta_1=4\) representative and its automorphism-group order are independently recomputed from the orbit.
+## correctness
 
-## Originality
-PASS relative to the checked literature. Dochtermann–Singh explicitly tabulate all five-vertex tournaments and prove a six-vertex higher-homology vanishing bound, but the inspected full text does not give the complete six-vertex homotopy census, its seven-type distribution, or the unique maximum-\(\beta_1\) class. published-finding corpus and web searches for equivalent formulations and six-vertex extensions returned no exact match. Residual risk is an obscure unindexed finite census.
+PASS
 
-## Value
-PASS. The finding is the immediate next-order completion of the paper's five-vertex tournament table and refines a general six-vertex vanishing theorem to exact homotopy types. The unique \(\beta_1=4\) extremizer is a compact benchmark for further questions about directed \(\operatorname{Hom}\) complexes and tournament topology.
+An independent enumeration partitioned all 2^15 labeled six-vertex tournaments into exactly 56 S6-orbits. For each canonical representative it rebuilt the out-neighborhood complex, searched vertex-order face matchings, and independently checked acyclicity of the reversed matched Hasse edges. Every class admitted a matching with no critical cells above dimension one and with the number of critical vertices equal to the number of connected components. The resulting homotopy distribution was exactly 34 point, 11 S1, 4 wedge_2 S1, 2 wedge_3 S1, 1 wedge_4 S1, 3 two-points, and 1 S1 disjoint point; the unique beta1=4 class had canonical mask 1332, orbit 240, automorphism group order 3, and outdegree sequence (3,3,3,2,2,2).
 
-## Closest literature and limitations
-The closest source is Dochtermann–Singh, arXiv:2108.10948v1 / European Journal of Combinatorics 110 (2023), especially Definition 4.1, Theorem 4.12, Table 1, and Proposition 5.1. The result is finite and order-specific; it does not extrapolate to seven or more vertices.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary source defines the same directed neighborhood complexes, tabulates all five-vertex tournament cases, and proves high-dimensional homology vanishing for the next range, but it does not classify the 56 six-vertex tournaments by homotopy type or identify the unique beta1=4 class.
+
+## value
+
+PASS
+
+The source literature itself makes tournament neighborhood-complex topology a target and supplies a complete five-vertex table. Advancing to the next natural order with exact homotopy types and a unique maximum-beta1 benchmark is a motivated complete classification rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

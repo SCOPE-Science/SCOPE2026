@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone verifier `verify_tournament_neighborhoods.py` uses only the Python standard library. It reconstructs all \(32768\) labeled six-vertex tournaments, partitions them into exactly 56 isomorphism classes under all \(720\) vertex permutations, rebuilds every directed out-neighborhood complex, and verifies the archived census row by row.
+# Independent mathematical audit
 
-For every representative it constructs a stagewise discrete-Morse face matching and explicitly checks acyclicity on the complete oriented Hasse diagram. It verifies that no critical cells occur above dimension \(1\), that the critical-vertex count equals the component count, and that the resulting homotopy-type distribution is exactly the one claimed. It also checks the unique \(\beta_1=4\) representative, its orbit size and automorphism-group order, and its stated out-neighborhoods.
+## correctness
 
-As a separate regression, the same code enumerates all 12 five-vertex tournament types and reproduces the reduced-homology-rank distribution in Dochtermann–Singh Table 1. A successful replay ends with `VERIFY_OK`.
+PASS
 
-The verification is exhaustive for six vertices but does not address larger tournaments. No independent audit has been performed.
+An independent enumeration partitioned all 2^15 labeled six-vertex tournaments into exactly 56 S6-orbits. For each canonical representative it rebuilt the out-neighborhood complex, searched vertex-order face matchings, and independently checked acyclicity of the reversed matched Hasse edges. Every class admitted a matching with no critical cells above dimension one and with the number of critical vertices equal to the number of connected components. The resulting homotopy distribution was exactly 34 point, 11 S1, 4 wedge_2 S1, 2 wedge_3 S1, 1 wedge_4 S1, 3 two-points, and 1 S1 disjoint point; the unique beta1=4 class had canonical mask 1332, orbit 240, automorphism group order 3, and outdegree sequence (3,3,3,2,2,2).
+
+## originality
+
+PASS
+
+The closest primary source defines the same directed neighborhood complexes, tabulates all five-vertex tournament cases, and proves high-dimensional homology vanishing for the next range, but it does not classify the 56 six-vertex tournaments by homotopy type or identify the unique beta1=4 class.
+
+## value
+
+PASS
+
+The source literature itself makes tournament neighborhood-complex topology a target and supplies a complete five-vertex table. Advancing to the next natural order with exact homotopy types and a unique maximum-beta1 benchmark is a motivated complete classification rather than an arbitrary finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
