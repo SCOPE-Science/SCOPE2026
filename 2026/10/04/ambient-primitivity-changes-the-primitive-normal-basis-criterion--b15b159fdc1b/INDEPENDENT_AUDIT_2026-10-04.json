@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:13:03.050697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and finite-field verifier at tree c719831d7907e6e3d931703794b289b3e4523725",
+        "K. S. Enoch Lee, arXiv:2609.10228v1 full arXiv HTML",
+        "primitive normal basis theorem literature"
+      ],
+      "rationale": "Under the literal ambient-field reading, an element primitive in \\(\\mathbb F_{p^{ln}}\\) has multiplicative order \\(p^{ln}-1\\), so no nontrivial \\(p^d\\)-Frobenius with \\(d<ln\\) can fix it; its complete \\(p\\)-Frobenius orbit therefore has \\(ln\\) distinct elements. A basis consisting of that full orbit forces \\(D(1,b)\\) to have ambient dimension \\(ln\\), hence to equal \\(\\mathbb F_{q^n}\\). Conversely the primitive normal basis theorem gives such a basis for the full ambient field. The explicit \\((q,n)=(4,3)\\) witness was independently recomputed in \\(\\mathbb F_2[g]/(g^6+g+1)\\): \\(g\\) has order 63, \\(b=g^{34}\\), \\(1+b=g^{31}\\) lie in the same nontrivial Dickson coset, and the distributivity equation has exactly the four roots of \\(d^4=d\\), i.e. \\(\\mathbb F_4\\), containing no ambient primitive element.",
+      "residual_risks": [
+        "The result is explicitly about the literal printed ambient-primitivity wording; an intended smaller-field meaning produces the repaired equivalence instead."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee proves the largest contained subfield and field-closure criterion but leaves the basis equivalence as a question.",
+          "The primitive normal basis theorem applies to a specified finite field and supplies primitivity in that field, not in a strictly larger ambient field."
+        ],
+        "reasoning": "The broader finite-field theorem proves the repaired smaller-field implication but does not validate the printed ambient-primitivity implication.",
+        "searches": [
+          "Lee arXiv:2609.10228v1 Theorem 7 and final primitive-normal-basis question",
+          "Lenstra–Schoof primitive normal basis theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.10228",
+        "Lee open-problem indexing",
+        "Lenstra–Schoof 1987",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lee's current question treats \\(D(1,b)\\) as an \\(\\mathbb F_p\\)-space possibly equal to a proper subfield.",
+          "An ambient primitive element has full ambient Frobenius orbit, so the source's stated smaller-field equality cannot by itself supply such an element under the literal reading."
+        ],
+        "reasoning": "The audited result detects a quantifier/ambient-field mismatch not resolved by the cited classical theorem and supplies an explicit Dickson realization of the failure.",
+        "searches": [
+          "Statement comparison of Lee's open Question with the primitive normal basis theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit was the assigned correction.",
+          "The current source/open-problem statement still asks whether primitive-normal-basis existence is equivalent to \\(D(1,b)=\\mathbb F_{p^{l\\mu}}\\)."
+        ],
+        "reasoning": "The audited ambient-orbit-length criterion is an equivalent formulation of the literal Definition-25 issue and is not stated in the source.",
+        "searches": [
+          "Resultary query: Dickson nearfield generalized distributive set primitive normal basis ambient field Definition 25 Question 26",
+          "Lee arXiv:2609.10228 full-text/open-problem searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The \\((4,3)\\) example is an exact witness, while the general ambient-orbit criterion is symbolic."
+        ],
+        "reasoning": "The claim is not a table recomputation; one finite counterexample refutes the printed universal implication, and the general criterion explains why.",
+        "searches": [
+          "Resultary search; independent exact F64 replay"
+        ]
+      },
+      "rationale": "Lee's full current arXiv text defines the Dickson construction inside the ambient \\(\\mathbb F_{q^n}\\), proves \\(\\mathbb F_{q^\\mu}\\subseteq D(1,b)\\), and ends by posing the primitive-normal-basis equivalence as an open question. Current open-problem indexing still presents it as unresolved. The audited result identifies the ambient-versus-subfield primitivity mismatch and gives a concrete proper-subfield counterexample; Resultary found only the assigned correction. Standard primitive-normal-basis theorems do not bridge this mismatch because primitivity is relative to the field whose multiplicative group is generated.",
+      "residual_risks": [
+        "If the source author intended 'primitive' relative to \\(\\mathbb F_{p^{l\\mu}}\\) despite the literal ambient wording, the result is a correction of wording rather than of the intended mathematical concept."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_QUESTION_SOURCE",
+          "evidence": "The paper proves the contained subfield/field-closure results and explicitly leaves the primitive-normal-basis equivalence as a question.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10228",
+          "material_read": "Current full arXiv HTML: ambient field/primitive generator setup, Lemmas 6–11, Theorem 7, basis-size consequences, and the final primitive-normal-basis question as indexed in the current source.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "A note on generalized distributive sets of a finite Dickson nearfield",
+          "trigger": "Direct source of the definition/question being audited."
+        },
+        {
+          "assessment": "COVERING_REPAIRED_DIRECTION_ONLY",
+          "evidence": "It supplies a primitive normal basis for the smaller field when that field is the object, but not an element primitive in a strictly larger ambient field.",
+          "identifier_or_url": "Lenstra–Schoof, Math. Comp. 48 (1987), 217–231",
+          "material_read": "The standard theorem statement: every finite extension admits an element normal over the base and primitive in that extension field.",
+          "method": "Established primary theorem used at statement level.",
+          "title": "Primitive normal bases for finite fields",
+          "trigger": "Classical theorem invoked by the source and repaired statement."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lee arXiv:2609.10228 full text",
+        "primitive normal basis theorem"
+      ],
+      "rationale": "The mismatch changes the truth value of an explicit current research question. The result does more than flag terminology: it proves the exact criterion under the printed meaning, gives a concrete Dickson-nearfield counterexample, and states the corrected meaning under which the intended equivalence follows. That is a motivated boundary/correction with substantive mathematical consequence.",
+      "residual_risks": [
+        "The mathematical significance depends on treating the source wording literally; the repaired interpretation is straightforward once stated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.10228",
+    "Lee open-problem indexing",
+    "Lenstra–Schoof 1987",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Targets the literal ambient-primitivity reading of the source definition/question.",
+    "No claim is made about other normal-basis notions for generalized distributive sets that are not fields."
+  ],
+  "residual_risks": [
+    "If the source author intended 'primitive' relative to \\(\\mathbb F_{p^{l\\mu}}\\) despite the literal ambient wording, the result is a correction of wording rather than of the intended mathematical concept."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OPEN_QUESTION_SOURCE",
+      "evidence": "The paper proves the contained subfield/field-closure results and explicitly leaves the primitive-normal-basis equivalence as a question.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.10228",
+      "material_read": "Current full arXiv HTML: ambient field/primitive generator setup, Lemmas 6–11, Theorem 7, basis-size consequences, and the final primitive-normal-basis question as indexed in the current source.",
+      "method": "Lawful arXiv full-text inspection.",
+      "title": "A note on generalized distributive sets of a finite Dickson nearfield",
+      "trigger": "Direct source of the definition/question being audited."
+    },
+    {
+      "assessment": "COVERING_REPAIRED_DIRECTION_ONLY",
+      "evidence": "It supplies a primitive normal basis for the smaller field when that field is the object, but not an element primitive in a strictly larger ambient field.",
+      "identifier_or_url": "Lenstra–Schoof, Math. Comp. 48 (1987), 217–231",
+      "material_read": "The standard theorem statement: every finite extension admits an element normal over the base and primitive in that extension field.",
+      "method": "Established primary theorem used at statement level.",
+      "title": "Primitive normal bases for finite fields",
+      "trigger": "Classical theorem invoked by the source and repaired statement."
+    }
+  ]
+}

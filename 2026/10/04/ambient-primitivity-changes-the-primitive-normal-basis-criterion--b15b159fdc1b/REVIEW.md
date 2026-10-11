@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Definition 25 requires all \(p\)-power conjugates of an element primitive in the ambient \(\mathbb F_{p^{ln}}\). Such an element has order \(p^{ln}-1\), so no nontrivial Frobenius power \(p^d\) with \(0<d<ln\) can fix it. Its orbit therefore has exactly \(ln\) elements, and a basis made from that orbit forces \(D(1,b)\) to have full ambient dimension. The converse is the primitive normal basis theorem. The \((4,3)\) example is independently checked in exact arithmetic and its defining equation reduces symbolically to \(d^4=d\), so \(D(1,b)=\mathbb F_4\) while no element of that subfield is primitive in \(\mathbb F_{64}\).
+## correctness
 
-## Originality
-**PASS.** The motivating preprint was inspected in full at its Dickson-field structure results and final Definition 25/Question 26. It explicitly asserts the implication that the example disproves but does not distinguish ambient primitivity from primitivity in the smaller field. The foundational generalized-distributive-set paper was inspected and searched for primitive-normal or normal-basis terminology, with no such result. Searches under the exact object, Question 26, ambient primitive element, proper subfield, and primitive-normal-basis formulations found no covering published result. Standard primitive-normal-basis sources state the theorem for an element primitive in the field extension being based, which does not imply ambient primitivity in a proper overfield.
+PASS
 
-## Value
-**PASS.** This directly resolves an explicit question in a current near-ring paper as literally stated, identifies why a claimed implication fails, supplies a concrete Dickson-pair witness with transparent arithmetic, and gives the natural wording repair under which the intended equivalence becomes immediate. The issue changes the mathematical truth of the open question rather than merely adjusting notation.
+Under the literal ambient-field reading, an element primitive in \(\mathbb F_{p^{ln}}\) has multiplicative order \(p^{ln}-1\), so no nontrivial \(p^d\)-Frobenius with \(d<ln\) can fix it; its complete \(p\)-Frobenius orbit therefore has \(ln\) distinct elements. A basis consisting of that full orbit forces \(D(1,b)\) to have ambient dimension \(ln\), hence to equal \(\mathbb F_{q^n}\). Conversely the primitive normal basis theorem gives such a basis for the full ambient field. The explicit \((q,n)=(4,3)\) witness was independently recomputed in \(\mathbb F_2[g]/(g^6+g+1)\): \(g\) has order 63, \(b=g^{34}\), \(1+b=g^{31}\) lie in the same nontrivial Dickson coset, and the distributivity equation has exactly the four roots of \(d^4=d\), i.e. \(\mathbb F_4\), containing no ambient primitive element.
 
-## Closest literature and limitations
-The closest sources are Lee's own 2026 note, Djagba's 2019/2020 generalized-distributive-set paper, and the primitive normal basis theorem. The result is scoped to the printed Definition 25. A plausible authorial intention is that “primitive” should be relative to \(\mathbb F_{p^{l\mu}}\); if so, the counterexample diagnoses a definition mismatch and the repaired equivalence stated here is the relevant mathematical correction. A residual bibliographic risk remains that a contemporaneous or unindexed note has observed the same mismatch.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Lee's full current arXiv text defines the Dickson construction inside the ambient \(\mathbb F_{q^n}\), proves \(\mathbb F_{q^\mu}\subseteq D(1,b)\), and ends by posing the primitive-normal-basis equivalence as an open question. Current open-problem indexing still presents it as unresolved. The audited result identifies the ambient-versus-subfield primitivity mismatch and gives a concrete proper-subfield counterexample; Resultary found only the assigned correction. Standard primitive-normal-basis theorems do not bridge this mismatch because primitivity is relative to the field whose multiplicative group is generated.
+
+## value
+
+PASS
+
+The mismatch changes the truth value of an explicit current research question. The result does more than flag terminology: it proves the exact criterion under the printed meaning, gives a concrete Dickson-nearfield counterexample, and states the corrected meaning under which the intended equivalence follows. That is a motivated boundary/correction with substantive mathematical consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
