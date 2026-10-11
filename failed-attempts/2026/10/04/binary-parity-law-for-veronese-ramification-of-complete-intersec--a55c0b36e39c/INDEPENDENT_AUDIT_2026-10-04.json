@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:55:50.898777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify.py at tree 68e645b69458ccdec38889f55f626f88aecf405c",
+        "independent exact parity replay",
+        "Laksov, Wronskians and Plucker formulas for linear systems on curves (1984)",
+        "standard adjunction and Lucas/Kummer parity"
+      ],
+      "rationale": "The parity calculation is correct under the stated range \\(1\\le k<\\min d_i\\). In that range the restricted degree-\\(k\\) ambient forms form the complete basepoint-free series of dimension \\(M-1\\), where \\(M=\\binom{N+k}{k}\\), and adjunction gives \\(g-1=D(S-N-1)/2\\). The classical Wronskian/Plucker formula yields total ramification degree \\(M(kD+(M-1)(g-1))\\). Modulo two, oddness therefore forces and is forced by \\(M\\), \\(k\\), and all defining degrees being odd; Lucas/Kummer gives \\(M\\) odd exactly when \\(N\\mathbin{\\&}k=0\\). I independently replayed 4746 complete-intersection tuples and all \\(N,k<256\\) binomial parity checks. The real conclusion follows because a conjugation-invariant effective zero-cycle of odd degree has a real point.",
+      "residual_risks": [
+        "The formula assumes the stated pre-first-equation range and smooth complete-intersection hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Laksov gives general Wronskian divisors and Plucker degree formulas; the other two ingredients apply directly to the complete-intersection Veronese series."
+        ],
+        "reasoning": "These broader theorems cover the audited result after routine substitution and parity reduction.",
+        "searches": [
+          "Dan Laksov, Ann. Sci. ENS 17 (1984), 45-66, DOI 10.24033/asens.1465",
+          "classical complete-intersection adjunction",
+          "Lucas/Kummer binomial parity theorem"
+        ]
+      },
+      "checked_sources": [
+        "Laksov 1984 primary Numdam PDF",
+        "Resultary parity-law search",
+        "standard adjunction",
+        "Lucas/Kummer parity criterion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With \\(M=\\binom{N+k}{k}\\), the known degree is \\(M(kD+(M-1)(g-1))\\); reducing modulo two immediately gives the package criterion."
+        ],
+        "reasoning": "All nontrivial mathematical ingredients of the final claim predate the audited package, so the final claim is implication-covered.",
+        "searches": [
+          "statement-level derivation from the Wronskian degree formula, adjunction, and Lucas theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No earlier source with the exact binary wording was found."
+        ],
+        "reasoning": "Exact wording is not decisive because the claimed condition is an immediate parity reduction of known formulas.",
+        "searches": [
+          "Resultary: Veronese complete-intersection curve Wronskian ramification parity carry-free binomial real ramification",
+          "web searches for complete-intersection Veronese ramification parity Lucas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No special numerical table is needed; the condition \\(N\\mathbin{\\&}k=0\\) is the standard no-carry criterion for odd \\(\\binom{N+k}{k}\\)."
+        ],
+        "reasoning": "The claim is formula-derived rather than a new exact database entry.",
+        "searches": [
+          "Resultary parity-law search",
+          "standard binomial parity/Lucas references"
+        ]
+      },
+      "rationale": "The claimed parity law is a direct corollary of classical general formulas rather than an original theorem under the implication-based bar. Laksov's generalized Wronskian/Plucker theory supplies the total ramification formula for a linear series on a smooth curve; complete-intersection adjunction supplies \\(D\\) and \\(g\\); and Lucas' theorem supplies the carry-free parity criterion for \\(\\binom{N+k}{k}\\). Substituting and reducing modulo two mechanically yields exactly the audited binary condition. The real-point conclusion is the standard parity argument for conjugation-invariant zero-cycles.",
+      "residual_risks": [
+        "The exact packaged wording may be absent from the literature, but absence of matching wording does not defeat the direct implication from the classical formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_PRIMARY_COVERAGE",
+          "evidence": "The source constructs Wronskian divisors and generalized Plucker formulas for linear systems on curves; the audited degree is its standard complete-series specialization.",
+          "identifier_or_url": "Dan Laksov, Ann. Sci. ENS 17 (1984), 45-66; DOI:10.24033/asens.1465",
+          "material_read": "Primary Numdam PDF, introductory setup and Section 3 Wronskian/Plucker construction, including the theorem page inspected visually.",
+          "method": "lawful open-access primary PDF",
+          "title": "Wronskians and Plücker formulas for linear systems on curves",
+          "trigger": "Primary general formula governing the claimed ramification divisor."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Laksov general Wronskian/Plucker formula",
+        "complete-intersection adjunction",
+        "Lucas/Kummer parity theorem"
+      ],
+      "rationale": "The final theorem combines a classical ramification-degree formula, the textbook adjunction formula for complete-intersection curves, and the textbook Lucas parity criterion. The binary simplification is neat, but it is a routine substitution/parity exercise rather than a motivated unresolved invariant or structural lemma under the stated value bar.",
+      "residual_risks": [
+        "More refined two-adic valuations, ramification distributions, or genuinely new real enumerative consequences could be valuable; those are not claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The formula assumes the stated pre-first-equation range and smooth complete-intersection hypotheses.",
+    "The exact packaged wording may be absent from the literature, but absence of matching wording does not defeat the direct implication from the classical formulas.",
+    "More refined two-adic valuations, ramification distributions, or genuinely new real enumerative consequences could be valuable; those are not claimed here."
+  ],
+  "schema_version": 1
+}
