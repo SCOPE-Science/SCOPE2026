@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for arbitrary positive part sizes. The finite computation below is an independent consistency check, not an infinite certificate.
+# Independent mathematical audit
 
-`verify.py` enumerates every nondecreasing complete-multipartite part profile of total order at most \(9\) with at least two parts. For every nonempty subset it constructs closed neighborhoods directly and tests the literal private-vertex condition \(N[w]\cap D=\{v\}\) for every selected vertex \(v\). It compares that predicate against the claimed two-shape classification, compares the resulting size counts against the closed irredundance-polynomial formula, reconstructs maximal irredundant sets from the literal predicate, and checks the maximal-polynomial, lower-irredundance, and upper-irredundance consequences.
+## correctness
 
-Replaying the packaged file produced:
+PASS
 
-`VERIFY_OK profiles=87 subset_checks=22845 irredundant_sets=2975 maximal_sets=995 max_order=9`
+The private-neighborhood converse is complete. A one-part set is independent and self-private. If an irredundant set meets multiple parts, a selected vertex needs an external private vertex; complete-multipartite adjacency forces every other selected vertex into that private vertex's part. Repeating from the opposite part forces exactly one selected vertex in each of two parts, and the external private vertices require both parts to have size at least two. Maximality and both enumerators then follow by disjoint counting. A fresh literal replay checked 10,668 subsets through total order seven; this finite replay is corroborative, not the infinite proof.
 
-The check is exhaustive only through order \(9\). It does not substitute for the general proof. The originality comparison is bibliographic rather than computational, and older incompletely indexed literature remains the stated residual risk.
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the exact all-set and maximal-set classification and the two enumerators. Alon--Defant give a broader direct-product theorem, but for one factor it supplies only an independent/social decomposition with at most two social vertices. The equal-part scalar parameter statement in Hamid likewise does not determine which sets are irredundant or count them.
+
+## value
+
+PASS
+
+This is a natural complete classification for a foundational graph parameter on a canonical graph class. It simultaneously determines every feasible set, every maximal feasible set, two standard enumerators, and both extremal irredundance numbers. The exact structural information is stronger than a scalar parameter computation and is plausibly reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
