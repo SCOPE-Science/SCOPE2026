@@ -1,0 +1,121 @@
+{
+  "claim": "Let \\(G\\) be a finite connected simple bipartite graph with bipartition \\(X\\sqcup Y\\), at least one edge, and no \\(4\\)-cycle. For every choice of roots \\(r_y\\in N_G(y)\\) for \\(y\\in Y\\), the \\(X\\)-component \\(K_X\\) of the Lovász neighborhood complex \\(\\mathcal N(G)\\) simplicially collapses onto the graph \\(T_X\\) with vertex set \\(X\\) and edges \\(\\{r_y,x\\}\\) for \\(x\\in N_G(y)\\setminus\\{r_y\\}\\). Moreover \\(T_X\\) is exactly the graph obtained from \\(G\\) by contracting the forest \\(\\{yr_y:y\\in Y\\}\\). The analogous statement holds with \\(X\\) and \\(Y\\) interchanged. Consequently each component has an explicit graph spine homotopy equivalent to \\(G\\); in particular, if \\(G\\) is \\(d\\)-regular with \\(|X|=|Y|=n\\), then each component is homotopy equivalent to \\(\\bigvee^{n(d-2)+1}S^1\\).",
+  "claim_to_evidence": {
+    "computations": "The bundled checker exhaustively validates the collapse sequence for all 1501 connected labeled bipartite square-free graphs on at most six vertices.",
+    "critical_proof_steps": [
+      "Bipartiteness splits the neighborhood complex by sides.",
+      "No 4-cycle implies every face with at least two vertices has a unique supporting common neighbor.",
+      "Descending-cardinality pairs are therefore legal elementary simplicial collapses.",
+      "The residual rooted-star union equals the contraction of the selected-edge forest."
+    ],
+    "domain": "Finite connected simple bipartite graphs with at least one edge and no 4-cycle; arbitrary choice of one root neighbor for every vertex on the opposite side.",
+    "unproved_limits": "The finite enumeration is not an infinite proof; no extension is asserted for graphs containing a 4-cycle."
+  },
+  "correctness": {
+    "rationale": "The proof explicitly verifies definitions, quantifiers, collapse order, freeness, and the forest-contraction identification. Square-freeness is used exactly where needed to prevent a size-two-or-larger face from lying in two neighborhood simplices. The independent finite checker replays the claimed elementary-collapse condition on 1501 small labeled graphs, but the acceptance rests on the uniform proof rather than enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Matsushita proves a broader abstract homotopy classification for \\(\\operatorname{Hom}(G,H)\\) with square-free H; specializing the domain to \\(K_2\\) covers the homotopy-type consequence but not a simplicial-collapse/minor realization.",
+        "The paper's proof outline proceeds through universal coverings and fundamental groups."
+      ],
+      "reasoning": "Broader homotopy coverage is acknowledged and excluded from the novelty claim. A homotopy equivalence does not imply that the given simplicial complex simplicially collapses onto this particular embedded graph spine.",
+      "searches": [
+        "arXiv:2412.19144",
+        "Hom complexes of graphs whose codomains are square-free",
+        "square-free bipartite neighborhood complex homotopy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.13780",
+      "arXiv:1802.04526",
+      "DOI:10.37236/7549",
+      "arXiv:2412.19144",
+      "DOI:10.1016/j.jctb.2026.01.005"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shukla treats neighborhood complexes for maximum degree at most three and selected 4-regular circulants.",
+        "Matsushita gives square-free Hom-complex homotopy types; full-text searches for collapse, simplicial collapse, and elementary collapse returned no matches.",
+        "Donovan–Scoville develop star-cluster collapses and the Cluster Lemma for matching/Morse complexes and motivate the collapse method, but do not study this neighborhood-complex class."
+      ],
+      "reasoning": "The known results imply or motivate only parts of the conclusion. None located implies the explicit simplicial collapse to \\(T_X\\) for arbitrary root choices, which is the one final claim assessed here.",
+      "searches": [
+        "arXiv:1802.04526",
+        "arXiv:2412.19144",
+        "arXiv:2207.13780"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a bipartite graph, the two side complexes are the two Dowker-style common-neighbor complexes; the claim was searched under neighborhood-complex, square-free, C4-free, collapse, spine, and forest-contraction terminology.",
+        "Matsushita arXiv:2412.19144 Theorem 1.2 classifies Hom-complex component homotopy types for square-free codomains but does not state the explicit collapse."
+      ],
+      "reasoning": "No located source states an equivalent elementary-collapse sequence or identifies the residual graph as the contraction of the selected incident-edge forest.",
+      "searches": [
+        "square-free bipartite graph neighborhood complex explicit simplicial collapse rooted star forest contraction",
+        "C4-free bipartite neighborhood complex collapse graph spine",
+        "arXiv:2412.19144",
+        "arXiv:1802.04526"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic records included an exact icosahedral neighborhood-complex computation and a graph-2-core theorem for incidence posets, but neither concerns all square-free bipartite neighborhood complexes or the rooted forest-contraction spine."
+      ],
+      "reasoning": "No located database result or exact table contains the class-wide claim or a parameterization that subsumes it.",
+      "searches": [
+        "square-free bipartite graph neighborhood complex explicit simplicial collapse rooted star forest contraction",
+        "C4-free bipartite neighborhood complex collapse graph spine",
+        "Lovasz neighborhood complex square-free bipartite explicit spine"
+      ]
+    },
+    "rationale": "The final claim is deliberately stronger than the known homotopy-type consequence: it gives an elementary simplicial collapse onto an explicit forest-contraction minor for every root choice. The closest square-free Hom-complex theorem covers abstract homotopy types but the inspected full text contains no collapse terminology or explicit rooted-spine model; Shukla's earlier neighborhood-complex results cover different graph classes. Semantic database searches returned no implication of the explicit-collapse statement.",
+    "residual_risks": [
+      "The same elementary collapse observation may have appeared under incidence-complex or Dowker-complex terminology not found by the semantic and web searches.",
+      "The later square-free Hom-complex theorem already covers the abstract homotopy-type consequence, so originality is limited to the explicit simplicial collapse and forest-contraction spine."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides collapse methodology and primary MSC 57Q70; does not contain the square-free bipartite neighborhood-complex theorem.",
+        "evidence": "Published PDF lists primary 57Q70 and describes star-cluster/acyclic matching methods for matching and Morse complexes.",
+        "identifier_or_url": "arXiv:2207.13780",
+        "material_read": "Published PDF introduction, preliminaries, star-cluster collapsibility and Cluster Lemma statements; title-page MSC.",
+        "method": "Full-text PDF inspection including page image of the title page.",
+        "title": "Star clusters in the matching, Morse, and generalized complex of discrete Morse functions",
+        "trigger": "Primary topology source and collapse-method anchor."
+      },
+      {
+        "assessment": "Covers different graph classes and homotopy types; does not state the class-wide arbitrary-root collapse theorem.",
+        "evidence": "The paper states its scope as maximum degree at most three and 4-regular circulant graphs.",
+        "identifier_or_url": "arXiv:1802.04526 / DOI:10.37236/7549",
+        "material_read": "Abstract, definition page, and scope of the maximum-degree and circulant results.",
+        "method": "Open-access full-text/search inspection.",
+        "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+        "trigger": "Closest earlier neighborhood-complex homotopy paper located."
+      },
+      {
+        "assessment": "Dominates the bare homotopy consequence but not the explicit simplicial-collapse/minor statement retained as the finding.",
+        "evidence": "Theorem 1.2 classifies component homotopy types; the proof outline uses coverings and fundamental groups, and the three collapse-term searches returned no matches.",
+        "identifier_or_url": "arXiv:2412.19144 / DOI:10.1016/j.jctb.2026.01.005",
+        "material_read": "Full 22-page arXiv PDF introduction, main theorem, proof outline, and text searches for collapse terminology.",
+        "method": "Full-text PDF inspection including page image; exact-term searches for 'collapse', 'simplicial collapse', and 'elementary collapse'.",
+        "title": "Hom complexes of graphs whose codomains are square-free",
+        "trigger": "Potentially dominating square-free codomain theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd6b9166-7963-4492-8386-8e7b1af7e43a",
+  "value": {
+    "rationale": "The theorem gives a uniform constructive reduction of a potentially high-dimensional neighborhood complex to a linear-size graph spine, not merely a homotopy classification. The spine is an explicit minor of the original graph, immediately exposing fundamental group, homology, and regular-family wedge multiplicity, and the proof pinpoints 4-cycles as the obstruction to the simple local collapse scheme.",
+    "status": "PASS"
+  }
+}
