@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:50:46.113587Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob a1ef827d6b0f6e2218e9b9cf5b21fdddc1453485",
+        "artifacts/root_brackets.json blob af5fb4be3d1effb55a7a260c360a636df1c54fef",
+        "artifacts/verify.py blob 1a63cfb2c5013cc0b5afbaf2455d001d1b4564ca",
+        "independent exact recurrence and Sturm/root-count reconstruction"
+      ],
+      "rationale": "The even recurrence was independently reconstructed from Kiem's formulas, not accepted from a saved log. Palindromicity gives the exact reciprocal reduction \\(P_n(x)=x^mQ_n(x+x^{-1})\\) in even degree and the additional \\(x+1\\) factor in odd degree. The supplied rational endpoints have exact alternating \\(Q_n\\)-signs and lie left of \\(-2\\); degree counting therefore gives exactly one simple reduced root in each interval. An independent exact Sturm/root-count reconstruction through \\(n=50\\) confirmed that every reduced polynomial has its full degree of simple roots in \\(( -\\infty,-2)\\). Each such root lifts to two distinct negative reciprocal roots, with the extra \\(-1\\) root in odd degree. The claim is explicitly finite and no extrapolation beyond 50 is made.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The genus-zero theorem concerns \\(\\overline{\\mathcal M}_{0,n}\\) and does not imply genus one.",
+          "Kiem's recurrence computes coefficients but explicitly leaves real-rootedness open."
+        ],
+        "reasoning": "The strongest adjacent theorem and the coefficient recursion do not dominate the finite genus-one root statement.",
+        "searches": [
+          "arXiv:2605.29151 genus-zero real-rootedness theorem",
+          "Kiem arXiv:2609.12507v1 recursive formulas"
+        ]
+      },
+      "checked_sources": [
+        "Young-Hoon Kiem, Hodge-Deligne and Poincare polynomials of Mbar_{1,n}, arXiv:2609.12507v1",
+        "Berczi--Kiem, Real-rootedness of the Poincare polynomials of Mbar_{0,n}: an AI-assisted proof, arXiv:2605.29151",
+        "Resultary query: even Poincare polynomial Mbar_1n real-rooted through n=50 genus one Kiem 2609.12507",
+        "Young-Hoon Kiem public publication list checked for a later genus-one real-rootedness follow-up"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An efficient coefficient recurrence does not imply the location of its zeros.",
+          "The genus-zero proof does not transfer by a stated reduction to the genus-one even part."
+        ],
+        "reasoning": "The exact rational root brackets add the missing conclusion for a bounded but substantial range.",
+        "searches": [
+          "arXiv:2609.12507v1 Question 1.4(2)",
+          "arXiv:2605.29151"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiem states the exact target question rather than a theorem.",
+          "The reciprocal-variable root-isolation statement is a certification method for the same target property, not a pre-existing formulation in the source."
+        ],
+        "reasoning": "Direct real-rootedness, Betti-polynomial, and reciprocal-root formulations were compared.",
+        "searches": [
+          "arXiv:2609.12507v1, Theorem 1.3 and Question 1.4(2)",
+          "Resultary query above"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier checked table or exact root-isolation record covered all \\(1\\le n\\le50\\)."
+        ],
+        "reasoning": "Existing coefficient computations are not equivalent to certified real-rootedness.",
+        "searches": [
+          "Resultary query above",
+          "searches for genus-one Betti/Poincare real-rootedness and the n=50 range"
+        ]
+      },
+      "rationale": "Originality passes. Kiem's primary full text explicitly asks as Question 1.4(2) whether the even Poincare polynomial of \\(\\overline{\\mathcal M}_{1,n}\\) is real-rooted and says subsequent work will investigate the listed questions. The genus-zero Berczi--Kiem theorem is for a different moduli family. Fresh Resultary search returned the audited record itself as the exact match and no earlier genus-one theorem covering the range.",
+      "residual_risks": [
+        "A very recent or unindexed follow-up could duplicate the finite computation.",
+        "The theorem is only the certified finite range through 50, not an all-n proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICITLY_POSES_REAL_ROOTEDNESS_AS_OPEN",
+          "evidence": "Question 1.4(2) asks whether the even-degree Poincare polynomial is real-rooted; the paper supplies formulas to compute it.",
+          "identifier_or_url": "arXiv:2609.12507v1",
+          "material_read": "Authorized primary full text covering the introduction, Theorems 1.2--1.3, formula (1.6), Question 1.4, and the derivation sections supplied in the retrieved text.",
+          "method": "Authorized institutional full-text access after the open rendering route was not inspectable.",
+          "title": "Hodge-Deligne and Poincare polynomials of Mbar_{1,n}",
+          "trigger": "Defining source, coefficient recursion, and explicit open question."
+        },
+        {
+          "assessment": "DIFFERENT_MODULI_FAMILY",
+          "evidence": "Its theorem concerns genus zero and supplies no implication to \\(\\overline{\\mathcal M}_{1,n}\\).",
+          "identifier_or_url": "arXiv:2605.29151",
+          "material_read": "Primary abstract/theorem-level material identifying the genus-zero object.",
+          "method": "Lawful open primary source.",
+          "title": "Real-rootedness of the Poincare polynomials of Mbar_{0,n}: an AI-assisted proof",
+          "trigger": "Closest same-authors real-rootedness theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.12507v1",
+        "arXiv:2605.29151"
+      ],
+      "rationale": "This resolves a substantial exact finite segment of an explicit new open question in the initiating paper. The endpoint 50 is a meaningful computational benchmark in that work, and exact root certificates convert coefficient data into rigorous real-rootedness and Newton log-concavity consequences throughout the range.",
+      "residual_risks": [
+        "The result remains finite evidence rather than a structural all-n proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A very recent or unindexed follow-up could duplicate the finite computation.",
+    "The theorem is only the certified finite range through 50, not an all-n proof.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
