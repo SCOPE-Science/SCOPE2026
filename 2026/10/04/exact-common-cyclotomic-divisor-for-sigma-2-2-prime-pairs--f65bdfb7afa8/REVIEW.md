@@ -1,23 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published quasisolution classification reduces every \(\sigma_{2,2}\) prime pair to consecutive terms of one recurrence. The identities
-\[
-t_kt_{k+2}=t_{k+1}^2+t_{k+1}+1
-\]
-and
-\[
-t_{k+3}=24t_{k+1}-5t_k-6
-\]
-reduce the target gcd to a distance-three gcd. A common prime other than \(3\) must divide \(21\), hence is \(7\); direct congruence arguments exclude common \(9\) and \(49\). Complete recurrence periods modulo \(3\) and \(7\) give the exact index criteria.
+## correctness
 
-## Originality
-PASS. The primary paper proves the chain classification and one-sided square-divisibility restrictions, and it poses individual squarefreeness as an open conjecture, but it does not state the exact gcd of the two cyclotomic values. A prior bounded verification handles squarefreeness of the three prime pairs inside the paper's reported search range, not this all-chain exact invariant. Current OEIS entries also omit the formula. Targeted searches found no covering result.
+PASS
 
-## Value
-PASS. The theorem supplies a sharp structural restriction on the principal \(\sigma_{2,2}\) obstruction studied in the source: the two cyclotomic values can share only the primes \(3\) and \(7\), each to the first power, and the exact occurrence is controlled by the chain index. This directly informs the source's squarefreeness program without claiming to solve it.
+The recurrence identity gives p^2+p+1=t_{n-1}t_{n+1} and q^2+q+1=t_nt_{n+2}; coprimality of consecutive terms reduces the common gcd to gcd(t_{n-1},t_{n+2}). If a prime ell divides both distance-three terms, the recurrence and the cyclotomic divisibility force ell in {3,7}. The mod-9 argument excludes 3^2 and the mod-49 calculation excludes 7^2. Complete recurrence periods modulo 3 and 7 then give the two residue conditions. A fresh independent replay through dozens of chain indices reproduced the exact formula, while the symbolic argument establishes all indices.
 
-## Closest literature and limitations
-The closest source is Bibby–Vyncke–Zelinsky, “On the third largest prime divisor of an odd perfect number,” which contains the complete quasisolution classification and the squarefreeness conjecture. The present theorem controls only common factors; square factors confined to one cyclotomic value remain unrestricted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bibby--Vyncke--Zelinsky already prove that every common prime divisor is 3 or 7 and rule out a common factor 9, so that portion is prior coverage. The audited result adds the missing 7-adic rigidity, proves the common gcd is always squarefree, and gives exact occurrence of 3 and 7 from the quasisolution index. No checked primary or published-result source stated that exact gcd formula or its residue-class law.
+
+## value
+
+PASS
+
+The source explicitly treats common cyclotomic divisibility as part of the obstruction surrounding sigma_2,2 pairs and conjectures individual squarefreeness. Closing the common-overlap question exactly, including the previously uncontrolled 7-adic exponent and residue classes, is a natural structural refinement rather than an arbitrary numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

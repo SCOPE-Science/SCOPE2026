@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-Run `python3 verify.py`.
 
-The checker reconstructs the chain from
-\[
-t_1=t_2=1,
-\qquad
-t_{k+2}=5t_{k+1}-t_k-1,
-\]
-and verifies the equivalent nonlinear identity
-\[
-t_kt_{k+2}=t_{k+1}^2+t_{k+1}+1.
-\]
+# Independent mathematical audit
 
-It checks the complete recurrence periods used in the proof modulo \(3\) and \(7\), verifies the exact gcd formula through chain index \(499\), and directly checks the three prime pairs listed in the primary source.
+## correctness
 
-It also replays the two local square exclusions: no common factor \(9\) is compatible with the congruences, and the unique solution of \(4x\equiv1\pmod{49}\) does not satisfy
-\[
-x^2+x+1\equiv0\pmod{49}.
-\]
+PASS
 
-The finite index sweep is a regression check only. The all-index proof comes from the exact recurrence algebra and the complete modular arguments.
+The recurrence identity gives p^2+p+1=t_{n-1}t_{n+1} and q^2+q+1=t_nt_{n+2}; coprimality of consecutive terms reduces the common gcd to gcd(t_{n-1},t_{n+2}). If a prime ell divides both distance-three terms, the recurrence and the cyclotomic divisibility force ell in {3,7}. The mod-9 argument excludes 3^2 and the mod-49 calculation excludes 7^2. Complete recurrence periods modulo 3 and 7 then give the two residue conditions. A fresh independent replay through dozens of chain indices reproduced the exact formula, while the symbolic argument establishes all indices.
 
-A successful replay prints `VERIFY_OK`.
+## originality
+
+PASS
+
+Bibby--Vyncke--Zelinsky already prove that every common prime divisor is 3 or 7 and rule out a common factor 9, so that portion is prior coverage. The audited result adds the missing 7-adic rigidity, proves the common gcd is always squarefree, and gives exact occurrence of 3 and 7 from the quasisolution index. No checked primary or published-result source stated that exact gcd formula or its residue-class law.
+
+## value
+
+PASS
+
+The source explicitly treats common cyclotomic divisibility as part of the obstruction surrounding sigma_2,2 pairs and conjectures individual squarefreeness. Closing the common-overlap question exactly, including the previously uncontrolled 7-adic exponent and residue classes, is a natural structural refinement rather than an arbitrary numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
