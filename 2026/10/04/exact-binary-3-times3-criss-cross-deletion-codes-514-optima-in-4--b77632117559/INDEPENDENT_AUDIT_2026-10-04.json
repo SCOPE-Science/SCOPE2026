@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:05:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent enumeration of all 512 binary 3×3 arrays reconstructed every 2×2 one-row/one-column deletion ball. Exact set packing over the 16 possible outputs gives maximum 4. Separate four-clique enumeration gives 514 labeled optima; the verified 16 channel symmetries partition them into 46 classes with orbit sizes 2:1, 4:4, 8:20, 16:21.",
+      "risk": "The classification depends on the explicitly stated 16 channel symmetries.",
+      "sources": [
+        "frozen RESULT.md, verify.py and classes.csv",
+        "independent finite replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The principal cardinality theorem in the first paper is a large-n result and does not specialize to this exact n=3 census.",
+          "The multiple-deletion paper gives general redundancy/construction results."
+        ],
+        "reasoning": "Neither broader result implies the exact maximum-plus-orbit classification.",
+        "searches": [
+          "arXiv:2004.14740v5 main cardinality theorem",
+          "arXiv:2102.02727"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2004.14740v5",
+        "arXiv:2102.02727",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper defines the object but leaves this smallest two-dimensional finite case undetermined."
+        ],
+        "reasoning": "The audited set-packing and group-orbit computation supplies information not implied by the general coding bounds.",
+        "searches": [
+          "arXiv:2004.14740v5",
+          "arXiv:2102.02727"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching Resultary record was returned.",
+          "The primary paper uses the same deletion-ball criterion."
+        ],
+        "reasoning": "The direct 2×2-output set-packing formulation is equivalent to the criss-cross channel definition, so aliases were covered.",
+        "searches": [
+          "Resultary: binary 3 by 3 criss-cross row column deletion code maximum 4 514 optimal codes 46 symmetry classes",
+          "Web: binary 3x3 criss-cross deletion 514 46",
+          "arXiv:2004.14740v5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected database/table entry contained the labeled optimum count or symmetry-class count."
+        ],
+        "reasoning": "The exact census itself is not present in the checked literature.",
+        "searches": [
+          "Resultary 514/46 exact query",
+          "Web literal count queries"
+        ]
+      },
+      "rationale": "The same-object primary paper defines criss-cross deletion balls and gives general large-n coding bounds, but it does not determine the binary 3×3 maximum or enumerate optimum orbits. The multiple-error follow-up is broader asymptotically but not a small-case classification. Exact searches found no inspected source with the 514/46 census.",
+      "residual_risks": [
+        "An unindexed small-parameter computation may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_N3_CENSUS",
+          "evidence": "The paper does not state the binary 3×3 exact maximum or orbit census.",
+          "identifier_or_url": "arXiv:2004.14740v5",
+          "material_read": "Full open PDF definitions, deletion-ball structure and main cardinality-bound section.",
+          "method": "lawful arXiv full text",
+          "title": "Criss-Cross Insertion and Deletion Correcting Codes",
+          "trigger": "Primary source for the same channel."
+        },
+        {
+          "assessment": "NOT_COVERING_SMALL_EXACT_CLASSIFICATION",
+          "evidence": "It concerns general multiple-error constructions and bounds.",
+          "identifier_or_url": "arXiv:2102.02727",
+          "material_read": "Open abstract and main-result description.",
+          "method": "lawful open source",
+          "title": "Multiple Criss-Cross Insertion and Deletion Correcting Codes",
+          "trigger": "Broader follow-up on the same error model."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the natural smallest square case whose surviving output is still two-dimensional. The complete optimum and symmetry classification provides a reproducible benchmark for the criss-cross synchronization channel and reveals substantial nonuniqueness of extremizers.",
+      "risk": "No general-n pattern is claimed.",
+      "sources": [
+        "arXiv:2004.14740v5"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary 3×3 arrays under deletion of one row and one column, the maximum correcting-code size is 4; there are 514 labeled optima and 46 classes under the stated 16 channel symmetries, with orbit-size distribution 2:1, 4:4, 8:20, 16:21.",
+  "limitations": [
+    "Finite binary 3×3 classification only."
+  ],
+  "schema_version": 1
+}

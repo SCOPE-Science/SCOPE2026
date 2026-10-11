@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is finite and fully quantified over all \(512\) binary \(3\times3\) arrays. Deletion balls are reconstructed directly from the definition using two independent implementations. The upper bound \(|C|\le4\) comes from an exact set-packing recurrence on the 16 possible \(2\times2\) outputs, while a displayed four-word code supplies equality. A separate exhaustive compatibility-graph traversal finds all \(514\) optimal codes. Every claimed symmetry is checked on all pairwise compatibility relations, and the orbit partition is complete.
+## correctness
 
-## Originality
-PASS, with a residual indexing risk. The 2020/2021 primary paper defines the same \((1,1)\)-criss-cross deletion channel and develops deletion-ball structure, but its cardinality theorem is explicitly stated for \(n\ge41\), not \(n=3\). The 2021/2022 multiple-deletion paper gives general redundancy bounds and constructions rather than this small exact census. Searches using both “criss-cross deletion” terminology and the equivalent “one row and one column deletion” wording, as well as searches for the numerical census \(514\) and class count \(46\), did not locate an equivalent published statement. An older or unindexed computation remains possible and is disclosed under limitations.
+PASS
 
-## Value
-PASS. Exact small instances are natural calibration points for a recently developed two-dimensional synchronization-error model. At \(n=3\), deletion outputs are already \(2\times2\) arrays and deletion-ball multiplicities vary substantially. The complete optimum and its 46 channel-symmetry types show that extremality is highly non-unique, providing a concrete boundary case for proposed constructions, bounds, and future finite classifications.
+Independent enumeration of all 512 binary 3×3 arrays reconstructed every 2×2 one-row/one-column deletion ball. Exact set packing over the 16 possible outputs gives maximum 4. Separate four-clique enumeration gives 514 labeled optima; the verified 16 channel symmetries partition them into 46 classes with orbit sizes 2:1, 4:4, 8:20, 16:21.
 
-## Closest literature and limitations
-The closest sources are Bitar et al., arXiv:2004.14740 / IEEE TIT 2021, and Welter et al., arXiv:2102.02727 / IEEE TIT 2022. Neither inspected source states the exact binary \(3\times3\) maximum, the \(514\) labeled optimal codes, or the \(46\) channel-symmetry classes. The result is finite only, and the class count depends on the explicitly stated 16-element symmetry group.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The same-object primary paper defines criss-cross deletion balls and gives general large-n coding bounds, but it does not determine the binary 3×3 maximum or enumerate optimum orbits. The multiple-error follow-up is broader asymptotically but not a small-case classification. Exact searches found no inspected source with the 514/46 census.
+
+## value
+
+PASS
+
+This is the natural smallest square case whose surviving output is still two-dimensional. The complete optimum and symmetry classification provides a reproducible benchmark for the criss-cross synchronization channel and reveals substantial nonuniqueness of extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

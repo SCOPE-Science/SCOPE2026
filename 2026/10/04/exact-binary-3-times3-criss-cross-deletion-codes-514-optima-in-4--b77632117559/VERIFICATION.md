@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the directory containing `verify.py` and `classes.csv`. The program uses only the Python standard library.
+# Independent mathematical audit
 
-The verifier reconstructs every one-row/one-column deletion ball for every binary \(3\times3\) array twice by independent routines and requires exact agreement. It then solves the induced set-packing problem over all 16 possible \(2\times2\) outputs, proving the maximum code size is \(4\). Separately, it enumerates every four-clique in the compatibility graph, obtaining exactly \(514\), and checks that the 16 order-preserving square/channel symmetries partition these optima into exactly \(46\) classes with orbit-size distribution \(2^1,4^4,8^{20},16^{21}\). Finally, it recomputes `classes.csv` byte-logically as parsed CSV and verifies the displayed witness.
+## correctness
 
-The finite computation proves only the stated binary \(3\times3\) theorem. It is not evidence for a general formula in larger dimensions. A successful run ends with `VERIFY_OK`.
+PASS
+
+Independent enumeration of all 512 binary 3×3 arrays reconstructed every 2×2 one-row/one-column deletion ball. Exact set packing over the 16 possible outputs gives maximum 4. Separate four-clique enumeration gives 514 labeled optima; the verified 16 channel symmetries partition them into 46 classes with orbit sizes 2:1, 4:4, 8:20, 16:21.
+
+## originality
+
+PASS
+
+The same-object primary paper defines criss-cross deletion balls and gives general large-n coding bounds, but it does not determine the binary 3×3 maximum or enumerate optimum orbits. The multiple-error follow-up is broader asymptotically but not a small-case classification. Exact searches found no inspected source with the 514/46 census.
+
+## value
+
+PASS
+
+This is the natural smallest square case whose surviving output is still two-dimensional. The complete optimum and symmetry classification provides a reproducible benchmark for the criss-cross synchronization channel and reveals substantial nonuniqueness of extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
