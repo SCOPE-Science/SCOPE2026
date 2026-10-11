@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:57:52.737197Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at tree 49b6e921535f0dadbe90b385741b87c2fead6250",
+        "artifacts/verify.py blob 8038c341084e7d1cc3f4e09fa629dd5d97aab518",
+        "independent Fano replay"
+      ],
+      "rationale": "The structural proof is correct. Two distinct elements generate the three-element Steiner quasigroup, so homogeneity sends any ordered distinct pair to any other. Ordered block triples form an invariant orbit and preservation of that orbit forces preservation of the binary operation. The bundled Fano verifier was independently replayed and gives closure sizes \\([5040,5040,168]\\), consistent with the argument; this finite replay is only a sanity check, not the infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The homogeneous-Steiner literature already supplies 2-point transitivity for the whole class, not only the universal Fraisse limit.",
+          "The k-closure definition applies to every permutation group and every invariant ternary relation."
+        ],
+        "reasoning": "These broader statements jointly dominate all parts of the claimed spectrum for this action.",
+        "searches": [
+          "Horsley--Webb full primary article, pp. 4--5",
+          "generic k-closure definition in arXiv:2107.11771 and related permutation-group literature"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.jcta.2021.105434",
+        "arXiv:2107.11771",
+        "Resultary semantic search",
+        "assigned package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2-point transitivity gives exactly the diagonal/off-diagonal orbits on ordered pairs, so \\(G^{(2)}=\\operatorname{Sym}(\\Omega)\\).",
+          "Any permutation preserving every orbit on triples preserves the multiplication graph and hence the operation, so \\(G^{(3)}=G\\).",
+          "Closure monotonicity then gives \\(G^{(k)}=G\\) for \\(k\\ge3\\)."
+        ],
+        "reasoning": "The final claim is a direct two-step corollary of these standard prior ingredients.",
+        "searches": [
+          "Combine published 2-point transitivity with the definition of k-closure",
+          "Represent a Steiner quasigroup operation by the invariant ternary relation \\(c=a\\cdot b\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horsley--Webb state that homogeneous Steiner triple systems, viewed functionally as Steiner quasigroups, are 2-point transitive.",
+          "Standard k-closure literature defines \\(G^{(k)}\\) by equality of ordered \\(k\\)-tuple orbits."
+        ],
+        "reasoning": "The audited proof is exactly the generic observation that a binary operation is encoded by its ternary graph, so its automorphism group is 3-closed, combined with 2-transitivity.",
+        "searches": [
+          "Resultary semantic query: universal homogeneous Steiner quasigroup 2-transitive 3-closed relational complexity k-closure ternary relation",
+          "Horsley--Webb DOI 10.1016/j.jcta.2021.105434",
+          "arXiv:2107.11771 definition of k-closure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older exact table or Resultary record with the displayed spectrum was found."
+        ],
+        "reasoning": "Absence of the exact row is immaterial because the theorem follows immediately from broader published facts.",
+        "searches": [
+          "Resultary search for the exact universal-Steiner closure spectrum",
+          "Search for Steiner quasigroup 3-closed / Steiner triple system 2-closure"
+        ]
+      },
+      "rationale": "The exact closure-spectrum wording was not located, but the statement is implication-covered by standard facts. Horsley--Webb explicitly view Steiner triple systems as Steiner quasigroups and state that any homogeneous Steiner triple system is 2-point transitive. Hence the unary and binary closures are the full symmetric group. For the upper threshold, the multiplication graph/block relation is a \\(G\\)-invariant ternary relation. By the definition of \\(3\\)-closure as the largest permutation group preserving the \\(G\\)-orbits on ordered triples, every element of \\(G^{(3)}\\) preserves every union of those orbits, in particular the ternary graph of multiplication; therefore it is already an automorphism. No special new Steiner lemma is needed beyond the known 2-transitivity and the generic closure definition.",
+      "residual_risks": [
+        "The exact spectrum may still be absent as a named theorem in prior literature, but statement-level implication coverage is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_INGREDIENT",
+          "evidence": "The article explicitly says any homogeneous Steiner triple system must be 2-point transitive and identifies the functional Steiner-quasigroup viewpoint.",
+          "identifier_or_url": "DOI:10.1016/j.jcta.2021.105434",
+          "material_read": "Complete lawful OA PDF; especially pp. 4--5 defining the Steiner quasigroup representation, stating that homogeneous Steiner triple systems are 2-point transitive, and listing the countable universal homogeneous locally finite example.",
+          "method": "lawful open-access primary PDF",
+          "title": "Countable homogeneous Steiner triple systems avoiding specified subsystems",
+          "trigger": "Primary homogeneous-Steiner source using the same functional/quasigroup representation."
+        },
+        {
+          "assessment": "GENERAL_DEFINITIONAL_COVERAGE",
+          "evidence": "Once the multiplication graph is a \\(G\\)-invariant ternary relation, preserving triple orbits forces its preservation.",
+          "identifier_or_url": "arXiv:2107.11771",
+          "material_read": "Primary abstract/definition of \\(G^{(k)}\\) as the largest subgroup with the same ordered \\(k\\)-tuple orbits.",
+          "method": "lawful open-access primary record",
+          "title": "Structure of k-closures of finite nilpotent permutation groups",
+          "trigger": "Standard definition of \\(k\\)-closure used by the claim."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Horsley--Webb homogeneous-Steiner facts",
+        "standard k-closure definition"
+      ],
+      "rationale": "The exact spectrum is a clean observation, but after accounting for the published 2-point transitivity and the defining property of 3-closure, the proof reduces to the routine fact that automorphisms of a binary operation are determined by its ternary graph. Under the stated value bar this is a textbook-level closure deduction rather than a separately motivated unresolved invariant.",
+      "residual_risks": [
+        "A broader relational-complexity analysis could still be valuable; only this closure-spectrum claim is rejected."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The exact spectrum may still be absent as a named theorem in prior literature, but statement-level implication coverage is decisive."
+  ],
+  "schema_version": 1
+}
