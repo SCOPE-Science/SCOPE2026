@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The primary source's balancing equations are applied to the triangular and square two-faces of the standard product, forcing one weight per simplex factor. The factor-\\(i\\) edge multiplicity is exactly \\(Vd_i/2\\), so the normalized type polytope is \\(\\sum d_i\\lambda_i=D\\) with the weighted Euclidean metric inherited from edge coordinates. The isometric variables \\(y_i=\\sqrt{Vd_i/2}\\lambda_i\\) turn the affine hull into a coordinate simplex with normal \\((\\sqrt{d_i})\\). Projecting each coordinate normal into the affine tangent space gives the exact facet-distance formula, and equalizing those distances yields the displayed unique incenter and inradius. Disjoint edge-class supports give the exact pairwise vertex distances; with at least three vertices they are all equal exactly when the factor dimensions are equal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source proves that all product-of-simplices type polytopes are simplices and gives the standard cube's parallel-class collapse.",
+        "The general Minkowski-weight literature provides balancing and reconstruction frameworks, not the factor-dimension Euclidean inball formula.",
+        "Generic simplex geometry does not identify the edge-coordinate scaling \\(E_i=Vd_i/2\\), which is the source-specific ingredient controlling the metric."
+      ],
+      "reasoning": "The final theorem combines generic simplex incenter geometry with object-specific multiplicities of edge coordinates. A purely combinatorial statement that the type polytope is a simplex does not determine its Euclidean shape in the ambient edge-weight embedding.",
+      "searches": [
+        "arXiv:2009.07252v3, one-Minkowski-weight definition, normalized type polytope, cube example, product-of-simplices theorem",
+        "McMullen, Weights on polytopes, generic Minkowski-weight framework",
+        "Postnikov--Reiner--Williams, Faces of generalized permutohedra, edge-deformation framework",
+        "literature query: type cones products of simplices metric geometry"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2009.07252v1/v3",
+      "doi:10.1112/blms.12610",
+      "Peter McMullen, Weights on polytopes",
+      "Postnikov--Reiner--Williams, Faces of generalized permutohedra",
+      "candidate-specific published-result searches for type-polytope Euclidean inradius and edge-deformation center formulations",
+      "current and prior geometry work records for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No same-object type-polytope metric finding occurs in the checked current or prior work records.",
+        "Current references to products of simplices concern different polytopes, including lineup-polytopes and rank-two matroid comparisons.",
+        "The standard-cube example identifies one coordinate per parallel cube-edge class but does not optimize intrinsic facet clearance.",
+        "The product-of-simplices theorem establishes simplex combinatorics but does not determine the edge-coordinate metric."
+      ],
+      "reasoning": "The accepted claim requires the explicit class multiplicities \\(E_i=Vd_i/2\\), the induced Euclidean metric after collapsing factor classes, and an intrinsic hyperplane projection calculation. Those steps are absent from the checked prior statements.",
+      "searches": [
+        "current work-record exact search: type polytope / type cone / Minkowski weights / product of simplices",
+        "prior work-record exact search: type polytope / type cone / Minkowski weights / product of simplices",
+        "primary source standard-cube example versus edge-weight inradius",
+        "primary source product-of-simplices simplex theorem versus Euclidean shape"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located result states the factor-weight incenter \\(\\lambda_i^*=D S^{-1}\\sqrt{(D-d_i)/d_i}\\).",
+        "No located result states the inradius \\(D^{3/2}\\sqrt{V/2}/S\\).",
+        "The primary paper's product theorem is combinatorial and deformation-theoretic rather than an intrinsic Euclidean metric theorem."
+      ],
+      "reasoning": "Equivalent formulations include the Chebyshev center of the normalized type simplex, the largest Euclidean ball in the edge-deformation parameter polytope, and the incenter of the normalized one-Minkowski-weight simplex. The searches covered these formulations under both type-cone and edge-deformation terminology.",
+      "searches": [
+        "published-result database query: type polytope product of simplices Euclidean inradius Minkowski weights",
+        "published-result database query: Minkowski summands product of simplices type polytope Euclidean metric inradius",
+        "published-result database query: regular cube type polytope inradius Minkowski weight simplex",
+        "published-result database query: edge deformation space product of simplices Euclidean incenter",
+        "literature query: type polytope product of simplices inradius",
+        "literature query: type cone product of simplices Euclidean metric",
+        "literature query: Minkowski weights product of simplices inradius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact inradius, incenter, or vertex-distance table for product-of-simplices type polytopes was located.",
+        "The closest returned records concern unrelated simplex metric questions or unrelated products of simplices."
+      ],
+      "reasoning": "Even the cube specialization has a simple closed radius, so a table of normalized type-polytope radii would reveal the formula quickly. No such same-object table was found.",
+      "searches": [
+        "published-result database query: type polytope product simplices inradius",
+        "published-result database query: cube type polytope Euclidean simplex",
+        "literature query: edge deformation space cube inradius",
+        "literature query: product of simplices type polytope distances"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the Minkowski-weight balancing definition, normalized type-polytope definition, regular-cube example, and product-of-simplices simplex theorem. It determines the deformation cone and simplex combinatorics but does not state the Euclidean incenter or inradius in edge-weight coordinates. Candidate-specific indexed and published-result searches covered type polytope, type cone, product of simplices, cube, Minkowski weights, edge deformation space, Euclidean metric, incenter, and inradius formulations. No statement implying the factor-dimension formula or the Euclidean regularity criterion was located.",
+    "residual_risks": [
+      "Once the standard product balancing equations are reduced to factor classes, the incenter calculation is elementary simplex geometry, so independent rediscovery is plausible.",
+      "A deformation-space paper could encode the same metric under a weighted-coordinate change without using inradius terminology.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the deformation-theoretic premises and proves that the type polytope is a simplex, but does not state the normalized edge-coordinate incenter, inradius, pairwise vertex distances, or equal-factor regularity criterion.",
+        "evidence": "The first public version is dated 2020-09-15 and lists 52B05 first. The normalized type polytope fixes \\(\\sum_E\\omega(E)=f_1(P)\\); the cube example collapses to direction-class weights; the product-of-simplices theorem proves that the type polytope is a simplex.",
+        "identifier_or_url": "arXiv:2009.07252v3; DOI 10.1112/blms.12610",
+        "material_read": "Open-access full text: introduction and primary MSC; the one-Minkowski-weight definition; the type-cone and type-polytope definition; the standard-cube example; the product-of-simplices Gale-diagram section and simplex theorem; targeted searches for inradius and Euclidean metric specialization.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Minkowski summands of cubes",
+        "trigger": "Primary geometry-classified source defining the edge-weight type polytope and proving simplex type polytopes for products of simplices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab63de52-9ca8-4b53-bea6-a8f61549e715",
+  "value": {
+    "rationale": "The type polytope is the primary source's normalized parameter space for weak Minkowski summands modulo translation and dilation, so its intrinsic Euclidean clearance from boundary faces is a natural robustness measure for deformations rather than an arbitrary statistic. The theorem determines that metric exactly for every standard product of simplices, identifies the unique most interior normalized deformation, and shows how factor dimensions bias the center through complementary square-root weights. It also distinguishes when a type simplex with at least three vertices is genuinely Euclidean-regular and yields a closed cube formula in exponentially many ambient edge coordinates.",
+    "status": "PASS"
+  }
+}
