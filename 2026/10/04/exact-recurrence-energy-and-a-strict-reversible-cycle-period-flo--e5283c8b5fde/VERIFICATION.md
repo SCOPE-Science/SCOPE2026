@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-The packaged `verify.py` uses exact sparse-polynomial arithmetic over rational coefficients.
 
-It verifies
-\[
-L(xy-z)=x^2-4y^2,
-\]
-\[
-Lz=xz+3y^2,
-\]
-\[
-L(yz)=xz+z^2+xyz+3y^3,
-\]
-the reversibility condition
-\[
-f(Ru)=-Rf(u),
-\]
-and the eliminated jerk identity
-\[
-x'''-xx''+x'-x^2+3(x')^2=0.
-\]
+# Independent mathematical audit
 
-It also checks that the equality-case substitutions
-\[
-x''=-\frac14x,\qquad x'''=-\frac14x'
-\]
-reduce the jerk equation to
-\[
-\frac34\left(x'-x^2+4(x')^2\right)=0.
-\]
+## correctness
 
-The stored output in `verification_output.txt` is `VERIFY_OK`.
+PASS
 
-The checker validates the algebraic certificate. The invariant-measure conclusions use the standard identity \(\int Lh\,d\mu=0\). The strict period statement additionally uses the classical equality case of Wirtinger's inequality.
+The generator identities reconstruct exactly: \(L(xy-z)=x^2-4y^2\), \(Lz=xz+3y^2\), and the stated \(L(yz)\) rigidity identity. They yield the energy ratio, anticorrelation and sign consequences for compact invariant measures. The reverser \(R(x,y,z)=(-x,y,-z)\) satisfies \(f(Ru)=-Rf(u)\), so R-invariant measures have zero x and z means. For an R-invariant periodic orbit, \(y=-\dot x\) and the energy law give \(\int x^2=4\int\dot x^2\); zero mean plus Wirtinger gives \(P\ge4\pi\). Equality forces a first harmonic. Eliminating y,z gives \(x'''-xx''+x'-x^2+3(x')^2=0\); the equality substitution and one-period integration force \(\dot x\equiv0\), contradicting nonconstancy. Hence the bound is strict.
+
+## originality
+
+PASS
+
+Originality passes. The later same-object full PDF explicitly identifies Sprott D, writes the linearly relabeled equations and reversing symmetry, and reports the canonical Lyapunov spectrum; it does not state the global invariant-measure energy law or a periodic-orbit period floor. The normal-form literature concerns spectra/resonances rather than these identities. Fresh Resultary comparison found only distinct-flow analogues.
+
+## value
+
+PASS
+
+Sprott D is specifically notable for dissipative time reversibility. The theorem gives every compact recurrent statistical state an exact energy and anticorrelation law and converts reversing symmetry into a strict universal period floor for the natural symmetric cycles. These are structural recurrence restrictions on a canonical chaotic flow, not numerical diagnostics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

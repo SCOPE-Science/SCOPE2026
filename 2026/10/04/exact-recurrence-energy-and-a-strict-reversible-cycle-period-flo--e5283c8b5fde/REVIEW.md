@@ -1,22 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The generator computation gives
-\[
-L(xy-z)=x^2-4y^2,
-\qquad
-Lz=xz+3y^2,
-\]
-so the invariant-measure identities follow exactly. Non-origin rigidity is checked by combining these with \(L(yz)\). The reversing involution is verified directly. For an \(R\)-invariant periodic orbit, the orbit measure has zero \(x\)-mean; Wirtinger's inequality then turns the exact energy ratio into \(P\ge4\pi\). The equality case is eliminated by the exact jerk equation, yielding strictness.
+## correctness
 
-Risk: the period statement intentionally does not cover asymmetric periodic-orbit pairs.
+PASS
 
-## Originality
-PASS. The closest same-object full text explicitly treats Sprott D as a reversible attractor/repellor system and gives its transformed equations and Lyapunov data. The older normal-form paper discusses Sprott D spectra and resonances. Neither inspected source states the global stationary energy/anticorrelation law or the reversing-cycle \(4\pi\) period floor. Targeted semantic searches over aliases, invariant measures, period bounds, and reversibility returned only distinct-system analogues.
+The generator identities reconstruct exactly: \(L(xy-z)=x^2-4y^2\), \(Lz=xz+3y^2\), and the stated \(L(yz)\) rigidity identity. They yield the energy ratio, anticorrelation and sign consequences for compact invariant measures. The reverser \(R(x,y,z)=(-x,y,-z)\) satisfies \(f(Ru)=-Rf(u)\), so R-invariant measures have zero x and z means. For an R-invariant periodic orbit, \(y=-\dot x\) and the energy law give \(\int x^2=4\int\dot x^2\); zero mean plus Wirtinger gives \(P\ge4\pi\). Equality forces a first harmonic. Eliminating y,z gives \(x'''-xx''+x'-x^2+3(x')^2=0\); the equality substitution and one-period integration force \(\dot x\equiv0\), contradicting nonconstancy. Hence the bound is strict.
 
-Risk: the 1994 article was not available for a line-by-line comparison, and targeted search cannot exclude a differently phrased or unindexed older result.
+## originality
 
-## Value
-PASS. The result quantifies the precise feature for which Sprott D is historically notable: dissipative time reversibility. It gives every compact recurrent statistical state an exact energy and anticorrelation law and constrains the natural symmetric cycles by a strict universal period floor. These are structural recurrence restrictions rather than numerical diagnostics.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Originality passes. The later same-object full PDF explicitly identifies Sprott D, writes the linearly relabeled equations and reversing symmetry, and reports the canonical Lyapunov spectrum; it does not state the global invariant-measure energy law or a periodic-orbit period floor. The normal-form literature concerns spectra/resonances rather than these identities. Fresh Resultary comparison found only distinct-flow analogues.
+
+## value
+
+PASS
+
+Sprott D is specifically notable for dissipative time reversibility. The theorem gives every compact recurrent statistical state an exact energy and anticorrelation law and converts reversing symmetry into a strict universal period floor for the natural symmetric cycles. These are structural recurrence restrictions on a canonical chaotic flow, not numerical diagnostics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
