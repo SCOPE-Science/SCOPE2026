@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:54:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 4b6f7c676acd2b2b5eab3a9e937f12c0c2b996f0",
+        "artifacts/verify.py blob 78ede91f4011c9044ae17baeaa95400bb33f9bef",
+        "fresh finite-field rank/orbit replay"
+      ],
+      "rationale": "The 32 evaluation columns collapse projectively to 16 types of multiplicity two. A 3-subcode can vanish on at most eight types because its annihilator has dimension seven and no nine-subset has rank at most seven. Exact enumeration finds 750 eight-subsets of rank seven and no rank≤7 nine-subset; each such eight-subset has a unique three-dimensional annihilator and hence gives one minimizer. The independently inspected verifier constructs all 1920 natural group actions and obtains orbit sizes 10,20,240,480; a fresh replay reproduced 750, zero bad nine-subsets and the same four orbit sizes.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-object primary paper gives only d3=16 by package computation in the example.",
+          "The cited generalized-weight formulas do not cover this boundary third-weight minimizer classification."
+        ],
+        "reasoning": "No broader checked theorem determines the number or orbit structure of all attaining subcodes.",
+        "searches": [
+          "Carvalho–López–San-José, arXiv:2511.08304 / DOI:10.1007/s40590-026-00963-5",
+          "Patanker–Singh, DOI:10.3934/amc.2021013",
+          "Jaramillo–Vaz Pinto–Villarreal, DOI:10.1007/s10623-020-00818-8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.08304",
+        "DOI:10.1007/s40590-026-00963-5",
+        "DOI:10.3934/amc.2021013",
+        "DOI:10.1007/s10623-020-00818-8",
+        "Resultary minimizer query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing d3=16 does not determine how many 3-subcodes attain it or their automorphism orbits.",
+          "The rank-seven subset bijection and exhaustive natural-group action supply additional structural information."
+        ],
+        "reasoning": "The minimizer census is not mechanically implied by the scalar value reported in the source.",
+        "searches": [
+          "arXiv:2511.08304 exact example",
+          "generalized Hamming weight definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A 3-dimensional coefficient subspace has support 16 exactly when its annihilator is the span of eight of the sixteen projective generator-column types, of rank seven.",
+          "Thus minimizer enumeration is equivalent to enumerating rank-seven eight-subsets and then quotienting them by the natural signed-permutation action."
+        ],
+        "reasoning": "This reformulation is finer than knowing the scalar generalized Hamming weight.",
+        "searches": [
+          "arXiv:2511.08304 Example 4.6 parameters q=3,m=5,d=2,r=3",
+          "Resultary query: Cartesian square-free code q=3 m=5 d=2 r=3 750 minimizers minimum-support subcodes signed permutation orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact published finding or table with the number 750 and orbit sizes 10,20,240,480 was located."
+        ],
+        "reasoning": "The finite classification is reconstructed from the generator matrix, not imported from a database.",
+        "searches": [
+          "Resultary semantic query above"
+        ]
+      },
+      "rationale": "Carvalho–López–San-José’s primary paper isolates the exact ternary torus example and reports d3=16 using a generalized-Hamming-weight package, while explicitly noting failure of the footprint lower bound. The full primary PDF page for the example was materially inspected. It does not count the minimizing subcodes or classify their symmetry orbits. Patanker–Singh’s exact third-weight regimes exclude the boundary m=5=2d+1, and earlier square-free evaluation-code work treats the first and second generalized weights. Resultary search found no covering minimizer census.",
+      "residual_risks": [
+        "A code-software data file or unindexed companion computation may contain the same minimizer census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_D3_PRIOR_MINIMIZER_CENSUS_NOT_STATED",
+          "evidence": "The example reports d3=16 from software but does not enumerate or orbit-classify all attaining subcodes.",
+          "identifier_or_url": "arXiv:2511.08304; DOI:10.1007/s40590-026-00963-5",
+          "material_read": "Full primary PDF around the ternary q=3,m=5,d=2,r=3 example; the relevant page reporting package-computed d3=16 and footprint failure was visually inspected.",
+          "method": "Same-object scalar-value versus all-minimizer comparison.",
+          "title": "Cartesian square-free codes",
+          "trigger": "Defining primary source for the exact code/example."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2511.08304",
+        "DOI:10.1007/s40590-026-00963-5",
+        "DOI:10.3934/amc.2021013",
+        "DOI:10.1007/s10623-020-00818-8",
+        "Resultary minimizer query"
+      ],
+      "rationale": "The source itself highlights this boundary example because its footprint bound is nonsharp. Classifying every minimizer and its natural symmetry orbits turns a package-only scalar computation into an exact finite geometric description useful for understanding why the boundary behaves differently.",
+      "residual_risks": [
+        "A code-software data file or unindexed companion computation may contain the same minimizer census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2511.08304",
+    "DOI:10.1007/s40590-026-00963-5",
+    "DOI:10.3934/amc.2021013",
+    "DOI:10.1007/s10623-020-00818-8",
+    "Resultary minimizer query"
+  ],
+  "disposition": "passed",
+  "final_claim": "In the exact q=3,m=5,d=2,r=3 torus code of the published example, precisely 750 three-dimensional subcodes attain the minimum support 16; under the natural signed-coordinate-permutation group of effective order 1920, they split into four orbits of sizes 10,20,240,480.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A code-software data file or unindexed companion computation may contain the same minimizer census.",
+    "The four orbits are for the stated natural subgroup; a larger code automorphism group could fuse them.",
+    "No general formula for other Cartesian square-free codes is claimed."
+  ]
+}

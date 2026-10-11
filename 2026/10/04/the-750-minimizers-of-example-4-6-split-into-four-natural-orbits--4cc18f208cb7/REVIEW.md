@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The published torus evaluation code is reconstructed exactly over \(\mathbb F_3\). Its \(32\) columns reduce to \(16\) antipodal pairs, each repeated twice. For a three-dimensional coefficient subspace, the common zero-column types must have rank at most \(7\). Exact row reduction finds no rank-at-most-\(7\) nine-subset and exactly \(750\) rank-\(7\) eight-subsets. Each such eight-subset has a unique three-dimensional annihilator and no additional zero type, proving both \(d_3=16\) and the exact count \(750\). The \(1920\) natural signed-permutation actions split these minimizers into orbits of sizes \(10,20,240,480\).
+PASS
 
-## Originality
+The 32 evaluation columns collapse projectively to 16 types of multiplicity two. A 3-subcode can vanish on at most eight types because its annihilator has dimension seven and no nine-subset has rank at most seven. Exact enumeration finds 750 eight-subsets of rank seven and no rank≤7 nine-subset; each such eight-subset has a unique three-dimensional annihilator and hence gives one minimizer. The independently inspected verifier constructs all 1920 natural group actions and obtains orbit sizes 10,20,240,480; a fresh replay reproduced 750, zero bad nine-subsets and the same four orbit sizes.
 
-PASS. The primary article reports \(d_3=16\) for Example 4.6 using software but does not count or classify minimizers. The most relevant earlier hypersimplex-toric paper was inspected in full; for \(r=3\) its exact formulas cover \(m>2d+1\) and \(m<2d-1\), whereas this example lies on the excluded boundary \(m=2d+1\). Earlier square-free evaluation-code work stops at the second generalized Hamming weight. Exact parameter, minimizer-count, and orbit searches found no prior same-object classification.
+## originality
 
-## Value
+PASS
 
-PASS. The primary article uses Example 4.6 to demonstrate a genuine failure of footprint sharpness, making the structure behind its package-computed \(d_3\) a motivated question. Counting every minimizer and resolving the natural symmetry action into four orbits substantially refines the isolated value \(16\) and supplies reproducible geometry for this boundary case.
+Carvalho–López–San-José’s primary paper isolates the exact ternary torus example and reports d3=16 using a generalized-Hamming-weight package, while explicitly noting failure of the footprint lower bound. The full primary PDF page for the example was materially inspected. It does not count the minimizing subcodes or classify their symmetry orbits. Patanker–Singh’s exact third-weight regimes exclude the boundary m=5=2d+1, and earlier square-free evaluation-code work treats the first and second generalized weights. Resultary search found no covering minimizer census.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The source itself highlights this boundary example because its footprint bound is nonsharp. Classifying every minimizer and its natural symmetry orbits turns a package-only scalar computation into an exact finite geometric description useful for understanding why the boundary behaves differently.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
