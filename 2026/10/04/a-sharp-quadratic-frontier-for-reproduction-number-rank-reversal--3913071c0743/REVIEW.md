@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof starts from the source's exact individual-offspring reduction and identity \(u^\top v=R_*-a\). The two endpoint signs are exact. The sharp converse is proved by an admissible single-type household family whose within-household final-size mean converges to household size as local transmission grows. The finite \(3\)-versus-\(2\) rank reversal is replayed by exact rational recursion in `verify.py`.
+## correctness
 
-## Originality
-**PASS.** The closest primary sources establish qualitative orderings among reproduction numbers and note that \(R_*\) can mislead cross-structure comparisons. Full-text inspection of the broad 2016 comparison paper and targeted equivalent-formulation searches did not reveal the square-root envelope or the sharp \(r_A=r_B^2\) cross-model frontier. Residual risk remains that equivalent algebra appears in older or poorly indexed literature.
+PASS
 
-## Value
-**PASS.** The finding precisely quantifies a comparison problem singled out by the motivating paper: it gives an exact sufficient condition for ranking robustness, proves that condition sharp across the model class, and supplies a small exact witness below the frontier. It is stronger than the source's within-model ordering without claiming downstream outbreak or control rankings.
+Ball–Critcher's exact formula gives \(R_I\) as the positive root of \(x^2-a x-(r-a)=0\) with \(r=R_*\) and \(0<a\le r\). Evaluating at \(x=r\) and \(x=\sqrt r\) yields the stated sharp one-model envelope and endpoint equality. For two growing models, \(R_{I,A}>\sqrt{r_A}\) and \(R_{I,B}\le r_B\), so reversal is impossible at \(r_A\ge r_B^2\). Conversely, one-person households realize \(R_I=R_*=r_B\), while fixed-size households with local rate \(\lambda\to\infty\) have expected household outbreak size tending to the household size; choosing the global rate to keep \(R_*=r_A\) drives \(a\downarrow0\) and \(R_I\downarrow\sqrt{r_A}<r_B\). The exact four-person witness was independently checked from the displayed Markov recursion: \(m_4(2)=779/225\), \(R_*=3\), and \(p_3(2)=104/779>0\).
 
-## Closest literature and limitations
-Ball and Critcher (2026), DOI 10.1007/s00285-026-02359-5, provide the reduction and qualitative warning. Ball, Pellis, and Trapman (2016), arXiv:1410.4469 / DOI 10.1016/j.mbs.2016.01.006, provide the closest broad comparison framework. The present claim is limited to \(R_*\) versus \(R_I\); it does not compare outbreak probabilities, final sizes, exponential growth, or vaccination thresholds.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary 2026 article was read through the reproduction-number comparison theorem and proof. It supplies the exact quadratic and \(u^\top v=R_*-a\), and explicitly warns that \(R_*\) can be misleading across household structures, but it states only the standard within-model ordering. The square-root envelope is an elementary consequence of its identities, so that part alone is not treated as a large novelty claim. The surviving contribution is the exact cross-model reversal boundary together with the all-points sharpness construction and an exact finite witness. Resultary and the broader household-reproduction comparison literature located no theorem stating or implying the full quadratic frontier.
+
+## value
+
+PASS
+
+The source itself emphasizes that \(R_*\) can mis-rank epidemics with different household structures. The theorem answers that concrete comparison problem sharply: it gives the exact universal no-reversal region and proves every point below the boundary is genuinely realizable by finite household models. That model-class classification is more informative than the routine one-model root inequalities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

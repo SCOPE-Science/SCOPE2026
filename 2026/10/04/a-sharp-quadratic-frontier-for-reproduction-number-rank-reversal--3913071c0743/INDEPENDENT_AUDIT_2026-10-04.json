@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:26:41.955554Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ball–Critcher's exact formula gives \\(R_I\\) as the positive root of \\(x^2-a x-(r-a)=0\\) with \\(r=R_*\\) and \\(0<a\\le r\\). Evaluating at \\(x=r\\) and \\(x=\\sqrt r\\) yields the stated sharp one-model envelope and endpoint equality. For two growing models, \\(R_{I,A}>\\sqrt{r_A}\\) and \\(R_{I,B}\\le r_B\\), so reversal is impossible at \\(r_A\\ge r_B^2\\). Conversely, one-person households realize \\(R_I=R_*=r_B\\), while fixed-size households with local rate \\(\\lambda\\to\\infty\\) have expected household outbreak size tending to the household size; choosing the global rate to keep \\(R_*=r_A\\) drives \\(a\\downarrow0\\) and \\(R_I\\downarrow\\sqrt{r_A}<r_B\\). The exact four-person witness was independently checked from the displayed Markov recursion: \\(m_4(2)=779/225\\), \\(R_*=3\\), and \\(p_3(2)=104/779>0\\).",
+      "risks": [
+        "The sharp lower endpoint is generally a limit rather than an attained value when the global contact rate must stay positive."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 4ff031fb8710f47be9483dd70eb8ab21c1784853",
+        "assigned verify.py blob 7d66b250dffaa24ac132528111d6b88d4004f1f8",
+        "Ball–Critcher 2026 open-access full article, Section 4.2.5"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader comparison literature gives order relations among reproduction numbers within a model, not the exact two-model reversal feasibility boundary with constructive sharpness."
+        ],
+        "reasoning": "General reproduction-number inequalities do not supply the existence half for every point below the quadratic boundary.",
+        "searches": [
+          "Ball–Critcher full Section 4.2.5",
+          "Ball–Pellis–Trapman 2016 comparison theory",
+          "current Resultary epidemic searches"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s00285-026-02359-5",
+        "arXiv:1410.4469",
+        "current Resultary semantic search",
+        "assigned exact witness verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-model square-root bound follows routinely from the source quadratic and is treated as covered input-level algebra.",
+          "The converse rank-reversal theorem additionally requires proving admissible household models can make \\(a\\) arbitrarily small while preserving a prescribed \\(R_*\\); the source theorem does not state that cross-model sharpness result."
+        ],
+        "reasoning": "Acceptance rests on the complete sharp cross-model frontier, not on claiming the elementary root comparison alone as a standalone discovery.",
+        "searches": [
+          "direct implication comparison with Ball–Critcher Theorem 4.1 and equations (4.5)–(4.6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ball–Critcher gives the characteristic polynomial and identity \\(u^\\top v=R_*-a\\), and Theorem 4.1 gives the usual ordering \\(R_*\\ge R_I\\) in growing epidemics.",
+          "No Resultary hit matched the cross-model \\(r_A=r_B^2\\) frontier."
+        ],
+        "reasoning": "Equivalent formulations as an \\(R_I/R_*\\) envelope and as a cross-model rank-reversal feasibility region were compared.",
+        "searches": [
+          "Resultary: household epidemic reproduction numbers R star individual reproduction number square root bound rank reversal quadratic frontier",
+          "Ball–Critcher DOI 10.1007/s00285-026-02359-5",
+          "Ball–Pellis–Trapman arXiv:1410.4469"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table/database of the reversal frontier or the rational four-person witness was found."
+        ],
+        "reasoning": "The theorem is analytic over a model class rather than a finite table result.",
+        "searches": [
+          "current Resultary epidemic findings",
+          "primary article's examples and formulas"
+        ]
+      },
+      "rationale": "The primary 2026 article was read through the reproduction-number comparison theorem and proof. It supplies the exact quadratic and \\(u^\\top v=R_*-a\\), and explicitly warns that \\(R_*\\) can be misleading across household structures, but it states only the standard within-model ordering. The square-root envelope is an elementary consequence of its identities, so that part alone is not treated as a large novelty claim. The surviving contribution is the exact cross-model reversal boundary together with the all-points sharpness construction and an exact finite witness. Resultary and the broader household-reproduction comparison literature located no theorem stating or implying the full quadratic frontier.",
+      "residual_risks": [
+        "The 2016 comparison paper was not re-read in full during this execution, so an equivalent reformulation there remains a residual risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE.",
+          "evidence": "It proves the standard within-model ordering and the exact quadratic identities, but not the all-model quadratic reversal frontier or its constructive sharpness.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02359-5",
+          "material_read": "Open-access full article through Section 4.2.5, including Theorem 4.1 and the characteristic-polynomial proof.",
+          "method": "Primary full-text theorem and implication comparison.",
+          "title": "Multitype SIR epidemics among a population partitioned into households with proportionate global mixing",
+          "trigger": "Primary source for the exact \\(R_I\\) formula, \\(R_*\\) relation, and comparison problem."
+        },
+        {
+          "assessment": "Residual literature risk only.",
+          "evidence": "The accessible description is broad comparison theory; no exact cross-model quadratic frontier was located.",
+          "identifier_or_url": "arXiv:1410.4469",
+          "material_read": "Accessible abstract/scope material in this run; the full preprint was not re-read before closeout.",
+          "method": "Access-limited scope comparison; no whole-document noncoverage claim.",
+          "title": "Reproduction numbers for epidemic models with households and other social structures II",
+          "trigger": "Broader historical comparison theory for household reproduction numbers."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source itself emphasizes that \\(R_*\\) can mis-rank epidemics with different household structures. The theorem answers that concrete comparison problem sharply: it gives the exact universal no-reversal region and proves every point below the boundary is genuinely realizable by finite household models. That model-class classification is more informative than the routine one-model root inequalities.",
+      "risks": [
+        "The theorem compares only \\(R_*\\) and \\(R_I\\); it does not order outbreak probability, final size, growth rate, or vaccination thresholds."
+      ],
+      "sources": [
+        "Ball–Critcher comparison problem",
+        "assigned constructive sharpness proof and exact witness"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Proportionate-global-mixing household SIR class only.",
+    "The square-root endpoint is limiting in general.",
+    "No implication for other epidemic rankings is asserted."
+  ],
+  "schema_version": 1
+}
