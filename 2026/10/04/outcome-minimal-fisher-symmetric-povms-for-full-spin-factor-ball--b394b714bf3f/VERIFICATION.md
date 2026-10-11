@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof is self-contained in `RESULT.md`. The bundled `verify.py` checks, with exact rational arithmetic, the scalar identities that make the biased regular-simplex distribution have mean \(\theta\) and isotropic covariance \((1-\|\theta\|^2)I/d\). It tests several dimensions and rational interior radii, including the five-parameter case.
+# Independent mathematical audit
 
-The critical non-computational steps were also checked directly: the SLD equation reduces to a two-equation Clifford calculation; positivity follows because each effect has scalar part equal to the Euclidean norm of its spin-factor vector part; the Fisher matrix is the transported simplex covariance; and outcome minimality follows from the zero-mean score relation, which forces \(\operatorname{rank}F\le m-1\) for \(m\) positive-probability outcomes.
+## correctness
 
-The recent primary source was inspected at theorem/construction level for the exact normalized Fisher region and its randomized spectral realization. The broad 2026 support-size theorem, pure-state Fisher-symmetry literature, and the known arbitrary-mixed-qubit special case were separately compared. No independent audit has been performed.
+PASS
 
-Limits: the verifier does not prove the theorem by enumeration, does not test boundary states, and does not certify novelty. Those points are addressed by the analytic proof and literature comparison, respectively.
+The Clifford anticommutation equations give the SLD metric \(J_\theta=(I-\theta\theta^{\mathsf T})^{-1}\). The displayed biased simplex has positive probabilities, mean \(\theta\), and covariance \((1-\|\theta\|^2)I/d\). Transporting it by the score ellipsoid maps every support point to the effect-positivity boundary, so each \(M_i=a_iI+\gamma(b_i)\) is positive and the effects sum to identity. Their local probabilities are \(p_i\), score vectors are \(\ell_i\), and their covariance gives exactly \(F_\theta=J_\theta/d\). For any finite classical outcome model, \(\sum_i p_is_i=0\), so \(m\) positive-probability scores span dimension at most \(m-1\); full-rank \(d\)-dimensional Fisher information therefore requires \(m\ge d+1\). The construction attains equality.
+
+## originality
+
+PASS
+
+Yamagata’s September 2026 primary paper gives the exact normalized attainable Fisher region and an explicit realization by randomized spectral SLD measurements, but its accessible primary statement does not give the sharp local support size \(d+1\) or a simplex compression. A separate April 2026 support-size paper gives only a much larger general upper bound \((\dim\mathcal H)^2+d(d+1)/2-1\). Fresh Resultary and web searches for spin-factor, Fisher-symmetric, simplex and outcome-minimal formulations did not find an arbitrary-interior \(d\ge4\) theorem matching both the construction and lower bound. The exact September paper’s full text was attempted first through public arXiv/OA routes; those routes did not yield the body, and the single authorized institutional fallback returned worker unavailable, so this remains an explicit originality risk rather than negative evidence.
+
+## value
+
+PASS
+
+Exact measurement support is an independently motivated resource question in quantum estimation. The result provides a constructive optimum at every interior point and a matching information-rank lower bound, reducing the natural isotropic spin-factor implementation to the smallest possible alphabet.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

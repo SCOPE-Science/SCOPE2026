@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the SLD metric from the Clifford relations, verifies the biased-simplex first and second moments, proves positivity and normalization of every POVM effect, computes the exact classical Fisher matrix \(F=J_\theta/d\), and proves the outcome lower bound from \(\operatorname{rank}F\le m-1\). The finite verifier is only a regression check for algebraic identities; no finite sample is used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The recent spin-factor source proves the attainable Fisher region and a randomized spectral realization but not the sharp \(d+1\) outcome count. Yamagata's separate 2026 support-size theorem gives only broad model-independent upper bounds. Pure-state and two-copy universal Fisher-symmetry results concern different objects. Public prior work does cover arbitrary mixed qubits, so the final originality claim is restricted to \(d\ge4\). Published-record, exact-source, alias, parameter, support-size, and implication searches found no covering \(d\ge4\) theorem. Residual risk remains that equivalent Jordan-algebra terminology was missed.
+PASS
 
-## Value
-PASS. Exact measurement support is a motivated complexity question in quantum estimation. The theorem replaces a \(2d\)-labeled-outcome randomized binary realization by an explicit single \(d+1\)-outcome optimum and proves that no smaller local outcome alphabet can work. In the recent five-parameter example the reduction is ten outcomes to six while preserving the exact Fisher optimum.
+The Clifford anticommutation equations give the SLD metric \(J_\theta=(I-\theta\theta^{\mathsf T})^{-1}\). The displayed biased simplex has positive probabilities, mean \(\theta\), and covariance \((1-\|\theta\|^2)I/d\). Transporting it by the score ellipsoid maps every support point to the effect-positivity boundary, so each \(M_i=a_iI+\gamma(b_i)\) is positive and the effects sum to identity. Their local probabilities are \(p_i\), score vectors are \(\ell_i\), and their covariance gives exactly \(F_\theta=J_\theta/d\). For any finite classical outcome model, \(\sum_i p_is_i=0\), so \(m\) positive-probability scores span dimension at most \(m-1\); full-rank \(d\)-dimensional Fisher information therefore requires \(m\ge d+1\). The construction attains equality.
 
-## Closest literature and limitations
-The closest literature is arXiv:2609.23020v1 (spin-factor Fisher-region theorem), arXiv:2604.21323v1 (general sufficient support bounds), the 2016 pure-state Fisher-symmetry theorem, and prior arbitrary-mixed-qubit Fisher-symmetric constructions. The result is local, requires an interior point of the full affine spin-factor ball, and does not give a parameter-independent globally optimal measurement or minimize hardware implementation resources.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Yamagata’s September 2026 primary paper gives the exact normalized attainable Fisher region and an explicit realization by randomized spectral SLD measurements, but its accessible primary statement does not give the sharp local support size \(d+1\) or a simplex compression. A separate April 2026 support-size paper gives only a much larger general upper bound \((\dim\mathcal H)^2+d(d+1)/2-1\). Fresh Resultary and web searches for spin-factor, Fisher-symmetric, simplex and outcome-minimal formulations did not find an arbitrary-interior \(d\ge4\) theorem matching both the construction and lower bound. The exact September paper’s full text was attempted first through public arXiv/OA routes; those routes did not yield the body, and the single authorized institutional fallback returned worker unavailable, so this remains an explicit originality risk rather than negative evidence.
+
+## value
+
+PASS
+
+Exact measurement support is an independently motivated resource question in quantum estimation. The result provides a constructive optimum at every interior point and a matching information-rank lower bound, reducing the natural isotropic spin-factor implementation to the smallest possible alphabet.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
