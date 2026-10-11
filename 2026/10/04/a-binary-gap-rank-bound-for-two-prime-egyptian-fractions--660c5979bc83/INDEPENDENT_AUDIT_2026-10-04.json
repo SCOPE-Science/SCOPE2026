@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:13:17.606745Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at Git tree fa87aaa1d6b751dfe518ce5b40fdd74521041a10",
+        "Czenky–McGovern–Plavnik–Rowell–Watkins, Egyptian fractions for few primes, arXiv:2507.03727v1, complete 58-page PDF (turn703408view0; Question 5.3 screenshot turn550773view9)"
+      ],
+      "rationale": "Let \\(r\\) be the number of terms whose denominators are pure powers of \\(2\\), and let \\(S\\) be their sum. Because the complete representation uses the odd prime \\(p\\), one has \\(S<1\\). After clearing the largest dyadic denominator, the positive dyadic gap \\(1-S\\) is at least \\(2^{-r}\\): a sum of \\(r\\) dyadic unit fractions below one cannot approach one more closely than the reciprocal of the product of its distinct binary place scales, and the standard common-denominator/popcount argument gives this bound exactly. Every remaining term is at most \\(1/p\\), so \\(2^{-r}\\le (R-r)/p\\) and hence \\(R\\ge r+\\lceil p/2^r\\rceil\\). Writing \\(k=\\lfloor\\log_2 p\\rfloor\\), the cases \\(r\\ge k+1\\), \\(r=k\\), and \\(r\\le k-1\\) all yield \\(R\\ge k+2\\). If \\(p=2^k+1\\) is prime, the explicit identity \\(\\sum_{j=1}^{k}2^{-j}+p^{-1}+(2^kp)^{-1}=1\\) has rank \\(k+2\\), so the bound is sharp for every Fermat prime.",
+      "residual_risks": [
+        "The package verifier is only finite corroboration and is not needed for the all-prime proof.",
+        "The dyadic-gap lemma is elementary but its quantifiers require the strict condition that the odd prime actually occurs; that condition is part of the source definition and assigned theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper supplies algorithms, tables, and special constructions, including Fermat-prime examples, but not the universal binary-gap lower bound.",
+          "No broader published SCOPE theorem in the search result dominates the fixed-support rank claim."
+        ],
+        "reasoning": "The inspected broader computational and constructive results do not imply the all-odd-prime lower bound.",
+        "searches": [
+          "Complete arXiv:2507.03727v1 inspection",
+          "Resultary semantic search on two-prime Egyptian-fraction rank bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2507.03727",
+        "Resultary published-result search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's special Fermat constructions prove attainability on a sparse family but do not supply a lower bound for arbitrary odd \\(p\\).",
+          "The audited dyadic-gap argument supplies the missing universal implication."
+        ],
+        "reasoning": "The final theorem answers and strengthens the stated open lower-bound question rather than following mechanically from the source's computations.",
+        "searches": [
+          "Direct comparison of the audited bound with Question 5.3 and the Fermat construction in arXiv:2507.03727v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The corpus search returned the assigned record as the exact theorem; nearby hits concerned different two-prime arithmetic structures.",
+          "Question 5.3 asks whether \\(\\ln p\\), even \\(\\ln(2p)\\), is a lower bound and whether it can be improved."
+        ],
+        "reasoning": "The source frames precisely the same minimum-rank problem; it is posed as an open question rather than a theorem.",
+        "searches": [
+          "Resultary query: two-prime Egyptian fractions support {2,p} minimum rank floor log2 p plus 2 binary gap",
+          "arXiv:2507.03727v1 Question 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper tabulates minimum ranks only for finite tested supports; those data motivate Question 5.3.",
+          "The audited theorem is an all-prime inequality with a proof, not a table recomputation."
+        ],
+        "reasoning": "Finite rank data cannot establish the universal inequality.",
+        "searches": [
+          "arXiv:2507.03727v1 rank tables and Section 4",
+          "Resultary exact search on the claimed formula"
+        ]
+      },
+      "rationale": "The motivating primary paper explicitly asks whether one can prove a logarithmic lower bound for the minimum rank with support \\(\\{2,p\\}\\); the audited theorem proves the strictly stronger base-two bound \\(\\lfloor\\log_2 p\\rfloor+2\\). Its finite tables and Fermat-prime constructions do not imply the universal lower bound. A Resultary search by the same support, rank, and binary-gap formulation returned the assigned record as the exact hit and no earlier covering theorem.",
+      "residual_risks": [
+        "Best-of-knowledge originality remains subject to unindexed elementary observations of the same dyadic-gap argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_PROBLEM_SOURCE",
+          "evidence": "Question 5.3 explicitly asks for a lower bound of order \\(\\ln p\\) or \\(\\ln(2p)\\); no proof of the stronger binary bound appears.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.03727",
+          "material_read": "Complete 58-page PDF, especially the fixed-prime definitions, Section 4 constructions/data, and Question 5.3 on the logarithmic rank lower bound.",
+          "method": "Lawful arXiv full-text inspection with page image verification.",
+          "title": "Egyptian fractions for few primes",
+          "trigger": "Direct motivating source and same fixed-support rank problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2507.03727v1 Question 5.3"
+      ],
+      "rationale": "The result resolves an explicit published lower-bound question with a stronger quantitative answer and identifies the sharp mechanism on every Fermat-prime support. Although the proof is short, it is a motivated all-parameter extremal statement rather than a routine small-case calculation.",
+      "residual_risks": [
+        "The theorem treats the support \\(\\{2,p\\}\\) only; the paper's analogous \\(\\{p,q\\}\\) question remains open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2507.03727",
+    "Resultary published-result search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All denominators have prime support contained in \\(\\{2,p\\}\\), and both primes must occur.",
+    "Sharpness is proved on Fermat-prime supports; the exact minimum for arbitrary odd primes is not classified."
+  ],
+  "residual_risks": [
+    "Best-of-knowledge originality remains subject to unindexed elementary observations of the same dyadic-gap argument."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OPEN_PROBLEM_SOURCE",
+      "evidence": "Question 5.3 explicitly asks for a lower bound of order \\(\\ln p\\) or \\(\\ln(2p)\\); no proof of the stronger binary bound appears.",
+      "identifier_or_url": "https://arxiv.org/abs/2507.03727",
+      "material_read": "Complete 58-page PDF, especially the fixed-prime definitions, Section 4 constructions/data, and Question 5.3 on the logarithmic rank lower bound.",
+      "method": "Lawful arXiv full-text inspection with page image verification.",
+      "title": "Egyptian fractions for few primes",
+      "trigger": "Direct motivating source and same fixed-support rank problem."
+    }
+  ]
+}
