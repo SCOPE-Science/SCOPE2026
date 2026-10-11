@@ -1,18 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The final claim is finite and exhaustively covered. One route enumerates all \(17{,}550\) anonymous four-agent ranking multisets, restores exact agent-label multiplicities, and quotients by all \(24\) object permutations. A second route independently enumerates every one of the \(24^4=331{,}776\) labeled profiles. Both give exactly \(68{,}976\) inefficient profiles. The quotient route gives \(762\) total classes and \(153\) inefficient classes. The verifier also checks every \(n\le3\) labeled profile, the complete reciprocal-pair equivalence at \(n=4\), all orbit-size totals, and the four minimum two-order classes.
+## correctness
 
-The correctness argument does not infer an infinite theorem from finite data. The Bogomolnaia--Moulin acyclicity criterion is both inspected in the literature and justified in RESULT.md by the probability-trading-cycle argument.
+PASS
 
-Risk: implementation error is mitigated by two different enumeration domains and exact reconstruction identities, but no external independent audit has been performed.
+Two independent enumeration domains were reconstructed. Direct labeled enumeration gives zero inefficient profiles for \(n\le3\) and exactly 68,976 for \(n=4\), and every detected cycle has a reciprocal 2-cycle. An anonymous-multiset enumeration gives 3,270 inefficient multisets; weighting by agent-label multiplicities returns 68,976. Quotienting by object relabeling gives exactly 762 total classes and 153 inefficient classes, with orbit-size distribution \(72^4,144^3,288^{55},576^{91}\) in count notation and multiplicity-pattern counts 119 of type \(1+1+1+1\), 30 of type \(2+1+1\), and four of type \(2+2\). The four canonical two-order classes were independently recovered. Bogomolnaia-Moulin Lemma 3 supplies the exact acyclicity test used.
 
-## Originality
-**PASS.** Bogomolnaia--Moulin prove that RSD can fail ordinal efficiency and give a four-agent witness. Manea reproduces a simplified four-agent witness, gives the acyclicity test, and proves asymptotic inefficiency. Targeted searches by the exact labeled count, exact symmetry-class count, reciprocal-pair property, and minimum distinct-order classification did not locate the present \(n=4\) census. published-finding corpus semantic searches likewise returned no matching random-assignment record.
+## originality
 
-Risk: an unindexed thesis, teaching note, software table, or supplementary data set may contain the same small-\(n\) census.
+PASS
 
-## Value
-**PASS.** Four agents are the first size at which the classical inefficiency phenomenon appears. The exact boundary-case frequency \(479/2304\), the \(153/762\) quotient decomposition, the fact that every first-size failure collapses to a \(2\)-cycle, and the four minimal \(2+2\) types turn the standard existence example into a complete finite structural classification. This is a natural exact invariant of a canonical matching mechanism rather than an arbitrary numerical slice.
+The total 68,976 inefficient-profile count overlaps the companion four-agent RP/PS census, so that number alone is not original within the current corpus. The final claim, however, materially refines it by the complete 153-of-762 symmetry-class census, exact orbit-size distribution, universal 2-cycle property, and the four minimal two-order symmetry classes. Manea's primary paper contains one of the canonical \(2+2\) examples but no completeness result of this kind.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is the exact first nontrivial boundary of RSD ordinal inefficiency. The universal 2-cycle collapse and complete symmetry taxonomy explain the geometry of every four-agent counterexample, while the four minimal two-order classes isolate the simplest mechanisms producing inefficiency. Those are motivated structural refinements, not just a repeated raw count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
