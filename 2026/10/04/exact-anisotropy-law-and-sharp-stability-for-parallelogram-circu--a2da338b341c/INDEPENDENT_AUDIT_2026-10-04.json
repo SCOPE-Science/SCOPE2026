@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:07:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 126cdc2b19385bd6aea24d9e52679e0993a9560a",
+        "assigned verify.py blob 66bcbc98c712b5f4e70fbe41d6c6e7f631f36cd6",
+        "Li-Wang-Shen-Dai, DOI 10.1515/math-2017-0117",
+        "Horwitz arXiv:0707.2092"
+      ],
+      "rationale": "After translating the parallelogram to its center and applying the linear map sending one antipodal vertex pair to plus or minus e1 and the other to plus or minus e2, every centered circumellipse has quadratic matrix K_c with diagonal entries one and off-diagonal entry c, where |c|<1. Its normalized area is pi/(2*sqrt(1-c^2)). Relative to the minimum-area member K_0, the two generalized eigenvalues are 1+c and 1-c, so the affine-invariant half-log anisotropy is atanh(|c|). Consequently the area ratio is exactly (pi/2)*cosh(delta), and the excess is pi*sinh(delta/2)^2. The global lower bound excess >= (pi/4)*delta^2 follows from cosh(delta)-1 >= delta^2/2, and the coefficient is sharp as delta tends to zero. Independent symbolic substitution confirmed the cosh identity; the assigned randomized checker also verifies incidence, affine covariance, the area formula and the near-zero sharp coefficient.",
+      "residual_risks": [
+        "The result concerns Euclidean area and the matrix anisotropy relative to the unique minimum-area circumellipse; it does not optimize other ellipse functionals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horwitz 2007 parameterizes general circumellipses and proves unique extremizers, but its explicit Section 3 setup excludes trapezoids and hence parallelograms.",
+          "Li et al. prove the parallelogram minimum and uniqueness but not a stability profile.",
+          "The 2024 monograph contents show highly relevant parallelogram equation and area-inequality sections, but the body was not lawfully accessible in this run."
+        ],
+        "reasoning": "No inspected broader source states a theorem that directly supplies the exact generalized-eigenvalue cosh law.",
+        "searches": [
+          "Horwitz arXiv:0707.2092 full primary article",
+          "Horwitz 2024 monograph publisher contents",
+          "Li et al. 2017 full primary article"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1515/math-2017-0117",
+        "arXiv:0707.2092",
+        "Horwitz 2024 monograph publisher contents",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum-area theorem alone gives only the value and uniqueness at the isotropic member.",
+          "Recovering the audited theorem requires normalizing the entire parallelogram pencil, computing the relative generalized spectrum, and identifying the area ratio with cosh of its half-log condition number."
+        ],
+        "reasoning": "The argument is elementary linear algebra once the normalization is chosen, but the exact all-pencil affine-invariant profile is not stated or mechanically supplied by the inspected parallelogram theorem.",
+        "searches": [
+          "Li et al. minimum-area theorem versus full one-parameter pencil",
+          "Horwitz general circumscribed-ellipse parameterization versus affine-invariant half-log anisotropy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited invariant delta is the half logarithm of the generalized condition number of the circumellipse relative to the minimum-area one.",
+          "The classical minimum-area statement fixes only the endpoint delta=0 and does not state the all-pencil cosh profile."
+        ],
+        "reasoning": "Equivalent formulations in terms of quadratic-form condition number, axis anisotropy and normalized area were searched and compared.",
+        "searches": [
+          "Resultary query: parallelogram circumellipse anisotropy area cosh stability generalized eigenvalues",
+          "web search: circumscribed ellipse parallelogram cosh anisotropy area",
+          "Li-Wang-Shen-Dai DOI 10.1515/math-2017-0117"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact same-result record or formula was retrieved."
+        ],
+        "reasoning": "Search absence is not treated as proof; it supplements direct comparison with the full accessible primary papers.",
+        "searches": [
+          "Resultary exact search for circumellipse cosh law and parallelogram anisotropy",
+          "web exact searches for parallelogram circumellipse generalized eigenvalues and cosh"
+        ]
+      },
+      "rationale": "Classical and modern primary sources establish existence of the circumellipse pencil and the unique minimum-area member. Li et al. prove that the minimum circumscribed-ellipse area of a parallelogram is pi/2 times the parallelogram area, but do not give the full affine-invariant area-versus-anisotropy profile. Horwitz gives general circumellipse equations and extremal results; his detailed area formulas in the inspected 2007 article are explicitly developed for nontrapezoid quadrilaterals. A 2024 Horwitz monograph has dedicated parallelogram equation, minimal-area and area-inequality sections and is therefore a genuine bibliographic risk, but only publisher-level contents were accessible in this run, so no whole-book noncoverage claim is made. Current exact searches found no prior cosh law or sharp half-log stability theorem.",
+      "residual_risks": [
+        "Horwitz's 2024 monograph is a plausible source for a stronger parallelogram area formula; its relevant chapter body was inaccessible in this run.",
+        "The identity is short after affine normalization, so equivalent classical conic-language coverage could be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMUM_AREA_ENDPOINT_NOT_FULL_PROFILE",
+          "evidence": "The paper proves the unique minimum and ratio pi/2 but does not state the audited cosh-anisotropy identity.",
+          "identifier_or_url": "https://doi.org/10.1515/math-2017-0117",
+          "material_read": "complete accessible article material, including the parallelogram coverage discussion and Section 5.1 Theorems 4 and 5",
+          "method": "primary full-text web inspection",
+          "title": "Does any convex quadrilateral have circumscribed ellipses?",
+          "trigger": "primary source for the parallelogram minimum-area theorem"
+        },
+        {
+          "assessment": "GENERAL_EXTREMAL_CONTEXT_NOT_PARALLELOGRAM_PROFILE",
+          "evidence": "The detailed area parameterization inspected is developed under an explicit nontrapezoid hypothesis and does not state the parallelogram cosh law.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.2092",
+          "material_read": "complete accessible primary text, including the general conic parameterization, semiaxis formulas, and the minimal-area section",
+          "method": "primary full-text inspection",
+          "title": "Ellipses of minimal area and of minimal eccentricity circumscribed about a convex quadrilateral",
+          "trigger": "broader primary circumellipse parameterization and extremal theory"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION_RETAINED_AS_RISK",
+          "evidence": "The contents include Parallelograms: Equation, Minimal Eccentricity, Minimal Area, Example, and Area Inequality; those headings are not used to infer the content of the unavailable chapter.",
+          "identifier_or_url": "https://www.routledge.com/Ellipses-Inscribed-in-and-Circumscribed-about-Quadrilaterals/Horwitz/p/book/9781032756295",
+          "material_read": "publisher description and table of contents only; the book body was not available through an open full-text route",
+          "method": "primary bibliographic/contents inspection",
+          "title": "Ellipses Inscribed in, and Circumscribed about, Quadrilaterals",
+          "trigger": "highly relevant 2024 synthesis containing a chapter on parallelogram circumellipses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li-Wang-Shen-Dai 2017",
+        "Horwitz 2007",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The theorem upgrades a qualitative minimum-area fact to an exact affine-invariant stability profile for the entire circumellipse pencil and identifies the sharp quadratic deficit constant. The condition-number coordinate is natural in ellipsoidal geometry, so the result is a structural quantitative refinement rather than an arbitrary parameter evaluation.",
+      "residual_risks": [
+        "The proof is elementary in dimension two and the principal value is the exact invariant profile."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result concerns Euclidean area and the matrix anisotropy relative to the unique minimum-area circumellipse; it does not optimize other ellipse functionals.",
+    "Horwitz's 2024 monograph is a plausible source for a stronger parallelogram area formula; its relevant chapter body was inaccessible in this run.",
+    "The identity is short after affine normalization, so equivalent classical conic-language coverage could be poorly indexed.",
+    "The proof is elementary in dimension two and the principal value is the exact invariant profile."
+  ]
+}
