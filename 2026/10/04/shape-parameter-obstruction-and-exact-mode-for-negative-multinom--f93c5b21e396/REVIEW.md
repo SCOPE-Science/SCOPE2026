@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact rising-factorial factorization reduces the shape profile to a finite harmonic sum. Its derivative is strictly negative, and its endpoint limits force exactly one critical point, which is the global maximum. The zero cell is an exponential. The asymptotic coefficient follows from the displayed digamma expansion and an explicit mean-value estimate; no finite experiment is used to establish an infinite statement.
+## correctness
 
-## Originality
-PASS. The motivating source explicitly asks whether the negative multinomial distribution is completely monotone in its parameters. The closest cited positive result, Ouimet 2018, concerns simultaneous scaling of a multinomial total and all cell counts and therefore does not imply the fixed-cell shape result. Targeted searches for negative-multinomial fixed-cell shape monotonicity, a harmonic mode equation, and the resulting asymptotic found no covering theorem. Waller and Zelterman's shape-estimation result is in a different multi-observation log-linear setting.
+PASS
 
-Residual risk: because the core derivative identity is elementary, an equivalent one-cell likelihood statement may exist under poorly indexed negative-binomial size/dispersion terminology.
+For integer m, Gamma(r+m)/Gamma(r)=prod_{j=0}^{m-1}(r+j). Therefore the log derivative is sum 1/(r+j)+log q and the second derivative is strictly negative. It runs from +infinity to log q<0, yielding one mode and immediate failure of complete monotonicity for m>=1; m=0 is the exponential q^r. The digamma expansion with r=qm/(1-q)+1/2+b/m gives b=-(1-q^2)/(24q), and the derivative of the mode equation is order 1/m, upgrading the residual to the stated O(m^-2) root error. Independent numerical roots at q=0.2,0.5,0.8 and m through 1000 agreed with the expansion at the expected scale.
 
-## Value
-PASS. The theorem gives a sharp boundary for an explicit open direction and replaces a failed monotonicity claim with a natural complete classification in the shape coordinate. The unique mode, its dependence only on total count and stopping probability, and its explicit large-count expansion provide structure not contained in a one-point counterexample.
+## originality
 
-## Closest literature and limitations
-The closest complete-monotonicity theorem found is Ouimet 2018 for multinomial scaling rays. The present result is limited to the ordinary real shape coordinate of the negative multinomial with fixed interior probabilities and a fixed cell; it does not claim results for probability-coordinate monotonicity, boundary zero-mass cells, coupled rays, or nonlinear reparameterizations.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Ouimet's open-access 2023 paper explicitly asks whether the negative multinomial distribution is completely monotonic in its parameters. The earlier positive theorem concerns multinomial probabilities along a different scaling path. No inspected source gives the fixed-cell ordinary-shape obstruction, the exact harmonic mode equation or its composition-invariant asymptotic. This therefore answers a stated open direction negatively for the retained shape coordinate and replaces monotonicity by an exact one-dimensional profile.
+
+## value
+
+PASS
+
+The theorem gives a decisive obstruction to an explicit published complete-monotonicity question and replaces it with an exact mode law and asymptotics. The short proof does not make the result routine in value: it resolves a named natural property of the negative multinomial family for every nonzero cell.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

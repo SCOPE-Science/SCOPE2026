@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:53:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 308a28e180c0c25f2c3e3161cdfdd29a4d415630",
+        "fresh derivative and mode-asymptotic reconstruction",
+        "Ouimet 2023 PMF"
+      ],
+      "rationale": "For integer m, Gamma(r+m)/Gamma(r)=prod_{j=0}^{m-1}(r+j). Therefore the log derivative is sum 1/(r+j)+log q and the second derivative is strictly negative. It runs from +infinity to log q<0, yielding one mode and immediate failure of complete monotonicity for m>=1; m=0 is the exponential q^r. The digamma expansion with r=qm/(1-q)+1/2+b/m gives b=-(1-q^2)/(24q), and the derivative of the mode equation is order 1/m, upgrading the residual to the stated O(m^-2) root error. Independent numerical roots at q=0.2,0.5,0.8 and m through 1000 agreed with the expansion at the expected scale.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 theorem varies a different multinomial scaling parameter and is not a fixed negative-multinomial cell with free shape r.",
+          "The 2023 article states the question as open rather than resolving the shape coordinate."
+        ],
+        "reasoning": "No inspected stronger theorem supplies this negative answer and exact mode for all m,q.",
+        "searches": [
+          "Ouimet 2018 multinomial complete-monotonicity theorem",
+          "Ouimet 2023 full primary article",
+          "negative-multinomial likelihood literature cited in the package"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/mca28040085",
+        "arXiv:2209.04733",
+        "arXiv:1804.02108",
+        "Resultary negative-multinomial complete-monotonicity search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The PMF formula makes the logarithmic derivative elementary but the source does not state the sign change or resulting obstruction.",
+          "The exact asymptotic mode requires a digamma expansion around the unique root."
+        ],
+        "reasoning": "The final theorem is a direct but scientifically decisive solution of a stated open subquestion, not a known corollary of the positive multinomial result.",
+        "searches": [
+          "Ouimet 2023 PMF and open problem",
+          "Ouimet 2018 positive multinomial theorem",
+          "audited Gamma-ratio factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 primary paper defines the Gamma-form mass for real r>0 and explicitly asks whether the negative multinomial is completely monotonic in its parameters.",
+          "For fixed cell and probabilities, all r-dependence is e^{-cr}(r)_m."
+        ],
+        "reasoning": "The claim is the exact ordinary-shape-coordinate specialization of that open question, plus the complete mode profile.",
+        "searches": [
+          "Ouimet, DOI:10.3390/mca28040085, Section 6 open problems",
+          "Ouimet, arXiv:1804.02108 / DOI:10.1016/j.jmaa.2018.06.049",
+          "Resultary query: negative multinomial shape parameter exact mode complete monotonicity fixed cell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Leading matches concerned other gamma complete-monotonicity families and multinomial mode asymptotics, not this fixed-cell negative-multinomial theorem."
+        ],
+        "reasoning": "The mode equation and asymptotic are analytic rather than database/table claims.",
+        "searches": [
+          "Resultary semantic search above"
+        ]
+      },
+      "rationale": "Ouimet's open-access 2023 paper explicitly asks whether the negative multinomial distribution is completely monotonic in its parameters. The earlier positive theorem concerns multinomial probabilities along a different scaling path. No inspected source gives the fixed-cell ordinary-shape obstruction, the exact harmonic mode equation or its composition-invariant asymptotic. This therefore answers a stated open direction negatively for the retained shape coordinate and replaces monotonicity by an exact one-dimensional profile.",
+      "residual_risks": [
+        "An equivalent shape-mode calculation may occur in unindexed negative-binomial/negative-multinomial likelihood literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_QUESTION_SOURCE_NO_SHAPE_COORDINATE_RESOLUTION",
+          "evidence": "Section 6 explicitly asks whether the negative multinomial distribution is completely monotonic in its parameters.",
+          "identifier_or_url": "DOI:10.3390/mca28040085; arXiv:2209.04733",
+          "material_read": "Full open MDPI primary article, including the PMF definition with real shape r>0 and Section 6 open problems.",
+          "method": "Exact question/parameter comparison.",
+          "title": "Moments of the Negative Multinomial Distribution",
+          "trigger": "Defining source and explicit open problem on complete monotonicity."
+        },
+        {
+          "assessment": "DIFFERENT_MULTINOMIAL_SCALING_PATH",
+          "evidence": "The result is for multinomial probabilities, not a fixed cell of a negative multinomial with ordinary shape r varied.",
+          "identifier_or_url": "arXiv:1804.02108; DOI:10.1016/j.jmaa.2018.06.049",
+          "material_read": "Primary theorem/abstract scope for the multinomial scaling path.",
+          "method": "Parameter-path comparison.",
+          "title": "Complete monotonicity of multinomial probabilities and its application to Bernstein estimators on the simplex",
+          "trigger": "Positive comparison cited by the open problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.3390/mca28040085",
+        "arXiv:2209.04733",
+        "arXiv:1804.02108",
+        "Resultary negative-multinomial complete-monotonicity search"
+      ],
+      "rationale": "The theorem gives a decisive obstruction to an explicit published complete-monotonicity question and replaces it with an exact mode law and asymptotics. The short proof does not make the result routine in value: it resolves a named natural property of the negative multinomial family for every nonzero cell.",
+      "residual_risks": [
+        "An equivalent shape-mode calculation may occur in unindexed negative-binomial/negative-multinomial likelihood literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3390/mca28040085",
+    "arXiv:2209.04733",
+    "arXiv:1804.02108",
+    "Resultary negative-multinomial complete-monotonicity search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a fixed interior negative-multinomial cell of total count m, the ordinary real shape coordinate is completely and logarithmically completely monotone only when m=0; for m>=1 the cell mass is strictly log-concave with a unique mode solving sum_{j=0}^{m-1}(r+j)^{-1}=-log q, depending only on m and q, with the stated three-term large-m expansion.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent shape-mode calculation may occur in unindexed negative-binomial/negative-multinomial likelihood literature.",
+    "Only the ordinary shape coordinate at fixed interior probability vector is classified; coupled reparameterizations and probability-coordinate monotonicity are not addressed."
+  ]
+}
