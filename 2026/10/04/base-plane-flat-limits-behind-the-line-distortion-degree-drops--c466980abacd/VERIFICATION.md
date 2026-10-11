@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled script `verify_distortion_line_scrolls.py` uses exact symbolic polynomial arithmetic with SymPy.
+# Independent mathematical audit
 
-It checks:
+## correctness
 
-- restriction of the published ambient \(2\times6\) determinantal ideal to representative lines in each coefficient stratum yields exactly the standard determinantal ideals of \(S(2,3)\), \(S(1,3)\), and \(S(1,2)\);
-- the family ideals for \(V(t a+b)\) and \(V(t b+c)\) are unchanged by exact \(t\)-saturation, using elimination with an auxiliary inverse variable;
-- the first special-fiber ideal equals the intersection of the embedded \(S(1,3)\) ideal with the base-plane ideal;
-- the second special-fiber ideal equals the intersection of the embedded \(S(1,2)\) ideal with the same base-plane ideal;
-- each component intersection is a projective line by exact equality of the summed ideals with a coordinate-line ideal.
+PASS
 
-A successful replay prints `VERIFY_OK` followed by the three scroll types, their degrees, and the two flat-limit decompositions.
+The published monomial parametrization of the \(u=(1,2,3)\) distortion scroll gives the three coefficient strata directly: eliminating the dependent block yields the standard scrolls \(S(2,3)\), \(S(1,3)\), and \(S(1,2)\) of degrees 5, 4, and 3. For the two one-parameter boundary families, the package's exact Gröbner code computes saturation by \(t\) and verifies that each displayed family ideal is already \(t\)-saturated. Its exact elimination computation verifies the special-fiber decompositions \(J_1=K_{13}\cap P_B\) and \(J_2=K_{12}\cap P_B\), and the sums of component ideals leave two homogeneous coordinates, so each intersection is a projective line. Over \(k[t]\), the homogeneous coordinate quotient is torsion-free in the parameter and hence flat; therefore these saturated closures give the stated Hilbert flat limits. The degree-one plane component exactly accounts for each one-unit degree drop.
 
-The computation verifies the displayed ideal identities over the rational numbers. Smoothness and degree of the standard rational normal scrolls are used as standard algebraic-geometric facts, consistent with the source's general scroll construction. No claim is made about arbitrary coefficient paths or positive characteristic.
+## originality
+
+PASS
+
+The primary distortion-variety source and the author's thesis state the ambient scroll, its base locus, and the 5/4/3 degree trichotomy, but the inspected chapter does not present the two Hilbert flat-limit decompositions. Resultary returned only the assigned record as the exact base-plane flat-limit hit, and targeted searches under distortion variety, rational normal scroll, flat limit, base locus, and degree drop found no equivalent theorem. Naming the three scrolls is close to the source parametrization, but the accepted claim's substantive content is the scheme-theoretic closure: the same reduced base plane appears as the extra component at each adjacent boundary and meets the lower-degree scroll along a ruling line.
+
+## value
+
+PASS
+
+The result explains the source's exceptional degree drops scheme-theoretically: the actual special scroll remains smooth while a fixed base-plane component is lost from the ordinary fiber and restored in the Hilbert closure. That is a natural boundary mechanism for a construction where degree controls minimal-problem solution counts, and the explicit flattening can guide more general distortion families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

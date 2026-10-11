@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source gives the exact ambient scroll matrix and dense monomial parametrization. Solving the line equation on each coefficient stratum leaves precisely the two blocks defining the claimed standard scroll. For the two boundary paths, the displayed family ideals are the closures of the punctured families; exact Gröbner elimination verifies both are \(t\)-saturated. Their special fibers decompose scheme-theoretically as the actual lower-degree scroll intersected with the source's base-locus plane, with the component intersections equal to projective lines. The bundled checker reproduces all ideal equalities.
+## correctness
 
-## Originality
-PASS. The primary paper records the degree trichotomy \(5,4,3\), the ambient scroll, and its base locus, but the inspected text contains no flat-limit analysis. The substantive claim is not merely the scroll naming: it identifies the reduced degree-one component that must be added to each actual special fiber to obtain the Hilbert flat limit. Targeted published-finding corpus and web searches for the exact scroll types, base-locus-plane component, and flat-limit formulation found no equivalent or stronger published statement.
+PASS
 
-## Value
-PASS. The source emphasizes degree as the number controlling minimal polynomial-solving problems. The result explains the two exceptional degree drops scheme-theoretically: the family loses the same base-plane component at each boundary, while the actual special surfaces remain smooth. This distinguishes geometric degeneration from singularity formation and supplies an explicit flattening picture that can guide extensions to other distortion vectors and coefficient strata.
+The published monomial parametrization of the \(u=(1,2,3)\) distortion scroll gives the three coefficient strata directly: eliminating the dependent block yields the standard scrolls \(S(2,3)\), \(S(1,3)\), and \(S(1,2)\) of degrees 5, 4, and 3. For the two one-parameter boundary families, the package's exact Gröbner code computes saturation by \(t\) and verifies that each displayed family ideal is already \(t\)-saturated. Its exact elimination computation verifies the special-fiber decompositions \(J_1=K_{13}\cap P_B\) and \(J_2=K_{12}\cap P_B\), and the sums of component ideals leave two homogeneous coordinates, so each intersection is a projective line. Over \(k[t]\), the homogeneous coordinate quotient is torsion-free in the parameter and hence flat; therefore these saturated closures give the stated Hilbert flat limits. The degree-one plane component exactly accounts for each one-unit degree drop.
 
-Closest literature and limitations: the closest source is Kileel--Kukelova--Pajdla--Sturmfels, *Distortion Varieties* (arXiv:1610.01860v1; DOI 10.1007/s10208-017-9361-0), especially the scroll construction and Example 2.1. The claim is restricted to \(u=(1,2,3)\), the two adjacent coordinate-boundary paths, and characteristic zero. An equivalent consequence may exist in broader toric or Hilbert-scheme degeneration literature under terminology not found by the searches performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary distortion-variety source and the author's thesis state the ambient scroll, its base locus, and the 5/4/3 degree trichotomy, but the inspected chapter does not present the two Hilbert flat-limit decompositions. Resultary returned only the assigned record as the exact base-plane flat-limit hit, and targeted searches under distortion variety, rational normal scroll, flat limit, base locus, and degree drop found no equivalent theorem. Naming the three scrolls is close to the source parametrization, but the accepted claim's substantive content is the scheme-theoretic closure: the same reduced base plane appears as the extra component at each adjacent boundary and meets the lower-degree scroll along a ruling line.
+
+## value
+
+PASS
+
+The result explains the source's exceptional degree drops scheme-theoretically: the actual special scroll remains smooth while a fixed base-plane component is lost from the ordinary fiber and restored in the Hilbert closure. That is a natural boundary mechanism for a construction where degree controls minimal-problem solution counts, and the explicit flattening can guide more general distortion families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
