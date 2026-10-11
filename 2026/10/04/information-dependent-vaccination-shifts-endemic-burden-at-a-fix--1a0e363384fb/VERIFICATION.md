@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof uses the source endemic-equilibrium equation after writing \(e=a/b\) and \(C=(p_0\sigma+\mu)(R_0-1)\):
-\[
-F(I)=\beta I+\frac{e\sigma u_0I}{1+eu_2I}-C.
-\]
-The universal checks are symbolic: \(F_I>0\), \(F_{u_0}>0\), \(F_{u_2}<0\), and \(F_e>0\), so the implicit-function signs follow immediately. The large-\(u_0\) limit follows from the same exact equation and does not depend on numerical extrapolation.
+# Independent mathematical audit
 
-The bundled `verify.py` independently replays the source's printed baseline parameters with decimal arithmetic and a bracketed root solver. It verifies the equilibrium residual, checks that increasing \(u_0\) or \(a\) lowers the root, checks that increasing \(u_2\) or \(b\) raises it, and verifies numerically that \(u_0I^*\) approaches \(Cb/(a\sigma)\) for large \(u_0\). It prints `VERIFY_OK` only if all checks pass.
+## correctness
 
-Limits: the computation is a reproducibility check, not an exhaustive proof over the positive parameter domain. Neither the proof nor the checker establishes monotonicity of transient infection peaks, preservation of equilibrium stability, or finite-parameter eradication for \(R_0>1\).
+PASS
+
+The submitted endemic-equilibrium equation has the form of a strictly increasing scalar function of the infected coordinate when all stated parameters are positive and the invasion threshold exceeds one. Its value is negative at zero and diverges positively, so the endemic root is unique and positive. Implicit differentiation gives strict decrease with the information-dependent vaccination coefficient and the information growth rate, and strict increase with the saturation coefficient and information decay rate. For large vaccination response, monotonicity and the fixed equilibrium identity force the root to zero; multiplying by the response coefficient and passing to the limit yields the submitted inverse-response scaling. An independent numerical reconstruction at the stated baseline reproduced all four one-at-a-time sign directions and convergence of the scaled infected coordinate to the analytic limit. The finite numerical check is only a transcription guard; the proof is the monotone scalar equation and its exact derivatives.
+
+## originality
+
+PASS
+
+The accessible primary article material for Fang--Liu--Du states the same model, the invasion-threshold formula, existence of an endemic equilibrium and numerical effects of the information-response parameters, but no exact theorem giving all four comparative-static signs plus the large-response asymptotic was located. Earlier behavioral-vaccination work establishes the broader qualitative fact that information can change endemic behavior, so that general principle is not claimed as new. The accepted originality is narrow: the exact four-parameter theorem and asymptotic for this specific equilibrium, which clarifies why independence of the invasion threshold from those parameters does not imply independence of endemic burden. Open-access routes did not yield a complete verified PDF of the exact 2026 source and the permitted institutional retrieval likewise did not produce one; this is recorded as a residual source-access risk rather than converted into a scientific failure.
+
+## value
+
+PASS
+
+Separating invasion-threshold invariance from endemic-burden invariance is mathematically and epidemiologically meaningful. The theorem gives exact directions for four information-response parameters and a quantitative large-response law showing that endemic burden can become arbitrarily small while the invasion threshold remains supercritical. This directly clarifies a source-specific interpretation and is more substantive than a numerical sensitivity check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
