@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:50:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree d1c385bee5c1911722b90243c24dedc94410c2df",
+        "arXiv:2007.03088v1"
+      ],
+      "rationale": "The source valuation formula and the package's case analysis are valid. For p=3 the only nontrivial order is 2; for p=5 the nontrivial orders are 2 and 4. The p-power part of q+1 is strictly below q, and in the order-4 case the p-power part of q^2+1 is strictly below q^2; together with the elementary exponent bounds this yields the claimed strict size inequality. The q=p case has valuation zero. The packaged finite checker is only corroborative and is not used for the infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source gives a general local theorem stronger than the valuation formula used in the audited proof.",
+          "Zhao--Chen later prove the global valuation bound for all odd p; full text was not obtained this round, but that access question is no longer decisive because the earlier source already implies the p=3,5 local result."
+        ],
+        "reasoning": "The decisive coverage is the earlier source's local theorem, not the later global theorem.",
+        "searches": [
+          "arXiv:2007.03088v1 full text, Lemma 6.1, Theorem 6.2, Theorem 6.4 and Conjecture 1.6",
+          "Zhao--Chen, p-adic Valuation of the Sum of Divisors, DOI:10.1007/s11464-023-0154-2 abstract/metadata"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.03088v1",
+        "DOI:10.1016/j.jnt.2020.11.014",
+        "DOI:10.1007/s11464-023-0154-2",
+        "Resultary semantic search for condition (2), p=3 and p=5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p=3, r is 1 or 2 and every q>3 exponent meets one of the source's Type-1 clauses.",
+          "For p=5, r is 1,2,or4; the sole Type-2 possibility not already Type 1 is r=4,a=3, where sigma(q^3)=(q+1)(q^2+1) cannot be a pure 5-power."
+        ],
+        "reasoning": "The source's general local results mechanically imply the audited special cases after a bounded residue-order split, so the final claim is covered under the required implication standard.",
+        "searches": [
+          "arXiv:2007.03088v1 Theorem 6.2 Type 1 and Lemma 6.1",
+          "specialization r=Ord_p(q) for p=3,5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 6.2(1) already gives nu_p(sigma(q^a)) <= floor(log_p(q^a)) for all Type-1 cases.",
+          "For p=3 all q>3 cases are Type 1; for p=5 only r=4,a=3 escapes Type 1."
+        ],
+        "reasoning": "The source's Type-1/Type-2 classification is an equivalent local formulation of the audited floor-bound problem; specializing possible multiplicative orders modulo 3 and 5 leaves at most one trivial exceptional pattern.",
+        "searches": [
+          "Amdeberhan--Moll--Sharma--Villamizar, Arithmetic properties of the sum of divisors, arXiv:2007.03088v1, Theorem 6.2 and Lemma 6.1",
+          "Resultary semantic query: sum of divisors p-adic valuation condition (2) Conjecture 1.6 p=3 p=5 q>p prime power sigma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate table entry is needed: the exact prior theorem partitions every prime-power case by order and already covers all but one elementary p=5 subcase."
+        ],
+        "reasoning": "This is a symbolic theorem rather than a finite database value; exact theorem-level coverage is decisive.",
+        "searches": [
+          "Resultary published-finding search for condition (2), p=3 and p=5",
+          "exact-source inspection of Theorem 6.2"
+        ]
+      },
+      "rationale": "The claim is correct, but the 2020/2021 primary source already contains enough stronger local structure to imply these two cases routinely. Its Theorem 6.2 proves the floor inequality for every Type-1 prime-power case. For p=3 every q>3 and exponent falls into Type 1. For p=5 every q>5 case is Type 1 except the order-4 exponent a=3 case; there Lemma 6.1 says reaching the ceiling would force sigma(q^3) to be a pure power of 5, impossible because sigma(q^3)=(q+1)(q^2+1) and q+1>1 is not divisible by 5 when q is 2 or 3 mod 5. Thus the audited p=3,5 theorem is a direct corollary of the source's own Theorem 6.2 and Lemma 6.1 plus one elementary factorization, irrespective of whether the later Zhao--Chen paper repeats it.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PRIOR_IMPLICATION",
+          "evidence": "Theorem 6.2 already proves the desired floor bound in every Type-1 case; Lemma 6.1 handles the only remaining p=5 order-4 exponent by an elementary factorization obstruction.",
+          "identifier_or_url": "arXiv:2007.03088v1; DOI:10.1016/j.jnt.2020.11.014",
+          "material_read": "Full accessible text around Theorem 1.2 and Section 6, especially Lemma 6.1, Theorem 6.2, Theorem 6.4, and Conjecture 1.6.",
+          "method": "Full-text statement and implication comparison followed by explicit specialization of multiplicative orders modulo 3 and 5.",
+          "title": "Arithmetic properties of the sum of divisors",
+          "trigger": "Primary source of the valuation formula, local Type-1/Type-2 theorem, and Conjecture 1.6."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_NONDECISIVE",
+          "evidence": "Its abstract states the global bound for all odd primes; whether it also notes the local p=3,5 corollary is unnecessary to the originality decision because the 2020/2021 source already implies it.",
+          "identifier_or_url": "DOI:10.1007/s11464-023-0154-2",
+          "material_read": "Publisher/metadata abstract only; lawful open full text was not found, and one authorized institutional retrieval attempt returned a transport error.",
+          "method": "Abstract-level scope comparison only; no whole-document negative claim was made.",
+          "title": "p-adic Valuation of the Sum of Divisors",
+          "trigger": "Later paper proving the global inequality unconditionally."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2007.03088v1, Lemma 6.1 and Theorem 6.2"
+      ],
+      "rationale": "Although the claim is framed as the first two odd-prime cases of a motivated structural conjecture, after reading the source's stronger Section 6 machinery the result reduces to a routine specialization of its Type-1 theorem plus one elementary factorization for the only p=5 exceptional exponent. Under the common value bar this is too close to a mechanically available corollary to constitute a worthwhile independent finding.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2007.03088v1",
+    "DOI:10.1016/j.jnt.2020.11.014",
+    "DOI:10.1007/s11464-023-0154-2",
+    "Resultary semantic search for condition (2), p=3 and p=5"
+  ],
+  "disposition": "failed",
+  "final_claim": "For p in {3,5}, every prime q>p and exponent a>=1 satisfies nu_p(sigma(q^a)) <= floor(log_p(q^a)); hence condition (2) of the Amdeberhan--Moll--Sharma--Villamizar framework holds for every positive integer at these two primes.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for decisive prior implication and routine value, not for correctness."
+  ]
+}
