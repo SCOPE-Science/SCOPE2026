@@ -1,14 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Hall's standard regularity theory implies that in a regular \(p\)-group the elements killed by \(p\) form \(\Omega_1(G)\). Hence a regular group of exponent greater than \(p\) automatically satisfies the missing hypothesis \(\Omega_1(G)\ne G\) of the published second-maximum theorem. Substitution of the index-\(p\) bound into that theorem gives the displayed \(M_{p,n}\), and its published equality condition simplifies exactly as claimed. The class bound \(\operatorname{cl}(G)\le n-1\) makes every group of order \(p^n\) regular when \(n\le p\). The wreath-product multiplication was reconstructed directly: its \(p\)-th power is controlled by the coordinate sum, giving the exact order distribution and cyclic-subgroup count. The packaged replay confirms the algebra and small cases.
+## correctness
 
-## Originality
-PASS. The 2020 source was inspected through its full Section 3. It proves the extremal result only for \(\Omega_1(G)\ne G\), observes the class-two obstruction, and explicitly leaves the \(p\ge5\), \(\Omega_1(G)=G\) case open. Targeted searches found no theorem extracting the full regular-group consequence, no all-groups cutoff \(n\le p\), and no general formula for the cyclic subgroups of \(C_p\wr C_p\). Classical Hall regularity supplies a standard ingredient but not the combined extremal theorem or sharpness statement.
+PASS
 
-## Value
-PASS. The cutoff is tied to the intrinsic regularity threshold rather than an arbitrary small-order census. It completely determines the second maximum for every order \(p^n\) with \(3\le n\le p\), removes all regular groups from the open exceptional branch, and proves that the boundary cannot be extended by exhibiting and exactly counting a witness at order \(p^{p+1}\).
+In a regular \(p\)-group the elements killed by \(p\) form \(\Omega_1(G)\), so exponent greater than \(p\) forces \(\Omega_1(G)\ne G\); the published 2020 theorem then gives exactly the displayed bound and equality criterion. For \(n\le p\), class at most \(n-1<p\) invokes Hall regularity. For \(C_p\wr C_p=C_p^p\rtimes C_p\), direct multiplication shows an element outside the base has order \(p\) exactly when its coordinate sum is zero and otherwise order \(p^2\); counting generators of cyclic subgroups yields the stated formula and excess. The two order-\(p\) standard generators also show \(\Omega_1(W)=W\).
 
-The main residual risk is bibliographic: the regularity deduction or wreath-product count may have appeared under older terminology without being indexed by the searches performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2020 primary source supplies the extremal theorem only under \(\Omega_1(G)\ne G\), notes a class-two obstruction, and explicitly leaves the \(p\ge5,\Omega_1(G)=G\) branch open. Combining Hall regularity with that theorem gives the initial-order cutoff, while the uniform wreath-product count proves that the cutoff is genuinely sharp. Targeted Resultary and literature searches found no earlier combined theorem or general prime-parametric wreath count.
+
+## value
+
+PASS
+
+This resolves a natural initial range of a published second-maximum problem for every odd prime and proves that the boundary \(n=p\) is intrinsic by an explicit next-order exception. That is a meaningful structural cutoff, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

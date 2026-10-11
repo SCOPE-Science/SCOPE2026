@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal extremal statement is proved from two exact inputs:
-- Hall's theorem that a regular \(p\)-group has \(\Omega_1(G)=\{x:x^p=1\}\), and that nilpotency class strictly less than \(p\) implies regularity;
-- the published odd-prime second-maximum theorem under \(\Omega_1(G)\ne G\), including its equality condition.
 
-The sharpness calculation is independent of those extremal inputs. For
-\[
-W=C_p^p\rtimes C_p,
-\]
-the proof computes every \(p\)-th power and obtains the complete element-order distribution:
-\[
-p^{p-1}(2p-1)
-\]
-solutions to \(x^p=1\), including the identity, and all remaining elements of order \(p^2\). The cyclic-subgroup count follows by dividing nonidentity elements by the appropriate numbers of generators.
+# Independent mathematical audit
 
-The packaged checker `artifacts/verify.py`:
-- verifies the closed-form algebra for a range of odd primes and exponents;
-- enumerates the equality example \(C_{p^2}\times C_p^{\,n-2}\) for small parameters;
-- constructs \(C_p\wr C_p\) explicitly for \(p=3\) and \(p=5\);
-- computes the order of every element by group multiplication;
-- recovers the cyclic-subgroup count from the element-order distribution;
-- checks the strict excess over \(M_{p,p+1}\).
+## correctness
 
-It returns `VERIFY_OK`.
+PASS
 
-Finite enumeration is not used to prove the universal regularity or extremal assertions. No claim is made that the wreath product is extremal at order \(p^{p+1}\).
+In a regular \(p\)-group the elements killed by \(p\) form \(\Omega_1(G)\), so exponent greater than \(p\) forces \(\Omega_1(G)\ne G\); the published 2020 theorem then gives exactly the displayed bound and equality criterion. For \(n\le p\), class at most \(n-1<p\) invokes Hall regularity. For \(C_p\wr C_p=C_p^p\rtimes C_p\), direct multiplication shows an element outside the base has order \(p\) exactly when its coordinate sum is zero and otherwise order \(p^2\); counting generators of cyclic subgroups yields the stated formula and excess. The two order-\(p\) standard generators also show \(\Omega_1(W)=W\).
+
+## originality
+
+PASS
+
+The 2020 primary source supplies the extremal theorem only under \(\Omega_1(G)\ne G\), notes a class-two obstruction, and explicitly leaves the \(p\ge5,\Omega_1(G)=G\) branch open. Combining Hall regularity with that theorem gives the initial-order cutoff, while the uniform wreath-product count proves that the cutoff is genuinely sharp. Targeted Resultary and literature searches found no earlier combined theorem or general prime-parametric wreath count.
+
+## value
+
+PASS
+
+This resolves a natural initial range of a published second-maximum problem for every odd prime and proves that the boundary \(n=p\) is intrinsic by an explicit next-order exception. That is a meaningful structural cutoff, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
