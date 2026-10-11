@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The structural proof has two exact implications.
+# Independent mathematical audit
 
-If \(xRm\), IFC forces \(m\) to be minimal. Then FC2 says that whenever \(z\leq x\in D_m\), some \(m'\leq m\) satisfies \(zRm'\). Minimality gives \(m'=m\), so \(z\in D_m\).
+## correctness
 
-Conversely, if all targets are minimal and every predecessor fiber \(D_m\) is a downset, IFC is immediate and FC2 is witnessed by taking \(m'=m\).
+PASS
 
-The modal formulas follow by substituting this normal form into the source definitions:
-\[
-\Diamond_R U
-=
-\bigcup_{m\in U\cap M}D_m,
-\]
-and
-\[
-\Box_R U
-=
-X\setminus
-\bigcup_{m\in M\setminus U}\uparrow D_m.
-\]
+The primary Definition 5.7 was read in full text. IFC says that if \(xRy\) and \(z\le y\), then \(z=y\), so every target is minimal. With a minimal target, FC2 immediately forces the predecessor fiber to be downward closed, and the converse uses the same target as FC2 witness. Substituting this normal form into the source's exact Lemma 5.8 definitions gives the displayed box and diamond formulas. The frozen checker was read and independently exhausts all labelled posets through four points, all relations through three points, and all downset modal evaluations in its stated finite range; the infinite theorem is the direct symbolic argument.
 
-The bundled `verify.py` exhaustively enumerates every labelled poset through four points. Through three points it also enumerates every binary relation, checks the iff classification and exact census, and verifies the two modal formulas on every downset. It prints `VERIFY_OK`.
+## originality
 
-## Limits
+PASS
 
-The computation is corroborative. The proof applies to arbitrary posets; only the exact finite census uses finiteness. Isomorphism classes are not counted.
+The primary source explicitly notices inside the proof of Lemma 5.8 that IFC makes each target minimal, but it does not state the converse downset-family parametrization, the exact finite labelled census, or both closed operator formulas in terms of those fibers. Resultary searches for IFS-frame classifications and finite counts did not return a competing theorem. Older Fischer-Servi literature remains an alias risk because the acronym IFS is recent and overloaded.
+
+## value
+
+PASS
+
+Although elementary, the result is a complete structural normal form for a newly introduced semantic frame class: finite frame search collapses from arbitrary binary relations to independent downset choices indexed by minimal worlds, and the primitive modalities admit closed forms. That is a motivated reusable structural classification rather than an arbitrary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

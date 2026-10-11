@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. IFC immediately forces every \(R\)-target to be minimal. Once the target \(m\) is minimal, FC2 says precisely that the predecessor fiber \(D_m=\{x:xRm\}\) is downward closed: the witness below \(m\) can only be \(m\) itself. Conversely, minimal targets with downset predecessor fibers satisfy both frame conditions directly.
+PASS
 
-The counting formula follows because the fiber choices are independent. The two modal formulas are exact rewrites of the source semantics after substituting the fiber normal form. Exhaustive finite replay agrees with the proof.
+The primary Definition 5.7 was read in full text. IFC says that if \(xRy\) and \(z\le y\), then \(z=y\), so every target is minimal. With a minimal target, FC2 immediately forces the predecessor fiber to be downward closed, and the converse uses the same target as FC2 witness. Substituting this normal form into the source's exact Lemma 5.8 definitions gives the displayed box and diamond formulas. The frozen checker was read and independently exhausts all labelled posets through four points, all relations through three points, and all downset modal evaluations in its stated finite range; the infinite theorem is the direct symbolic argument.
 
-## Originality
+## originality
 
-PASS. The primary source explicitly notices the minimal-target consequence while proving Lemma 5.8, but it does not state the converse classification, the exact finite census, or the factorization formulas for both modalities.
+PASS
 
-Candidate-specific indexed and web searches for IFS-frame normal forms, minimal-target fibers, and finite IFS-frame counts did not locate equivalent coverage. Because “IFS” is a heavily overloaded acronym, older Fischer--Servi terminology remains a residual search risk.
+The primary source explicitly notices inside the proof of Lemma 5.8 that IFC makes each target minimal, but it does not state the converse downset-family parametrization, the exact finite labelled census, or both closed operator formulas in terms of those fibers. Resultary searches for IFS-frame classifications and finite counts did not return a competing theorem. Older Fischer-Servi literature remains an alias risk because the acronym IFS is recent and overloaded.
 
-## Value
+## value
 
-PASS. IFS frames are a new restricted frame class used in the source's modal constructive-quantum embedding theorem. The classification turns their two relational axioms into a complete and much simpler parameterization: on a fixed finite poset, frame search is exactly the independent choice of one downset per minimal point. The exact census and modal factorization make finite model construction and exhaustive experimentation substantially more transparent.
+PASS
 
-## Closest literature and limitations
+Although elementary, the result is a complete structural normal form for a newly introduced semantic frame class: finite frame search collapses from arbitrary binary relations to independent downset choices indexed by minimal worlds, and the primitive modalities admit closed forms. That is a motivated reusable structural classification rather than an arbitrary computation.
 
-Aguilera--Massas (2026), Definition 5.7 and Lemma 5.8, are the closest source. Their proof already uses the fact that IFS targets are minimal, but stops short of the downset-family converse and census.
-
-Standard Fischer--Servi literature supplies the broader intuitionistic-modal frame setting. No checked source gives this normal form for the stronger IFC condition.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
