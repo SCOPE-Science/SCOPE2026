@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The critical step is the planar translate lemma: two distinct translates of the boundary of a strictly convex planar convex body meet in at most two points. The proof is reconstructed through horizontal sections, where common boundary points are exactly the ordinates at which the concave section-width function equals the translation length; more than two such ordinates would force a constant-width interval and hence boundary line segments, contradicting strict convexity. This makes every zero-sum unit quadruple a union of two antipodal pairs, after which the six-distance sum is exactly \(8+2\|x+y\|^2+2\|x-y\|^2\). The published modified von Neumann--Jordan formula specialized to \(n=2\) then gives the \(\ell_p^2\) values. The non-strict endpoints are proved by explicit four-point configurations and the universal upper bound \(24\).
+## correctness
 
-## Originality
-PASS. The 2021 paper defining \(J_{\mathrm{in}}\) was inspected in full text through its definition, Proposition 1, global bounds, endpoint examples, and conclusion. It proves only the lower bound \(J_{\mathrm{in}}(X)\ge8C'_{\mathrm{NJ}}(X)+8\), not equality for strictly convex planes. The 2020 modified von Neumann--Jordan paper was inspected through its definitions and exact \(L^p/\ell_p\) theorem; it supplies \(C'_{\mathrm{NJ}}(\ell_p^2)\) but does not discuss \(J_{\mathrm{in}}\). Focused literature and bibliographic searches for the strict-convex-plane identity, the \(\ell_p^2\) formula, aliases, and stronger four-point coverage did not identify a statement implying the claim.
+PASS
 
-## Value
-PASS. The result removes two optimization variables from a four-point geometric constant on an entire natural class of normed planes, showing that a previously known lower comparison is actually exact there. The resulting closed form gives the complete \(p\)-profile on the canonical two-dimensional \(\ell_p\) family, interpolating sharply between the Hilbert value \(16\) and the polygonal endpoint value \(24\). This is a structural simplification of the invariant rather than a routine isolated computation.
+The planar geometric reduction is sound. For a strictly convex compact unit ball and a nonzero translation, horizontal cross-sections have a concave width function; more than two common boundary points at one translation length would force a nontrivial constant-width level segment and hence affine boundary arcs, contradicting strict convexity. Thus a unit pair with a fixed nonzero sum has at most the two ordered endpoints of one chord. For any four unit vectors summing to zero, the first pair and negatives of the second pair share the same sum, so the four points must form two antipodal pairs; the zero pair-sum and repeated-point cases are separately covered. For an antipodal quadruple the sum of all six squared pairwise distances is exactly eight plus twice the two modified von Neumann–Jordan numerator terms, so taking the supremum gives the stated identity. The endpoint normed-plane examples and the published universal upper bound supply the non-strictly-convex endpoint values, while the cited exact modified von Neumann–Jordan constant supplies the interior finite-dimensional profile.
 
-## Closest literature and limitations
-The closest source is Ahmad--Liu--Li (2021), which introduces the same invariant and proves the lower comparison with \(C'_{\mathrm{NJ}}\) plus the universal range and endpoint examples. Ciesielski--Płuciennik (2020) gives the exact modified von Neumann--Jordan constants used in the corollary. A 2022 paper on inscribed-triangle constants cites the quadrilateral paper but studies different three-point invariants. The proof is planar and does not extend automatically to higher-dimensional strictly convex spaces.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining inscribed-quadrilateral paper was inspected and gives the general lower bound of eight times the modified von Neumann–Jordan constant plus eight, along with universal bounds and polygonal examples, but it does not identify strictly convex normed planes as an equality class. The Ciesielski--Płuciennik paper computes modified von Neumann–Jordan constants but does not address the four-point inscribed-quadrilateral invariant. The submitted theorem's nontrivial step is the planar strict-convexity collapse of every centered inscribed quadruple to two antipodal pairs; no checked source stated that reduction or the resulting exact identity.
+
+## value
+
+PASS
+
+The theorem upgrades a published general lower bound to an exact identity on the natural class of strictly convex normed planes and turns a four-point optimization into a classical two-point invariant. That reduction yields a complete exact profile for the standard two-dimensional ell-p family and exposes a genuinely planar structural phenomenon that fails in higher dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

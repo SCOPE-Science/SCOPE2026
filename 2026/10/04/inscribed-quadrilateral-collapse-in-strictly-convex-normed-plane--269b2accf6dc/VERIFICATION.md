@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` has three independently checkable steps.
+# Independent mathematical audit
 
-First, for a nonzero horizontal translation of a planar convex body, common boundary points occur exactly at ordinates where the horizontal section width equals the translation length. The width is concave. If a horizontal level met it in more than two ordinates, concavity would force a constant interval; on such an interval the left and right boundary functions would both be affine, creating boundary line segments. Strict convexity excludes this. Therefore two distinct translates of a strictly convex planar boundary meet in at most two points.
+## correctness
 
-Second, an admissible zero-sum unit quadruple gives two unit pairs with the same sum. The translate lemma makes those unordered pairs identical, except for the repeated-point case, where strict convexity of the midpoint gives the same conclusion. Thus every admissible quadruple is \(x,-x,y,-y\) after relabelling, and its energy is
-\[
-8+2\|x+y\|^2+2\|x-y\|^2.
-\]
-Taking the supremum gives \(J_{\mathrm{in}}(X)=8+8C'_{\mathrm{NJ}}(X)\).
+PASS
 
-Third, Ciesielski--Płuciennik Theorem 2 at \(n=2\) yields
-\[
-C'_{\mathrm{NJ}}(\ell_p^2)=
-\begin{cases}
-2^{2/p-1},&1<p\le2,\\
-2^{1-2/p},&2\le p<\infty.
-\end{cases}
-\]
-The two non-strict endpoints are checked directly by four unit vertices with all six mutual distances equal to \(2\), together with the universal upper bound \(24\).
+The planar geometric reduction is sound. For a strictly convex compact unit ball and a nonzero translation, horizontal cross-sections have a concave width function; more than two common boundary points at one translation length would force a nontrivial constant-width level segment and hence affine boundary arcs, contradicting strict convexity. Thus a unit pair with a fixed nonzero sum has at most the two ordered endpoints of one chord. For any four unit vectors summing to zero, the first pair and negatives of the second pair share the same sum, so the four points must form two antipodal pairs; the zero pair-sum and repeated-point cases are separately covered. For an antipodal quadruple the sum of all six squared pairwise distances is exactly eight plus twice the two modified von Neumann–Jordan numerator terms, so taking the supremum gives the stated identity. The endpoint normed-plane examples and the published universal upper bound supply the non-strictly-convex endpoint values, while the cited exact modified von Neumann–Jordan constant supplies the interior finite-dimensional profile.
 
-A deterministic constrained numerical stress test, not used in the proof, used twenty starting points for each of \(p=3/2,3,4\). Its largest values agreed with the closed form to within \(10^{-12}\) or better.
+## originality
 
-Limits: no independent audit has been performed. The planar chord-uniqueness step fails as a general mechanism in higher dimension, and no claim is made for \(\ell_p^d\) with \(d\ge3\).
+PASS
+
+The defining inscribed-quadrilateral paper was inspected and gives the general lower bound of eight times the modified von Neumann–Jordan constant plus eight, along with universal bounds and polygonal examples, but it does not identify strictly convex normed planes as an equality class. The Ciesielski--Płuciennik paper computes modified von Neumann–Jordan constants but does not address the four-point inscribed-quadrilateral invariant. The submitted theorem's nontrivial step is the planar strict-convexity collapse of every centered inscribed quadruple to two antipodal pairs; no checked source stated that reduction or the resulting exact identity.
+
+## value
+
+PASS
+
+The theorem upgrades a published general lower bound to an exact identity on the natural class of strictly convex normed planes and turns a four-point optimization into a classical two-point invariant. That reduction yields a complete exact profile for the standard two-dimensional ell-p family and exposes a genuinely planar structural phenomenon that fails in higher dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
