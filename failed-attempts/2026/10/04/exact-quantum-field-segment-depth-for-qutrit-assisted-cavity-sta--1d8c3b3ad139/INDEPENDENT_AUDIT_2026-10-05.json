@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:33:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a4c39cadd30048de4f769846e6443d20ffdc5d99",
+        "assigned verify.py blob 306953dac81e09c2a825dbce637ed584fafe5e59",
+        "Luo--Yu, Generation of arbitrary quantum states in cavity-atom systems with a three-level ancilla, arXiv:2609.32845v1",
+        "independent excitation-support closure check"
+      ],
+      "rationale": "The source Hamiltonians imply that classical-field segments preserve cavity photon number, whereas each quantum-field segment preserves total excitation and the qutrit can carry at most two excitations. Thus after k quantum segments, starting from vacuum, cavity support is bounded by photon number 2k. Since \\(|N,g\\rangle\\) is an admissible target, k must be at least \\(\\lceil N/2\\rceil\\). Luo--Yu's construction processes the pairs \\((N,N-1),(N-2,N-3),\\ldots\\) and uses exactly that many quantum segments, including the odd singleton. An independent support-closure calculation through k=10 reproduced the 2k bound.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact same-object Luo--Yu construction already saturates the obvious two-excitation-per-segment capacity.",
+          "The older broader architectures use different controls and are not needed for the coverage conclusion."
+        ],
+        "reasoning": "Same-object source coverage is decisive; alternative architectures are scientifically inapplicable to the exact resource count.",
+        "searches": [
+          "Luo--Yu full construction",
+          "Law--Eberly cavity-state synthesis",
+          "Santos three-level selective oscillator control"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.32845v1",
+        "Law--Eberly 1996",
+        "Santos 2005",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After any classical controls, the ancilla carries at most two excitations; total-excitation conservation across Q therefore caps the newly reachable cavity number by two per Q segment.",
+          "The source achieves exactly two-block progress per Q segment."
+        ],
+        "reasoning": "The lower and upper bounds are therefore immediate consequences of statements already present in the same paper.",
+        "searches": [
+          "arXiv:2609.32845v1 Hamiltonian/conservation section and block-pair construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Luo--Yu state that H_Q conserves total excitation and H_C leaves cavity photon number unchanged.",
+          "They explicitly process two excitation blocks in each quantum-control cycle and state a factor-two step reduction."
+        ],
+        "reasoning": "Segment depth, maximum excitation growth per quantum segment, and the number of two-block elimination cycles are equivalent resource counts in this architecture.",
+        "searches": [
+          "Resultary query: qutrit cavity three-level ancilla exact minimum quantum-field segments ceil N/2",
+          "arXiv:2609.32845v1 full primary paper"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact table was found."
+        ],
+        "reasoning": "A separate table is unnecessary because the source construction and conservation law already imply the integer optimum.",
+        "searches": [
+          "Resultary exact segment-depth search"
+        ]
+      },
+      "rationale": "The defining Luo--Yu paper already states the exact conservation properties, explicitly organizes each quantum step to process two adjacent excitation blocks in parallel, and advertises the resulting factor-two reduction in the number of evolution steps. The claimed lower bound is the immediate capacity consequence that one qutrit-assisted quantum segment can raise reachable cavity support by at most two. Combining that one-line conservation bound with the published construction mechanically yields \\(\\lceil N/2\\rceil\\). Under the audit rule, this is implication-level covered even though the source does not label it an optimality theorem.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "All ingredients needed for the \\(\\lceil N/2\\rceil\\) segment optimum are explicitly present; the extra lower bound is direct capacity bookkeeping.",
+          "identifier_or_url": "arXiv:2609.32845v1",
+          "material_read": "Full accessible primary HTML, including H_Q/H_C definitions, excitation conservation, paired-block quantum operations, parity handling, and the stated factor-two step reduction.",
+          "method": "Open-access full-text inspection.",
+          "title": "Generation of arbitrary quantum states in cavity-atom systems with a three-level ancilla",
+          "trigger": "Exact source architecture and construction."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Luo--Yu arXiv:2609.32845v1"
+      ],
+      "rationale": "Architecture-level optimality is a motivated question, but here the result adds only the routine observation that a three-level ancilla can transfer at most two excitation units per quantum segment to a construction already described as advancing two blocks per step. It does not expose a hidden obstruction, new control invariant, or nontrivial boundary beyond the source's advertised resource mechanism.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Within the Luo--Yu alternating qutrit/cavity architecture, exact universal synthesis of the excitation-truncated target space through level \\(N\\) requires and is achieved by exactly \\(\\lceil N/2\\rceil\\) quantum-field segments.",
+  "limitations": [
+    "Only the ideal alternating Luo--Yu Hamiltonian architecture is covered.",
+    "No claim is made about runtime, control strength, simultaneous controls, higher ancilla dimension, multiphoton couplings, or noisy synthesis."
+  ],
+  "schema_version": 1
+}
