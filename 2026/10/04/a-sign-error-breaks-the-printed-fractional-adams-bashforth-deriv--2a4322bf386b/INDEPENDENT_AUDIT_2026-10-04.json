@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T11:56:22.594507Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at tree d32a24a4aa1642d0a4d73997194270a214be0690",
+        "Zhang et al. DOI 10.3934/math.2022234, equation 4.5 source text",
+        "Diethelm-Ford-Freed 2002 predictor-corrector preprint"
+      ],
+      "rationale": "The two consecutive Caputo-Volterra identities differ by subtraction, so the earlier-time history integral must enter with a minus sign. The source instead prints a plus sign in equation (4.5). For constant forcing, exact integration gives the true increment proportional to \\(((v+1)^h-v^h)\\) and the printed increment proportional to \\(((v+1)^h+v^h)\\); at \\(h=1,v=1,\\Delta=1\\) these are 1 and 3. An independent replay of the fixed-horizon printed recurrence for \\(h=1,0.7,0.3\\) shows growth proportional to \\(1/\\Delta\\), while the exact terminal value is finite.",
+      "residual_risks": [
+        "The claim diagnoses the printed derivation only; unavailable simulation code could have used a different corrected method."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diethelm-Ford-Freed derive Adams-type methods from the Volterra formulation and retain the nonlocal history."
+        ],
+        "reasoning": "The broader numerical theory explains the correct structure but does not itself identify or publish the 2021 source-specific defect.",
+        "searches": [
+          "Diethelm Ford Freed fractional Adams Volterra history predictor corrector",
+          "fractional Adams predictor-corrector Caputo convergence"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2022234",
+        "NTRS:20020024453",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic Volterra algebra implies that the printed plus sign is wrong, but no prior publication located states this correction for the source or its divergence under refinement."
+        ],
+        "reasoning": "The final finding requires applying the generic identity to a specific published equation and proving the source-specific inconsistency certificate; it is not a previously stated corollary found in the literature.",
+        "searches": [
+          "Compare source equation 4.5 with generic Volterra identity",
+          "Search exact DOI with correction/erratum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary PDF text says “By subtracting (4.4) from (4.3)” and immediately displays both Volterra history integrals with plus signs in equation (4.5).",
+          "No inspected search result supplied a correction of this exact source equation."
+        ],
+        "reasoning": "Equivalent formulations as a subtraction-sign error, wrong Caputo-history increment, and constant-forcing inconsistency were all checked.",
+        "searches": [
+          "Resultary: fractional Adams Bashforth coronavirus delay model equation 4.5 sign error constant forcing inconsistency Zhang Rahman Ahmad Riaz Jarad",
+          "DOI/title + equation 4.5 + sign/error/erratum searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only closely matching published finding located was the assigned record itself; other hits concern unrelated fractional/delay systems."
+        ],
+        "reasoning": "No database/table value is the scientific object; the exact-record check was used to look for an earlier published correction.",
+        "searches": [
+          "Resultary semantic published-finding search for source DOI/title and equation defect"
+        ]
+      },
+      "rationale": "Best-of-knowledge searches and direct source reading found the source-specific sign error but no published erratum or prior correction. Standard fractional Adams theory supplies the correct nonlocal-history baseline, not this article-specific equation correction or its constant-forcing divergence certificate.",
+      "residual_risks": [
+        "An unindexed author note or later correction could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CONTAINS_DEFECT_NOT_CORRECTION",
+          "evidence": "The source explicitly says subtraction but displays addition of the earlier history integral.",
+          "identifier_or_url": "DOI:10.3934/math.2022234",
+          "material_read": "Source PDF text around pp. 4225–4227, including equations (4.3)–(4.6), the sentence announcing subtraction, and the plus-sign equation (4.5).",
+          "method": "Direct equation-level reading.",
+          "title": "Dynamics of fractional order delay model of coronavirus disease",
+          "trigger": "Primary source containing the disputed derivation."
+        },
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "It supplies standard methodology but not the source-specific correction.",
+          "identifier_or_url": "NTRS:20020024453; DOI:10.1023/A:1016592219341",
+          "material_read": "Public preprint statement/problem setup and Adams-type Volterra construction.",
+          "method": "Open primary/preprint reading.",
+          "title": "A Predictor-Corrector Approach for the Numerical Solution of Fractional Differential Equations",
+          "trigger": "Canonical fractional Adams baseline."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "primary numerical section and figures context",
+        "constant-forcing analytic certificate"
+      ],
+      "rationale": "The defect occurs before the discretization approximation and makes the printed parent recurrence inconsistent even for constant forcing, so it materially changes what the numerical derivation can support. Distinguishing the invalid printed scheme from an unknown implementation is a useful reproducibility correction.",
+      "residual_risks": [
+        "The result does not establish that the plotted curves were generated by the defective printed recurrence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The claim diagnoses the printed derivation only; unavailable simulation code could have used a different corrected method.",
+    "An unindexed author note or later correction could exist.",
+    "The result does not establish that the plotted curves were generated by the defective printed recurrence."
+  ],
+  "schema_version": 1
+}
