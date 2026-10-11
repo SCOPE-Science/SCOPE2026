@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:50:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Amini and Chalal, Quantitative propagation of chaos for Lindblad dynamics, arXiv:2605.06973v1; primary full PDF inspected, including the normalized relative-entropy theorem/corollary giving the O(N^{-1}) rate for exactly chaotic initial data.",
+        "Zhong, Liu, Ma and Wang, Quantum Fisher information and spin squeezing in one-axis twisting model, arXiv:1309.4842; one-axis-twisting cosine-power expectation formulas compared as prior background.",
+        "Carollo and Lesanovsky, Applicability of mean-field theory for time-dependent open quantum systems with infinite-range interactions, arXiv:2403.17163 / PRL 133 (2024); broader open-system mean-field scope compared.",
+        "Resultary semantic search: mean-field Lindblad quantum relative entropy propagation of chaos Ising dephasing sharp N inverse lower bound witness.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py at exact tree 804397054c23264e8b8012532a145743c2efdb36.",
+        "Fresh independent computational-basis replay of the one-site cosine-power expectation for N=2 through 8."
+      ],
+      "rationale": "The mean field vanishes because tr(m_t Z)=0, while local Z-dephasing commutes with every ZZ interaction term, giving rho_N=U_N m_t^{tensor N} U_N^*. Pairwise conjugation of X_i contributes one cosine factor per neighbor and all sine terms vanish in the product expectation. Since log(m_t)=alpha_t I+artanh(r_t)X and rho_N is unitarily conjugate to the product state, the many-body entropy difference reduces exactly to that one-site expectation. The fixed-time expansion of cos(2Jt/N)^(N-1) then yields the positive N-scaled limit. Fresh basis enumeration through N=8 reproduced the closed expectation exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These theories are much broader in dynamics but provide upper control rather than a lower-bound sharpness example.",
+          "The audited commuting Ising/dephasing model lies inside the broader class and is chosen because it is exactly solvable."
+        ],
+        "reasoning": "General upper bounds do not determine whether their exponent is optimal.",
+        "searches": [
+          "Amini–Chalal general mean-field Lindblad propagation of chaos",
+          "Carollo–Lesanovsky infinite-range open-system mean-field bounds"
+        ]
+      },
+      "checked_sources": [
+        "Amini and Chalal, Quantitative propagation of chaos for Lindblad dynamics, arXiv:2605.06973v1; primary full PDF inspected, including the normalized relative-entropy theorem/corollary giving the O(N^{-1}) rate for exactly chaotic initial data.",
+        "Zhong, Liu, Ma and Wang, Quantum Fisher information and spin squeezing in one-axis twisting model, arXiv:1309.4842; one-axis-twisting cosine-power expectation formulas compared as prior background.",
+        "Carollo and Lesanovsky, Applicability of mean-field theory for time-dependent open quantum systems with infinite-range interactions, arXiv:2403.17163 / PRL 133 (2024); broader open-system mean-field scope compared.",
+        "Resultary semantic search: mean-field Lindblad quantum relative entropy propagation of chaos Ising dephasing sharp N inverse lower bound witness.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py at exact tree 804397054c23264e8b8012532a145743c2efdb36.",
+        "Fresh independent computational-basis replay of the one-site cosine-power expectation for N=2 through 8."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known cosine-power expectation does not itself give Umegaki relative entropy to the time-dependent product state.",
+          "The audited commutation with local dephasing plus log(m_t)=alpha I+artanh(r_t)X reduces the full many-body divergence to that expectation and produces the positive sharpness constant."
+        ],
+        "reasoning": "The final sharpness statement is not implied by an upper bound; the exact mixed-state entropy calculation supplies the missing lower-order witness.",
+        "searches": [
+          "Known one-axis-twisting spin expectations",
+          "Amini–Chalal O(N^{-1}) entropy theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary record or inspected primary source states the exact entropy formula r_t artanh(r_t)[1-cos(2Jt/N)^(N-1)].",
+          "The Amini–Chalal theorem supplies the upper rate only."
+        ],
+        "reasoning": "A positive limit of N times normalized entropy is exactly the obstruction to a uniform little-o(N^{-1}) improvement; the finite-N closed form is a stronger equivalent witness.",
+        "searches": [
+          "Resultary: mean-field Lindblad quantum relative entropy propagation of chaos Ising dephasing sharp N inverse lower bound witness",
+          "Searches for one-axis twisting mixed-product relative entropy and dephasing finite-size corrections",
+          "Amini–Chalal arXiv:2605.06973 theorem and discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact formula or database entry matching the witness was located."
+        ],
+        "reasoning": "The result is an analytic all-N identity, not a finite numerical table.",
+        "searches": [
+          "Resultary exact entropy-formula and sharpness searches",
+          "Searches for the cosine-power mixed-state Umegaki divergence"
+        ]
+      },
+      "rationale": "The source theorem proves a class-wide O(N^{-1}) normalized-relative-entropy upper bound but does not state optimality or an exact lower-bound witness. One-axis-twisting literature supplies related collective-spin expectations but not the faithful mixed-state Umegaki identity with local dephasing and the resulting sharpness conclusion. The audited witness therefore adds a genuine matching-order obstruction inside the exact hypotheses of the recent entropy theorem.",
+      "residual_risks": [
+        "An exact relative-entropy calculation for the same commuting mean-field Ising witness could exist in adjacent quantum-information literature under different finite-size terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UPPER RATE ESTABLISHED; SHARPNESS WITNESS NOT PROVIDED",
+          "evidence": "The theorem gives normalized relative entropy bounded at order one over N for exactly chaotic data, while the audited model yields a positive limit after multiplication by N.",
+          "identifier_or_url": "arXiv:2605.06973v1",
+          "material_read": "Primary full PDF including the normalized relative-entropy theorem/corollary and exactly-chaotic O(N^{-1}) specialization; targeted inspection found no optimality statement.",
+          "method": "Open primary PDF text and rendered theorem-page inspection.",
+          "title": "Quantitative propagation of chaos for Lindblad dynamics",
+          "trigger": "Exact recent theorem whose N^{-1} exponent is claimed sharp."
+        },
+        {
+          "assessment": "EXPECTATION FORMULA BACKGROUND, NOT THE AUDITED ENTROPY SHARPNESS",
+          "evidence": "Collective-spin expectation identities do not supply the dephasing-compatible Umegaki divergence formula or propagation-of-chaos lower bound.",
+          "identifier_or_url": "arXiv:1309.4842",
+          "material_read": "Primary-source scope and known one-axis-twisting expectation formulas.",
+          "method": "Primary literature comparison.",
+          "title": "Quantum Fisher information and spin squeezing in one-axis twisting model",
+          "trigger": "Classical source family for cosine-power collective-spin expectations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Amini and Chalal, Quantitative propagation of chaos for Lindblad dynamics, arXiv:2605.06973v1; primary full PDF inspected, including the normalized relative-entropy theorem/corollary giving the O(N^{-1}) rate for exactly chaotic initial data.",
+        "Zhong, Liu, Ma and Wang, Quantum Fisher information and spin squeezing in one-axis twisting model, arXiv:1309.4842; one-axis-twisting cosine-power expectation formulas compared as prior background.",
+        "Carollo and Lesanovsky, Applicability of mean-field theory for time-dependent open quantum systems with infinite-range interactions, arXiv:2403.17163 / PRL 133 (2024); broader open-system mean-field scope compared.",
+        "Resultary semantic search: mean-field Lindblad quantum relative entropy propagation of chaos Ising dephasing sharp N inverse lower bound witness.",
+        "Assigned RESULT.md, VERIFICATION.md and verify.py at exact tree 804397054c23264e8b8012532a145743c2efdb36.",
+        "Fresh independent computational-basis replay of the one-site cosine-power expectation for N=2 through 8."
+      ],
+      "rationale": "A matching lower-order witness is a natural and useful sharpness result for a new quantitative propagation-of-chaos theorem. The example remains genuinely dissipative rather than reducing to a closed Hamiltonian special case.",
+      "residual_risks": [
+        "An exact relative-entropy calculation for the same commuting mean-field Ising witness could exist in adjacent quantum-information literature under different finite-size terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the dephasing mean-field Ising model with faithful X-polarized product data, the normalized Umegaki relative entropy from the nonlinear mean-field product is exactly r_t artanh(r_t)[1-cos(2Jt/N)^(N-1)], so for every fixed positive time N times that entropy converges to 2 r_t artanh(r_t) J^2 t^2; hence the general O(N^{-1}) exponent is sharp over the same model class.",
+  "limitations": [
+    "This is a class-wide sharpness witness, not a universal lower bound for arbitrary interactions or dissipators.",
+    "The exactly solvable commutation structure is special.",
+    "An exact relative-entropy calculation for the same commuting mean-field Ising witness could exist in adjacent quantum-information literature under different finite-size terminology."
+  ],
+  "schema_version": 1
+}

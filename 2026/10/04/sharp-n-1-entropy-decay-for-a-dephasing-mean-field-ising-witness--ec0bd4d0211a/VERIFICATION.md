@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic verification has four steps. First, \(A^{m_t}=0\) because \(\operatorname{tr}(m_tZ)=0\). Second, the local \(Z\)-dephasing generators commute with the all-to-all \(ZZ\) Hamiltonian, giving the exact state \(U_N(t)m_t^{\otimes N}U_N(t)^\dagger\). Third, direct pair conjugation gives \(\langle X_i\rangle=r_t\cos(2Jt/N)^{N-1}\). Fourth, \(\log m_t=\alpha_tI+\operatorname{artanh}(r_t)X\) reduces the many-body relative entropy to that one-site expectation.
+# Independent mathematical audit
 
-The bundled `verify.py` enumerates computational-basis phase differences for small \(N\), without matrix-exponential libraries, and checks them against the cosine-power formula. It also checks the exact relative-entropy expression and the two fixed-time asymptotic constants. Running `python3 verify.py` prints `VERIFY_OK`.
+## correctness
 
-Finite enumeration does not prove the all-\(N\) statement. The proof is the commutation, conjugation, logarithm identity, and asymptotic expansion given in `RESULT.md`. The result is restricted to the stated qubit Ising interaction and local dephasing witness.
+PASS
+
+The mean field vanishes because tr(m_t Z)=0, while local Z-dephasing commutes with every ZZ interaction term, giving rho_N=U_N m_t^{tensor N} U_N^*. Pairwise conjugation of X_i contributes one cosine factor per neighbor and all sine terms vanish in the product expectation. Since log(m_t)=alpha_t I+artanh(r_t)X and rho_N is unitarily conjugate to the product state, the many-body entropy difference reduces exactly to that one-site expectation. The fixed-time expansion of cos(2Jt/N)^(N-1) then yields the positive N-scaled limit. Fresh basis enumeration through N=8 reproduced the closed expectation exactly.
+
+## originality
+
+PASS
+
+The source theorem proves a class-wide O(N^{-1}) normalized-relative-entropy upper bound but does not state optimality or an exact lower-bound witness. One-axis-twisting literature supplies related collective-spin expectations but not the faithful mixed-state Umegaki identity with local dephasing and the resulting sharpness conclusion. The audited witness therefore adds a genuine matching-order obstruction inside the exact hypotheses of the recent entropy theorem.
+
+## value
+
+PASS
+
+A matching lower-order witness is a natural and useful sharpness result for a new quantitative propagation-of-chaos theorem. The example remains genuinely dissipative rather than reducing to a closed Hamiltonian special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

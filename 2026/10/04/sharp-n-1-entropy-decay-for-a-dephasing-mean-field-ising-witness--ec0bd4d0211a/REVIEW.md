@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim was reconstructed from the source model with \(A=JZ\otimes Z\), \(L=\sqrt{\gamma}Z\), and faithful \(m_0=(I+rX)/2\). The mean-field term vanishes, local dephasing gives \(r_t=r e^{-2\gamma t}\), and the Hamiltonian and dephasing generators commute. The exact cosine-power one-site expectation and the logarithm of \(m_t\) then give the stated finite-\(N\) Umegaki divergence. The fixed-time expansion produces a strictly positive limit of \(N\mathfrak H_N(t)\) for \(t>0\). The standalone enumerator agrees with the closed forms on finite cases; enumeration is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS
-The 2026 source proves an \(O(N^{-1})\) upper bound but the inspected theorem, discussion, and model sections do not state optimality. The one-axis-twisting literature already contains cosine-power collective-spin expectations and is credited for that ingredient. Searches for relative-entropy, Curie--Weiss, Ising, dephasing, and sharp propagation-of-chaos formulations did not locate the exact faithful-state Umegaki formula or the sharpness consequence. Classical optimal-rate propagation-of-chaos results and broader open-system mean-field bounds do not imply this quantum statement.
+PASS
 
-Residual originality risk remains because an equivalent calculation may exist under different terminology. That risk does not erase the implication comparison completed against the closest located sources.
+The mean field vanishes because tr(m_t Z)=0, while local Z-dephasing commutes with every ZZ interaction term, giving rho_N=U_N m_t^{tensor N} U_N^*. Pairwise conjugation of X_i contributes one cosine factor per neighbor and all sine terms vanish in the product expectation. Since log(m_t)=alpha_t I+artanh(r_t)X and rho_N is unitarily conjugate to the product state, the many-body entropy difference reduces exactly to that one-site expectation. The fixed-time expansion of cos(2Jt/N)^(N-1) then yields the positive N-scaled limit. Fresh basis enumeration through N=8 reproduced the closed expectation exactly.
 
-## Value — PASS
-A matching lower-order witness is the natural test of a newly proved quantitative exponent. The positive limit
-\[
-\lim_{N\to\infty}N\mathfrak H_N(t)=2r_t\operatorname{artanh}(r_t)J^2t^2
-\]
-shows that the exponent cannot be improved uniformly over the theorem's own class. Keeping \(\gamma>0\) makes the boundary statement genuinely dissipative rather than merely a closed-system specialization.
+## originality
 
-## Closest literature and limitations
-Amini--Chalal supply the upper theorem; Zhong--Liu--Ma--Wang supply a known OAT cosine-power expectation mechanism; Carollo--Lesanovsky address broader open mean-field validity; Lacker--Le Flem give a classical optimal-rate analogue. The present claim is limited to the commuting dephasing/Ising witness and does not optimize the theorem's prefactor or establish lower bounds for arbitrary models.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The source theorem proves a class-wide O(N^{-1}) normalized-relative-entropy upper bound but does not state optimality or an exact lower-bound witness. One-axis-twisting literature supplies related collective-spin expectations but not the faithful mixed-state Umegaki identity with local dephasing and the resulting sharpness conclusion. The audited witness therefore adds a genuine matching-order obstruction inside the exact hypotheses of the recent entropy theorem.
+
+## value
+
+PASS
+
+A matching lower-order witness is a natural and useful sharpness result for a new quantitative propagation-of-chaos theorem. The example remains genuinely dissipative rather than reducing to a closed Hamiltonian special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
