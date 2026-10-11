@@ -1,26 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The cut-bit representation is exact. Conditional on a fixed number of cuts, adding one uniformly chosen missing cut maps the uniform slice of \(s\)-subsets exactly to the uniform slice of \((s+1)\)-subsets, and a new cut cannot enlarge the longest zero run. This proves the stochastic regression without numerical inference.
+PASS
 
-The coordinate covariance identity follows from the two conditional values of one fair Bernoulli coordinate. For a unique longest run, the total decrement caused by flipping its zeros is bounded by the triangular profile \(\min(j,\ell-j+1)\); multiple longest runs contribute zero. The longest-run union bound then gives the stated explicit covariance estimate. Classical longest-run variance asymptotics supply the positive denominator needed for the correlation rate.
+The fair-cut encoding gives exactly K_N=1+S and M_N=1+L. Conditional on S=s, the one-locations form a uniform s-subset; flipping a uniformly selected zero gives a uniform (s+1)-subset and cannot increase the longest zero run, yielding the stated strict stochastic regression. Conditioning on all coordinates except i gives -Cov(X_i,L)=E[Delta_i]/4, while the zero-to-one influence contribution is E[Delta_i]/2; summing proves the exact covariance identity. Only a unique longest zero run can contribute to the fixed-string decrement, and summing the split loss across a run of length ell gives at most floor((ell+1)^2/4). The elementary union bound P(L at least k) <= n 2^{-k} yields the displayed second-moment bound and hence the explicit covariance estimate. Together with Var(K_N)=n/4 and the classical positive lower bound for the longest-run variance, this proves the correlation rate to zero from below. A fresh independent exhaustive replay for bit lengths 1 through 10 reproduced the covariance/influence identity, strict negativity, and every adjacent conditional stochastic-order inequality; the package verifier separately checks through length 16.
 
-## Originality
+## originality
 
-PASS, with the exact conditional distribution treated as substantial prior art. Philippou--Makri already give \(\Pr(L_n\le k\mid S_n=r)\), so no novelty is claimed for having a joint or conditional law.
+PASS
 
-The accepted advance is the simple monotone coupling across fixed-weight slices, the exact coordinate-influence representation of the covariance, and the resulting \(O((\log N)^2/\sqrt N)\) correlation bound. Finch's full public paper studies the identical uniform-composition pair, gives recursive mixed-moment computations, reports negative numerical correlations, and explicitly says a rigorous proof of convergence to zero would be desirable. The present theorem supplies that missing qualitative proof with an explicit quantitative rate.
+Finch studies exactly the number of parts and maximum part of a uniform random composition, reduces them to the number of ones and longest zero run, reports negative numerical correlations, and explicitly calls for a rigorous proof that the correlation tends to zero. Philippou--Makri give an exact conditional longest-run distribution given the total number of successes, but the inspected source description does not state the monotone subset coupling, influence identity, or quantitative covariance bound. The submitted result therefore resolves a stated rigorous-decorrelation gap and strengthens it to stochastic negative regression and an exact influence formula. Targeted Resultary search located no stronger published equivalent theorem.
 
-Schilling's full paper supplies the marginal longest-run variance asymptotics but not a mixed covariance with the number of successes.
+## value
 
-## Value
+PASS
 
-PASS. Number of parts and maximum part are the two most immediate global summaries of a random composition. A rigorous dependence statement for them was explicitly left open in later numerical work.
+The theorem resolves the rigorous asymptotic-decorrelation question explicitly raised for uniform compositions and gives substantially more structure than the limit alone: all monotone transforms are negatively associated in the stated two-variable sense, with an exact coordinate-influence identity and an explicit quantitative rate. This is a motivated probability result on a natural composition model, not a finite numerical observation.
 
-The result is structurally stronger than a sign computation: every increasing transform of part count is negatively correlated with every increasing transform of the maximum, and the influence identity isolates exactly which cuts create the dependence. The explicit rate proves asymptotic decorrelation without requiring delicate bivariate generating-function asymptotics.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact replay: `VERIFY_OK bitstrings_checked=131070 covariance_checks=16 influence_checks=16 stochastic_order_checks=136 bound_checks=16`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
