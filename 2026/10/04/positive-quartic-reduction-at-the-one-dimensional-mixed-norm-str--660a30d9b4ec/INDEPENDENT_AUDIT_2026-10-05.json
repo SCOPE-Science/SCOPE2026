@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:12:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e9503bbebdfdeff41c4ad60f9972d532156b3d8d",
+        "assigned verify_threshold_quartic.py blob e26c3e584aa3284b658088f805ed0435c7daf7fe",
+        "Gonçalves--Negro--Oliveira e Silva, arXiv:2609.11644v1",
+        "fresh symbolic fourth-order replay in this audit"
+      ],
+      "rationale": "The fourth-order coefficient is correct. Independently expanding the spatial tenth power, the \\(q/r=1/2\\) square root, and the full time average gives the normalized spacetime quartic coefficient \\((2201/1250)|a|^2+(444\\sqrt5/625)\\operatorname{Re}a-141/1000\\), while the normalized \\(L^2\\)-mass factor contributes \\((5/2)|a|^2+15/8\\). Their difference is exactly \\((6/625)(77|a|^2-74\\sqrt5\\operatorname{Re}a+210)\\), whose completed square has unique minimizer \\(a=37\\sqrt5/77\\) and minimum \\(2238/1925>0\\). The package checker independently recomputes the load-bearing Gaussian moments. Time-frequency selection with two \\(h_3\\) factors permits a stable second-order resonance only at \\(n=6\\) (the \\(n=0\\) mode is tangent); the inspected primary source's threshold Hessian is positive semidefinite on the tangent-orthogonal space with kernel exactly the complex \\(h_3\\) line. A second-order \\(h_3\\) component merely reparametrizes the kernel amplitude and does not change the quartic coefficient. The result correctly stops at reduced fourth-order positivity and does not claim full local maximality.",
+      "residual_risks": [
+        "The theorem is a Lyapunov--Schmidt fourth-order statement, not a uniform infinite-dimensional local-maximality theorem.",
+        "Higher-order center-manifold or remainder control remains outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The threshold paper provides the full second-variation spectrum but explicitly does not settle the endpoint.",
+          "The older sharp/local-maximizer works concern diagonal restriction or even diagonal Strichartz regimes rather than the mixed \\((5,10)\\) fourth variation."
+        ],
+        "reasoning": "No inspected broader theorem mechanically implies the optimized quartic coefficient.",
+        "searches": [
+          "arXiv:2609.11644v1 complete primary paper",
+          "Gonçalves--Negro arXiv:2003.11955",
+          "Carneiro arXiv:0809.4054"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.11644v1",
+        "arXiv:2003.11955",
+        "arXiv:0809.4054",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive-semidefinite Hessian with one-dimensional kernel gives no sign information along that kernel.",
+          "The quartic sign requires a new fourth-order Taylor calculation and optimization over the resonant stable mode."
+        ],
+        "reasoning": "The final claim is not mechanically implied by the prior second-order analysis.",
+        "searches": [
+          "published threshold Hessian/kernel theorem versus optimized fourth-order reduced coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the same Hermite normalization, lens transform, mixed norm, threshold pair, and kernel mode.",
+          "The source states only the quadratic threshold degeneracy and unresolved higher-order problem."
+        ],
+        "reasoning": "The audited result is the next nonzero reduced variation of the same functional, not a rephrasing of the Hessian theorem.",
+        "searches": [
+          "Resultary query: mixed norm Strichartz threshold q=5 r=10 Gaussian h3 quartic fourth variation Hermite h6",
+          "Gonçalves--Negro--Oliveira e Silva arXiv:2609.11644v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact coefficient or table was retrieved."
+        ],
+        "reasoning": "Search absence is supporting evidence only; the primary paper's explicit unresolved-threshold statement is the stronger comparison.",
+        "searches": [
+          "Resultary current search for the exact coefficient, \\(h_6\\) correction, and minimum \\(2238/1925\\)"
+        ]
+      },
+      "rationale": "The same primary source identifies \\(r=10\\) as the one-dimensional stability threshold, proves the threshold Hessian is semidefinite with the \\(h_3\\) kernel, and explicitly leaves the threshold unresolved because higher Fréchet derivatives are needed. Full-text inspection found no fourth-order reduced coefficient or optimized \\(h_6\\) correction. The diagonal restriction literature concerns different exponent pairs, and current Resultary search returned the assigned record as the exact same-object hit without a covering fourth-variation theorem. The audited coefficient therefore survives best-of-knowledge implication comparison.",
+      "residual_risks": [
+        "An unpublished or poorly indexed higher-variation computation could overlap the exact coefficient.",
+        "The result does not settle the source's full endpoint extremizer problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THRESHOLD_HESSIAN_PRIOR_QUARTIC_NOT_STATED",
+          "evidence": "The source proves semidefiniteness and the one-dimensional \\(h_3\\) kernel at the threshold and says higher derivatives are needed there.",
+          "identifier_or_url": "arXiv:2609.11644v1",
+          "material_read": "complete 34-page primary paper, including the threshold discussion and Remark 3.2; the relevant PDF page was also inspected as an image",
+          "method": "lawful full-text PDF/mirror inspection with page-image verification",
+          "title": "Gaussians Do Not Always Maximize Mixed-Norm Strichartz Inequalities for the Schrödinger Equation",
+          "trigger": "exact same functional and unresolved threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gonçalves--Negro--Oliveira e Silva 2026",
+        "assigned RESULT/verifier",
+        "fresh symbolic replay"
+      ],
+      "rationale": "The unique Hessian-kernel direction is exactly the obstruction left open in the motivating mixed-norm stability paper. Computing and optimizing the first nonzero reduced coefficient, and proving it remains positive after every second-order stable correction, is a motivated structural endpoint calculation. It sharply rules out the most immediate escape mechanism without overclaiming full local maximality.",
+      "residual_risks": [
+        "The contribution is endpoint-local and does not provide uniform higher-order control."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem is a Lyapunov--Schmidt fourth-order statement, not a uniform infinite-dimensional local-maximality theorem.",
+    "Higher-order center-manifold or remainder control remains outside the claim.",
+    "An unpublished or poorly indexed higher-variation computation could overlap the exact coefficient.",
+    "The result does not settle the source's full endpoint extremizer problem.",
+    "The contribution is endpoint-local and does not provide uniform higher-order control."
+  ]
+}
