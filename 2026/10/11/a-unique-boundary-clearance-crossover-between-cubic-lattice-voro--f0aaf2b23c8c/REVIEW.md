@@ -1,0 +1,11 @@
+# Scientific review: Voronoi boundary-clearance crossing
+
+**Correctness — PASS.** The cells have explicit halfspace descriptions and both volume \(4\). Signed Euclidean facet distances yield their exact erosions. For BCC, octahedral volume minus six pairwise-disjoint axial caps yields both cubic phases; FCC is tangential and erodes homothetically. A positive-leading quadratic controls the early survival difference, and a linear cube-root comparison excludes later crossings. Rational certificates and symbolic integration were executed using the accompanying program. The proof covers all depths, not merely sampled points.
+
+**Originality — PASS, subject to historical risk.** Koçak–Ratiu prove generic polytope inner-tube piecewise-polynomiality, not the BCC/FCC laws, crossing, or means. Lucarini analyzes lattice Voronoi cell descriptors, not the distribution of uniform interior clearance. Cesaroni–Novaga establish the surface-area optimum for BCC but not the clearance comparison. Related published work on illumination or skeleton metrics for cube–octahedron intersections concerns genuinely different invariants. Targeted literature and mathematical-record searches found no implication-equivalent clearance calculation. An unindexed periodic-contact formula could exist; the result is not certified unique across unpublished work.
+
+**Value — PASS.** The complete laws demonstrate a genuine, unique depth-dependent reversal: the surface-area-efficient BCC cell dominates shallow erosion but loses on deep clearance and mean clearance to FCC. This gives a concrete boundary to an otherwise tempting inference from surface isoperimetry to interior clearance and supplies exact benchmark distributions for two natural space-filling cells. The effect is small in means but structural at the distribution level, rather than a narrow arbitrary numerical calculation.
+
+**Closest literature and limitations.** Koçak–Ratiu, arXiv:1008.2040v1; Lucarini, arXiv:0805.2705v1; Cesaroni–Novaga, arXiv:2609.02384v1. Only two fixed equal-volume canonical lattice cells are compared, with no classification of all parallelohedra or perturbed tessellations. Independent validation is absent; historical contact-distribution literature could contain an equivalent statement.
+
+Same-model review: passed. Independent audit: not yet performed.
