@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof separates the transitive-majority and cyclic-majority cases. With three candidates and no pairwise ties, Kemeny chooses the Condorcet winner in the transitive case and, in a cycle, chooses the candidate defeated on the unique weakest majority edge. Odd electorates make every margin odd, so a strict gap between positive margins is at least \(2\), while one ballot can alter a given pairwise margin by at most \(2\). A voter who sincerely prefers the target to the current winner already votes in the target's favor on that pair, so the remaining edge changes cannot create the strict weakest-edge inequality required for a preferred singleton winner. The embedded replay checks all anonymous odd-electorate profiles through \(17\) voters using two independent Kemeny implementations.
+## correctness
 
-Risk: the finite replay is not used as an infinite proof. Correctness of the arbitrary-electorate claim rests on the explicit majority-margin case analysis.
+PASS
 
-## Originality
-**PASS.** Wang, Sturm, Cuff, and Kulkarni already identify strategic and non-strategic boundaries for three-candidate Kemeny voting, and the longer Wang-Cuff-Kulkarni manuscript characterizes manipulable boundaries by Kendall distance. That is strong and close prior coverage. However, the inspected material does not state that, for odd electorates, every profitable unilateral manipulation must touch an underlying Kemeny tie, nor does it derive the parity obstruction to a profitable singleton-to-singleton jump. Targeted searches using unique-winner, singleton, odd-electorate, pairwise-margin, maximin, and Kemeny-manipulation formulations did not locate an equivalent statement.
+For three candidates, a transitive majority tournament has its Condorcet winner as unique Kemeny winner, while in a cycle the unique Kemeny winner is the candidate reached by breaking the unique weakest majority edge. Odd electorate size makes all nonzero majority margins odd, so a strict inequality between positive margins has gap at least two. One ballot can alter each pair margin by at most two, and a voter already sincerely preferring the target cannot improve the target's pairwise margin against the old winner. The case split in the proof therefore prevents the target edge from becoming uniquely weakest or flipping enough to make the target Condorcet winner. A fresh independent exhaustive replay through eleven voters checked 140,610 unilateral singleton-endpoint comparisons, including 16,572 singleton-to-singleton winner changes, and found zero profitable such changes.
 
-Risk: the result may be an unstated corollary of the detailed strategic-boundary table in Wang-Cuff-Kulkarni, or may occur in an unindexed treatment of three-candidate maximin/Kemeny manipulation.
+## originality
 
-## Value
-**PASS.** Kemeny-Young is a canonical Condorcet method, and strategic susceptibility is a central objection to deterministic social choice. The result pinpoints a qualitative boundary that is invisible in a generic Gibbard-Satterthwaite statement: for the smallest nontrivial candidate set and an odd electorate, unilateral strategic leverage cannot carry the outcome from one unambiguous Kemeny winner directly to a better unambiguous winner. It must pass through an underlying tie. The parity mechanism is structural and immediately explains why tie treatment is central in three-candidate manipulation analyses.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Wang--Cuff--Kulkarni give the closest prior classification: for three candidates, Kemeny strategic voting occurs only at boundaries separating winning rankings at Kendall distance two. Their full paper does not impose the odd-electorate parity lattice or state that a profitable one-ballot move cannot have singleton Kemeny-winner correspondences at both endpoints. The audited theorem is a parity-sensitive localization refinement, not the broad claim that Kemeny has no manipulation. Resultary found no equivalent singleton-to-singleton theorem.
+
+## value
+
+PASS
+
+The result sharply localizes where three-candidate Kemeny manipulability can occur under the common odd-electorate setting: profitable unilateral moves cannot connect two unambiguous winner regions directly. This is a structural boundary statement that complements, rather than repeats, the prior continuous boundary classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

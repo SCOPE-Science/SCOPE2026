@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_kemeny_singleton_strategy.py` is a standard-library-only finite replay supporting the analytic proof.
 
-It computes Kemeny winner sets independently in two ways.
+# Independent mathematical audit
 
-The margin implementation uses the three pairwise margins
-\[
-u=M_{AB},\qquad v=M_{BC},\qquad w=M_{CA}
-\]
-and the exact best-top scores
-\[
-u-w+|v|,\qquad v-u+|w|,\qquad w-v+|u|.
-\]
+## correctness
 
-The direct implementation evaluates all six social rankings by total Kendall-tau distance to the ballots.
+PASS
 
-For every anonymous strict profile with odd electorate size
-\[
-1,3,5,\ldots,17,
-\]
-the replay checks:
-- equality of the two Kemeny implementations;
-- the transitive-majority/weakest-cycle-edge characterization used in the proof;
-- every present sincere voter type;
-- every alternative strict report;
-- every singleton-to-singleton outcome change;
-- zero cases in which the changed singleton winner is strictly preferred by the manipulator to the truthful singleton winner.
+For three candidates, a transitive majority tournament has its Condorcet winner as unique Kemeny winner, while in a cycle the unique Kemeny winner is the candidate reached by breaking the unique weakest majority edge. Odd electorate size makes all nonzero majority margins odd, so a strict inequality between positive margins has gap at least two. One ballot can alter each pair margin by at most two, and a voter already sincerely preferring the target cannot improve the target's pairwise margin against the old winner. The case split in the proof therefore prevents the target edge from becoming uniquely weakest or flipping enough to make the target Condorcet winner. A fresh independent exhaustive replay through eleven voters checked 140,610 unilateral singleton-endpoint comparisons, including 16,572 singleton-to-singleton winner changes, and found zero profitable such changes.
 
-The replay also records a small example in which a report touches a multiwinner Kemeny tie, confirming that the theorem is deliberately narrower than full strategyproofness.
+## originality
 
-Run:
+PASS
 
-`python3 verify_kemeny_singleton_strategy.py`
+Wang--Cuff--Kulkarni give the closest prior classification: for three candidates, Kemeny strategic voting occurs only at boundaries separating winning rankings at Kendall distance two. Their full paper does not impose the odd-electorate parity lattice or state that a profitable one-ballot move cannot have singleton Kemeny-winner correspondences at both endpoints. The audited theorem is a parity-sensitive localization refinement, not the broad claim that Kemeny has no manipulation. Resultary found no equivalent singleton-to-singleton theorem.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The exhaustive computation is a stress test through seventeen voters. The theorem for arbitrary odd electorates follows from the proof's parity and margin inequalities, not from finite extrapolation.
+The result sharply localizes where three-candidate Kemeny manipulability can occur under the common odd-electorate setting: profitable unilateral moves cannot connect two unambiguous winner regions directly. This is a structural boundary statement that complements, rather than repeats, the prior continuous boundary classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
