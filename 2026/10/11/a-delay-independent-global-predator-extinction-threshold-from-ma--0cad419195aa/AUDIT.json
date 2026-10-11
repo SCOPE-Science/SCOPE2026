@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the printed delay system and keeps all parameter, positivity, and strict-threshold hypotheses explicit. The Lyapunov–Krasovskii derivative is an exact algebraic cancellation. Logistic comparison bounds \\(P_1\\); the strict threshold makes \\(P_3\\) integrable; bounded \\(\\dot P_3\\) plus Barbalat gives \\(P_3\\to0\\); variation of constants gives \\(P_2\\to0\\); and asymptotically logistic comparison gives \\(P_1\\to(r-d_1)/c_1\\). The equality case is excluded rather than inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao 2022 studies global stability in a fear/Holling-II model without the Kong–Shao immature/mature predator chain.",
+        "Chakraborty–Haldar–Kar 2013 studies stage structure for prey, not the present predator-stage system.",
+        "Wang–Feng reports global predator-extinction results for a different stage-structured Holling-II model; its abstract does not state the present Crowley–Martin/fear threshold.",
+        "published-finding corpus searches returned no theorem covering the exact current vector field and both delays."
+      ],
+      "reasoning": "These papers establish that global stability techniques are known in related ecological delay models, but their systems do not specialize to equation (1.3) with its fear denominator, Crowley–Martin interference, and juvenile-to-adult predator flux. Their results therefore do not dominate the claimed theorem.",
+      "searches": [
+        "\"Global stability of a delayed predator-prey system with fear and Holling-type II functional response\"",
+        "\"Global stability and bifurcation analysis of a delay induced prey-predator system with stage structure\"",
+        "\"Global dynamics of a predator-prey model with stage structure and Holling type-II functional response\"",
+        "published-finding corpus: predator-free equilibrium global attraction maturation delay survival c2/(d2+c2) Crowley-Martin"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20231498",
+      "doi:10.1016/j.matcom.2022.04.013",
+      "doi:10.1007/s11071-013-0864-1",
+      "doi:10.1007/s12190-014-0762-9",
+      "published-finding corpus:2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f",
+      "published-finding corpus:2026/9/17/SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175",
+      "published-finding corpus:2026/9/20/SCOPE-ikeda-critical-delay-stability-and-sharp-relaxation--51fcdbf5a801"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 2 uses the upper bound P1/(1+b1P1)≤1/b1 and gives η b2/b1<d3.",
+        "Theorem 3.1(ii) supplies the sharper maturation-aware expression only for undelayed local stability.",
+        "Section 4 studies delay-dependent characteristic roots near equilibria and does not state global attraction of the predator-free state under the Theorem 3.1 threshold."
+      ],
+      "reasoning": "The new Lyapunov–Krasovskii weight \\(c_2/(d_2+c_2)\\) cancels the maturation flux and combines with the prey carrying-capacity bound to recover the local invasion threshold globally. Neither cited source statement implies this nonlinear, all-delay convergence.",
+      "searches": [
+        "Kong–Shao 2023 Section 2 extinction argument",
+        "Kong–Shao 2023 Theorem 3.1(ii)",
+        "Kong–Shao 2023 Section 4 delayed local/Hopf analysis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kong–Shao 2023 equation (1.3) and Section 2: the paper gives predator extinction from the stronger condition η b2/b1<d3.",
+        "Kong–Shao 2023 Theorem 3.1(ii): the maturation-aware inequality appears as a local stability condition for the undelayed predator-free equilibrium.",
+        "published-finding corpus closest hit 2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f concerns a different age-structured population equation.",
+        "published-finding corpus closest hit 2026/9/17/SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175 concerns a different replicator model."
+      ],
+      "reasoning": "The source's local inequality is algebraically equivalent to \\(\\mathcal R_{\\mathrm{mat}}<1\\), but local asymptotic stability of the undelayed equilibrium neither states nor implies global convergence for the two-delay nonlinear system. No searched equivalent formulation supplied that missing implication.",
+      "searches": [
+        "10.3934/math.20231498 extinction threshold c2/(d2+c2) predator maturation delay",
+        "Crowley-Martin stage structured predator prey fear delay Lyapunov functional extinction maturation survival factor",
+        "eta b2 c2 / (b1 (d2+c2)) d3 predator extinction",
+        "P2 P3 maturation delay c2 integral Lyapunov functional predator extinction",
+        "Kong Shao 2023 Crowley-Martin stage structured predator global extinction local invasion threshold arbitrary delays",
+        "predator-free equilibrium global attraction maturation delay survival c2/(d2+c2) Crowley-Martin",
+        "eta b2 c2 (r-d1) / ((d2+c2)(c1+b1(r-d1))) predator extinction",
+        "exact-title/global-extinction searches for DOI 10.3934/math.20231498",
+        "Kong–Shao 2023, Section 2 and Theorem 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus entry matched the exact threshold expression or the Kong–Shao model.",
+        "The source's numerical parameter set (5.1), together with c2=0.8 used in its examples, yields the exact threshold η<93/928.",
+        "The source's Section 2 criterion at the same base coefficients is η<1/12."
+      ],
+      "reasoning": "The exact numerical comparison is a consequence of the symbolic threshold and is not a recomputation of a known table. The searched databases did not expose the same maturation-aware global extinction formula.",
+      "searches": [
+        "published-finding corpus: eta b2 c2 (r-d1) / ((d2+c2)(c1+b1(r-d1))) predator extinction",
+        "\"c2/(d2+c2)\" predator extinction Crowley Martin",
+        "Kong–Shao 2023 numerical coefficients (5.1)"
+      ]
+    },
+    "rationale": "The checked source states a cruder sufficient extinction condition and separately states the same algebraic threshold only as an undelayed local stability condition. The new claim proves global convergence under that sharper threshold for arbitrary values of both delays. published-finding corpus searches on the exact model, maturation factor, and threshold formula returned no equivalent statement. Closest stage-structured literature concerns different state structures or functional responses and does not imply the claim.",
+    "residual_risks": [
+      "The full text of Chakraborty–Haldar–Kar 2013 was not accessible through the checked routes; the accessible abstract concerns stage structure for prey and does not imply the present result.",
+      "Related stage-structured Holling-II literature may contain analogous Lyapunov constructions for different models; no checked source stated or implied the exact Crowley–Martin/fear all-delay threshold.",
+      "The equality case at the threshold is deliberately not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new global all-delay theorem; it contains the local threshold and a stricter global extinction sufficient condition.",
+        "evidence": "Equation (1.3); Section 2 extinction condition η b2/b1<d3; Theorem 3.1(ii) local condition; Section 4 delay bifurcation analysis.",
+        "identifier_or_url": "doi:10.3934/math.20231498",
+        "material_read": "Publisher full text: model (1.3), positivity/boundedness and extinction discussion in Section 2, Theorem 3.1(ii), delayed analysis in Section 4, and numerical coefficients (5.1).",
+        "method": "Publisher HTML/PDF full-text inspection, including equation-level comparison.",
+        "title": "The effects of fear and delay on a predator-prey model with Crowley-Martin functional response and stage structure for predator",
+        "trigger": "Exact motivating model and exact local threshold."
+      },
+      {
+        "assessment": "NOT_COVERING: different two-species Holling-II model without the juvenile-to-adult predator stage equation that creates the maturation-survival factor.",
+        "evidence": "Abstract describes a delayed predator–prey fear model and global stability of its equilibrium but not the present stage-structured Crowley–Martin system.",
+        "identifier_or_url": "doi:10.1016/j.matcom.2022.04.013",
+        "material_read": "Search-indexed abstract/metadata and summary of global stability scope.",
+        "method": "Web literature inspection.",
+        "title": "Global stability of a delayed predator–prey system with fear and Holling-type II functional response in deterministic and stochastic environments",
+        "trigger": "Same-author global-stability work with fear and delay."
+      },
+      {
+        "assessment": "NOT_COVERING by accessible material: the abstract specifies stage structure for prey, whereas the current theorem depends on stage structure for predator.",
+        "evidence": "The abstract states that the maturation delay and stage structure are for prey.",
+        "identifier_or_url": "doi:10.1007/s11071-013-0864-1",
+        "material_read": "Abstract and bibliographic metadata; full text was not accessible through the checked lawful routes.",
+        "method": "Web literature inspection.",
+        "title": "Global stability and bifurcation analysis of a delay induced prey-predator system with stage structure",
+        "trigger": "Highly relevant title cited by the motivating paper."
+      },
+      {
+        "assessment": "NOT_COVERING by accessible material: different Holling-II model and state structure; no Crowley–Martin fear threshold matching the claim was stated.",
+        "evidence": "The abstract reports global stability of a predator-extinction equilibrium under feasibility conditions for another model.",
+        "identifier_or_url": "doi:10.1007/s12190-014-0762-9",
+        "material_read": "Accessible abstract.",
+        "method": "Web literature inspection.",
+        "title": "Global dynamics of a predator-prey model with stage structure and Holling type-II functional response",
+        "trigger": "Related global predator-extinction result with stage structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0cad4191-95aa-472a-961e-1bc076edc81f",
+  "value": {
+    "rationale": "The result identifies a biologically interpretable survival-through-maturation factor and upgrades the source's local invasion threshold to a global extinction threshold that is independent of both delays. It strictly enlarges the source's stated sufficient extinction region for natural parameter choices; at the displayed base coefficients with \\(c_2=4/5\\), the certified conversion-rate threshold rises from \\(1/12\\) to \\(93/928\\). The conclusion also rules out all positive recurrent dynamics below the threshold, directly delimiting where delay-induced oscillation or chaos can occur.",
+    "status": "PASS"
+  }
+}
