@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-The symbolic proof is the controlling verification. It uses the character recursion for coloured linear orders, the exact monochromatic finite-order threshold, and the elementary split lemma stated and proved in `RESULT.md`.
 
-`verify.py` independently constructs character sets recursively and checks the proposed closed form for ranks 1 through 4 on finite rectangles extending past all predicted truncation thresholds. The latest replay completed with:
+# Independent mathematical audit
 
-- `VERIFY 1 True canons 2`
-- `VERIFY 2 True canons 11`
-- `VERIFY 3 True canons 51`
-- `VERIFY 4 True canons 227`
-- `VERIFY_OK`
+## correctness
 
-The computation does not prove the infinite family of ranks. It is a regression check for the induction, boundary cases, and off-by-one thresholds.
+PASS
+
+The Mwesigye-Truss character theorem reduces \((q+1)\)-equivalence to equality of the sets of \(q\)-characters. Monochromatic intervals have the classical threshold \(2^q-1\). For one red point, splitting at a selected blue or red point yields an induction in the two side lengths; the endpoint cases use threshold \(T_q\), while an interior red point spends one move exposing the red point and therefore leaves threshold \(T_q-1\) on each side. The claimed class count and maximal minimal length follow directly. A fresh independent character-recursion replay verified the canonical classification for \(q=1,2,3,4\), including counts \(2,11,51,227\); the general theorem rests on the induction, not the finite replay.
+
+## originality
+
+PASS
+
+The complete 2011 primary paper was read: it develops characters, proves the general character theorem, gives computable bounds for arbitrary finite colored orders, exact values only for one and two moves, and explicitly says precise higher-move information is difficult. The open 2019 follow-up again concentrates on two and three moves and states that the problem beyond two moves is hard. Neither inspected source gives the all-\(q\) one-red specialization, its \(T_q^2+2\) class count, or the sharp minimal-representative length. Targeted Resultary searches found no distinct exact one-red all-rank profile.
+
+## value
+
+PASS
+
+One distinguished point is the first non-monochromatic colored-order family and turns a difficult general character recursion into a complete all-rank solution with sharp class count and representative length. That is a natural structural boundary case with reusable finite-model-theory content, not an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
