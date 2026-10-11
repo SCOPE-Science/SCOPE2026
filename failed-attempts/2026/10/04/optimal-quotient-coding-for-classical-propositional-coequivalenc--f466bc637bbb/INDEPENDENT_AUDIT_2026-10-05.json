@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:56:00.361994Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 1997d2ae9bb70d2d629cbfe5380fd49f381f120a",
+        "verify.py blob 9b6cd2a19e12a07e62d10a9b6c66af1b8944f251",
+        "Almeida--De Berardinis Example 3.10",
+        "independent binary-code proof"
+      ],
+      "rationale": "The theorem is correct. Any \\(m\\) separating formulas assign an \\(m\\)-bit truth vector to each quotient class, so \\(k\\le2^m\\). Conversely, label the \\(k\\) classes injectively by \\(m=\\lceil\\log_2 k\\rceil\\) bit strings and define each bit coordinate by the union of all classes carrying bit one; finite CPC defines every such union. Equality of truth vectors is then exactly the coequivalence. The Bell/Stirling census follows from the bijection with partitions of the \\(2^n\\) valuations. The bundled checker exhausts \\(n\\le3\\), but the proof is uniform and elementary.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source has already reduced the logical problem to an arbitrary finite partition.",
+          "The general binary coding theorem applies to every finite partition, strictly broader than CPC."
+        ],
+        "reasoning": "The source-plus-standard-coding implication directly covers the claimed optimum.",
+        "searches": [
+          "Almeida--De Berardinis, Coequivalence Relations and Descent in Modal Logic, arXiv:2606.31854; DOI:10.4204/EPTCS.447.4",
+          "classical binary coding/pigeonhole bound for distinguishing k classes by m Boolean coordinates"
+        ]
+      },
+      "checked_sources": [
+        "Almeida--De Berardinis, Coequivalence Relations and Descent in Modal Logic, arXiv:2606.31854; DOI:10.4204/EPTCS.447.4",
+        "classical binary coding/pigeonhole bound for distinguishing k classes by m Boolean coordinates",
+        "classical Bell-number and Stirling-number enumeration of set partitions",
+        "Resultary query: classical propositional coequivalence separation rank quotient coding minimal separating formulas Almeida De Berardinis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's class indicators provide all definable quotient-class unions needed for arbitrary binary coordinate labels.",
+          "The lower and upper bounds are one-line standard coding arguments; the census follows immediately from the partition bijection."
+        ],
+        "reasoning": "Corollaries implied by a published reduction plus standard facts are covered even without matching terminology or numbers.",
+        "searches": [
+          "Almeida--De Berardinis Example 3.10",
+          "binary pigeonhole coding",
+          "Bell/Stirling partition count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3.10 explicitly constructs the equivalence relation on valuations and a formula for each equivalence class.",
+          "A separating family is exactly an injective Boolean code on quotient classes because unions of classes are definable in CPC."
+        ],
+        "reasoning": "This makes the separation-rank formulation mathematically identical to minimum binary label length for \\(k\\) objects.",
+        "searches": [
+          "Almeida--De Berardinis, Coequivalence Relations and Descent in Modal Logic, arXiv:2606.31854; DOI:10.4204/EPTCS.447.4",
+          "classical binary coding/pigeonhole bound for distinguishing k classes by m Boolean coordinates",
+          "classical Bell-number and Stirling-number enumeration of set partitions",
+          "Resultary query: classical propositional coequivalence separation rank quotient coding minimal separating formulas Almeida De Berardinis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The number of partitions with \\(k\\) blocks is classically \\(S(N,k)\\), and the total is the Bell number \\(B_N\\).",
+          "No specialized database value is needed because the census is exactly the textbook set-partition count once the source reduction is made."
+        ],
+        "reasoning": "The exact small profiles are routine grouping of a classical table by \\(\\lceil\\log_2 k\\rceil\\).",
+        "searches": [
+          "classical Bell-number and Stirling-number enumeration of set partitions",
+          "Resultary query: classical propositional coequivalence separation rank quotient coding minimal separating formulas Almeida De Berardinis"
+        ]
+      },
+      "rationale": "Originality fails under the implication standard. The full primary source's Example 3.10 already identifies every CPC coequivalence with an equivalence relation on the finite valuation set and proves separation by taking a definable class-indicator formula for each quotient class. In CPC every union of classes is definable. Replacing one-hot class indicators by the ordinary binary code of the \\(k\\) classes gives \\(\\lceil\\log_2 k\\rceil\\) coordinates, and the matching pigeonhole lower bound is the elementary fact that \\(m\\) Boolean coordinates distinguish at most \\(2^m\\) classes. The Bell/Stirling census is the standard enumeration of partitions of a finite set. Thus the final theorem is mechanically implied by the inspected source plus textbook finite coding/counting facts even though the exact optimization is not written there.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_REDUCTION_TO_FINITE_PARTITION",
+          "evidence": "Once the source has exposed an arbitrary finite quotient and definability of class unions, optimal Boolean coding and Bell/Stirling counting are standard consequences.",
+          "identifier_or_url": "arXiv:2606.31854; DOI:10.4204/EPTCS.447.4",
+          "material_read": "Accessible full article, especially Example 3.10: construction of the valuation equivalence relation, definability of each class by a disjunction of atoms, and separation by equality of all class-indicator formulas.",
+          "method": "lawful accessible full primary text",
+          "title": "Coequivalence Relations and Descent in Modal Logic",
+          "trigger": "Direct defining source for CPC coequivalence separation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Almeida--De Berardinis, Coequivalence Relations and Descent in Modal Logic, arXiv:2606.31854; DOI:10.4204/EPTCS.447.4",
+        "classical binary coding/pigeonhole bound for distinguishing k classes by m Boolean coordinates",
+        "classical Bell-number and Stirling-number enumeration of set partitions"
+      ],
+      "rationale": "The quantitative question is well defined, but after the primary source has reduced CPC coequivalences to finite partitions with every class union definable, the optimum is exactly the textbook bit length needed to label \\(k\\) objects and the census is the textbook Bell/Stirling partition count. Under the required value bar this is a routine coding reformulation rather than a substantive new mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
