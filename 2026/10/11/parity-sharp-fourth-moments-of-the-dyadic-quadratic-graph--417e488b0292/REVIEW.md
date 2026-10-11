@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+For every integer \(m\ge1\), Fourier orthogonality expresses the fourth moment as a quartic collision form. The constraint on pair differences is exactly \(2h(x-y)=0\) in \(\mathbb Z/2^m\mathbb Z\); grouping by its kernel gives a nonnegative coset decomposition. Cauchy--Schwarz bounds that form using the exact count of roots of \(2h(d-h)=0\). The root count splits at twice the valuation of \(d\), with exhaustive congruence arguments in the proof. For odd exponents the maximal root count gives the exact bound; for even exponents the refined daughter-coset probability bound of one half gives the sharp factor \(3/2\). The coset indicators achieve the claimed constants by an independent two-sum count. The uniform-input ratio is exactly \(m+1\). The code checks these steps for specified finite exponents but does not assert their truth by extrapolation. The proof covers arbitrary complex inputs and \(m=1\) separately.
+
+## Originality — PASS, with residual risk
+Hickman and Wright (arXiv:1801.03176v1, sections 2 and 7) formulate restriction over cyclic rings and establish bounds in a different exponent regime; the relevant parabola result concerns odd modulus, and the prime-power setup requires primes larger than the curve degree. Its hypotheses do not cover powers of two, and it does not give this exact fourth-moment constant. González-Riquelme and Oliveira e Silva (arXiv:2405.16647, Theorems 1.1--1.4) study finite-field sharp extension, so field-characteristic or curve assumptions cannot yield the dyadic cyclic-ring result. Kingsbury-Neuschotz (arXiv:2509.09885, Theorem 1.1) treats squarefree modulus, which excludes every dyadic power beyond two. Existing sharp odd-prime-power parabola bounds do not imply either parity formula at the ramified prime two, whose exact root counts differ. No exact-dyadic fourth-moment coverage was identified in the literature comparisons, but unindexed older work on quadratic congruence energies or local-ring restriction remains a bibliographic risk. No claim of mathematical independence or an exhaustive novelty certificate is made.
+
+## Value — PASS
+The quadratic graph on cyclic local rings is a canonical discrete restriction problem; the previously excluded dyadic prime is singular because the derivative of the parabola has a factor two. Both sharp constants and their parity transition reflect a genuinely different arithmetic collision law from the odd-prime case. The explicit maximizers show that uniform coefficients cease to be optimal at exponent four. The statement is a natural complete evaluation of an operator norm over an infinite family, not a routine fixed-size numerical table or a parameter-only alteration.
+
+## Scientific limits
+Full equality classification, mixed composite moduli, and other output moments are unresolved. The two-sum and congruence arguments constitute the proof; the finite checker corroborates selected cases only. The literature comparison is not a guarantee of absolute novelty.
+
+Same-model review: passed. Independent audit: not yet performed.
