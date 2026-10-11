@@ -1,33 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source defines different right-hand sides \(H_5\) for androgen and \(H_6\) for PSA. The final printed recurrences use \(H_5\) for both variables, so direct subtraction proves
-\[
-P_n-A_n=P_0-A_0.
-\]
-At the admissible source-parameter state
-\[
-X_1=X_2=0,\quad A=a_0=10,\quad P=1,\quad u=0,
-\]
-the intended integer-order model instead has
-\[
-H_5=0,\qquad H_6=-0.08.
-\]
-The printed recurrence therefore cannot consistently discretize the stated PSA equation. The bundled exact-arithmetic checker replays this witness.
+PASS
 
-## Originality
+The published six-state model defines different androgen and PSA fields H5 and H6, but the printed final PSA recurrence repeats H5 in the same local and history operator used for androgen. Subtracting the two displayed recurrences therefore forces P_n-A_n to equal its initial difference exactly. At the source's integer-order endpoint and the admissible state X1=X2=0, A=a0=10, P=1, u=0 with gamma1=delta3=0.08, an independent exact-rational replay gives H5=0 and H6=-0.08, so the continuous model has derivative of P-A equal to -0.08. The printed invariant is consequently inconsistent with the source vector field, and replacing H5 by H6 in the PSA recurrence is the correct componentwise repair.
 
-PASS. Componentwise use of a vector field is standard numerical analysis and is not claimed as new. The accepted contribution is source-specific: identifying the duplicated androgen field in the PSA recurrence, deriving the forced \(P-A\) invariant, and testing it against the source's own parameterized model. Exact source, correction, PSA, androgen, and \(H_5/H_6\) searches found no published repair. The known 2022 author correction to the cited numerical-method paper concerns a separate summation identity and explicitly leaves that method's formulation unchanged.
+## originality
 
-## Value
+PASS
 
-PASS. PSA is a principal modeled biomarker and is displayed throughout the numerical results. As written, the scheme cannot evolve PSA according to its biological equation at all; it makes PSA an affine copy of androgen. The correction is small in notation but substantial in model meaning and supplies an exact diagnostic for reproductions of the published algorithm.
+The motivating article presents the six-component biological model and the fractional numerical scheme, but targeted searches found no published correction of the duplicated H5 in the PSA update. The later author correction to the underlying numerical-method paper repairs a separate finite-sum identity and does not address this prostate-cancer component substitution. Resultary searches using the article identity, PSA/androgen aliases and H5/H6 terminology returned no prior equivalent finding.
 
-## Closest literature and limitations
+## value
 
-The closest numerical-method source is Toufik and Atangana, DOI 10.1140/epjp/i2017-11717-0, together with its 2022 author correction DOI 10.1140/epjp/s13360-022-02380-9. That correction does not address the later prostate-cancer component substitution. Portz, Kuang, and Nagy, DOI 10.1063/1.3697848, provide the earlier clinical model in which androgen and PSA are distinct variables.
+PASS
 
-No simulation source code accompanies the motivating article. The finding therefore applies to the published recurrence and its stated validation role; the actual code used to produce figures may have contained the \(H_6\) correction.
+The duplicated field forces a global numerical invariant tying PSA to androgen even though the biological model makes them distinct and an exact admissible state violates that invariant immediately. Because the paper connects its figures to the printed scheme, the correction is directly relevant to reproducibility and interpretation rather than a harmless symbol typo.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
