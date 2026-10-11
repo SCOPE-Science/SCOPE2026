@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For \\(n>0\\) and \\(\\alpha d>0\\), the substitution \\(R=e^{u/(2n)}\\) converts the published scalar memory equation exactly into \\(\\dot R=\\kappa[\\cosh(x/(2n))-R]\\). The variation-of-constants formula on bounded complete trajectories proves the compact-recurrence half-space and pointwise bounds. The invariant-measure identity follows from \\(\\int LR\\,d\\mu=0\\) on compact support, and the physical-variable statement is the same chain-rule identity. No numerical trajectory is used to infer an infinite-time statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu et al. 2015, DOI 10.1155/2015/249102, uses a diode bridge cascaded with a first-order parallel RC filter in a different five-dimensional Colpitts model.",
+        "Chen et al. 2014, DOI 10.3390/e16126464, explicitly gives the RC-filter internal-state term with an additional \\(-v_C/(RC)\\) leakage.",
+        "Deng and Wang 2017, DOI 10.1063/1.4979175, implements memristive Colpitts oscillators using a different emulator architecture."
+      ],
+      "reasoning": "The closest broader circuit literature studies memristive Colpitts and diode-bridge emulators, but the extra RC leakage or different emulator changes the internal-state equation. Those results do not imply the exact capacitor-only stable filter or its recurrence consequences.",
+      "searches": [
+        "Colpitts Chaotic Oscillator Coupling with a Generalized Memristor cosh RC",
+        "Circuit simulation and physical implementation for a memristor-based colpitts oscillator 1.4979175",
+        "diode bridge memristor cosh exponential transformation RC filter"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math10244820",
+      "doi:10.1155/2015/249102",
+      "doi:10.3390/e16126464",
+      "doi:10.1063/1.4979175",
+      "published-finding corpus semantic searches listed in the four originality check objects",
+      "Own current-week and prior-week ledgers searched for DOI/title/Colpitts/cosh/exponential-filter overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source equilibrium condition \\(e^{-\\rho v_0}\\cosh(\\rho v_{ce})=1\\) is a zero-derivative relation at a fixed point only; it does not imply the infinite-past convolution for a nonstationary bounded complete orbit.",
+        "The source's dissipativity and numerical attractor plots do not imply pointwise \\(u\\ge0\\) on every compact invariant set or the exact invariant-measure identity.",
+        "The 2015/2014 RC-filter equations contain an additional leakage mechanism, so their conclusions do not specialize to the claimed linear filter without changing the model."
+      ],
+      "reasoning": "The new statement is a dynamic extension of the source equilibrium relation. Its main conclusions require the exact exponential-coordinate ODE plus backward-complete variation of constants, not merely equilibrium algebra, volume contraction or numerical recurrence.",
+      "searches": [
+        "Zhou You Liang Li Colpitts exponential memory filter compact invariant measure diode bridge 10.3390/math10244820",
+        "memristor Colpitts recurrent internal voltage nonnegative invariant measure exponential linear filter",
+        "e^{u/(2n)} cosh(x/(2n)) Colpitts compact invariant set",
+        "diode bridge memristor capacitor-only exponential state positive half-space recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Publisher full text for DOI 10.3390/math10244820 gives the physical memory equation in Eq. (1)/(4) and the dimensionless memory equation in Eq. (12), but the inspected text does not state the exponential coordinate or compact-recurrence theorem.",
+        "published-finding corpus source-title and state-equation searches returned no finding about this Colpitts model; the nearest exponential-memory result, 2026/9/18/SCOPE-exact-first-integral-memory-blowup-dichotomy--7383b48da300, concerns a different F2 memory model."
+      ],
+      "reasoning": "Aliases were searched using the source title, exact scalar equation, exponential coordinate, half-space barrier, bounded complete trajectories and invariant measures. No equivalent same-object statement was found.",
+      "searches": [
+        "A Memristor-Based Colpitts Oscillator Circuit Zhou You Liang Li 2022",
+        "memristor Colpitts u'=alpha d exp(-u/2n) cosh(x/2n)-1 compact invariant u>=0",
+        "exponential transform R=exp(u/2n) Colpitts memristor cosh recurrence",
+        "memristor emulator internal state half-space u>=0 bounded complete trajectory"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher page records publication on 2022-12-19 and MSC 34C28.",
+        "The publisher full text gives \\(\\dot u=\\alpha d(e^{-u/(2n)}\\cosh(x/(2n))-1)\\) as the fourth equation of dimensionless System (12)."
+      ],
+      "reasoning": "The source metadata establishes date and ownership, while the exact equation fixes the normalization. No inspected database/table states the transformed filter, half-space recurrence barrier or stationary observable identity.",
+      "searches": [
+        "10.3390/math10244820 MSC 34C28 published 19 December 2022",
+        "10.3390/math10244820 equation 12 u cosh"
+      ]
+    },
+    "rationale": "The introducing article states the nonlinear memory equation and its equilibrium relation but not the exponential stable-filter representation or its compact-recurrence and stationary-measure consequences. Closest earlier Colpitts/diode-bridge models use an \\(RC\\)-filtered or different emulator and do not imply this capacitor-only law. published-finding corpus searches found no same-object claim.",
+    "residual_risks": [
+      "The diode-bridge memristor literature is broad; an unindexed source may have noticed the same exponential coordinate without using the compact-recurrence formulation.",
+      "The claim is deliberately limited to the unshifted capacitor-only state equation; offset-boosted variants can have different coordinate bounds."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact capacitor-only memory equation and equilibrium relation but not the exponential-filter recurrence theorem or stationary-measure identity.",
+        "evidence": "Published 2022-12-19; MSC 34C28; Eq. (12) has the claimed fourth memory equation.",
+        "identifier_or_url": "doi:10.3390/math10244820",
+        "material_read": "Publisher full text: abstract, MSC metadata, Sections 2-4, physical equations (1)-(4), equilibrium equation (7), dimensionless System (12), offset-boosting equations and conclusions.",
+        "method": "Lawful open-access publisher HTML/full text.",
+        "title": "A Memristor-Based Colpitts Oscillator Circuit",
+        "trigger": "Introducing source; exact object, date and MSC ownership."
+      },
+      {
+        "assessment": "Uses a diode bridge cascaded with a parallel RC filter, not the capacitor-only memory equation; no same filter/recurrence claim located.",
+        "evidence": "Section 2.1 explicitly identifies a first-order parallel RC filter, so its state equation contains a leakage mechanism absent from the 2022 capacitor-only emulator.",
+        "identifier_or_url": "doi:10.1155/2015/249102",
+        "material_read": "Open-access full text: abstract, introduction, Sections 2-3 describing the diode-bridge generalized memristor, five-dimensional oscillator, dissipativity and equilibrium analysis.",
+        "method": "Lawful open-access publisher full text.",
+        "title": "Colpitts Chaotic Oscillator Coupling with a Generalized Memristor",
+        "trigger": "Closest earlier memristive Colpitts architecture."
+      },
+      {
+        "assessment": "Not covering: the internal-state equation has the extra term \\(-v_C/(RC)\\), which prevents the exact linear stable filter obtained for the capacitor-only emulator.",
+        "evidence": "Equation (2) contains \\(2I_S e^{-\\rho v_C}\\cosh(\\rho v)/C-v_C/(RC)-2I_S/C\\).",
+        "identifier_or_url": "doi:10.3390/e16126464",
+        "material_read": "Open-access full text: model equations and dynamical-analysis sections.",
+        "method": "Lawful open-access publisher HTML/full text.",
+        "title": "A Memristive Diode Bridge-Based Canonical Chua’s Circuit",
+        "trigger": "Primary source exposing the earlier diode-bridge RC-filter state equation."
+      },
+      {
+        "assessment": "Different emulator implementation; no exact capacitor-only exponential-filter statement found.",
+        "evidence": "The paper describes parallel and series insertion of an off-the-shelf-component memristor emulator rather than the 2022 diode-bridge-plus-capacitor state law.",
+        "identifier_or_url": "doi:10.1063/1.4979175",
+        "material_read": "Open full-text metadata and circuit-architecture discussion.",
+        "method": "Lawful open full-text copy/metadata.",
+        "title": "Circuit simulation and physical implementation for a memristor-based colpitts oscillator",
+        "trigger": "Earlier same-application memristive Colpitts paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "aa18d9d6-5031-4853-808e-1d85c0c10c74",
+  "value": {
+    "rationale": "The source is built around long-time periodic and chaotic regimes. Converting its nonlinear memory state to an exact positive stable filter yields a natural global constraint on every compact recurrent state, an explicit phase-space exclusion and bound, and an exact stationary observable calibration useful for simulation/hardware consistency. This is materially stronger than re-evaluating an equilibrium or a finite trajectory.",
+    "status": "PASS"
+  }
+}
