@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the non-regular integral path complex in degree two, classifies every endpoint-cancellation class, proves the integral cycle presentation, and computes the Smith-normal-form-equivalent quotient \(\mathbb Z\oplus\mathbb Z/n\mathbb Z\). The accompanying finite replay is corroborative only; the all-parameter statement is proved symbolically.
+## correctness
 
-## Originality
-PASS. The defining 2020/2022 source explicitly states the \(\mathbb Z/n\mathbb Z\) torsion pattern as a conjecture and reports finite checks. A 2026 paper discussing exactly the same family still calls the pattern conjectural. General 2024 covering machinery and a 2026 long-exact-sequence paper were inspected and do not imply this specific computation. Exact aliases, stronger-coverage possibilities, and prior available records were compared.
+PASS
 
-## Value
-PASS. This closes a natural published infinite-family torsion conjecture and identifies the complete first integral path homology, rather than merely extending a numerical table by one case.
+The proof was reconstructed from the frozen RESULT.md rather than from the saved audit. For the non-regular integral path complex, the allowed 2-paths split by endpoints exactly as claimed: each \(c_i\to c_{i+2}\) class has the two routes through \(c_{i+1}\) and the appropriate pole, giving the boundary \(R_i\), while each pole-to-itself class contributes differences of same-parity spoke cycles. No other missing-shortcut class permits cancellation. The underlying directed graph has cycle-lattice rank \(4n-1\); the \(4n\) cycles \(R_i,T_i\) have the single primitive alternating relation. Quotienting by the \(R_i\) boundaries and the same-parity \(T\)-differences leaves two generators \(U,V\) with relation \(n(U-V)=0\), hence \(\widetilde H_1(D_n;\mathbb Z)\cong\mathbb Z\oplus\mathbb Z/n\mathbb Z\) for every \(n\ge2\).
 
-## Closest literature and limitations
-The closest source is Chowdhury--Huntsman--Yutin, arXiv:2008.11885v1 / DOI 10.1007/s41109-021-00441-z. The result is convention-sensitive: it is stated only for their non-regular integral path homology. No higher path-homology or digraph-homotopy classification is claimed, and obscure unindexed duplication remains a residual literature risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2020 primary source introduces exactly this alternating-pole central-cycle family and explicitly states the \(\mathbb Z/n\mathbb Z\) torsion pattern as a conjecture, computationally checked only through \(n=8\). The submitted theorem proves that conjecture for all \(n\) and also identifies the free \(\mathbb Z\) summand. Fresh Resultary and web searches did not locate a prior proof or a stronger theorem implying the full integral group.
+
+## value
+
+PASS
+
+This closes an explicit all-parameter torsion conjecture from the defining path-homology paper and strengthens it to the complete first integral homology group. The symbolic cycle-lattice/Smith presentation is a structural theorem, not a finite extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
