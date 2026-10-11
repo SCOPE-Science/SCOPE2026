@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The theorem is proved analytically, with no finite experiment used as a substitute for a universal argument.
 
-The proof was checked against the actual rank-one operator identities
-\[
-S=\sum_j \tau_j\otimes f_j,
-\qquad
-\operatorname{tr}S=\sum_j f_j(\tau_j)=n,
-\]
-and
-\[
-\operatorname{tr}(S^2)=\sum_{j,k}f_j(\tau_k)f_k(\tau_j).
-\]
-The endpoint arithmetic was also checked:
-\[
-n(n-1)\frac{n-d}{d(n-1)}=\frac{n^2}{d}-n.
-\]
-Therefore equality in the maximum-correlation bound makes the lower and upper ends of the proof chain coincide. Equality in the eigenvalue Cauchy--Schwarz step forces all eigenvalues to equal \(n/d\), and equality in the termwise bound forces every ordered off-diagonal product to have modulus \(M^2\). This yields both tightness and constant off-diagonal modulus.
+# Independent mathematical audit
 
-The boundary \(n=d\) is included separately: \(\gamma=0\), so equality means every off-diagonal pairing vanishes, while the same trace equality gives \(S=I_X\).
+## correctness
 
-No claim is made beyond the source hypotheses of diagonalizability and nonnegative spectrum, and no continuous or higher-order equality statement is asserted.
+PASS
+
+The normalization gives \(\operatorname{tr}S=n\), and rank-one expansion gives \(\operatorname{tr}(S^2)=n+\sum_{j\ne k}a_{jk}a_{kj}\). For nonnegative eigenvalues, Cauchy gives \(n^2/d\le\operatorname{tr}(S^2)\). The triangle inequality and definition of \(M\) give \(n^2/d-n\le\sum_{j\ne k}|a_{jk}a_{kj}|\le n(n-1)M^2\). At the Welch value the endpoints coincide, so equality holds throughout. Equal eigenvalues plus diagonalizability gives \(S=(n/d)I\). Every one of the \(n(n-1)\) nonnegative summands must equal \(M^2\), and since each factor has modulus at most \(M\), both factors equal \(M\); the \(n=d\) case has \(M=0\). A fresh symbolic check verified the endpoint identity \(n(n-1)\gamma^2=n^2/d-n\).
+
+## originality
+
+PASS
+
+The motivating primary paper explicitly poses as Question 3.12(i) whether equality in its first-order maximum-correlation Welch bound forces equiangularity. The audited trace-equality argument answers that question affirmatively under exactly the paper's spectral/normalization hypotheses and additionally forces tightness. The classical Hilbert-space equality theorem does not imply the dual-pair Banach statement. Resultary found no earlier answer under equivalent terminology.
+
+## value
+
+PASS
+
+The theorem answers an explicit published equality-case question and strengthens the requested equiangularity conclusion by forcing tightness. Equality rigidity is central to Welch-bound geometry, and extending it from Hilbert vectors to normalized Banach dual pairs under the source's hypotheses is substantively motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:47:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen tree",
+        "Krishna full primary text around Theorem 3.11",
+        "fresh symbolic endpoint calculation"
+      ],
+      "rationale": "The normalization gives \\(\\operatorname{tr}S=n\\), and rank-one expansion gives \\(\\operatorname{tr}(S^2)=n+\\sum_{j\\ne k}a_{jk}a_{kj}\\). For nonnegative eigenvalues, Cauchy gives \\(n^2/d\\le\\operatorname{tr}(S^2)\\). The triangle inequality and definition of \\(M\\) give \\(n^2/d-n\\le\\sum_{j\\ne k}|a_{jk}a_{kj}|\\le n(n-1)M^2\\). At the Welch value the endpoints coincide, so equality holds throughout. Equal eigenvalues plus diagonalizability gives \\(S=(n/d)I\\). Every one of the \\(n(n-1)\\) nonnegative summands must equal \\(M^2\\), and since each factor has modulus at most \\(M\\), both factors equal \\(M\\); the \\(n=d\\) case has \\(M=0\\). A fresh symbolic check verified the endpoint identity \\(n(n-1)\\gamma^2=n^2/d-n\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hilbert theorem identifies Welch-bound-equality vector sequences with tight frames, where dual functionals arise from the inner product. The Banach setting allows independent norming functionals and vectors, so that theorem does not imply the audited dual-pair conclusion."
+        ],
+        "reasoning": "The source's explicit open question is strong evidence that the implication was not contained in its own theorem; no inspected broader Banach theorem answered it.",
+        "searches": [
+          "K. Mahesh Krishna, arXiv:2201.00980 / DOI:10.7153/jca-2023-22-07",
+          "S. Waldron, DOI:10.1109/TIT.2003.815788",
+          "Zeraoulia--Menasri 2026 specialized complex two-dimensional tight-system preprint"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.00980",
+        "DOI:10.7153/jca-2023-22-07",
+        "DOI:10.1109/TIT.2003.815788",
+        "Resultary Banach-Welch equality query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At equality, every inequality between the trace lower bound and \\(n(n-1)M^2\\) must be sharp. Equality of nonnegative eigenvalues forces a scalar frame operator, while saturation of the final sum forces every off-diagonal product, hence every off-diagonal modulus, to equal the maximum."
+        ],
+        "reasoning": "This directly supplies the missing implication asked by the source and strengthens it by proving tightness.",
+        "searches": [
+          "Krishna full text Definition 3.9, Theorem 3.11, Question 3.12(i)",
+          "audited equality chain from trace identities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krishna's full text defines \\(M\\), states Theorem 3.11 with \\(M\\ge\\sqrt{(n-d)/(d(n-1))}\\), and immediately asks in Question 3.12(i) whether equality implies the ASF is equiangular."
+        ],
+        "reasoning": "The claim was compared in maximum-correlation, symmetric-product trace, approximate-Schauder-frame, Banach equiangular, and classical Hilbert Welch-bound-equality formulations.",
+        "searches": [
+          "arXiv:2201.00980 Question 3.12 equality equiangular Banach Welch",
+          "Resultary: Banach Welch bound equality equiangular tight approximate Schauder frame maximum correlation",
+          "Waldron generalized Welch bound equality tight frames Banach"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact Resultary match is the audited record; no earlier answer was located."
+        ],
+        "reasoning": "No numerical database is relevant; this is an explicit open-problem implication.",
+        "searches": [
+          "Resultary published-finding corpus for Banach Welch equality",
+          "targeted title/question searches for Question 3.12(i)"
+        ]
+      },
+      "rationale": "The motivating primary paper explicitly poses as Question 3.12(i) whether equality in its first-order maximum-correlation Welch bound forces equiangularity. The audited trace-equality argument answers that question affirmatively under exactly the paper's spectral/normalization hypotheses and additionally forces tightness. The classical Hilbert-space equality theorem does not imply the dual-pair Banach statement. Resultary found no earlier answer under equivalent terminology.",
+      "residual_risks": [
+        "A later unindexed note could have answered the same 2023 open question.",
+        "The theorem retains the source's diagonalizable nonnegative-spectrum hypothesis and does not address existence of equality cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_QUESTION_ANSWERED_BY_AUDITED_THEOREM",
+          "evidence": "Theorem 3.11 states the first-order Banach Welch bound and only the forward statement that gamma-equiangular systems attain equality; Question 3.12(i) asks whether equality implies equiangularity.",
+          "identifier_or_url": "arXiv:2201.00980; DOI:10.7153/jca-2023-22-07",
+          "material_read": "Full accessible text around Definitions 3.6--3.9, Theorem 3.11, and Question 3.12(i), including the squared-modulus convention in the equiangular definition.",
+          "method": "Direct open-question and theorem-implication comparison.",
+          "title": "Discrete and Continuous Welch Bounds for Banach Spaces with Applications",
+          "trigger": "Primary source of the exact inequality and the explicit equality-case question."
+        },
+        {
+          "assessment": "HILBERT_SPECIALIZATION_NOT_GENERAL_BANACH_DUAL_PAIR_COVERAGE",
+          "evidence": "The classical result assumes Hilbert inner-product pairings and does not cover independent Banach vectors/functionals.",
+          "identifier_or_url": "DOI:10.1109/TIT.2003.815788",
+          "material_read": "Primary theorem scope from article metadata/accessible statements.",
+          "method": "Ambient-category implication comparison.",
+          "title": "Generalized Welch Bound Equality Sequences Are Tight Frames",
+          "trigger": "Classical closest equality theorem in Hilbert spaces."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2201.00980",
+        "DOI:10.1109/TIT.2003.815788"
+      ],
+      "rationale": "The theorem answers an explicit published equality-case question and strengthens the requested equiangularity conclusion by forcing tightness. Equality rigidity is central to Welch-bound geometry, and extending it from Hilbert vectors to normalized Banach dual pairs under the source's hypotheses is substantively motivated.",
+      "residual_risks": [
+        "A later unindexed note could have answered the same 2023 open question.",
+        "The theorem retains the source's diagonalizable nonnegative-spectrum hypothesis and does not address existence of equality cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2201.00980",
+    "DOI:10.7153/jca-2023-22-07",
+    "DOI:10.1109/TIT.2003.815788",
+    "Resultary Banach-Welch equality query"
+  ],
+  "disposition": "passed",
+  "final_claim": "Under the normalization and diagonalizable nonnegative-spectrum hypotheses of the first-order Banach Welch bound, equality \\(M=\\sqrt{(n-d)/(d(n-1))}\\) forces \\(S=(n/d)I\\) and forces every off-diagonal modulus \\(|f_j(\\tau_k)|\\) to equal that Welch value; for \\(n=d\\) all off-diagonal pairings vanish.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A later unindexed note could have answered the same 2023 open question.",
+    "The theorem retains the source's diagonalizable nonnegative-spectrum hypothesis and does not address existence of equality cases."
+  ]
+}
