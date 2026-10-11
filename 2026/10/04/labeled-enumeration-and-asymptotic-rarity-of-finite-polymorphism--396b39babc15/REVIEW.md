@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The argument starts from the published source-height characterization and translates it into the standard cycle-of-rooted-in-trees decomposition of a finite functional digraph. The two different root conditions are handled explicitly: a noncycle internal vertex must have a nonempty child set, while a cycle vertex may have no attached children because its cycle predecessor prevents it from being a source. This yields the stated recurrences. The classes of positive common source heights intersect exactly in the permutations, and local finiteness of the height sum follows from the minimum size \(h+1\). The singularity analysis isolates \(F_1(z)=1/(1-ze^z)\), while the uniform \(r=0.58\) bound keeps every \(h\ge2\) term analytic farther from the origin. Exhaustive enumeration through seven points and independent formal-series computation through ten points agree exactly.
+## correctness
 
-## Originality
-PASS with a residual terminology risk. The closest primary literature classifies polymorphism-homogeneous monounary algebras by source height but does not, in the inspected material, enumerate them. Searches for the exact initial sequence, for functional digraphs with all sources at one cycle-distance, and for generating functions attached to that condition did not locate the formula or asymptotic. Neighboring literature on rooted trees with equal-depth leaves concerns tree components rather than arbitrary functional digraphs. An equivalent enumeration could still exist under different language in the older functional-digraph literature.
+PASS
 
-## Value
-PASS. The source-height classification is qualitative; the result turns it into an exact size-by-size census and a sharp asymptotic rarity theorem. The decomposition also exposes which stratum controls the growth: common source height one gives the unique dominant singularity, while all higher heights are exponentially smaller. This adds a quantitative structural layer to a natural finite model-theoretic class rather than merely recomputing isolated small cases.
+Fresh species reconstruction confirms the EGF and asymptotic. The finite monounary classification says either there are no sources (permutations) or all sources have one common positive height h. A rooted attached tree with all leaves exactly h below its root satisfies T_0=z and T_h=z(exp(T_{h−1})−1); a cycle vertex may carry an arbitrary set of T_{h−1}-trees, giving D_h=z exp(T_{h−1}) and F_h=SET(CYC(D_h))=1/(1−D_h). Subtracting the shared permutation class makes the height strata disjoint. Independent coefficient recomputation reproduced 1,4,27,232,2285,25716,324583,4571904,71321769,1225291780. For h=1 the unique dominant positive pole solves \(\rho e^\rho=1\) with residue 1/(1+ρ). On |z|≤0.58 all h≥2 satisfy \(|z\exp(T_{h-1}(z))|\le 0.58\exp(0.58(e^{0.58}-1))<1\) uniformly, so their coefficient total is \(O(n\,0.58^{-n})=o(\rho^{-n})\).
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The structural classification is prior; the labeled functional-digraph enumeration and dominant-pole asymptotic are not found in the inspected primary or database literature. Fresh searches for polymorphism-homogeneous monounary enumeration, source-height functional digraphs and the exact initial sequence found the classification paper and nearby all-leaves-same-level tree sequences, but no matching labeled unary-map EGF or asymptotic.
+
+## value
+
+PASS
+
+This is a natural complete enumeration of a previously classified finite algebraic class. It gives an explicit EGF, concrete counts and an exponential-rarity law among all unary operations; the asymptotic is governed by a clean Lambert-W singularity. That is a meaningful quantitative refinement rather than recomputation of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
