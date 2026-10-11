@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:02:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob de98ac53c2811e08d18d6ef45c1efceb49eb657e",
+        "assigned verify.py blob 762b322703f4f5f5978ee0d05160d4c75afd69b1",
+        "Saucedo et al., arXiv:2401.15076 / DOI 10.3934/math.20241204"
+      ],
+      "rationale": "In the closed nonnegative SEIR system, \\(\\dot C=\\beta SI=-\\dot S\\), so \\(C(t)=C(0)+S(0)-S(t)\\) and \\(C\\) converges because \\(S\\) is nonincreasing and bounded below. If two perfect sliding-window outputs agree, \\(D(t)=C_1(t)-C_2(t)\\) satisfies \\(D(t+h)=D(t)\\). Because \\(D\\) also converges, every periodic value equals the same limit, so \\(D\\) is constant. A constant shift of the auxiliary \\(C\\) state has no effect on \\(S,E,I,R\\) or the parameters, hence perfect window-incidence observation has exactly the same parameter equivalence relation as perfect cumulative-incidence observation. Equality of instantaneous incidences gives the same conclusion by integration. The parameter involution transcribed from the source preserves the three source input-output combinations and is checked exactly by the assigned verifier.",
+      "residual_risks": [
+        "The result is for perfect continuous sliding-window data, not a finite list of nonoverlapping reported counts.",
+        "The convergence argument uses the closed no-demography SEIR model; it need not extend to forced or demographic models with unbounded cumulative incidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating paper establishes cumulative structural identifiability and practical incidence advantages, but does not establish the structural window-output equivalence.",
+          "The broader outbreak-identifiability literature located does not state the periodic-convergence lemma for this observation map."
+        ],
+        "reasoning": "The audited theorem supplies a missing bridge between two observation types rather than a new SEIR parameter calculation.",
+        "searches": [
+          "Saucedo et al. complete structural/practical-identifiability analysis",
+          "Tuncer--Le outbreak-model identifiability literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.15076",
+        "DOI 10.3934/math.20241204",
+        "DOI 10.1016/j.mbs.2018.02.004",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cumulative classification alone does not imply that taking \\(C(t)-C(t-h)\\) loses no parameter information.",
+          "The extra proof uses convergence to rule out nonconstant periodic differences, which is specific to the closed model."
+        ],
+        "reasoning": "The transfer requires an additional observation-equivalence theorem, not a re-labeling of the source output.",
+        "searches": [
+          "published cumulative-incidence ambiguity classification versus sliding-window incidence",
+          "practical incidence superiority versus perfect-data structural equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saucedo et al. use the same closed SEIR equations, cumulative incidence \\(C\\), and incidence as differences of \\(C\\).",
+          "Their cumulative-incidence structural classification is the one transferred by the audited theorem."
+        ],
+        "reasoning": "Fixed-window incidence and cumulative incidence are compared as observation maps on the identical dynamical system.",
+        "searches": [
+          "Resultary query: SEIR fixed-window incidence cumulative incidence structural identifiability same ambiguity",
+          "Saucedo et al. arXiv:2401.15076 / AIMS Mathematics 9 (2024)",
+          "Tuncer--Le DOI 10.1016/j.mbs.2018.02.004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact same-model window-equivalence theorem was retrieved."
+        ],
+        "reasoning": "Search absence is supporting only; the primary source's division between cumulative structural analysis and incidence practical analysis is the substantive evidence.",
+        "searches": [
+          "Resultary current search for fixed-window SEIR incidence structural equivalence",
+          "targeted current web search for cumulative-versus-incidence structural identifiability"
+        ]
+      },
+      "rationale": "Saucedo et al. analyze cumulative-incidence structural identifiability and report markedly better practical identifiability from incidence, but their incidence observable is a time difference of cumulative incidence and their structural tools did not resolve that difference output. The audited periodic-plus-convergent argument closes exactly that gap and proves that the practical improvement cannot come from a different perfect-data ambiguity class. Current Resultary searches did not retrieve a prior same-model fixed-window equivalence theorem.",
+      "residual_risks": [
+        "A general systems-identification result on convergent integrators and sliding differences could subsume the elementary equivalence lemma under more abstract terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CUMULATIVE_STRUCTURAL_ANALYSIS_WITH_INCIDENCE_GAP",
+          "evidence": "The paper provides the load-bearing cumulative-incidence classification and practical incidence results but not the audited continuous fixed-window equivalence.",
+          "identifier_or_url": "arXiv:2401.15076; DOI 10.3934/math.20241204",
+          "material_read": "primary open article material defining the SEIR/cumulative outputs and reporting the structural/practical identifiability results; the accessible full article and arXiv metadata were inspected",
+          "method": "primary full-text/web inspection",
+          "title": "Comparative Analysis of Practical Identifiability Methods for an SEIR Model",
+          "trigger": "same model, cumulative structural classification, and incidence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Saucedo et al. 2024",
+        "Tuncer--Le 2018",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The theorem resolves a concrete methodological gap in a published identifiability comparison and cleanly separates structural from practical reasons for preferring incidence data. It is short, but the distinction is scientifically consequential for interpreting finite-noise experiments and uses a model-specific convergence fact to establish exact observation equivalence.",
+      "residual_risks": [
+        "The result does not compare Fisher information, noise sensitivity, or finite sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is for perfect continuous sliding-window data, not a finite list of nonoverlapping reported counts.",
+    "The convergence argument uses the closed no-demography SEIR model; it need not extend to forced or demographic models with unbounded cumulative incidence.",
+    "A general systems-identification result on convergent integrators and sliding differences could subsume the elementary equivalence lemma under more abstract terminology.",
+    "The result does not compare Fisher information, noise sensitivity, or finite sampling."
+  ]
+}

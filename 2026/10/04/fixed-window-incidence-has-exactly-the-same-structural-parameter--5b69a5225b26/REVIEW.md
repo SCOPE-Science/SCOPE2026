@@ -1,27 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. If two fixed-window incidence outputs agree, the difference of their cumulative outputs is periodic with the reporting window. In the closed nonnegative SEIR model,
-\[
-C(t)=C(0)+S(0)-S(t),
-\]
-and \(S(t)\) is monotone and bounded, so every cumulative trajectory converges. A periodic function with a limit is constant. Hence fixed-window incidence and cumulative incidence have exactly the same parameter indistinguishability classes up to an irrelevant additive shift of the auxiliary variable \(C\). The instantaneous-incidence case follows by integration.
+PASS
 
-The source's cumulative structural-identifiability classification and its twofold alternative parameter branch were checked directly in the primary full text.
+In the closed nonnegative SEIR system, \(\dot C=\beta SI=-\dot S\), so \(C(t)=C(0)+S(0)-S(t)\) and \(C\) converges because \(S\) is nonincreasing and bounded below. If two perfect sliding-window outputs agree, \(D(t)=C_1(t)-C_2(t)\) satisfies \(D(t+h)=D(t)\). Because \(D\) also converges, every periodic value equals the same limit, so \(D\) is constant. A constant shift of the auxiliary \(C\) state has no effect on \(S,E,I,R\) or the parameters, hence perfect window-incidence observation has exactly the same parameter equivalence relation as perfect cumulative-incidence observation. Equality of instantaneous incidences gives the same conclusion by integration. The parameter involution transcribed from the source preserves the three source input-output combinations and is checked exactly by the assigned verifier.
 
-## Originality
+## originality
 
-PASS. The motivating paper explicitly states that it could not perform structural identifiability for incidence defined as a time difference and omits that case from its structural table. Searches by source title, SEIR incidence/cumulative identifiability, derivative-output language, and fixed-window incidence found no source-specific theorem closing this gap.
+PASS
 
-## Value
+Saucedo et al. analyze cumulative-incidence structural identifiability and report markedly better practical identifiability from incidence, but their incidence observable is a time difference of cumulative incidence and their structural tools did not resolve that difference output. The audited periodic-plus-convergent argument closes exactly that gap and proves that the practical improvement cannot come from a different perfect-data ambiguity class. Current Resultary searches did not retrieve a prior same-model fixed-window equivalence theorem.
 
-PASS. The source's main practical comparison reports incidence as more identifiable than cumulative incidence. The theorem proves that this advantage is not structural for the model under perfect continuous observation. It therefore isolates the cause to finite sampling, measurement noise, weighting, or optimization and completes the missing structural classification.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Saucedo et al., arXiv:2401.15076 / DOI 10.3934/math.20241204. Tuncer and Le (2018), DOI 10.1016/j.mbs.2018.02.004, is earlier outbreak-identifiability literature using cumulative-incidence observations, but the inspected accessible material does not contain the fixed-window equivalence theorem.
+The theorem resolves a concrete methodological gap in a published identifiability comparison and cleanly separates structural from practical reasons for preferring incidence data. It is short, but the distinction is scientifically consequential for interpreting finite-noise experiments and uses a model-specific convergence fact to establish exact observation equivalence.
 
-The result does not claim equal practical Fisher information or equal finite-grid estimability. It applies to perfect continuous sliding-window incidence in the closed SEIR model.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
