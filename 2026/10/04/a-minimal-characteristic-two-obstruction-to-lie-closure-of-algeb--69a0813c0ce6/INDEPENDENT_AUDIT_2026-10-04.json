@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:54:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed matrices reconstruct exactly. In characteristic \\(2\\), for \\(B=\begin{pmatrix}1&1\\0&1\\end{pmatrix}\\) and \\(C=\begin{pmatrix}1&0\\1&0\\end{pmatrix}\\), direct multiplication gives \\([B,C]=B\\), so \\(E=kB+kC\\) is Lie closed. For \\(v=(x,y)^{\\mathsf T}\\), the parameter-to-value matrix is \\(\begin{pmatrix}x+y&x\\y&x\\end{pmatrix}\\) with determinant \\(x^2\\); hence only the direction \\(x=0\\) constrains the algebraic reflexive hull, yielding exactly \\(\\operatorname{Ref}_a(E)=\\{\begin{pmatrix}a&b\\c&b\\end{pmatrix}\\}\\). The two submitted hull elements have commutator \\(\begin{pmatrix}1&0\\1&1\\end{pmatrix}\\), which violates that equation. Dimension \\(1\\) is impossible because its endomorphism algebra is commutative.",
+      "risks": [
+        "The proof establishes the characteristic-two counterexample and dimension minimality only; it does not classify odd positive characteristic or realize the chosen \\(E\\) as a full derivation algebra."
+      ],
+      "sources": [
+        "Frozen RESULT.md, SLOGAN.txt, AUDIT.json and VERIFICATION.md at the assigned inventory commit",
+        "Z. Hao and L. Chen, arXiv:2609.09198v1, Definition 2.1, Lemma 2.6 and Theorem 2.7, complete manuscript"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source's broader structural theorem is restricted by its standing \\(\\mathbb C\\) convention and its proof invokes complex matrix exponentials."
+        ],
+        "reasoning": "No inspected broader theorem removed the characteristic hypothesis in a way that would dominate the counterexample.",
+        "searches": [
+          "arXiv:2609.09198v1, Lemma 2.6 and Theorem 2.7",
+          "Hao--Chen references to Hadwin, Larson and Bracic on algebraic reflexivity",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.09198v1",
+        "Resultary published-finding search for the exact characteristic-two formulation",
+        "Fresh web/literature searches for algebraic-reflexivity Lie-closure failures in positive characteristic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.7 applies under the paper's finite-dimensional complex convention; characteristic \\(2\\) lies outside its hypotheses.",
+          "The submitted matrices explicitly falsify a characteristic-free extension."
+        ],
+        "reasoning": "The prior complex theorem neither implies nor contradicts the submitted characteristic-two boundary result.",
+        "searches": [
+          "arXiv:2609.09198v1, Theorem 2.7",
+          "fresh exact-form literature searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hao--Chen define the same hull and state Lie closure under their standing complex-vector-space convention.",
+          "No searched result supplied the submitted two-dimensional characteristic-two family or its hull equation."
+        ],
+        "reasoning": "The final claim is a field-boundary counterexample, not an alternative wording of the complex theorem.",
+        "searches": [
+          "Resultary: algebraic reflexive hull Lie subalgebra characteristic 2 counterexample two dimensional",
+          "arXiv:2609.09198v1, Definition 2.1 and Theorem 2.7",
+          "literature search: algebraic reflexive hull Lie subalgebra characteristic 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The current submitted record was the only exact topical hit; other high-ranked characteristic-two records concern different algebraic objects."
+        ],
+        "reasoning": "This is not a tabulated invariant. Database nonduplication is supporting evidence only, not the basis of novelty.",
+        "searches": [
+          "Resultary exact semantic query for characteristic-two algebraic reflexive hull Lie closure"
+        ]
+      },
+      "rationale": "The closest primary theorem is explicitly proved in the finite-dimensional complex setting. Its key normalizer lemma uses matrix exponentials and differentiation, and it does not state a positive-characteristic extension. Fresh Resultary and literature searches for the characteristic-two hull equation, low-dimensional counterexamples and equivalent operator-space formulations found the submitted record itself and unrelated characteristic-two results, but no earlier statement that covers this example. This is therefore original on a best-of-knowledge basis, with older algebraic-reflexivity terminology retained as the main residual risk.",
+      "residual_risks": [
+        "Older operator-space algebraic-reflexivity literature may contain a small-field example under different terminology; no such statement was located in the sources searched.",
+        "Odd positive characteristic remains outside the final claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "The paper states that vector spaces are finite-dimensional over \\(\\mathbb C\\) unless otherwise stated.",
+            "Lemma 2.6 uses matrix exponentials and differentiation; no positive-characteristic theorem or counterexample is stated."
+          ],
+          "identifier_or_url": "arXiv:2609.09198v1",
+          "material_read": "Complete 10-page manuscript, including the standing field convention, Definition 2.1, Lemmas 2.3--2.6 and Theorem 2.7.",
+          "method": "Lawful full-text PDF inspection after public retrieval routes were checked.",
+          "title": "Local derivations is a Lie algebra",
+          "trigger": "Exact theorem whose field boundary is being tested."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated sharp boundary to a newly stated structural theorem: characteristic-free Lie closure fails over every characteristic-two field and already in the smallest possible vector-space dimension. The exact hull computation exposes the mechanism rather than merely reporting a finite-field example.",
+      "risks": [
+        "The result is a boundary theorem, not a classification of all positive characteristics."
+      ],
+      "sources": [
+        "Exact symbolic construction in the frozen package",
+        "Hao--Chen Theorem 2.7 as the motivating structural theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim is made for odd positive characteristic.",
+    "The displayed Lie subalgebra is not asserted to be the full derivation algebra of a concrete algebra."
+  ],
+  "schema_version": 1
+}

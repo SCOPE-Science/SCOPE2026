@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the Lie bracket, computes the algebraic reflexive hull for every vector, and exhibits an explicit commutator leaving the hull. The determinant calculation \(x^2\) proves the hull formula uniformly over every characteristic-two field. Dimension \(2\) is minimal because \(\operatorname{End}_k(k)\) is commutative.
+## correctness
 
-## Originality
-PASS. The closest source proves the Lie-closure theorem over finite-dimensional complex vector spaces and explicitly uses complex matrix exponentials in the normalizer argument. Exact-form, alias, characteristic, and semantic searches did not locate the displayed family or an equivalent characteristic-two boundary theorem. The main residual risk is older algebraic-reflexivity literature using different terminology.
+PASS
 
-## Value
-PASS. This is a motivated boundary result for a new structural theorem, not a routine recomputation: it shows that the field hypothesis cannot simply be discarded, works over every characteristic-two field rather than one finite field, and is dimension-minimal.
+The displayed matrices reconstruct exactly. In characteristic \(2\), for \(B=egin{pmatrix}1&1\0&1\end{pmatrix}\) and \(C=egin{pmatrix}1&0\1&0\end{pmatrix}\), direct multiplication gives \([B,C]=B\), so \(E=kB+kC\) is Lie closed. For \(v=(x,y)^{\mathsf T}\), the parameter-to-value matrix is \(egin{pmatrix}x+y&x\y&x\end{pmatrix}\) with determinant \(x^2\); hence only the direction \(x=0\) constrains the algebraic reflexive hull, yielding exactly \(\operatorname{Ref}_a(E)=\{egin{pmatrix}a&b\c&b\end{pmatrix}\}\). The two submitted hull elements have commutator \(egin{pmatrix}1&0\1&1\end{pmatrix}\), which violates that equation. Dimension \(1\) is impossible because its endomorphism algebra is commutative.
 
-The result does not classify odd positive characteristic and does not identify the chosen Lie subalgebra as a derivation algebra of a concrete algebra.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary theorem is explicitly proved in the finite-dimensional complex setting. Its key normalizer lemma uses matrix exponentials and differentiation, and it does not state a positive-characteristic extension. Fresh Resultary and literature searches for the characteristic-two hull equation, low-dimensional counterexamples and equivalent operator-space formulations found the submitted record itself and unrelated characteristic-two results, but no earlier statement that covers this example. This is therefore original on a best-of-knowledge basis, with older algebraic-reflexivity terminology retained as the main residual risk.
+
+## value
+
+PASS
+
+This is a motivated sharp boundary to a newly stated structural theorem: characteristic-free Lie closure fails over every characteristic-two field and already in the smallest possible vector-space dimension. The exact hull computation exposes the mechanism rather than merely reporting a finite-field example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

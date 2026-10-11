@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically from the displayed matrices.
+# Independent mathematical audit
 
-For \(B=\begin{pmatrix}1&1\\0&1\end{pmatrix}\) and \(C=\begin{pmatrix}1&0\\1&0\end{pmatrix}\), characteristic \(2\) gives \([B,C]=B\). Hence their span is Lie closed.
+## correctness
 
-For \(M(s,t)=\begin{pmatrix}s+t&s\\t&s\end{pmatrix}\) and \(v=(x,y)^{\mathsf T}\), the linear map \((s,t)\mapsto M(s,t)v\) has coefficient matrix \(\begin{pmatrix}x+y&x\\y&x\end{pmatrix}\) and determinant \(x^2\). Therefore all \(x\ne0\) directions are surjective, while the \(x=0\) direction has image \(k(1,1)^{\mathsf T}\). This proves the exact hull equation.
+PASS
 
-The matrices \(X=\begin{pmatrix}0&1\\0&1\end{pmatrix}\) and \(Y=\begin{pmatrix}0&0\\1&0\end{pmatrix}\) satisfy the hull equation, whereas \([X,Y]=\begin{pmatrix}1&0\\1&1\end{pmatrix}\) does not.
+The displayed matrices reconstruct exactly. In characteristic \(2\), for \(B=egin{pmatrix}1&1\0&1\end{pmatrix}\) and \(C=egin{pmatrix}1&0\1&0\end{pmatrix}\), direct multiplication gives \([B,C]=B\), so \(E=kB+kC\) is Lie closed. For \(v=(x,y)^{\mathsf T}\), the parameter-to-value matrix is \(egin{pmatrix}x+y&x\y&x\end{pmatrix}\) with determinant \(x^2\); hence only the direction \(x=0\) constrains the algebraic reflexive hull, yielding exactly \(\operatorname{Ref}_a(E)=\{egin{pmatrix}a&b\c&b\end{pmatrix}\}\). The two submitted hull elements have commutator \(egin{pmatrix}1&0\1&1\end{pmatrix}\), which violates that equation. Dimension \(1\) is impossible because its endomorphism algebra is commutative.
 
-No computer enumeration is needed for the theorem. No claim is made for odd positive characteristic or for local derivation algebras of a specific algebra.
+## originality
+
+PASS
+
+The closest primary theorem is explicitly proved in the finite-dimensional complex setting. Its key normalizer lemma uses matrix exponentials and differentiation, and it does not state a positive-characteristic extension. Fresh Resultary and literature searches for the characteristic-two hull equation, low-dimensional counterexamples and equivalent operator-space formulations found the submitted record itself and unrelated characteristic-two results, but no earlier statement that covers this example. This is therefore original on a best-of-knowledge basis, with older algebraic-reflexivity terminology retained as the main residual risk.
+
+## value
+
+PASS
+
+This is a motivated sharp boundary to a newly stated structural theorem: characteristic-free Lie closure fails over every characteristic-two field and already in the smallest possible vector-space dimension. The exact hull computation exposes the mechanism rather than merely reporting a finite-field example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
