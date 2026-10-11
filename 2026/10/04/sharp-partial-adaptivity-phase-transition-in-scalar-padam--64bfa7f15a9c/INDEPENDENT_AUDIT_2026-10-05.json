@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:09:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substituting \\(g_t=\\lambda x_t\\) and \\(\\beta_1=\\beta_2=0\\) into Algorithm 1 gives exactly \\(x_{t+1}=x_t(1-q_t)\\) with \\(q_t=a/M_t^{2p}\\). If \\(q_t\\le2\\), the historical maximum freezes and the dynamics become linear; if \\(q_t>2\\), a new maximum is created and \\(q_{t+1}=q_t/(q_t-1)^{2p}\\). For \\(p\\le1/4\\), \\((q-1)^{2p}\\le\\sqrt{q-1}\\) and \\(q>2\\sqrt{q-1}\\), so the interval \\((2,\\infty)\\) is invariant and the decreasing sequence tends to its only fixed point \\(2\\). For \\(p>1/4\\), the derivative at the fixed point is \\(1-4p<0\\), so a decreasing orbit approaching from above must enter a neighborhood mapped below \\(2\\), giving finite stabilization. Fresh map iterations reproduced both regimes, and the frozen direct-Padam verifier was read.",
+      "risk": "The conclusion is deliberately restricted to zero momentum, zero second-moment smoothing, fixed step, no denominator epsilon, and one dimension.",
+      "sources": [
+        "arXiv:1806.06763",
+        "arXiv:1808.05671",
+        "frozen RESULT.md and verify.py",
+        "fresh recurrence replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original convergence theorem excludes the audited \\(\\beta_1=\\beta_2=0\\) boundary through its strict parameter condition.",
+          "The follow-up source studies nonconvex convergence guarantees, not fixed-step scalar bifurcation dynamics."
+        ],
+        "reasoning": "Neither prior theorem implies the boundary-model orbit classification.",
+        "searches": [
+          "Chen et al. full Padam paper, Algorithm 1, Theorem 4.3 and Corollary 4.5",
+          "Zhou et al. arXiv:1808.05671"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1806.06763",
+        "arXiv:1808.05671",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The repeated appearance of \\(1/4\\) is not itself coverage: in the source it comes from the exponent range permitting a rate simplification, while here it is the sign change of \\(F_p'(2)=1-4p\\).",
+          "The audited boundary parameters are outside the strict hypothesis of the source's main Padam convergence theorem."
+        ],
+        "reasoning": "The final claim identifies a distinct exact dynamical mechanism not implied by the existing convergence bounds.",
+        "searches": [
+          "arXiv:1806.06763 Algorithm 1 and Corollary 4.5",
+          "arXiv:1808.05671 convergence framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Padam paper defines \\(\\widehat v_t=\\max(\\widehat v_{t-1},v_t)\\) and division by \\(\\widehat v_t^p\\).",
+          "Its \\(p\\le1/4\\) corollary concerns a stochastic stationarity rate, not scalar orbit dynamics."
+        ],
+        "reasoning": "Scalar max-memory recurrence, two-cycle, overshoot and general Padam formulations were compared.",
+        "searches": [
+          "Resultary query: Padam scalar quadratic beta1 beta2 zero fixed step phase transition p=1/4 two-cycle overshoot",
+          "arXiv:1806.06763",
+          "arXiv:1808.05671"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published Resultary record with the same recurrence or phase transition was returned."
+        ],
+        "reasoning": "The claim is analytic rather than tabular.",
+        "searches": [
+          "Resultary exact semantic search for the \\(p=1/4\\) scalar Padam cycle threshold"
+        ]
+      },
+      "rationale": "Chen et al. define the exact max-memory Padam rule and their published theory also singles out \\(p\\le1/4\\) in a stochastic convergence corollary, but that is a different theorem under different assumptions. In particular, their Theorem 4.3 requires \\(\\beta_1<\\beta_2^{2p}\\), which the boundary choice \\(\\beta_1=\\beta_2=0\\) does not satisfy. The paper does not derive the scalar overshoot map, the critical radius, persistent two-cycle, finite-crossing dichotomy, or exact resonance set. The follow-up convergence paper treats broad adaptive methods rather than this max-memory dynamical normal form. Resultary returned no matching phase-transition theorem.",
+      "residual_risks": [
+        "A later optimizer-dynamics paper may study the same degenerate boundary under AMSGrad/normalized-gradient terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_ALGORITHM_AND_DIFFERENT_ONE_QUARTER_BOUND_NOT_SCALAR_PHASE_TRANSITION",
+          "evidence": "Algorithm 1 has the historical maximum and exponent \\(p\\); Theorem 4.3 assumes \\(\\beta_1<\\beta_2^{2p}\\), excluding the audited zero-zero boundary.",
+          "identifier_or_url": "arXiv:1806.06763",
+          "material_read": "Open full PDF including Algorithm 1, Theorem 4.3 and Corollary 4.5; the algorithm page was visually inspected.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Closing the Generalization Gap of Adaptive Gradient Methods in Training Deep Neural Networks",
+          "trigger": "Defines Padam and contains the pre-existing \\(p\\le1/4\\) theoretical range."
+        },
+        {
+          "assessment": "GENERAL_NONCONVEX_CONVERGENCE_NOT_ORBIT_CLASSIFICATION",
+          "evidence": "The source proves stationarity convergence bounds for broad adaptive methods and does not state the fixed-step scalar max-memory map or two-cycle transition.",
+          "identifier_or_url": "arXiv:1808.05671",
+          "material_read": "Open arXiv abstract and theorem scope.",
+          "method": "Lawful open-source inspection.",
+          "title": "On the Convergence of Adaptive Gradient Methods for Nonconvex Optimization",
+          "trigger": "Closest follow-up theoretical analysis of adaptive methods including AMSGrad-type memory."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result exposes an exact bifurcation in a named adaptive optimizer, explains why the same numerical threshold \\(1/4\\) can arise from a completely different mechanism, and supplies both the persistent-cycle and self-stabilizing sides with an exact critical radius. The boundary model is intentionally simple but mathematically diagnostic rather than an arbitrary parameter slice.",
+      "risk": "It should not be generalized to practical Padam hyperparameters without new analysis.",
+      "sources": [
+        "arXiv:1806.06763"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the scalar quadratic and the exact fixed-step Padam boundary specialization \\(\\beta_1=\\beta_2=0\\), the max-memory dynamics have a sharp exponent transition at \\(p=1/4\\): for \\(0<p\\le1/4\\) every sufficiently small nonzero initialization approaches the nonzero symmetric two-cycle at the critical radius, whereas for \\(p>1/4\\) overshoot crosses the stability threshold in finitely many steps and then converges geometrically, except for exact resonance at the two-cycle.",
+  "limitations": [
+    "Scalar deterministic quadratic only.",
+    "Fixed learning rate, \\(\\beta_1=\\beta_2=0\\), and no denominator epsilon.",
+    "Exact resonance can preserve a two-cycle for \\(p>1/4\\)."
+  ],
+  "schema_version": 1
+}

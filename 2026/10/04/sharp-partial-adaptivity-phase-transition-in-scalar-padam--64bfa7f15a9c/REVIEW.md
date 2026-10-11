@@ -1,33 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The specialized Padam recurrence reduces exactly to
-\[
-x_{t+1}=x_t(1-q_t),
-\qquad
-q_t=\frac{\alpha\lambda^{1-2p}}{M_t^{2p}}.
-\]
-While \(q_t>2\), each step creates a new historical maximum and
-\[
-q_{t+1}=\frac{q_t}{(q_t-1)^{2p}}.
-\]
-For \(p\le1/4\), the inequality
-\[
-q/(q-1)^{2p}>2
-\]
-holds for every \(q>2\), so the overshoot region is invariant and the decreasing sequence converges to the unique fixed point \(2\). For \(p>1/4\), the derivative at that fixed point is \(1-4p<0\), forcing a finite crossing below or onto \(2\). Once \(q_t\le2\), the historical maximum freezes and the dynamics are exactly linear.
+PASS
 
-Risk: the theorem is for a boundary specialization, not the default smoothed and momentum Padam hyperparameters.
+Substituting \(g_t=\lambda x_t\) and \(\beta_1=\beta_2=0\) into Algorithm 1 gives exactly \(x_{t+1}=x_t(1-q_t)\) with \(q_t=a/M_t^{2p}\). If \(q_t\le2\), the historical maximum freezes and the dynamics become linear; if \(q_t>2\), a new maximum is created and \(q_{t+1}=q_t/(q_t-1)^{2p}\). For \(p\le1/4\), \((q-1)^{2p}\le\sqrt{q-1}\) and \(q>2\sqrt{q-1}\), so the interval \((2,\infty)\) is invariant and the decreasing sequence tends to its only fixed point \(2\). For \(p>1/4\), the derivative at the fixed point is \(1-4p<0\), so a decreasing orbit approaching from above must enter a neighborhood mapped below \(2\), giving finite stabilization. Fresh map iterations reproduced both regimes, and the frozen direct-Padam verifier was read.
 
-## Originality
+## originality
 
-PASS. The defining Padam paper introduces the historical maximum and the exponent \(p\), but the inspected full text does not state a deterministic scalar two-cycle or a max-memory phase transition. The follow-up analysis highlights \(p\le1/4\) for a sparse-gradient convergence bound with horizon-dependent learning rates, but does not imply the constant-step scalar dichotomy. Focused searches for Padam quadratic cycles, partial-adaptivity limit cycles, and exact \(p=1/4\) dynamics did not identify a covering result.
+PASS
 
-Residual risk: an equivalent scalar observation may appear in informal optimizer analyses that are not indexed under Padam.
+Chen et al. define the exact max-memory Padam rule and their published theory also singles out \(p\le1/4\) in a stochastic convergence corollary, but that is a different theorem under different assumptions. In particular, their Theorem 4.3 requires \(\beta_1<\beta_2^{2p}\), which the boundary choice \(\beta_1=\beta_2=0\) does not satisfy. The paper does not derive the scalar overshoot map, the critical radius, persistent two-cycle, finite-crossing dichotomy, or exact resonance set. The follow-up convergence paper treats broad adaptive methods rather than this max-memory dynamical normal form. Resultary returned no matching phase-transition theorem.
 
-## Value
+## value
 
-PASS. Padam's central design parameter is precisely the exponent that interpolates between nonadaptive momentum and full AMSGrad normalization. The theorem shows that this exponent can qualitatively change deterministic dynamics even on a scalar quadratic: below the sharp threshold, the historical max locks the method onto a nonzero limiting oscillation from small initial conditions, whereas above it the same max memory forces finite self-stabilization. The threshold also coincides numerically with a range emphasized in Padam's convergence literature, making the boundary especially informative as a diagnostic.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The result exposes an exact bifurcation in a named adaptive optimizer, explains why the same numerical threshold \(1/4\) can arise from a completely different mechanism, and supplies both the persistent-cycle and self-stabilizing sides with an exact critical radius. The boundary model is intentionally simple but mathematically diagnostic rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
