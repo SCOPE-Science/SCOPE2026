@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The proof has two independent parts.
 
-For the positive statement, write \(P(\nu)=\pi_*\nu\). If \(\mu\) is extreme in the affine image and \(P^{-1}(\mu)\) contains a nontrivial convex combination, pushing that combination forward forces both endpoint measures back into the same fibre. Hence the fibre is a face. Compactness gives an extreme point of the fibre; the face property makes that measure extreme in the full invariant-measure simplex, which is equivalent to ergodicity of the shift flow. This argument requires no injectivity of \(P\).
+# Independent mathematical audit
 
-For the time-average consequence, Birkhoff is applied on trajectory space to \(f\circ\pi\). Because \(\pi(\sigma_t\phi)=\phi(t)\), its ergodic average is exactly the trajectory average. Disintegration of the full-measure Birkhoff set over \(\pi\) yields at least one such trajectory for \(\mu\)-almost every initial state.
+## correctness
 
-For the counterexample, \(S_+\) and \(S_-\) are disjoint periodic shift orbits. Their unique invariant probabilities \(\nu_+\) and \(\nu_-\) both have one-time marginal equal to Haar measure \(m\). Any invariant probability on the disjoint union is \(\lambda\nu_++(1-\lambda)\nu_-\), so the base invariant-measure set is the singleton \(\{m\}\). The half-half mixture gives mass \(1/2\) to the invariant component \(S_+\), so it is not ergodic.
+PASS
 
-Limits: the argument does not establish extremality of every invariant measure that is ergodic in the strong-backward-invariance sense, and it does not characterize other possible trajectory averages. No computational experiment is used.
+Let P be the affine pushforward from shift-invariant trajectory measures to their time-zero marginals. For an extreme marginal mu, the fiber P^{-1}(mu) is a nonempty compact convex face: any convex decomposition of a point in the fiber pushes forward to a convex decomposition of mu, so both endpoints remain in the fiber. An extreme point of that face is extreme among all shift-invariant measures and hence ergodic, proving existence of an ergodic lift. Birkhoff applied to f composed with evaluation and disintegration over evaluation then give the almost-everywhere existence of a trajectory realizing the marginal mean. The two-direction circle example has exactly two ergodic component measures with the same Haar marginal, so their half-half mixture is a nonergodic chosen lift of an extreme marginal. The complete Suda preprint was read; its Theorem 3.7 makes the invalid stronger chosen-lift inference, confirming that the audited distinction is mathematically necessary.
+
+## originality
+
+PASS
+
+The positive existence mechanism is standard compact-convex geometry and ordinary factor-map theory already records existence of ergodic lifts of ergodic factor measures. However, the audited scientific claim is a correction of the current Suda trajectory-space theorem: the complete primary text explicitly states Theorem 3.7 as 'Extremal invariant measures are finely ergodic' for a displayed lift and its proof incorrectly infers extremality of that lift from extremality of its pushforward. The explicit two-direction circle system refutes the stronger chosen-lift reading, while the face argument gives the sharp existential replacement and recovers a concrete almost-everywhere time-average value in Suda's nonunique-trajectory setting. No checked source states this exact failure/repair package in that framework.
+
+## value
+
+PASS
+
+The distinction fixes a central logical bridge between base-space extremality and trajectory-space Birkhoff theory in a current nonunique-orbit framework. It prevents an incorrect arbitrary-lift conclusion, identifies the strongest valid replacement, and preserves a concrete almost-everywhere time-average consequence. A sharp correction with an explicit counterexample and surviving theorem is substantively motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
