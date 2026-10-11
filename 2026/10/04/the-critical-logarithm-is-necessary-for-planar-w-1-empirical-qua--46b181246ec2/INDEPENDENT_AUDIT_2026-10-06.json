@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:17:56.234259Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 6668e29722c34db317b1b93e68e76e33fd59f26b",
+        "assigned verify.py blob 419e7deafa0477a9029e5b3692f247ebf43d559e",
+        "Seeger, arXiv:2510.03451v1 / DOI:10.1214/26-ECP775"
+      ],
+      "rationale": "The upper bound is exactly Seeger's critical specialization at \\((d,p,q)=(2,1,2)\\). For the lower bound, the exact matching identity is valid even with repeated target atoms: after multiplying an optimal transport plan by \\(2N\\), the bipartite transportation polytope has integral supplies two at each indexed quantizer slot and unit demands at each indexed target atom, so an integral optimum pairs the targets; triangle inequality gives the reverse matching bound, while placing one quantizer on each matched segment gives equality. The multiscale construction has \\(K=\\lfloor\\log N/(4\\log8)\\rfloor\\), radii \\(8^j\\), and \\(2m_j^2\\) grid atoms per scale. Its second moment is at most \\(1/8\\). Scale separation makes every matching edge incident to a scale-j special point cost at least its local separation in the required edgewise sense, giving total matching cost at least \\(\\sqrt{NK}/32\\) for large N and therefore \\(e_N\\ge(1/64)\\sqrt{K/N}\\), which is the claimed \\(\\sqrt{\\log N/N}\\) order. The bundled finite verifier checks only representative floor inequalities; the all-N result rests on the analytic estimates.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior works give fixed-measure asymptotics, upper bounds, or one-dimensional analyses.",
+          "They do not supply the uniform planar critical second-moment minimax lower bound."
+        ],
+        "reasoning": "High-resolution theorems under stronger or noncritical hypotheses do not dominate the N-dependent minimax construction.",
+        "searches": [
+          "Quattrocchi arXiv:2408.12924",
+          "Chevallier 2018",
+          "Bencheikh--Jourdain 2022",
+          "Seeger arXiv:2510.03451v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.03451v1",
+        "DOI:10.1214/26-ECP775",
+        "arXiv:2408.12924",
+        "Chevallier 2018",
+        "Bencheikh--Jourdain 2022",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An upper bound cannot prove necessity of its logarithmic factor.",
+          "Fixed-measure high-resolution asymptotics do not imply a worst-case family that varies with N under only the critical second-moment bound."
+        ],
+        "reasoning": "The exact matching identity and multiscale construction provide the missing lower-bound mechanism.",
+        "searches": [
+          "Direct comparison with Seeger Theorem 1.1 and its optimality discussion",
+          "Comparison with Quattrocchi arXiv:2408.12924"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's upper bound has exactly the logarithmic factor audited here.",
+          "The same source explicitly identifies necessity of that logarithm for critical dimension greater than one as an unresolved lower-bound problem."
+        ],
+        "reasoning": "The minimax necessity statement is precisely the sharpness question raised by the source, not a rephrasing of a known upper estimate.",
+        "searches": [
+          "Resultary query: planar W1 empirical quantization second moment critical logarithm minimax lower bound",
+          "Seeger arXiv:2510.03451v1 Theorem 1.1 and critical-dimension discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact theorem or table with this critical lower order was returned."
+        ],
+        "reasoning": "The claim is an asymptotic minimax theorem, not a finite table computation.",
+        "searches": [
+          "Resultary semantic search for the exact planar critical \\(\\sqrt{\\log N/N}\\) minimax order"
+        ]
+      },
+      "rationale": "Seeger's complete primary text was inspected at Theorem 1.1 and its critical-regime discussion. It gives the \\(N^{-1/2}\\sqrt{\\log N}\\) upper bound and explicitly says that for the critical dimension greater than one it is difficult to determine whether the logarithm is necessary and that useful lower bounds are the intricate issue. The submitted multiscale matching construction answers that question for the first planar case. Quattrocchi's fixed-measure high-resolution work is in a different regime and does not imply a uniform second-moment minimax lower bound at this critical triple. Targeted Resultary search returned no implication-equivalent lower-bound theorem.",
+      "residual_risks": [
+        "An older matching-based quantization lower bound under different terminology may overlap; targeted searches did not locate one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UPPER_BOUND_WITH_EXPLICIT_OPEN_SHARPNESS_QUESTION",
+          "evidence": "The source supplies the upper logarithm but explicitly does not settle its necessity in the audited planar critical case.",
+          "identifier_or_url": "arXiv:2510.03451v1; DOI:10.1214/26-ECP775",
+          "material_read": "Complete primary text around Theorem 1.1, the critical case \\(d=pq/(q-p)\\), and the discussion explaining that necessity of the logarithm for critical dimension greater than one requires nontrivial lower bounds.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "Error estimates for deterministic empirical approximations of probability measures",
+          "trigger": "Exact upper-bound source and explicit critical-sharpness discussion."
+        },
+        {
+          "assessment": "DIFFERENT_FIXED_MEASURE_HIGH_RESOLUTION_REGIME",
+          "evidence": "Its results do not imply the uniform critical second-moment minimax lower bound.",
+          "identifier_or_url": "arXiv:2408.12924",
+          "material_read": "Primary abstract/introduction-level scope and comparison as summarized in the exact source's literature discussion.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "Asymptotics for Optimal Empirical Quantization of Measures",
+          "trigger": "Closest fixed-measure empirical-quantization asymptotic source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Seeger 2026 primary paper",
+        "Quattrocchi 2024/2026 comparison"
+      ],
+      "rationale": "The theorem resolves an explicit sharpness question in the first genuinely planar critical empirical-quantization case. It proves that the source's logarithm is not a proof artifact under the natural critical second-moment assumption, via an exact matching representation and a reusable multiscale obstruction.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2510.03451v1",
+    "DOI:10.1214/26-ECP775",
+    "arXiv:2408.12924",
+    "Chevallier 2018",
+    "Bencheikh--Jourdain 2022",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the minimax order for \\((d,p,q)=(2,1,2)\\) is proved.",
+    "The lower-bound measure depends on N and need not be absolutely continuous.",
+    "No sharp leading constant or fixed-measure logarithmic obstruction is claimed."
+  ],
+  "residual_risks": [
+    "An older matching-based quantization lower bound under different terminology may overlap; targeted searches did not locate one."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "UPPER_BOUND_WITH_EXPLICIT_OPEN_SHARPNESS_QUESTION",
+      "evidence": "The source supplies the upper logarithm but explicitly does not settle its necessity in the audited planar critical case.",
+      "identifier_or_url": "arXiv:2510.03451v1; DOI:10.1214/26-ECP775",
+      "material_read": "Complete primary text around Theorem 1.1, the critical case \\(d=pq/(q-p)\\), and the discussion explaining that necessity of the logarithm for critical dimension greater than one requires nontrivial lower bounds.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "Error estimates for deterministic empirical approximations of probability measures",
+      "trigger": "Exact upper-bound source and explicit critical-sharpness discussion."
+    },
+    {
+      "assessment": "DIFFERENT_FIXED_MEASURE_HIGH_RESOLUTION_REGIME",
+      "evidence": "Its results do not imply the uniform critical second-moment minimax lower bound.",
+      "identifier_or_url": "arXiv:2408.12924",
+      "material_read": "Primary abstract/introduction-level scope and comparison as summarized in the exact source's literature discussion.",
+      "method": "Lawful open primary-source inspection.",
+      "title": "Asymptotics for Optimal Empirical Quantization of Measures",
+      "trigger": "Closest fixed-measure empirical-quantization asymptotic source."
+    }
+  ]
+}
