@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The graph follows from exactly m active independent facets at each of m^2+1 vertices. The Laplacian equations are obtained directly from all adjacency families. The zero-row/column symmetric and antisymmetric subspaces contribute eigenvalues m and m+2 with multiplicities m(m-3)/2 and (m-1)(m-2)/2. Orthogonal complement yields scalar 3x3 and m-1 standard 3x3 blocks, accounting for all dimensions. Their determinants match the stated quadratic/cubic, yielding the exact spanning-tree count by the matrix-tree theorem. Cubic monotonicity on (0,2), the quadratic lower-root bound, and signs at 1 and 1+1/m establish the spectral gap. Exact finite integer calculations are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kan and Tan, DOI:10.1155/2021/7671212, study clique insertion, defined as the line graph of full subdivision of the input graph: a different vertex replacement.",
+        "Behrend arXiv:2403.06975, introduction and Theorem 1, gives Ehrhart polynomials in the n>=m-1 regime.",
+        "Behrend et al. arXiv:2207.14253, Introduction p. 1, distinguishes P(m,2) for m>2 from stellohedron regimes n>=m."
+      ],
+      "reasoning": "Fully clique-inserted K_(m+1) has m(m+1) vertices, unlike the m^2+1 present vertices, so its eigenvalue formula does not directly subsume ours. Stellohedron (n>=m) results coincide with P(m,2) only at very small dimensions; they do not cover the all-m assertion for m>=3.",
+      "searches": [
+        "\"clique insertion\" star graph complete graph Laplacian spanning trees",
+        "\"clique-inserted graph\" \"line graph\" subdivision definition",
+        "\"partial permutohedra\" \"Laplacian\" graph",
+        "arXiv:2403.06975v1",
+        "2026 spectral expansion graph associahedra stellohedron"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.09901",
+      "arXiv:2207.14253",
+      "arXiv:2403.06975",
+      "doi:10.1155/2021/7671212",
+      "doi:10.1155/2013/757542",
+      "Published result: Laplacian spectrum and tree complexity of the dihedral noncyclic graph (2026)",
+      "Published result: Exact flip-distance enumerator of cross-polytope coherent monotone paths (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact edge-list form follows by specializing the known facet description and is explicitly credited, not claimed as novel.",
+        "The new cubic eigenvalue block and spanning-tree exponent product are obtained by a new linear-algebra decomposition; neither the existing face formula nor an Ehrhart formula entails an evaluated graph Laplacian.",
+        "Clique insertion (line graph of a fully subdivided graph) is a different graph operation from the partial truncation studied here."
+      ],
+      "reasoning": "Known face descriptions logically imply that one could construct the adjacency matrix and evaluate a determinant, but do not already state or imply the factorization or product without new computation. Likewise Kirchhoff gives an unevaluated cofactor identity for every graph, not the closed evaluated answer. The theorem distinguishes such general method coverage from actual result coverage.",
+      "searches": [
+        "arXiv:2207.14253 Proposition 5.7 Remark 5.9 Theorem 5.11",
+        "arXiv:2012.09901 Theorem 5.10 Theorem 5.11 Conjecture 5.30",
+        "\"clique-inserted graph\" \"line graph\" subdivision definition",
+        "Laplacian spectrum of clique inserted K_m plus apex or partially truncated simplex graph 0,2e_i,2e_i+e_j"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Behrend et al. arXiv:2207.14253, pp. 25-28, Proposition 5.7, Remark 5.9, Theorem 5.11: edges, Ehrhart and volume, not a Laplacian determinant.",
+        "No matching exact spectral polynomial was located in searched bibliographic records; this absence alone does not certify novelty."
+      ],
+      "reasoning": "The same graph can be described as the 1-skeleton of a simplex truncated at all vertices but one, or a partial vertex truncation of K_(m+1). The edge list and cubic factor were compared under these aliases. No actual source with the claimed factor was found; risk from unknown alternate names is retained.",
+      "searches": [
+        "\"partial permutohedra\" \"Laplacian\" graph",
+        "\"partial permutohedron\" \"spanning trees\" graph spectrum",
+        "\"truncated simplex\" \"spanning trees\" spectrum clique replacement",
+        "simplex truncated at m vertices except one truncated complete graph Laplacian characteristic polynomial with cubic factors spanning tree count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published result on the Laplacian spectrum of a dihedral noncyclic graph identifies a complete split graph; its vertex set, degrees and multiplicities do not match the present polytope graph.",
+        "The known P(m,2) Ehrhart data in arXiv:2207.14253 (Theorem 5.11) count lattice points/volume, not spanning trees of the 1-skeleton."
+      ],
+      "reasoning": "The closest indexed Laplacian table concerns a complete split graph, with a different spectrum and vertex count. No exact table for the present partial-truncation graph was located. Search failure by itself is not proof of originality.",
+      "searches": [
+        "partial permutohedron P(m,2) graph Laplacian eigenvalues spanning tree complexity Kirchhoff theorem degree m vertex m squared plus one",
+        "Laplacian spectrum of clique inserted K_m plus apex or partially truncated simplex graph 0,2e_i,2e_i+e_j",
+        "\"partial permutohedra\" \"spanning trees\" graph Laplacian eigenvalues"
+      ]
+    },
+    "rationale": "The source papers establish the partial-permutohedron vertices, face lattice, explicit P(m,2) inequalities and Ehrhart polynomial, not the full Laplacian polynomial or spanning-tree product. The theorem also is not entailed by standard clique insertion: that operation inserts a clique at every source vertex, whereas the present one-skeleton has a unique surviving untruncated apex. Search across synonyms, relevant published mathematical findings, and the primary literature found no stronger/equivalent result. Existing results about inballs and Euclidean diameters of partial permutohedra, and spanning trees of unrelated coherent-path graphs, do not imply this graph-spectral calculation. Alternate terminology remains a residual risk.",
+    "residual_risks": [
+      "An equivalent spectrum for a partially truncated complete graph under different terminology could have escaped the searches.",
+      "The complete article on fully clique-inserted graphs was not fully available via the accessed renderer; the operation was distinguished using its independently documented definition and graph order.",
+      "Literature comparisons are not independent verification and do not examine unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers polytope construction, vertex and edge characterization, volume and Ehrhart formulas; no matching spectral graph polynomial or tree count encountered.",
+        "evidence": [
+          "arXiv:2207.14253 §5.2 Proposition 5.7 and Remark 5.9; §5.3 Theorem 5.11, Eq. (5.9)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.14253",
+        "material_read": "PDF pages 0-2, 4-8, 25-28 including full primary adjacency/halfspace statements and Theorem 5.11; PDF searchable text checked for spanning tree, Laplacian, algebraic connectivity",
+        "method": "Direct source text and visual page reading, comparison of theorem statements and proof content",
+        "title": "Partial permutohedra",
+        "trigger": "Exactly the same polytopes and the same second-parameter-two range"
+      },
+      {
+        "assessment": "Supplies known polytope definition and combinatorics; graph spectra or spanning-tree product not given in the inspected results.",
+        "evidence": [
+          "arXiv:2012.09901 Theorems 5.10, 5.11, 5.24; Conjecture 5.30"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2012.09901",
+        "material_read": "Abstract, introduction and Section 5 including the stated facets, face lattices, and n=2 volume conjecture",
+        "method": "Direct PDF searchable text; inspected mathematical statements and relevant sections",
+        "title": "Partial permutation and alternating sign matrix polytopes",
+        "trigger": "Introduces the target polytope and original facet characterizations"
+      },
+      {
+        "assessment": "Ehrhart and generalized-permutohedron results; not an evaluated graph-spectral theorem.",
+        "evidence": [
+          "arXiv:2403.06975, Theorem 1 and §2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.06975",
+        "material_read": "PDF introduction, theorem and properties review pp. 0-2 and sections described in the paper",
+        "method": "Direct arXiv PDF reading and statement comparison",
+        "title": "Ehrhart polynomials of partial permutohedra",
+        "trigger": "Second standalone paper on precisely the same polytope family"
+      },
+      {
+        "assessment": "Applies to fully clique-inserted graphs (line graphs of subdivisions), not the partial truncation with a single apex. Restricted article rendering remains a residual access limitation.",
+        "evidence": [
+          "DOI:10.1155/2021/7671212, abstract",
+          "DOI:10.1155/2013/757542, description of clique-inserted graph"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2021/7671212",
+        "material_read": "Available abstract and searchable article overview; separate full-text definition of clique insertion checked via supporting literature",
+        "method": "Compared graph construction and vertex counts rather than relying on title",
+        "title": "Some Chemistry Indices of Clique-Inserted Graph of a Strongly Regular Graph",
+        "trigger": "Potentially stronger generic spectrum theorem for clique operations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eeb277af-b56a-44b2-b0d5-da1e17eda533",
+  "value": {
+    "rationale": "The second-parameter-two partial permutohedra form the first non-simplex case in a well-motivated family already studied for faces, Ehrhart polynomials and volume. Their m^2+1-vertex m-regular graphs have graph reliability and spectral connectivity invariants not supplied by those geometric statistics. The all-m theorem factors a growing characteristic polynomial into two small-degree factors and two integer eigenvalue families and gives a closed tree count and a nontrivial bounded spectral-gap regime; these are natural exact structural invariants, not a narrow arbitrary numerical table.",
+    "status": "PASS"
+  }
+}

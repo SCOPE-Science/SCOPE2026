@@ -1,0 +1,19 @@
+# Scientific review: Laplacian factorization and spanning-tree complexity of second partial permutohedra
+
+## Correctness — PASS
+
+The halfspace description of \(\mathcal P(m,2)\) is explicitly verified in the source (Behrend et al., arXiv:2207.14253, Theorem 5.11). All vertices are enumerated, and the active-facet test at each simple vertex gives exactly the four edge families stated in RESULT.md. Each row of the combinatorial Laplacian is reconstructed from that edge list. Its zero-row-and-column invariant subspace splits into symmetric and antisymmetric parts of provably computed dimensions. The complement decomposes into a 3-dimensional scalar block and \(m-1\) identical 3-dimensional standard blocks, giving the complete polynomial and accounting for all \(m^2+1\) coordinates. The matrix-tree theorem then gives the closed count, and explicit sign/monotonicity comparisons identify the algebraic connectivity. Exact integer determinants from the standalone checker corroborate small cases. There is no reliance on a numerical root fit or a finite census to prove an infinite family.
+
+## Originality — PASS with literature-coverage risk
+
+The closest primary paper (Behrend et al., arXiv:2207.14253, pages 25–28, notably Proposition 5.7, Remark 5.9 and Theorem 5.11) provides the geometry, combinatorial edge criterion, lattice Ehrhart polynomial, and volume; it does **not** state the Laplacian polynomial, its eigenvalue multiplicities, the spanning-tree product, or the spectral gap. The original Heuer–Striker source (arXiv:2012.09901) establishes partial-permutohedron face geometry, not these spectral invariants. Behrend's 2024 paper (arXiv:2403.06975, introduction and Theorem 1) focuses on Ehrhart polynomials, chiefly \(n\ge m-1\). Clique-insertion Laplacian papers concern the graph obtained as the line graph of a subdivided graph, which replaces **every** vertex by a clique. Here exactly one simplex vertex remains untruncated, and the graph has \(m^2+1\), rather than \(m(m+1)\), vertices. Those general statements cannot yield this polynomial merely by parameter substitution. Related published spectral computations concern different graphs. Independent undiscovered publications, particularly alternative names for partial truncations of simplices, remain a real but unresolved literature-search risk; database nonmatches alone are not a novelty proof.
+
+## Value — PASS
+
+Partial permutohedra are a natural, explicitly defined family with independently studied faces, volumes and lattice-point counts. The slice at second parameter two is the first non-simplex slice, and its graph has quadratically many vertices as the geometric dimension grows. The theorem gives every eigenvalue and multiplicity and an exact product for the graph's spanning-tree complexity, rather than a generic determinant algorithm. The result supplies electrical-network reliability information and a non-obvious spectral-gap phenomenon: despite growing degree, algebraic connectivity tends to one. The proof reduces growing determinant computations to two fixed-size blocks and two elementary eigenspaces. This is structurally motivated, not an arbitrary isolated numerical example.
+
+## Limits and closest work
+
+This review supports only the unweighted one-skeleton of \(\mathcal P(m,2)\) for integers \(m\ge3\). Extension to other partial-permutohedron parameters, other truncation patterns, edge-length weights, and higher-dimensional Laplacians is not claimed. The closest literature is arXiv:2012.09901, arXiv:2207.14253, arXiv:2403.06975, and DOI:10.1155/2021/7671212; see the exact scientific comparisons in AUDIT.json. The risk of earlier equivalent spectral results under graph-operation terminology is documented. An independent audit has not been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
