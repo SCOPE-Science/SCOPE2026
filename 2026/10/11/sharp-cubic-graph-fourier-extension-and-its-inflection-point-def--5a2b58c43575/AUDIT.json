@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every characteristic >3, the polynomial identity \\(x^3+y^3=(x+y)^3-3(x+y)xy\\) makes each nonzero-sum convolution fiber a unique unordered pair, with the sole exceptional zero fiber consisting of all antipodal pairs. Exact orthogonality gives \\(E=2A^2-2z^2-\\sum_t s_t^2-2\\sum_t r_t^2+|Z|^2\\). With tau=s-2r and B=A-sum tau, subtracting a quadratic optimum yields the displayed four-term exact deficit: two positive squares, \\(B^2-|Z|^2\\) is nonnegative, and \\(\\sum_t\\tau_t(A+B-(s_t+2r_t)/2)\\) is nonnegative. The last coefficient is at least \\(s_t/2+r_t\\) and is strict if \\(\\tau_t>0\\). Thus all equalities are necessary and sufficient, attained by \\(f(0)=\\sqrt3\\), \\(f(t)=\\sqrt2\\) otherwise, and phases coupled antipodally. Distinct norm conventions, characteristics two or three, and unproved global stability claims are explicitly excluded. The Python verifier reproduces exact integer convolution identities in 40 tests and character sums in 20 tests across five fields, including \\(\\mathbb F_{25}\\); finite tests do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koh–Shen, arXiv:1003.4240, Theorem 1.1 gives sharp permitted exponents and boundedness, not per-q best constants.",
+        "González-Riquelme–Oliveira e Silva, arXiv:2405.16647, principal theorems concern quadratic surfaces and cones, not this plane cubic."
+      ],
+      "reasoning": "A theorem merely showing a field-uniform L2-to-L4 inequality is weaker than the exact \\(3-6/(2q+1)\\) constant. Exact quadratic/conic endpoints do not dominate this cubic: its distinguished zero-sum fiber, nonconstant amplitude ratio and geometrically distinct graph prevent a direct affine reduction.",
+      "searches": [
+        "finite field Fourier extension monomial graphs cubic fourth moments sharp extremizers additive energy",
+        "sharp L4 norm and extremizers for curves y=x^3 finite fields char >3",
+        "arxiv:1003.4240",
+        "arxiv:2405.16647",
+        "Fourier restriction cubic polynomial graph flex point exact nonnegative deficit all finite fields characteristic greater than three"
+      ]
+    },
+    "checked_sources": [
+      "Mockenhaupt–Tao, Restriction and Kakeya phenomena for finite fields, arXiv:math/0204234 (arXiv full-text PDF, introductory extension definitions, orthogonality and pair-sum method).",
+      "Iosevich–Koh, Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields, arXiv:0804.4505 (open preprint PDF, introduction and quadratic-surface theorem statements).",
+      "Koh–Shen, Sharp extension theorems and Falconer distance problems for algebraic curves in two dimensional vector spaces over finite fields, arXiv:1003.4240 (open full-text HTML, Theorem 1.1 and supporting proof material).",
+      "González-Riquelme–Oliveira e Silva, Sharp extension inequalities on finite fields, arXiv:2405.16647 (open full-text PDF, introduction and the principal theorem statements, including their exact geometric domains).",
+      "Public finding: Exact additive energy of the finite-field quartic graph, 2026/10/4/SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f (published title and abstract only; not used for an unsupported whole-document exclusion).",
+      "Public finding: Exact squarefree endpoint profile for the cubic moment curve, 2026/10/4/SCOPE-exact-squarefree-endpoint-profile-for-the-cubic-moment-curve--54592470800c (published title and abstract only; different dimension and exponent).",
+      "Public finding: Small-field phase dichotomy for anisotropic sphere extremizers, 2026/10/4/SCOPE-small-field-phase-dichotomy-for-anisotropic-sphere-extremizers--973050ba74a9 (published summary comparison only; different underlying finite-field conic/sphere)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Generic orthogonality in Mockenhaupt–Tao and exponent-range boundedness in Koh–Shen do not determine an exact optimizer for a single exceptional pair-sum fiber.",
+        "Iosevich–Koh focuses on quadratic surfaces; González-Riquelme–Oliveira e Silva treats separate quadratic/conic examples.",
+        "The public synopsis of Small-field phase dichotomy for anisotropic sphere extremizers treats selected finite-field quadratic spheres; its phase-moduli claim does not cover a cubic polynomial graph. Its synopsis was not treated as a full-document proof of noncoverage."
+      ],
+      "reasoning": "No inspected stronger theorem, including its standard reductions, forces the numerical sharp cubic endpoint or the phase equality conditions. The present identity requires separating the exceptional zero-sum convolution fiber and optimizing the central weight; previously inspected statements do not contain those additional implications.",
+      "searches": [
+        "finite field Fourier extension monomial graphs cubic fourth moments sharp extremizers additive energy",
+        "sharp L4 norm and extremizers for curves y=x^3 finite fields char >3",
+        "cubic Fourier extension y=t^3 graph over finite fields sharp L4 fourth moment nonconstant maximizer 3 minus 6 divided by 2q plus 1",
+        "arxiv:math/0204234",
+        "arxiv:0804.4505",
+        "arxiv:1003.4240",
+        "arxiv:2405.16647"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:math/0204234 establishes the generic additive convolution method, but does not evaluate the cubic graph optimizer.",
+        "The cubic graph has a unique full antipodal pair-sum fiber at zero; an equivalent weighted almost-Sidon or additive-energy statement would have to optimize these weights, not just count constant-input quadruples."
+      ],
+      "reasoning": "Both character-orthogonality and the exact deficit were compared with algebraic and additive-energy formulations. The underlying sum-fiber classification is easy to derive, but the previous published general methods do not explicitly solve the weighted global equality problem. No equivalent prior complete statement was found in the checked sources; an unseen older formulation is possible.",
+      "searches": [
+        "cubic Fourier extension y=t^3 graph over finite fields sharp L4 fourth moment nonconstant maximizer 3 minus 6 divided by 2q plus 1",
+        "weighted almost Sidon curve centrally symmetric with origin Fourier fourth moments full extremizers",
+        "degree three plane monomial curve additive convolution fibers zero sum sharp Fourier extension constant",
+        "arxiv:math/0204234",
+        "arxiv:1003.4240",
+        "sharp Fourier extension cubic graph finite field 3-6/(2q+1) nonconstant inflection point extremizers antipodal phases"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published quartic-graph finding gives a constant-input additive-energy count and is for t mapped to t to the fourth power, not the weighted sharp cubic extension norm.",
+        "Direct finite computations in artifacts/verify.py cross-check the sharp formula in q=5,7,11,13,25, but do not establish the absence of a published table."
+      ],
+      "reasoning": "The exact-value and table-style queries did not locate a cubic-graph constant or a corresponding optimizer classification. A related published quartic constant-input census cannot imply a sharp weighted cubic norm by matching the output exponent four alone. No claim of exhaustive database coverage is made.",
+      "searches": [
+        "fourth moment discrete Fourier extension curve flex inflection point finite fields dimension one",
+        "Fourier extension graph cubic polynomial finite field arbitrary q odd exact deficit formula",
+        "cubic Fourier extension y=t^3 graph over finite fields sharp L4 fourth moment nonconstant maximizer 3 minus 6 divided by 2q plus 1",
+        "2026/10/4/SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f",
+        "sumset collision graph t cubed exact L2 L4 fourth moment ratio squared mass 3 2"
+      ]
+    },
+    "rationale": "The claimed exact per-field L2-to-L4 norm, complete complex extremizer torus and fully quantified four-term deficit for the cubic graph are not stated or implied by the inspected principal theorems. General fourth-moment convolution methods supply proof machinery, not the extremal calculation. The broad planar-curve paper addresses sharp exponent ranges, not constants; the later sharp-extension paper addresses distinct quadratic surfaces and cones. Published semantic searches for exact formula, cubic graph, pair-sum fiber, phase equations, reductions and aliases did not return a covering statement. Search cannot certify global priority, and an older equivalent additive-energy treatment remains a live risk.",
+    "residual_risks": [
+      "An earlier result under weighted Sidon, finite abelian convolution, or polynomial-graph energy nomenclature might be logically equivalent.",
+      "A global literature search, even over extensive indices and primary papers, is not a proof of absolute novelty.",
+      "Published result summaries were compared only at the level of their stated claims unless an accompanying full paper was materially inspected; no unsupported whole-document absence inference is made.",
+      "No claim is made that absence from semantic results excludes an unpublished, unindexed or differently named equivalent theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the general reduction to additive convolution and estimates; does not state the particular cubic-graph sharp constant, full optimizer torus or four-term nonnegative deficit.",
+        "evidence": "arXiv:math/0204234; the present proof uses but goes beyond standard orthogonality by resolving the unique zero-sum fiber and completing an optimization over its exceptional mass.",
+        "identifier_or_url": "arxiv:math/0204234",
+        "material_read": "Open PDF introduction, definitions and fourth-moment/pair-sum method, including displayed examples (pages 3 and 8 of the preprint inspected).",
+        "method": "Read relevant preprint pages and compare character-orthogonality conclusions with an exact cubic-graph optimization and equality classification.",
+        "title": "Restriction and Kakeya phenomena for finite fields",
+        "trigger": "Foundational finite-field extension convolution method potentially implying an endpoint estimate."
+      },
+      {
+        "assessment": "Concerns nondegenerate quadratic surfaces rather than the inflectional cubic graph; no invertible affine-plane change maps these graphs as algebraic curves in characteristic greater than three.",
+        "evidence": "arXiv:0804.4505, introduction and quadratic-surface theorems; the cubic pair-sum has an exceptional fiber consisting of all antipodal pairs.",
+        "identifier_or_url": "arxiv:0804.4505",
+        "material_read": "Preprint PDF abstract, introduction and the quadratic-surface hypotheses of the relevant statements.",
+        "method": "Compare polynomial degrees, sum-fiber geometries and theorem conclusions.",
+        "title": "Extension theorems for the Fourier transform associated with non-degenerate quadratic surfaces in vector spaces over finite fields",
+        "trigger": "Sharp two-dimensional finite-field quadratic-surface estimates might reduce the cubic graph by a change of coordinates."
+      },
+      {
+        "assessment": "The theorem establishes extension exponent ranges for broad planar curve classes, but gives no value 3-6/(2q+1), antipodal extremizer classification, or exact deficit at each q.",
+        "evidence": "arXiv:1003.4240, Theorem 1.1 and Section 3. The use of “sharp” there pertains to the permissible exponent range, not a numerical sharp operator constant.",
+        "identifier_or_url": "arxiv:1003.4240",
+        "material_read": "Accessible complete HTML text for the relevant theorem statement (Theorem 1.1), hypotheses and the proof in Section 3.",
+        "method": "Compare exact conclusion and quantifiers: exponent range and field-uniform boundedness versus exact per-field norm and full equality set.",
+        "title": "Sharp extension theorems and Falconer distance problems for algebraic curves in two dimensional vector spaces over finite fields",
+        "trigger": "Direct planar general-curve paper with apparently sharp extension theorem, potentially dominating any cubic endpoint."
+      },
+      {
+        "assessment": "Treats parabolas, paraboloids, hyperbolic paraboloids and cones; these particular theorem statements do not imply the cubic-plane-graph sharp formula or its nonconstant optimizers.",
+        "evidence": "arXiv:2405.16647, introduction and principal theorems; a full cone containing its apex has different dimension and geometry despite superficially similar optimizer behavior.",
+        "identifier_or_url": "arxiv:2405.16647",
+        "material_read": "Open preprint PDF introduction and principal theorem statements (Theorems 1.1–1.6), with targeted full-text check for cubic graph.",
+        "method": "Compare each theorem’s geometric support and extension exponent with the present plane cubic at the fourth moment.",
+        "title": "Sharp extension inequalities on finite fields",
+        "trigger": "Later exact sharp fourth-moment work might already resolve all related algebraic curves."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a2b58c4-3575-4f10-97b5-71dd745cbf77",
+  "value": {
+    "rationale": "The cubic graph is the first natural odd nonquadratic polynomial-graph test for the finite-field fourth-moment restriction problem, and its unique zero-sum fiber creates a genuine optimization obstruction. The result solves the exact norm for every field of characteristic >3, proves constant input is strictly suboptimal, characterizes an h-dimensional phase torus for \\(h=(q-1)/2\\), and supplies a fully explicit nonnegative deficit that isolates phase and modulus losses. Its affine closure covers arbitrary degree-three polynomials. These structural conclusions differ substantively from a routine exponent bound, a single finite table value, or direct copying of the quadratic parabola calculation.",
+    "status": "PASS"
+  }
+}
