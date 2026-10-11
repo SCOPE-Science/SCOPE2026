@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The equilibrium classification follows exhaustively from the four stationary equations: \(v=-u\), \(w=-u^2/b\), and then \(u(-2a+eu^2/b)=0\). The nonzero branch therefore has \(u^2=2ab/e\), \(w=-2a/e\), and \(p=u(de-ce-2a)/(em)\). The Jacobian determinant was reconstructed from the published vector field, not copied from the source's displayed characteristic polynomial. Exact symbolic replay reproduces the claimed quartic. At the published parameter values, exact rational Routh arithmetic gives three sign changes and hence unstable dimension three. Risk is limited to the explicitly stated assumptions and to the local, rather than global, nature of the result.
+## correctness
 
-## Originality
-**PASS.** The introducing full text was inspected at the defining equations, equilibrium section, and local-stability calculation. The source itself contains the differing fourth coordinate and characteristic coefficients, so it does not cover the corrected statement. DOI, title, equation, displayed-factor, and Qi-lineage searches did not locate a correction or a stronger same-system equilibrium classification. The closest earlier Qi-derived four-dimensional papers describe different controller constructions and do not imply this exact stationary solve. Residual risk remains that an unindexed later correction or commentary exists, or that an earlier related full text contains an unnoticed equivalent calculation.
+PASS
 
-## Value
-**PASS.** The discrepancy is mathematically consequential rather than cosmetic. The published nonzero points are not stationary at the paper's baseline value \(d=16\), their fourth-coordinate magnitude is off by nearly an order of magnitude, and the corrected characteristic polynomial permits an exact unstable-dimension count. Equilibrium coordinates and tangent spectra are reusable inputs for local bifurcation, control, and numerical validation around this system, while the correction carefully preserves the one qualitative conclusion that remains valid: instability.
+Independent elimination from \(\dot p=0\), \(\dot w=0\), and \(\dot u=0\) gives \(v=-u\), \(w=-u^2/b\), and \(u(-2a+eu^2/b)=0\), yielding exactly the origin and the two stated nonzero branches. Substitution verifies all four stationary equations. Independent symbolic determinant expansion on \(u^2=2ab/e\) matches the claimed quartic exactly. At the source parameters it becomes \(\lambda^4+42\lambda^3-1200\lambda^2+32035\lambda-25800\); exact Routh arithmetic gives \(-82435/42\) and \(519058805/16487\) in the critical first-column entries, hence three sign changes. The primary PDF confirms the source’s erroneous coordinate and polynomial.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The introducing source prints a fourth equilibrium coordinate containing \(de-ce-2ad\) and a different nonzero characteristic polynomial. Direct stationarity instead gives \(de-ce-2a\), and no indexed correction was found. Earlier Qi-derived four-dimensional systems use different controller constructions and do not imply the stationary equations of this exact flow. Resultary returned the assigned current record itself as the strongest same-object hit; that self-hit is excluded from prior-art evidence.
+
+## value
+
+PASS
+
+The correction changes the actual nonzero stationary points used in local analysis: at the published parameters the fourth-coordinate magnitude is about 28.912 rather than 260.210. The corrected quartic also determines the exact unstable dimension three. These are structurally important inputs for bifurcation, control, and numerical interpretation around the nonzero states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

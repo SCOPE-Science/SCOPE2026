@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:54:52.368784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 82f883954f0396b793ceda1a5f65344d91ee57cf",
+        "verify.py blob 640c0a51a902c81d7e06363d91587ce938e7d4cb",
+        "DOI:10.3934/math.2023044 full PDF",
+        "independent stationarity, determinant, and Routh replay"
+      ],
+      "rationale": "Independent elimination from \\(\\dot p=0\\), \\(\\dot w=0\\), and \\(\\dot u=0\\) gives \\(v=-u\\), \\(w=-u^2/b\\), and \\(u(-2a+eu^2/b)=0\\), yielding exactly the origin and the two stated nonzero branches. Substitution verifies all four stationary equations. Independent symbolic determinant expansion on \\(u^2=2ab/e\\) matches the claimed quartic exactly. At the source parameters it becomes \\(\\lambda^4+42\\lambda^3-1200\\lambda^2+32035\\lambda-25800\\); exact Routh arithmetic gives \\(-82435/42\\) and \\(519058805/16487\\) in the critical first-column entries, hence three sign changes. The primary PDF confirms the source’s erroneous coordinate and polynomial.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older Qi papers describe distinct four-dimensional controller extensions.",
+          "The Cui--Li source is the exact object and is internally inconsistent at its nonzero equilibria."
+        ],
+        "reasoning": "The broader Qi-system literature does not dominate an exact correction for the later Cui--Li equations.",
+        "searches": [
+          "Cui--Li full primary PDF",
+          "DOI:10.1142/S021798490901920X",
+          "DOI:10.1142/S0217979210055895"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2023044 (Cui--Li, complete open primary PDF)",
+        "DOI:10.1142/S021798490901920X (earlier nonlinear-controller Qi extension)",
+        "DOI:10.1142/S0217979210055895 (earlier Qi hyperchaos extension)",
+        "Resultary semantic search: Cui Li new 4D hyperchaotic system corrected equilibria characteristic polynomial de ce 2a local spectrum",
+        "Exact-title/DOI searches for erratum or equilibrium correction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed fourth coordinate leaves residual \\(2au(1-d)/e\\), so it is nonstationary unless \\(d=1\\).",
+          "Independent symbolic elimination gives exactly three equilibria and the stated quartic.",
+          "At \\((15,43,1,16,5,5,2)\\) the exact Routh first column has signs \\(+,+,-,+,-\\), hence three open-right-half-plane roots."
+        ],
+        "reasoning": "The source’s negative constant term already establishes qualitative instability, but it cannot imply the corrected coordinates or unstable dimension because its displayed points are generally not equilibria and its polynomial coefficients differ.",
+        "searches": [
+          "Substitute the printed nonzero point into the printed ODE",
+          "Recompute \\(\\det(\\lambda I-J)\\) on the exact nonzero branch",
+          "Apply exact Routh counting at the paper parameter vector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary PDF visibly prints the disputed \\(de-ce-2ad\\) factor and a polynomial with extra \\(d\\)-dependent factors.",
+          "No external correction record appeared in targeted searches; the only exact Resultary same-object hit was the audited record itself."
+        ],
+        "reasoning": "Equivalent prior coverage would supply the corrected stationary coordinate or corrected quartic for this exact vector field. None was found outside the current target.",
+        "searches": [
+          "Exact title/DOI with equilibrium, characteristic polynomial, correction, and erratum terms",
+          "Resultary semantic query in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top Resultary hit was the assigned current record itself; the remaining visible top hits concerned different four-dimensional flows.",
+          "No independent exact correction table or erratum was retrieved."
+        ],
+        "reasoning": "The self-hit is not treated as prior support. No separate database entry was found.",
+        "searches": [
+          "Resultary semantic query in checked_sources",
+          "Exact title/DOI correction search"
+        ]
+      },
+      "rationale": "The introducing source prints a fourth equilibrium coordinate containing \\(de-ce-2ad\\) and a different nonzero characteristic polynomial. Direct stationarity instead gives \\(de-ce-2a\\), and no indexed correction was found. Earlier Qi-derived four-dimensional systems use different controller constructions and do not imply the stationary equations of this exact flow. Resultary returned the assigned current record itself as the strongest same-object hit; that self-hit is excluded from prior-art evidence.",
+      "residual_risks": [
+        "An unindexed erratum or later commentary may already state the same equilibrium correction.",
+        "The older Qi-hyperchaos lineage papers were compared at abstract/bibliographic level rather than complete full text; they use different controller constructions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_EQUILIBRIUM_AND_POLYNOMIAL_ERROR",
+          "evidence": "The printed nonzero point uses \\(de-ce-2ad\\), while direct substitution leaves a nonzero stationarity residual; the printed polynomial also differs from a direct Jacobian determinant.",
+          "identifier_or_url": "DOI:10.3934/math.2023044",
+          "material_read": "Complete open primary PDF at Eq. (1.2), Section 2.2 equilibrium formulas and characteristic polynomial, and the numerical parameter specialization reporting fourth-coordinate magnitude about 260.210.",
+          "method": "lawful open-access full PDF with rendered-page inspection",
+          "title": "A new 4D hyperchaotic system and its control",
+          "trigger": "Exact introducing source for the vector field and disputed local analysis."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_CONTROLLER",
+          "evidence": "The paper adds a nonlinear controller to the Qi system and predates the Cui--Li flow.",
+          "identifier_or_url": "DOI:10.1142/S021798490901920X",
+          "material_read": "Indexed primary abstract and bibliographic description.",
+          "method": "bibliographic/abstract comparison",
+          "title": "Hyperchaos generated from Qi system and its observer",
+          "trigger": "Earlier Qi-derived four-dimensional hyperchaos is a plausible broader-family precedent."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_CONTROLLER",
+          "evidence": "It concerns a distinct linear-plus-nonlinear controller extension, not Cui--Li Eq. (1.2).",
+          "identifier_or_url": "DOI:10.1142/S0217979210055895",
+          "material_read": "Indexed primary abstract and bibliographic description.",
+          "method": "bibliographic/abstract comparison",
+          "title": "Hyperchaos Qi system",
+          "trigger": "Earlier Qi-derived hyperchaos under a mixed controller."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cui--Li 2023 primary paper",
+        "independent exact local analysis"
+      ],
+      "rationale": "The correction changes the actual nonzero stationary points used in local analysis: at the published parameters the fourth-coordinate magnitude is about 28.912 rather than 260.210. The corrected quartic also determines the exact unstable dimension three. These are structurally important inputs for bifurcation, control, and numerical interpretation around the nonzero states.",
+      "residual_risks": [
+        "The result is local and does not certify or refute the paper’s global hyperchaotic attractor claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed erratum or later commentary may already state the same equilibrium correction.",
+    "The older Qi-hyperchaos lineage papers were compared at abstract/bibliographic level rather than complete full text; they use different controller constructions."
+  ],
+  "schema_version": 1
+}
