@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "For positive parameters \\(a,b,t,x\\) with \\(t=1-a\\), direct substitution gives the exact identity \\(V\\circ F-V=(c-c_*)/t-\\Phi(x/x_*)\\); literal SymPy cancellation reproduced. The function \\(\\Phi\\) is nonnegative and vanishes only at unit normalized activation. For compact sets \\(F(K)=K\\), every point has a bounded full history. If \\(c<c_*\\), backward values of \\(V\\) increase without bound on any positive full orbit, contradicting the compact upper bound. On the axis, the only bounded full orbit is the resting point. In compact positive stationary states, sufficiently small positive activation is a one-way geometric sink; recurrence excludes those states almost surely and proves integrability of \\(\\log x\\), allowing stationary integration. At \\(c=c_*\\), zero defect forces \\(x=x_*\\) and then \\(y=x_*-\\log x_*\\), with a separate axis-contraction case. Above threshold the integrated identity gives the exact expectation and Markov concentration. The fixed-point fold follows by strict convexity of \\(qx-t\\log x\\). Symbolic checks are finite algebraic certificates, never substitutes for proofs about infinite dynamics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pilarczyk et al. arXiv:2209.03443v2 main validated domain fixes a=.89 and c=.28 and grids k in [.015,.030]; preliminary parameter grid includes \\(k=0\\) but still uses finite parameter/phase resolution.",
+        "Jing–Yang–Feng (2006) abstract addresses folds, Hopf/flip and Marotto chaos with no universal compact stationary law stated.",
+        "Chialvo full 19-page 1995 version gives local/qualitative dynamics, not this formula."
+      ],
+      "reasoning": "The computational global-attractor study is neither uniform over \\(a,b,c\\) nor an invariant-measure identity. A numerical enclosure at positive \\(k\\) does not imply the universal exact \\(k=0\\) theorem. The same-system 2006 full text is a named unresolved literature risk; the accessible abstract gives no decisive contrary result.",
+      "searches": [
+        "Chialvo neuron map analytic global trapping invariant rectangle bounds periodic orbits Neimark Sacker bifurcation",
+        "Chialvo original 2D neuron zero bias global exclusion of all bounded complete nonzero trajectories below positive fixed-point fold, chain recurrent set collapse",
+        "web: Chialvo 2D map k=0 global Lyapunov fixed",
+        "arXiv:2209.03443v2 sections 2–3 and Appendix B",
+        "DOI:10.1016/j.chaos.2005.04.060 abstract"
+      ]
+    },
+    "checked_sources": [
+      "SFI Working Paper 93-03-013, 1993 preprint, original map/fold sections and provenance",
+      "Chialvo 1995 DOI:10.1016/0960-0779(93)E0056-H, complete 19-page journal text",
+      "arXiv:2209.03443v2, full open HTML source with relevant model/method and appendix ranges",
+      "arXiv:2111.14499v3, reduced one-dimensional comparison",
+      "Jing, Yang, Feng 2006 DOI:10.1016/j.chaos.2005.04.060, abstract only",
+      "2026/9/20/SCOPE-rossler-compact-recurrence-threshold-and-measure-laws--6e87f2d3c811",
+      "2026/10/4/SCOPE-exact-compact-recurrence-threshold-and-stationary-variance-defec--fda64cdfe7ca",
+      "2026/9/17/SCOPE-log-slope-no-pattern-spatial-memory--5ddf2e7adc1e",
+      "Final published-finding corpus semantic search on normalized log-coboundary and full-map compact recurrence, comparing top conceptual IDs to the exact two-dimensional map and quantified claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known fold determines when positive equilibria appear, but lacks statement about nonfixed compact recurrence.",
+        "A reduced one-dimensional voltage map assumes a fixed recovery coordinate and removes the feedback needed for the logarithmic cancellation.",
+        "Finite-grid map analysis with fixed a,c and positive bias is not logically sufficient for a uniform zero-bias all-invariant-measure identity.",
+        "published-finding corpus similar strict recurrence threshold on Rössler 2026/9/20/SCOPE-rossler-compact-recurrence-threshold-and-measure-laws--6e87f2d3c811 concerns a different continuous-time three-dimensional vector field."
+      ],
+      "reasoning": "The accepted assertion strengthens the pre-existing local equilibrium statement to an exact all-compact-dynamics boundary and gives a stationary measure equation for any periodic, chaotic, or mixed invariant probability state. Known reductions or different-system identities do not logically imply it. Full-text uncertainty for the 2006 Chialvo study remains explicitly unresolved, so originality is limited to what was materially compared.",
+      "searches": [
+        "Chialvo map k=0 exact log Lyapunov V=log(x)+y/(1-a), KL dissipation, no nontrivial compact invariant sets below saddle node threshold c=(1-a)(1+log(1+b/(1-a)))",
+        "Chialvo original 2D neuron zero bias global exclusion of all bounded complete nonzero trajectories below positive fixed-point fold, chain recurrent set collapse",
+        "Chialvo 1993 Working Paper 93-03-013 equations 1–7",
+        "Chialvo 1995 DOI:10.1016/0960-0779(93)E0056-H",
+        "arXiv:2111.14499v3 reduced 1D dynamics",
+        "arXiv:2209.03443v2 model/parameter statement",
+        "Chialvo map k=0 exact logarithmic coboundary V=log(x)+y/(1-a) phi(x/xstar), zero bias global compact invariant set threshold and invariant probability measure activity entropy budget at positive equilibrium fold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original SFI paper eq. 7 already yields the positive equilibrium fold; that is not the novel claim.",
+        "The present formula integrates log x+y/(1-a) over invariant measures; the cited primary map literature discussed fixed points and finite-grid recurrence but no equivalent invariant-measure budget was found in inspected material.",
+        "published-finding corpus closest: 2026/10/4/SCOPE-exact-compact-recurrence-threshold-and-stationary-variance-defec--fda64cdfe7ca concerns an error-function continuous-time jerk, not a neuron iterated map."
+      ],
+      "reasoning": "The zero-bias fixed-point fold determines the previously known location \\(c_*\\), but is strictly weaker: absence of a positive fixed point does not imply absence of arbitrary nonfixed compact invariant sets or an equality for every invariant probability measure. Conceptual recurrence-threshold neighbors have different objects and no reduction to the two-dimensional coupled Chialvo map.",
+      "searches": [
+        "Chialvo neuronal two-dimensional map x^2 exp(y-x)+k recovery ay-bx+c 1995 invariant measures stationary statistics exact balance nonlinear activation",
+        "Chialvo map k=0 exact log Lyapunov V=log(x)+y/(1-a), KL dissipation, no nontrivial compact invariant sets below saddle node threshold c=(1-a)(1+log(1+b/(1-a)))",
+        "Two dimensional discrete neuron Chialvo 1993 invariant probability measure stationary x/xstar-1-log(x/xstar) input parameter budget, global nonlinear activity barrier",
+        "web: Chialvo map k=0 invariant measure log x stationary identity nonlinear Lyapunov global recurrence fold threshold",
+        "Chialvo map k=0 exact logarithmic coboundary V=log(x)+y/(1-a) phi(x/xstar), zero bias global compact invariant set threshold and invariant probability measure activity entropy budget at positive equilibrium fold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 rigorous-numerical paper contains finite resolution continuation tables/plots for parameter boxes, including a coarse preliminary zero-bias boundary, not an exact continuum-parameter activation budget.",
+        "No claimed number is an enumerated invariant or database re-computation; \\(c_*\\) itself is known from original source."
+      ],
+      "reasoning": "This is an analytic theorem for all real admissible parameter triples and all compact stationary measures, not a value of a finite classification table; neither a numerical parameter mosaic nor a fixed-point table subsumes the quantifiers.",
+      "searches": [
+        "Chialvo neuronal two-dimensional map x^2 exp(y-x)+k recovery ay-bx+c 1995 invariant measures stationary statistics exact balance nonlinear activation",
+        "Two dimensional discrete neuron Chialvo 1993 invariant probability measure stationary x/xstar-1-log(x/xstar) input parameter budget, global nonlinear activity barrier",
+        "arXiv:2209.03443v2 Appendix B finite grids",
+        "web: Chialvo map no external stimulus positive invariant cycles k=0 analytic proof"
+      ]
+    },
+    "rationale": "The fold and two positive equilibria are explicitly published in the 1993 Chialvo working paper and are excluded from the novelty claim. The new theorem provides an exact zero-bias log-potential coboundary implying exclusion of all nonzero compact full orbits strictly below the known fold, exactly classifies compact stationary measures on the fold, and enforces a KL-type quantitative activation budget on every compact positive invariant probability measure above it. Unlike local equilibrium and finite-resolution results, these are all-invariant-set and all-invariant-measure statements for every admissible positive triple. A same-system 2006 article was only available as an abstract; no independence or exhaustive absence is claimed.",
+    "residual_risks": [
+      "The full text of Jing–Yang–Feng (2006), an exact-system analytical study, was not obtained; its abstract does not resolve whether a more general unadvertised identity exists inside.",
+      "Semantic and bibliographic searches and inspected primary texts cannot establish uniqueness against all prior work or unpublished mathematics.",
+      "An all-parameter zero-bias stationary identity must not be mistaken for a conclusion about biased, coupled or noisy model variants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The threshold and positive fixed-point count are explicitly known; the original fold cannot be reasserted as new. No universal compact-set or invariant-measure logarithmic budget appears in the inspected source sections.",
+        "evidence": [
+          "Preprint title page dated March 12, 1993",
+          "Section 2 equation 1 defines x-prime=\\(x^2e^{y-x}+k\\) and \\(y^{\\prime}=ay-bx+c\\)",
+          "Section 2 equations 4–7 give the positive fixed-point threshold \\(c=t[1+\\log(1+b/t)]\\)"
+        ],
+        "identifier_or_url": "SFI Working Paper 93-03-013, 1993-03-12; https://sfi-edu.s3.amazonaws.com/sfi-edu/production/uploads/sfi-com/dev/uploads/filer/9b/ad/9bad24a6-c801-4ee4-a915-a90adcc0b40f/93-03-013.pdf",
+        "material_read": "Original preprint title/date and sections defining the equations and original fold, especially equations 1–7; contemporaneous journal version read in full separately.",
+        "method": "Author-deposited preprint page images and textual sections",
+        "title": "Generic Excitable Dynamics on a Two-Dimensional Map",
+        "trigger": "Original exact defining system, positive-equilibrium threshold and earliest source date"
+      },
+      {
+        "assessment": "Section 2 establishes the positive fixed-point fold and Section 3 describes qualitative regimes. Neither an all-compact-invariant-set obstruction for \\(c<c_*\\) nor the invariant-measure identity was identified across the inspected full text.",
+        "evidence": [
+          "Journal page 462 model and zero-bias baseline",
+          "Journal page 464 positive-equilibrium fold and statement that complete analysis exceeds paper scope",
+          "Pages 465–479 focus on qualitative and numerical regimes, then coupled lattice illustrations"
+        ],
+        "identifier_or_url": "DOI:10.1016/0960-0779(93)E0056-H",
+        "material_read": "All 19 printed journal pages (461–479); focus on model, fixed-point fold, phase-plane results, autonomous activity and conclusion.",
+        "method": "Complete publisher full-text extraction and comparative reading",
+        "title": "Generic excitable dynamics on a two-dimensional map",
+        "trigger": "Same original paper in journal form, highest-priority coverage check"
+      },
+      {
+        "assessment": "Its main rigorous computations are over specified parameter boxes with fixed a=0.89,c=0.28 and positive bias k between .015 and .030. Preliminary grid includes k=0 but is finite grid, not a uniform symbolic zero-bias recurrence/exact-measure theorem.",
+        "evidence": [
+          "MSC2020 primary 37B35, title page",
+          "Introduction/model sections explain fixed-point stability and prior fold",
+          "Section 3.3 main grid ranges \\(b\\in[0,1]\\), \\(k\\in[0.015,0.030]\\); Appendix B includes a broader finite grid touching \\(k=0\\)."
+        ],
+        "identifier_or_url": "arXiv:2209.03443v2; https://arxiv.org/html/2209.03443v2",
+        "material_read": "Abstract, mathematical model, parameter ranges, rigorous Morse/recurrence methods, global dynamics results and appendix discussion of broader preliminary parameter grid.",
+        "method": "Author open full-text HTML, compared scope and quantifiers",
+        "title": "Topological-numerical analysis of a two-dimensional discrete neuron model",
+        "trigger": "Plausible stronger global dynamics coverage for the exact map"
+      },
+      {
+        "assessment": "Treats the reduced one-dimensional activation map with recovery held fixed, not all invariant measures for the coupled two-dimensional recovery dynamics.",
+        "evidence": [
+          "Reduced voltage map holds recovery level fixed as an external parameter",
+          "The full Chialvo map has recovery feedback \\(y^{\\prime}=ay-bx+c\\), absent from that one-dimensional reduction."
+        ],
+        "identifier_or_url": "arXiv:2111.14499v3; https://arxiv.org/html/2111.14499v3",
+        "material_read": "Abstract, model reduction and relation to two-dimensional Chialvo dynamics",
+        "method": "Open author HTML primary article, compared state variables and parameter meaning",
+        "title": "Periodic and chaotic dynamics in a map-based neuron model",
+        "trigger": "Analytical local and global dynamics theorem potentially dominating the map calculation"
+      },
+      {
+        "assessment": "The abstract explicitly studies existence/stability of fixed points, local fold/flip/Hopf and Marotto chaos. It does not state the present universal zero-bias compact-set or invariant-measure budget; full-text comparison remains a residual risk.",
+        "evidence": [
+          "2006 paper in Chaos, Solitons & Fractals 27, 197–215, DOI",
+          "Abstract lists local bifurcation calculations, chaos proof, and numerical parameter surveys"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.chaos.2005.04.060",
+        "material_read": "Accessible abstract and bibliographic source description only; complete article not obtained.",
+        "method": "Bibliographic record and accessible abstract, not treated as full-text reading",
+        "title": "Bifurcation and chaos in neural excitable system",
+        "trigger": "Very relevant 2006 exact-system analytical work on equilibria, folds and chaos"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d42489a9-7746-49c5-892e-f39ed2a226f7",
+  "value": {
+    "rationale": "The 1993 map was built to distinguish transient excitability from autonomous recurrent spiking. For a noninvertible two-coordinate neuronal map, nonexistence of a positive fixed point alone does not exclude non-fixed recurrent compact sets. The log-recovery potential now gives a complete compact recurrence exclusion below the previously known fold, a two-equilibrium stationary rigidity result at the boundary, and an exact quantitative activity budget for arbitrary compact stationary states above it. The latter supplies an invariant test and concentration estimate for any periodic or chaotic regimes at zero input. It is a structural, parameter-global result, not a routine fixed-point substitution, a numerical increment, or a known table recomputation.",
+    "status": "PASS"
+  }
+}
