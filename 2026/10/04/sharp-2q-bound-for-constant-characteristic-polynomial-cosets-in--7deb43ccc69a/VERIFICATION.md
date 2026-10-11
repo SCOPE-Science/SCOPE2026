@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof is the primary verification. It uses only the two-dimensional Cayley--Hamilton identity, nondegeneracy of the trace pairing on \(\mathfrak{sl}_2(\mathbb F_q)\) in odd characteristic, and the elementary count of norm-one elements in split, nonsplit, and dual-number quadratic algebras.
+# Independent mathematical audit
 
-The accompanying `verify_constant_charpoly_gl2.py` performs an independent finite replay for \(q=3\) and \(q=5\). It enumerates every subgroup of \(\mathrm{SL}_2(\mathbb F_q)\), tests every invertible \(x\), verifies abelianness of each qualifying subgroup, and checks \(|H|\leq2q\). Its output is stored in `verification_output.txt` and ends in `VERIFY_OK`.
+## correctness
 
-The computation is not an exhaustive proof for arbitrary \(q\); it is a regression check of the general argument. Characteristic two is not tested or claimed. Independent audit has not been performed.
+PASS
+
+Characteristic-polynomial equality forces det(h)=1 and tr(xh)=tr(x). Applying it to h^{-1}=tr(h)I-h gives (tr(h)-2)tr(x)=0. For nonzero tr(x), all h are trace-two unipotents and closure under products forces all rank-one nilpotent parts onto one line. For tr(x)=0, the traceless parts lie in the two-dimensional trace-orthogonal plane V; the alternating form tr(xyz) is nondegenerate and group multiplication makes their span totally isotropic, hence one-dimensional. The determinant-one units in F_q[I,y] then have sizes 2q, q-1, q+1 according to y^2, and the nilpotent case gives the exact equality pair. The argument uses odd characteristic exactly where division by two and trace-form nondegeneracy are needed.
+
+## originality
+
+PASS
+
+Avni–Gelander prove over arbitrary fields that a constant-characteristic-polynomial coset forces only virtual solvability of the subgroup's Zariski identity component. Their full arXiv HTML does not state the odd-finite-field two-dimensional abelian classification, the exact norm-one ambient sizes, the sharp 2q bound or equality cases. A published neighboring SCOPE result treats characteristic two with the different sharp bound q+1, so it is complementary rather than covering.
+
+## value
+
+PASS
+
+The theorem turns a very recent qualitative virtual-solvability result into a sharp, effective and fully classified finite-field dimension-two theorem, including exact order and equality cases. That is a natural and reusable strengthening, not a cosmetic parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
