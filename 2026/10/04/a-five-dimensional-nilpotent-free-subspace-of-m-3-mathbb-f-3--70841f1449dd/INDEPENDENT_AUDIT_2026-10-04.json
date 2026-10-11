@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:42:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_f3_five_space.py at the frozen tree",
+        "Wigderson, arXiv:2609.29177v1, full primary PDF"
+      ],
+      "rationale": "The five coefficient matrices are linearly independent. The finite space has exactly \\(3^5=243\\) elements, so exhaustive exact enumeration is a complete proof. The repository verifier checks both \\(M^3=0\\) and vanishing of the three non-leading characteristic-polynomial coefficients and finds only the zero parameter tuple; an independent exact replay in this audit reproduced all 243 cases with no mismatch or nonzero nilpotent.",
+      "residual_risks": [
+        "The proof is finite and exhaustive for the stated subspace; it says nothing about six-dimensional spaces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The field-extension construction gives only dimension three here.",
+          "Same-day published results for \\(M_3(\\mathbb F_2)\\) and the \\(n=2\\) case concern different fields/dimensions."
+        ],
+        "reasoning": "No broader checked construction automatically gives a five-space in \\(M_3(\\mathbb F_3)\\).",
+        "searches": [
+          "finite-field totally nonsingular matrix spaces",
+          "Wigderson Proposition 9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29177v1",
+        "Resultary semantic search",
+        "targeted web search for no-nonzero-nilpotent matrix subspaces"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source says the desired six-dimensional finite-field construction is not known in general and gives only a dimension-three totally nonsingular construction."
+        ],
+        "reasoning": "The audited five-dimensional witness is genuine progress toward, but not a solution of, the target conjecture.",
+        "searches": [
+          "Wigderson Conjecture 8 versus explicit five-space"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 8 asks for dimension \\(n^2-\\binom n2\\), which is six at \\(n=3\\).",
+          "The exact semantic hit is the assigned record."
+        ],
+        "reasoning": "Aliases through nilpotent-free, no-nonzero-nilpotent, and matrix-space formulations were compared.",
+        "searches": [
+          "Wigderson arXiv:2609.29177v1 Conjecture 8",
+          "Resultary: five dimensional nilpotent-free M3 F3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or prior construction was located."
+        ],
+        "reasoning": "The witness is independently verified rather than copied from a known census.",
+        "searches": [
+          "published/Resultary matrix-space databases for \\(M_3(\\mathbb F_3)\\) nilpotent-free subspaces"
+        ]
+      },
+      "rationale": "Wigderson explicitly poses the finite-field nilpotent-free dimension target as Conjecture 8 and notes that the required construction is unclear; Proposition 9 only supplies an n-dimensional totally nonsingular subspace. Targeted searches for nilpotent-free matrix spaces over \\(\\mathbb F_3\\) found no prior five-dimensional construction or stronger theorem covering it.",
+      "residual_risks": [
+        "An equivalent five-space could exist in older finite-geometry or linear-preserver literature under different terminology; none was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING.",
+          "evidence": "Conjecture 8 asks for a six-dimensional nilpotent-free space at n=3; Proposition 9 gives only a three-dimensional totally nonsingular space from a degree-three extension.",
+          "identifier_or_url": "arXiv:2609.29177v1",
+          "material_read": "Full primary PDF around Theorem 7, Conjecture 8, Proposition 9, and the finite-field discussion.",
+          "method": "Primary full-text inspection.",
+          "title": "Duality for matrix space questions",
+          "trigger": "Exact motivating conjecture and possible stronger construction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wigderson 2026 Conjecture 8",
+        "finite-field matrix-space searches"
+      ],
+      "rationale": "This is a natural finite-field instance of an explicit current conjecture, and the witness closes two of the three dimensions between the generic extension-field construction and the conjectural target. A fully certified finite construction is meaningful even though the six-dimensional case remains open.",
+      "residual_risks": [
+        "The maximum dimension remains unknown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "There exists an explicit five-dimensional \\(\\mathbb F_3\\)-linear subspace of \\(M_3(\\mathbb F_3)\\) whose only nilpotent element is zero, so the maximum nilpotent-free dimension in this case is at least five, one below the six-dimensional target of Wigderson's Conjecture 8.",
+  "limitations": [
+    "No maximality claim is made; a six-dimensional example may exist.",
+    "The result is specific to \\(3\\times3\\) matrices over \\(\\mathbb F_3\\)."
+  ],
+  "schema_version": 1
+}
