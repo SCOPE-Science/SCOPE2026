@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The new phase \\(a_{i+1}\\) shifts the known prefix-set indicator \\(A_i\\) to the row \\(B_{i+1}\\) after clearing the zero-time self-comparison. A proper nonempty subset of \\(\\mathbb Z/p\\mathbb Z\\) cannot have a nonzero translation stabilizer when p is prime, so the shift is unique. KMP searches a length-p pattern in a 2p-1 text in \\(O(p)\\), repeated p-1 times, with \\(O(p)\\) working memory. Program verified all p-cycles through p=7 plus seeded samples to p=23; proof, not enumeration, covers arbitrary prime p.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 paper presents a cubic algorithm, not a stronger quadratic-or-better theorem.",
+        "1977 string-matching paper gives generic linear pattern matching, without the domain-specific reduction from dynamical sign tables."
+      ],
+      "reasoning": "A general linear-time string matcher is necessary but does not imply this recovery result without the prime-group shift identity and its uniqueness proof. No identified broader theorem subsumes the combination.",
+      "searches": [
+        "quadratic-time reconstruction of prime length permutation cycles from sign of iterates relative to initial order via cyclic shifts KMP",
+        "cyclic binary words reconstruction permutation from comparisons iterates quadratic algorithm",
+        "Fuhrmann Gröger Passeggi Period spectrum and rigidity of interval maps 2610.07435 prime cycles reconstruction complexity",
+        "arXiv:2610.07435v1 Sections 1-3",
+        "doi:10.1137/0206024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.07435v1 relevant full HTML",
+      "doi:10.1137/0206024 publisher abstract",
+      "published-finding corpus semantic searches for prime permutation signature reconstruction and equivalent cyclic shifts",
+      "Current weekly research claim records, previous weekly 2026-09_week4 claim records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source establishes prime-cycle uniqueness and gives order \\(p^3\\) reconstruction.",
+        "The new proof gives a unique shift at each prefix, and KMP finds it in \\(O(p)\\), giving \\(O(p^2)\\) over p-1 prefixes."
+      ],
+      "reasoning": "Uniqueness by itself and an \\(O(p^3)\\) algorithm do not imply an \\(O(p^2)\\) algorithm. Generic KMP alone does not identify which dynamical data are rotation-equivalent. Together with a newly stated explicit reduction, KMP gives a strictly improved asymptotic bound.",
+      "searches": [
+        "2610.07435 quadratic reconstruction left right behaviour prime cycle KMP p2 complexity",
+        "Knuth Morris Pratt 1977 fast pattern matching in strings linear time original paper",
+        "arXiv:2610.07435v1 Remark 2.4 order p^3",
+        "KMP fast pattern matching linear time 1977"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source paper Lemma 2.1 proves uniqueness but Remark 2.4 explicitly reports order \\(p^3\\); inspected HTML Section 2 contains no cyclic-shift matching algorithm.",
+        "published-finding corpus semantic hits on prime-cycle reconstruction were mathematical cycles/necklaces in other problems, not ordered orbit-signature inversion."
+      ],
+      "reasoning": "Equivalent formulations checked included ordered-cycle left/right behavior, binary orbit incidence rows, phase-set indicators, cyclic rotations, necklace matching and KMP. The new statement is a quantitative reconstruction bound for precisely the source paper data, rather than a restatement of its qualitative uniqueness lemma.",
+      "searches": [
+        "arXiv 2610.07435 periodic orbit permutation reconstruction p cubic algorithm quadratic rotation matching",
+        "\"Period spectrum and rigidity of interval maps\" \"complexity\" \"p^3\" algorithm",
+        "left-right behavior p-cycles ordered points O(p^2) reconstruction cyclic binary necklaces from orbit comparison table",
+        "arXiv:2610.07435v1, Section 2, Lemma 2.1 and Remark 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned related but distinct finite permutations, word factorizations, ordered tuple orbits, and periodic spectra; no hit provides the ordered prime-cycle sign-table reconstruction complexity.",
+        "Own current and previous weekly research claims were scanned for prime cycles, orbit-signature permutation reconstruction, and cyclic matching."
+      ],
+      "reasoning": "This is an infinite algorithmic theorem, not a fixed finite database entry or tabulated integer. Exhaustive small-prime tests are corroborating checks and do not constitute the result.",
+      "searches": [
+        "period spectrum rigidity interval map same periodic orbit sets order period prime cycle left right behavior efficient reconstruction algorithm",
+        "interval periodic orbit set determines topological entropy prime periods pointwise rigidity beyond dense periodic points"
+      ]
+    },
+    "rationale": "Fuhrmann--Gröger--Passeggi, arXiv:2610.07435v1, Section 2 and Remark 2.4, state an \\(O(p^3)\\) algorithm for this very recovery problem and do not derive phase-set rotation matching. Classical KMP provides only the separate linear pattern-search subroutine. published-finding corpus and literature searches for equivalent cyclic-shift formulations or stronger algorithmic coverage found no covering result. Some unindexed earlier \\(O(p^2)\\) implementation may exist.",
+    "residual_risks": [
+      "An unindexed or unpublished optimization of the source proof might already achieve quadratic complexity.",
+      "Generic computational descriptions of prime-cycle signatures may implicitly contain this observation under different language.",
+      "The classical pattern-matching full paper was not inspected; only its algorithmic abstract and direct standalone implementation were used."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same ordered prime-cycle objects and sign data; proves uniqueness and says \\(O(p^3)\\) algorithm, no \\(O(p^2)\\) cyclic-match construction in the inspected relevant material.",
+        "evidence": [
+          "Lemma 2.1: prime cycle uniquely determined by left-right behavior.",
+          "Remark 2.4: proof yields algorithm of order \\(p^3\\).",
+          "arXiv v1 submitted 5 October 2026, first public v1."
+        ],
+        "identifier_or_url": "arXiv:2610.07435v1; https://arxiv.org/html/2610.07435v1",
+        "material_read": "Full HTML Abstract, Introduction and Section 2 through Lemma 2.1 and Remark 2.4, and theorem statements in Section 1",
+        "method": "Read arXiv full-text HTML in primary source and searched for complexity and cyclic matching",
+        "title": "Period spectrum and rigidity of interval maps",
+        "trigger": "The newest direct result on recovery of interval-map dynamics from periodic-orbit sets, with an explicit reconstruction complexity statement"
+      },
+      {
+        "assessment": "Supports linear-time matching, but does not state the domain-specific dynamical recovery theorem. Full text not required to verify implementation because linear-time KMP is proved by the standard prefix-function amortized argument and independently implemented.",
+        "evidence": [
+          "1977 SIAM J. Computing paper explicitly states substring matching time proportional to pattern and text lengths."
+        ],
+        "identifier_or_url": "doi:10.1137/0206024; https://epubs.siam.org/doi/abs/10.1137/0206024",
+        "material_read": "Publisher bibliographic record and abstract; full paper not read",
+        "method": "Read original publisher abstract and publication data",
+        "title": "Fast Pattern Matching in Strings",
+        "trigger": "Generic linear-time substring matching used as a subroutine"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f270190d-0cd7-427c-bbfe-0e71bf68f28e",
+  "value": {
+    "rationale": "The source paper explicitly emphasizes the algorithmic reconstruction step for prime periodic orbit rigidity and quotes cubic cost. Recovering an entire prime orbit permutation with quadratic work—linear in the \\(p^2\\)-bit explicit signature table—is a substantive input-scale complexity improvement, not a parameter renaming, known-table recomputation, or unsupported extrapolation. The theorem stays within the explicit-table model.",
+    "status": "PASS"
+  }
+}
