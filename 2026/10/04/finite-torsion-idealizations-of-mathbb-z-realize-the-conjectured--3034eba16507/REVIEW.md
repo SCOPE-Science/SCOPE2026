@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The zero-divisor criterion is proved in both directions using the exponent of the finite abelian group and Bézout invertibility. The upper domination bound is an explicit set of size equal to the smallest prime divisor. The lower bound uses simultaneous residue avoidance for every prime dividing the exponent and the Chinese remainder theorem, so it is not a finite-search extrapolation. Finite-index maximal annihilator ideals are classified directly from the first-coordinate equation in the idealization.
+PASS
 
-Risk: the terminology “maximal annihilator ideal” follows the cited conjecture’s convention of proper annihilator ideals. The proof explicitly excludes the annihilator of zero, which is the whole ring.
+For R=Z⋉M with M finite of exponent n, (a,m) is a zero divisor exactly when gcd(a,n)>1: a common prime divisor annihilates a nonzero prime-order element of M, while gcd(a,n)=1 makes scalar multiplication by a invertible on M. Thus adjacency depends only on whether gcd(a+b,n)>1. Representatives 0,...,p-1 dominate by reduction modulo the least prime p|n. For fewer than p proposed dominators, for each prime q|n there remains a residue class modulo q avoiding all forbidden negatives; CRT combines these choices, and adding multiples of rad(n) makes the new vertex distinct without changing the avoidance. Hence no smaller set dominates. Finally Ann(0,y)=dZ⋉M for y of order d, whereas elements with nonzero integer coordinate have infinite-index annihilator; maximal proper finite-index annihilator ideals are therefore qZ⋉M for primes q|n. The mixed-prime CRT idempotent gives two zero divisors summing to a unit, so the non-ideal-zero-divisor hypothesis is met.
 
-## Originality
+## originality
 
-PASS. published-finding corpus searches for total-graph domination of idealizations and targeted public searches for ordinary domination of the total graph of a trivial extension found no prior statement of this formula. The closest later source on domination of idealizations proves a comparison for total domination under torsion-free or \(R=Z(R)\cup U(R)\) hypotheses; the present base is \(\mathbb Z\) and the module is finite torsion, so those hypotheses do not cover the family.
+PASS
 
-Risk: an unindexed note could contain the same specialization. The searches covered the conjecture name, idealization/trivial-extension aliases, total-graph domination, and the smallest-prime-divisor formula.
+Chelvam--Asir formulate the domination equality as a conjecture outside their proved classes, while the later idealization paper concerns total domination under hypotheses that do not include a nonzero finite torsion module over Z. The audited ordinary-domination formula for Z⋉M is therefore not a corollary of the inspected general results. Resultary searches under idealization/trivial-extension and total-graph domination terminology returned the audited record and nearby but different domination problems, not prior coverage of this family.
 
-## Value
+## value
 
-PASS. The 2013 paper left equality as a conjecture for non-Artinian rings with non-ideal zero-divisors and a finite-index maximal annihilator ideal. The mixed-prime idealizations \(\mathbb Z\ltimes M\) satisfy exactly that unresolved configuration, and the theorem provides a full infinite family with a sharp formula rather than a single example.
+PASS
 
-Risk: this is a family result, not a resolution of the full conjecture.
+The domination equality answers a published conjectural bound on a natural infinite non-Artinian family lying outside the later idealization hypotheses. The exact smallest-prime formula is structural, not a finite slice, and the same argument identifies precisely the finite-index maximal annihilator ideals that make the conjectural comparison meaningful.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

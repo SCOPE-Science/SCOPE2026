@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-The proof has four independent checkpoints.
+# Independent mathematical audit
 
-1. **Zero-divisor criterion.** For \((a,m)\in\mathbb Z\ltimes M\), a common prime divisor of \(a\) and the exponent of \(M\) supplies a nonzero annihilated module element. If the two integers are coprime, Bézout gives an inverse for scalar multiplication by \(a\) on \(M\), forcing every annihilator to be zero.
+## correctness
 
-2. **Upper bound.** First-coordinate representatives \(0,1,\ldots,p-1\) dominate because one makes the first-coordinate sum divisible by the smallest prime \(p\mid n\).
+PASS
 
-3. **Lower bound.** For fewer than \(p\) proposed dominators, every prime \(q\mid n\) has at least one residue class avoiding all forbidden negatives. The Chinese remainder theorem combines these choices into a first coordinate whose sum with every proposed dominator is coprime to \(n\).
+For R=Z⋉M with M finite of exponent n, (a,m) is a zero divisor exactly when gcd(a,n)>1: a common prime divisor annihilates a nonzero prime-order element of M, while gcd(a,n)=1 makes scalar multiplication by a invertible on M. Thus adjacency depends only on whether gcd(a+b,n)>1. Representatives 0,...,p-1 dominate by reduction modulo the least prime p|n. For fewer than p proposed dominators, for each prime q|n there remains a residue class modulo q avoiding all forbidden negatives; CRT combines these choices, and adding multiples of rad(n) makes the new vertex distinct without changing the avoidance. Hence no smaller set dominates. Finally Ann(0,y)=dZ⋉M for y of order d, whereas elements with nonzero integer coordinate have infinite-index annihilator; maximal proper finite-index annihilator ideals are therefore qZ⋉M for primes q|n. The mixed-prime CRT idempotent gives two zero divisors summing to a unit, so the non-ideal-zero-divisor hypothesis is met.
 
-4. **Annihilator-index comparison.** A nonzero element with nonzero integer coordinate has an annihilator of infinite index. For \((0,y)\) with \(y\) of order \(d\), the annihilator is exactly \(d\mathbb Z\ltimes M\); maximal proper annihilator ideals with finite index therefore correspond to prime-order elements.
+## originality
 
-The accompanying script checks the finite residue-covering reduction exhaustively for small exponents:
+PASS
 
-```text
-VERIFY_OK
-checked_exponents=2..30
-statement=minimum translate-cover number of nonunits in Z/nZ equals the smallest prime divisor
-```
+Chelvam--Asir formulate the domination equality as a conjecture outside their proved classes, while the later idealization paper concerns total domination under hypotheses that do not include a nonzero finite torsion module over Z. The audited ordinary-domination formula for Z⋉M is therefore not a corollary of the inspected general results. Resultary searches under idealization/trivial-extension and total-graph domination terminology returned the audited record and nearby but different domination problems, not prior coverage of this family.
 
-The script is a stress test only. The theorem for arbitrary finite abelian \(M\) and arbitrary exponent \(n>1\) rests on the symbolic arguments above.
+## value
+
+PASS
+
+The domination equality answers a published conjectural bound on a natural infinite non-Artinian family lying outside the later idealization hypotheses. The exact smallest-prime formula is structural, not a finite slice, and the same argument identifies precisely the finite-index maximal annihilator ideals that make the conjectural comparison meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
