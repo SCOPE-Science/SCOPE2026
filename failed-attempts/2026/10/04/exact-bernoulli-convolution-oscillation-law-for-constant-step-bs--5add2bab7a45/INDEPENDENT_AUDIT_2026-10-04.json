@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T21:05:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly solving the scalar Euclidean proximal subproblem gives the affine recursion with contraction r=(1+αa)⁻¹. Iteration gives the signed geometric stationary series; independence gives the exact second moment and objective-error floor. The two affine images give the interval, critical uniform, and disjoint-Cantor support regimes at r=1/2. The infinite-time statements follow analytically, not from the bundled finite simulation.",
+      "risk": "The claim correctly avoids any absolute-continuity assertion in the overlapping Bernoulli-convolution regime.",
+      "sources": [
+        "frozen RESULT.md and verify_stationary_law.py",
+        "arXiv:2510.16655v2",
+        "arXiv:2102.07714"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The BSPPA update is general and contains the scalar symmetric quadratic case.",
+          "The Bernoulli-convolution/IFS statements cover all 0<λ<1 and therefore dominate the submitted support classification."
+        ],
+        "reasoning": "The two prior frameworks jointly cover the submitted special case; no additional nonstandard lemma is required.",
+        "searches": [
+          "arXiv:2510.16655v2 vanilla BSPPA",
+          "arXiv:2102.07714 affine IFS stationary measures"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.16655v2",
+        "arXiv:2102.07714",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing Algorithm 5.1 to the scalar quadratic yields the recursion in one line.",
+          "The second source states the Bernoulli random-series law, stationary affine-IFS interpretation, and Cantor/uniform/interval transition."
+        ],
+        "reasoning": "Only elementary minimization, scaling and a second-moment calculation remain, so the submitted theorem is implied by prior theory.",
+        "searches": [
+          "arXiv:2510.16655v2 Algorithm 5.1",
+          "arXiv:2102.07714 Sections 1.1–1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No distinct Resultary record was found, but absence of a verbatim database hit is not novelty evidence.",
+          "The Bernoulli-convolution source defines the same signed geometric random series and the same support regimes under parameter λ."
+        ],
+        "reasoning": "After λ=r and affine scaling, the stationary-law and support statements are equivalent to the classical Bernoulli-convolution formulation.",
+        "searches": [
+          "Resultary: constant-step stochastic proximal point symmetric quadratics stationary distribution Bernoulli convolution exact invariant support threshold",
+          "arXiv:2510.16655v2 Algorithm 5.1",
+          "arXiv:2102.07714 Sections 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table is scientifically relevant because coverage is theorem-level and parameter-uniform."
+        ],
+        "reasoning": "This is not a finite-table novelty question; the decisive comparison is logical implication by general results.",
+        "searches": [
+          "Resultary semantic corpus query above"
+        ]
+      },
+      "rationale": "The final claim is a routine specialization of established BSPPA and classical Bernoulli-convolution/IFS theory. The algorithm paper supplies the sampled proximal update; one scalar quadratic minimization yields the audited affine recursion. Classical Bernoulli-convolution theory supplies the signed geometric stationary law and the exact support transition. The objective floor is then an elementary variance substitution.",
+      "residual_risks": [
+        "No access blocker affected the decisive comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_ALGORITHM_FRAMEWORK",
+          "evidence": "Algorithm 5.1 is the sampled Bregman proximal update used by the submission.",
+          "identifier_or_url": "arXiv:2510.16655v2",
+          "material_read": "Full open PDF around the vanilla algorithm and constant-step discussion.",
+          "method": "lawful arXiv full text",
+          "title": "Bregman Stochastic Proximal Point Algorithm with Variance Reduction",
+          "trigger": "Primary definition of vanilla BSPPA."
+        },
+        {
+          "assessment": "DECISIVE_BROADER_COVERAGE",
+          "evidence": "It defines the signed geometric random series, gives the λ<1/2 Cantor, λ=1/2 Lebesgue, λ>1/2 interval regimes, and treats the law as an affine-IFS stationary measure.",
+          "identifier_or_url": "arXiv:2102.07714",
+          "material_read": "Full open PDF Sections 1.1–1.2.",
+          "method": "lawful open full text",
+          "title": "Uniform lower bounds on the dimension of Bernoulli convolutions",
+          "trigger": "The submitted stationary law is explicitly a scaled Bernoulli convolution."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Once the classical identification is made, the result consists of a one-line scalar proximal calculation, a standard Bernoulli-convolution support transition, and an elementary second-moment formula. It is a clear worked example but not a motivated new structural lemma, boundary, or classification under the requested value standard.",
+      "risk": "The example may have expository value, but exposition alone is not the scientific-value criterion here.",
+      "sources": [
+        "arXiv:2510.16655v2",
+        "arXiv:2102.07714"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the scalar two-quadratic constant-step Euclidean BSPPA model, the iterate is a contractive random affine recursion whose stationary law is a scaled Bernoulli convolution, with the stated second moment, objective floor, and support transition at αa=1.",
+  "limitations": [
+    "Correct mathematical special case; rejected because prior theory directly covers the scientific content."
+  ],
+  "schema_version": 1
+}
