@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The all-order theorem is proved in `RESULT.md`; finite enumeration is only an independent stress test.
+## correctness
 
-`verify_temporal_paths.py` directly implements the synchronous process for paths in which each edge appears once at a distinct ranked time. For every edge-time permutation with one through eight edges, it searches seed sets by increasing cardinality, compares the optimum with the peak-chain formula, and separately computes a minimum cut set that hits every peak neighborhood. It also verifies the claimed worst-case value and an explicit extremal timing at each tested order.
+PASS
 
-Recorded execution:
+With s seeds, exactly n-s one-shot edges must transmit, so exactly s-1 unused edges cut the path into s components and each component contains exactly one seed. A retained component is forceable from its unique seed iff its edge times strictly decrease toward the seed from the left and increase away to the right, i.e. iff the block has no strict interior local maximum. Therefore cuts are exactly hitting sets for peak neighborhoods {i-1,i,i+1}. Strict peaks cannot be adjacent; these neighborhoods overlap exactly for peak centers distance two, so each overlap chain of r peaks needs and admits ceil(r/2) cuts. Minimum interval stabbing equals maximum disjoint neighborhoods; their centers lie in 2,...,n-2 and must be at least three apart, giving floor((n-1)/3) extra cuts, achieved by the block timing (1,3,2),(4,6,5),.... The frozen verifier exhausts all timings through n=9 only as a stress test of this all-n proof.
 
-```text
-ALL CHECKS PASSED
-permutations=46233
-seed_sets_tested=1992563
-maxima=n=2:TZ=1:witness=1;n=3:TZ=1:witness=1,2;n=4:TZ=2:witness=1,3,2;n=5:TZ=2:witness=1,3,2,4;n=6:TZ=2:witness=1,3,2,4,5;n=7:TZ=3:witness=1,3,2,4,6,5;n=8:TZ=3:witness=1,3,2,4,6,5,7;n=9:TZ=3:witness=1,3,2,4,6,5,7,8
-```
+## originality
 
-The enumeration covers all \(46,233\) permutations for \(2\le n\le9\). This finite range does not certify the theorem for larger \(n\); the proof's cut-and-valley equivalence and interval-hitting argument provide the unrestricted conclusion.
+PASS
+
+Baste--Dreyer--Marcille--Rabie--Toullec-Streicher introduce the synchronous temporal zero-forcing process and advertise hardness/polynomial results, including temporal trees, but the accessible primary abstract does not state the exact one-shot injectively timed path formula. Resultary searches for the path/local-maximum law returned no covering published finding. A separate public project advertises alternating-path results under related temporal variants, but its complete manuscript was not available here; that source remains a named residual risk rather than being assumed noncovering.
+
+## value
+
+PASS
+
+Paths with one-shot injective timings are the canonical minimal connected test family for temporal zero forcing. The theorem gives both an exact per-timing structural formula and the sharp worst timing, converting dynamics into a transparent local-maximum obstruction. This is a natural complete classification rather than a small computational census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

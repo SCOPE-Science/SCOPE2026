@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. In the one-shot injective setting every snapshot has one edge, so a transmission is possible exactly when one endpoint is already corrupted. With \(s\) seeds, exactly \(n-s\) distinct edges must perform first corruptions, leaving \(s-1\) unused edges. Removing those edges yields \(s\) path components, each with exactly one seed. A one-seed component is forceable if and only if its edge-time word is valley-shaped, equivalently has no strict interior local maximum. This gives the exact three-position peak-hitting formulation, and the interval-overlap argument gives the chain formula. Boundary cases \(n=2\) and \(n=3\) have no peaks and correctly give one seed. The extremal value follows from packing disjoint length-three peak neighborhoods and an explicit timing construction. The exhaustive verifier independently confirms every timing through \(n=9\), but the proof does not depend on that finite check.
+## correctness
 
-## Originality
-PASS with a recorded residual literature risk. Four semantic searches of published findings for temporal zero forcing on paths, one-shot edge timings, local maxima, and seed minima returned no claim covering the theorem; the closest surfaced indexed record was the static zero-forcing-polynomial result `2026/9/17/SCOPE002`, which studies a different invariant. The full text of Baste et al., arXiv:2609.29054v1, was inspected for the temporal definition, tree algorithmic results, and path-specific statements; it introduces the model but does not give this arbitrary injective-path formula. The public README of Krishna Harish's separate temporal-zero-forcing project explicitly advertises exact values for alternating paths, so a special-schedule overlap is plausible. The present theorem covers every injective one-shot timing and classifies it by all peak chains. Because the complete Harish manuscript was not available from the inspected public endpoint, that special-family comparison remains a residual risk rather than a basis for a stronger novelty claim.
+PASS
 
-## Value
-PASS. Paths are the minimal connected sparse family and a basic test case for any temporal propagation invariant. Static zero forcing of a path always needs one seed, whereas temporal ordering alone can raise the exact requirement to \(\lfloor(n+2)/3\rfloor\). The local-maximum formula gives a linear-time evaluation rule for every injective one-shot timing and identifies precisely which temporal obstructions cost extra seeds, supplying a structural benchmark for broader temporal-tree algorithms rather than an arbitrary finite table.
+With s seeds, exactly n-s one-shot edges must transmit, so exactly s-1 unused edges cut the path into s components and each component contains exactly one seed. A retained component is forceable from its unique seed iff its edge times strictly decrease toward the seed from the left and increase away to the right, i.e. iff the block has no strict interior local maximum. Therefore cuts are exactly hitting sets for peak neighborhoods {i-1,i,i+1}. Strict peaks cannot be adjacent; these neighborhoods overlap exactly for peak centers distance two, so each overlap chain of r peaks needs and admits ceil(r/2) cuts. Minimum interval stabbing equals maximum disjoint neighborhoods; their centers lie in 2,...,n-2 and must be at least three apart, giving floor((n-1)/3) extra cuts, achieved by the block timing (1,3,2),(4,6,5),.... The frozen verifier exhausts all timings through n=9 only as a stress test of this all-n proof.
 
-## Closest literature and limitations
-The initiating source is Baste et al., arXiv:2609.29054v1 (2026-09-24). The closest distinct project found is Harish's archived layer-local/footprint-constrained temporal-zero-forcing project, DOI 10.5281/zenodo.21347118, whose README advertises alternating-path exact values. The theorem here does not address tied snapshots, repeated activations, or nonpath graphs, and the inaccessible full manuscript is the principal originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Baste--Dreyer--Marcille--Rabie--Toullec-Streicher introduce the synchronous temporal zero-forcing process and advertise hardness/polynomial results, including temporal trees, but the accessible primary abstract does not state the exact one-shot injectively timed path formula. Resultary searches for the path/local-maximum law returned no covering published finding. A separate public project advertises alternating-path results under related temporal variants, but its complete manuscript was not available here; that source remains a named residual risk rather than being assumed noncovering.
+
+## value
+
+PASS
+
+Paths with one-shot injective timings are the canonical minimal connected test family for temporal zero forcing. The theorem gives both an exact per-timing structural formula and the sharp worst timing, converting dynamics into a transparent local-maximum obstruction. This is a natural complete classification rather than a small computational census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob da9d0f996b5e2ecec595afb18e8c2fb6aeca98f2",
+        "verify_temporal_paths.py blob aca1cb9dc7e130289f5c11987f736c56479728e9",
+        "fresh cut/component/interval-stabbing reconstruction"
+      ],
+      "rationale": "With s seeds, exactly n-s one-shot edges must transmit, so exactly s-1 unused edges cut the path into s components and each component contains exactly one seed. A retained component is forceable from its unique seed iff its edge times strictly decrease toward the seed from the left and increase away to the right, i.e. iff the block has no strict interior local maximum. Therefore cuts are exactly hitting sets for peak neighborhoods {i-1,i,i+1}. Strict peaks cannot be adjacent; these neighborhoods overlap exactly for peak centers distance two, so each overlap chain of r peaks needs and admits ceil(r/2) cuts. Minimum interval stabbing equals maximum disjoint neighborhoods; their centers lie in 2,...,n-2 and must be at least three apart, giving floor((n-1)/3) extra cuts, achieved by the block timing (1,3,2),(4,6,5),.... The frozen verifier exhausts all timings through n=9 only as a stress test of this all-n proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary abstract describes a panorama of temporal zero-forcing complexity/algorithmic results and does not expose this exact path formula.",
+          "The public project advertises exact alternating-path/even-cycle values under related variants, which is narrower in timing pattern but full manuscript overlap could not be inspected."
+        ],
+        "reasoning": "No checked broader source yields the arbitrary injective timing classification or the exact worst timing.",
+        "searches": [
+          "Baste et al. arXiv:2609.29054",
+          "Krishna Harish public project, Zero forcing on temporal graphs: Layer-local and footprint-constrained dynamics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29054",
+        "public project DOI 10.5281/zenodo.21347118",
+        "Resultary temporal-zero-forcing searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general temporal rule alone does not identify which path edges can be left unused.",
+          "The submitted proof shows that s seeds correspond exactly to s-1 cuts, each retained block must be valley-shaped, and cuts must hit the three-position neighborhoods of strict peaks.",
+          "Peak neighborhoods form disjoint overlap chains and contribute ceil(r/2); disjoint interval packing then gives the exact global maximum."
+        ],
+        "reasoning": "The closed formula and extremal timing require additional combinatorial structure beyond the process definition.",
+        "searches": [
+          "Baste et al. synchronous snapshot rule",
+          "assigned cut-and-valley argument",
+          "assigned interval-stabbing extremal argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the one-edge-per-snapshot specialization, a retained path component is forceable from one seed exactly when its edge-time word is valley-shaped.",
+          "Thus temporal zero forcing is equivalent to cutting the edge-time permutation so every block has no strict interior local maximum."
+        ],
+        "reasoning": "The peak-neighborhood hitting-set problem is an exact equivalent formulation of the source dynamics on this restricted family.",
+        "searches": [
+          "Baste et al., arXiv:2609.29054, Zero Forcing Sets in Temporal Graphs",
+          "Resultary query: temporal zero forcing paths injectively timed local maxima peaks one-shot edges exact formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary theorem with the peak-chain formula or the exact worst-case path value was returned."
+        ],
+        "reasoning": "The theorem is proved structurally for every timing; it is not extrapolated from the n<=9 exhaustive table.",
+        "searches": [
+          "Resultary temporal-zero-forcing path/local-maxima semantic search",
+          "targeted searches for injective one-shot path timing and the floor((n+2)/3) extremum"
+        ]
+      },
+      "rationale": "Baste--Dreyer--Marcille--Rabie--Toullec-Streicher introduce the synchronous temporal zero-forcing process and advertise hardness/polynomial results, including temporal trees, but the accessible primary abstract does not state the exact one-shot injectively timed path formula. Resultary searches for the path/local-maximum law returned no covering published finding. A separate public project advertises alternating-path results under related temporal variants, but its complete manuscript was not available here; that source remains a named residual risk rather than being assumed noncovering.",
+      "residual_risks": [
+        "The full Baste et al. preprint and the complete related public-project manuscript were not materially accessible in this run, so unadvertised exact path statements remain a concrete originality risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_FULL_TEXT_ACCESS_LIMITED",
+          "evidence": "The accessible abstract states hardness, polynomial algorithms and a one-step result but not the audited arbitrary injective one-shot path formula.",
+          "identifier_or_url": "arXiv:2609.29054",
+          "material_read": "Primary arXiv abstract and metadata were inspected; full-text retrieval was unavailable through the current arXiv path.",
+          "method": "Model-definition/scope comparison with access limitation recorded.",
+          "title": "Zero Forcing Sets in Temporal Graphs",
+          "trigger": "Defining primary source for the exact synchronous temporal-zero-forcing convention."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PATH_RELATED_SOURCE",
+          "evidence": "Advertised exact alternating-path results could overlap special timing patterns but do not establish coverage of the arbitrary-injective formula from available material.",
+          "identifier_or_url": "public project / DOI 10.5281/zenodo.21347118 as cited in the package",
+          "material_read": "Only the publicly indexed project description available to the package was comparable; complete manuscript text was not available in this run.",
+          "method": "Variant and scope risk comparison.",
+          "title": "Zero forcing on temporal graphs: Layer-local and footprint-constrained dynamics",
+          "trigger": "Closest advertised path-specific comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.29054",
+        "public project DOI 10.5281/zenodo.21347118",
+        "Resultary temporal-zero-forcing searches"
+      ],
+      "rationale": "Paths with one-shot injective timings are the canonical minimal connected test family for temporal zero forcing. The theorem gives both an exact per-timing structural formula and the sharp worst timing, converting dynamics into a transparent local-maximum obstruction. This is a natural complete classification rather than a small computational census.",
+      "residual_risks": [
+        "The full Baste et al. preprint and the complete related public-project manuscript were not materially accessible in this run, so unadvertised exact path statements remain a concrete originality risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.29054",
+    "public project DOI 10.5281/zenodo.21347118",
+    "Resultary temporal-zero-forcing searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a path whose edges each occur once at pairwise distinct times, temporal zero forcing equals one plus the minimum number of cuts hitting every three-edge neighborhood of a strict local maximum; if peak-overlap chains have lengths r_j, TZ=1+sum ceil(r_j/2), and the worst timing on n vertices has TZ=floor((n+2)/3).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The full Baste et al. preprint and the complete related public-project manuscript were not materially accessible in this run, so unadvertised exact path statements remain a concrete originality risk.",
+    "No claim is made for repeated edge activations, tied times, different forcing conventions, or nonpath temporal graphs."
+  ]
+}
