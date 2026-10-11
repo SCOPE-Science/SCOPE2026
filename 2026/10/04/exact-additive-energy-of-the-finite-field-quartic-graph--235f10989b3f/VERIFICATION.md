@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic and valid for every finite field of characteristic different from \(2\) and \(3\). The bundled verifier is a finite corroboration, not an exhaustive proof.
+# Independent mathematical audit
 
-It performs exact collision counts for 24 prime fields from \(5\) through \(101\), skipping characteristic \(3\), and for quadratic extensions of orders \(25\), \(49\), and \(121\). In each case it checks
-\[
-E(C_4)=3q^2-q-1-(q-1)(1+\chi(-3))^2
-\]
-and the equivalent \(q\bmod3\) form. It also checks the algebraic factorization
-\[
-(s^4-4us^2+2u^2)-(s^4-4vs^2+2v^2)=2(u-v)(u+v-2s^2)
-\]
-on a finite integer grid.
+## correctness
 
-Successful replay prints `VERIFY_OK prime_fields=24 quadratic_extensions=3 max_prime=101`. The finite checks do not establish the universal theorem; universality comes from the character-sum proof in `RESULT.md`.
+PASS
+
+For fixed sum s and products u=ab, v=cd, the identity a^4+b^4=s^4-4us^2+2u^2 reduces equality of quartic coordinates to 2(u-v)(u+v-2s^2)=0. Ordered pairs with sum s and product u are counted by 1+chi(s^2-4u). The diagonal branch, the affine involution u->2s^2-u, the fixed-point subtraction, and the quadratic Jacobi sum give the stated energy. The char 2 and 3 exclusions exactly prevent the degenerate factors used in the proof. Independent exact collision counts over several small prime fields and symbolic factor checks reproduced the formula; these computations were corroborative only.
+
+## originality
+
+PASS
+
+The exact formula and its q mod 3 split did not appear in fresh exact-expression or collision-equation searches. The foundational Mockenhaupt--Tao source establishes the finite-field restriction framework and normalized extension operator but focuses on other varieties; the recent moment-curve source concerns the full consecutive-power moment curve. Resultary returned the present record itself as the clear exact-match result and otherwise adjacent but noncovering finite-field Fourier findings. Residual risk remains for an older unindexed additive-combinatorics calculation.
+
+## value
+
+PASS
+
+Additive energy is the exact fourth-moment invariant for restriction. The formula exposes a genuine arithmetic phase split controlled by cube roots of unity for a natural omitted-power curve and provides an exact benchmark for future sharp quartic-graph extension work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
