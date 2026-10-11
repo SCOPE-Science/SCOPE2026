@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:43:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at blob b2da135af3980bcc597e7ba721d3adad768020f0",
+        "assigned verify_collision_entropy_transfer.py at blob 127f6e91dd1f485f2fbe34093504e342406c16d8",
+        "independent algebraic reconstruction of the derivative and feasible-product projection"
+      ],
+      "rationale": "Conditioning on the difference of the two-coin sums gives the exact autocorrelation expression. Direct expansion yields derivative \\(4Dr-2Ds+2G\\) and second derivative \\(4D\\), while \\(2D\\) is the squared \\(\\ell_2\\)-norm of the zero-extended second-difference sequence, hence positive for every nonzero finite-support probability mass function. The feasible product interval at fixed sum is exactly the stated interval, so strict convexity makes the projection formula necessary and sufficient. Specializing to the empty background gives \\(D=3\\), \\(G=1\\), and the two boundary equations produce the thresholds \\(1/3\\) and \\(1-1/\\sqrt3\\). The inspected exact-rational verifier independently reconstructs convolutions, the energy identity, the quadratic completion, projection, and the two-coin phase partition; those finite checks corroborate the symbolic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bernoulli-sum entropy literature gives variance/entropy inequalities and concavity or nonconcavity statements under different constraints.",
+          "No inspected theorem supplies the exact pair-transfer quadratic with arbitrary finite-support background."
+        ],
+        "reasoning": "A global concavity theorem or counterexample does not mechanically identify the constrained global optimizer or its phase boundaries.",
+        "searches": [
+          "Madiman--Melbourne--Roberto, arXiv:2103.00896, Renyi entropy inequalities for Bernoulli sums",
+          "Hillion--Johnson and Wang on Shepp--Olkin-type concavity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.01570",
+        "arXiv:2609.27433",
+        "arXiv:2103.00896",
+        "Resultary fixed-sum collision-entropy query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior local convexity witness only says balancing need not improve higher-order Renyi entropy.",
+          "The exact derivative and positive second-difference energy determine the global constrained minimizer of collision probability and all boundary transitions."
+        ],
+        "reasoning": "The final result requires a new exact global optimization, not a parameter substitution into a prior implication.",
+        "searches": [
+          "Hillion--Johnson/Wang fixed-sum concavity context",
+          "assigned exact identity for the collision probability as a quadratic in the product"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hillion--Johnson concern Shannon concavity and formulate higher-order extensions rather than the exact order-two fixed-sum optimizer.",
+          "Wang's result establishes local failure of joint concavity for every Renyi order above one; it does not give the global order-two product projection or the background autocorrelation criterion."
+        ],
+        "reasoning": "A fixed-sum transfer is equivalently parametrized by the product of the two Bernoulli probabilities; at order two collision probability becomes an exact quadratic in this product.",
+        "searches": [
+          "Hillion--Johnson, arXiv:1503.01570, Shepp--Olkin entropy concavity and Renyi/Tsallis discussion",
+          "Haoran Wang, arXiv:2609.27433, sharp Renyi/Tsallis threshold",
+          "Resultary query: fixed sum collision entropy Bernoulli sum Renyi order two phase diagram autocorrelation balancing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table or published finding with the three-region two-coin phase diagram or the general autocorrelation projection was located."
+        ],
+        "reasoning": "This is a continuous optimization theorem rather than a finite lookup; the relevant database check is theorem-level.",
+        "searches": [
+          "Resultary published-finding corpus for fixed-sum collision entropy and Bernoulli balancing",
+          "targeted searches under collision probability, order-two Renyi, Poisson-binomial, and pair transfer"
+        ]
+      },
+      "rationale": "The Shannon Shepp--Olkin work and its Renyi/Tsallis extensions address joint concavity, while the recent sharp-threshold work shows failure of universal joint concavity above order one along two-coordinate fixed-sum perturbations. Neither inspected statement classifies the global fixed-sum order-two optimizer. The audited quadratic collision identity instead reduces the entire pair transfer to one scalar product and produces exact deterministic/unequal/balanced phases. No covering published finding appeared in the semantic search.",
+      "residual_risks": [
+        "An older convolution or coding-theory treatment may contain the same collision-probability quadratic under autocorrelation terminology.",
+        "Several highly relevant sources were compared at statement/abstract level rather than line-by-line full-text inspection in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONCAVITY_FRAMEWORK_NOT_EXACT_ORDER_TWO_FIXED_SUM_OPTIMIZER",
+          "evidence": "The source addresses entropy concavity rather than the audited exact collision-probability transfer formula.",
+          "identifier_or_url": "arXiv:1503.01570",
+          "material_read": "Primary abstract and source material describing the Shannon theorem and the proposed Renyi/Tsallis extension.",
+          "method": "Statement and optimization-scope comparison.",
+          "title": "A proof of the Shepp--Olkin entropy concavity conjecture",
+          "trigger": "Foundational Bernoulli-sum concavity source and the package's motivating higher-order reference."
+        },
+        {
+          "assessment": "LOCAL_NONCONCAVITY_DOES_NOT_CLASSIFY_GLOBAL_FIXED_SUM_OPTIMUM",
+          "evidence": "The result establishes a transverse local obstruction, not the global deterministic/unequal/balanced phase diagram.",
+          "identifier_or_url": "arXiv:2609.27433",
+          "material_read": "Accessible primary abstract/statement describing failure of universal joint concavity for every order above one.",
+          "method": "Implication comparison.",
+          "title": "The Sharp Renyi and Tsallis Threshold in the Shepp--Olkin Concavity Problem",
+          "trigger": "Highly relevant recent result showing the fixed-sum two-Bernoulli obstruction above order one."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hillion--Johnson",
+        "Wang 2026",
+        "Madiman--Melbourne--Roberto",
+        "Resultary search"
+      ],
+      "rationale": "The result resolves a natural sharp pair-transfer question exactly at the collision-entropy order where global Shepp--Olkin-type concavity fails. The background-dependent optimizer and explicit two-coin phase boundaries explain when balancing helps, hurts, or is only partially optimal, providing more structural information than a counterexample to concavity.",
+      "residual_risks": [
+        "An older convolution or coding-theory treatment may contain the same collision-probability quadratic under autocorrelation terminology.",
+        "Several highly relevant sources were compared at statement/abstract level rather than line-by-line full-text inspection in this run."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1503.01570",
+    "arXiv:2609.27433",
+    "arXiv:2103.00896",
+    "Resultary fixed-sum collision-entropy query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For an independent finite-support integer-valued background and two Bernoulli variables with fixed sum, the order-two collision probability is a strictly convex quadratic in their product with curvature given by the squared second-difference energy of the background law, so the entropy maximizer is the projection of one explicit stationary product onto the feasible interval; for two coins this yields the stated deterministic, unequal, and balanced phases with balancing optimal exactly when \\(|s-1|\\le 1/\\sqrt3\\).",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older convolution or coding-theory treatment may contain the same collision-probability quadratic under autocorrelation terminology.",
+    "Several highly relevant sources were compared at statement/abstract level rather than line-by-line full-text inspection in this run."
+  ]
+}

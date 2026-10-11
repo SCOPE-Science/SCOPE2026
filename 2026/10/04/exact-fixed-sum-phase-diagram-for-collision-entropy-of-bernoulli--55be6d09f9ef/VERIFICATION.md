@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. The accompanying checker uses exact rational arithmetic.
+# Independent mathematical audit
 
-For randomly generated rational Poisson-binomial backgrounds it computes the
-background pmf by convolution, forms
-\[
-c_j=\sum_k a_k a_{k+j},
-\]
-and verifies directly that
-\[
-2(3c_0-4c_1+c_2)
-=
-\sum_k(a_k-2a_{k-1}+a_{k-2})^2.
-\]
+## correctness
 
-It then compares the autocorrelation formula for collision probability with a
-direct convolution of the full Bernoulli sum and checks
-\[
-Q(r)-Q(r_0)=2D(r-r_0)^2
-\]
-exactly.
+PASS
 
-For many rational fixed sums the checker evaluates the projected product
-optimizer and verifies that every sampled feasible product has at least as
-large a collision probability.
+Conditioning on the difference of the two-coin sums gives the exact autocorrelation expression. Direct expansion yields derivative \(4Dr-2Ds+2G\) and second derivative \(4D\), while \(2D\) is the squared \(\ell_2\)-norm of the zero-extended second-difference sequence, hence positive for every nonzero finite-support probability mass function. The feasible product interval at fixed sum is exactly the stated interval, so strict convexity makes the projection formula necessary and sufficient. Specializing to the empty background gives \(D=3\), \(G=1\), and the two boundary equations produce the thresholds \(1/3\) and \(1-1/\sqrt3\). The inspected exact-rational verifier independently reconstructs convolutions, the energy identity, the quadratic completion, projection, and the two-coin phase partition; those finite checks corroborate the symbolic proof.
 
-The two-coin regimes are tested with exact inequalities. The irrational
-transition
-\[
-1-\frac1{\sqrt3}
-\]
-is represented by the equivalent polynomial condition
-\[
-3(1-u)^2=1,
-\]
-so no floating-point approximation is used to certify the phase split.
+## originality
 
-Finite tests support the algebra but are not used to infer the universal
-claim.
+PASS
 
-Independent audit has not been performed.
+The Shannon Shepp--Olkin work and its Renyi/Tsallis extensions address joint concavity, while the recent sharp-threshold work shows failure of universal joint concavity above order one along two-coordinate fixed-sum perturbations. Neither inspected statement classifies the global fixed-sum order-two optimizer. The audited quadratic collision identity instead reduces the entire pair transfer to one scalar product and produces exact deterministic/unequal/balanced phases. No covering published finding appeared in the semantic search.
 
-Exact-rational replay result: `VERIFY_OK convolution_checks=22415 energy_checks=12000 quadratic_checks=12000 projection_checks=252000 two_coin_phase_checks=401`.
+## value
+
+PASS
+
+The result resolves a natural sharp pair-transfer question exactly at the collision-entropy order where global Shepp--Olkin-type concavity fails. The background-dependent optimizer and explicit two-coin phase boundaries explain when balancing helps, hurts, or is only partially optimal, providing more structural information than a counterexample to concavity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

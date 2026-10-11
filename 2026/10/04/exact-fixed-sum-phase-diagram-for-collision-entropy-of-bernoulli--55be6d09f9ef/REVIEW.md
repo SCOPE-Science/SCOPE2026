@@ -1,55 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof writes collision probability as
-\[
-\Pr(A+T=A'+T')
-\]
-and evaluates it through the three background autocorrelations needed for the
-difference \(T-T'\). With pair sum fixed, the two-coin law is affine in the
-product \(r=pq\); after substitution, collision probability is a strict
-quadratic with second derivative \(4D\). The coefficient satisfies
-\[
-D=\frac12\sum_k(a_k-2a_{k-1}+a_{k-2})^2>0,
-\]
-so the projection formula gives the unique feasible optimizer.
+PASS
 
-The feasible product interval and all two-coin phase thresholds are derived
-algebraically. The verifier independently reconstructs the convolution and
-checks the identities with exact rational arithmetic.
+Conditioning on the difference of the two-coin sums gives the exact autocorrelation expression. Direct expansion yields derivative \(4Dr-2Ds+2G\) and second derivative \(4D\), while \(2D\) is the squared \(\ell_2\)-norm of the zero-extended second-difference sequence, hence positive for every nonzero finite-support probability mass function. The feasible product interval at fixed sum is exactly the stated interval, so strict convexity makes the projection formula necessary and sufficient. Specializing to the empty background gives \(D=3\), \(G=1\), and the two boundary equations produce the thresholds \(1/3\) and \(1-1/\sqrt3\). The inspected exact-rational verifier independently reconstructs convolutions, the energy identity, the quadratic completion, projection, and the two-coin phase partition; those finite checks corroborate the symbolic proof.
 
-## Originality
+## originality
 
-PASS, with a residual older-convolution-literature risk. The full
-Hillion--Johnson preprint was inspected through its Rényi/Tsallis section. It
-formulates a critical-order Rényi conjecture with predicted threshold \(2\),
-but does not solve the fixed-sum order-two optimization.
+PASS
 
-The full recent sharp-threshold paper was inspected, including its
-two-variable transverse construction. It proves that every order above one
-fails joint concavity and supplies a local fixed-sum witness, but does not
-state the global product projection, the deterministic/unequal/balanced phase
-diagram, or the arbitrary-background autocorrelation law.
+The Shannon Shepp--Olkin work and its Renyi/Tsallis extensions address joint concavity, while the recent sharp-threshold work shows failure of universal joint concavity above order one along two-coordinate fixed-sum perturbations. Neither inspected statement classifies the global fixed-sum order-two optimizer. The audited quadratic collision identity instead reduces the entire pair transfer to one scalar product and produces exact deterministic/unequal/balanced phases. No covering published finding appeared in the semantic search.
 
-The full Bernoulli-sum Rényi paper of Madiman--Melbourne--Roberto was also
-compared. Its entropy--variance and anti-concentration results do not imply the
-fixed-sum pair-transfer identity.
+## value
 
-Targeted searches for collision entropy, Rényi order two, fixed Bernoulli
-sum, pair balancing, and Poisson-binomial majorization did not locate an
-equivalent statement.
+PASS
 
-## Value
+The result resolves a natural sharp pair-transfer question exactly at the collision-entropy order where global Shepp--Olkin-type concavity fails. The background-dependent optimizer and explicit two-coin phase boundaries explain when balancing helps, hurts, or is only partially optimal, providing more structural information than a counterexample to concavity.
 
-PASS. The generalized Shepp--Olkin problem makes transverse Bernoulli
-transfers a central test of entropy geometry. At the collision-entropy order,
-the theorem replaces a qualitative failure of concavity with a complete
-global optimizer and exact phase transitions. The arbitrary-background
-formula also gives a reusable local criterion for whether balancing a selected
-pair raises or lowers order-two entropy.
-
-Same-model review: passed. Independent audit: not yet performed.
-
-
-Exact-rational replay: `VERIFY_OK convolution_checks=22415 energy_checks=12000 quadratic_checks=12000 projection_checks=252000 two_coin_phase_checks=401`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
