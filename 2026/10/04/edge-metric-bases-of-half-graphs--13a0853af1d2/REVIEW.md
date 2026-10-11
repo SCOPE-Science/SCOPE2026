@@ -1,11 +1,21 @@
-# Review
-## Correctness
-PASS. The proof derives the exact vertex-edge distance formulas from the nested neighborhoods of \(H_p\). A transversal separates unequal row indices using \(P_i\) and then unequal column indices using \(P_{\ell-1}\). The lower bound uses an explicit marker-threshold lemma on the row-star edges: \(k\) effective landmarks produce at most \(k+1\) codes. Equality is then sharpened with row- and column-star subfamilies to force one chosen vertex in every \(P_r\). Exhaustive breadth-first-search verification for \(2\le p\le9\) agrees with the theorem, but is not used as an infinite proof.
+# Independent mathematical audit
 
-## Originality
-PASS. The founding edge-metric paper arXiv:1602.00291v1 was inspected in full-text form; it defines the parameter and covers paths, cycles, complete graphs, complete bipartite graphs, and trees, while searches for “half”, “chain”, and “Ferrers” find no occurrence. The 2020 bipartite paper DOI:10.3934/math.2020286 characterizes the different extremal regime \(\operatorname{edim}(G)=n-2\), which does not cover \(H_p\) for \(p\ge3\). Focused published-finding corpus and literature searches under half-graph, chain-graph, Ferrers, edge-resolving-set, and edge-metric-basis terminology found no statement implying the retained all-bases classification. Residual risk remains for an obscure or poorly indexed equivalent result.
+## correctness
 
-## Value
-PASS. Half graphs are the canonical twin-free representatives of chain graphs, so an exact basis theorem on this family is structurally natural. The result determines not only the scalar edge metric dimension but every minimum edge-resolving set and its exact count \(2^{p-1}\). The pair-transversal description exposes a rigid local structure that is not supplied by general bipartite extremal results.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact vertex-edge distances were reconstructed from the nested neighborhoods. Any transversal of \(P_r=\{a_r,b_{r+1}\}\) first separates unequal row indices and then unequal column indices. For the lower bound, landmarks on the ordered row-star edges act only as single-position markers or one-threshold markers, so \(k\) effective landmarks create at most \(k+1\) codes and at least \(p-1\) are required. Applying the same bound to prefix and suffix star subfamilies at equality excludes the ineffective endpoints and forces exactly one landmark in every \(P_r\). Independent exhaustive enumeration for \(2\le p\le8\) found no generator of size \(p-2\) and matched the transversal classification exactly.
+
+## originality
+
+PASS
+
+The inspected edge-metric literature does not imply the half-graph all-bases theorem. The founding paper has no half/chain/Ferrers result, while the later connected-bipartite theorem characterizes only the different extremal value order minus two. Searches under half graph, chain graph, Ferrers graph, edge resolving set, and edge metric basis found no earlier statement giving the pair-transversal classification, \(p-1\) value, or \(2^{p-1}\) count.
+
+## value
+
+PASS
+
+Half graphs are the canonical twin-free chain graphs. The result determines not only a scalar edge metric dimension but every minimum edge-resolving set and its exact count, exposing a rigid local pair-transversal structure. That is a natural complete classification rather than a routine example computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

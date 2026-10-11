@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The general proof was checked from the defining distances, including the boundary case \(p=2\), the marker-threshold lower bound, the exclusion of \(b_1\) and \(a_p\) from every minimum basis, and the prefix/suffix inequalities forcing \(z_r=1\).
 
-`verify.py` independently constructs every half graph \(H_p\) for \(2\le p\le9\), computes graph distances by breadth-first search, and checks all subsets of sizes \(p-2\) and \(p-1\). It verifies that no smaller generator exists and that a size-\(p-1\) set resolves the edges exactly when it chooses one vertex from each \(\{a_r,b_{r+1}\}\).
+# Independent mathematical audit
 
-Replay output:
+## correctness
 
-`VERIFY_OK p_range=2..9 subset_checks=101762 basis_checks=59278 transversal_checks=510 max_order=18`
+PASS
 
-The exhaustive range is finite and does not certify larger values of \(p\); the infinite claim is supported by the symbolic proof in `RESULT.md`.
+The exact vertex-edge distances were reconstructed from the nested neighborhoods. Any transversal of \(P_r=\{a_r,b_{r+1}\}\) first separates unequal row indices and then unequal column indices. For the lower bound, landmarks on the ordered row-star edges act only as single-position markers or one-threshold markers, so \(k\) effective landmarks create at most \(k+1\) codes and at least \(p-1\) are required. Applying the same bound to prefix and suffix star subfamilies at equality excludes the ineffective endpoints and forces exactly one landmark in every \(P_r\). Independent exhaustive enumeration for \(2\le p\le8\) found no generator of size \(p-2\) and matched the transversal classification exactly.
+
+## originality
+
+PASS
+
+The inspected edge-metric literature does not imply the half-graph all-bases theorem. The founding paper has no half/chain/Ferrers result, while the later connected-bipartite theorem characterizes only the different extremal value order minus two. Searches under half graph, chain graph, Ferrers graph, edge resolving set, and edge metric basis found no earlier statement giving the pair-transversal classification, \(p-1\) value, or \(2^{p-1}\) count.
+
+## value
+
+PASS
+
+Half graphs are the canonical twin-free chain graphs. The result determines not only a scalar edge metric dimension but every minimum edge-resolving set and its exact count, exposing a rigid local pair-transversal structure. That is a natural complete classification rather than a routine example computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:00:01.937819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 75a4d24c3e54196ed7192438dc9da643a3242e08",
+        "verify.py blob f7225e0a9c52f82b336aa619756c0b00a7691cf4",
+        "Actual source tree a3b61f70b192089be4b2f9926993c55fa7e5261b",
+        "Independent exhaustive replay in this audit"
+      ],
+      "rationale": "The exact vertex-edge distances were reconstructed from the nested neighborhoods. Any transversal of \\(P_r=\\{a_r,b_{r+1}\\}\\) first separates unequal row indices and then unequal column indices. For the lower bound, landmarks on the ordered row-star edges act only as single-position markers or one-threshold markers, so \\(k\\) effective landmarks create at most \\(k+1\\) codes and at least \\(p-1\\) are required. Applying the same bound to prefix and suffix star subfamilies at equality excludes the ineffective endpoints and forces exactly one landmark in every \\(P_r\\). Independent exhaustive enumeration for \\(2\\le p\\le8\\) found no generator of size \\(p-2\\) and matched the transversal classification exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kelenc--Tratnik--Yero cover basic families including complete bipartite graphs but not half graphs.",
+          "Wei--Yue--Zhu characterize connected bipartite graphs with \\(\\operatorname{edim}=N-2\\); for \\(H_p\\), the retained value is \\(p-1\\) on \\(2p\\) vertices."
+        ],
+        "reasoning": "Neither broader theorem dominates the half-graph claim or its optimizer classification.",
+        "searches": [
+          "arXiv:1602.00291v1",
+          "DOI:10.3934/math.2020286",
+          "Fresh 2026 edge-metric family search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.00291v1",
+        "DOI:10.1016/j.dam.2018.05.052",
+        "DOI:10.3934/math.2020286",
+        "Resultary half/chain/Ferrers search",
+        "Fresh exact web alias searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-bipartite formula does not apply because the half graph has nested incomplete neighborhoods.",
+          "The order-minus-two theorem has the wrong numerical regime for every \\(p\\ge3\\) and contains no all-bases classification."
+        ],
+        "reasoning": "The pair-transversal theorem requires a half-graph-specific marker/threshold argument and does not follow by substitution into the inspected prior theorems.",
+        "searches": [
+          "Implication check against arXiv:1602.00291v1 basic-family formulas",
+          "Implication check against DOI:10.3934/math.2020286 connected-bipartite extremal characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-object published-finding hit was the assigned result; other chain-graph hits concerned different metric parameters.",
+          "No targeted web result stated the half-graph edge metric value or all-bases theorem.",
+          "The founding full text has no half/chain/Ferrers occurrence relevant to edge metric dimension."
+        ],
+        "reasoning": "The standard aliases of the family and the parameter were all checked. No equivalent statement was located.",
+        "searches": [
+          "Resultary semantic query: edge metric dimension half graph chain graph Ferrers all edge metric bases",
+          "Web search: \"half graph\" \"edge metric dimension\"",
+          "Web search: \"chain graph\" \"edge metric dimension\"",
+          "Web search: \"Ferrers graph\" \"edge metric dimension\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table with the half-graph value or basis count was retrieved.",
+          "Independent exhaustive enumeration for \\(2\\le p\\le8\\) found exactly 2, 4, 8, 16, 32, 64, and 128 minimum bases, all the predicted transversals."
+        ],
+        "reasoning": "The finite values were generated independently from the graph definition, not copied from a prior table.",
+        "searches": [
+          "Resultary query above",
+          "Exact web searches for \\(2^{p-1}\\) half-graph edge metric bases"
+        ]
+      },
+      "rationale": "The inspected edge-metric literature does not imply the half-graph all-bases theorem. The founding paper has no half/chain/Ferrers result, while the later connected-bipartite theorem characterizes only the different extremal value order minus two. Searches under half graph, chain graph, Ferrers graph, edge resolving set, and edge metric basis found no earlier statement giving the pair-transversal classification, \\(p-1\\) value, or \\(2^{p-1}\\) count.",
+      "residual_risks": [
+        "A poorly indexed chain-graph result under nonstandard terminology could duplicate the theorem.",
+        "The theorem treats the canonical twin-free half graph, not arbitrary chain graphs with repeated twin classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_HALF_GRAPHS",
+          "evidence": "The paper gives several basic families but no half/chain/Ferrers theorem.",
+          "identifier_or_url": "arXiv:1602.00291v1; DOI:10.1016/j.dam.2018.05.052",
+          "material_read": "Full primary preprint around definitions and basic-family formulas, with alias checks for half, chain, and Ferrers.",
+          "method": "Lawful public full-text inspection.",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Foundational source for the exact parameter."
+        },
+        {
+          "assessment": "EXTREMAL_BIPARTITE_REGIME_NOT_COVERING",
+          "evidence": "Its \\(N-2\\) regime is numerically distinct from \\(p-1\\) on the \\(2p\\)-vertex half graph.",
+          "identifier_or_url": "DOI:10.3934/math.2020286",
+          "material_read": "Publisher statement and theorem scope for the connected-bipartite order-minus-two characterization.",
+          "method": "Lawful publisher text inspection.",
+          "title": "On the edge metric dimension of graphs",
+          "trigger": "Closest located theorem specifically about connected bipartite graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Foundational edge-metric literature",
+        "Assigned structural proof",
+        "Independent exhaustive replay"
+      ],
+      "rationale": "Half graphs are the canonical twin-free chain graphs. The result determines not only a scalar edge metric dimension but every minimum edge-resolving set and its exact count, exposing a rigid local pair-transversal structure. That is a natural complete classification rather than a routine example computation.",
+      "residual_risks": [
+        "Scope is limited to the standard half graph and does not settle arbitrary chain graphs with twin classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A poorly indexed chain-graph result under nonstandard terminology could duplicate the theorem.",
+    "The theorem treats the canonical twin-free half graph, not arbitrary chain graphs with repeated twin classes."
+  ],
+  "schema_version": 1
+}
