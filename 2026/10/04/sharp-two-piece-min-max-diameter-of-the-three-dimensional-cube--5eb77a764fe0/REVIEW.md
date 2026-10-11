@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. After translating and scaling to \([-1,1]^3\), any cut may be oriented so that its offset satisfies \(t\ge0\); the negative cut piece then contains the corresponding central half-cube. Signed coordinate permutations reduce the central normal to \(\alpha\ge\beta\ge\gamma\ge0\). The two exhaustive cases \(\alpha\ge\beta+\gamma\) and \(\alpha<\beta+\gamma\) each supply two explicit points in that central half at squared distance at least \(9\). This proves a universal lower bound \(3\). A coordinate central cut gives two \(1\)-by-\(2\)-by-\(2\) boxes, each of diameter exactly \(3\), and scaling returns \(3/2\). No finite enumeration or numerical approximation is needed for the theorem.
+PASS
 
-## Originality
+After scaling to \([-1,1]^3\), orient any cutting plane so its offset is nonnegative; one piece then contains the corresponding central half-cube. Signed coordinate permutations reduce its normal to \(\alpha\ge\beta\ge\gamma\ge0\). The submitted two cases \(\alpha\ge\beta+\gamma\) and \(\alpha<\beta+\gamma\) are exhaustive and each provides an explicit boundary point and cube vertex in the same central half whose squared distance is \(8+(1+t)^2\ge9\). Thus every cut has cost at least three in the scaled cube. A coordinate central cut gives two boxes of side lengths \(1,2,2\), each of diameter three, so scaling back yields \(3/2\). The frozen rational verifier checks the witness formulas on a finite normal grid but is not needed for the universal proof.
 
-PASS with residual risk stated. The primary full text was inspected at the definition of divisions and \(D_n(C)\), Theorem 2, and Remarks 2–3. It supplies only general bounds for the diameter problem; for hypercubes the nearby discussion concerns the mesh used to obtain the upper bound and does not state the matching cube-specific lower bound. The closest earlier diameter-bisection literature located is planar. Searches using the source notation and aliases such as cube, cuboid, hyperplane bisection, maximum diameter, and min-max diameter found no statement of \(D_2([0,1]^3)=3/2\).
+## originality
 
-## Value
+PASS
 
-PASS. This is a natural exact benchmark for the central diameter-division invariant introduced by the primary source: the first spatial cube case with one cut. It proves that the source's orthotope upper bound is actually sharp in this case and gives a short global lower-bound mechanism valid for every orientation and offset, rather than evaluating an arbitrary special cut.
+The full primary paper defining \(D_n(C)\) was inspected at Theorem 2 and Remark 3. For the cube with two pieces it supplies a general lower bound strictly below the target and a coordinate-mesh upper bound of \(3/2\); it does not prove that this upper bound is sharp. Earlier maximum-diameter bisection work located is planar. Resultary and broad cube/cuboid bisection searches found no prior spatial exact theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This closes the exact first spatial cube case of the source's minimax-diameter division problem, proving that its natural coordinate upper construction is globally sharp against every plane orientation and offset. The central-half witness is a reusable geometric lower-bound mechanism, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

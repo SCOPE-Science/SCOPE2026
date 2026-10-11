@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:01:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After scaling to \\([-1,1]^3\\), orient any cutting plane so its offset is nonnegative; one piece then contains the corresponding central half-cube. Signed coordinate permutations reduce its normal to \\(\\alpha\\ge\\beta\\ge\\gamma\\ge0\\). The submitted two cases \\(\\alpha\\ge\\beta+\\gamma\\) and \\(\\alpha<\\beta+\\gamma\\) are exhaustive and each provides an explicit boundary point and cube vertex in the same central half whose squared distance is \\(8+(1+t)^2\\ge9\\). Thus every cut has cost at least three in the scaled cube. A coordinate central cut gives two boxes of side lengths \\(1,2,2\\), each of diameter three, so scaling back yields \\(3/2\\). The frozen rational verifier checks the witness formulas on a finite normal grid but is not needed for the universal proof.",
+      "risk": "No classification of all optimal planes is proved.",
+      "sources": [
+        "Cañete--Fernández--Márquez, DOI:10.7153/mia-2023-26-21 / arXiv:2311.13882",
+        "frozen RESULT.md",
+        "frozen verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives \\(D(C)/2<D_2(C)\\) and an orthotope mesh upper bound, leaving a substantial cube-specific lower-bound gap.",
+          "The earlier bisection theorem is restricted to planar convex bodies."
+        ],
+        "reasoning": "The audited central-half witness is exactly the missing three-dimensional lower bound.",
+        "searches": [
+          "Cañete--Fernández--Márquez Theorem 2 and Remark 3",
+          "Cañete--González Merino planar bisection work"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.7153/mia-2023-26-21",
+        "arXiv:2311.13882",
+        "DOI:10.4171/RMI/1225",
+        "arXiv:1903.06461",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the unit cube, the published theorem gives only an upper construction at \\(3/2\\) and a weaker universal lower bound.",
+          "Remark 3 discusses optimizing the mesh upper bound, not sharpness of \\(D_2\\)."
+        ],
+        "reasoning": "An attaining cut alone cannot prove optimality; the final claim needs the orientation-uniform lower witness absent from the inspected prior theorem.",
+        "searches": [
+          "DOI:10.7153/mia-2023-26-21 Theorem 2",
+          "same paper Remark 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the audited record itself and unrelated cube invariants.",
+          "No external exact spatial-bisection statement was located."
+        ],
+        "reasoning": "Two-division, bisection, minimax-diameter, fried-potato-style partition and cuboid-cut formulations were searched.",
+        "searches": [
+          "Resultary: unit cube hyperplane two-division min-max diameter 3/2",
+          "Web: three-dimensional cube bisection maximum diameter hyperplane",
+          "Web: rectangular box maximum diameter bisection hyperplane"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table or formula for this case was found."
+        ],
+        "reasoning": "The source's mesh table concerns its general upper-bound construction, not the actual cube optimum.",
+        "searches": [
+          "Resultary exact search for \\(D_2([0,1]^3)=3/2\\)",
+          "Web exact-value searches with cube, bisection and diameter"
+        ]
+      },
+      "rationale": "The full primary paper defining \\(D_n(C)\\) was inspected at Theorem 2 and Remark 3. For the cube with two pieces it supplies a general lower bound strictly below the target and a coordinate-mesh upper bound of \\(3/2\\); it does not prove that this upper bound is sharp. Earlier maximum-diameter bisection work located is planar. Resultary and broad cube/cuboid bisection searches found no prior spatial exact theorem.",
+      "residual_risks": [
+        "The argument is elementary enough that an older unindexed cuboid-partition observation may exist under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUNDS_AND_CUBE_UPPER_CONSTRUCTION_NOT_EXACT_VALUE",
+          "evidence": "The theorem supplies the coordinate-mesh upper bound but no matching cube-specific lower bound.",
+          "identifier_or_url": "DOI:10.7153/mia-2023-26-21; arXiv:2311.13882",
+          "material_read": "Open full publisher PDF, specifically the definition of orthogonal widths, Theorem 2 with proof, and Remarks 2--3; the relevant pages were visually inspected.",
+          "method": "Lawful open full-text PDF inspection.",
+          "title": "Optimal divisions of a convex body",
+          "trigger": "Defines the exact minimax diameter invariant and contains the closest general bounds."
+        },
+        {
+          "assessment": "PLANAR_ONLY",
+          "evidence": "Its theorems concern planar convex bodies, not the three-dimensional cube.",
+          "identifier_or_url": "DOI:10.4171/RMI/1225; arXiv:1903.06461",
+          "material_read": "Accessible primary abstract and scope statements.",
+          "method": "Lawful public-source inspection.",
+          "title": "On the isodiametric and isominwidth inequalities for planar bisections",
+          "trigger": "Closest earlier literature on minimizing maximum diameter under bisection."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This closes the exact first spatial cube case of the source's minimax-diameter division problem, proving that its natural coordinate upper construction is globally sharp against every plane orientation and offset. The central-half witness is a reusable geometric lower-bound mechanism, not an arbitrary numerical slice.",
+      "risk": "The theorem does not extend by the same proof to arbitrary dimension or more than two pieces.",
+      "sources": [
+        "DOI:10.7153/mia-2023-26-21"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among all single-hyperplane two-divisions of the unit cube \\([0,1]^3\\), the minimum possible larger Euclidean diameter of the two pieces is exactly \\(3/2\\), attained by a coordinate midplane cut.",
+  "limitations": [
+    "Three-dimensional unit cube only.",
+    "One hyperplane and two pieces only.",
+    "No classification of all optimal hyperplanes."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,54 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-For an arbitrary cut of the centered cube \(C=[-1,1]^3\), orient the plane as
-\[
-\langle a,x\rangle=t,
-\qquad t\ge0.
-\]
-Then
-\[
-C\cap\{\langle a,x\rangle\le0\}
-\subseteq
-C\cap\{\langle a,x\rangle\le t\},
-\]
-so it is enough to lower-bound the diameter of every central half-cube.
+## correctness
 
-Cube symmetries reduce the normal to
-\[
-a=(\alpha,\beta,\gamma),
-\qquad
-\alpha\ge\beta\ge\gamma\ge0.
-\]
-The proof uses two exhaustive cases.
+PASS
 
-For \(\alpha\ge\beta+\gamma\), the boundary point
-\[
-p=\left(\frac{\beta-\gamma}{\alpha},-1,1\right)
-\]
-and the cube vertex \(q=(-1,1,-1)\) are in the same central half, with
-\[
-\lVert p-q\rVert^2
-=8+\left(1+\frac{\beta-\gamma}{\alpha}\right)^2
-\ge9.
-\]
+After scaling to \([-1,1]^3\), orient any cutting plane so its offset is nonnegative; one piece then contains the corresponding central half-cube. Signed coordinate permutations reduce its normal to \(\alpha\ge\beta\ge\gamma\ge0\). The submitted two cases \(\alpha\ge\beta+\gamma\) and \(\alpha<\beta+\gamma\) are exhaustive and each provides an explicit boundary point and cube vertex in the same central half whose squared distance is \(8+(1+t)^2\ge9\). Thus every cut has cost at least three in the scaled cube. A coordinate central cut gives two boxes of side lengths \(1,2,2\), each of diameter three, so scaling back yields \(3/2\). The frozen rational verifier checks the witness formulas on a finite normal grid but is not needed for the universal proof.
 
-For \(\alpha<\beta+\gamma\), the boundary point
-\[
-p=\left(-1,\frac{\alpha-\gamma}{\beta},1\right)
-\]
-and the cube vertex \(q=(1,-1,-1)\) are in the same central half, with
-\[
-\lVert p-q\rVert^2
-=8+\left(1+\frac{\alpha-\gamma}{\beta}\right)^2
-\ge9.
-\]
-The coordinate central cut gives two boxes of side lengths \(1,2,2\), whose diameter is exactly \(3\). Scaling by \(1/2\) yields the unit-cube value \(3/2\).
+## originality
 
-The standalone `verify.py` was replayed from its actual package path. It checks the two witness formulas exactly over a finite rational test family, verifies all half-space memberships, verifies squared distance at least \(9\), and checks the attaining coordinate half-box. It printed:
+PASS
 
-`VERIFY_OK cube two-division diameter`
+The full primary paper defining \(D_n(C)\) was inspected at Theorem 2 and Remark 3. For the cube with two pieces it supplies a general lower bound strictly below the target and a coordinate-mesh upper bound of \(3/2\); it does not prove that this upper bound is sharp. Earlier maximum-diameter bisection work located is planar. Resultary and broad cube/cuboid bisection searches found no prior spatial exact theorem.
 
-The finite replay is only a consistency check. The continuum result is established by the symbolic inequalities above.
+## value
+
+PASS
+
+This closes the exact first spatial cube case of the source's minimax-diameter division problem, proving that its natural coordinate upper construction is globally sharp against every plane orientation and offset. The central-half witness is a reusable geometric lower-bound mechanism, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
