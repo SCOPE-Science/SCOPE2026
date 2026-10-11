@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The arbitrary-order theorem is proved symbolically in `RESULT.md`. The packaged `verify.py` is an exact finite regression check. It generates canonical connected chain graphs by nondecreasing positive neighborhood-size sequences, with both bipartition sizes at most six and total order at most eleven. For every generated graph and every vertex subset it checks the total-domination definition directly, compares it with the extreme-universal-class criterion, tests connectivity of each accepted induced subgraph, and compares brute-force size counts with the coefficients of the stated product formula.
+# Independent mathematical audit
 
-The checker also verifies the minimum coefficient and the complete-bipartite specialization. Finite enumeration does not prove the infinite theorem; it is intended to catch boundary, indexing, connectivity, and coefficient errors.
+## correctness
+
+PASS
+
+In a connected chain graph, a minimum-neighborhood vertex of \(A\) has neighborhood exactly the universal twin class \(B^\star\), and symmetrically on the other side. Thus every total dominating set must meet both \(A^\star\) and \(B^\star\); conversely one selected universal vertex on each side dominates the entire graph. The same pair connects every selected vertex, so every total dominating set is automatically connected total dominating. Independent subset choices on the two sides yield the product polynomial. Factoring powers of \(1+x\) gives the root multiset and the real-root criterion. The bundled exhaustive checker verifies the set criterion, connectivity and coefficient formula on all canonical connected chain graphs in its bounded range.
+
+## originality
+
+PASS
+
+The founding total-domination-polynomial paper defines the invariant and treats basic families/operations but the inspected source does not treat chain graphs. Jha's complete primary chain-graph article studies secure total domination and minimum secure-total sets, a different exchange-stability invariant; it does not enumerate all total dominating sets or identify connected-total coincidence. Resultary searches returned the assigned exact record and adjacent Roman, restrained, paired and secure-total chain-graph polynomials, but no stronger prior theorem implying this factorization.
+
+## value
+
+PASS
+
+Chain graphs are a standard structured bipartite class and total/connected-total domination polynomials are natural enumerative invariants. The exact iff set classification, coincidence of the two domination notions, closed factorization and complete root geometry form a useful structural theorem beyond the known complete-bipartite special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

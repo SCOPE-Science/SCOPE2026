@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. In a connected chain ordering, the smallest neighborhood on one bipartition side is precisely the class of vertices universal to the opposite side. Any total dominating set must hit both such extreme classes by dominating the two minimum-neighborhood vertices. Conversely, one selected universal vertex from each side dominates the entire graph, including one another. Those same two vertices connect every selected vertex, so every total dominating set is connected. The product polynomial follows by independent subset selection on the two bipartition sides, and the root description follows from factoring the two binomial differences. Exhaustive checking over 671 canonical chain graphs and 781140 vertex subsets found no exception.
+## correctness
 
-## Originality
-PASS with stated indexing risk. The 2014 total-domination-polynomial article defines the invariant and treats complete graphs, complete bipartite graphs, trees, joins, coronas, and disjoint unions, but not chain graphs. The 2020 chain-graph article treats secure total domination and does not state an all-set total-domination classification or polynomial. Targeted database and web searches under chain-graph, difference-graph, connected-total-domination, nested-neighborhood, and polynomial formulations did not locate the present factorization or the statement that every total dominating set of a connected chain graph is connected.
+PASS
 
-## Value
-PASS. The result is a complete structural classification on a standard graph class, not a single numerical computation. It collapses two natural invariants—total and connected total domination—at the level of every feasible set, gives all coefficients through a closed factorization, recovers the complete-bipartite case, and determines the full complex root multiset and exact real-rootedness criterion from two canonical twin-class sizes.
+In a connected chain graph, a minimum-neighborhood vertex of \(A\) has neighborhood exactly the universal twin class \(B^\star\), and symmetrically on the other side. Thus every total dominating set must meet both \(A^\star\) and \(B^\star\); conversely one selected universal vertex on each side dominates the entire graph. The same pair connects every selected vertex, so every total dominating set is automatically connected total dominating. Independent subset choices on the two sides yield the product polynomial. Factoring powers of \(1+x\) gives the root multiset and the real-root criterion. The bundled exhaustive checker verifies the set criterion, connectivity and coefficient formula on all canonical connected chain graphs in its bounded range.
 
-## Closest literature and limitations
-The closest inspected sources are Chaluvaraju--Chaitra (2014) for the polynomial and Jha (2020) for chain-graph total-domination structure in the secure variant. A 2014 connected-total-domination-polynomial paper on squares of paths was also inspected as terminology context; it concerns a different graph family. Poor indexing can never be ruled out completely, so residual special-case overlap risk remains.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The founding total-domination-polynomial paper defines the invariant and treats basic families/operations but the inspected source does not treat chain graphs. Jha's complete primary chain-graph article studies secure total domination and minimum secure-total sets, a different exchange-stability invariant; it does not enumerate all total dominating sets or identify connected-total coincidence. Resultary searches returned the assigned exact record and adjacent Roman, restrained, paired and secure-total chain-graph polynomials, but no stronger prior theorem implying this factorization.
+
+## value
+
+PASS
+
+Chain graphs are a standard structured bipartite class and total/connected-total domination polynomials are natural enumerative invariants. The exact iff set classification, coincidence of the two domination notions, closed factorization and complete root geometry form a useful structural theorem beyond the known complete-bipartite special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
