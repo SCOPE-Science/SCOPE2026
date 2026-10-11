@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The polar-area formula is obtained directly from the four supporting lines of the trapezoid. Fiber integration gives an exact one-dimensional expression for \(V_R(\delta,s)\). Differentiation at \((\delta,s)=(0,0)\) yields the three displayed Hessian entries, and the minimizing-center second derivative is their Schur complement. The remaining sign question reduces to a quadratic in \(A=\operatorname{artanh}\lambda\); its larger root is strictly below \(\lambda\), while \(A>\lambda\). The bundled verifier corroborates the algebra numerically at several radii.
+## correctness
 
-## Originality
-PASS. The closest direct source, arXiv:2012.12159, introduces the finite-radius Funk-volume functional and proves unconditional-body results but contains no trapezoid, quadrilateral, Hessian, or second-variation statement. ArXiv:2306.09268 proves a large-radius regular-polygon extremum and finite-center uniqueness, but that asymptotic theorem does not imply the exact fixed-radius curvature. Targeted published-finding corpus searches and the current own ledger found no equivalent or stronger finite-radius trapezoid result. Residual literature risk is recorded in `AUDIT.json`.
+PASS
 
-## Value
-PASS. The deformation is the complete one-dimensional affine moduli space of trapezoids, not an arbitrary parameter slice. The theorem supplies an exact finite-radius local stability benchmark at the affine-regular quadrilateral and an explicit center-response law that connects the ordinary and infinite-radius Santaló limits. It does not claim a global trapezoid or arbitrary-quadrilateral extremum.
+The exact polar-area formula and affine Funk-ball parametrization reduce the volume to the one-dimensional analytic integral displayed in RESULT.md. Differentiation at \((\delta,s)=(0,0)\) gives the three Hessian entries. Since \(V_{ss}>0\), the minimizing center is an analytic implicit branch and the optimized second variation is the stated Schur complement. Its numerator is a quadratic in \(A=\operatorname{artanh}\lambda\) with positive leading coefficient and upper root below \(\lambda\), while \(A>\lambda\); hence the second variation is strictly negative for every finite radius. The finite quadrature verifier agrees with the three closed Hessian formulas at representative radii but is not used for the universal sign.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Faifman's finite-radius work gives the general volume identity and extremal results for unconditional bodies, while Faifman--Vernicos--Walsh prove regular-polygon extremality for a large-radius coefficient after optimal centering. The latter explicitly leaves the analogous finite-radius polygon-volume extremum open. Neither inspected source gives a finite-radius shape Hessian for nonsymmetric trapezoid perturbations or the center-response coefficient. Fresh Resultary search found the audited theorem as the only direct exact hit.
+
+## value
+
+PASS
+
+The theorem gives an exact all-radii local answer in the simplest full affine deformation family beyond parallelograms for a finite-radius extremal problem that the polygon literature leaves open globally. The moving-center coefficient and strict curvature are natural local invariants, not a sampled numerical effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
