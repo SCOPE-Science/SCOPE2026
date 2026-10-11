@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:05:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The subset support dichotomy is exact: a nonempty set either lies in one part, in which case its closed neighborhood misses exactly the unselected vertices of that part, or it meets at least two parts, in which case it dominates the whole graph. This yields the displayed formulas. For ordinary domination, \\(Q_G=(1+x)^N-D(G;x)=1+\\sum_t m_t((1+x)^t-x^t-1)\\); the largest positive degree of \\(Q_G-1\\) is one less than the largest nonsingleton part size and its leading coefficient is that size times its multiplicity, so recursive peeling is valid. For the bivariate polynomial, the coefficient of \\(xy^{N-t}\\) is \\(t m_t\\), recovering every part multiplicity.",
+      "risk": "The injectivity statements are only within the complete-multipartite class, as stated.",
+      "sources": [
+        "Frozen RESULT.md and verify.py at the assigned tree",
+        "Selvakumar--Manikandan--Murugan, Filomat 39:24 (2025), DOI 10.2298/FIL2524519A"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 paper proves domination-polynomial formulas for general \\(H\\)-generalized join graphs and explicitly specializes to complete multipartite graphs.",
+          "Preen--Murray introduce \\(J\\) and general calculation methods."
+        ],
+        "reasoning": "A broader prior framework directly contains the ordinary formula; the remaining bivariate specialization is definition-level counting.",
+        "searches": [
+          "Selvakumar--Manikandan--Murugan 2025, DOI 10.2298/FIL2524519A",
+          "Preen--Murray, arXiv:1708.03890"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.2298/FIL2524519A",
+        "arXiv:2012.11813",
+        "arXiv:1708.03890",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the published ordinary formula, the largest-part peeling algorithm follows by inspecting the highest nonzero degree after subtracting \\((1+x)^N\\).",
+          "From the definition of \\(J\\), singleton coefficients record degrees; the degree multiset of a complete multipartite graph records all part sizes."
+        ],
+        "reasoning": "Both rigidity conclusions are mechanically implied by prior formulas/definitions plus the defining degree pattern of complete multipartite graphs.",
+        "searches": [
+          "DOI 10.2298/FIL2524519A Section 5.2",
+          "arXiv:2012.11813",
+          "definition of \\(J(G;x,y)\\) in arXiv:1708.03890"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2025 Filomat paper gives \\(D(G;x)=\\sum_i x^{n_i}+\\sum_{|J|\\ge2}\\prod_{j\\in J}((1+x)^{n_j}-1)\\), algebraically identical to the submitted ordinary formula.",
+          "Beaton--Brown characterize complete-multipartite dominating sets as all dependent sets plus whole parts.",
+          "The bivariate singleton coefficient is the degree-distribution coefficient by definition, and complete multipartite degrees uniquely encode part sizes."
+        ],
+        "reasoning": "The exact ordinary formula is prior, and both reconstruction mechanisms are immediate coefficient consequences rather than a distinct theorem hidden by notation.",
+        "searches": [
+          "DOI 10.2298/FIL2524519A Section 5.2 complete multipartite domination polynomial",
+          "arXiv:2012.11813 complete multipartite dominating sets",
+          "arXiv:1708.03890 bivariate domination polynomial",
+          "Resultary: domination polynomial complete multipartite graph determines part sizes reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is not merely a database collision: a primary paper contains the exact symbolic polynomial for the full family."
+        ],
+        "reasoning": "The prior coverage is theorem-level and parameterized, so finite collision searches cannot establish originality.",
+        "searches": [
+          "Filomat 39:24 (2025), Section 5.2",
+          "Resultary complete-multipartite domination polynomial query"
+        ]
+      },
+      "rationale": "The ordinary domination polynomial is already explicitly published for complete multipartite graphs. Section 5.2 of Selvakumar--Manikandan--Murugan gives the same polynomial in product-sum form, algebraically identical to the submitted formula; Beaton--Brown had already characterized the same dominating sets. The submitted descending-degree reconstruction is an immediate triangular coefficient extraction from that prior exact formula. The bivariate rigidity adds no substantial independent novelty: singleton terms of \\(J\\) already encode the degree multiset, and in a complete multipartite graph degree \\(N-t\\) is equivalent to part size \\(t\\). The explicit bivariate expression is the routine two-support-case expansion of its definition. Under the audit rule that corollaries and mechanically implied specializations count as covered, no nonroutine original mathematical claim survives.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERAGE",
+          "evidence": "Its Section 5.2 formula is algebraically identical to the submitted ordinary domination polynomial.",
+          "identifier_or_url": "doi:10.2298/FIL2524519A",
+          "material_read": "Full public PDF text, especially Section 5.2, which displays the complete-multipartite domination polynomial. A page-image fetch was attempted but the host timed out.",
+          "method": "lawful public full PDF text extraction",
+          "title": "Domination and minimal domination polynomial of H-generalized join graphs",
+          "trigger": "Primary 2025 source explicitly treating complete multipartite domination polynomials."
+        },
+        {
+          "assessment": "EARLIER_STRUCTURAL_COVERAGE",
+          "evidence": "It observes that dependent sets dominate and that the only additional dominating sets are whole parts.",
+          "identifier_or_url": "arXiv:2012.11813",
+          "material_read": "Full public arXiv text around the complete-multipartite theorem and characterization used in its proof.",
+          "method": "lawful arXiv full text",
+          "title": "On the Unimodality of Domination Polynomials",
+          "trigger": "Earlier primary source for complete multipartite domination polynomials and their dominating-set structure."
+        },
+        {
+          "assessment": "FOUNDATIONAL",
+          "evidence": "It defines \\(J\\); singleton terms therefore encode degree data immediately.",
+          "identifier_or_url": "arXiv:1708.03890",
+          "material_read": "Public primary abstract/definition and journal metadata; no complete-multipartite theorem was identified.",
+          "method": "lawful arXiv/journal public material",
+          "title": "Bivariate Domination Polynomial",
+          "trigger": "Foundational definition of the submitted bivariate invariant."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "After removing the already published ordinary polynomial formula, the reconstruction consists of a descending leading-coefficient peel, and the bivariate reconstruction is simply degree-multiset recovery from singleton terms. These are routine consequences of known formulas/definitions rather than a motivated new structural lemma or unknown exact invariant under the stated value standard.",
+      "risk": "The formulas are useful computationally, but usefulness alone does not meet the required value bar for an independent mathematical finding.",
+      "sources": [
+        "doi:10.2298/FIL2524519A",
+        "arXiv:1708.03890"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every connected complete multipartite graph \\(G=K_{n_1,\\ldots,n_r}\\), the displayed bivariate domination polynomial \\(J(G;x,y)\\) and the ordinary domination polynomial \\(D(G;x)\\) each determine the complete multiset of part sizes, with an explicit descending-degree reconstruction from \\(D\\).",
+  "limitations": [
+    "Scientific rejection is for originality and value, not correctness."
+  ],
+  "schema_version": 1
+}
