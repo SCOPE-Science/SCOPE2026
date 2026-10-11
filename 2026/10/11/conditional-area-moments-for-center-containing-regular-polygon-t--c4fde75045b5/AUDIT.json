@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Strict origin containment iff all three cyclic gaps are positive and less than n/2, including the diameter-side exclusion at even orders. Counting these compositions gives exact conditioning denominators; each area equals R^2/2 times the sum of three arc sines. First and second moments reduce to H, U and C; their tabulated finite trigonometric sums follow from geometric series, including mixed sine sums. Algebraically simplifying reproduces the displayed conditional moments, and Taylor expansion yields the exact odd n^-2 and even n^-1 variance corrections. Standalone verify_center_triangles.py was executed from the packaged path: 595665 Cartesian triangle tests through n=62, 148800 positive membership tests, agreement in probabilities, means, second moments and independent arc sums, plus asymptotic spot checks. No numerical enumeration is used to infer an all-n theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Madras and KC, Randomly Generated Triangles whose Vertices are Vertices of a Regular Polygon, RHUMJ 7(2), article 12 (2006), https://scholar.rose-hulman.edu/rhumj/vol7/iss2/12/ — unconditional discrete triangle-area expectation plus general polygon sampling formulas, not center-restricted conditional second moments.",
+        "Wendel, A Problem in Geometric Probability, Math. Scand. 11 (1962), 109–111 — general position origin absorption probabilities for symmetric independent samples (background; not an area moment result).",
+        "https://math.stackexchange.com/questions/321332/the-expected-area-of-a-triangle-made-up-three-points-picked-randomly-inside-a-ci — three random points sampled uniformly in the disk interior, not at distinct finite regular-polygon vertices."
+      ],
+      "reasoning": "The stronger conceivable prior results would be a general conditional-area transform or random triangle-moment tensor that implies the exact formulas, or a finite-order discrete sampling theorem covering the same event. The 2006 primary paper provides all pointwise areas but neither conditions on strict origin containment nor evaluates the square of their sum. Wendel covers related absorption probabilities but not the conditional area functional. The 2013 circular-disk model is continuously area-sampled, not the present discrete vertex sampling; hence its expectation does not dominate these formulas.",
+      "searches": [
+        "published-finding corpus: Conditional area distribution of three vertices chosen uniformly from a regular polygon whose triangle contains its center, exact second moment odd even n",
+        "published-finding corpus: Random triangles inscribed in regular polygons area moments origin containment Wendel probability",
+        "Web: Wendel random inscribed triangle circumcircle contains origin expected area triangle conditional center",
+        "Web: \"inscribed triangle\" \"center\" \"variance\" area circle conditional"
+      ]
+    },
+    "checked_sources": [
+      "Madras and KC, Randomly Generated Triangles whose Vertices are Vertices of a Regular Polygon, RHUMJ 7(2), article 12 (2006), https://scholar.rose-hulman.edu/rhumj/vol7/iss2/12/",
+      "Original full text PDF: https://dl.icdst.org/pdfs/files3/d0b7d7148bdfb2a8411673b3c2f48385.pdf",
+      "2014 finite-regular-polygon containment count: https://math.stackexchange.com/questions/975432/probability-of-a-random-triangle-containing-the-center-of-a-polygon",
+      "2013 disk-interior conditional mean: https://math.stackexchange.com/questions/321332/the-expected-area-of-a-triangle-made-up-three-points-picked-randomly-inside-a-ci",
+      "published-finding corpus 2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8",
+      "published-finding corpus 2026/10/4/SCOPE-sharp-signed-area-amplification-for-ordered-points-in-a-convex-s--e46b1bb3e0ce",
+      "published-finding corpus 2026/9/20/SCOPE-quantitative-area-stability-reduced-polygons--c9d16da8d26f",
+      "Classical Wendel 1962 origin absorption theorem (background statement only; primary full text not claimed inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Madras–KC (2006), Theorem 2 gives unconditioned E[area] = 3n cot(pi/n)/(2(n-1)(n-2)), plus a per-triple area identity; conditional E[area|origin interior] and E[area^2|origin interior] are not evaluated.",
+        "Math Stack Exchange (October 2014), https://math.stackexchange.com/questions/975432/probability-of-a-random-triangle-containing-the-center-of-a-polygon — odd-order containment probability (n+1)/(4(n-2)); not conditional area or variance.",
+        "2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8 — E[distance^2] between random points on/on inside a fixed triangle, not the square of a random triangle area."
+      ],
+      "reasoning": "Compare implications, not titles: the 2006 formula implies a finite algorithm to compute arbitrary sums, but no explicit evaluated conditional moment formula or sharp odd/even variance convergence; doing so requires a distinct restricted composition and cross-correlation evaluation. The 2014 probability is a common denominator only and cannot yield the numerator of the conditional moments. Known continuous-circle mean 3/pi matches the limit but does not determine finite-n coefficients. Sources do not dominate the exact statement. Other unindexed derivations remain possible.",
+      "searches": [
+        "published-finding corpus: Mean area of Wendel absorbing triangles conditioned center containing in regular polygon exact second moment asymptotic parity correction",
+        "published-finding corpus: Conditional area distribution of three vertices chosen uniformly from a regular polygon whose triangle contains its center, exact second moment odd even n",
+        "Web: random regular n-gon vertex triangle contains center conditional area expectation variance",
+        "Web: geometry Probability of a random triangle containing the center of a polygon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Madras and KC, Randomly Generated Triangles whose Vertices are Vertices of a Regular Polygon, RHUMJ 7(2), article 12 (2006), https://scholar.rose-hulman.edu/rhumj/vol7/iss2/12/ — Theorem 2, Section 4 pointwise-area formula and unconditional mean, Section 5 polygons with more vertices; no conditional area-moment theorem.",
+        "https://math.stackexchange.com/questions/975432/probability-of-a-random-triangle-containing-the-center-of-a-polygon — counts center-containing triples for odd polygons; computes a probability, not conditional area.",
+        "2026/10/4/SCOPE-exact-second-moment-boundary-gap-for-arbitrary-euclidean-triangl--d886b40f95a8 — second moments of point distances in Euclidean triangles rather than conditional areas of random vertex triangles."
+      ],
+      "reasoning": "Equivalent wording searched included origin-containing/absorbing triangles, random inscribed triangles, cyclic arc gaps, central triangle moments and explicit normalized formula coefficients. The closest same-object source has a pointwise triangle-area formula and an unconditional expectation, but does not state the closed conditional first/second moments, variances, or parity-asymptotic coefficient. A finite summation can be defined from that source, but the evaluated nonlinear trigonometric correlation and parity theorem are additional conclusions; the earlier odd-order containment count is credited as known.",
+      "searches": [
+        "published-finding corpus: Expected squared area variance triangle three uniformly chosen vertices of regular n-gon condition origin center inside convex hull exact formulas for odd and even n",
+        "published-finding corpus: Regular 2k and 2k+1 polygon inscribed random triangle contains center conditional mean area 3n/((n squared minus one) sin pi/n) and 3 cot pi/n/(n-2)",
+        "Web: \"random inscribed triangle\" \"contains origin\" \"second moment\" area",
+        "Web: \"regular polygon\" \"contains the center\" \"expected area\" triangle vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Madras and KC, Randomly Generated Triangles whose Vertices are Vertices of a Regular Polygon, RHUMJ 7(2), article 12 (2006), https://scholar.rose-hulman.edu/rhumj/vol7/iss2/12/ — Table 1 tabulates all regular-pentagon triangle gap triples and areas (unconditional enumeration); it does not tabulate conditional second moments.",
+        "2026/10/4/SCOPE-sharp-signed-area-amplification-for-ordered-points-in-a-convex-s--e46b1bb3e0ce — a sharp deterministic signed polygonal area inequality, not a probabilistic moment table.",
+        "2026/9/20/SCOPE-quantitative-area-stability-reduced-polygons--c9d16da8d26f — reduced-polygon area stability estimates, not finite regular-polygon vertex-triangle conditional moments."
+      ],
+      "reasoning": "Inspected the original full primary article including its tables and mathematical-record search hits: no exact database or table of the claimed conditional squared areas and variances was found. The n=5 unconditional table is fully compatible with the special conditional zero-variance case, but it does not furnish any of the arbitrary-order or parity-asymptotic statements. Search coverage is finite and does not certify uniqueness.",
+      "searches": [
+        "published-finding corpus: Expected squared area of center-containing random triangles from regular n-gon",
+        "published-finding corpus: Mean area of Wendel absorbing triangles conditioned center containing in regular polygon exact second moment asymptotic parity correction",
+        "Web: \"regular polygon\" \"triangle\" \"center\" \"variance\" \"area\""
+      ]
+    },
+    "rationale": "The strongest inspected same-object primary paper (Madras–KC 2006) supplies a pointwise and unconditional mean-area law, not the stated conditional first/second moments or finite-size parity variance coefficient; the known odd-order center-containment probability is credited. Specific searches for conditional moments, origin absorption, area variance, and formulas in both general records and published mathematical summaries yielded no equivalent established closed evaluation. No claim of exhaustive novelty certification is made.",
+    "residual_risks": [
+      "Finite source/index search cannot exclude an earlier unindexed exact conditional first/second moment or parity asymptotic computation.",
+      "The closest 2006 article gives sufficient pointwise data for a finite algorithm, so priority specifically concerns closed evaluation and sharp asymptotics, not the underlying triangle area identity.",
+      "The public manuscript bears an explicit 2006-10-02 date, but its precise earliest online distribution day was not independently timestamped.",
+      "The original Wendel (1962) text itself was not materially inspected; its commonly stated absorption-probability theorem does not concern conditional areas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same finite probability model and pointwise area formula, but conclusions concern unconditional expectations and general polygon samples; does not state the strict center-conditioned first/second moments and even/odd variance correction.",
+        "evidence": "Theorem 2 displays 3n cot(pi/n)/(2(n-1)(n-2)) for unconditioned mean area; page 5 remarks one center-containing pentagon triangle but does not condition; Section 5 concerns expected area/perimeter of m-vertex sampled polygons.",
+        "identifier_or_url": "https://dl.icdst.org/pdfs/files3/d0b7d7148bdfb2a8411673b3c2f48385.pdf",
+        "material_read": "16-page primary PDF text across sections 1–5, title page date, Theorems 2 and 4.1–4.2, area formula, worked n=5 table, generalizations and final references. Page images 1, 5 and 9 inspected.",
+        "method": "Read full text and key page images; compared actual theorem hypotheses and output quantities, searched center, variance and conditioning passages.",
+        "title": "Randomly Generated Triangles whose Vertices are Vertices of a Regular Polygon",
+        "trigger": "Exact same sampled objects (uniform distinct vertex triples of a regular n-gon), strong potential implication of conditional moments."
+      },
+      {
+        "assessment": "Covers the odd-order containment probability as known, and is credited; does not compute first or second conditional area moments.",
+        "evidence": "For a regular 9-gon, 10 of 28 triangles through fixed vertex contain center, generalized in comments to (k+1)/(4k-2) for 2k+1 vertices.",
+        "identifier_or_url": "https://math.stackexchange.com/questions/975432/probability-of-a-random-triangle-containing-the-center-of-a-polygon",
+        "material_read": "Complete 2014 question, accepted answer, and October 18 comment generalizing the odd-order containment probability.",
+        "method": "Direct webpage text and formula comparison to triangle probability and conditional area statements.",
+        "title": "Probability of a random triangle containing the center of a polygon",
+        "trigger": "The exact event probability is part of this statement; check whether probability also covers moments."
+      },
+      {
+        "assessment": "Not equivalent: points are sampled independently and uniformly inside the two-dimensional disk. Conditional mean 4/(3pi) differs from the discrete vertex and continuous circumference models.",
+        "evidence": "Answer integrates independent squared radial parameters and reports conditional mean 4/(3pi), identifying a model not sampling polygon vertices.",
+        "identifier_or_url": "https://math.stackexchange.com/questions/321332/the-expected-area-of-a-triangle-made-up-three-points-picked-randomly-inside-a-ci",
+        "material_read": "Full March 2013 question, answer and model clarification; inspected polar-coordinate integrals and conditional mean.",
+        "method": "Read HTML discussion and compare conditional sampling measures.",
+        "title": "The expected area of a triangle made up three points picked randomly inside a circle of radius, and contains the center",
+        "trigger": "Similar conditioning and expected triangle area; assess sampling difference."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c4fde750-45b5-4d7f-aaa1-742940b59899",
+  "value": {
+    "rationale": "The center-containing triangle event is a fundamental and previously studied geometric probability model for random inscribed polygons; the conditional dispersion of triangle area is a natural unknown observable independent of the unconditional mean. Complete exact formulas at all orders make transparent a nontrivial parity effect: strict exclusion of diameter-side degeneracies is essential to the negative 3/(4n) leading even-order variance bias, while odd orders lack an O(1/n) correction. This is a meaningful exact classification/asymptotic mechanism rather than a renamed value or arbitrary enumeration.",
+    "status": "PASS"
+  }
+}
