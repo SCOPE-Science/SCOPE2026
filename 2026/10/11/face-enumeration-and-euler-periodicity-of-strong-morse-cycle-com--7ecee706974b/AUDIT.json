@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For all integers \\(n\\ge3\\), local descending-domination conditions and acyclic orientations yield a bijection with compatible three-color cyclic words excluding monochromatic vertex covers. Cyclic transfer traces count these words with their exact face cardinalities. Eigenvalues at \\(t=-1\\) prove the 12-periodic Euler law. Direct enumeration of all filtration permutations for \\(3\\le n\\le8\\) and integer polynomial checks through \\(n=100\\) agree; the all-parameter proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:math/0011234v1, Corollary 3.3 and Section 4 give ordinary M(C_n) face enumeration.",
+        "arxiv:2609.06844v1 explicitly distinguishes strong M from ordinary M; it proves only n(n-1) top faces in Section 8."
+      ],
+      "reasoning": "An enumerator for ordinary Morse matchings does not determine a proper filtration-induced subcomplex. The stronger pure-complex topological result likewise does not determine nonpure face counts. The primary foundational construction gives no dominating enumerator.",
+      "searches": [
+        "\"Chari Joswig discrete Morse complexes 2005 pdf cycle Morse complex f-vector\"",
+        "\"Fernández 2025 strong discrete Morse theory vertex filtration paper arxiv pdf\"",
+        "\"strong Morse matchings cycle combinatorial enumeration f polynomial total number simplices all lengths\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.06844v1, Definitions 3.2 and 4.2, Propositions 8.2–8.5, Theorem 8.6, Table 1",
+      "arxiv:math/0011234v1, Proposition 3.1, Corollary 3.3 and Section 4",
+      "arxiv:2504.15729v1, Introduction and Section 3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2609.06844v1 Section 8: the full strong complex is nonpure for n>=8, so its top-face count omits lower-dimensional maximal faces.",
+        "arxiv:math/0011234v1 Section 4: ordinary Morse complex has dimension n-2 and differs from the strong one (dimension n-3)."
+      ],
+      "reasoning": "A top-dimensional face count cannot recover omitted maximal nonpure faces. The ordinary rooted-forest formula counts a different, larger complex; no monotonicity/equivalence/reduction supplies the missing full strong face distribution. Thus the exact prior claims inspected do not entail this formula.",
+      "searches": [
+        "\"Complexes of strong discrete Morse matchings\" \"cycle graph\" \"top-dimensional\"",
+        "\"Discrete Morse Complexes\" \"pure\" \"f-vector\" \"circle\"",
+        "\"cycle strong discrete Morse matching complex f-vector all n Euler characteristic periodic twelve transfer matrices\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.06844v1, Sections 3, 4 and 8: strong matching definition and cycle homology table, but no complete face polynomial.",
+        "arxiv:2504.15729v1, Section 3: the underlying vertex filtration framework."
+      ],
+      "reasoning": "The orientation-word and transfer-matrix formulations were compared against the original full-complex definition, the pure-complex statements and existing cyclic word descriptions. No equivalent all-n enumerator was located; these searches do not constitute a proof of novelty.",
+      "searches": [
+        "\"strong discrete Morse matching complex cycle face polynomial\"",
+        "\"Knudson Owens-White 2609.06844 strong Morse complex C_n face enumeration\"",
+        "\"colored cyclic strings local compatibility forbidden monochromatic vertex covers transfer matrix Morse\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2609.06844v1, Table 1 reports homology for cycles through n=21 and an out-of-memory entry at n=22.",
+        "arxiv:2609.06844v1, Proposition 8.3 enumerates only top-dimensional simplices."
+      ],
+      "reasoning": "Neither an exact all-n face table nor a published machine-accessible f-vector formula for the strong cycle complex was identified. The present formula reproduces the published top-face count; a finite homology table alone would neither imply nor certify the full all-length face enumerator.",
+      "searches": [
+        "\"strong discrete Morse matching cycle SM(C_n) f-vector all n Euler characteristic 12 periodic\"",
+        "\"Knudson Owens-White cycle homology table n=22 out of memory\""
+      ]
+    },
+    "rationale": "Relevant full primary texts were compared by logical implication: Knudson–Owens–White supply only top-face counts and finite homology computations of the full cycle complex; Chari–Joswig count the different ordinary Morse complex; Fernández supplies the underlying filtration theory but not the strong-complex enumeration. No indexed or published equivalent to the complete all-n strong face polynomial emerged; potential unindexed coverage remains a risk.",
+    "residual_risks": [
+      "An older equivalently reparameterized enumeration of colored cyclic incidences may exist outside available indexes.",
+      "A general counting statement from the ordinary-Morse literature might be adaptable, but the checked statements do not imply strong face counts without an additional filtration restriction analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: top-dimensional face count and small-n homology, but no all-n complete face polynomial, transfer trace or 12-periodic reduced Euler formula.",
+        "evidence": [
+          "Section 8 Proposition 8.3 gives n(n-1) top-dimensional faces.",
+          "Section 8 Table 1 gives small-n homology, with n=22 out of memory.",
+          "Theorem 8.6 treats the pure subcomplex instead of all faces of the full complex."
+        ],
+        "identifier_or_url": "arxiv:2609.06844v1",
+        "material_read": "Relevant passages in Sections 3, 4, and 8, including definitions, Propositions 8.2–8.5, Theorem 8.6, and homology Table 1; accessed PDF pages 1, 4, 6, 12–22.",
+        "method": "Direct primary PDF text and rendered page inspection, comparing claimed face enumeration to every enumerative assertion in Section 8.",
+        "title": "Complexes of strong discrete Morse matchings",
+        "trigger": "Exact same strong matching object and cycle family, including nonpure full complex."
+      },
+      {
+        "assessment": "NOT_COVERING: counts arbitrary acyclic discrete matchings M(C_n), while the present complex is defined by the downward closure of filtration-generated strong matchings and is strictly smaller in general.",
+        "evidence": [
+          "Section 3 Proposition 3.1 identifies ordinary Morse matchings with rooted forests.",
+          "Section 4 explicitly gives ordinary M(C_n) f-vector from the standard cycle matching formula.",
+          "The strong filtration restriction is not part of this ordinary complex."
+        ],
+        "identifier_or_url": "arxiv:math/0011234v1",
+        "material_read": "Primary PDF Sections 3–4, especially Corollary 3.3 and Section 4 circle face formula, plus the discussion through the proof of Theorem 4.1.",
+        "method": "Direct primary PDF full-text and rendered-page inspection of formulas and object definitions.",
+        "title": "Discrete Morse Complexes",
+        "trigger": "Same input cycle graphs and a known all-n f-vector in the analogous ordinary Morse complex."
+      },
+      {
+        "assessment": "NOT_COVERING: supplies the filtration framework but neither defines nor enumerates the strong matching complex on cycles.",
+        "evidence": [
+          "Definition 3.5 gives the descending link and descending domination.",
+          "The main theorem constructs homotopy-equivalent cores, not face enumerators of matching complexes."
+        ],
+        "identifier_or_url": "arxiv:2504.15729v1",
+        "material_read": "Primary article HTML, Introduction and Section 3, including Definition 3.5 and Lemma 3.6.",
+        "method": "Direct open-access full-text reading of filtration and descending-link definitions and theorem statements.",
+        "title": "Strong discrete Morse theory",
+        "trigger": "Foundational source for strong vertex-filtration matchings and domination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7ecee706-974b-4c02-9f67-5ab61a2b5825",
+  "value": {
+    "rationale": "A natural all-n invariant—the entire face vector of the complete, generally nonpure cycle strong Morse matching complex—is determined by fixed-size transfer matrices, including lengths beyond the published \\(n\\le21\\) homology computations. A nontrivial exact 12-periodic reduced Euler characteristic constrains future homology calculations. This is not an arbitrary selected numerical example; \\(n=22\\) illustrates the general result and does not purport to classify homotopy types.",
+    "status": "PASS"
+  }
+}
