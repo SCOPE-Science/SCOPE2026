@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal coefficient identity is checked by direct determinant expansion: for any \(3\times3\) Jacobian \(J\), the coefficients of \(\det(\lambda I-J)\) are \(-\operatorname{tr}J\), the sum of principal \(2\times2\) minors, and \(-\det J\). With the source's definitions this is exactly \(-\sigma_2,-\sigma_1,-\sigma_0\).
+# Independent mathematical audit
 
-`verifier.py` supplies an exact model-internal witness using `fractions.Fraction`. It verifies that \((R,C_1,C_2)=(1/2,1,1)\) is a positive equilibrium for the displayed positive parameters, reconstructs the exact Jacobian, reproduces the source \(\sigma\)-values, and checks the true characteristic polynomial \(\lambda^3+(23/36)\lambda^2+(139/216)\lambda+4/27\). It then verifies the exact Hurwitz margin \(2045/7776>0\), confirms that the source's stated supplement criterion rejects the witness, and confirms the corrected source-notation inequalities.
+## correctness
 
-No finite experiment is used to prove the universal sign identity. No claim is made about nonlinear homoclinic existence, Lyapunov exponents, or ecological calibration.
+PASS
+
+For any \(3\times3\) matrix, \(\det(\lambda I-J)=\lambda^3-(\operatorname{tr}J)\lambda^2+P_2(J)\lambda-\det J\). The source’s displayed definitions are \(\sigma_2=\operatorname{tr}J\), \(\sigma_1=-P_2(J)\), and \(\sigma_0=\det J\), so all three nonleading signs in its printed polynomial are reversed. Direct substitution of the stated positive parameter witness makes all three equilibrium residuals zero and yields the displayed rational Jacobian. Independent exact arithmetic reproduced coefficients \((23/36,139/216,4/27)\) and the strict Hurwitz margin, so the equilibrium is locally asymptotically stable while the printed source criterion rejects it.
+
+## originality
+
+PASS
+
+The inspected current arXiv supplement/published record retains the sign convention that produces the inconsistency: the Jacobian definitions give \(\sigma_2=\operatorname{tr}J\), \(\sigma_1=-P_2(J)\), and \(\sigma_0=\det J\), while the printed characteristic polynomial uses plus signs. Targeted Resultary and web searches by arXiv id, DOI, title, coefficients, and correction/erratum found no source-specific prior correction. The publisher record dated 2026-06-01 shows the article remains current without a surfaced erratum.
+
+## value
+
+PASS
+
+A sign correction that reverses the local stability classification of an admissible positive coexistence equilibrium is scientifically consequential. The exact rational witness makes the effect concrete and reproducible rather than merely editorial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

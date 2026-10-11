@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source defines \(J=[\partial g_i/\partial x_j]\), \(\sigma_2=\operatorname{{tr}}J\), a displayed \(\sigma_1\) equal to the negative sum of principal \(2\times2\) minors, and \(\sigma_0=\det J\). The determinant expansion therefore forces \(\det(\lambda I-J)=\lambda^3-\sigma_2\lambda^2-\sigma_1\lambda-\sigma_0\). The exact model witness has vanishing equilibrium residuals, a rational Jacobian, and a Hurwitz cubic with margin \(3197/7776-1152/7776=2045/7776>0\). `verifier.py` reproduces all quantities with exact fractions.
+## correctness
 
-## Originality — PASS
-The primary arXiv v2 and published journal record were inspected. Targeted published-finding corpus and web searches for the exact source identifier/DOI/title, the \(\sigma\)-coefficient formulas, characteristic-polynomial sign correction, and the exact rational witness found no source-specific correction or stronger result. The closest published-finding corpus hits address different dynamical systems and do not imply this claim.
+PASS
 
-## Value — PASS
-The sign error sits at the base of the paper's local stability and subsequent Cardano/Shilnikov spectral calculations. The exact positive coexistence witness shows that it is not a harmless notation issue: the stated supplement criterion classifies a genuinely Hurwitz-stable equilibrium as unstable. Correcting the coefficient signs is therefore necessary before using the analytic bifurcation conditions, while the claim carefully avoids overreaching to the separate numerical homoclinic evidence.
+For any \(3\times3\) matrix, \(\det(\lambda I-J)=\lambda^3-(\operatorname{tr}J)\lambda^2+P_2(J)\lambda-\det J\). The source’s displayed definitions are \(\sigma_2=\operatorname{tr}J\), \(\sigma_1=-P_2(J)\), and \(\sigma_0=\det J\), so all three nonleading signs in its printed polynomial are reversed. Direct substitution of the stated positive parameter witness makes all three equilibrium residuals zero and yields the displayed rational Jacobian. Independent exact arithmetic reproduced coefficients \((23/36,139/216,4/27)\) and the strict Hurwitz margin, so the equilibrium is locally asymptotically stable while the printed source criterion rejects it.
 
-## Closest literature and limitations
-The closest source is Niu et al., arXiv:2508.18038v2 / DOI 10.1088/1572-9494/ae4b18. The nearest published-finding corpus items found were a determinant-sign stability-exchange proof for a different predator-dependent replicator model and a no-Hopf theorem for a serial AM2 model. The correction does not invalidate the paper's numerical trajectories or ecological comparison by itself, and no claim is made about a publisher-side future erratum.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected current arXiv supplement/published record retains the sign convention that produces the inconsistency: the Jacobian definitions give \(\sigma_2=\operatorname{tr}J\), \(\sigma_1=-P_2(J)\), and \(\sigma_0=\det J\), while the printed characteristic polynomial uses plus signs. Targeted Resultary and web searches by arXiv id, DOI, title, coefficients, and correction/erratum found no source-specific prior correction. The publisher record dated 2026-06-01 shows the article remains current without a surfaced erratum.
+
+## value
+
+PASS
+
+A sign correction that reverses the local stability classification of an admissible positive coexistence equilibrium is scientifically consequential. The exact rational witness makes the effect concrete and reproducible rather than merely editorial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
