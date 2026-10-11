@@ -1,0 +1,13 @@
+# Same-model scientific review
+
+## Correctness — PASS
+The reduction \(r=x/y\) gives \(\dot r=y^2(1-r^2)\) by direct polynomial algebra. The original physical-time integral \(I(t)\), endpoint condition \(I(T)=\tfrac12\log K\), scalar solution and pole constant are derived exactly. The fixed-parameter expansions are elementary, with correct sign in the \(p<0\) coefficient and exact factor \(2^{-p-1}/(1+pb^2)\) when \(p>0\). The joint limit is uniform only on compact values of \(\delta\), where the positive kernel is bounded away from zero. The noninteger regularity conclusion follows from a positive nonvanishing analytic factor multiplying \(\varepsilon^p\). The embedded symbolic/numerical checker returned `CHECK_OK`, but finite checks play no role in proving limits.
+
+## Originality — PASS, with residual risk
+The closest full text, Volokitin's arXiv:2306.10706v1, studies the very same ODE: its Theorem 1 proves phase portraits and Darboux integrals, and its proof identifies all three invariant lines and the parameter sign cases. Neither the off-separatrix physical-time escape formula, the parameter-dependent delay singularity, nor the uniform critical crossover is stated or established there. The star-node classification arXiv:2106.07516 treats orbital equivalence, which cannot imply unchanged-time asymptotic constants; the strict-contracting classification arXiv:2307.16020 has a hypothesis this cubic fails. Published-record searches with alternative terms for escape time, Riccati clock, blow-up and singularity found no covering theorem. The 2016 and 2017 Volokitin–Cheresiz articles were inspected at abstract/bibliographic level, not full-text level; this remains a priority risk, as does incomplete indexing of other work. This is not an assertion of absolute novelty.
+
+## Value — PASS
+The invariant line \(x=-y\) is a named geometric boundary of the originating phase portrait, and \(p=0\) separates distinct scalar behaviors. The theorem answers the natural dynamical question of **how much original physical time remains before an escaping orbit reaches infinity as its initial point approaches that boundary**. It distinguishes three sharply different time scales, gives a uniform near-critical interpolation, and shows a jump in the blow-up exponent. These quantitative observations cannot be recovered from topological equivalence of phase portraits; unlike a parameter substitution, the two-variable crossover diagnoses the transition itself. The result is restricted to this integrable system and is not offered as a robust universality theorem.
+
+## Independent status
+Same-model review: passed. Independent audit: not yet performed.
