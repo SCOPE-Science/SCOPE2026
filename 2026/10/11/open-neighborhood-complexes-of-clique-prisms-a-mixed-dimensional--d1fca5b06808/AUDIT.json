@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(m\\ge4\\), explicit open neighborhoods give exactly two 2m-facet covers XA and XB. In each cover, unique opposite-layer vertices can be collapsed onto the boundary of an (m-1)-simplex, so each is \\(S^{m-2}\\). Their intersection is exactly K_(m,m) minus a matching, connected with cycle rank \\(m^2-3m+1\\). Both inclusions from this 1-dimensional graph to the simply-connected side covers are nullhomotopic, and the homotopy pushout gives the exact sphere wedge. Purity and non-shellability follow from the facets and nonzero lower-degree homology. Reproducible independent mod-2 boundary ranks m=4..8 match all predicted Betti numbers, not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1802.04526 Theorems 2.1–2.6 assume maximum degree at most three or four-regular circulant graphs.",
+        "arXiv:2212.05871 Section 4 and Theorem 4.1 explicitly study closed-neighborhood/Čech hypercube complexes.",
+        "arXiv:2511.12608 Example 3.5 proves a closed-neighborhood product formula, not an open-neighborhood product theorem."
+      ],
+      "reasoning": "The clique prism has degree m and two m-cliques; for arbitrarily large m it lies outside bounded-degree and four-regular circulant coverage. The nearby Cartesian product literature has different neighborhood convention or homological functor; none has a proved statement whose hypotheses and conclusions imply the exact open-neighborhood wedge for all \\(m\\ge4\\).",
+      "searches": [
+        "homotopy type Lovasz neighborhood complex complete graph Cartesian product with K2 mixed dimension spheres",
+        "open neighborhood complex prism graph family Kn □ K2 simplicial topology",
+        "Lovasz neighborhood complex of K_m Cartesian K_2 versus closed neighborhood complex of K_m Cartesian K_n from Matsushita 2025 and cut complex of clique prism Bayer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.13675",
+      "arXiv:2511.12608",
+      "arXiv:2212.05871",
+      "arXiv:1802.04526",
+      "targeted open/closed neighborhood, Cartesian-product, complete-prism and deleted-matching literature searches",
+      "targeted mathematical results search for the same graph/invariant, facet intersection and equivalent homotopy statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bayer et al. arXiv:2304.13675 Theorem 7.18: cut complexes \\(\\Delta_k\\)(G_m) form wedges of binomial(m-1,k-1) spheres of dimension 2m-k-2.",
+        "Matsushita arXiv:2511.12608 Example 3.5: closed neighborhood of \\(K_m\\square K_2\\) is a wedge of (m-1)^2 two-spheres.",
+        "Shukla arXiv:1802.04526 Section 2: max-degree <=3 and four-regular circulant graph classes."
+      ],
+      "reasoning": "Bayer computes \\(\\Delta_k\\) rather than N(G); no natural identification between their faces and common-open-neighbor faces is proved or applicable. Matsushita computes a nonhomotopy-equivalent complex for the same graph, and the older Shukla theorem covers no general unbounded clique-prism graph class. This comparison tests implications, not title novelty.",
+      "searches": [
+        "\"K_n square K_2\" \"neighborhood complex\" homotopy",
+        "\"neighborhood complex\" \"K_m\" \"K_2\" \"Cartesian\" wedge",
+        "\"prism\" \"neighborhood complex\" \"K_n\" topology"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.13675 Section 7.3 fixes exactly the same prism graph but different cut-complex facets.",
+        "arXiv:2511.12608 Example 3.5 defines the closed-neighborhood variant and shows a different answer on the same underlying Cartesian product."
+      ],
+      "reasoning": "Graph and invariant must both coincide, not just the graph name or wedge keyword. An ordinary open neighborhood N(v) omits v; a closed neighborhood N[v] contains v. For m=4 the open complex has seven 2-spheres versus nine for the closed one, and for \\(m\\ge5\\) the open complex has nonzero degree m-2 homology. These are not equivalent. Also neither cut nor matching complexes are open-neighborhood complexes.",
+      "searches": [
+        "\"neighborhood complex\" \"K_n\" \"K_2\" \"wedge\"",
+        "\"neighborhood complex\" \"prism\" \"wedge of\" spheres",
+        "Common-neighbor simplicial complex of two cliques joined by perfect matching complete prism, m^2-3m+1 cycles suspension and two (m-2)-spheres"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2304.13675 Table 1 indexes cut-complex homotopy types of K_n x K_2, not ordinary neighborhood complexes.",
+        "arXiv:2511.12608 Example 3.5 gives closed-neighborhood Betti ranks for \\(K_m\\square K_n\\), with rank (m-1)^2 in the n=2 case."
+      ],
+      "reasoning": "The closest named same-graph tables index other simplicial constructions. The closed-product table is a decisive nonmatching invariant: m=5 yields sixteen closed degree-2 spheres versus eleven open degree-2 spheres plus two degree-3 spheres.",
+      "searches": [
+        "\"neighborhood complex\" \"Cartesian product\" \"complete\" prism",
+        "\"homotopy type\" \"neighborhood complex\" \"complete prism\"",
+        "\"K_m \\square K_2\" \"neighborhood complex\" graph 2024 2025"
+      ]
+    },
+    "rationale": "The exact open-neighborhood wedge is not a corollary of the inspected same-graph cut-complex classification (arXiv:2304.13675 Theorem 7.18), the closed-neighborhood classification (arXiv:2511.12608 Example 3.5), or Shukla's degree<=3/four-regular circulant open-neighborhood theorems (arXiv:1802.04526 Theorems 2.1–2.6). Matsushita's closed result for this same graph has \\(\\beta_2\\)=(m-1)^2, whereas here \\(\\beta_2\\)=\\(m^2-3m+1\\) for \\(m\\ge5\\), with additional \\(\\beta_{m-2}\\)=2. Exact source and alias searches and checked own claims identified no dominating prior. The unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "Possible unindexed equivalent computation or a broader graph-neighborhood decomposition published under unrelated terminology; searches do not prove uniqueness.",
+      "Degree-four special member might be discussed elsewhere without affecting the unbounded-family statement.",
+      "The self-contained proof is not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_GRAPH_DIFFERENT_INVARIANT; no implication from cut-complex wedge to open-neighborhood wedge",
+        "evidence": "Section 7.3 fixes the Cartesian prism G_n, but Theorem 7.18 computes \\(\\Delta_k\\)(G_n) using disconnected complement k-sets, unlike subsets of an open neighborhood.",
+        "identifier_or_url": "https://arxiv.org/html/2304.13675v2",
+        "material_read": "Introduction/Table 1, Definition 7.16 and the complete Theorem 7.18 statement and proof setup, plus graph-complex definitions",
+        "method": "Open lawful arXiv HTML and inspect theorem, hypotheses and underlying simplicial construction",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Same exact clique-prism graph and an explicit infinite-family topology theorem"
+      },
+      {
+        "assessment": "CLOSED_ONLY_NOT_COVERING_OPEN; exact same graph but different complexes and ranks",
+        "evidence": "Example 3.5 yields N[\\(K_m\\square K_n\\)] wedge f(m,n) two-spheres; for n=2, f=(m-1)^2, unlike the present \\(\\beta_2\\) and the additional high-degree homology.",
+        "identifier_or_url": "https://arxiv.org/html/2511.12608v2",
+        "material_read": "Introduction and open/closed definitions, Theorem 1.2 and Corollary 1.3, Example 3.5 derivation, Example 5.7",
+        "method": "Full-text lawful arXiv HTML with comparison of facet definitions and homotopy ranks",
+        "title": "Closed neighborhood complexes of graphs",
+        "trigger": "Plausible dominating Cartesian-product neighborhood theorem"
+      },
+      {
+        "assessment": "NOT_COVERING; hypercube graphs and closed neighborhoods, not open clique-prism complex",
+        "evidence": "Section 4 explicitly says Lovasz uses open neighborhoods but the article uses closed neighborhoods of hypercubes; its Theorem 4.1 calculates different objects.",
+        "identifier_or_url": "https://arxiv.org/html/2212.05871v2",
+        "material_read": "Introduction and full Section 4 including Theorem 4.1 and explicit open versus closed distinction",
+        "method": "Lawful arXiv HTML, compare definition of ball nerve and N(v) versus N[v]",
+        "title": "Čech complexes of hypercube graphs",
+        "trigger": "Owning middle-period neighborhood-based topological literature"
+      },
+      {
+        "assessment": "NOT_COVERING family \\(m\\ge5\\) because degree m exceeds four; no generic complete-prism theorem",
+        "evidence": "Stated classification restricted to max-degree<=3 or 4-regular circulants. Clique prisms have degree m, arbitrarily large.",
+        "identifier_or_url": "https://arxiv.org/html/1802.04526v2",
+        "material_read": "Introduction, definition, Theorems 2.1–2.6 and scope of proofs",
+        "method": "Lawful arXiv HTML, test degree/circulant assumptions against K_m square K_2",
+        "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+        "trigger": "Closest prior classification of the same open-neighborhood functor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1fca5b0-6808-423c-8bb9-2039a53dd51c",
+  "value": {
+    "rationale": "This is an exact natural unbounded-family homotopy classification of the Lovasz open-neighborhood complex for the named clique-prism Cartesian product. For \\(m\\ge5\\) it has structurally unexpected mixed-degree homology (two high-dimensional spheres plus a quadratic number of degree-2 spheres), explicitly differs from the already classified closed-neighborhood complex of the identical graph, and proves non-shellability for every \\(m\\ge4\\). These properties answer a natural missing graph invariant in the topological-combinatorics literature and provide reusable benchmarks rather than a narrow arbitrary enumeration.",
+    "status": "PASS"
+  }
+}
