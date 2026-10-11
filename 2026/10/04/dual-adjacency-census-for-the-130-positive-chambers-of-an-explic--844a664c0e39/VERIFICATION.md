@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,29 +19,24 @@
 }
 ---
 
-`artifacts/verify_dual_adjacency.py` independently reconstructs the intersection graph from the published Table-2 cyclic orders using only Python's standard library.
+# Independent mathematical audit
 
-It checks:
+## correctness
 
-- exactly 135 line-intersection vertices and 270 line-segment walls;
-- every intersection-graph vertex has degree 4;
-- exactly 10, 90, 30, and 0 induced cycles of lengths 3, 4, 5, and 6;
-- every one of the 270 walls lies in exactly two of the 130 chamber boundaries;
-- dual wall types are exactly 30 T--P, 120 Q--P, and 120 Q--Q;
-- pentagon and quadrilateral neighbor profiles have the stated multiplicities;
-- independent incidence handshakes sum to 270 dual edges.
+PASS
 
-Recorded output:
+The inspected certificate embeds the 27 published cyclic orders, forms the 135 unordered line-intersection vertices and 270 consecutive line-segment walls, exhaustively enumerates chordless cycles of lengths 3--6, recovers exactly 10 triangles, 90 quadrilaterals, 30 pentagons and no 6-cycles, verifies each wall belongs to exactly two chamber cycles, then counts dual adjacency types and every neighbor profile. The code’s independent handshakes agree with all 270 walls. The published source independently fixes the same 135-vertex/270-edge graph and 10/90/30 chamber census, while the predecessor confirms every triangle meets three pentagons.
 
-```
-vertices=135
-line_segment_walls=270
-chambers=triangles:10 quadrilaterals:90 pentagons:30
-wall_types=T-P:30 Q-P:120 Q-Q:120 others:0
-pentagon_profile=30*(T:1,Q:4)
-quadrilateral_profiles=20*(Q:4);20*(Q:3,P:1);50*(Q:2,P:2)
-triangle_profile=10*(P:3)
-VERIFY_OK
-```
+## originality
 
-The verification proves the finite combinatorial claim for the embedded cyclic-order data. It does not prove that the same detailed profile is invariant throughout real cubic-surface moduli.
+PASS
+
+Prior work already gives the 10/90/30 chamber census and explicitly states that every triangle shares its three edges with pentagons. Those facts alone force the aggregate wall counts 30 TP, 120 QP, 120 QQ, so that portion is implication-level covered. The surviving original content is the finer complete dual-neighbor profile: every pentagon has exactly one triangle neighbor, and quadrilaterals split 20/20/50 among Q^4, Q^3P, Q^2P^2. Neither the 2026 paper nor the 2025 predecessor states that profile, and Resultary found no separate prior census.
+
+## value
+
+PASS
+
+The full colored dual-neighbor profile is a natural exact invariant of a newly published explicit positive chamber complex. It refines the global face vector and triangular local statement into complete local incidence data that can be reused in combinatorial or canonical-form investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
