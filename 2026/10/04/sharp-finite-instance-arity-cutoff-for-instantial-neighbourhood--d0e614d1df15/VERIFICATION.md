@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-D=\{d_1,\ldots,d_m\}\ne\varnothing,
-\]
-the decisive test is
-\[
-f_m^N(\{d_1\},\ldots,\{d_m\};D).
-\]
-Any witnessing neighbourhood lies inside \(D\) and meets every singleton \(\{d_i\}\), so it equals \(D\). The empty neighbourhood is tested separately by
-\[
-f_0^N(;\varnothing).
-\]
+# Independent mathematical audit
 
-The lower-bound frames differ only by whether the full carrier \(X\) belongs to one local neighbourhood family. A test with at most \(n-1\) instance sets can replace \(X\) by a proper transversal containing one selected point from each nonempty instance set. At arity \(n\), the \(n\) singleton instance sets have only the full carrier as a witness.
+## correctness
 
-The bundled `verify.py` exhaustively checks the reconstruction identity for every local neighbourhood family through \(n=4\), and checks every lower-arity argument tuple for the sharpness pair through \(n=4\). It prints `VERIFY_OK`.
+PASS
 
-## Limits
+For any nonempty \(D=\{d_1,\ldots,d_m\}\), asking \(f_m^N\) on singleton instance arguments \(\{d_i\}\) with support \(D\) forces every witness neighbourhood \(E\subseteq D\) to contain every \(d_i\), hence \(E=D\). The empty neighbourhood is recovered by \(f_0(; \varnothing)\). Since \(m\le n\), arities through \(n\) reconstruct all neighbourhood memberships. The lower pair \(N^-=\mathcal P(X)\setminus\{X\}\), \(N^+=\mathcal P(X)\) is indistinguishable below \(n\): any successful full-set witness with at most \(n-1\) nonempty instance demands can be replaced by the proper set of one chosen point from each demand; at arity \(n\), the \(n\) singleton demands force \(X\). The bundled checker exhausts all local neighbourhood families through carrier size four and matches this symbolic proof.
 
-The computation is corroborative. The proof establishes the theorem for every finite \(n\). No smaller-cutoff claim is made for restricted frame classes.
+## originality
+
+PASS
+
+De Groot's 2026 full primary article defines the same \(\omega\)-indexed BAIO operations and its complete-atomic duality contains the atom-based reconstruction mechanism, so the upper cutoff is properly treated as prior framework. The sharp lower bound is different: it proves that no uniform arity \(n-1\) can reconstruct all \(n\)-world frames by giving an explicit indistinguishable pair. The 2022 arity-fragment paper's accessible abstract confirms an \(\omega\)-indexed fragment hierarchy but its full body was not accessible; this is retained as the main literature risk rather than treated as failure.
+
+## value
+
+PASS
+
+The least arity needed to recover a finite instantial neighbourhood frame is a natural expressivity/reconstruction invariant for the BAIO hierarchy. The theorem gives both a uniform exact cutoff and a sharp indistinguishability witness for every carrier size, so it is a meaningful finite boundary rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

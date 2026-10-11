@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:01:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 86db15f5a40906b0970ad5023d679c60ad0fd49d",
+        "assigned verify.py blob 2974054e6a957cf7868f2650ef82e84e0aee0183",
+        "de Groot, Thomason Duality for Instantial Neighbourhood Frames, DOI 10.1017/jsl.2026.10202"
+      ],
+      "rationale": "For any nonempty \\(D=\\{d_1,\\ldots,d_m\\}\\), asking \\(f_m^N\\) on singleton instance arguments \\(\\{d_i\\}\\) with support \\(D\\) forces every witness neighbourhood \\(E\\subseteq D\\) to contain every \\(d_i\\), hence \\(E=D\\). The empty neighbourhood is recovered by \\(f_0(; \\varnothing)\\). Since \\(m\\le n\\), arities through \\(n\\) reconstruct all neighbourhood memberships. The lower pair \\(N^-=\\mathcal P(X)\\setminus\\{X\\}\\), \\(N^+=\\mathcal P(X)\\) is indistinguishable below \\(n\\): any successful full-set witness with at most \\(n-1\\) nonempty instance demands can be replaced by the proper set of one chosen point from each demand; at arity \\(n\\), the \\(n\\) singleton demands force \\(X\\). The bundled checker exhausts all local neighbourhood families through carrier size four and matches this symbolic proof.",
+      "residual_risks": [
+        "Additional frame axioms can reduce the cutoff; the theorem is for arbitrary labelled finite instantial neighbourhood frames."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general duality reconstructs a frame from the full algebraic structure, but does not state the sharp finite truncation threshold."
+        ],
+        "reasoning": "The lower-bound pair is additional and prevents treating the finite cutoff as a routine restatement of duality.",
+        "searches": [
+          "de Groot 2026 full Cambridge Core article",
+          "van Benthem--Bezhanishvili--Enqvist--Yu 2017 INL framework"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1017/jsl.2026.10202",
+        "DOI 10.1007/s11225-021-09975-w",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing that every neighbourhood \\(D\\) can be queried using all atoms below it proves arity at most \\(|D|\\), but says nothing about whether a uniformly smaller arity can simulate those queries."
+        ],
+        "reasoning": "The explicit \\(N^-/N^+\\) pair is needed for sharpness.",
+        "searches": [
+          "atom-based complete reconstruction versus minimal finite arity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 source uses the identical BAIO family \\(f_n:B^{n+1}\\to B\\) and complete atomic powerset semantics.",
+          "Its atom reconstruction gives the upper bound but not the lower indistinguishability pair in the inspected text."
+        ],
+        "reasoning": "The audited theorem asks for the least finite initial arity segment, a sharper finite-frame question than existence of the full \\(\\omega\\)-ary representation.",
+        "searches": [
+          "Resultary query: instantial neighbourhood finite arity cutoff finite frame reconstruction",
+          "de Groot 2026 JSL complete-atomic duality",
+          "de Groot 2022 Studia Logica fragment hierarchy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact \\(n\\)-world cutoff or lower-bound frame pair was retrieved in the current search."
+        ],
+        "reasoning": "Search absence supports, but does not prove, originality.",
+        "searches": [
+          "Resultary current finite-arity reconstruction search"
+        ]
+      },
+      "rationale": "De Groot's 2026 full primary article defines the same \\(\\omega\\)-indexed BAIO operations and its complete-atomic duality contains the atom-based reconstruction mechanism, so the upper cutoff is properly treated as prior framework. The sharp lower bound is different: it proves that no uniform arity \\(n-1\\) can reconstruct all \\(n\\)-world frames by giving an explicit indistinguishable pair. The 2022 arity-fragment paper's accessible abstract confirms an \\(\\omega\\)-indexed fragment hierarchy but its full body was not accessible; this is retained as the main literature risk rather than treated as failure.",
+      "residual_risks": [
+        "The inaccessible 2022 full text could contain an equivalent finite-model consequence under fragment terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UPPER_RECONSTRUCTION_FRAMEWORK_PRIOR_SHARP_CUTOFF_NOT_STATED",
+          "evidence": "The source defines the full \\(\\omega\\)-indexed BAIO and atom-based complete-atomic reconstruction, but the inspected material does not state the least finite arity on an \\(n\\)-point frame.",
+          "identifier_or_url": "DOI 10.1017/jsl.2026.10202",
+          "material_read": "complete Cambridge Core primary HTML, especially Definition 3.1 and the complete-atomic section including Remark 3.6",
+          "method": "primary full-text HTML inspection",
+          "title": "Thomason Duality for Instantial Neighbourhood Frames",
+          "trigger": "same BAIO and complete-atomic reconstruction framework"
+        },
+        {
+          "assessment": "FRAGMENT_HIERARCHY_ACCESS_RISK",
+          "evidence": "The accessible abstract confirms relevance but does not expose an exact finite-frame reconstruction cutoff.",
+          "identifier_or_url": "DOI 10.1007/s11225-021-09975-w",
+          "material_read": "publisher abstract stating an \\(\\omega\\)-indexed collection of INL fragments; full text was subscription-restricted in this run",
+          "method": "primary-source abstract inspection with access limitation",
+          "title": "Hennessy-Milner and Van Benthem for Instantial Neighbourhood Logic",
+          "trigger": "plausible arity-fragment antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "de Groot 2026",
+        "INL fragment literature",
+        "assigned proof/verifier"
+      ],
+      "rationale": "The least arity needed to recover a finite instantial neighbourhood frame is a natural expressivity/reconstruction invariant for the BAIO hierarchy. The theorem gives both a uniform exact cutoff and a sharp indistinguishability witness for every carrier size, so it is a meaningful finite boundary rather than a finite census.",
+      "residual_risks": [
+        "Restricted semantic frame classes may have smaller cutoffs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Additional frame axioms can reduce the cutoff; the theorem is for arbitrary labelled finite instantial neighbourhood frames.",
+    "The inaccessible 2022 full text could contain an equivalent finite-model consequence under fragment terminology.",
+    "Restricted semantic frame classes may have smaller cutoffs."
+  ]
+}
