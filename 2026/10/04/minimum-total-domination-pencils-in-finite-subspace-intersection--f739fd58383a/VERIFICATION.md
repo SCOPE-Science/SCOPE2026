@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,32 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-It generates all subspaces by taking spans over the prime fields used in the finite tests, constructs the intersection graph from nonzero intersections, and exhaustively enumerates minimum total dominating sets in the cases
-\[
-(\mathbb F_2)^3,\quad
-(\mathbb F_3)^3,\quad
-(\mathbb F_2)^4.
-\]
-For every minimum total set it verifies that all members are hyperplanes and that their common intersection has codimension two.
+## correctness
 
-It also exhaustively determines paired domination for
-\[
-(\mathbb F_2)^3
-\quad\text{and}\quad
-(\mathbb F_3)^3.
-\]
+PASS
 
-Exact replay output:
+A total dominating set covers every one-dimensional subspace and therefore covers the entire vector space, giving the known lower bound \(q+1\). A hyperplane pencil through a codimension-two subspace is a \(q+1\)-clique covering the space, so equality holds. For an arbitrary \(q+1\)-cover, enlarge members to hyperplanes. No duplicate can occur, because then at most \(q\) proper subspaces would cover the space. Relative to one hyperplane, the other \(q\) outside pieces each have exactly \(q^{n-2}(q-1)\) vectors and their total cardinality equals the full complement, so they are pairwise disjoint; hence all pairwise hyperplane intersections coincide in one codimension-two subspace. The original subspaces must equal those hyperplanes because each uniquely owns its outside piece. The Gaussian count follows from choosing the common codimension-two subspace. For odd \(q\), the even clique pencil has a perfect matching; for even \(q\), parity forces one extra vertex and adding a nonzero line in the common core gives a matching. The actual frozen verifier was read and its representative finite-field enumerations agree with the proof.
 
-```text
-F_2^3: |V(G)|=14, gamma_t=3, min_total_sets=7
-F_3^3: |V(G)|=26, gamma_t=4, min_total_sets=13
-F_2^4: |V(G)|=65, gamma_t=3, min_total_sets=35
-F_2^3: gamma_pr=4, min_paired_sets=77
-F_3^3: gamma_pr=4, min_paired_sets=13
-VERIFY_OK
-```
+## originality
 
-The exhaustive computations are finite corroboration only. The arbitrary-prime-power theorem is established by the symbolic subspace-cover and matching arguments in `RESULT.md`.
+PASS
+
+Jafari Rad and Jafari prove only the ordinary domination number \(q+1\). Khare proves sharp subspace-covering cardinalities but does not classify every minimum \(q+1\)-cover as a hyperplane pencil. Searches under total domination, paired domination, finite-space covers and projective-cover terminology found no source implication-wise supplying the full equality classification, Gaussian enumerator and paired-parity formula.
+
+## value
+
+PASS
+
+The result upgrades a known numerical ordinary-domination threshold to a complete geometric classification of every minimum total set, counts all minimizers, and settles paired domination with a parity boundary. The codimension-two pencil is a natural finite-projective structure rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

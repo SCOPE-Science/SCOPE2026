@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A total dominating set covers every one-dimensional subspace and therefore covers the entire vector space, giving the known lower bound \\(q+1\\). A hyperplane pencil through a codimension-two subspace is a \\(q+1\\)-clique covering the space, so equality holds. For an arbitrary \\(q+1\\)-cover, enlarge members to hyperplanes. No duplicate can occur, because then at most \\(q\\) proper subspaces would cover the space. Relative to one hyperplane, the other \\(q\\) outside pieces each have exactly \\(q^{n-2}(q-1)\\) vectors and their total cardinality equals the full complement, so they are pairwise disjoint; hence all pairwise hyperplane intersections coincide in one codimension-two subspace. The original subspaces must equal those hyperplanes because each uniquely owns its outside piece. The Gaussian count follows from choosing the common codimension-two subspace. For odd \\(q\\), the even clique pencil has a perfect matching; for even \\(q\\), parity forces one extra vertex and adding a nonzero line in the common core gives a matching. The actual frozen verifier was read and its representative finite-field enumerations agree with the proof.",
+      "risk": "The proof is uniform for all prime powers; finite verifier cases are corroborative only.",
+      "sources": [
+        "arXiv:1105.0803",
+        "arXiv:0803.2746",
+        "frozen verify.py at source tree eda1dd4782304f4d29b8186907d7bf1787044a5b"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known cover theorems establish lower bounds and constructions.",
+          "No inspected theorem forces every \\(q+1\\)-member proper-subspace cover in this setting to be one common codimension-two pencil."
+        ],
+        "reasoning": "Broader covering theory supplies the threshold but not the audited equality classification or paired-domination consequences.",
+        "searches": [
+          "Khare 2009 vector-space cover theorem",
+          "Jamison/Brouwer-Schrijver finite-space cover literature searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1105.0803",
+        "arXiv:0803.2746",
+        "finite-space cover literature including Jamison/Brouwer-Schrijver",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary domination \\(q+1\\) does not imply total domination or classification of all minimizers.",
+          "A minimum cover cardinality does not by itself imply the exact equality structure or perfect-matching property of the selected vertices."
+        ],
+        "reasoning": "The common-core equality analysis is additional content needed for the final claim.",
+        "searches": [
+          "arXiv:1105.0803 Theorem 11",
+          "arXiv:0803.2746 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1105.0803 Theorem 11 gives ordinary domination \\(q+1\\) and constructs a pencil witness, but it does not classify all minimum total dominating sets.",
+          "arXiv:0803.2746 Theorem 1.2 gives minimum cover cardinalities; its finite-field proof constructs covers and does not state uniqueness/equality geometry for \\(q+1\\) covers."
+        ],
+        "reasoning": "The graph-theoretic statement was compared to its equivalent vector-space covering problem, not merely by title.",
+        "searches": [
+          "Resultary query: minimum total domination pencils finite subspace intersection graph hyperplanes q+1 paired domination",
+          "arXiv:1105.0803 full text",
+          "arXiv:0803.2746 full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct indexed same-object theorem with the Gaussian count and paired parity law was located."
+        ],
+        "reasoning": "This is an all-parameter theorem; database absence is supporting evidence only.",
+        "searches": [
+          "Resultary semantic search for the exact total/paired domination classification and minimum-set count"
+        ]
+      },
+      "rationale": "Jafari Rad and Jafari prove only the ordinary domination number \\(q+1\\). Khare proves sharp subspace-covering cardinalities but does not classify every minimum \\(q+1\\)-cover as a hyperplane pencil. Searches under total domination, paired domination, finite-space covers and projective-cover terminology found no source implication-wise supplying the full equality classification, Gaussian enumerator and paired-parity formula.",
+      "residual_risks": [
+        "An older equality theorem for minimum finite-vector-space covers may exist under projective-geometry terminology and would cover part of the classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ORDINARY_DOMINATION_ONLY",
+          "evidence": "Theorem 11 proves \\(\\gamma(G(V))=q+1\\) and gives a pencil witness, while the paper studies clique/chromatic/domination/independence rather than total or paired domination.",
+          "identifier_or_url": "arXiv:1105.0803",
+          "material_read": "Open full arXiv text through the definition, graph invariants and Theorem 11 proof.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Results on the intersection graphs of subspaces of a vector space",
+          "trigger": "Same graph and known domination number."
+        },
+        {
+          "assessment": "SHARP_COVER_NUMBER_NOT_EQUALITY_CLASSIFICATION",
+          "evidence": "The paper computes the minimum number of fixed-codimension subspaces needed to cover a vector space and constructs covers, but does not state the audited all-minimum pencil classification.",
+          "identifier_or_url": "arXiv:0803.2746; DOI:10.1016/j.laa.2009.06.001",
+          "material_read": "Open full arXiv HTML including Theorem 1.2 and the finite-field proof.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Vector spaces as unions of proper subspaces",
+          "trigger": "Closest broader finite-vector-space cover theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result upgrades a known numerical ordinary-domination threshold to a complete geometric classification of every minimum total set, counts all minimizers, and settles paired domination with a parity boundary. The codimension-two pencil is a natural finite-projective structure rather than an arbitrary parameter slice.",
+      "risk": "The principal contribution is the equality structure and paired refinement rather than a new cover-number threshold.",
+      "sources": [
+        "arXiv:1105.0803",
+        "arXiv:0803.2746"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the intersection graph of proper nonzero subspaces of an \\(n\\)-dimensional vector space over \\(\\mathbb F_q\\), with \\(n\\ge3\\), the total domination number is \\(q+1\\); every minimum total dominating set is exactly the pencil of all \\(q+1\\) hyperplanes through one codimension-two subspace; there are \\(\\begin{bmatrix}n\\\\2\\end{bmatrix}_q\\) such sets; and paired domination is \\(q+1\\) for odd \\(q\\) and \\(q+2\\) for even \\(q\\).",
+  "limitations": [
+    "Dimension at least three; dimension two has an edgeless intersection graph.",
+    "For even \\(q\\), the minimum paired-domination number is determined but all minimum paired sets are not classified."
+  ],
+  "schema_version": 1
+}

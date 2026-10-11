@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A total dominating set must dominate every one-dimensional subspace, so its members cover the whole vector space. The known ordinary domination lower bound gives at least \(q+1\) vertices. A pencil of all hyperplanes through a codimension-two subspace is a \(q+1\)-clique that covers the space, giving equality. The proof then establishes the equality case for any \(q+1\)-subspace cover by extending to hyperplanes, using exact outside-of-one-hyperplane cardinalities, and forcing the original subspaces to equal those hyperplanes. The paired formulas follow from parity and an explicit matching construction.
+PASS
 
-The standalone verifier exhaustively reproduces the minimum total sets for \((q,n)=(2,3),(3,3),(2,4)\) and the paired minima for \((2,3)\) and \((3,3)\). These computations corroborate but do not replace the general proof.
+A total dominating set covers every one-dimensional subspace and therefore covers the entire vector space, giving the known lower bound \(q+1\). A hyperplane pencil through a codimension-two subspace is a \(q+1\)-clique covering the space, so equality holds. For an arbitrary \(q+1\)-cover, enlarge members to hyperplanes. No duplicate can occur, because then at most \(q\) proper subspaces would cover the space. Relative to one hyperplane, the other \(q\) outside pieces each have exactly \(q^{n-2}(q-1)\) vectors and their total cardinality equals the full complement, so they are pairwise disjoint; hence all pairwise hyperplane intersections coincide in one codimension-two subspace. The original subspaces must equal those hyperplanes because each uniquely owns its outside piece. The Gaussian count follows from choosing the common codimension-two subspace. For odd \(q\), the even clique pencil has a perfect matching; for even \(q\), parity forces one extra vertex and adding a nonzero line in the common core gives a matching. The actual frozen verifier was read and its representative finite-field enumerations agree with the proof.
 
-## Originality
+## originality
 
-PASS. The 2011 source proves only ordinary domination \(q+1\). The inspected structural full text for the same graph contains no total-domination or paired-domination terminology. Searches using graph terminology and equivalent finite-vector-space covering formulations did not locate the classification of every minimum total set as a hyperplane pencil, its Gaussian-binomial enumerator, or the paired parity formula.
+PASS
 
-Residual risk: equality cases for minimum finite-vector-space covers may appear under projective-geometry terminology and could imply part of the classification. No such implication was found in the searches performed, but this remains the principal originality risk.
+Jafari Rad and Jafari prove only the ordinary domination number \(q+1\). Khare proves sharp subspace-covering cardinalities but does not classify every minimum \(q+1\)-cover as a hyperplane pencil. Searches under total domination, paired domination, finite-space covers and projective-cover terminology found no source implication-wise supplying the full equality classification, Gaussian enumerator and paired-parity formula.
 
-## Value
+## value
 
-PASS. The result is a natural complete minimum-set classification rather than merely another parameter value. It upgrades a known ordinary domination number to rigid total-domination geometry, counts all minimizers exactly, and determines paired domination. The codimension-two pencil exposes a projective-geometric structure not present in the numerical ordinary-domination statement.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The result upgrades a known numerical ordinary-domination threshold to a complete geometric classification of every minimum total set, counts all minimizers, and settles paired domination with a parity boundary. The codimension-two pencil is a natural finite-projective structure rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
