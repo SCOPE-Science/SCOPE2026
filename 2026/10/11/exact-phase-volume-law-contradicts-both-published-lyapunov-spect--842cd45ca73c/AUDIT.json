@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For the printed polynomial flow the Jacobian trace is exactly \\(-\\sigma-1-5b-d\\). Jacobi's determinant identity yields \\(\\det D\\phi_T=\\exp[-(\\sigma+1+5b+d)T]\\), and the product of the five tangent singular values equals the determinant magnitude. Thus every standard full finite-time Lyapunov spectrum sums exactly to that constant, and any full asymptotic spectrum has the same sum. Exact rational arithmetic gives \\(-92/3\\) at the source parameters, versus the printed sums \\(-16447/5000\\) and \\(-71247/5000\\). The proof uses no finite experiment to infer an infinite-time statement; the asymptotic statement is a direct limit of an exact finite-time identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shen, DOI 10.1175/JAS-D-13-0223.1, studies the same model family, nonlinear feedback, stability, and Lyapunov exponents, but predates the 2023 spectra corrected here.",
+        "Zhang–Deng, DOI 10.1002/mma.7877, studies transitions and chaos for the same five-dimensional Lorenz model and was first published in 2021, before the target numerical lists.",
+        "The target article itself displays the diagonal damping terms \\(-\\sigma\\), \\(-1\\), \\(-b\\), \\(-d\\), and \\(-4b\\) in its vector-field decomposition but does not compare their trace with the Figure 2 spectrum sums."
+      ],
+      "reasoning": "The earlier same-model literature can cover generic Lyapunov methodology or the model's transition structure, but by chronology it cannot contain a correction to numerical values first printed in 2023. The target full text was inspected at the exact equation and spectrum locations; no stronger source statement was found that already performs this source-specific comparison.",
+      "searches": [
+        "five-dimensional Lorenz model Lyapunov exponents divergence sum",
+        "Nonlinear Feedback in a Five-Dimensional Lorenz Model Lyapunov exponents",
+        "Dynamical transition and chaos for a five-dimensional Lorenz model Lyapunov"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20231005",
+      "doi:10.1175/JAS-D-13-0223.1",
+      "doi:10.1002/mma.7877",
+      "2026/10/4/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-five--d722eecc3b3c",
+      "2026/10/4/SCOPE-exact-phase-volume-sums-invalidate-the-showcased-lyapunov-spectr--13f05d236921"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target source's five values at \\(r=43\\) sum to \\(-16447/5000\\) and its five values at \\(r=25\\) sum to \\(-71247/5000\\), whereas the exact tangent-volume rate at the stated parameters is \\(-92/3\\).",
+        "The source uses the \\(r=43\\) positive largest exponent to support a chaos classification and the all-negative \\(r=25\\) values to support a non-chaotic classification.",
+        "Earlier same-model sources predate the target vectors and therefore do not imply that those exact 2023 numerical lists satisfy or violate the source's own trace constraint."
+      ],
+      "reasoning": "Generic Liouville/Jacobi theory is not claimed as new. The accepted claim is the explicit source-specific incompatibility between the exact trace of equation (2.8) and both published five-component numerical spectra. That comparison is not a corollary of the earlier papers unless one also imports the later numerical tuples and performs the missing arithmetic.",
+      "searches": [
+        "DOI 10.3934/math.20231005 full-PDF equation (2.8), Figure 2 and Hamilton/vector-field decomposition inspection",
+        "DOI 10.1175/JAS-D-13-0223.1 publisher/author-manuscript scope inspection",
+        "DOI 10.1002/mma.7877 publisher abstract and same-model transition scope inspection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary article DOI 10.3934/math.20231005, equation (2.8) and Figure 2 discussion: the source prints the five-dimensional vector field and both five-number Lyapunov lists.",
+        "Closest same-model published record 2026/10/4/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-five--d722eecc3b3c concerns the \\(r=1\\) center reduction and logarithmic relaxation, not a phase-volume comparison at \\(r=25\\) or \\(r=43\\).",
+        "Exact-value web searches returned the target article rather than a correction stating the present sum contradiction."
+      ],
+      "reasoning": "Searches included the exact DOI, model name, parameter tuple, printed exponent values, Liouville/divergence language, and phase-volume aliases. No checked record stated an equivalent contradiction for these two five-number lists.",
+      "searches": [
+        "five-dimensional Lorenz model Lyapunov exponents divergence sum Mao Feng Al-Towailb Saberi-Nik 2023",
+        "10.3934/math.20231005 Lyapunov exponents sum divergence",
+        "5D Lorenz model trace Jacobian Liouville Lyapunov spectrum sum",
+        "five dimensional Lorenz model r=43 sigma=10 b=8/3 d=19/3 Lyapunov exponents",
+        "web: exact tuple search \"1.1281\" \"0.0073\" \"-1.3786\" Lorenz 5D"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest database ID 2026/10/4/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-five--d722eecc3b3c: same model, different \\(r=1\\) asymptotic claim.",
+        "Closest method analogue 2026/10/4/SCOPE-exact-phase-volume-sums-invalidate-the-showcased-lyapunov-spectr--13f05d236921: same determinant-sum diagnostic applied to a different four-dimensional Sprott-C extension."
+      ],
+      "reasoning": "The closest same-model published record does not imply the numerical-spectrum contradiction, while the closest same-method record concerns a different vector field. No checked published record supplied the source-specific comparison.",
+      "searches": [
+        "Mao Feng Al-Towailb Saberi-Nik 2023 five-dimensional Lorenz reported Lyapunov exponents 1.1281 0.0073 -1.3786 -1.3774 -1.6688",
+        "sigma 10 b 8/3 d 19/3 divergence -92/3 five-dimensional Lorenz",
+        "Lyapunov sum -92/3 5DLM r 43",
+        "reported Lyapunov spectrum inconsistent with divergence 5D Lorenz model",
+        "web: \"10.3934/math.20231005\" divergence Lyapunov"
+      ]
+    },
+    "rationale": "The primary article prints both inconsistent five-number vectors but does not state or apply the exact trace constraint to them. Targeted same-model, exact-value, DOI, alias, and phase-volume searches found no published record stating this source-specific comparison. The closest same-model record treats the \\(r=1\\) center reduction; the closest same-method record treats a different four-dimensional system. Generic Liouville theory is explicitly excluded from the originality claim.",
+    "residual_risks": [
+      "The phrase 'Lyapunov exponents at 500th second' may reflect an undocumented nonstandard numerical diagnostic. The accepted statement is conditional only on the standard meaning of a full five-dimensional Lyapunov spectrum and remains exact for every standard finite-time or asymptotic definition based on the tangent map.",
+      "The full body of Zhang–Deng and the publisher body of Shen were not accessible from the checked public sources after indexed material was read. Either source could state the generic divergence identity, but neither can contain a correction of numerical tuples first published in 2023; generic theory is not claimed as new.",
+      "An unindexed correction, erratum, or later note could exist. Failed search is treated as residual risk rather than proof of universal novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES NOT COVER the accepted contradiction. It supplies all source data needed for the comparison and uses the reported exponents as qualitative evidence, but does not impose the full-spectrum trace sum on Figure 2.",
+        "evidence": "Official PDF states the five equations, parameters \\(\\sigma=10\\), \\(b=8/3\\), \\(d=19/3\\), and the two five-number lists at time \\(500\\); the later decomposition displays the diagonal damping coefficients \\(-\\sigma\\), \\(-1\\), \\(-b\\), \\(-d\\), and \\(-4b\\).",
+        "identifier_or_url": "doi:10.3934/math.20231005",
+        "material_read": "Official full PDF: front matter and MSC; equation (2.8) and the Figure 2 Lyapunov-exponent paragraph; Figure 2 page image; vector-field decomposition and Hamilton-energy section around equations (2.9)–(2.14).",
+        "method": "Full-text statement, equation, and implication comparison against the exact Jacobian trace.",
+        "title": "Dynamical analysis and boundedness for a generalized chaotic Lorenz model",
+        "trigger": "Primary source containing the exact vector field and the two numerical spectra under review."
+      },
+      {
+        "assessment": "NOT_COVERING the source-specific 2023 tuple contradiction. It predates the target article and its numerical lists. Generic Lyapunov or volume identities in inaccessible portions would be background, not the later data comparison.",
+        "evidence": "The source is from 2014 and discusses stability improvement through Lyapunov exponents for the 5D model family; no checked material contains the 2023 exponent tuples.",
+        "identifier_or_url": "doi:10.1175/JAS-D-13-0223.1",
+        "material_read": "Publisher abstract and detailed indexed author-manuscript excerpt describing the five-dimensional model, critical points, stability, and numerical Lyapunov-exponent methodology; the full publisher body was not accessible from the checked public source.",
+        "method": "Scope, chronology, and statement comparison.",
+        "title": "Nonlinear Feedback in a Five-Dimensional Lorenz Model",
+        "trigger": "Original same-model paper and plausible broader Lyapunov analysis."
+      },
+      {
+        "assessment": "NOT_COVERING the correction to the 2023 printed spectra by chronology. It may contain general Lyapunov facts, which is retained as a residual literature risk rather than treated as evidence of absence.",
+        "evidence": "First published 3 November 2021 and analyzes r-dependent transitions and chaos in the same five-dimensional Lorenz system.",
+        "identifier_or_url": "doi:10.1002/mma.7877",
+        "material_read": "Publisher abstract and bibliographic record, including transition claims and first-publication date; publicly indexed abstract and figure material was also checked.",
+        "method": "Scope and chronology comparison; the full article body was not accessible from the checked public source.",
+        "title": "Dynamical transition and chaos for a five-dimensional Lorenz model",
+        "trigger": "Same model, transition and chaos analysis, hence a plausible stronger prior source."
+      },
+      {
+        "assessment": "NOT_COVERING. It concerns the \\(r=1\\) center reduction and logarithmic critical relaxation, not the \\(r=25\\) or \\(r=43\\) Lyapunov spectra.",
+        "evidence": "Its stated claim is a quintic center-manifold correction and logarithmic term at \\(r=1\\).",
+        "identifier_or_url": "2026/10/4/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-five--d722eecc3b3c",
+        "material_read": "Database title and summary, plus own prior-ledger claim for deduplication only.",
+        "method": "Statement and implication comparison.",
+        "title": "First logarithmic correction to critical relaxation in the five-dimensional Lorenz model",
+        "trigger": "Closest published same-model research record returned by exact and semantic searches."
+      },
+      {
+        "assessment": "NOT_COVERING. It applies the determinant-sum diagnostic to a different four-dimensional vector field and different published spectra.",
+        "evidence": "The record concerns a Sprott-C extension with divergence \\(c-a-b\\), not the five-dimensional Lorenz system.",
+        "identifier_or_url": "2026/10/4/SCOPE-exact-phase-volume-sums-invalidate-the-showcased-lyapunov-spectr--13f05d236921",
+        "material_read": "Database title and summary.",
+        "method": "Object and implication comparison.",
+        "title": "Exact phase-volume sums invalidate the showcased Lyapunov spectra of a 2023 four-dimensional Sprott-C extension",
+        "trigger": "Closest published method analogue returned by the phase-volume searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "842cd45c-a73c-48be-9f37-4c578bf0d505",
+  "value": {
+    "rationale": "Figure 2's five Lyapunov exponents are a central quantitative diagnostic used by the primary article to distinguish its \\(r=43\\) chaotic example from its \\(r=25\\) non-chaotic example. The exact phase-volume law is trajectory-independent and exposes order-one discrepancies of about 27.38 and 16.42 in the sums, far beyond rounding. Correct full spectra are necessary for reproducible dynamical classification and any downstream use of contraction rates or Lyapunov-derived dimensions. The result is therefore a substantive source-specific consistency correction, while carefully preserving the possibility that the qualitative regimes survive a corrected computation.",
+    "status": "PASS"
+  }
+}
