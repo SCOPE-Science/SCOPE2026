@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:56:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob c38e76873037f71765fac4c3f2259f09018e3595",
+        "assigned verify.py blob 91036aa73df3c8f735061105c0245cbe621b937a",
+        "Grokfast EMA recurrence",
+        "independent Jury calculation"
+      ],
+      "rationale": "Hessian diagonalization decouples the dynamics. For one curvature mode \\(q=\\eta h\\), the submitted state matrix has trace \\(T=1+\\alpha-q[1+\\lambda(1-\\alpha)]\\) and determinant \\(D=\\alpha(1-q)\\). The exact Jury expressions reduce to \\(q(1-\\alpha)(1+\\lambda)\\), \\(2(1+\\alpha)-q[(1+\\alpha)+\\lambda(1-\\alpha)]\\), and \\(1-\\alpha+\\alpha q\\); in the stated parameter range only the middle expression restricts stability. The largest curvature therefore gives the claimed iff threshold, and equality makes the characteristic polynomial vanish at \\(-1\\). The z-transform of the EMA gives \\(A(-1)=1+\\lambda(1-\\alpha)/(1+\\alpha)\\), so the Nyquist expression is algebraically identical. The bundled randomized verifier corroborates the identities and the quoted numerical examples.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These two ingredients jointly determine the claimed boundary by direct substitution."
+        ],
+        "reasoning": "No additional nonlinear or optimizer-specific theorem is required.",
+        "searches": [
+          "Grokfast 2024 practical algorithm",
+          "standard discrete-time second-order stability theory"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.20233",
+        "standard Jury/Schur stability criterion",
+        "Resultary Grokfast stability query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assigned matrix trace and determinant follow by one-step substitution.",
+          "Of the three Jury inequalities, two are automatically positive and the third gives the displayed threshold; evaluating the source filter at Nyquist algebraically rewrites the same inequality."
+        ],
+        "reasoning": "The final result is mechanically implied by the source recurrence and textbook stability theory.",
+        "searches": [
+          "source EMA update plus standard Jury inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source gives \\(\\mu_t=\\alpha\\mu_{t-1}+(1-\\alpha)g_t\\) and applies \\(g_t+\\lambda\\mu_t\\) to the base optimizer.",
+          "The source's signal-processing formulation gives the EMA low-pass filter; the assigned transfer factor is the standard z-transform of that recurrence.",
+          "No separate Resultary entry states the same closed-form stability threshold."
+        ],
+        "reasoning": "On an SPD quadratic, orthogonal Hessian diagonalization converts the source algorithm to independent scalar two-state LTI systems; the submitted theorem is exactly their standard Schur-stability region.",
+        "searches": [
+          "Lee--Kang--Kim--Lee, arXiv:2405.20233, Grokfast-EMA algorithm and frequency-domain filter",
+          "standard Jury/Schur stability criterion for a real monic quadratic",
+          "Resultary query: Grokfast EMA quadratic stability Nyquist gain learning rate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table with the exact \\(q_\\star\\) value was located."
+        ],
+        "reasoning": "Lack of the printed number does not establish originality when the formula is a direct standard-theorem evaluation.",
+        "searches": [
+          "Resultary Grokfast/stability searches",
+          "source paper parameter examples"
+        ]
+      },
+      "rationale": "The Grokfast source already specifies the exact EMA recurrence and residual gradient amplification. On a diagonalized quadratic, these equations give a two-state real linear recurrence immediately, and the submitted learning-rate ceiling follows by applying the standard second-order Jury/Schur criterion. The Nyquist formulation is then just evaluation of the already-given first-order EMA transfer function at \\(z=-1\\). Under the required implication standard this is a routine control-theory specialization, even though the source paper does not print the final formula.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_RECURRENCE_PLUS_STANDARD_JURY_DECISIVELY_IMPLIES_THRESHOLD",
+          "evidence": "The source specifies the complete two-state recurrence once the base optimizer is plain gradient descent; the remaining calculation is standard second-order Schur stability.",
+          "identifier_or_url": "arXiv:2405.20233",
+          "material_read": "Accessible primary abstract/source material and the published EMA update/filter description; the full PDF route was unavailable in this run.",
+          "method": "Algorithm-to-linear-system implication comparison.",
+          "title": "Grokfast: Accelerated Grokking by Amplifying Slow Gradients",
+          "trigger": "Defining source for the exact EMA gradient filter and its frequency-domain interpretation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Grokfast 2024",
+        "standard Jury criterion",
+        "Resultary search"
+      ],
+      "rationale": "The formula is useful as a practitioner-facing sanity check, but scientifically it is a routine application of Hessian diagonalization and the textbook Jury test to the source's two-state EMA recurrence. The Nyquist identity is the same inequality rewritten through the elementary transfer function, so no independently valuable mathematical gap remains under the required bar.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2405.20233",
+    "standard Jury/Schur stability criterion",
+    "Resultary Grokfast stability query"
+  ],
+  "disposition": "failed",
+  "final_claim": "For Grokfast-EMA applied before plain gradient descent on an SPD quadratic, the complete state is Schur stable exactly when \\(0<\\eta L<2(1+\\alpha)/[(1+\\alpha)+\\lambda(1-\\alpha)]\\), with a \\(-1\\) top-curvature root at equality; equivalently the ceiling is \\(2/A(-1)\\) for the EMA residual filter.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Rejected for decisive standard-theory implication and routine-value status, not for correctness."
+  ]
+}
