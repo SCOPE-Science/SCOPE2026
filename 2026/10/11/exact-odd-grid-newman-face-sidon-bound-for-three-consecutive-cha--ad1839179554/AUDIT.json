@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "After normalization, the sampled squared modulus is a concave quadratic in the sampled cosine. The candidate puts its vertex at the midpoint of the two cosine samples adjacent to zero. A weighted two-sample lower bound has a strictly positive-definite Hessian on the coefficient simplex; its stationarity conditions are exactly the balancing identity and the strictly monotone quartic equation. This proves global optimality on the stated sign face for every odd modulus. The asymptotic follows from Taylor expansion of the unique root. The finite verifier only corroborates these analytic identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Neuwirth Theorem 4.3 determines all three-frequency Sidon constants on the continuous circle and Example 4.1 gives the value sqrt(2) for {0,1,2}.",
+        "The inspected even finite-cyclic theorem gives a stronger unrestricted optimization than the present face theorem but only for even N.",
+        "The inspected phase-only theorem covers every N but under the stricter equal-modulus constraint."
+      ],
+      "reasoning": "No inspected broader statement simultaneously has odd finite cyclic sampling and variable magnitudes on, or beyond, the Newman sign face. Therefore no stronger located theorem subsumes the claim.",
+      "searches": [
+        "exact Sidon constant three consecutive characters odd cyclic group",
+        "three consecutive characters cyclic group Sidon constant odd order",
+        "finite cyclic Sidon constant trinomial 1 z z^2 odd"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0102145",
+      "published-finding corpus:b76331aa4281",
+      "published-finding corpus:49933ee8abec",
+      "own ledger 2026-10_week1 p0001_g000050",
+      "own prior ledger 2026-09_week4 p0001_g000061"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The continuous theorem controls max over all points of the circle, so it yields the baseline continuous constant but not the discrete-grid retuning formula.",
+        "The even finite theorem cannot imply an odd-order formula by restriction or affine equivalence because parity changes the root grid and its proof uses antipodal symmetry.",
+        "The equal-modulus finite-grid theorem optimizes only phases and therefore cannot imply the variable-magnitude minimizer or its larger feasible-set value."
+      ],
+      "reasoning": "The new exact face constant is neither a special case nor a corollary of the inspected statements; each misses a necessary dimension of the optimization.",
+      "searches": [
+        "Newman extremizer finite cyclic Sidon {0,1,2} odd order alternating sign",
+        "exact Sidon constant three consecutive characters odd cyclic group"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus b76331aa4281 is an unrestricted Sidon theorem only for even cyclic orders and its inspected RESULT.md explicitly says odd orders are not treated.",
+        "published-finding corpus 49933ee8abec treats the same consecutive spectrum on all finite grids but fixes all three coefficient moduli equal.",
+        "Neuwirth arXiv:math/0102145 treats the supremum over the continuous circle, not an odd finite root-of-unity grid."
+      ],
+      "reasoning": "The proposed statement optimizes a different feasible set from the equal-modulus phase problem and a different sampling domain from Neuwirth, while occupying the parity class explicitly excluded by the even-order finite theorem.",
+      "searches": [
+        "Sidon constant {0,1,2} Z_N odd N",
+        "three consecutive characters cyclic group Sidon constant odd order",
+        "finite cyclic Sidon constant trinomial 1 z z^2 odd",
+        "odd cyclic three consecutive Sidon constant alternating sign real coefficients exact lower bound",
+        "Newman extremizer finite cyclic Sidon {0,1,2} odd order alternating sign",
+        "three consecutive characters odd cyclic group Sidon lower bound asymptotic 3 sqrt2 pi squared 16",
+        "finite cyclic interpolation three consecutive characters odd canonical phase a+bz-cz^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit stated the quartic root, the unequal-magnitude optimizer, or the coefficient 3 sqrt(2) pi^2/16 for this odd-grid face problem."
+      ],
+      "reasoning": "The closest database records have different domains or coefficient constraints; no exact table or formula located matches the claim.",
+      "searches": [
+        "odd cyclic three consecutive Sidon constant alternating sign real coefficients exact lower bound",
+        "three consecutive characters odd cyclic group Sidon lower bound asymptotic 3 sqrt2 pi squared 16",
+        "finite cyclic interpolation three consecutive characters odd canonical phase a+bz-cz^2"
+      ]
+    },
+    "rationale": "The closest continuous theorem gives the full-circle value and continuous extremizer, the closest finite-cyclic Sidon theorem covers even orders only, and the closest all-modulus finite-grid theorem fixes all three coefficient moduli equal. None implies the odd-grid variable-magnitude optimum on the Newman sign face or its quartic and second-order coefficient.",
+    "residual_risks": [
+      "Older finite-dimensional interpolation or crest-factor literature may contain an equivalent restricted-face formula under different terminology.",
+      "The full odd-order finite-cyclic Sidon constant remains outside the proved claim; numerical evidence outside the face is not used for originality or correctness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the continuous circle; does not state a finite odd root-grid magnitude optimization.",
+        "evidence": "Example 4.1 gives the {0,1,2} continuous value sqrt(2); Theorem 4.3 gives the general continuous three-frequency constant; the introduction records the Newman extremizer.",
+        "identifier_or_url": "arXiv:math/0102145",
+        "material_read": "Abstract, introduction, Example 4.1, Theorem 4.3, Proposition 4.4, and consequences in the arXiv full-text rendering.",
+        "method": "Full-text HTML inspection.",
+        "title": "The Sidon constant of sets with three elements",
+        "trigger": "Same three-frequency Sidon object and source of the canonical continuous extremizer."
+      },
+      {
+        "assessment": "Not covering: theorem is explicitly restricted to even N >= 4 and says odd cyclic orders are not treated.",
+        "evidence": "The published finding is sqrt(1+sec^2(pi/N)) for even N only; metadata lists first_public_date 2001-02-19 and primary_msc 42A05 for the literature anchor.",
+        "identifier_or_url": "published-finding corpus:b76331aa4281",
+        "material_read": "Complete published RESULT.md and METADATA.json.",
+        "method": "Public repository full-text inspection.",
+        "title": "Exact Sidon constant of three consecutive characters on even cyclic groups",
+        "trigger": "Same spectrum and unrestricted finite-cyclic Sidon objective."
+      },
+      {
+        "assessment": "Not covering: all coefficient moduli are fixed equal; its limitations explicitly exclude variable magnitudes.",
+        "evidence": "The odd formula 1+4 cos(pi/N) concerns a phase-only minimax, not the Sidon magnitude optimization on the Newman face.",
+        "identifier_or_url": "published-finding corpus:49933ee8abec",
+        "material_read": "Complete published RESULT.md.",
+        "method": "Public repository full-text inspection.",
+        "title": "Exact finite-grid phase minimum for the consecutive unimodular trinomial",
+        "trigger": "Same finite grid and spectrum, including odd N."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ad183917-9554-4b9c-81b7-175bd5494907",
+  "value": {
+    "rationale": "The Newman sign face is canonically selected by the classical continuous extremizer rather than by an arbitrary parameter slice. The theorem gives an all-odd-modulus exact optimization, explicit extremizing magnitudes, a convex certificate, and a sharp second-order lower bound for the unresolved unrestricted odd finite-grid problem. It quantifies how allowing the classical extremizer's magnitudes to retune to the odd grid changes the finite sampling gain.",
+    "status": "PASS"
+  }
+}
