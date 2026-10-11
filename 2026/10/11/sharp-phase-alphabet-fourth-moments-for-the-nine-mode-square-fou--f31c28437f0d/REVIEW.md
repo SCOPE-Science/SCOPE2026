@@ -1,0 +1,11 @@
+# Same-model mathematical review
+
+**Correctness — PASS.** Haar orthogonality gives two equivalent but separately evaluated exact integer formulas for the fourth moment. The attached standard-library verifier exhausts every normalized \(q\)-phase configuration at \(q=2,3,4,6\), comparing autocorrelation and convolution expressions for all \(51545\) cases. The finite counts do not extrapolate beyond the four listed alphabets. An analytic ternary lower bound follows from the sixteen necessarily nonzero mixed-shift Eisenstein correlations. The explicitly listed representatives and normalization give the equality classification.
+
+**Originality — PASS, subject to residual bibliographic risk.** Full-text inspection of Zhang–Fan–Mesnager (arXiv:2107.11599v1) and Pai–Chen (arXiv:2102.04043v1) finds complementary-pair/set constructions, rather than this single-array phase-alphabet optimization and rigid ternary equality classification. Periodic-correlation constructions do not imply the aperiodic Haar minimum. Relevant published results on smaller Fourier supports or the scalar constants of different arrays have distinct domains. Searches did not identify a complete older \(3\times3\) polyphase table, but the possibility of an equivalent specialized catalog remains. A potentially relevant Antweiler–Bömer 1990 article on flattened Frank sequences was accessible only as an abstract; its stated one-dimensional objective differs, and complete comparison remains a risk.
+
+**Value — PASS.** The complete degree-two Cartesian Fourier aperture is a canonical smallest nine-mode two-dimensional test geometry. The exact alphabet effects are mathematically nonmonotone in alphabet cardinality: cubic roots achieve \(97\) while fourth roots cannot do better than \(105\). The theorem also determines all ternary extremizers and the exact six-phase orbit count, furnishing useful concrete benchmarks for phase-coded array and autocorrelation studies.
+
+**Scientific limitations.** The theorem is exact only for the enumerated finite phase alphabets, and no continuous-phase optimum or general \(q\)-formula is asserted. Historical specialist catalogs may contain equivalent work; independent audit has not been performed.
+
+Same-model review: passed. Independent audit: not yet performed.
