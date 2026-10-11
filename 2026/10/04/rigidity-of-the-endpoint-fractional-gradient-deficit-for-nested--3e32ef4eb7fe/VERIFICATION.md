@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The final claim was checked from its definitions and from the published ball-gradient premises. For \(u=\sum_{j=1}^m a_j\mathbf 1_{B_{r_j}(c_j)}\), positivity and nesting determine \(u^*\) exactly. Linearity gives \(\nabla^s u=\sum_{j=1}^m a_jG_j\), and each \(G_j\) is \(L^1\), nonzero away from its center and sphere boundary, and radial with direction \(-(x-c_j)/|x-c_j|\).
+# Independent mathematical audit
 
-For concentric balls, all nonzero summands have one direction almost everywhere, so the \(L^1\) norm is the sum of the individual \(L^1\) norms. For arbitrary centers, the triangle inequality gives the upper bound and subtraction gives the exact nonnegative deficit. If two centers differ, strictness holds on positive measure: outside their connecting affine line when \(N\ge2\), and between the centers when \(N=1\). This verifies the equality classification.
+## correctness
 
-No finite computation is used as an infinite proof. No claim is made beyond finite towers or beyond the \(L^1\) endpoint. The central nonstandard analytic premises were checked against the primary fractional-gradient source, especially its equations (2.1)–(2.3).
+PASS
+
+For a positive finite nested tower, the superlevel sets are exactly the balls in the chain, so symmetric decreasing rearrangement recenters each layer without changing its radius. The primary fractional-gradient source gives, for every ball, the required radial-direction, nonvanishing-away-from-center-and-boundary, and integrability facts. Linearity and the pointwise Euclidean triangle inequality then give the claimed reverse endpoint inequality and the exact integrated triangle-defect identity. If the centers agree, all nonzero ball gradients are positively collinear almost everywhere. If two centers differ, then in dimension at least two the corresponding radial directions fail positive collinearity away from the affine line through the centers, while in dimension one they are opposite on the interval between the centers; in both cases strict triangle inequality holds on a positive-measure set. Thus equality is exactly the common-center case, with the one-layer case vacuous.
+
+## originality
+
+PASS
+
+The complete Stefani preprint was inspected. It states the ball-gradient facts in general and uses them for a specific two-ball translated counterexample at the endpoint, but no finite nested-tower theorem, exact all-layer deficit identity, or common-center equality classification was located. The submitted statement is a natural finite-family rigidity theorem rather than a special case of the printed two-ball example: it classifies all positive nested towers and all equality cases. A targeted Resultary search returned the audited result as the direct hit and no stronger published tower theorem. Because the argument is elementary once the source's ball facts are known, an informal or unindexed observation remains a priority risk; best-of-knowledge originality is therefore bounded to the stated finite-tower classification.
+
+## value
+
+PASS
+
+The source identifies a new endpoint rearrangement failure mechanism; the submitted result turns that mechanism into a complete equality classification on the natural finite nested-ball model class. It separates the exact zero-defect geometry from all nonconcentric cases and supplies the exact deficit functional, which is a structurally useful endpoint statement even though the proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

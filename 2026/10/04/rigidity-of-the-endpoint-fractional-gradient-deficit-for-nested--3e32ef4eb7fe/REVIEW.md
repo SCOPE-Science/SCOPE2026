@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a finite positive nested-ball tower, superlevel sets give the concentric rearrangement exactly. The fractional gradient is linear, each ball gradient is \(L^1\), nonzero away from a null exceptional set, and points radially inward. The pointwise Euclidean triangle inequality therefore gives the comparison and the exact deficit. Equality is characterized correctly: distinct centers force noncollinearity almost everywhere when \(N\ge2\), and force opposite directions on an interval when \(N=1\).
+## correctness
 
-## Originality — PASS
-The closest primary source is Stefani's arXiv:2609.31233v1. Its endpoint proof treats the single configuration \(\mathbf 1_{B_2}+\mathbf 1_{B_1(e_1)}\) and establishes strictness there. Full-text and implication-level searches did not identify the finite nested-tower theorem, the exact integrated alignment-defect identity, or the common-center if-and-only-if equality classification. The older fractional-variation sources provide analytic ingredients rather than this rearrangement statement.
+PASS
 
-Residual risk remains that the finite-chain identity could have appeared under generic equality-in-Minkowski terminology without the fractional-rearrangement vocabulary.
+For a positive finite nested tower, the superlevel sets are exactly the balls in the chain, so symmetric decreasing rearrangement recenters each layer without changing its radius. The primary fractional-gradient source gives, for every ball, the required radial-direction, nonvanishing-away-from-center-and-boundary, and integrability facts. Linearity and the pointwise Euclidean triangle inequality then give the claimed reverse endpoint inequality and the exact integrated triangle-defect identity. If the centers agree, all nonzero ball gradients are positively collinear almost everywhere. If two centers differ, then in dimension at least two the corresponding radial directions fail positive collinearity away from the affine line through the centers, while in dimension one they are opposite on the interval between the centers; in both cases strict triangle inequality holds on a positive-measure set. Thus equality is exactly the common-center case, with the one-layer case vacuous.
 
-## Value — PASS
-The result turns an isolated two-ball endpoint counterexample mechanism into a complete classification on the canonical finite nested-ball step family. The common-center equality locus and exact defect functional give a reusable structural description of how rearrangement changes the endpoint fractional-gradient energy.
+## originality
 
-## Scientific limitations
-The statement is only for finite positive nested-ball towers and \(L^1\). It supplies no quantitative stability constant in the center offsets and no uniform extension to \(L^p\) for \(p>1\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The complete Stefani preprint was inspected. It states the ball-gradient facts in general and uses them for a specific two-ball translated counterexample at the endpoint, but no finite nested-tower theorem, exact all-layer deficit identity, or common-center equality classification was located. The submitted statement is a natural finite-family rigidity theorem rather than a special case of the printed two-ball example: it classifies all positive nested towers and all equality cases. A targeted Resultary search returned the audited result as the direct hit and no stronger published tower theorem. Because the argument is elementary once the source's ball facts are known, an informal or unindexed observation remains a priority risk; best-of-knowledge originality is therefore bounded to the stated finite-tower classification.
+
+## value
+
+PASS
+
+The source identifies a new endpoint rearrangement failure mechanism; the submitted result turns that mechanism into a complete equality classification on the natural finite nested-ball model class. It separates the exact zero-defect geometry from all nonconcentric cases and supplies the exact deficit functional, which is a structurally useful endpoint statement even though the proof is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
