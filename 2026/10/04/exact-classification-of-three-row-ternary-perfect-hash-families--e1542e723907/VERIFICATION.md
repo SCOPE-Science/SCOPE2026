@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The certificate is finite and self-contained. `verify.py` reconstructs all \(27\) ternary columns of length three and checks every candidate directly from the perfect-hash definition. It enumerates all \(296010\) six-subsets and all \(888030\) seven-subsets. It then evaluates the complete equivalence group of order \(1296\) on every maximum family, checks that there is exactly one canonical representative, and regenerates its orbit to obtain exactly \(36\) labeled maxima with stabilizer order \(36\).
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python verify.py certificate.json`
+PASS
 
-Expected final line:
+Fresh enumeration checked the defining separation condition on all 296010 six-subsets of the 27 possible columns and all 888030 seven-subsets. Exactly 36 six-subsets are valid and no seven-subset is valid, so heredity gives the sharp maximum six. Applying all 1296 standard row/symbol transformations to the 36 maxima gives one orbit of size 36, hence stabilizer 36. This independently reconstructs the package's certificate without relying on its stored classification file.
 
-`VERIFY_OK p3(3,3)=6 maxima=36 orbits=1 stabilizer=36`
+## originality
 
-The enumeration of seven-subsets is exhaustive, so the nonexistence assertion is not inferred from a timeout or a partial search. The conclusion for all larger column counts uses only heredity: deleting columns from a perfect hash family preserves the defining property. The computation proves no statement about larger alphabets or different row counts.
+PASS
+
+Existence of a six-column \(\operatorname{PHF}(3;6,3,3)\) is old and appears in Kim's thesis and Walker–Colbourn's construction tables. Walker–Colbourn explicitly describe their tables as best-known construction/upper-bound data for the row number rather than exact extremal classifications in general. No inspected source proves that seven columns are impossible, counts the 36 labeled six-column families, or proves they are one equivalence orbit. Those are the audited contributions.
+
+## value
+
+PASS
+
+The three-row ternary case is the smallest genuinely nontrivial perfect-hash parameter where a six-column construction has long been known but an exact all-family census is not supplied by the standard tables. Closing the upper bound and proving one-orbit rigidity is a natural finite classification with clear reference value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

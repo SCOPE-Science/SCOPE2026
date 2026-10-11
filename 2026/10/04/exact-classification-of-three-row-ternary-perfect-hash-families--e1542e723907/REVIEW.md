@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The defining quantifiers are checked exhaustively on the complete \(27\)-column universe. The verifier examines every six-subset and seven-subset, proves the sharp maximum by heredity, and separately verifies the full equivalence orbit. The computation is deterministic, finite, and solver-free.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest inspected sources give the standard definition, an explicit six-column construction, construction-derived lower-bound tables, and asymptotic bounds. None states or implies the combined exact no-seven result, the count of \(36\) labeled maxima, and uniqueness up to row and independent row-symbol permutations. The principal residual risk is an unindexed older small-parameter enumeration, especially because the full 1996 dissertation cited for the construction was not publicly readable in the inspected repository.
+## correctness
 
-## Value
-PASS. The claim closes the exact base case \(p_3(3,3)\) and adds a complete structural classification of its extremizers. This is a natural finite invariant of the same three-row perfect-hash problem studied in the construction and asymptotic literature, rather than an arbitrary slice.
+PASS
 
-## Closest literature and limitations
-Kim's 2003 thesis displays a six-column ternary three-row family. Walker and Colbourn's 2007 Table 6 reaches the same lower bound but explicitly describes the table entries as lower bounds on the corresponding largest-column function. Bshouty's construction paper and Shangguan--Ge's asymptotic work do not settle this finite classification. The result does not address larger alphabets or more rows.
+Fresh enumeration checked the defining separation condition on all 296010 six-subsets of the 27 possible columns and all 888030 seven-subsets. Exactly 36 six-subsets are valid and no seven-subset is valid, so heredity gives the sharp maximum six. Applying all 1296 standard row/symbol transformations to the 36 maxima gives one orbit of size 36, hence stabilizer 36. This independently reconstructs the package's certificate without relying on its stored classification file.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Existence of a six-column \(\operatorname{PHF}(3;6,3,3)\) is old and appears in Kim's thesis and Walker–Colbourn's construction tables. Walker–Colbourn explicitly describe their tables as best-known construction/upper-bound data for the row number rather than exact extremal classifications in general. No inspected source proves that seven columns are impossible, counts the 36 labeled six-column families, or proves they are one equivalence orbit. Those are the audited contributions.
+
+## value
+
+PASS
+
+The three-row ternary case is the smallest genuinely nontrivial perfect-hash parameter where a six-column construction has long been known but an exact all-family census is not supplied by the standard tables. Closing the upper bound and proving one-orbit rigidity is a natural finite classification with clear reference value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
