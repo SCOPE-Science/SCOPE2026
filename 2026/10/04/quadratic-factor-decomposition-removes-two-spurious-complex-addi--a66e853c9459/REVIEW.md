@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The structure matrix is translated using the source's explicit MSC convention. The orthogonal idempotents \(p\) and \(q\) give a direct-product decomposition, and the change of generator \(w=2e_3-p\) gives the exact quadratic relation \(w^2=(1+8t)p\). The two complex identifications are checked by explicit bases, not by parameter heuristics. The finite-field automorphism orders follow from the factor decomposition and are independently checked over \(\mathbb F_5\).
+## correctness
 
-## Originality
-PASS. The motivating paper already reduces the complex parameter family to two isomorphism types, but its conclusion still treats both as additions to the older complex list. It reproduces the older \(U_2^3\) and \(U_3^3\) tables without identifying either with the \(As_{1,1}^{8}\) family. Direct searches for the exact family, the discriminant \(1+8t\), the two cross-identifications, and the finite-field three-type formulation did not locate a published statement making these identifications. The closest older classifications use different normal forms and do not dominate this specific correction.
+PASS
 
-## Value
-PASS. The result removes two spurious additions from a recent proposed completion of the complex three-dimensional associative-algebra list, while replacing a cumbersome parameter equivalence by a transparent quadratic-algebra decomposition. The same structure immediately gives the exact finite-field type split and automorphism orders, making the correction reusable beyond the complex case.
+The decomposition is correct. With p=(e1+e2)/2 and q=(e1-e2)/2, one obtains orthogonal idempotents p^2=p, q^2=q, pq=0, pe3=e3 and qe3=0. Hence A_t=kq times pA_t, where e3 satisfies e3^2-e3-2tp=0; setting w=2e3-p gives w^2=(1+8t)p. Thus over an algebraically closed field the nonzero-discriminant case is k^3 and the zero-discriminant case is k times the dual numbers, matching the reproduced U_2^3 and U_3^3 tables. Over odd finite fields, square/zero/nonsquare discriminant gives k^3, k times dual numbers, and k times F_{q^2}, with automorphism orders 6, q-1 and 2. Fresh symbolic multiplication independently verified the idempotent and quadratic relations; the finite-field checker is corroborative only.
 
-## Closest literature and limitations
-The closest source is arXiv:2508.04104v6 itself: it contains the family, reproduces \(U_2^3\) and \(U_3^3\), and states that the family has two complex isomorphism types, but it does not make the two cross-identifications and instead calls the two representatives additions to the earlier list. The 2021 classification's full text was not directly accessible from the lawful sources inspected; its relevant tables are reproduced in the recent paper. Fialowski--Penkava gives an independent complete complex classification in different notation. The present finding does not reassess unrelated families.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The recent primary paper defines the As_{1,1}^8(3)(t) family, reduces it to two complex isomorphism types, reproduces the older U_2^3 and U_3^3 multiplication tables, yet still lists the two As-family representatives as additions to the older complex classification. The audited basis changes identify those representatives exactly with the already-listed classes, reversing that comparison rather than restating it. No checked primary or Resultary source supplies this cross-identification or the quadratic-factor formulation.
+
+## value
+
+PASS
+
+The result corrects a concrete redundancy in a current attempted completion of the complex three-dimensional associative-algebra list. The quadratic-factor decomposition also replaces a complicated parameter presentation by a standard invariant and immediately yields the exact odd finite-field forms and automorphism orders. This is a reusable structural correction rather than a merely cosmetic renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
