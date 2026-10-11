@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:43:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3d4900be4ee4df302fbcd3fcd763985cf4e2d9b2",
+        "assigned verify.py blob 228443db2464e97ac286e96db2588342e95d6d85",
+        "Reyes-Bahamón et al., Journal of Nonlinear Science 36 (2026), DOI:10.1007/s00332-026-10272-w"
+      ],
+      "rationale": "Writing \\(J=1-L\\), \\(D_1=0\\) gives \\(D-E=J^2/3\\), hence \\(p'(u)=3(u-J/3)^2\\). Substitution into the source discriminant expression gives \\(\\Delta_2=(J^3+27(N-A))^2\\), so \\(\\Delta_2<0\\) is impossible and \\(\\Delta_2=0\\) is equivalent to \\(N-A=-J^3/27\\). Then \\(p(u)=(u-J/3)^3\\), with positive root because \\(J>0\\). I independently reproduced all three symbolic identities from the coefficients; the inspected verifier checks the same algebra and confirms that \\(Q\\) is absent from \\(p\\) and \\(p'\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source already contains the correct locus in the proof, despite a contradictory lemma label."
+        ],
+        "reasoning": "A new exact theorem is therefore not needed to derive the audited scientific conclusion.",
+        "searches": [
+          "DOI:10.1007/s00332-026-10272-w full relevant section"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00332-026-10272-w",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The audited \\(\\Delta_2=0\\) condition follows directly from the source proof's own sentence.",
+          "The derivative correction follows by one differentiation of the source cubic."
+        ],
+        "reasoning": "The final claim is a cleanup of an internal inconsistency rather than an uncovered mathematical result.",
+        "searches": [
+          "primary source Lemma 7(b), its proof, and the displayed equilibrium cubic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source proof itself says \\(D_1=0\\Rightarrow\\Delta_2\\ge0\\) and identifies the triple root at \\(\\Delta_2=0\\).",
+          "The factorized cubic and coefficient equalities are equivalent restatements of that condition."
+        ],
+        "reasoning": "Triple-root locus, zero discriminant with repeated critical point, and cubic coefficient matching were compared.",
+        "searches": [
+          "Resultary: May Holling Tanner cooperation cubic triple root discriminant D1 Delta2",
+          "DOI:10.1007/s00332-026-10272-w Lemma 7 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact database entry was needed or found."
+        ],
+        "reasoning": "Database absence cannot restore originality when the source proof already contains the correct statement.",
+        "searches": [
+          "Resultary same-object search"
+        ]
+      },
+      "rationale": "Although the source's Lemma 7(b) prints the inconsistent condition \\(D_1=0,\\Delta_2<0\\), its own proof immediately states that \\(D_1=0\\) implies \\(\\Delta_2\\ge0\\) and then states that the triple root \\(u=(1-L)/3\\) occurs for \\(\\Delta_2=0\\). Thus the scientifically correct locus is already present in the primary source at implication level. The remaining correction to the printed derivative is direct differentiation of the displayed cubic because the parameter \\(Q\\) does not occur in that polynomial.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_CORRECT_LOCUS_IN_THE_PROOF",
+          "evidence": "The proof explicitly rules out negative \\(\\Delta_2\\) at \\(D_1=0\\) and assigns the triple root to \\(\\Delta_2=0\\), even though the lemma statement is inconsistent.",
+          "identifier_or_url": "DOI:10.1007/s00332-026-10272-w",
+          "material_read": "Full accessible primary section containing the Case-3 cubic, derivative, Lemma 7, and its proof.",
+          "method": "Open full-text inspection.",
+          "title": "Bistability and Periodicity in an Amended May--Holling--Tanner Model Involving Generalist Predators and Hunting Cooperation",
+          "trigger": "Exact source of the cubic, discriminant, and disputed triple-root classification."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Reyes-Bahamón et al. 2026"
+      ],
+      "rationale": "Correcting contradictory theorem prose is useful editorially, but here the correct condition is already stated in the source proof and the derivative typo is exposed by one routine differentiation. The record does not establish a new bifurcation boundary, normal form, or parameter phenomenon beyond what the source proof already contains.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the Case-3 equilibrium cubic \\(p(u)=u^3+(L-1)u^2+(D-E)u+(N-A)\\), under \\(N-A<0\\), \\(L<1\\), and \\(D-E>0\\), a positive triple root occurs exactly when \\(D_1=0\\) and \\(\\Delta_2=0\\), equivalently \\(D-E=(1-L)^2/3\\) and \\(N-A=-(1-L)^3/27\\).",
+  "limitations": [
+    "Only the algebraic Case-3 equilibrium cubic is addressed.",
+    "No stability, local normal-form, or generic parameter-crossing result is claimed."
+  ],
+  "schema_version": 1
+}
