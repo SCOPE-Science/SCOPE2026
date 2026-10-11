@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal proof is independent of finite enumeration.
 
-The critical reduction is that a generating set containing a reflection \(a_0s\) may replace every other reflection \(a_is\) by the rotation \(a_i-a_0\) without changing the generated subgroup. Hence a minimum generating set consists, after normalization, of one reflection and \(d(A)\) rotations generating \(A\).
+# Independent mathematical audit
 
-A prescribed \(k\)-tuple of rotations extends to \(d(A)\) generators exactly when its images in every Sylow Frattini quotient have rank at least
-\[
-r_p-d(A)+k.
-\]
-The cases \(k=1\) and \(k=2\) give the complete pair classification.
+## correctness
 
-The packaged checker `artifacts/verify.py` independently enumerates every three-element subset in the two cases
-\[
-A=C_9\times C_3
-\quad\text{and}\quad
-A=C_3\times C_3\times C_5,
-\]
-uses exact additive subgroup closure to decide whether the normalized rotations generate \(A\), reconstructs every edge of \(\Gamma_3(G)\), and compares the result against the theorem's direct rank conditions.
+PASS
 
-It obtains respectively
-\[
-13608\text{ generating triples},
-\qquad
-0^3,45^{24},48^{27},
-\]
-and
-\[
-60480\text{ generating triples},
-\qquad
-0^5,69^8,75^{32},80^{45}.
-\]
-It also checks \(|g|\mid\deg(g)\) for every vertex and returns `VERIFY_OK`.
+After choosing one reflection in a generating set, every other reflection may be replaced by its difference rotation; hence \(d(G)=d(A)+1\) and pair extension reduces exactly to completing prescribed rotations to a minimum generating tuple of \(A\). Such a tuple generates iff it spans every Sylow Frattini quotient, giving the stated rank inequalities for one and two prescribed rotations. Primewise counting then gives the active count and all degree strata. For divisibility, each prime-power order component of an active rotation is absorbed by the corresponding factor of \(R(a)\); in the maximal-rank case the extra factor \(p^d-p\) contributes the needed p-adic unit of valuation one because \(d\ge2\). Inactive rotations have degree zero and reflections have even degree. The packaged finite examples exercise non-elementary and mixed-Sylow branches but are not the proof.
 
-Finite computation is not used to prove the universal theorem.
+## originality
+
+PASS
+
+Lucchini explicitly poses the degree-divisibility question for \(\Gamma_{d(G)}(G)\). The later rank-independence classification covers the all-or-nothing special situation where every noncyclic pair extends, including an elementary-abelian generalized-dihedral boundary, but does not determine the exact graph when rank-independence fails. The audited theorem handles arbitrary odd abelian kernels, including non-elementary and mixed-Sylow cases, and gives all pair adjacencies and degree strata. Resultary shows the assigned theorem plus a narrower elementary-abelian special case, not a broader predecessor.
+
+## value
+
+PASS
+
+The theorem resolves an explicit published degree-divisibility question on an infinite nonnilpotent family with unbounded generator number while also determining the whole minimum-size graph. The mixed-Sylow rank-\(d-1\) obstruction and exact degree strata add information absent from the known rank-independence classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
