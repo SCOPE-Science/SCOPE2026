@@ -1,25 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The published \(k=3\) bound applies with \((\ell,m)=(2,3)\) and gives
-\[
-ab<2^{11}=2048.
-\]
-Odd factors of weights \(2\) and \(3\) have unique forms
-\[
-1+2^u
-\quad\text{and}\quad
-1+2^v+2^w.
-\]
-The strict bound limits the exponents to at most \(10\). The packaged verifier checks all \(119\) admissible exponent triples and independently repeats the bounded integer census. Both routes return exactly \((3,7)\) and \((5,7)\).
+## correctness
 
-## Originality
-PASS. Kaneko and Stoll explicitly ask which fixed weight triples admit solutions, identify the exceptional infinite \((3,2,2)\) family, and prove a general bound for all remaining \(k=3\) cases. Their paper does not state the exact \((3,2,3)\) solution set. Targeted semantic and web searches for the parameter triple, exact solution pairs, and equivalent binary-weight language found no covering theorem or table. A residual risk remains from unindexed small-case computations.
+PASS
 
-## Value
-PASS. This is the first asymmetric finite slice immediately beyond the source's infinite diagonal exception. It converts the general finiteness theorem into a complete exact answer at the natural boundary case, providing a concrete datum for the source's stated fixed-triple existence problem.
+The cited Kaneko--Stoll theorem was independently checked in accessible primary full text: for output binary weight three and \(\max\{\ell,m\}\ge3\), it gives \(ab<2^{-13+4\ell m}\), which specializes to \(ab<2048\) for weights two and three. Every odd weight-two factor is \(1+2^u\), every odd weight-three factor is \(1+2^v+2^w\) with \(1\le v<w\), and the strict product bound leaves 119 exponent triples. An independent direct integer enumeration reproduced exactly \((3,7,21)\) and \((5,7,35)\) and no others.
 
-## Closest literature and limitations
-The closest source is Kaneko–Stoll, “Products of integers with few nonzero digits,” whose Theorem 2.2 supplies the global \(k=3\) bound. The present result does not improve that general theorem and does not classify neighboring triples.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-solution classification is not present in the primary Kaneko--Stoll paper and is not implied without resolving the remaining finite search. The prior theorem supplies the global cutoff; the audited result completes the first asymmetric fixed-weight case and targeted exact searches found no earlier table. This is original best-of-knowledge despite using a published bound as a premise.
+
+## value
+
+PASS
+
+The primary source explicitly presents existence for fixed binary-weight triples as a natural unresolved classification problem. The audited case is the first asymmetric triple immediately beyond the exceptional infinite weight-two/weight-two family; closing it exactly is therefore a motivated finite classification, not an arbitrary parameter slice. The 119-case census is exhaustive because a nontrivial published theorem supplies the global cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:52:01.100767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 138d667c0d361622f7860713c3b44b79d7413be1",
+        "verify.py blob bda8e285a9d683e0893d46035eadda44a7cb1758",
+        "Kaneko--Stoll Theorem 2.2 in primary full-text rendering",
+        "independent 119-case direct enumeration"
+      ],
+      "rationale": "The cited Kaneko--Stoll theorem was independently checked in accessible primary full text: for output binary weight three and \\(\\max\\{\\ell,m\\}\\ge3\\), it gives \\(ab<2^{-13+4\\ell m}\\), which specializes to \\(ab<2048\\) for weights two and three. Every odd weight-two factor is \\(1+2^u\\), every odd weight-three factor is \\(1+2^v+2^w\\) with \\(1\\le v<w\\), and the strict product bound leaves 119 exponent triples. An independent direct integer enumeration reproduced exactly \\((3,7,21)\\) and \\((5,7,35)\\) and no others.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The introduction explicitly says it is far from clear for which triples \\((k,\\ell,m)\\) solutions exist.",
+          "Theorem 2.2 proves only an effective upper bound for every fixed triple with output weight three and one factor weight at least three; it does not classify the first asymmetric triple."
+        ],
+        "reasoning": "The general bound makes the slice decidable but does not state or logically identify which of the finitely many candidates work; the exact solution set requires an additional exhaustive classification.",
+        "searches": [
+          "Kaneko--Stoll, DOI:10.2478/UDT-2022-0006, complete primary full-text rendering",
+          "arXiv:2112.03077 primary record/full-text indexed copy"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.2478/UDT-2022-0006",
+        "arXiv:2112.03077",
+        "Resultary semantic/exact search for the \\((3,2,3)\\) weight triple"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem yields only the cutoff \\(ab<2048\\). It leaves 119 admissible exponent triples and does not choose the two successful ones.",
+          "The primary paper frames existence for fixed triples as an open classification issue rather than providing a table."
+        ],
+        "reasoning": "A finite upper bound is a premise enabling exhaustive resolution, not an implication of the exact two-solution classification. The package adds the complete first asymmetric case.",
+        "searches": [
+          "Specialize Kaneko--Stoll Theorem 2.2 to \\((k,\\ell,m)=(3,2,3)\\)",
+          "Inspect whether their theorem enumerates the resulting finite range"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The only exact Resultary match was the same assigned SCOPE record; no independent prior classification under Hamming-weight/sum-of-digits terminology was found."
+        ],
+        "reasoning": "Searches covered binary Hamming weight, number of nonzero binary digits, and the explicit factors/products.",
+        "searches": [
+          "Resultary semantic search: binary digit weight products weights two three product weight three Kaneko Stoll 21 35",
+          "Web searches for \\(s(a)=2\\), \\(s(b)=3\\), \\(s(ab)=3\\) and the two solution products"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent published table of solutions for this fixed weight triple was located."
+        ],
+        "reasoning": "The finite solution list itself is the claimed invariant; no prior table was found beyond the assigned record.",
+        "searches": [
+          "Exact web searches for 21, 35 together with Kaneko--Stoll and binary digit weights",
+          "Resultary exact/semantic search for the triple \\((3,2,3)\\)"
+        ]
+      },
+      "rationale": "The exact two-solution classification is not present in the primary Kaneko--Stoll paper and is not implied without resolving the remaining finite search. The prior theorem supplies the global cutoff; the audited result completes the first asymmetric fixed-weight case and targeted exact searches found no earlier table. This is original best-of-knowledge despite using a published bound as a premise.",
+      "residual_risks": [
+        "Literature non-detection cannot exclude an unindexed observation of this small fixed triple."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUND_ONLY_NOT_EXACT_FIXED_TRIPLE_CLASSIFICATION",
+          "evidence": "Specialization gives the cutoff 2048 but no list of solutions for weights two and three.",
+          "identifier_or_url": "DOI:10.2478/UDT-2022-0006; arXiv:2112.03077",
+          "material_read": "Accessible primary full-text rendering of the introduction, Main Results, Theorem 2.2, and surrounding discussion. Theorem 2.2 gives \\(ab<2^{-13+4\\ell m}\\) when output weight is three and at least one factor weight is at least three; the introduction says fixed-triple existence is far from clear.",
+          "method": "lawful open primary full-text rendering",
+          "title": "Products of Integers with Few Nonzero Digits",
+          "trigger": "Exact source of the global bound used to make the classification exhaustive."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kaneko--Stoll primary full text",
+        "assigned exact certificate",
+        "independent enumeration"
+      ],
+      "rationale": "The primary source explicitly presents existence for fixed binary-weight triples as a natural unresolved classification problem. The audited case is the first asymmetric triple immediately beyond the exceptional infinite weight-two/weight-two family; closing it exactly is therefore a motivated finite classification, not an arbitrary parameter slice. The 119-case census is exhaustive because a nontrivial published theorem supplies the global cutoff.",
+      "residual_risks": [
+        "The contribution is intentionally narrow and does not improve the general Kaneko--Stoll bound or settle neighboring weight triples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Literature non-detection cannot exclude an unindexed observation of this small fixed triple."
+  ],
+  "schema_version": 1
+}

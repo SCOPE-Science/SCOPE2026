@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,43 +18,25 @@
   "schema_version": 1
 }
 ---
-Run `python3 verify.py`.
 
-The verifier specializes the published bound to
-\[
-ab<2^{-13+4\cdot2\cdot3}=2048.
-\]
-It then enumerates every exponent triple
-\[
-1\le u\le10,
-\qquad
-1\le v<w\le10
-\]
-for
-\[
-a=1+2^u,
-\qquad
-b=1+2^v+2^w,
-\]
-retaining only products below the strict bound. There are exactly \(119\) retained triples.
+# Independent mathematical audit
 
-Exactly two retained triples have product binary weight \(3\):
-\[
-(u,v,w)=(1,1,2)
-\]
-and
-\[
-(u,v,w)=(2,1,2).
-\]
-They yield
-\[
-(a,b,ab)=(3,7,21)
-\]
-and
-\[
-(a,b,ab)=(5,7,35).
-\]
+## correctness
 
-A second direct integer enumeration below the same rigorous bound reproduces the same two solutions.
+PASS
 
-A successful replay prints `VERIFY_OK`.
+The cited Kaneko--Stoll theorem was independently checked in accessible primary full text: for output binary weight three and \(\max\{\ell,m\}\ge3\), it gives \(ab<2^{-13+4\ell m}\), which specializes to \(ab<2048\) for weights two and three. Every odd weight-two factor is \(1+2^u\), every odd weight-three factor is \(1+2^v+2^w\) with \(1\le v<w\), and the strict product bound leaves 119 exponent triples. An independent direct integer enumeration reproduced exactly \((3,7,21)\) and \((5,7,35)\) and no others.
+
+## originality
+
+PASS
+
+The exact two-solution classification is not present in the primary Kaneko--Stoll paper and is not implied without resolving the remaining finite search. The prior theorem supplies the global cutoff; the audited result completes the first asymmetric fixed-weight case and targeted exact searches found no earlier table. This is original best-of-knowledge despite using a published bound as a premise.
+
+## value
+
+PASS
+
+The primary source explicitly presents existence for fixed binary-weight triples as a natural unresolved classification problem. The audited case is the first asymmetric triple immediately beyond the exceptional infinite weight-two/weight-two family; closing it exactly is therefore a motivated finite classification, not an arbitrary parameter slice. The 119-case census is exhaustive because a nontrivial published theorem supplies the global cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
