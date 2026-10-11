@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary complex positive-definite f, taking real parts and dihedral averaging preserves support, f(0), Fourier positivity, and mass. Fourier normalization is checked with counting measure; the three-orbit polynomial P is derived by explicit Fourier expansion. f0=1_B1*1_-B1/5 has f0(0)=1, mass five, and Fourier transform (1+2x+2y)^2/5. At 5|n a pentagonal grid contact gives P=1-a-b-c; at 12|n the two contacts give 1-a+b-2c and 1-a-3b whose mean is 1-a-b-c, proving sharp upper bounds. Lam–Leung Corollary 3.4 and Theorem 4.8 rigorously restrict every vanishing five-root sum to pentagon or 2+3 cycles, leaving only grid zeros at 5-,6-,12-fold contacts; the inverse-pair symmetry removes other 2+3 types. If 5 and 6 do not divide n, P0 has a positive finite minimum and (1+epsilon)f0-epsilon delta0 strictly improves the mass while preserving positivity. If 6|n but 5,12 do not, the direction (a,b,c)=(2/5,1/5,2/5)+epsilon(1,3,1) has Fourier derivative zero at the only P0 zero samples, and is positive elsewhere for sufficiently small epsilon; mass strictly rises. These cases exhaust n>=5. Exact rational n=6 witness (3/7,2/7,3/7) has mass 39/7 and nonnegative Fourier values. Supplementary standalone checker passed n=5..240 tests. No claim of an exact excess formula or a complete optimizer classification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1904.03614, Theorem 1.1 gives a density upper bound under a strict packing-type hypothesis, not the claimed explicit square-grid equality criterion.",
+        "arxiv:math/0312218, Theorems 2 and 4 give upper bounds given suitable packing or spectral sets; no universal equality/strictness theorem for the specified thirteen-point support appears in the inspected theorems.",
+        "Published calculation 47b20e0dc8f6 evaluates {0,±1,±3} on one-dimensional cyclic groups; its constraints have two harmonic variables rather than the present 2D three-orbit optimization."
+      ],
+      "reasoning": "The general theory defines the same type of extremal functional, but a specialized theorem for all n is not an automatic corollary of its hypotheses. The novelty-bearing twelvefold upper bound uses two distinct two-dimensional sample contacts, while the sixfold strict witness is a tangent perturbation invisible to a one-dimensional cyclic formula.",
+      "searches": [
+        "Delsarte Turan locally compact Abelian packing finite groups Berdysheva Révész Theorem 1.1",
+        "Kolountzakis Révész Turan finite abelian spectral set Theorem 4",
+        "Turan extremal positive definite Fourier Lee sphere finite grid cross"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.03614 (2019; full primary paper relevant sections)",
+      "arxiv:math/0312218 (2003; primary general Turán theorem)",
+      "arxiv:math/9511209 (1995; original roots-of-unity theorem)",
+      "published mathematical record 47b20e0dc8f6 (one-dimensional five-point cyclic Turán result)",
+      "published mathematical record e912a3cb52c4 (Boolean weight-two Turán result)",
+      "published mathematical record ed783fd8dd8d (one-dimensional cyclic Shapiro ratio; different functional)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:math/9511209 Theorem 3.3/Corollary 3.4 and Theorem 4.8 classify all possible 5-term vanishing-root patterns; they do not optimize linear functionals over positive-definite coefficients.",
+        "arxiv:math/0312218 Theorem 4 gives an upper bound if a suitable spectral superset of the support is supplied; the inspected text neither supplies it for every n with 12|n nor derives strict excess for all other n.",
+        "Published 47b20e0dc8f6 explicitly optimizes Fourier mass on one cyclic factor with support {0,±1,±3}. Its trigonometric polynomial, objective, and arithmetic cases are not the two-factor Lee problem."
+      ],
+      "reasoning": "The final claim is not merely a restatement of a source lemma: the five-root theorem supplies which Fourier samples can vanish, while a separate two-contact dual argument and two explicit primal perturbations turn that information into a precise necessary-and-sufficient arithmetic criterion for global mass equality. A general positive-definite Fourier identity by itself does not give this iff.",
+      "searches": [
+        "Cyclic two-dimensional Lee radius-two ball positive definite Turan mass exact iff 5 divides n or 12 divides n; five-point cross autocorrelation",
+        "positive definite finite group Turan cross autocorrelation twelvefold resonance sixfold obstruction",
+        "Lam Leung vanishing roots unity five terms cycles theorem 3.3 theorem 4.8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berdysheva–Révész (arxiv:1904.03614), equations (1.3)–(1.4): Turán optimization over supported positive-definite functions; normalization to counting measure and radial Fourier inequalities yields the stated finite LP.",
+        "Kolountzakis–Révész (arxiv:math/0312218), §0.3 and Theorem 1: equivalent admissible-function classes but no evaluated square-torus Lee support."
+      ],
+      "reasoning": "The optimization is also a translation-invariant semidefinite/linear program with three radial parameters and finitely many sampled cosine constraints. Changing to circulant matrix, Fourier nonnegativity, or Delsarte/Turán terminology does not produce the arithmetic 5/12 criterion from the inspected published statements.",
+      "searches": [
+        "\"Turán\" \"Lee\" \"radius two\" discrete torus",
+        "\"positive definite\" \"diamond\" \"Z_n\" \"Turan\"",
+        "finite two-dimensional torus thirteen-point Lee support cyclic positive-type mass Fourier polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact 13-point finite-square-torus mass table was found in the queried sources.",
+        "Nearest public exact table-like work: 47b20e0dc8f6 treats a five-point cyclic set, not the two-dimensional Lee ball.",
+        "A separate finite Boolean weight-two shell result e912a3cb52c4 has ambient group {0,1}^d and different support."
+      ],
+      "reasoning": "Direct searches for the exact group/support/benchmark and aliases found related positive-definite optimization instances but not a table whose entries or theorem dominate the new equality/strictness criterion. Absence from indexes is not a proof; an unindexed finite-grid table is a residual possibility.",
+      "searches": [
+        "Lee metric radius 2 finite periodic square lattice Fourier positive definite semidefinite programming Turan extremal 5 12",
+        "discrete torus finite group Z_n squared positive type cross difference support 13 points Turan benchmark 5 sampled Fourier zeros",
+        "\"Lee ball\" \"Turán\" positive definite"
+      ]
+    },
+    "rationale": "The final statement gives an all-order exact equality criterion for a fixed, naturally motivated thirteen-point Lee support on square cyclic tori. Material inspection of Kolountzakis–Révész (2003) Theorems 2/4 and Berdysheva–Révész (2019) Theorem 1.1 found general positive-type Turán/packing bounds but not this 5-versus-strict divisibility characterization; their statements do not produce both the 12-fold two-contact certificate and the strict sixfold tangential perturbation. The closest specifically inspected finite cyclic support calculation concerns one-dimensional five-point frequencies, and a Boolean-shell record uses a different group and support. Lam–Leung implies only the cyclotomic zero classification, not the positive-definite optimization. Searches were nonexhaustive and cannot rule out unindexed equivalent work.",
+    "residual_risks": [
+      "An older exact semidefinite/Fourier table for cyclic product Lee neighborhoods could be unindexed.",
+      "Generic spectral packing theorems might supply certain sufficiency cases indirectly, but no inspected statement yields all necessity/strictness cases; novelty remains provisional pending independent bibliographic review.",
+      "The five-root lemma is invoked from an established proof rather than reproved in full; theorem numbers and specialized hypotheses have been checked in its primary full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General bounds, not the specific Lee radius-two square-torus equality criterion",
+        "evidence": "Theorem 1.1 assumes a strict packing-type condition and bounds a Delsarte constant using packing density; no 5/12 finite-grid resonance criterion in the material inspected.",
+        "identifier_or_url": "arxiv:1904.03614",
+        "material_read": "arXiv v4 title, abstract, MSC, §1 definitions (1.3)–(1.4), Theorem 1.1 and related finite-compact-group passages",
+        "method": "Read paper PDF text and page image; checked precise scope and implications of packing bounds",
+        "title": "Delsarte’s Extremal Problem and Packing on Locally Compact Abelian Groups",
+        "trigger": "Motivating middle-period paper and closest modern general Turán/Delsarte framing"
+      },
+      {
+        "assessment": "Strong general framework; specific iff not covered by inspected statements",
+        "evidence": "Theorems 2 and 4 provide packing/spectral sufficient bounds conditional on auxiliary sets, not this arithmetic equality plus strictness criterion.",
+        "identifier_or_url": "arxiv:math/0312218",
+        "material_read": "PDF abstract, introductory definitions, §0.4 Theorems 2 and 4 with their hypotheses",
+        "method": "Read full theorem statements in primary PDF and compared support/group/objective",
+        "title": "Turán’s Extremal Problem for Positive Definite Functions on Groups",
+        "trigger": "Foundational potentially broader finite-group upper bounds"
+      },
+      {
+        "assessment": "Provides rigorous classification used for zero contacts but no mass result",
+        "evidence": "All minimal sums of length at most five are prime cycles of length 2,3,5; an asymmetric minimal sum requires at least six terms by Theorem 4.8.",
+        "identifier_or_url": "arxiv:math/9511209",
+        "material_read": "PDF introduction, §3 Theorem 3.3 and Corollary 3.4, §4 Lower Bound Theorem 4.8 and proof structure",
+        "method": "Checked full quoted theorem statements and specialized lower bound at primes 2,3,5",
+        "title": "On Vanishing Sums of Roots of Unity",
+        "trigger": "Nonstandard cyclotomic lemma necessary for infinite proof"
+      },
+      {
+        "assessment": "Not covering, because one-dimensional support and two coefficients cannot imply the two-dimensional Lee-ball three-coefficient criterion",
+        "evidence": "Its optimization is over G=Z_N with five-point support and two harmonic variables a,b; its parity/third-harmonic regimes differ from the 5-or-12 exact equality test.",
+        "identifier_or_url": "47b20e0dc8f6",
+        "material_read": "Complete published RESULT.md including hypotheses, proof, relationship-to-prior-work, limitations",
+        "method": "Read primary published claim and proof, compared finite groups, Fourier polynomial and objective",
+        "title": "Exact Turan mass for the five-point support {0, ±1, ±3} on cyclic groups",
+        "trigger": "Closest indexed public finite-cyclic mass calculation"
+      },
+      {
+        "assessment": "Not covering; group has exponent two and supports Boolean Hamming weight two, rather than Z_n squared Lee radius two",
+        "evidence": "Its value depends on dimension parity in F_2^d and cannot imply the present divisibility 5 or 12 on variable-order square tori.",
+        "identifier_or_url": "e912a3cb52c4",
+        "material_read": "Complete published RESULT.md, proof of parity split and limitations",
+        "method": "Compared actual group law, allowed radial weights, and moment positivity constraints",
+        "title": "Sharp Turán constant and all extremizers for the weight-two Boolean Hamming shell",
+        "trigger": "Closest public higher-dimensional positive-definite radial support theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6818c6c3-e94b-4400-8e02-8275cd6c3833",
+  "value": {
+    "rationale": "The support B2=B1-B1 is the first nontrivial two-dimensional Lee metric neighborhood arising as the autocorrelation of the canonical five-point cross, making the baseline five mathematically natural, not an arbitrary slice. Whether this standard positive-definite benchmark stays globally extremal is a motivated sharpness question in Turán/Delsarte analysis. The exact characterization by two distinct cyclotomic divisibility patterns (5 and 12), and a strictly positive excess at all other sizes including the tangential sixfold case, determines an infinite-family natural invariant threshold. This is structural finite-harmonic analysis, not a small numerical improvement or routine table recomputation. The value does not depend on resolving the remaining exact excess values.",
+    "status": "PASS"
+  }
+}
