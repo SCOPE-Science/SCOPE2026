@@ -1,12 +1,21 @@
-# Review of A two-thirds mixed-resolving construction for gear graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The six-row distance table is derived from the explicit gear adjacency. Missing both neighboring inserted landmarks gives explicit unresolved pairs, proving necessity. Under the two cyclic intersection conditions, the table's local patterns distinguish every vertex and edge, proving sufficiency. Omitting every third inserted vertex satisfies the criterion and gives \(\lceil2n/3\rceil\) landmarks. Independent distance computations validate the table and construction broadly; exhaustive testing closes \(G_4\) at dimension \(3\).
+## correctness
 
-## Originality
-PASS. The inspected 2022 source states the incompatible formula \(\operatorname{mdim}(G_n)=n\) for all \(n\ge4\). Its lower-bound argument checks one particular \((n-1)\)-set rather than all candidates. Searches for gear mixed metric dimension, corrections, errata, and equivalent constructions found no later repair. A prior result on complete multipartite mixed generators concerns a non-equivalent graph family.
+PASS
 
-## Value
-PASS. The construction is not a small exceptional correction: it disproves the published exact formula for every parameter in its infinite stated range, with a linear improvement, and identifies the structural packing mechanism behind the failure.
+The mixed-distance table in the assigned proof was independently checked against the graph definition. If \(J\cap\{i-1,i\}=\varnothing\), the center \(z\) and spoke \(zx_i\) collide; if \(J\cap\{i-1,i+1\}=\varnothing\), the adjacent rim vertices collide, proving necessity. Under both conditions, the distinct local 0/1/2 patterns distinguish selected and omitted inserted vertices, rim vertices, spokes, and the two subdivided rim edges, proving sufficiency. Independently, direct BFS mixed-distance enumeration over every subset \(J\) for \(4\le n\le9\) found zero mismatches with the stated criterion. The all-\(n\) conclusion rests on the symbolic table, not this finite check. The cyclic packing omitting every third inserted index gives the bound, and exhaustive order-four checking confirms no two-landmark set works.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Darmaji--Azahra’s full primary text states \(\operatorname{dim}_m(G_n)=n\) for \(n\ge4\), but its lower-bound paragraph only chooses one particular \((n-1)\)-set and observes a collision, which cannot exclude other landmark sets. The audited construction gives a smaller set for every stated order and therefore corrects that published theorem throughout its range. Targeted Resultary/web searches found no intervening correction or stronger gear-specific theorem.
+
+## value
+
+PASS
+
+The result corrects a published exact formula on its entire stated range and replaces it with an explicit all-order construction plus a complete criterion inside a natural landmark class. Such a uniform correction and structural characterization are mathematically useful even without determining the exact dimension for every \(n\).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
