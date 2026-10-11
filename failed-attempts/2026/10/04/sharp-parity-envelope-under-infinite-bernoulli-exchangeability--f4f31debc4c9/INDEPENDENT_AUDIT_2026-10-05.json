@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:09:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "De Finetti reduces the parity bias exactly to \\(\\mathbb E M^n\\) for a random \\(M\\in[-1,1]\\) with fixed mean. For even \\(n\\), Jensen and the endpoint mixture give the exact lower and upper moments. For odd \\(n\\), the tangent at \\(-c_n\\) satisfying \\(c_n^{n-1}(n+(n-1)c_n)=1\\) joins \\((-c_n,-c_n^n)\\) to \\((1,1)\\); its derivative comparison proves that the piecewise curve is the least concave majorant, and reflection gives the greatest convex minorant. The stated two-atom laws attain the endpoints, mixtures interpolate, and the defining equation yields the fair-marginal limit. Fresh numerical envelope checks for every odd \\(3\\le n<30\\) corroborated the proof.",
+      "risk": "Only infinite exchangeability is covered; finite nonextendible exchangeable laws need not obey this interval.",
+      "sources": [
+        "classical de Finetti theorem; see arXiv:2304.03927 for a modern statement",
+        "published Resultary record SCOPE-20260917-829140c11a96",
+        "general upper-concave-envelope representation in IEEE Trans. Inf. Theory 65 (2019)",
+        "frozen RESULT.md and verify_exchangeable_parity.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The UCE theorem allows arbitrary functions on a convex domain, strictly broader than a monomial.",
+          "The published SCOPE result already demonstrates the identical mixture/envelope pipeline for Bernoulli functionals under only a marginal mean."
+        ],
+        "reasoning": "The remaining odd/even split is one-variable calculus for the specific function \\(x^n\\).",
+        "searches": [
+          "general UCE theorem with fixed expectation",
+          "published SCOPE extendible-Bernoulli tail envelope result",
+          "modern de Finetti statement arXiv:2304.03927"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20260917-829140c11a96",
+        "IEEE Trans. Inf. Theory 65 (2019) upper-concave-envelope identity",
+        "arXiv:2304.03927",
+        "arXiv:1511.03551",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "De Finetti converts the exchangeable Bernoulli problem to a fixed-mean law on \\([-1,1]\\).",
+          "The UCE/LCE theorem then gives the exact feasible extrema for any objective, in particular \\(x^n\\).",
+          "Solving tangency of the monomial to the endpoint chord gives exactly the submitted equation for \\(c_n\\)."
+        ],
+        "reasoning": "The final claim is a routine explicit specialization of the general fixed-moment envelope principle.",
+        "searches": [
+          "UCE identity \\((\\mathfrak C f)(x)=\\sup_{EV=x}Ef(V)\\)",
+          "SCOPE-20260917-829140c11a96 full RESULT",
+          "de Finetti mixture representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published SCOPE tail record writes the same de Finetti mean-constrained optimization and says the one-moment-to-least-concave-majorant identity is standard.",
+          "The information-theory source states the domain-general formula \\((\\mathfrak C f)(x)=\\sup_{V:EV=x}Ef(V)\\)."
+        ],
+        "reasoning": "After the de Finetti transform, parity bias is simply the objective \\(f(x)=x^n\\) in that standard formula.",
+        "searches": [
+          "Resultary query: infinitely exchangeable Bernoulli parity probability de Finetti fixed marginal moment envelope odd even sample",
+          "published Resultary SCOPE-20260917-829140c11a96",
+          "upper concave envelope representation in Goldfeld--Permuter, IEEE Trans. Inf. Theory 65 (2019)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older source with the identical \\(c_n\\) notation was located."
+        ],
+        "reasoning": "Exact notation is not required because the claim is implied by a standard arbitrary-function envelope theorem.",
+        "searches": [
+          "Resultary exact semantic search for exchangeable parity envelope and fair-marginal limit"
+        ]
+      },
+      "rationale": "The scientific reduction is a standard one-moment extremal problem. A general published upper-concave-envelope identity states \\((\\mathfrak C f)(x)=\\sup_{V:\\,EV=x}E f(V)\\), and the already-published SCOPE extendible-Bernoulli tail result explicitly uses the same de Finetti-plus-least-concave-majorant mechanism and labels the one-fixed-moment identity standard. Once parity is written as \\(f(M)=M^n\\), the submitted theorem is exactly that general identity plus an elementary calculation of the envelope of a monomial. The tangent equation and two-atom law are therefore a direct specialization of a stronger standard framework, despite not being printed with the same parity notation.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "SAME_GENERAL_MECHANISM_EXPLICITLY_IDENTIFIED_AS_STANDARD",
+          "evidence": "The proof reduces to \\(\\sup_{\\nu:\\int\\theta d\\nu=p}\\int g(\\theta)d\\nu\\) and states that one fixed moment gives the least concave majorant.",
+          "identifier_or_url": "SCOPE-20260917-829140c11a96 in Resultary/2026",
+          "material_read": "Complete public RESULT.md.",
+          "method": "Read-only GitHub inspection of the published Resultary record.",
+          "title": "Exact Bernoulli tail envelopes under infinite exchangeability",
+          "trigger": "Same exchangeability hypothesis and same marginal-only de Finetti envelope framework."
+        },
+        {
+          "assessment": "GENERAL_EXPECTATION_ENVELOPE_THEOREM",
+          "evidence": "The source states that for a function \\(f\\) on a convex set, its upper concave envelope at \\(x\\) equals the supremum of \\(E f(V)\\) over random \\(V\\) with \\(EV=x\\).",
+          "identifier_or_url": "IEEE Transactions on Information Theory 65 (2019), public PDF",
+          "material_read": "Public full-text indexed Definition 1 and the displayed representation of the UCE.",
+          "method": "Lawful public full-text inspection.",
+          "title": "MIMO Gaussian BCs with Common, Private, and Confidential Messages",
+          "trigger": "Direct published statement of the upper-concave-envelope probabilistic representation."
+        },
+        {
+          "assessment": "CONFIRMS_STANDARD_MIXTURE_REDUCTION",
+          "evidence": "The abstract states that an infinite exchangeable sequence is representable as a mixture of iid sequences.",
+          "identifier_or_url": "arXiv:2304.03927",
+          "material_read": "Open arXiv abstract and theorem scope.",
+          "method": "Lawful open-source inspection.",
+          "title": "De Finetti's theorem and related results for infinite weighted exchangeable sequences",
+          "trigger": "Modern primary statement of the infinite exchangeable mixture representation."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The parity interval is a neat closed-form example, but after the standard de Finetti reduction and the general fixed-mean concave-envelope theorem, the only remaining step is the elementary tangent construction for \\(x^n\\). Under the common value bar that is a worked specialization of a stronger framework rather than a new structural gap.",
+      "risk": "The formulas can be useful as an example of the envelope method, but expository usefulness does not meet the scientific-value threshold.",
+      "sources": [
+        "SCOPE-20260917-829140c11a96",
+        "general UCE theorem"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For an infinitely exchangeable Bernoulli sequence with fixed marginal, the exact parity interval of the first \\(n\\) trials is obtained by the convex and concave envelopes of \\(x\\mapsto x^n\\) on \\([-1,1]\\); for odd \\(n\\) this gives the stated tangent point \\(c_n\\), two-atom extremizers, and the fair-marginal limit \\([1/4,3/4]\\), while even \\(n\\) gives \\([(1+m^n)/2,1]\\).",
+  "limitations": [
+    "Infinite exchangeability only.",
+    "Parity objective only.",
+    "This rejection is for implication/value, not correctness."
+  ],
+  "schema_version": 1
+}
