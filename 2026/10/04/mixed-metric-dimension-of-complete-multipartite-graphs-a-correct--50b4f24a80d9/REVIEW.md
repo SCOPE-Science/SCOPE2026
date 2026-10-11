@@ -1,12 +1,21 @@
-# Review of Mixed metric dimension of complete multipartite graphs: a correction and full classification
+# Independent mathematical audit
 
-## Correctness
-PASS. In a complete multipartite graph, a landmark sees an edge at distance zero exactly when it is an endpoint and at distance one otherwise. This makes edge codes selected-endpoint indicators. Two omitted same-part vertices collide; three omissions necessarily create two all-omitted edges with the same code; two omissions in different parts create a further edge-edge collision as soon as a third part exists. The remaining vertex-edge collisions are exactly the singleton or sole-selected-part obstructions stated in the theorem. These observations give a complete necessity-and-sufficiency proof. Definition-level exhaustive verification agrees on all 128 multipartite isomorphism types through order ten, including the direct value \(\operatorname{mdim}(K_{3,3,5})=10\).
+## correctness
 
-## Originality
-PASS. The 2016 foundational paper's complete-bipartite proposition is genuine special-case prior coverage and is recovered exactly. The highly relevant 2022 complete-multipartite theorem was inspected in full and claims a broader formula, but that formula is false for three or more parts; its own \(K_{3,3,5}\) domain gives the published value \(8\), whereas the exact mixed codes force \(10\). Targeted searches for the claimed graph class, aliases, the explicit example, and later corrections did not locate an erratum or an equivalent corrected all-set classification. The surviving new claim is the corrected arbitrary-multipartite classification, enumerator, and dimension formula.
+PASS
 
-## Value
-PASS. The result corrects an exact theorem in the literature on a canonical graph family rather than merely improving a bound. It identifies the precise obstruction missed by the published extension, preserves the valid complete-bipartite theorem, handles singleton parts, and upgrades the corrected minimum value to a classification and count of every mixed metric generator.
+In a complete multipartite graph, an edge code with respect to selected landmarks is simply the selected-endpoint indicator vector: every nonendpoint landmark is distance one from the edge. Hence two omitted vertices in one part collide as vertices, and three omitted vertices always create two omitted-endpoint edges with identical all-one codes. With one omitted vertex, the only further obstruction is a selected vertex in a singleton other part colliding with its incident edge. With two omitted vertices, distinct parts and exactly two graph parts are necessary; each part must retain at least two selected vertices to separate endpoint incidents, which is equivalent to original part sizes at least three. These conditions are also sufficient by direct code comparison. A fresh direct computation gives \(\operatorname{mdim}(K_{3,3,5})=10\), and the frozen verifier exhausts all multipartite types through order ten.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2022 primary article explicitly claims a complete-multipartite mixed-metric formula, but its Theorem 5 is false: it gives \(N-r\) when no part has size two, so it predicts 8 for \(K_{3,3,5}\), whereas exact mixed codes force 10. The foundational complete-bipartite formula remains valid and is preserved as prior coverage. Targeted searches found no erratum or later corrected all-set classification. The surviving new contribution is therefore a genuine correction plus a complete generator classification and enumerator.
+
+## value
+
+PASS
+
+The theorem corrects an exact published formula on a canonical graph family, identifies the precise missing obstruction, handles singleton parts, and upgrades the corrected minimum value to a classification and count of every mixed generator. This is a substantive correction rather than a cosmetic refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

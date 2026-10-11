@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a complete multipartite graph, an edge code with respect to selected landmarks is simply the selected-endpoint indicator vector: every nonendpoint landmark is distance one from the edge. Hence two omitted vertices in one part collide as vertices, and three omitted vertices always create two omitted-endpoint edges with identical all-one codes. With one omitted vertex, the only further obstruction is a selected vertex in a singleton other part colliding with its incident edge. With two omitted vertices, distinct parts and exactly two graph parts are necessary; each part must retain at least two selected vertices to separate endpoint incidents, which is equivalent to original part sizes at least three. These conditions are also sufficient by direct code comparison. A fresh direct computation gives \\(\\operatorname{mdim}(K_{3,3,5})=10\\), and the frozen verifier exhausts all multipartite types through order ten.",
+      "risk": "Finite exhaustive checks are corroborative; the all-partition theorem rests on the code classification.",
+      "sources": [
+        "arXiv:1611.04292",
+        "DOI:10.3390/math10111815",
+        "fresh direct K_{3,3,5} mixed-code computation in this audit",
+        "frozen verify.py at source tree e701b7a632946ab8ef5eac7271e0fb0528223584"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-bipartite special case is genuine prior coverage.",
+          "The purported broader multipartite theorem is mathematically false outside that valid boundary and therefore does not imply the corrected classification."
+        ],
+        "reasoning": "The final theorem preserves covered subcases and corrects the false extension.",
+        "searches": [
+          "Hayat-Khan-Zhong 2022 Theorem 5",
+          "Kelenc et al. complete-bipartite prior theorem"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math10111815",
+        "arXiv:1611.04292",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 statement implies a wrong value on \\(K_{3,3,5}\\), so it cannot cover the corrected all-graph theorem.",
+          "The bipartite theorem covers only one branch and does not imply the behavior with three or more parts or singleton parts."
+        ],
+        "reasoning": "The complement classification and enumerator are new content beyond the valid prior subcases.",
+        "searches": [
+          "DOI:10.3390/math10111815 Theorem 5",
+          "arXiv:1611.04292 complete-bipartite result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5 of the 2022 article states \\(N-r\\) in the no-size-two branch.",
+          "Direct mixed codes give \\(10\\), not \\(8\\), for \\(K_{3,3,5}\\)."
+        ],
+        "reasoning": "The comparison used the exact same graph class and invariant, including the paper’s own illustrated \\(K_{3,3,5}\\) domain.",
+        "searches": [
+          "Resultary: mixed metric dimension complete multipartite graphs correction K_3,3,5 N-1 N-r",
+          "DOI:10.3390/math10111815 full open article",
+          "arXiv:1611.04292"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No later erratum or equivalent corrected theorem was located in the searched literature/Resultary corpus."
+        ],
+        "reasoning": "The explicit counterexample prevents treating the published theorem as valid prior coverage.",
+        "searches": [
+          "Searches for K_{3,3,5} mixed metric dimension, erratum, correction and complete multipartite generator classification"
+        ]
+      },
+      "rationale": "The 2022 primary article explicitly claims a complete-multipartite mixed-metric formula, but its Theorem 5 is false: it gives \\(N-r\\) when no part has size two, so it predicts 8 for \\(K_{3,3,5}\\), whereas exact mixed codes force 10. The foundational complete-bipartite formula remains valid and is preserved as prior coverage. Targeted searches found no erratum or later corrected all-set classification. The surviving new contribution is therefore a genuine correction plus a complete generator classification and enumerator.",
+      "residual_risks": [
+        "A later erratum or correction not indexed by the searched terms may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PRIOR_CLAIM_IS_FALSE_AND_REQUIRES_CORRECTION",
+          "evidence": "Theorem 5 gives \\(N-r\\) when no part has size two; on \\(K_{3,3,5}\\) this is 8, while exact definition-level codes require 10.",
+          "identifier_or_url": "DOI:10.3390/math10111815",
+          "material_read": "Open full MDPI article including Section 3.4, Theorem 5, its proof and the complete-multipartite examples.",
+          "method": "Lawful open full-text inspection.",
+          "title": "On Resolvability- and Domination-Related Parameters of Complete Multipartite Graphs",
+          "trigger": "Direct purported prior theorem for the identical graph class and invariant."
+        },
+        {
+          "assessment": "VALID_SPECIAL_CASE_ONLY",
+          "evidence": "The complete-bipartite result is prior coverage but does not extend to arbitrary complete multipartite graphs.",
+          "identifier_or_url": "arXiv:1611.04292; DOI:10.1016/j.amc.2017.07.027",
+          "material_read": "Open full arXiv text and theorem scope.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Mixed metric dimension of graphs",
+          "trigger": "Foundational source containing valid complete-bipartite mixed-metric results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem corrects an exact published formula on a canonical graph family, identifies the precise missing obstruction, handles singleton parts, and upgrades the corrected minimum value to a classification and count of every mixed generator. This is a substantive correction rather than a cosmetic refinement.",
+      "risk": "The complete-bipartite minimum formula itself is prior work and is not claimed as new.",
+      "sources": [
+        "DOI:10.3390/math10111815",
+        "arXiv:1611.04292"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every connected complete multipartite graph \\(K_{n_1,\\ldots,n_r}\\), mixed resolving sets are exactly those whose complement is empty, or one vertex from a part while every other part is non-singleton, or two vertices from different parts in the complete-bipartite case with both parts of size at least three. Consequently the mixed-generator enumerator and corrected mixed metric dimension are exactly the stated \\(N\\), \\(N-1\\), and \\(N-2\\) cases, including \\(\\operatorname{mdim}(K_{3,3,5})=10\\).",
+  "limitations": [
+    "Connected complete multipartite graphs only.",
+    "The complete-bipartite special-case dimension is prior coverage."
+  ],
+  "schema_version": 1
+}
