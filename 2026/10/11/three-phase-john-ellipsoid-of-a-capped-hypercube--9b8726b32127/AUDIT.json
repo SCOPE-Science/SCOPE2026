@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, 0<tau<=n, uniqueness and S_n invariance force a shape a(I-H)+bH and center t*1. Direct support inequalities are s^2=((n-1)a+b)/n<=min(t,1-t)^2 and nt+sqrt(nb)<=tau. Uniqueness excludes t>1/2 by shifting to 1/2. Optimizing a and b at fixed t yields b=min(t^2,n(tau/n-t)^2), followed by an increasing branch and a globally unimodal branch with derivative zero at t=tau/(n+1). The resulting clipped center and b give all three formulas and both sharp boundaries. Exact facet support equalities give contact counts. The independently executed standard-library verifier passed 5,520 rational support cases and 248 grid tests. Finite verification is not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goemans–Harvey–Iwata–Mirrokni supply a general optimization framework for symmetrized polymatroids, without these evaluated cap-dependent semiaxes.",
+        "Jochemko–Ravichandran treat Minkowski/Ehrhart invariants of generalized permutahedra, not the inherited ambient Euclidean shape.",
+        "A general theorem guaranteeing a unique John ellipsoid does not imply the present exact eigenvalues or transition thresholds without solving the optimization."
+      ],
+      "reasoning": "Broader methodological results were tested for direct theorem implication, not merely title similarity. The non-symmetric body, off-center optimizer, and explicit piecewise contact data are not supplied by the inspected broader frameworks.",
+      "searches": [
+        "John ellipsoid of uniform matroid independence polytope shape axial eigenvalues rank k and n",
+        "three phase transition maximum volume ellipsoid in polytope [0,1]^n with coordinate sum at most k uniform matroid independence polytope",
+        "https://dspace.mit.edu/entities/publication/95ff6bbf-1ce8-4bdb-a2d2-46f4c48b965d",
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/mtk.12122"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2012.04711v1",
+      "https://arxiv.org/html/2105.04465v3",
+      "https://dspace.mit.edu/entities/publication/95ff6bbf-1ce8-4bdb-a2d2-46f4c48b965d",
+      "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/mtk.12122"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ehrhart positivity of K controls lattice counting, not its maximum-volume Euclidean ellipsoid.",
+        "An exact insphere or circumsphere does not, for an anisotropic convex body, fix the John ellipsoid.",
+        "A previously evaluated central halfcube case corresponds to tau=n/2, whereas the nontrivial new middle interval is (n+1)/2<tau<(n+sqrt(n))/2.",
+        "Cube and simplex endpoint formulas alone do not determine the optimal interpolation between their first and second contact thresholds."
+      ],
+      "reasoning": "The new all-parameter theorem contains elementary limiting cases and an earlier known central slice, but its intermediate branch varies both eigenvalues continuously and requires a separate global determinant optimization. Earlier scalar inball radii do not imply it.",
+      "searches": [
+        "John ellipsoid of uniform matroid independence polytope shape axial eigenvalues rank k and n",
+        "arXiv:2012.04711v1 Sections 1–3",
+        "arXiv:2105.04465v3 Sections 3–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uniform-matroid independence polytopes are capped hypercubes; Ferroni 2020 Sections 1–3 gives this equivalence.",
+        "Goemans et al. use a distinct centrally symmetrized polymatroid, not an affine-isometric copy of the unsymmetrized cap.",
+        "No inspected publication states the two thresholds and anisotropic eigenvalues in any searched alias."
+      ],
+      "reasoning": "The same family is searched as an independence polytope, capped simplex, truncated hypercube, and box plus cardinality/knapsack cap. Affine lifts are not Euclidean isometries; qualitative ellipsoid formulas for other bodies are not equivalent.",
+      "searches": [
+        "John ellipsoid [0,1]^n intersection sum x_i <= r, threshold r=(n+1)/2 and (n+sqrt(n))/2, ellipsoid contact faces of uniform matroid independence polytope",
+        "\"John ellipsoid\" \"uniform matroid\" independence polytope",
+        "\"maximum volume ellipsoid\" \"truncated cube\" hypercube sum",
+        "\"largest inscribed ellipsoid\" \"capped simplex\" cube",
+        "https://arxiv.org/html/2012.04711v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ferroni 2020 enumerates Ehrhart coefficients and half-open hypersimplices rather than ellipsoid parameters.",
+        "Ranked published findings concern other ellipsoid classes; none of the returned ranked summaries identifies this cap body with both thresholds."
+      ],
+      "reasoning": "No actual inspected table or indexed result gives the claimed eigenvalue profile or contact classification. Search nonmatches are not treated as a proof of uniqueness.",
+      "searches": [
+        "John ellipsoid [0,1]^n intersection sum x_i <= r, threshold r=(n+1)/2 and (n+sqrt(n))/2, ellipsoid contact faces of uniform matroid independence polytope",
+        "\"inscribed ellipsoid\" \"hypersimplex\" \"independence\"",
+        "\"John ellipsoid\" \"truncated simplex\" \"hypercube\"",
+        "https://arxiv.org/html/2012.04711v1"
+      ]
+    },
+    "rationale": "The exact object is established in the inspected 2020 Ferroni source and the 2021 geometry-classified matroid source. Their claims concern Ehrhart positivity/counterexamples, not the full Euclidean John ellipsoid. The older symmetrized-polymatroid ellipsoid framework concerns an origin-symmetric body and does not imply this off-center shape. A prior central halfcube slice and Euclidean inball/circumball classifications overlap isolated slices or spherical data; these do not yield the new continuously varying anisotropic middle branch with all contact facets. Targeted published-result searches returned no covering statement; equivalent presentation remains a residual risk.",
+    "residual_risks": [
+      "A mathematically equivalent exact formula could occur in an older optimization or truncated-hypercube reference under a different name.",
+      "Some more general convex-design framework might yield the formulas by a special computation not explicitly documented in inspected sources.",
+      "The derivation of the central halfcube slice and the cube/spherical endpoint cases predates this full cap-parameter classification; novelty is not asserted for those covered special cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact defining object and Ehrhart-positive decomposition, but no Euclidean maximum-volume inscribed ellipsoid or contact-facet classification.",
+        "evidence": [
+          "Theorem 1.3 identifies K for integer cap; Theorem 3.8 proves Ehrhart positivity by half-open hypersimplex decomposition.",
+          "Whole-text ellipsoid search returned no occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2012.04711v1",
+        "material_read": "Rendered primary full-text HTML: introduction, Sections 2 and 3, Theorems 1.3 and 3.8, proofs and references; whole-page search for ellipsoid.",
+        "method": "Direct arXiv HTML sections and exact term search.",
+        "title": "Integer point enumeration on independence polytopes and half-open hypersimplices",
+        "trigger": "Same body [0,1]^n intersect coordinate-sum cap, explicit uniform-matroid independence-polytope formula."
+      },
+      {
+        "assessment": "Develops Ehrhart positivity/counterexamples, not maximal inscribed Euclidean ellipsoids; provides verified geometry MSC owner.",
+        "evidence": [
+          "2020 MSC list begins with 52B40.",
+          "Section 3.1 defines independence polytopes; Section 4 concerns Ehrhart polynomials.",
+          "No full-text occurrence of ellipsoid."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2105.04465v3",
+        "material_read": "Rendered complete paper accessible; Sections 1, 3, 4, theorem statements and mathematical definitions, full-text ellipsoid term search.",
+        "method": "arXiv HTML with direct navigation to primary sections and term search.",
+        "title": "Matroids are not Ehrhart positive",
+        "trigger": "Primary MSC2020 52B40; uniform-matroid and independence-polytope geometry."
+      },
+      {
+        "assessment": "Body is the centrally symmetrized polymatroid, not the off-center independence polytope. Framework gives optimization principles but no three-piece evaluated formula or facet contacts for this K.",
+        "evidence": [
+          "Section 3 defines S(P_f) by |x| in polymatroid P_f; its John ellipsoid is axis-aligned and origin-centered.",
+          "The present K lies in the nonnegative orthant and its John center moves with the cap."
+        ],
+        "identifier_or_url": "https://dspace.mit.edu/entities/publication/95ff6bbf-1ce8-4bdb-a2d2-46f4c48b965d",
+        "material_read": "Accessible full-text HTML transcription, Sections 2–3 (maximal inscribed ellipsoids, symmetrized polymatroids, axis-aligned approximations), plus official MIT bibliographic record.",
+        "method": "Section-level reading of full HTML representation and verification against institutional repository description.",
+        "title": "Approximating Submodular Functions Everywhere",
+        "trigger": "Potential dominating theorem on maximum-volume ellipsoids of polymatroids."
+      },
+      {
+        "assessment": "Treats Minkowski functionals, beta invariants, and Ehrhart coefficients, not the inherited-coordinate Euclidean John ellipsoid; lifting is not isometric.",
+        "evidence": [
+          "Section 3 characterizes Minkowski-linear functionals; Section 4 concerns Ehrhart positivity and matroid polytopes.",
+          "Full-text search for ellipsoid returned no occurrence."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/mtk.12122",
+        "material_read": "Open full-text web article, introduction, Sections 3–4 and classification information.",
+        "method": "Read primary publisher full-text HTML sections; search for ellipsoid.",
+        "title": "Generalized permutahedra: Minkowski linear functionals and Ehrhart positivity",
+        "trigger": "Generalized-permutahedron lifting of the independence polytope might yield broader metric information."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9b8726b3-2127-45e0-a35b-ee1ce119c923",
+  "value": {
+    "rationale": "The uniform-matroid independence polytope and real capped-hypercube interpolation form a canonical geometry family. The exact John ellipsoid, off-center-to-centered transition at (n+1)/2, anisotropic branch, return to a Euclidean ball at (n+sqrt(n))/2, and complete 2n+1 contact-facet pattern are not determined by Ehrhart or Euclidean inball data. The intermediate branch is a genuinely positive-length interval for every n>=2, with explicit volume and metric semiaxes; this is a natural complete classification rather than an unmotivated sample.",
+    "status": "PASS"
+  }
+}
