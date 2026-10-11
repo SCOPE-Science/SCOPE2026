@@ -1,0 +1,19 @@
+# Same-model scientific review
+
+## Correctness — PASS
+
+The discrete sink-configuration equivalence identifies the specified ordered two-particle space with the graph-product cubical subcomplex obtained by deleting the equal-edge squares. The relative long exact sequence computes all integral homology from the coordinatewise product of two integer cycle lattices. Intersecting pairs of signed rectangles construct every deleted-square unit when both graph parts have at least three vertices; in the thin case they construct the entire saturated equal-row sublattice; the four-cycle case has a primitive single generator. Consequently the relative map has the claimed rank and torsion-free cokernel. The graph-product factor-swap carries the requisite degree-two Koszul minus sign, and the Cauchy identities with the coordinatewise multiplication modules give the stated rational eigenspaces. The proof is valid for all integers \(m,n\ge2\). The self-contained checker recreates the cellular complexes and independently verifies chains, finite-field ranks, and every available symmetry case for seven finite graph sizes; its finite checks are not substituted for the proof.
+
+## Originality — PASS, with residual literature risk
+
+The closest foundational works are Chettih--Lütgehetmann, *The Homology of Configuration Spaces of Trees with Loops* (arXiv:1612.08290, first public 2016-12-25), and Ramos, *Configuration Spaces of Graphs with Certain Permitted Collisions* (arXiv:1703.05535, first public 2017-03-16). These give the sink model and broad graph-theoretic results, not the full computed integral ranks and particle-swap/vertex-symmetry module decomposition for complete bipartite graphs. Ramos--Yun, *Computing Stable Homology Representations of Graph Configuration Spaces* (arXiv:2606.13813), computes highly relevant complete-bipartite representations but for **ordinary collision-free** configuration spaces. In particular its ordinary \(K_{3,3}\) second rational homology dimension is \(1\), whereas the specified sink-space dimension is \(7\). Prior cycle-graph sink results cover the \(K_{2,2}\) boundary case, not the overlapping-cycle infinite families. Literal, alias, graph-product, symmetric-power, and implication searches located no dominating published theorem for the full statement. Unindexed equivalent treatments remain possible, and this does not constitute a claim to uniqueness over inaccessible or unpublished work.
+
+## Value — PASS
+
+The question is motivated by two natural distinctions: vertex collisions versus fully prohibited collisions, and the behavior of the coordinatewise cycle-product image as one bipartition class falls from three vertices to two. The solution classifies integral homology for an infinite, canonical non-cactus family and identifies the complete \(S_m\times S_n\times C_2\) rational symmetry representation, revealing a sharp thin-side transition not visible in the abstract cubical model. The decomposition has nontrivial Specht \((t-2,2)\), alternating-square, and particle-swap modes, rather than only numerical Betti ranks. This is a structural calculation with clear graph-topological motivation, not an arbitrary small enumeration. It does not claim a cohomology-ring determination or a general theorem for other graphs.
+
+## Limits and independent status
+
+The scalar homology computation is integral; the equivariant splitting is only rational. When the two graph parts have equal size, an additional side-exchange action is not separately described. The model requires all vertices to be designated sinks and exactly two ordered particles. Published-literature coverage cannot be excluded with absolute certainty, and numerical examples are secondary checks of a uniform argument.
+
+Same-model review: passed. Independent audit: not yet performed.
