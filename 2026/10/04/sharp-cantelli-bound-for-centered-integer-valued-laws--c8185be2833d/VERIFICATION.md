@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,31 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic and covers the entire integer lattice.
+# Independent mathematical audit
 
-The accompanying `verify_lattice_cantelli.py` script uses exact rational
-arithmetic. Across a grid of rational variances and positive integer
-thresholds, it checks that:
+## correctness
 
-1. \(j=\lfloor v/k\rfloor\) gives nonnegative extremal masses;
-2. those masses sum to one and match mean \(0\) and variance \(v\);
-3. the tail mass equals the asserted sharp bound;
-4. the exact difference from classical Cantelli equals
-   \[
-   \frac{r(k-r)}
-   {(k+j)(k+j+1)(v+k^2)};
-   \]
-5. the quadratic certificate dominates the tail indicator at every tested
-   lattice point.
+PASS
 
-Finite replay does not establish the infinite-lattice statement. That step is
-proved directly because a product of consecutive integers is nonnegative, and
-the certificate is monotone once \(x\ge k\).
+For any integer \(j\ge0\), the quadratic \(Q_j(x)=(x+j)(x+j+1)/[(k+j)(k+j+1)]\) is nonnegative on every integer below \(k\) and at least one on every integer at least \(k\). Taking expectations gives \(\Pr(X\ge k)\le[v+j(j+1)]/[(k+j)(k+j+1)]\). With \(j=\lfloor v/k\rfloor\), the three displayed masses on \(k,-j,-j-1\) are nonnegative and solve the mass, mean and second-moment equations, so the bound is attained. Equality in the pointwise majorant restricts support to those three lattice points, giving uniqueness after deleting zero masses. Writing \(v=kj+r\) yields the exact positive Cantelli gap by direct algebra. The inspected exact-rational verifier checks the moment identities, majorant and gap formula over broad rational test data, while the theorem follows from the infinite-lattice sign argument.
 
-Originality was assessed by statement-level comparison with general
-moment-bound literature and the closest accessible Cantelli-type results.
-Independent audit has not been performed.
+## originality
 
-Exact-rational replay result: `VERIFY_OK cases=29040 lattice_checks=4094640`.
+PASS
+
+Targeted searches for sharp integer-valued, lattice-valued, discrete one-sided Chebyshev/Cantelli inequalities, the consecutive-root quadratic, and the exact rational formula did not locate an equivalent statement. The inspected modern generalized-moment literature explains polynomial-majorant duality but treats different support classes; Ghosh's accessible abstract treats arbitrary and nonnegative laws, not integer support; Troffaes--Basu use exchangeable sample statistics. Thus the exact lattice correction, universal three-point extremizer and uniqueness remain best-of-knowledge original.
+
+## value
+
+PASS
+
+The theorem gives the exact sharp correction to one of the standard one-sided moment inequalities when the support is quantized, including all variances, an explicit unique extremizer and the exact gain over the continuous bound. This is a natural complete lattice moment problem with reusable sharp constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

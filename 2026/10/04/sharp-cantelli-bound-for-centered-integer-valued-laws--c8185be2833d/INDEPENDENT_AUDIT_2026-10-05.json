@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:39:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3fd568c59f546ca0f7acdbbb2a6a313de78299a2",
+        "assigned verify_lattice_cantelli.py blob 864f5bcbfc09fba442312596c25371cba0807212",
+        "Rujeerapaiboon--Kuhn--Wiesemann, arXiv:1605.05487",
+        "Ghosh, Probability Inequalities Related to Markov's Theorem, DOI:10.1198/000313002119",
+        "Troffaes--Basu, PMLR 103 (2019)"
+      ],
+      "rationale": "For any integer \\(j\\ge0\\), the quadratic \\(Q_j(x)=(x+j)(x+j+1)/[(k+j)(k+j+1)]\\) is nonnegative on every integer below \\(k\\) and at least one on every integer at least \\(k\\). Taking expectations gives \\(\\Pr(X\\ge k)\\le[v+j(j+1)]/[(k+j)(k+j+1)]\\). With \\(j=\\lfloor v/k\\rfloor\\), the three displayed masses on \\(k,-j,-j-1\\) are nonnegative and solve the mass, mean and second-moment equations, so the bound is attained. Equality in the pointwise majorant restricts support to those three lattice points, giving uniqueness after deleting zero masses. Writing \\(v=kj+r\\) yields the exact positive Cantelli gap by direct algebra. The inspected exact-rational verifier checks the moment identities, majorant and gap formula over broad rational test data, while the theorem follows from the infinite-lattice sign argument.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized-moment framework supplies methodology but not the lattice-specific optimizer.",
+          "The accessible Ghosh scope distinguishes arbitrary and nonnegative laws, not integer-supported laws.",
+          "The exchangeable prediction inequality optimizes a different finite-sample object."
+        ],
+        "reasoning": "No checked broader theorem was found whose stated support assumptions mechanically imply the consecutive-root formula.",
+        "searches": [
+          "Rujeerapaiboon--Kuhn--Wiesemann 2018",
+          "Ghosh 2002 abstract",
+          "Troffaes--Basu 2019"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1605.05487",
+        "DOI:10.1198/000313002119",
+        "PMLR 103 (2019), Troffaes--Basu",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous Cantelli is strictly weaker whenever \\(v/k\\) is nonintegral.",
+          "General moment-duality frameworks do not by themselves select the consecutive integer roots or prove the unique extremal law without solving the lattice problem."
+        ],
+        "reasoning": "The final claim solves a support-constrained extremal problem not covered by the checked prior statements.",
+        "searches": [
+          "classical Cantelli inequality",
+          "generalized moment/polynomial-majorant literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No matching integer-lattice theorem was returned by the direct searches.",
+          "Modern moment-bound papers located concern arbitrary, nonnegative, product, bounded, or exchangeable-sample settings rather than a law supported on the full integer lattice."
+        ],
+        "reasoning": "Integer-valued Cantelli, a two-moment problem on \\(\\mathbb Z\\), and a quadratic majorant with consecutive lattice roots were searched as equivalent formulations.",
+        "searches": [
+          "Resultary query: sharp Cantelli centered integer-valued laws lattice one-sided variance moment problem exact three point extremizer",
+          "web searches for integer-valued one-sided Chebyshev and lattice Cantelli",
+          "web searches for the exact consecutive-root denominator and gap formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database entry or paper hit with the exact displayed bound was located."
+        ],
+        "reasoning": "The exact symbolic search was included because the formula is distinctive.",
+        "searches": [
+          "Resultary exact lattice-Cantelli search",
+          "formula searches for \\(v+j(j+1)\\) over \\((k+j)(k+j+1)\\)"
+        ]
+      },
+      "rationale": "Targeted searches for sharp integer-valued, lattice-valued, discrete one-sided Chebyshev/Cantelli inequalities, the consecutive-root quadratic, and the exact rational formula did not locate an equivalent statement. The inspected modern generalized-moment literature explains polynomial-majorant duality but treats different support classes; Ghosh's accessible abstract treats arbitrary and nonnegative laws, not integer support; Troffaes--Basu use exchangeable sample statistics. Thus the exact lattice correction, universal three-point extremizer and uniqueness remain best-of-knowledge original.",
+      "residual_risks": [
+        "Older discrete Markov--Chebyshev moment-problem literature could contain the same optimal quadratic under another notation.",
+        "Ghosh 2002 was not inspected in full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MOMENT_FRAMEWORK_DIFFERENT_SUPPORT",
+          "evidence": "The paper optimizes product/sum/max/min events under moment information, not a single integer-supported law with a lattice-aligned tail.",
+          "identifier_or_url": "arXiv:1605.05487",
+          "material_read": "Primary arXiv abstract and theorem-level scope describing sharp first/second-moment probability bounds and semidefinite moment methods.",
+          "method": "Open-access primary-source inspection.",
+          "title": "Chebyshev Inequalities for Products of Random Variables",
+          "trigger": "Modern sharp moment-bound framework cited by the package."
+        },
+        {
+          "assessment": "NO_INTEGER_SUPPORT_IN_ACCESSIBLE_SCOPE",
+          "evidence": "The accessible scope does not state a lattice-supported refinement.",
+          "identifier_or_url": "DOI:10.1198/000313002119",
+          "material_read": "Primary publisher abstract stating the two treated cases are arbitrary and nonnegative random variables; full text was not accessible.",
+          "method": "Primary abstract inspection with explicit access limitation.",
+          "title": "Probability Inequalities Related to Markov's Theorem",
+          "trigger": "Historical source claiming best one-sided bounds from mean and standard deviation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "classical Cantelli inequality",
+        "modern moment-bound literature"
+      ],
+      "rationale": "The theorem gives the exact sharp correction to one of the standard one-sided moment inequalities when the support is quantized, including all variances, an explicit unique extremizer and the exact gain over the continuous bound. This is a natural complete lattice moment problem with reusable sharp constants.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If \\(X\\) is integer-valued with \\(\\mathbb EX=0\\) and \\(\\operatorname{Var}(X)=v\\), then for every integer \\(k\\ge1\\), with \\(j=\\lfloor v/k\\rfloor\\), \\(\\Pr(X\\ge k)\\le[v+j(j+1)]/[(k+j)(k+j+1)]\\); this is sharp for every \\(v\\), with the unique extremal law supported on \\(\\{-(j+1),-j,k\\}\\), and the exact improvement over continuous Cantelli is the stated lattice-gap formula.",
+  "limitations": [
+    "The mean and threshold are aligned with the integer lattice.",
+    "Only one-sided half-line events with first two moments fixed are treated.",
+    "Older Markov--Chebyshev lattice moment literature may contain an equivalent result under different terminology; the full Ghosh 2002 article was not available in the checked open sources."
+  ],
+  "schema_version": 1
+}

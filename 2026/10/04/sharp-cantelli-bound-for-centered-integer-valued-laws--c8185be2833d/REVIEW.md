@@ -1,39 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof constructs a quadratic that majorizes the upper-tail indicator
-on the entire integer lattice. Its two lower roots are consecutive integers,
-which makes nonnegativity exact on all lattice points. Taking expectations uses
-only the prescribed first two moments. The proposed three-point law has
-nonnegative masses because \(j=\lfloor v/k\rfloor\), and direct moment
-identities show that it attains the bound. Equality in the pointwise majorant
-also gives the complete extremizer support and uniqueness. The exact gap from
-Cantelli is an algebraic identity. Exact-rational replay covered 29040 moment/threshold cases.
+PASS
 
-## Originality
+For any integer \(j\ge0\), the quadratic \(Q_j(x)=(x+j)(x+j+1)/[(k+j)(k+j+1)]\) is nonnegative on every integer below \(k\) and at least one on every integer at least \(k\). Taking expectations gives \(\Pr(X\ge k)\le[v+j(j+1)]/[(k+j)(k+j+1)]\). With \(j=\lfloor v/k\rfloor\), the three displayed masses on \(k,-j,-j-1\) are nonnegative and solve the mass, mean and second-moment equations, so the bound is attained. Equality in the pointwise majorant restricts support to those three lattice points, giving uniqueness after deleting zero masses. Writing \(v=kj+r\) yields the exact positive Cantelli gap by direct algebra. The inspected exact-rational verifier checks the moment identities, majorant and gap formula over broad rational test data, while the theorem follows from the infinite-lattice sign argument.
 
-PASS, with an explicit historical-literature risk. The 2016 generalized-moment
-source was inspected for its moment-duality framework, a 2002 survey-style
-probability-inequality source was compared at abstract level, the 2019
-exchangeable Cantelli-type paper was inspected through its definitions and main
-theorem, and the closest published finite-sample exchangeable studentized
-Cantelli result was read in full. None states or implies the centered
-integer-support formula, its consecutive-root certificate, or its exact
-three-point equality law.
+## originality
 
-Targeted searches using integer-valued, lattice-valued, discrete,
-one-sided Chebyshev/Cantelli, consecutive integer roots, and the symbolic form
-of the proposed denominator found no equivalent statement. This is evidence
-against direct coverage, not a proof that no older equivalent exists.
+PASS
 
-## Value
+Targeted searches for sharp integer-valued, lattice-valued, discrete one-sided Chebyshev/Cantelli inequalities, the consecutive-root quadratic, and the exact rational formula did not locate an equivalent statement. The inspected modern generalized-moment literature explains polynomial-majorant duality but treats different support classes; Ghosh's accessible abstract treats arbitrary and nonnegative laws, not integer support; Troffaes--Basu use exchangeable sample statistics. Thus the exact lattice correction, universal three-point extremizer and uniqueness remain best-of-knowledge original.
 
-PASS. Cantelli's inequality is a basic one-sided moment bound, while integer
-support is a common structural restriction in count and lattice probability.
-The theorem gives the exact cost of ignoring that structure, identifies the
-sharp extremizer for every variance and threshold, and reduces the refinement
-to a reusable consecutive-root polynomial certificate. The exact gap formula
-also shows precisely when the classical continuous-support bound remains sharp.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem gives the exact sharp correction to one of the standard one-sided moment inequalities when the support is quantized, including all variances, an explicit unique extremizer and the exact gain over the continuous bound. This is a natural complete lattice moment problem with reusable sharp constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
