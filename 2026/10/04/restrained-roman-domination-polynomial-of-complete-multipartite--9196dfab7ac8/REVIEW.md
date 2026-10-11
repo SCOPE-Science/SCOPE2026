@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a zero vertex in \(V_i\), all and only vertices outside \(V_i\) are neighbors, so the two defining requirements become \(Z-z_i>0\) and \(T-t_i>0\). The weight enumerator follows by fixing the exact zero-support and using inclusion-exclusion on the events that all 2-labels lie inside one zero-containing part. Intersections of two distinct bad events are precisely the no-2 labelings. The minimum formula has matching explicit constructions and lower bounds. The packaged verifier independently checks the literal definition and every displayed consequence through order \(9\).
+## correctness
 
-## Originality
-PASS. Searches for restrained Roman domination together with complete multipartite, complete bipartite, polynomial, function, and enumeration terminology found the founding definition and later bounds/complexity work but no arbitrary complete-multipartite all-function formula. Published-record searches likewise returned adjacent Roman-domination and complete-multipartite findings, not this parameter. The scalar minimum is treated only as a consequence. The 2015 founding full text was not available through the inspected lawful publisher route, so an unindexed family-specific statement there remains a bibliographic risk.
+PASS
 
-## Value
-PASS. A complete function classification and exact weight distribution are natural structural data for a domination-function parameter and materially strengthen a bare optimum. The formula is self-contained and supports coefficient extraction, minimum recovery, and further refinements.
+In part \(V_i\), a zero vertex is adjacent precisely outside \(V_i\), so feasibility is exactly \(Z-z_i>0\) and \(T-t_i>0\). Fixing the set \(Q\) of zero-containing parts, the base product counts all such labelings, while the bad event for part \(i\) is absence of label two outside it. Any intersection of at least two distinct bad events has no label two anywhere, so inclusion-exclusion collapses to the displayed \((|Q|-1)C_Q\) correction. The minimum cases follow from where zeros and defenders can coexist. In particular, for a star \(K_{1,n}\) no zero labeling is feasible under the printed definition, so the minimum is \(N\), not four when \(N>4\). I independently replayed the part-count criterion on representative multipartite profiles; the repository verifier exhausts every profile through order nine.
 
-## Closest literature and limitations
-The closest sources are the 2015 founding article (DOI 10.22108/TOC.2015.4395), the 2020 general-results article (DOI 10.1007/s40840-020-00965-0), and the complexity study (DOI 10.1142/S1793830922500963). The theorem is restricted to connected complete multipartite graphs and a univariate total-weight enumerator.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full founding paper was obtained and read. It introduces the same definition and gives scalar values for standard families, including Theorem 3.4 asserting \(\gamma_{rR}(K_{m,n})=4\), but it does not enumerate all functions or treat arbitrary multipartite graphs. Moreover, as printed without a non-singleton restriction, that complete-bipartite statement conflicts with the defining zero-neighbor condition on stars \(K_{1,n}\) for \(n\ge4\); the audited minimum formula correctly isolates this boundary. No checked later source supplies the arbitrary-multipartite weight enumerator.
+
+## value
+
+PASS
+
+This is a natural complete classification of a standard domination variant on the canonical complete-multipartite class, with a nontrivial inclusion-exclusion enumerator for every weight. Full inspection of the founding paper also reveals that the audited formula resolves a genuine singleton-part boundary missed by its printed complete-bipartite statement, giving the result value beyond routine polynomial bookkeeping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
