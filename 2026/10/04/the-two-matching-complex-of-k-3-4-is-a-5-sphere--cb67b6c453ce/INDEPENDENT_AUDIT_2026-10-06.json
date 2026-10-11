@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:35:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f2223647fc17709f1cd0d04e944a72df2e7a34ed",
+        "assigned verify_m2_k34.py blob 853dc9c66bff48515973ba86222244f410d9acc4",
+        "Singh, arXiv:2006.13632 / DOI:10.1016/j.disc.2021.112761",
+        "Forman discrete Morse theory"
+      ],
+      "rationale": "I independently reconstructed the complex from the degree-at-most-two definition. It has 1081 faces including the empty face and f-vector \\((12,66,204,360,324,114)\\). Replaying the stated toggle order leaves exactly 539 matched pairs and two critical nonempty faces: one vertex and one six-edge simplex. I independently oriented all 4488 nonempty Hasse covers according to the Morse matching and topologically sorted all 1080 nonempty faces, confirming acyclicity. Hence Forman theory gives a CW model with one 0-cell and one 5-cell and no intervening cells; the unique 5-cell attaches to a point, giving \\(S^5\\). The repository verifier additionally contains an independent mod-two boundary-rank check.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior exact homotopy regimes do not contain the audited parameters.",
+          "A rational-homology computation cannot by itself certify a sphere homotopy type or exclude torsion/fundamental-group phenomena."
+        ],
+        "reasoning": "No checked broader theorem mechanically yields the explicit sphere result.",
+        "searches": [
+          "Singh 2022",
+          "Reiner--Roberts higher chessboard homology as summarized and cited in Singh",
+          "Vega two-matching-complex literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.13632",
+        "Reiner--Roberts 2000",
+        "Vega arXiv:1909.10406",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither parameter regime contains \\((m,n,r)=(4,3,2)\\).",
+          "Matching rational homology of a sphere would still be weaker than the discrete-Morse homotopy equivalence."
+        ],
+        "reasoning": "The new acyclic matching supplies implication content absent from the checked sources.",
+        "searches": [
+          "Singh Theorem 1.2 and shellable range",
+          "Reiner--Roberts rational-homology precedent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Singh's Theorem 1.2 covers \\(M_{n-1}(K_{n,n})\\), and its shellable theorem assumes \\(m>r\\ge n\\).",
+          "For \\(K_{4,3}\\) with \\(r=2\\), the hypothesis \\(r\\ge3\\) fails."
+        ],
+        "reasoning": "The two-matching complex is the bounded-degree/chessboard-with-multiplicities complex at uniform bound two, so those aliases were included.",
+        "searches": [
+          "Resultary query: two matching complex K3,4 M2 homotopy sphere S5 higher matching complex complete bipartite",
+          "Singh arXiv:2006.13632 full primary text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct exact hit was the assigned record; no earlier exact homotopy table for this parameter was returned."
+        ],
+        "reasoning": "The finite face/Morse data were also independently reconstructed rather than inherited from a database.",
+        "searches": [
+          "Resultary exact K3,4/M2 query"
+        ]
+      },
+      "rationale": "Singh's full primary paper gives exact homotopy types for the shellable range \\(m>r\\ge n\\) and for the balanced boundary \\(M_{n-1}(K_{n,n})\\). After ordering \\(K_{3,4}\\) as \\(K_{4,3}\\), the audited case has \\(r=2<n=3\\), so neither theorem applies. The same paper notes Reiner--Roberts rational homology formulas for broad higher chessboard complexes, but rational homology does not imply the homotopy-sphere statement. Resultary search returned the assigned finding and other graph-complex computations, not a prior \\(K_{3,4}\\) homotopy theorem.",
+      "residual_risks": [
+        "A representation-theoretic source may tabulate stronger integral information for this small chessboard-with-multiplicities case under different notation, but no checked source gives the homotopy type."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_NEIGHBORING_REGIMES_NOT_K34_R2",
+          "evidence": "The paper's exact regimes require either a balanced \\(r=n-1\\) case or \\(m>r\\ge n\\), neither of which includes \\(K_{4,3},r=2\\).",
+          "identifier_or_url": "arXiv:2006.13632; DOI:10.1016/j.disc.2021.112761",
+          "material_read": "Full accessible primary preprint material through the introduction, Theorem 1.2 and Section 4 statement of the shellable parameter range.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "Higher matching complexes of complete graphs and complete bipartite graphs",
+          "trigger": "Closest primary source for exact homotopy types of higher matching complexes of complete bipartite graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Singh 2022",
+        "higher matching/chessboard complex literature"
+      ],
+      "rationale": "This is the first unequal complete-bipartite case immediately outside Singh's exact regimes and a natural small boundary in higher matching complexes. An exact homotopy type, certified by a complete Morse matching rather than only homology, is a useful structural benchmark.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The two-matching complex \\(M_2(K_{3,4})\\) is homotopy equivalent to \\(S^5\\).",
+  "limitations": [
+    "This is an exact finite computation for \\(K_{3,4}\\); it does not classify \\(M_2(K_{3,n})\\) for larger \\(n\\) or the whole unresolved region \\(r<\\min(m,n)\\)."
+  ],
+  "schema_version": 1
+}

@@ -1,14 +1,21 @@
-# Same-model review
-## Correctness
-PASS. The complex is reconstructed from the literal degree-at-most-two definition. The explicit sequential matching pairs \(539\) face-poset covers and leaves exactly one critical vertex and one critical five-simplex. Direct orientation of all \(4488\) nonempty Hasse covers is acyclic, so Forman's theorem gives a CW complex with one \(0\)-cell and one \(5\)-cell, hence \(S^5\). Independent mod-2 boundary ranks are also recomputed by two elimination orientations.
+# Independent mathematical audit
 
-## Originality
-PASS. Singh's complete-bipartite theorem covers the regime \(m>r\ge n\) and separately the balanced case \(M_{n-1}(K_{n,n})\); \(M_2(K_{3,4})\) lies immediately outside both. The inspected full text states nearby examples \(M_2(K_{3,2})\) and \(M_2(K_{3,3})\) but not the present homotopy type. Vega treats other two-matching graph families. Reiner--Roberts gives rational-homology machinery, which does not imply a homotopy equivalence to a sphere. Exact indexed searches returned no equivalent statement.
+## correctness
 
-## Value
-PASS. This is the smallest unequal complete-bipartite two-matching instance outside the exact regimes isolated in the closest higher-matching paper. Determining that the first missing rectangular case is again a sphere supplies a concrete boundary datum for the unresolved region rather than an arbitrary parameter computation, and the explicit Morse matching is reusable as a structural benchmark for attempts at \(M_2(K_{3,n})\).
+PASS
 
-## Closest literature and limitations
-The closest source is Singh, arXiv:2006.13632, whose Theorem 1.2 gives the exact shellable region and the balanced boundary case. Miyata--Ramos, arXiv:2012.01679, supplies the topology-centered \(d\)-matching-complex framework. Vega, arXiv:1909.10406, is the closest two-matching-specific paper. The result is finite and makes no claim for \(n>4\) or for a general complete-bipartite classification.
+I independently reconstructed the complex from the degree-at-most-two definition. It has 1081 faces including the empty face and f-vector \((12,66,204,360,324,114)\). Replaying the stated toggle order leaves exactly 539 matched pairs and two critical nonempty faces: one vertex and one six-edge simplex. I independently oriented all 4488 nonempty Hasse covers according to the Morse matching and topologically sorted all 1080 nonempty faces, confirming acyclicity. Hence Forman theory gives a CW model with one 0-cell and one 5-cell and no intervening cells; the unique 5-cell attaches to a point, giving \(S^5\). The repository verifier additionally contains an independent mod-two boundary-rank check.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Singh's full primary paper gives exact homotopy types for the shellable range \(m>r\ge n\) and for the balanced boundary \(M_{n-1}(K_{n,n})\). After ordering \(K_{3,4}\) as \(K_{4,3}\), the audited case has \(r=2<n=3\), so neither theorem applies. The same paper notes Reiner--Roberts rational homology formulas for broad higher chessboard complexes, but rational homology does not imply the homotopy-sphere statement. Resultary search returned the assigned finding and other graph-complex computations, not a prior \(K_{3,4}\) homotopy theorem.
+
+## value
+
+PASS
+
+This is the first unequal complete-bipartite case immediately outside Singh's exact regimes and a natural small boundary in higher matching complexes. An exact homotopy type, certified by a complete Morse matching rather than only homology, is a useful structural benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
