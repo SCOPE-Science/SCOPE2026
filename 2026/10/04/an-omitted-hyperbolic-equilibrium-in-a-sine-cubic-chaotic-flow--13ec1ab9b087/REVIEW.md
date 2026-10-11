@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The source equation and parameter vector were checked directly in the open-access publisher PDF. The proof is not based on a floating-point root search. The packaged verifier uses exact rational interval arithmetic and alternating Taylor bounds to certify a Poincaré–Miranda sign pattern on all six faces of \(B\). The rational preconditioner is invertible, so the certified zero is an equilibrium of the original vector field. Independent interval bounds for the cubic characteristic coefficients hold over the whole box and force exactly one unstable eigenvalue and two stable eigenvalues.
+## correctness
 
-Risk: the proof establishes at least one equilibrium but not uniqueness in \(B\) or a complete equilibrium census.
+PASS
 
-## Originality
-**PASS.** Exact-title, DOI, equation, “additional equilibria,” “hyperbolic equilibrium,” alias, and implication searches were run against the available research index and the open web. The introducing paper was inspected in full at the relevant equations and conclusion. It asserts only the axis family \( (0,0,k\pi) \) and does not contain the certified off-axis equilibrium. The closest search results concern different chaotic vector fields and do not imply this claim.
+The exact interval verifier was read line by line. Its rational preconditioner has nonzero determinant; six face families are exhaustively covered by rational interval arithmetic with alternating Taylor enclosures on a domain where sine monotonicity is valid, giving strict Poincare--Miranda signs and hence an equilibrium. Whole-box interval bounds give characteristic coefficients \(a_1>0\), \(a_2>0\), \(a_3<0\); Descartes gives exactly one positive real eigenvalue and the remaining pair has negative real part. Independent floating-point root finding places a zero at approximately \((1.00372322,0.74723700,-0.39348247)\) with eigenvalues about \(1.80657\) and \(-4.27135\pm9.67923i\), corroborating but not replacing the interval proof.
 
-Residual risk: an unindexed erratum or later analysis could contain the same correction. No such source was found.
+## originality
 
-## Value
-**PASS.** The result directly bears on the source's defining claim of “only nonhyperbolic equilibrium points,” repeated in its title, Table 1, equilibrium analysis, and conclusion. A hyperbolic equilibrium at the showcased chaotic parameter set is a structural correction to the system's local geometry, not a routine recalculation or arbitrary parameter slice.
+PASS
 
-The result deliberately stops short of any hidden-attractor reclassification, because that would require basin analysis relative to the complete equilibrium set.
+The primary article explicitly claims the opposite equilibrium census: solving its equations gives only \((0,0,k\pi)\), all nonhyperbolic. Fresh exact-title/equilibrium searches and the published-result semantic corpus found the audited correction itself but no earlier source giving this off-axis certified equilibrium.
 
-## Closest literature and limitations
-The closest literature found consists of the source's cited examples of other chaotic systems with nonhyperbolic equilibria and later papers citing this source as background. Those works concern different vector fields. The present claim proves only existence and hyperbolicity of at least one off-axis equilibrium in one certified box for the displayed parameter vector.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The omitted hyperbolic equilibrium directly overturns a property advertised as defining the chaotic system and affects any hidden/self-excited interpretation depending on the complete equilibrium set. A rigorous local existence/type certificate is therefore a motivated mathematical correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
