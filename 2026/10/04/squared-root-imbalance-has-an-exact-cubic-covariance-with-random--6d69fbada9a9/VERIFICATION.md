@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The theorem is analytic. The accompanying checker uses exact integer and rational arithmetic.
+# Independent mathematical audit
 
-It enumerates every insertion permutation through \(n=9\), reconstructs the corresponding Quicksort comparison count, and records the first-pivot rank.
+## correctness
 
-For every tested order it verifies the classical mean and variance of internal path length, the conditional mean given the root split, strict increase of that conditional mean across the support of squared root imbalance, the exact covariance, the exact imbalance variance, and the least-squares slope.
+PASS
 
-A separate exact-rational loop verifies the finite harmonic-sum reduction used in the proof for hundreds of values of \(n\). The asymptotic constant is checked numerically from the exact formula but is proved analytically from
-\[
-H_n^{(2)}\to\frac{\pi^2}{6}.
-\]
+Conditioning on the uniform first split gives the standard recursion. The harmonic increment formula proves monotonicity; finite harmonic/power sums cancel to the cubic covariance and the centered-square uniform statistic gives Var(Q). Independent exhaustive replay over all permutations for n=3,…,7 matched the covariance; the frozen verifier extends exact checks through n=9 and harmonic identities through n=400.
 
-Independent audit has not been performed.
+## originality
 
-Exact replay result: `VERIFY_OK permutations_checked=409112 covariance_checks=8 conditional_mean_checks=44 monotone_regression_checks=8 marginal_moment_checks=16 imbalance_moment_checks=16 slope_checks=7 harmonic_reduction_checks=796 asymptotic_checks=7`.
+PASS
+
+Classical BST sources give the root recursion and marginal path-length moments, but searches found no prior exact mixed law with squared first-split imbalance, no cubic covariance formula, no regression slope and no nonzero limiting correlation. Resultary returned no covering theorem.
+
+## value
+
+PASS
+
+The first split is the canonical local variable in BST/Quicksort analysis; quantifying that its squared imbalance retains about one third of eventual path-length variance is a natural local-to-global dependence result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

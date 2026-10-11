@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:51:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 468be6d5812320ff2f17b1d4b2088a7399f74060",
+        "verify_bst_root_imbalance_pathlength.py be560facd75378249d0d794bd458607d7a1e187b",
+        "fresh n=3..7 exhaustive replay"
+      ],
+      "rationale": "Conditioning on the uniform first split gives the standard recursion. The harmonic increment formula proves monotonicity; finite harmonic/power sums cancel to the cubic covariance and the centered-square uniform statistic gives Var(Q). Independent exhaustive replay over all permutations for n=3,…,7 matched the covariance; the frozen verifier extends exact checks through n=9 and harmonic identities through n=400.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Those sources study path length or level-profile correlations, not squared root split imbalance."
+        ],
+        "reasoning": "No checked broader theorem gives the submitted mixed moment.",
+        "searches": [
+          "Prodinger 2001",
+          "Drmota–Hwang 2005 profile correlations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/9910070",
+        "Drmota–Hwang 2005",
+        "Resultary root-imbalance query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recursion gives the conditional expectation, but the mixed harmonic sums and cancellations are additional."
+        ],
+        "reasoning": "The covariance, slope and limiting correlation are nontrivial joint consequences.",
+        "searches": [
+          "classical first-split recursion",
+          "audited harmonic-sum calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning on first-pivot rank is the Quicksort/BST equivalent formulation; the checked classical source covers path-length recursion and marginal expectation/variance."
+        ],
+        "reasoning": "The joint statistic is finer than the marginal path-length results.",
+        "searches": [
+          "Prodinger arXiv:math/9910070",
+          "Resultary root-imbalance/path-length query",
+          "web root imbalance BST covariance query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact theorem/table matching (n-2)(n-1)(n+1)/9 was returned."
+        ],
+        "reasoning": "Finite checks are corroboration, not novelty evidence.",
+        "searches": [
+          "Resultary semantic search",
+          "targeted exact cubic-formula search"
+        ]
+      },
+      "rationale": "Classical BST sources give the root recursion and marginal path-length moments, but searches found no prior exact mixed law with squared first-split imbalance, no cubic covariance formula, no regression slope and no nonzero limiting correlation. Resultary returned no covering theorem.",
+      "residual_risks": [
+        "An older analysis-of-algorithms paper or textbook may contain the same mixed moment; complete classical-literature full-text comparison was not possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_RESULTS_NO_CHECKED_ROOT_IMBALANCE_MOMENT",
+          "evidence": "Accessible material states marginal recursion and moments, not the mixed first-split law.",
+          "identifier_or_url": "arXiv:math/9910070; DOI:10.1007/s00453-001-0058-y",
+          "material_read": "Primary abstract plus accessible excerpt containing the opening path-length recursion and expectation/variance scope; complete document not independently materialized.",
+          "method": "Statistic/scope comparison.",
+          "title": "A q-Analogue of the Path Length of Binary Search Trees",
+          "trigger": "Primary path-length source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:math/9910070",
+        "Drmota–Hwang 2005",
+        "Resultary root-imbalance query"
+      ],
+      "rationale": "The first split is the canonical local variable in BST/Quicksort analysis; quantifying that its squared imbalance retains about one third of eventual path-length variance is a natural local-to-global dependence result.",
+      "residual_risks": [
+        "An older analysis-of-algorithms paper or textbook may contain the same mixed moment; complete classical-literature full-text comparison was not possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/9910070",
+    "Drmota–Hwang 2005",
+    "Resultary root-imbalance query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a random-permutation BST, squared root imbalance Q_n has covariance (n-2)(n-1)(n+1)/9 with internal path length, variance 4(n-2)(n-1)(n+1)(n+2)/45, slope 5/[4(n+2)], strictly increasing conditional mean, and limiting correlation about 0.574874.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older analysis-of-algorithms paper or textbook may contain the same mixed moment; complete classical-literature full-text comparison was not possible.",
+    "Uniform-pivot random BST only; no optimal nonlinear-predictor claim."
+  ]
+}
