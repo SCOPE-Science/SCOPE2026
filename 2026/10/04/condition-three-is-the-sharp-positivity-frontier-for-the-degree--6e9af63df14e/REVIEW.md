@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Expanding the degree-three Chebyshev residual polynomial gives an explicit quadratic solution polynomial \(q_2\). For a Stieltjes matrix, every off-diagonal entry of \(q_2(A)\) splits into a direct-edge term and a sum of nonnegative two-edge path products. The direct-edge coefficient is nonnegative whenever \(L\le3\mu\). Positive definiteness of \(q_2(A)\) supplies positive diagonal entries. In two dimensions the trace identity \(a_{11}+a_{22}=L+\mu\) makes the off-diagonal entry nonnegative for every condition number. A three-dimensional block family gives a negative off-diagonal entry for every \(\kappa>3\), and a strictly positive right-hand side preserves the failure. Exact-rational replay returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with residual literature risk. Classical sources cover the Chebyshev minimax polynomial, semi-iterative recurrences, convergence, and implementations; those facts are prior work. Searches under Stieltjes, \(M\)-matrix, positive-orthant, monotone-iteration, degree-three, and condition-number-\(3\) formulations did not locate the coordinatewise theorem proved here. The closest retrieved result concerns Euclidean stagewise safety of a different optimized Richardson problem and does not imply final-entry positivity of the degree-three Chebyshev polynomial. Older monotone-iteration literature remains a residual risk.
+PASS
 
-## Value
-PASS. Chebyshev semi-iteration is a classical communication-light accelerator for symmetric positive definite systems, while Stieltjes matrices model many discretizations with nonnegative exact solutions. The theorem gives a sharp finite-horizon conditioning boundary for preserving that sign structure, identifies the minimal dimension of failure, and supplies an exact strictly positive witness. This is a structural property of the accelerated polynomial, not a routine convergence-rate restatement.
+Expanding the scaled T_3 polynomial gives the stated quadratic solution polynomial q_2. Its scalar values are positive on [mu,L], so q_2(A) has positive diagonal. For i!=j the exact A^2 expansion splits the off-diagonal into a nonnegative two-edge sum plus (-a_ij)[24(L+mu)-16(a_ii+a_jj)]; kappa<=3 makes the latter nonnegative. In two dimensions trace(A)=L+mu gives the stronger all-kappa sign formula. The sharp 3D block family has an explicitly negative q_2(A) off-diagonal for every kappa>3. Independent exact rational expansion reproduced the displayed kappa=4 matrix and negative witness.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Golub--Varga and later Chebyshev-iteration sources establish minimax polynomial acceleration and recurrence construction, but the inspected primary material does not state entrywise positivity of the degree-three solution polynomial on Stieltjes matrices, a condition-number-3 threshold, or the dimension-two immunity theorem. Broad and exact Resultary searches found no stronger theorem covering these coordinatewise conclusions.
+
+## value
+
+PASS
+
+A sharp positivity boundary for a canonical minimax polynomial method is a natural structural question on Stieltjes systems. The all-kappa two-dimensional immunity and matching three-dimensional obstruction identify the precise first geometry where sign loss appears, giving more than a routine expansion of the Chebyshev polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

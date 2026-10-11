@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-The checker uses only exact rational arithmetic and the Python standard library.
 
-It evaluates the defining scaled Chebyshev polynomial
-\[
-p_3(\lambda)
-=
-\frac{
-T_3((L+\mu-2\lambda)/(L-\mu))
-}{
-T_3((L+\mu)/(L-\mu))
-}
-\]
-and verifies that
-\[
-\frac{1-p_3(\lambda)}{\lambda}
-=
-\frac{
-2[16\lambda^2-24(L+\mu)\lambda+9L^2+30L\mu+9\mu^2]
-}{
-(L+\mu)(L^2+14L\mu+\mu^2)
-}
-\]
-at many exact rational inputs.
+# Independent mathematical audit
 
-It reconstructs the sharpness family and verifies its off-diagonal formula exactly. It also rebuilds the complete \(\kappa=4\) witness, its degree-three Chebyshev solution matrix, the negative final coordinate, and the strictly positive exact solution.
+## correctness
 
-The universal Stieltjes frontier and the two-dimensional immunity theorem are analytic matrix arguments in RESULT.md; the finite replay is corroborative only.
+PASS
+
+Expanding the scaled T_3 polynomial gives the stated quadratic solution polynomial q_2. Its scalar values are positive on [mu,L], so q_2(A) has positive diagonal. For i!=j the exact A^2 expansion splits the off-diagonal into a nonnegative two-edge sum plus (-a_ij)[24(L+mu)-16(a_ii+a_jj)]; kappa<=3 makes the latter nonnegative. In two dimensions trace(A)=L+mu gives the stronger all-kappa sign formula. The sharp 3D block family has an explicitly negative q_2(A) off-diagonal for every kappa>3. Independent exact rational expansion reproduced the displayed kappa=4 matrix and negative witness.
+
+## originality
+
+PASS
+
+Golub--Varga and later Chebyshev-iteration sources establish minimax polynomial acceleration and recurrence construction, but the inspected primary material does not state entrywise positivity of the degree-three solution polynomial on Stieltjes matrices, a condition-number-3 threshold, or the dimension-two immunity theorem. Broad and exact Resultary searches found no stronger theorem covering these coordinatewise conclusions.
+
+## value
+
+PASS
+
+A sharp positivity boundary for a canonical minimax polynomial method is a natural structural question on Stieltjes systems. The all-kappa two-dimensional immunity and matching three-dimensional obstruction identify the precise first geometry where sign loss appears, giving more than a routine expansion of the Chebyshev polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

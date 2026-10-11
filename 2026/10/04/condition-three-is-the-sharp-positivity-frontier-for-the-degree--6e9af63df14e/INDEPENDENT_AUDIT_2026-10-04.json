@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:50:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 71f49ef22357ea70b0f56f599456129f62758be8",
+        "DOI:10.1007/BF01386014"
+      ],
+      "rationale": "Expanding the scaled T_3 polynomial gives the stated quadratic solution polynomial q_2. Its scalar values are positive on [mu,L], so q_2(A) has positive diagonal. For i!=j the exact A^2 expansion splits the off-diagonal into a nonnegative two-edge sum plus (-a_ij)[24(L+mu)-16(a_ii+a_jj)]; kappa<=3 makes the latter nonnegative. In two dimensions trace(A)=L+mu gives the stronger all-kappa sign formula. The sharp 3D block family has an explicitly negative q_2(A) off-diagonal for every kappa>3. Independent exact rational expansion reproduced the displayed kappa=4 matrix and negative witness.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary theory constructs the Chebyshev minimax polynomial and recurrence over a spectral interval.",
+          "No inspected broader theorem states that the resulting q_2(A) is entrywise nonnegative under kappa<=3."
+        ],
+        "reasoning": "Spectral minimax optimality does not control coordinate signs in the original basis; the Stieltjes entrywise argument is additional.",
+        "searches": [
+          "Golub--Varga 1961 Parts I/II",
+          "Gutknecht--Röllin, DOI:10.1016/S0167-8191(01)00139-9"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/BF01386014",
+        "DOI:10.1016/S0167-8191(01)00139-9",
+        "DOI:10.1080/00207160903456831",
+        "Resultary Chebyshev/Stieltjes positivity searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical minimax theory determines q_2 spectrally but does not imply entrywise nonnegativity of q_2(A) for Stieltjes A."
+        ],
+        "reasoning": "The audited theorem needs a new matrix-entry decomposition and sharp obstruction family, so it is not mechanically implied by the classical construction.",
+        "searches": [
+          "Golub--Varga minimax polynomial theorem",
+          "audited off-diagonal q_2(A) identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical polynomial/minimax formulation is the same algorithmic object but its theorem concerns spectral acceleration rather than entrywise signs."
+        ],
+        "reasoning": "Equivalent aliases using M-matrix, Stieltjes, positive orthant, polynomial iteration, and degree-three semi-iteration were searched without an implication-equivalent hit.",
+        "searches": [
+          "Golub--Varga, Chebyshev Semi-Iterative Methods, Numerische Mathematik 3 (1961), DOI:10.1007/BF01386014",
+          "Resultary query: Chebyshev semi iteration Stieltjes M-matrix nonnegative positivity degree three condition number 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact theorem/table matching the kappa=3 frontier or the 3D obstruction family was located."
+        ],
+        "reasoning": "This is a parametric theorem rather than a finite lookup invariant.",
+        "searches": [
+          "Resultary theorem-corpus search for degree-three Chebyshev positivity and condition number 3"
+        ]
+      },
+      "rationale": "Golub--Varga and later Chebyshev-iteration sources establish minimax polynomial acceleration and recurrence construction, but the inspected primary material does not state entrywise positivity of the degree-three solution polynomial on Stieltjes matrices, a condition-number-3 threshold, or the dimension-two immunity theorem. Broad and exact Resultary searches found no stronger theorem covering these coordinatewise conclusions.",
+      "residual_risks": [
+        "Older M-matrix/semi-iterative literature may contain a finite-degree positivity criterion under different terminology.",
+        "The theorem is specific to degree three and exact spectral endpoints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMAX_FRAMEWORK_NOT_ENTRYWISE_POSITIVITY",
+          "evidence": "The paper develops spectral minimax acceleration; no inspected statement gives the degree-three Stieltjes orthant frontier.",
+          "identifier_or_url": "DOI:10.1007/BF01386014",
+          "material_read": "Accessible full PDF pages covering the SPD/iteration setup, polynomial acceleration, unique Chebyshev minimax choice, recurrence coefficients, and comparisons with Richardson/SOR.",
+          "method": "Primary full-text/PDF statement and implication comparison.",
+          "title": "Chebyshev Semi-Iterative Methods, Successive Overrelaxation Iterative Methods, and Second Order Richardson Iterative Methods",
+          "trigger": "Foundational primary source for the exact Chebyshev minimax semi-iteration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1007/BF01386014",
+        "DOI:10.1016/S0167-8191(01)00139-9",
+        "DOI:10.1080/00207160903456831",
+        "Resultary Chebyshev/Stieltjes positivity searches"
+      ],
+      "rationale": "A sharp positivity boundary for a canonical minimax polynomial method is a natural structural question on Stieltjes systems. The all-kappa two-dimensional immunity and matching three-dimensional obstruction identify the precise first geometry where sign loss appears, giving more than a routine expansion of the Chebyshev polynomial.",
+      "residual_risks": [
+        "Older M-matrix/semi-iterative literature may contain a finite-degree positivity criterion under different terminology.",
+        "The theorem is specific to degree three and exact spectral endpoints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1007/BF01386014",
+    "DOI:10.1016/S0167-8191(01)00139-9",
+    "DOI:10.1080/00207160903456831",
+    "Resultary Chebyshev/Stieltjes positivity searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the degree-three Chebyshev semi-iterative approximation on an SPD Stieltjes system using the exact spectral interval, every nonnegative right-hand side maps to a nonnegative final approximation whenever kappa<=3; the constant 3 is sharp via a three-dimensional family for every kappa>3, while dimensions one and two are safe for all condition numbers.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older M-matrix/semi-iterative literature may contain a finite-degree positivity criterion under different terminology.",
+    "The theorem is specific to degree three and exact spectral endpoints."
+  ]
+}
