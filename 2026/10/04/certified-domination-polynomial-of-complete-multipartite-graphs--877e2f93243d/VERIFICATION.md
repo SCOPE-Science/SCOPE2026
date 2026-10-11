@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof reduces certified domination to the exact outside-neighbor count \(q-c_i\) for each selected part and then performs inclusion-exclusion over half-shadowed-part events.
+# Independent mathematical audit
 
-The included checker does not use the theorem to decide whether a tested set is certified. It constructs the graph from part labels, tests domination directly, counts outside neighbors of every selected vertex, and compares the resulting accepted sets with the profile criterion and the closed polynomial.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-multipartite_types_checked = 128
-vertex_subsets_checked = 64916
-orders = 2..10
-all-set profile criterion matched
-all polynomial coefficients matched
-K_{3,n} specialization matched the 2025 theorem for n = 3..10
-```
+In a complete multipartite graph, a selected vertex in part \(i\) has exactly \(q-c_i\) neighbours outside \(D\), so certification is precisely the exclusion of value one. A set dominates exactly when it meets at least two parts or is one whole part, giving the ordinary domination polynomial used in the formula. Among dominating sets, every \(q=1\) set is a certification failure, contributing \(Nz^{N-1}\). For \(q\ge2\), the bad event for part \(i\) is: omit exactly one vertex outside \(V_i\) and a nonempty proper subset inside \(V_i\); pairwise intersections are possible only at \(q=2\), with one omitted vertex in each of two parts of size at least two, and triple intersections are impossible. Inclusion--exclusion therefore gives exactly the displayed correction terms. An independent brute-force enumeration over all 58 complete multipartite part profiles of total order at most 8 matched the closed formula coefficient-by-coefficient.
 
-The checker also compares the specialization to \(K_{3,n}\) with the published 2025 piecewise coefficient formula for \(3\le n\le10\). The finite checks are corroborative only; the all-orders result is established by the proof.
+## originality
+
+PASS
+
+The foundational certified-domination literature defines and studies the minimum parameter, while the only directly relevant polynomial source located gives exact formulas for the special family \(K_{3,n}\). Searches for arbitrary complete multipartite certified-domination polynomials found no broader formula. The audited all-part-size criterion and inclusion--exclusion formula therefore strictly extend the inspected primary special case.
+
+## value
+
+PASS
+
+The result gives an all-set polynomial for a canonical graph class and turns certification into a sharp part-occupancy rule. It strictly generalizes the existing \(K_{3,n}\) calculation and is directly reusable for coefficients, totals and specializations across arbitrary multipartite profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

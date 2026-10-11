@@ -1,12 +1,21 @@
-# Review of Certified domination polynomial of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In \(K_{n_1,\ldots,n_r}\), a selected vertex in part \(X_i\) has exactly \(q-c_i\) neighbors outside the selected set. Therefore the certified condition is exactly the exclusion of \(q-c_i=1\) on every selected part. The domination condition is independently characterized by support on at least two parts or by selecting one entire part. The polynomial follows by starting from the domination polynomial, removing all size-\(N-1\) sets, removing every half-shadowed-part family for complements of size at least two, and restoring the only possible pairwise overlaps. Definition-level enumeration agrees through order ten, and the formula matches the published \(K_{3,n}\) coefficients in tested cases.
+## correctness
 
-## Originality
-PASS. The foundational source gives certified domination numbers for complete bipartite graphs, not an arbitrary complete-multipartite set enumerator. The highly relevant 2025 paper gives the polynomial only for \(K_{3,n}\); its full theorem was inspected, and the present formula specializes to it while covering all part numbers and sizes. Targeted semantic searches found no arbitrary complete-multipartite certified-domination polynomial. The closest indexed certified-domination result concerns extremal gaps on connected graphs and does not imply this enumeration.
+PASS
 
-## Value
-PASS. The 2025 special-case paper demonstrates that counting certified dominating sets is a studied object, while the current theorem replaces a family-specific piecewise count by a uniform arbitrary-multipartite formula. The all-set profile criterion also exposes the exact half-shadowed obstruction and can be used directly for coefficient extraction and random-set questions.
+In a complete multipartite graph, a selected vertex in part \(i\) has exactly \(q-c_i\) neighbours outside \(D\), so certification is precisely the exclusion of value one. A set dominates exactly when it meets at least two parts or is one whole part, giving the ordinary domination polynomial used in the formula. Among dominating sets, every \(q=1\) set is a certification failure, contributing \(Nz^{N-1}\). For \(q\ge2\), the bad event for part \(i\) is: omit exactly one vertex outside \(V_i\) and a nonempty proper subset inside \(V_i\); pairwise intersections are possible only at \(q=2\), with one omitted vertex in each of two parts of size at least two, and triple intersections are impossible. Inclusion--exclusion therefore gives exactly the displayed correction terms. An independent brute-force enumeration over all 58 complete multipartite part profiles of total order at most 8 matched the closed formula coefficient-by-coefficient.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational certified-domination literature defines and studies the minimum parameter, while the only directly relevant polynomial source located gives exact formulas for the special family \(K_{3,n}\). Searches for arbitrary complete multipartite certified-domination polynomials found no broader formula. The audited all-part-size criterion and inclusion--exclusion formula therefore strictly extend the inspected primary special case.
+
+## value
+
+PASS
+
+The result gives an all-set polynomial for a canonical graph class and turns certification into a sharp part-occupancy rule. It strictly generalizes the existing \(K_{3,n}\) calculation and is directly reusable for coefficients, totals and specializations across arbitrary multipartite profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

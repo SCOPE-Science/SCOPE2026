@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T15:10:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a complete multipartite graph, a selected vertex in part \\(i\\) has exactly \\(q-c_i\\) neighbours outside \\(D\\), so certification is precisely the exclusion of value one. A set dominates exactly when it meets at least two parts or is one whole part, giving the ordinary domination polynomial used in the formula. Among dominating sets, every \\(q=1\\) set is a certification failure, contributing \\(Nz^{N-1}\\). For \\(q\\ge2\\), the bad event for part \\(i\\) is: omit exactly one vertex outside \\(V_i\\) and a nonempty proper subset inside \\(V_i\\); pairwise intersections are possible only at \\(q=2\\), with one omitted vertex in each of two parts of size at least two, and triple intersections are impossible. Inclusion--exclusion therefore gives exactly the displayed correction terms. An independent brute-force enumeration over all 58 complete multipartite part profiles of total order at most 8 matched the closed formula coefficient-by-coefficient.",
+      "risk": "The formula assumes at least two nonempty parts; disconnected/one-part degenerate cases need separate conventions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational paper gives general definitions and minimum-number results; Gipson--Jenisha computes only the complete bipartite family with one part fixed at three."
+        ],
+        "reasoning": "Neither source dominates the arbitrary complete multipartite all-set enumerator.",
+        "searches": [
+          "Dettlaff et al., Certified domination, DOI:10.1016/j.akcej.2018.09.004",
+          "Gipson--Jenisha, DOI:10.17654/0974165825018"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.akcej.2018.09.004",
+        "DOI:10.17654/0974165825018",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The special \\(K_{3,n}\\) formula does not determine arbitrary part-size profiles. The new partwise omission criterion and intersection analysis supply the generalization."
+        ],
+        "reasoning": "The final theorem is not a mere parameter substitution into the prior special family.",
+        "searches": [
+          "DOI:10.17654/0974165825018 full paper",
+          "DOI:10.1016/j.akcej.2018.09.004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2025 primary polynomial paper is explicitly restricted to \\(K_{3,n}\\); the foundational certified-domination paper treats the parameter but not this all-set polynomial."
+        ],
+        "reasoning": "No equivalent arbitrary-part formula was located under certified dominating set/polynomial terminology.",
+        "searches": [
+          "Resultary: certified domination polynomial complete multipartite arbitrary K_n1_nr",
+          "web: \"certified domination polynomial\" \"complete multipartite\"; \"certified dominating sets\" K_3,n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Many sibling domination polynomials exist for complete multipartite graphs, but certified domination was not found among them beyond \\(K_{3,n}\\)."
+        ],
+        "reasoning": "The audited formula is invariant-specific and cannot be imported from the similarly named paired/secure/other domination polynomials.",
+        "searches": [
+          "Resultary domination-polynomial corpus including paired, secure, fair and other complete-multipartite variants",
+          "Gipson--Jenisha finite/special-family formulas"
+        ]
+      },
+      "rationale": "The foundational certified-domination literature defines and studies the minimum parameter, while the only directly relevant polynomial source located gives exact formulas for the special family \\(K_{3,n}\\). Searches for arbitrary complete multipartite certified-domination polynomials found no broader formula. The audited all-part-size criterion and inclusion--exclusion formula therefore strictly extend the inspected primary special case.",
+      "residual_risks": [
+        "The certified-domination polynomial literature is sparse and scattered; an unindexed conference or local-journal generalization could exist, but no such source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_POLYNOMIAL_CLASSIFICATION",
+          "evidence": "It introduces certified domination and exact minimum results for graph classes, not the arbitrary complete-multipartite polynomial.",
+          "identifier_or_url": "DOI:10.1016/j.akcej.2018.09.004",
+          "material_read": "Publisher full article/abstract-level theorem material defining certified domination and its main general results.",
+          "method": "lawful publisher source",
+          "title": "Certified domination",
+          "trigger": "Foundational definition and general parameter theory."
+        },
+        {
+          "assessment": "STRICT_SPECIAL_CASE",
+          "evidence": "The paper explicitly fixes the graph to \\(K_{3,n}\\) and does not state an arbitrary \\(K_{n_1,\\ldots,n_r}\\) formula.",
+          "identifier_or_url": "DOI:10.17654/0974165825018",
+          "material_read": "Open-access article and PDF, including the coefficient formulas for \\(K_{3,n}\\).",
+          "method": "lawful OA full text/PDF",
+          "title": "Certified dominating sets and certified domination polynomial of complete bipartite graph K_3,n",
+          "trigger": "Closest primary polynomial result and exact special case."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives an all-set polynomial for a canonical graph class and turns certification into a sharp part-occupancy rule. It strictly generalizes the existing \\(K_{3,n}\\) calculation and is directly reusable for coefficients, totals and specializations across arbitrary multipartite profiles.",
+      "risk": "The inclusion--exclusion proof is elementary once the exact half-shadow condition is written in omission coordinates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(G=K_{n_1,\\ldots,n_r}\\), a dominating set \\(D\\) with omission counts \\(c_i=n_i-|D\\cap V_i|\\) and total \\(q=|V\\setminus D|\\) is certified exactly when \\(q-c_i\\ne1\\) for every occupied part. Combining this with the domination criterion yields the stated closed certified-domination polynomial for arbitrary part sizes, extending the previously known \\(K_{3,n}\\) formulas.",
+  "limitations": [
+    "The theorem is specific to complete multipartite graphs and does not address certified domination polynomials under graph operations or more general perfect graph classes."
+  ],
+  "schema_version": 1
+}
