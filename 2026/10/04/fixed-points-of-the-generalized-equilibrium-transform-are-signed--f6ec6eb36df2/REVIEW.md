@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The fixed-point identity first forces absolute continuity because the transformed law has a density. On the negative and positive half-lines, equality with the defining density yields the almost-everywhere equations \(F'=F/a\) and \(F'=(1-F)/a\), with \(a=\mathbb{E}|X|\). Absolute continuity integrates these equations without any hidden differentiability assumption. Continuity at zero and total mass give the stated one-parameter sign split. The converse is a direct substitution, and the proposed family has \(\mathbb{E}|X|=a\).
+# Independent mathematical audit
 
-## Originality
-PASS with stated residual risk. The defining 2025 article was inspected at its general-support transform definition and surrounding development; its contents cover the transform, mixture representation, stochastic comparisons, aging properties, and applications, but no fixed-point or iteration statement was found. The classical nonnegative equilibrium fixed-point theorem and a fractional nonnegative analogue cover only one-sided transforms and imply only the endpoint cases here. A distinct arbitrary-support equilibrium transform from 2020 uses a different normalization based on the nonzero signed mean, so its exponential-approximation results do not imply this fixed-point family.
+## correctness
 
-## Value
-PASS. Fixed points are a canonical structural question for distributional transforms. The classification is complete rather than a parameter slice: it shows that the new two-sided construction retains the memoryless exponential magnitude while changing classical fixed-point uniqueness into an arbitrary sign-bias family. The equivalent independence statement between sign and magnitude makes the structural content explicit and identifies the centered Laplace law as only one member, not the entire two-sided fixed-point class.
+PASS
 
-## Closest literature and limitations
-The closest source is Capaldo, Di Crescenzo, and Navarro, DOI:10.1017/S0269964825100041, which defines the exact operator. Shevtsova and Tselishchev, DOI:10.3390/math8040577, summarize the classical nonnegative exponential fixed-point characterization while studying a different arbitrary-support transform. Di Crescenzo and Meoli, arXiv:1611.01686, characterize exponentials for a fractional nonnegative equilibrium transform. The present result does not address dynamics of repeated transformation. An equivalent older result under different renewal terminology remains possible.
+Fixed-point equality is enough to reconstruct the law. Because X^e has a Lebesgue density, a fixed X is absolutely continuous. With a=E|X|, density equality gives F'=F/a a.e. on (-infinity,0) and F'=(1-F)/a a.e. on (0,infinity). Integrating factors yield F(x)=p e^{x/a} on the negative side and 1-F(x)=(1-p)e^{-x/a} on the positive side; absolute continuity removes a zero atom and enforces the common boundary mass. Conversely the displayed signed-exponential law has E|X|=a and substitution reproduces the same density. Endpoints p=0,1 and p=1/2 are correctly handled.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS. Capaldo--Di Crescenzo--Navarro's open-access primary article was inspected at the exact generalized-equilibrium definition and surrounding structural results; it defines the same absolute-mean two-sided density but does not state a fixed-point classification. The classical nonnegative equilibrium transform has the exponential as its fixed point, and other arbitrary-support/fractional transforms use different operators. Resultary returned no independent same-transform fixed-point theorem. The submitted common-scale signed-exponential family is therefore not implication-wise covered by the checked prior statements.
+
+## value
+
+PASS
+
+This is a natural complete fixed-point classification for a recently introduced probability transform. It identifies the precise structural freedom created by two-sided support: exponential memorylessness remains in magnitude while an arbitrary independent sign bias survives. Complete fixed-point sets are useful baselines for transform iteration and approximation theory, so the result is more than a cosmetic ODE exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

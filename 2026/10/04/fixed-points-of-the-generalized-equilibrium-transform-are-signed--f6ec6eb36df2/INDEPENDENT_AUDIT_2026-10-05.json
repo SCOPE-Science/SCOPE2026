@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:57:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixed-point equality is enough to reconstruct the law. Because X^e has a Lebesgue density, a fixed X is absolutely continuous. With a=E|X|, density equality gives F'=F/a a.e. on (-infinity,0) and F'=(1-F)/a a.e. on (0,infinity). Integrating factors yield F(x)=p e^{x/a} on the negative side and 1-F(x)=(1-p)e^{-x/a} on the positive side; absolute continuity removes a zero atom and enforces the common boundary mass. Conversely the displayed signed-exponential law has E|X|=a and substitution reproduces the same density. Endpoints p=0,1 and p=1/2 are correctly handled.",
+      "risks": [
+        "No claim is made about iterates, attraction, rates, or nontrivial cycles."
+      ],
+      "sources": [
+        "RESULT.md blob 6a0821cb202ac4acbb6b3effaee02526643505e3",
+        "VERIFICATION.md blob 42d2926fd95cceacad22e77f33d64097bd3e1e5a",
+        "DOI:10.1017/S0269964825100041"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 no-support-constraints transform uses a different normalization/operator.",
+          "The fractional result is one-sided/nonnegative and characterizes an exponential law there."
+        ],
+        "reasoning": "Those broader-looking characterizations do not dominate the exact 2025 absolute-mean split transform.",
+        "searches": [
+          "DOI:10.3390/math8040577",
+          "arXiv:1611.01686",
+          "classical equilibrium fixed-point characterization"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0269964825100041",
+        "DOI:10.3390/math8040577",
+        "arXiv:1611.01686",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-point equality forces absolute continuity and two ODEs with the same denominator a=E|X|, hence a common exponential scale; continuity leaves the side mass p free.",
+          "A one-sided theorem supplies only p=0 or p=1 and cannot identify the full sign-bias family."
+        ],
+        "reasoning": "The final classification uses a feature specific to the two-sided operator and is not a corollary of the one-sided exponential characterization.",
+        "searches": [
+          "Direct comparison of the 2025 transform definition with classical one-sided equilibrium fixed points"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 3.1 of the 2025 article gives F(t)/E|X| on t<0 and (1-F(t))/E|X| on t>=0.",
+          "The inspected article's sections cover mixture/stochastic-order/aging/risk properties, not a fixed-point theorem.",
+          "No independent Resultary match gives an arbitrary sign-bias family."
+        ],
+        "reasoning": "Aliases checked include generalized equilibrium distribution/transform, fixed point, stationary renewal, two-sided/signed exponential, and Laplace.",
+        "searches": [
+          "Resultary: generalized equilibrium distribution transform fixed points signed exponential arbitrary sign",
+          "DOI:10.1017/S0269964825100041 full HTML fixed-point search",
+          "web: generalized equilibrium distribution fixed point two-sided exponential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No theorem/table with the CDF p e^{x/a} on x<0 and 1-(1-p)e^{-x/a} on x>=0 was located."
+        ],
+        "reasoning": "This is an analytic fixed-point classification rather than a database lookup.",
+        "searches": [
+          "Resultary query above"
+        ]
+      },
+      "rationale": "PASS. Capaldo--Di Crescenzo--Navarro's open-access primary article was inspected at the exact generalized-equilibrium definition and surrounding structural results; it defines the same absolute-mean two-sided density but does not state a fixed-point classification. The classical nonnegative equilibrium transform has the exponential as its fixed point, and other arbitrary-support/fractional transforms use different operators. Resultary returned no independent same-transform fixed-point theorem. The submitted common-scale signed-exponential family is therefore not implication-wise covered by the checked prior statements.",
+      "residual_risks": [
+        "An older renewal-theory formulation under different terminology could contain the same two-sided classification.",
+        "The proof is short once the new transform is written down, so independent informal observation is plausible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_SAME_OPERATOR_NOT_COVERING_FIXED_POINTS.",
+          "evidence": "The exact split density is defined, but no fixed-point/iteration theorem appears in the inspected full text.",
+          "identifier_or_url": "DOI:10.1017/S0269964825100041",
+          "material_read": "Open-access Cambridge HTML around Definition 3.1 and the principal structural sections, plus in-document fixed-point search.",
+          "method": "Direct full-text operator and theorem comparison.",
+          "title": "Generalized equilibrium distributions",
+          "trigger": "Exact primary source defining the transform."
+        },
+        {
+          "assessment": "DIFFERENT_OPERATOR; classical one-sided exponential fixed point only.",
+          "evidence": "Its arbitrary-support transform is not the absolute-mean split density used here.",
+          "identifier_or_url": "DOI:10.3390/math8040577",
+          "material_read": "Open-access transform discussion and historical fixed-point remarks.",
+          "method": "Operator/normalization comparison.",
+          "title": "A Generalized Equilibrium Transform with Application to Error Bounds in the Rényi Theorem with No Support Constraints",
+          "trigger": "Potential broader arbitrary-support fixed-point literature."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural complete fixed-point classification for a recently introduced probability transform. It identifies the precise structural freedom created by two-sided support: exponential memorylessness remains in magnitude while an arbitrary independent sign bias survives. Complete fixed-point sets are useful baselines for transform iteration and approximation theory, so the result is more than a cosmetic ODE exercise.",
+      "risks": [
+        "Its main value is structural classification rather than a quantitative convergence theorem."
+      ],
+      "sources": [
+        "DOI:10.1017/S0269964825100041",
+        "RESULT.md classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the exact transform in the cited 2025 definition is classified.",
+    "No statement about iterative attraction, rates, or cycles is made."
+  ],
+  "schema_version": 1
+}
