@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim verified is \(\operatorname{ASP}(3,5,2)=\operatorname{ASB}(3,5,2)=10\).
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` with `artifacts/witness_certificate.json` in the same directory. The program uses only the Python standard library and performs two logically separate checks.
+## correctness
 
-First, it enumerates every multiplicity vector on the seven nonzero vectors of \(\mathbb F_2^3\) with total length \(3\) through \(9\), filters to rank \(3\), reconstructs all inclusion-minimal recovery sets, and checks whether five pairwise disjoint recoveries exist for each stored column type. The rank-\(3\) counts are \(28,119,329,742,1478,2702,4634\), and the number satisfying five-all-symbol PIR is zero at every length.
+PASS
 
-Second, it reconstructs the ten-column witness \((2,3,4,4,5,5,6,6,7,7)\), checks the five-all-symbol PIR condition, exhausts all \(252\) five-request multisets of its six stored types for the stronger batch condition, and independently validates every row of the stored recovery certificate. Certificate validation checks request completeness and uniqueness, five recoveries per row, exact target multiplicities, index ranges, pairwise disjointness, and linear-span recovery over \(\mathbb F_2\).
+Generator multisets reduce to multiplicities on the seven nonzero vectors of F₂³. Inclusion-minimal recovery sets are independent and have size at most 3. An independent enumeration checked all rank-3 multiplicity vectors at lengths 3–9: 28,119,329,742,1478,2702,4634 respectively, with no five-all-symbol PIR witness. For the ten-column multiplicity vector 0,1,1,2,2,2,2, independent backtracking serves every one of the 252 five-request multisets.
 
-The expected final marker is `VERIFY_OK ASP(3,5,2)=ASB(3,5,2)=10`.
+## originality
 
-The verification proves only this finite parameter statement. It is not evidence for other dimensions, request counts, or alphabets, and no independent audit has been performed.
+PASS
+
+The defining 2026 paper gives only 8≤ASP(3,5,2)≤ASB(3,5,2)≤10 and explicitly leaves small-dimension exact lengths beyond its solved low-request cases open. The closest published Resultary record is the distinct four-request dimension-three case. The audited exhaustive lower bound and length-10 batch witness therefore close a genuine gap.
+
+## value
+
+PASS
+
+This closes a natural exact small-parameter gap explicitly left by the defining framework. The lower bound is a complete structural census rather than a sampled search, and the matching batch witness certifies all request multisets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
