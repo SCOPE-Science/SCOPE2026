@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite universe is exhaustive. Every \(2\times2\) and \(3\times3\) strict profile is tested, and every perfect matching is explicitly scored. Two independently organized serial-dictatorship implementations agree. Rank-maximality is computed both by direct lexicographic signature comparison and by an exact base-\(4\) integer objective whose equivalence is proved from the three-agent rank-count bound. The nine normalized classes and the independent signature and multiplicity marginals all reproduce the same \(54\)-profile failure set.
+## correctness
 
-Risk: the \(3\times3\) classification is computational rather than a symbolic nine-case derivation. Complete enumeration and independent exact formulations materially reduce implementation risk.
+PASS
 
-## Originality
-**PASS.** The inspected literature establishes serial dictatorship as a standard house-allocation mechanism and rank-maximal matching as a lexicographic one-sided matching objective. The primary rank-maximal paper defines signatures and develops algorithms but does not state the fixed-priority serial-dictatorship boundary, \(1/4\) failure incidence, nine symmetry classes, or signature-transition census. Targeted repository and literature searches using both mechanism names, the \(3\times3\) market, exact counts, and objective aliases found no equivalent result.
+A fresh exhaustive reconstruction over all \(6^3=216\) strict balanced \(3\times3\) profiles reproduced exactly 54 serial-dictatorship failures, with rank-maximal-set sizes 36 singleton and 18 doubleton. It also reproduced the claimed six rank-signature transitions (multiplicities 24 and five times 6) and exactly nine object-relabeling classes, each of size six. A separate direct check of all four \(2\times2\) profiles shows no failure, so three agents/objects is the first balanced size. The rank-maximal comparator was computed from the lexicographically maximal rank-count signature over all bijections, matching the primary definition.
 
-Risk: search cannot prove novelty; an unindexed note, exercise, teaching example, or code enumeration may contain the same finite classification.
+## originality
 
-## Value
-**PASS.** Serial dictatorship is a canonical strategyproof priority mechanism, whereas rank-maximal matching is a canonical lexicographic rank-efficiency criterion. Identifying the smallest market where the two objectives separate and completely classifying that boundary quantifies a genuine mechanism-design tradeoff rather than an arbitrary numerical slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The rank-maximal matching literature defines and algorithmically solves the lexicographic rank objective, while serial dictatorship is classical in house allocation. Fresh searches by exact market size, failure count, signature transition and orbit classification found no prior theorem or table giving the first failure boundary or the exact 54-profile census. The definitions do not imply the finite distribution without an additional complete classification.
+
+## value
+
+PASS
+
+The theorem identifies the sharp smallest balanced market where a canonical strategyproof priority mechanism ceases to be rank-maximal and completely classifies every failure at that boundary. The exact 54/216 rate, severity split and nine relabeling types are a natural structural boundary, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
