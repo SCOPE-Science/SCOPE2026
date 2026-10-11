@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The five-summand kernel formula gives L(2r)=L(2r+1)=r+1, kappa(2r)=n-1-r, kappa(2r+1)=2n-1-r. Explicit summation gives coefficients n, (8n-4)j+2, and 8n^2+4n+1. Fejer and Dirichlet identities reduce the circle expression to 2n+1+H(1-cos v)+2cot(theta/2)sin v, with H>=2n/sin^2(theta/2). Completing a square yields >=2n+1-1/n, including the endpoint theta=0 by direct evaluation. Palindromic pairing counts roots and the diagonal denominator is nonzero. An independent all-five-summand Python checker matched coefficients for n=1..500, corroborating (not proving) the general algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Edholm--McNeal 2017, Section 3.3, Theorem 3.8, proves existence of zeros for every exponent gamma>=2 by analyzing the s=0 coordinate slice.",
+        "Edholm--Mathew 2026, Section 4.3, lists known fixed gaps and states the general diagonal nonvanishing conjecture is open."
+      ],
+      "reasoning": "The continuous-exponent existence theorem covers the weaker existential consequence but not the assertion that a prescribed diagonal polynomial of growing degree has n+1 interior roots and a uniform positive boundary certificate. Fixed-difference results give no uniform result along m-n=n+1 as n grows.",
+      "searches": [
+        "published-finding corpus: Lu Qi-Keng rational Hartogs Q_{2n+1,n} Bergman kernel no unit circle roots near slope two unbounded difference",
+        "published-finding corpus: Bergman Hartogs numerator Edholm Mathew Q m n unit circle nonvanishing diagonal zeros 2026",
+        "Web: Edholm McNeal Bergman kernel generalized Hartogs triangles 2016 2017 gamma kernel zeros"
+      ]
+    },
+    "checked_sources": [
+      "Edholm--Mathew arXiv:2505.20489 initial posting 2025-05-26; Springer Math. Z. 2026 publisher full text",
+      "Edholm--McNeal arXiv:1605.06223; J. Geom. Anal. 2017 author-hosted 26-page PDF, relevant full text read",
+      "published-finding corpus searches for exact parameters, generalized kernel zeros, Fejer positivity, and aliases",
+      "Existing claims for this subject on preceding local ledger (comparison solely for overlap)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper verifies fixed small gaps and supplies arithmetic input; the proposed theorem uses that input but derives a distinct unbounded-gap ray.",
+        "The 2017 paper chooses s=0 and does not compute diagonal Q zeros.",
+        "Prior finite-gap statements imply the ray claim only for finitely many n, whereas the new proof works for every n."
+      ],
+      "reasoning": "Existing kernel-zero existence cannot entail the precise diagonal root multiplicity count or the 2n-scale positivity margin. The fixed-gap results for k<=17 cover at most finitely many indices along k=n+1, and the integer-slope family m/n=m/1 is disjoint for n>1.",
+      "searches": [
+        "Edholm--Mathew 2026, Theorem 1.7; Section 3.3; Section 4.3",
+        "Edholm--McNeal 2017, Theorem 3.8 and its proof",
+        "Own preceding claims: Hartogs Edholm diagonal gaps 5 and 7 through 17; integer slopes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Edholm--Mathew 2026, equations (1.4),(3.16), Proposition 3.22: coefficient formulas and reciprocal symmetry; their Conjecture 4.20 remains open.",
+        "No matching exact parameter ray or equivalent Fejer nonvanishing theorem identified by the recorded searches."
+      ],
+      "reasoning": "The statement that the centered palindromic polynomial is strictly positive on the circle is stronger than circle nonvanishing, which is equivalent to the exact half-inside count only after reciprocal symmetry. Exact positive margin is not implied by a mere kernel-zero existence result.",
+      "searches": [
+        "published-finding corpus: Edholm Mathew diagonal Bergman numerator Q_{2n+1,n} Hartogs triangles gamma 2 + 1/n uniform unit-circle positivity all n root count Fejer square 2026",
+        "Web: \"Q_{2n+1,n}\" Bergman",
+        "Web: Hartogs triangles \"2+1/n\" Bergman kernel zeros rational"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no directly matching title/summary among the checked search hits; available similar titles were about unrelated polynomial positivity.",
+        "The source published five-part formula algorithmically computes each finite instance but does not tabulate or establish the all-n ray certificate."
+      ],
+      "reasoning": "An explicit formula for coefficients is not equivalent to a proved all-n strictly positive trigonometric bound. No exact database or table coverage of the complete ray was identified; lack of a hit is not itself proof of novelty.",
+      "searches": [
+        "published-finding corpus: Hartogs triangle diagonal polynomial nonvanishing palindromic Fejer 2025 2026",
+        "published-finding corpus: gamma=2+1/n rational Hartogs triangle Bergman polynomial palindromic roots nonvanishing unit circle",
+        "Web: Edholm Mathew polynomial unit circle 2n+1 n 2026 result"
+      ]
+    },
+    "rationale": "The 2025 Edholm--Mathew conjecture asks for circle nonvanishing in all relatively prime pairs. Their theorem establishes only gaps 1,2 and describes fixed gaps 3,4,6, whereas m=2n+1 has unbounded gap n+1. The earlier Edholm--McNeal theorem proves existence of kernel zeros when gamma>=2 by the s=0 slice, which does not imply nonvanishing of the diagonal polynomial or the precise n+1 diagonal root count. The exact coefficient formula and quantitative certificate have no inspected stronger coverage. Unindexed or unpublished equivalents remain possible.",
+    "residual_risks": [
+      "The authors report additional fixed-gap investigations in preparation, so unpublished statements cannot be excluded.",
+      "Indexing and semantic retrieval may miss an equivalent unindexed trigonometric positivity lemma.",
+      "The 2017 paper establishes broader existence of kernel zeros for gamma>=2; the valuable new content is exact diagonal location/count and the quantitative certificate, not existence alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the kernel formulas and reciprocal symmetry, but not the claimed all-n arithmetic ray or bound.",
+        "evidence": [
+          "Theorem 1.3 and Proposition 3.22 give five summands and reciprocal identity.",
+          "Section 4.3 mentions gaps 3,4,6, describes other fixed-gap work as in preparation, and leaves the general case open."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00209-026-04059-8",
+        "material_read": "Full relevant HTML Sections 1.1-1.2, 3.3, 4.1-4.3, including formulas (1.4), (3.21), (3.23) and Conjecture 4.20.",
+        "method": "Open-access publisher HTML, searched equations and specific theorem/sections",
+        "title": "Arithmetic properties and zeros of the Bergman kernel on a class of quotient domains",
+        "trigger": "Exact numerator polynomial, conjectured circle nonvanishing, fixed-gap prior coverage"
+      },
+      {
+        "assessment": "Shows existence of a kernel zero on s=0 for gamma>2, not the diagonal circle positivity and root count.",
+        "evidence": [
+          "Theorem 3.8 proves all gamma>=2 by an explicit s=0 specialization.",
+          "Section 3.3 makes no diagonal Q_{2n+1,n} zero count assertion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12220-017-9777-4",
+        "material_read": "Open-access author-hosted PDF, title/abstract, introduction, Section 3.2 kernel formula, and Section 3.3 Theorem 3.8 and proof pages 10-11.",
+        "method": "Author-institution full-text PDF; parsed primary pages and inspected PDF first page visually",
+        "title": "Bergman Subspaces and Subkernels: Degenerate L-p Mapping and Zeroes",
+        "trigger": "Possible dominant theorem for all gamma>=2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5c32e5c4-cc14-4579-9910-fe4e020093d9",
+  "value": {
+    "rationale": "The theorem proves an all-n infinite arithmetic ray of a stated open rational diagonal Bergman-kernel problem: m=2n+1 has unbounded gap m-n and gamma=2+1/n tends to the threshold 2. It gives the exact n+1 interior count and a positive Fejer certificate with near-optimal minimum bracket 2n+1-1/n<=min<=2n+1, a structural fact not implied by previously known nonempty kernel zeros. This is a natural progression beyond finite-gap computations, not an arbitrary slice or one more fixed instance.",
+    "status": "PASS"
+  }
+}
