@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every possible gradient simplex is exhaustively enumerated. A fixed 831-pair face-poset matching is verified against all 6606 Hasse covers; topological sorting of the reversed-cover digraph reaches all 1727 faces, proving acyclicity. The critical set is exactly one 0-cell and 64 4-cells, so Forman reduction gives a wedge of 64 four-spheres. Independent mod-2 boundary ranks give reduced Betti vector (0,0,0,0,64).",
+    "risks": [
+      "The proof depends on the implementation matching the stated definition; this is mitigated by exhaustive enumeration, full Hasse-graph acyclicity verification, and an independent boundary-rank computation."
+    ],
+    "sources": [
+      "verify.py",
+      "verification_output.txt",
+      "arXiv:1909.11440 for the Morse-complex definition and discrete-Morse framework"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1909.11440 states that exact homotopy types are known only for a handful of complexes and treats selected families, not the prism.",
+        "arXiv:2004.10481 gives graph connectivity bounds and says it relaxes the exact-homotopy question to connectivity; its regular-graph result does not determine this wedge."
+      ],
+      "reasoning": "The inspected general theorems do not imply the exact homotopy type of the triangular prism. No broader class theorem found in the searches subsumes the claim.",
+      "searches": [
+        "Web: arXiv:1909.11440 full text",
+        "Web: arXiv:2004.10481 full text",
+        "Database query: triangular prism discrete Morse complex exact homotopy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1909.11440",
+      "arXiv:2004.10481",
+      "indexed record 4af8059de6d1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reduced homology concentrated in one degree does not rule out nontrivial higher homotopy or attaching maps.",
+        "The general connectivity theorem yields only a connectivity lower bound for this 3-regular six-vertex graph.",
+        "The new acyclic matching produces a CW model with only one 0-cell and 64 4-cells, which does imply the exact wedge."
+      ],
+      "reasoning": "The final claim is strictly stronger than the closest located prior statements and is not a corollary of them.",
+      "searches": [
+        "Comparison against closest indexed homology record 4af8059de6d1",
+        "Comparison against arXiv:2004.10481 Theorem 4.4 and regular-graph example",
+        "Comparison against arXiv:1909.11440 exact-family scope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a graph, a Morse simplex is an acyclic matching of vertices to incident edges, equivalently an oriented rooted forest after reversing the conventional orientation if necessary.",
+        "arXiv:1909.11440 defines graph Morse complexes and cites the directed-tree literature; full-text searches found no “triangular” or “prism”."
+      ],
+      "reasoning": "The alias search directly targeted the principal equivalent graph-theoretic formulations. No result located an exact triangular-prism homotopy type.",
+      "searches": [
+        "Database query: rooted forest complex triangular prism homotopy",
+        "Database query: directed forest complex triangular prism",
+        "Web: \"rooted forest complex\" \"triangular prism\" graph",
+        "Web: \"directed forest complex\" prism graph homotopy",
+        "Web: \"complex of directed trees\" prism graph homotopy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed identifier 4af8059de6d1: “Mod-2 homology of the triangular-prism Morse complex,” reporting reduced mod-2 rank 64 in degree 4 and zero elsewhere."
+      ],
+      "reasoning": "The indexed same-object result is homological only. It neither supplies nor logically implies a homotopy equivalence to a wedge of spheres.",
+      "searches": [
+        "Database query: triangular prism Morse complex wedge 64 four spheres",
+        "Database query: triangular prism discrete Morse complex exact homotopy",
+        "Database query: M(C3 square K2) Morse complex"
+      ]
+    },
+    "rationale": "The exact wedge claim is not implied by the nearest same-object homology record or by the inspected general connectivity theorems. Exact-name and alias searches did not locate an exact homotopy computation. The main residual risk is coverage under older directed-tree terminology without the graph being named explicitly.",
+    "residual_risks": [
+      "Older directed-tree or rooted-forest literature may contain an equivalent triangular-prism specialization under a family description that does not name the graph. No such implication was found in the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the object, notes exact homotopy types are scarce, and treats other graph families; no triangular-prism instance was found.",
+        "evidence": "First public 2019-09-25; primary MSC 57Q70; introduction states explicit homotopy types are known only for a handful of complexes.",
+        "identifier_or_url": "arXiv:1909.11440",
+        "material_read": "Abstract, introduction, definitions, and full-text term searches for triangular/prism/rooted forest.",
+        "method": "Lawful open arXiv full text.",
+        "title": "On the homotopy and strong homotopy type of complexes of discrete Morse functions",
+        "trigger": "Primary middle-window Morse-complex source and likely exact-family coverage."
+      },
+      {
+        "assessment": "Provides connectivity bounds rather than exact homotopy types; no triangular-prism computation was found.",
+        "evidence": "The paper explicitly relaxes the exact-homotopy problem to connectivity and gives a regular-graph bound.",
+        "identifier_or_url": "arXiv:2004.10481",
+        "material_read": "Abstract, introduction, graph theorem, examples, and full-text searches for triangular/prism.",
+        "method": "Lawful open arXiv full text.",
+        "title": "Higher connectivity of the Morse complex",
+        "trigger": "Potential broader theorem for all graph Morse complexes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c3e0003f-51f2-4929-ae84-1ca52db9c150",
+  "value": {
+    "rationale": "The triangular prism is a canonical small connected cubic graph. The exact sphere-wedge type is a natural benchmark that strictly strengthens both general connectivity bounds and the closest same-object homology-only computation, while remaining a self-contained exact fact rather than a routine normalization check.",
+    "risks": [
+      "The result is a single-graph classification rather than a family theorem; its value is as a canonical exact benchmark and as a strict upgrade from homology/connectivity information."
+    ],
+    "sources": [
+      "arXiv:1909.11440",
+      "arXiv:2004.10481",
+      "closest indexed same-object homology record 4af8059de6d1"
+    ],
+    "status": "PASS"
+  }
+}
