@@ -1,0 +1,97 @@
+{
+  "claim": "Let \\(G\\) be a finite connected simple graph with \\(n\\) vertices, \\(m\\) edges, minimum degree at least \\(2\\), and girth at least \\(5\\). Then the Lovász neighborhood complex \\(\\mathcal N(G)\\) simplicially collapses to a graph. If \\(G\\) is non-bipartite, then \\(\\mathcal N(G)\\simeq \\bigvee^{2m-2n+1}S^1\\). If \\(G\\) is bipartite, then \\(\\mathcal N(G)\\) has exactly two connected components and each is homotopy equivalent to \\(\\bigvee^{m-n+1}S^1\\).",
+  "correctness": {
+    "rationale": "The proof identifies the maximal neighborhood simplices, proves pairwise intersections have size at most one from the girth condition, gives an explicit elementary-collapse order reducing each simplex relative to its vertices to a star, and counts the resulting graph exactly. Component structure is the even-walk equivalence relation, yielding one component in the non-bipartite case and the two bipartition classes otherwise. The finite checker independently replays the collapse on six representative graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1802.04526v2 proves only that each component for maximum-degree-at-most-3 graphs is contractible or a wedge of circles, with named exceptions; it supplies neither an arbitrary-degree theorem nor the exact rank formula.",
+        "arXiv:math/0503613v1 supplies the general neighborhood/Hom simple-homotopy framework but no high-girth classification."
+      ],
+      "reasoning": "The strongest inspected nearby coverage is either general framework without this computation or a low-degree qualitative classification. Neither implies the claimed arbitrary-degree exact formula.",
+      "searches": [
+        "neighborhood complex regular graph girth at least five wedge circles exact rank",
+        "Lovasz neighborhood complex girth five regular graph wedge of circles",
+        "maximum degree three neighborhood complex wedge circles girth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0503613v1",
+      "arXiv:1802.04526v2",
+      "5b757c0a-694f-4b1b-bf92-a18b4b794c82",
+      "344271f4-218a-4222-b20e-7192d9033129"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "own:5b757c0a-694f-4b1b-bf92-a18b4b794c82 is the Steiner-design incidence special case; its graphs are bipartite and girth at least 6, so it is subsumed by the new theorem but does not imply it.",
+        "own:344271f4-218a-4222-b20e-7192d9033129 treats hypercubes, which have many 4-cycles and a different two-dimensional wedge behavior."
+      ],
+      "reasoning": "The closest owned claim is a strict special case. The new theorem adds arbitrary high-girth graphs, including non-bipartite and irregular examples, and derives the rank only from \\(n\\), \\(m\\), and bipartiteness.",
+      "searches": [
+        "5b757c0a-694f-4b1b-bf92-a18b4b794c82",
+        "344271f4-218a-4222-b20e-7192d9033129"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved record stated the girth-at-least-five neighborhood-complex theorem or either exact rank formula.",
+        "The common-neighbor formulation was also searched through no-triangle/no-four-cycle aliases."
+      ],
+      "reasoning": "The claim is invariant under replacing “girth at least 5” by “no triangles or quadrangles,” so both formulations were searched. No equivalent statement was located.",
+      "searches": [
+        "neighborhood complex girth at least 5 minimum degree 2 exact Betti rank 2m-2n",
+        "neighborhood complex high girth graph Euler characteristic 2m 2n wedge circles",
+        "Lovasz neighborhood complex graph no triangles no four cycles exact first Betti number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed exact neighborhood result concerns the icosahedral graph, whose girth is 3 and whose homotopy is two-dimensional.",
+        "The projective-plane incidence Rips result concerns a different functor."
+      ],
+      "reasoning": "No exact database/table entry located in the searches records the present graph class and formula.",
+      "searches": [
+        "neighborhood complex girth at least 5 minimum degree 2 exact Betti rank 2m-2n",
+        "bipartite girth six neighborhood complex wedge circles m-n+1"
+      ]
+    },
+    "rationale": "Exact statement-level searches found no source giving the all-degree high-girth collapse with the formulas \\(2m-2n+1\\) and \\(m-n+1\\). The closest published theorem is qualitative and restricted to maximum degree at most \\(3\\); the closest owned result is a strict bipartite design-incidence special case. Residual risk from unindexed graph-topology literature remains.",
+    "residual_risks": [
+      "An older or unindexed graph-topology source may contain the same high-girth collapse under a different common-neighbor or clique-hypergraph formulation.",
+      "The theorem is elementary once the facet-intersection lemma is noticed, so terminology mismatch is a real but bounded originality risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAMEWORK_ONLY",
+        "evidence": "First public date 2005-03-28; primary MSC 57Q10; proves general simple-homotopy relations but not the high-girth rank theorem.",
+        "identifier_or_url": "arXiv:math/0503613v1",
+        "material_read": "ArXiv abstract/metadata and full-text neighborhood-complex/simple-homotopy statements.",
+        "method": "Statement-level HTML inspection.",
+        "title": "Simple homotopy types of Hom-complexes, neighborhood complexes, Lovász complexes, and atom crosscut complexes",
+        "trigger": "Primary archival topology source defining the framework and owning MSC."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 2.1 gives a qualitative point-or-circle-wedge classification under maximum degree at most 3; no girth hypothesis, arbitrary-degree extension, or exact rank formula appears in the inspected statement/proof.",
+        "identifier_or_url": "arXiv:1802.04526v2",
+        "material_read": "Full-text theorem statements and proof of the maximum-degree-at-most-3 case.",
+        "method": "Statement-level HTML inspection, including Theorem 2.1 and its proof.",
+        "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+        "trigger": "Closest published classification by degree and same functor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "57f56ac6-de4a-41a6-b6c1-e6ca66d52faa",
+  "value": {
+    "rationale": "The statement is an all-parameter structural classification for a canonical topological graph functor. It removes any degree upper bound in the high-girth regime and converts the entire homotopy type to the elementary graph counts \\(n\\) and \\(m\\), while simultaneously covering regular, irregular, bipartite, and non-bipartite families. This is broader than a finite census or a single-design specialization.",
+    "status": "PASS"
+  }
+}
