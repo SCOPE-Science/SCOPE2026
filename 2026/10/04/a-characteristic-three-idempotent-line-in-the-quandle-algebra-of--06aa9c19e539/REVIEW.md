@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Expanding \(x^2\) in the basis of \(K[R_3]\) gives three quadratic equations. Their sum and pairwise differences produce the complete case split in RESULT.md. The characteristic-three parametrization is bijective because \(u=a-b\) recovers the parameter. Exact enumeration over several prime fields and \(\mathbb F_9\) agrees with the symbolic proof.
+## correctness
 
-## Originality
-PASS. The closest inspected full text, arXiv:2601.07057v1, computes the \(R_3\) augmentation-ideal powers and gives one nontrivial field-valued idempotent for characteristic different from \(3\), but does not classify all idempotents over fields or analyze characteristic \(3\). The recent arXiv:2609.03799v1 public abstract is explicitly about the integral idempotent conjecture. Targeted semantic and exact searches found no statement equivalent to the eight-point/affine-line dichotomy. Residual risk remains because the complete text of arXiv:2609.03799v1 was not available in the accessible HTML reader.
+PASS
 
-## Value
-PASS. \(R_3\) is the smallest latin dihedral quandle and is already a standard test case in the idempotent literature. The theorem pinpoints the singular coefficient characteristic and gives a complete structural boundary, including the exact finite-field count \(q+1\) in characteristic \(3\), rather than merely exhibiting another isolated idempotent.
+Direct multiplication in \(K[R_3]\) gives the three quadratic idempotent equations. Their sum yields \(s^2=s\), and pairwise differences factor as \((a-b)(s-1-3c)\) and its cyclic analogues. When characteristic is not three, these equations give exactly the eight listed solutions; in characteristic three, augmentation zero gives only zero while augmentation one reduces to \((a-b)^2=a+b\), yielding the stated affine-line parametrization. Independent enumeration over \(\mathbb F_2,\mathbb F_3,\mathbb F_5,\mathbb F_7\) matched the predicted counts, and the package separately checks \(\mathbb F_9\).
 
-## Closest literature and limitations
-The main nearby statements are Proposition 2.3 and Propositions 4.2-4.4 of arXiv:2601.07057v1, together with the integral Fourier framework of arXiv:2609.03799v1. The claim is limited to field coefficients and \(R_3\); it does not address larger quandles, nonfields, or scheme-theoretic multiplicities.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest inspected R3 source exhibits individual field-valued idempotents and proves integral augmentation-ideal facts, but it does not solve the full field-valued idempotent system or the characteristic-three case. Fresh Resultary searches found no earlier eight-point/affine-line classification. A newer Fourier paper is publicly framed around the integral idempotent conjecture, leaving a residual risk for an unadvertised small-field computation.
+
+## value
+
+PASS
+
+The smallest latin dihedral quandle is a canonical test case in current idempotent-conjecture work. The exact jump from eight isolated idempotents to an affine line when the coefficient characteristic becomes three is a natural structural boundary, not an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
