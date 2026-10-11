@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:08:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the largest used generator prime \\(P\\ge5\\), no numerator \\(r+1\\) from a smaller prime generator can contain \\(P\\): it would force \\(r=P-1\\), an even integer greater than two. Nor can a prime factor of \\(P+1\\) exceed \\(P\\). Hence the largest nonzero valuation is exactly \\(-a_P\\), so peeling recovers the exponent and strictly lowers the largest possible prime. At support \\(\\{2,3\\}\\), solving \\(x=-u+2v\\), \\(y=u-v\\) gives the stated cone and unique exponents. Reversing the forced steps proves sufficiency. The finite verifier is consistent with the symbolic proof.",
+      "risk": "No asymptotic enumeration of the semigroup by height is claimed.",
+      "sources": [
+        "Noppakaew-Pongsriiam, Journal of Integer Sequences 26 (2023), Article 23.9.1",
+        "frozen verify.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniqueness says two existing exponent vectors cannot differ; it does not decide existence from a reduced rational.",
+          "OEIS records do not address arbitrary repeated powers of local factors."
+        ],
+        "reasoning": "No inspected broader theorem implies the membership algorithm.",
+        "searches": [
+          "Noppakaew-Pongsriiam uniqueness theorem and Question 32",
+          "OEIS A001615/A203444"
+        ]
+      },
+      "checked_sources": [
+        "JIS 26 (2023), Article 23.9.1",
+        "OEIS A001615",
+        "OEIS A203444",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly leaves determination of the image open.",
+          "The new sign-of-largest-valuation lemma supplies the missing recursive existence test."
+        ],
+        "reasoning": "Uniqueness alone does not imply that a given rational can be decoded or rejected.",
+        "searches": [
+          "JIS 2023 uniqueness lemma and open Question 32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper asks exactly for the representable rationals after proving uniqueness.",
+          "No distinct Resultary theorem gives the largest-prime decoder or terminal cone."
+        ],
+        "reasoning": "Rational-semigroup membership, exponent reconstruction and repeated Dedekind-psi local-factor formulations were compared.",
+        "searches": [
+          "Resultary: products (1+1/p)^a rational membership prime peeling Noppakaew Pongsriiam",
+          "JIS 2023 Question 32",
+          "OEIS Dedekind psi range"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table gives the semigroup image or the integer intersection."
+        ],
+        "reasoning": "The result is an all-rational symbolic criterion, not a finite census.",
+        "searches": [
+          "Resultary exact semantic search",
+          "OEIS A001615/A203444"
+        ]
+      },
+      "rationale": "The focal 2023 paper was inspected around its plus-sign uniqueness result and Question 32, which explicitly asks to determine the rationals admitting such a representation. It proves uniqueness of an existing representation but does not provide a recognition/reconstruction criterion. Resultary search returned the audited theorem as the only exact hit; the Dedekind-psi OEIS entries concern related values but not this repeated-generator rational semigroup.",
+      "residual_risks": [
+        "An unindexed elementary note may have observed the same sharpening of the uniqueness proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNIQUENESS_AND_EXPLICIT_OPEN_MEMBERSHIP_QUESTION",
+          "evidence": "The article asks for determination of all rationals admitting the representation; it does not give the peeling criterion.",
+          "identifier_or_url": "Journal of Integer Sequences 26 (2023), Article 23.9.1",
+          "material_read": "Full-text portion containing the plus-sign uniqueness result and Question 32.",
+          "method": "Lawful public full-text inspection.",
+          "title": "Product of Some Polynomials and Arithmetic Functions",
+          "trigger": "Defines the exact product family, proves uniqueness and poses the image problem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves an explicit published recognition problem by a finite deterministic decoder, not merely by another uniqueness argument. The terminal cone and exact integer corollary give a concise structural description that a future study of this semigroup can directly reuse.",
+      "risk": "No height-counting asymptotic is obtained.",
+      "sources": [
+        "JIS 26 (2023), Article 23.9.1"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A positive rational belongs to the multiplicative semigroup generated by \\((p+1)/p\\) exactly when deterministic largest-prime peeling succeeds and the terminal \\(2,3\\)-valuation pair satisfies \\(x+2y\\ge0\\) and \\(x+y\\ge0\\); the representation is unique, and the representable positive integers are exactly the \\(3\\)-smooth integers.",
+  "limitations": [
+    "Positive rationals and finitely supported nonnegative exponents only.",
+    "No asymptotic counting theorem."
+  ],
+  "schema_version": 1
+}

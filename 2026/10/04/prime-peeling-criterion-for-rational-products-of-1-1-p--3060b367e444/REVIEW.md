@@ -1,33 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the largest generator prime \(P\ge5\), no numerator \(r+1\) with \(r<P\) prime can contain \(P\), because this would force \(r=P-1\), which is not prime. Hence
-\[
-\nu_P(q)=-a_P<0
-\]
-and the exponent is forced. Removing that generator introduces only primes below \(P\), so the recursion terminates. At the terminal support \(\{2,3\}\), the linear system
-\[
-x=-u+2v,\qquad y=u-v
-\]
-has the unique solution
-\[
-u=x+2y,\qquad v=x+y,
-\]
-which is admissible exactly when both entries are nonnegative. Reversing the forced recursion proves sufficiency.
+## correctness
 
-## Originality
-PASS. The focal paper states the plus-sign uniqueness lemma and immediately asks which rationals admit a representation. No searched published-finding corpus result, later web source, or exact OEIS entry states the membership algorithm, the terminal cone, or the integer classification.
+PASS
 
-## Value
-PASS. The result completely determines the image asked for in Question 32 by an effective procedure and reconstructs the unique exponent vector. The integer corollary
-\[
-\mathcal S\cap\mathbb Z_{>0}
-=
-\{2^u3^v:u,v\ge0\}
-\]
-is a concise structural consequence that is not visible from the uniqueness statement alone.
+For the largest used generator prime \(P\ge5\), no numerator \(r+1\) from a smaller prime generator can contain \(P\): it would force \(r=P-1\), an even integer greater than two. Nor can a prime factor of \(P+1\) exceed \(P\). Hence the largest nonzero valuation is exactly \(-a_P\), so peeling recovers the exponent and strictly lowers the largest possible prime. At support \(\{2,3\}\), solving \(x=-u+2v\), \(y=u-v\) gives the stated cone and unique exponents. Reversing the forced steps proves sufficiency. The finite verifier is consistent with the symbolic proof.
 
-## Closest literature and limitations
-The closest prior result is the plus-sign analogue of Lemma 17 in Noppakaew--Pongsriiam, which gives uniqueness of an existing representation. OEIS A001615 gives the Dedekind-psi product with one copy of each support prime, and A203444 records the integer range of \(\psi\). Neither supplies rational-semigroup membership. No asymptotic counting result is claimed, and an unindexed elementary observation remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The focal 2023 paper was inspected around its plus-sign uniqueness result and Question 32, which explicitly asks to determine the rationals admitting such a representation. It proves uniqueness of an existing representation but does not provide a recognition/reconstruction criterion. Resultary search returned the audited theorem as the only exact hit; the Dedekind-psi OEIS entries concern related values but not this repeated-generator rational semigroup.
+
+## value
+
+PASS
+
+The theorem resolves an explicit published recognition problem by a finite deterministic decoder, not merely by another uniqueness argument. The terminal cone and exact integer corollary give a concise structural description that a future study of this semigroup can directly reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

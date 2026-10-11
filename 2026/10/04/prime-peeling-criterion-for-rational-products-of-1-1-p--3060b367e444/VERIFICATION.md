@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,37 +18,25 @@
   "schema_version": 1
 }
 ---
-Run `python3 verify.py`.
 
-The checker implements the exact largest-prime peeling procedure with rational arithmetic.
+# Independent mathematical audit
 
-It performs three finite regression checks:
+## correctness
 
-1. It generates every nonempty exponent vector with entries in
-\[
-\{0,1,2\}
-\]
-on the eight primes
-\[
-2,3,5,7,11,13,17,19,
-\]
-for a total of
-\[
-3^8-1=6560
-\]
-products, and verifies exact recovery of the original exponent vector.
+PASS
 
-2. It checks every positive integer
-\[
-n\le20000
-\]
-and verifies that the decoder accepts exactly the integers whose prime factors are all in
-\[
-\{2,3\}.
-\]
+For the largest used generator prime \(P\ge5\), no numerator \(r+1\) from a smaller prime generator can contain \(P\): it would force \(r=P-1\), an even integer greater than two. Nor can a prime factor of \(P+1\) exceed \(P\). Hence the largest nonzero valuation is exactly \(-a_P\), so peeling recovers the exponent and strictly lowers the largest possible prime. At support \(\{2,3\}\), solving \(x=-u+2v\), \(y=u-v\) gives the stated cone and unique exponents. Reversing the forced steps proves sufficiency. The finite verifier is consistent with the symbolic proof.
 
-3. It scans every reduced positive rational with numerator and denominator at most \(250\). Whenever the decoder accepts, it reconstructs the rational exactly from the recovered exponent vector and verifies that every exponent is nonnegative.
+## originality
 
-These computations are regression evidence only. The all-rational decision theorem is proved in `RESULT.md`.
+PASS
 
-A successful replay prints `VERIFY_OK`.
+The focal 2023 paper was inspected around its plus-sign uniqueness result and Question 32, which explicitly asks to determine the rationals admitting such a representation. It proves uniqueness of an existing representation but does not provide a recognition/reconstruction criterion. Resultary search returned the audited theorem as the only exact hit; the Dedekind-psi OEIS entries concern related values but not this repeated-generator rational semigroup.
+
+## value
+
+PASS
+
+The theorem resolves an explicit published recognition problem by a finite deterministic decoder, not merely by another uniqueness argument. The terminal cone and exact integer corollary give a concise structural description that a future study of this semigroup can directly reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
