@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T16:53:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9d9014f92980b36ec79a34ab6ee9f3b6059310d7",
+        "artifacts/verify.py blob 3168d250af6fadb97d2e48256a5bc1b5ba758815",
+        "fresh Gaussian-binomial sample recomputation",
+        "fresh quotient graph-of-isomorphism reconstruction"
+      ],
+      "rationale": "In the projective generator model, a column is zero on U exactly when its vector lies in W=U-perp. If a=dim(W intersect V1) and b=dim(W intersect V2), the support formula is q^k-q^(k-r)-q^k1-q^k2+q^a+q^b. Grassmann dimension inequalities give a>=max(0,k1-r) and b>=max(0,k2-r), so the minimizers are exactly simultaneous equality cases. Fixing the two intersections A,B, the quotient W/(A direct-sum B) meets both coordinate summands trivially and hence is uniquely the graph of an isomorphism T:X->Y between c_r-dimensional subspaces. Counting A,B,X,Y,T gives the formula bijectively. An independent arithmetic recomputation reproduced the packaged sample multiplicities (21,42,42,21,1) over F_2 and (104,624,624,104,1) over F_3; the general proof is linear-algebraic rather than experimental.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The SR-sum source abstract advertises construction, ordinary weight distribution, automorphism groups, simplex few-weight codes and the Griesmer bound.",
+          "The generalized-Griesmer source gives a geometric proof of the generalized weight bound and optimal constructions, but its stated scope is weight values rather than counts of all optimizers.",
+          "The graph-of-an-isomorphism count for subspaces is standard linear algebra, but applying it to identify every generalized-weight minimizer of this newly introduced code family is not a prior same-family theorem located in the search."
+        ],
+        "reasoning": "No inspected broader theorem determines the displayed Gaussian-binomial times GL multiplicity for this SR-sum family.",
+        "searches": [
+          "Kwiatkowski, SR-sum of linear codes, DOI:10.3934/amc.2026052",
+          "Kurz--Landjev--Rousseva, arXiv:2601.00250",
+          "classical finite-geometry counting of subspaces with prescribed intersections"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/amc.2026052",
+        "arXiv:2601.00250",
+        "Resultary SR-sum minimizer query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior generalized Griesmer theory fixes the minimum support size d_r only.",
+          "Once a=dim(W intersect V1) and b=dim(W intersect V2) are minimized, the remaining quotient W-bar must be the graph of an isomorphism between c_r-dimensional subspaces; choosing both subspaces and the isomorphism gives the multiplicity."
+        ],
+        "reasoning": "A minimum value does not imply the number of minimizers; the prescribed-intersection classification is the additional scientific content.",
+        "searches": [
+          "generalized Griesmer optimality for codes meeting the classical Griesmer bound",
+          "Kwiatkowski projective/simplex SR-sum construction as represented in the assigned package",
+          "assigned quotient graph-of-isomorphism count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the two-simplex projective system, an r-subcode U is a generalized-weight minimizer exactly when W=U-perp has the smallest possible intersections with each deleted coordinate summand.",
+          "Kurz--Landjev--Rousseva establish generalized Griesmer optimality, which determines d_r but not the multiplicity of minimizers."
+        ],
+        "reasoning": "The audited statement is equivalently a prescribed-intersection subspace count in the projective model; that is finer than the generalized-weight values.",
+        "searches": [
+          "Kwiatkowski, DOI:10.3934/amc.2026052, publisher abstract and accessible article metadata",
+          "Kurz--Landjev--Rousseva, arXiv:2601.00250",
+          "Resultary query: SR-sum simplex code minimum-support subcodes generalized Hamming weight minimizers Kwiatkowski"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary hit among the returned coding-theory findings stated the same multiplicity formula.",
+          "The publisher page and generalized-Griesmer abstract expose no table of the binary and ternary minimizer counts."
+        ],
+        "reasoning": "The finite example counts are consequences of the all-q formula and are not used as novelty evidence.",
+        "searches": [
+          "Resultary semantic search for simplex SR-sum minimizer multiplicities",
+          "targeted web search for Kwiatkowski SR-sum generalized Hamming weights minimizers"
+        ]
+      },
+      "rationale": "Kwiatkowski introduces the SR-sum, studies its ordinary weight distribution, and advertises Griesmer-optimal simplex constructions; the publisher full text was access-restricted and no verified institutional PDF could be obtained in this run, so hidden same-family coverage is retained as an explicit risk rather than treated as negative evidence. Kurz--Landjev--Rousseva cover generalized Griesmer weight values in stronger generality, but not the number or structure of all minimizing subcodes. Resultary searches for SR-sum generalized-weight minimizer multiplicities did not return a covering published finding.",
+      "residual_risks": [
+        "The complete Kwiatkowski article could not be materially read in this run; an unadvertised generalized-weight minimizer count there remains a specific originality risk.",
+        "An older finite-geometry source may contain an equivalent prescribed-intersection count under different coding terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_SOURCE_FULL_TEXT_INACCESSIBLE_RESIDUAL_RISK",
+          "evidence": "Accessible primary material advertises SR-sum construction, ordinary weight distribution, automorphism groups, few-weight simplex applications and Griesmer-bound examples, not generalized-weight minimizer multiplicities.",
+          "identifier_or_url": "DOI:10.3934/amc.2026052",
+          "material_read": "Publisher abstract, bibliographic record and accessible article landing-page material were read. The publisher full-text link was access-restricted; lawful institutional retrieval did not yield a verified PDF.",
+          "method": "Same-family scope comparison under explicit access limitation.",
+          "title": "SR-sum of linear codes",
+          "trigger": "Defining primary source for the exact code family."
+        },
+        {
+          "assessment": "GENERALIZED_WEIGHT_VALUES_PRIOR_MINIMIZER_MULTIPLICITIES_NOT_STATED",
+          "evidence": "The source proves generalized Griesmer results and optimal constructions; it does not advertise counting every r-subcode attaining the minimum for the two-simplex SR-sum.",
+          "identifier_or_url": "arXiv:2601.00250",
+          "material_read": "Primary arXiv abstract and theorem scope were inspected.",
+          "method": "Value-versus-minimizer-set implication comparison.",
+          "title": "Optimal codes and arcs for the generalized Hamming weights",
+          "trigger": "Strongest checked source for the generalized-weight values."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.3934/amc.2026052",
+        "arXiv:2601.00250",
+        "Resultary SR-sum minimizer query"
+      ],
+      "rationale": "Generalized Hamming weights are a standard code invariant, and the number and geometry of all minimizing subcodes is a natural refinement useful for understanding the newly introduced Griesmer-optimal SR-sum family. The result gives an all-q, all-r structural classification rather than a finite census.",
+      "residual_risks": [
+        "The complete Kwiatkowski article could not be materially read in this run; an unadvertised generalized-weight minimizer count there remains a specific originality risk.",
+        "An older finite-geometry source may contain an equivalent prescribed-intersection count under different coding terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/amc.2026052",
+    "arXiv:2601.00250",
+    "Resultary SR-sum minimizer query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the unequal-dimension two-simplex SR-sum, the r-dimensional subcodes attaining the r-th generalized Hamming weight are exactly those whose annihilator subspace has the two minimal coordinate intersections, and their number is the stated product of four Gaussian binomial coefficients and |GL(c_r,q)|, equivalently the stated three-range formula.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The complete Kwiatkowski article could not be materially read in this run; an unadvertised generalized-weight minimizer count there remains a specific originality risk.",
+    "An older finite-geometry source may contain an equivalent prescribed-intersection count under different coding terminology.",
+    "No novelty is claimed for the generalized-weight values themselves.",
+    "The theorem is restricted to two unequal-dimension simplex summands."
+  ]
+}

@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's projective description reduces the code to the complement of two coordinate projective subspaces with constant multiplicity \(q-1\). For an \(r\)-subcode \(U\), the support is controlled by \(W=U^\perp\) and the two dimensions
-\[
-\dim(W\cap V_1),\qquad \dim(W\cap V_2).
-\]
-Their sharp lower bounds are attained simultaneously. At equality, the remaining quotient of \(W\) is precisely the graph of an isomorphism between two \(c_r\)-dimensional spaces, yielding the Gaussian-binomial and \(|\mathrm{GL}|\) count. Exact exhaustive checks over \(\mathbb F_2\) and \(\mathbb F_3\) with \(k_1=2,k_2=3\) match the formula in every subcode dimension.
+PASS
 
-## Originality
+In the projective generator model, a column is zero on U exactly when its vector lies in W=U-perp. If a=dim(W intersect V1) and b=dim(W intersect V2), the support formula is q^k-q^(k-r)-q^k1-q^k2+q^a+q^b. Grassmann dimension inequalities give a>=max(0,k1-r) and b>=max(0,k2-r), so the minimizers are exactly simultaneous equality cases. Fixing the two intersections A,B, the quotient W/(A direct-sum B) meets both coordinate summands trivially and hence is uniquely the graph of an isomorphism T:X->Y between c_r-dimensional subspaces. Counting A,B,X,Y,T gives the formula bijectively. An independent arithmetic recomputation reproduced the packaged sample multiplicities (21,42,42,21,1) over F_2 and (104,624,624,104,1) over F_3; the general proof is linear-algebraic rather than experimental.
 
-PASS. The primary article gives the simplex SR-sum family, its ordinary weight structure, and classical Griesmer optimality. A stronger 2026 generalized-Griesmer source was inspected and already implies the generalized Hamming-weight values, so those values are explicitly excluded from the novelty claim. Searches under the construction name, punctured-projective aliases, Solomon--Stiffler terminology, and prescribed-intersection formulations found no prior exact count of all minimizing subcodes for this family.
+## originality
 
-## Value
+PASS
 
-PASS. The result upgrades a parameter-level statement into a complete extremal-subcode classification for an infinite Griesmer-optimal family. The multiplicities are natural higher-support incidence invariants, recover the known minimum-word frequency at \(r=1\), and provide exact information not encoded by the ordinary weight enumerator or by the generalized-weight hierarchy alone.
+Kwiatkowski introduces the SR-sum, studies its ordinary weight distribution, and advertises Griesmer-optimal simplex constructions; the publisher full text was access-restricted and no verified institutional PDF could be obtained in this run, so hidden same-family coverage is retained as an explicit risk rather than treated as negative evidence. Kurz--Landjev--Rousseva cover generalized Griesmer weight values in stronger generality, but not the number or structure of all minimizing subcodes. Resultary searches for SR-sum generalized-weight minimizer multiplicities did not return a covering published finding.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Generalized Hamming weights are a standard code invariant, and the number and geometry of all minimizing subcodes is a natural refinement useful for understanding the newly introduced Griesmer-optimal SR-sum family. The result gives an all-q, all-r structural classification rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

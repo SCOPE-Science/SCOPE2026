@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,58 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It constructs the projective point set
-\[
-\operatorname{PG}(V_1\oplus V_2)
-\setminus
-\left(\operatorname{PG}(V_1)\cup\operatorname{PG}(V_2)\right)
-\]
-and assigns every point multiplicity \(q-1\).
+# Independent mathematical audit
 
-For
-\[
-(q,k_1,k_2)=(2,2,3)
-\]
-and
-\[
-(q,k_1,k_2)=(3,2,3),
-\]
-the script enumerates every \(r\)-dimensional message subspace in reduced row-echelon form for every
-\[
-1\le r\le5.
-\]
-For each subspace it computes the support directly from the projective columns and records the exact minimum and its multiplicity.
+## correctness
 
-The replay verifies the binary hierarchy
-\[
-(10,15,18,20,21)
-\]
-with minimizer counts
-\[
-(21,42,42,21,1),
-\]
-and the ternary hierarchy
-\[
-(138,184,200,206,208)
-\]
-with minimizer counts
-\[
-(104,624,624,104,1).
-\]
+PASS
 
-It independently evaluates the closed formula
-\[
-M_r=
-\left[{k_1\atop a_r}\right]_q
-\left[{k_2\atop b_r}\right]_q
-\left[{k_1-a_r\atop c_r}\right]_q
-\left[{k_2-b_r\atop c_r}\right]_q
-|\mathrm{GL}(c_r,q)|
-\]
-and checks equality in every case.
+In the projective generator model, a column is zero on U exactly when its vector lies in W=U-perp. If a=dim(W intersect V1) and b=dim(W intersect V2), the support formula is q^k-q^(k-r)-q^k1-q^k2+q^a+q^b. Grassmann dimension inequalities give a>=max(0,k1-r) and b>=max(0,k2-r), so the minimizers are exactly simultaneous equality cases. Fixing the two intersections A,B, the quotient W/(A direct-sum B) meets both coordinate summands trivially and hence is uniquely the graph of an isomorphism T:X->Y between c_r-dimensional subspaces. Counting A,B,X,Y,T gives the formula bijectively. An independent arithmetic recomputation reproduced the packaged sample multiplicities (21,42,42,21,1) over F_2 and (104,624,624,104,1) over F_3; the general proof is linear-algebraic rather than experimental.
 
-The finite replay verifies the implementation and representative instances; the all-\(q\), all-dimension theorem is proved symbolically in `RESULT.md`.
+## originality
 
-Successful replay prints `VERIFY_OK`.
+PASS
+
+Kwiatkowski introduces the SR-sum, studies its ordinary weight distribution, and advertises Griesmer-optimal simplex constructions; the publisher full text was access-restricted and no verified institutional PDF could be obtained in this run, so hidden same-family coverage is retained as an explicit risk rather than treated as negative evidence. Kurz--Landjev--Rousseva cover generalized Griesmer weight values in stronger generality, but not the number or structure of all minimizing subcodes. Resultary searches for SR-sum generalized-weight minimizer multiplicities did not return a covering published finding.
+
+## value
+
+PASS
+
+Generalized Hamming weights are a standard code invariant, and the number and geometry of all minimizing subcodes is a natural refinement useful for understanding the newly introduced Griesmer-optimal SR-sum family. The result gives an all-q, all-r structural classification rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
