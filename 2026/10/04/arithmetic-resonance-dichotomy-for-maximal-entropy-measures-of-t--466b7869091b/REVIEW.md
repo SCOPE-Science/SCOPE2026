@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separately verifies the averaging step for an arbitrary ergodic time-\(t\) MME, flow ergodicity of the average, maximality via entropy scaling, and identification through uniqueness of ergodic decomposition. The Bernoulli and rotational cases are then computed exactly. The rational case includes \(q=1\), and the irrational case uses weak mixing of the Bernoulli time map against ergodicity of the rotation.
+## correctness
 
-## Originality
-PASS. The closest source-level results split the ingredients: Zang gives finiteness for flow-ergodic MMEs; Ledrappier--Lima--Sarig give Bernoulli-up-to-a-period structure for each flow MME; Fisher--Hasselblatt give the time-map averaging argument for a unique weakly mixing MME and a constant-suspension example showing extra time-map MMEs. Searches for the finite-family rational-resonance classification, its continuum explosion, and the exact exceptional set did not locate an implication-equivalent statement. The main residual risk is an unindexed folklore or textbook formulation, especially because the final arithmetic step is elementary.
+PASS
 
-## Value
-PASS. The result identifies exactly when a fresh finiteness theorem for continuous-time MMEs does and does not survive discretization. It separates a generic-time regime with exactly the same finite family from a countable dense resonant regime with continuum many MMEs, providing a sharp boundary rather than only an example of failure.
+Averaging an ergodic time-t MME over one time interval produces a flow-invariant measure; entropy affinity and time scaling make it a flow MME, and a flow-invariant set is also time-t invariant, so the average is flow-ergodic. Uniqueness of ergodic decomposition then identifies the original measure with a time-t component of one of the finitely many flow MMEs. In the Bernoulli-times-rotation model, irrational t/c gives an ergodic rotation and hence an ergodic product with the weakly mixing Bernoulli time map; rational p/q decomposes Haar measure into continuum many uniform q-cycle measures, each producing an ergodic product of the same maximal entropy. Zang's full-text Lemma 7.5 independently confirms the component-averaging mechanism in the time-one case.
 
-## Closest literature and limitations
-Fisher--Hasselblatt Section 4.4 is the closest direct comparison: its Theorem 4.4.1 treats uniqueness under weak mixing and its constant-suspension example shows that a time map can gain MMEs. The present claim does not strengthen Zang's finiteness theorem or the Ledrappier--Lima--Sarig Bernoulli-period theorem; it classifies their consequence for every nonzero time map. It does not compute the periods or extend the smoothness/nonsingularity hypotheses.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Zang's current full paper proves only finiteness of flow-ergodic MMEs and includes an averaging lemma for time-one components. Ledrappier--Lima--Sarig give Bernoulli-up-to-a-rotational-period structure for each ergodic positive-entropy equilibrium measure. The closest textbook result treats a unique weakly mixing flow MME. No checked source or Resultary record states the exact finite-family exceptional set \(\bigcup_i c_i(\mathbb Q\setminus\{0\})\) or the N-versus-continuum count for all nonzero time maps.
+
+## value
+
+PASS
+
+The theorem gives an exact structural boundary for whether flow-level finiteness survives time discretization: generic times preserve the finite family, while a simple arithmetic resonance causes an immediate jump to continuum multiplicity. This is a natural dynamical consequence of recent finiteness theory and a useful all-time classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

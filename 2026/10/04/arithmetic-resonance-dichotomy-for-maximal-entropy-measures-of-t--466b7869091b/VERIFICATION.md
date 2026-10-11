@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked symbolically. No finite experiment or numerical approximation is used.
+# Independent mathematical audit
 
-1. For an ergodic time-\(t\) MME \(\nu\), commutation gives \(T_t\)-invariance and equal entropy for every translate \((\varphi^s)_*\nu\). Averaging over one time-\(t\) interval is flow-invariant.
-2. Entropy affinity and the identities \(h_{\mathrm{top}}(\varphi^t)=|t|h_{\mathrm{top}}(\varphi)\) and \(h_\mu(\varphi^t)=|t|h_\mu(\varphi)\) for flow-invariant \(\mu\) show that the average is a flow MME.
-3. A flow-invariant measurable set is \(T_t\)-invariant, so ergodicity of \(\nu\) forces the average to be flow-ergodic.
-4. Uniqueness of ergodic decomposition then identifies every time-\(t\) MME with a component of one of the finitely many flow MMEs.
-5. In the Bernoulli-times-rotation model, irrational \(t/c\) gives an ergodic rotation, while rational \(t/c=p/q\) gives uniform \(q\)-cycle components. A Bernoulli time map is weakly mixing, so its product with each ergodic rotation component is ergodic. The rotational factor contributes zero entropy, hence every component is maximal.
+## correctness
 
-Limits: the check does not compute any period \(c_i\), does not cover singular flows or finite smoothness, and does not establish independent validation. The closest textbook section was compared through its indexed text excerpt rather than an exhaustive read of the full large PDF.
+PASS
+
+Averaging an ergodic time-t MME over one time interval produces a flow-invariant measure; entropy affinity and time scaling make it a flow MME, and a flow-invariant set is also time-t invariant, so the average is flow-ergodic. Uniqueness of ergodic decomposition then identifies the original measure with a time-t component of one of the finitely many flow MMEs. In the Bernoulli-times-rotation model, irrational t/c gives an ergodic rotation and hence an ergodic product with the weakly mixing Bernoulli time map; rational p/q decomposes Haar measure into continuum many uniform q-cycle measures, each producing an ergodic product of the same maximal entropy. Zang's full-text Lemma 7.5 independently confirms the component-averaging mechanism in the time-one case.
+
+## originality
+
+PASS
+
+Zang's current full paper proves only finiteness of flow-ergodic MMEs and includes an averaging lemma for time-one components. Ledrappier--Lima--Sarig give Bernoulli-up-to-a-rotational-period structure for each ergodic positive-entropy equilibrium measure. The closest textbook result treats a unique weakly mixing flow MME. No checked source or Resultary record states the exact finite-family exceptional set \(\bigcup_i c_i(\mathbb Q\setminus\{0\})\) or the N-versus-continuum count for all nonzero time maps.
+
+## value
+
+PASS
+
+The theorem gives an exact structural boundary for whether flow-level finiteness survives time discretization: generic times preserve the finite family, while a simple arithmetic resonance causes an immediate jump to continuum multiplicity. This is a natural dynamical consequence of recent finiteness theory and a useful all-time classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
