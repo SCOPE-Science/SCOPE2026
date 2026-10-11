@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim was reconstructed from the definitions and the unambiguous-discrimination SDP. Transitivity reduces the optimization to \(\lambda_{\min}(G_{N,k})\). For \(k<N\), principal-submatrix interlacing supplies the lower bound and an alternating tensor supported on injective tuples supplies a matching eigenvector. For \(k=N\), an explicit positive-semidefinite expansion supplies the lower bound and the sign vector on \(S_N\) supplies the matching eigenvector. The LOCC construction independently attains both formulas. No finite experiment is used to establish the universal quantifiers.
+## correctness
 
-## Originality — PASS
-The direct source, arXiv:2506.20560, states the all-\(N,k\) result as Conjecture 14 after treating selected small instances. The closest earlier quantum-sequence papers, arXiv:2402.06365 and arXiv:2409.08705, use independently drawn sequence members and therefore do not cover the injective without-replacement prior. Exact-claim, alias, permutation-kernel, and published-literature searches found no covering theorem. A residual risk remains that the full-length kernel identity may appear in older symmetric-group language not surfaced by the searches.
+PASS
 
-## Value — PASS
-This is a natural exact theorem for the family introduced by the motivating paper, not an arbitrary slice: it proves the entire unambiguous half of a stated all-parameter conjecture. The proof also isolates why the full-length case differs structurally from independent sequence discrimination: one missing label is determined by the other \(N-1\) labels.
+The one-system Gram matrix is positive definite for \(0<s<1\), so the injective product states are linearly independent. Transitivity lets any unambiguous-discrimination SDP solution be averaged to a common success value, whose optimum is the minimum Gram eigenvalue. For \(k<N\), the injective Gram matrix is a principal submatrix of \(B^{\otimes k}\), giving lower bound \((1-s)^k\); the alternating tensor on any \(k+1\) labels has no repeated-coordinate support, zero coordinate sums, and attains this eigenvalue. For \(k=N\), expanding the Gram kernel into positive-semidefinite agreement matrices yields lower bound \((1-s)^{N-1}(1+(N-1)s)\); the permutation sign vector annihilates every term with at least two free labels and attains the bound. Independent exact/numerical spectra at \(s=2/5\) for \(3\le N\le5\) reproduce both branches. The local reciprocal-state measurement succeeds with probability \(1-s\) per site; all sites must succeed when \(k<N\), while at \(k=N\) zero or one local failure still identifies the permutation, matching the global optimum.
 
-## Closest literature and limitations
-The result is restricted to common real overlap \(0<s<1\), uniform ordered injective tuples, and exact unambiguous discrimination. It does not address unequal overlaps, nonuniform priors, approximate discrimination, or the minimum-error half of Conjecture 14. The independent-sequence theorems are broader in sequence length but rely on a different product-prior hypothesis.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. Murshid et al. define the same without-replacement injective ensembles, solve several small cases, and state exactly the audited unambiguous formula as Conjecture 14; the published abstract describes only strong numerical evidence for the multipartite extension. The 2024 sequence-discrimination theorem covers independent Cartesian-product sequences, a materially different prior that permits repetitions. The audited alternating-tensor and sign-representation witnesses, together with matching positive-semidefinite lower bounds, prove the conjecture for all \(N,k\).
+
+## value
+
+PASS
+
+The result resolves the unambiguous-discrimination half of an explicit published conjecture for a natural without-replacement quantum-sequence ensemble. The proof also explains structurally why LOCC remains globally optimal and why the full-permutation case gains exactly the one-erasure term. This is a clear theorem-level closure of a live problem, not a routine extrapolation from computed cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

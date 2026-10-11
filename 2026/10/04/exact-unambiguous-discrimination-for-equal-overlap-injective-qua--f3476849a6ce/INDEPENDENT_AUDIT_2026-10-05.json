@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T08:57:45.230942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 2e3f115ca72898fa287516350dbabc0b5661d49f",
+        "artifacts/verify.py blob 59ce491540b48c811b1d33e0a9e99f7bc7ac4791",
+        "independent Gram-spectrum checks for all \\(3\\le N\\le5\\) and \\(2\\le k\\le N\\) at \\(s=2/5\\)",
+        "independent alternating/sign representation proof reconstruction"
+      ],
+      "rationale": "The one-system Gram matrix is positive definite for \\(0<s<1\\), so the injective product states are linearly independent. Transitivity lets any unambiguous-discrimination SDP solution be averaged to a common success value, whose optimum is the minimum Gram eigenvalue. For \\(k<N\\), the injective Gram matrix is a principal submatrix of \\(B^{\\otimes k}\\), giving lower bound \\((1-s)^k\\); the alternating tensor on any \\(k+1\\) labels has no repeated-coordinate support, zero coordinate sums, and attains this eigenvalue. For \\(k=N\\), expanding the Gram kernel into positive-semidefinite agreement matrices yields lower bound \\((1-s)^{N-1}(1+(N-1)s)\\); the permutation sign vector annihilates every term with at least two free labels and attains the bound. Independent exact/numerical spectra at \\(s=2/5\\) for \\(3\\le N\\le5\\) reproduce both branches. The local reciprocal-state measurement succeeds with probability \\(1-s\\) per site; all sites must succeed when \\(k<N\\), while at \\(k=N\\) zero or one local failure still identifies the permutation, matching the global optimum.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier sequence results assume members are drawn independently, so their ensemble is the full Cartesian product and the global optimum factorizes.",
+          "Injectivity changes the full-length case because one local inconclusive result can be inferred from the missing label."
+        ],
+        "reasoning": "Independent-sequence theorems do not dominate the without-replacement ensemble. General permutation-scheme literature was treated as a spectral alias risk, but no covering minimum-eigenvalue statement was located.",
+        "searches": [
+          "arXiv:2402.06365 / Phys. Rev. A 109, 052222",
+          "arXiv:2409.08705",
+          "searches for fixed-point/permutation-kernel spectra"
+        ]
+      },
+      "checked_sources": [
+        "Murshid--Gupta--Russo--Bandyopadhyay, Quantum nonlocality without entanglement and state discrimination measures, arXiv:2506.20560; Quantum 10, 2174 (2026)",
+        "Gupta--Murshid--Bandyopadhyay, Unambiguous discrimination of sequences of quantum states, arXiv:2402.06365; Phys. Rev. A 109, 052222 (2024)",
+        "Gupta--Murshid--Russo--Bandyopadhyay, Optimal discrimination of quantum sequences, arXiv:2409.08705",
+        "Roa--Hermann-Avigliano--Salazar--Klimov, Conclusive discrimination among N equidistant pure states, Phys. Rev. A 84, 014302 (2011)",
+        "Resultary semantic query: unambiguous discrimination equal overlap injective quantum sequences Murshid Gupta Russo Bandyopadhyay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For \\(k<N\\), principal-submatrix interlacing gives the lower bound and an alternating tensor supported entirely on injective tuples attains it.",
+          "For \\(k=N\\), the positive-semidefinite agreement-set decomposition gives the lower bound and the permutation sign vector attains it.",
+          "Neither implication is supplied by the source's finite examples or by the independent-draw theorem."
+        ],
+        "reasoning": "The final claim resolves, rather than restates, the explicit conjecture.",
+        "searches": [
+          "Murshid et al. Conjecture 14 and computed small cases",
+          "Gupta--Murshid--Bandyopadhyay independent-sequence theorem",
+          "independent Gram-eigenvalue reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 14 states the same two-branch success formula for injective equal-overlap sequences after several explicit low-dimensional examples.",
+          "The audited proof supplies a universal spectrum calculation rather than additional numerics."
+        ],
+        "reasoning": "The exact target statement is prior only as an explicit conjecture, not as a theorem.",
+        "searches": [
+          "arXiv:2506.20560 full relevant text around Conjecture 14",
+          "Resultary query listed in checked_sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked post-conjecture theorem or database table was found that proves the all-parameter formula."
+        ],
+        "reasoning": "Search absence is secondary to the direct current primary source, which still presents the statement as conjectural.",
+        "searches": [
+          "Resultary semantic query listed in checked_sources",
+          "targeted searches for the two-branch formula and Conjecture 14 resolution"
+        ]
+      },
+      "rationale": "Originality passes. Murshid et al. define the same without-replacement injective ensembles, solve several small cases, and state exactly the audited unambiguous formula as Conjecture 14; the published abstract describes only strong numerical evidence for the multipartite extension. The 2024 sequence-discrimination theorem covers independent Cartesian-product sequences, a materially different prior that permits repetitions. The audited alternating-tensor and sign-representation witnesses, together with matching positive-semidefinite lower bounds, prove the conjecture for all \\(N,k\\).",
+      "residual_risks": [
+        "The \\(k=N\\) weighted fixed-point kernel lies in the permutation association scheme, so older symmetric-group spectral literature could contain an equivalent eigenvalue calculation under non-quantum terminology; no source was found that supplies the all-\\(s\\) minimum-eigenvalue theorem used here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_CONJECTURE_NOT_GENERAL_PROOF",
+          "evidence": "The source reports numerical/small-case support and states the universal formula as a conjecture.",
+          "identifier_or_url": "arXiv:2506.20560; DOI:10.22331/q-2026-07-23-2174",
+          "material_read": "Published/open primary material and full relevant arXiv text covering the injective equal-overlap construction, calculated small cases, and Conjecture 14 with the two unambiguous-discrimination branches.",
+          "method": "lawful open-access primary source",
+          "title": "Quantum nonlocality without entanglement and state discrimination measures",
+          "trigger": "Direct same-ensemble primary source and explicit Conjecture 14."
+        },
+        {
+          "assessment": "INDEPENDENT_WITH_REPLACEMENT_SEQUENCE_NOT_INJECTIVE_PRIOR",
+          "evidence": "Its sequence members are drawn independently from the local ensemble, unlike the without-replacement prior whose full-length branch is enhanced by the missing-label constraint.",
+          "identifier_or_url": "arXiv:2402.06365; DOI:10.1103/PhysRevA.109.052222",
+          "material_read": "Primary abstract and theorem-level description of independently sampled sequences and optimal local measurements.",
+          "method": "lawful open primary source",
+          "title": "Unambiguous discrimination of sequences of quantum states",
+          "trigger": "Strongest earlier sequence-discrimination theorem with equal-overlap local states."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Murshid--Gupta--Russo--Bandyopadhyay, Quantum nonlocality without entanglement and state discrimination measures, arXiv:2506.20560; Quantum 10, 2174 (2026)",
+        "Gupta--Murshid--Bandyopadhyay, Unambiguous discrimination of sequences of quantum states, arXiv:2402.06365; Phys. Rev. A 109, 052222 (2024)",
+        "Gupta--Murshid--Russo--Bandyopadhyay, Optimal discrimination of quantum sequences, arXiv:2409.08705",
+        "Roa--Hermann-Avigliano--Salazar--Klimov, Conclusive discrimination among N equidistant pure states, Phys. Rev. A 84, 014302 (2011)",
+        "Resultary semantic query: unambiguous discrimination equal overlap injective quantum sequences Murshid Gupta Russo Bandyopadhyay"
+      ],
+      "rationale": "The result resolves the unambiguous-discrimination half of an explicit published conjecture for a natural without-replacement quantum-sequence ensemble. The proof also explains structurally why LOCC remains globally optimal and why the full-permutation case gains exactly the one-erasure term. This is a clear theorem-level closure of a live problem, not a routine extrapolation from computed cases.",
+      "residual_risks": [
+        "The minimum-error half of the motivating conjecture remains outside the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The \\(k=N\\) weighted fixed-point kernel lies in the permutation association scheme, so older symmetric-group spectral literature could contain an equivalent eigenvalue calculation under non-quantum terminology; no source was found that supplies the all-\\(s\\) minimum-eigenvalue theorem used here.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
