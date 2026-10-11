@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The theorem follows from exact equilibrium identities and the monotone scalar equation in the primary source. The importation floor, strict vaccination monotonicity, limiting floor, amplification bound, and first-order asymptotic were each reconstructed directly. The numerical replay is supplementary and is not used as proof.
+PASS
 
-## Originality
+The theorem is correct. At equilibrium the exposed balance makes the local-transmission contribution strictly positive, giving the strict imported-infection floor and the exact decomposition by the local-transmission fraction. The source scalar equation has a strictly increasing positive right-hand factor while the contact function is nonincreasing, so increasing the susceptible vaccination rate shifts the unique intersection strictly toward the importation floor. A contradiction argument forces convergence to that floor. The susceptible balance gives S below A0 divided by the susceptible removal rate, and contact monotonicity bounds the local fraction strictly by the closed-system reproduction quantity. Finally, the exact decomposition and limiting susceptible balance give the stated first-order large-vaccination coefficients. These are analytic all-parameter arguments; the packaged numerical replay is illustrative only.
 
-PASS. The primary source proves a unique endemic equilibrium but does not compare it across vaccination rates or derive the amplification decomposition. Closely related immigration papers prove persistence thresholds or small-immigration perturbation results; inspected vaccination-plus-immigration papers use different models and do not imply the exact bound or asymptotic coefficient.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a sharp interpretation of what vaccination can and cannot accomplish under continuing infected inflow and turns the familiar zero-inflow threshold quantity into a usable bound on residual endemic amplification.
+Originality passes. The complete open primary source was inspected at the model and endemic-equilibrium derivation: it proves existence and uniqueness and supplies the scalar increasing function used here, but its theorem section does not state monotonicity of the endemic level with respect to the vaccination parameter, the exact importation-amplification decomposition, the reproduction-number cap, or the large-vaccination first-order coefficient. Fresh Resultary and web searches found related infected-immigration persistence and perturbation work but no implication-complete theorem for this source model.
 
-## Closest literature and limitations
+## value
 
-The closest structural antecedents are Witbooi (2021), DOI 10.1186/s13662-021-03488-5, and Almarashi–McCluskey (2019), DOI 10.1007/s00285-019-01387-8. Sridevi–Reddy (2019) and Duve et al. (2023) treat vaccination with infected immigration in different epidemic systems. The present theorem is limited to equilibrium comparative statics of the specified SEIR model and does not order transient trajectories or solve an optimal-control problem.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+With continuing infected inflow, elimination is impossible, so the natural policy question becomes how vaccination changes the unavoidable endemic burden. The theorem answers that question exactly for the source model: strict monotonicity, an irreducible floor, a quantitative amplification cap once the closed-system threshold is below one, and a first-order rate of approach. This gives a concrete interpretation and calibration benchmark for an existing applied model rather than a generic qualitative observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
