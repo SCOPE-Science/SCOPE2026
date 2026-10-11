@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof separates the source construction into its binary and multi-outcome constraints, derives the general fallback lower bound \(W\ge3-2/L\), and checks an explicit rational parameter choice. The global 342-bit exclusion uses only inequalities valid for every admissible member of the stated family. The delicate numerical comparisons are exact rational/integer comparisons reproduced by `verify.py`, not floating-point evidence.
+## correctness
 
-## Originality
-PASS. The primary preprint gives 357 bits, explicitly says its numerical parameters are not optimized, and leaves the balance of covering size and truncation length unoptimized. It does not state a 343-bit parameter choice, the generalized multi-outcome constraint \(\varepsilon<\eta(3-2/L)\), or the family-wide impossibility of certifying 342 bits. Targeted searches for the paper identifier combined with “343 bits,” optimized qutrit simulation, covering radius, and truncation length found no equivalent claim. Earlier exact-simulation work did not provide a finite qutrit upper bound, while prior beyond-qubit protocols were approximate.
+PASS
 
-## Value
-PASS. The classical message alphabet is the central resource in the qutrit simulation problem. Reducing the explicit worst-case guarantee from 357 to 343 bits shrinks the certified alphabet by more than four orders of magnitude, and the accompanying family-optimality result distinguishes a genuine limitation of this proof architecture from a merely untuned parameter choice. The result is a natural finite resource cutoff, not an arbitrary numerical slice.
+The parameterized certificate reconstructs the source proof family exactly. With \(s=r^2=7/120\), \(L=32/45\), and \(U=23/30=1-4s\), the generalized fallback weight is \(\eta=49/21600\), the universal covering estimate certifies an integer cover cardinality at most 4702, the binary truncation condition holds at \(N=107\), and \((3/4)^{27}<\eta(3-2/L)\) supplies the multi-outcome positivity margin. Thus the certified message alphabet is \(4702\,4809^{27}<2^{343}\). The lower certificate analysis is also valid within the explicitly stated proof family: the global bounds force \(N\ge97\), \(n\ge26\); maximizing the multi-outcome margin over \(L\) gives the displayed one-variable function \(T(s)\), whose monotonicity on the needed interval and four exact threshold checks force the stated cover-bound lower values for \(n=26,27,28,29\); each makes the certified alphabet exceed \(2^{342}\), and \(n\ge30\) is excluded by the universal \(K\ge2304\) certificate bound. Exact rational/integer replay agreed with every displayed inequality. The conclusion is therefore sharp only for certificates that use this parameterized architecture and only the source's universal cover estimate, exactly as claimed.
 
-## Closest literature and limitations
-The closest source is arXiv:2609.04182v1 itself: its Remark D.5 supplies the parameterized binary fallback ingredients and explicitly leaves the communication optimization open, while its multi-outcome proof is written only for the fixed numerical choice. arXiv:2603.01255 gives lower bounds for restricted qutrit prepare-and-measure scenarios and predates the finite upper bound. Scientific Reports 16, 21297 (2026) gives approximate higher-dimensional simulation protocols, not exact finite qutrit simulation. The 343-bit optimum proved here is restricted to the source’s parameterized covering/truncation family and the universal cover estimate; it does not determine the unrestricted optimum.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact primary preprint was materially inspected at the finite qutrit construction, multi-outcome extension, and its optimization remark. It gives the published 357-bit certificate and explicitly introduces variable covering radius and fallback interval with \(\eta=12r^4(U-L)\), then says that improving the communication bound requires balancing covering size against truncation length and does not pursue the optimization. No inspected source states the 343-bit feasible point or the matching 342-bit impossibility inside this proof family. Targeted Resultary search likewise returned no equivalent certificate.
+
+## value
+
+PASS
+
+The result improves the best explicit exact qutrit communication certificate in the motivating construction by fourteen bits and, within the clearly bounded architecture and cover input, proves that the next bit cannot be reached. This is a natural quantitative optimization of a current exact protocol, not a claim about the unknown globally optimal classical simulation cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
