@@ -1,39 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof exhausts the composite layer \(\Omega(n)\le2\). A prime
-square \(p^2\) would force \(p^2+p+1\) to be a square strictly between
-consecutive squares. An even semiprime \(2q\) makes \(6\mid\sigma(n)\), so
-abundancy is at least \(2\), contradicting the exact equation. For an odd
-semiprime \(pq\), oddness of \(\sigma(\sigma(n))\) forces
-\((p+1)(q+1)\) to be a square or twice a square. Exact abundancy bounds then
-exclude odd factors \(3,5,7\), and a complete check of the remaining primes
-below \(37\) leaves none. The square-kernel divisor
-\(2(r+1)R(r)\) is forced by parity of every odd valuation, so its local
-abundancy inequality follows directly from divisibility monotonicity.
+## correctness
 
-## Originality
-PASS. The exact plus-one equation appears as an explicit open Mersenne-prime
-question in OEIS A000668. The inspected composition paper of Sándor supplies
-the \(\sigma\circ\sigma\) context and subject classification but no located
-ordinary plus-one semiprime theorem. Fang's fully inspected neighboring
-minus-one paper proves different square/parity restrictions and cannot imply
-the present result. OEIS A051027 is an exact iterated-divisor-sum database but
-contains no low-\(\Omega\) plus-one classification. Searches using semiprime,
-almost-prime, Mersenne, and direct equation formulations found no equivalent or
-stronger statement.
+PASS
 
-The main residual risk is historical: a short observation of this type could
-appear in older composition literature under different notation and without
-modern semiprime terminology.
+The proof exhausts the two composite Omega<=2 shapes. For p^2, odd sigma(p^2) together with odd sigma(sigma(p^2)) forces sigma(p^2) to be a square, impossible between p^2 and (p+1)^2. For pq, p=2 contradicts abundancy monotonicity. For odd p,q, parity forces M=(p+1)(q+1) to be a square or twice a square. The exact abundancy inequalities exclude odd factors 3,5,7 from M and then all least primes below 37; the square-kernel divisibility and local abundancy inequality follow from even odd-prime valuations in M. Fresh exact arithmetic independently rechecked all small-prime abundance inequalities and the prime list; the finite verifier sweep is corroborative only.
 
-## Value
-PASS. The source question asks for a complete characterization of a natural
-iterated divisor-sum equation. The theorem does not merely extend a finite
-search: it eliminates two entire composite shapes, moves the least possible
-prime factor of a semiprime counterexample to \(37\), and gives a reusable
-local square-kernel sieve for every surviving prime factor. This is a
-structural reduction of the first nontrivial multiplicative-complexity layer
-of the open problem.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+OEIS A000668 explicitly records the 19 August 2005 question whether all solutions of sigma(sigma(n))=2n+1 are Mersenne primes. Sándor's 2005 composition paper is broad but its accessible abstract does not state this plus-one semiprime classification; the repository full text is restricted, so no whole-document noncoverage claim is made from that source. Current Resultary search for the exact equation and semiprime restrictions returned the assigned result but no earlier theorem implying the prime-square exclusion, p>=37 sieve, or local square-kernel condition. Originality passes to the best of current knowledge with older composition literature retained as a risk.
+
+## value
+
+PASS
+
+The result attacks the first composite almost-prime layer of an explicit long-standing characterization problem and yields several exact structural restrictions, including elimination of prime squares and even semiprimes, a least-prime bound 37, and a local square-kernel sieve. It is a motivated reduction of the open search space rather than a finite numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

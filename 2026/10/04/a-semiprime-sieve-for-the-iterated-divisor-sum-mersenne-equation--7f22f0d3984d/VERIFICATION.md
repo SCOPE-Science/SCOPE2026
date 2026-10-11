@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,30 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The unrestricted theorem is proved symbolically in `RESULT.md`.
+# Independent mathematical audit
 
-The packaged checker verifies exact rational versions of the three abundancy
-obstructions
-\[
-I(4\cdot3^2)>2,
-\qquad
-I(4\cdot5^2)>2,
-\qquad
-I(4\cdot7^2)>2,
-\]
-and the power-of-two obstructions for least primes \(3,7,31\). It also checks
-that every other odd prime below \(37\) has \(p+1\) divisible by one of
-\(3,5,7\).
+## correctness
 
-As a separate finite corroboration, it computes \(\Omega(n)\), \(\sigma(n)\),
-and \(\sigma(\sigma(n))\) exactly for all \(n\le200000\) with
-\(\Omega(n)\le2\). In this interval the only solutions are the Mersenne primes
-\[
-3,7,31,127,8191,131071,
-\]
-and there is no composite solution.
+PASS
 
-The finite sweep is not used to prove the theorem or to infer nonexistence
-outside the tested range.
+The proof exhausts the two composite Omega<=2 shapes. For p^2, odd sigma(p^2) together with odd sigma(sigma(p^2)) forces sigma(p^2) to be a square, impossible between p^2 and (p+1)^2. For pq, p=2 contradicts abundancy monotonicity. For odd p,q, parity forces M=(p+1)(q+1) to be a square or twice a square. The exact abundancy inequalities exclude odd factors 3,5,7 from M and then all least primes below 37; the square-kernel divisibility and local abundancy inequality follow from even odd-prime valuations in M. Fresh exact arithmetic independently rechecked all small-prime abundance inequalities and the prime list; the finite verifier sweep is corroborative only.
+
+## originality
+
+PASS
+
+OEIS A000668 explicitly records the 19 August 2005 question whether all solutions of sigma(sigma(n))=2n+1 are Mersenne primes. Sándor's 2005 composition paper is broad but its accessible abstract does not state this plus-one semiprime classification; the repository full text is restricted, so no whole-document noncoverage claim is made from that source. Current Resultary search for the exact equation and semiprime restrictions returned the assigned result but no earlier theorem implying the prime-square exclusion, p>=37 sieve, or local square-kernel condition. Originality passes to the best of current knowledge with older composition literature retained as a risk.
+
+## value
+
+PASS
+
+The result attacks the first composite almost-prime layer of an explicit long-standing characterization problem and yields several exact structural restrictions, including elimination of prime squares and even semiprimes, a least-prime bound 37, and a local square-kernel sieve. It is a motivated reduction of the open search space rather than a finite numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
