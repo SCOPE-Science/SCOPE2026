@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:13:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 8bc04924a15a291da9741348dd10736d902daede",
+        "assigned verify.py blob c7af2c7661b3f2cb8eaf0de7350b76f25d8425db",
+        "Talukdar--Saikia, Arithmetic Differential Equations Defined by Generalized Subderivatives, DOI 10.14445/22315373/IJMTT-V72I1P104"
+      ],
+      "rationale": "Write a positive orbit term as \\(x_j=c_j2^{a_j}3^{b_j}\\), with \\(\\gcd(c_j,6)=1\\), and put \\(m_j=3a_j+2b_j\\). Factoring \\(m_j=2^{r_j}3^{s_j}u_j\\), \\(\\gcd(u_j,6)=1\\), gives \\(c_{j+1}=c_ju_j\\), \\(a_{j+1}=a_j-1+r_j\\), \\(b_{j+1}=b_j-1+s_j\\). On a periodic orbit the positive coprime coefficient returns, so every \\(u_j=1\\). Summing the exponent recurrences gives \\(\\sum r_j=\\sum s_j=L\\), hence \\(\\prod m_j=6^L\\). Values \\(m_j=2,3\\) immediately fall to zero; \\(m_j=4\\) forces the next value \\(5\\), and \\(m_j=5\\) has \\(u_j=5\\), so all periodic-orbit values satisfy \\(m_j\\ge6\\). The product identity then forces every \\(m_j=6\\), whose only nonnegative exponent solutions are \\((2,0)\\) and \\((0,3)\\), both fixed. The inspected verifier independently checks exponent transitions and bounded trajectories; it is corroborative, not the infinite proof.",
+      "residual_risks": [
+        "The cycle exclusion uses special arithmetic of the prime set \\(\\{2,3\\}\\) and does not extend automatically to other supports."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper covers termination and fixed points generally but does not cover nontrivial cycles.",
+          "Earlier work supplies definitions and one-prime background rather than the \\(\\{2,3\\}\\) periodic classification."
+        ],
+        "reasoning": "No inspected broader theorem implies absence of all higher cycles.",
+        "searches": [
+          "Talukdar--Saikia 2026 iterated generalized subderivatives",
+          "Merikoski--Haukkanen--Tossavainen 2019 arithmetic subderivatives",
+          "Emmons--Xiao 2022 arithmetic partial derivative"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.14445/22315373/IJMTT-V72I1P104",
+        "arXiv:1901.02216",
+        "arXiv:2201.12453",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing all solutions of \\(D_S(n)=n\\) does not rule out cycles with \\(D_S^L(n)=n\\) and \\(L>1\\).",
+          "The audited proof adds the coprime-multiplier/product-\\(6^L\\) argument."
+        ],
+        "reasoning": "The higher-period exclusion is not mechanically implied by prior fixed-point results.",
+        "searches": [
+          "general fixed-point classification versus all periodic points"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the identical generalized subderivative \\(D_S\\).",
+          "Its Theorem 3.4 classifies fixed points, while its conclusion explicitly separates higher periodic points as future work."
+        ],
+        "reasoning": "The audited statement is the higher-period extension, not a restatement of the fixed-point theorem.",
+        "searches": [
+          "Resultary: arithmetic subderivative 2 3 positive cycles periodic points",
+          "Talukdar--Saikia 2026 full open primary PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding was the exact hit; no independent prior theorem was returned."
+        ],
+        "reasoning": "Database absence supports the explicit future-direction statement in the primary paper.",
+        "searches": [
+          "Resultary current search for \\(\\{2,3\\}\\)-subderivative periodic cycles"
+        ]
+      },
+      "rationale": "The complete January 2026 primary paper classifies vanishing iterates and fixed points for general prime sets, including the two fixed families for \\(S=\\{2,3\\}\\), but its discussion and conclusion explicitly list periodic points \\(D_S^k(n)=n\\) for \\(k>1\\) as a future direction. The audited theorem resolves that direction for the first nontrivial two-prime support by a new multiplicative orbit invariant. Resultary returned no prior \\(\\{2,3\\}\\) cycle-exclusion theorem.",
+      "residual_risks": [
+        "An unindexed arithmetic-dynamics note could contain the same special-support cycle argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_POINTS_PRIOR_PERIODIC_POINTS_EXPLICITLY_FUTURE",
+          "evidence": "The conclusion explicitly lists periodic points \\(D_S^k(n)=n\\) for \\(k>1\\) as a future direction.",
+          "identifier_or_url": "DOI 10.14445/22315373/IJMTT-V72I1P104",
+          "material_read": "complete open seven-page primary PDF, including Theorem 3.4, the \\(S=\\{2,3\\}\\) examples, discussion, and conclusion; relevant page visually inspected",
+          "method": "primary full-text PDF inspection",
+          "title": "Arithmetic Differential Equations Defined by Generalized Subderivatives",
+          "trigger": "closest primary iterative-dynamics source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Talukdar--Saikia 2026",
+        "assigned proof/verifier"
+      ],
+      "rationale": "The theorem answers an explicitly identified dynamical question in the first genuinely two-prime subderivative and gives the complete positive periodic set, not merely a bounded search. The product-\\(6^L\\) argument is a structural cycle obstruction and supplies a natural exact boundary for subsequent multi-prime work.",
+      "residual_risks": [
+        "No claim is made for other two-prime sets or larger supports."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The cycle exclusion uses special arithmetic of the prime set \\(\\{2,3\\}\\) and does not extend automatically to other supports.",
+    "An unindexed arithmetic-dynamics note could contain the same special-support cycle argument.",
+    "No claim is made for other two-prime sets or larger supports."
+  ]
+}
