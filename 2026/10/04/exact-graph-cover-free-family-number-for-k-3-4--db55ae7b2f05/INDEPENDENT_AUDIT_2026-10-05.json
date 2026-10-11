@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T02:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The six-point block family was checked against the defining graph-CFF conditions. For the lower bound, the definition is exactly equivalent to 84 row-witness requirements for \\(K_{3,4}\\): two separation witnesses per edge and, for every third vertex, a row with that vertex equal to one and the edge endpoints zero. The verifier enumerates all 128 binary row patterns, removes only coverage-dominated patterns, and performs complete branching; independent replay reproduced nonexistence with five rows and existence with six. The same exhaustive method reproduces \\(t(K_{2,2})=4\\), \\(t(K_{2,3})=5\\), \\(t(K_{2,4})=6\\), and \\(t(K_{3,3})=6\\), which are exactly the smaller nontrivial complete-bipartite cases needed for minimum-order strictness.",
+      "risks": [
+        "The computation proves only the explicitly listed finite graphs, not a general formula for all complete bipartite graphs."
+      ],
+      "sources": [
+        "RESULT.md blob 88eef2e94f21595efdc2bac5ae3686160067e7f4",
+        "verify.py blob 74de0c1d2d5f24fa94505351a7b07cc83d0544b1",
+        "verify_output.txt blob cf28a9905230a2e66f9253e5055cd96166a62876",
+        "Independent exact replay of the witness-cover search"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published complete-bipartite theorem supplies only the upper bound seven at (3,4)."
+        ],
+        "reasoning": "A bound of seven and generic lower bounds leave the exact value six open; the exhaustive lower bound and explicit six-point family add essential information.",
+        "searches": [
+          "Parida--Moura arXiv:2605.12634, complete-bipartite corollary and small-value sections",
+          "Resultary same-invariant searches"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.12634",
+        "Resultary SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+        "Resultary semantic searches for K3,4/G-CFF/disjunct formulations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior complete-bipartite result gives only t(K_{3,4}) at most 7; the accepted result proves 6 and shows all smaller nontrivial bicliques attain the coloring bound."
+        ],
+        "reasoning": "Neither the generic bound nor exact values on different graph classes imply the submitted finite optimum.",
+        "searches": [
+          "Statement comparison with the complete-bipartite coloring bound in arXiv:2605.12634",
+          "Resultary SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source identifies G-CFF with its disjunct incidence formulation but provides no exact K_{3,4} value.",
+          "Resultary's closest same-invariant prior item is Exact small cover-free-family numbers for paths, cycles, and wheels."
+        ],
+        "reasoning": "Set-system and disjunct-matrix encodings were both checked; neither prior result fixes the K_{3,4} optimum.",
+        "searches": [
+          "Resultary: graph cover-free families complete bipartite K3,4 exact G-CFF disjunct matrix",
+          "arXiv:2605.12634 full-text searches under graph-CFF and disjunct-matrix terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected source tables cover paths, cycles, wheels and complete graphs rather than non-star complete bipartite graphs."
+        ],
+        "reasoning": "No located exact table contains the claimed value or the minimum-order strictness boundary.",
+        "searches": [
+          "arXiv:2605.12634 small exact-value tables",
+          "Resultary exact K3,4 graph-CFF query"
+        ]
+      },
+      "rationale": "The defining 2026 paper introduces graph cover-free families and gives for complete bipartite graphs the general coloring construction \\(t(K_{n_1,n_2})\\le t(1,n_1)+t(1,n_2)\\), which equals seven at \\(K_{3,4}\\), but it does not determine this exact value. Its exact small-value work concerns other graph classes. Fresh Resultary search found the earlier SCOPE exact path/cycle/wheel record as the closest same-invariant result, not a biclique value. No inspected primary theorem or exact table implies six for \\(K_{3,4}\\).",
+      "residual_risks": [
+        "An unindexed finite-computation note could contain the same seven-vertex optimum; no such source surfaced in the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_CLASS_BOUND_NOT_COVERING",
+          "evidence": [
+            "The complete-bipartite result is an upper bound, while exact-value tables do not determine non-star K_{3,4}."
+          ],
+          "identifier_or_url": "arXiv:2605.12634",
+          "material_read": "Definitions and equivalent disjunct formulation, complete-bipartite construction/corollary, exact small-value sections and concluding directions.",
+          "method": "Lawful arXiv full-text inspection.",
+          "title": "Cover-free families on graphs",
+          "trigger": "Primary source introducing the invariant and treating complete bipartite graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural first strictness boundary inside a graph class explicitly singled out by the introducing paper: \\(K_{3,4}\\) improves the published coloring bound from seven to six, and all smaller nontrivial complete bipartite graphs are exhaustively shown not to do so. The exact finite cutoff is a useful benchmark for a still-open family rather than an arbitrary isolated computation.",
+      "risks": [],
+      "sources": [
+        "arXiv:2605.12634",
+        "Exact verifier and displayed six-point construction"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact only for K_{3,4} plus the four smaller bicliques needed for the minimum-order statement.",
+    "Public scientific files were scanned and contain no flagged C0 controls or operational/platform language."
+  ],
+  "schema_version": 1
+}
