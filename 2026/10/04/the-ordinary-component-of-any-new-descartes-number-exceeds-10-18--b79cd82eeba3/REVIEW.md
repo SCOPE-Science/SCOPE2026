@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. From \(\sigma(q)(p+1)=2pq\) with odd \(p,q\), 2-adic valuation forces \(\sigma(q)\) odd, hence \(q\) is a square. This converts the complete range \(q\le10^{18}\) into the finite root range \(m\le10^9\). The packaged segmented sieve factors every odd root, computes \(\sigma(m^2)\) exactly, and applies the defining divisibility test. Its only nontrivial hit is \((q,p)=(9018009,22021)\), Descartes' example.
+## correctness
 
-## Originality
-PASS. Tóth's peer-reviewed bound is \(q>10^{12}\). The closest located public extension is a 2023 Mathematics Stack Exchange computation through \(10^{16}\), which uses the same square observation but stops two orders of magnitude earlier. Current database entries and broader spoof-factorization literature do not state a \(10^{18}\) exclusion. Residual risk remains for an unindexed computation.
+PASS
 
-## Value
-PASS. The ordinary-component cutoff is the central finite invariant in Tóth's theorem. Extending it from \(10^{12}\) to \(10^{18}\) is a million-fold improvement of the peer-reviewed bound, and the proof exposes a simple square-root reduction that makes the certificate inexpensive and reproducible.
+From \(\sigma(q)(p+1)=2pq\) with odd \(p,q\), the right side has 2-adic valuation one. Since \(p+1\) is even, \(\sigma(q)\) must be odd, and the classical parity criterion makes odd \(q\) a square, say \(q=m^2\). Thus \(q\le10^{18}\) reduces exhaustively to odd \(m\le10^9\). The inspected C++ implementation segments that entire interval, factors each root by every prime needed up to the segment square-root, computes \(\sigma(m^2)\) exactly in 128-bit arithmetic, and tests the exact divisibility formula for the pseudo-prime. Its leftover-factor logic is sound because after division by all primes through \(\sqrt H\), any remainder is prime. The only reported solutions are \((q,p)=(1,1)\) and \((9018009,22021)\), with \(22021=19^2\cdot61\). The stored output confirms completion of the full range but is not used as the sole correctness evidence.
 
-## Closest literature and limitations
-The primary source is László Tóth, “On the Density of Spoof Odd Perfect Numbers,” arXiv:2101.09718 / *Computational Methods in Science and Technology* 27 (2021), 25–28. The closest located public computation reports \(10^{16}\) on Mathematics Stack Exchange in 2023. The result here is finite and positive-Descartes-specific; it does not prove uniqueness and does not address signed or multiperfect spoof generalizations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Tóth's complete four-page primary article was read and visually inspected. Its Theorem 1 and exhaustive computation stop at \(q>10^{12}\), and the conclusion explicitly proposes extending the computation above \(10^{12}\). A public 2023 computation reports no other odd example through \(10^{16}\) after the same square reduction. Targeted searches found no published \(10^{18}\) bound. The assigned result therefore advances the best located exact frontier by two orders of magnitude beyond that public computation and six beyond the peer-reviewed theorem.
+
+## value
+
+PASS
+
+Descartes numbers are a long-standing surrogate for the odd-perfect-number problem, and the ordinary-component lower bound is the central quantitative output of the previous peer-reviewed computation. Extending that certified exclusion frontier to \(10^{18}\) is a meaningful finite cutoff, especially because the square reduction changes the computational scale by a square root.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

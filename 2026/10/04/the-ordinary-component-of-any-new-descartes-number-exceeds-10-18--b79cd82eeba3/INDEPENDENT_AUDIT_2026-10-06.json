@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T04:40:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 05c378810617bc942a2f1680db12dd4c54c55acb",
+        "verify.cpp blob 88b4cb7bd9d12a857749a2b7085ea535ed73b010",
+        "scan_output.txt blob 9f5eae83068dfe60a30b13798f7a3a51a9703b5c",
+        "Tóth DOI:10.12921/cmst.2021.0000005",
+        "Mathematics Stack Exchange question 4629691"
+      ],
+      "rationale": "From \\(\\sigma(q)(p+1)=2pq\\) with odd \\(p,q\\), the right side has 2-adic valuation one. Since \\(p+1\\) is even, \\(\\sigma(q)\\) must be odd, and the classical parity criterion makes odd \\(q\\) a square, say \\(q=m^2\\). Thus \\(q\\le10^{18}\\) reduces exhaustively to odd \\(m\\le10^9\\). The inspected C++ implementation segments that entire interval, factors each root by every prime needed up to the segment square-root, computes \\(\\sigma(m^2)\\) exactly in 128-bit arithmetic, and tests the exact divisibility formula for the pseudo-prime. Its leftover-factor logic is sound because after division by all primes through \\(\\sqrt H\\), any remainder is prime. The only reported solutions are \\((q,p)=(1,1)\\) and \\((9018009,22021)\\), with \\(22021=19^2\\cdot61\\). The stored output confirms completion of the full range but is not used as the sole correctness evidence.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structural literature constrains factors but does not imply the \\(10^{18}\\) cutoff.",
+          "The closest located computation stops at \\(10^{16}\\)."
+        ],
+        "reasoning": "No checked broader theorem dominates the finite scan.",
+        "searches": [
+          "Tóth 2021",
+          "Dittmer/Banks et al. Descartes-number literature",
+          "public 2023 computation"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.12921/cmst.2021.0000005",
+        "Mathematics Stack Exchange 4629691",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tóth's theorem and data do not exclude candidates between \\(10^{12}\\) and \\(10^{18}\\).",
+          "The square reduction makes the larger scan feasible but does not itself prove the absence of candidates."
+        ],
+        "reasoning": "The exhaustive root scan is additional finite evidence needed for the stronger theorem.",
+        "searches": [
+          "Tóth Theorem 1 and Algorithm 1",
+          "square-parity reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tóth proves only \\(q>10^{12}\\).",
+          "A 2023 public computation states no other odd case through \\(10^{16}\\), using the square-root reduction."
+        ],
+        "reasoning": "Searching odd ordinary components \\(q\\) and searching odd roots \\(m\\) with \\(q=m^2\\) are equivalent after the parity lemma.",
+        "searches": [
+          "Resultary: Descartes spoof perfect ordinary component \\(10^{18}\\)",
+          "Tóth DOI:10.12921/cmst.2021.0000005 full PDF",
+          "web search for Descartes/spoof-perfect computations through \\(10^{16}\\) and \\(10^{18}\\)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the classical component \\(9018009\\) is reported in the checked ranges.",
+          "No \\(10^{18}\\) table or certificate was located outside the assigned package."
+        ],
+        "reasoning": "The finite-bound claim is directly comparable to these exact computation ranges.",
+        "searches": [
+          "Tóth's computed set through \\(10^{12}\\)",
+          "public computation through \\(10^{16}\\)",
+          "Resultary exact cutoff query"
+        ]
+      },
+      "rationale": "Tóth's complete four-page primary article was read and visually inspected. Its Theorem 1 and exhaustive computation stop at \\(q>10^{12}\\), and the conclusion explicitly proposes extending the computation above \\(10^{12}\\). A public 2023 computation reports no other odd example through \\(10^{16}\\) after the same square reduction. Targeted searches found no published \\(10^{18}\\) bound. The assigned result therefore advances the best located exact frontier by two orders of magnitude beyond that public computation and six beyond the peer-reviewed theorem.",
+      "residual_risks": [
+        "The \\(10^{16}\\) comparison is a public community computation rather than a peer-reviewed result; a larger unpublished search may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREVIOUS_BOUND_10_12_ONLY",
+          "evidence": "Theorem 1 states \\(q>10^{12}\\), and the conclusion explicitly notes that computations can be continued above that level.",
+          "identifier_or_url": "DOI:10.12921/cmst.2021.0000005",
+          "material_read": "Complete four-page primary PDF, including Theorem 1, the eight-month computation through \\(10^{12}\\), result tables and conclusion; all four pages were also visually inspected.",
+          "method": "Open-access full-PDF text and page-image inspection.",
+          "title": "On the Density of Spoof Odd Perfect Numbers",
+          "trigger": "Peer-reviewed source of the previous ordinary-component lower bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tóth 2021",
+        "Descartes-number literature"
+      ],
+      "rationale": "Descartes numbers are a long-standing surrogate for the odd-perfect-number problem, and the ordinary-component lower bound is the central quantitative output of the previous peer-reviewed computation. Extending that certified exclusion frontier to \\(10^{18}\\) is a meaningful finite cutoff, especially because the square reduction changes the computational scale by a square root.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "If \\(D=pq\\) is a positive Descartes number in Tóth's sense, with odd pseudo-prime factor \\(p\\), then aside from Descartes' classical example the ordinary component satisfies \\(q>10^{18}\\).",
+  "limitations": [
+    "This is an exhaustive finite lower bound, not an asymptotic theorem or nonexistence result.",
+    "The computation concerns the positive Descartes-number convention used by Tóth.",
+    "The full \\(10^{18}\\) scan was not rerun inside this audit window; correctness was assessed by independently reconstructing the reduction and auditing the exact segmented-sieve implementation line by line, with the stored run output treated only as corroboration."
+  ],
+  "schema_version": 1
+}
