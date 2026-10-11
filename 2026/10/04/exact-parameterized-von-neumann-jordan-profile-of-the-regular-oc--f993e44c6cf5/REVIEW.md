@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the sphere supremum to finitely many vertex pairs using separate convexity over the unit ball, then uses the dihedral symmetry of the regular octagon. Every support regime and every envelope comparison is explicit. The exact checker independently replays the algebra in \(\mathbb Q(\sqrt2)\), including the support-switch breakpoints, factor identities, branch crossing, continuity, and endpoint. The result is a theorem for all \(0\le\lambda\le1\), not an extrapolation from numerical samples.
+## correctness
 
-## Originality
-PASS. The defining source arXiv:2110.15741 was inspected at the definition, propositions, examples, and related constants, and its full text contains no regular-octagon calculation. The closest inspected later source, Filomat 38:5 (2024), calculates two different \(L_{YJ}\)-type functionals on the regular octagon; their coefficient pattern does not imply the present parameterized unit-sphere functional except at the symmetric classical endpoint after normalization. Targeted database and literature searches for the exact threshold, aliases, the regular octagon, and the unrestricted \(C_\alpha\) formulation found no stronger or equivalent statement. Residual bibliographic risk remains because absence from searches cannot prove global nonexistence.
+PASS
 
-## Value
-PASS. The regular octagon is a canonical non-Hilbert benchmark in the geometric-constant literature, and the 2024 exact-computation paper explicitly treats exact constants on this space as meaningful. The result supplies the entire parameter profile of a recently introduced invariant, identifies a nontrivial phase transition between geometrically distinct extremizing vertex pairs, and recovers the known classical endpoint. This is a natural exact classification rather than an arbitrary parameter slice or a recomputation of a tabulated value.
+The objective is separately convex in x and y, so its maximum over the compact octagonal ball occurs at an extreme-point pair; these vertices lie on the sphere, so this equals the required sphere supremum. Dihedral symmetry reduces to four nontrivial separations. The exact Q(sqrt(2)) verifier checks the support-line regimes and polynomial factor comparisons. An independent direct maximization over all 64 ordered vertex pairs on a 101-point parameter grid agreed with the two claimed branch formulas to numerical roundoff, including the transition m*=(4-sqrt(2))/7 and midpoint value 4-2sqrt(2). The continuum upper bound itself is the exact finite quadratic comparison, not the grid check.
 
-## Closest literature and limitations
-The nearest sources are arXiv:2110.15741, which defines \(C'_{\mathrm{NJ}}(\lambda,X)\), and Yang–Li–Yang (2024), which computes \(L_{YJ}\) and \(L'_{YJ}\) for the regular octagon. The claim is restricted to the real regular octagonal plane and does not determine the unrestricted \(C_\alpha\) constant or other polygon families.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The 2021 defining paper was read completely: it defines exactly the target unit-sphere parameterized constant and proves general inequalities, but does not compute the regular octagon. The 2024 regular-octagon paper was also read in full; it computes L_YJ and L'_YJ, whose second norm term uses swapped parameter coefficients and is a different functional except at the symmetric midpoint. Its exact regular-octagon formula therefore does not imply the audited two-branch C'_NJ(lambda,X) profile.
+
+## value
+
+PASS
+
+The regular octagon is a canonical non-Hilbert benchmark in Banach-space geometry, and the defining paper introduced the parameterized invariant specifically to quantify departures from Hilbert geometry. The exact all-parameter profile exhibits a genuine maximizing-pair phase transition and recovers the classical midpoint constant, so it is a motivated exact invariant rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

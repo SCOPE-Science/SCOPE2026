@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:58:15.596212Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 1ceaccb24defaa411ea4a845d2ffd7d52c8391dd",
+        "verify.py blob 9ada502ca79bb5df4b7fade5c0589ddb72298958",
+        "verification_output.txt blob 1e77a72428de6f5d44a352561144e1fa619eb7c4",
+        "independent all-vertex-pair numerical envelope check"
+      ],
+      "rationale": "The objective is separately convex in x and y, so its maximum over the compact octagonal ball occurs at an extreme-point pair; these vertices lie on the sphere, so this equals the required sphere supremum. Dihedral symmetry reduces to four nontrivial separations. The exact Q(sqrt(2)) verifier checks the support-line regimes and polynomial factor comparisons. An independent direct maximization over all 64 ordered vertex pairs on a 101-point parameter grid agreed with the two claimed branch formulas to numerical roundoff, including the transition m*=(4-sqrt(2))/7 and midpoint value 4-2sqrt(2). The continuum upper bound itself is the exact finite quadratic comparison, not the grid check.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 source supplies only universal bounds/characterizations for C'_NJ(lambda,X).",
+          "The 2024 paper supplies an exact regular-octagon solution for a nearby Euler--Lagrange-type invariant and does not dominate the audited objective."
+        ],
+        "reasoning": "Neither inspected broader theorem evaluates the exact target functional on the octagonal unit sphere.",
+        "searches": [
+          "arXiv:2110.15741v2 Sections 2-3",
+          "Filomat 38:5 (2024) full regular-octagon analysis"
+        ]
+      },
+      "checked_sources": [
+        "Wang--Liu--Li--Ni--Yang--Sarfraz--Li, Novel constants based on the generalization of von Neumann-Jordan constant, arXiv:2110.15741v2, complete 18-page full text",
+        "Yang--Li--Yang, On the L_YJ(lambda,mu,X) constant for the regular octagon space, DOI:10.2298/FIL2405583Y, complete open PDF",
+        "Resultary semantic query: regular octagon Banach parameterized von Neumann Jordan constant exact profile threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent numerical envelope matched the claimed two exact branches to floating error below 5e-16.",
+          "The exact package proof reduces the separate-convex objective on the polygonal ball to extreme-point pairs and then compares finitely many Q(sqrt(2)) quadratics."
+        ],
+        "reasoning": "The final claim requires a distinct finite-envelope optimization not carried out in the inspected prior literature.",
+        "searches": [
+          "complete 2021 target-invariant source",
+          "complete 2024 same-space neighboring-invariant source",
+          "independent vertex-pair maximization over all 64 ordered octagon vertex pairs on 101 parameter values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining paper gives C'_NJ(lambda,X)=sup(||lambda x+(1-lambda)y||^2+lambda(1-lambda)||x-y||^2) on the unit sphere.",
+          "The Filomat paper defines L'_YJ(lambda,mu,X) with numerator ||lambda x+mu y||^2+||mu x-lambda y||^2, normalized by 2(lambda^2+mu^2), and computes that distinct invariant for the regular octagon.",
+          "At lambda=1/2 the audited invariant collapses to the classical modified von Neumann--Jordan constant, explaining shared midpoint data without functional equivalence off the midpoint."
+        ],
+        "reasoning": "The closest same-space result was compared at the level of formulas, not titles. The coefficient placement in the second norm term prevents a general parameter substitution from turning L'_YJ into the audited C'_NJ profile.",
+        "searches": [
+          "arXiv:2110.15741v2 complete full text",
+          "DOI:10.2298/FIL2405583Y full PDF, especially definition (1.3) and Corollary 2.5",
+          "Resultary query: regular octagon Banach parameterized von Neumann Jordan constant exact profile threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search returned the present record as the exact match; nearby regular-octagon findings concerned distinct constants.",
+          "No checked prior table supplied the threshold m=(4-sqrt(2))/7 for the target C'_NJ(lambda,X) objective."
+        ],
+        "reasoning": "Exact-value searches support, but do not by themselves establish, the source-based noncoverage conclusion.",
+        "searches": [
+          "Resultary semantic query above",
+          "exact web search for regular octagon plus parameterized von Neumann--Jordan profile"
+        ]
+      },
+      "rationale": "Originality passes. The 2021 defining paper was read completely: it defines exactly the target unit-sphere parameterized constant and proves general inequalities, but does not compute the regular octagon. The 2024 regular-octagon paper was also read in full; it computes L_YJ and L'_YJ, whose second norm term uses swapped parameter coefficients and is a different functional except at the symmetric midpoint. Its exact regular-octagon formula therefore does not imply the audited two-branch C'_NJ(lambda,X) profile.",
+      "residual_risks": [
+        "Other polygonal-norm papers may encode the same two quadratic envelopes in different coordinates, although no such equivalent target-functional formula was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINES_TARGET_INVARIANT_WITHOUT_REGULAR_OCTAGON_EVALUATION",
+          "evidence": "The paper defines C'_NJ(lambda,X) and develops general bounds, continuity and Hilbert-space characterizations but does not compute the regular octagonal plane.",
+          "identifier_or_url": "arXiv:2110.15741v2",
+          "material_read": "Complete 18-page authorized full text after open arXiv retrieval failed, including the definition and all examples/results in Sections 2-3.",
+          "method": "authorized institutional full-text access after open-route attempt",
+          "title": "Novel constants based on the generalization of von Neumann-Jordan constant",
+          "trigger": "Defining source for the exact target invariant."
+        },
+        {
+          "assessment": "SAME_SPACE_DIFFERENT_PARAMETERIZED_INVARIANT",
+          "evidence": "Its L'_YJ numerator uses ||lambda x+mu y||^2+||mu x-lambda y||^2, not the audited distance-weighted second term.",
+          "identifier_or_url": "DOI:10.2298/FIL2405583Y",
+          "material_read": "Complete open-access 11-page PDF, including the invariant definitions and Corollary 2.5; relevant definition and corollary pages were visually inspected.",
+          "method": "lawful open-access primary PDF",
+          "title": "On the L_YJ(lambda,mu,X) constant for the regular octagon space",
+          "trigger": "Closest exact same-space calculation and strongest possible equivalence risk."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2110.15741v2",
+        "DOI:10.2298/FIL2405583Y",
+        "independent finite-envelope reconstruction"
+      ],
+      "rationale": "The regular octagon is a canonical non-Hilbert benchmark in Banach-space geometry, and the defining paper introduced the parameterized invariant specifically to quantify departures from Hilbert geometry. The exact all-parameter profile exhibits a genuine maximizing-pair phase transition and recovers the classical midpoint constant, so it is a motivated exact invariant rather than an arbitrary numerical slice.",
+      "residual_risks": [
+        "The theorem is specific to the real regular-octagonal plane."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other polygonal-norm papers may encode the same two quadratic envelopes in different coordinates, although no such equivalent target-functional formula was found.",
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
