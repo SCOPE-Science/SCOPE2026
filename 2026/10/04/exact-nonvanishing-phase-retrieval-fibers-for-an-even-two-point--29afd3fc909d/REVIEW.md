@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Equality of all STFT magnitudes gives equality of squared magnitudes. For the two-point window, each frequency slice has only character coefficients at \(0\), \(a\), and \(-a\); the assumption that the step order is at least \(4\) makes these distinct, so the adjacent squared-magnitude sum and complex edge product are exactly recoverable. On full support, quotient variables satisfy a forced alternating recurrence. The remaining recovered sum reduces to one factored scalar equation, yielding either unimodular cycle scaling or the stated two-level parity swap. The converse is checked directly by preservation of the recovered coefficients. The bundled exact verifier independently checks the coefficient identities and both branches throughout a broad finite range.
+## correctness
 
-## Originality
-**PASS.** The closest archive-era paper, Bojarovska--Flinth, gives sufficient ambiguity nonvanishing conditions; its nonvanishing-signal criterion is inapplicable to this equal two-point window at even step order because the zero-shift ambiguity vanishes at a half-cycle character. Jaganathan--Eldar--Hassibi establish almost-all uniqueness for overlapping short windows, which permits a measure-zero exceptional set but does not identify it. Bartusel's later exact short-window theory explicitly treats ambiguity zeros but its complete finite-dimensional statements concern separated signals, while it cites the almost-all nonvanishing theorem rather than classifying the exceptional full-support fibers. Targeted published-finding corpus searches for the exact two-point, alternating-magnitude, and full-support fiber formulations returned no scientifically equivalent result. The own-ledger overlaps concern support size/minimization for the same two-point window and a generic-window theorem for two-sparse signals; neither implies a phaseless full-support fiber classification.
+PASS
 
-## Value
-**PASS.** The theorem converts an almost-sure statement into an exact boundary description for the simplest short window precisely where the standard ambiguity-nonvanishing sufficient condition fails. It explains the even-cycle obstruction structurally, identifies every exceptional full-support signal rather than merely exhibiting examples, and gives the entire measurement fiber, including disconnected-step cycles. This is a natural sharp phase-retrieval fact rather than a parameter increment or table recomputation.
+For every time slice, the squared STFT magnitude has exactly the character coefficients at \(0,\pm a\). Since \(L\ge4\), the \(a\) and \(-a\) characters are distinct, so the measurements recover both \(s_x=|f_x|^2+|f_{x+a}|^2\) and \(c_x=f_x\overline{f_{x+a}}\). If \(\tilde f\) has the same data, the ratios \(q_x=\tilde f_x/f_x\) obey \(q_x\overline{q_{x+a}}=1\), forcing a common phase and alternating reciprocal moduli around each even step cycle. Equality of the recovered sums factors as \((r^2-1)(r^2|f_x|^2-|f_{x+a}|^2)=0\); the nontrivial branch therefore forces constant magnitudes on each parity class and gives exactly the level swap. The converse preserves every recovered coefficient. The exact-rational verifier checks all eligible steps through \(N=120\), but the complete classification follows from these algebraic equations.
 
-## Closest literature and limitations
-The closest literature is Bojarovska--Flinth (2015/2016), Jaganathan--Eldar--Hassibi (2015/2016), and Bartusel (2023). The result is restricted to full support and even step order at least \(4\); the order-two aliasing case and zero-containing signals remain outside the theorem. A differently phrased or poorly indexed prior classification remains a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bojarovska--Flinth give general Gabor phase-retrieval criteria, and Bartusel's full open article treats windows with ambiguity zeros and records almost-all nonvanishing uniqueness plus short-window support criteria. Those results do not classify every full-support signal for the degenerate equal two-point window. Resultary's exact hit is the audited finding itself; related cyclic-STFT findings solve different support or odd-order cases.
+
+## value
+
+PASS
+
+The theorem determines the entire nonvanishing fiber of a natural degenerate short STFT window, including the exceptional set missed by generic almost-all uniqueness. Exact exceptional-fiber geometry is a motivated phase-retrieval classification rather than a routine numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

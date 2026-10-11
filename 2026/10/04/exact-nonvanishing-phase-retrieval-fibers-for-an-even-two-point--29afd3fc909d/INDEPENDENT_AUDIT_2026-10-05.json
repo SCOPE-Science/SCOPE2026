@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T03:56:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 46d46fda2cade8c140a27680c1e01d6905cd6aeb",
+        "assigned verify_two_point_phase_fibers.py blob 33aa52dd37d56abb22f3d19ad77a4d9734cbc172",
+        "Bartusel full open article",
+        "independent edge-equation reconstruction"
+      ],
+      "rationale": "For every time slice, the squared STFT magnitude has exactly the character coefficients at \\(0,\\pm a\\). Since \\(L\\ge4\\), the \\(a\\) and \\(-a\\) characters are distinct, so the measurements recover both \\(s_x=|f_x|^2+|f_{x+a}|^2\\) and \\(c_x=f_x\\overline{f_{x+a}}\\). If \\(\\tilde f\\) has the same data, the ratios \\(q_x=\\tilde f_x/f_x\\) obey \\(q_x\\overline{q_{x+a}}=1\\), forcing a common phase and alternating reciprocal moduli around each even step cycle. Equality of the recovered sums factors as \\((r^2-1)(r^2|f_x|^2-|f_{x+a}|^2)=0\\); the nontrivial branch therefore forces constant magnitudes on each parity class and gives exactly the level swap. The converse preserves every recovered coefficient. The exact-rational verifier checks all eligible steps through \\(N=120\\), but the complete classification follows from these algebraic equations.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general criteria decide broad injectivity classes but do not solve the exact exceptional full-support fiber for this degenerate window."
+        ],
+        "reasoning": "Generic uniqueness cannot imply the measure-zero alternating ambiguity classification.",
+        "searches": [
+          "general finite cyclic STFT injectivity theory",
+          "almost-all nonvanishing short-window uniqueness",
+          "Bartusel's ambiguity-zero framework"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.05800",
+        "DOI:10.1007/s00041-015-9431-0",
+        "DOI:10.1007/s00041-023-10026-2",
+        "arXiv:1508.02820",
+        "Resultary two-point cyclic STFT query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Because the window has a half-cycle ambiguity zero, the common nonvanishing-ambiguity sufficient criterion does not decide this case.",
+          "The assigned proof solves the residual nonlinear edge equations and identifies the unique nontrivial modulus swap cycle by cycle."
+        ],
+        "reasoning": "The complete fiber classification is not mechanically implied by the inspected general uniqueness theorems.",
+        "searches": [
+          "prior ambiguity-function criteria versus the assigned edge-product/sum reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bojarovska--Flinth provide sufficient injectivity conditions based on ambiguity samples.",
+          "Bartusel explicitly discusses windows whose ambiguity function has zeros, cites almost-all nonvanishing uniqueness, and proves support-based short-window results; no inspected statement gives the alternating two-level fiber.",
+          "Resultary returns the assigned theorem as the direct exact match."
+        ],
+        "reasoning": "For the equal two-point window, Fourier analysis of each intensity slice recovers the adjacent sum \\(s_x\\) and complex edge product \\(c_x\\); the complete fiber is therefore equivalent to solving these edge equations on the step cycles.",
+        "searches": [
+          "Bojarovska--Flinth, arXiv:1503.05800 / DOI:10.1007/s00041-015-9431-0",
+          "Bartusel, DOI:10.1007/s00041-023-10026-2",
+          "Jaganathan--Eldar--Hassibi, arXiv:1508.02820",
+          "Resultary query: even two point cyclic STFT full support phase retrieval alternating magnitude fiber"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier external exact exceptional-set table or theorem was located."
+        ],
+        "reasoning": "The directly matching Resultary record is the assigned finding, not an older covering result.",
+        "searches": [
+          "Resultary cyclic-STFT phase-retrieval corpus",
+          "targeted searches for equal two-point windows, even step order, alternating magnitudes, and level swaps"
+        ]
+      },
+      "rationale": "Bojarovska--Flinth give general Gabor phase-retrieval criteria, and Bartusel's full open article treats windows with ambiguity zeros and records almost-all nonvanishing uniqueness plus short-window support criteria. Those results do not classify every full-support signal for the degenerate equal two-point window. Resultary's exact hit is the audited finding itself; related cyclic-STFT findings solve different support or odd-order cases.",
+      "residual_risks": [
+        "An unindexed signal-processing note may have solved the same two-point edge equations under another STFT convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SUPPORT_AND_INJECTIVITY_RESULTS_NOT_EXACT_TWO_POINT_FIBER",
+          "evidence": "The article treats support-connectedness and ambiguity-zero phenomena, but the inspected finite-dimensional results do not state the alternating two-level level-swap classification.",
+          "identifier_or_url": "DOI:10.1007/s00041-023-10026-2",
+          "material_read": "Open full HTML introduction, ambiguity-function framework, finite-dimensional short-window discussion, and the passages summarizing almost-all nonvanishing uniqueness.",
+          "method": "Full-text scope and implication comparison.",
+          "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Z_d and R^d",
+          "trigger": "Full open article specifically treating STFT phase retrieval when the window ambiguity function can have zeros."
+        },
+        {
+          "assessment": "SUFFICIENT_CRITERION_INAPPLICABLE_TO_THE_DEGENERATE_HALF_CYCLE_ZERO",
+          "evidence": "The equal two-point even-order window fails the relevant no-zero ambiguity condition, so the source theorem does not classify the present fiber.",
+          "identifier_or_url": "arXiv:1503.05800; DOI:10.1007/s00041-015-9431-0",
+          "material_read": "Primary abstract/source statement of the full-measurement injectivity criterion; its relevant nonvanishing-signal theorem is also summarized in the later full Bartusel article.",
+          "method": "Criterion applicability comparison.",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Foundational finite Gabor phase-retrieval criterion cited by the package."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bojarovska--Flinth",
+        "Bartusel",
+        "Jaganathan--Eldar--Hassibi",
+        "Resultary search"
+      ],
+      "rationale": "The theorem determines the entire nonvanishing fiber of a natural degenerate short STFT window, including the exceptional set missed by generic almost-all uniqueness. Exact exceptional-fiber geometry is a motivated phase-retrieval classification rather than a routine numerical example.",
+      "residual_risks": [
+        "An unindexed signal-processing note may have solved the same two-point edge equations under another STFT convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1503.05800",
+    "DOI:10.1007/s00041-015-9431-0",
+    "DOI:10.1007/s00041-023-10026-2",
+    "arXiv:1508.02820",
+    "Resultary two-point cyclic STFT query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the cyclic window \\(g_a=\\delta_0+\\delta_a\\) when the step order \\(L=N/\\gcd(a,N)\\) is even and at least four, every full-support STFT-magnitude fiber consists independently on each step cycle of a phase factor and, exactly for alternating two-level magnitudes, one level-swap ambiguity; hence one-cycle full-support phase retrieval fails exactly on the distinct alternating two-level magnitude signals.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed signal-processing note may have solved the same two-point edge equations under another STFT convention."
+  ]
+}

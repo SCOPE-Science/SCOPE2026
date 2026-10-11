@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof in `RESULT.md` is the primary verification. It is symbolic and valid for every admissible \(N\) and \(a\); the finite computation below is only an independent consistency check of the algebraic mechanism.
+# Independent mathematical audit
 
-`verify_two_point_phase_fibers.py` uses exact Python `Fraction` arithmetic and Gaussian-rational pairs. It does not evaluate roots of unity numerically. Instead, it represents each squared two-term STFT slice by its exact character coefficients. For every \(4\le N\le120\) and every nonzero step whose order is even and at least \(4\), it checks that the three characters \(0\), \(a\), and \(-a\) are distinct; verifies exact coefficient preservation under every constructed two-level parity swap; derives the admissible alternating modulus ratio from the recovered sum equations; and verifies that perturbing one same-parity magnitude destroys the nontrivial solution.
+## correctness
 
-A package replay prints:
+PASS
 
-```text
-N_MAX=120 checks=400616 swap_cycles=5856 perturbed_cycles=5856
-VERIFY_OK
-```
+For every time slice, the squared STFT magnitude has exactly the character coefficients at \(0,\pm a\). Since \(L\ge4\), the \(a\) and \(-a\) characters are distinct, so the measurements recover both \(s_x=|f_x|^2+|f_{x+a}|^2\) and \(c_x=f_x\overline{f_{x+a}}\). If \(\tilde f\) has the same data, the ratios \(q_x=\tilde f_x/f_x\) obey \(q_x\overline{q_{x+a}}=1\), forcing a common phase and alternating reciprocal moduli around each even step cycle. Equality of the recovered sums factors as \((r^2-1)(r^2|f_x|^2-|f_{x+a}|^2)=0\); the nontrivial branch therefore forces constant magnitudes on each parity class and gives exactly the level swap. The converse preserves every recovered coefficient. The exact-rational verifier checks all eligible steps through \(N=120\), but the complete classification follows from these algebraic equations.
 
-The computation does not establish the infinite theorem by enumeration. The infinite necessity and sufficiency are the quotient recurrence and factored edge equation written explicitly in `RESULT.md`. The order-two step case and signals with zeros are intentionally outside the verified claim.
+## originality
+
+PASS
+
+Bojarovska--Flinth give general Gabor phase-retrieval criteria, and Bartusel's full open article treats windows with ambiguity zeros and records almost-all nonvanishing uniqueness plus short-window support criteria. Those results do not classify every full-support signal for the degenerate equal two-point window. Resultary's exact hit is the audited finding itself; related cyclic-STFT findings solve different support or odd-order cases.
+
+## value
+
+PASS
+
+The theorem determines the entire nonvanishing fiber of a natural degenerate short STFT window, including the exceptional set missed by generic almost-all uniqueness. Exact exceptional-fiber geometry is a motivated phase-retrieval classification rather than a routine numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
