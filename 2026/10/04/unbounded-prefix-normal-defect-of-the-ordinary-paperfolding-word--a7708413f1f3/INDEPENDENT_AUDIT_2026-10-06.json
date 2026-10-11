@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T07:58:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ed7c61ea4183c5e735312b46b10c8f0fc0d799e0",
+        "verify.py blob 95129b8bf83ddd2832d76192c5110ff93ccf39e6",
+        "fresh independent prefix-sum replay"
+      ],
+      "rationale": "Separating even and odd indices in the odd-part definition gives \\(S(2N)=S(N)+\\lfloor N/2\\rfloor\\) and \\(S(2N+1)=S(N)+\\lfloor N/2\\rfloor+(N\\bmod2)\\). Induction then yields \\(S(2^m-1)=2^{m-1}-1\\) and \\(S(L_m)=\\lfloor L_m/2\\rfloor-\\lfloor(m-1)/2\\rfloor\\). Since \\(L_m+L_{m+1}=2^m-1\\) and exactly one is odd, the two prefix sums add to \\(2^{m-1}-m\\), giving the witness excess exactly \\(m-1\\). For any fixed \\(c\\), choosing \\(m\\ge c+2\\) makes this excess exceed the \\(c\\) prepended ones. A fresh independent recurrence computation verified every identity and exact gap for \\(2\\le m\\le13\\); the infinite conclusion rests on the induction.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prefix-normal paper gives general machinery and the paperfolding prefix normal form but does not decide finite prepending for paperfolding.",
+          "The abelian-complexity paper controls factor imbalance but not the gap against the initial prefix required here."
+        ],
+        "reasoning": "The prior results supply the two sides of the comparison separately; the submitted recurrence calculation links them and yields an unbounded prefix-normal defect.",
+        "searches": [
+          "Cicalese–Lipták–Rossi full open article, finite-prepending discussion and paperfolding subsection",
+          "Madill–Rampersad arXiv:1208.2856"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.06273",
+        "DOI:10.1016/j.tcs.2021.01.015",
+        "arXiv:1208.2856",
+        "Resultary paperfolding prefix-normal search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing paperfolding factor extrema does not by itself determine their gap from the specific initial prefix.",
+          "The identities for \\(S(2N)\\), \\(S(2N+1)\\), and \\(S(\\lfloor2^m/3\\rfloor)\\) yield a concrete factor whose excess is exactly \\(m-1\\)."
+        ],
+        "reasoning": "The no-finite-prepending conclusion is an additional consequence requiring the explicit prefix comparison.",
+        "searches": [
+          "Cicalese–Lipták–Rossi paperfolding subsection",
+          "Madill–Rampersad abelian-complexity theorem",
+          "audited prefix-sum recurrences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assertion that no \\(1^c\\mathfrak p\\) is prefix normal is equivalent to unbounded excess of maximum factor \\(1\\)-count over the paperfolding prefix count.",
+          "The explicit lengths \\(L_m=\\lfloor2^m/3\\rfloor\\) give the stronger quantified defect lower bound \\(m-1\\)."
+        ],
+        "reasoning": "Searching both the finite-prepending question and the extremal-factor/discrepancy formulation did not locate a prior statement of the witness family.",
+        "searches": [
+          "Cicalese–Lipták–Rossi, arXiv:1811.06273 / DOI:10.1016/j.tcs.2021.01.015, full open text",
+          "Madill–Rampersad, arXiv:1208.2856",
+          "Resultary query: ordinary paperfolding prefix normal finite prepend defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact Resultary finding on paperfolding prefix-normal defect was returned; the highest related paperfolding result concerned string attractors rather than prefix normality."
+        ],
+        "reasoning": "There is no applicable numerical table that would imply the infinite defect theorem.",
+        "searches": [
+          "Resultary paperfolding/prefix-normal query, top 12 results",
+          "web exact searches for paperfolding prefix normal finite prepend ones"
+        ]
+      },
+      "rationale": "The full open paper on infinite prefix-normal words materially inspected in this run treats finite prepending as a structural question: it records finite normalization for Sturmian and Thue–Morse words, impossibility for Champernowne, and separately derives prefix-normal forms for the ordinary paperfolding word. It does not state whether finite prepending can make the paperfolding word itself prefix normal. Madill–Rampersad give the ordinary paperfolding convention and unbounded/regular abelian complexity, but that factor-extremal result does not compare with the distinguished prefix. Fresh Resultary and web searches under finite-prepending and defect formulations found no covering theorem.",
+      "residual_risks": [
+        "Older paperfolding discrepancy literature may contain an equivalent recurrence consequence under terminology unrelated to prefix normality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_CONTEXT_NOT_FINITE_PREPENDING_VERDICT_FOR_PAPERFOLDING",
+          "evidence": "The paper contrasts finite prepending for Sturmian, Thue–Morse and Champernowne words and studies paperfolding prefix-normal forms, but does not state the submitted impossibility theorem.",
+          "identifier_or_url": "arXiv:1811.06273; DOI:10.1016/j.tcs.2021.01.015",
+          "material_read": "Full lawful open text: introduction/results, finite-prepending discussion, Section 5.2.1 on paperfolding, and conclusion.",
+          "method": "Full-text object/question comparison.",
+          "title": "On Infinite Prefix Normal Words",
+          "trigger": "Direct primary source studying finite prepending and the ordinary paperfolding word."
+        },
+        {
+          "assessment": "FACTOR_IMBALANCE_BACKGROUND_NOT_PREFIX_DEFECT",
+          "evidence": "The source studies factor populations and abelian complexity, not the comparison to the distinguished initial prefix needed for prefix normality.",
+          "identifier_or_url": "arXiv:1208.2856",
+          "material_read": "Primary arXiv material covering the number-theoretic paperfolding definition, unbounded abelian complexity and recurrence framework.",
+          "method": "Factor-extremum versus prefix comparison.",
+          "title": "The abelian complexity of the paperfolding word",
+          "trigger": "Closest primary source on extremal \\(1\\)-counts of paperfolding factors."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1811.06273",
+        "DOI:10.1016/j.tcs.2021.01.015",
+        "arXiv:1208.2856",
+        "Resultary paperfolding prefix-normal search"
+      ],
+      "rationale": "Finite prepend-normalizability is a named structural distinction in the anchor prefix-normal literature, and that same paper treats paperfolding without deciding this behavior. The explicit logarithmically growing obstruction family places a classical automatic word definitively on the non-normalizable side and is stronger than a single counterexample.",
+      "residual_risks": [
+        "Older paperfolding discrepancy literature may contain an equivalent recurrence consequence under terminology unrelated to prefix normality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1811.06273",
+    "DOI:10.1016/j.tcs.2021.01.015",
+    "arXiv:1208.2856",
+    "Resultary paperfolding prefix-normal search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the ordinary paperfolding word and \\(L_m=\\lfloor2^m/3\\rfloor\\), the length-\\(L_m\\) factor ending at position \\(2^m-1\\) has exactly \\(m-1\\) more \\(1\\)s than the length-\\(L_m\\) prefix. Hence the prefix-normal defect is unbounded and no finite prefix of added \\(1\\)s makes the word prefix normal.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older paperfolding discrepancy literature may contain an equivalent recurrence consequence under terminology unrelated to prefix normality.",
+    "Only the stated ordinary paperfolding convention is covered; the lower bound is not claimed to be the exact maximum defect at those lengths."
+  ]
+}

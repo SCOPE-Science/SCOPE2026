@@ -1,22 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The odd-part definition gives exact recurrences for the prefix sum \(S(N)\). Two inductions yield
-\[
-S(2^m-1)=2^{m-1}-1
-\]
-and
-\[
-S(L_m)=\left\lfloor\frac{L_m}{2}\right\rfloor-\left\lfloor\frac{m-1}{2}\right\rfloor
-\]
-for \(L_m=\lfloor2^m/3\rfloor\). Because \(L_m+L_{m+1}=2^m-1\), the factor from \(L_{m+1}+1\) through \(2^m-1\) has length \(L_m\) and exactly \(m-1\) more \(1\)s than the prefix of that length. Choosing \(m\ge c+2\) defeats every fixed prepended block \(1^c\). The finite verifier replays the identities but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS. The closest inspected full text, Cicalese--Lipták--Rossi, directly studies finite prepending and separately treats paperfolding prefix normal forms. It gives the positive Thue--Morse and negative Champernowne examples but does not state the paperfolding finite-prepending verdict. Madill--Rampersad give unbounded paperfolding abelian complexity but not the comparison with the actual paperfolding prefixes. Targeted published-finding corpus and web searches under equivalent formulations found no implication of the displayed witness family.
+PASS
 
-Residual risk remains from unindexed notes, theses, or discrepancy formulas phrased outside prefix-normal terminology.
+Separating even and odd indices in the odd-part definition gives \(S(2N)=S(N)+\lfloor N/2\rfloor\) and \(S(2N+1)=S(N)+\lfloor N/2\rfloor+(N\bmod2)\). Induction then yields \(S(2^m-1)=2^{m-1}-1\) and \(S(L_m)=\lfloor L_m/2\rfloor-\lfloor(m-1)/2\rfloor\). Since \(L_m+L_{m+1}=2^m-1\) and exactly one is odd, the two prefix sums add to \(2^{m-1}-m\), giving the witness excess exactly \(m-1\). For any fixed \(c\), choosing \(m\ge c+2\) makes this excess exceed the \(c\) prepended ones. A fresh independent recurrence computation verified every identity and exact gap for \(2\le m\le13\); the infinite conclusion rests on the induction.
 
-## Value
-PASS. The claim resolves a natural qualitative property of a classical automatic word explicitly treated by the anchor literature. It also gives a structural logarithmic obstruction at the natural lengths \(L_m=\lfloor2^m/3\rfloor\), rather than only a finite failed test.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The full open paper on infinite prefix-normal words materially inspected in this run treats finite prepending as a structural question: it records finite normalization for Sturmian and Thue–Morse words, impossibility for Champernowne, and separately derives prefix-normal forms for the ordinary paperfolding word. It does not state whether finite prepending can make the paperfolding word itself prefix normal. Madill–Rampersad give the ordinary paperfolding convention and unbounded/regular abelian complexity, but that factor-extremal result does not compare with the distinguished prefix. Fresh Resultary and web searches under finite-prepending and defect formulations found no covering theorem.
+
+## value
+
+PASS
+
+Finite prepend-normalizability is a named structural distinction in the anchor prefix-normal literature, and that same paper treats paperfolding without deciding this behavior. The explicit logarithmically growing obstruction family places a classical automatic word definitively on the non-normalizable side and is stronger than a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
