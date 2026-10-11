@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The determinant-one component tree converts a fixed component-size fiber into the depth-\(u\) additive tree on \((a,b)\). The row sums give \(P=a+b\) and \(Q=(v-u)P+b\), so the torus-knot crossing number is exactly \(P((v-u)P+b-1)\). The lower and upper bounds follow from sharp depth bounds on the additive tree, including uniqueness. The fixed-total-size comparison is an exact Fibonacci calculation. The supplied script reconstructs the canonical split and verifies representative finite ranges independently.
+## correctness
 
-## Originality
-PASS. The closest published-finding corpus record proves the exact number \(2^u\) of knots in each component-size fiber but does not bound their crossing numbers. Lin--Spreer give the canonical split, examples, and qualitative linear/Fibonacci growth families, while the earlier link-diagram literature gives a Fibonacci family showing exponential crossing growth from small triangulations. Targeted searches for fixed-component crossing extrema, equivalent formulations, and stronger envelope statements found no statement implying the sharp two-sided formulas and unique extremizers proved here. Residual risk remains because the motivating preprint is recent.
+PASS
 
-## Value
-PASS. The result turns the qualitative crossing-versus-canonical-size phenomenon into an exact sharp envelope on every canonical component-size fiber, identifies both extremal knot types, and then solves the natural fixed-total-size maximum. It directly refines the source paper's comparison of crossing number with canonical triangulation size rather than introducing an arbitrary slice.
+For a depth-u additive-tree pair (a,b), the torus parameters are P=a+b and Q=dP+b, so c=P(dP+b-1). Since P>=u+2 and b>=1, the lower bound is d(u+2)^2, uniquely at (a,b)=(u+1,1). The additive tree has P<=F_{u+3} and a,b<=F_{u+2}; equality in P occurs only in the two consecutive-Fibonacci orientations, and the orientation with maximal b uniquely gives the stated upper knot. Substituting d=n-2u into this pairwise maximum and comparing M_{u+1}-M_u proves balance is optimal, with the sole n=3 tie. Exact enumeration through u<=12,v<=14 and n<=24 agrees but is only corroborative.
 
-## Closest literature and limitations
-The closest prior mathematical statement is the exact component-size census in the published-finding corpus record `2026/9/18/SCOPE-exact-canonical-torus-knot-triangulation-census--831655b0b665`; it supplies the fiber parametrization but not the crossing extremum. The theorem is about canonical layered size and does not settle minimal triangulation complexity.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. Lin--Spreer prove the unique positive split and show linear/Fibonacci examples, while the prior SCOPE census counts each component-size fiber exactly. Neither gives crossing-number extrema. The audited theorem optimizes crossing on every binary-tree fiber and then over fixed total canonical size.
+
+## value
+
+PASS
+
+Crossing number is the standard diagram complexity explicitly contrasted with Lin--Spreer's canonical triangulation size. Exact extrema on every canonical fiber and the global fixed-size maximizer give a natural quantitative bridge between the two notions and explain the Fibonacci endpoint sharply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
