@@ -1,22 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The fixed-composition null is uniform over binary words with prescribed counts. One transition uses two distinct positions, two adjacent transitions use three positions and occur jointly only through \(010\) or \(101\), and two disjoint transitions use four positions with four possible orientations containing two symbols of each type. These exact hypergeometric probabilities give the two covariance formulas after subtraction of the common squared marginal.
+PASS
 
-The sign reductions are exact. The disjoint zero condition would force \(2N-3\) to divide \(N(N-2)\); coprimality with \(N-2\) would then force \(2N-3\mid N\), impossible for \(N\ge4\). Adjacent zero covariance is equivalent to independence for Bernoulli pairs and is feasible exactly at square \(N\). Summing the covariance field reproduces the standard run-count variance.
+Exchangeability gives the one-transition probability. Two adjacent transitions occur exactly in patterns 010 and 101, yielding joint probability \(ab/[N(N-1)]\). Two disjoint transitions use four distinct positions with two ones and two zeros in four orientations, yielding \(4a(a-1)b(b-1)/[N(N-1)(N-2)(N-3)]\). Subtracting the squared marginal gives the displayed factorizations. The disjoint zero equation would force \(2N-3\) to divide N because \(\gcd(2N-3,N-2)=1\), impossible for \(N\ge4\). Bernoulli zero covariance is independence, so adjacent independence is exactly \(d^2=N\), equivalent to the stated square-size compositions. Fresh exact enumeration independently verified all formulas for every nontrivial composition with 4 through 10 positions, 42 cases.
 
-## Originality
+## originality
 
-PASS, with a classical-literature residual risk. The complete Smeeton--Cox article was inspected. It works in the same conditional random-arrangement model, explicitly counts a new run by a change from the preceding category, and discusses total-run distributions, clustering, and alternation. It does not state the adjacent/disjoint pairwise covariance phase diagram or the square-size independence classification.
+PASS
 
-The 1940 foundational papers are obvious potential sources. Scanned copies were located, but the inspected machine-readable route did not expose their mathematical text, so they are not used for a whole-document noncoverage conclusion. Exact and semantic searches did not locate the two thresholds or the “adjacent independent but disjoint dependent” classification. Because a classical proof of the total variance could implicitly compute the same pair probabilities, originality is claimed for the assembled sign/independence classification rather than for the elementary counting identities in isolation.
+Best-of-knowledge originality passes for the complete pairwise dependence phase diagram, square-size adjacent-independence classification and impossibility of disjoint independence. Classical runs literature supplies the aggregate run-count distribution, mean and variance. The fully inspected modern fixed-count treatment studies the aggregate number of runs under shuffling, not the two-distance covariance field. The inaccessible 1940 mathematical scans remain an explicit bibliographic risk rather than being declared noncovering.
 
-## Value
+## value
 
-PASS. The Wald--Wolfowitz statistic collapses \(N-1\) local change indicators to one count. The theorem exposes the dependence structure hidden by that aggregation: balanced fixed-count samples have negatively associated adjacent changes but positively associated disjoint changes, sufficiently imbalanced samples reverse the distant sign, and special square sample sizes create exact local independence without global pairwise independence. This gives a natural structural explanation of how the classical run variance is assembled from competing local effects.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Transition indicators are the elementary constituents of the classical runs statistic. The exact sign phases reveal how positive and negative local associations cancel inside the familiar scalar variance and identify a non-obvious regime of adjacent independence coexisting with persistent negative disjoint dependence. That is a natural structural refinement of a standard statistic.
 
-
-Exact replay: `VERIFY_OK words_enumerated=8158 marginal_checks=501 adjacent_checks=438 disjoint_checks=1485 phase_checks=31122 nonzero_far_checks=31122 square_independence_checks=31122 variance_checks=31185`.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

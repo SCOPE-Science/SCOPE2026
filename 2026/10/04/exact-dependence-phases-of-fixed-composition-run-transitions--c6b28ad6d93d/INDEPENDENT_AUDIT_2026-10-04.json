@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:49:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "A. Wald and J. Wolfowitz, On a Test Whether Two Samples are from the Same Population, Annals of Mathematical Statistics 11 (1940), 147–162, DOI:10.1214/aoms/1177731909; foundational bibliographic material inspected.",
+        "A. M. Mood, The Distribution Theory of Runs, Annals of Mathematical Statistics 11 (1940), 367–392, DOI:10.1214/aoms/1177731825; bibliographic record and scan route inspected, but the mathematical body was not machine-readable through the available route.",
+        "N. Smeeton and N. J. Cox, Do-it-yourself shuffling and the number of runs under randomness, Stata Journal 3 (2003), 270–277, DOI:10.1177/1536867X0300300304; complete primary article inspected.",
+        "Resultary semantic search for fixed-composition transition indicators, adjacent/disjoint covariance and independence thresholds.",
+        "Fresh independent exact enumeration for every nontrivial composition with 4 through 10 positions, 42 composition cases, plus direct symbolic probability derivation."
+      ],
+      "rationale": "Exchangeability gives the one-transition probability. Two adjacent transitions occur exactly in patterns 010 and 101, yielding joint probability \\(ab/[N(N-1)]\\). Two disjoint transitions use four distinct positions with two ones and two zeros in four orientations, yielding \\(4a(a-1)b(b-1)/[N(N-1)(N-2)(N-3)]\\). Subtracting the squared marginal gives the displayed factorizations. The disjoint zero equation would force \\(2N-3\\) to divide N because \\(\\gcd(2N-3,N-2)=1\\), impossible for \\(N\\ge4\\). Bernoulli zero covariance is independence, so adjacent independence is exactly \\(d^2=N\\), equivalent to the stated square-size compositions. Fresh exact enumeration independently verified all formulas for every nontrivial composition with 4 through 10 positions, 42 cases.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical literature is broader on the full distribution of the total run count.",
+          "The audited result is instead finer on second-order local dependence and exactly sums back to the classical variance."
+        ],
+        "reasoning": "A broader aggregate distribution does not mechanically expose the sign of adjacent versus disjoint covariances unless one carries out the local pattern calculation.",
+        "searches": [
+          "Wald–Wolfowitz foundational runs test",
+          "Mood distribution theory of runs",
+          "Smeeton–Cox conditional fixed-count shuffling treatment"
+        ]
+      },
+      "checked_sources": [
+        "A. Wald and J. Wolfowitz, On a Test Whether Two Samples are from the Same Population, Annals of Mathematical Statistics 11 (1940), 147–162, DOI:10.1214/aoms/1177731909; foundational bibliographic material inspected.",
+        "A. M. Mood, The Distribution Theory of Runs, Annals of Mathematical Statistics 11 (1940), 367–392, DOI:10.1214/aoms/1177731825; bibliographic record and scan route inspected, but the mathematical body was not machine-readable through the available route.",
+        "N. Smeeton and N. J. Cox, Do-it-yourself shuffling and the number of runs under randomness, Stata Journal 3 (2003), 270–277, DOI:10.1177/1536867X0300300304; complete primary article inspected.",
+        "Resultary semantic search for fixed-composition transition indicators, adjacent/disjoint covariance and independence thresholds.",
+        "Fresh independent exact enumeration for every nontrivial composition with 4 through 10 positions, 42 composition cases, plus direct symbolic probability derivation."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same scalar variance can arise from different allocations between adjacent and disjoint covariance terms.",
+          "Exact local joint probabilities are \\(ab/[N(N-1)]\\) for adjacent double transitions and \\(4a(a-1)b(b-1)/[N(N-1)(N-2)(N-3)]\\) for disjoint double transitions.",
+          "Their factorizations produce two different sign thresholds and the arithmetic nonvanishing conclusion."
+        ],
+        "reasoning": "Recovering the classical variance from the covariance field is a consistency check; the implication does not run in reverse.",
+        "searches": [
+          "Classical fixed-composition run-count variance",
+          "Smeeton–Cox aggregate shuffling distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit matched the exact adjacent/disjoint covariance phase diagram.",
+          "Smeeton–Cox define the same fixed-count random arrangement and count a new run at each adjacent category change, but report the aggregate run statistic.",
+          "The classical total variance alone does not identify the two local covariance classes."
+        ],
+        "reasoning": "Transition-indicator, change-point, local-run and serial-dependence formulations were compared. No accessible inspected statement gave the same phase classification.",
+        "searches": [
+          "Resultary query: fixed-composition binary run transition indicators adjacent disjoint covariance sign phases independence",
+          "Searches for transition indicator covariance, change indicators, runs test local dependence and square sample size",
+          "Smeeton–Cox complete fixed-count article"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact indexed record for either threshold or the square-size independence classification was located."
+        ],
+        "reasoning": "This is an all-composition symbolic classification rather than a numerical table; the database search tested for an already-recorded exact law.",
+        "searches": [
+          "Resultary exact-threshold searches for \\(d^2=N\\) and \\(N(N-2)/(2N-3)\\)",
+          "Searches for adjacent transition independence in fixed-composition runs"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes for the complete pairwise dependence phase diagram, square-size adjacent-independence classification and impossibility of disjoint independence. Classical runs literature supplies the aggregate run-count distribution, mean and variance. The fully inspected modern fixed-count treatment studies the aggregate number of runs under shuffling, not the two-distance covariance field. The inaccessible 1940 mathematical scans remain an explicit bibliographic risk rather than being declared noncovering.",
+      "residual_risks": [
+        "Mood's 1940 paper and older runs monographs may contain the raw local pair probabilities or equivalent covariance formulas under another notation.",
+        "The originality claim is restricted to the complete sign/independence phase classification, not the classical run variance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME NULL MODEL, AGGREGATE RUN DISTRIBUTION RATHER THAN PAIRWISE PHASE DIAGRAM",
+          "evidence": "The paper counts total runs generated by adjacent changes and studies their shuffled distribution; the inspected text does not state the two covariance formulas or independence thresholds.",
+          "identifier_or_url": "DOI:10.1177/1536867X0300300304",
+          "material_read": "Complete eight-page primary article including model distinction, shuffling algorithm, adjacent-change counting code, results and discussion.",
+          "method": "Primary full-PDF inspection.",
+          "title": "Do-it-yourself shuffling and the number of runs under randomness",
+          "trigger": "Closest fully accessible treatment of the same conditional fixed-composition random-arrangement model."
+        },
+        {
+          "assessment": "ACCESS-LIMITED PLAUSIBLE PRIOR COVERAGE RISK",
+          "evidence": "The source is known to develop the distribution theory of runs, so raw pairwise calculations may appear there even though they could not be checked statement-by-statement in this run.",
+          "identifier_or_url": "DOI:10.1214/aoms/1177731825",
+          "material_read": "Bibliographic record and scan route; the mathematical scan body was not machine-readable through the available route.",
+          "method": "Bounded lawful access attempt; no whole-document noncoverage claim.",
+          "title": "The Distribution Theory of Runs",
+          "trigger": "Classical comprehensive runs paper and strongest historical coverage risk."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "A. Wald and J. Wolfowitz, On a Test Whether Two Samples are from the Same Population, Annals of Mathematical Statistics 11 (1940), 147–162, DOI:10.1214/aoms/1177731909; foundational bibliographic material inspected.",
+        "A. M. Mood, The Distribution Theory of Runs, Annals of Mathematical Statistics 11 (1940), 367–392, DOI:10.1214/aoms/1177731825; bibliographic record and scan route inspected, but the mathematical body was not machine-readable through the available route.",
+        "N. Smeeton and N. J. Cox, Do-it-yourself shuffling and the number of runs under randomness, Stata Journal 3 (2003), 270–277, DOI:10.1177/1536867X0300300304; complete primary article inspected.",
+        "Resultary semantic search for fixed-composition transition indicators, adjacent/disjoint covariance and independence thresholds.",
+        "Fresh independent exact enumeration for every nontrivial composition with 4 through 10 positions, 42 composition cases, plus direct symbolic probability derivation."
+      ],
+      "rationale": "Transition indicators are the elementary constituents of the classical runs statistic. The exact sign phases reveal how positive and negative local associations cancel inside the familiar scalar variance and identify a non-obvious regime of adjacent independence coexisting with persistent negative disjoint dependence. That is a natural structural refinement of a standard statistic.",
+      "residual_risks": [
+        "Mood's 1940 paper and older runs monographs may contain the raw local pair probabilities or equivalent covariance formulas under another notation.",
+        "The originality claim is restricted to the complete sign/independence phase classification, not the classical run variance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a uniformly random binary word with fixed counts a and b, adjacent and disjoint transition indicators have the stated exact covariance formulas; their signs exhibit the four regimes determined by \\(d^2\\), adjacent indicators are independent exactly at square sample sizes with counts \\((N\\pm\\sqrt N)/2\\), disjoint indicators are never independent, and summing the local covariance field recovers the classical runs variance.",
+  "limitations": [
+    "The complete two-distance statement assumes N at least four; the adjacent formula alone remains valid for N equal to three.",
+    "Only binary fixed-count arrangements and pairwise dependence are classified.",
+    "Mood's 1940 paper and older runs monographs may contain the raw local pair probabilities or equivalent covariance formulas under another notation.",
+    "The originality claim is restricted to the complete sign/independence phase classification, not the classical run variance."
+  ],
+  "schema_version": 1
+}
