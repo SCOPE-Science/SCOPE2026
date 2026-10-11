@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the exact base-polytope description by convex mixtures of bases from pairs of parallel classes. For at least three classes, each nonnegative coordinate has vertex maximum one and each class sum has vertex minimum zero, yielding exact necessary-and-sufficient reflection constraints. Feasibility of class-sum intervals gives the maximum of three obstructions; the two-class case is exactly a product of simplices. Direct relative-interior arguments prove all affine-dimension branches. The standard-library exact-rational verifier checked 2036 profiles / 77808 reflected vertices; an independent general-rank-inequality LP matched 247 profiles. Computations are finite corroboration, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Den Hertog et al. Proposition 4 yields an LP for the center of every polyhedron, and Proposition 7 explicitly treats packing sets without fixed total; https://optimization-online.org/2022/01/8768/",
+        "Ferroni et al. §2.2 supplies the class-sum inequalities, not the scalar optimizer."
+      ],
+      "reasoning": "An LP over arbitrary polyhedra computes individual instances but does not imply that the optimum is the maximum of exactly three specified class-size obstructions or that the entire optimal face has the stated dimension formula. The independence-polytope packing special case is not the equality-constrained matroid base polytope.",
+      "searches": [
+        "Minkowski asymmetry matroid base polytope",
+        "asymmetry generalized permutahedra base polyhedra exact symmetric point matroid",
+        "matroid base polytopes partition matroids Minkowski measure of symmetry skewness",
+        "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.08183 / Ferroni, Jochemko, Schröter, first posted 2021-06-15",
+      "arXiv:2010.10227 / Pineda-Villavicencio, Schröter, first posted 2020-10-20",
+      "den Hertog, Pauphilet, Soali, Optimization Online preprint dated 2022-01-19, revised 2023",
+      "Jochemko, Ravichandran, Mathematika 68 (2022), publisher intro and abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Matroid reconstructibility paper: graph reconstruction does not fix an affine-geometric center invariant without realizing the base-polytope coordinates.",
+        "Ferroni et al.: exact rank-two facet description and Ehrhart positivity.",
+        "Den Hertog et al.: general robust LP; no symbolic family solution and no full dimension formula."
+      ],
+      "reasoning": "The new claim is not a rephrased corollary of the listed theorems. It uses the known halfspace description plus a new exact global optimization of reflection containment and a complete optimal-face analysis. General computational solvability is not equivalent to an evaluated structural theorem.",
+      "searches": [
+        "rank two matroid base polytope Minkowski asymmetry parallel classes complete center set",
+        "Exact Minkowski asymmetry for every loopless rank-two matroid base polytope, maximum of largest parallel class, half ground set minus one, and two over classes minus two; full minimizing center polytope",
+        "https://arxiv.org/html/2010.10227v2",
+        "https://optimization-online.org/2022/01/8768/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A loopless rank-two matroid is determined by its disjoint rank-one flats (parallel classes), and its base polytope is a fixed-sum truncated partition polytope (Ferroni et al., §2.2).",
+        "No Minkowski-asymmetry theorem occurs among Ferroni et al. Theorems 1.1–1.3; https://arxiv.org/html/2106.08183v3"
+      ],
+      "reasoning": "Compared synonyms rank-two base polytope, truncation of partition matroid, second hypersimplex with hyperplane caps, center of symmetry and Minkowski measure. The formulas classify a reflection containment quantity rather than Ehrhart or facet-count data.",
+      "searches": [
+        "rank two matroid base polytope Minkowski asymmetry parallel classes complete center set",
+        "rank two matroid Minkowski asymmetry",
+        "rank two matroid base polytope Minkowski center parallel hyperplane sizes lower dimensional optimal locus",
+        "rank two matroid base polytope Minkowski center parallel hyperplane sizes lower dimensional optimal locus",
+        "https://arxiv.org/html/2106.08183v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly overlapping rank-two matroid paper tabulates Ehrhart and h-star information, not Minkowski centers; Theorems 1.1–1.3.",
+        "The LP paper Table 1 gives standard simplex and capped nonnegative packing sets but not matroid base-polytope class profiles."
+      ],
+      "reasoning": "No matching exact asymmetry or center-dimension table was identified in the inspected sources. This negative search is only supporting evidence, not by itself proof of novelty.",
+      "searches": [
+        "hypersimplex Minkowski asymmetry uniform matroid base polytope center",
+        "Exact Minkowski asymmetry for every loopless rank-two matroid base polytope, maximum of largest parallel class, half ground set minus one, and two over classes minus two; full minimizing center polytope",
+        "Minkowski measure of asymmetry hypersimplex matroid",
+        "https://arxiv.org/html/2106.08183v3"
+      ]
+    },
+    "rationale": "Compared the exact rank-two class-size maximum and full center-locus dimension statement, not just its title: the rank-two Ehrhart full text supplies the object but computes lattice counts; the general polyhedron Minkowski-center LP supplies an algorithm but no closed class-size/dimension theorem; matroid reconstruction concerns a different invariant. Semantic published-finding searches and adjacent primary literature yielded no identical or stronger statement. This is same-model originality assessment, not absolute priority certification.",
+    "residual_risks": [
+      "General exact center LPs can in principle yield the formula by specialization, and an earlier author may already have evaluated this special case under different terminology.",
+      "Semantic search may miss unpublished or unindexed equivalent parameterizations; no independent priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves Ehrhart positivity and explicit Ehrhart formulas, and gives the hyperplane partition model. It does not state ordinary Minkowski asymmetry or a minimizing-center locus.",
+        "evidence": [
+          "arXiv:2106.08183, Theorem 1.1, §2.2 equation (3) and Lemmas 2.6–2.7; https://arxiv.org/html/2106.08183v3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2106.08183v3",
+        "material_read": "Abstract, Theorems 1.1–1.3, sections 2.1–2.2, Lemmas 2.6–2.7, section outline, and reference list; article HTML has 686 lines.",
+        "method": "Read accessible author-preprint full-text HTML and inspected relevant definitions, theorems and hyperplane representation.",
+        "title": "Ehrhart polynomials of rank two matroids",
+        "trigger": "Identical rank-two matroid base-polytope family with parallel-class facets; strongest direct object overlap."
+      },
+      {
+        "assessment": "Class reconstructibility and basis-exchange graphs are combinatorial and do not compute affine Minkowski asymmetry or its centers.",
+        "evidence": [
+          "arXiv:2010.10227, §1, §3, Theorem 18 and abstract; https://arxiv.org/html/2010.10227v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2010.10227v2",
+        "material_read": "Abstract, overview, matroid-base definitions and stated theorems about graphs and reconstruction; original full-text HTML was available.",
+        "method": "Opened author-preprint HTML, inspected main claims and matroid-polytope terminology.",
+        "title": "Reconstructibility of matroid polytopes",
+        "trigger": "General matroid-base-polytope geometry and hypersimplex special cases could imply a new center classification."
+      },
+      {
+        "assessment": "Proposition 4 provides an algorithmic LP for any polyhedron and thus can reproduce instances; Proposition 7 concerns packing sets, not fixed-sum rank-two base faces. Neither states this class-size maximum and complete optimal center dimension classification.",
+        "evidence": [
+          "den Hertog et al., Proposition 4, Lemma 1 and Proposition 7; https://optimization-online.org/2022/01/8768/"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+        "material_read": "PDF pp. 6–11, including Definition 4, Proposition 4, Lemma 1, Proposition 7 and Table 1; title and structural scope of entire paper.",
+        "method": "Lawful open-access full PDF text and visual inspection of p. 6; compared explicit propositions, not snippets.",
+        "title": "Minkowski Centers via Robust Optimization: Computation and Applications",
+        "trigger": "A general exact center LP and analytic formulas for packing polyhedra are potentially dominating results."
+      },
+      {
+        "assessment": "Minkowski linearity refers to Minkowski sums and Ehrhart coefficients, not the reflection-asymmetry invariant. No coverage inferred from lexical similarity.",
+        "evidence": [
+          "Jochemko–Ravichandran, Mathematika 68 (2022), abstract and introductory results; https://doi.org/10.1112/mtk.12122"
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/mtk.12122",
+        "material_read": "Open-access publisher abstract, introduction, and displayed theorem on Minkowski summands and linear functionals.",
+        "method": "Read public publisher HTML extracts; did not treat this as a whole-document negative search.",
+        "title": "Generalized permutahedra: Minkowski linear functionals and Ehrhart positivity",
+        "trigger": "The word Minkowski and the generalized-permutahedron umbrella could disguise equivalent asymmetry work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a659b650-d983-43a4-b374-12c1915d2db4",
+  "value": {
+    "rationale": "A natural affine-geometric invariant is evaluated over the complete class of finite rank-two matroid base polytopes, characterized by parallel-class sizes. The result resolves all optimal-center sets and their affine dimensions, exposes three sharp competing obstructions, and distinguishes connected nonunique-center examples from uniformly dense/hypersimplex cases. This exact classification is not a known Ehrhart table, a trivial renaming, or a numerical example; it supplies an explicit, interpretable benchmark for general polyhedral-center optimization.",
+    "status": "PASS"
+  }
+}
