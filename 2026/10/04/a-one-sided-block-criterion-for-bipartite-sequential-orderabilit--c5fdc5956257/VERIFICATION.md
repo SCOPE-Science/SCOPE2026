@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof was reconstructed directly from the definitions.
+## correctness
 
-1. Fixing the order of the \(A\)-vertices fixes the sequence at every \(B\)-vertex, because simplicity permits at most one incident edge from each \(A\)-block.
-2. At a vertex \(a\in A\) of degree \(d\), properness makes all incident colours distinct, so the \(d!\) internal block orders yield \(d!\) distinct sequences.
-3. Its \(d\) neighbours forbid at most \(d\) sequences. The inequality \(d!>d\) holds for every \(d\ge3\).
-4. Internal choices at different \(A\)-vertices do not alter any fixed \(B\)-sequence, so the local choices coexist in one global concatenated edge order.
+PASS
 
-The packaged `verify.py` was also replayed from the finalized payload. It exhaustively checks \(67,404\) proper edge-colourings over the stated finite regular bipartite strata and reproduces `verification_output.txt` exactly. These computations are finite regression tests only; they are not evidence for the universal quantifier beyond the deductive proof.
+Fix an order of the A-vertices and concatenate their incident-edge blocks. Simplicity makes each B-side sequence independent of internal block permutations. At a left vertex of degree d, properness gives d! distinct local sequences while its d neighbours forbid at most d; d!>d for d>=3. The block choices are independent, proving the universal claim.
 
-Scientific limits retained: multigraphs are not covered by the proof; improper colourings are not covered; one-sided degree \(2\) is not universally sufficient; nonbipartite regular degrees \(3,4,5\) remain outside the claim. Direct primary full-text access was unavailable during originality comparison and is recorded as a bibliographic residual risk.
+## originality
+
+PASS
+
+The primary 2026 paper publicly states the connected regular theorem only for degree at least 6 and its current problem page retains degrees 3,4,5. The closest published SCOPE theorem covers regular bipartite d>=5. Neither implies d=3,4 or the irregular one-sided criterion.
+
+## value
+
+PASS
+
+The result resolves the bipartite part of the explicitly remaining low regular degrees and gives a stronger irregular one-sided criterion by a simple deterministic construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
