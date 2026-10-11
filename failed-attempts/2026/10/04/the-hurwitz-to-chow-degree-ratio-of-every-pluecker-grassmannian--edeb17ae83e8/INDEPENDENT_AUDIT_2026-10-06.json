@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:51:17.530953Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 0a29b72fd8b3b931b3d9822353db280a3ee9dc79",
+        "artifacts/verify.py blob 55eba01a1c3f432cbcd3947f3ee7635ac4e80c14",
+        "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703, Theorem 1.1",
+        "Kohn, Coisotropic Hypersurfaces in Grassmannians, arXiv:1607.05932, Theorem 9 and polar-degree properties"
+      ],
+      "rationale": "The calculation is correct. From T_Gr=S^* tensor Q and the tautological exact sequence, c1(T)=nH and K=-nH. For d=k(n-k), a general curve cut by d-1 Pluecker hyperplanes has degree D and adjunction gives 2g-2=(d-1-n)D. Sturmfels then gives Hdeg=2D+2g-2=(d+1-n)D=(k-1)(n-k-1)D. Kohn identifies this with delta_1 while delta_0=D. The Klein-quadric equality case follows immediately from the positive integer factor. The package finite grid is only regression evidence.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sturmfels' theorem applies to every irreducible projective variety regular in codimension one and directly supplies the Hurwitz degree from D and g.",
+          "Kohn's theorem is likewise general and supplies the polar interpretation."
+        ],
+        "reasoning": "These general theorems dominate the claimed invariant once the standard Grassmannian canonical class is inserted.",
+        "searches": [
+          "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703, Theorem 1.1",
+          "Kohn, Coisotropic Hypersurfaces in Grassmannians, arXiv:1607.05932, Theorem 9 and polar-degree properties"
+        ]
+      },
+      "checked_sources": [
+        "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703, Theorem 1.1",
+        "Kohn, Coisotropic Hypersurfaces in Grassmannians, arXiv:1607.05932, Theorem 9 and polar-degree properties",
+        "standard Grassmannian tangent-bundle identity T_Gr = S^* tensor Q and canonical bundle O(-n)",
+        "Resultary query: Hurwitz degree Chow degree ratio Pluecker Grassmannian first polar degree sectional genus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sturmfels gives Hdeg=2D+2g-2.",
+          "For Gr(k,n), T=S^* tensor Q gives c1(T)=nH and K=-nH; adjunction gives 2g-2=(k(n-k)-n-1)D.",
+          "Combining these yields Hdeg=(k-1)(n-k-1)D with no nonstandard intervening lemma."
+        ],
+        "reasoning": "The entire final claim is mechanically implied by a published general formula plus standard textbook Grassmannian geometry.",
+        "searches": [
+          "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703, Theorem 1.1",
+          "Kohn, Coisotropic Hypersurfaces in Grassmannians, arXiv:1607.05932, Theorem 9 and polar-degree properties",
+          "standard Grassmannian tangent-bundle identity T_Gr = S^* tensor Q and canonical bundle O(-n)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hurwitz degree and first coisotropic/polar degree are equivalent here by Kohn's theorem.",
+          "The sectional genus is obtained from the standard canonical class by ordinary adjunction."
+        ],
+        "reasoning": "Hurwitz, first-polar, coisotropic, and sectional-genus formulations all reduce to the same published general formulas.",
+        "searches": [
+          "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703, Theorem 1.1",
+          "Kohn, Coisotropic Hypersurfaces in Grassmannians, arXiv:1607.05932, Theorem 9 and polar-degree properties",
+          "standard Grassmannian tangent-bundle identity T_Gr = S^* tensor Q and canonical bundle O(-n)",
+          "Resultary query: Hurwitz degree Chow degree ratio Pluecker Grassmannian first polar degree sectional genus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact pre-existing table was required for coverage because statement-level implication from the general theorem is decisive.",
+          "Resultary's exact hit was the assigned record, but failed exact search cannot override direct implication."
+        ],
+        "reasoning": "Coverage is established by derivability, not exact wording.",
+        "searches": [
+          "Resultary query: Hurwitz degree Chow degree ratio Pluecker Grassmannian first polar degree sectional genus",
+          "targeted searches for the exact factor (k-1)(n-k-1)"
+        ]
+      },
+      "rationale": "Originality fails under the required implication standard. Sturmfels proves for every smooth projective variety of degree D and sectional genus g that the Hurwitz degree is 2D+2g-2. Kohn identifies coisotropic degrees with polar degrees and records delta_0=degree. For the ordinary Pluecker Grassmannian, the standard tangent-bundle identity immediately gives K=-nH, and one adjunction line on a general complete-intersection curve gives 2g-2=(k(n-k)-n-1)D. Substitution into Sturmfels is exactly the audited factor. Thus the final theorem is a routine specialization of a published general theorem using textbook Grassmannian geometry, even though the exact factor was not located verbatim.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_GENERAL_PRIOR_IMPLICATION",
+          "evidence": "Theorem 1.1 states that for codimension-one-regular X the Hurwitz degree is 2p+2g-2.",
+          "identifier_or_url": "arXiv:1410.6703",
+          "material_read": "Complete open primary PDF around Theorem 1.1 and its proof.",
+          "method": "Lawful open primary PDF with page-image inspection.",
+          "title": "The Hurwitz Form of a Projective Variety",
+          "trigger": "General theorem directly controlling the audited invariant."
+        },
+        {
+          "assessment": "GENERAL_POLAR_IDENTIFICATION",
+          "evidence": "The paper records delta_0(X)=deg X and proves deg CH_i(X)=delta_i(X).",
+          "identifier_or_url": "arXiv:1607.05932",
+          "material_read": "Complete open primary PDF around the polar-degree properties and Theorem 9.",
+          "method": "Lawful open primary PDF with page-image inspection.",
+          "title": "Coisotropic Hypersurfaces in Grassmannians",
+          "trigger": "General source equating coisotropic and polar degrees."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Sturmfels, The Hurwitz Form of a Projective Variety, arXiv:1410.6703, Theorem 1.1",
+        "Kohn, Coisotropic Hypersurfaces in Grassmannians, arXiv:1607.05932, Theorem 9 and polar-degree properties",
+        "standard Grassmannian tangent-bundle identity T_Gr = S^* tensor Q and canonical bundle O(-n)",
+        "Resultary query: Hurwitz degree Chow degree ratio Pluecker Grassmannian first polar degree sectional genus"
+      ],
+      "rationale": "The Hurwitz degree of Grassmannians is a natural invariant, but this final claim requires only a textbook canonical-class computation and one adjunction substitution into an existing universal Hurwitz-degree theorem. Under the required value bar, a concise parameter specialization with no new structural lemma, boundary phenomenon, or unresolved invariant is a routine deduction rather than an independently valuable finding.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication is withheld because every frozen package contains operational workflow material in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files, including audit-status and workflow-state fields. The complete 37-file recursive inventory was read; RESULT.md, SLOGAN.txt, certificates, and verifier sources were semantically inspected and were clear of the checked platform/workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}
