@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof has three checkable steps: (1) the polygon-centroid numerator reduces to the two diagonal asymmetries; (2) the quadrilateral circumcenter of mass satisfies the two perpendicular-bisector dot-product equations; and (3) equality reduces to a two-by-two homogeneous linear system with determinant \(1-4\cos^2\theta\).
+# Independent mathematical audit
 
-`verify.py` uses exact rational arithmetic to replay the centroid identity on multiple nondegenerate rational-direction instances, checks the determinant reduction, and verifies the exact non-parallelogram witness at \(\cos\theta=1/2\). It prints `VERIFY_OK` on success.
+## correctness
 
-The script is supplemental: finitely many test instances are not a proof of the universal theorem. The universal step is the symbolic derivation written in `RESULT.md`. No claim is made for concave, crossed, zero-area, or higher-sided polygons.
+PASS
+
+With the diagonal intersection as origin and unit diagonal directions \(u,v\), direct polygon-centroid algebra gives \(CM=(pu+qv)/3\) for \(p=\alpha-\gamma\), \(q=\beta-\delta\). The quadrilateral CCM lies on both diagonal perpendicular bisectors, hence has scalar products \(p/2\) and \(q/2\). Equality is therefore exactly \(p=2qt\), \(q=2pt\), whose complete solution is \(p=q=0\) or \(4t^2=1\) with \(q=2tp\). The explicit non-parallelogram witness satisfies these equations and has unequal side lengths.
+
+## originality
+
+PASS
+
+Tabachnikov--Tsukerman's full primary text gives the exact quadrilateral CCM construction as the intersection of diagonal perpendicular bisectors and proves the sufficient theorem \(CCM=CM\) for equilateral polygons. It does not state a converse coincidence locus. Fresh Resultary search returns the audited record itself as the direct exact match and no earlier equivalent. The new non-parallelogram \(60^\circ\) branch therefore is not prior-implied by the inspected source.
+
+## value
+
+PASS
+
+This is a natural complete classification of when the quadrilateral generalized Euler line collapses for the foundational center pair. It reveals a genuine non-parallelogram family beyond the known equilateral sufficient class and identifies the exact geometric boundary by diagonal angle and asymmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof fixes the diagonal intersection as origin, derives the lamina centroid exactly, uses the published perpendicular-bisector description of the quadrilateral circumcenter of mass, and solves the resulting two linear equations without loss of cases. The explicit example is checked exactly.
+## correctness
 
-## Originality
-PASS. The closest literature defines the same centers, proves the quasi-Euler-line relation, and gives the equilateral-polygon sufficient condition. Targeted alias, exact-form, database, and implication searches found no complete quadrilateral coincidence locus. The principal residual risk is an unindexed or differently phrased classical-geometry source.
+PASS
 
-## Value
-PASS. A complete collapse classification for the foundational quadrilateral Euler-line construction is a motivated structural fact. The non-parallelogram \(60^\circ\) branch shows that the known equilateral condition is not close to necessary in dimension two.
+With the diagonal intersection as origin and unit diagonal directions \(u,v\), direct polygon-centroid algebra gives \(CM=(pu+qv)/3\) for \(p=\alpha-\gamma\), \(q=\beta-\delta\). The quadrilateral CCM lies on both diagonal perpendicular bisectors, hence has scalar products \(p/2\) and \(q/2\). Equality is therefore exactly \(p=2qt\), \(q=2pt\), whose complete solution is \(p=q=0\) or \(4t^2=1\) with \(q=2tp\). The explicit non-parallelogram witness satisfies these equations and has unequal side lengths.
 
-## Closest literature and limitations
-Myakishev (2006) supplies the quadrilateral quasi-Euler line. Tabachnikov and Tsukerman (arXiv:1301.0496; DCG 2014) identify its quasicircumcenter with the circumcenter of mass and prove \(CCM=CM\) for equilateral polygons. The present theorem is restricted to strictly convex quadrilaterals and does not classify higher polygons or nonconvex signed configurations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Tabachnikov--Tsukerman's full primary text gives the exact quadrilateral CCM construction as the intersection of diagonal perpendicular bisectors and proves the sufficient theorem \(CCM=CM\) for equilateral polygons. It does not state a converse coincidence locus. Fresh Resultary search returns the audited record itself as the direct exact match and no earlier equivalent. The new non-parallelogram \(60^\circ\) branch therefore is not prior-implied by the inspected source.
+
+## value
+
+PASS
+
+This is a natural complete classification of when the quadrilateral generalized Euler line collapses for the foundational center pair. It reveals a genuine non-parallelogram family beyond the known equilateral sufficient class and identifies the exact geometric boundary by diagonal angle and asymmetry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
