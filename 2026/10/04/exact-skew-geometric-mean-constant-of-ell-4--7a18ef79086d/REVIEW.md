@@ -1,15 +1,21 @@
-# Same-model review of Exact skew geometric mean constant of \(\ell_4\)
+# Independent mathematical audit
 
-## Correctness
-PASS. The definition and quantifiers are explicit. The coordinatewise operator estimate proves the global upper bound in arbitrary \(\ell_4(I)\); the two-coordinate construction converts any maximizing vector for the finite-dimensional matrix norm into unit vectors for which both transformed norms equal that matrix norm. The generalized Rayleigh quotient is exhaustive because every nonzero \((r,q)\in\mathbb R^2\) has a real square root \(u+iv\). Exact expansion of the characteristic polynomial and its discriminant is replayed by `verify.py`.
+## correctness
 
-## Originality
-PASS. The defining 2023 preprint and its 2025 journal version were inspected at the definition, global bounds, and concrete examples. They calculate the Hilbert value, the square-plane value, and a mixed \(\ell_\infty\)-\(\ell_1\) example, but not \(\ell_4\). Searches combining the invariant name and notation with \(\ell_4\), matrix-norm language, and the resulting radical expression did not identify an equivalent or stronger formula. The cumulative prior ledger was also searched for the invariant and aliases, with no matching accepted claim.
+PASS
 
-## Value
-PASS. The result supplies a complete two-parameter benchmark for a canonical uniformly convex non-Hilbert space, rather than a single numerical slice. It also exposes a reusable operator-norm reduction and gives a sharp closed form between the known Hilbert and square-plane extremes. This is a motivated exact invariant for the new geometric constant.
+The dimension-free upper bound and two-coordinate equality construction are correct. Coordinatewise application of the \(\ell_4^2\) operator norm gives \(P^4+Q^4\le2m^4\), and the fourth-power mean gives the claimed average bound. Choosing \(x=(u,v)\), \(y=(v,-u)\) on two coordinates from an operator-norm extremizer makes both transformed norms equal to \(m\). The substitution \(r=u^2-v^2\), \(q=2uv\) is surjective onto \(\mathbb R^2\), and an independent symbolic generalized-eigenvalue calculation reproduced the characteristic polynomial and discriminant \(\alpha^2\beta^2(\alpha^2+2\beta^2)(2\alpha^2+\beta^2)\).
 
-## Closest literature and limitations
-The closest source is Ni–Liu–Zhou, DOI 10.22541/au.169235474.44030928/v1, followed by the journal version DOI 10.7153/mia-2025-28-22. The result is limited to the real \(\ell_4\) exponent; no claim is made for general \(p\), and database searches cannot exclude all unindexed literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The defining journal article was inspected in full. It introduces \(A_{\alpha-\beta}(X)\), proves the Hilbert value and general bounds, and its concrete examples in the relevant section are the square plane and a mixed \(\ell_\infty\)-\(\ell_1\) plane. A full-text search found no \(\ell_4\) treatment. Resultary returned the assigned \(\ell_4\) formula as the exact hit and neighboring records concern different geometric constants. No stronger theorem located in the inspected source implies this exact two-parameter operator norm.
+
+## value
+
+PASS
+
+\(\ell_4\) is a canonical uniformly convex Banach space and the two-parameter skew constant is the defining paper's main invariant. An exact all-parameter value on this standard non-Hilbert space, with a dimension-free reduction to a two-coordinate extremizer, is a natural exact invariant rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
