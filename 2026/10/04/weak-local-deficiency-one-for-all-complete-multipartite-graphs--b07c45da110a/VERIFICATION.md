@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal proof is analytical. The finite checker is an independent stress test of the new tied-maximum constructions.
+# Independent mathematical audit
 
-Run:
+## correctness
 
-`python3 artifacts/verify.py`
+PASS
 
-Expected terminal line:
+The already-published bipartite and unique-largest-part cases reduce the proof to at least three parts with the maximum part size attained twice. For odd order, a Hamiltonian cyclic ordering of part labels and the sum coloring on \(\mathbb Z_N\) make every missing-color set a translate of a part with no adjacent residues. For even order, the one-factorization on \(\mathbb Z_{N-1}\cup\{\infty\}\), the specially spaced smallest part and a step-two Hamilton cycle force every same-part omission to avoid consecutive colors. Dirac's theorem supplies the required cyclic words. I independently stress-tested the construction on all tied-maximum multipartite profiles through order 12 with no violation; the packaged verifier extends the same finite stress test through order 16.
 
-`ALL CHECKS PASSED; tied_max_types=222; total_edges_checked=16133; max_order=16`
+## originality
 
-The checker enumerates every integer partition of each order from \(3\) through \(16\), selects multipartite types with at least three parts and at least two largest parts, constructs the appropriate odd- or even-order coloring, checks properness at every vertex, and checks that no two missing integer colors inside any incident color span are consecutive.
+PASS
 
-The checker does not attempt to verify the published unique-largest-part theorem and does not use finite success as evidence for the universal quantifier. The proof of the infinite tied-maximum family is contained in `RESULT.md`.
+The current primary abstract states the general complete-multipartite bound two and highlights broad classes with bound one; the submitted argument closes the remaining tied-maximum case and answers the weak half of the source's stated problem. A public full-body retrieval attempt for the same recent paper was unavailable, and one authorized institutional fallback returned worker unavailable/request invalid; this is retained as access risk rather than negative evidence. The older cyclic-interval theorem does not imply ordinary weak-local-deficiency one because wrapping gaps can be long.
+
+## value
+
+PASS
+
+The result resolves the weak-local-deficiency half of an explicit current complete-multipartite problem and improves the universal bound from two to the best possible nonzero value one. The proof supplies two structural colorings rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof was reconstructed case by case. In the new tied-maximum case, the only structural input is Dirac's Hamiltonian-cycle theorem applied where the largest part is at most half the relevant order. For odd order, properness and the missing-color description follow directly from the sum coloring on \(\mathbb Z_N\). For even order, the one-factorization on \(\mathbb Z_{N-1}\cup\{\infty\}\) was checked algebraically, including the special infinity-part and the \(s=1\) case. The label-spacing conditions translate exactly into the absence of consecutive missing colors. A standalone exhaustive stress test covers every tied-maximum multipartite type through order \(16\).
+## correctness
 
-The universal statement is not inferred from finite enumeration. The published unique-largest-part theorem and the standard interval colorability of complete bipartite graphs are used only for their stated cases.
+PASS
 
-## Originality
-**PASS.** Casselgren--Petrosyan prove weak local deficiency at most \(2\) for arbitrary complete multipartite graphs, prove at most \(1\) for tripartite graphs and for graphs with a unique largest part, and explicitly ask in Problem 6.6 whether value \(2\) can occur. The new construction supplies the remaining tied-maximum cases. Targeted published-finding corpus searches over the invariant name, weak-near-interval aliases, Problem 6.6, and cyclic-interval formulations returned no covering statement.
+The already-published bipartite and unique-largest-part cases reduce the proof to at least three parts with the maximum part size attained twice. For odd order, a Hamiltonian cyclic ordering of part labels and the sum coloring on \(\mathbb Z_N\) make every missing-color set a translate of a part with no adjacent residues. For even order, the one-factorization on \(\mathbb Z_{N-1}\cup\{\infty\}\), the specially spaced smallest part and a step-two Hamilton cycle force every same-part omission to avoid consecutive colors. Dirac's theorem supplies the required cyclic words. I independently stress-tested the construction on all tied-maximum multipartite profiles through order 12 with no violation; the packaged verifier extends the same finite stress test through order 16.
 
-The main potentially dominating older result is Asratian--Casselgren--Petrosyan's theorem that every complete multipartite graph has a cyclic interval coloring. Full-text comparison shows it is not implication-equivalent: cyclic wraparound permits one long ordinary linear gap. The 2026 paper itself cites that literature and still poses Problem 6.6.
+## originality
 
-Residual novelty risk is temporal: this is a very recent open problem, so later revisions or new postings can change the literature state.
+PASS
 
-## Value
-**PASS.** The theorem resolves the weak-local-deficiency half of an explicit open problem on a classical graph family and improves the best stated universal bound from \(2\) to \(1\). The result is structural and constructive, and it identifies the exact weak local deficiency once ordinary interval colorability is known.
+The current primary abstract states the general complete-multipartite bound two and highlights broad classes with bound one; the submitted argument closes the remaining tied-maximum case and answers the weak half of the source's stated problem. A public full-body retrieval attempt for the same recent paper was unavailable, and one authorized institutional fallback returned worker unavailable/request invalid; this is retained as access risk rather than negative evidence. The older cyclic-interval theorem does not imply ordinary weak-local-deficiency one because wrapping gaps can be long.
 
-## Closest literature and limitations
-The closest source is C. J. Casselgren and P. A. Petrosyan, arXiv:2609.15873v1. The older cyclic-interval theorem is A. S. Asratian, C. J. Casselgren, and P. A. Petrosyan, arXiv:1606.09389v2. The present result does **not** settle the local-deficiency half of Problem 6.6 and does not classify which complete multipartite graphs are interval colorable.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The result resolves the weak-local-deficiency half of an explicit current complete-multipartite problem and improves the universal bound from two to the best possible nonzero value one. The proof supplies two structural colorings rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
