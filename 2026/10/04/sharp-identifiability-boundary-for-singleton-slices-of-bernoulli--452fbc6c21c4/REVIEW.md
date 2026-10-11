@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the singleton fingerprint to a one-dimensional scale function along each odds ray. Its logarithmic derivative has the exact sign of \(1-\sum_i p_i\), which proves injectivity on \(\sum_i p_i\le1\). The homogeneous function \(u(1-u)^{n-1}\) supplies the exact fold beyond \(1/n\), and the boundary Taylor expansion is checked against the explicit second derivative. Total variation is lower-bounded by the marginal difference under coordinate projection.
+## correctness
 
-## Originality
-PASS. The recent general product-TV proxy uses full midpoint-score information, not the singleton slice. The precursor Bernoulli paper proves singleton control only on \([0,1/(2n)]^n\) and does not state the exact injectivity threshold, the loss of Lipschitz stability at \(1/n\), or nonidentifiability above it. research-index and public-literature searches using singleton-slice, odds-ray, exactly-one-success, inverse Poisson-binomial and \(1/n\)-threshold aliases found no implication-equivalent statement. Residual risk from differently named inverse-problem literature remains.
+PASS
 
-## Value
-PASS. The result gives a sharp structural boundary for the specific low-complexity statistic used to approximate a generally hard product total-variation problem. It shows that the earlier \(1/(2n)\) regime is not an identifiability limit, pinpoints the exact point where identifiability ends, and distinguishes that from the earlier loss of uniform stability at the boundary. This directly constrains what any extension based only on singleton probabilities can achieve.
+Writing the singleton probabilities as \(F_i=P_0 o_i\), equality of a nonzero fingerprint forces the odds vectors onto one positive ray. Along that ray the common scale is \(h(u)=u/\prod_j(1+ur_j)\) and \(h'(u)/h(u)=(1-\sum_j p_j(u))/u\), so the scale is strictly increasing up to the unique sum-one point. This proves injectivity on \(\sum p_i\le1\). The homogeneous profile \(u(1-u)^{n-1}\) has its unique maximum at \(1/n\), proving the exact cube threshold and the two-to-one fold above it. At the boundary the fingerprint change is quadratic in a homogeneous perturbation while a one-coordinate marginal gives a linear total-variation lower bound, so no uniform Lipschitz TV upper bound exists. Independent bounded numerical checks reproduced the fold and the boundary blow-up for dimensions two through eight.
 
-## Closest literature and limitations
-The closest sources are arXiv:2609.21049v1, which gives a universal product-TV proxy and cites the Bernoulli small-parameter program, and arXiv:2602.21828v1, whose Theorem 1.2 and Lemma 4.3 control total variation and parameters by the singleton slice on \([0,1/(2n)]^n\). The present result does not determine whether a useful dimension-free singleton comparison extends through any or all of the open interval between \(1/(2n)\) and \(1/n\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest Bernoulli-product paper proves two-sided TV control from singleton discrepancy only on the smaller cube \([0,1/(2n)]^n\); its Theorem 1.2 was read in the primary PDF. The newer analytic-proxy work treats full product-distribution comparison rather than exact inversion of the labeled singleton slice. Targeted Resultary search over singleton probabilities, exactly-one-success conditioning, odds rays, and the \(1/n\) threshold found related Bernoulli results but no theorem implying the submitted injectivity/stability trichotomy.
+
+## value
+
+PASS
+
+The labeled singleton slice is exactly the statistic used in a current Bernoulli-product TV program. Determining its sharp injectivity boundary, the precise homogeneous fold beyond it, and the loss of Lipschitz stability at the boundary gives a motivated inverse-problem phase transition rather than a small numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

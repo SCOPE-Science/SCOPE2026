@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof was reconstructed from definitions. For \(F_i(\mathbf p)=P_0(\mathbf p)o_i(\mathbf p)\), equality of a nonzero singleton fingerprint forces both odds vectors onto one ray. Along that ray, direct differentiation gives \(h'(u)/h(u)=\{1-\sum_i p_i(u)\}/u\), establishing the monotonicity boundary at total coordinate sum one.
+# Independent mathematical audit
 
-For the cube obstruction, the homogeneous fingerprint coordinate is \(\phi(u)=u(1-u)^{n-1}\), with \(\phi'(u)=(1-u)^{n-2}(1-nu)\). This proves a single fold at \(u=1/n\). At the boundary, \(\phi''(1/n)=-n(1-1/n)^{n-2}\), so the singleton discrepancy changes quadratically while projection to one Bernoulli coordinate shows total variation changes at least linearly.
+## correctness
 
-The bundled `verify.py` was executed from its finalized package path. It numerically reconstructs the two homogeneous branches for several dimensions and checks increasing divergence of the boundary TV-to-singleton ratio. The numerical checks are supplementary; no finite experiment is used to prove the quantified theorem.
+PASS
 
-Unproved limit: no claim is made about the optimal positive comparison constant, or even dimension-free comparability, for all cubes strictly between \(1/(2n)\) and \(1/n\).
+Writing the singleton probabilities as \(F_i=P_0 o_i\), equality of a nonzero fingerprint forces the odds vectors onto one positive ray. Along that ray the common scale is \(h(u)=u/\prod_j(1+ur_j)\) and \(h'(u)/h(u)=(1-\sum_j p_j(u))/u\), so the scale is strictly increasing up to the unique sum-one point. This proves injectivity on \(\sum p_i\le1\). The homogeneous profile \(u(1-u)^{n-1}\) has its unique maximum at \(1/n\), proving the exact cube threshold and the two-to-one fold above it. At the boundary the fingerprint change is quadratic in a homogeneous perturbation while a one-coordinate marginal gives a linear total-variation lower bound, so no uniform Lipschitz TV upper bound exists. Independent bounded numerical checks reproduced the fold and the boundary blow-up for dimensions two through eight.
+
+## originality
+
+PASS
+
+The closest Bernoulli-product paper proves two-sided TV control from singleton discrepancy only on the smaller cube \([0,1/(2n)]^n\); its Theorem 1.2 was read in the primary PDF. The newer analytic-proxy work treats full product-distribution comparison rather than exact inversion of the labeled singleton slice. Targeted Resultary search over singleton probabilities, exactly-one-success conditioning, odds rays, and the \(1/n\) threshold found related Bernoulli results but no theorem implying the submitted injectivity/stability trichotomy.
+
+## value
+
+PASS
+
+The labeled singleton slice is exactly the statistic used in a current Bernoulli-product TV program. Determining its sharp injectivity boundary, the precise homogeneous fold beyond it, and the loss of Lipschitz stability at the boundary gives a motivated inverse-problem phase transition rather than a small numerical refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

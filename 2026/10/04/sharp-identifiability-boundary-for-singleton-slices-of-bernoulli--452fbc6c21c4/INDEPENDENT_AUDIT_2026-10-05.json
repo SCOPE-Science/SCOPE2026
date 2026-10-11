@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:07:14.923178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob f768ba3e43af2fd33d3854d89b1ed79c74f55418",
+        "assigned verify.py blob 7009188fdca9cffce0a8bfac5da260b43ec00917",
+        "Avital--Kontorovich--Salafatinos, arXiv:2602.21828v1",
+        "Avital--Kontorovich--Vershynin--Zou, arXiv:2609.21049v1"
+      ],
+      "rationale": "Writing the singleton probabilities as \\(F_i=P_0 o_i\\), equality of a nonzero fingerprint forces the odds vectors onto one positive ray. Along that ray the common scale is \\(h(u)=u/\\prod_j(1+ur_j)\\) and \\(h'(u)/h(u)=(1-\\sum_j p_j(u))/u\\), so the scale is strictly increasing up to the unique sum-one point. This proves injectivity on \\(\\sum p_i\\le1\\). The homogeneous profile \\(u(1-u)^{n-1}\\) has its unique maximum at \\(1/n\\), proving the exact cube threshold and the two-to-one fold above it. At the boundary the fingerprint change is quadratic in a homogeneous perturbation while a one-coordinate marginal gives a linear total-variation lower bound, so no uniform Lipschitz TV upper bound exists. Independent bounded numerical checks reproduced the fold and the boundary blow-up for dimensions two through eight.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The analytic-proxy work applies to arbitrary product laws but uses richer marginal information.",
+          "The Bernoulli small-parameter theorem is broader as a TV comparison inside its cube but does not extend to the exact inverse boundary."
+        ],
+        "reasoning": "Broader product-TV results do not dominate identifiability from only the singleton slice.",
+        "searches": [
+          "arXiv:2609.21049v1",
+          "arXiv:2602.21828v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.21828v1",
+        "arXiv:2609.21049v1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A TV comparison on \\([0,1/(2n)]^n\\) implies injectivity only on that smaller cube.",
+          "It does not imply injectivity through \\(1/n\\), boundary ill-conditioning, or nonidentifiability immediately above \\(1/n\\)."
+        ],
+        "reasoning": "The ray monotonicity and homogeneous fold are additional arguments needed for the final claim.",
+        "searches": [
+          "statement comparison with arXiv:2602.21828v1 Lemma 4.3 and Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The small-parameter paper controls TV by the same labeled singleton probabilities on \\([0,1/(2n)]^n\\).",
+          "It does not state injectivity on the larger simplex or a fold at total mass one."
+        ],
+        "reasoning": "The odds-ray inverse formulation and the labeled singleton-probability formulation were compared directly; the inspected predecessor is quantitatively narrower and does not imply the sharp boundary.",
+        "searches": [
+          "Resultary: Bernoulli product singleton probabilities exactly one success identifiability injective odds ray threshold 1/n total variation",
+          "arXiv:2602.21828v1 Theorem 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact finding with the same threshold/fold/stability statement appeared among the returned relevant records."
+        ],
+        "reasoning": "The theorem is structural rather than a finite table; the database search was used to test exact prior publication.",
+        "searches": [
+          "Resultary semantic search for singleton-slice injectivity and the 1/n threshold"
+        ]
+      },
+      "rationale": "The closest Bernoulli-product paper proves two-sided TV control from singleton discrepancy only on the smaller cube \\([0,1/(2n)]^n\\); its Theorem 1.2 was read in the primary PDF. The newer analytic-proxy work treats full product-distribution comparison rather than exact inversion of the labeled singleton slice. Targeted Resultary search over singleton probabilities, exactly-one-success conditioning, odds rays, and the \\(1/n\\) threshold found related Bernoulli results but no theorem implying the submitted injectivity/stability trichotomy.",
+      "residual_risks": [
+        "The odds-ray calculation is elementary and may have appeared under inverse Poisson-binomial or conditional-one-success terminology not indexed by the searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NARROWER_SMALL_PARAMETER_COVERAGE",
+          "evidence": "The inspected theorem stops at the half-threshold cube and contains no exact \\(1/n\\) inverse boundary.",
+          "identifier_or_url": "arXiv:2602.21828v1",
+          "material_read": "Primary PDF Theorem 1.2 and surrounding setup, including the \\([0,1/(2n)]^n\\) hypothesis and singleton-discrepancy TV comparison.",
+          "method": "Lawful open primary full-text inspection with rendered-page verification.",
+          "title": "TV over Bernoulli products: the small parameter regime",
+          "trigger": "Closest theorem using the same singleton discrepancy."
+        },
+        {
+          "assessment": "BROADER_DIFFERENT_INFORMATION",
+          "evidence": "Its proxy uses full marginal information rather than the singleton fingerprint alone.",
+          "identifier_or_url": "arXiv:2609.21049v1",
+          "material_read": "Accessible abstract/introduction-level material describing the universal analytic proxy and relation to Bernoulli small-parameter work.",
+          "method": "Lawful public primary-source inspection.",
+          "title": "Total Variation Distance between Product Distributions: an Analytic Proxy",
+          "trigger": "Fresh broader product-TV source cited by the package."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2602.21828v1",
+        "arXiv:2609.21049v1"
+      ],
+      "rationale": "The labeled singleton slice is exactly the statistic used in a current Bernoulli-product TV program. Determining its sharp injectivity boundary, the precise homogeneous fold beyond it, and the loss of Lipschitz stability at the boundary gives a motivated inverse-problem phase transition rather than a small numerical refinement.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2602.21828v1",
+    "arXiv:2609.21049v1",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Labeled singleton atoms only; coarser one-success totals are not covered.",
+    "No dimension-free positive TV comparison is claimed throughout the whole subcritical cube."
+  ],
+  "residual_risks": [
+    "The odds-ray calculation is elementary and may have appeared under inverse Poisson-binomial or conditional-one-success terminology not indexed by the searches."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NARROWER_SMALL_PARAMETER_COVERAGE",
+      "evidence": "The inspected theorem stops at the half-threshold cube and contains no exact \\(1/n\\) inverse boundary.",
+      "identifier_or_url": "arXiv:2602.21828v1",
+      "material_read": "Primary PDF Theorem 1.2 and surrounding setup, including the \\([0,1/(2n)]^n\\) hypothesis and singleton-discrepancy TV comparison.",
+      "method": "Lawful open primary full-text inspection with rendered-page verification.",
+      "title": "TV over Bernoulli products: the small parameter regime",
+      "trigger": "Closest theorem using the same singleton discrepancy."
+    },
+    {
+      "assessment": "BROADER_DIFFERENT_INFORMATION",
+      "evidence": "Its proxy uses full marginal information rather than the singleton fingerprint alone.",
+      "identifier_or_url": "arXiv:2609.21049v1",
+      "material_read": "Accessible abstract/introduction-level material describing the universal analytic proxy and relation to Bernoulli small-parameter work.",
+      "method": "Lawful public primary-source inspection.",
+      "title": "Total Variation Distance between Product Distributions: an Analytic Proxy",
+      "trigger": "Fresh broader product-TV source cited by the package."
+    }
+  ]
+}
