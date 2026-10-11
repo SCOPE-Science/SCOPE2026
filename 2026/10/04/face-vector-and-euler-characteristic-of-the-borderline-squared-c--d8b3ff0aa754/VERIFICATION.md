@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`verify.py` constructs the square of each cycle \(C_{k+5}\) for \(3\le k\le14\). For every five-subset it compares direct induced-graph connectivity with the proof's cyclic-run criterion. It then generates every nonempty face from the resulting facets and checks the full face vector, the reduced Euler characteristic, and the conditional \(\beta(k)\) identity.
+## correctness
 
-The replay prints one summary row per tested \(k\) and ends with `SQUARED_CYCLE_FACE_VERIFY_OK`. The enumeration is finite and is used only as a regression and boundary check. The claim for every \(k\ge3\) rests on the all-parameter run-classification proof in `RESULT.md`.
+PASS
 
-No independent audit has been performed.
+For a five-set S, the retained graph in C_{k+5}^2 disconnects exactly when at least two cyclic runs of S have length at least two. Hence facets have run types (3,2) and (2,2,1), giving f_4=n[(k-1)+C(k-1,2)]=nk(k-1)/2. Four-faces have exactly types (3,1),(2,2),(2,1,1), giving f_3=n[k+k/2+C(k,2)]=nk(k+2)/2, and every three-set extends. Independent exhaustive reconstruction for k=3,...,7 reproduced the complete face vector and Euler formula; the all-k proof is the run count.
+
+## originality
+
+PASS
+
+Originality passes. The primary squared-cycle paper gives computationally supported homotopy/beta conjectures for the borderline family but no all-k face vector. Its general Euler theorem has a skeleton hypothesis that fails here. The later squared-cycle theorem fixes cut size three or a different range; the sequel's advertised face-polynomial formulas concern other graph families.
+
+## value
+
+PASS
+
+This exact face vector resolves a structural invariant of the precise borderline family where the primary source leaves a computational topology conjecture, and it explains why the published beta polynomial is forced if that wedge conjecture holds. It is not a finite table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

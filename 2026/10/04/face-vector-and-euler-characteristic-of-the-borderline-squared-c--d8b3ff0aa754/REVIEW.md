@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces induced connectivity in \(W_{k+5}\) to a cyclic-run criterion and exhausts all possible run partitions for five-, four-, and three-subsets. The positive-composition counts reproduce the claimed face vector, and the Euler identity follows algebraically. The standalone verifier reconstructs all complexes for \(3\le k\le14\) directly from graph connectivity and independently checks the run criterion and formulas.
+## correctness
 
-## Originality
-PASS. The closest primary source states the mixed-wedge homotopy type and the corresponding \(\beta(k)\) formula as conjectures supported by computation; it does not state the all-\(k\) face vector. The later squared-cycle paper proves the three-cut case and places its higher-cut conjecture in the range \(n\ge2k+3\), not \(n=k+5\). The accessible abstract of the later sequel assigns its explicit face-polynomial formulas to disjoint unions and names squared paths and grids as the other studied families. Exact semantic searches for the squared-cycle face vector and Euler formula found no covering result.
+PASS
 
-Residual bibliographic risk remains because the full text of one later sequel was not accessible in the checked source and because non-indexed duplicates are always possible.
+For a five-set S, the retained graph in C_{k+5}^2 disconnects exactly when at least two cyclic runs of S have length at least two. Hence facets have run types (3,2) and (2,2,1), giving f_4=n[(k-1)+C(k-1,2)]=nk(k-1)/2. Four-faces have exactly types (3,1),(2,2),(2,1,1), giving f_3=n[k+k/2+C(k,2)]=nk(k+2)/2, and every three-set extends. Independent exhaustive reconstruction for k=3,...,7 reproduced the complete face vector and Euler formula; the all-k proof is the run count.
 
-## Value
-PASS. The exact all-parameter face vector is attached to a published open squared-cycle homotopy problem, and its Euler characteristic forces the observed closed formula for the number of four-spheres whenever the conjectured homotopy shape holds. This separates the enumerative part of the conjecture from the unresolved topological part rather than adding another finite data point.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The primary squared-cycle paper gives computationally supported homotopy/beta conjectures for the borderline family but no all-k face vector. Its general Euler theorem has a skeleton hypothesis that fails here. The later squared-cycle theorem fixes cut size three or a different range; the sequel's advertised face-polynomial formulas concern other graph families.
+
+## value
+
+PASS
+
+This exact face vector resolves a structural invariant of the precise borderline family where the primary source leaves a computational topology conjecture, and it explains why the published beta polynomial is forced if that wedge conjecture holds. It is not a finite table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
