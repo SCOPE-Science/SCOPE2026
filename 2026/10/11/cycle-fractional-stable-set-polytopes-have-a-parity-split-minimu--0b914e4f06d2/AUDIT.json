@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The cycle vertex list follows both from the published half-integral vertex criterion and from an independent active-constraint argument. For a stable-set incidence vector of size k, the squared distance to a symmetric center s1 is exactly ns^2+k(1-2s). For even cycles this minimax is uniquely optimized at s=1/2 and the two complementary alternating stable sets give a sharp diameter certificate. For odd cycles the stable-vertex minimax is uniquely optimized at s=(n-1)/(2n); the n maximum stable sets average to that center, giving a global squared-distance certificate. The unique fractional vertex has squared distance 1/(4n), strictly below the claimed radius.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Circuit-diameter work treats path geometry in the polytope rather than ambient Euclidean enclosure.",
+        "The Ehrhart paper treats Gorenstein/Ehrhart structure and supplies the vertex criterion but no Euclidean radius optimization.",
+        "General stable-set polytope inradius results are facet-controlled and do not imply the minimum enclosing sphere of the fractional relaxation."
+      ],
+      "reasoning": "Half-integrality alone does not determine the enclosing sphere. The accepted result additionally uses the complete cycle vertex specialization, the stable-set cardinality shell formula, and a contact-barycenter certificate.",
+      "searches": [
+        "arXiv:1709.09642v1, introduction and fractional stable-set section",
+        "arXiv:1603.09613, introduction and Lemma 2.2 vertex criterion",
+        "Michini--Sassano, fractional stable-set polytope diameter literature",
+        "literature query: edge-constrained stable set polytope odd cycle Euclidean sphere"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1709.09642v1",
+      "doi:10.1137/17M1152115",
+      "arXiv:1603.09613",
+      "doi:10.1007/s00026-018-0392-2",
+      "Michini and Sassano, The Hirsch Conjecture for the Fractional Stable Set Polytope",
+      "published-result database searches for FRAC/FSTAB cycle Euclidean radius formulations",
+      "current and prior geometry work records for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No same-object fractional stable-set minimum-sphere claim occurs in the checked current or prior work records.",
+        "The existing perfect stable-set theorem determines an inradius from clique facets, not a circumradius of the fractional relaxation.",
+        "The existing Hansen-polytope circumradius concerns a centrally symmetric lift in one higher dimension, not the fractional stable-set polytope.",
+        "A cycle symmetric-edge-polytope inradius result concerns a different root-type polytope despite sharing the graph family."
+      ],
+      "reasoning": "The final claim depends on the vertex set of the LP relaxation, including the odd-cycle half-integral vertex, and on a minimum-enclosing-ball optimization. None of the closest checked statements has that object-and-invariant combination.",
+      "searches": [
+        "current work-record exact search: fractional stable set / FSTAB / stable set polytope / odd cycle",
+        "prior work-record exact search: fractional stable set / FSTAB / stable set polytope / odd cycle",
+        "current perfect stable-set inradius theorem versus cycle fractional relaxation minimum sphere",
+        "current perfect-graph Hansen-polytope circumradius theorem versus FRAC cycle minimum sphere"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located source states the parity-specific centers and radii for cycle fractional stable-set polytopes.",
+        "No located source states that the unique odd-cycle half-integral vertex is strictly interior to the minimum sphere.",
+        "The full texts inspected for the same object contain no minimum-enclosing or circumradius theorem."
+      ],
+      "reasoning": "The claim can be phrased as a circumradius, smallest enclosing sphere, Euclidean one-center, Chebyshev-center, or radial-shell theorem for the cycle fractional stable-set relaxation. These aliases were searched under both FRAC and FSTAB terminology.",
+      "searches": [
+        "published-result database query: fractional stable set polytope cycle minimum enclosing ball circumradius",
+        "published-result database query: FSTAB cycle Euclidean Chebyshev center radius",
+        "published-result database query: fractional stable set polytope odd cycle Euclidean sphere half integral",
+        "published-result database query: fractional stable set polytope cycle circumcenter",
+        "literature query: fractional stable set polytope circumradius",
+        "literature query: fractional stable set polytope minimum enclosing ball",
+        "literature query: fractional stable set polytope Chebyshev center",
+        "literature query: fractional stable set polytope cycle Euclidean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact radius table or center table for cycle fractional stable-set polytopes was located.",
+        "Same-object tabulations found in the literature concern Ehrhart data, relaxations, or combinatorial/circuit diameter rather than Euclidean enclosing radii."
+      ],
+      "reasoning": "Even low-order values would reveal the parity transition and the odd fractional vertex's interior position; no such same-object metric table was found.",
+      "searches": [
+        "published-result database query: fractional stable set cycle circumradius",
+        "published-result database query: odd cycle FSTAB radial shells",
+        "literature query: fractional stable set polytope cycle radius table",
+        "literature query: FRAC odd cycle smallest enclosing sphere"
+      ]
+    },
+    "rationale": "The primary middle-period source was inspected at its fractional stable-set discussion, including the LP-relaxation role, half-integrality, and graph interpretation of vertices; its full text contains no circumradius, Euclidean, or radius terminology. An earlier same-object full text was inspected at the definition, half-integral vertex criterion, bipartite-integrality theorem, and Ehrhart/Gorenstein sections; direct full-text searches found no circumradius, minimum-enclosing, Chebyshev-center, radius, or Euclidean metric theorem. Candidate-specific published-result and literature searches covered fractional stable-set, FRAC/FSTAB, cycle, odd cycle, circumradius, Chebyshev center, and minimum-enclosing-sphere formulations. No implication-equivalent statement was located.",
+    "residual_risks": [
+      "Fractional stable-set polytopes have a long optimization literature, so an equivalent elementary observation could exist under vertex-packing terminology not surfaced by the targeted searches.",
+      "The cycle proof is short after the half-integral vertex classification is known, making independent rediscovery plausible.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source motivates and studies the exact polytope family but addresses circuit directions and circuit diameter, not ambient Euclidean minimum-enclosing balls.",
+        "evidence": "The first public version is dated 2017-09-27. Journal metadata list MSC 52B05 first. The paper explicitly includes the fractional stable-set polytope among its principal objects and records its half-integral vertex structure.",
+        "identifier_or_url": "arXiv:1709.09642v1; DOI 10.1137/17M1152115",
+        "material_read": "Open-access full text: introduction and results overview; fractional stable-set discussion recording the LP-relaxation role, half-integrality, graph interpretation of vertices, and circuit program; targeted full-text searches for circumradius, radius, and Euclidean terminology.",
+        "method": "Open-access arXiv full-text inspection and journal metadata check.",
+        "title": "On the Circuit Diameter of Some Combinatorial Polytopes",
+        "trigger": "Primary middle-period geometry-classified source explicitly studying the fractional stable-set polytope as a classical combinatorial optimization polytope."
+      },
+      {
+        "assessment": "The source supplies the general vertex criterion and arithmetic theory but no Euclidean minimum-enclosing-sphere result.",
+        "evidence": "Lemma 2.2 characterizes half-integral vertices by odd-cycle components in the half-coordinate support. The paper states FRAC(G)=STAB(G) exactly for bipartite G and focuses on Ehrhart and Gorenstein properties.",
+        "identifier_or_url": "arXiv:1603.09613; DOI 10.1007/s00026-018-0392-2",
+        "material_read": "Open-access full text: definition of FRAC(G), bipartite-integrality statement, Lemma 2.2 vertex criterion, Gorenstein/Ehrhart program, and targeted searches for circumradius, minimum enclosing, Chebyshev, radius, and Euclidean terminology.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Ehrhart Series of Fractional Stable Set Polytopes of Finite Graphs",
+        "trigger": "Earlier same-object full text giving the exact half-integral vertex criterion needed to compare possible prior coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0b914e4f-06d2-49e6-8df2-9813aec9bc97",
+  "value": {
+    "rationale": "The fractional stable-set polytope is the canonical LP relaxation of a central combinatorial optimization problem, and cycles are the basic family where bipartite integrality fails in the smallest possible way. The theorem turns that integrality parity into an exact Euclidean phase transition: all vertices support the sphere in even order, whereas in odd order the unique half-integral obstruction moves near the center and only maximum stable sets support the sphere. The complete radial-shell formula supplies a family-wide structural invariant rather than a one-off numerical computation.",
+    "status": "PASS"
+  }
+}
