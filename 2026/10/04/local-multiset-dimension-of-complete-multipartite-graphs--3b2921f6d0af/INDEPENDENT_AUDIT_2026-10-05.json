@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9635caab8037c22d089fb351367d773e138cba52",
+        "verify.py blob cac4e5d48da9b4139b3d882ef9a11132361cb0a6",
+        "fresh representation-collision and sorted-matching reconstruction"
+      ],
+      "rationale": "For a selected vertex in part i the representation contains one 0, |W|-w_i ones and w_i-1 twos; for an unselected vertex it contains |W|-w_i ones and w_i twos. Across parts, selected-selected and unselected-unselected representations collide exactly at equal corresponding occupancies, while selected-unselected representations cannot collide because only the former contains 0. Hence positive occupancies must be pairwise distinct and at most one zero is allowed. Any valid profile therefore has at least r-1 distinct positive integers and size at least 1+...+(r-1). Such a minimum profile is feasible exactly when, after omitting one part, capacities can host 1,...,r-1; sorting shows this is equivalent to a_i>=i-1 for i>=2, with omitting a smallest part optimal. Summing binomial choices over every feasible permutation yields the basis count. The frozen verifier exhausts all isomorphism types through order nine but is only corroborative.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 full text has no occurrence of 'multipartite' and its Theorem 8 only covers the bipartite lmd=1 boundary, agreeing with r=2.",
+          "The 2026 survey abstract advertises sharp outer-multiset diameter-two/join bounds and local-multiset-dimension-two results, not an arbitrary complete-multipartite formula.",
+          "The Resultary complete-multipartite theorem is for global outer multiset dimension, a different invariant."
+        ],
+        "reasoning": "No inspected broader theorem implies the pairwise-distinct positive occupancy criterion, the finiteness condition a_i>=i-1, or the basis enumerator.",
+        "searches": [
+          "Simanjuntak--Hasan--Anggarawan arXiv:2507.15071v1, full text",
+          "Farhan--Klavzar--Kuziak--Yero arXiv:2607.10311v1",
+          "published Resultary outer-multiset complete-multipartite theorem 2026/9/18/SCOPE-outer-multiset-dimension-complete-multipartite--ea7c8ea4c9fd"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.14419/ijet.v8i3.11643",
+        "arXiv:2507.15071v1 full HTML",
+        "arXiv:2607.10311v1",
+        "Resultary complete-multipartite searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior bipartite theorem supplies only the r=2 endpoint.",
+          "The submitted calculation shows selected-selected and unselected-unselected cross-part collisions occur exactly at equal positive occupancies, with two zero occupancies as the only extra obstruction.",
+          "Distinct positive counts then force the exact lower sum 1+...+(r-1), and sorted capacity matching gives both finiteness and every minimum profile."
+        ],
+        "reasoning": "The arbitrary-r theorem and basis-count formula require additional structure not supplied by the prior endpoint.",
+        "searches": [
+          "Simanjuntak et al. Theorem 8 (lmd=1 iff bipartite)",
+          "assigned exact representation-multiset collision calculation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On K_{n_1,...,n_r}, the representation multiset of a selected vertex in part i is determined only by |W| and w_i, and similarly for an unselected vertex.",
+          "Thus local resolving reduces exactly to a collision condition on the part occupancies w_i."
+        ],
+        "reasoning": "The occupancy criterion is an equivalent structural form specialized to complete multipartite graphs, not a different invariant.",
+        "searches": [
+          "Alfarisi et al., DOI:10.14419/ijet.v8i3.11643",
+          "Simanjuntak--Hasan--Anggarawan, arXiv:2507.15071v1 full HTML",
+          "Resultary query: local multiset dimension complete multipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a global outer-multiset complete-multipartite theorem and other different graph parameters, not the audited local-multiset classification."
+        ],
+        "reasoning": "The result is an all-set theorem with exact bases, not a known table recomputation from the checked sources.",
+        "searches": [
+          "Resultary exact complete-multipartite local-multiset search",
+          "targeted search for binomial(r,2) local multiset dimension complete multipartite"
+        ]
+      },
+      "rationale": "The 2019 foundational paper introduces local multiset dimension and treats basic families. The 2025 full primary paper on local (outer) multiset dimension was materially inspected: it gives general conditions, exact values for amalgamations/coronas, the theorem lmd=1 iff bipartite, and wheels/small-diameter families, but a whole-document search contains no 'multipartite' occurrence. The 2026 survey abstract emphasizes outer-multiset diameter-two bounds and lmd=2 results rather than this complete-multipartite classification. Resultary searches returned the different global outer-multiset theorem and unrelated multipartite invariants, not the submitted local theorem.",
+      "residual_risks": [
+        "An older graph-family paper using alternate notation for local multiset resolving sets could contain the same multipartite classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_COMPLETE_MULTIPARTITE_THEOREM_IN_INSPECTED_FULL_TEXT",
+          "evidence": "The document has no 'multipartite' occurrence; Theorem 8 gives lmd=1 iff bipartite, which covers only the r=2 specialization.",
+          "identifier_or_url": "arXiv:2507.15071v1",
+          "material_read": "Full arXiv HTML was materially inspected; definitions, Theorems 3-9, small-diameter section, and whole-document searches for 'multipartite'/'complete bipartite' were checked.",
+          "method": "Same-invariant full-text family and implication comparison.",
+          "title": "Local (Outer) Multiset Dimensions of Graphs",
+          "trigger": "Closest primary paper treating both local multiset invariants and small-diameter graph families."
+        },
+        {
+          "assessment": "FOUNDATIONAL_BASIC_FAMILIES_NO_EVIDENCE_OF_ARBITRARY_MULTIPARTITE_CLASSIFICATION",
+          "evidence": "Accessible material describes exact values for some families and sharp bounds, not the submitted complete-multipartite theorem.",
+          "identifier_or_url": "DOI:10.14419/ijet.v8i3.11643",
+          "material_read": "Publisher metadata/abstract and family scope were inspected; full text was not available through the publisher endpoint.",
+          "method": "Foundational scope comparison.",
+          "title": "The local multiset dimension of graphs",
+          "trigger": "Foundational primary source for the invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.14419/ijet.v8i3.11643",
+        "arXiv:2507.15071v1 full HTML",
+        "arXiv:2607.10311v1",
+        "Resultary complete-multipartite searches"
+      ],
+      "rationale": "Complete multipartite graphs are a canonical diameter-two family for a recently developed distance-multiset invariant. The theorem completely resolves existence, the exact minimum, every minimum occupancy profile, and the number of bases for arbitrary part sizes. This is a natural family classification rather than an arbitrary finite exercise.",
+      "residual_risks": [
+        "An older graph-family paper using alternate notation for local multiset resolving sets could contain the same multipartite classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.14419/ijet.v8i3.11643",
+    "arXiv:2507.15071v1 full HTML",
+    "arXiv:2607.10311v1",
+    "Resultary complete-multipartite searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For G=K_{n_1,...,n_r}, W is local multiset resolving iff at most one part has zero selected vertices and all positive selected part counts are pairwise distinct; after sorting part sizes a_1<=...<=a_r, finiteness is equivalent to a_i>=i-1 for i=2,...,r, then lmd(G)=binomial(r,2), with the stated exact basis-count sum over feasible permutations of 0,...,r-1.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older graph-family paper using alternate notation for local multiset resolving sets could contain the same multipartite classification.",
+    "The theorem concerns the local multiset invariant, not global multiset or outer variants."
+  ]
+}

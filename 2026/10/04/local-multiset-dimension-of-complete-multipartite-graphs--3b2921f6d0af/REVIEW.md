@@ -1,12 +1,21 @@
-# Review of Local multiset dimension of complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Selected and unselected distance multisets are determined by the part count \(w_i\); adjacent collisions occur exactly when two positive part counts agree or two parts are both missed. This yields the all-set criterion. Distinct positive counts give the triangular lower bound, and sorted capacity matching gives the sharp finiteness condition. Exhaustive definition-level verification agrees through order nine.
+## correctness
 
-## Originality
-PASS. The 2019 foundational paper introduces the parameter and treats paths, stars, cycles, and other families but not complete multipartite graphs. The 2025 full text develops general bounds and diameter-two examples; targeted searches found no complete multipartite, multipartite, or complete bipartite occurrence. published-finding corpus searches returned complete-multipartite outer multiset results, not the local variant. No equivalent staircase finiteness criterion, triangular exact value, or basis-count formula was located.
+PASS
 
-## Value
-PASS. The theorem resolves existence, minimum size, every minimum part-count profile, and the exact number of bases on a canonical graph class. The staircase condition identifies a genuine finite/infinite transition that ordinary local metric dimension does not exhibit.
+For a selected vertex in part i the representation contains one 0, |W|-w_i ones and w_i-1 twos; for an unselected vertex it contains |W|-w_i ones and w_i twos. Across parts, selected-selected and unselected-unselected representations collide exactly at equal corresponding occupancies, while selected-unselected representations cannot collide because only the former contains 0. Hence positive occupancies must be pairwise distinct and at most one zero is allowed. Any valid profile therefore has at least r-1 distinct positive integers and size at least 1+...+(r-1). Such a minimum profile is feasible exactly when, after omitting one part, capacities can host 1,...,r-1; sorting shows this is equivalent to a_i>=i-1 for i>=2, with omitting a smallest part optimal. Summing binomial choices over every feasible permutation yields the basis count. The frozen verifier exhausts all isomorphism types through order nine but is only corroborative.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2019 foundational paper introduces local multiset dimension and treats basic families. The 2025 full primary paper on local (outer) multiset dimension was materially inspected: it gives general conditions, exact values for amalgamations/coronas, the theorem lmd=1 iff bipartite, and wheels/small-diameter families, but a whole-document search contains no 'multipartite' occurrence. The 2026 survey abstract emphasizes outer-multiset diameter-two bounds and lmd=2 results rather than this complete-multipartite classification. Resultary searches returned the different global outer-multiset theorem and unrelated multipartite invariants, not the submitted local theorem.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical diameter-two family for a recently developed distance-multiset invariant. The theorem completely resolves existence, the exact minimum, every minimum occupancy profile, and the number of bases for arbitrary part sizes. This is a natural family classification rather than an arbitrary finite exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

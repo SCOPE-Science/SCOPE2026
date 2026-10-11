@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof derives exact distance-multiset signatures from the part-count vector and reduces the minimum problem to distinct-count assignment under part capacities.
+# Independent mathematical audit
 
-The included checker independently constructs every tested complete multipartite graph, computes each vertex's distance multiset directly for every candidate subset, and tests all adjacent pairs. It compares the observed valid sets, minimum size, and number of minimum sets with the theorem.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-multipartite_types_checked = 87
-vertex_subsets_checked = 22932
-finite_types_checked = 51
-basis_count_checks = 51
-orders = 2..9
-```
+For a selected vertex in part i the representation contains one 0, |W|-w_i ones and w_i-1 twos; for an unselected vertex it contains |W|-w_i ones and w_i twos. Across parts, selected-selected and unselected-unselected representations collide exactly at equal corresponding occupancies, while selected-unselected representations cannot collide because only the former contains 0. Hence positive occupancies must be pairwise distinct and at most one zero is allowed. Any valid profile therefore has at least r-1 distinct positive integers and size at least 1+...+(r-1). Such a minimum profile is feasible exactly when, after omitting one part, capacities can host 1,...,r-1; sorting shows this is equivalent to a_i>=i-1 for i>=2, with omitting a smallest part optimal. Summing binomial choices over every feasible permutation yields the basis count. The frozen verifier exhausts all isomorphism types through order nine but is only corroborative.
 
-The computation is finite corroboration only; the all-orders theorem follows from the proof.
+## originality
+
+PASS
+
+The 2019 foundational paper introduces local multiset dimension and treats basic families. The 2025 full primary paper on local (outer) multiset dimension was materially inspected: it gives general conditions, exact values for amalgamations/coronas, the theorem lmd=1 iff bipartite, and wheels/small-diameter families, but a whole-document search contains no 'multipartite' occurrence. The 2026 survey abstract emphasizes outer-multiset diameter-two bounds and lmd=2 results rather than this complete-multipartite classification. Resultary searches returned the different global outer-multiset theorem and unrelated multipartite invariants, not the submitted local theorem.
+
+## value
+
+PASS
+
+Complete multipartite graphs are a canonical diameter-two family for a recently developed distance-multiset invariant. The theorem completely resolves existence, the exact minimum, every minimum occupancy profile, and the number of bases for arbitrary part sizes. This is a natural family classification rather than an arbitrary finite exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
