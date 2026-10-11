@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "KKT strict convexity and nonnegativity show the unique weighted soft threshold for every real p>1. On each active set/sign region, solve for the multiplier explicitly, giving a sign-conjugate rank-one correction J_S with zero output elsewhere. Every nonempty S is realized by a strictly active outside input, and finite continuous piecewise-affine decomposition gives the exact global maximum, including the interior identity. If J_S is contractive, differentiating ||v+t a||p^p for all v in ker w yields necessary equations: unequal weights for p≠2 or three active coordinates violate them. For p=2 use Hilbert metric-projection nonexpansivity; for n=2 equal weights use the (x−y)/2 rank-one contraction; n=1 is clipping. For n=2 outer-product Hölder norm gives exact closed form. Radius rescales. Standalone checker, replayed from the exact package, passes 1240 deterministic numerical tests, as corroboration rather than infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Denkowska 2013 Theorem 7.3 relates classes of contractive convex sets to particular hyperplane intersections.",
+        "Jamison–Kamińska–Lewicki 2004 abstracts one-complemented hyperplanes; Kobos 2015 Lemma 2.1 includes linear necessary norm-one condition."
+      ],
+      "reasoning": "General contractive-set theory and linear hyperplane results may imply the necessary qualitative obstruction after additional argument. They do not specify the nearest-point projection's full quantitative Lipschitz factor, which is the decisive scope distinguishing the final theorem.",
+      "searches": [
+        "metric projection contractive one-complemented hyperplanes lp convex",
+        "piecewise affine derivative mean-zero averaging projections metric projection l1 ball arbitrary p"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1145/1390156.1390191",
+      "arxiv:1508.03518",
+      "doi:10.7494/OpMath.2013.33.4.667",
+      "doi:10.1016/j.jat.2004.07.001",
+      "doi:10.1002/mana.200310160",
+      "published-finding corpus actual targeted searches enumerated above",
+      "own preceding week's latest archive ledger and own current week ledger (recoverable claims and identifiers only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Duchi 2008 equation (7) explicitly requires Euclidean squared norm; present projection solves general real ℓp.",
+        "Kobos 2015 Lemma 2.1 gives only a necessary condition for a linear norm-one projection.",
+        "Denkowska 2013 Theorem 7.3 classifies certain nonexpansive retracts, not their exact nearest-point Lipschitz modulus."
+      ],
+      "reasoning": "The general linear classification plausibly dominates the qualitative necessity for p≠2, which is acknowledged as supporting rather than independent novelty. Deriving the *global exact modulus* requires the generalized KKT formula, proof that every support's Jacobian is realized, and global finite-piece composition. The sharp weighted planar formula is not stated or trivially implied by the cited abstracts or examined primary sections.",
+      "searches": [
+        "weighted cross polytope l1 ball nearest point projection l_p exact Lipschitz nonexpansivity rank one",
+        "metric projection onto l1 ball in l_p norms independent of p soft thresholding Lipschitz sharp nonexpansive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Duchi 2008 §4 gives Euclidean projection onto ℓ1-ball; the present ambient metric varies over p and weights.",
+        "No targeted published-finding corpus equivalent full Lipschitz-modulus theorem among returned nearest ranked matches."
+      ],
+      "reasoning": "The equivalences soft-threshold/generalized shrinkage, proximal projection, weighted simplex, and active-set hyperplane Jacobians were compared. Euclidean soft threshold is a strict specialization; no found statement implies the sharp anisotropic ℓp planar constant.",
+      "searches": [
+        "metric projection onto l1 ball in l_p norms independent of p soft thresholding Lipschitz sharp nonexpansive",
+        "weighted cross polytope l1 ball nearest point projection l_p exact Lipschitz nonexpansivity rank one",
+        "weighted l1 ball proximal projection weighted soft thresholding nonexpansive in non Euclidean lp norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest results: 2026/9/20/SCOPE-block-diagonal-graph-projection-threshold--25f28a17b038, 2026/10/4/SCOPE-exact-euclidean-banach-mazur-distance-for-a-lorentz-predual-octa--043443698a3c, 2026/10/4/SCOPE-rigidity-of-orthogonal-seams-for-weighted-geometric-mean-antinor--bbf64da09745",
+        "Duchi 2008 exact algorithm is not a parameterized table of non-Hilbert Lipschitz moduli."
+      ],
+      "reasoning": "Direct formula and parameter aliases searched; closest returned items discuss other geometric constants or unrelated graph subspaces. No exact database matching w,p,n,r statement located; search cannot prove nonexistence.",
+      "searches": [
+        "projection onto cross-polytope l1 unit ball measured lp metric threshold n=3 n=2 p=2",
+        "cross polytope metric projection all l_p exponents dimension three discontinuity Lipschitz"
+      ]
+    },
+    "rationale": "The final claim is the complete quantitative Lipschitz modulus of a specified nonlinear nearest-point map, with explicit weighted planar formula and all-dimensional rigidity. Duchi 2008 gives Euclidean ℓ1-ball projection algorithms; Kobos 2015 and Jamison–Kamińska–Lewicki provide general linear norm-one hyperplane obstructions; Denkowska 2013 and Kamińska–Lewicki 2004 provide general contractive-set/optimal-set theory. Their implications are explicitly limited to parts of the nonlinear proof/qualitative obstruction, and inspected material does not give this exact map’s active-set global modulus or anisotropic two-dimensional constant. The strongest 2004 full text was inaccessible and remains a stated risk. published-finding corpus searches and own two-week ledger review did not locate a matching quantitative theorem; negative search alone is not treated as novelty proof.",
+    "residual_risks": [
+      "Full text of Kamińska–Lewicki (2004) and Jamison–Kamińska–Lewicki (2004) not inspected. Their broad theorems might yield more of the qualitative classification than verified; the claim's quantitative nearest-point modulus remains the distinct asserted contribution.",
+      "An equivalent quantitative formula may exist in older Banach metric-projection literature under different terminology; lack of a database hit is not exhaustive novelty proof.",
+      "No independent mathematical review or certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Euclidean ℓ1-ball algorithm and its soft-threshold reduction. Does not state non-Hilbert ambient lp exact Lipschitz stability or positive-weight sharp classification.",
+        "evidence": [
+          "Original Section 4 explicitly formulates Euclidean minimization (equation 7), p.3",
+          "ACM records initial publication 2008-07-05"
+        ],
+        "identifier_or_url": "doi:10.1145/1390156.1390191; https://ai.stanford.edu/~jduchi/projects/jd_ss_ys_l1.pdf",
+        "material_read": "Original full-text Sections 2–4, pp. 2–4, including KKT and ℓ1-ball reduction; visually inspected page 3 (PDF page 2); publication dated 2008-07-05 by ACM",
+        "method": "Author-manuscript PDF text and page image comparison",
+        "title": "Efficient Projections onto the ℓ1-Ball for Learning in High Dimensions",
+        "trigger": "Exact thresholding of nearest projections onto cross-polytopes, possible prior full coverage"
+      },
+      {
+        "assessment": "The necessary supporting-functional condition for linear norm-one projections is already known; it is acknowledged as prior coverage for that lemma. Does not give nonlinear global modulus.",
+        "evidence": [
+          "Lemma 2.1: norm-one hyperplane projections imply the unique supporting functional of kernel vectors annihilates projection direction."
+        ],
+        "identifier_or_url": "arxiv:1508.03518; https://arxiv.org/pdf/1508.03518",
+        "material_read": "Introduction and Section 2, especially Lemma 2.1 on supporting functionals, visually inspected PDF page 3",
+        "method": "Open-access arXiv full-text excerpt and page image",
+        "title": "A uniform estimate of the relative projection constant",
+        "trigger": "Rank-one hyperplane projection and norm-one obstruction"
+      },
+      {
+        "assessment": "Defines contractive sets as admitting a nonexpansive retraction and derives modular classifications via one-complemented hyperplanes. This is a strong qualitative antecedent but does not identify the particular nearest-point map or its quantitative Lipschitz constant for weighted cross-polytopes.",
+        "evidence": [
+          "Definition 5.4 on contractive retracts; Theorem 7.3 on modular contractive sets as intersections of special half-spaces; Section 2 cites Baronti–Papini support-two classification."
+        ],
+        "identifier_or_url": "doi:10.7494/OpMath.2013.33.4.667; https://www.opuscula.agh.edu.pl/vol33/4/art/opuscula_math_3337.pdf",
+        "material_read": "Full-text introduction pp. 667–670 and Theorem 7.3 and supporting arguments pp. 679–682; visually inspected pp. 668 and 679",
+        "method": "Lawful OA publisher PDF read as page text and images",
+        "title": "Contractive and optimal sets in Musielak–Orlicz spaces with a smoothness condition",
+        "trigger": "Strongest plausible general theorem on nonexpansive retractions onto finite-dimensional convex bodies"
+      },
+      {
+        "assessment": "Strongly covers the general linear hyperplane necessary obstruction; does not itself document the specific nonlinear nearest-point projection modulus. Full text remains an originality risk.",
+        "evidence": [
+          "Repository abstract explicitly states: finite-codimension one-complemented subspaces of ℓp for p≠2 are intersections of kernels supported on at most two coordinates."
+        ],
+        "identifier_or_url": "doi:10.1016/j.jat.2004.07.001",
+        "material_read": "University repository abstract describing the two-coordinate support classification; full paper unavailable at inspected source",
+        "method": "Institutional repository abstract; no entire-document non-coverage claim",
+        "title": "One-complemented subspaces of Musielak-Orlicz sequence spaces",
+        "trigger": "Earlier classification of contractive hyperplanes in ℓp"
+      },
+      {
+        "assessment": "Possible implication coverage for the existence-of-contracting-retract *classification*; cannot settle the special metric projection formula or quantitative modulus, which is the essential final finding. Explicit residual risk retained.",
+        "evidence": [
+          "Publisher abstract: optimal ℓp sets described by intersections of half-spaces determined by one-complemented hyperplanes."
+        ],
+        "identifier_or_url": "doi:10.1002/mana.200310160",
+        "material_read": "Publisher abstract and references, with explicit statement of contractive/optimal set result, not full article",
+        "method": "Publisher abstract; open-access copy not located",
+        "title": "Contractive and optimal sets in modular spaces",
+        "trigger": "2004 description of optimal convex sets by one-complemented half-spaces may subsume rigidity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c92b6dad-1bd0-4230-bef8-e120b38e0806",
+  "value": {
+    "rationale": "The quantitative sensitivity of nearest sparse ℓ1-ball projections is a natural stability invariant in constrained approximation. The theorem gives an exact piecewise-affine global modulus for arbitrary positive weights and every finite dimension and exponent, identifies the sharp nonexpansive regime, and supplies a nontrivial explicit anisotropic two-parameter planar constant, including strict amplification outside the rigid regimes. It distinguishes projections specifically returning nearest points from the broader pre-existing possibility of nonexpansive retractions. The outcome is a complete natural stability classification, not an arbitrary slice or minor numerical improvement.",
+    "status": "PASS"
+  }
+}
