@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The dodecagonal norm is given explicitly by its six unoriented facet directions. Every admissible unit equilateral pair lies in a face of the compact 4-dimensional polytope determined by one tight signed facet for x, one for y, and one for x-y. The exact Q(sqrt(3)) certificate exhausts all 1728 such triples: 168 presentations are nonempty, of which 144 are points and 24 are segments, with 24 distinct endpoints. Both output norms equal sqrt(3) at every endpoint. On each segment, a common signed facet of x+y and a common signed facet of 2x-y attain sqrt(3) at both endpoints, so affinity gives the lower bound throughout, while convexity of the norm gives the matching upper bound. This proves the pointwise continuum claim, not merely a sampled or vertex-only statement.",
+    "risks": [
+      "The face exhaustion is finite but nontrivial; its critical algebraic counts and supporting-facet checks are delegated to the bundled exact checker and were replayed successfully.",
+      "The result is for the stated facet normalization of a regular dodecagon; invariance under linear isometry is standard and no stronger affine-class statement is asserted."
+    ],
+    "sources": [
+      "arXiv:2112.05922v1, Section 3 for the definition of G_L and the Hilbert-space comparison",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 Alonso–Martín–Papini paper studies ranges of perimeters for triangles whose vertices lie on the unit sphere; its regular-polygon results do not contain the derived G_L objective.",
+        "The public regular-4n perimeter record states constant equilateral perimeter for regular 4n-gonal norms, including the dodecagon, but does not state \\(N(x+y)\\) or \\(N(2x-y)\\) for the Chen–Liu–Li configuration."
+      ],
+      "reasoning": "Knowing a side perimeter for a different class of inscribed triangles does not determine the two norms appearing in G_L. No family theorem located in the checked sources has a conclusion strong enough to imply both pointwise dodecagonal identities.",
+      "searches": [
+        "equilateral triangle constant regular 12-gon Banach",
+        "regular dodecagon Banach equilateral perimeter",
+        "geometric constant regular dodecagon Banach",
+        "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.05922v1",
+      "doi:10.3390/sym14010072",
+      "doi:10.1007/s00009-025-02805-6",
+      "2026/10/4/SCOPE-exact-chen-liu-li-g-l-constant-of-the-regular-octagonal-plane--f0a5701db2b3",
+      "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13",
+      "Current own ledger through generation g000033"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Liu–Li prove inner product space implies G_L=6, but give no converse and no regular-dodecagon theorem.",
+        "The regular-octagon exact G_L record is same invariant but different space and gives a different value.",
+        "The regular-4n perimeter record includes the dodecagon but studies a different quantity and triangle class.",
+        "The 2025 perimeter paper defines its L_i and M_i from triangle perimeters, not from the two derived norms in G_L."
+      ],
+      "reasoning": "None of the closest statements logically implies the pointwise identities for the regular dodecagonal norm. The new result supplies an exact facet classification specific to the G_L configuration and establishes a non-Hilbert realization of the Hilbert pointwise lengths.",
+      "searches": [
+        "arXiv:2112.05922v1 Proposition 3.6 G_L 6",
+        "2026/10/4/SCOPE-exact-chen-liu-li-g-l-constant-of-the-regular-octagonal-plane--f0a5701db2b3",
+        "2026/9/20/SCOPE-constant-equilateral-perimeter-regular-4n-gons--1e63f7004e13",
+        "Perimeter of Triangles Inscribed in the Unit Ball of Normed Planes regular polygon equilateral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2112.05922v1 defines G_L exactly as the supremum of \\(\\|x+y\\|^2+\\|2x-y\\|^2\\) over \\(\\|x\\|=\\|y\\|=\\|x-y\\|=1\\).",
+        "Web searches under regular-dodecagon, regular-12-gon and inscribed-triangle aliases returned the defining paper and unrelated regular-polygon geometry, but no equivalent dodecagonal G_L statement.",
+        "The defining paper proves only the forward Hilbert implication \\(G_L=6\\), not the dodecagonal pointwise identity."
+      ],
+      "reasoning": "The claim was searched both by notation and by its explicit geometric configuration. The Gordon–Lewis operator-theory constant using similar letters was treated as a terminological false positive and is scientifically inapplicable.",
+      "searches": [
+        "\"G_L\" \"regular dodecagon\" Banach",
+        "\"G_L(X)\" dodecagon Banach",
+        "\"G_L\" \"regular 12-gon\" normed plane",
+        "Inscribed triangles unit sphere G_L regular polygon dodecagon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact same-invariant research record is 2026/10/4/SCOPE-exact-chen-liu-li-g-l-constant-of-the-regular-octagonal-plane--f0a5701db2b3.",
+        "No checked exact-value table or database result assigned value 6 to the regular dodecagonal G_L constant.",
+        "Searches for non-Hilbert spaces with G_L=6 returned the defining paper's Hilbert statement and secondary summaries, not this dodecagonal computation."
+      ],
+      "reasoning": "The exact value and the stronger pointwise equalities were queried directly. Negative search results are not used alone as novelty proof; they are combined with full-text inspection and implication comparisons.",
+      "searches": [
+        "exact G_L constant regular dodecagonal Banach plane 6",
+        "G_L 6 Banach regular dodecagon",
+        "G_L(X_12) regular dodecagon Banach equilateral triangle",
+        "\"G_L(X)=6\" Banach non-Hilbert"
+      ]
+    },
+    "rationale": "Searches compared the exact value, the stronger pointwise identities, regular-dodecagon and regular-12-gon aliases, the defining G_L notation, and equilateral-triangle formulations. The defining full text was inspected through the definition, universal bounds, Hilbert value, concrete examples and generalized family; it contains no regular-dodecagon computation. The closest same-invariant public result is for the regular octagon. A 2025 primary paper and a 2026 public record concerning regular-polygon equilateral perimeters were checked because they include regular dodecagons, but their objects are triangle side perimeters and do not determine the G_L derived-length pair.",
+    "residual_risks": [
+      "Bibliographic and research-index searches cannot establish absolute novelty.",
+      "An equivalent computation for the regular dodecagon could appear under different coordinates or notation not located by the checked aliases.",
+      "The 2026 regular-4n equilateral-perimeter result is scientifically adjacent but does not state the two G_L derived lengths; a future implication theorem connecting those different configurations could change the comparison."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the invariant used here, has primary MSC 46B20, and does not compute the regular dodecagonal plane in the inspected full text.",
+        "evidence": "arXiv:2112.05922v1, especially pp. 1 and 4–9.",
+        "identifier_or_url": "arXiv:2112.05922v1",
+        "material_read": "First page with Mathematics Subject Classification; preliminaries; complete definition of G_L; universal bounds; Hilbert-space proposition; convexity-modulus comparison; generalized G_L family and product constant.",
+        "method": "Lawful open-access full-text PDF inspection, including visual inspection of the title/MSC page and the definition/theorem pages.",
+        "title": "Inscribed triangles in the unit sphere and a new class of geometric constants",
+        "trigger": "Primary source introducing G_L and fixing the source date and primary MSC."
+      },
+      {
+        "assessment": "NOT_COVERING: studies perimeters of triangles with vertices on the unit sphere; it does not compute the Chen–Liu–Li derived pair or G_L on the regular dodecagon.",
+        "evidence": "Mediterranean Journal of Mathematics 22 (2025), article 46, Sections 4–6.",
+        "identifier_or_url": "doi:10.1007/s00009-025-02805-6",
+        "material_read": "Sections on equilateral triangles, definitions of perimeter extrema, regular polygon examples and summary/open questions.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Perimeter of Triangles Inscribed in the Unit Ball of Normed Planes",
+        "trigger": "Plausible broader regular-polygon equilateral literature that could subsume a dodecagonal calculation."
+      },
+      {
+        "assessment": "NOT_COVERING: the domain is the regular octagonal plane and the reported value is \\(18-8\\sqrt2\\), not the regular dodecagonal plane.",
+        "evidence": "Public scientific summary of the cited record.",
+        "identifier_or_url": "2026/10/4/SCOPE-exact-chen-liu-li-g-l-constant-of-the-regular-octagonal-plane--f0a5701db2b3",
+        "material_read": "Public title and scientific summary returned by the research index.",
+        "method": "Statement-level domain and implication comparison.",
+        "title": "Exact Chen–Liu–Li G_L constant of the regular octagonal plane",
+        "trigger": "Closest exact same-invariant public research record."
+      }
+    ],
+    "sources": [
+      "arXiv:2112.05922v1",
+      "doi:10.1007/s00009-025-02805-6",
+      "Public research records listed in the four comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "17397182-8069-476e-ba04-7b3648bc444f",
+  "value": {
+    "rationale": "The regular dodecagon is a canonical non-Hilbert polyhedral normed plane, while the defining paper singles out the value 6 and the two lengths sqrt(3) as the Hilbert-space behavior of G_L. The result shows that this canonical non-Hilbert space reproduces the Hilbert derived lengths for every admissible unit equilateral pair, not merely at one extremizer. This gives a sharp structural boundary for what G_L can detect and disproves any converse inference from the Hilbert value alone. The facet-face argument is also a reusable exact method for other polygonal equilateral-triangle constants.",
+    "risks": [
+      "The finding is a canonical counterexample/benchmark rather than a classification of all polygonal norms."
+    ],
+    "sources": [
+      "arXiv:2112.05922v1, Proposition 3.6 and surrounding definition",
+      "Bundled RESULT.md and verify.py"
+    ],
+    "status": "PASS"
+  }
+}
