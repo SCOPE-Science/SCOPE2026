@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The map-type mismatch is read directly from the source. For the teacher-forced repair, the proof is analytic: Gaussian off-center terms are super-polynomially small; the KRR normal equations give \\(\\widetilde{\\Phi}_{y,h}(z_j)=1-h^5(A_h)_j\\) with \\((A_h)_j\\to1\\); the first coupled perturbation has size \\(h^5\\), which lies at the chosen Gaussian width and makes \\(\\widehat y_2\\to e^{-1}\\); the exact second-order endpoint update then gives \\(|x_2-\\widehat x_2|\\sim(1-e^{-1})h/2\\). The proved limit is asymptotic and does not rely on numerical sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li--Wan, DOI:10.3390/math14152850, state that small one-step error can diverge under autonomous rollout and obtain conditional bounds using contraction or Lipschitz control on a forward-invariant domain.",
+        "Song--Huang--Harlim, arXiv:2512.17203v2, select KRR hyperparameters using iterated rollout error because ordinary one-step validation is not appropriate for dynamical prediction."
+      ],
+      "reasoning": "These results support the general need for rollout stability, but they neither imply the type defect in the focal theorem nor provide the explicit narrow-Gaussian KRR counterexample to the teacher-forced repair.",
+      "searches": [
+        "one-step KRR approximation error does not control coupled rollout Lipschitz",
+        "learned dynamics rollout stability Lipschitz one-step error autonomous prediction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02564v1",
+      "DOI:10.3390/math14152850",
+      "arXiv:2512.17203v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2512.17203v2 defines validation by iterating the learned KRR operator on its own predictions.",
+        "DOI:10.3390/math14152850 requires pointwise stability and domain-wide mismatch control for rollout bounds."
+      ],
+      "reasoning": "Rollout-aware validation is an empirical selection principle, and generic stability bounds are broader background. Neither prior statement logically yields the source-specific theorem correction or the asymptotic RBF witness.",
+      "searches": [
+        "KRR dynamics-aware validation autoregressive rollout kernel ridge regression",
+        "rollout error Gronwall Lipschitz learned dynamical model"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02564v1 equation (3) maps a full state to the unresolved component, equation (8) writes powers of that non-self-map, and Appendix B equation (29) needs bounds on the actual coupled unresolved nodes.",
+        "The explicit RBF construction uses equation (4)'s Gaussian kernel and produces \\(O(h^5)\\) error at every true center while the second coupled prediction tends to \\(e^{-1}\\)."
+      ],
+      "reasoning": "An equivalent result would need to identify the same hypothesis/proof mismatch or show that true-orbit KRR accuracy cannot control the coupled closure rollout. The searched published records did not do so.",
+      "searches": [
+        "arXiv 2610.02564 Theorem 2.1 KRR rollout off-trajectory stability",
+        "Learning Closure of Dynamical Systems with Kernel Ridge Regression equation 29",
+        "Gaussian kernel ridge autoregressive rollout small nodal error unstable off trajectory"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv record inspected on 2026-10-07 UTC lists only v1, submitted 2026-10-01 22:57:05 UTC.",
+        "Exact source-identifier and correction searches returned the focal paper and unrelated records, with no public correction of Theorem 2.1 or equation (29)."
+      ],
+      "reasoning": "No checked exact-source record supersedes or repairs the displayed theorem/proof interface.",
+      "searches": [
+        "2610.02564 correction erratum theorem 2.1",
+        "Learning Closure of Dynamical Systems with Kernel Ridge Regression correction",
+        "2610.02564 equation 29"
+      ]
+    },
+    "rationale": "The focal source's assumption (8) is not type-composable as written, and Appendix B uses it as if it bounded the actual coupled unresolved nodes. No checked source states the explicit Gaussian-KRR counterexample showing that a natural true-orbit repair remains insufficient. Broader rollout-stability results require stability information but do not subsume this source-specific statement.",
+    "residual_risks": [
+      "The authors may intend assumption (8) to denote the actual coupled unresolved rollout despite the displayed type mismatch; under that stronger interpretation the theorem is not contradicted, and the finding is the need to state that interpretation explicitly.",
+      "A later revision after the inspected v1 may repair the notation or add the missing stability hypothesis.",
+      "An older unindexed numerical-analysis observation could contain a mathematically equivalent narrow-kernel instability, although no checked source tied it to this closure theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_SUPPORT_AND_TARGET: the map type, theorem hypothesis, coupled recurrence, Gaussian kernel, and proof step are all explicit in the full text.",
+        "evidence": [
+          "Equation (3) defines \\(\\widetilde{\\Phi}_y\\) as the learned unresolved-component predictor.",
+          "Equation (7) evaluates it on the predicted coupled state.",
+          "Equation (8) writes iterates of the learned unresolved map.",
+          "Equation (29) bounds actual coupled unresolved-node errors by \\(\\delta\\)."
+        ],
+        "identifier_or_url": "arXiv:2610.02564v1",
+        "material_read": "Sections 2.1 and 2.2, equations (3)--(8), Theorem 2.1, Appendix A, and Appendix B equations (28)--(30).",
+        "method": "arXiv HTML full-text inspection",
+        "title": "Learning Closure of Dynamical Systems with Kernel Ridge Regression",
+        "trigger": "Focal source defining the KRR closure theorem and its proof."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: proves generic rollout bounds under explicit stability hypotheses but does not analyze the focal KRR theorem or the Gaussian counterexample.",
+        "evidence": [
+          "The article states that small one-step error may diverge under autonomous rollout.",
+          "Its rollout guarantees require contraction or Lipschitz control on a domain containing the compared trajectories."
+        ],
+        "identifier_or_url": "DOI:10.3390/math14152850",
+        "material_read": "Abstract, introduction, contraction/Lipschitz lemmas, Theorem 1, and discussion of forward-invariant-domain failure.",
+        "method": "open-access full article record",
+        "title": "Stability-Regularized Residual Neural ODEs: From Rollout-Error Contraction Diagnostics to a Train-Time Method for Robust Long-Horizon Forecasting",
+        "trigger": "Closest recent theorem-level literature on converting local model error into autonomous rollout bounds."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: uses autonomous rollout for hyperparameter validation but does not provide the focal theorem implication or its correction.",
+        "evidence": [
+          "Section 2.2 says ordinary validation loss is inappropriate because the learned map is iterated for dynamical prediction.",
+          "Validation explicitly rolls out \\(\\widehat x_{i+1}=f(\\widehat x_i)\\)."
+        ],
+        "identifier_or_url": "arXiv:2512.17203v2",
+        "material_read": "KRR formulation, dynamic-aware validation section, rollout metric definitions, and Lorenz-63 validation discussion.",
+        "method": "arXiv HTML full-text inspection",
+        "title": "Learning solution operator of dynamical systems with diffusion maps kernel ridge regression",
+        "trigger": "Direct KRR predecessor cited by the focal source and closest method-level comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cfd55c31-7846-4076-8d6a-8494550649b2",
+  "value": {
+    "rationale": "The focal theorem is the paper's main theoretical decomposition of closure, interpolation, and solver errors. The finding identifies a missing stability interface that can change the claimed convergence order by a full power in a standard RBF setting and supplies a direct repair criterion. This is not a renaming or textbook corollary: the narrow-kernel construction is tailored to the coupled KRR closure mechanism and distinguishes teacher-forced accuracy from deployed rollout behavior.",
+    "status": "PASS"
+  }
+}
