@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Normalize circumradius to one and set \\(p=\\pi/n\\). The squared radial function is \\(\\cos^2p\\sec^2u\\) on a side-normal sector and is \\(2p\\)-periodic. For odd \\(n=2m+1\\), a central halfplane's angular interval has length \\(m(2p)+p\\), so its area equals \\(m\\) full period integrals plus one length-\\(p\\) residual. Reducing by dihedral symmetry gives the residual integral \\(J(\\theta)=\\cos^2p[\\tan(\\theta+p/2)-\\tan(\\theta-p/2)]\\). Dividing by total area yields the stated profile. Its derivative is strictly positive for \\(0<\\theta<p/2\\), and \\(J(p/2)=I/2\\), proving both uniqueness of the edge-parallel minimum and exact bisection at the symmetry-axis endpoint. The endpoint identity recovers the known depth value. Finite clipping checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Szarek, arXiv:1302.2076v1, defines the convex-geometric cut-ratio parameter and its floating-body relation, but does not specialize to the central angular profile of regular polygons.",
+        "Rousseeuw--Ruts gives the general regular-polygon depth context and the endpoint value but leaves the orientation optimization at numerical verification in the inspected text."
+      ],
+      "reasoning": "A theorem determining all central orientations, or an analytic optimizer theorem for every odd order, would dominate the claim. Neither inspected primary source contains such a statement, and targeted searches did not locate one.",
+      "searches": [
+        "Rousseeuw Ruts verified numerically optimal halfplane regular polygon proof",
+        "regular polygon Grunbaum measure halfspace volume ratio",
+        "Szarek symmetry regular odd polygon rho exact edge parallel",
+        "regular odd polygon Winternitz measure symmetry",
+        "axial symmetry measure regular polygon convex body"
+      ]
+    },
+    "checked_sources": [
+      "Rousseeuw--Ruts, The depth function of a population distribution, Metrika 49 (1999), DOI 10.1007/PL00020903, Section 5.5 materially inspected.",
+      "Szarek, On measures of symmetry and floating bodies, arXiv:1302.2076v1, full arXiv text materially inspected.",
+      "published-finding corpus searches for regular-polygon halfspace depth, central cuts, unique edge-parallel optimizers, angular profiles, and Szarek cut-ratio formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rousseeuw--Ruts explicitly distinguish their numerical optimizer check from the ensuing trigonometric area calculation; the displayed endpoint depth follows only after assuming that optimizer.",
+        "Szarek's general cut-ratio theorem bounds centroid cuts and characterizes global extremal bodies, but it does not force which direction is worst for an individual regular odd polygon."
+      ],
+      "reasoning": "The published endpoint formula does not imply the full angular formula or uniqueness of the minimizing direction. Conversely, the new proof recovers that endpoint value but does not claim it as original. The nonstandard new step is the periodic radial decomposition and strict derivative argument across the full dihedral chamber.",
+      "searches": [
+        "Rousseeuw--Ruts Section 5.5 uniform distribution on a regular m-gon",
+        "Szarek arXiv:1302.2076 rho(K) floating body",
+        "maximal depth regular m-gon parallel to an edge proof",
+        "regular pentagon halfspace depth centroid area",
+        "regular odd polygon central halfplane area uniqueness edge parallel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rousseeuw--Ruts, DOI 10.1007/PL00020903, Section 5.5: the center is the maximal-depth point; for odd order they seek the least-mass central halfplane and state that edge-parallel optimality was numerically verified before deriving the endpoint value.",
+        "No published-finding corpus record returned an analytic all-angle profile or uniqueness theorem for central cuts of odd regular polygons."
+      ],
+      "reasoning": "The claim was searched both as a Tukey/halfspace-depth statement and as a central area-cut statement. The published endpoint number is treated as prior art; novelty is confined to the exact orientation profile, strict monotonicity, and uniqueness.",
+      "searches": [
+        "regular odd polygon central halfplane angular profile tan secant monotone unique edge-parallel",
+        "Tukey depth regular polygon analytic proof edge parallel unique",
+        "uniform regular odd polygon center halfspace depth unique minimizing direction",
+        "regular polygon floating body deepest point exact halfspace depth",
+        "uniform regular polygon Tukey depth center exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record: 2026/10/4/SCOPE-exact-kovner-besicovitch-measure-of-every-regular-polygon--87701e161966, which concerns a different central-symmetry kernel invariant.",
+        "Another close record, 2026/10/4/SCOPE-equal-area-three-slice-centerpoints-improve-to-8-27--fd7da08a5159, concerns a different halfspace-depth lower bound and does not imply a regular-polygon angular profile."
+      ],
+      "reasoning": "No exact database/result table located the formula for the orientation-dependent smaller central-cut fraction or the strict uniqueness assertion. Similar regular-polygon invariants are implication-incomparable.",
+      "searches": [
+        "regular odd polygon central halfplane angular profile tan secant monotone unique edge-parallel",
+        "Tukey depth regular polygon analytic proof edge parallel unique",
+        "Rousseeuw Ruts verified numerically optimal halfplane regular polygon proof",
+        "uniform regular odd polygon center halfspace depth unique minimizing direction",
+        "Szarek symmetry regular odd polygon rho exact edge parallel"
+      ]
+    },
+    "rationale": "Rousseeuw--Ruts already publish the odd regular-polygon maximal-depth value, but in the materially inspected Section 5.5 they explicitly state that the edge-parallel optimizer was verified numerically before computing that value. The new claim gives an exact formula for every central orientation, proves strict monotonicity in a dihedral chamber, and thereby proves and uniquely classifies the optimizer. Targeted published-finding corpus and web searches found no statement implying this profile or uniqueness; the remaining risk is an unindexed or differently phrased later proof.",
+    "residual_risks": [
+      "A later statistics, robust-location, or computational-geometry source may contain an analytic proof of the same orientation profile or optimizer uniqueness under different terminology and may be poorly indexed.",
+      "The endpoint maximal-depth value itself is prior work and is intentionally excluded from the novelty claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the endpoint depth value but explicitly reports the optimizer as numerically verified; no analytic proof of optimizer uniqueness or all-angle central profile was found in the inspected section.",
+        "evidence": "Section 5.5 states that for odd order one must minimize central halfplane mass, then says the optimal edge-parallel choice was numerically verified, and subsequently derives the depth value from that choice.",
+        "identifier_or_url": "DOI 10.1007/PL00020903",
+        "material_read": "Full author-uploaded article text, especially Section 5.5, the maximal-depth paragraph, the edge-parallel statement, endpoint-area calculation, and nearby contour discussion.",
+        "method": "Full-text inspection of the accessible author-uploaded article.",
+        "title": "The depth function of a population distribution",
+        "trigger": "Direct prior source for uniform halfspace depth on regular polygons and the likely source of coverage of the proposed optimizer claim."
+      },
+      {
+        "assessment": "Establishes the general convex-geometric framework and universal bounds but does not specialize to the orientation profile of regular odd polygons.",
+        "evidence": "The paper defines the worst hyperplane-cut ratio at a point, minimizes it over the body, and records the relation between that invariant and the maximal nonempty floating-body level.",
+        "identifier_or_url": "arXiv:1302.2076v1",
+        "material_read": "Full arXiv HTML text, especially the definition of the cut-ratio parameter, the floating-body relation, Theorem 1, and Corollary 2.",
+        "method": "Full-text arXiv inspection.",
+        "title": "On measures of symmetry and floating bodies",
+        "trigger": "Primary convex-geometry source connecting hyperplane cut ratios to a symmetry parameter and convex floating bodies; also supplies slot ownership evidence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ee13bb5f-7d68-4a38-8d57-bdbc758c2e72",
+  "value": {
+    "rationale": "The theorem resolves a specific numerical step explicitly left in the primary regular-polygon depth calculation and strengthens it to a complete directional classification with strict equality information. It is naturally motivated by halfspace depth and Szarek's hyperplane-cut symmetry/floating-body framework. The result is not a recomputation of the known endpoint value: it proves the missing all-order optimizer statement and supplies the entire central orientation profile.",
+    "status": "PASS"
+  }
+}
