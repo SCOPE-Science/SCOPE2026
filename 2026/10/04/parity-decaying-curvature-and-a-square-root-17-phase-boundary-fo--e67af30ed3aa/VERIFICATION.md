@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed from the published symmetric determinantal degree product. The critical algebraic steps are:
+# Independent mathematical audit
 
-1. Consecutive degree quotient:
-\[
-\frac{S_{n,n-c-1}}{S_{n,n-c}}
-=\frac{c!}{(2c+1)!}\prod_{j=0}^{c}(n-c+2j).
-\]
-2. Dividing consecutive quotients gives the exact \(Q_{n,c}\) product.
-3. Dividing \(Q_{n,c+2}\) by \(Q_{n,c}\) gives the stated rational expression; cross multiplication leaves \(4n^2-1\), so strictness is symbolic and uniform.
-4. The Gamma rewrite follows from the step-two products, and the asymptotic uses \(\Gamma(x+1/2)/\Gamma(x)\sim\sqrt{x}\).
+## correctness
 
-`artifacts/verify_symmetric_curvature.py` independently checks 561 degree/curvature identities and 6,786 parity-step identities with exact integer and rational arithmetic. `artifacts/verification_output.txt` records the replay output. The floating-point convergence checks are regression evidence only and are not used to justify the infinite theorem.
+PASS
 
-The claim does not assert an exact finite sign on the critical asymptotic scale, and it does not claim full one-step monotonicity across alternating corank parity.
+Nie-Ranestad-Sturmfels Proposition 14 gives the exact symmetric determinantal degree product. Taking two successive quotients yields the stated curvature product. Cancelling the formulas at \(c\) and \(c+2\) yields the claimed two-step ratio, whose denominator-minus-numerator expands to \(4n^2-1>0\). Rewriting the product as two half-step Gamma ratios gives the limit \(\sqrt{1-\theta^2}/(4\theta)\), and comparing it with one yields the square-root-17 boundary. A fresh symbolic replay independently reproduced the cross-multiplied gap.
+
+## originality
+
+PASS
+
+The primary source gives the ordinary projective degree product but does not state rankwise curvature, parity monotonicity or the bulk phase transition. Resultary contains an analogous square-root-17 theorem for generic square determinantal matrices, but the symmetric degree sequence is different and that theorem does not imply this product law. Broader complete-quadric/SDP enumerative papers concern different invariants. The present result is a structural analysis across the entire classical symmetric rank family rather than an isolated degree evaluation.
+
+## value
+
+PASS
+
+The theorem extracts a global structural phase diagram from a classical rank-family degree formula: exact parity-wise monotonicity plus a sharp bulk transition. This is more informative than computing individual known degrees and gives a natural symmetric counterpart to the generic determinantal curvature theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
