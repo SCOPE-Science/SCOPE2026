@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was reconstructed from the chain-graph neighborhood definition rather than inferred from finite data. The critical equalities are that an unselected vertex in \(A_i\) has exactly \(Y_i\) selected neighbors and an unselected vertex in \(B_j\) has exactly \(X_j\) selected neighbors. They yield the stated profile criterion directly.
+# Independent mathematical audit
 
-The standalone `verify.py` independently builds every canonical connected chain graph of order at most \(10\), enumerates every vertex subset, and checks the outside-only perfect-domination definition against both the profile criterion and the closed minimum-size/count formula. Replay output:
+## correctness
 
-`VERIFY_OK profiles=511 subset_checks=349524 perfect_sets=13825 criterion_checks=349524 minimum_checks=511 exception_profiles=28 max_order=10`
+PASS
 
-The finite replay is not an infinite proof and is used only as a stress test. No assertion is made about disconnected chain graphs, efficient domination, perfect \(k\)-domination, or inclusion-minimal perfect dominating sets of nonminimum cardinality.
+For an unselected vertex in \(A_i\), the number of selected neighbours is exactly the selected prefix count \(Y_i\); for an unselected vertex in \(B_j\), it is exactly the selected suffix count \(X_j\). This proves the full profile criterion directly. A singleton can dominate perfectly only when its own bipartition side has one vertex. With both sides of size at least two, every extreme pair \(A_p\times B_1\) works. If a selected B-vertex lies above \(B_1\), all lower A-blocks not adjacent to it must fit into the single selected A-vertex; dually for a nonextreme A-vertex. Combining the two constraints yields only the stated \(p=2\), \(\alpha_1=\beta_2=1\) exceptional nonedge. The exhaustive checker through order ten is corroborative.
+
+## originality
+
+PASS
+
+Targeted chain/Ferrers searches and Resultary found no prior theorem with the prefix/suffix profile criterion or the exceptional nonedge minimum pair. The inspected 2021 paper overlaps only the one-block complete-bipartite boundary, while other primary literature treats grids or circular-arc algorithms. The audited theorem therefore survives best-of-knowledge originality, with a residual indexing risk typical for older chain-graph literature.
+
+## value
+
+PASS
+
+Chain graphs are a canonical nested-neighborhood class, and the theorem gives the entire minimum perfect-domination geometry and exact count rather than only the parameter value. The exceptional nonedge boundary is a genuine structural feature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
