@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:02:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary source gives \\(\\omega=\\arccos((N-4)/N)\\) and \\(F_N(2t)=\\sin^4(\\omega t/2)\\). Unit fidelity at integer effective time requires \\(\\omega/\\pi\\in\\mathbb Q\\). Then \\(2\\cos\\omega=2-8/N\\) is both rational and an algebraic integer, hence one of \\(-2,-1,0,1,2\\); integer \\(N\\ge2\\) yields exactly \\(N=2,4,8\\), with first physical times \\(2,4,6\\). For every other \\(N\\), irrational rotation makes \\(t\\omega\\) dense modulo \\(2\\pi\\), so the fidelity supremum is one but is never attained. The package verifier reconstructs the effective matrix and checks the source fidelity formula on a finite grid; those checks are supplementary to the all-size argument.",
+      "risks": [
+        "The claim concerns the marked coined walk on the star and the particular sender/receiver states of the source."
+      ],
+      "sources": [
+        "RESULT.md blob c91eaa57ced556a530cd9484576284e6d29bcd7e",
+        "verify_star_transfer.py blob 78724dbe40a8a9368392556d6531e8022a44cf72",
+        "Stefaňák and Skoupý, arXiv:1608.00498, equations (9)–(12)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact source fidelity is strictly broader data than the three exceptional sizes plus PGST conclusion: it determines fidelity at every time for every \\(N\\)."
+        ],
+        "reasoning": "Because that formula mechanically implies the final statement with standard number theory, prior coverage is decisive.",
+        "searches": [
+          "Stefaňák–Skoupý full star-graph section",
+          "Chan–Zhan full accessible article"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1608.00498",
+        "DOI:10.1088/1751-8121/acc4f5",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting the published fidelity equal to one gives \\(\\omega t\\equiv\\pi\\pmod{2\\pi}\\); the rest is the standard classification of rational cosine at rational multiples of \\(\\pi\\) plus density for irrational rotations."
+        ],
+        "reasoning": "No additional walk-specific lemma is needed beyond the published exact formula.",
+        "searches": [
+          "Direct implication test from equations (9)–(12) of arXiv:1608.00498"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The star-walk source publishes \\(\\omega=\\arccos((N-4)/N)\\) and the exact fidelity \\(\\sin^4(\\omega t/2)\\) for all \\(N,t\\).",
+          "The later PGST paper develops generic spectral/arccosine criteria for discrete-time unitary walks."
+        ],
+        "reasoning": "The final classification is equivalent to asking when the already-published single phase is rational versus irrational.",
+        "searches": [
+          "arXiv:1608.00498 full PDF, equations (9)–(12)",
+          "Chan–Zhan, DOI 10.1088/1751-8121/acc4f5, generic discrete-time PGST"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact SCOPE database duplicate was returned, but database absence cannot overcome the direct implication from the primary source."
+        ],
+        "reasoning": "The decisive originality failure is source implication, not a matching-title search.",
+        "searches": [
+          "Resultary query for star-graph exact/pretty-good transfer",
+          "Primary exact formula"
+        ]
+      },
+      "rationale": "FAIL on implication-level originality. The 2016 primary paper already gives the complete exact fidelity function for every integer \\(N\\) and every integer time. The submitted perfect-versus-pretty-good trichotomy is then a direct arithmetic corollary: apply the standard rational-angle algebraic-integer observation to the source's \\(\\cos\\omega=(N-4)/N\\), and irrational-rotation density to the same one-frequency formula. The source's prose overstates 'perfect' transfer for arbitrary \\(N\\), but the mathematical formula it publishes already dominates the final claim under the owner's corollary/implication rule. Chan–Zhan's later generic PGST theory independently confirms that discrete-time PGST is governed by spectral angle arithmetic.",
+      "residual_risks": [
+        "The source's own prose says arbitrary-size perfect transfer while its exact integer-time formula shows otherwise; the originality verdict follows the mathematical implication, not the prose label."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRONGER_COVERAGE",
+          "evidence": [
+            "Equations (9)–(12) already determine the exact fidelity for every size and integer time."
+          ],
+          "identifier_or_url": "arXiv:1608.00498",
+          "material_read": "Full public PDF star-graph section, including the effective matrix, eigenphase, transfer-time prescription, and fidelity equation.",
+          "method": "Public full-text PDF plus rendered-page inspection.",
+          "title": "Perfect state transfer by means of discrete-time quantum walk search algorithms on highly symmetric graphs",
+          "trigger": "Exact source for the marked star walk and its fidelity formula."
+        },
+        {
+          "assessment": "GENERAL_PGST_BACKGROUND",
+          "evidence": [
+            "The paper characterizes PGST through spectral phases/arccosines in its walk class and states a generic unitary formulation."
+          ],
+          "identifier_or_url": "DOI:10.1088/1751-8121/acc4f5",
+          "material_read": "Accessible article abstract, introduction, generic-walk definitions, and spectral/arccosine discussion.",
+          "method": "Public full-text web inspection.",
+          "title": "Pretty good state transfer in discrete-time quantum walks",
+          "trigger": "Later general theory for PGST in discrete-time unitary walks."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Despite originality failure, the exact classification is mathematically motivated and useful: it corrects a substantive exact-versus-'almost perfect' ambiguity in a published state-transfer example, identifies the complete exceptional set, and distinguishes unattained PGST from exact transfer. This is a natural boundary classification rather than an arbitrary parameter slice.",
+      "risks": [
+        "The derivation uses standard one-frequency Diophantine facts once the source formula is known."
+      ],
+      "sources": [
+        "arXiv:1608.00498",
+        "DOI:10.1088/1751-8121/acc4f5"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Correctness is not disputed; rejection is solely because the final theorem is already implied by a stronger published exact fidelity formula."
+  ],
+  "schema_version": 1
+}
