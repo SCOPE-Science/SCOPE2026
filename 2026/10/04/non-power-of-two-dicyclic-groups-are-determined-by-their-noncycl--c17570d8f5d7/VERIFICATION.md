@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was executed from the packaged path.
+# Independent mathematical audit
 
-For eleven non-power-of-two parameters between \(3\) and \(15\), it constructs the dicyclic multiplication table directly, computes generated subgroups, recovers the cyclicizer exactly, and checks every adjacency/nonadjacency against the claimed complete multipartite decomposition. It also checks the arithmetic obstruction that eliminates cyclicizer size \(1\).
+## correctness
 
-Exact output:
+PASS
 
-```text
-n=3 order=12 cyclicizer=2 parts=[4, 2, 2, 2] reconstruction_c=2
-n=5 order=20 cyclicizer=2 parts=[8, 2, 2, 2, 2, 2] reconstruction_c=2
-n=6 order=24 cyclicizer=2 parts=[10, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-n=7 order=28 cyclicizer=2 parts=[12, 2, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-n=9 order=36 cyclicizer=2 parts=[16, 2, 2, 2, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-n=10 order=40 cyclicizer=2 parts=[18, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-n=11 order=44 cyclicizer=2 parts=[20, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-n=12 order=48 cyclicizer=2 parts=[22, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-n=13 order=52 cyclicizer=2 parts=[24, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-n=14 order=56 cyclicizer=2 parts=[26, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-n=15 order=60 cyclicizer=2 parts=[28, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] reconstruction_c=2
-VERIFY_OK
-```
+The known graph has one part of size 2n-2 and n parts of size two, with a two-element cyclicizer in Dic_n. For any graph mate H, the cyclicizer lemma gives |Cyc(H)| dividing each finite cyclicizer size; a small part gives c|(c+2), so c is 1 or 2. If c=1, the large cyclicizer class has size 2n-1 and, because all of its pairs generate cyclic groups, Lemma 2.1(2) makes it a finite locally cyclic subgroup; then 2n-1 would divide |H|=4n-1, impossible. Thus c=2 and |H|=4n. The large class plus Cyc(H) is cyclic of order 2n and index two. Each small class plus Cyc(H) is cyclic order four, so every outside element has square equal to the unique nontrivial cyclicizer element z. If K=<a> is the index-two cyclic subgroup and x is outside, (xk)^2=x^2=z for every k in K; normality of K yields xkx^{-1}=k^{-1}. With x^2=a^n this is exactly the dicyclic presentation. The verifier's finite examples corroborate the graph input only.
 
-The finite replay does not certify the infinite family. The arbitrary-\(n\) conclusion is supplied by the symbolic reconstruction proof in `RESULT.md`.
+## originality
+
+PASS
+
+Abdollahi--Mohammadi Hassanabadi prove uniqueness for generalized quaternion 2-groups under their p-group hypotheses, while Ma--Wei--Zhong give the full Q_{4n} cyclicizer and graph structure for arbitrary n. The inspected sources do not extend recognition to non-power-of-two dicyclic parameters. Resultary searches under dicyclic/generalized-quaternion/Q_{4n} recognition aliases returned the audited theorem as the exact recognition hit and nearby results on other associated graphs, not a stronger noncyclic-graph theorem.
+
+## value
+
+PASS
+
+Graph recognition of a full infinite family of non-2-group dicyclic groups closes the natural complement to the established generalized-quaternion 2-group uniqueness result. The proof reconstructs the index-two cyclic subgroup and inversion action from graph data, a substantive rigidity theorem rather than a parameter restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

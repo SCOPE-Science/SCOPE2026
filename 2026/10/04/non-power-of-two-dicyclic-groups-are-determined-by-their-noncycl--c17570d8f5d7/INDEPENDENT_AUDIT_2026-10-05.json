@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T17:49:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 4d18353869d4b7368fbad896f831b802d785731a",
+        "verify.py blob 7827073e7101bf7e6fa7b1ffe1fcbc38175d1f13",
+        "Abdollahi--Mohammadi Hassanabadi Lemma 2.1 and Proposition 7.13",
+        "Ma--Wei--Zhong Section 5",
+        "fresh reconstruction including the cyclicizer-subgroup closure step"
+      ],
+      "rationale": "The known graph has one part of size 2n-2 and n parts of size two, with a two-element cyclicizer in Dic_n. For any graph mate H, the cyclicizer lemma gives |Cyc(H)| dividing each finite cyclicizer size; a small part gives c|(c+2), so c is 1 or 2. If c=1, the large cyclicizer class has size 2n-1 and, because all of its pairs generate cyclic groups, Lemma 2.1(2) makes it a finite locally cyclic subgroup; then 2n-1 would divide |H|=4n-1, impossible. Thus c=2 and |H|=4n. The large class plus Cyc(H) is cyclic of order 2n and index two. Each small class plus Cyc(H) is cyclic order four, so every outside element has square equal to the unique nontrivial cyclicizer element z. If K=<a> is the index-two cyclic subgroup and x is outside, (xk)^2=x^2=z for every k in K; normality of K yields xkx^{-1}=k^{-1}. With x^2=a^n this is exactly the dicyclic presentation. The verifier's finite examples corroborate the graph input only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 7.13(1) is a p-group theorem yielding generalized quaternion 2-groups, so it does not cover mixed-prime dicyclic groups.",
+          "The 2013 source gives graph structure and cyclicizer data rather than uniqueness from graph isomorphism.",
+          "The 2019 accessible abstract advertises other algebraic characterizations and does not expose a dicyclic recognition theorem; full text was inaccessible in this run."
+        ],
+        "reasoning": "No inspected broader theorem dominates the non-power-of-two recognition statement.",
+        "searches": [
+          "Abdollahi--Mohammadi Hassanabadi 2007 full primary PDF",
+          "Ma--Wei--Zhong 2013 full publisher text",
+          "Vatandoost--Golkhandypour 2019 abstract/scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0708.2327",
+        "DOI:10.1155/2013/107265",
+        "DOI:10.1142/S179383091950006X",
+        "Resultary dicyclic-recognition search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multipartite graph forces candidate cyclicizer size c to divide c+2, hence c is 1 or 2.",
+          "The c=1 alternative is eliminated by the large cyclicizer class and Lagrange divisibility; c=2 then forces a cyclic index-two subgroup of order 2n and order-four outside elements sharing the unique involution.",
+          "Using the cyclicizer-subgroup lemma closes the otherwise implicit point that each complete nonneighbor class plus the cyclicizer is actually a finite locally cyclic subgroup; the index-two action is then inversion."
+        ],
+        "reasoning": "The arbitrary-n reconstruction is additional to the previously known 2-power recognition and graph-description results.",
+        "searches": [
+          "Abdollahi--Mohammadi Hassanabadi Lemma 2.1 and Proposition 7.13",
+          "Ma--Wei--Zhong generalized quaternion graph structure",
+          "assigned reconstruction argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2007 proposition proves the generalized-quaternion uniqueness result inside the 2-group regime.",
+          "The 2013 paper identifies Cyc(Q_{4n})={1,a^n} and the cyclic/noncyclic neighborhood classes for arbitrary n."
+        ],
+        "reasoning": "The assigned statement asks for recognition among all finite groups from the same multipartite noncyclic graph when n is not a power of two.",
+        "searches": [
+          "Abdollahi--Mohammadi Hassanabadi, arXiv:0708.2327, Proposition 7.13",
+          "Ma--Wei--Zhong, DOI:10.1155/2013/107265, Section 5",
+          "Resultary query: dicyclic generalized quaternion Q_4n noncyclic graph uniquely determines group recognition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the audited record; adjacent dicyclic findings concern commuting graphs and cyclic-subgroup graphs rather than noncyclic-graph recognition."
+        ],
+        "reasoning": "Originality is supported by direct implication checks against the foundational and graph-structure papers, not merely by search failure.",
+        "searches": [
+          "Resultary dicyclic/noncyclic-graph recognition search"
+        ]
+      },
+      "rationale": "Abdollahi--Mohammadi Hassanabadi prove uniqueness for generalized quaternion 2-groups under their p-group hypotheses, while Ma--Wei--Zhong give the full Q_{4n} cyclicizer and graph structure for arbitrary n. The inspected sources do not extend recognition to non-power-of-two dicyclic parameters. Resultary searches under dicyclic/generalized-quaternion/Q_{4n} recognition aliases returned the audited theorem as the exact recognition hit and nearby results on other associated graphs, not a stronger noncyclic-graph theorem.",
+      "residual_risks": [
+        "The full 2019 noncyclic-graph article was not accessible in this run; an unadvertised equivalent dicyclic recognition theorem there remains a bounded literature risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_GENERALIZED_QUATERNION_2_GROUPS_NOT_NON_POWER_OF_TWO_DICYCLIC_GROUPS",
+          "evidence": "Proposition 7.13 assumes a finite p-group and, when the cyclicizer is nontrivial, concludes generalized quaternion order 2^n.",
+          "identifier_or_url": "arXiv:0708.2327; DOI:10.1080/00927870701302081",
+          "material_read": "Full primary PDF around Lemma 2.1 and Proposition 7.13 was text-read, and the Proposition 7.13 page was visually inspected.",
+          "method": "Exact hypothesis/parameter coverage comparison.",
+          "title": "Non-Cyclic Graph of a Group",
+          "trigger": "Foundational primary source for graph uniqueness and the generalized-quaternion p-group case."
+        },
+        {
+          "assessment": "SUPPLIES_GRAPH_STRUCTURE_NOT_RECOGNITION",
+          "evidence": "The source proves Cyc(Q_{4n})={e,a^n} and describes graph parameters but does not prove that every finite group with the same noncyclic graph is Q_{4n} for arbitrary n.",
+          "identifier_or_url": "DOI:10.1155/2013/107265",
+          "material_read": "Open publisher full text through Section 5, including Lemma 33 and the generalized-quaternion cyclic-graph discussion.",
+          "method": "Structure-versus-recognition implication comparison.",
+          "title": "The Cyclic Graph of a Finite Group",
+          "trigger": "Primary source giving the generalized quaternion cyclicizer and graph structure used as input."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_RESIDUAL_RISK",
+          "evidence": "The accessible abstract describes selected small graph-form characterizations, not the general dicyclic recognition statement.",
+          "identifier_or_url": "DOI:10.1142/S179383091950006X",
+          "material_read": "Publisher/indexed abstract and bibliographic scope only; full primary text was not lawfully accessible in this run.",
+          "method": "Access-limited theorem-scope risk check.",
+          "title": "On the non-cyclic graph of a group",
+          "trigger": "Later highly relevant noncyclic-graph paper."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:0708.2327",
+        "DOI:10.1155/2013/107265",
+        "DOI:10.1142/S179383091950006X",
+        "Resultary dicyclic-recognition search"
+      ],
+      "rationale": "Graph recognition of a full infinite family of non-2-group dicyclic groups closes the natural complement to the established generalized-quaternion 2-group uniqueness result. The proof reconstructs the index-two cyclic subgroup and inversion action from graph data, a substantive rigidity theorem rather than a parameter restatement.",
+      "residual_risks": [
+        "The full 2019 noncyclic-graph article was not accessible in this run; an unadvertised equivalent dicyclic recognition theorem there remains a bounded literature risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0708.2327",
+    "DOI:10.1155/2013/107265",
+    "DOI:10.1142/S179383091950006X",
+    "Resultary dicyclic-recognition search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n>=3 that is not a power of two, a finite group whose noncyclic graph is isomorphic to that of Dic_n is isomorphic to Dic_n.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The full 2019 noncyclic-graph article was not accessible in this run; an unadvertised equivalent dicyclic recognition theorem there remains a bounded literature risk.",
+    "The theorem is stated only for finite comparison groups and intentionally excludes the already-covered power-of-two generalized-quaternion parameters."
+  ]
+}
