@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The deletion-confusability relation is recognized by an explicit finite-state alignment automaton. Its exact transfer matrices reduce the all-length count to finite-dimensional linear algebra. The verifier certifies invariant Krylov spaces and annihilating polynomials for both the pair count and the three-pair product count, after which inclusion-exclusion gives the triangle formula. Direct small-length enumeration agrees independently.
+## correctness
 
-## Originality
-PASS. The closest primary source is Alon–Bourla–Graham–He–Kravitz, which defines the same deletion graph and bounds its total triangles asymptotically for general deletion radius. The inspected source does not give an exact \(k=1\) triangle enumeration. Its LCS/SCS results and the older exact common-supersequence literature concern pairwise multiplicity rather than a global three-word clique count. Targeted database searches found no dominating exact statement. Residual risk remains for an unindexed or differently phrased prior enumeration.
+PASS
 
-## Value
-PASS. Triangle sparsity is not an auxiliary arbitrary statistic here: it is the local graph structure used by the closest deletion-code work. Determining it exactly at radius one gives a clean benchmark for the general theory and removes the logarithmic slack from the known general bound at this radius, without claiming a downstream code-size improvement.
+The actual package constructs an exact finite-state recognizer for deletion distance at most one, determinizes it to 11 states, and takes the three-pair product with 287 reachable states. The inspected verifier does not infer from a finite table: it certifies invariant Krylov spaces of dimensions 5 and 14 and annihilating polynomials \((t-2)^3(t-1)\) and \((t-2)^4(t-1)^3\), thereby proving the pair and ordered-triple recurrences for all lengths. Inclusion--exclusion removes coordinate equalities and division by six converts ordered distinct triples to triangles. Independently, I rebuilt the literal deletion graph for every \(1\le n\le7\); the triangle counts \(0,2,18,100,432,1592,5268\) exactly match the formula.
 
-## Closest literature and limitations
-The result is restricted to the binary one-deletion graph and ordinary triangles. No result is claimed for larger radii, larger alphabets, or higher cliques. Independent verification has not been performed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Alon et al. define the same deletion graph and use triangle sparsity, but their result is a general-radius asymptotic upper bound rather than an exact radius-one enumeration. Their fixed-pair LCS/SCS multiplicity estimates and the older insertion-reconstruction literature do not determine the number of global three-vertex cliques. A fresh Resultary search found no earlier exact formula for \(T_n\).
+
+## value
+
+PASS
+
+Triangle sparsity is an explicit structural input in current deletion-code lower-bound work. At the first nontrivial deletion radius the theorem replaces a general asymptotic control by an exact all-length clustering invariant, including every lower-order term; that is a natural reusable graph statistic rather than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
