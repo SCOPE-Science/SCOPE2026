@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `verify.py` uses only the Python standard library and rebuilds the result from the finite universe of ternary length-three words.
+# Independent mathematical audit
 
-It performs these checks:
+## correctness
 
-1. Enumerates every one-, two-, and three-word coalition inside a candidate and encodes its descendant as three coordinate symbol masks. Distinct masks are therefore exactly the separability condition.
-2. Tests all \(\binom{27}{6}=296010\) six-word subsets and obtains exactly \(135\) valid codes.
-3. Tests all \(\binom{27}{7}=888030\) seven-word subsets and obtains zero valid codes. Since separability is hereditary, this excludes every code of size at least \(7\).
-4. Traverses the complete group of coordinate permutations and independent coordinatewise symbol permutations, of order \(1296\), on all \(135\) maxima. It obtains exactly two orbits, of sizes \(27\) and \(108\), and hence stabilizer orders \(48\) and \(12\).
-5. Checks the two stated canonical representatives, their coordinate multiplicity profiles, and their pairwise Hamming-distance distributions.
+PASS
 
-Reproduction command: `python3 verify.py classification.json`.
+Fresh descendant masks represented each coalition of at most three codewords exactly. Exhausting all 296010 six-subsets found 135 valid codes, while all 888030 seven-subsets failed; since separability is hereditary, no larger code exists. Applying every coordinate permutation and independent ternary symbol permutation to the 135 maxima gave exactly two orbits of sizes 27 and 108. The representative coordinate-multiplicity and pairwise-Hamming profiles independently distinguish those orbits.
 
-Expected output: `VERIFY_OK maximum=6 labeled_maxima=135 orbits=2 orbit_sizes=27,108 stabilizers=48,12 checked6=296010 checked7=888030`.
+## originality
 
-The proof is exhaustive only for \(Q=\{0,1,2\}\), length \(3\), and coalition bound \(3\). It is not evidence for an infinite family or for other alphabet sizes.
+PASS
+
+The strongest same-object primary paper gives an exact forbidden-configuration characterization for all \(q\), but its sharpened \(\lfloor3q^2/4\rfloor\) upper bound is explicitly proved only for \(q\ge4\). At \(q=3\) the generally available source bound is only \(q^2=9\). Thus the audited exact maximum 6 is not a specialization of Theorem 3.1. No inspected source or Resultary finding supplies the 135 labeled maxima or the two symmetry classes.
+
+## value
+
+PASS
+
+The ternary boundary is the first alphabet size not settled by the published sharpened q≥4 inequality, so resolving it exactly is a natural finite gap rather than an arbitrary census. The complete count and symmetry classification add structural information beyond the extremal number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
