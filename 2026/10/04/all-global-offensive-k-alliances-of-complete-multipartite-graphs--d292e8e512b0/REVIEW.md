@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For an omitted vertex in part \(V_i\), the selected-neighbor count is exactly \(s-s_i\) and the unselected-neighbor count is exactly \(N-n_i-(s-s_i)\). Substituting these into the defining inequality gives the claimed threshold with no hidden graph-theoretic lemma. The enumerator then follows by choosing an allowed intersection size in each part and extracting the total cardinality. Exhaustive verification through order \(9\) agrees with the literal definition and every coefficient.
+## correctness
 
-## Originality
-PASS for the arbitrary complete-multipartite all-set classification and cardinality enumerator. The closest primary source, arXiv:0812.1528, gives exact minimum formulas for complete bipartite graphs but not an all-set arbitrary-part classification. Cabahug–Isla Theorem 3.8 gives the all-set characterization only for the ordinary \(k=1\) complete-bipartite case. Chellali–Volkmann study general bipartite graphs and bounds. The complete-bipartite scalar and \(k=1\) set results are excluded from the originality claim.
+PASS
 
-## Value
-PASS. Global offensive \(k\)-alliances are a standard domination/alliance family, and complete multipartite graphs are a canonical test class that already appears in the literature through its bipartite and cocktail-party special cases. Replacing isolated minimum formulas by a single arbitrary-part profile theorem gives every feasible set and every cardinality coefficient for every positive \(k\) in the standard range. This is a natural complete classification rather than an arbitrary parameter slice.
+For an omitted vertex in part \(V_i\), the selected-neighbor count is exactly \(s-s_i\) and the unselected-neighbor count is \(N-n_i-(s-s_i)\). Thus the defining inequality is equivalent to \(s-s_i\ge\lceil(N-n_i+k)/2\rceil\); for positive \(k\) it also forces domination. The coefficient-extraction formula then counts allowed part profiles with their binomial multiplicities. A fresh independent literal-neighborhood replay on all complete-multipartite profiles through order six and all admissible positive \(k\) matched the criterion. The infinite theorem is the exact neighbor-count identity.
 
-## Closest literature and limitations
-The closest inspected sources are the exact complete-bipartite minimum formula in arXiv:0812.1528 and the complete-bipartite \(k=1\) all-set theorem of Cabahug–Isla. A later bipartite paper gives general bounds and confirms MSC 05C69. The result is limited to positive \(k\); negative \(k\) needs a separate domination condition. Search cannot rule out every obscure earlier formula under different terminology.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Bermudo et al.'s complete primary paper gives exact minimum values for complete bipartite graphs, not an all-set arbitrary-multipartite theorem. Cabahug-Isla give a complete-bipartite all-set classification for ordinary global offensive alliances (\(k=1\)); a searchable author-uploaded copy exposes Theorem 3.8 explicitly. Those are genuine special cases of the assigned profile rule. Current Resultary searches found no prior arbitrary complete-multipartite, all-positive-\(k\) profile classification or size enumerator. The extension is therefore original to the best of current knowledge.
+
+## value
+
+PASS
+
+Global offensive \(k\)-alliances are a standard domination/alliance invariant, and complete multipartite graphs are the canonical extension of the already-studied complete-bipartite family. The result gives a natural complete classification for every positive \(k\), not merely one optimum, together with all cardinality counts. That exact family-level description is a motivated structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
