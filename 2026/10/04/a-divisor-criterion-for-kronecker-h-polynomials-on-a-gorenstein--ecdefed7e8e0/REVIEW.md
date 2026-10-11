@@ -1,11 +1,21 @@
-# Review
-## Correctness
-PASS. The canonical and terminal inequalities are reconstructed from the two heavy-chart Reid--Tai ages. Intersecting the two non-terminal boundary components with the Gorenstein divisibility conditions yields exactly the equal-weight member and the divisor branch. The weighted-simplex floor formula then gives explicit factors. On the branch with \(c\mid r\), the factorization is a product of geometric series. On the complementary divisors of \(2r\), the residual polynomial \(C_t\) has the stated unit-circle equation; every hypothetical unit-circle root has nonnegative real part, contradicting Vieta if all roots were on the circle. The exact checker independently reconstructs the floor sums and factorizations through \(r=240\).
+# Independent mathematical audit
 
-## Originality
-PASS with residual literature risk. published-finding corpus searches for weighted-projective/reflexive-simplex Kronecker and root-on-unit-circle classifications returned the closest records SCOPE077 and SCOPE024, which concern different finite-dimensional Ehrhart questions. Braun--Liu arXiv:1807.00105 was inspected because it studies precisely Kronecker \(h^*\)-polynomials of weighted-projective simplices: its stated main classifications focus selected two-support families, while its three-support discussion is framed as examples and open directions. No inspected statement gives the criterion \(c\mid r\) on this Gorenstein canonical boundary, nor the exact count \(\tau(r)+1\). The earlier finding for this boundary classifies unimodality, which neither implies nor is implied by the unit-circle-root classification.
+## correctness
 
-## Value
-PASS. Root location of \(h^*\)-polynomials is a natural Ehrhart-theoretic invariant: Kronecker \(h^*\)-polynomials force strong cyclotomic structure and are linked to Ehrhart positivity. The result gives a complete, all-dimensional arithmetic classification on a naturally defined singularity-theoretic boundary, with a sharp divisor split and closed factorizations rather than an arbitrary finite slice.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The Reid--Tai inequalities give canonicity exactly by \(d=b-a\le r\) and \(a\le r+d\), with terminality obtained by strict inequalities. Imposing Gorenstein divisibility on the two non-terminal boundary branches leaves the equal-weight point and \((c,c+r)\) with \(c\mid2r\). The weighted-simplex floor formula gives the exact displayed factorizations. When \(c\mid r\), writing \(m=r/c\) yields a product of geometric series, so all roots are roots of unity. When \(c\mid2r\) but \(c\nmid r\), put \(c=2p\) and \(t=2r/c=2m-1\); the remaining factor is \(C_t(z)=(1+z)(1+\cdots+z^t)+2z^m\). For a unit root, the submitted trigonometric identity forces \(\operatorname{Re}z\ge0\). If this monic constant-one factor were Kronecker, all of its roots would lie on the unit circle, so their real parts would sum nonnegatively, contradicting Vieta because the root sum is \(-2\). The inspected exact checker reconstructs the floor sum and both branch factorizations for every \(2\le r\le240\), as a regression check rather than the infinite proof.
+
+## originality
+
+PASS
+
+Two published SCOPE records already classify the same Gorenstein boundary and give its exact \(h^*\)-polynomials, so those formulas were treated as prior art rather than novelty. The surviving claim is the unit-circle classification. Braun--Liu's full text makes three-supported Kronecker families an explicit exploratory problem and Question 6.9 asks for further general families; its concrete Section 6.5 families are different. The prior SCOPE unimodality theorem gives exactly the polynomial that must be analyzed on the odd branch but does not determine whether all roots have modulus one. The submitted unit-root/Vieta obstruction supplies that missing implication.
+
+## value
+
+PASS
+
+Kronecker behavior is a central property in the cited weighted-projective-simplex literature, and the theorem gives a clean necessary-and-sufficient divisor criterion on a complete, geometrically natural boundary family. The negative branch is certified by a structural root argument rather than numerical root testing, so the result is a motivated exact classification rather than a table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

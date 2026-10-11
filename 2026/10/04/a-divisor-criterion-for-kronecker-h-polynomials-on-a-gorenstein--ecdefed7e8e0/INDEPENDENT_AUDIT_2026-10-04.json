@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:09:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Reid--Tai inequalities give canonicity exactly by \\(d=b-a\\le r\\) and \\(a\\le r+d\\), with terminality obtained by strict inequalities. Imposing Gorenstein divisibility on the two non-terminal boundary branches leaves the equal-weight point and \\((c,c+r)\\) with \\(c\\mid2r\\). The weighted-simplex floor formula gives the exact displayed factorizations. When \\(c\\mid r\\), writing \\(m=r/c\\) yields a product of geometric series, so all roots are roots of unity. When \\(c\\mid2r\\) but \\(c\\nmid r\\), put \\(c=2p\\) and \\(t=2r/c=2m-1\\); the remaining factor is \\(C_t(z)=(1+z)(1+\\cdots+z^t)+2z^m\\). For a unit root, the submitted trigonometric identity forces \\(\\operatorname{Re}z\\ge0\\). If this monic constant-one factor were Kronecker, all of its roots would lie on the unit circle, so their real parts would sum nonnegatively, contradicting Vieta because the root sum is \\(-2\\). The inspected exact checker reconstructs the floor sum and both branch factorizations for every \\(2\\le r\\le240\\), as a regression check rather than the infinite proof.",
+      "risk": "Correctness relies on the standard weighted-simplex floor formula and Reid--Tai criterion, both used with the stated weight convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braun--Liu provides general factorization machinery but no theorem covering this weight family.",
+          "The SCOPE siblings dominate the boundary classification and exact polynomial formulas but not the unit-circle root classification."
+        ],
+        "reasoning": "The submitted theorem is a property classification of a previously explicit family, not a restatement of the family or formula.",
+        "searches": [
+          "Braun--Liu Theorems/Section 6 on Kronecker weighted-projective simplices",
+          "SCOPE divisor-cores boundary theorem",
+          "SCOPE sharp h*-unimodality boundary theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.00105v2",
+        "arXiv:1304.3029",
+        "Resultary SCOPE divisor-cores record",
+        "Resultary SCOPE h*-unimodality record",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For even \\(t\\), the prior formula factors immediately into geometric series.",
+          "For odd \\(t\\), the prior formula does not by itself state non-Kronecker status; the submitted proof adds a root-location identity and Vieta contradiction."
+        ],
+        "reasoning": "The positive branch is a routine consequence of prior formulas, but the complete iff requires a separate structural exclusion on the odd branch that was not found in prior sources.",
+        "searches": [
+          "Prior SCOPE h*-formula theorem",
+          "Braun--Liu Section 6.5 and Question 6.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior boundary/unimodality record has the same closed \\(h^*\\) formulas under the parameter \\(t=2r/c\\).",
+          "Braun--Liu Section 6.5 studies other three-supported vectors and leaves further families as Question 6.9."
+        ],
+        "reasoning": "The polynomial formulas are prior, but no checked source gives an equivalent Kronecker iff criterion for this boundary.",
+        "searches": [
+          "Resultary: Kronecker h-star weighted projective Gorenstein canonical non-terminal divisor criterion",
+          "Braun--Liu arXiv:1807.00105v2 Section 6.5",
+          "Resultary SCOPE sharp h*-unimodality boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table giving the divisor-by-divisor Kronecker status for this boundary was located."
+        ],
+        "reasoning": "The result is an infinite analytic classification, not a recomputation of a known table.",
+        "searches": [
+          "Resultary exact-weight and Kronecker searches",
+          "Braun--Liu experimental three-support discussion"
+        ]
+      },
+      "rationale": "Two published SCOPE records already classify the same Gorenstein boundary and give its exact \\(h^*\\)-polynomials, so those formulas were treated as prior art rather than novelty. The surviving claim is the unit-circle classification. Braun--Liu's full text makes three-supported Kronecker families an explicit exploratory problem and Question 6.9 asks for further general families; its concrete Section 6.5 families are different. The prior SCOPE unimodality theorem gives exactly the polynomial that must be analyzed on the odd branch but does not determine whether all roots have modulus one. The submitted unit-root/Vieta obstruction supplies that missing implication.",
+      "residual_risks": [
+        "Originality is concentrated in the short odd-branch unit-circle exclusion because the boundary and exact h*-formulas are already published; an older specialization under different notation could still cover that corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No coverage of the audited divisor boundary; the paper explicitly leaves further three-supported Kronecker families open.",
+          "evidence": "Section 6.5 treats specific supports such as (5,3,2); Question 6.9 asks for other general three-supported Kronecker families.",
+          "identifier_or_url": "arXiv:1807.00105v2",
+          "material_read": "Full HTML around the paper overview and Section 6.5, including Theorem 6.8 and Questions 6.9-6.11.",
+          "method": "lawful arXiv full text",
+          "title": "h*-Polynomials With Roots on the Unit Circle",
+          "trigger": "Primary literature on Kronecker weighted-projective simplices with two/three distinct q-entries."
+        },
+        {
+          "assessment": "Provides the exact even/odd polynomial formulas and unimodality criterion, but no Kronecker classification.",
+          "evidence": "Its odd branch polynomial is the audited \\(C_t\\)-factor times a geometric factor, leaving the unit-circle question untreated.",
+          "identifier_or_url": "Resultary/2026/10/4/SCOPE-sharp-h-unimodality-criterion-on-the-gorenstein-canonical-bounda--28aab568277d",
+          "material_read": "Full RESULT.md from the published repository.",
+          "method": "published SCOPE full text via GitHub",
+          "title": "Sharp h*-unimodality criterion on the Gorenstein canonical boundary of P(1^r,a,b)",
+          "trigger": "Same exact boundary and h*-polynomials."
+        },
+        {
+          "assessment": "Covers the boundary parametrization and count only.",
+          "evidence": "It gives the \\(\\tau(2r)+1\\) boundary but no h*-root statement.",
+          "identifier_or_url": "Resultary/2026/10/4/SCOPE-divisor-cores-for-gorenstein-two-heavy-weighted-projective-space--5519b06e1341",
+          "material_read": "Full RESULT.md from the published repository.",
+          "method": "published SCOPE full text via GitHub",
+          "title": "Divisor cores for Gorenstein two-heavy weighted projective spaces",
+          "trigger": "Same Gorenstein canonical/non-terminal boundary."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Kronecker behavior is a central property in the cited weighted-projective-simplex literature, and the theorem gives a clean necessary-and-sufficient divisor criterion on a complete, geometrically natural boundary family. The negative branch is certified by a structural root argument rather than numerical root testing, so the result is a motivated exact classification rather than a table lookup.",
+      "risk": "The new mathematical increment is narrower than the prior boundary and polynomial formulas; its value is the exact root-location classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For \\(r\\ge2\\), on the Gorenstein canonical non-terminal boundary of \\(\\mathbb P(1^r,a,b)\\), the associated reflexive weighted-projective simplex has Kronecker \\(h^*\\)-polynomial exactly at \\((a,b)=(r,r)\\) and at \\((a,b)=(c,c+r)\\) with \\(c\\mid r\\); hence exactly \\(\\tau(r)+1\\) of the \\(\\tau(2r)+1\\) boundary members are Kronecker.",
+  "limitations": [
+    "The theorem is restricted to the Gorenstein canonical non-terminal two-heavy-weight boundary."
+  ],
+  "schema_version": 1
+}
