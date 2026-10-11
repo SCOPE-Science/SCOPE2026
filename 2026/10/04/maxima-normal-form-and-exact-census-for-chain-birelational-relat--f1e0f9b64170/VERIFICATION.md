@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,69 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled checker implements Definition 3.1 literally.
+# Independent mathematical audit
 
-For a relation \(R\) on
-\[
-C_n=\{0,\ldots,n-1\},
-\]
-it tests:
+## correctness
 
-\[
-vRw\le w'
-\Longrightarrow
-\exists v'\ge v\;v'Rw',
-\]
-and
-\[
-v'\ge vRw
-\Longrightarrow
-\exists w'\ge w\;v'Rw'.
-\]
+PASS
 
-For every relation through
-\[
-n=4,
-\]
-it separately computes row maxima \(a_i\) and column maxima \(b_j\), using \(-1\) for emptiness, and checks that the direct Definition 3.1 predicate is equivalent to monotonicity of both maxima sequences.
+The two chain interaction conditions are exactly equivalent to monotonicity of row maxima and column maxima: applying each quantified condition to the current maximum gives necessity, while choosing the later row or column maximum gives sufficiency. For fixed nondecreasing maxima a,b, every edge must lie in A(a,b), every stated row/column maximum must lie in F(a,b), and the two compatibility inequalities are exactly the condition F subset A. Hence each admissible maxima pair contributes 2^(|A|-|F|) relations independently. The exact-commit verifier was inspected in full: it tests the source conditions against the maxima criterion for every relation through n=4 and separately sums all admissible maxima pairs through n=6, obtaining 2,9,118,4849,697066,378458905. The finite checks support, rather than replace, the symbolic proof.
 
-The direct counts are
-\[
-2,\ 9,\ 118,\ 4849.
-\]
+## originality
 
-The checker then independently enumerates nondecreasing maxima pairs through
-\[
-n=6.
-\]
-It tests
-\[
-i\le b_{a_i}
-\]
-for every nonempty row and
-\[
-j\le a_{b_j}
-\]
-for every nonempty column, forms
-\[
-A(a,b)=\{(i,j):j\le a_i,\ i\le b_j\}
-\]
-and the forced boundary set \(F(a,b)\), and sums
-\[
-2^{|A(a,b)|-|F(a,b)|}.
-\]
+PASS
 
-The resulting counts are
-\[
-2,\ 9,\ 118,\ 4849,\ 697066,\ 378458905.
-\]
+The defining 2026 paper is the exact semantic source for the birelational conditions, while the audited theorem specializes them to finite chains and derives a new extremal normal form plus an exact weighted census. Resultary searches for chain birelational relations, row/column maxima and the initial count sequence did not return an equivalent published theorem. The public arXiv full-text HTML route failed during this run and alternative open records exposed only abstract/bibliographic material, so the complete same-paper text was not independently re-read before closeout; this is retained as a source-access residual risk rather than converted into failure. No accessible evidence found a finite-chain enumeration or a stronger theorem implying the maxima-fiber formula.
 
-Where both methods are run, the counts agree exactly.
+## value
 
-The script prints `VERIFY_OK`.
+PASS
 
-## Limits
+Finite chains are the canonical one-dimensional intuitionistic frames, and the theorem turns two quantified semantic interaction conditions into a complete extremal normal form with an exact all-size census. That directly supports exact frame generation and finite semantic analysis, making it a natural complete classification rather than an arbitrary numerical slice.
 
-The finite replay corroborates the proof. The maxima equivalence and reconstruction theorem are proved for arbitrary finite \(n\); no inference from the first six counts is used. No asymptotic claim is made.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

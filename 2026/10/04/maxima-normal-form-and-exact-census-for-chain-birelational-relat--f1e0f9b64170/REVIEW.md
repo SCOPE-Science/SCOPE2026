@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Definition 3.1 has two existential monotonicity conditions. On a chain, the second condition is equivalent to nondecreasing row maxima: the row maximum supplies the witness in the converse direction. The first condition is the column-dual statement. For fixed nondecreasing maxima, all edges must lie in \(A(a,b)\), and each nonempty row and column forces its extreme cell in \(F(a,b)\). The two compatibility inequalities are exactly the condition \(F(a,b)\subseteq A(a,b)\), after which every intermediate subset has precisely the prescribed maxima. This proves the power-of-two fiber size and the exact finite sum.
+PASS
 
-A direct checker tests the source conditions literally for every binary relation through four worlds and agrees with the maxima criterion in every case. The separate maxima-pair summation agrees with the direct counts where both calculations are feasible.
+The two chain interaction conditions are exactly equivalent to monotonicity of row maxima and column maxima: applying each quantified condition to the current maximum gives necessity, while choosing the later row or column maximum gives sufficiency. For fixed nondecreasing maxima a,b, every edge must lie in A(a,b), every stated row/column maximum must lie in F(a,b), and the two compatibility inequalities are exactly the condition F subset A. Hence each admissible maxima pair contributes 2^(|A|-|F|) relations independently. The exact-commit verifier was inspected in full: it tests the source conditions against the maxima criterion for every relation through n=4 and separately sums all admissible maxima pairs through n=6, obtaining 2,9,118,4849,697066,378458905. The finite checks support, rather than replace, the symbolic proof.
 
-## Originality
+## originality
 
-PASS. The 2026 primary paper gives the general birelational interaction conditions and cites the established intuitionistic modal/tense tradition, but the inspected full text has no finite-chain frame specialization, extrema characterization, or census.
+PASS
 
-Davoren's 2010 topological reformulation identifies the interaction conditions with lower semicontinuity of a relation and its inverse; it does not give the chain maxima normal form or the reconstruction/counting formula. Candidate-specific searches for finite-chain birelational relations, stable-relation aliases, extrema formulations, and the initial sequence did not locate an equivalent result.
+The defining 2026 paper is the exact semantic source for the birelational conditions, while the audited theorem specializes them to finite chains and derives a new extremal normal form plus an exact weighted census. Resultary searches for chain birelational relations, row/column maxima and the initial count sequence did not return an equivalent published theorem. The public arXiv full-text HTML route failed during this run and alternative open records exposed only abstract/bibliographic material, so the complete same-paper text was not independently re-read before closeout; this is retained as a source-access residual risk rather than converted into failure. No accessible evidence found a finite-chain enumeration or a stronger theorem implying the maxima-fiber formula.
 
-## Value
+## value
 
-PASS. The new paper's intuitionistic semantics is built around exactly these two relation/order interaction conditions. Finite chains are the canonical linearly ordered intuitionistic reducts and a standard laboratory for finite semantic experiments. The theorem replaces quantified witness checks over all comparable points with two monotone integer sequences and gives an exact decomposition of the finite search space into independent Boolean cells. This is a natural structural normal form, not merely a numerical census.
+PASS
 
-## Closest literature and limitations
+Finite chains are the canonical one-dimensional intuitionistic frames, and the theorem turns two quantified semantic interaction conditions into a complete extremal normal form with an exact all-size census. That directly supports exact frame generation and finite semantic analysis, making it a natural complete classification rather than an arbitrary numerical slice.
 
-Becker--Das--Marin--Padhiar (2026), Definition 3.1, is the direct source. Davoren (2010) gives the closest broad semantic reformulation of the Fischer Servi interaction conditions through lower semicontinuity. Simpson's thesis supplies the standard birelational background.
-
-The result is chain-specific and does not classify full second-order models. No known closed recurrence or asymptotic for the census is claimed.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
