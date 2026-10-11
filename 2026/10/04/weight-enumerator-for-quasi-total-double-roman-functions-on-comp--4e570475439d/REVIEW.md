@@ -1,12 +1,21 @@
-# Review of Weight enumerator for quasi-total double Roman functions on complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. In a complete multipartite graph, every vertex in part \(X_i\) sees exactly the labels placed outside \(X_i\). This reduces the double-Roman conditions to two exact count inequalities and reduces the quasi-total condition to whether positive support meets one part or at least two. Splitting first by the number of parts carrying label \(3\), then by the number of parts carrying label \(2\), is exhaustive. Each generating-function term corresponds to one disjoint structural case, and a direct graph-definition checker matches every coefficient through order eight.
+## correctness
 
-## Originality
-PASS. The 2024 foundational paper was inspected in full: it defines the parameter, proves NP-hardness, determines paths and cycles, studies small and large minimum values, and proves an upper bound, but it does not state an arbitrary complete-multipartite all-function classification or weight enumerator. Exact searches for complete multipartite and complete bipartite formulations did not locate such a theorem. The earlier total double Roman paper studies the stronger condition that every positive vertex has a positive neighbor and likewise has no arbitrary complete-multipartite theorem. A 2026 stability paper studies vertex-deletion stability rather than all-function enumeration. The minimum corollary is explicitly discounted as a novelty basis.
+PASS
 
-## Value
-PASS. The foundational literature treats quasi-total double Roman domination as an optimization parameter with nontrivial computational complexity. The present theorem resolves the entire feasible-function space on a canonical dense graph class, not just the optimum. The support-part classification explains exactly where the quasi-total relaxation differs from total double Roman domination, and the closed polynomial simultaneously records every weight multiplicity and total function count.
+On a complete multipartite graph the defining conditions reduce to counts of labels 2 and 3 outside each part, while the quasi-total condition depends only on whether positive support meets at least two parts or leaves isolated positive vertices. This yields the unique-3-part and no-3 support cases exactly as stated. I independently compared the literal definition to the structural classifier on every ordered multipartite composition through order seven, totaling 1176528 labelings, with zero mismatches; an independent implementation of the displayed polynomial matched every brute-force histogram through order six. The packaged verifier independently checks all isomorphism types through order eight.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2024 source introduces exactly this domination variant and treats complexity, paths/cycles, parameter characterizations and bounds. Its accessible full text contains no complete-multipartite or complete-bipartite all-function theorem. A 2026 stability follow-up studies vertex-deletion stability rather than enumeration. Resultary searches returned adjacent Roman variants but no prior quasi-total double Roman enumerator.
+
+## value
+
+PASS
+
+For a recently introduced Roman-type invariant, the theorem gives a complete structural classification and all-weight generating function on a canonical infinite graph family, not just another minimum value. The classification also exposes precisely how isolated label-2 support changes the total-double-Roman picture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

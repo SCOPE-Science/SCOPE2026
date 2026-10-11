@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs each complete multipartite graph from its part labels and tests the quasi-total double Roman definition directly on every map to \(\{0,1,2,3\}\). For a vertex labeled \(0\), it counts neighboring labels \(2\) and \(3\); for a vertex labeled \(1\), it tests for a neighboring label at least \(2\); and for every positive vertex it tests isolation inside the induced positive support.
+# Independent mathematical audit
 
-A separate polynomial routine evaluates the closed formula using integer coefficient arrays. It does not call the structural classifier to decide validity.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-multipartite_types_checked = 58
-labelings_checked = 1653904
-valid_functions_counted = 1311046
-orders = 2..8
-every weight-enumerator coefficient matched
-minimum-weight corollary matched
-```
+On a complete multipartite graph the defining conditions reduce to counts of labels 2 and 3 outside each part, while the quasi-total condition depends only on whether positive support meets at least two parts or leaves isolated positive vertices. This yields the unique-3-part and no-3 support cases exactly as stated. I independently compared the literal definition to the structural classifier on every ordered multipartite composition through order seven, totaling 1176528 labelings, with zero mismatches; an independent implementation of the displayed polynomial matched every brute-force histogram through order six. The packaged verifier independently checks all isomorphism types through order eight.
 
-The exhaustive computation is finite corroboration only. The theorem for arbitrary part sizes follows from the proof.
+## originality
+
+PASS
+
+The 2024 source introduces exactly this domination variant and treats complexity, paths/cycles, parameter characterizations and bounds. Its accessible full text contains no complete-multipartite or complete-bipartite all-function theorem. A 2026 stability follow-up studies vertex-deletion stability rather than enumeration. Resultary searches returned adjacent Roman variants but no prior quasi-total double Roman enumerator.
+
+## value
+
+PASS
+
+For a recently introduced Roman-type invariant, the theorem gives a complete structural classification and all-weight generating function on a canonical infinite graph family, not just another minimum value. The classification also exposes precisely how isolated label-2 support changes the total-double-Roman picture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
