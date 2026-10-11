@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:11:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3d87cfb7e1acdd0219d92b7686998913d3085641",
+        "assigned verify_nabla_l1.py blob ca99ef5a84e60d32ac2709622b52fd08c9f0b3b7",
+        "Haller--Langemets--Perreau--Veeorg arXiv:2303.07037v1 full primary HTML",
+        "Choi--Jung arXiv:2307.10647v3 full primary HTML"
+      ],
+      "rationale": "For \\(0<m(f)<1\\), positive atomic mass has a maximizing atom because infinitely many distinct atoms carrying a fixed positive fraction of the supremum would contradict \\(\\|f\\|_1=1\\). The slice supported on such an atom and cut exactly at mass \\(m(f)\\) avoids \\(f\\), has every point at distance at most \\(2(1-m(f))\\), and an explicit sign-reversed remainder vector attains that distance. Conversely, for any avoiding slice, the high-level set of its \\(L_\\infty\\) functional has positive measure. If it contains an atom, the normalized signed atomic vector lies in the slice and is at distance at least \\(2(1-m(f))\\); if it contains no atom, sigma-finiteness and atomlessness provide a finite-measure subset with arbitrarily small \\(|f|\\)-mass, giving slice points with distance tending to two. The endpoint \\(m(f)=0\\) therefore gives two. If \\(m(f)=1\\), \\(f\\) is exactly a signed normalized atom; an avoiding slice cannot have its high-level atom aligned with \\(f\\), while any other atomic or atomless high-level witness is at distance two. This proves the discontinuous endpoint and the full formula. The exact-rational finite-atomic verifier exercises the slice geometry but is not used as a proof of the sigma-finite theorem.",
+      "residual_risks": [
+        "The result is scalar and real and does not cover vector-valued \\(L_1\\).",
+        "The finite verifier covers only atomic polyhedral models and is explicitly supplementary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The qualitative theorem determines only whether the avoiding-slice constant reaches two.",
+          "The quantitative Daugavet formula gives a useful lower bound for avoiding slices in purely atomic interiors but has different endpoint behavior and does not state the mixed sigma-finite result.",
+          "Later vector-valued work is qualitative in the inspected scalar \\(L_1\\) discussion."
+        ],
+        "reasoning": "No inspected broader theorem mechanically supplies the complete piecewise avoiding-slice formula.",
+        "searches": [
+          "Haller et al. qualitative \\(L_1\\) classification",
+          "Choi--Jung Daugavet/Delta constants on atomic \\(L_1\\) and \\(\\ell_1\\)",
+          "Lee--Roldán--Tag vector-valued diametral-point literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.07037v1",
+        "arXiv:2307.10647v3",
+        "Lee--Roldán--Tag arXiv:2410.04706",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qualitative classification determines only the level set where the new constant equals two.",
+          "For \\(0<m<1\\) the prior atomic Daugavet constant supplies a lower bound, but the matching avoiding slice and extension to mixed sigma-finite spaces still require additional analysis.",
+          "At \\(m=1\\), prior Daugavet/Delta constants equal zero while the avoiding-slice constant equals two, so the new invariant is not a disguised copy."
+        ],
+        "reasoning": "The audited theorem is a genuine quantitative completion of the established qualitative notion, albeit with a short \\(L_1\\)-specific proof.",
+        "searches": [
+          "qualitative \\(\nabla\\)-point classification versus full pointwise constant",
+          "atomic Daugavet constant versus avoiding-slice constant",
+          "\\(\\ell_1\\) prior formula versus the signed basis endpoint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haller et al. define the exact same avoiding-slice qualitative property.",
+          "They classify scalar \\(L_1\\) \\(\nabla\\)-points but do not assign a quantitative constant to non-\\(\nabla\\) points.",
+          "Choi--Jung quantify all slices and containing slices, not avoiding slices."
+        ],
+        "reasoning": "The invariant is the direct quantitative relaxation of the established \\(\nabla\\)-point definition, rather than a renamed Daugavet or Delta constant.",
+        "searches": [
+          "Resultary query: nabla avoiding slice constant L1 largest atomic mass quantitative",
+          "Haller et al. arXiv:2303.07037v1 Definition 1.4 and Propositions 3.6--3.7",
+          "Choi--Jung arXiv:2307.10647v3 Proposition 3.6 and Corollary 3.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same invariant/formula was returned; a neighboring current record concerns Daugavet constants after adjoining an atomic \\(\\ell_1\\) summand."
+        ],
+        "reasoning": "The database search is secondary to the direct comparison with the papers defining \\(\nabla\\)-points and quantitative Daugavet/Delta constants.",
+        "searches": [
+          "Resultary current semantic search for quantitative \\(\nabla\\)-slice constants on \\(L_1\\) and \\(\\ell_1\\)"
+        ]
+      },
+      "rationale": "Haller et al. introduce \\(\nabla\\)-points by exactly the avoiding-slice condition and prove the qualitative scalar \\(L_1\\) classification: atom-free support gives the Daugavet/\\(\nabla\\) behavior, while if the support contains an atom the only \\(\nabla\\)-points are signed normalized atomic indicators. Choi and Jung quantify different slice families: their Daugavet constant takes all slices and their Delta constant takes slices containing the point; in atomic \\(L_1\\) they obtain \\(2-2m\\), and in \\(\\ell_1\\) both of those constants equal \\(2-2\\|x\\|_\\infty\\). These results explain why the new avoiding-slice constant agrees numerically in the interior but do not imply its endpoint \\(m=1\\), where the prior Daugavet/Delta constants are zero while the audited constant is two, nor do they state the mixed atomic/nonatomic sigma-finite formula. Current Resultary search found neighboring Daugavet-constant work but no quantitative avoiding-slice formula.",
+      "residual_risks": [
+        "Because the \\(L_1\\) proof is elementary and the interior value matches a known Daugavet constant, an equivalent quantitative observation may exist under informal terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_NABLA_CLASSIFICATION",
+          "evidence": "The paper defines \\(\nabla\\)-points by avoiding slices and proves the atom-free/signed-atom qualitative classification, but no quantitative avoiding-slice constant is stated.",
+          "identifier_or_url": "arXiv:2303.07037v1",
+          "material_read": "full experimental HTML with Definition 1.4 and Section 3.2 read, including Propositions 3.6 and 3.7",
+          "method": "primary full-text inspection",
+          "title": "Unconditional bases and Daugavet renormings",
+          "trigger": "paper introducing \\(\nabla\\)-points and scalar \\(L_1\\) classification"
+        },
+        {
+          "assessment": "DIFFERENT_SLICE_FAMILIES",
+          "evidence": "For atomic \\(L_1\\), the Daugavet constant is \\(1+\\|f\\|-2m\\); for \\(\\ell_1\\), Daugavet and Delta constants coincide with that expression. These are all-slice/containing-slice quantities and differ decisively at a normalized atom.",
+          "identifier_or_url": "arXiv:2307.10647v3",
+          "material_read": "full experimental HTML with Section 3.2 read, especially Proposition 3.6 and Corollary 3.9",
+          "method": "primary full-text inspection",
+          "title": "The Daugavet and Delta-constants of points in Banach spaces",
+          "trigger": "closest quantitative pointwise slice constants on \\(L_1\\)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Haller et al. 2023",
+        "Choi--Jung 2023/2024",
+        "assigned RESULT.md"
+      ],
+      "rationale": "Quantifying an established diametral notion by taking the exact infimum over its defining avoiding slices is natural, and the formula reveals behavior not visible from the older constants: mixed atomic/nonatomic points are controlled solely by their largest atomic mass, while the normalized-atom endpoint jumps back to two. This completes the scalar \\(L_1\\) geometry of the newly introduced \\(\nabla\\) notion and supplies an exact \\(\\ell_1\\) benchmark.",
+      "residual_risks": [
+        "The result is a concise exact invariant rather than a broad new Banach-space theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The result is scalar and real and does not cover vector-valued \\(L_1\\).",
+    "The finite verifier covers only atomic polyhedral models and is explicitly supplementary.",
+    "Because the \\(L_1\\) proof is elementary and the interior value matches a known Daugavet constant, an equivalent quantitative observation may exist under informal terminology.",
+    "The result is a concise exact invariant rather than a broad new Banach-space theorem."
+  ]
+}
