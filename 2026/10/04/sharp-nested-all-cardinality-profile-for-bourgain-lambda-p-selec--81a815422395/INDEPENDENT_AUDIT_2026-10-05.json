@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:50:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Burstein, Iosevich and Krause, Bourgain's Lambda(p) selection theorem: a greedy proof with polynomial failure bounds, arXiv:2609.12566v1; primary full text obtained through authorized access and inspected through Theorem 1.1, Corollary 1.2, the probability discussion and the random restriction argument.",
+        "Bourgain, Bounded orthogonal systems and the Lambda(p)-set problem, Acta Mathematica 162 (1989); critical-cardinality selection theorem and sharp exponent treated as prior.",
+        "Jung, Langowski, Ortiz and Vu, expository article on Bourgain's Lambda(p)-set problem, Expositiones Mathematicae 43 (2025); modern exposition compared.",
+        "Resultary semantic search: Bourgain Lambda p random nested prefixes all cardinalities bounded orthogonal systems critical selection; direct hit was the assigned theorem and no stronger predecessor surfaced.",
+        "Assigned RESULT.md and VERIFICATION.md from exact tree 3df38598fa438982e1e36e3e08d790f0bb71b319.",
+        "Source RESULT.md byte inspection found 24 decoded control-character escape corruptions plus one newline corruption; a complete mechanically corrected UTF-8 RESULT.md was prepared and rechecked."
+      ],
+      "rationale": "The recursive block sampler is exactly uniform because a prescribed first block/order and recursively prescribed remainder have product probability 1/R!. Conditional on prior blocks, each block is a uniform critical-size subset of the residual system, so the source theorem applies with its polynomial failure bound. A prefix through N/2 meets at most 1+2^(2/p)mN^(-2/p) blocks; Minkowski and coefficient Cauchy–Schwarz give the required K_p scale, and a union bound over O(N^(1-2/p)) blocks makes all such prefixes good simultaneously. For later prefixes, L2/Linfinity interpolation gives K_p(T)<=|T|^((1-2/p)/2), which is on the same scale when m>N/2. The Fourier near-origin interval supplies the matching lower bound. The complete corrected RESULT.md preserves this proof and changes only malformed escape/control characters.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These are broader foundational results but center on the critical cardinality and do not state the simultaneous all-prefix profile."
+        ],
+        "reasoning": "The audited theorem uses the critical theorem repeatedly as an input; the broader source does not already contain the nested conclusion.",
+        "searches": [
+          "Bourgain 1989 critical Lambda(p) selection",
+          "Burstein–Iosevich–Krause polynomial-failure refinement",
+          "Modern expository treatments of bounded orthogonal-system selection"
+        ]
+      },
+      "checked_sources": [
+        "Burstein, Iosevich and Krause, Bourgain's Lambda(p) selection theorem: a greedy proof with polynomial failure bounds, arXiv:2609.12566v1; primary full text obtained through authorized access and inspected through Theorem 1.1, Corollary 1.2, the probability discussion and the random restriction argument.",
+        "Bourgain, Bounded orthogonal systems and the Lambda(p)-set problem, Acta Mathematica 162 (1989); critical-cardinality selection theorem and sharp exponent treated as prior.",
+        "Jung, Langowski, Ortiz and Vu, expository article on Bourgain's Lambda(p)-set problem, Expositiones Mathematicae 43 (2025); modern exposition compared.",
+        "Resultary semantic search: Bourgain Lambda p random nested prefixes all cardinalities bounded orthogonal systems critical selection; direct hit was the assigned theorem and no stronger predecessor surfaced.",
+        "Assigned RESULT.md and VERIFICATION.md from exact tree 3df38598fa438982e1e36e3e08d790f0bb71b319.",
+        "Source RESULT.md byte inspection found 24 decoded control-character escape corruptions plus one newline corruption; a complete mechanically corrected UTF-8 RESULT.md was prepared and rechecked."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single critical-size selection does not automatically couple selections at different residual sizes into a uniform random permutation.",
+          "The audited block sampler proves exact uniform-permutation law, obtains a deterministic O(1+mN^(-2/p)) block count through halfway, and uses conditional failure bounds plus a union bound.",
+          "The deterministic interpolation tail handles all later prefixes without extra random events."
+        ],
+        "reasoning": "The nested theorem is a nontrivial corollary built from repeated conditional applications and a new block-count organization; it is not a direct parameter substitution.",
+        "searches": [
+          "Burstein–Iosevich–Krause fixed-critical-cardinality theorem",
+          "Deterministic L2/Linfinity interpolation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source controls one uniformly random subset at the critical cardinality.",
+          "The audited result controls all N prefix cardinalities of one uniformly random permutation."
+        ],
+        "reasoning": "Nested-prefix control is strictly stronger than independent existence or success statements at one fixed cardinality, because all sizes are coupled through one ordering.",
+        "searches": [
+          "Resultary: Bourgain Lambda p random nested prefixes all cardinalities bounded orthogonal systems critical selection",
+          "Burstein–Iosevich–Krause Theorem 1.1 and Corollary 1.2",
+          "Search aliases: nested Lambda(p) selection, random ordering prefixes, proportional restrictions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself was the direct Resultary hit; no independent exact predecessor was located."
+        ],
+        "reasoning": "This is a probabilistic all-cardinality theorem rather than a tabulated invariant.",
+        "searches": [
+          "Resultary exact searches for max{1,sqrt(m)N^(-1/p)} on nested prefixes and a single uniform permutation"
+        ]
+      },
+      "rationale": "The primary 2026 theorem is an exact-cardinality result at one critical size ceil(N^(2/p)) with arbitrary polynomial failure probability. It does not give one random permutation whose every prefix simultaneously has the sharp two-parameter profile. The audited recursive critical-block construction, prefix block count and deterministic large-prefix regime supply that new nested statement. Resultary returned no independent all-cardinality predecessor.",
+      "residual_risks": [
+        "An all-cardinality nested corollary may exist in older proportional-restriction or random-rearrangement literature under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CRITICAL-SIZE RANDOM SUBSET COVERED; SINGLE-PERMUTATION ALL-PREFIX PROFILE NOT COVERED",
+          "evidence": "The source fixes cardinality ceil(N^(2/p)) and gives polynomial failure bounds there; it does not state simultaneous estimates for every prefix cardinality.",
+          "identifier_or_url": "arXiv:2609.12566v1",
+          "material_read": "Primary full text including Theorem 1.1, Corollary 1.2, probability/conditioning discussion and the random-restriction proof through its main estimates.",
+          "method": "Authorized full-text extraction after ordinary open retrieval failed; substantive theorem/proof text was read.",
+          "title": "Bourgain's Lambda(p) selection theorem: a greedy proof with polynomial failure bounds",
+          "trigger": "Exact modern critical-selection theorem used as the proof input and strongest possible prior-coverage source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Burstein, Iosevich and Krause, Bourgain's Lambda(p) selection theorem: a greedy proof with polynomial failure bounds, arXiv:2609.12566v1; primary full text obtained through authorized access and inspected through Theorem 1.1, Corollary 1.2, the probability discussion and the random restriction argument.",
+        "Bourgain, Bounded orthogonal systems and the Lambda(p)-set problem, Acta Mathematica 162 (1989); critical-cardinality selection theorem and sharp exponent treated as prior.",
+        "Jung, Langowski, Ortiz and Vu, expository article on Bourgain's Lambda(p)-set problem, Expositiones Mathematicae 43 (2025); modern exposition compared.",
+        "Resultary semantic search: Bourgain Lambda p random nested prefixes all cardinalities bounded orthogonal systems critical selection; direct hit was the assigned theorem and no stronger predecessor surfaced.",
+        "Assigned RESULT.md and VERIFICATION.md from exact tree 3df38598fa438982e1e36e3e08d790f0bb71b319.",
+        "Source RESULT.md byte inspection found 24 decoded control-character escape corruptions plus one newline corruption; a complete mechanically corrected UTF-8 RESULT.md was prepared and rechecked."
+      ],
+      "rationale": "The critical Bourgain cardinality is naturally the transition point of a full selection profile. Producing one nested random family with sharp order at every cardinality is useful for applications that need compatible restrictions across scales, not merely a separate good set at one size.",
+      "residual_risks": [
+        "An all-cardinality nested corollary may exist in older proportional-restriction or random-rearrangement literature under different terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "For every bounded orthogonal system and p>2, one uniformly random permutation has, with arbitrary polynomially high probability, K_p on every prefix m simultaneously bounded on the sharp scale max(1,sqrt(m)N^(-1/p)); the Fourier system forces that same order for every m-element subset.",
+  "limitations": [
+    "Constants are order-sharp but not numerically optimized.",
+    "The theorem assumes uniformly bounded pairwise orthogonal functions on a probability space.",
+    "Repair is textual hygiene only: the scientific claim/proof is unchanged, but the source RESULT.md contained malformed escaped LaTeX control characters.",
+    "An all-cardinality nested corollary may exist in older proportional-restriction or random-rearrangement literature under different terminology."
+  ],
+  "schema_version": 1
+}

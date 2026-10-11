@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof was checked directly from its stated assumptions.
 
-1. The recent input theorem was verified in arXiv:2609.12566v1: for every polynomial failure exponent, a uniformly random subsystem of cardinality \(\lceil R^{2/p}\rceil\) has bounded \(\Lambda(p)\) constant with a bound independent of \(R\).
-2. The block-generation law is exactly a uniform permutation: the first uniformly selected unordered block, its uniform internal ordering, and an independent recursive uniform ordering of the complement multiply to probability \(1/R!\) for each prescribed residual ordering.
-3. Every prefix through \(N/2\) meets at most \(1+2^{2/p}mN^{-2/p}\) blocks, and all relevant residual sizes are at least \(N/2\). Choosing a larger polynomial failure exponent makes one union bound control all these blocks simultaneously.
-4. For an arbitrary \(r\)-element set, orthogonality gives the \(L^2\) bound and pointwise Cauchy--Schwarz gives the \(L^\infty\) bound; interpolation yields \(K_p\le r^{(1-2/p)/2}\). This controls every tail beyond the halfway prefix.
-5. For Fourier characters, on \(|x|\le(12N)^{-1}\) every phase has real part at least \(\sqrt3/2\), giving the stated lower constant for every subset. A singleton coefficient gives the independent lower bound one.
+# Independent mathematical audit
 
-No numerical experiment, truncated enumeration, or external certificate is used as proof. The constants are not numerically optimized, and no exact random-prefix tail law is claimed.
+## correctness
+
+PASS
+
+The recursive block sampler is exactly uniform because a prescribed first block/order and recursively prescribed remainder have product probability 1/R!. Conditional on prior blocks, each block is a uniform critical-size subset of the residual system, so the source theorem applies with its polynomial failure bound. A prefix through N/2 meets at most 1+2^(2/p)mN^(-2/p) blocks; Minkowski and coefficient Cauchy–Schwarz give the required K_p scale, and a union bound over O(N^(1-2/p)) blocks makes all such prefixes good simultaneously. For later prefixes, L2/Linfinity interpolation gives K_p(T)<=|T|^((1-2/p)/2), which is on the same scale when m>N/2. The Fourier near-origin interval supplies the matching lower bound. The complete corrected RESULT.md preserves this proof and changes only malformed escape/control characters.
+
+## originality
+
+PASS
+
+The primary 2026 theorem is an exact-cardinality result at one critical size ceil(N^(2/p)) with arbitrary polynomial failure probability. It does not give one random permutation whose every prefix simultaneously has the sharp two-parameter profile. The audited recursive critical-block construction, prefix block count and deterministic large-prefix regime supply that new nested statement. Resultary returned no independent all-cardinality predecessor.
+
+## value
+
+PASS
+
+The critical Bourgain cardinality is naturally the transition point of a full selection profile. Producing one nested random family with sharp order at every cardinality is useful for applications that need compatible restrictions across scales, not merely a separate good set at one size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

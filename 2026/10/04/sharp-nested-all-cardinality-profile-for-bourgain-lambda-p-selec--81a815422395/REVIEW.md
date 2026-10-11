@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The accepted claim has one non-elementary input: the critical-size Bourgain selection theorem with arbitrary polynomial failure. Conditional uniformity of successive blocks, inheritance by subblocks, block counts, the union bound, the large-prefix interpolation estimate, and the Fourier lower bound were each reconstructed with all quantifiers and boundary regimes stated. The proof does not infer an infinite theorem from a finite experiment.
+## correctness
 
-## Originality
-PASS. The closest primary statements are Bourgain's 1989 critical-cardinality theorem and the 2026 random critical-cardinality refinement. The new claim is a simultaneous nested-prefix law for every exact cardinality. Targeted searches for all-cardinality, nested, density-profile, proportional-subset, and equivalent formulations did not locate a theorem that implies this statement. A residual risk of an equivalent formulation under different Banach-space terminology is recorded in `AUDIT.json`.
+PASS
 
-## Value
-PASS. Cardinality is the natural scale parameter in the finite \(\Lambda(p)\) problem. The theorem supplies the full sharp transition profile and one nested family realizing it at all scales, rather than another isolated critical-size selection. The same Fourier system forces the lower order at every cardinality.
+The recursive block sampler is exactly uniform because a prescribed first block/order and recursively prescribed remainder have product probability 1/R!. Conditional on prior blocks, each block is a uniform critical-size subset of the residual system, so the source theorem applies with its polynomial failure bound. A prefix through N/2 meets at most 1+2^(2/p)mN^(-2/p) blocks; Minkowski and coefficient Cauchy–Schwarz give the required K_p scale, and a union bound over O(N^(1-2/p)) blocks makes all such prefixes good simultaneously. For later prefixes, L2/Linfinity interpolation gives K_p(T)<=|T|^((1-2/p)/2), which is on the same scale when m>N/2. The Fourier near-origin interval supplies the matching lower bound. The complete corrected RESULT.md preserves this proof and changes only malformed escape/control characters.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary 2026 theorem is an exact-cardinality result at one critical size ceil(N^(2/p)) with arbitrary polynomial failure probability. It does not give one random permutation whose every prefix simultaneously has the sharp two-parameter profile. The audited recursive critical-block construction, prefix block count and deterministic large-prefix regime supply that new nested statement. Resultary returned no independent all-cardinality predecessor.
+
+## value
+
+PASS
+
+The critical Bourgain cardinality is naturally the transition point of a full selection profile. Producing one nested random family with sharp order at every cardinality is useful for applications that need compatible restrictions across scales, not merely a separate good set at one size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

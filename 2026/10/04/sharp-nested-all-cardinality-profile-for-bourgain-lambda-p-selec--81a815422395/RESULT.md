@@ -2,9 +2,8 @@
 ## Finding
 For a finite bounded orthogonal system \(\Phi=(\phi_j)_{j=1}^N\), define
 \[
-K_p(S;\Phi)=\sup_{a
-e0}
-rac{\|\sum_{j\in S}a_j\phi_j\|_{L^p}}
+K_p(S;\Phi)=\sup_{a\ne0}
+\frac{\|\sum_{j\in S}a_j\phi_j\|_{L^p}}
 {(\sum_{j\in S}|a_j|^2)^{1/2}}.
 \]
 For every \(p>2\) and \(A>0\), there is a constant \(C_{p,A}\) such that a uniformly random permutation \(\pi\) of \(\{1,\ldots,N\}\) has, with probability at least \(1-N^{-A}\), the simultaneous nested estimate
@@ -20,27 +19,27 @@ K_p(S;\Phi)\ge c_p\max\{1,\sqrt m\,N^{-1/p}\},
 \qquad
 c_p=(\sqrt3/2)6^{-1/p}.
 \]
-Thus the recent critical-cardinality theorem at \(msymp N^{2/p}\) is the transition point of a sharp all-cardinality profile, and one random ordering realizes the correct scale for all nested prefixes simultaneously.
+Thus the recent critical-cardinality theorem at \(m\asymp N^{2/p}\) is the transition point of a sharp all-cardinality profile, and one random ordering realizes the correct scale for all nested prefixes simultaneously.
 
 ## Assumptions and scope
 The probability space has total measure one. The functions are pairwise orthogonal in \(L^2\) and satisfy \(\|\phi_j\|_\infty\le1\); no normalization from below is assumed. The constants depend only on the displayed parameters, not on \(N\), \(m\), or the system. The probabilistic conclusion concerns one uniformly random permutation and all of its prefixes simultaneously.
 
-The proof uses as input the finite Bourgain selection theorem in the form proved by Burstein, Iosevich and Krause: for every exponent \(B>0\), an \(R\)-term bounded orthogonal system has a uniformly random subset of cardinality \(\lceil R^{2/p}ceil\) whose \(K_p\) is bounded by a constant depending only on \(p,B\), with failure probability at most \(R^{-B}\).
+The proof uses as input the finite Bourgain selection theorem in the form proved by Burstein, Iosevich and Krause: for every exponent \(B>0\), an \(R\)-term bounded orthogonal system has a uniformly random subset of cardinality \(\lceil R^{2/p}\rceil\) whose \(K_p\) is bounded by a constant depending only on \(p,B\), with failure probability at most \(R^{-B}\).
 
 ## Proof
-Put \(eta=2/p\) and \(lpha=1-eta\).
+Put \(\beta=2/p\) and \(\alpha=1-\beta\).
 
 First construct a uniform random permutation in blocks. From a residual set of \(R\) indices, choose uniformly a block of size
 \[
-b(R)=\lceil R^etaceil,
+b(R)=\lceil R^\beta\rceil,
 \]
-order that block uniformly, and continue recursively on the complement. Induction on \(R\) shows that the resulting full ordering is a uniform random permutation: for any prescribed ordering, the first block has probability \(inom{R}{b(R)}^{-1}b(R)!^{-1}\), and the residual ordering has probability \((R-b(R))!^{-1}\), whose product is \(R!^{-1}\).
+order that block uniformly, and continue recursively on the complement. Induction on \(R\) shows that the resulting full ordering is a uniform random permutation: for any prescribed ordering, the first block has probability \(\binom{R}{b(R)}^{-1}b(R)!^{-1}\), and the residual ordering has probability \((R-b(R))!^{-1}\), whose product is \(R!^{-1}\).
 
 Call a block good when its \(K_p\) is at most the constant from the recent selection theorem with a failure exponent \(B\) to be chosen. Conditional on the preceding blocks, each new block is a uniformly random critical-size subset of the residual bounded orthogonal system. Hence its conditional failure probability is at most \(R^{-B}\). Every subset of a good block is also good with the same constant.
 
-Consider first a prefix of size \(m\le N/2\). Before that prefix is completed, every residual size satisfies \(R\ge N-m\ge N/2\). If \(T_m\) blocks meet the prefix, then all but possibly the last contribute at least \((N/2)^eta\) indices, so
+Consider first a prefix of size \(m\le N/2\). Before that prefix is completed, every residual size satisfies \(R\ge N-m\ge N/2\). If \(T_m\) blocks meet the prefix, then all but possibly the last contribute at least \((N/2)^\beta\) indices, so
 \[
-T_m\le 1+2^eta mN^{-eta}.
+T_m\le 1+2^\beta mN^{-\beta}.
 \]
 Writing the corresponding polynomial as a sum of its block pieces \(f_t\), Minkowski and Cauchy--Schwarz give, whenever all these blocks are good,
 \[
@@ -55,40 +54,40 @@ K_p(S_m;\Phi)
 \qquad (m\le N/2).
 \]
 
-Only \(O_p(N^lpha)\) blocks can appear before the halfway point. Indeed, the preceding estimate with \(m=N/2\) already gives that count. Since every corresponding residual size is at least \(N/2\), a union bound makes the probability that any such block is bad at most
+Only \(O_p(N^\alpha)\) blocks can appear before the halfway point. Indeed, the preceding estimate with \(m=N/2\) already gives that count. Since every corresponding residual size is at least \(N/2\), a union bound makes the probability that any such block is bad at most
 \[
-O_p(N^lpha)(N/2)^{-B}.
+O_p(N^\alpha)(N/2)^{-B}.
 \]
-Choose \(B>A+lpha+2\). For all sufficiently large \(N\) this is at most \(N^{-A}\). The finitely many remaining \(N\) are absorbed by enlarging \(C_{p,A}\), using the deterministic interpolation bound below. Thus, with probability at least \(1-N^{-A}\), the desired estimate holds simultaneously for every prefix through \(N/2\).
+Choose \(B>A+\alpha+2\). For all sufficiently large \(N\) this is at most \(N^{-A}\). The finitely many remaining \(N\) are absorbed by enlarging \(C_{p,A}\), using the deterministic interpolation bound below. Thus, with probability at least \(1-N^{-A}\), the desired estimate holds simultaneously for every prefix through \(N/2\).
 
 For later prefixes use the deterministic estimate valid for every \(r\)-element set \(T\):
 \[
-K_p(T;\Phi)\le r^{lpha/2}.
+K_p(T;\Phi)\le r^{\alpha/2}.
 \]
-To see this, orthogonality and \(\|\phi_j\|_2\le1\) give \(\|\sum a_j\phi_j\|_2\le\|a\|_2\), while pointwise Cauchy--Schwarz gives \(\|\sum a_j\phi_j\|_\infty\le\sqrt r\,\|a\|_2\); interpolation yields the displayed bound. If \(m>N/2\), decompose the prefix into its first \(k=\lfloor N/2floor\) terms and the remaining tail. The first part has the already proved bound, and the tail has \(K_p\le N^{lpha/2}\). Since
+To see this, orthogonality and \(\|\phi_j\|_2\le1\) give \(\|\sum a_j\phi_j\|_2\le\|a\|_2\), while pointwise Cauchy--Schwarz gives \(\|\sum a_j\phi_j\|_\infty\le\sqrt r\,\|a\|_2\); interpolation yields the displayed bound. If \(m>N/2\), decompose the prefix into its first \(k=\lfloor N/2\rfloor\) terms and the remaining tail. The first part has the already proved bound, and the tail has \(K_p\le N^{\alpha/2}\). Since
 \[
-\sqrt m\,N^{-1/p}\ge 2^{-1/2}N^{lpha/2}
+\sqrt m\,N^{-1/p}\ge 2^{-1/2}N^{\alpha/2}
 \]
 for \(m>N/2\), another application of Cauchy--Schwarz to the two coefficient blocks yields the required estimate for every later prefix simultaneously.
 
 For sharpness take \(\phi_j(x)=e^{2\pi i jx}\) and any \(m\)-element \(S\subset\{1,\ldots,N\}\). With all coefficients equal to one, on
 \[
-|x|\lerac1{12N}
+|x|\le\frac1{12N}
 \]
 every phase has real part at least \(\cos(\pi/6)=\sqrt3/2\), so
 \[
-\left|\sum_{j\in S}e^{2\pi i jx}ight|
-\gerac{\sqrt3}2m.
+\left|\sum_{j\in S}e^{2\pi i jx}\right|
+\ge\frac{\sqrt3}2m.
 \]
 The interval has normalized measure \(1/(6N)\). Hence
 \[
 K_p(S;\Phi)\ge
-rac{\sqrt3}2\,6^{-1/p}\sqrt m\,N^{-1/p}.
+\frac{\sqrt3}2\,6^{-1/p}\sqrt m\,N^{-1/p}.
 \]
 Taking a single nonzero coefficient also gives \(K_p(S;\Phi)\ge1\). Since the displayed \(c_p\) is less than one, the two bounds combine into the stated lower estimate.
 
 ## Verification
-The argument is symbolic. The critical inputs were checked in the full text of arXiv:2609.12566v1: the fixed-cardinality theorem has cardinality \(\lceil R^{2/p}ceil\), an arbitrary polynomial failure exponent, and a constant independent of \(R\); its Fourier specialization explicitly records worst-case sharpness of the critical exponent.
+The argument is symbolic. The critical inputs were checked in the full text of arXiv:2609.12566v1: the fixed-cardinality theorem has cardinality \(\lceil R^{2/p}\rceil\), an arbitrary polynomial failure exponent, and a constant independent of \(R\); its Fourier specialization explicitly records worst-case sharpness of the critical exponent.
 
 The block construction was checked at the quantifier level: conditional uniformity is preserved after every previously exposed block, partial final blocks inherit a \(K_p\) bound, and the single good-block event through the halfway point controls all prefix cardinalities at once. The lower bound uses an interval on which every one of the \(N\) possible Fourier phases lies in the same \(\pi/3\)-wide sector; it therefore applies to every subset, not merely to consecutive frequencies.
 
