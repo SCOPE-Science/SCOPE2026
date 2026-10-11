@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,11 +18,25 @@
   "schema_version": 1
 }
 ---
-The symbolic proof reduces every source set on \(K_{m,n}\) to its part-count profile \((a,b)\) by automorphism symmetry, solves the exact two-variable equilibrium, and derives the ceiling thresholds by cross-multiplying positive denominators.
 
-`verify_complete_bipartite.py` was executed from the packaged path using Python's exact `Fraction` arithmetic. It checked \(1280\) profile-level parameter cases with \(1\le m,n\le8\) and then independently enumerated every source subset in \(28\) small graph/parameter cases, solving the full equilibrium linear system exactly rather than invoking the two-variable formulas. It also verified the unique optimum profile \((3,3)\) for \(K_{10,10}\) at \((\lambda,\tau)=(3/5,3/10)\).
+# Independent mathematical audit
 
-Stored replay output:
-`ALL CHECKS PASSED; profile_cases=1280; subset_cases=28; split_example=K10,10:(3,3)`
+## correctness
 
-Finite checks do not establish the infinite theorem by themselves; they test the algebra and boundary cases of the symbolic proof. No external certification has been performed.
+PASS
+
+With a sources in one part and b in the other, symmetry leaves two non-source support values satisfying the stated 2 by 2 linear system. Its determinant is positive for 0<lambda<1. Solving and cross-multiplying gives exactly b>=R_x(a), b>=R_y(a), with positive denominators, so the least feasible b is the capped maximum of their ceilings and zero. The tau=lambda and tau>lambda cases follow from the one-step upper bound. Exact rational verification checks 1280 source-count cases and 28 direct subset-level linear-system cases and confirms the unique (3,3) K_10,10 profile. Those checks corroborate the symbolic proof.
+
+## originality
+
+PASS
+
+Allagan--Pereyra--Massey introduce discounted hitting domination and give exact results for spiders, stars and complete graphs, but their inspected full text contains no arbitrary complete-bipartite theorem beyond stars. Other hitting-probability/random-walk-domination work optimizes different target or aggregate objectives. Resultary did not locate an earlier K_{m,n} formula for this uniform-floor minimum-cardinality parameter.
+
+## value
+
+PASS
+
+Complete bipartite graphs are a canonical next dense family after stars and complete graphs. Collapsing an exponential subset optimization to an exact one-dimensional integer minimum, plus a split-optimum example, is a natural reusable benchmark for the new parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
