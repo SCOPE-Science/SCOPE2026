@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Stationarity against arbitrary antiderivatives of \\(x\\) gives \\(\\mathbb E[v\\mid x]=0\\). Applying the generator to \\(\\phi(x)v\\) then removes the nonlinear damping term conditionally and yields \\(\\mathbb E[\\phi'(x)v^2]=\\mathbb E[x\\phi(x)]\\). In distribution form this is \\(\\eta'=-x\\rho\\); the compactly supported tail first moment \\(q(x)=\\int_{[x,\\infty)}s\\rho(ds)\\) has the same derivative, and finiteness removes the constant-Lebesgue ambiguity, proving \\(\\eta=qdx\\). Monomial tests give the moment hierarchy. The exact mechanical-energy derivative gives \\(\\mathbb E[(1-x^2)v^2]=0\\), which with the \\(k=0,2\\) hierarchy identities gives \\(\\mathbb E[x^4]=3\\mathbb E[x^2]\\). Cauchy–Schwarz and invariance exclude the nonzero endpoint \\(\\mathbb E[x^2]=3\\). The packaged checker verifies the critical polynomial identities from its actual package path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kanamaru gives the standard deterministic van der Pol equation, nonlinear-damping interpretation, and stable limit cycle.",
+        "Fantuzzi et al. give the exact first-order system, state that the global invariant set is the limit cycle plus the origin, and develop rigorous infinite-time-average bounds.",
+        "Fantuzzi et al. focus numerically and rigorously on the average of \\(x^2+v^2\\), not on an exact stationary moment hierarchy."
+      ],
+      "reasoning": "Limit-cycle existence and rigorous bounds on one chosen average do not imply the full family of test-function identities or the exact kinetic-energy marginal reconstruction.",
+      "searches": [
+        "doi:10.4249/scholarpedia.2202",
+        "arxiv:1512.05599",
+        "doi:10.1137/15M1053347"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4249/scholarpedia.2202",
+      "arxiv:1512.05599",
+      "doi:10.1137/15M1053347"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete Fantuzzi et al. article has no text match for `moment`, `variance`, `conditional`, or `virial`; its `fourth` match is a fourth-order Runge–Kutta method.",
+        "The same paper writes the exact system and studies only numerical/SoS bounds on selected long-time averages, chiefly \\(x^2+v^2\\).",
+        "The open Scholarpedia article gives classical model analysis without the accepted stationary weak identity.",
+        "Direct exact-phrase and alias searches did not locate \\(\\mathbb E[x^4]=3\\mathbb E[x^2]\\) or the tail reconstruction."
+      ],
+      "reasoning": "A general fact that averages of total derivatives vanish makes the proof mechanism available, but prior general methodology does not by itself state or implication-wise specialize to the accepted reconstructed measure identity without the van der Pol-specific cancellation \\(\\mathbb E[v\\mid x]=0\\).",
+      "searches": [
+        "arxiv:1512.05599 full text: moment; variance; conditional; virial; fourth",
+        "doi:10.4249/scholarpedia.2202 full text: moment; variance; average; conditional",
+        "van der Pol x^4 3 x^2 oscillator average",
+        "van der Pol oscillator fourth moment x^4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The core statement is equivalently the weak identity \\(\\int\\phi' d\\eta=\\int x\\phi d\\rho\\), the distribution equation \\(\\eta'=-x\\rho\\), or the tail reconstruction \\(\\eta=qdx\\).",
+        "Its polynomial shadows are the hierarchy \\(\\mathbb E[x^k v^2]=\\mathbb E[x^{k+2}]/(k+1)\\).",
+        "The fourth-moment consequence can be phrased as \\(\\mathbb E[x^4]/\\mathbb E[x^2]=3\\) for every non-equilibrium compact stationary state."
+      ],
+      "reasoning": "Searches included weak/virial, conditional, moment, variance, fourth-moment, and time-average wording rather than relying on title or parameter matches.",
+      "searches": [
+        "van der Pol oscillator invariant measure moment hierarchy stationary averages",
+        "van der Pol periodic orbit time average x squared equals y squared",
+        "van der Pol invariant measure conditional expectation y given x",
+        "van der Pol exact moment identity periodic solution x^n y^2",
+        "van der Pol x^4 3 x^2 oscillator average",
+        "van der Pol oscillator fourth moment x^4",
+        "van der Pol oscillator moment equations deterministic",
+        "van der Pol virial oscillator x^4",
+        "van der Pol stationary x^4 x^2",
+        "van der Pol time average x^4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked semantic-index result with van der Pol as object stated the accepted weak identity, kinetic-energy reconstruction, or fourth-moment law.",
+        "The closest returned records concern different oscillators and chaotic flows.",
+        "The recoverable current/prior ledger claims checked before this run contain no van der Pol finding."
+      ],
+      "reasoning": "The exact object name was combined with invariant measure, stationary average, conditional expectation, moment hierarchy, and polynomial-moment aliases.",
+      "searches": [
+        "van der Pol oscillator invariant measure moment hierarchy stationary averages",
+        "van der Pol periodic orbit time average x squared equals y squared",
+        "van der Pol invariant measure conditional expectation y given x",
+        "van der Pol exact moment identity periodic solution x^n y^2"
+      ]
+    },
+    "rationale": "The inspected full same-object time-average paper studies rigorous upper and lower bounds on \\(x^2+v^2\\) and explicitly uses the same first-order van der Pol system, but targeted complete-text searches found no moment, variance, conditional, virial, or fourth-moment formulation matching the accepted theorem. The peer-reviewed open model reference gives the standard equation and limit-cycle theory but no stationary-moment formulation under targeted searches. Published semantic-index and web searches covered invariant-measure, moment-hierarchy, conditional-velocity, virial, fourth-moment, and time-average aliases and found no same-object implication. The claim is restricted to the all-test-function stationary identity, the measure reconstruction, and its exact moment consequences.",
+    "residual_risks": [
+      "The original 1920 Radio Review article was not available with a verified day-level publication date and was not used for a whole-document novelty assertion.",
+      "Historical oscillator literature may contain an equivalent virial or moment identity under terminology not indexed by modern search.",
+      "The general generator fact that stationary averages of total derivatives vanish is classical; originality is claimed only for the van der Pol-specific all-test reconstruction and its exact consequences, not for that general principle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the standard model and classical dynamics but does not state the accepted invariant-measure moment theorem.",
+        "evidence": "The page gives \\(\\ddot x-\\mu(1-x^2)\\dot x+x=0\\), states the stable limit cycle, and records acceptance on 8 January 2007; targeted searches returned no relevant moment/variance/conditional formulation.",
+        "identifier_or_url": "doi:10.4249/scholarpedia.2202",
+        "material_read": "Complete accessible Scholarpedia article, including equation, Liénard analysis, stable limit cycle, historical references, and acceptance metadata.",
+        "method": "Full-text statement comparison plus targeted searches for moment, variance, average, and conditional terminology.",
+        "title": "Van der Pol oscillator",
+        "trigger": "Authoritative open normalization, historical source, and day-resolved archive anchor."
+      },
+      {
+        "assessment": "The article proves bounds on selected averages and is the strongest inspected broader coverage, but no accepted exact weak identity, kinetic-energy reconstruction, or fourth-moment law was located.",
+        "evidence": "The article writes \\(\\dot x=v\\), \\(\\dot v=\\mu(1-x^2)v-x\\), states the global invariant set is the limit cycle plus origin, and reports bounds on the average of \\(x^2+v^2\\); targeted searches found no matching moment theorem.",
+        "identifier_or_url": "arxiv:1512.05599; doi:10.1137/15M1053347",
+        "material_read": "Complete 27-page open SIAM article, including the van der Pol equation, global invariant-set statement, deterministic average-bounding framework, vanishing-noise sections, numerical figures, and appendices.",
+        "method": "Complete PDF text/page inspection and targeted document-wide searches for moment, variance, conditional, virial, x-fourth-power, and related terms.",
+        "title": "Bounds for Deterministic and Stochastic Dynamical Systems using Sum-of-Squares Optimization",
+        "trigger": "Strong same-object work specifically about deterministic long-time averages and stationary expectations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "de69b43a-7766-4455-9f1d-3140128de58c",
+  "value": {
+    "rationale": "The result is a structural characterization of how kinetic energy is distributed across position in the canonical van der Pol self-oscillator. Rather than bounding one chosen orbit average, it determines the entire position projection of \\(v^2d\\pi\\) from the position marginal for every compact stationary state. The resulting infinite hierarchy collapses the nonlinear damping balance to the parameter-independent exact law \\(\\mathbb E[x^4]=3\\mathbb E[x^2]\\), yielding a universal strict RMS ceiling and proving that any recurrent oscillation must carry kinetic energy through both the amplifying and dissipating sides of the nonlinear damping. These are reusable consistency checks for stationary or periodic data and are not a routine recomputation of the known limit cycle.",
+    "status": "PASS"
+  }
+}
