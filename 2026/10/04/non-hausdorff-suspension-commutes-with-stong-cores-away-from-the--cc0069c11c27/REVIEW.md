@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof was reconstructed from the definitions of strict upper and lower sets. Old beat points retain the same witness after adjoining the two suspension maxima. After reducing to a core \(C\), the case \(|C|\ge2\) is minimal because old beat status cannot appear and a nontrivial minimal finite poset has no greatest element, so neither new maximum is down beat. The case \(|C|=1\) dismantles to one point. Iteration gives the stated cardinality formula. The standalone verifier exhaustively checks all labeled posets through five points and the first three suspension iterates, but those finite checks are not used as an all-size proof.
+## correctness
 
-## Originality
-PASS. The closest primary source inspected in full, Barmak–Minian's *Minimal Finite Models*, contains both Stong core theory and the non-Hausdorff suspension, and uses iterated suspensions for minimal sphere models, but it does not state the general core formula or the exact minimality criterion proved here. Kukieła's broader Alexandroff-core paper does not treat suspension. Targeted searches for equivalent formulations and stronger coverage found no matching result. The original Stong paper was not available in directly inspectable full text from the sources used for this review, so that access limitation remains a stated residual risk rather than being converted into novelty evidence.
+PASS
 
-## Value
-PASS. The result connects two canonical finite-topology constructions and yields a reusable strong-homotopy invariant: every noncontractible core grows by exactly two points under each non-Hausdorff suspension, while contractible spaces remain contractible. This supplies both a minimality test and an explicit core for all iterates, avoiding case-by-case dismantling.
+Every down-beat witness in X is unchanged by adjoining two universal maxima, and every up-beat witness y remains least because y lies below both new maxima. Hence any beat-deletion sequence X down to C lifts verbatim. If C is minimal with at least two points, old nonmaximal points cannot acquire an internal least upper witness and old maximal points see the incomparable pair {+,-}; a new maximum would be down beat exactly if C had a greatest element, impossible in a nontrivial minimal finite poset because a maximal point below that greatest element would then be up beat. Thus suspension(C) is minimal. If C is one point, its suspension is the three-point V-poset and collapses to a point. Iteration gives the formula. The exhaustive verifier through five labeled points is consistent but not needed for the unrestricted proof.
 
-## Closest literature and limitations
-Barmak–Minian (arXiv:math/0611156v1) is the closest inspected source because it places the core and suspension constructions in the same framework. Stong is foundational for cores and McCord for suspension; Kukieła broadens core theory. No inspected source implies the assessed claim. The theorem does not cover arbitrary ordinal sums, weak-point reductions, or weak-homotopy minimal models. The original Stong full text remains an access-related residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Barmak--Minian place beat-point cores and non-Hausdorff suspension in the same finite-space framework, but the inspected primary treatment does not state this general core/minimality formula. A later published SCOPE theorem on lexicographic sums gives a broader fiberwise rule when every fiber is noncontractible and explicitly identifies this suspension result as an earlier special case; it therefore supplies later broader coverage of the noncontractible half rather than prior art against this finding. The contractible boundary and exact iterated dichotomy remain part of the audited statement.
+
+## value
+
+PASS
+
+The theorem gives a natural functorial rule for a standard finite-space suspension construction, including an exact strong-homotopy core-size law and the sharp contractible exception. That is reusable structural information rather than a finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
