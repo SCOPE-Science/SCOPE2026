@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T12:26:41.955554Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solving the equilibrium equations with \\(x\\ne0\\) gives \\(z=c/a\\), \\(xy=bc/a\\), and \\(x^2=bc^2/a^3\\), hence the two isolated equilibria stated. Substitution in the Jacobian gives \\(p(\\lambda)=\\lambda^3+(a+b)\\lambda^2+(bc^2/a^2)\\lambda+2bc^2/a\\). For a cubic with all positive coefficients, the nontrivial Routh determinant is \\((bc^2/a^2)(b-a)\\): it is positive exactly for \\(b>a\\), while for \\(0<b<a\\) the first-column sign sequence has two changes, hence exactly two right-half-plane roots. At \\(b=a\\) direct multiplication gives \\((\\lambda+2a)(\\lambda^2+c^2/a)\\). At \\((5,2,34)\\) this cubic has no zero root, contradicting the source's printed local spectrum. The bundled verification directory was inspected; its computation is corroborative, while the all-parameter proof is exact Routh algebra.",
+      "risks": [
+        "No Hopf bifurcation is claimed at the nonhyperbolic boundary; nonlinear nondegeneracy was not analyzed."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 42d4de1f9e9802896c433ff7668d9db3860cff5c",
+        "assigned verification/verify.py blob 8ee26bb4548d0e3ef36256f5a5258f103d6b76a1",
+        "Chen et al. DOI 10.1155/2020/5710765 full article"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nearby Resultary records concern different polynomial/exponential chaotic systems or the equilibrium line rather than these isolated points."
+        ],
+        "reasoning": "Results for different flows do not dominate the source-specific characteristic polynomial.",
+        "searches": [
+          "current Resultary line-equilibrium chaotic-flow findings",
+          "primary article's cited precursor context"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1155/2020/5710765",
+        "current Resultary semantic search",
+        "assigned exact characteristic-polynomial proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's printed baseline spectrum is inconsistent with its vector field, so it cannot imply the corrected polynomial or boundary.",
+          "The source's subsequent Routh discussion concerns the equilibrium line, not the two isolated equilibria."
+        ],
+        "reasoning": "Reconstructing the Jacobian at the isolated points yields a distinct local problem and corrects rather than restates the source.",
+        "searches": [
+          "direct implication comparison with Chen et al. Section 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary article reports the same isolated points and an incompatible zero eigenvalue at its baseline parameters.",
+          "No other Resultary hit gives the same system's \\(b=a\\) isolated-equilibrium boundary."
+        ],
+        "reasoning": "Equivalent formulations as an exact characteristic polynomial, a Routh–Hurwitz stability partition, and correction of the printed baseline spectrum were compared.",
+        "searches": [
+          "Resultary: line equilibrium chaotic flow dot x=yz-ax dot y=cx-axz dot z=xy-bz isolated equilibrium stability b>a",
+          "Chen et al. DOI 10.1155/2020/5710765"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table gives the all-parameter isolated-equilibrium stability boundary."
+        ],
+        "reasoning": "The claim is a symbolic all-positive-parameter classification, not a table recomputation.",
+        "searches": [
+          "current Resultary exact-system search",
+          "primary article's numerical tables/figures"
+        ]
+      },
+      "rationale": "The full primary article was read through its integer-order equilibrium section. It lists the same isolated equilibria and, at \\((5,2,34)\\), prints a spectrum containing a zero eigenvalue, then analyzes the separate equilibrium line. It does not give the exact isolated-equilibrium characteristic polynomial or the parameter-global boundary \\(b=a\\). Resultary search found the audited record itself and related equilibrium corrections for other flows, but no earlier theorem for this exact system. The correction and sharp classification are therefore original to the best of the inspected evidence.",
+      "residual_risks": [
+        "A later correction or note not indexed by the searches could independently contain the same Routh boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE ERROR CORRECTED; NOT COVERING the sharp parameter-global classification.",
+          "evidence": "The source prints a zero eigenvalue at the isolated equilibria for \\((5,2,34)\\), while its own displayed vector field yields a cubic with nonzero constant term.",
+          "identifier_or_url": "https://doi.org/10.1155/2020/5710765",
+          "material_read": "Full accessible article, especially Section 2.1 on the integer-order system, isolated equilibria, printed eigenvalues, and equilibrium-line Jacobian.",
+          "method": "Primary full-text equation and local-spectrum comparison.",
+          "title": "Dynamics and Complexity Analysis of Fractional-Order Chaotic Systems with Line Equilibrium Based on Adomian Decomposition",
+          "trigger": "Primary source for the exact vector field and the disputed isolated-equilibrium spectrum."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem repairs a concrete published local-spectrum error and replaces a single incorrect numerical report with a complete sharp stability partition for both isolated equilibria over the full positive-parameter family. This directly affects interpretation of local dynamics in a system studied for chaos and fractional-order behavior.",
+      "risks": [
+        "It does not validate or invalidate the source's global attractors, fractional-order dynamics, or a Hopf bifurcation at the boundary."
+      ],
+      "sources": [
+        "Chen et al. primary local-spectrum claim",
+        "assigned exact Routh classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Integer-order flow and isolated equilibria only.",
+    "No nonlinear boundary-bifurcation theorem.",
+    "No transfer to fractional-order stability."
+  ],
+  "schema_version": 1
+}
