@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "If x is Birkhoff-orthogonal to y and orthogonality is symmetric, then the second skew norm ||beta x-alpha y|| is simultaneously at least beta and at least alpha. The first skew norm is at most alpha+beta, which gives the sharp structural upper bound min{1,beta/alpha}. For the affine-regular hexagon, a complete support-functional classification proves symmetric Birkhoff orthogonality. The pair x=(1,0), y=(0,-1) is Birkhoff-orthogonal and has skew norms alpha+beta and max{alpha,beta}, so it attains the bound for every positive alpha,beta.",
+    "risks": [
+      "The term Radon plane is used only for the two-dimensional symmetric-Birkhoff setting; the structural inequality itself is stated in the more general symmetry form.",
+      "The checker verifies the finite facet/support geometry, while the all-parameter inequality is proved symbolically in RESULT.md rather than by sampling."
+    ],
+    "sources": [
+      "doi:10.30538/oms2024.0219 for the definition of B_{alpha-beta} and the universal bound",
+      "Bundled RESULT.md",
+      "Bundled verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 1 of the defining paper gives only 0<=B<=1 for arbitrary Banach spaces.",
+        "Theorem 5 compares B with D'(X) but does not exploit Birkhoff symmetry and does not imply the min{1,beta/alpha} bound.",
+        "No broader regular-polygon or Radon-plane theorem was returned by the targeted public research-index searches."
+      ],
+      "reasoning": "The new upper branch beta/alpha for beta<alpha comes from a second Birkhoff lower bound unavailable without symmetry. The published general inequalities do not supply that mechanism.",
+      "searches": [
+        "The skew constant and orthogonalities in Banach spaces Radon",
+        "Zhou Ni Liu skew constant Radon plane",
+        "B_{alpha-beta} regular polygon Banach"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.30538/oms2024.0219",
+      "2026/10/4/SCOPE-exact-dragomir-symmetry-constant-for-the-h-lder-dual-planes-ell--e06afddcaccd",
+      "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade",
+      "2026/10/4/SCOPE-exact-t-perpendicular-constant-of-the-real-ell-3-2-plane--eeaceac82101",
+      "Current own ledger through generation g000049"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source universal bound is 1 and is weaker than beta/alpha when beta<alpha.",
+        "Source Example 2 concerns a different piecewise l_infinity-l_1 norm and only the alpha<=beta regime.",
+        "The source D'(X) inequalities do not identify the hexagonal profile and can be substantially nonsharp.",
+        "The closest same-space indexed theorem optimizes a different expression under isosceles rather than Birkhoff structure."
+      ],
+      "reasoning": "Neither the source's universal estimate, its example, nor its comparison theorem logically yields the new Radon sharp bound or the all-parameter affine-regular-hexagon equality.",
+      "searches": [
+        "doi:10.30538/oms2024.0219 Proposition 1 B alpha beta",
+        "doi:10.30538/oms2024.0219 Example 2",
+        "doi:10.30538/oms2024.0219 Theorem 5 D prime",
+        "2026/10/4/SCOPE-exact-isosceles-von-neumann-jordan-profile-of-the-ell-infty-ell--c53986910ade"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper defines B_{alpha-beta} by the exact difference quotient used here.",
+        "The profile can also be written as B=1 for alpha<=beta and B=beta/alpha for beta<=alpha.",
+        "No targeted published-finding corpus hit states either the Radon upper envelope or the affine-regular-hexagon profile."
+      ],
+      "reasoning": "Searches covered both the compact min-formula and its two-branch equivalent, together with the standard geometric alias for symmetric Birkhoff orthogonality.",
+      "searches": [
+        "skew orthogonality Radon plane B alpha beta min beta alpha",
+        "Birkhoff symmetric skew constant min beta over alpha",
+        "affine regular hexagon B alpha beta constant min"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus result reports B_{alpha-beta} for the affine-regular hexagon or any exact regular-polygon profile.",
+        "The closest same-space indexed result is an isosceles von Neumann–Jordan profile, which uses a different invariant.",
+        "The current own ledger through generation g000049 contains no Zhou–Ni–Liu B_{alpha-beta} finding."
+      ],
+      "reasoning": "Exact invariant names and concrete polygon aliases were searched, and the current ledger was independently checked for overlap.",
+      "searches": [
+        "skew orthogonality constant affine regular hexagon",
+        "affine regular hexagon B alpha beta constant min",
+        "Bα−β(X) dodecagon exact"
+      ]
+    },
+    "rationale": "The defining 2024 full text was inspected through the definition, Proposition 1, Theorem 1, Example 2, the convexity comparison, the J_perp comparison and Theorem 5. It contains no occurrence of Radon or hexagon and does not state the symmetry-sharpened bound. Its explicit non-Hilbert example proves B=1 only for alpha<=beta on a different piecewise l_infinity-l_1 plane. published-finding corpus searches under exact notation, Radon/Birkhoff-symmetry aliases, the affine-regular hexagon, and the candidate min-profile returned no covering statement.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "An equivalent observation may exist in older Radon-plane literature without the 2024 B_{alpha-beta} notation.",
+      "The exact profile is established only for the affine-regular hexagon; other Radon planes may not attain the structural bound."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: the paper introduces the constant and proves the universal bound 1, but it contains no Radon-plane refinement and no affine-regular-hexagonal computation.",
+        "evidence": "Open Journal of Mathematical Sciences 8 (2024), 1–7; published 15 May 2024; MSC 46B20, 46C15.",
+        "identifier_or_url": "doi:10.30538/oms2024.0219",
+        "material_read": "Full open-access article: title/MSC/publication page; introduction; Definition 1; definition of B_{alpha-beta}; Proposition 1 and Theorem 1; Example 2; Theorems 2–5; J_perp and D' comparisons; searches for Radon and hexagon.",
+        "method": "Open-access full-PDF text inspection with direct page-image inspection of the title page, definition pages, Proposition 1/Example 2, and Theorem 5.",
+        "title": "The skew constant and orthogonalities in Banach spaces",
+        "trigger": "Defining primary source for B_{alpha-beta}(X) and the closest published statements on its bounds and examples."
+      }
+    ],
+    "sources": [
+      "doi:10.30538/oms2024.0219",
+      "public research records listed in the comparison checks"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "569cbdf7-8b03-449c-9e56-f45e3dc1fb4d",
+  "value": {
+    "rationale": "The defining paper introduces B_{alpha-beta} specifically to quantify the mismatch between Birkhoff and skew orthogonality. The new theorem shows that symmetry of Birkhoff orthogonality itself imposes a parameter-sensitive sharp envelope, improving the published universal bound on an entire half of parameter space. The affine-regular hexagon is the canonical non-Hilbert Radon polytope and attains that envelope for every parameter pair, giving a complete benchmark profile rather than a single value. The result cleanly separates the effect of orthogonality symmetry from Hilbertianity.",
+    "risks": [
+      "The structural improvement is elementary once Birkhoff symmetry is recognized, so its value lies in the sharp parameter envelope and canonical exact profile rather than technical depth."
+    ],
+    "sources": [
+      "doi:10.30538/oms2024.0219",
+      "Bundled RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
