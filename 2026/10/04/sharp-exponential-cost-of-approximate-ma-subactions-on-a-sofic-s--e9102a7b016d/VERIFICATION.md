@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The defining source was checked for the exact shift, potential, symbolic metric, maximizing value, and zero-slack obstruction. The proof was then reconstructed from those definitions.
 
-For the lower bound, summing \(f+\phi-\phi\circ\sigma\le\varepsilon\) along \(a^n b a^\infty\) gives
-\[
-1+\phi(a^n b a^\infty)-\phi(a^\infty)\le(n+1)\varepsilon.
-\]
-The two endpoints are at distance \(\alpha^n\), which yields the displayed lower bound on the Lipschitz seminorm.
+# Independent mathematical audit
 
-For the upper bound, every prefix has alternating \(b\) and \(c\), so \(-1\le S_kf\le1\). With \(N=\lceil1/\varepsilon\rceil\), the function
-\[
-u_N=\max_{0\le k<N}S_k(f-\varepsilon)
-\]
-satisfies \((f-\varepsilon)+u_N\circ\sigma-u_N\le0\). Thus \(\phi=-u_N\) is an admissible approximate subaction. Each \(S_kf\) is constant on length-\(k\) cylinders with range contained in \(\{-1,0,1\}\), giving \(|u_N|_{\mathrm{Lip},\alpha}\le2\alpha^{-N}\).
+## correctness
 
-The lower choice \(n=\lfloor1/\varepsilon\rfloor-2\) and the upper choice \(N=\lceil1/\varepsilon\rceil\) squeeze \(\varepsilon\log\Lambda_\alpha(\varepsilon)\) to \(\log(1/\alpha)\).
+PASS
 
-No numerical calculation is needed. The verification does not determine the exact finite-slack minimizer or multiplicative asymptotic constant, and it does not generalize the result beyond the stated sofic example.
+The primary full text confirms the exact sofic shift, potential, beta(f)=0 and witness z^(n)=a^n b a^infinity used to contradict an exact continuous subaction. Keeping positive slack epsilon and telescoping through time n yields the lower bound after dividing by the exact distance alpha^n. For the upper bound, alternation of b and c in every finite word gives S_k f<=1. With N=ceil(1/epsilon), g=f-epsilon has S_N g<=0, so u_N=max_{0<=k<N}S_k g satisfies g+u_N∘sigma<=u_N; phi=-u_N is admissible. Cylinder constancy bounds its Lipschitz seminorm by the stated exponential expression. Choosing n=floor(1/epsilon)-2 and N=ceil(1/epsilon) gives the limit.
+
+## originality
+
+PASS
+
+Remark 9.12 proves only zero-slack nonexistence. The positive-slack optimization quantity, constructive finite-horizon upper bound, metric lower bound and matching exponential logarithmic rate are not stated there. Resultary and web searches found no quantitative theorem for this example that implies the displayed rate.
+
+## value
+
+PASS
+
+The source emphasizes failure of the Mañé lemma as a structural distinction for sofic shifts. Quantifying how regularity cost diverges as slack vanishes is a natural boundary question, and the matching exponent separates approximate solvability from exact solvability in a precise way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
