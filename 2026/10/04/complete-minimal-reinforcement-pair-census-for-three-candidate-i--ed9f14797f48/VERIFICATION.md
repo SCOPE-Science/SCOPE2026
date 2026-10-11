@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_irv13_reinforcement_pairs.py` provides an exact finite replay.
 
-Route A enumerates every anonymous three-candidate profile for electorate sizes \(1\) through \(13\), retains only uniquely determined IRV outcomes, and tests every unordered pair whose electorate sizes sum to a given total. It verifies that totals \(2\) through \(12\) contain no reinforcement-paradox pair and that total \(13\) contains exactly \(288\).
+# Independent mathematical audit
 
-Route B independently enumerates every anonymous \(13\)-voter union profile and every componentwise split of that union into two nonempty subprofiles. It evaluates the two subelections and the union from scratch and is required to recover exactly the same \(288\)-pair set as Route A.
+## correctness
 
-The replay also verifies the universal \(5+8\) split, \(48\) candidate-relabeling pair classes of size \(6\), \(126\) distinct unions, \(21\) candidate-relabeling union classes of size \(6\), and the union partition-multiplicity histogram \(1:36,\ 2:36,\ 3:36,\ 4:18\). The displayed witness is checked explicitly.
+PASS
 
-Run:
+IRV was independently implemented under the stated unique-elimination/unique-final convention. Exact enumeration gives no reinforcement pair for totals 2 through 12 and exactly 288 unordered pairs at total 13, all split 5+8. Independent symmetry counting gives 48 pair orbits of size 6; the 288 pairs produce 126 unions in 21 orbits, with partition multiplicity histogram 1:36, 2:36, 3:36, 4:18. These numbers satisfy the required weighted total 288 and reproduce the displayed witness.
 
-`python3 verify_irv13_reinforcement_pairs.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Prior work establishes reinforcement failure for Hare/IRV, the 13-voter minimum, and—more recently—necessary and sufficient conditions for whether a fixed three-candidate union admits some paradox-producing partition. The audited theorem resolves a different finite boundary object: every unordered minimal pair, its candidate orbit, all 126 union profiles, and the exact 1/2/3/4 partition-multiplicity distribution. No checked source supplied that pair-and-partition census.
 
-All statements are finite. No claim about four or more candidates or larger electorate totals is inferred from this computation.
+## value
+
+PASS
+
+This is a complete classification at the first possible reinforcement boundary for IRV, and the partition multiplicity is a natural refinement of the literature's union-profile existence question. It is not an arbitrary finite slice: it resolves all minimal witnesses and quantifies how many inequivalent decompositions each sharp union admits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

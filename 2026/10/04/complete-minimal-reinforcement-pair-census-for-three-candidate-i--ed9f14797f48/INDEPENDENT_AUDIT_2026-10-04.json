@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:54:23.186409Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob fb708f31a0b88b935d4837892e4ee1900a0c4c3a",
+        "verify_irv13_reinforcement_pairs.py blob b5d0b74bc3be65154b897e0d4dcdd0f6b47daeaf",
+        "independent exact enumeration and symmetry replay"
+      ],
+      "rationale": "IRV was independently implemented under the stated unique-elimination/unique-final convention. Exact enumeration gives no reinforcement pair for totals 2 through 12 and exactly 288 unordered pairs at total 13, all split 5+8. Independent symmetry counting gives 48 pair orbits of size 6; the 288 pairs produce 126 unions in 21 orbits, with partition multiplicity histogram 1:36, 2:36, 3:36, 4:18. These numbers satisfy the required weighted total 288 and reproduce the displayed witness.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2010 and 2022 sources cover existence/minimality, while the 2026 work covers whether at least one partition exists for a given union.",
+          "Existence of a partition does not determine how many distinct minimal unordered pairs realize each union or the orbit/multiplicity census."
+        ],
+        "reasoning": "The audited partition multiplicity distribution is not dominated by the existential prior characterization; it requires complete enumeration of the sharp finite boundary.",
+        "searches": [
+          "Courtin et al. 2010 author-postprint record",
+          "Brandt--Matthäus--Saile 2022 full open-access article",
+          "McCune--Wilson arXiv:2502.05185 primary record"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s00355-010-0449-6 (Courtin--Mbih--Moyouwou--Senné, 2010)",
+        "DOI:10.1177/09516298221122104 (Brandt--Matthäus--Saile, 2022)",
+        "arXiv:2502.05185 / DOI:10.1016/j.mathsocsci.2026.102563 (McCune--Wilson)",
+        "Resultary semantic search: three candidate instant runoff reinforcement minimal 13 voters 288 pairs 126 unions partition multiplicities",
+        "Exact web searches for 288 minimal pairs and 126 unions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent exhaustive replay finds exactly 288 minimal pairs, all 5+8, but a single union may have one through four such partitions.",
+          "The multiplicity refinement is strictly finer than deciding whether some paradox partition exists."
+        ],
+        "reasoning": "The prior results do not mechanically determine the audited multiplicity table without a new finite classification.",
+        "searches": [
+          "Compare McCune--Wilson existential partition conditions with the sharp 13-voter pair census",
+          "Compare Courtin and Brandt minimal witnesses with all 5+8 decompositions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Courtin et al. study reinforcement violation and frequencies for sequential positional rules including Hare.",
+          "Brandt--Matthäus--Saile establish minimal paradox instances.",
+          "McCune--Wilson's primary abstract states a necessary-and-sufficient existence characterization for a paradox-producing partition of a fixed three-candidate IRV election.",
+          "None of the inspected material states the 288-pair, 48-pair-orbit, 126-union, 21-union-orbit, and multiplicity histogram together."
+        ],
+        "reasoning": "The search covered pair formulations, union-profile partition formulations, Young reinforcement terminology, Hare terminology, and exact counts.",
+        "searches": [
+          "DOI:10.1007/s00355-010-0449-6",
+          "DOI:10.1177/09516298221122104",
+          "arXiv:2502.05185",
+          "Resultary: three candidate instant runoff reinforcement minimal 13 voters 288 pairs 126 unions partition multiplicities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved database or published finding gave the audited exact pair/union table."
+        ],
+        "reasoning": "A prior exact table would cover the result, but none was found in the checked indexed sources.",
+        "searches": [
+          "Exact web search: 288 IRV reinforcement 13 voters",
+          "Exact web search: 126 IRV reinforcement unions",
+          "Resultary exact/semantic search with multiplicity histogram 36,36,36,18"
+        ]
+      },
+      "rationale": "Prior work establishes reinforcement failure for Hare/IRV, the 13-voter minimum, and—more recently—necessary and sufficient conditions for whether a fixed three-candidate union admits some paradox-producing partition. The audited theorem resolves a different finite boundary object: every unordered minimal pair, its candidate orbit, all 126 union profiles, and the exact 1/2/3/4 partition-multiplicity distribution. No checked source supplied that pair-and-partition census.",
+      "residual_risks": [
+        "The McCune--Wilson primary abstract and public record were accessible, but arXiv full-HTML retrieval failed in this run; an authorized institutional request mis-resolved the DOI to an unrelated 1985 paper and was discarded. No whole-document noncoverage claim is based on that failed retrieval.",
+        "The 2010 authors' computational materials or an unindexed thesis could contain a more detailed minimal pair table than the printed article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_AND_FREQUENCY_NOT_MINIMAL_PAIR_CENSUS",
+          "evidence": "The source establishes reinforcement failure and studies frequencies but does not state the audited pair/union multiplicity census.",
+          "identifier_or_url": "DOI:10.1007/s00355-010-0449-6; HAL:hal-00914864",
+          "material_read": "Author-postprint/public full-text record covering the rule family, reinforcement violations, and computational/frequency treatment for Hare.",
+          "method": "lawful open author-postprint/full-text rendering",
+          "title": "The reinforcement axiom under sequential positional rules",
+          "trigger": "Primary reinforcement study for Hare/IRV."
+        },
+        {
+          "assessment": "MINIMAL_WITNESS_NOT_COMPLETE_CENSUS",
+          "evidence": "The source supplies minimal instances, not all unordered minimal pairs and all partitions of each union.",
+          "identifier_or_url": "DOI:10.1177/09516298221122104",
+          "material_read": "Open-access full article definitions, optimization methodology, and minimal paradox compilation.",
+          "method": "lawful open-access publisher full text",
+          "title": "Minimal voting paradoxes",
+          "trigger": "Primary source for the sharp unique-winner minimum."
+        },
+        {
+          "assessment": "EXISTENTIAL_COVERAGE_WITH_ACCESS_RISK",
+          "evidence": "The accessible primary statement concerns whether a partition exists, not the number of sharp 13-voter pairs or the partition multiplicity of each minimal union.",
+          "identifier_or_url": "arXiv:2502.05185; DOI:10.1016/j.mathsocsci.2026.102563",
+          "material_read": "Primary arXiv abstract and public paper record stating the necessary-and-sufficient existence characterization and empirical program. Full arXiv HTML retrieval failed. A later authorized institutional request mis-resolved the DOI to an unrelated paper, which was rejected as evidence.",
+          "method": "lawful primary record; full-text retrieval unsuccessful in this run",
+          "title": "Instant Runoff Voting and the Reinforcement Paradox",
+          "trigger": "Most relevant recent work on three-candidate IRV partition existence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Courtin et al. 2010",
+        "Brandt--Matthäus--Saile 2022",
+        "McCune--Wilson 2026 primary record",
+        "independent replay"
+      ],
+      "rationale": "This is a complete classification at the first possible reinforcement boundary for IRV, and the partition multiplicity is a natural refinement of the literature's union-profile existence question. It is not an arbitrary finite slice: it resolves all minimal witnesses and quantifies how many inequivalent decompositions each sharp union admits.",
+      "residual_risks": [
+        "The recent McCune--Wilson full text was not successfully retrieved in this run; an unadvertised exact boundary table remains an access-related originality risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The McCune--Wilson primary abstract and public record were accessible, but arXiv full-HTML retrieval failed in this run; an authorized institutional request mis-resolved the DOI to an unrelated 1985 paper and was discarded. No whole-document noncoverage claim is based on that failed retrieval.",
+    "The 2010 authors' computational materials or an unindexed thesis could contain a more detailed minimal pair table than the printed article."
+  ],
+  "schema_version": 1
+}
