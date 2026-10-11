@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the source-backed Cayley four-secant number and the standard complete-intersection genus formula. The specialization was re-derived symbolically. Parity is reduced to a mod-\(48\) statement for \(N=24Q\), and the symbolic difference proves period \(8\) in each bidegree variable. The remaining \(64\) residue classes are therefore exhaustive. The real implication uses only the conjugation pairing of non-real closed points of a zero-dimensional real scheme.
+## correctness
 
-## Originality
-PASS. Full-text inspection of the two most relevant sources found the general secant-cycle/Cayley framework and the known finite four-secant regime for general complete intersections, but not the mod-\(8\) classification, the \(24/64\) residue count, or the real odd-degree consequence. Claim-specific searches using parity, odd quadrisecant count, complete-intersection bidegree, and real quadrisecant terminology found no covering statement.
+PASS
 
-The closest local result concerns projective-dual degrees of complete-intersection curves, which is a different associated variety and does not imply this theorem. Residual risk remains that dispersed classical multisecant literature contains an unindexed equivalent observation.
+Substituting d=ab and g=1+ab(a+b-4)/2 into Cayley's quadrisecant formula gives the displayed integer polynomial Q_{a,b}. A fresh exact-integer check confirmed the specialization against Cayley's formula for all 4<=a,b<=80. Symbolically, the numerator N=24Q satisfies N(a+8,b)-N(a,b)=16 b R(a,b), and bR is divisible by 3 because modulo 3 it reduces to b^2((a^3+a)b^2+a+2b^2+1), which vanishes in all residue cases; hence Q parity is 8-periodic in each degree. Exhausting the 64 residue pairs gives exactly the two stated parity rules and 24 odd classes. Complex conjugation pairs nonreal points of a real reduced zero-dimensional quadrisecant scheme, so odd complex degree forces a real line.
 
-## Value
-PASS. Four-secant lines are a natural projective invariant of space curves. The result gives a complete arithmetic phase law over an infinite two-parameter family and turns it into a real-existence criterion on a positive-density set of bidegrees. It is not a finite census or an arbitrary numerical slice.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The classical literature supplies the Cayley degree formula and proves existence/maximal-order facts for general ACM curves, while Le Barz develops general multisecant enumeration. Targeted searches for parity, mod-8 complete-intersection specialization, and real quadrisecant consequences found no prior theorem giving the 24 residue classes or the exact oddness criterion. The arithmetic law is not stated or implied in the inspected primary formulas without the new two-adic reduction.
+
+## value
+
+PASS
+
+The result extracts an exact two-adic phase law from a classical enumerative invariant and converts it into a real-existence criterion for a natural family of complete-intersection curves. The 24-class mod-8 profile is a motivated exact classification with geometric consequence, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

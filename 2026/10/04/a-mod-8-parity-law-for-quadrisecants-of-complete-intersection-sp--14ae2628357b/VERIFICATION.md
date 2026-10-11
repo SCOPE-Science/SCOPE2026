@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-The central identity is checked in exact integer arithmetic. For \(p=ab\) and \(s=a+b\), the checker evaluates
-\[
-Q_{a,b}=\frac{p}{24}\left(2p^3-6p^2s+3ps^2+18ps-26p-66s+144\right)
-\]
-and independently evaluates the Cayley formula after substituting
-\[
-d=ab,\qquad g=1+\frac{ab(a+b-4)}2.
-\]
-The values agree throughout the regression range.
 
-The infinite parity reduction is not inferred from that bounded range. The proof in RESULT.md establishes symbolically that \(Q_{a+8,b}\equiv Q_{a,b}\pmod2\) and, by symmetry, \(Q_{a,b+8}\equiv Q_{a,b}\pmod2\). The bundled checker then evaluates all \(64\) residue classes modulo \(8\), which is exhaustive once periodicity has been proved, and verifies exactly \(24\) odd classes.
+# Independent mathematical audit
 
-The real conclusion is scheme-theoretic: a zero-dimensional real scheme of odd degree has a real closed point because non-real points occur in conjugate pairs of even total degree. No reducedness assumption is used for that implication.
+## correctness
 
-Limits: the theorem is restricted to the general \(a,b\ge4\) finite four-secant regime, and does not describe special members with excess-dimensional four-secant loci.
+PASS
+
+Substituting d=ab and g=1+ab(a+b-4)/2 into Cayley's quadrisecant formula gives the displayed integer polynomial Q_{a,b}. A fresh exact-integer check confirmed the specialization against Cayley's formula for all 4<=a,b<=80. Symbolically, the numerator N=24Q satisfies N(a+8,b)-N(a,b)=16 b R(a,b), and bR is divisible by 3 because modulo 3 it reduces to b^2((a^3+a)b^2+a+2b^2+1), which vanishes in all residue cases; hence Q parity is 8-periodic in each degree. Exhausting the 64 residue pairs gives exactly the two stated parity rules and 24 odd classes. Complex conjugation pairs nonreal points of a real reduced zero-dimensional quadrisecant scheme, so odd complex degree forces a real line.
+
+## originality
+
+PASS
+
+The classical literature supplies the Cayley degree formula and proves existence/maximal-order facts for general ACM curves, while Le Barz develops general multisecant enumeration. Targeted searches for parity, mod-8 complete-intersection specialization, and real quadrisecant consequences found no prior theorem giving the 24 residue classes or the exact oddness criterion. The arithmetic law is not stated or implied in the inspected primary formulas without the new two-adic reduction.
+
+## value
+
+PASS
+
+The result extracts an exact two-adic phase law from a classical enumerative invariant and converts it into a real-existence criterion for a natural family of complete-intersection curves. The 24-class mod-8 profile is a motivated exact classification with geometric consequence, not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
