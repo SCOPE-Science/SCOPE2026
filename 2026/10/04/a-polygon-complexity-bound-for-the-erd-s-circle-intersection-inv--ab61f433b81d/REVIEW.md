@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For a convex \(n\)-gon with \(n\ge4\), an interior angle of at least \(\pi/2\) exists by the angle-sum average. Centering at the preceding vertex makes distance along the edge leaving that nonacute angle nondecreasing. The preceding incident edge and that monotone edge therefore contribute at most one distinct point together to every centered circle; the other incident edge contributes at most one, and each of the remaining \(n-3\) edges contributes at most two. This proves \(N(K)\le2n-4\). For right or obtuse triangles the same monotonicity gives an exact two-intersection center. For acute triangles, the upper bound four is immediate at a vertex, while the lower bound was independently reconstructed by showing that distance from any boundary point has at least two strict vertex maxima that force a common level with four crossings.
+## correctness
 
-## Originality
-PASS with residual indexing risk. The primary 2013 article defines \(N(K)\), states the four-intersection phenomenon for acute triangles, proves general finiteness, and constructs a \(15\)-gon with \(N(K)=6\), but does not state the \(2n-4\) polygon bound, the quadrilateral/pentagon consequences, or the right/obtuse triangle classification. The full relevant thesis chapter was materially inspected; a text search found no quadrilateral statement. Targeted published-finding searches for exact and alias formulations, including the expression \(2n-4\), returned no covering result. An unindexed elementary observation remains possible.
+PASS
 
-## Value
-PASS. Polygon vertex count is a natural complexity parameter in this problem: the original source itself emphasizes the number of vertices of its explicit \(N(K)=6\) example. The theorem gives a uniform complexity law, verifies the conjectured threshold \(6\) for every pentagon, improves it to \(4\) for every quadrilateral, and completely classifies triangles with a geometric phase transition at a right angle. These are motivated finite-complexity boundaries rather than arbitrary parameter slices.
+Every convex n-gon with n>=4 has a nonacute angle. Centering at the preceding vertex makes distance along the next edge nondecreasing, so those two consecutive edges contribute at most one distinct circle intersection; the other incident edge contributes at most one and each remaining segment at most two, giving 2n-4. For a right/obtuse triangle the same monotonicity gives a center with at most two intersections and small circles give exactly two. For an acute triangle, each boundary point has at least two strict vertex maxima of the distance function, so a level just below the second-largest maximum yields four crossings; a vertex center gives the matching upper bound four.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The foundational paper states the invariant, proves finiteness for every convex body, notes the acute-triangle four-intersection phenomenon, constructs a 15-gon with N=6, and says no universal bound is known. It does not give the polygon-complexity bound, the nonacute triangle classification, or the quadrilateral/pentagon consequences.
+
+## value
+
+PASS
+
+This gives an explicit complexity-dependent bound for the invariant underlying an open universal-bound problem and settles the complete triangle phase transition. In particular it proves uniform four- and six-intersection bounds for quadrilaterals and pentagons. That is a natural structural cutoff, not an arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

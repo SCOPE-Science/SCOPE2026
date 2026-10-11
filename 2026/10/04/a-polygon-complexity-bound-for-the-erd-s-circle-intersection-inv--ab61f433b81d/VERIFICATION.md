@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The theorem is proved by exact inequalities and incidence counts; no numerical experiment is needed.
 
-For the polygon bound, the critical check is the sign identity
-\[
-\frac{d}{dt}|V_1+t(V_2-V_1)-V_0|^2
-=2(V_1-V_0)\cdot(V_2-V_1)+2t|V_2-V_1|^2.
-\]
-When \(\angle V_0V_1V_2\ge\pi/2\), the first dot product is nonnegative, so distance is nondecreasing on \(V_1V_2\). This makes \(V_0V_1\cup V_1V_2\) contribute at most one distinct circle intersection for every radius. The remaining edge count is therefore exactly bounded by \(1+1+2(n-3)=2n-4\).
+# Independent mathematical audit
 
-For a right or obtuse triangle, the same monotonicity leaves exactly two intersections for small positive radii and never more than two. For an acute triangle, the upper bound four follows from centering at a vertex. The lower bound was checked from the boundary distance function: the acute-angle dot products make each relevant vertex a strict local maximum, and a level just below the second-largest vertex value produces four distinct crossings by continuity.
+## correctness
 
-Unproved here: sharpness of \(2n-4\) for general \(n\), exact values for all quadrilaterals or pentagons, and any universal bound for unrestricted planar convex bodies.
+PASS
+
+Every convex n-gon with n>=4 has a nonacute angle. Centering at the preceding vertex makes distance along the next edge nondecreasing, so those two consecutive edges contribute at most one distinct circle intersection; the other incident edge contributes at most one and each remaining segment at most two, giving 2n-4. For a right/obtuse triangle the same monotonicity gives a center with at most two intersections and small circles give exactly two. For an acute triangle, each boundary point has at least two strict vertex maxima of the distance function, so a level just below the second-largest maximum yields four crossings; a vertex center gives the matching upper bound four.
+
+## originality
+
+PASS
+
+The foundational paper states the invariant, proves finiteness for every convex body, notes the acute-triangle four-intersection phenomenon, constructs a 15-gon with N=6, and says no universal bound is known. It does not give the polygon-complexity bound, the nonacute triangle classification, or the quadrilateral/pentagon consequences.
+
+## value
+
+PASS
+
+This gives an explicit complexity-dependent bound for the invariant underlying an open universal-bound problem and settles the complete triangle phase transition. In particular it proves uniform four- and six-intersection bounds for quadrilaterals and pentagons. That is a natural structural cutoff, not an arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
