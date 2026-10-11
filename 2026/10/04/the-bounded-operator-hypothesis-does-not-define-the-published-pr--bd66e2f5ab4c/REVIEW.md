@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's quotient divides by a quadratic form of the control operator. Its symmetric part alone determines that form. The zero operator is an exact admissible counterexample to the printed bounded-operator theorem, and the sign/cancellation proof gives the exact pointwise well-definedness condition. Uniform coercivity gives a state-independent feedback bound; the diagonal operator with eigenvalues \(1/n\) shows why strict positivity alone is insufficient.
+PASS
 
-## Originality
+Only the symmetric part contributes to \(q(z)=\langle Bz,z\rangle\). If \(q\) vanishes at a nonzero vector, the denominator vanishes on a nonzero pair; if \(q\) takes both signs, positive rescaling of two vectors makes the two quadratic values cancel. Conversely, a strictly positive or strictly negative quadratic form makes every nonzero-pair denominator one-signed. A coercive estimate \(|q(z)|\ge\beta\|z\|^2\) gives the uniform quotient bound, while strict positivity without coercivity is insufficient: on \(\ell^2\), \(B e_n=n^{-1}e_n\) gives unit vectors with denominator tending to zero. The actual primary source was checked: Theorem 2.1 and Theorem 2.3 literally assume only that \(B\) is bounded while dividing by the displayed quadratic denominator, and the Holling-IV application prints \(BY=(1-\mu(x))Y\) for merely \(\mu\in L^\infty\), so \(\mu\equiv1\) makes \(B=0\).
 
-PASS. The primary PDF was inspected at the exact theorem statements and applications. Searches by title, DOI, denominator structure, and coercivity terminology found no erratum or source-specific correction. The closest indexed findings concern unrelated operator or predator-model claims and do not imply this result.
+## originality
 
-## Value
+PASS
 
-PASS. The correction concerns Theorem 2.3, explicitly presented by the source as its main result, as well as the preceding linear theorem. It also reaches the paper's Holling-IV operator class, which includes a concrete singular choice. The result supplies a precise repair criterion rather than only pointing out division by zero.
+The primary paper itself is the decisive comparison: its main stabilization theorems print only boundedness of \(B\), and a concrete advertised Holling-IV specialization permits a zero operator. Searches for the paper title, DOI, feedback quotient and later corrections found no published erratum or theorem adding the missing one-sign/coercivity condition. The audited result is not merely a counterexample: it gives the exact well-definedness classification and separates strict one-sign from the stronger coercivity needed for uniform boundedness.
 
-## Closest literature and limitations
+## value
 
-General bilinear-stabilization literature supplies context but does not make this particular quotient meaningful for every bounded operator. Some examples in the source use coercive multiplication operators and are not contradicted by the denominator argument. The result does not re-prove every nonlinear stabilization step after imposing coercivity.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+This is a substantive correctness boundary for a published stabilization theorem, not a cosmetic type check: the literal theorem may prescribe an undefined control, and a named application family contains the zero-operator case. The exact one-sign/coercivity distinction supplies a usable repair criterion for future proofs and applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

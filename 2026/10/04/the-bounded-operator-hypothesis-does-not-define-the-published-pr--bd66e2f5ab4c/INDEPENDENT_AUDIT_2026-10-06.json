@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T02:37:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 5c94a24ac646b4a14a73b98d05f4f9a681549136",
+        "assigned verify.py blob 7526090d931f20fb8024318834b1d4e5daf0d29b",
+        "Lamrani--El Harraki--Aziz-Alaoui--El Alaoui, DOI:10.3934/math.2023122"
+      ],
+      "rationale": "Only the symmetric part contributes to \\(q(z)=\\langle Bz,z\\rangle\\). If \\(q\\) vanishes at a nonzero vector, the denominator vanishes on a nonzero pair; if \\(q\\) takes both signs, positive rescaling of two vectors makes the two quadratic values cancel. Conversely, a strictly positive or strictly negative quadratic form makes every nonzero-pair denominator one-signed. A coercive estimate \\(|q(z)|\\ge\\beta\\|z\\|^2\\) gives the uniform quotient bound, while strict positivity without coercivity is insufficient: on \\(\\ell^2\\), \\(B e_n=n^{-1}e_n\\) gives unit vectors with denominator tending to zero. The actual primary source was checked: Theorem 2.1 and Theorem 2.3 literally assume only that \\(B\\) is bounded while dividing by the displayed quadratic denominator, and the Holling-IV application prints \\(BY=(1-\\mu(x))Y\\) for merely \\(\\mu\\in L^\\infty\\), so \\(\\mu\\equiv1\\) makes \\(B=0\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic operator theory supplies the language of symmetric parts and coercivity, but no checked source applies the exact classification to this published feedback theorem or its Holling-IV specialization."
+        ],
+        "reasoning": "The scientific contribution is the source-specific diagnosis and exact repair boundary, not a claim that the underlying Hilbert-space lemma is itself new.",
+        "searches": [
+          "Lamrani et al. 2023 full primary PDF",
+          "standard numerical-range/coercivity facts for bounded operators"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2023122",
+        "Resultary semantic search",
+        "bounded-operator coercivity background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source conclusion assumes the quotient is available; it does not prove the denominator cannot vanish from boundedness alone.",
+          "The application family contains \\(B=0\\), so the literal stated theorem cannot imply the repaired operator condition."
+        ],
+        "reasoning": "The audited claim corrects a missing hypothesis rather than following as a corollary of the paper.",
+        "searches": [
+          "Lamrani et al. Theorems 2.1 and 2.3 and Section 3 Holling-IV application"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.1 and Theorem 2.3 of the primary PDF both assume only a bounded operator \\(B\\) and divide by \\(\\langle BZ_1,Z_1\\rangle+\\langle BZ_2,Z_2\\rangle\\).",
+          "The Holling-IV application states \\(BY=(1-\\mu(x))Y\\) with only \\(\\mu\\in L^\\infty\\)."
+        ],
+        "reasoning": "The operator-theoretic question is exactly whether the printed quadratic denominator is nonzero and quantitatively separated from zero on nonzero pairs.",
+        "searches": [
+          "Resultary: bounded operator feedback stabilization predator prey quadratic denominator coercive Lamrani El Harraki Aziz-Alaoui",
+          "DOI:10.3934/math.2023122",
+          "searches for the exact feedback denominator and correction/erratum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published correction of the bounded-operator hypothesis or exact denominator classification for this theorem was returned."
+        ],
+        "reasoning": "There is no numerical database at issue; the exact published theorem statement and application were inspected directly.",
+        "searches": [
+          "Resultary exact title/feedback-hypothesis search"
+        ]
+      },
+      "rationale": "The primary paper itself is the decisive comparison: its main stabilization theorems print only boundedness of \\(B\\), and a concrete advertised Holling-IV specialization permits a zero operator. Searches for the paper title, DOI, feedback quotient and later corrections found no published erratum or theorem adding the missing one-sign/coercivity condition. The audited result is not merely a counterexample: it gives the exact well-definedness classification and separates strict one-sign from the stronger coercivity needed for uniform boundedness.",
+      "residual_risks": [
+        "A non-indexed author correction may exist, but no checked published erratum or revised theorem was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_SOURCE_HAS_MISSING_DENOMINATOR_HYPOTHESIS",
+          "evidence": "The theorem statements say only that \\(B\\) is bounded, while the quotient denominator can vanish; the Holling-IV printed assumptions allow \\(\\mu\\equiv1\\).",
+          "identifier_or_url": "DOI:10.3934/math.2023122",
+          "material_read": "Primary full PDF around Theorems 2.1 and 2.3, their displayed feedback denominators, and the Holling-IV application with \\(BY=(1-\\mu(x))Y\\); the theorem and application pages were visually inspected.",
+          "method": "Open primary full-PDF text and page-image inspection.",
+          "title": "Feedback stabilization for prey predator general model with diffusion via multiplicative controls",
+          "trigger": "Exact source of the bounded-operator feedback theorem and its ecological applications."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lamrani et al. 2023 primary theorem and Holling-IV application",
+        "standard Hilbert-space quadratic-form theory"
+      ],
+      "rationale": "This is a substantive correctness boundary for a published stabilization theorem, not a cosmetic type check: the literal theorem may prescribe an undefined control, and a named application family contains the zero-operator case. The exact one-sign/coercivity distinction supplies a usable repair criterion for future proofs and applications.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the feedback quotient used by Lamrani--El Harraki--Aziz-Alaoui--El Alaoui, boundedness of \\(B\\) alone does not make the denominator well defined: for a real Hilbert space, \\(\\langle Bz_1,z_1\\rangle+\\langle Bz_2,z_2\\rangle\\) is nonzero for every nonzero pair exactly when the quadratic form of the symmetric part \\(S=(B+B^*)/2\\) is strictly one-signed. A uniform feedback bound requires a coercive one-sign estimate, and the published Holling-IV specialization allows \\(B=0\\) under its printed hypotheses.",
+  "limitations": [
+    "This audits the literal feedback formula and stated bounded-operator hypothesis; it does not assert that every stabilization result in the paper fails after adding an appropriate positivity/coercivity assumption.",
+    "The uniform-bound conclusion is about controlling the displayed quotient from operator hypotheses, not a complete re-proof of the reaction--diffusion stabilization theorem under repaired assumptions."
+  ],
+  "schema_version": 1
+}
