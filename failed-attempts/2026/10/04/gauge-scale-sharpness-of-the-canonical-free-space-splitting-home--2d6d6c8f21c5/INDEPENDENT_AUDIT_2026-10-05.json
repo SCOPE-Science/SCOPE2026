@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:08:01.907111Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 37f97756e48aabc071b6acfc5b4626114438ff59",
+        "Kalton, Spaces of Lipschitz and Hölder functions and their applications, Proposition 5.1",
+        "Cheng--He--Xiang, arXiv:2609.14641v2, Section 5.4 and Example 5.1"
+      ],
+      "rationale": "Kalton's Proposition 5.1 gives the exact canonical homeomorphism \\(\\phi(\\gamma,x)=\\gamma+\\delta_\\omega(x)\\), its inverse, and the upper bounds \\(\\omega_\\phi(t)\\le 2\\omega(t)\\) and \\(\\omega_{\\phi^{-1}}(t)\\le 3\\omega(t)\\). The submitted lower bound for \\(\\phi\\) follows by comparing \\((0,tu)\\) with \\((0,0)\\), since \\(\\|\\delta_\\omega(tu)-\\delta_\\omega(0)\\|=\\omega(t)\\). For the inverse, using \\(\\eta_t=t\\delta_\\omega(u)\\) with \\(\\|\\eta_t\\|=t\\), the published inverse formula and the reverse triangle inequality give a coordinate difference at least \\(\\omega(t)\\). Thus both two-sided modulus estimates and the failure of every smaller logarithmic exponent are correct.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kalton covers every strongly normalized gauge and every Banach space, a broader setting than the submitted logarithmic gauge.",
+          "The 2026 paper supplies exactly the submitted piecewise gauge and canonical splitting map."
+        ],
+        "reasoning": "The broader published construction already contains all ingredients; the audited lower estimates are elementary consequences.",
+        "searches": [
+          "Nigel J. Kalton, Collectanea Mathematica 55 (2004), Proposition 5.1",
+          "Cheng--He--Xiang arXiv:2609.14641v2, Section 5.4"
+        ]
+      },
+      "checked_sources": [
+        "https://kaltonmemorial.missouri.edu/assets/docs/collect2004.pdf",
+        "arXiv:2609.14641v2",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identity \\(\\|\\delta_\\omega(x)-\\delta_\\omega(y)\\|=\\omega(\\|x-y\\|)\\) is printed immediately before Kalton Proposition 5.1.",
+          "Testing the published \\(\\phi\\) on the \\(X\\)-summand gives the forward lower bound exactly.",
+          "Testing the published inverse on a scaled point mass gives the inverse lower bound by reverse triangle inequality."
+        ],
+        "reasoning": "No creative extension beyond the explicit published formulas is required, so the final sharpness statement is covered by implication.",
+        "searches": [
+          "direct substitution into Kalton Proposition 5.1",
+          "direct comparison with Cheng--He--Xiang Example 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kalton states the exact \\(\\phi\\), \\(\\phi^{-1}\\), and upper modulus inequalities for any strongly normalized gauge.",
+          "Cheng--He--Xiang specialize to the same logarithmic gauge and state the corresponding \\((\\alpha,\\alpha)\\)-almost-Lipschitz homeomorphism."
+        ],
+        "reasoning": "The 'gauge-scale sharpness' formulation is a one-line corollary of the published explicit map/inverse formulas evaluated on canonical free-space vectors.",
+        "searches": [
+          "Resultary query: Lipschitz free space canonical splitting homeomorphism gauge sharpness lower modulus inverse omega logarithmic exponent",
+          "Kalton 2004, Proposition 5.1",
+          "Cheng--He--Xiang arXiv:2609.14641v2, Example 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No numeric table is relevant."
+        ],
+        "reasoning": "This is an analytic corollary, so exact-table novelty is inapplicable; direct theorem implication is decisive.",
+        "searches": [
+          "Resultary semantic search for the canonical splitting modulus"
+        ]
+      },
+      "rationale": "The final claim is directly implied by published formulas. Kalton's Proposition 5.1 already prints the canonical map, its inverse, the free-space section identity, and both upper modulus bounds. Cheng--He--Xiang reproduce the same canonical map and upper bounds for the exact logarithmic gauge used here. The two lower bounds are immediate test-pair calculations from those displayed formulas and the defining isometry of \\(\\delta_\\omega\\); no additional nonstandard lemma or unresolved comparison is needed. Under the audit rule that direct corollaries and mechanically implied special cases are covered even when the sharpness sentence is not printed verbatim, originality fails.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_FORMULA_COVERAGE",
+          "evidence": "The submitted lower estimates are immediate evaluations of these printed formulas.",
+          "identifier_or_url": "https://kaltonmemorial.missouri.edu/assets/docs/collect2004.pdf",
+          "material_read": "Primary PDF around Proposition 5.1, including the barycentric map, exact section metric identity, formulas for \\(\\phi\\) and \\(\\phi^{-1}\\), and inequalities (5.1)--(5.2).",
+          "method": "Lawful open primary PDF inspection.",
+          "title": "Spaces of Lipschitz and Hölder functions and their applications",
+          "trigger": "Original source of the canonical free-space splitting homeomorphism."
+        },
+        {
+          "assessment": "SAME_GAUGE_AND_MAP",
+          "evidence": "Example 5.1 states the same canonical map/inverse upper moduli and \\((\\alpha,\\alpha)\\)-almost-Lipschitz conclusion.",
+          "identifier_or_url": "arXiv:2609.14641v2",
+          "material_read": "Complete primary article was obtained through authorized institutional access after open routes did not provide usable full text; pages 27--31 were read, including Proposition 5.1, Proposition 5.2 and Example 5.1.",
+          "method": "Authorized institutional full-text inspection.",
+          "title": "Sphere version of Banach--Kadec--Paley theorem",
+          "trigger": "Same current logarithmic-gauge construction cited by the package."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Kalton Proposition 5.1",
+        "Cheng--He--Xiang Example 5.1"
+      ],
+      "rationale": "Showing that the exponent in a current construction is sharp is a motivated question, but here the sharpness proof is a routine test-vector exercise once the published explicit homeomorphism, inverse, and free-space norm identity are written down. It does not isolate a new structural obstruction, boundary phenomenon, or difficult exact invariant under the common value standard.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://kaltonmemorial.missouri.edu/assets/docs/collect2004.pdf",
+    "arXiv:2609.14641v2",
+    "Resultary semantic search"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The rejection is for direct prior implication and routine value, not correctness.",
+    "The claim concerns only the canonical splitting homeomorphism, not all possible homeomorphisms between the spaces."
+  ],
+  "residual_risks": [],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE_FORMULA_COVERAGE",
+      "evidence": "The submitted lower estimates are immediate evaluations of these printed formulas.",
+      "identifier_or_url": "https://kaltonmemorial.missouri.edu/assets/docs/collect2004.pdf",
+      "material_read": "Primary PDF around Proposition 5.1, including the barycentric map, exact section metric identity, formulas for \\(\\phi\\) and \\(\\phi^{-1}\\), and inequalities (5.1)--(5.2).",
+      "method": "Lawful open primary PDF inspection.",
+      "title": "Spaces of Lipschitz and Hölder functions and their applications",
+      "trigger": "Original source of the canonical free-space splitting homeomorphism."
+    },
+    {
+      "assessment": "SAME_GAUGE_AND_MAP",
+      "evidence": "Example 5.1 states the same canonical map/inverse upper moduli and \\((\\alpha,\\alpha)\\)-almost-Lipschitz conclusion.",
+      "identifier_or_url": "arXiv:2609.14641v2",
+      "material_read": "Complete primary article was obtained through authorized institutional access after open routes did not provide usable full text; pages 27--31 were read, including Proposition 5.1, Proposition 5.2 and Example 5.1.",
+      "method": "Authorized institutional full-text inspection.",
+      "title": "Sphere version of Banach--Kadec--Paley theorem",
+      "trigger": "Same current logarithmic-gauge construction cited by the package."
+    }
+  ]
+}
