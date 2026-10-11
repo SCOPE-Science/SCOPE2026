@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,32 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed exactly from the displayed norm.
+# Independent mathematical audit
 
-1. For \(uv\ge0\), the two comparison residuals are
-\[
-\|w\|_{2,\infty}^2-H(w)^2=\frac{(u-v)^2}{4}
-\]
-and
-\[
-\frac32H(w)^2-\|w\|_{2,\infty}^2=\frac{u^2+6uv+v^2}{8},
-\]
-both nonnegative.
+## correctness
 
-2. For \(uv\le0\), after writing \(a=|u|\ge b=|v|\), the residuals are
-\[
-\|w\|_{2,\infty}^2-H(w)^2=\frac{(a-b)(a+3b)}{4}
-\]
-and
-\[
-\frac32H(w)^2-\|w\|_{2,\infty}^2=\frac{(a-3b)^2}{8},
-\]
-both nonnegative.
+PASS
 
-3. The quadratic form for \(H^2\) is positive definite, so the ordinary Ptolemy inequality applies to \(H\). Combining the two pointwise norm comparisons on the two numerator factors yields the global upper bound \(3/2\).
+The quadratic form H(u,v)=1/2 sqrt(3u^2+2uv+3v^2) is Hilbertian. On uv>=0 the two exact differences establish H<=N<=sqrt(3/2)H; on uv<=0, after |u|=a>=b=|v|, the differences factor as (a-b)(a+3b)/4 and (a-3b)^2/8, proving the same sharp sandwich. Hilbert Ptolemy therefore yields C_Pt<=3/2. The triple (-1,-1),(2,-2),(1,-3) has numerator 9 and denominator 6, so equality holds. Every step is exact algebra.
 
-4. For \(x=(-1,-1)\), \(y=(2,-2)\), \(z=(1,-3)\), the six relevant norms are \(3,3,2,2,\sqrt2,\sqrt2\), giving Ptolemy ratio \(9/(4+2)=3/2\).
+## originality
 
-No computation, search result, or inaccessible source is used as a substitute for a proof step. Literature-access limitations affect only the originality comparison.
+PASS
+
+Mizuguchi--Saito--Tanaka study the same Day--James plane but compute the Dunkl--Williams constant, not Ptolemy. Zuo's 2012/2018 exact Ptolemy criteria after the package's linear normalization require midpoint or symmetry hypotheses that this nonsymmetric associated function does not satisfy. Resultary found the audited value as the direct exact Ptolemy hit and no earlier covering theorem.
+
+## value
+
+PASS
+
+The Day--James plane is a standard nonabsolute Banach-space example and the Ptolemy constant is a natural exact geometric invariant. A sharp value with an optimal Hilbert comparison and explicit extremizing triple is a motivated exact classification, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
