@@ -1,0 +1,12 @@
+# Review
+
+## Correctness
+**PASS.** The proof independently establishes the required centering step by alternating Steiner symmetrizations across two reflection axes. For the centered regular Reuleaux polygon, reflection symmetry perpendicular to each strip normal and constant width force the support values in those directions to be exactly \(w/2\). This traps the body inside the regular \(2n\)-gon with vertices \(\{\pm v_j\}\), while those vertices themselves lie in the body and its reflection, proving equality with the centered symmetric hull. Firey's width-one area formula then gives the claimed ratio. The standard-library checker replays the strip geometry, polygon area, source-area simplification, and monotonicity for odd \(3\le n\le101\). Risk: the compactness step in the centering argument is qualitative, but it uses only standard planar convex-body compactness and does not conceal a numerical premise.
+
+## Originality
+**PASS.** The closest material literature is the Reuleaux-polygon asymmetry program of Jin and Guo. Its materially inspected full text computes and optimizes the Minkowski measure, not the Estermann outer-area measure; the term “Estermann” does not occur in that text. Firey's paper supplies the area formula but no central-symmetry optimization. Classical Estermann references emphasize the Reuleaux triangle, while targeted exact-form, object-name, container, and special-case searches found no formula for the full regular Reuleaux family. The owned current ledger contains a general centering theorem and a formula for straight regular polygons, but not the Reuleaux hull identification or the new value; the current claim is not logically contained in that row without the constant-width support argument and the regular-Reuleaux area computation. Residual risk: an unindexed classical note or book exercise may contain the same concise computation.
+
+## Value
+**PASS.** Reuleaux polygons are a standard test family in the literature on asymmetry of constant-width bodies, and several distinct asymmetry measures have been studied on them. The Estermann measure is classical, yet the inspected literature provides only the triangle extremal statement rather than an all-order regular-family profile. The exact formula and explicit optimal container give a natural benchmark complementary to the known Minkowski formula and quantify convergence to the disk. The result is a self-contained exact invariant for a canonical family, not an arbitrary parameter slice.
+
+Same-model review: passed. Independent audit: not yet performed.
