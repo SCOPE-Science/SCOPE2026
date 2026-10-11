@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:47:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "S. Kumar and A. Deep, A Wolfe-Type Steepest Descent Algorithm for Uncertain Quadratic Multiobjective Optimization Problems, Boletim da Sociedade Paranaense de Matemática 44(7) (2026), DOI:10.5269/bspm.81660; publisher full text inspected through the Wolfe definitions, Theorem 3.4 and Algorithm 1.",
+        "Resultary semantic search for source-specific one-sided Wolfe/dyadic scale frontiers.",
+        "Assigned RESULT.md and inspected transparent rational-lattice verifier at the frozen tree."
+      ],
+      "rationale": "The source auxiliary problem has the unique minimizer \\(Y=-ax\\). Direct substitution gives Armijo exactly as \\(\\alpha a\\le2(1-\\beta)\\) and curvature exactly as \\(\\alpha a\\ge1-\\gamma\\). Necessity of \\(a\\ge1-\\gamma\\) on the source grid is immediate because every trial has \\(\\alpha\\le1\\). For sufficiency, if the unit step is too large, the first dyadic step below the Armijo ceiling is still larger than \\(1-\\beta>1-\\gamma\\). The two-sided grid works because the admissible scaled interval has multiplicative width strictly larger than two. The inspected verifier checks the algebra on a rational lattice but is not the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source theorem is broader in model class and establishes continuous Wolfe existence.",
+          "The convergence analysis assumes accepted Wolfe steps and does not prove that the printed discrete grid always produces one."
+        ],
+        "reasoning": "A broader continuous existence theorem does not imply intersection with a particular bounded discrete trial set.",
+        "searches": [
+          "Kumar–Deep Theorem 3.4",
+          "Kumar–Deep convergence section"
+        ]
+      },
+      "checked_sources": [
+        "S. Kumar and A. Deep, A Wolfe-Type Steepest Descent Algorithm for Uncertain Quadratic Multiobjective Optimization Problems, Boletim da Sociedade Paranaense de Matemática 44(7) (2026), DOI:10.5269/bspm.81660; publisher full text inspected through the Wolfe definitions, Theorem 3.4 and Algorithm 1.",
+        "Resultary semantic search for source-specific one-sided Wolfe/dyadic scale frontiers.",
+        "Assigned RESULT.md and inspected transparent rational-lattice verifier at the frozen tree."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the scalar quadratic the continuous acceptable interval is \\([(1-\\gamma)/a,2(1-\\beta)/a]\\).",
+          "When \\(a<1-\\gamma\\), that entire interval lies above the largest printed trial step 1.",
+          "The source continuous-existence theorem therefore does not imply the discrete algorithm is defined."
+        ],
+        "reasoning": "The discrete failure follows only after comparing the source's two separately stated ingredients at exact scale.",
+        "searches": [
+          "Kumar–Deep Theorem 3.4 and Algorithm 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 1 explicitly searches only \\(\\alpha\\in\\{2^{-r}:r=0,1,\\ldots\\}\\).",
+          "Theorem 3.4 asserts positive continuous Wolfe-step existence under its hypotheses.",
+          "No returned Resultary finding states the exact Kumar–Deep scalar-grid threshold."
+        ],
+        "reasoning": "Shrink-only backtracking, bounded dyadic trial grids and the scaled quadratic Wolfe interval are equivalent ways to express the same obstruction in this specialization.",
+        "searches": [
+          "Resultary query: one-sided Wolfe grid robust steepest descent scalar quadratic exact scale frontier dyadic",
+          "Kumar–Deep DOI:10.5269/bspm.81660, Wolfe definitions and Algorithm 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned nearby findings concern other step-size frontiers and not this source DOI, trial grid or threshold."
+        ],
+        "reasoning": "The result is an analytic algorithm-definedness boundary rather than a benchmark-table value.",
+        "searches": [
+          "Resultary source-specific and generic Wolfe-grid frontier searches"
+        ]
+      },
+      "rationale": "The primary source proves existence of positive continuous Wolfe steps and separately prints Algorithm 1 with the one-sided trial set \\(\\{2^{-r}:r\\ge0\\}\\), but it does not reconcile continuous existence with that bounded grid. The exact scalar threshold \\(a=1-\\gamma\\) and the two-sided dyadic repair were not found in the published-finding search. This is a source-specific discrete-definedness result rather than a restatement of standard Wolfe existence.",
+      "residual_risks": [
+        "Equivalent warnings about shrink-only Wolfe searches may exist in pedagogical optimization literature under different terminology.",
+        "The exact threshold is proved only for the scalar specialization of the published robust model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTINUOUS EXISTENCE PLUS ONE-SIDED GRID, WITHOUT THE SCALE-COMPATIBILITY THEOREM",
+          "evidence": "Theorem 3.4 gives positive Wolfe-step existence; Algorithm 1 then selects the largest accepted member of \\(\\{2^{-r}:r\\ge0\\}\\).",
+          "identifier_or_url": "DOI:10.5269/bspm.81660",
+          "material_read": "Publisher-provided full article text around Definition 3.1, Theorem 3.4, Algorithm 1 and the convergence assumptions.",
+          "method": "Open publisher/full-text inspection.",
+          "title": "A Wolfe-Type Steepest Descent Algorithm for Uncertain Quadratic Multiobjective Optimization Problems",
+          "trigger": "Exact primary source defining both the Wolfe conditions and the printed dyadic line-search rule."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "S. Kumar and A. Deep, A Wolfe-Type Steepest Descent Algorithm for Uncertain Quadratic Multiobjective Optimization Problems, Boletim da Sociedade Paranaense de Matemática 44(7) (2026), DOI:10.5269/bspm.81660; publisher full text inspected through the Wolfe definitions, Theorem 3.4 and Algorithm 1.",
+        "Resultary semantic search for source-specific one-sided Wolfe/dyadic scale frontiers.",
+        "Assigned RESULT.md and inspected transparent rational-lattice verifier at the frozen tree."
+      ],
+      "rationale": "The example shows that the published algorithm can have no line-search output at its first nonstationary iterate even though its continuous Wolfe theorem is valid. The exact scale frontier isolates the mechanism and the two-sided dyadic repair is minimal and operationally meaningful, so this is more than a normalization check.",
+      "residual_risks": [
+        "Equivalent warnings about shrink-only Wolfe searches may exist in pedagogical optimization literature under different terminology.",
+        "The exact threshold is proved only for the scalar specialization of the published robust model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the scalar robust quadratic \\(\\kappa(x)=\\tfrac12ax^2\\), the source standard Wolfe conditions hold exactly when \\(1-\\gamma\\le \\alpha a\\le2(1-\\beta)\\); the printed one-sided dyadic grid contains an admissible step exactly when \\(a\\ge1-\\gamma\\), while a two-sided dyadic grid is scale-complete.",
+  "limitations": [
+    "The exact iff frontier concerns the scalar single-objective single-scenario specialization.",
+    "No claim is made that implementations which add an expansion/bracketing stage suffer the same failure.",
+    "Equivalent warnings about shrink-only Wolfe searches may exist in pedagogical optimization literature under different terminology.",
+    "The exact threshold is proved only for the scalar specialization of the published robust model."
+  ],
+  "schema_version": 1
+}

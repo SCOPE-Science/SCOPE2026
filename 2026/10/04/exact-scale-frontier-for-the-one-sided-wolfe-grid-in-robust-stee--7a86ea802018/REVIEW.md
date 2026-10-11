@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The scalar source specialization is exact: the robust direction problem becomes \(axY+\tfrac12Y^2\), hence \(Y=-ax\). Substitution into the source's two standard Wolfe inequalities gives
-\[
-1-\gamma\le\alpha a\le2(1-\beta).
-\]
-The source trial grid has maximum step \(1\), so \(a<1-\gamma\) makes every trial fail the curvature condition. Conversely, if \(a\ge1-\gamma\), factor-two spacing together with \(1-\beta>1-\gamma\) guarantees a grid hit.
+PASS
 
-The explicit example \(\beta=\tfrac14\), \(\gamma=\tfrac34\), \(a=\tfrac18\) has continuous Wolfe interval \([2,12]\) and no admissible source-grid step.
+The source auxiliary problem has the unique minimizer \(Y=-ax\). Direct substitution gives Armijo exactly as \(\alpha a\le2(1-\beta)\) and curvature exactly as \(\alpha a\ge1-\gamma\). Necessity of \(a\ge1-\gamma\) on the source grid is immediate because every trial has \(\alpha\le1\). For sufficiency, if the unit step is too large, the first dyadic step below the Armijo ceiling is still larger than \(1-\beta>1-\gamma\). The two-sided grid works because the admissible scaled interval has multiplicative width strictly larger than two. The inspected verifier checks the algebra on a rational lattice but is not the proof.
 
-## Originality
+## originality
 
-PASS. The primary paper proves continuous Wolfe-step existence and separately prescribes a one-sided dyadic search, but does not compare the admissible interval with that grid. Standard Wolfe references use an expansion/bracketing phase, not shrink-only search. Targeted searches found no exact \(a=1-\gamma\) frontier for this method.
+PASS
 
-The residual risk is that the generic observation that curvature conditions may require increasing a trial step is classical. The new content is the source-specific exact boundary and minimal dyadic repair.
+The primary source proves existence of positive continuous Wolfe steps and separately prints Algorithm 1 with the one-sided trial set \(\{2^{-r}:r\ge0\}\), but it does not reconcile continuous existence with that bounded grid. The exact scalar threshold \(a=1-\gamma\) and the two-sided dyadic repair were not found in the published-finding search. This is a source-specific discrete-definedness result rather than a restatement of standard Wolfe existence.
 
-## Value
+## value
 
-PASS. The result identifies an implementation-level mathematical obstruction that can stop the published algorithm on the first iterate of a one-dimensional strongly convex quadratic, even though all assumptions of the continuous existence theorem hold. The exact frontier is scale-transparent and the repair is immediate and structurally motivated.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The example shows that the published algorithm can have no line-search output at its first nonstationary iterate even though its continuous Wolfe theorem is valid. The exact scale frontier isolates the mechanism and the two-sided dyadic repair is minimal and operationally meaningful, so this is more than a normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
