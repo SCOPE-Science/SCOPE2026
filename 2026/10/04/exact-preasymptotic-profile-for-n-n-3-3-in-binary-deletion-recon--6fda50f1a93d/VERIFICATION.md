@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` from the directory containing this file and the verifier.
+# Independent mathematical audit
 
-The verifier constructs all distinct subsequences directly. For every \(4\le n\le9\), it enumerates every binary word and all unordered pairs, tests \(\mathcal D_2(x)\cap\mathcal D_2(y)=\varnothing\), independently confirms the same eligibility by a longest-common-subsequence dynamic program, and maximizes \(|\mathcal D_3(x)\cap\mathcal D_3(y)|\). It checks the claimed maximizing witness at every length.
+## correctness
 
-Expected terminal line:
+PASS
 
-`VERIFY_OK n=4..9 pair_checks=174216 eligible_pairs=94949 maximizing_pairs=20 boundary_n10=20`
+For equal-length binary words, \(d_L(x,y)\ge3\) is equivalent to disjoint two-deletion balls: a common subsequence using at most two deletions can always be shortened to length \(n-2\), and conversely a common length-\(n-2\) word witnesses distance at most two. Thus exhaustive enumeration of all unordered word pairs is an exact proof for each finite length. A fresh independent implementation regenerated the complete values \(2,4,6,8,11,15\) for \(n=4,5,6,7,8,9\), with numbers of maximizing pairs \(2,1,4,7,4,2\) and total eligible-pair count 94949, matching the package. The published diagonal theorem supplies the universal upper bound twenty and a matching construction for every \(n\ge4t-2=10\); the stated length-ten witness also directly has twenty common three-deletion outputs. Hence the finite exhaustive prefix and published infinite tail meet exactly at ten.
 
-The boundary check at \(n=10\) verifies the concrete pair \(1010101010\), \(0110011001\): its radius-two deletion balls are disjoint and its radius-three intersection has size \(20\).
+## originality
 
-The program does **not** certify the infinite tail by finite extrapolation. The statement \(N(n,3,3)=20\) for all \(n\ge10\) uses Theorem 4 and Proposition 5/Corollary 6 of arXiv:2111.04255v1. The finite verifier supplies an independent exact certificate only for the previously uncovered lengths and for the boundary witness.
+PASS
+
+Pham, Goyal and Kiah define exactly \(N(n,\ell,t)\), state that before their work exact values were known only for \(\ell\in\{1,2\}\), and prove the diagonal value \(\binom{2t}{t}\) once \(n\ge4t-2\). For \(t=3\) that gives the prior tail \(20\) from length ten onward but says nothing about the six shorter values. Their paper gives a conjectural general exact framework rather than the audited finite table. Current Resultary and web searches for \(N(n,3,3)\), the values eleven/fifteen and preasymptotic deletion-ball intersections did not reveal a published table filling lengths four through nine. The finite prefix therefore survives the closest full-text comparison.
+
+## value
+
+PASS
+
+This finite computation sits exactly below the first published stabilization threshold for the first previously unknown diagonal case \(\ell=t=3\). Completing all six missing lengths establishes that the sufficient threshold ten is sharp and gives a complete all-length profile. That is a meaningful finite cutoff problem, not an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T05:08:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 0d5a3034c78529299504dcddf52e0fb5b0033ed6",
+        "assigned verify.py blob a5c52f947082a83c20a1df93879c2f00d2740070",
+        "fresh independent exhaustive enumeration for all \\(4\\le n\\le9\\)",
+        "Pham-Goyal-Kiah arXiv:2111.04255 full primary paper"
+      ],
+      "rationale": "For equal-length binary words, \\(d_L(x,y)\\ge3\\) is equivalent to disjoint two-deletion balls: a common subsequence using at most two deletions can always be shortened to length \\(n-2\\), and conversely a common length-\\(n-2\\) word witnesses distance at most two. Thus exhaustive enumeration of all unordered word pairs is an exact proof for each finite length. A fresh independent implementation regenerated the complete values \\(2,4,6,8,11,15\\) for \\(n=4,5,6,7,8,9\\), with numbers of maximizing pairs \\(2,1,4,7,4,2\\) and total eligible-pair count 94949, matching the package. The published diagonal theorem supplies the universal upper bound twenty and a matching construction for every \\(n\\ge4t-2=10\\); the stated length-ten witness also directly has twenty common three-deletion outputs. Hence the finite exhaustive prefix and published infinite tail meet exactly at ten.",
+      "residual_risks": [
+        "The preasymptotic theorem is finite exhaustive mathematics, not a structural formula for larger deletion parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source provides asymptotics and the eventual diagonal constant.",
+          "The older exact literature concerns \\(\\ell=2\\), not the first \\(\\ell=3\\) preasymptotic profile.",
+          "Multi-center list reconstruction is a different intersection problem."
+        ],
+        "reasoning": "No broader inspected theorem mechanically determines the six finite maxima.",
+        "searches": [
+          "Pham-Goyal-Kiah 2021/2022 complete asymptotic solution",
+          "Gabrys-Yaakobi DOI 10.1109/TIT.2018.2800044",
+          "later multi-center deletion reconstruction literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2111.04255",
+        "DOI 10.1109/ISIT50566.2022.9834433",
+        "DOI 10.1109/TIT.2018.2800044",
+        "Resultary current published-finding corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An eventual constant theorem places no exact constraint tight enough to determine each shorter maximum.",
+          "The short values require exhaustive admissible-pair comparison; the source's sufficient threshold becomes demonstrably sharp only after those computations."
+        ],
+        "reasoning": "The preasymptotic profile is not a special case already covered by the asymptotic/tail theorem.",
+        "searches": [
+          "published tail theorem \\(N(n,3,3)=20\\) for \\(n\\ge10\\) versus \\(4\\le n\\le9\\)",
+          "general asymptotic formula versus exact preasymptotic finite maxima"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper uses the same two-center deletion-ball intersection parameter and distance condition.",
+          "Its diagonal theorem specializes to twenty only when \\(n\\ge10\\).",
+          "No inspected source states the six exact shorter values."
+        ],
+        "reasoning": "Deletion-ball, longest-common-subsequence and reconstruction-number formulations were matched to the same parameter.",
+        "searches": [
+          "Resultary query: binary deletion reconstruction N(n,3,3) preasymptotic values 2 4 6 8 11 15",
+          "web search: N(n,3,3) deletion reconstruction 20 15 11",
+          "Pham-Goyal-Kiah arXiv:2111.04255, definition and diagonal theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table was retrieved.",
+          "The audited verifier regenerates the table rather than reading stored maxima."
+        ],
+        "reasoning": "The database check is corroborative; the principal novelty evidence is the gap between the source's threshold theorem and the finite range below it.",
+        "searches": [
+          "Resultary current corpus search for exact \\(N(n,3,3)\\) values",
+          "current web searches for the numeric sequence \\(2,4,6,8,11,15\\) in deletion reconstruction"
+        ]
+      },
+      "rationale": "Pham, Goyal and Kiah define exactly \\(N(n,\\ell,t)\\), state that before their work exact values were known only for \\(\\ell\\in\\{1,2\\}\\), and prove the diagonal value \\(\\binom{2t}{t}\\) once \\(n\\ge4t-2\\). For \\(t=3\\) that gives the prior tail \\(20\\) from length ten onward but says nothing about the six shorter values. Their paper gives a conjectural general exact framework rather than the audited finite table. Current Resultary and web searches for \\(N(n,3,3)\\), the values eleven/fifteen and preasymptotic deletion-ball intersections did not reveal a published table filling lengths four through nine. The finite prefix therefore survives the closest full-text comparison.",
+      "residual_risks": [
+        "An unindexed thesis, note or supplementary computation may contain the same six short values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TAIL_FROM_N10_NOT_PREASYMPTOTIC_TABLE",
+          "evidence": "Specializing the source gives \\(N(n,3,3)=20\\) for \\(n\\ge10\\); the inspected source does not state the values for \\(4\\le n\\le9\\).",
+          "identifier_or_url": "https://arxiv.org/abs/2111.04255",
+          "material_read": "primary full text at the definition, Theorem 4, Proposition 5 and Corollary 6 establishing the diagonal upper bound and threshold construction",
+          "method": "primary full-text inspection",
+          "title": "Sequence Reconstruction Problem for Deletion Channels: A Complete Asymptotic Solution",
+          "trigger": "exact primary source defining the parameter and proving the diagonal tail"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pham-Goyal-Kiah 2021/2022",
+        "assigned and independent exhaustive enumerations"
+      ],
+      "rationale": "This finite computation sits exactly below the first published stabilization threshold for the first previously unknown diagonal case \\(\\ell=t=3\\). Completing all six missing lengths establishes that the sufficient threshold ten is sharp and gives a complete all-length profile. That is a meaningful finite cutoff problem, not an arbitrary census.",
+      "residual_risks": [
+        "The contribution is parameter-specific and does not give a recurrence for higher \\(t\\)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The preasymptotic theorem is finite exhaustive mathematics, not a structural formula for larger deletion parameters.",
+    "An unindexed thesis, note or supplementary computation may contain the same six short values.",
+    "The contribution is parameter-specific and does not give a recurrence for higher \\(t\\)."
+  ]
+}

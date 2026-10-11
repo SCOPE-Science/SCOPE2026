@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For equal-length centers, the eligibility condition \(d_L(x,y)\ge3\) is exactly the disjointness of \(\mathcal D_2(x)\) and \(\mathcal D_2(y)\). The packaged verifier enumerates all \(174216\) unordered pairs over \(4\le n\le9\), independently cross-checks that condition by longest common subsequence, and computes every \(|\mathcal D_3(x)\cap\mathcal D_3(y)|\). The six maxima and displayed witnesses replay from the embedded file. The tail \(20\) is not inferred experimentally: Theorem 4 of arXiv:2111.04255 gives the universal upper bound \(20\), while Proposition 5/Corollary 6 attain it for \(n\ge10\).
+## correctness
 
-## Originality
-**PASS.** The closest full text, arXiv:2111.04255v1, explicitly says exact values had previously been known only for \(\ell\in\{1,2\}\), proves the diagonal value \(\binom{2t}{t}\) only under \(n\ge4t-2\), and does not state the six values below the threshold for \(t=3\). Searches under the exact parameter, deletion-ball intersection aliases, and the concrete \(n=8,9\) values found no covering published result. The 2018 Gabrys--Yaakobi paper concerns \(\ell=2\); the later multi-center list-reconstruction problem is not an implication. Residual risk remains from unindexed short tables or notes.
+PASS
 
-## Value
-**PASS.** This is the first diagonal case not already among the classical \(\ell\in\{1,2\}\) exact regimes, and the finite segment is not an arbitrary parameter slice: it is precisely the entire gap left below the published stabilization threshold. Completing that gap determines the required worst-case read count \(N(n,3,3)+1\) for every admissible length and proves that the published sufficient threshold \(n=10\) is sharp.
+For equal-length binary words, \(d_L(x,y)\ge3\) is equivalent to disjoint two-deletion balls: a common subsequence using at most two deletions can always be shortened to length \(n-2\), and conversely a common length-\(n-2\) word witnesses distance at most two. Thus exhaustive enumeration of all unordered word pairs is an exact proof for each finite length. A fresh independent implementation regenerated the complete values \(2,4,6,8,11,15\) for \(n=4,5,6,7,8,9\), with numbers of maximizing pairs \(2,1,4,7,4,2\) and total eligible-pair count 94949, matching the package. The published diagonal theorem supplies the universal upper bound twenty and a matching construction for every \(n\ge4t-2=10\); the stated length-ten witness also directly has twenty common three-deletion outputs. Hence the finite exhaustive prefix and published infinite tail meet exactly at ten.
 
-## Closest literature and limitations
-The main comparison is Pham--Goyal--Kiah, arXiv:2111.04255v1, especially Definition (1), Theorem 4, Proposition 5, and Corollary 6. Gabrys--Yaakobi, DOI:10.1109/TIT.2018.2800044, covers the earlier \(\ell=2\) regime. The result is binary and specific to \(\ell=t=3\); it does not address off-diagonal or multi-center parameters.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Pham, Goyal and Kiah define exactly \(N(n,\ell,t)\), state that before their work exact values were known only for \(\ell\in\{1,2\}\), and prove the diagonal value \(\binom{2t}{t}\) once \(n\ge4t-2\). For \(t=3\) that gives the prior tail \(20\) from length ten onward but says nothing about the six shorter values. Their paper gives a conjectural general exact framework rather than the audited finite table. Current Resultary and web searches for \(N(n,3,3)\), the values eleven/fifteen and preasymptotic deletion-ball intersections did not reveal a published table filling lengths four through nine. The finite prefix therefore survives the closest full-text comparison.
+
+## value
+
+PASS
+
+This finite computation sits exactly below the first published stabilization threshold for the first previously unknown diagonal case \(\ell=t=3\). Completing all six missing lengths establishes that the sufficient threshold ten is sharp and gives a complete all-length profile. That is a meaningful finite cutoff problem, not an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
