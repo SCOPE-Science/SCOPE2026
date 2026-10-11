@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:59:52Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Ichihara, arXiv:2609.32507, complete 16-page primary paper, especially Section 6 and Remark 6.1.",
+        "Daemi–Lidman–Miller Eismeier, arXiv:2410.21248, Corollary 1.4, inspected in primary full text.",
+        "Fresh independent certificate replay: all integer roots of the sixty \\(P_R(-1)=\\pm1\\) quartics; exactly thirteen residue solutions, all reconstructing to \\(1\\).",
+        "artifacts/span12_solution_table.json blob 16af6e23c090e51507a798fdf8b54a5e4b2dbeb7."
+      ],
+      "rationale": "Ichihara's source reduces purely cosmetic surgery in the low-span regime to five derivative constraints at one and three root-of-unity constraints, and explicitly leaves span 12 because those equations alone admit nontrivial formal solutions. The frozen exact elimination solves the thirteen linear equations for each exponent residue \\(R\\bmod60\\); the coefficient-matrix determinant is the nonzero constant 6,998,400,000, so the solution is unique. The extra knot condition \\(|V(-1)|=1\\), justified by trivial Alexander polynomial for a cosmetic-surgery knot, turns each residue family into two integer quartic equations. A fresh BigInt replay of the complete 60-residue certificate used the integer rational-root theorem and independently found exactly thirteen integer solutions: \\((R,n)=(0,0)\\) and \\((48,-1),\\ldots,(59,-1)\\); reconstructing every Laurent polynomial gives the single monomial \\(1\\). Hence no nontrivial span-at-most-12 Jones polynomial survives.",
+      "risks": [
+        "The theorem is an obstruction via the Jones polynomial; it does not claim to settle cosmetic surgery for knots with larger Jones span."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ichihara proves span at most 11 and deliberately stops before the determinant-filtered span-12 computation.",
+          "Daemi–Lidman–Miller Eismeier supplies the necessary trivial-Alexander condition, not the Jones-polynomial enumeration."
+        ],
+        "reasoning": "The two prior ingredients do not by themselves certify that all sixty span-12 formal families collapse to the trivial polynomial; the exact elimination is the missing step.",
+        "searches": [
+          "Ichihara arXiv:2609.32507 full text",
+          "Daemi–Lidman–Miller Eismeier arXiv:2410.21248 Corollary 1.4",
+          "Ichihara–Wu 2019 Jones/cosmetic-surgery paper"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact query",
+        "arXiv:2609.32507",
+        "arXiv:2410.21248",
+        "Ichihara–Wu 2019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly shows its eight low-span conditions alone fail at span 12.",
+          "Adding \\(|V(-1)|=1\\) creates a new Diophantine elimination problem; the prior papers do not solve it."
+        ],
+        "reasoning": "The final obstruction therefore requires a genuine additional computation rather than a disclaimer on the source theorem.",
+        "searches": [
+          "Ichihara Theorem 1.1 and Section 6",
+          "Daemi–Lidman–Miller Eismeier Corollary 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary's direct hit is the audited finding; no earlier independent span-12 closure result was returned.",
+          "Ichihara's primary Section 6 exhibits a formal span-12 solution and says the determinant condition is needed for any extension."
+        ],
+        "reasoning": "Searches covered Jones span 12, purely cosmetic surgery, determinant, Alexander polynomial, and the value at minus one.",
+        "searches": [
+          "Resultary: span-12 closure Jones-polynomial cosmetic surgery determinant condition V(-1)=1 Ichihara",
+          "Web exact title plus span 12 determinant condition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external database/table with the sixty determinant-filtered families was located.",
+          "The submitted table is a complete symbolic certificate generated from the source equations; a fresh root replay independently verified its terminal integer solutions."
+        ],
+        "reasoning": "The table is not merely empirical: constant nonzero determinants and rational-root exhaustion certify all integer parameters in every residue family.",
+        "searches": [
+          "Resultary exact span-12 query",
+          "Certificate scan over all 60 residue families"
+        ]
+      },
+      "rationale": "Ichihara's paper proves the obstruction only through span 11, then devotes Section 6 to showing nontrivial formal span-12 solutions and explicitly says the determinant condition \\(|f(-1)|=1\\) is a further condition needed to extend the method and leaves that extension to future work. The submitted exhaustive symbolic elimination is exactly that first unresolved boundary. No later or independent source located already performs the sixty-family determinant closure.",
+      "residual_risks": [
+        "A very recent follow-up appearing after Ichihara's September 2026 preprint could duplicate the span-12 elimination, but targeted current searches found none."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICITLY_LEAVES_DETERMINANT-FILTERED_SPAN_12_AS_FUTURE_WORK",
+          "evidence": [
+            "Section 6 constructs nontrivial formal span-12 solutions; Remark 6.1 notes the displayed solution has value -63 at minus one and states that a condition such as absolute value one is needed to extend the method."
+          ],
+          "identifier_or_url": "arXiv:2609.32507",
+          "material_read": "Complete 16-page primary PDF, with focused reading of Section 6.1–6.4 and Remark 6.1.",
+          "method": "Authorized institutional PDF retrieval and page inspection.",
+          "title": "Purely cosmetic surgeries on knots with low-span Jones polynomials",
+          "trigger": "Exact primary source whose span-11 theorem and span-12 formal solutions define the boundary."
+        },
+        {
+          "assessment": "SUPPLIES_NECESSARY_KNOT_CONDITION_ONLY",
+          "evidence": [
+            "Corollary 1.4 gives trivial Alexander polynomial for any remaining nontrivial purely cosmetic surgery knot, hence determinant one."
+          ],
+          "identifier_or_url": "arXiv:2410.21248",
+          "material_read": "Primary full-text introduction and Corollary 1.4, which states that a nontrivial cosmetic-surgery knot must have trivial Alexander polynomial.",
+          "method": "Authorized institutional PDF retrieval.",
+          "title": "Filtered instanton homology and cosmetic surgery",
+          "trigger": "Primary source for the trivial-Alexander-polynomial condition invoked by Ichihara."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Closes the source's first unresolved span.",
+        "Complete symbolic coverage of all sixty residue classes, not a bounded parameter search."
+      ],
+      "rationale": "The result closes the first boundary explicitly left open by the current low-span Jones obstruction. It converts a source-identified necessary condition into a complete exact classification over all residue families and extends a knot-surgery obstruction by one full span level.",
+      "risks": [
+        "The incremental span extension is narrow, but it is precisely the natural next boundary identified by the primary source and is fully closed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "A nontrivial knot whose Jones polynomial has span at most 12 cannot admit purely cosmetic surgery. At the new boundary span 12, the low-span Jones constraints together with the necessary determinant condition \\(|V_K(-1)|=1\\) leave only the trivial Laurent polynomial \\(1\\) across all sixty exponent-residue families.",
+  "limitations": [
+    "Jones-polynomial span at most 12 only.",
+    "Purely cosmetic surgery in \\(S^3\\); no statement for larger span or chirally cosmetic surgery."
+  ],
+  "schema_version": 1
+}

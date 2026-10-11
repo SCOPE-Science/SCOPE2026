@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof package contains `artifacts/span12_solution_table.json` and the standard-library checker `artifacts/verify_span12.py`.
+# Independent mathematical audit
 
-For each residue \(R\in\{0,\ldots,59\}\), the table stores thirteen coefficient polynomials in \(n\). The verifier checks all defining equations exactly. Each residual has degree at most \(8\), so nine exact substitutions establish each polynomial identity.
+## correctness
 
-The determinant of the \(13\times13\) system has degree at most \(10\). Exact Bareiss determinants at eleven distinct integers all equal
-\[
-6\,998\,400\,000,
-\]
-so the determinant polynomial is that nonzero constant.
+PASS
 
-For every residue the verifier reconstructs the quartic \(P(-1)\), applies the rational-root theorem to \(P(-1)-1\) and \(P(-1)+1\), and checks all integer divisor candidates. Exactly thirteen parameter choices survive, and all thirteen evaluate to \(f(t)=1\). The source's displayed span-\(12\) formal solution is separately reproduced at \(R=1,n=0\).
+Ichihara's source reduces purely cosmetic surgery in the low-span regime to five derivative constraints at one and three root-of-unity constraints, and explicitly leaves span 12 because those equations alone admit nontrivial formal solutions. The frozen exact elimination solves the thirteen linear equations for each exponent residue \(R\bmod60\); the coefficient-matrix determinant is the nonzero constant 6,998,400,000, so the solution is unique. The extra knot condition \(|V(-1)|=1\), justified by trivial Alexander polynomial for a cosmetic-surgery knot, turns each residue family into two integer quartic equations. A fresh BigInt replay of the complete 60-residue certificate used the integer rational-root theorem and independently found exactly thirteen integer solutions: \((R,n)=(0,0)\) and \((48,-1),\ldots,(59,-1)\); reconstructing every Laurent polynomial gives the single monomial \(1\). Hence no nontrivial span-at-most-12 Jones polynomial survives.
 
-Replay output:
+## originality
 
-`VERIFY_OK residues=60 determinant=6998400000 determinant_compatible=13 all_trivial=true`
+PASS
 
-The finite substitution counts certify bounded-degree polynomial identities; they are not a heuristic search over the free integer parameter.
+Ichihara's paper proves the obstruction only through span 11, then devotes Section 6 to showing nontrivial formal span-12 solutions and explicitly says the determinant condition \(|f(-1)|=1\) is a further condition needed to extend the method and leaves that extension to future work. The submitted exhaustive symbolic elimination is exactly that first unresolved boundary. No later or independent source located already performs the sixty-family determinant closure.
 
-The independent-audit channel has not been performed.
+## value
+
+PASS
+
+The result closes the first boundary explicitly left open by the current low-span Jones obstruction. It converts a source-identified necessary condition into a complete exact classification over all residue families and extends a knot-surgery obstruction by one full span level.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
