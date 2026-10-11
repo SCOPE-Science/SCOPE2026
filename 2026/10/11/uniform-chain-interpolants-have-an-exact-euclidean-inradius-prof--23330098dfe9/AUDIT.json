@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For a chain, the source transfer map is the invertible bidiagonal map \\(y_i=x_i-tx_{i-1}\\). The standard order-simplex facet slacks telescope to one. After inverting the transfer, their Euclidean gradient norms are exactly the displayed \\(N_j(t)\\). Distance to facet \\(j\\) is therefore \\(s_j/N_j(t)\\); equalizing all facet distances and summing the slacks gives the exact unique inradius and incenter. Direct differentiation gives the two endpoint signs, so the inradius is strictly improved by moving into the interval from either endpoint. For \\(m=2\\), the denominator is a strictly convex symmetric function, proving the unique midpoint optimum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The continuous-family source supplies the transfer map but does not optimize Euclidean facet clearance.",
+        "The discrete marked chain-order predecessor only samples zero-one parameter choices and therefore does not imply the interior diagonal profile.",
+        "Generic simplex incenter geometry does not determine the relevant facet-normal norms until the source transfer map is specialized and inverted."
+      ],
+      "reasoning": "The theorem is not merely the inradius of a standard simplex: the transfer is nonorthogonal and changes each facet-normal length differently. The exact metric profile requires the source-specific bidiagonal inverse and its geometric-series normal norms.",
+      "searches": [
+        "arXiv:1712.01037v1, Definition 1.2 and Theorem 2.1",
+        "arXiv:1712.01037v1, order and chain endpoint specialization",
+        "arXiv:1508.02232v2, marked chain-order predecessor",
+        "literature query: marked chain-order polytope Euclidean inradius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1712.01037v1",
+      "doi:10.1137/18M1228529",
+      "arXiv:1508.02232v2",
+      "doi:10.1016/j.ejc.2016.06.007",
+      "candidate-specific published-result searches for marked-poset interpolation inradii",
+      "candidate-specific literature searches for order-chain transfer metric formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source proves a piecewise-linear bijection and combinatorial degeneration statements, not an isometry or radius formula.",
+        "Endpoint order- and chain-simplex inradii do not determine the inradius under a nonorthogonal interior transfer.",
+        "The strict endpoint derivative signs show a genuinely interior phenomenon not inferable from either endpoint value alone."
+      ],
+      "reasoning": "The accepted claim compares statements by implication: transfer equivalence preserves neither Euclidean distances nor inradii, and endpoint formulas cannot imply an interior maximum. The new statement requires explicit transformed facet normals and a fresh Euclidean optimization.",
+      "searches": [
+        "primary source transfer theorem versus Euclidean inradius",
+        "primary source endpoint specializations versus interior parameter profile",
+        "earlier marked chain-order family versus diagonal continuous parameter",
+        "published-result database query: uniform diagonal interpolation order polytope chain polytope transfer map simplex Euclidean inradius t"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located result gives the displayed reciprocal sum of transfer-normal lengths.",
+        "No located result states that the diagonal interpolation has an interior inradius strictly exceeding both order and chain endpoints in every dimension.",
+        "The primary full text has no occurrence of “inradius” or “radius” in the Euclidean sense."
+      ],
+      "reasoning": "Equivalent formulations include the Chebyshev center of the transferred chain simplex, the largest inscribed Euclidean ball along the order-to-chain transfer path, and the metric profile of the uniform transfer matrix. The searches covered these formulations under both marked-poset and simplex-interpolation terminology.",
+      "searches": [
+        "published-result database query: continuous family marked poset polytopes chain uniform parameter Euclidean inradius",
+        "published-result database query: marked poset polytope inradius continuous parameter transfer map chain",
+        "published-result database query: order chain polytope interpolation exact Euclidean inradius",
+        "published-result database query: marked chain-order polytope Euclidean inradius",
+        "published-result database query: uniform diagonal interpolation order polytope chain polytope transfer map simplex Euclidean inradius t",
+        "literature query: continuous family of marked poset polytopes inradius Euclidean chain",
+        "literature query: marked poset polytope inradius continuous parameter",
+        "literature query: order chain interpolation polytope inradius t parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact inradius table for interior parameters of the continuous marked-poset family was located.",
+        "The closest returned parameterized-simplex records concern unrelated reflexive or Euclidean families."
+      ],
+      "reasoning": "Even low-dimensional data would reveal that the inradius improves in the interior and would expose the \\(m=2\\) midpoint optimum. No same-object metric table was found.",
+      "searches": [
+        "published-result database query: chain marked poset polytope parameter t inradius",
+        "published-result database query: order chain polytope interpolation Euclidean radius",
+        "literature query: continuous marked poset chain inradius table",
+        "literature query: transfer simplex order chain radius"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the family definition, order/chain endpoint specialization, and transfer-map theorem. It studies combinatorial type, Ehrhart equivalence, tropical subdivisions, and vertices, and direct full-text searches found no inradius or radius theorem. The earlier marked chain-order work was checked as the closest predecessor; its accessible material concerns discrete order/chain choices rather than the continuous interior metric. Candidate-specific published-result and literature searches covered continuous marked-poset families, chain interpolation, transfer maps, inradius, and Chebyshev-center formulations. No statement implying the exact all-parameter profile or the strict interior improvement was located.",
+    "residual_risks": [
+      "A general Euclidean theorem for bidiagonally transformed simplices could specialize to the same formula without using marked-poset terminology.",
+      "The chain specialization makes the source's piecewise-linear transfer globally linear, so independent rediscovery is plausible.",
+      "Only abstract-level material was inspected for the earlier marked chain-order predecessor, so it is not used for a whole-document noncoverage claim.",
+      "Search nonappearance is not treated as a formal global novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives every structural premise used by the proof but does not state an Euclidean inradius profile, incenter formula, or endpoint-improvement theorem.",
+        "evidence": "The first public version is dated 2017-12-04. The journal metadata list primary MSC 52B20. Definition 1.2 defines the parameterized family, the endpoint discussion identifies the order and chain polytopes, and Theorem 2.1 gives the transfer map.",
+        "identifier_or_url": "arXiv:1712.01037v1; DOI 10.1137/18M1228529",
+        "material_read": "Open-access full text: introduction; Definition 1.2 of the marked poset polyhedra; the order/chain endpoint specialization; Theorem 2.1 giving the parametrized transfer map and inverse; targeted full-text searches for inradius, radius, and Euclidean metric results.",
+        "method": "Open-access arXiv HTML full-text inspection.",
+        "title": "A Continuous Family of Marked Poset Polytopes",
+        "trigger": "Primary geometry-classified source defining the exact hypercube-parametrized family used in the theorem."
+      },
+      {
+        "assessment": "The predecessor treats discrete order/chain choices and combinatorial properties. The available inspection was not used to make a whole-document noncoverage claim.",
+        "evidence": "The work predates the continuous hypercube interpolation and is retained as a broader historical comparison rather than decisive novelty evidence.",
+        "identifier_or_url": "arXiv:1508.02232v2; DOI 10.1016/j.ejc.2016.06.007",
+        "material_read": "Abstract, bibliographic metadata, and the continuous-family paper's discussion of the predecessor.",
+        "method": "Abstract/metadata comparison.",
+        "title": "Marked Chain-Order Polytopes",
+        "trigger": "Closest predecessor introducing mixed marked order/chain polytopes before the continuous parameter family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "23330098-dfe9-4ecd-9d47-3ad1fda13275",
+  "value": {
+    "rationale": "The diagonal parameter is the canonical simultaneous path from the order polytope to the chain polytope inside the source's continuous hypercube family, rather than an arbitrary slice. The theorem gives its full Euclidean inball profile in every dimension and identifies a structural effect not visible from combinatorial or Ehrhart equivalence: every nontrivial chain becomes more inball-efficient at an interior parameter than at either classical endpoint. The explicit moving incenter and the closed midpoint optimum in dimension two provide exact quantitative geometry for a natural interpolation used to connect order- and chain-type degenerations.",
+    "status": "PASS"
+  }
+}
