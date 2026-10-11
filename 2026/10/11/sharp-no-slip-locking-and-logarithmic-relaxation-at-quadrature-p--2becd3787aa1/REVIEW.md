@@ -1,0 +1,19 @@
+# Scientific review: sharp quadrature two-cluster no-slip dynamics
+
+## Correctness — PASS
+
+The theorem restricts the globally coupled discrete phase map to a dynamically invariant two-cluster family with unequal sizes and identical intrinsic frequencies. Direct subtraction yields the exact real lift \(F_B(\delta)=\delta+B(1-\cos\delta)\). The global no-overshoot condition reduces to a one-variable minimization. The unique interior solution of \(\tan(t/2)=t\) supplies the sharp boundary, including the endpoint orbit mapping directly into the synchronized state. Every non-hitting orbit in the window is increasing and bounded in the lift; its only allowable limit is synchrony. For the reciprocal phase gap the difference equation has increment \(B/2+B^2/(4y)+O(y^{-2})\). A summable correction establishes \(y_n=(B/2)n+(B/2)\log n+C+o(1)\). The continuous-time comparison is integrated directly. The package's `verify.py` replayed successfully with 4,148 finite diagnostics; these supplement, but do not replace, the proof. Endpoint finite-hitting orbits are explicitly excluded from the reciprocal asymptotic.
+
+## Originality — PASS, residual risk recorded
+
+Gade–Gupta (arXiv:2609.22715v1, 2026) present the model and a continuum Lorentzian incoherence threshold; their manuscript does not give the exact unequal two-cluster, critical phase-lag no-slip frontier or discrete-time reciprocal logarithmic correction. Gong–Zheng–Toenjes–Pikovsky (arXiv:1812.05883v2, Section III.2) explicitly establish a two-cluster **continuous-time** phase-difference drift, with noise and transverse stability; therefore the cluster restriction and pure-lag drift alone are not asserted as new. The standard sine-circle-map family and parabolic iteration theory cover general dynamical mechanisms and some leading-order behavior. The assessed contribution is the combined sharp orbit-independent finite-step winding threshold with its non-finite-hitting global relaxation law in the specified phase-lag network. A published study of critical sine-ring relaxation addresses a different flow; it does not imply the discrete two-cluster threshold. The risk of a prior equivalent specialized sine-circle calculation cannot be eliminated by search and remains explicit.
+
+## Mathematical value — PASS
+
+The model's continuum instability calculation does not control the finite-network phenomenon of phase-difference winding near the neutral quadrature lag. The sharp constant \(B_*\) separates parameter ranges with guaranteed no winding for **every** two-cluster initial phase from ranges admitting immediate windings, and is attained by an explicitly identified interior phase. This is a natural threshold rather than a handpicked numerical sample. The universal logarithmic term quantifies a discretization-induced departure from the corresponding integrable continuous cluster flow. Its coefficient is fixed by the same physical coupling/imbalance parameter that governs the winding boundary. Both results have a precise dynamical interpretation and may be useful in distinguishing genuine discrete-time behavior from Euler-discretization effects. Value does not rely on novelty or computation alone.
+
+## Closest literature and scientific limits
+
+The closest directly relevant work is Gade–Gupta's discrete-time Kuramoto–Sakaguchi model; the strongest continuous-cluster predecessor is Gong et al.'s exact noisy continuous-time reduction. General circle-map texts and parabolic normal forms should not be confused with an independent priority certificate. This result is **not** a theorem about arbitrary initial phases, transverse multicluster stability, or convergence for \(B>B_*\). At \(B=B_*\), finite-hitting initial conditions do not satisfy the stated reciprocal asymptotic. Independent audit and independent validation have not occurred.
+
+Same-model review: passed. Independent audit: not yet performed.
