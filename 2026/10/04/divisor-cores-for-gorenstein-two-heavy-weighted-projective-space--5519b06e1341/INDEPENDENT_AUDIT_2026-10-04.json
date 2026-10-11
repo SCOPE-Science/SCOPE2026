@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:54:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify_gorenstein_two_heavy.py at the frozen source tree",
+        "Kasprzyk--Nill Proposition 6.3",
+        "independent exact arithmetic reconstruction"
+      ],
+      "rationale": "From \\(h=r+a+b\\) and Gorenstein divisibility, \\(x=h/a\\) and \\(y=h/b\\) satisfy \\(1=r/h+1/x+1/y\\). Writing \\(x=gu\\), \\(y=gv\\) with \\(\\gcd(u,v)=1\\) gives \\(k=guv-u-v\\), \\(a=rv/k\\), \\(b=ru/k\\), and the coprimalities \\(\\gcd(k,u)=\\gcd(k,v)=1\\) force \\(k\\mid r\\). Setting \\(A=gu-1\\), \\(B=gv-1\\) gives exactly \\(AB=gk+1\\), the congruence/gcd conditions, and \\((g-1)^2\\le gk+1\\) gives \\(g\\le k+2\\). The converse reconstructs integral weights and the required divisibility. Applying the two-heavy Reid--Tai inequalities to \\(x,y\\) proves automatic canonicity and terminality iff \\(y>2\\) and \\(x>3\\), equivalent to \\(B>1\\), \\(A>2\\). The nonterminal cases \\(y=2\\) and \\(x=3\\) give exactly the divisor family plus \\((r,r)\\). An independent exact finite reconstruction through \\(r=30\\) matched the core parametrization, direct divisibility, age tests, and boundary set; this finite replay only corroborates the symbolic proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source supplies the general Gorenstein/unit-partition criterion.",
+          "The second and the published SCOPE result supply general singularity criteria; the SCOPE theorem gives canonicity iff \\(b-a\\le r\\) and \\(a\\le r+b-a\\), terminality with strict inequalities."
+        ],
+        "reasoning": "These sources provide the framework and one downstream singularity specialization, but none inspected gives the finite divisor-core enumeration of all Gorenstein members.",
+        "searches": [
+          "A. M. Kasprzyk and B. Nill, Fano Polytopes, Proposition 6.3",
+          "A. M. Kasprzyk, Classifying terminal weighted projective space, arXiv:1304.3029",
+          "Published SCOPE: A triangular classification of canonical and terminal two-heavy weighted projective spaces, SCOPE-20261004-7f218dfae0e7"
+        ]
+      },
+      "checked_sources": [
+        "Kasprzyk--Nill, Fano Polytopes, Proposition 6.3",
+        "arXiv:1304.3029",
+        "Published SCOPE SCOPE-20261004-7f218dfae0e7",
+        "Resultary semantic query for Gorenstein two-heavy divisor cores"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General unit-partition equivalence reduces the problem to a Diophantine equation but does not list its two-heavy solutions.",
+          "The triangular singularity classification implies the final canonical/terminal inequalities once the Gorenstein weights are known, but not their divisor-core parametrization or count."
+        ],
+        "reasoning": "The audited classification requires solving the constrained unit-partition equation; it is not a parameter substitution into a prior closed classification.",
+        "searches": [
+          "Kasprzyk--Nill Proposition 6.3 versus the audited coprime reduction",
+          "Published SCOPE triangular classification versus the Gorenstein subfamily"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 6.3 states \\(\\mathbb P(\\lambda_0,\\ldots,\\lambda_n)\\) is Gorenstein exactly when every weight divides the total weight and identifies this with unit partitions.",
+          "The direct Resultary hit is the audited divisor-core result; nearby records concern the ambient canonical triangle or downstream invariants."
+        ],
+        "reasoning": "The unit-partition equation is the correct equivalent formulation. Solving it under exactly two non-unit weights still requires the coprime reduction and factorization \\(AB=gk+1\\); that finite parametrization is not stated in the inspected source.",
+        "searches": [
+          "Kasprzyk--Nill, Fano Polytopes, Proposition 6.3: Gorenstein weighted projective spaces and unit partitions",
+          "Resultary query: Gorenstein weighted projective space P(1^r,a,b) divisor parametrization canonical terminal nonterminal boundary tau(2r)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact database/table with the quadruples \\((k,g,A,B)\\), the condition \\(AB=gk+1\\), or the count \\(\\tau(2r)+1\\) was located."
+        ],
+        "reasoning": "The exact comparison is theorem-level rather than a fixed-dimensional database lookup.",
+        "searches": [
+          "Resultary published-finding corpus for two-heavy Gorenstein weighted projective spaces",
+          "Kasprzyk--Nill unit-partition criterion"
+        ]
+      },
+      "rationale": "The general literature gives the Gorenstein divisibility/unit-partition correspondence and general Reid--Tai criteria, but the inspected primary sources do not state a complete all-dimensional solution for the two-heavy subfamily. The published SCOPE triangular theorem supplies the canonical/terminal inequalities for arbitrary two-heavy weights, but not the Gorenstein divisor-core bijection or the exact \\(\\tau(2r)+1\\) boundary count. Resultary returned the audited record as the direct exact match and no earlier dominating classification.",
+      "residual_risks": [
+        "An equivalent elementary solution of the constrained unit-partition equation may exist in older Egyptian-fraction or reflexive-simplex literature under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_UNIT_PARTITION_FRAMEWORK_NOT_TWO_HEAVY_DIVISOR_CORE_CLASSIFICATION",
+          "evidence": "The source states \\(\\lambda_i\\mid h\\) for every weight and \\(k_i=h/\\lambda_i\\) gives a unit partition; it does not state the audited factorization parametrization.",
+          "identifier_or_url": "Alexander M. Kasprzyk and Benjamin Nill, survey PDF, Proposition 6.3",
+          "material_read": "Full surrounding Section 6 material including Definition 6.1, Theorem 6.2, Proposition 6.3, and the stated unit-partition correspondence.",
+          "method": "Primary theorem/implication comparison.",
+          "title": "Fano Polytopes",
+          "trigger": "Highly relevant general theorem identifying Gorenstein weighted projective spaces with unit partitions."
+        },
+        {
+          "assessment": "GENERAL_SINGULARITY_CRITERIA_NOT_GORENSTEIN_TWO_HEAVY_ENUMERATION",
+          "evidence": "The paper develops general canonical/terminal criteria and fixed-dimensional classifications rather than this all-dimensional two-heavy Gorenstein parametrization.",
+          "identifier_or_url": "arXiv:1304.3029",
+          "material_read": "Primary abstract/scope and the general fractional-part criterion context used by the package.",
+          "method": "Scope and implication comparison.",
+          "title": "Classifying terminal weighted projective space",
+          "trigger": "Closest general singularity-classification source."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kasprzyk--Nill Proposition 6.3",
+        "arXiv:1304.3029",
+        "Published SCOPE SCOPE-20261004-7f218dfae0e7"
+      ],
+      "rationale": "The two-heavy family is a natural infinite slice of weighted projective spaces. The divisor-core factorization turns the general unit-partition condition into a finite enumeration in every dimension and simultaneously identifies the complete Gorenstein canonical/non-terminal boundary with an exact divisor-function count. That is a structural classification rather than a routine fixed-instance computation.",
+      "residual_risks": [
+        "An equivalent elementary solution of the constrained unit-partition equation may exist in older Egyptian-fraction or reflexive-simplex literature under different notation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kasprzyk--Nill, Fano Polytopes, Proposition 6.3",
+    "arXiv:1304.3029",
+    "Published SCOPE SCOPE-20261004-7f218dfae0e7",
+    "Resultary semantic query for Gorenstein two-heavy divisor cores"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every \\(r\\ge2\\), the Gorenstein members of \\(\\mathbb P(1^r,a,b)\\) are in bijection with finite divisor-core data \\((k,g,A,B)\\) satisfying \\(k\\mid r\\), \\(1\\le g\\le k+2\\), \\(AB=gk+1\\), \\(A\\ge B\\ge1\\), \\(A\\equiv B\\equiv-1\\pmod g\\), and \\(\\gcd(A+1,B+1)=g\\), with the stated weight formulas. Every such member is canonical, terminal exactly when \\(B>1\\) and \\(A>2\\), and the canonical non-terminal Gorenstein boundary has exactly \\(\\tau(2r)+1\\) members.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An equivalent elementary solution of the constrained unit-partition equation may exist in older Egyptian-fraction or reflexive-simplex literature under different notation."
+  ]
+}

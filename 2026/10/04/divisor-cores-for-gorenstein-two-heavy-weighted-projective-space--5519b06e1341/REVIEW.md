@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Gorenstein condition reduces to \(a\mid h\) and \(b\mid h\). Introducing the denominator pair \((x,y)=(h/a,h/b)\), extracting \(g=\gcd(x,y)\), and setting \(k=guv-u-v\) gives the weight formulas and forces \(k\mid r\). The transformation \(A=gu-1\), \(B=gv-1\) is reversible and yields \(AB=gk+1\), while \((g-1)^2\le gk+1\) supplies the finite bound \(g\le k+2\). The singularity statement is independently reconstructed from the two heavy cyclic quotient charts. Substitution of \(x,y\) proves automatic canonicity and the exact terminal criterion. The boundary classification and \(\tau(2r)+1\) count follow by solving the equality cases \(y=2\) and \(x=3\). The finite checker agrees through \(r=100\), but the proof does not rely on that enumeration.
+## correctness
 
-## Originality
-PASS. Nill's work supplies the unit-partition/reflexive-simplex framework and global bounds; Kasprzyk supplies general fractional-part criteria and computational classifications of terminal Gorenstein weighted projective spaces through dimension ten. Targeted searches for the exact family, the factorization \(AB=gk+1\), repeated unit weights, and a divisor-function boundary did not locate this all-dimensional specialization. The closest indexed findings concern Ehrhart properties of reflexive weighted-projective simplices rather than the claimed parametrization. A residual risk remains that the elementary divisor-core transformation occurs in older Egyptian-fraction literature under different notation.
+PASS
 
-## Value
-PASS. The result turns a natural infinite Gorenstein subfamily from a divisibility/unit-partition search into a finite divisor-factor computation for every \(r\), gives a direct all-dimensional enumeration procedure, and exposes the singularity boundary exactly. The fact that every Gorenstein member is canonical and that the non-terminal locus has the closed count \(\tau(2r)+1\) provides a structural benchmark for broader weighted-projective classification methods rather than a single finite-table recomputation.
+From \(h=r+a+b\) and Gorenstein divisibility, \(x=h/a\) and \(y=h/b\) satisfy \(1=r/h+1/x+1/y\). Writing \(x=gu\), \(y=gv\) with \(\gcd(u,v)=1\) gives \(k=guv-u-v\), \(a=rv/k\), \(b=ru/k\), and the coprimalities \(\gcd(k,u)=\gcd(k,v)=1\) force \(k\mid r\). Setting \(A=gu-1\), \(B=gv-1\) gives exactly \(AB=gk+1\), the congruence/gcd conditions, and \((g-1)^2\le gk+1\) gives \(g\le k+2\). The converse reconstructs integral weights and the required divisibility. Applying the two-heavy Reid--Tai inequalities to \(x,y\) proves automatic canonicity and terminality iff \(y>2\) and \(x>3\), equivalent to \(B>1\), \(A>2\). The nonterminal cases \(y=2\) and \(x=3\) give exactly the divisor family plus \((r,r)\). An independent exact finite reconstruction through \(r=30\) matched the core parametrization, direct divisibility, age tests, and boundary set; this finite replay only corroborates the symbolic proof.
 
-Closest literature and limitations are recorded in `RESULT.md` and `AUDIT.json`. The theorem is restricted to ordinary Gorenstein spaces \(\mathbb P(1^r,a,b)\), and the originality conclusion remains conditional on the literature actually surfaced and inspected.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The general literature gives the Gorenstein divisibility/unit-partition correspondence and general Reid--Tai criteria, but the inspected primary sources do not state a complete all-dimensional solution for the two-heavy subfamily. The published SCOPE triangular theorem supplies the canonical/terminal inequalities for arbitrary two-heavy weights, but not the Gorenstein divisor-core bijection or the exact \(\tau(2r)+1\) boundary count. Resultary returned the audited record as the direct exact match and no earlier dominating classification.
+
+## value
+
+PASS
+
+The two-heavy family is a natural infinite slice of weighted projective spaces. The divisor-core factorization turns the general unit-partition condition into a finite enumeration in every dimension and simultaneously identifies the complete Gorenstein canonical/non-terminal boundary with an exact divisor-function count. That is a structural classification rather than a routine fixed-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
