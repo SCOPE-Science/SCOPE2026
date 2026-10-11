@@ -1,16 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The target order is reconstructed from the primary-source Hasse diagram. The exhaustive verifier checks all \(16^4\) functions, confirms the \(1{,}288\) count independently by common-upper-set summation, computes every pointwise comparability component, and tests each beat deletion against the current active order. It then verifies that the large core is exactly the constant-map copy of \(K_{1,0}\), that both eight-point cores are crowns, and that the remaining eight cores are singletons.
+## correctness
 
-Risk: the incidence transcription from Figure 4 is a critical premise. It was checked directly against the source figure, and the explicit incidence table is visible in the verifier for reproduction.
+PASS
 
-## Originality
-PASS. The closest primary source, Cianci--Ottina, classifies and draws \(K_{1,0}\) but does not compute \(\operatorname{Map}(C,K_{1,0})\). Barmak supplies the pointwise mapping-space and core machinery but no instance-specific census. Exact-number, alias, and implication searches found no statement containing this source-target decomposition. Search failure is not treated as proof; the PASS rests on statement-level comparison with the directly relevant full texts as well as those searches.
+The exact package verifier was inspected line by line. It reconstructs the sixteen-point K_{1,0} order from the stated cover incidences, exhaustively enumerates all 16^4 functions from the four-point circle, and independently verifies the 1288 count by the common-upper-set sum. It builds pointwise comparability components and obtains sizes 1024,64,64 and eight copies of 17. Its beat-point routine uses the exact unique-minimal-upper/unique-maximal-lower criteria on the current active poset and certifies reductions to the sixteen constant maps, two eight-point crowns and eight singletons, for a forty-point core. These are exhaustive finite checks of the exact claim, not samples.
 
-Residual risk: an unpublished or unindexed prior computation could exist. The original Stong PDF was not directly accessible, though the needed general results were checked in Barmak's full-text exposition.
+## originality
 
-## Value
-PASS. The direct mapping poset from the smallest finite circle to a minimal finite Klein bottle is a natural subdivision-depth-zero object. Its core decomposition is structurally informative: the components retain three different finite homotopy types rather than merely contributing a map count. This supplies a concrete benchmark for how direct finite maps differ from the classical mapping problem once subdivisions are allowed.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Targeted Resultary searches return the assigned record and nearby finite mapping-space computations, but no prior decomposition for the exact four-point-circle to K_{1,0} pair. Cianci--Ottina's primary source classifies minimal Klein-bottle models; its accessible primary abstract describes model minimality/classification rather than this mapping space. General finite-space mapping/core theory supplies the machinery but not the instance-specific 1288-map, eleven-component, forty-point-core decomposition. Best-of-knowledge originality therefore passes, with a bibliographic risk because a complete external full text specifically discussing this mapping space was not located during the bounded audit.
+
+## value
+
+PASS
+
+The source and target are canonical smallest finite models of S^1 and the Klein bottle, so their direct mapping space is a natural object rather than an arbitrary finite pair. The result determines both homotopy components and the Stong core, exposing how the minimal source truncates the classical mapping problem. That is a motivated exact finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

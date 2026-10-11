@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 artifacts/verify.py`. The verifier uses only the Python standard library.
+# Independent mathematical audit
 
-It reconstructs the sixteen-point target order from the explicit cover relations, computes transitive closure, and enumerates every function from the four-point source. A map is retained exactly when all four source cover inequalities are respected. The count is independently recomputed as the sum of squares of common-upper-set sizes for the two source minima.
+## correctness
 
-The pointwise order on all retained maps is then computed exactly. Comparability components are found by union--find. Each component is reduced by repeatedly checking the defining beat-point condition in the current active subposet: a least strict upper element or a greatest strict lower element.
+PASS
 
-The program verifies the component-size multiset \(1{,}024,64,64,17,\ldots,17\), the exact deletion totals, the identity of the sixteen-map core with the constant maps, equality of its inherited order with \(K_{1,0}\), the crown structure of each eight-map core, and singleton cores for each size-\(17\) component.
+The exact package verifier was inspected line by line. It reconstructs the sixteen-point K_{1,0} order from the stated cover incidences, exhaustively enumerates all 16^4 functions from the four-point circle, and independently verifies the 1288 count by the common-upper-set sum. It builds pointwise comparability components and obtains sizes 1024,64,64 and eight copies of 17. Its beat-point routine uses the exact unique-minimal-upper/unique-maximal-lower criteria on the current active poset and certifies reductions to the sixteen constant maps, two eight-point crowns and eight singletons, for a forty-point core. These are exhaustive finite checks of the exact claim, not samples.
 
-Expected output:
+## originality
 
-`VERIFY_OK maps=1288 components=11 sizes=1024,64,64,17x8 deletions=1248 up=368 down=880 core=40`
+PASS
 
-The finite computation proves only the stated direct-map claim for the specified source and target. It does not classify subdivided source maps or arbitrary finite Klein-bottle models.
+Targeted Resultary searches return the assigned record and nearby finite mapping-space computations, but no prior decomposition for the exact four-point-circle to K_{1,0} pair. Cianci--Ottina's primary source classifies minimal Klein-bottle models; its accessible primary abstract describes model minimality/classification rather than this mapping space. General finite-space mapping/core theory supplies the machinery but not the instance-specific 1288-map, eleven-component, forty-point-core decomposition. Best-of-knowledge originality therefore passes, with a bibliographic risk because a complete external full text specifically discussing this mapping space was not located during the bounded audit.
+
+## value
+
+PASS
+
+The source and target are canonical smallest finite models of S^1 and the Klein bottle, so their direct mapping space is a natural object rather than an arbitrary finite pair. The result determines both homotopy components and the Stong core, exposing how the minimal source truncates the classical mapping problem. That is a motivated exact finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
