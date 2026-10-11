@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim checked is:
+# Independent mathematical audit
 
-For 3-union-free 3-uniform hypergraphs on 10 vertices, \(U_3(10,3)=8\), and every 8-edge extremal family is, up to relabeling, the pair-star consisting of all triples containing one fixed pair.
+## correctness
 
-`verify.py` performs two finite exhaustive tasks on the 120 triples of a ten-vertex set. First, after fixing one edge and reducing the second edge to the three possible intersection-size orbits, it proves that no 9-edge 3-union-free family exists. Second, using the same complete orbit reduction, it proves that no 8-edge 3-union-free family exists without a common pair. It also directly checks that the 8-edge pair-star is 3-union-free.
+PASS
 
-The branch invariant contains every union of one, two, or three currently selected edges. A candidate is pruned only when it creates a repeated union immediately; that obstruction cannot disappear after adding more edges. The recursive suffix traversal therefore remains exhaustive. No timeout, probabilistic sampling, or partial enumeration is used.
+The pair-star gives eight edges and is directly 3-union-free. For the upper bound and equality classification, vertex symmetry fixes the first triple and reduces the second triple to the three possible intersection-size orbits. I independently implemented the hereditary union-collision search using a different candidate ordering from the packaged verifier. All three 9-edge searches were empty, with independent node counts 21112, 115449 and 110676; all three 8-edge non-pair-star searches were also empty, with counts 27951, 148500 and 138479. Because every rejected extension already creates equal unions among subfamilies of size at most three and that collision persists under further extensions, the DFS is exhaustive rather than a timeout or partial enumeration. This independently reproduces \(U_3(10,3)=8\) and uniqueness of the pair-star up to relabeling.
 
-Replay command: `python3 verify.py`. The captured output is stored in `verification_output.txt`. The finite computation establishes only the ten-vertex statement and does not certify any assertion for larger \(n\).
+## originality
+
+PASS
+
+The strongest current asymptotic primary source defines the same \(U_t(n,r)\) and explicitly lists the family \(U_3(n,2s-1)\), hence \(U_3(n,3)\), among the exceptional regimes not settled by its main theorem. The closest published SCOPE result was read in full and proves the same pair-star formula and uniqueness only for \(4\le n\le9\), explicitly making no assertion for \(n\ge10\). Thus order ten is the first next finite case, and no inspected source implies its exact optimum or equality classification.
+
+## value
+
+PASS
+
+Order ten is the first case immediately beyond the existing exact through-nine census, in a parameter regime that the current general asymptotic theorem explicitly leaves exceptional. The result determines both the maximum and the full equality type at that natural next boundary, so it is a motivated finite cutoff/classification rather than an arbitrary isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

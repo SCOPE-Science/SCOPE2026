@@ -1,18 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Claim
-For 3-union-free 3-uniform hypergraphs on 10 vertices, \(U_3(10,3)=8\), and every 8-edge extremal family is, up to relabeling, the pair-star consisting of all triples containing one fixed pair.
+## correctness
 
-## Correctness
-PASS. The lower construction is the 8-edge pair-star. The upper bound is a symmetry-complete exhaustive search: after fixing the first edge, the stabilizer has exactly three second-edge orbits, and the search retains all unions of up to three selected edges. A rejected edge already creates a repeated union, a hereditary obstruction. All three target-9 searches are empty. A second exhaustive pass finds no target-8 family without a common pair; any target-8 family with a common pair is necessarily the full pair-star. The packaged verifier was replayed and returned `ALL CHECKS PASSED`.
+PASS
 
-## Originality
-PASS. The closest indexed exact small-order result found covers \(4\le n\le9\), while the 2026 full-text source treats \(U_3(n,3)\) as part of an exceptional asymptotic family and the foundational paper gives asymptotic/structural results rather than the exact order-ten classification. Searches also used the historical uniquely-decipherable-code and cover-free terminology. Residual risk remains for unindexed older coding-theory tables and for a closely related published artifact whose full text was not available through the retrieval path used here.
+The pair-star gives eight edges and is directly 3-union-free. For the upper bound and equality classification, vertex symmetry fixes the first triple and reduces the second triple to the three possible intersection-size orbits. I independently implemented the hereditary union-collision search using a different candidate ordering from the packaged verifier. All three 9-edge searches were empty, with independent node counts 21112, 115449 and 110676; all three 8-edge non-pair-star searches were also empty, with counts 27951, 148500 and 138479. Because every rejected extension already creates equal unions among subfamilies of size at most three and that collision persists under further extensions, the DFS is exhaustive rather than a timeout or partial enumeration. This independently reproduces \(U_3(10,3)=8\) and uniqueness of the pair-star up to relabeling.
 
-## Value
-PASS. Order ten is the immediate next finite case after the located through-nine classification, and the ambient \(U_3(n,3)\) family remains mathematically active and exceptional in recent asymptotic work. The result gives both the exact extremal number and the unique extremal type up to relabeling.
+## originality
 
-## Closest literature and limitations
-The principal modern comparison is arXiv:2605.11949, first public 2026-05-12; the foundational comparison is arXiv:1103.1691. The finite claim is restricted to ten vertices and does not settle larger orders or asymptotics. Search evidence supports originality but is not treated as a proof of bibliographic uniqueness.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The strongest current asymptotic primary source defines the same \(U_t(n,r)\) and explicitly lists the family \(U_3(n,2s-1)\), hence \(U_3(n,3)\), among the exceptional regimes not settled by its main theorem. The closest published SCOPE result was read in full and proves the same pair-star formula and uniqueness only for \(4\le n\le9\), explicitly making no assertion for \(n\ge10\). Thus order ten is the first next finite case, and no inspected source implies its exact optimum or equality classification.
+
+## value
+
+PASS
+
+Order ten is the first case immediately beyond the existing exact through-nine census, in a parameter regime that the current general asymptotic theorem explicitly leaves exceptional. The result determines both the maximum and the full equality type at that natural next boundary, so it is a motivated finite cutoff/classification rather than an arbitrary isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
