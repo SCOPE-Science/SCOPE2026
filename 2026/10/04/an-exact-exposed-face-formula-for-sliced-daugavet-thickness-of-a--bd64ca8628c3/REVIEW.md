@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The upper bound converts a slice into a positive scalar near-support set and uses compactness to pass to the exposed face. The lower bound starts from an arbitrary center and arbitrary slice, chooses a maximizing face point, and invokes the Daugavet slice characterization independently in the two active coordinates. The zero-coordinate and zero-functional cases are handled separately, so no division by zero or hidden norm-attainment assumption is used.
+# Independent mathematical audit
 
-## Originality
-PASS, subject to the residual source-access risk below. The inspected full text of Haller–Langemets–Lima–Nadel–Rueda Zoca gives general lower and upper estimates for absolute sums and exact values for \(\ell_p\)-sums, but no exact arbitrary-\(N\) exposed-face formula. Targeted semantic searches for the formula, its support-face language, and equivalent absolute-sum reductions found no covering record. The 2026 Haller–Ostrak preprint is highly relevant but its accessible abstract is about the ordinary index and a special absolute norm; its full text was unavailable for direct inspection.
+## correctness
 
-## Value
-PASS. The result reduces an infinite-dimensional slice optimization to compact two-dimensional geometry for every absolute normalized norm once the factors are Daugavet. It explains the known \(\ell_p\) values and the earlier general estimates within one exact formula, and it gives a reusable route for computing new examples from support faces.
+PASS
 
-## Closest literature and limitations
-The closest inspected source is arXiv:2005.02045 / DOI:10.1016/j.jfa.2020.108846, especially Proposition 2.2, Proposition 2.4, Theorem 2.6, and Proposition 2.10. The related arXiv:2607.02227 could not be read in full and remains the main originality risk. The claim is limited to \(\mathcal T^s\) and to two Daugavet summands.
+The upper and lower bounds reconstruct to the same two-dimensional support-face quantity. For the upper bound, a center \(z_0=(cx,dy)\) and norm-one functional \((\alpha f,\beta g)\) produce slices whose coordinate norms approach the exposed face \(F_N(\alpha,\beta)\), giving the stated face maximum. For the lower bound, an arbitrary slice supplies \(p=(\|x_0\|,\|y_0\|)\) and \(h=(\|f\|,\|g\|)\); choosing a maximizing face point \(q=(a,b)\), the Daugavet slice characterization independently in each nonzero coordinate gives vectors almost antipodal to the normalized center while satisfying the coordinate functionals. A norming-functional argument yields coordinate distances at least \((1-\eta)(c+a)\) and \((1-\eta)(d+b)\). Absolute-norm monotonicity then gives the lower face value, including the zero-coordinate and zero-dual-coordinate boundary cases. Compactness of the positive unit sphere and exposed face justifies attainment and passage to the infimum.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2021 primary paper gives general direct-sum lower/upper estimates and exact \(\ell_p\) values, not the submitted arbitrary-absolute-norm exposed-face identity. Its Proposition 2.4 upper bound additionally uses an axis-extreme hypothesis, while the submitted formula covers every absolute normalized norm by optimizing all positive supporting faces. The 2026 Haller--Ostrak preprint is very close in topic and its abstract uses a suitable absolute norm on Daugavet summands to build an \(\ell_1\)-sum counterexample, but the full preprint could not be inspected in this run; that remains an explicit residual risk rather than grounds for rejection. Fresh Resultary search self-matched the audited record and returned distinct pointwise Daugavet-constant records, not a prior theorem implying the face formula.
+
+## value
+
+PASS
+
+The theorem converts an infinite-dimensional sliced-thickness problem for all absolute sums of Daugavet spaces into one explicit two-dimensional face optimization. It strictly organizes the previously exact \(\ell_p\) cases and general bounds and supplies a reusable geometric reduction rather than an isolated numerical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
