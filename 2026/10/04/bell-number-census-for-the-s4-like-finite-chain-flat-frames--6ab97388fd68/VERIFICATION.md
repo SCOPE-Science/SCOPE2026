@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,60 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Every upward-flat relation on the \(n\)-chain is represented by a threshold vector
-\[
-(t_0,\ldots,t_{n-1})\in\{0,\ldots,n\}^n,
-\]
-where
-\[
-iRj
-\quad\Longleftrightarrow\quad
-j\ge t_i.
-\]
+# Independent mathematical audit
 
-The verifier constructs the relation explicitly from every threshold vector through
-\[
-n=6.
-\]
-It checks reflexivity of
-\[
-\leq\circ R
-\]
-and transitivity of \(R\) directly at relation level.
+## correctness
 
-Independently, it computes
-\[
-m_i=\min_{u\ge i}t_u
-\]
-and tests the symbolic criterion
-\[
-m_i\le i
-\]
-for all \(i<n\), together with
-\[
-m_q=q
-\]
-for every occurring finite threshold \(q\). The direct and symbolic tests agree for every enumerated relation.
+PASS
 
-The exact accepted counts are
-\[
-1,\ 3,\ 10,\ 37,\ 151,\ 674
-\]
-for
-\[
-n=1,\ldots,6.
-\]
+The threshold reconstruction is sound. For an upward-flat relation on the chain, each row is a suffix and hence has a unique threshold \(t_i\). Direct composition shows reflexivity of \(\leq\circ R\) is equivalent to the suffix minimum \(m_i=\min_{u\ge i}t_u\) satisfying \(m_i\le i\); transitivity is equivalent to every finite threshold value \(q\) satisfying \(m_q=q\). These conditions make \(m\) a nondecreasing regressive idempotent. Its fixed-point plateaux give exactly the stated product count, and summing over fixed sets gives \(B_{n+1}-B_n\). I independently exhaustively replayed every threshold vector through \(n=6\), obtaining \(1,3,10,37,151,674\), with the next Bell difference \(3263\). The finite replay checks the reduction, while the all-\(n\) conclusion rests on the proved plateau bijection and Bell identity.
 
-A second calculation sums the fixed-point plateau formula through
-\[
-n=12
-\]
-and independently computes Bell numbers by recurrence. The two values agree exactly at every checked size.
+## originality
 
-The script prints `VERIFY_OK`.
+PASS
 
-## Limits
+Best-of-knowledge originality survives. The initiating Heyting--Lewis semantics paper supplies the upward-flat frame conditions and finite-model context, but does not enumerate the finite-chain subclass, introduce the threshold/fixed-point classification, or state the Bell-difference count. Fresh semantic and exact-phrase searches, including Resultary, found no equivalent chain enumeration or stronger classification.
 
-The finite replay corroborates the proof. The theorem for arbitrary \(n\) follows from the threshold classification and generating-function argument, not from extrapolation. No general finite-poset census is claimed.
+## value
+
+PASS
+
+This is a natural exact classification of the smallest canonical finite underlying orders used by the semantics, with an all-size Bell law rather than an arbitrary finite slice. The fixed-point/plateau description is a reusable structural normal form for these chain frames, so the result is more than a table lookup or bounded experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

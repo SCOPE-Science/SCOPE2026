@@ -1,31 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Upward-flatness makes every successor row on a chain a suffix, hence a single threshold. Reflexivity of \(\leq\circ R\) is exactly the regressive suffix-minimum condition \(m_i\le i\). Transitivity says that every finite threshold \(q\) forces all later thresholds to be at least \(q\); under reflexivity this is exactly \(m_q=q\).
+PASS
 
-Every suffix-minimum value is attained by a threshold, so the suffix-minimum map is idempotent. Its fixed points partition the chain into plateaux. The final threshold of each plateau is forced, and each earlier threshold has exactly the stated fixed-point choices. Summing these independent choices over plateau lengths gives the generating function
-\[
-\sum_{s\ge1}\frac{x^s}{\prod_{r=2}^{s+1}(1-rx)},
-\]
-which equals the Bell-number difference generating function. Direct exhaustive replay agrees through six worlds.
+The threshold reconstruction is sound. For an upward-flat relation on the chain, each row is a suffix and hence has a unique threshold \(t_i\). Direct composition shows reflexivity of \(\leq\circ R\) is equivalent to the suffix minimum \(m_i=\min_{u\ge i}t_u\) satisfying \(m_i\le i\); transitivity is equivalent to every finite threshold value \(q\) satisfying \(m_q=q\). These conditions make \(m\) a nondecreasing regressive idempotent. Its fixed-point plateaux give exactly the stated product count, and summing over fixed sets gives \(B_{n+1}-B_n\). I independently exhaustively replayed every threshold vector through \(n=6\), obtaining \(1,3,10,37,151,674\), with the next Bell difference \(3263\). The finite replay checks the reduction, while the all-\(n\) conclusion rests on the proved plateau bijection and Bell identity.
 
-## Originality
+## originality
 
-PASS. De Groot--Litak (2026) supply the upward-flat semantics and the separate frame correspondences for \(\mathsf{t_{\Box}}\) and \(\mathsf{4_a}\), but do not enumerate their joint finite-chain frames.
+PASS
 
-Candidate-specific published-finding and literature searches for the joint chain case, upward-flat transitive chain relations, threshold descriptions, and Bell-number differences did not locate an equivalent theorem. The Bell sequence itself is classical; the originality claim concerns its occurrence as this exact modal-frame census and the threshold classification proving it.
+Best-of-knowledge originality survives. The initiating Heyting--Lewis semantics paper supplies the upward-flat frame conditions and finite-model context, but does not enumerate the finite-chain subclass, introduce the threshold/fixed-point classification, or state the Bell-difference count. Fresh semantic and exact-phrase searches, including Resultary, found no equivalent chain enumeration or stronger classification.
 
-## Value
+## value
 
-PASS. The source proves a finite model property for the S4-like extension containing both axioms, so exact finite-frame structure is directly relevant. Chains are the canonical linearly ordered intuitionistic reducts. The theorem replaces arbitrary relation search on an \(n\)-chain by a compact idempotent-threshold normal form and gives the exact search-space size in closed form.
+PASS
 
-## Closest literature and limitations
+This is a natural exact classification of the smallest canonical finite underlying orders used by the semantics, with an all-size Bell law rather than an arbitrary finite slice. The fixed-point/plateau description is a reusable structural normal form for these chain frames, so the result is more than a table lookup or bounded experiment.
 
-The closest source is de Groot--Litak (2026): upward-flat frames satisfy \(R\circ\leq=R\); their correspondence results identify \(\mathsf{t_{\Box}}\) with reflexivity of \(\leq\circ R\) and \(\mathsf{4_a}\) with transitivity of \(R\); and the paper proves the finite model property for their joint extension.
-
-The Bell-number identity is standard enumerative combinatorics. No checked source connects it to this flat Heyting--Lewis finite-chain class.
-
-The result does not enumerate general finite-poset frames or unsaturated flat relations.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
