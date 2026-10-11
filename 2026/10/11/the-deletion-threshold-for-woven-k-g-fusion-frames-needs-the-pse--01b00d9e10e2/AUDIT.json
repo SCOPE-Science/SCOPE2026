@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The source theorem and its complete proof were reconstructed. The proof bounds the deleted contribution by C||f||^2 and then uses ||f||^2 <= ||K^dagger||^2||K*f||^2, producing the coefficient A-C||K^dagger||^2. The finite-dimensional example satisfies every stated structural hypothesis, including m>1 and a proper deleted subset, satisfies the printed threshold, and leaves only zero operators after deletion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang--Yang Theorem 3.3 gives the lower ordinary frame bound A/||K^dagger||^2 on R(K), confirming the standard reciprocal pseudoinverse scaling.",
+        "Huang--Yang Theorem 3.15 is an orthogonality-based erasure theorem and does not cover small operator-norm deletion.",
+        "Ghosh--Samanta Theorem 2.12 assumes the removed energy is directly at most D||K*f||^2 and obtains A-D; it does not derive the operator-norm threshold C."
+      ],
+      "reasoning": "The closest broader results either impose orthogonality or control loss directly in the K-scaled norm. They are consistent with the repaired theorem but do not dominate the new counterexample or its correction.",
+      "searches": [
+        "\"K-g-fusion frames in Hilbert spaces\" redundancy erasure Theorem 3.15",
+        "\"Weaving continuous controlled K-g-fusion frames in Hilbert spaces\" remove vectors Theorem 2.12",
+        "K-g-fusion frame deletion bound pseudoinverse",
+        "continuous controlled K-g-fusion removal lower bound"
+      ]
+    },
+    "checked_sources": [
+      "Sadri--Rahimlou--Ahmadi, K-G-Fusion Woven in Hilbert Spaces, publisher PDF, Theorem 2.5 and proof",
+      "Huang--Yang, K-g-fusion frames in Hilbert spaces, DOI 10.1186/s13660-020-02320-0, Theorems 3.3 and 3.15",
+      "Ghosh--Samanta, arXiv:2111.03389v1, Theorem 2.12",
+      "Exact-title, theorem-number, pseudoinverse-threshold, deletion, erasure, erratum, and correction searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nearby published findings concern range compression, projected excess, partition-dependent reconstruction, or closed-graph uniformity rather than this deletion inequality.",
+        "The exact paper had appeared in prior literature comparisons, but no available prior claim states or implies the Theorem 2.5 reciprocal-threshold correction.",
+        "The one-dimensional counterexample specifically separates the printed threshold from the coefficient actually obtained by the proof."
+      ],
+      "reasoning": "The final claim is theorem-specific and not a corollary of the closest checked findings; its quantifier is deletion under a scalar operator-norm loss bound, and its obstruction is pseudoinverse scaling.",
+      "searches": [
+        "K-g-fusion woven deletion theorem pseudoinverse threshold",
+        "K-g-fusion subspace deletion robustness pseudoinverse threshold",
+        "K-g-fusion frame erasure small operator norm",
+        "woven K-g-fusion erasure scaling K dagger"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem statement uses C < A||K^dagger||^2.",
+        "The last line of the proof instead gives (A-C||K^dagger||^2)||K*f||^2.",
+        "Equivalently, the proof requires C||K^dagger||^2 < A; when ||K^dagger|| is nonzero this is C < A/||K^dagger||^2."
+      ],
+      "reasoning": "The statement, proof coefficient, reciprocal-threshold formulation, and energy-loss formulation were compared as implications rather than by title. They are not equivalent unless the pseudoinverse norm happens to equal one.",
+      "searches": [
+        "\"K-g-fusion woven\" \"Theorem 2.5\" deletion",
+        "\"K-g-fusion woven\" erasure pseudoinverse deletion",
+        "\"A minus C times K dagger norm squared\" K-g-fusion",
+        "K-g-fusion deletion loss Moore-Penrose inverse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF identifies the article as TWMS J. App. Eng. Math. 11(3) (2021), pages 947--958, and lists Primary 42C15.",
+        "The author-uploaded public full text is dated 8 July 2021.",
+        "The exact theorem and proof appear on printed pages 952--953.",
+        "No indexed erratum or correction was located in the checked exact-source searches."
+      ],
+      "reasoning": "The exact article, classification, theorem location, earliest verified public-copy date, and correction aliases were checked.",
+      "searches": [
+        "\"K-G-FUSION WOVEN IN HILBERT SPACES\" \"Theorem 2.5\"",
+        "\"K-G-FUSION WOVEN IN HILBERT SPACES\" correction",
+        "\"K-G-FUSION WOVEN IN HILBERT SPACES\" erratum",
+        "V. Sadri G. Rahimlou R. Ahmadi K-G-FUSION WOVEN 2021"
+      ]
+    },
+    "rationale": "The exact source, the foundational K-g-fusion paper, a later continuous controlled weaving extension, theorem-number searches, pseudoinverse-scaling aliases, deletion/erasure formulations, and the available prior finding corpus were compared. No checked source supplies this theorem-specific scalar counterexample and repaired threshold.",
+    "residual_risks": [
+      "An unindexed note or informal author correction may contain the same observation.",
+      "The repaired scalar criterion is sufficient rather than asserted necessary; sharper criteria can use compressed operator norms.",
+      "No other theorem or corollary in the source is assessed by this finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The printed hypothesis and claimed lower bound do not match the factor obtained in the proof. The mismatch is mathematically consequential.",
+        "evidence": "Theorem 2.5 prints C < A||K^dagger||^2 and lower bound A-C; its proof ends with (A-C||K^dagger||^2)||K*f||^2.",
+        "identifier_or_url": "https://jaem.isikun.edu.tr/web/images/articles/vol.11.no.3/30.pdf",
+        "material_read": "Publisher PDF metadata and MSC; Definition 2.1; complete Theorem 2.5 statement on printed page 952; complete proof on printed page 953, including the final lower-bound calculation.",
+        "method": "Publisher PDF text extraction and page-image inspection.",
+        "title": "K-G-Fusion Woven in Hilbert Spaces",
+        "trigger": "Exact source of the deletion theorem."
+      },
+      {
+        "assessment": "Theorem 3.3 uses the reciprocal factor A/||K^dagger||^2 on R(K), and Theorem 3.15 addresses a different orthogonality-based deletion mechanism.",
+        "evidence": "Theorem 3.3 equations (3.6)--(3.7) and Theorem 3.15.",
+        "identifier_or_url": "doi:10.1186/s13660-020-02320-0",
+        "material_read": "Theorem 3.3 with its complete Moore--Penrose lower-bound calculation, and Theorem 3.15 on redundancy/erasure.",
+        "method": "Open-access version-of-record HTML.",
+        "title": "K-g-fusion frames in Hilbert spaces",
+        "trigger": "Closest foundational source for pseudoinverse scaling and erasure of K-g-fusion frames."
+      },
+      {
+        "assessment": "The later removal theorem controls deleted energy directly by D||K*f||^2. It is consistent with the repaired scaling and does not supply the source-specific operator-norm correction.",
+        "evidence": "Theorem 2.12 assumes removed energy at most D||K*f||^2 with 0<D<A and proves lower bound A-D.",
+        "identifier_or_url": "arXiv:2111.03389v1",
+        "material_read": "Full-text material around Theorems 2.11 and 2.12, including the complete removed-energy hypothesis and proof of the A-D lower bound.",
+        "method": "Open preprint full-text inspection.",
+        "title": "Weaving continuous controlled K-g-fusion frames in Hilbert spaces",
+        "trigger": "Later paper explicitly extending recent woven K-g-fusion results and containing a removal theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "01b00d9e-10e2-447a-a56b-552b07594cfb",
+  "value": {
+    "rationale": "Deletion robustness is one of the main structural questions in frame theory, and Theorem 2.5 is a quantitative woven-erasure statement. The printed threshold can certify complete loss of the lower frame bound even in one dimension. The repair is exact for the published proof, restores the correct pseudoinverse scaling, and gives an immediately usable corrected lower bound.",
+    "status": "PASS"
+  }
+}
