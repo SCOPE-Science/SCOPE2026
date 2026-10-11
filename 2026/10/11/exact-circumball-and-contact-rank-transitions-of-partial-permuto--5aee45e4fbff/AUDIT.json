@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The vertex theorem is checked in primary sources. Symmetric center reduction follows from strict convexity of squared distance maximum. Consecutive rank-squared-distance differences factor as (n-k)(n-k-2t), giving exact exhaustive interval division; each rank quadratic is minimized by rational clipping. The subgradient mixture of touching orbit barycenters equals the center and yields E||V-y||²=R²+||y-c||², which certifies global optimality and uniqueness. The exact contact rank conditions and threshold m=n(n+1) follow from these identities. The standalone checker passes 3600 exact parameter pairs and fully enumerates 1352 small-case vertices, but infinite claims rest on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Elzinga--Hearn, Naval Research Logistics Quarterly 21 (1974), 715--718: abstract gives a general algorithm for enclosing a polyhedron by a smallest sphere, but not the stated closed parameter-by-parameter family classification.",
+        "Heuer--Striker arXiv:2012.09901 Section 5: vertex and facet structure does not constrain the optimal enclosing sphere without further metric optimization.",
+        "Behrend et al. arXiv:2207.14253: general face/volume/Ehrhart formulas do not directly imply the squared-distance minimax and contact-rank transition."
+      ],
+      "reasoning": "Generic algorithms cover the optimization problem computationally, not the claimed symbolic exact formula, contact-orbit multiplicities and sharp transition as statements. Other canonical radii, Euclidean diameter and minimum-volume ellipsoid are different optimization objectives; no exact logical implication of the stated result from those outcomes was found.",
+      "searches": [
+        "minimum enclosing ball of symmetric polymatroid polytope formula rank function",
+        "minimal enclosing sphere symmetric anti-blocking polytope generalized permutohedron",
+        "The minimum sphere covering a convex polyhedron Elzinga Hearn 1974",
+        "Euclidean Chebyshev center permutohedron partial permutohedron outer radius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.09901 Sections 5.1--5.4 (relevant portions accessed) URL: https://arxiv.org/html/2012.09901v3",
+      "arXiv:2207.14253 Sections 1,2.5 and Appendix A (accessed) URL: https://arxiv.org/html/2207.14253v3",
+      "arXiv:2212.06885 Introduction and Section 2 (accessed) URL: https://arxiv.org/html/2212.06885v2",
+      "Elzinga--Hearn 1974 DOI:10.1002/nav.3800210414 (abstract only)",
+      "arXiv:2403.07387 introduction and Section 2 (accessed) URL: https://arxiv.org/html/2403.07387v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original vertex theorem determines each rank orbit, which is used as a premise; neither the unique minimax center nor which ranks contact is its stated conclusion.",
+        "A generic minimum-sphere finite algorithm requires a nontrivial parameter-dependent optimization to yield the exact rational solution.",
+        "An independent family-specific Euclidean diameter calculation gives a lower bound on the enclosing radius and cannot determine it or its contacts; a minimum-volume enclosing ellipsoid is not a minimum-radius ball."
+      ],
+      "reasoning": "The new statement deduces rank-quadratic factorization, exact interval minimization, and an explicit orbit-barycenter global optimality certificate from known vertices. Distinct metric invariants do not logically subsume the exact center/radius/contact classification; potential undiscovered stronger coverage remains a residual literature risk.",
+      "searches": [
+        "Partial permutohedra 2207.14253 Proposition 2.7 face lattice and volume",
+        "Partial permutation and alternating sign matrix polytopes 2012.09901 Proposition 5.7 Theorem 5.10",
+        "Generalized parking function polytopes 2212.06885 geometry volume",
+        "minimum enclosing sphere of convex polyhedron algorithm Elzinga Hearn"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Heuer--Striker arXiv:2012.09901 Section 5.1: a matching rank-vertex parameterization, but no circumball invariant in the inspected source and terminology searches.",
+        "Behrend et al. arXiv:2207.14253 Proposition 2.7 and Sections 2.5--6: same vertex objects; treatment centers on faces, volumes, Ehrhart data rather than the exact enclosing-ball metric.",
+        "Hanada--Lentfer--Vindas-Meléndez arXiv:2212.06885: parking-function realization and volumes; inspected text has no radius/circum statement.",
+        "Bayer et al. arXiv:2403.07387: generalized parking-function polytope vertex/facet and polymatroid results; no smallest enclosing Euclidean sphere or radius/contact-rank formula in inspected statement/terminology searches."
+      ],
+      "reasoning": "The same object appears under partial permutation, anti-blocking permutohedron, and generalized parking-function names; each is compared at the level of Euclidean radius, centers, and touching ranks, not titles. No direct exact coverage was found in checked text, but absence of a text match is not itself a priority proof.",
+      "searches": [
+        "\"partial permutohedra\" \"circumradius\"",
+        "\"partial permutohedron\" \"enclosing sphere\" \"center\"",
+        "\"parking function polytope\" \"circumradius\"",
+        "\"partial permutohedra\" \"smallest enclosing ball\"",
+        "circumradius of parking function polytope",
+        "Anti-blocking permutohedron smallest Euclidean ball convex hull of partial injective words 0,1,...,n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Behrend et al. arXiv:2207.14253, face-count/volume and Ehrhart tables plus Appendix A do not list circumball radii.",
+        "Heuer--Striker arXiv:2012.09901, Proposition 5.7 counts rank-orbit vertices, not their optimal distance to a Chebyshev center."
+      ],
+      "reasoning": "No exact table of Euclidean minimal-ball radii or contact ranks for the two-parameter family was identified in the sources inspected. This is a limited check, not a claim of comprehensive database absence.",
+      "searches": [
+        "\"partial permutohedra\" \"minimum enclosing\" \"radius\"",
+        "\"stellohedron\" \"minimum enclosing ball\" Euclidean",
+        "\"parking function polytope\" \"minimum enclosing\" ball",
+        "Partial permutohedra arxiv:2207.14253 Appendix A volumes"
+      ]
+    },
+    "rationale": "Comparisons in source vertex/facet, face, volume, Ehrhart and generalized parking-function primary texts do not identify the Euclidean minimal enclosing ball, complete contacting-rank classification, or exact sharp full-rank-only threshold. A generic minimal-sphere algorithm and known other metric invariants provide techniques, not the exact parameterized formula. Semantic and terminology searches produced no dominating directly equivalent result. Residual terminological and bibliographic risk remains; this is a same-model scientific originality judgment, not independent priority certification.",
+    "residual_risks": [
+      "Earlier equivalent formulas under anti-blocking permutation polytope, sparse word polytope, or discrete Chebyshev-center terminology cannot be ruled out.",
+      "A general minimum-ball theory could implicitly specialize to this family; no explicit stronger coverage was identified in the reviewed literature.",
+      "Generic algorithm article full text was not accessed; its abstract does not directly settle the parameterized classification.",
+      "Literature search is incomplete and not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The necessary rank-vertex theorem is explicit; the inspected work emphasizes facet/face/projection/volume and supplies no stated Euclidean minimum-enclosing-ball formula.",
+        "evidence": [
+          "Proposition 5.7: vertices are permutations of descending top k labels padded by zeros.",
+          "Section 5.1: facet description; Section 5.4: volume.",
+          "Original public v1 date: 2020-12-17."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2012.09901v3",
+        "material_read": "Introduction and Section 5.1, especially Definition 5.4, Proposition 5.7, Theorem 5.10, plus contents and thematic coverage of remaining sections; in-document circum/radius terminology searches.",
+        "method": "Full-text HTML, mathematical-statement comparison and site text searching",
+        "title": "Partial permutation and alternating sign matrix polytopes",
+        "trigger": "Original definition and vertex/facet description of partial permutohedra"
+      },
+      {
+        "assessment": "Confirms all rank-vertex orbits and full dimensionality; studied outputs are faces, h-polynomial, normalized volumes and Ehrhart data, not the proposed circumball classification.",
+        "evidence": [
+          "Proposition 2.7 (arXiv HTML lines 164--166): all vertices are top-k permutations.",
+          "Abstract and introduction: face lattice, volume, Ehrhart, generalized permutohedra.",
+          "Appendix A: Ehrhart/volume calculations; no circumball table identified.",
+          "MSC primary 52B05; original v1 posted 2022-07-28."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.14253v3",
+        "material_read": "Full-text HTML introduction, Sections 2.1 and 2.5 including Propositions 2.6-2.8; Appendix A sample results, contents describing Sections 3--6, full-document circum/radius searches.",
+        "method": "Primary full-text HTML sections, mathematical comparison of stated theorems, and full-text term searches",
+        "title": "Partial permutohedra",
+        "trigger": "Primary geometry-classified source and closest same-family comprehensive treatment"
+      },
+      {
+        "assessment": "Establishes related parking-function realizations and enumerative/volume properties; no covering radius or full contact orbit statement identified in inspected material.",
+        "evidence": [
+          "Introduction links generalized parking functions to partial permutohedra.",
+          "Section 2 lists the classical parking-function polytope vertex/facet description.",
+          "Main volume formula Theorem 1.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2212.06885v2",
+        "material_read": "Full-text HTML introduction and Section 2 classical parking-function polytope vertex/facet description, contents, full-document circum/radius term searches.",
+        "method": "Primary open-access full-text HTML reading and terminology searches",
+        "title": "Generalized parking function polytopes",
+        "trigger": "A closely related realization of the same family by translation"
+      },
+      {
+        "assessment": "A general finite algorithm is stated at abstract level; whether its full text contains a specific partial-permutohedron specialization cannot be excluded from an abstract.",
+        "evidence": [
+          "Elzinga and Hearn, 1974: abstract describes systematic extreme-point and minimum-sphere generation for arbitrary convex polyhedra."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nav.3800210414",
+        "material_read": "Abstract and bibliographic description only; full primary text was not inspected.",
+        "method": "Public abstract comparison",
+        "title": "The minimum sphere covering a convex polyhedron",
+        "trigger": "Plausible general method that could dominate a family-specific radius calculation"
+      },
+      {
+        "assessment": "Studies face structure, general b-parking-function polytopes, h-polynomials, building sets, polymatroids and combinatorial/circuit diameters. No Euclidean minimum-enclosing-ball statement was identified in inspected text.",
+        "evidence": [
+          "Introduction identifies Section 2 vertex/facet structure, Section 3 building-set, Section 4 polymatroid with combinatorial/circuit diameter bounds.",
+          "arXiv:2403.07387 version 1 posted 2024-03-12."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.07387v1",
+        "material_read": "Primary full-text HTML introduction, Section 2 vertex description, full article section map, and full-document circum/radius terminology searches.",
+        "method": "Primary open-access HTML theorem comparison and term searches",
+        "title": "Combinatorics of generalized parking-function polytopes",
+        "trigger": "Related general vertex/facet theorem and potential implicit larger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5aee45e4-fbff-4669-9de3-bf2e94e88638",
+  "value": {
+    "rationale": "The two-parameter family is an established family with different sparse/dense combinatorial regimes; its smallest enclosing Euclidean ball is a natural metric invariant not determined by face enumeration or volume. The finding computes center and squared radius with at most min(m,n)+1 rational steps, all contact-rank orbits and counts, a sharp m=n(n+1) transition, an exact sparse-dimension formula, and the full cube limit. These are meaningful structural classifications for an infinite natural family, not a small numerical slice or generic known-table calculation.",
+    "status": "PASS"
+  }
+}
