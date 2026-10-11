@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the Roman condition to the location of label \(2\) across multipartite parts. Each of the three support cases is exhaustive and disjoint. The product-sum enumerator follows by direct generating-function counting. The minimum-weight formulas are obtained by exhausting the lowest possible weight patterns in those same cases. The packaged verifier independently enumerates all \(3^N\) assignments for every complete multipartite type through order \(10\) and matches the full coefficient vector.
+## correctness
 
-## Originality
-PASS, with residual indexing risk. The foundational Roman-domination paper defines the invariant and proves general properties but does not enumerate all functions on complete multipartite graphs. The 2018 forcing-Roman paper has a directly relevant complete-multipartite theorem, but its target is the forcing number of minimum-weight \(\gamma_R\)-functions; inspection of the complete-multipartite section shows minimum-function constructions, not an all-weight polynomial. A 2025 Roman-domination-polynomial paper confirms that the all-weight enumerator is a natural named object, but studies commuting and non-commuting graphs of dihedral groups. Targeted published-finding corpus and web searches found no equivalent complete-multipartite polynomial or stronger theorem implying it.
+PASS
 
-## Value
-PASS. The finding converts a local domination constraint into a complete structural classification of all \(3^N\) labelings on an arbitrary multipartite shape, giving every weight coefficient at once. It strictly refines knowledge of the minimum Roman domination number by also counting all minimum functions and all higher-weight functions, and it specializes uniformly to complete graphs, complete bipartite graphs, stars, and Turán graphs.
+The proof is complete: with no label 2 only the all-one assignment works; with 2s in at least two parts every zero sees a 2 outside its part; with a unique 2-containing part, feasibility is exactly absence of zeros in that part. The generating-function terms are precisely these disjoint cases. The minimum weights/counts follow by exhausting weights 2, 3 and 4. The packaged exhaustive checker verifies every complete multipartite isomorphism type through order ten, but the universal claim rests on the symbolic partition.
 
-The main residual risk is bibliographic: an older or poorly indexed source may contain an equivalent enumerator under different terminology. This risk is recorded explicitly and is not treated as proof of novelty.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes for the full all-function weight enumerator. Classical sources define Roman domination and study the minimum/forcing parameter; recent Roman-domination-polynomial work found in the searches concerns other graph families. Resultary returned related Roman variants on complete multipartite graphs but no earlier ordinary all-function formula.
+
+## value
+
+PASS
+
+A complete weight enumerator is a natural strengthening of the classical minimum Roman domination parameter and gives every feasible-labeling count for arbitrary multipartite part sizes, together with exact minimum-function counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

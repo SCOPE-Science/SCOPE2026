@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic. The accompanying `verify.py` provides a finite independent replay against the definition. It generates every complete multipartite isomorphism type on at most \(10\) vertices, enumerates every labeling in \(\{0,1,2\}^N\), and checks: (1) the structural classification, (2) every coefficient of the displayed polynomial, and (3) the minimum-weight coefficient formulas.
 
-Replay command: `python3 verify.py`
+# Independent mathematical audit
 
-Expected terminal line: `VERIFY_OK graph_types=128 labelings=3169350 coefficient_checks=2230 max_order=10`
+## correctness
 
-Finite exhaustive replay does not certify the unrestricted theorem; the proof in `RESULT.md` does. Independent audit has not been performed.
+PASS
+
+The proof is complete: with no label 2 only the all-one assignment works; with 2s in at least two parts every zero sees a 2 outside its part; with a unique 2-containing part, feasibility is exactly absence of zeros in that part. The generating-function terms are precisely these disjoint cases. The minimum weights/counts follow by exhausting weights 2, 3 and 4. The packaged exhaustive checker verifies every complete multipartite isomorphism type through order ten, but the universal claim rests on the symbolic partition.
+
+## originality
+
+PASS
+
+Originality passes for the full all-function weight enumerator. Classical sources define Roman domination and study the minimum/forcing parameter; recent Roman-domination-polynomial work found in the searches concerns other graph families. Resultary returned related Roman variants on complete multipartite graphs but no earlier ordinary all-function formula.
+
+## value
+
+PASS
+
+A complete weight enumerator is a natural strengthening of the classical minimum Roman domination parameter and gives every feasible-labeling count for arbitrary multipartite part sizes, together with exact minimum-function counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
