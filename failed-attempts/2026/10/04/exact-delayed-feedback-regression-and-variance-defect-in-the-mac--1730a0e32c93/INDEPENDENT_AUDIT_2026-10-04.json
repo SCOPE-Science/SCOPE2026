@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T23:07:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 73129bd4c4e642844f011289e3bc18af3ffcd5e2",
+        "assigned verify.py blob 59bafc96b13826d4fc282bbbb067b78bacdb7ea9",
+        "Bartha-Krisztin-Vigh DOI 10.1016/j.jde.2021.05.052"
+      ],
+      "rationale": "For an invariant compactly supported history measure and any \\(C^1\\) cylinder \\(H(X_0)\\), differentiating invariance gives \\(\\mathbb E[H'(X_0)(-\\gamma X_0+\\beta f(X_{-\\tau}))]=0\\). Since \\(H'\\) may be any continuous test function on the compact one-time range, this is exactly the displayed conditional regression. Time-shift invariance equates the delayed and current marginals. Writing \\(V=\\beta f(X_{-\\tau})-\\gamma X_0\\), the regression gives \\(\\mathbb E[V\\mid X_0]=0\\), so the cross term vanishes and yields the variance-defect identity. If the defect is zero, invariance plus continuity forces trajectories in the support to be constant. The Lipschitz variance bound \\(\\operatorname{Var}(f(X))\\le L^2\\operatorname{Var}(X)\\) then gives \\(\\beta L>\\gamma\\) for any non-equilibrium stationary state. Fresh root solving reproduces \\(0.7356331448588915\\), \\(0.8457944676553084\\), and \\(1.3248837608752875\\).",
+      "residual_risks": [
+        "The theorem assumes compact support so generator differentiation and all displayed moments are harmless.",
+        "The numerical intervals are consequences of the exact slope obstruction, not existence claims for dynamics outside them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic invariance applies to every differentiable deterministic semiflow, strictly broader than the Mackey–Glass equation.",
+          "The assigned variance and slope statements require only that generic identity plus stationarity of the lagged marginal and a Lipschitz bound."
+        ],
+        "reasoning": "A stronger general mechanism mechanically supplies the theorem; the nonlinear feedback only supplies the final derivative roots.",
+        "searches": [
+          "standard invariant-measure/Markov-semigroup generator identity",
+          "web search for stationary differentiable-process conditional derivative identities",
+          "Resultary search for stationary balance/transfer laws"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1016/j.jde.2021.05.052",
+        "standard invariant-measure generator identity derived directly from invariance",
+        "Resultary current published-finding corpus",
+        "current web searches for Mackey–Glass stationary moment laws"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arbitrary continuous \\(H'\\) converts the generator identity directly into \\(E[\beta f(X_{-\tau})\\mid X_0]=\\gamma X_0\\).",
+          "With equal lag/current marginals, conditional orthogonality gives the variance defect in one expansion.",
+          "Combining strict positive defect with \\(\\operatorname{Var}(f(X))\\le L^2\\operatorname{Var}(X)\\) gives the slope obstruction."
+        ],
+        "reasoning": "No additional nonstandard lemma is needed.",
+        "searches": [
+          "invariant semiflow identity \\(\\int L\\Phi d\\mu=0\\) applied to \\(\\Phi=H(X_0)\\)",
+          "Lipschitz variance contraction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary Mackey–Glass source defines the continuous semiflow on positive history space.",
+          "For any invariant semiflow measure, differentiating \\(\\int \\Phi\\circ S_t\\,d\\mu=\\int\\Phi\\,d\\mu\\) at zero gives the generator identity used verbatim by the assigned proof."
+        ],
+        "reasoning": "The conditional regression is the cylinder-observable form of the generic stationary zero-generator identity.",
+        "searches": [
+          "Resultary: Mackey Glass invariant measure stationary regression delayed feedback variance identity slope condition",
+          "web: invariant measure generator identity integral Lf dmu zero semigroup",
+          "Bartha-Krisztin-Vigh DOI 10.1016/j.jde.2021.05.052"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact model-specific formula was located, but exact-string absence is not novelty evidence because the statement is a direct generic invariant-measure corollary."
+        ],
+        "reasoning": "The implication comparison outweighs database absence.",
+        "searches": [
+          "Resultary current corpus search for Mackey–Glass invariant-measure regression/variance",
+          "web search for Mackey–Glass stationary invariant-measure moments"
+        ]
+      },
+      "rationale": "The load-bearing regression is a direct specialization of the standard invariant-measure generator identity: invariance of a semiflow gives \\(\\int L\\Phi\\,d\\mu=0\\) for every differentiable observable in the generator domain. Applying it to the one-dimensional cylinder \\(H(X_0)\\) immediately yields the conditional zero-drift statement for any scalar deterministic delay equation, not specifically Mackey–Glass. Equal delayed/current marginals are likewise immediate from shift invariance. The variance identity and support-slope obstruction then follow by elementary orthogonality and the standard Lipschitz variance inequality. The model-specific primary literature confirms the same continuous-history semiflow, so no nonstandard Mackey–Glass mechanism is needed.",
+      "residual_risks": [
+        "No exact model-specific prior statement was found; rejection rests on mechanical implication from general stationary-semiflow theory rather than textual duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_CONTEXT",
+          "evidence": "The article formulates the same scalar delay equation as a continuous semiflow on positive history space; the assigned stationary generator calculation therefore applies in the standard semiflow setting.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jde.2021.05.052",
+          "material_read": "accessible primary article material including the model, positive phase space, continuous semiflow, and periodic-orbit scope",
+          "method": "primary full-text web inspection",
+          "title": "Stable periodic orbits for the Mackey–Glass equation",
+          "trigger": "same deterministic equation and natural history-space semiflow"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Bartha-Krisztin-Vigh 2021",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The stationary identities are interpretable and the numerical slope windows are correct, but the entire mechanism is a routine cylinder-observable application of invariance followed by elementary variance algebra and a Lipschitz bound. The model specialization does not add a new structural lemma or difficult boundary beyond that generic theory.",
+      "residual_risks": [
+        "The identities may still be useful as a model-specific diagnostic."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The theorem assumes compact support so generator differentiation and all displayed moments are harmless.",
+    "The numerical intervals are consequences of the exact slope obstruction, not existence claims for dynamics outside them.",
+    "No exact model-specific prior statement was found; rejection rests on mechanical implication from general stationary-semiflow theory rather than textual duplication.",
+    "The identities may still be useful as a model-specific diagnostic."
+  ]
+}
