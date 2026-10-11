@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verification is algebraic. Running `python verify.py` checks four items with exact rational arithmetic:
+# Independent mathematical audit
 
-1. the factor \(0.01\) in the control-dependent diffusion contribution \(D_k(1-w_1)^2\);
-2. the coefficients of the augmented first-coordinate quadratic and the corrected stationary point;
-3. an exact rational instance for which substituting the scalar value \(r(u^k)\) in the printed projected expression differs from the true minimizer of the displayed augmented Hamiltonian; and
-4. a scalar proximal fixed-point example showing that minimization of \(H(w)+\varepsilon\lvert w-u^*\rvert^2\) at \(u^*\) does not by itself imply global minimization of \(H\).
+## correctness
 
-The source equations were checked against the open-access full text identified by DOI 10.1007/s00285-026-02462-7. The proof does not require a numerical PDE solve. It also does not establish that \(D_k\neq0\) on every iterate; the theorem-level issue is that no hypothesis removes that term and the printed minimizer does not follow from the displayed Hamiltonian.
+PASS
+
+The source theorem's algebraic defect is real. The published Theorem 4.3 defines \(r(w)\) by a spatial integral, hence as a scalar, but then takes a three-component \(L^2\) norm of differences of \(r\) and inserts \(r(u^k)\) into a three-vector projected update. For the paper's own simulation diffusion \(\sigma_S=-\sigma_I=\sqrt{0.02}(1-w_1)SI\), freezing \(f^k,q^k\) gives a diffusion contribution \(D_k(1-w_1)^2\), with \(D_k=0.01\int f^kS^2I^2(q^k_{SS}+q^k_{II})\). Thus the first-coordinate augmented objective has curvature \(\beta_2+2\varepsilon-2D_k\), and when this is positive its unconstrained minimizer is \((d_{1,k}-\beta_1-2D_k+2\varepsilon u_1^k)/(\beta_2+2\varepsilon-2D_k)\), not the printed value-based formula. Independently, a fixed point of the proximal subproblem yields only \(H(u^*)\le H(w)+\varepsilon\lVert w-u^*\rVert^2\); the nonnegative proximal term cannot be discarded. These are proof-level failures of the stated contraction/minimum conclusion, without implying divergence of the implementation or invalidating the separate descent statements.
+
+## originality
+
+PASS
+
+The directly relevant article was inspected at theorem level and a targeted Resultary/current-literature search found no correction or prior statement of the source-specific \(D_k(1-w_1)^2\) term or the scalar-versus-vector defect. Earlier SQH work treats different smooth ODE/PDE settings and does not imply the corrected minimizer for this Hamiltonian with control-dependent diffusion. The result is therefore best-of-knowledge original as a concrete correction of the 2026 theorem.
+
+## value
+
+PASS
+
+The result identifies two concrete mathematical failures in a newly published convergence theorem and derives the correct frozen-coordinate minimizer for the paper's actual control-dependent diffusion. That is a motivated correction with direct consequences for what the stated SQH theorem certifies, while carefully preserving unaffected descent results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

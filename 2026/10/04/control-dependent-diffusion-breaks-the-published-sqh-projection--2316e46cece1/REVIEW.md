@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source defines \(r(w)\) as a scalar spatial integral. Freezing \(f^k\) and \(q^k\), the drift is affine in the control while the stated simulation diffusion gives \(\sigma_j^2=0.02(1-w_1)^2S^2I^2\) for both diagonal terms. The one-half factor therefore yields exactly the correction \(D_k(1-w_1)^2\), with \(D_k=0.01\int_\Omega f^kS^2I^2(q^k_{SS}+q^k_{II})\,dS\,dI\). Differentiation gives first-coordinate curvature \(\beta_2+2\varepsilon-2D_k\) and the stationary point stated in the claim. Exact rational replay in `verify.py` checks this expansion and a concrete mismatch with the printed value-based update. Independently, the fixed-point step can only retain the nonnegative proximal term; the verifier gives a one-dimensional counterexample to deleting it. The accepted claim is only that Theorem 4.3 is not established as written, not that the algorithm diverges.
+## correctness
 
-## Originality
-PASS. Exact-title, theorem-number, SQH-contraction, projected-update, scalar-remainder, control-dependent-diffusion, and proximal-minimization searches found no published finding that states or implies this source-specific correction. The nearest earlier epidemic SQH paper treats a different ODE smooth-cost setting; the foundational monograph and a recent neural-network SQH paper are broader or different in scope. A previously recorded finding on the same Parkinson--Roy paper concerns covariance of compartment noise versus transmission-rate noise, with no implication for Hamiltonian minimization. A related 2024 repository PDF was inaccessible, so that paper remains a recorded residual access risk rather than being treated as negative evidence.
+PASS
 
-## Value
-PASS. Theorem 4.3 is the source's strong-convergence and unique-fixed-point result for the mixed \(L^1/L^2\) control case, and its conclusion is used to connect the SQH iteration to the Pontryagin Hamiltonian minimum. Identifying the exact missing control-dependent-diffusion curvature and the invalid proximal fixed-point inference materially changes what convergence can be claimed. The result is not a cosmetic type check: it supplies the corrected first-control subproblem structure and isolates additional hypotheses a valid contraction theorem would need, while preserving the source's separate descent results.
+The source theorem's algebraic defect is real. The published Theorem 4.3 defines \(r(w)\) by a spatial integral, hence as a scalar, but then takes a three-component \(L^2\) norm of differences of \(r\) and inserts \(r(u^k)\) into a three-vector projected update. For the paper's own simulation diffusion \(\sigma_S=-\sigma_I=\sqrt{0.02}(1-w_1)SI\), freezing \(f^k,q^k\) gives a diffusion contribution \(D_k(1-w_1)^2\), with \(D_k=0.01\int f^kS^2I^2(q^k_{SS}+q^k_{II})\). Thus the first-coordinate augmented objective has curvature \(\beta_2+2\varepsilon-2D_k\), and when this is positive its unconstrained minimizer is \((d_{1,k}-\beta_1-2D_k+2\varepsilon u_1^k)/(\beta_2+2\varepsilon-2D_k)\), not the printed value-based formula. Independently, a fixed point of the proximal subproblem yields only \(H(u^*)\le H(w)+\varepsilon\lVert w-u^*\rVert^2\); the nonnegative proximal term cannot be discarded. These are proof-level failures of the stated contraction/minimum conclusion, without implying divergence of the implementation or invalidating the separate descent statements.
 
-## Closest literature and limitations
-The closest checked literature is Calà Campana--Katz--Giordano (2024) on SQH epidemic control in an ODE smooth-cost setting, Borzì (2023) on the general SQH method, and Hofmann--Borzì (2025) on a distinct discrete augmented-Hamiltonian problem. The 2024 repository PDF could not be opened during this inspection, so only its abstract and bibliographic record were available. The current result is limited to the correctness of Theorem 4.3 as written and does not claim failure of the implemented algorithm or of Theorems 4.1--4.2.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The directly relevant article was inspected at theorem level and a targeted Resultary/current-literature search found no correction or prior statement of the source-specific \(D_k(1-w_1)^2\) term or the scalar-versus-vector defect. Earlier SQH work treats different smooth ODE/PDE settings and does not imply the corrected minimizer for this Hamiltonian with control-dependent diffusion. The result is therefore best-of-knowledge original as a concrete correction of the 2026 theorem.
+
+## value
+
+PASS
+
+The result identifies two concrete mathematical failures in a newly published convergence theorem and derives the correct frozen-coordinate minimizer for the paper's actual control-dependent diffusion. That is a motivated correction with direct consequences for what the stated SQH theorem certifies, while carefully preserving unaffected descent results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

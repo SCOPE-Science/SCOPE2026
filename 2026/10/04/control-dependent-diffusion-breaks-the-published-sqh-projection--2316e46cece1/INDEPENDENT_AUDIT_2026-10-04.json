@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:13:48.149325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Parkinson and Roy, A Fokker-Planck framework for control of epidemics, DOI 10.1007/s00285-026-02462-7, open full text, Theorem 4.3 and simulation coefficients",
+        "assigned RESULT.md at Git tree fdca64e2c9722cab00008357ca09fabe5302a9ee"
+      ],
+      "rationale": "The source theorem's algebraic defect is real. The published Theorem 4.3 defines \\(r(w)\\) by a spatial integral, hence as a scalar, but then takes a three-component \\(L^2\\) norm of differences of \\(r\\) and inserts \\(r(u^k)\\) into a three-vector projected update. For the paper's own simulation diffusion \\(\\sigma_S=-\\sigma_I=\\sqrt{0.02}(1-w_1)SI\\), freezing \\(f^k,q^k\\) gives a diffusion contribution \\(D_k(1-w_1)^2\\), with \\(D_k=0.01\\int f^kS^2I^2(q^k_{SS}+q^k_{II})\\). Thus the first-coordinate augmented objective has curvature \\(\\beta_2+2\\varepsilon-2D_k\\), and when this is positive its unconstrained minimizer is \\((d_{1,k}-\\beta_1-2D_k+2\\varepsilon u_1^k)/(\\beta_2+2\\varepsilon-2D_k)\\), not the printed value-based formula. Independently, a fixed point of the proximal subproblem yields only \\(H(u^*)\\le H(w)+\\varepsilon\\lVert w-u^*\\rVert^2\\); the nonnegative proximal term cannot be discarded. These are proof-level failures of the stated contraction/minimum conclusion, without implying divergence of the implementation or invalidating the separate descent statements.",
+      "residual_risks": [
+        "A corrected convergence theorem may be possible under a derivative/coefficient-map hypothesis and additional curvature bounds; this audit rejects only the published Theorem 4.3 argument as written."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper itself is the strongest same-problem source and contains the defective statement.",
+          "The broader SQH references concern other dynamics/costs and do not supply the missing derivative treatment for the control-dependent diffusion term."
+        ],
+        "reasoning": "General SQH convergence results do not dominate a nonlinear frozen-control Hamiltonian unless their hypotheses match; the printed theorem's scalar \\(r\\) does not.",
+        "searches": [
+          "Parkinson-Roy 2026 full text",
+          "Campana-Katz-Giordano 2024 SQH epidemic-control bibliographic comparison",
+          "Borzì 2023 SQH monograph context"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-026-02462-7",
+        "https://arxiv.org/abs/2601.20181",
+        "Resultary published-result search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published diffusion has quadratic control dependence, so the Hamiltonian minimizer necessarily depends on \\(D_k\\); the printed denominator omits it.",
+          "The source's proximal fixed-point inequality contains an additional nonnegative term that prior text does not eliminate."
+        ],
+        "reasoning": "The correction follows from reconstructing the source's own equations, not from a prior theorem that already states the conclusion.",
+        "searches": [
+          "Statement-level comparison with Parkinson-Roy Theorem 4.3 and the published diffusion model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary leading matches were unrelated optimization findings and did not contain the Parkinson-Roy theorem correction.",
+          "The current open article still prints scalar \\(r(w)\\), the vector-valued Lipschitz assumption/update, and the fixed-point argument; no correction notice was located."
+        ],
+        "reasoning": "No equivalent source-specific correction was found under SQH, projection, diffusion, Hamiltonian, or convergence terminology.",
+        "searches": [
+          "Resultary query: sequential quadratic Hamiltonian Fokker Planck control dependent diffusion projected update convergence Parkinson Roy",
+          "DOI 10.1007/s00285-026-02462-7 correction/erratum search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No correction table, erratum, or later source containing the corrected coefficient was located."
+        ],
+        "reasoning": "This is an analytic theorem correction rather than a finite database claim.",
+        "searches": [
+          "Current article/erratum search and Resultary exact semantic search"
+        ]
+      },
+      "rationale": "The directly relevant article was inspected at theorem level and a targeted Resultary/current-literature search found no correction or prior statement of the source-specific \\(D_k(1-w_1)^2\\) term or the scalar-versus-vector defect. Earlier SQH work treats different smooth ODE/PDE settings and does not imply the corrected minimizer for this Hamiltonian with control-dependent diffusion. The result is therefore best-of-knowledge original as a concrete correction of the 2026 theorem.",
+      "residual_risks": [
+        "The source is very recent; a correction not yet indexed could appear later. No current correction was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CHALLENGED_PRIMARY_SOURCE",
+          "evidence": "Theorem 4.3 defines scalar \\(r\\) but uses it as a three-vector and prints the proximal fixed-point inference; the simulation diffusion is explicitly control-dependent.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-026-02462-7",
+          "material_read": "Open full HTML around Algorithm 1, Theorems 4.1-4.3, the definition of \\(r\\), projected update, fixed-point argument, and simulation diffusion.",
+          "method": "Lawful publisher open-access full-text inspection.",
+          "title": "A Fokker-Planck framework for control of epidemics",
+          "trigger": "Exact paper and theorem being corrected."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Parkinson-Roy Theorems 4.1-4.3 and simulation model"
+      ],
+      "rationale": "The result identifies two concrete mathematical failures in a newly published convergence theorem and derives the correct frozen-coordinate minimizer for the paper's actual control-dependent diffusion. That is a motivated correction with direct consequences for what the stated SQH theorem certifies, while carefully preserving unaffected descent results.",
+      "residual_risks": [
+        "It does not establish convergence or divergence of a repaired SQH scheme."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1007/s00285-026-02462-7",
+    "https://arxiv.org/abs/2601.20181",
+    "Resultary published-result search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Diagnosis of Theorem 4.3 as written only; no claim of algorithmic divergence.",
+    "The corrected coordinate formula assumes positive scalar curvature before projection to the admissible interval."
+  ],
+  "residual_risks": [
+    "The source is very recent; a correction not yet indexed could appear later. No current correction was located."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "CHALLENGED_PRIMARY_SOURCE",
+      "evidence": "Theorem 4.3 defines scalar \\(r\\) but uses it as a three-vector and prints the proximal fixed-point inference; the simulation diffusion is explicitly control-dependent.",
+      "identifier_or_url": "https://doi.org/10.1007/s00285-026-02462-7",
+      "material_read": "Open full HTML around Algorithm 1, Theorems 4.1-4.3, the definition of \\(r\\), projected update, fixed-point argument, and simulation diffusion.",
+      "method": "Lawful publisher open-access full-text inspection.",
+      "title": "A Fokker-Planck framework for control of epidemics",
+      "trigger": "Exact paper and theorem being corrected."
+    }
+  ]
+}
