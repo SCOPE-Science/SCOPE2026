@@ -1,14 +1,21 @@
-# Review
-## Correctness
-PASS. The proof specializes the published one-step mutation/T-singularity criterion to the three quotient charts of \(\mathbb P(1,a,b)\), checks the sign of each possible height change, and then uses the published unique-minimal-weight tree property. The enumeration is a bijection between descending mutations and pairs \(m<d\le N\) with \(md\) square, followed by the unique squarefree-part representation \(m=sv^2\), \(d=su^2\). The asymptotic follows from standard squarefree-harmonic and summatory-totient estimates. Exact finite checks independently compare all three counting descriptions and all coordinate-mutation height changes on bounded ranges.
+# Independent mathematical audit
 
-## Originality
-PASS. The closest source, Akhtar--Kasprzyk, supplies the mutation formula, the \(T\)-singularity divisibility test, and the existence of a unique height-minimal weight in each mutation tree. The broader Kasprzyk--Nill--Prince paper develops minimality for Fano polygons. Searches for the specialized family \(\mathbb P(1,a,b)\), the divisibility condition \(b\mid(a+1)^2\), squarefree divisor counts, and asymptotic density did not locate the exact enumeration or the density-one statement. The new part is not merely the local criterion: it is the exact family-wide squarefree count and its sharp leading-order density consequence.
+## correctness
 
-## Value
-PASS. Mutation-minimal models are basic representatives in the toric deformation graph of del Pezzo surfaces. The family \(\mathbb P(1,a,b)\) is the simplest genuine two-parameter family of well-formed weighted projective planes, and the height box is a natural exhaustion. The theorem shows quantitatively that strict mutation simplification is sparse, with an explicit logarithmic-over-linear exceptional proportion, and gives an exact arithmetic formula usable for further counts.
+PASS
 
-## Closest literature and limitations
-The result uses Ilten for the deformation interpretation, Akhtar--Kasprzyk for the weighted-projective mutation criterion and height tree, and Kasprzyk--Nill--Prince for the broader polygon-minimality context. It does not address fake weighted projective planes of nontrivial multiplicity, other exhaustions of the weight space, or sharper error terms in the arithmetic asymptotics.
+The local mutation criterion was checked against the primary source and the arithmetic proof was independently reconstructed. With \(n=a+1\) and \(d=b\), every descending pair corresponds bijectively to \(m=n^2/d<d\le N\) with \(md\) a square; writing \(m=sv^2\), \(d=su^2\) with squarefree \(s\) gives the stated binomial summation. The error from replacing the floor-square term by \(N/s\) is \(O(N)\), and the standard squarefree harmonic sum gives the coefficient \(3/\pi^2\). Independent exact enumeration matched the formula at several \(N\), including 100 and 200.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest primary source completely supplies the one-step mutation and height-tree input, but not the family-wide count. The audited statement adds a nontrivial square-product bijection that converts descending mutations into pairs with a common squarefree part, then sums those pairs to obtain the exact formula and leading asymptotic. Fresh Resultary and web searches found the audited record itself but no earlier exact count or density theorem. This is not merely the local mutation criterion restated with different notation.
+
+## value
+
+PASS
+
+The claim answers a natural prevalence question for height-minimal toric models in the simplest genuine two-parameter weighted-projective family. It gives both an exact count and an asymptotic law, rather than an arbitrary finite slice or a restatement of the local mutation rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

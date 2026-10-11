@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:49:21.606519Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob b6f69bc90a981ae79a36e7afe3bdb83ce0162022",
+        "verify.py blob b2612762f9973c1ea7840a367ce9ed3be2444f84",
+        "Akhtar--Kasprzyk arXiv:1302.1152 full primary PDF",
+        "Independent exact arithmetic replay performed in this audit"
+      ],
+      "rationale": "The local mutation criterion was checked against the primary source and the arithmetic proof was independently reconstructed. With \\(n=a+1\\) and \\(d=b\\), every descending pair corresponds bijectively to \\(m=n^2/d<d\\le N\\) with \\(md\\) a square; writing \\(m=sv^2\\), \\(d=su^2\\) with squarefree \\(s\\) gives the stated binomial summation. The error from replacing the floor-square term by \\(N/s\\) is \\(O(N)\\), and the standard squarefree harmonic sum gives the coefficient \\(3/\\pi^2\\). Independent exact enumeration matched the formula at several \\(N\\), including 100 and 200.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akhtar--Kasprzyk Proposition 1.1 and Lemma 3.8 give the one-step divisibility mechanism; Definition 3.15 and Lemma 3.16 give height minimality in the mutation tree.",
+          "The broader polygon-minimality literature studies mutation classes and minimality, not the frequency of non-minimal members of this two-parameter height box."
+        ],
+        "reasoning": "The prior theory is broader in geometric scope, but it does not dominate the audited arithmetic enumeration. One still must identify and count every descending pair.",
+        "searches": [
+          "arXiv:1302.1152",
+          "arXiv:1501.05335",
+          "DOI:10.1017/S0013091515000115"
+        ]
+      },
+      "checked_sources": [
+        "Akhtar--Kasprzyk, Mutations of Fake Weighted Projective Planes, arXiv:1302.1152, DOI:10.1017/S0013091515000115",
+        "Kasprzyk--Nill--Prince, Minimality and Mutation-Equivalence of Polygons, arXiv:1501.05335, DOI:10.1017/fms.2017.10",
+        "Resultary semantic query: mutation minimal weighted projective plane P(1,a,b) squarefree divisor count density one non-minimal b divides \\((a+1)^2\\)",
+        "Fresh exact web searches for P(1,a,b), mutation-minimality, the divisibility condition, and the squarefree count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work implies the local criterion \\(b\\mid(a+1)^2\\) for an available mutation and determines when it lowers height.",
+          "It does not supply a parameterization of all such pairs in the box or the squarefree harmonic summation; those steps are exactly the originality-bearing part."
+        ],
+        "reasoning": "The final density theorem is not a special case of a stronger published counting theorem. It follows only after a new family-wide bijection plus standard analytic-number-theory estimates.",
+        "searches": [
+          "Primary implication check against Akhtar--Kasprzyk Proposition 1.1, Lemma 3.8, Definition 3.15, and Lemma 3.16",
+          "Fresh search for a published count obtained from \\(b\\mid(a+1)^2\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary Akhtar--Kasprzyk theorem characterizes one-step mutations by T-singularities and gives the transformed weight.",
+          "No retrieved source states the exact squarefree-part summation or the logarithmic-over-linear exceptional proportion."
+        ],
+        "reasoning": "Equivalent formulations were searched both geometrically and arithmetically. The nearest statement stops at the local divisibility criterion; the global squarefree pairing and summation are additional mathematics.",
+        "searches": [
+          "Resultary semantic query: mutation minimal weighted projective plane P(1,a,b) squarefree divisor count density one non-minimal b divides \\((a+1)^2\\)",
+          "Web search: weighted projective planes mutation minimal density P(1,a,b)",
+          "Web search: P(1,a,b) \\((a+1)^2\\) mutation squarefree divisors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved table or database entry supplied the count sequence or the exact summation.",
+          "Independent replay reproduced \\(D(20)=11\\), \\(D(50)=44\\), \\(D(100)=105\\), and \\(D(200)=248\\) from both direct enumeration and the squarefree formula."
+        ],
+        "reasoning": "The finite values are consequences of the proved identity rather than a recomputation of a located table.",
+        "searches": [
+          "Resultary semantic query above; top exact hit was the assigned record",
+          "Exact web search for the displayed squarefree binomial summation"
+        ]
+      },
+      "rationale": "The closest primary source completely supplies the one-step mutation and height-tree input, but not the family-wide count. The audited statement adds a nontrivial square-product bijection that converts descending mutations into pairs with a common squarefree part, then sums those pairs to obtain the exact formula and leading asymptotic. Fresh Resultary and web searches found the audited record itself but no earlier exact count or density theorem. This is not merely the local mutation criterion restated with different notation.",
+      "residual_risks": [
+        "An equivalent arithmetic count could occur under divisor-pair terminology outside the toric-mutation literature.",
+        "The asymptotic is tied to the stated box exhaustion and height-minimality notion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_LOCAL_RULE_ONLY",
+          "evidence": "The source gives the mutation formula, T-singularity divisibility, and unique non-increasing direction, but not the exact box count or density-one asymptotic.",
+          "identifier_or_url": "arXiv:1302.1152; DOI:10.1017/S0013091515000115",
+          "material_read": "Full primary PDF, including Proposition 1.1, the coordinate divisibility criterion, Lemma 3.8, Definition 3.15, Lemma 3.16, and surrounding proof text.",
+          "method": "Lawful full-text primary inspection with page-level visual verification.",
+          "title": "Mutations of Fake Weighted Projective Planes",
+          "trigger": "Closest primary source for the local mutation criterion and minimal-height tree."
+        },
+        {
+          "assessment": "BROADER_CONTEXT_RESIDUAL_RISK",
+          "evidence": "The source concerns minimality and mutation-equivalence of Fano polygons rather than an explicit \\(\\mathbb P(1,a,b)\\) density count.",
+          "identifier_or_url": "arXiv:1501.05335; DOI:10.1017/fms.2017.10",
+          "material_read": "Primary bibliographic/abstract scope and the comparison recorded in the assigned package; no claim of whole-document noncoverage is based on snippets alone.",
+          "method": "Scope comparison, not a whole-document novelty determination.",
+          "title": "Minimality and Mutation-Equivalence of Polygons",
+          "trigger": "Broader minimality framework that could have dominated the family result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Akhtar--Kasprzyk 2016",
+        "Kasprzyk--Nill--Prince 2017",
+        "assigned proof",
+        "independent count replay"
+      ],
+      "rationale": "The claim answers a natural prevalence question for height-minimal toric models in the simplest genuine two-parameter weighted-projective family. It gives both an exact count and an asymptotic law, rather than an arbitrary finite slice or a restatement of the local mutation rule.",
+      "residual_risks": [
+        "The value is specific to the stated height box; other exhaustions can have different densities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent arithmetic count could occur under divisor-pair terminology outside the toric-mutation literature.",
+    "The asymptotic is tied to the stated box exhaustion and height-minimality notion."
+  ],
+  "schema_version": 1
+}

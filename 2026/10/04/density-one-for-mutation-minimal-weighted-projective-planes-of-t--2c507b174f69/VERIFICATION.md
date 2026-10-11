@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof has two logically separate inputs.
+# Independent mathematical audit
 
-First, the geometric input is the published one-step mutation criterion for well-formed weighted projective planes. For \(\mathbb P(1,a,b)\), the only possible strict height decrease is the mutation replacing \(b\), and it exists exactly when \(b\mid(a+1)^2\). Its new weight is \((a+1)^2/b\), so strict decrease is equivalent to \(b>a+1\). The published unique-minimal-weight tree property then converts this one-step criterion into height-minimality.
+## correctness
 
-Second, the arithmetic count is exact: with \(n=a+1\), every exceptional pair corresponds to a divisor \(d\mid n^2\) with \(n<d\le N\). Pairing \(d\) with \(m=n^2/d\) gives \(md\) square and \(m<d\). Writing the common squarefree part as \(s\) gives the unique representation \(m=sv^2\), \(d=su^2\), and hence the binomial sum over \(1\le v<u\le\lfloor\sqrt{N/s}\rfloor\).
+PASS
 
-`verify.py` checks these equivalences with exact integer arithmetic. It compares direct mutation enumeration, the divisor formulation, and the squarefree formula for every \(2\le N<80\) and for \(N=100,200,500\). It also directly tests every allowed coordinate mutation for well-formed \(\mathbb P(1,a,b)\) with \(b<120\), confirming that the stated condition is exactly the condition for a strict height decrease.
+The local mutation criterion was checked against the primary source and the arithmetic proof was independently reconstructed. With \(n=a+1\) and \(d=b\), every descending pair corresponds bijectively to \(m=n^2/d<d\le N\) with \(md\) a square; writing \(m=sv^2\), \(d=su^2\) with squarefree \(s\) gives the stated binomial summation. The error from replacing the floor-square term by \(N/s\) is \(O(N)\), and the standard squarefree harmonic sum gives the coefficient \(3/\pi^2\). Independent exact enumeration matched the formula at several \(N\), including 100 and 200.
 
-The script's bounded checks do not prove the asymptotic. The infinite proof uses the displayed bijection together with the classical estimates
-\[
-\sum_{s\le N}\frac{\mu^2(s)}s=\frac6{\pi^2}\log N+O(1)
-\]
-and
-\[
-\sum_{m\le N}\varphi(m)=\frac3{\pi^2}N^2+O(N\log N).
-\]
-No independent audit has been performed.
+## originality
+
+PASS
+
+The closest primary source completely supplies the one-step mutation and height-tree input, but not the family-wide count. The audited statement adds a nontrivial square-product bijection that converts descending mutations into pairs with a common squarefree part, then sums those pairs to obtain the exact formula and leading asymptotic. Fresh Resultary and web searches found the audited record itself but no earlier exact count or density theorem. This is not merely the local mutation criterion restated with different notation.
+
+## value
+
+PASS
+
+The claim answers a natural prevalence question for height-minimal toric models in the simplest genuine two-parameter weighted-projective family. It gives both an exact count and an asymptotic law, rather than an arbitrary finite slice or a restatement of the local mutation rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
