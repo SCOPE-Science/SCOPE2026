@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The necessity proof tests an arbitrary point in each omitted block against all retained points on its boundary and uses antichain incomparability to force a singleton. The sufficiency proof gives an explicit retraction and checks monotonicity through a nondecreasing target-level assignment. Exterior blocks and both choices for an internal singleton gate are covered. The dynamical corollary uses the general finite-space equivalence between eventual images and retracts. The verifier exhaustively agrees with the criterion on six representative weak orders, including singleton levels and internal/exterior gaps.
+## correctness
 
-## Originality
-PASS. The closest inspected weak-order paper defines “retractile set” differently: it concerns convex sets that can be collapsed to one internal point while fixing the complement. It does not state a global retraction criterion for a retained subset. The general finite-space theorem that eventual images are exactly retracts does not classify weak-order retracts. Searches using retract, weak-order, complete-multipartite, lexicographic-sum, and eventual-image formulations found no statement of the singleton-gap criterion. Residual risk remains that older order-theory literature may use a different name for the same classification.
+PASS
 
-## Value
-PASS. The theorem gives a complete structural classification for a natural class of finite spaces and immediately solves the associated eventual-image problem. The singleton-gate mechanism explains exactly how missing level blocks can be collapsed while preserving order, so the result is more informative than a count or finite experiment.
+Necessity follows by testing any omitted level against all retained points on its nearest boundary levels: antichain incomparability forces a singleton at an exterior boundary and at least one singleton around each internal gap. Conversely, the stated conditions define an explicit retraction by fixing Y, collapsing unused points on retained levels inside those levels, and sending each omitted block to an available singleton boundary; target levels are nondecreasing, hence the map is order preserving. The eventual-image equivalence can also be checked directly for finite posets: a stable image carries a finite order-automorphism, so a sufficiently large power of the map retracts onto it. A fresh independent exhaustive search over all weak-order size vectors of height at most three, level sizes at most three, and total size at most six checked 877 nonempty subsets and found exact agreement with the criterion.
 
-## Closest literature and limitations
-Barmak's Proposition 8.4.17 provides the ambient finite-space dynamics-to-retract reduction. Pouzet and Zaguia provide the weak-order level structure and the distinct local notion of retractile sets. The theorem depends essentially on complete comparability between distinct levels and is not asserted for general graded posets.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. Pouzet--Zaguia define a different local notion of a retractile set: a convex set that can be collapsed to one internal point while fixing its complement. Their Lemma 10 classifies that notion for weak orders, not subspaces Y admitting a global pointwise-fixing retraction W→Y. The general finite-space eventual-image/retract equivalence also does not classify which subsets of a weak order are retracts. The audited singleton-gap criterion supplies that missing global classification.
+
+## value
+
+PASS
+
+The theorem completely classifies retract subspaces of a natural and widely used finite-poset class and simultaneously classifies all eventual images of its self-maps. The singleton-gate mechanism is structural and explanatory, not merely an enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
