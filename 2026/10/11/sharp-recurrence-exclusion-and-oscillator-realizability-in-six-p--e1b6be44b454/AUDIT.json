@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For the six-coefficient real polynomial jerk with b4!=0, direct differentiation gives dot P=b4*x^2+(b5-b8)*y^2. When b4*(b5-b8)>=0, sP is nondecreasing for s=sign(b4). Bounded forward orbits have compact invariant omega-limits where P is constant and x must vanish identically, forcing y=z=0 by the original differential equations. Two-sided bounded orbits also have trivial alpha-limit, and monotonicity eliminates nonconstant such orbits. For compact invariant measures, integrating the generator identity and invariance gives the unique equilibrium mass on the closed cone or the stated exact second-moment ratio in the opposite cone. When b4*(b5-b8)<0, the coefficient choices b2=b4/(b5-b8), b3=b5=b7=0, b8=-(b5-b8) make z=-omega^2*x invariant and yield harmonic cycles for every amplitude. The attached CHECK.py executes exact symbolic assertions for P, oscillator solutions and all nine published table signs. No numerical experiment supplies an infinite-time proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wei et al. (2015) Eq. (3) gives a larger general quadratic polynomial class, but the paper's results for simplified Eq. (4) are numerical examples and equilibrium spectra, not a general rigidity principle.",
+        "The published theorem on a hyperbolic-sine jerk recurrence threshold addresses a different non-polynomial force; the published forcing-activity coboundary for a fourth-order flow also addresses another vector field."
+      ],
+      "reasoning": "Although the 2015 article defines a larger class, defining an encompassing family is not a theorem with broader conclusions. The 2021 analytic nonchaos sector is a separate family not containing the present one with b4!=0. A general technique (finding monotone observables) does not imply this specific exact observable or its coefficient-uniform if-and-only-if realizability boundary.",
+      "searches": [
+        "quadratic jerk bounded recurrence global nonchaotic parameter coefficient theorem",
+        "global convergence nine nonhyperbolic equilibrium jerk flows boundary parameter b5=b8",
+        "Wei Sprott Chen 2015 global analytic first integral periodic orbits"
+      ]
+    },
+    "checked_sources": [
+      "Wei–Sprott–Chen (2015), Physics Letters A 379:2184–2187, DOI:10.1016/j.physleta.2015.06.040 (full text)",
+      "Liu–Sang–Wang–Ahmad (2021), Axioms 10:227, DOI:10.3390/axioms10030227 (relevant full-text sections)",
+      "Wei–Zhang–Yao (2015), Nonlinear Dynamics 82:1251–1258, DOI:10.1007/s11071-015-2230-y (abstract only)",
+      "Published research summary: A sharp compact-recurrence threshold for a hyperbolic-sine jerk flow (different nonlinear force)",
+      "Published research summary: Exact forcing–activity coboundary for a non-equilibrium fourth-order flow (different state dimension)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wei–Sprott–Chen (2015) establishes the object and numerical samples but does not provide a universal necessary sign condition, let alone the closed boundary or sufficient oscillator realization for prescribed b4 and b5-b8.",
+        "Liu–Sang–Wang–Ahmad (2021) proves a different equation's nonchaos condition (its Eq. (16) and Theorem 2), with linear position and quadratic acceleration terms, so its statement cannot be specialized to the b4!=0 family by merely matching symbols.",
+        "Wei–Zhang–Yao, Nonlinear Dynamics 82 (2015), public abstract describes a zero-Hopf periodic-orbit bifurcation in a particular equation; full comparison remained inaccessible."
+      ],
+      "reasoning": "The proposed claim includes a closed semialgebraic coefficient region for all six-parameter members, a strong global conclusion for each bounded orbit and compact invariant set, and opposite-sign realizability for every prescribed coefficient pair. The 2015 numerical examples, a 2021 different-family nonchaos theorem, and the available 2015 abstract do not presently imply that conjunction. Because one full text is unavailable, historical priority cannot be certified; its possible broader contents are explicitly recorded as residual risk.",
+      "searches": [
+        "On the periodic orbit bifurcating from one single non-hyperbolic equilibrium in a chaotic jerk system Wei Zhang Yao 2015",
+        "Chaotic Dynamics by Some Quadratic Jerk Systems Theorem 2 nonchaotic polynomial",
+        "six parameter quadratic jerk exact monotone b4 b5 b8 compact recurrent sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wei, Sprott, Chen, Physics Letters A 379 (2015), Eq. (4), defines the exact six-coefficient jerk but Sections 2–3 supply equilibrium classification and numerically detected model types, not the displayed global polynomial identity or sharp cone.",
+        "Liu et al., Axioms 10 (2021), Theorem 2 and Eq. (21), constructs a monotone polynomial for a distinct third-order equation with linear position term and acceleration-square term."
+      ],
+      "reasoning": "We compared the claim under jerk notation (third derivative), coordinate notation (x,y,z), coefficient aliases, polynomial coboundaries, sign-cone inequalities, and compact invariant-measure formulations. The source introduced the exact object; its numerical examples do not imply a uniform exclusion theorem. The 2021 model lacks the defining b4*x^2 nonlinearity and has a different equilibrium type, so its theorem is not a dominating special-case result for this six-parameter class. Failed exact-phrase searches are not treated as novelty proof.",
+      "searches": [
+        "Elementary quadratic chaotic flows single non-hyperbolic equilibrium polynomial Lyapunov monotone",
+        "quadratic jerk six parameter Wei Sprott Chen dot P equals b4 x squared plus (b5 minus b8) y squared",
+        "b5-b8 b4 no periodic orbits jerk global LaSalle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wei et al. (2015), Table 1, lists nine concrete coefficient choices A–I. CHECK.py substitutes all nine and finds b4*(b5-b8)<0 each time.",
+        "No exact stationary moment ratios, uniform sign-obstruction table, or opposite-cone oscillator witness is supplied in the inspected Table 1 or surrounding analysis."
+      ],
+      "reasoning": "A table of nine examples in the permissible sign region cannot imply that every equation in the closed complementary sign cone excludes bounded recurrence. The table is used solely as an independent consistency check, not as an enumeration of the entire parameter space or proof of novelty.",
+      "searches": [
+        "nine elementary quadratic chaotic jerk models A B C D E F G H I 2015 coefficients",
+        "Wei Sprott Chen Table 1 quadratic jerk b4 b5 b8 stationary RMS",
+        "nonhyperbolic nine jerk types exact stationary mean square ratio"
+      ]
+    },
+    "rationale": "The full original Wei–Sprott–Chen (2015) paper defines this exact six-parameter class but reports numerical examples/equilibrium spectra, not a globally sharp coefficient-uniform compact-recurrence exclusion with bounded-orbit convergence, unique compact invariant measure on its closed boundary, moment law in its complement, and oscillator witnesses. Liu–Sang–Wang–Ahmad (2021) uses a related monotone polynomial for a different jerk model with a linear position force and acceleration-square term, and hence does not imply the present theorem. Published analogous compact-recurrence barriers for other flows concern inequivalent equations. A 2015 single-system zero-Hopf paper was abstract-only, so the historical comparison has residual uncertainty.",
+    "residual_risks": [
+      "A plausible same-year paper about zero-Hopf bifurcation in one nonhyperbolic jerk equation was only available in abstract; a stronger theorem hidden in its full text cannot be excluded without lawful access.",
+      "Unindexed historical dynamical-systems literature might include an equivalent integrating-factor/coboundary or sign-cone criterion despite the source and alias searches.",
+      "The published comparable research summaries establish only different-force or different-dimensional claims; no independence or novelty certification is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_NOT_COVERING_NEW_CLAIM: introduces the precise class and numerical cases without the six-coefficient monotonic polynomial, global closed-cone convergence and unique-measure theorem, or opposite-sign oscillator-family sharpness",
+        "evidence": "2015 paper Eq. (4), Table 1, pp. 2185–2187; article states Available online 22 June 2015.",
+        "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper437.pdf",
+        "material_read": "Entire four-page article including pages 1–4, Eqs. (1)–(5), Table 1, and conclusions; the table also inspected visually",
+        "method": "Lawful full author-archive PDF, extracted text and page image",
+        "title": "Elementary quadratic chaotic flows with a single non-hyperbolic equilibrium",
+        "trigger": "Exact source of the six-coefficient jerk equations, nine model cases, and earliest verified public source date"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: studied equation has a linear x force and an acceleration-square nonlinear term; its monotonic exclusion is not a universal condition for Eq. (4) with b4!=0",
+        "evidence": "Axioms 2021 10:227 Sec. 4 Theorem 2, Eq. (21) and Remark 1.",
+        "identifier_or_url": "https://doi.org/10.3390/axioms10030227",
+        "material_read": "Equation (16), Section 4 Theorem 2 and its proof Eqs. (19)–(21), Remark 1, and bibliography",
+        "method": "Legible publicly available full-text article reproduction, inspected exact relevant equations and theorem proof",
+        "title": "Chaotic Dynamics by Some Quadratic Jerk Systems",
+        "trigger": "Similar name and monotone-polynomial nonchaos method for a jerk system"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK: the abstract proves a zero-Hopf periodic-orbit bifurcation for a particular jerk system; cannot make a full-text noncoverage assertion",
+        "evidence": "Nonlinear Dynamics 82 (2015), 1251–1258, DOI and publicly available abstract; absence of full material restricts the implication comparison.",
+        "identifier_or_url": "https://doi.org/10.1007/s11071-015-2230-y",
+        "material_read": "Public abstract and bibliographic record only; full body inaccessible",
+        "method": "Searched arXiv and legal open-access/full-text avenues; the publicly available record did not expose full paper",
+        "title": "On the periodic orbit bifurcating from one single non-hyperbolic equilibrium in a chaotic jerk system",
+        "trigger": "Same-year nonhyperbolic jerk dynamics and periodic orbit, potentially adjacent to a sharp recurrence boundary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1b6be44-b454-4da5-a80d-e7051c983bab",
+  "value": {
+    "rationale": "The 2015 six-coefficient jerk classification illustrates nine numerical chaotic regimes with a unique nonhyperbolic equilibrium but provides no exact global parameter barrier for compact recurrence. The theorem gives a closed sharp sign cone valid independently of the other four coefficients, proves convergence of every bounded forward orbit on that cone, excludes every nontrivial compact full invariant set, and classifies its stationary probabilities. For each opposite-sign coefficient pair it gives an explicit continuum of harmonic periodic witnesses, proving coefficient-uniform sharpness; outside the cone it fixes an exact mean-square ratio for invariant measures, providing an objective check on chaotic simulations. This parameter-sharp family-level dynamical dichotomy is mathematically motivated by the published search for chaotic coefficient regimes, not an arbitrary slice or merely an algebraic identity. It does not claim existence of chaos or all-orbit boundedness.",
+    "status": "PASS"
+  }
+}
