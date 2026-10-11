@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:42:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree e8c55e405b7f2b20b04819caa02dedcdc8510afa",
+        "Hasanalizade 2023 full open-access article",
+        "Ren--Chen 2013 classification as stated in Hasanalizade and publisher metadata",
+        "Ljunggren theorem as reproduced in Hasanalizade"
+      ],
+      "rationale": "The proof correctly starts from the published exhaustive A/B/C-plus-40 classification of near-perfect numbers with two prime factors. Because an even base makes the repunit factor odd, Type A forces that factor to be either the Mersenne prime or its square; the single-prime option violates the digit bound, while the square option and Ljunggren's repunit-square theorem exclude every length above two. Type B makes the digit too large. Type C forces the odd repunit factor to equal its odd prime; if length were at least three, \\(U_n>g^2>a^2=2^{2t-2}\\ge2^t>q\\), contradiction. The isolated 40 is excluded directly. Substitution proves both converse families, and the package verifier correctly supplies only finite regression checks.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ren--Chen classifies all two-prime near-perfect numbers into the structural types used as input.",
+          "Hasanalizade combines that classification with repdigit methods only for small bases."
+        ],
+        "reasoning": "The broader two-prime classification is an ingredient, not a repdigit classification for arbitrary even base; the new parity/size argument is required.",
+        "searches": [
+          "Ren--Chen DOI 10.1017/S0004972713000178",
+          "Hasanalizade DOI 10.1017/S0004972723000072"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1017/S0004972723000072",
+        "DOI 10.1017/S0004972713000178",
+        "Ljunggren repunit-square theorem as reproduced in the primary predecessor",
+        "Resultary semantic corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem has a finite base hypothesis and does not state the two symbolic even-base families.",
+          "The audited proof shows the odd repunit factor must occupy the odd-prime part of the Ren--Chen types and then eliminates all lengths above two."
+        ],
+        "reasoning": "The final theorem is not obtained by merely substituting an even base into the published small-base result.",
+        "searches": [
+          "Hasanalizade Theorem 1.3 versus audited parity reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact semantic hit is the assigned theorem.",
+          "Hasanalizade Theorem 1.3 states only \\(2\\le g\\le10\\), while the audited theorem covers every even base."
+        ],
+        "reasoning": "Equivalent formulations using repdigits, identical digits, repunit factors, and even bases were compared.",
+        "searches": [
+          "Resultary: \"repdigit near-perfect even base two distinct prime factors classification\"",
+          "web: near-perfect repdigit all even bases",
+          "Hasanalizade Theorem 1.3 full-text inspection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known examples such as 18 in base 8 and 88 in base 10 are finite instances, not the symbolic all-even-base families."
+        ],
+        "reasoning": "No exact table/database implies the all-even-base classification.",
+        "searches": [
+          "Hasanalizade small-base list",
+          "Resultary exact-family searches"
+        ]
+      },
+      "rationale": "Hasanalizade's primary full text studies the same repdigit question but Theorem 1.3 is explicitly restricted to bases \\(2\\le g\\le10\\). It also records Ren--Chen's exhaustive two-prime near-perfect classification. The audited parity argument removes the base bound for the infinite natural subclass of all even bases and gives exact symbolic families; fresh Resultary searches found no prior all-even-base theorem.",
+      "residual_risks": [
+        "An equivalent all-even-base theorem could exist under different terminology in an unindexed source, but the direct predecessor and the structural classification were checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING only; its repdigit theorem is restricted to bases 2 through 10.",
+          "evidence": "Theorem 1.3 explicitly assumes \\(2\\le g\\le10\\).",
+          "identifier_or_url": "DOI 10.1017/S0004972723000072 / arXiv:2206.10353",
+          "material_read": "Full open-access article, including the introduction, Theorem 1.3, preliminary perfect-power theorem, and repdigit argument.",
+          "method": "Full-text coverage and implication comparison.",
+          "title": "On near-perfect numbers of special forms",
+          "trigger": "Direct primary predecessor studying repdigit near-perfect numbers."
+        },
+        {
+          "assessment": "FOUNDATIONAL but not covering the even-base repdigit classification.",
+          "evidence": "The structural theorem classifies two-prime near-perfect numbers without imposing a repdigit base.",
+          "identifier_or_url": "DOI 10.1017/S0004972713000178",
+          "material_read": "Publisher metadata/abstract plus the exact A/B/C+40 theorem restatement in Hasanalizade's full primary article.",
+          "method": "Cross-source theorem verification.",
+          "title": "On near-perfect numbers with two distinct prime factors",
+          "trigger": "Exhaustive structural input for all two-prime near-perfect numbers."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hasanalizade 2023",
+        "Ren--Chen 2013"
+      ],
+      "rationale": "Repdigit near-perfect numbers are an established research object, and extending a finite-base theorem to every even base while obtaining an exhaustive parametric classification is a natural structural advance. The result explains exactly why two of the four general two-prime types cannot occur and why all surviving repdigits have two digits.",
+      "residual_risks": [
+        "Odd bases and three-or-more-prime-factor repdigits remain open outside the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every even base \\(g\\), any near-perfect repdigit \\(N=a(1+g+\\cdots+g^{n-1})\\) with \\(n\\ge2\\) and exactly two distinct prime factors has \\(n=2\\), and it belongs exactly to one of two explicit families: the Type-A Mersenne-square family \\(g=(2^p-1)^2-1, a=2^{p-1}\\), or the Type-C family \\(g+1=2^t-2^k-1\\) prime with \\(a=2^{t-1}\\) and the stated digit inequality.",
+  "limitations": [
+    "Odd bases are not covered.",
+    "The classification assumes exactly two distinct prime factors."
+  ],
+  "schema_version": 1
+}

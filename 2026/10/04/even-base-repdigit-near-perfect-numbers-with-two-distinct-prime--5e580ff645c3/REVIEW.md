@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the published exhaustive two-prime near-perfect classification, then exploits the fact that the repunit factor \(U_n\) is odd in every even base. This forces the odd prime support into \(U_n\), eliminates Type B immediately, reduces Type A to the classical Ljunggren repunit-square theorem, and reduces Type C to a one-line size contradiction for lengths at least three. The isolated number \(40\) is checked separately. The converse families are verified by direct substitution. The packaged program independently checks the formulas and exhausts a finite regression box.
+## correctness
 
-## Originality
-PASS. The closest source is Hasanalizade's Theorem 1.3, which is explicitly restricted to bases \(2\le g\le10\). The new theorem covers every even base and gives exact parametric families rather than just a digit-length bound. published-finding corpus, exact web, and source-specific searches found no statement with this implication coverage.
+PASS
 
-## Value
-PASS. Repdigit near-perfect numbers are a named object in the focal paper, and the published theorem leaves the base range bounded. The all-even-base extension removes that restriction for an infinite natural class of bases and explains the surviving structures completely.
+The proof correctly starts from the published exhaustive A/B/C-plus-40 classification of near-perfect numbers with two prime factors. Because an even base makes the repunit factor odd, Type A forces that factor to be either the Mersenne prime or its square; the single-prime option violates the digit bound, while the square option and Ljunggren's repunit-square theorem exclude every length above two. Type B makes the digit too large. Type C forces the odd repunit factor to equal its odd prime; if length were at least three, \(U_n>g^2>a^2=2^{2t-2}\ge2^t>q\), contradiction. The isolated 40 is excluded directly. Substitution proves both converse families, and the package verifier correctly supplies only finite regression checks.
 
-## Closest literature and limitations
-The result relies on Ren--Chen's classification of two-prime near-perfect numbers and on Ljunggren's repunit perfect-power theorem, both already used or restated in the focal literature. It does not classify odd bases or repdigits with more than two distinct prime factors.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hasanalizade's primary full text studies the same repdigit question but Theorem 1.3 is explicitly restricted to bases \(2\le g\le10\). It also records Ren--Chen's exhaustive two-prime near-perfect classification. The audited parity argument removes the base bound for the infinite natural subclass of all even bases and gives exact symbolic families; fresh Resultary searches found no prior all-even-base theorem.
+
+## value
+
+PASS
+
+Repdigit near-perfect numbers are an established research object, and extending a finite-base theorem to every even base while obtaining an exhaustive parametric classification is a natural structural advance. The result explains exactly why two of the four general two-prime types cannot occur and why all surviving repdigits have two digits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
