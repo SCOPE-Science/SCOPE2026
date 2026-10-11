@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,40 +19,24 @@
 }
 ---
 
-`verify_telegraph_transition_count.py` evaluates
-\[
-\Lambda(\nu)
-=
-e^{-\nu}
-\left[
-\cos(\mu\nu)+\frac{\sin(\mu\nu)}{\mu}
-\right]
-\]
-directly.
+# Independent mathematical audit
 
-The script checks the derivative identity and the exact absolute maxima
-\[
-|\Lambda(n\pi/\mu)|=e^{-n\pi/\mu}.
-\]
-For deterministic \((\mu,\rho)\) grids it independently bisects every sign-changing solution of
-\[
-|\Lambda(\nu)|-\rho=0
-\]
-on each lobe and compares that root count with
-\[
-2\left\lceil
-\frac{\mu}{\pi}\log\!\frac1\rho
-\right\rceil-1.
-\]
+## correctness
 
-Separate exact-boundary cases set
-\[
-\rho=e^{-m\pi/\mu}
-\]
-and confirm that the equality at the \(m\)-th maximum is a tangency rather than an additional transition pair.
+PASS
 
-The two parameter sets plotted in the source are also replayed and give total counts \(3\) and \(7\).
+The transition equation is \(|\Lambda(\nu)|=\rho\), where \(\rho=\sqrt{|c_3|/M}\). Differentiation gives stationary points \(n\pi/\mu\) with lobe heights \(e^{-n\pi/\mu}\). The initial lobe contributes one crossing and each later lobe contributes two exactly when its height exceeds \(\rho\); equality is a tangency. Counting positive integers \(n<A\) gives the ceiling formula. The frozen checker was read and verifies derivative, lobe envelope, tangencies and source examples on bounded grids; the theorem is analytic.
 
-The finite replay is supplementary. The exact count is proved analytically in `RESULT.md`.
+## originality
 
-No independent audit has been performed.
+PASS
+
+Accessible primary and review literature establish the same random-telegraph Bell-diagonal mechanism and multiple sudden transitions, but no inspected source counts every crossing over the full half-line. The 2025 same-topic paper's accessible material discusses parameter-dependent transition timing and multiple transitions without an all-time ceiling law. Institutional retrieval of the 2011 source required human verification and was not bypassed.
+
+## value
+
+PASS
+
+Repeated sudden transitions are a defining non-Markovian feature of this model. The theorem converts that qualitative mechanism into an exact all-time count, sharp memory thresholds and an asymptotic growth law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

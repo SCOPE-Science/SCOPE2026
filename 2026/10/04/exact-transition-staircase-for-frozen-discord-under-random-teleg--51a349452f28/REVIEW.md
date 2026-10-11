@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source reduces every sudden transition in the third Bell-diagonal regime to a crossing between \(M\Lambda(\nu)^2\) and the constant \(|c_3|\). The random-telegraph damping function has derivative proportional to \(-e^{-\nu}\sin(\mu\nu)\), so its noninitial absolute maxima occur exactly at \(\nu=n\pi/\mu\) with heights \(e^{-n\pi/\mu}\), and consecutive maxima are separated by zeros. This makes every later lobe contribute either two crossings, one nongenuine tangency, or none. Counting the lobes above threshold proves \(N_{\mathrm{st}}=2\lceil A\rceil-1\). A standalone checker independently bisects all crossings and verifies the tangency convention.
+PASS
 
-## Originality
+The transition equation is \(|\Lambda(\nu)|=\rho\), where \(\rho=\sqrt{|c_3|/M}\). Differentiation gives stationary points \(n\pi/\mu\) with lobe heights \(e^{-n\pi/\mu}\). The initial lobe contributes one crossing and each later lobe contributes two exactly when its height exceeds \(\rho\); equality is a tangency. Counting positive integers \(n<A\) gives the ceiling formula. The frozen checker was read and verifies derivative, lobe envelope, tangencies and source examples on bounded grids; the theorem is analytic.
 
-**PASS, narrowly scoped.** The 2011 full text and the 2017 review both describe repeated sudden transitions qualitatively and through plots, but neither inspected source gives an all-time count, a ceiling formula, or sharp environmental thresholds for the appearance of successive transition pairs. Daffer's earlier paper supplies the damping law but predates the discord application. Targeted semantic and literature searches for the equivalent envelope, crossing count, and staircase law did not locate coverage.
+## originality
 
-The 2025 closely related paper is a residual risk because only its publisher preview and figure captions were accessible; those materials show parameter-dependent transition times but do not expose the accepted count formula.
+PASS
 
-## Value
+Accessible primary and review literature establish the same random-telegraph Bell-diagonal mechanism and multiple sudden transitions, but no inspected source counts every crossing over the full half-line. The 2025 same-topic paper's accessible material discusses parameter-dependent transition timing and multiple transitions without an all-time ceiling law. Institutional retrieval of the 2011 source required human verification and was not bypassed.
 
-**PASS.** Multiple sudden transitions are a central non-Markovian feature emphasized by the source, and the number visible in a finite plot is not the total number over time. The exact staircase determines, from reservoir memory and initial-state geometry alone, how many genuine phase exchanges occur and gives a sharp design threshold for each additional pair. This is a structural classification rather than a routine recomputation of a plotted crossing.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Repeated sudden transitions are a defining non-Markovian feature of this model. The theorem converts that qualitative mechanism into an exact all-time count, sharp memory thresholds and an asymptotic growth law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
