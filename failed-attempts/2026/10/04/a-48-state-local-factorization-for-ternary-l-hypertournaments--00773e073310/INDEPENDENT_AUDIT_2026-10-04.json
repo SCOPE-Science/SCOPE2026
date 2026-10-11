@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T09:19:58.249447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For one unordered triple, the six ordered enumerations form \\(S_3\\), split into the two cosets of \\(A_3\\). Definition 7.2 makes the truth set nonempty and forbids either cyclic coset from being wholly true. Thus each coset contributes \\(1+3z+3z^2\\), with the global empty choice removed, giving \\(Q(z)=6z+15z^2+18z^3+9z^4\\) and \\(48\\) local states. The source axioms are triple-local, so free amalgamation gives independent choices on different triples; the stated labeled-age, tuple-orbit, and one-point-extension formulas then follow. The inspected verifier exhausts all \\(64\\) truth sets and independently confirms the direct-axiom/parity-coset equivalence and coefficients.",
+      "risks": [
+        "The claim is for the explicitly irreflexive ternary specialization only; repeated-coordinate behavior is excluded by assumption."
+      ],
+      "sources": [
+        "assigned RESULT.md blob 079bf3de368712707517079b0f6d9c137f540b97",
+        "artifacts/verify.py blob e745d3e2cd41aaf12037635f1e280736f17a1c6a",
+        "Huang–Pawliuk–Sabok–Wise, Definition 7.2, arXiv:1809.06435 / DOI 10.1112/jlms.12244"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The axioms impose no cross-triple constraint in this specialization, so the global enumerators factor over unordered triples."
+        ],
+        "reasoning": "The downstream age and orbit formulas are mechanically determined by the local-state count and standard homogeneity, rather than a stronger independent theorem.",
+        "searches": [
+          "Huang–Pawliuk–Sabok–Wise full text",
+          "standard Fraïssé free-amalgamation orbit bookkeeping"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1809.06435",
+        "DOI 10.1112/jlms.12244",
+        "Cherlin–Hubička–Konečný–Nešetřil arXiv:2105.12368",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonempty plus neither parity coset full gives \\((1+3z+3z^2)^2-1\\) immediately; multiplying over triples and taking Stirling transforms are routine consequences."
+        ],
+        "reasoning": "Every originality-bearing assertion is a short corollary of already-published definitions and standard machinery.",
+        "searches": [
+          "statement-by-statement implication from Definition 7.2 and the free-amalgamation construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source definition says every injective ordered triple can be permuted to a true relation instance and forbids a full cyclic triple for every coordinate permutation.",
+          "For arity three those cyclic triples are exactly the two cosets of \\(A_3\\) in \\(S_3\\)."
+        ],
+        "reasoning": "The purported new local-state theorem is equivalent to counting nonempty subsets of \\(S_3\\) that do not contain either \\(A_3\\)-coset.",
+        "searches": [
+          "Resultary semantic search: ternary L-hypertournament 48 local states orbit profile",
+          "Huang–Pawliuk–Sabok–Wise Definition 7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent table is needed to decide coverage; the prior definition itself determines the finite local state space."
+        ],
+        "reasoning": "This is not a database/table novelty question; direct implication is decisive.",
+        "searches": [
+          "Resultary current corpus for L-hypertournament counts"
+        ]
+      },
+      "rationale": "The final mathematical content is mechanically implied by the prior definition plus standard finite-group and free-amalgamation bookkeeping. The primary source already gives exactly the two ternary axioms; for arity three, cyclic rotations are precisely the two \\(A_3\\)-cosets in \\(S_3\\), so the count \\(48\\) is an immediate finite unpacking. Once that local count is known, the age enumerator and orbit formulas are standard consequences of independent local choices and homogeneity. Exact wording and the number \\(48\\) need not have appeared previously for this implication-based coverage to apply.",
+      "residual_risks": [
+        "The term hypertournament has multiple conventions, but that terminological risk does not alter the implication from the exact source definition used here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING by mechanical implication for the ternary local count.",
+          "evidence": "Definition 7.2 supplies precisely the nonempty/permutability clause and the cyclic-triple exclusion from which the two-coset count follows.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.06435",
+          "material_read": "Full relevant definition section, including Definition 7.2 and the cyclic-rotation convention.",
+          "method": "Primary-text definition and implication comparison.",
+          "title": "The Hrushovski property for hypertournaments and profinite topologies",
+          "trigger": "Primary source defining the exact \\(L\\)-hypertournament used by the claim."
+        },
+        {
+          "assessment": "Correct corroboration.",
+          "evidence": "The program tests all \\(2^6\\) truth sets directly against the source axioms and obtains \\(48\\) states with size distribution \\(6,15,18,9\\).",
+          "identifier_or_url": "artifacts/verify.py",
+          "material_read": "Complete source.",
+          "method": "Line-by-line inspection.",
+          "title": "Assigned exhaustive local verifier",
+          "trigger": "Finite local count."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Although the count is correct and may be a useful clarification of terminology, the final package is a routine finite unpacking of a published definition followed by standard free-amalgamation and orbit-counting formulas. Under the stated value bar, it does not supply a new structural lemma, motivated boundary, or independently nonmechanical invariant.",
+      "risks": [
+        "Pedagogical usefulness is not sufficient for the scientific-value threshold."
+      ],
+      "sources": [
+        "Huang–Pawliuk–Sabok–Wise Definition 7.2",
+        "assigned \\(S_3/A_3\\) counting argument"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is for implication-based originality and value, not correctness.",
+    "The claim is restricted to an explicitly irreflexive ternary specialization.",
+    "No conclusion about higher arities is audited."
+  ],
+  "schema_version": 1
+}
