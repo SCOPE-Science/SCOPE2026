@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact verifier reconstructs the defining polynomial over \(\mathbb Q(\sqrt5)\) from rational pairs, verifies that the conic matrix has determinant \(-32\), checks the three perfect-square restrictions to the coordinate lines, checks the three conic incidences and six avoidances used in the singularity census, and constructs the Jacobian partial derivatives.
+# Independent mathematical audit
 
-For degree-four syzygies it builds the exact coefficient map \(S_4^3\to S_{11}\). The matrix has \(78\) rows and \(45\) columns and exact rank \(42\), so its kernel has dimension \(3\). This proves the upper bound \(\operatorname{mdr}(F)\le4\). The matching lower bound \(\operatorname{mdr}(F)\ge4\) is external mathematical input from Gałecka Proposition 4.1 and is not claimed to be reproved computationally.
+## correctness
 
-The script also checks \(\tau=36\) from the singularity counts and the identity \(4^2-4\cdot7+7^2=37=\tau+1\). The geometric argument that these are all singularities uses the explicit line-incidence list, smoothness of the conic, transverse/simple restrictions on the noncoordinate lines, and Bézout.
+PASS
+
+The geometric incidence proof accounts for all line-line and line-conic intersections and uses Bézout to exclude extras. Gałecka's Proposition 4.1 gives \(\operatorname{mdr}\ge(2/3)m-2\), hence \(\operatorname{mdr}\ge4\) at degree eight, and Theorem 3.2 gives the near-freeness numerical criterion. An independent exact \(\mathbb Q(\sqrt5)\) reconstruction of the degree-four Jacobian map produced the same \(78\times45\) matrix rank \(42\), hence a three-dimensional kernel and \(\operatorname{mdr}\le4\). With three nodes, three tacnodes and six triple points, \(\tau=3+9+24=36\), and \(4^2-4\cdot7+7^2=37=\tau+1\).
+
+## originality
+
+PASS
+
+Gałecka's full article explicitly states that examples exist in degrees three through seven, proves nonexistence in degrees ten through twelve, and says degrees eight and nine remain to be decided. The assigned construction supplies degree eight with the same allowed singularity class. Resultary searches did not locate a prior degree-eight example with this singularity vector and nearly-free property.
+
+## value
+
+PASS
+
+This supplies an explicit exact witness for one of the two degrees singled out as unresolved in a natural classification problem. The exact \(\operatorname{mdr}\) certificate and singularity census settle genuine existence rather than merely extend a finite numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
