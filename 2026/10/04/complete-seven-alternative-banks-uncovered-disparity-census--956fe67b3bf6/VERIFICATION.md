@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,42 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_banks_uncovered_first_layer.c` performs a complete exact census of labeled tournaments of orders \(1\) through \(7\).
 
-For each tournament:
-- the uncovered set is computed from the covering relation;
-- transitivity of every vertex subset is computed by a recursive source-deletion dynamic program;
-- the Banks set is obtained from inclusion-maximal transitive subsets;
-- the inclusion \(BA(T)\subseteq UC(T)\) is checked.
+# Independent mathematical audit
 
-At order \(7\), every divergent tournament is additionally canonicalized under all \(7!\) permutations of the alternatives.
+## correctness
 
-The verifier confirms:
-- zero Banks–uncovered disparities for orders \(1,\ldots,6\);
-- \(13440\) disparities among the \(2^{21}\) order-seven tournaments;
-- exact probability \(105/16384\);
-- strict size-pair counts \(1680,5040,5040,1680\) for \((3,4),(4,5),(5,6),(6,7)\);
-- exactly four divergent isomorphism classes;
-- class orbit sizes \(1680,5040,5040,1680\), one for each strict size pair.
+PASS
 
-Compile and run:
+An independent C implementation exhaustively enumerated all 2^21 labeled seven-vertex tournaments using the standard Banks maximal-transitive-subtournament definition and uncovered-set covering relation. It reproduced the full joint size histogram, exactly 13,440 strict BA subset UC cases, and fraction 105/16384. Canonicalizing every strict case under all 7! relabelings produced exactly four canonical representatives, with orbit sizes 5040,5040,1680,1680 and one class in each size cell (4,5),(5,6),(3,4),(6,7), agreeing with the frozen claim.
 
-`cc -O3 -std=c11 verify_banks_uncovered_first_layer.c -o verify_banks_uncovered_first_layer`
+## originality
 
-`./verify_banks_uncovered_first_layer`
+PASS
 
-The output must contain:
+The first-disparity threshold and BA subset UC inclusion are prior. Best-of-knowledge originality survives for the complete minimal-order layer: exact labeled count/probability, four strict size-pair counts, and four-isomorphism-class census. No checked source or exact search supplied those enumerative data.
 
-`VERIFY_OK`
+## value
 
-The embedded `verify_banks_uncovered_canons.py` independently reconstructs the Banks and uncovered sets for the four canonical representatives using direct tournament relations and a separate recursive transitivity implementation.
+PASS
 
-Run:
+The classification targets the first order at which two classical tournament solutions diverge and completely resolves that minimal layer, including exact probability and unlabeled types. This is a natural complete finite classification, not an arbitrary order slice.
 
-`python3 verify_banks_uncovered_canons.py`
-
-Its first output line must be:
-
-`VERIFY_OK`
-
-The computation proves the stated first-layer finite classification only.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
