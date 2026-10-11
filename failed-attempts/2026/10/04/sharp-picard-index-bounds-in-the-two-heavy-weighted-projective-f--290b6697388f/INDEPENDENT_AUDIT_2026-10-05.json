@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T22:37:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 96cfc9ef91de04d27a0d9810b8c6ad3435f6edf0",
+        "verify_picard_index_bounds.py 0b71499faf97dd1b72b7d45fa9410f7cb82022b9",
+        "same-snapshot triangular classification RESULT.md 2f011333a8976ebbc719313b464f57cc6613386e",
+        "Springer DOI:10.1007/s13348-024-00443-x"
+      ],
+      "rationale": "For a well-formed weighted projective space the hyperplane class is Cartier exactly at multiples divisible by every weight, so the Picard index here is \\(\\operatorname{lcm}(a,b)=a(a+d)/\\gcd(a,d)\\). The same-snapshot triangular classification gives \\(0\\le d\\le r,1\\le a\\le r+d\\) canonically and the strict versions terminally. Splitting off the maximal-difference boundary and using \\(\\operatorname{lcm}(a,b)\\le ab\\) proves the claimed unique maxima; at the proposed maximizers the relevant gcd is one. The inspected verifier independently checks Reid--Tai ages, the triangle conditions and the maxima for \\(2\\le r\\le60\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Together the sources provide the complete domain and exact objective function for every member of the assigned family."
+        ],
+        "reasoning": "Their combination is stronger raw information than the optimized maxima.",
+        "searches": [
+          "SCOPE triangular-classification RESULT.md 2f011333a8976ebbc719313b464f57cc6613386e",
+          "Springer Picard-index article"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE triangular-classification blob 2f011333a8976ebbc719313b464f57cc6613386e",
+        "DOI:10.1007/s13348-024-00443-x",
+        "Kasprzyk arXiv:1304.3029",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the canonical triangle, \\(d=r\\) and \\(a\\le2r\\); except the gcd-heavy endpoint \\(a=2r\\), the product bound is maximized at \\(a=2r-1\\), where gcd is one. The terminal argument is identical with shifted bounds."
+        ],
+        "reasoning": "No additional nonstandard geometric or arithmetic theorem is needed.",
+        "searches": [
+          "same-snapshot triangular theorem plus lcm Picard formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior SCOPE record exactly characterizes every feasible \\((a,b)\\).",
+          "Springer explicitly gives the lcm formula for the Picard subgroup of weighted projective space."
+        ],
+        "reasoning": "Picard index, minimal Cartier hyperplane degree and lcm of the weights are the same invariant here.",
+        "searches": [
+          "Resultary: sharp Picard index canonical terminal two-heavy weighted projective P(1^r,a,b) lcm maximum",
+          "same-snapshot triangular-classification record",
+          "Springer DOI:10.1007/s13348-024-00443-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned maximum was the direct target; the same-day Resultary corpus also contains the stronger full triangular classification."
+        ],
+        "reasoning": "The lack of a verbatim prior maximum does not restore originality when it is a routine optimization of published exact data.",
+        "searches": [
+          "Resultary exact two-heavy Picard search"
+        ]
+      },
+      "rationale": "At the exact audited repository snapshot, a previously published SCOPE result already gives the complete canonical and terminal parameter triangles for \\(\\mathbb P(1^r,a,b)\\). Springer's primary Picard-index paper states that for a weighted projective space \\(\\operatorname{Pic}=\\bigcap_i w_i\\mathbb Z=\\operatorname{lcm}(w_i)\\mathbb Z\\), including a higher-dimensional example. Combining those two stronger ingredients reduces the assigned theorem to maximizing \\(\\operatorname{lcm}(a,a+d)\\) over two explicit integer triangles, and the package proof does so using only the elementary bound lcm \\(\\le ab\\), a boundary split and gcd-one at the corner. Under the required implication-level standard this is a routine optimization of already published complete input, not an independent scientific result.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_FEASIBLE-SET_PREDECESSOR",
+          "evidence": "It gives precisely the inequalities used as the optimization domain in the assigned proof.",
+          "identifier_or_url": "SCOPE repository RESULT.md blob 2f011333a8976ebbc719313b464f57cc6613386e",
+          "material_read": "Complete RESULT.md, including the all-dimensional Reid--Tai proof and exact canonical/terminal triangles.",
+          "method": "Read-only Git blob inspection.",
+          "title": "A triangular classification of canonical and terminal two-heavy weighted projective spaces",
+          "trigger": "Same family and exact feasible region at the audited snapshot."
+        },
+        {
+          "assessment": "SUPPLIES_EXACT_OBJECTIVE_FUNCTION",
+          "evidence": "The lcm rule directly gives \\(\\iota_{\\mathrm{Pic}}(\\mathbb P(1^r,a,b))=\\operatorname{lcm}(a,b)\\).",
+          "identifier_or_url": "DOI:10.1007/s13348-024-00443-x",
+          "material_read": "Accessible Springer full-text section explaining \\(\\operatorname{Pic}(Z)=\\cap_i\\mathbb Zw_i=\\mathbb Z\\operatorname{lcm}(w_i)\\) for weighted projective spaces and a three-dimensional example.",
+          "method": "Primary full-text web inspection.",
+          "title": "The Picard index of a surface with torus action",
+          "trigger": "Primary source for the Picard-index computation by local Cartier subgroups."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "two-heavy classification record",
+        "Springer Picard-index article"
+      ],
+      "rationale": "The extremal Picard index is a natural geometric invariant and the exact maximizers across canonical/terminal families are mathematically useful. The record is rejected only because, at this snapshot, the result is too directly implied by an existing full parameter classification plus the standard lcm formula.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For \\(X=\\mathbb P(1^r,a,b)\\), \\(r\\ge2\\), the Picard index is \\(\\operatorname{lcm}(a,b)\\); over the canonical two-heavy triangle its unique maximum is \\((2r-1)(3r-1)\\) at \\((2r-1,3r-1)\\), and over the terminal triangle the unique maximum is \\(6\\) at \\((2,3)\\) for \\(r=2\\) and \\((2r-3)(3r-4)\\) at \\((2r-3,3r-4)\\) for \\(r\\ge3\\).",
+  "limitations": [
+    "Ordinary two-heavy weighted projective spaces over \\(\\mathbb C\\) only.",
+    "Rejected because the audited snapshot already contains the exact feasible triangles, while the lcm Picard formula is standard; the remaining maximization is elementary."
+  ],
+  "schema_version": 1
+}
