@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The dual Lipschitz norm is exactly coordinate oscillation, independently of the chosen base point. Every positive-definite comparison quadratic form can be averaged over all permutations, preserving its two-sided distortion inequalities. On the mean-zero hyperplane an invariant form is a scalar multiple of the centered sum of squares. The minimum and maximum of that sum on the unit-oscillation shell are respectively \(1/2\) and \(\lfloor m^2/4\rfloor/m\). The lower and upper witnesses are explicit, and duality transfers the optimum to the Lipschitz-free space. The accompanying finite exact tests check the stated boundary values and normalization but are not substituted for the proof.
+
+**Originality — PASS, subject to bibliographic risk.** The dated primary antecedent (Godard, arXiv:0904.3178v1, §3) explicitly supplies the original equilateral free-space norm, not the all-dimensional optimum Euclidean distance. Alexander et al. (arXiv:1911.10642v2, §5.2) obtain the vertices and volume product of the same unit balls, not the minimax Hilbert ellipsoid. Known hexagonal-plane and four-point computations give special cases but do not imply the dimension-uniform sharp parity formula without an additional optimization. Searches for the oscillation-norm, type-\(A\) root-polytope and complete-graph formulations identified no published theorem directly giving the general exact Euclidean distance. This is limited negative search evidence, not absolute proof of priority. A historical equivalent is possible.
+
+**Value — PASS.** The value is a natural complete invariant for the benchmark class of all finite equilateral metric spaces, in every dimension. It supplies the exact best linear Hilbert-space distortion, shows a parity transition, and identifies extremal dual Lipschitz potentials. The argument genuinely rules out arbitrary nonsymmetric ellipsoids rather than merely bounding one coordinate embedding; its exact dimension dependence has meaningful use as a uniform finite-metric comparison benchmark.
+
+The comparison concerns only the real equilateral case. No claimed result for complex scalars or general metric spaces is assessed.
+
+Same-model review: passed. Independent audit: not yet performed.
