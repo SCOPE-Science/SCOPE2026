@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the same directory as `certificate.json`.
+# Independent mathematical audit
 
-The checker regenerates the Fibonacci fixed point from \(0\mapsto01\), \(1\mapsto0\). For \(k=3\), it reconstructs \(19\) distinct length-\(18\) factors; for \(k=4\), it reconstructs \(41\) distinct length-\(40\) factors. Since the Fibonacci word is Sturmian, these counts equal the known total numbers \(18+1\) and \(40+1\), so the finite lists are exhaustive.
+## correctness
 
-For every certified factor the checker tests all relevant block lengths exactly and recomputes the minimum. It verifies the distributions
-\[
-2:8,\ 3:4,\ 4:1,\ 5:2,\ 6:4
-\]
-for \(k=3\), and
-\[
-3:4,\ 4:2,\ 5:4,\ 6:27,\ 7:2,\ 9:1,\ 10:1
-\]
-for \(k=4\). It also checks the sharp witnesses beginning at zero-based indices \(3\) and \(21\).
+PASS
 
-The computation does not independently prove that the Fibonacci word is Sturmian; that standard theorem is taken from the cited literature. Independent audit has not been performed.
+The finite-to-infinite bridge is valid because the Fibonacci word is Sturmian, hence has exactly \(N+1\) distinct factors of length \(N\). A fresh regeneration of the fixed point found exactly 19 length-18 factors and 41 length-40 factors. Exact block comparisons reproduced the claimed minimum-block histograms: for \(k=3\), \(2:8,3:4,4:1,5:2,6:4\); for \(k=4\), \(3:4,4:2,5:4,6:27,7:2,9:1,10:1\), with a unique minimum-10 factor. Therefore the finite lists are exhaustive, not stabilization heuristics, and \(R_{\mathbf f}(3)=6\), \(R_{\mathbf f}(4)=10\).
+
+## originality
+
+PASS
+
+Garg’s primary Fibonacci antipower paper proves a uniform linear upper bound, specifically a constant at most about 2.89, and uses the Sturmian framework, but it does not give exact uniform radii for \(k=3\) or \(4\). Berger--Defant formulate the broader morphic-word problem, again without these exact values. Fresh exact-number and Resultary searches found no covering statement. The exact small radii require the complete factor census rather than following from the asymptotic/general bound.
+
+## value
+
+PASS
+
+These are the first two nontrivial exact values of the uniform Fibonacci antipower radius directly motivated by the central all-index theorem. The \(k=4\) computation also isolates a unique extremal obstruction factor. Exact natural finite cutoffs of this central radius function are mathematically meaningful even without a general closed formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

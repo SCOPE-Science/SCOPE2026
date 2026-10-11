@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T00:53:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite-to-infinite bridge is valid because the Fibonacci word is Sturmian, hence has exactly \\(N+1\\) distinct factors of length \\(N\\). A fresh regeneration of the fixed point found exactly 19 length-18 factors and 41 length-40 factors. Exact block comparisons reproduced the claimed minimum-block histograms: for \\(k=3\\), \\(2:8,3:4,4:1,5:2,6:4\\); for \\(k=4\\), \\(3:4,4:2,5:4,6:27,7:2,9:1,10:1\\), with a unique minimum-10 factor. Therefore the finite lists are exhaustive, not stabilization heuristics, and \\(R_{\\mathbf f}(3)=6\\), \\(R_{\\mathbf f}(4)=10\\).",
+      "risks": [
+        "Correctness uses the standard theorem that the Fibonacci word is Sturmian with factor complexity \\(N+1\\)."
+      ],
+      "sources": [
+        "RESULT.md blob 8da555e205a5d71bfc4e4b243b90bba1ec143593",
+        "certificate.json blob 4471d3995e904e0b71f33c502ec76e2e4f88208c",
+        "Fresh independent Fibonacci-factor enumeration"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garg Theorem 6 gives a universal linear bound for every \\(k\\) and index of the Fibonacci word, not exact small-\\(k\\) radii.",
+          "Berger--Defant supply the broad conjectural framework and general antipower existence results."
+        ],
+        "reasoning": "The general bound implies only coarse upper bounds at \\(k=3,4\\); it does not force the sharp values or unique extremal factor.",
+        "searches": [
+          "Garg, arXiv:1907.10816v4 / DMTCS 23:3 (2021), full PDF",
+          "Berger--Defant, On Anti-Powers in Aperiodic Recurrent Words"
+        ]
+      },
+      "checked_sources": [
+        "Swapnil Garg, “Antipowers in Uniform Morphic Words and the Fibonacci Word,” DMTCS 23:3 (2021), DOI 10.46298/dmtcs.7134.",
+        "Aaron Berger and Colin Defant, “On Anti-Powers in Aperiodic Recurrent Words,” Advances in Applied Mathematics 121 (2020), 102104.",
+        "Resultary and exact-value web searches (2026-10-05 UTC)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Garg proves existence of a block length \\(m\\le ck\\) with \\(c\\le4\\varphi/\\sqrt5\\), while the final claim determines the maxima exactly at \\(k=3,4\\).",
+          "The proof must identify all factors of lengths 18 and 40 and their first successful block sizes."
+        ],
+        "reasoning": "A uniform asymptotic/linear theorem does not imply exact finite radii; the exhaustive factor-complexity argument supplies additional content.",
+        "searches": [
+          "Statement-level comparison with Garg Theorem 6",
+          "Berger--Defant morphic-word conjecture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary record covered these values.",
+          "Exact web searches did not locate \\(6\\) and \\(10\\) as the uniform maxima."
+        ],
+        "reasoning": "The claim was searched using radius, minimum block length, \\(\\gamma_i(k)\\), sharp constant and witness terminology.",
+        "searches": [
+          "Resultary: Fibonacci word antipower exact uniform radius k=3 k=4 block length 6 10",
+          "Web: \"R_f(3)\" Fibonacci antipower",
+          "Web: Fibonacci 4-antipower block length 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No external exact table for the two uniform radii was found; the assigned certificate is the object being audited, not prior evidence."
+        ],
+        "reasoning": "The exact values are not a known database row surfaced by the search; they are certified by exhaustive Sturmian factor sets.",
+        "searches": [
+          "Garg full text for tables/exact small-k values",
+          "Resultary exact-value search"
+        ]
+      },
+      "rationale": "Garg’s primary Fibonacci antipower paper proves a uniform linear upper bound, specifically a constant at most about 2.89, and uses the Sturmian framework, but it does not give exact uniform radii for \\(k=3\\) or \\(4\\). Berger--Defant formulate the broader morphic-word problem, again without these exact values. Fresh exact-number and Resultary searches found no covering statement. The exact small radii require the complete factor census rather than following from the asymptotic/general bound.",
+      "residual_risks": [
+        "An unindexed computation, thesis or code note could contain the same small values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_NOT_EXACT_RADII",
+          "evidence": [
+            "Theorem 6 gives a constant \\(c\\le4\\varphi/\\sqrt5\\approx2.89\\) for all \\(k\\), not \\(R_{\\mathbf f}(3)=6\\) or \\(R_{\\mathbf f}(4)=10\\)."
+          ],
+          "identifier_or_url": "arXiv:1907.10816v4 / DOI:10.46298/dmtcs.7134",
+          "material_read": "Full lawful 8-page PDF, including the introduction, Theorem 6, indexing convention and Sturmian complexity discussion.",
+          "method": "DMTCS full-PDF text plus rendered-page inspection.",
+          "title": "Antipowers in Uniform Morphic Words and the Fibonacci Word",
+          "trigger": "Primary same-word paper introducing the relevant \\(\\gamma_i(k)\\)-type uniform bound."
+        },
+        {
+          "assessment": "BROADER_PROGRAM_NOT_COVERING_EXACT_VALUES",
+          "evidence": [
+            "The paper formulates the linear-bound direction rather than the two sharp Fibonacci radii."
+          ],
+          "identifier_or_url": "arXiv:1902.01291 / DOI:10.1016/j.aam.2020.102104",
+          "material_read": "Abstract/theorem context describing the morphic-word linear-block-length conjecture and general recurrent-word results.",
+          "method": "Public arXiv/publisher inspection.",
+          "title": "On Anti-Powers in Aperiodic Recurrent Words",
+          "trigger": "Broader primary source for the morphic-word antipower program."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are the first two nontrivial exact values of the uniform Fibonacci antipower radius directly motivated by the central all-index theorem. The \\(k=4\\) computation also isolates a unique extremal obstruction factor. Exact natural finite cutoffs of this central radius function are mathematically meaningful even without a general closed formula.",
+      "risks": [],
+      "sources": [
+        "Garg 2021",
+        "RESULT.md blob 8da555e205a5d71bfc4e4b243b90bba1ec143593"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formula or improved asymptotic constant for larger \\(k\\) is claimed."
+  ],
+  "schema_version": 1
+}
