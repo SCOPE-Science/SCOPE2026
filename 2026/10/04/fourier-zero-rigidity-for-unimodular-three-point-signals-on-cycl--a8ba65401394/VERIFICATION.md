@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The analytic proof is independent of finite enumeration. It uses three exact ingredients: equilateral rigidity for three unit summands, the kernel size of the character-pair homomorphism, and a congruence criterion for whether the two cancellation orientations lie in one image coset.
 
-The bundled `verify.py` uses integer modular arithmetic only. For every normalized support \(\{0,a,b\}\) with \(3\le N\le180\), it compares the closed-form modulo-\(3\) criterion against direct image membership, checks that the kernel has cardinality \(g\), and verifies that the explicit phase construction has exactly the predicted number of zeros. It also checks that no paired case occurs for primes greater than \(3\) in the tested range.
+# Independent mathematical audit
 
-Replay output:
+## correctness
 
-`VERIFY_OK triples=955860 paired=76776 single=879084 primes_gt3=39 N_max=180`
+PASS
 
-The finite replay is corroborative and does not establish the universal quantifier by itself. No claim is made for supports with four or more points, approximate zeros, or noncyclic groups.
+Three unit complex numbers summing to zero must form the equilateral triple, so a Fourier zero has one of two oriented phase targets. The homomorphism from frequency to the two support characters has kernel size \(g\), making each nonempty orientation fiber size \(g\). The second orientation occurs iff their ratio \((\rho,\rho^2)\) lies in the homomorphism image. Reducing the resulting congruences modulo the primitive order gives exactly the stated divisibility-by-three and complete-residue criterion. A zero-free phase pair exists because only finitely many phase-torus points are forbidden. An independent brute arithmetic replay through \(N=60\) found no discrepancy between the residue criterion and direct image membership.
+
+## originality
+
+PASS
+
+Tao sharpens uncertainty for prime cyclic groups with unrestricted coefficients, allowing a three-sparse signal to have up to two zeros; it does not impose equal magnitudes and therefore does not imply the one-zero phase-rigid bound. Fourier-submatrix rank theory permits arbitrary null vectors, and Gilbert-Rzeszotnik study Fourier norm extremals rather than exact three-sparse zero sets. Resultary returned this record as the exact leading hit; the broader unrestricted three-point cyclic uncertainty record does not determine the equal-magnitude subclass on each fixed support.
+
+## value
+
+PASS
+
+Three terms are the first nontrivial phase-cancellation case, and the theorem gives a complete all-cyclic-group classification with a sharp arithmetic doubling criterion. The prime corollary strictly sharpens unrestricted uncertainty under a natural equal-magnitude constraint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
