@@ -1,0 +1,162 @@
+{
+  "claim": "For every \\(0<w<1\\), let \\(X_w=(\\mathbb R^2,N_w)\\) be the real Banach plane with\n\\[\nN_w(u,v)=\\max\\!\\left\\{|u|,|v|,\\frac{|u|+|v|}{1+w}\\right\\}.\n\\]\nFor \\(r>0\\), define its radial retraction onto the closed radius-\\(r\\) ball by\n\\[\nR_{w,r}(x)=\\frac{x}{\\max\\{1,N_w(x)/r\\}}.\n\\]\nThen the *optimal global Lipschitz constant* in the norm \\(N_w\\), independent of \\(r>0\\), is\n\\[\n\\operatorname{Lip}(R_{w,r})=k(X_w)\n=\\max\\left\\{1+w^2,\\frac{2(1+w^2)}{(1+w)^2}\\right\\}\n=\\begin{cases}\n\\dfrac{2(1+w^2)}{(1+w)^2},&0<w\\le\\sqrt2-1,\\\\[3pt]\n1+w^2,&\\sqrt2-1\\le w<1.\n\\end{cases}\n\\]\nThe profile has exactly one minimizer, \\(w=\\sqrt2-1\\), the regular-octagonal member, where\n\\[\n\\min_{0<w<1}k(X_w)=4-2\\sqrt2.\n\\]\nThus the universal radial bound \\(2\\) improves strictly for every \\(0<w<1\\), while the constant tends to \\(2\\) at both endpoints. Sharpness on each branch is witnessed by exterior derivatives approaching one of the two kinds of octagonal vertices, with common extremal input direction \\((-w,1)\\).",
+  "correctness": {
+    "rationale": "For each open facet cone of the polyhedral norm, the exact derivative of the radial retraction is N(x)^(-1)(I-z tensor f). Convexity in the facet endpoint z reduces its norm to vertices, and D4 symmetry leaves two actual facet types. At z=(1,w), these operators are (u,v)->(0,v-wu) and (u,v)->((wu-v)/(1+w))(1,-1). The linear functional v-wu has exact norm 1+w^2 by checking all eight vertices. The resulting norms are exactly 1+w^2 and 2(1+w^2)/(1+w)^2. Integrating over segments proves the global upper bound, including nonsmooth segments by continuity. Exterior derivatives tending to each endpoint show matching sharp lower bounds. The branch crossing and strictly opposite derivatives prove the unique global minimizing parameter. Exact rational checks on six test weights corroborate but are not used as infinite proof.",
+    "risks": [
+      "No attainment by a fixed pair is claimed: sharpness is a limit of derivatives approaching facets.",
+      "Only real dimension two and the canonical radial retraction are covered."
+    ],
+    "sources": [
+      "Rieffel arxiv:math/0508097v5, Section 8, radial map definition and general bound",
+      "Șerb 1999, full-text definition of Thele radial constant"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rieffel 2005 Section 8 Proposition 8.1: universal k(X)<=2, and k(H)=1 for Hilbert space; this gives no strict quantitative octagonal bound.",
+        "Șerb 1999 Theorem 6: k(X)=lim_{lambda to 0+} mu_X(lambda), with general lower/upper constraints, not an evaluated function for the norm N_w.",
+        "Christianson--Handina--Wierman 2022 Appendix C Proposition 22: k(X)<=mu(X), not equality or an exact value for the present norm."
+      ],
+      "reasoning": "The checked general theorems give identities or bounds in terms of other invariants; they do not compute the sharp one-parameter profile or force exact equality for both facet derivative branches. The new proof constructs matching lower bounds from exterior derivatives.",
+      "searches": [
+        "\"radial retraction\" \"polygon\" Lipschitz norm projection",
+        "\"radial projection\" Lipschitz constant \"normed plane\" exact",
+        "\"radial retraction\" \"Jordan\" \"constant\" Banach",
+        "\"Lipschitz constant\" \"radial projection\" \"Schäffer\" \"finite\"",
+        "\"radial retraction\" \"Banach Mazur\" Lipschitz constant square",
+        "\"radial projection constant\" \"von Neumann Jordan\" equality"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0508097v1 and v5 (complete HTML v5)",
+      "https://dml.cz/dmlcz/119066 (complete PDF)",
+      "https://proceedings.mlr.press/v178/christianson22a/christianson22a.pdf (complete relevant sections)",
+      "doi:10.1090/S0002-9939-1974-0328550-1 (full text unavailable)",
+      "doi:10.1090/S0002-9904-1967-11753-1 (full text unavailable)",
+      "Kapoor--Mathur 1983, bibliographic record and abstract only (full text inaccessible)",
+      "Public mathematical item: Exact Euclidean Banach--Mazur distance for a Lorentz-predual octagonal plane (same polygon, different linear-distortion invariant)",
+      "Public mathematical item: Exact Gao constant at the polyhedral Lorentz endpoint (dual polygon, different functional)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own current cumulative ledger through p0001_g000055 computes different quantities for this norm, notably the classical rectangular constant and the Jung covering radius, not k(X_w).",
+        "Own prior-week ledger through p0001_g000022 gives no radial-Lipschitz constant of this family.",
+        "The closest published mathematical note, entitled Exact Euclidean Banach--Mazur distance for a Lorentz-predual octagonal plane, concerns optimal ellipses and linear isomorphisms; it does not assert a Lipschitz retraction theorem.",
+        "The published note entitled Exact Gao constant at the polyhedral Lorentz endpoint concerns the dual polygon and a distinct Gao functional; its numerically related value does not imply the radial projection claim."
+      ],
+      "reasoning": "Neither an old statement about d_BM nor a reciprocal Gao number implies the sharp Lipschitz behavior of a specified nonlinear mapping without an additional theorem. The original proof here explicitly establishes that missing sharpness via derivative operators on both incident facet types; no general identity connecting these invariants was found in the fully inspected references. The potential for a hidden implication is recorded as residual bibliographic risk.",
+      "searches": [
+        "Current archive claims and identifiers: radial, retraction, Lipschitz, Lorentz-predual, Jung, rectangular, octagon",
+        "Prior archive claims and identifiers: radial, retraction, Lipschitz, Lorentz, projection constant",
+        "Radial retraction Lipschitz constant radial projection Thele k(X) normed plane Lorentz octagon predual exact piecewise 1+w squared",
+        "\"radial projection constant\" \"Banach-Mazur distance\" squared norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rieffel Section 8 and Șerb Theorem 6 establish aliases radial retraction, radial projection, Thele constant, metric projection bound, and rectangular-modulus zero limit, but neither text evaluates this weighted octagonal family.",
+        "Christianson--Handina--Wierman 2022, Appendix C, gives the same k(X) definition and Thele Birkhoff--James formula, but no octagonal formula.",
+        "Targeted semantic literature searches returned exact Banach--Mazur, Gao, and von Neumann--Jordan invariants on related norms, not a matching radial-Lipschitz calculation."
+      ],
+      "reasoning": "The actual search terms cover every established alias of the quantity from the primary literature, together with the family name, special regular-octagon value, and operator-norm viewpoint. Matching a parameter transition or numeric value of a distinct invariant is not statement equivalence.",
+      "searches": [
+        "Radial retraction Lipschitz constant radial projection Thele k(X) normed plane Lorentz octagon predual exact piecewise 1+w squared",
+        "Radial projection constant metric projection bound Birkhoff James asymmetry for weighted octagonal Banach space",
+        "Lipschitz radial projection regular octagon 4 minus 2 root 2 Banach Minkowski plane",
+        "\"radial projection constant\" \"octagonal\" Banach",
+        "\"k(X)\" \"Lorentz\" \"radial\" Banach",
+        "\"Schäffer constant\" \"octagon\" normed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No search result or full primary source inspected contains an exact radial-Lipschitz table/formula for all weighted Lorentz-predual octagons.",
+        "Published exact Banach--Mazur result on the same family states d_BM^2=max{1+w^2,2(1+w^2)/(1+w)^2}; that is a linear-isomorphism invariant, not a radial-retraction table.",
+        "Published endpoint Gao constant on the dual weighted Lorentz plane has reciprocal-looking formulas but computes the Gao constant, not k(X_w)."
+      ],
+      "reasoning": "Coincident numbers in other invariant tables do not by themselves evaluate the nonlinear Lipschitz constant. The claim requires a separate global upper and sharp infinitesimal lower calculation. Search failure is not offered as proof of novelty.",
+      "searches": [
+        "\"radial constant\" \"regular octagon\" Banach",
+        "\"MPB\" \"octagonal\" \"Banach\"",
+        "\"radial projection constant\" \"octagonal\" Banach",
+        "\"k(X)\" \"radial projection\" \"rectangular\"",
+        "Radial retraction Lipschitz constant radial projection Thele k(X) normed plane Lorentz octagon predual exact piecewise 1+w squared"
+      ]
+    },
+    "rationale": "The earliest directly motivating preprint states only the bound k(X)<=2, and the related primary works on the radial constant give general equivalences rather than this weighted-octagonal sharp value. Complete inspection of Rieffel 2005, Șerb 1999, and Christianson--Handina--Wierman 2022 finds no exact N_w radial profile. Searches for Thele constant, metric projection bound, Birkhoff--James aliases, Lorentz preduals, octagon, and the exact special value found distinct Banach--Mazur and Gao invariant computations with coincident/reciprocal formulas, but no implication establishing this specific nonlinear Lipschitz constant. Their numerical agreement is explicitly distinguished. Full originals of three relevant historical sources were inaccessible and remain residual risks.",
+    "residual_risks": [
+      "Unread historical primary full texts (Thele 1974; De Figueiredo--Karlovitz 1967; Kapoor--Mathur 1983) may contain an equivalent special calculation.",
+      "An unindexed general identity relating the radial constant to the squared Euclidean Banach--Mazur distance on this special polygonal family could subsume the numerical profile; none was found in the inspected texts.",
+      "Search failure alone is not asserted as proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_RADIAL_BOUND_2_AND_HILBERT_ENDPOINT_NOT_OCTAGON_EVALUATION",
+        "evidence": "Proposition 8.1 states L(Pi_r)<=2, equality for C(K) with >=2 points, and after proof notes L(Pi)=1 for Hilbert spaces. No Lorentz or weighted octagonal calculation is given.",
+        "identifier_or_url": "arxiv:math/0508097v5; first post v1 on 2005-08-04",
+        "material_read": "Complete full-text arXiv HTML, especially Section 8 and Proposition 8.1 with proof and references.",
+        "method": "Primary full-text arXiv reading and statement comparison for every mentioned class of Banach spaces.",
+        "title": "Lipschitz extension constants equal projection constants",
+        "trigger": "Definition and classical universal inequality for exactly the nonlinear map in the new claim."
+      },
+      {
+        "assessment": "ALIASES_AND_GENERAL_LIMIT_IDENTITY_NOT_SPECIFIC_WEIGHTED_OCTAGON",
+        "evidence": "Theorem 6 proves mu_X(0+)=k(X); no N_w family or profile max{1+w^2,2(1+w^2)/(1+w)^2} occurs.",
+        "identifier_or_url": "https://dml.cz/dmlcz/119066",
+        "material_read": "All 14 PDF pages (one cover and 13 article pages), including Theorems 4--6, the radial constant definition, examples, and bibliography.",
+        "method": "Full-text searchable PDF with rendered examination of the paper heading and classifications.",
+        "title": "Rectangular modulus, Birkhoff orthogonality and characterizations of inner product spaces",
+        "trigger": "Potential domination by an older rectangular-modulus or radial constant formula."
+      },
+      {
+        "assessment": "APPLICATION_AND_THELE_IDENTITY_NOT_COVERING_EXACT_OCTAGON_PROFILE",
+        "evidence": "Section 4.1 introduces k(X), Theorem 11 uses it in concrete robustness bounds; Appendix C proves k(X)<=mu(X) and reproduces Thele’s Birkhoff--James formula. No present N_w calculation.",
+        "identifier_or_url": "https://proceedings.mlr.press/v178/christianson22a/christianson22a.pdf",
+        "material_read": "All relevant Sections 4.1 and Appendix C (Definition 21, Proposition 22, proof) and Appendix D uses of k(X), within the complete 42-page full PDF.",
+        "method": "Primary full-text PDF statement comparison, including visual inspection of Appendix C page 30.",
+        "title": "Chasing Convex Bodies and Functions with Black-Box Advice",
+        "trigger": "Exact same radial Lipschitz constant used in an application, and potentially a stronger exact estimate."
+      },
+      {
+        "assessment": "GENERAL_THELE_THEOREMS_KNOWN_ORIGINAL_FULL_TEXT_UNAVAILABLE",
+        "evidence": "Rieffel explicitly cites Thele for the general bound and class of spaces attaining 2; Șerb and Christianson et al. cite the equivalence of k to Birkhoff--James and other constants. No available source asserts this exact octagonal family computation.",
+        "identifier_or_url": "doi:10.1090/S0002-9939-1974-0328550-1",
+        "material_read": "Primary abstract and accurate theorem descriptions via later primary full texts; original article itself not readable through attempted arXiv, public AMS PDF, and institutional source paths.",
+        "method": "Exact-title public and arXiv searches, attempted primary publisher PDF, and institutional retrieval; secondary statements cross-checked in Rieffel and Șerb.",
+        "title": "Some results on the radial projection in Banach spaces",
+        "trigger": "Original theorem of precisely the radial projection constant; strong plausible historical coverage."
+      },
+      {
+        "assessment": "ORIGINAL_UNREAD_RESIDUAL_RISK_NOT_TREATED_AS_COMPLETE",
+        "evidence": "Historical sources consistently identify the foundational radial map, but no checked text attributes the octagon profile to this paper.",
+        "identifier_or_url": "doi:10.1090/S0002-9904-1967-11753-1",
+        "material_read": "Verified bibliographic identity and the original definition through full-text later expositions; original five-page article unavailable through public search and AMS PDF.",
+        "method": "Title/DOI search and public publisher-PDF attempt.",
+        "title": "On the radial projection in normed spaces",
+        "trigger": "Original radial projection source predating the general theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "09dd18dd-b4e6-4c13-9129-6e7268abf3e7",
+  "value": {
+    "rationale": "The radial retraction is a canonical constructive projection whose Lipschitz constant enters norm-preserving Lipschitz extension bounds (Rieffel 2005) and convex-function chasing algorithms (Christianson--Handina--Wierman 2022). The classical universal bound 2 is exact at the endpoint sequence spaces but gives no quantitative interior information. The new theorem determines the *global* exact sharp factor for an entire natural weighted Lorentz-predual family, identifies which facet causes the loss, and proves a unique regular-octagonal optimum of 4-2sqrt(2). This is an exact structural nonlinear-geometry invariant, not a textbook substitution or a finite numerical improvement.",
+    "risks": [
+      "Value is for the fixed canonical retraction, not the optimal choice of any retraction.",
+      "The broader family of weighted polygonal norms may require new methods beyond this exact calculation."
+    ],
+    "sources": [
+      "Rieffel arxiv:math/0508097v5, Section 8, radial retraction and extension application.",
+      "Christianson--Handina--Wierman PMLR 178 (2022), Section 4.1 Theorem 11 and Appendix C.",
+      "Șerb 1999, Theorem 6 relating k to the rectangular modulus."
+    ],
+    "status": "PASS"
+  }
+}
