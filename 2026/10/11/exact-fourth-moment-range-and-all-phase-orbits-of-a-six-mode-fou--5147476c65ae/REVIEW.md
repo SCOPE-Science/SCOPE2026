@@ -1,0 +1,19 @@
+# Scientific review: six-mode rectangular fourth moments
+
+## Correctness — PASS
+The theorem fixes the six frequencies and unimodular magnitudes, explicitly normalizes the Haar measure, and gives all phase and equality quantifiers. Orthogonality in the second torus variable and then the first proves the displayed autocorrelation identity. The exact identity
+\[
+M(P)-50=8\left(2(z_0+xy)^2+x^2(1-y^2)+y^2(1-x^2)\right)
+\]
+is a global nonnegative certificate for every real angle. Its equality conditions reduce to exactly three normalized coefficient arrays, and all nonnormalized equality cases follow from the unique three-phase normalization. A separate termwise autocorrelation bound gives the upper endpoint \(114\), with equality rigidity enforced by horizontal and vertical nearest-neighbor correlations. Connectedness supplies every intermediate value. Finite character orthogonality requires and uses the stated no-alias hypothesis. The standard-library checker independently confirms the combinatorial convolution and exact Gaussian-integer cases; it is corroboration rather than an infinite-proof substitute.
+
+## Originality — PASS, with explicit residual risk
+The full-text introduction, definitions, and constructions of Zhang–Fan–Mesnager (arXiv:2107.11599v1) treat pairs of complementary arrays and cancellation of **combined** aperiodic autocorrelations. The corresponding definitions, main construction, PMEPR bounds, and conclusion of Das–Banerjee–Parampalli (arXiv:2308.06690v1) address **four** array components. The full-text setup and primary constructions of Svalbe–Tirkel (2017) concern predominantly periodic correlations on large geometric supports. None of those inspected results bounds the full single-array aperiodic sidelobe energy of an arbitrary six-unimodular-entry \(3\times2\) rectangle or classifies its three optimizer orbits. Related published four-point rectangular Fourier-zero and four-point fourth-moment conclusions change both the operator and the support; an earlier six-point triangular moment theorem uses a different six-element set. The final implication comparison therefore does not identify a covering theorem. Older small-size polyphase or merit-factor catalogs remain a real originality risk; the absence of a retrieved covering result cannot establish universal priority.
+
+## Value — PASS
+The complete \(3\times2\) Fourier rectangle is the first nontrivial full two-dimensional unimodular aperture with two horizontal neighbors and a vertical coupling, making full aperiodic integrated sidelobe energy a natural design invariant rather than an arbitrary coefficient slice. The exact lower and upper fourth moments, the three genuinely distinct minimum phase orbits, the sharp \(18/7\) merit factor and the even-versus-odd phase-alphabet obstruction jointly explain nontrivial structural cancellations. The result is self-contained but does not claim implications for larger arrays, arbitrary amplitudes or array pairs.
+
+## Literature, verification and limits
+Motivation and definitions: Zhang, Fan and Mesnager, *New constructions of q-Ary 2-D Z-Complementary Array Pairs*, arXiv:2107.11599v1 (first public 2021-07-24). Comparators: Das, Banerjee and Parampalli, *Two-Dimensional Z-Complementary Array Quads with Low Column Sequence PMEPRs*, arXiv:2308.06690v1; Svalbe and Tirkel, *Extended families of 2D arrays with near optimal auto and low cross-correlation*, EURASIP JASP 2017, article 18. A posteriori engineering catalog overlap remains possible. The exact symbolic identity and phase classification, not merely numerical checks, establish the infinite continuum claim. The finite-grid result assumes enough character separation. An independent review of the mathematical argument and priority remains outstanding.
+
+Same-model review: passed. Independent audit: not yet performed.
