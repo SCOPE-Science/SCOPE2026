@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The bundled verifier reconstructs the coexistence equilibrium and characteristic-polynomial coefficients using exact rational arithmetic. The homogeneous mode satisfies all cubic Routh–Hurwitz inequalities. At \(k^2=1/4000\), \(a_2,a_1,a_0\) remain positive while \(a_2a_1-a_0<0\), and Descartes' rule excludes a positive real root; therefore the instability is carried by a complex-conjugate pair.
+## correctness
 
-## Originality
-PASS. Brennan et al. derive the relevant dispersion relation, report no wave instabilities in their explored regimes, and explicitly do not exclude other regimes. Suddin et al. report a stable limit cycle in a related effector-cell/cancer/IL-2 PDE but leave Hopf analysis open. General wave-instability theory and older tumour travelling-wave work do not supply this exact IL-2-model parameter witness. The closest semantic repository hits concern different reaction–diffusion systems. Residual risk remains because the 2004 travelling-wave paper was inspected only at abstract level.
+PASS
 
-## Value
-PASS. The finding is a motivated boundary witness for the same immunotherapy equations: it converts an open-ended caveat about possible wave regimes into an exact, reproducible finite-wavenumber example. Its value is structural rather than clinical because the altered IL-2 kinetic and mobility parameters are far outside the calibrated range.
+Fresh exact rational reconstruction gives zero reaction residuals at the stated positive equilibrium. At \(k=0\), \(a_2,a_1,a_0\) and \(a_2a_1-a_0\) are all positive, so the cubic is Hurwitz. At \(k^2=1/4000\), \(a_2,a_1,a_0>0\) but \(a_2a_1-a_0<0\). For a real monic cubic this violates the necessary-and-sufficient Routh-Hurwitz condition, while positive coefficients exclude a positive real root by Descartes' rule, so the unstable roots are a complex conjugate pair. This proves a finite-mode linear wave instability only; it does not prove a nonlinear traveling wave.
 
-## Closest literature and limitations
-The closest source is Brennan et al. (2025), which contains the same equations and wave/Turing distinction but no explicit wave-unstable parameter point. Suddin et al. (2021) is the closest related IL-2 reaction–diffusion study with temporal oscillation. Villar-Sepúlveda and Champneys (2023) provides general diffusion-driven wave criteria. The present result does not establish nonlinear wave persistence, criticality, or clinical plausibility.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The primary model paper explicitly derives the same cubic Routh-Hurwitz test, identifies violation of \(a_2a_1>a_0\) with a wave instability, reports that its explored parameter regimes have no such wave instability, and expressly says that this does not preclude wave instabilities in other regimes. The assigned finding supplies an exact rational parameter witness in that same reaction-diffusion system rather than restating the criterion. No published Resultary item or primary source found in the bounded searches gives this explicit witness or an implication forcing it.
+
+## value
+
+PASS
+
+The result answers a motivated structural question left open by the model paper's calibrated study: whether the same PDE architecture can support wave rather than stationary diffusion-driven instability. An exact rational witness and finite-mode certificate are independently useful as a boundary example for future parameter studies, even though no biological calibration is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
