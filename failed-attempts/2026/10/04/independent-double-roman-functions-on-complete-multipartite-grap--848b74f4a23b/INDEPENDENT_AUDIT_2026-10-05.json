@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T12:50:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob a474e22a6f1a49211167c708e45bd5dc3844268f",
+        "assigned verify.py blob ad0104a3af8bd607525bf10465a1bbbea595906e",
+        "Mojdeh--Mansouri, Independent double Roman domination in graphs, arXiv:1904.04788",
+        "Maimani--Momeni--Rahimi Mahid--Sheikholeslami, Independent double Roman domination in graphs, DOI:10.1016/j.akcej.2020.02.001"
+      ],
+      "rationale": "Independence forces all positive labels into a single part. A zero or one inside that part has no positive neighbor because vertices in one part are pairwise nonadjacent, so every supported-part vertex must be labelled 2 or 3 and every other vertex is zero. Any outside zero sees the entire supporting part; for part size at least two every 2/3 assignment works, whereas on a singleton only label 3 works. Summing \\((z^2+z^3)^{n_i}\\) over supporting parts and removing the invalid singleton \\(z^2\\) terms gives the displayed enumerator, total count, and minimum-function counts. The package verifier exhausts all labels for every multipartite type through order nine and agrees exactly.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General minimum-weight inequalities can imply or constrain the smallest coefficient but not the full distribution.",
+          "Enumerators for independent Roman, Roman-2, total Roman, and other variants have different feasibility rules."
+        ],
+        "reasoning": "No checked broader theorem mechanically supplies this exact polynomial for independent double Roman domination.",
+        "searches": [
+          "Mojdeh--Mansouri 2019",
+          "Maimani et al. 2020 full article",
+          "Resultary related Roman-domination enumerators"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.04788",
+        "DOI:10.1016/j.akcej.2020.02.001",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those results concern the minimum weight and do not determine how many nonminimum functions exist at each weight.",
+          "The all-function polynomial therefore is not an implication of the published minimum formula alone."
+        ],
+        "reasoning": "The enumerator is scientifically new best-of-knowledge even though it follows easily from the definitions on this class.",
+        "searches": [
+          "published general inequalities for independent double Roman domination",
+          "complete-bipartite sharpness examples"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The checked papers focus on the minimum independent double Roman domination number and broad inequalities.",
+          "No source inspected gives the complete feasible-labeling classification or coefficient enumerator."
+        ],
+        "reasoning": "All-function classification, weight enumerator, and exact count of independent double Roman functions were compared rather than only the minimum parameter.",
+        "searches": [
+          "Resultary query: independent double Roman domination complete multipartite graph weight enumerator all functions",
+          "arXiv:1904.04788",
+          "DOI:10.1016/j.akcej.2020.02.001"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior table or polynomial for this variant was returned."
+        ],
+        "reasoning": "Database evidence supports but does not by itself establish originality.",
+        "searches": [
+          "Resultary exact independent-double-Roman multipartite enumerator search"
+        ]
+      },
+      "rationale": "The primary independent-double-Roman literature inspected develops the minimum parameter and general bounds, including examples where complete bipartite graphs witness sharpness, but does not classify every function on arbitrary complete multipartite graphs or give this weight enumerator. Targeted Resultary search returned several related Roman-type enumerators on complete multipartite graphs but no independent-double-Roman enumerator. Best-of-knowledge originality therefore survives, with the caveat that the argument itself is very short.",
+      "residual_risks": [
+        "A differently named domination-polynomial paper could contain this elementary specialization without being indexed under independent double Roman terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MINIMUM_PARAMETER_LITERATURE_NOT_ALL-FUNCTION_ENUMERATOR",
+          "evidence": "The article studies \\(i_{dR}\\) and bounds; no complete multipartite weight enumerator was found.",
+          "identifier_or_url": "DOI:10.1016/j.akcej.2020.02.001",
+          "material_read": "Accessible full article sections on the definition, general inequalities, extremal examples, and relations to other independent domination parameters, with targeted searches for multipartite/enumerator classifications.",
+          "method": "Primary full-text inspection.",
+          "title": "Independent double Roman domination in graphs",
+          "trigger": "Main full article on the same domination parameter and the strongest plausible source for multipartite special cases."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "independent double Roman domination literature",
+        "related complete-multipartite domination enumerators"
+      ],
+      "rationale": "Although the complete weight distribution is a natural refinement of the minimum parameter, on a complete multipartite graph it follows immediately from two elementary observations: independent support lies in one part, and labels 0 or 1 cannot occur inside that part. The remaining polynomial is a binomial expansion with one singleton correction. Under the shared value bar, this is a routine definition-level specialization rather than a motivated structural gap requiring substantive mathematics.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "On a connected complete multipartite graph, every independent double Roman dominating function is supported on one whole part, labels that part only by 2 and 3, and is otherwise zero, with the singleton support requiring label 3; hence the all-function weight enumerator and minimum-function counts in RESULT.md follow.",
+  "limitations": [
+    "Connected complete multipartite graphs only.",
+    "The minimum parameter itself is already substantially constrained by published general inequalities.",
+    "The record's all-function enumerator appears novel in the checked literature, but the derivation is a routine definition chase on this graph class."
+  ],
+  "schema_version": 1
+}
