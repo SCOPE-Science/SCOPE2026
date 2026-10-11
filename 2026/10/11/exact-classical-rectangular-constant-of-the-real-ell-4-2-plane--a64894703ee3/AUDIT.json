@@ -1,0 +1,148 @@
+{
+  "claim": "Let \\(X=\\ell_4^2(\\mathbb R)\\), and let\n\\[\n\\mu(X)=\\sup_{\\substack{x,y\\in S_X,\\;x\\perp_B y\\\\ \\lambda\\ge0}}\n\\frac{1+\\lambda}{\\|x+\\lambda y\\|_4}\n\\]\nbe Joly's classical rectangular constant. Define\n\\[\nQ(A)=81A^8-216A^6+81A^5+162A^4-81A^3-24A^2+1\n\\]\nand\n\\[\nA_c=\\sqrt{\\frac{2-\\sqrt3}{3}}.\n\\]\nThen \\(Q\\) has a unique zero \\(A_*\\) in \\((0,A_c)\\). Put\n\\[\nC_*=\\sqrt{A_*(1-A_*^2)},\\qquad\n\\lambda_*=\\frac{3C_*}{1-3A_*^2}.\n\\]\nThen\n\\[\n\\mu(\\ell_4^2)=\n\\frac{1+\\lambda_*}\n{\\left(1+\\lambda_*^4+6A_*\\lambda_*^2-4C_*\\lambda_*^3\\right)^{1/4}}\n=\n1.93365718463403520398\\ldots.\n\\]\nThis gives an exact algebraic determination of the published numerical value \\(1.9337\\).\n\nMoreover, every normalized maximizing triple \\((x,y,\\lambda)\\) has\n\\[\n\\lambda=\\lambda_*,\n\\qquad\nA(x,y):=x_1^2y_1^2+x_2^2y_2^2=A_*,\n\\qquad\nB(x,y):=x_1y_1^3+x_2y_2^3=-C_*,\n\\]\nand conversely every unit Birkhoff--James orthogonal pair with these three invariants is maximizing. One explicit representative is obtained by setting\n\\[\nu_*=\\frac{A_*}{\\sqrt{1+3A_*^2}},\n\\]\n\\[\na^4=\\frac{1+\\sqrt{1-4u_*^2}}2,\\qquad\nb^4=\\frac{1-\\sqrt{1-4u_*^2}}2,\n\\]\nwith \\(a>b>0\\), and\n\\[\nx=(a,b),\\qquad\ny=\\frac{(b^3,-a^3)}{(a^{12}+b^{12})^{1/4}}.\n\\]",
+  "correctness": {
+    "rationale": "In real \\(\\ell_4^2\\), smooth Birkhoff--James orthogonality is exactly \\(x_1^3y_1+x_2^3y_2=0\\). Unit orthogonal pairs reduce to \\(A=x_1^2y_1^2+x_2^2y_2^2\\in[0,1]\\) and \\(B=x_1y_1^3+x_2y_2^3\\) with \\(B^2=A(1-A^2)\\). For each \\(\\lambda>0\\), strict concavity of \\(C(A)=\\sqrt{A(1-A^2)}\\) gives a unique denominator minimizer satisfying \\(\\lambda(1-3A^2)=3C(A)\\). The remaining stationary equation is equivalent to the intersection of one strictly increasing and one strictly decreasing function, so the maximizing point is unique. The endpoint objective tends to \\(1\\), while an interior value is larger, proving the unique stationary point is the global maximum. The polynomial equation is obtained only after positivity is established, so squaring creates no accepted spurious root.",
+    "risks": [
+      "The theorem is specific to real dimension two and exponent four.",
+      "The polynomial is an exact defining equation on a uniqueness interval; minimal algebraic degree is not asserted."
+    ],
+    "sources": [
+      "arXiv:1407.1353v1 for the classical definition, finite-dimensional attainment, and primary MSC 46B20.",
+      "doi:10.1016/0024-3795(70)90015-7 for the reduction of L_p rectangular constants to the two-dimensional l_p^2 problem and the historical numerical table.",
+      "doi:10.1017/S0004972721000253 for the modern definition, bounds, and the p=4 numerical benchmark 1.9337."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gastinel--Joly prove mu(L_p)=mu(l_p^2) but then calculate numerically; their Table I reports p=4 approximately 1.888.",
+        "Del Río--Benítez prove that a two-dimensional space with rectangular constant sqrt(2) is Hilbert; this does not determine non-Hilbert l_4.",
+        "Paul--Ghosh--Sain prove finite-dimensional attainment and upper-endpoint structure, not an l_4 evaluation.",
+        "Baronti--Casini--Papini improve general l_p bounds and give p=4 approximately 1.9337 rather than an exact algebraic value."
+      ],
+      "reasoning": "The broadest checked theorems reduce dimension, guarantee attainment, or bound the constant. None supplies an exact maximization for the quartic plane, so the new scalar elimination is not a corollary of a stronger exact formula.",
+      "searches": [
+        "doi:10.1016/0024-3795(70)90015-7",
+        "doi:10.1016/0021-9045(77)90025-9",
+        "arxiv:1407.1353v1",
+        "doi:10.1017/S0004972721000253"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/0024-3795(70)90015-7",
+      "doi:10.1016/0021-9045(77)90025-9",
+      "arxiv:1407.1353v1",
+      "doi:10.1017/S0004972721000253",
+      "current cumulative archive ledger through p0001_g000048",
+      "prior archive ledger 2026-09_week4 p0001_g000022",
+      "targeted semantic-index searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current own ledger contains an exact classical rectangular constant for l_3^2, not l_4^2.",
+        "The prior archive ledger contains no l_4 classical rectangular-constant claim.",
+        "The closest published SCOPE result is mu_4(l_4^2)=((5+sqrt(17))/4)^(1/4), a generalized invariant with a different numerator."
+      ],
+      "reasoning": "Changing exponent from three to four is not used as a routine continuation: the accepted claim is motivated by a specific unresolved published p=4 numerical benchmark, and its quartic orthogonality closes to a distinct scalar identity B^2=A(1-A^2). The neighboring generalized mu_4 result neither determines the classical objective nor its unique maximizing lambda.",
+      "searches": [
+        "current archive ledger: rectangular constant ell_4",
+        "current archive ledger: exact rectangular constant ell_3^2",
+        "prior archive ledger: rectangular constant ell_4",
+        "published SCOPE exact generalized rectangular constant ell_4^2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest semantic-index hit is the exact generalized rectangular constant mu_4(l_4^2), which uses the different numerator (1+lambda^4)^(1/4).",
+        "No returned record states the classical value 1.9336571846... or the degree-eight defining equation.",
+        "The complete 2021 paper's Table 1 lists only the decimal 1.9337 at p=4."
+      ],
+      "reasoning": "The searches cover the standard symbol mu(l_4), Birkhoff--James terminology, the published decimal, exact/polynomial phrasing, and the names of the historical and modern source authors.",
+      "searches": [
+        "classical rectangular constant real ell_4^2 exact 1.933657",
+        "mu(l4) Birkhoff James 1.9337 exact",
+        "rectangular constant two dimensional l4 polynomial exact",
+        "Gastinel Joly l4 rectangular constant exact",
+        "Baronti Casini Papini l4 1.9337 exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 1970 primary table gives a coarse numerical p=4 value 1.888.",
+        "The 2021 complete primary paper gives the refined p=4 table entry 1.9337 and calls its table numerical.",
+        "No checked exact database record supplies the degree-eight root formula."
+      ],
+      "reasoning": "The new theorem exactly resolves a canonical published numerical table entry rather than recomputing a known exact table.",
+      "searches": [
+        "1.9337 rectangular constant l4 Banach",
+        "rectangular constant p=4 1.9337",
+        "mu(l4) rectangular constant exact",
+        "classical rectangular constant real ell_4^2 exact 1.933657"
+      ]
+    },
+    "rationale": "The strongest same-object literature inspected gives numerical rather than exact values at p=4. Gastinel--Joly reduce the L_p problem to l_p^2 and report an approximate p=4 value; Baronti--Casini--Papini explicitly state that exact values are generally unknown and publish the refined p=4 estimate 1.9337. The complete 2014 attainment paper has no l_4 exact computation, and the complete 1977 two-dimensional paper proves only the Hilbert endpoint characterization. Targeted semantic searches returned an exact generalized rectangular constant mu_4(l_4^2), but that has a different numerator and does not imply the classical mu value or its maximizing scalar.",
+    "residual_risks": [
+      "A differently phrased exact p=4 computation outside the checked historical and modern sources could exist.",
+      "The oldest defining literature was not assigned an exact day-level public date because the checked copies exposed only coarser publication dating."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "TWO_DIMENSIONAL_REDUCTION_AND_NUMERICAL_TABLE_NOT_EXACT_P4",
+        "evidence": "Section 11 proves the L_p-to-l_p^2 reduction. Table I reports p=4 approximately 1.888 and labels the computation numerical; no exact p=4 formula is stated.",
+        "identifier_or_url": "doi:10.1016/0024-3795(70)90015-7",
+        "material_read": "Complete relevant Sections 10--13 of the 40-page article, including Section 11 and Table I.",
+        "method": "Full-text inspection of the primary article.",
+        "title": "Condition numbers and general projection method",
+        "trigger": "Historical source cited by the modern paper as proving mu(L_p)=mu(l_p^2) and giving numerical estimates."
+      },
+      {
+        "assessment": "HILBERT_ENDPOINT_CHARACTERIZATION_NOT_COVERING_L4_VALUE",
+        "evidence": "The paper proves that a two-dimensional space with rectangular constant sqrt(2) is pre-Hilbert; it does not calculate the l_4 value.",
+        "identifier_or_url": "doi:10.1016/0021-9045(77)90025-9",
+        "material_read": "Complete seven-page article.",
+        "method": "Full-text inspection of definitions, lemmas, main theorem, and references.",
+        "title": "The rectangular constant for two-dimensional spaces",
+        "trigger": "Plausible stronger two-dimensional source on exactly the same invariant."
+      },
+      {
+        "assessment": "GENERAL_ATTAINMENT_AND_ENDPOINT_THEORY_NOT_EXACT_L4",
+        "evidence": "The paper proves finite-dimensional attainment and characterizes the upper endpoint but contains no special l_4 exact evaluation. The arXiv record gives primary MSC 46B20 and v1 date 2014-07-05.",
+        "identifier_or_url": "arxiv:1407.1353v1",
+        "material_read": "Complete full-text arXiv HTML, including all main results.",
+        "method": "Full-text inspection of definitions, Theorem 2.2, Section 3, and bibliography.",
+        "title": "On rectangular constant in normed linear spaces",
+        "trigger": "Archive-period primary-MSC source proving general attainment and endpoint structure for the same invariant."
+      },
+      {
+        "assessment": "REFINED_NUMERICAL_P4_BENCHMARK_NOT_EXACT_FORMULA",
+        "evidence": "Section 5 states that exact values are generally unknown, proves upper estimates, and Table 1 lists mu(l_4)=1.9337 as a numerical estimate.",
+        "identifier_or_url": "doi:10.1017/S0004972721000253",
+        "material_read": "Complete ten-page open-access PDF, with rendered inspection of the first page and the numerical table page.",
+        "method": "Full-text PDF statement comparison and rendered-page inspection.",
+        "title": "Revisiting the rectangular constant in Banach spaces",
+        "trigger": "Modern same-object paper containing the currently published p=4 numerical benchmark."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a6489470-3ee3-4782-a5ff-1319b206b334",
+  "value": {
+    "rationale": "The classical rectangular constant is a longstanding Birkhoff--James geometric invariant, and \\(\\ell_p\\) is its canonical test family. The modern literature still presents the \\(p=4\\) value only numerically. Converting the published \\(1.9337\\) benchmark into a rigorous exact algebraic value is therefore a natural exact-invariant problem rather than an arbitrary parameter slice. The quartic case has additional structural value: Birkhoff--James orthogonality collapses the entire two-vector geometry to \\(B^2=A(1-A^2)\\), and the proof identifies a unique maximizing scalar and invariant pair, providing a reproducible benchmark for future sharp estimates and generalized rectangular constants.",
+    "risks": [
+      "The result resolves one canonical exponent rather than the full l_p family.",
+      "The exact value is naturally algebraic but not expressible here by a short radical formula."
+    ],
+    "sources": [
+      "doi:10.1017/S0004972721000253 for the published p=4 numerical benchmark and the statement that exact l_p values are generally unknown.",
+      "doi:10.1016/0024-3795(70)90015-7 for the historical L_p reduction and earlier numerical table.",
+      "arxiv:1407.1353v1 for the general geometric significance and attainment of the classical rectangular constant."
+    ],
+    "status": "PASS"
+  }
+}
