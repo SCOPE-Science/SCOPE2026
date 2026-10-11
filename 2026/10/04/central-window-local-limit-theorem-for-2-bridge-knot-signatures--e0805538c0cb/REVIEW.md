@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact parity-dependent point-count formulas are rewritten as a geometric mixture of fair-binomial point probabilities. Uniform local De Moivre--Laplace on bounded standardized windows gives the Gaussian point profile termwise; a maximal-binomial-mass bound and the geometric weights control the infinite tail. The odd-row center shift is constant and disappears under square-root scaling. Exact source cardinalities show the palindromic correction is exponentially small, so the local asymptotic transfers from the proxy set to the true knot set at the required order.
+## correctness
 
-## Originality
-PASS. The closest source proves a cumulative CLT and exact point-count formulas, but it does not state a local CLT, central-window point-mass uniformity, or the resulting fixed-signature asymptotic. Earlier average-signature work and the OEIS column records do not cover the uniform statement for the true knot set. Targeted searches using local-limit, fixed-signature, signature-zero and point-probability formulations located no equivalent result. Residual risk is a later preprint revision or an unindexed short combinatorial note.
+PASS
 
-## Value
-PASS. Point probabilities at order \(c^{-1/2}\) are invisible to a weak CLT. The theorem identifies their Gaussian profile uniformly across the full central \(\sqrt c\)-window and gives explicit asymptotic counts for every fixed even signature. This is a natural structural refinement of a new knot-theoretic CLT and is useful whenever one conditions on a particular signature value.
+The full Baker--Cohen--Dam--Felber--Madras--Saha--Thackrah paper gives exact even- and odd-crossing binomial-column sums for \(s(c,2n)\), the exact size of the partially doubled model \(T(c)\), and the palindromic correction transferring to \(K(c)\). After normalization, the even formula is a geometric mixture with asymptotic weights \((3/4)4^{-i}\) of centered binomial point masses; the odd formula has the same structure with a half-step center shift and an exponentially remote truncation. Uniform local De Moivre--Laplace on \(|n|=O(\sqrt c)\), geometric domination of fixed/medium mixture indices, and an exponentially small tail give the claimed local limit. The palindromic correction is exponentially smaller than \(c^{-1/2}\), so the same local limit holds for \(K(c)\). The lattice span two explains the prefactor 2.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The primary 2026 source proves only a cumulative central limit theorem while separately supplying exact binomial-sum formulas. It does not state a local limit theorem or the asymptotic frequency of a fixed signature. Searches for the title, fixed-signature asymptotics and local-limit terminology located no prior refinement.
+
+## value
+
+PASS
+
+A local limit is substantially stronger than a global CLT and answers the natural fixed-signature counting question. It supplies asymptotics for individual topological signature classes throughout the Gaussian central window, with the correct lattice factor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
