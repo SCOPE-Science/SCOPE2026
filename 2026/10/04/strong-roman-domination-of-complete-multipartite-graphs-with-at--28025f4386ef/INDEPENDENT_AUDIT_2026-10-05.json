@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T23:49:32.036555Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob e418ddcd3914b7a5ae337633a138491365d6619e",
+        "verify.py blob dba3753c2fa5192957af6c4db7989b1c7b373163",
+        "Alvarez-Ruiz et al., On the Strong Roman Domination Number of Graphs, DOI:10.1016/j.dam.2016.12.013"
+      ],
+      "rationale": "The construction on a smallest part has weight ceiling((N+m)/2) and satisfies the definition. For any candidate with z zeros, a defender in a zero-free part contributes excess at least ceiling(z/2); because that part has size at least m, z is at most N-m and the desired lower bound follows. If every defender part contains a zero, a zero in one part forces a defender in another zero-containing part, whose zero in turn forces a defender in a second part. Their two excess requirements sum to at least (2z-z_a-z_b)/2. Each defender part retains a positive vertex, and a third part has size at least m, so z_a+z_b is at most N-m-2, giving an even stronger bound. This proves the theorem for all r at least three. The package verifier is only a finite regression check.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The founding theorem is broader in graph class but only upper-bounds the invariant.",
+          "The k-strong generalization is broader parametrically but does not imply the original invariant's all-multipartite equality theorem."
+        ],
+        "reasoning": "No inspected theorem supplies the missing lower bound.",
+        "searches": [
+          "Alvarez-Ruiz et al., On the Strong Roman Domination Number of Graphs, DOI:10.1016/j.dam.2016.12.013",
+          "Nazari-Moghaddam et al., total strong Roman domination, arXiv:1912.01093",
+          "Theoretical studies of the k-strong Roman domination problem, DOI:10.1016/j.kjs.2024.100283",
+          "Resultary semantic query: strong Roman domination complete multipartite graph exact value"
+        ]
+      },
+      "checked_sources": [
+        "Alvarez-Ruiz et al., On the Strong Roman Domination Number of Graphs, DOI:10.1016/j.dam.2016.12.013",
+        "Nazari-Moghaddam et al., total strong Roman domination, arXiv:1912.01093",
+        "Theoretical studies of the k-strong Roman domination problem, DOI:10.1016/j.kjs.2024.100283",
+        "Resultary semantic query: strong Roman domination complete multipartite graph exact value"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper construction is exactly the classical maximum-degree strategy.",
+          "The new argument separates a zero-free defender part from the case where every defender part contains a zero; the third multipartite part forces a stronger lower bound."
+        ],
+        "reasoning": "The conclusion is not a parameter substitution into the prior upper bound.",
+        "searches": [
+          "Alvarez-Ruiz et al., On the Strong Roman Domination Number of Graphs, DOI:10.1016/j.dam.2016.12.013",
+          "independent defender-part lower-bound reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited statement is equivalently equality in the founding maximum-degree upper bound for complete multipartite graphs.",
+          "Total strong Roman domination adds a positive-support constraint and is not equivalent."
+        ],
+        "reasoning": "Original and variant invariants were distinguished at the definition level.",
+        "searches": [
+          "Alvarez-Ruiz et al., On the Strong Roman Domination Number of Graphs, DOI:10.1016/j.dam.2016.12.013",
+          "Nazari-Moghaddam et al., total strong Roman domination, arXiv:1912.01093",
+          "Theoretical studies of the k-strong Roman domination problem, DOI:10.1016/j.kjs.2024.100283",
+          "Resultary semantic query: strong Roman domination complete multipartite graph exact value"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's closest exact same-object hit is the audited record; no prior all-part-size table/formula was found."
+        ],
+        "reasoning": "Search absence supports the full-text comparison.",
+        "searches": [
+          "Resultary semantic query: strong Roman domination complete multipartite graph exact value",
+          "targeted searches for complete-multipartite strong Roman equality"
+        ]
+      },
+      "rationale": "Originality passes. The founding full-text source gives the exact general upper bound by maximum degree, but does not state equality on arbitrary complete multipartite graphs. Total-strong and k-strong papers study different parameters, and the visible k-strong exact results emphasize complete bipartite cases. The audited two-case lower bound is what turns the general upper bound into an exact formula for every multipartite graph with at least three parts.",
+      "residual_risks": [
+        "An older exact formula under alternate strong-Roman terminology may be poorly indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_UPPER_BOUND_NOT_MULTIPARTITE_EQUALITY",
+          "evidence": "Proposition 9 proves gamma at most n minus floor(Delta over two); no complete-multipartite equality theorem was located in the inspected article.",
+          "identifier_or_url": "DOI:10.1016/j.dam.2016.12.013",
+          "material_read": "Open full article material including the definition and Proposition 9 maximum-degree upper bound.",
+          "method": "lawful full-text primary inspection",
+          "title": "On the strong Roman domination number of graphs",
+          "trigger": "Foundational exact parameter source."
+        },
+        {
+          "assessment": "DIFFERENT_GENERALIZATION",
+          "evidence": "The article treats k-strong Roman domination and exact complete-bipartite examples, not the audited original-invariant theorem for arbitrary multipartite graphs.",
+          "identifier_or_url": "DOI:10.1016/j.kjs.2024.100283",
+          "material_read": "Open publisher abstract, highlights, and stated exact graph classes.",
+          "method": "lawful primary-source inspection",
+          "title": "Theoretical studies of the k-strong Roman domination problem",
+          "trigger": "Closest later exact generalization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Alvarez-Ruiz et al., On the Strong Roman Domination Number of Graphs, DOI:10.1016/j.dam.2016.12.013",
+        "Nazari-Moghaddam et al., total strong Roman domination, arXiv:1912.01093",
+        "Theoretical studies of the k-strong Roman domination problem, DOI:10.1016/j.kjs.2024.100283",
+        "Resultary semantic query: strong Roman domination complete multipartite graph exact value"
+      ],
+      "rationale": "The theorem gives an exact natural infinite-class evaluation of a standard domination invariant and characterizes equality in a classical general bound. The dependence only on order and smallest part, together with the genuine two-part boundary, gives useful structure rather than a one-off computation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older exact formula under alternate strong-Roman terminology may be poorly indexed.",
+    "Publication is withheld because every frozen package contains operational workflow material in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files. The complete 36-file recursive inventory was read and semantically inspected; RESULT.md, SLOGAN.txt, and computational artifacts were clear of the checked platform and workflow disclosures. No exact guarded sanitizing replacement bytes were prepared in this run."
+  ],
+  "schema_version": 1
+}
