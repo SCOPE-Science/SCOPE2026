@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T10:41:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ab0b92839209bbc2513d255b9b6689af6dfddbec",
+        "Dantas--Kaasik--Perreau, A strictly convex and smooth Banach space with the Daugavet property, arXiv:2609.12562v1"
+      ],
+      "rationale": "For finite nonempty \\(F\\), choose \\(q\\notin F-F\\) and a short interval whose translates by the finite set \\((-F)\\cup(q-F)\\) are disjoint. Indicator functions of that interval and its \\(q\\)-translate have disjoint finite orbit-coordinate supports pointwise, which gives the exact \\(\\ell_1^2\\) norm identity for every scalar pair. The failures of strict convexity and Gâteaux smoothness are immediate and wMLUR implies strict convexity. The tail estimate follows from \\(\\sqrt{A+B}-\\sqrt A\\le\\sqrt B\\), \\(\\ell_2\\le\\ell_1\\), Tonelli, and invariance of Lebesgue measure. The full-source Theorems 3.4--3.5 verify the infinite-coordinate ergodic endpoint.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The focal source proves strong geometry only for the full positive-coordinate norm and uses truncated norms analytically without classifying their rotundity.",
+          "The broader invariant-renorming work does not force an \\(ell_1^2\\) subspace in these specific finite orbit norms."
+        ],
+        "reasoning": "No checked stronger theorem makes the finite-window obstruction automatic.",
+        "searches": [
+          "arXiv:2609.12562v1 full paper",
+          "Doucha, Invariant strictly convex renormings, arXiv:2508.16182"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.12562v1",
+        "arXiv:2508.16182v1",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ergodicity rules out invariant-set \\(ell_1^2\\) obstructions for the full norm, but finite windows see only finitely many translates and permit separated local supports.",
+          "The source's approximation inequality by itself gives no convexity or smoothness information about the approximants."
+        ],
+        "reasoning": "Thus the finite-stage loss of rotundity is not an implication of the source theorem, while the approximation half is acknowledged as prior.",
+        "searches": [
+          "Dantas--Kaasik--Perreau Theorem 3.4 and equation (3.6) versus the audited disjoint-translate construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (3.6) in the source already gives the finite-truncation tail estimate.",
+          "Theorem 3.4 assumes the full positive bi-infinite weight sequence and does not apply to weights set to zero outside a finite window."
+        ],
+        "reasoning": "Finite-window support truncation, finite-coordinate orbit norm, and the geometry of the technical norms used in equation (3.6) were compared directly.",
+        "searches": [
+          "Resultary query: finite orbit truncation Daugavet renorming ergodic orbit norm Dantas Kaasik Perreau",
+          "arXiv:2609.12562v1 Sections 3.1--3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was the direct hit; no earlier exact finite-window classification was returned."
+        ],
+        "reasoning": "The key novelty comparison is with the focal full paper rather than database absence.",
+        "searches": [
+          "Resultary exact finite-window rotundity search"
+        ]
+      },
+      "rationale": "The defining paper explicitly proves the full infinite-coordinate equivalence between ergodicity, strict convexity, smoothness, and absence of isometric \\(\\ell_1^2\\), and it explicitly uses finite symmetric truncations with the same uniform tail estimate. However, full-paper inspection through the further-remarks section does not state that every finite-support truncation contains \\(\\ell_1^2\\) even when the underlying transformation is ergodic. That statement lies outside Theorem 3.4 because its norm assumes every orbit weight is positive. The new disjoint-translate construction therefore gives a genuine finite-stage obstruction rather than restating the source's approximation estimate.",
+      "residual_risks": [
+        "An older finite-coordinate orbit-norm observation could exist under invariant-renorming terminology, but no covering source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING_APPROXIMATION_NOT_FINITE_STAGE_GEOMETRY",
+          "evidence": "The paper gives uniform finite truncation estimates but nowhere identifies an isometric \\(\\ell_1^2\\) inside every nonempty finite truncation.",
+          "identifier_or_url": "arXiv:2609.12562v1",
+          "material_read": "Complete 19-page primary paper, including the norm definition, Theorems 3.4 and 3.5, finite truncation estimate (3.6), Daugavet/dual sections, and further remarks.",
+          "method": "Authorized full-primary-PDF inspection after ordinary open routes failed to expose a usable complete text.",
+          "title": "A strictly convex and smooth Banach space with the Daugavet property",
+          "trigger": "Exact defining source for the full orbit norm and the finite truncations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dantas--Kaasik--Perreau arXiv:2609.12562v1",
+        "Doucha arXiv:2508.16182v1"
+      ],
+      "rationale": "The source's main construction solves a geometric compatibility problem by using the full orbit. Showing that every finite approximation loses all of the relevant rotundity/smoothness while converging uniformly isolates an exact infinite-coordinate phenomenon and gives a sharp warning about finite-horizon approximations of this natural norm.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the irrational-rotation orbit norm of Dantas--Kaasik--Perreau, every nonempty finite orbit-window truncation contains an isometric \\(\\ell_1^2\\), hence is neither strictly convex, Gâteaux smooth, nor wMLUR, although any increasing finite exhaustion converges uniformly to the full ergodic wMLUR/smooth norm on the \\(L_1\\)-unit ball at the tail rate \\(\\sum_{k\\notin F}\\sqrt{a_k}\\).",
+  "limitations": [
+    "The exact finite-window obstruction is proved for irrational rotation on the circle, not every ergodic transformation.",
+    "No claim is made about the Daugavet property of the truncated norms.",
+    "The uniform truncation estimate itself is already present in the defining source; originality is confined to the exact finite-stage geometry and its juxtaposition with that approximation."
+  ],
+  "schema_version": 1
+}

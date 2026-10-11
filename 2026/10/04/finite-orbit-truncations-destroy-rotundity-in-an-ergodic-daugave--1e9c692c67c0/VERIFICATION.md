@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The finite-window statement was checked symbolically from its definitions. For nonempty finite \(F\), an integer \(q\notin F-F\) exists. Irrationality of \(\theta\) makes the finitely many points indexed by \((-F)\cup(q-F)\) distinct on \(\mathbb T\), so a sufficiently short interval has pairwise disjoint required translates. The resulting normalized indicators satisfy the exact identity
-\[
-N_F(\alpha u+\beta v)=|\alpha|+|\beta|,
-\]
-which directly verifies the isometric \(\ell_1^2\) obstruction.
+# Independent mathematical audit
 
-The uniform approximation estimate was checked by the chain
-\[
-0\le N(f)-N_F(f)
-\le\int\left(\sum_{k\notin F}a_k|f\circ T_\theta^k|^2\right)^{1/2}
-\le\left(\sum_{k\notin F}\sqrt{a_k}\right)\|f\|_1.
-\]
-No numerical computation, finite enumeration, or asymptotic extrapolation is used.
+## correctness
 
-The properties of the full norm were checked against arXiv:2609.12562v1: its norm uses positive weights at every integer orbit coordinate, its ergodic case is wMLUR and Gâteaux smooth and therefore strictly convex, and atomless measure gives the Daugavet property. The first public source date and primary classification were checked from the source record.
+PASS
 
-Limits: this verification does not prove a corresponding truncation obstruction for every ergodic transformation, and it does not determine the Daugavet property of \(N_F\).
+For finite nonempty \(F\), choose \(q\notin F-F\) and a short interval whose translates by the finite set \((-F)\cup(q-F)\) are disjoint. Indicator functions of that interval and its \(q\)-translate have disjoint finite orbit-coordinate supports pointwise, which gives the exact \(\ell_1^2\) norm identity for every scalar pair. The failures of strict convexity and Gâteaux smoothness are immediate and wMLUR implies strict convexity. The tail estimate follows from \(\sqrt{A+B}-\sqrt A\le\sqrt B\), \(\ell_2\le\ell_1\), Tonelli, and invariance of Lebesgue measure. The full-source Theorems 3.4--3.5 verify the infinite-coordinate ergodic endpoint.
+
+## originality
+
+PASS
+
+The defining paper explicitly proves the full infinite-coordinate equivalence between ergodicity, strict convexity, smoothness, and absence of isometric \(\ell_1^2\), and it explicitly uses finite symmetric truncations with the same uniform tail estimate. However, full-paper inspection through the further-remarks section does not state that every finite-support truncation contains \(\ell_1^2\) even when the underlying transformation is ergodic. That statement lies outside Theorem 3.4 because its norm assumes every orbit weight is positive. The new disjoint-translate construction therefore gives a genuine finite-stage obstruction rather than restating the source's approximation estimate.
+
+## value
+
+PASS
+
+The source's main construction solves a geometric compatibility problem by using the full orbit. Showing that every finite approximation loses all of the relevant rotundity/smoothness while converging uniformly isolates an exact infinite-coordinate phenomenon and gives a sharp warning about finite-horizon approximations of this natural norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
