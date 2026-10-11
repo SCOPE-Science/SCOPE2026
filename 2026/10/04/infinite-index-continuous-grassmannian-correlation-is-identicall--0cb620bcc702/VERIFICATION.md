@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The central equality was checked from the definitions without numerical experiments. The unit sphere in a finite-dimensional Hilbert space is totally bounded. Given any \(r>0\), finitely many radius-\(r\) balls cover the sphere, so an infinite indexed family places two distinct indices in one ball. Their vectors \(u,v\) satisfy \(\|u-v\|<2r\), whence
-\[
-\operatorname{Re}\langle u,v\rangle=1-\frac12\|u-v\|^2>1-2r^2.
-\]
-Letting \(r\) decrease to \(0\) proves the lower bound \(1\); Cauchy--Schwarz proves the matching upper bound. In the real case the same estimate is signed, and in the complex case modulus dominates real part.
+# Independent mathematical audit
 
-Boundary checks were explicit. A repeated vector attains \(1\) exactly. An injective infinite family need not attain \(1\), but its supremum is \(1\). Finite index sets are excluded because finite Grassmannian packings can have smaller correlation. Infinite-dimensional Hilbert spaces are excluded because an infinite orthonormal family has zero off-diagonal correlation.
+## correctness
 
-For a finite positive nonatomic measure space, an equal-measure measurable \(d\)-partition gives a piecewise-constant normalized family. Direct integration gives the tight frame identity
-\[
-\int_\Omega |\langle h,\tau_\alpha\rangle|^2\,d\mu(\alpha)=\frac{\mu(\Omega)}d\|h\|^2.
-\]
-Thus the stated existence consequence is independent of the compactness step and then inherits the correlation equality.
+PASS
 
-The primary source was checked at the normalized continuous-frame definition, continuous correlation definition, continuous Grassmannian definition, the open classification question, and its sample calculation. The later continuous Rankin source was checked at its signed supremum statement. The literature comparison found no checked source asserting the universal infinite-index equality.
+The core theorem follows from total boundedness of the unit sphere in a nonzero finite-dimensional Hilbert space. For every positive radius, a finite cover forces two distinct indices of an infinite unit-vector family into one covering ball, hence their distance can be made arbitrarily small. For unit vectors the real part of the inner product equals one minus half the squared distance, so the modulus correlation, and in the real case the signed correlation, have supremum one; Cauchy–Schwarz is the matching upper bound. Repeated vectors attain the supremum immediately, while an injective infinite family need only approach it. The finite-positive-nonatomic construction is correct: an equal-measure measurable partition into dimension-many cells and a piecewise constant orthonormal-basis field gives a normalized tight continuous frame with frame bound equal to total measure divided by dimension.
+
+## originality
+
+PASS
+
+The defining continuous-Welch source was materially inspected at its normalized-frame definition, its off-diagonal correlation definition, its continuous Grassmannian minimization, the circle example, the lower-bound theorem, and its explicit existence/classification question. It does not state that every infinite-index normalized unit-vector family in finite dimension has pointwise correlation supremum one. The later continuous Rankin source studies a signed pointwise supremum and lower bounds but no universal compactness collapse was located. Finite Grassmannian-frame results do not dominate the claim because finite sets can have correlation strictly below one. The result therefore survives best-of-knowledge originality, with a residual risk that this elementary compactness observation may have appeared informally or under different continuous-frame terminology.
+
+## value
+
+PASS
+
+The result identifies a structural degeneracy in a published optimization notion and resolves the infinite-index finite-dimensional case of its existence question: whenever a normalized continuous frame exists, every such frame is optimal for the pointwise-supremum objective. Although the proof is elementary, the consequence is mathematically substantive because it changes how that continuous Grassmannian definition can be interpreted and sharply separates it from finite packing and integral coherence notions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
