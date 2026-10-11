@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof establishes the infinite statement directly. The bundled `verify.py` is supplementary finite evidence. It enumerates all nondecreasing complete-multipartite profiles through order 10 and every vertex labeling by \({-1,1}\), checks open-neighborhood signed total domination literally, compares minimality with the tight-part criterion, computes the maximum minimal weight, and checks the theorem formula. For profiles through order 7 it also compares against every coordinatewise smaller labeling rather than relying only on single flips.
+# Independent mathematical audit
 
-Replay result:
+## correctness
 
-`VERIFY_OK profiles=128 labelings=64916 minimal_functions=6921 full_lower_checks=511 formula_checks=128 pair_targets=1026 max_order=10`
+PASS
 
-The finite range does not certify cases above order 10; those cases are covered by the symbolic proof. The literature portion of the originality check has the access limitation recorded in REVIEW.md and AUDIT.json.
+The theorem is correct. For a part i the open-neighborhood sum is total weight minus the part weight and its smallest positive feasible value is the parity-adjusted epsilon_i. Flipping a positive vertex leaves its own part's open-neighborhood sum unchanged and lowers every other part by two, so a signed total dominating function is minimal exactly when every part containing a positive vertex has a different tight part. With two tight parts, their two part-weight bounds and the remaining-vertices bound give the three stated ceilings. A unique tight part can only produce weight at most one and cannot maximize. For any chosen pair, parity makes the bottleneck target attainable in the two tight parts and on the remaining vertices while preserving every other inequality, giving equality. Fresh independent brute force through total order eight agreed with the formula and the tight-part criterion.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes with explicit access risk. Fresh searches found the foundational upper signed total papers and their abstracts, which advertise general sharp upper bounds, but no accessible statement specializes those bounds to an exact arbitrary complete-multipartite formula or classifies minimal functions by tight parts. Liang's complete-multipartite full text solves the opposite minimum parameter. Resultary returns the assigned parity-sensitive theorem as the exact same-class hit and no stronger prior SCOPE result.
+
+## value
+
+PASS
+
+This determines a standard upper domination invariant on the full complete-multipartite family and explains minimality structurally through tight open-neighborhood parts. The exact answer is parity-sensitive and depends on pairwise part bottlenecks, so it is not a cosmetic reformulation of the known minimum signed-total values. The theorem supplies a useful benchmark spanning cliques, bicliques, and arbitrary multipartite profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
