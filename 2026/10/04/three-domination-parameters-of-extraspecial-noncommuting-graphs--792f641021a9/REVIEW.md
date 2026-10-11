@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The extraspecial hypotheses make \(G/Z(G)\) a \(2n\)-dimensional symplectic vector space whose form is exactly the commutator. A symplectic basis produces \(2n\) selected group elements paired into \(n\) noncommuting edges, proving simultaneous ordinary, total, and paired domination. For the lower bound, any dominating set whose image span is proper must contain every group element above the nonzero vectors of its orthogonal complement; combining that forced multiplicity with the remaining span dimension gives at least \(2n\) selected vertices.
+PASS
 
-Risk: the standalone computation covers only small groups and is not used as an infinite proof.
+The proof is correct. The extraspecial commutator descends to a nondegenerate alternating form on a \(2n\)-dimensional quotient. Lifts of a symplectic basis form a dominating set whose paired basis edges also give total and paired domination. For an arbitrary dominating set with proper span \(W\), every nonzero quotient vector in \(W^\perp\) has all \(p\) of its lifts commuting with the selected set and therefore must itself be selected. Those forced vertices span \(W^\perp\); adding the remaining span dimension and using \(p(p^m-1)\ge 2m\) gives the lower bound \(2n\). The argument covers characteristic two and all extraspecial types.
 
-## Originality
+## originality
 
-PASS. The closest extraspecial literature studies maximum pairwise noncommuting sets, which is a clique problem rather than domination. The full-text finite-group domination paper proves general bounds but contains no extraspecial, \(p\)-group, or symplectic specialization. Searches under ordinary, total, paired, noncommuting, extraspecial, and symplectic formulations did not locate the exact three-parameter equality.
+PASS
 
-Risk: the full text of the 2005 extraspecial noncommuting-set paper was not readable in the inspected access path, so a hidden domination remark there cannot be ruled out absolutely; its abstract describes clique-size bounds, not domination.
+Best-of-knowledge originality passes. The directly accessible finite-group domination source gives only a general upper bound and no extraspecial specialization, while the extraspecial literature located in the searches concerns pairwise noncommuting subsets rather than domination. Resultary returned the assigned theorem as the exact same-object hit and no prior stronger finding.
 
-## Value
+## value
 
-PASS. The theorem gives an exact structural invariant for every extraspecial group, simultaneously for three standard domination parameters, and the common value is the symplectic dimension of the central quotient. It also shows that the noncommuting graph cannot distinguish extraspecial plus/minus type through these parameters, clarifying precisely which group structure they see.
+PASS
 
-Risk: the argument relies essentially on nondegeneracy of the commutator form and therefore does not automatically extend to broader class-two families.
+The result gives an exact structural invariant for an entire natural group family and simultaneously resolves three standard domination parameters. The equality with symplectic dimension and the canonical perfect matching explain what these graph invariants see and do not see about extraspecial type, so the theorem is mathematically motivated rather than a finite computation.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

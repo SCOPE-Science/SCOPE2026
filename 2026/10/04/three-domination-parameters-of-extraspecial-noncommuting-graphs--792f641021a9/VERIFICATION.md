@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,37 +19,24 @@
 }
 ---
 
-The verification separates the infinite proof from finite corroboration.
+# Independent mathematical audit
 
-1. **Exact graph model.** For an extraspecial group, the quotient \(G/Z(G)\) is a symplectic vector space. Each nonzero quotient vector has exactly \(p\) group-element lifts, and two lifts are adjacent precisely when the symplectic pairing of their vectors is nonzero.
+## correctness
 
-2. **Upper-bound witness.** A symplectic basis has \(2n\) vectors. Choosing one lift of each basis vector gives a dominating set; the \(n\) hyperbolic pairs are edges, so the same set is total dominating and has a perfect matching.
+PASS
 
-3. **Lower-bound mechanism.** If the selected quotient vectors span a proper subspace \(W\), then every group element lying above \(W^\perp\setminus\{0\}\) commutes with the entire selected set and therefore must itself be selected. This forces
-\[
-p(p^m-1)+2n-2m
-\]
-selected vertices when \(m=\dim W^\perp\), and
-\[
-p(p^m-1)\ge2m
-\]
-gives the bound \(2n\).
+The proof is correct. The extraspecial commutator descends to a nondegenerate alternating form on a \(2n\)-dimensional quotient. Lifts of a symplectic basis form a dominating set whose paired basis edges also give total and paired domination. For an arbitrary dominating set with proper span \(W\), every nonzero quotient vector in \(W^\perp\) has all \(p\) of its lifts commuting with the selected set and therefore must itself be selected. Those forced vertices span \(W^\perp\); adding the remaining span dimension and using \(p(p^m-1)\ge 2m\) gives the lower bound \(2n\). The argument covers characteristic two and all extraspecial types.
 
-4. **Finite replay.** The standalone checker builds the full symplectic blow-up graph and exhaustively searches all candidate sets through the optimum for
-\[
-(p,n)=(2,1),(3,1),(2,2).
-\]
-It separately constructs \(D_8\) and \(Q_8\) from multiplication and checks their ordinary domination value. It also replays the elementary lower-bound inequality on a finite parameter grid.
+## originality
 
-Exact output:
+PASS
 
-```text
-VERIFY_OK
-symplectic_model_p=2_n=1: vertices=6 gamma=2 gamma_t=2 gamma_pr=2
-symplectic_model_p=3_n=1: vertices=24 gamma=2 gamma_t=2 gamma_pr=2
-symplectic_model_p=2_n=2: vertices=30 gamma=4 gamma_t=4 gamma_pr=4
-D8_and_Q8_actual_group_checks=gamma_2
-lower_bound_inequality_grid=p2..17_m1..12_passed
-```
+Best-of-knowledge originality passes. The directly accessible finite-group domination source gives only a general upper bound and no extraspecial specialization, while the extraspecial literature located in the searches concerns pairwise noncommuting subsets rather than domination. Resultary returned the assigned theorem as the exact same-object hit and no prior stronger finding.
 
-The finite search is not an infinite certificate. The arbitrary-\(p\), arbitrary-\(n\) theorem is proved by the symbolic symplectic argument.
+## value
+
+PASS
+
+The result gives an exact structural invariant for an entire natural group family and simultaneously resolves three standard domination parameters. The equality with symplectic dimension and the canonical perfect matching explain what these graph invariants see and do not see about extraspecial type, so the theorem is mathematically motivated rather than a finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
