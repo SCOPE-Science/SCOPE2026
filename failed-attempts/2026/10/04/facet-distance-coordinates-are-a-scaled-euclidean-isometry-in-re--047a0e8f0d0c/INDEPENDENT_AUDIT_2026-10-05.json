@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T09:59:58.713285Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob d361443befeeb48fafebe2e2343cda88137c3028",
+        "verify_simplex_facet_isometry.py blob 085d8773a36b5779a781774683f9fb1fe23a96f3",
+        "standard regular-simplex tight-frame calculation"
+      ],
+      "rationale": "For unit vertex directions u_i of a centered regular n-simplex, sum_i u_i=0 and sum_i u_i u_i^T=((n+1)/n)I. Since d_i(P)=r+<u_i,p>, summing squared differences gives ((n+1)/n)||P-Q||^2 exactly. The barycentric identity d_i=(n+1)r lambda_i identifies the image and inverse map; setting Q at the center gives the second-moment formulas. Independent random checks in dimensions 2 through 7 reproduced the identities.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regular-simplex Gram matrix already fixes the Euclidean metric on the barycentric hyperplane up to one scalar.",
+          "Viviani literature adds first-moment context but is not needed for the decisive implication."
+        ],
+        "reasoning": "Known coordinate geometry is broader than the facet-distance presentation.",
+        "searches": [
+          "standard regular-simplex Gram/barycentric geometry",
+          "arXiv:1008.1236"
+        ]
+      },
+      "checked_sources": [
+        "Wolfram Function Repository, CenteredSimplex documentation",
+        "Zhou, Viviani Polytopes and Fermat Points, arXiv:1008.1236",
+        "De Villiers, 3D Generalisations of Viviani's theorem, DOI:10.1017/S0025557200000188",
+        "Resultary query: regular simplex facet distance coordinates Euclidean isometry barycentric tight frame"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution mechanically yields the exact metric coefficient and all centered corollaries."
+        ],
+        "reasoning": "Different terminology does not preserve originality when the claim is a direct normalization of an existing equivalent coordinate theorem.",
+        "searches": [
+          "known barycentric isometry",
+          "d_i=(n+1)r lambda_i"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CenteredSimplex documentation explicitly states Euclidean distance preservation for regular-simplex barycentric coordinates at edge length sqrt(2).",
+          "Facet distances to opposite facets are proportional to barycentric coordinates."
+        ],
+        "reasoning": "The audited formulation is an equivalent normalization of the known barycentric isometry.",
+        "searches": [
+          "Wolfram Function Repository, CenteredSimplex documentation",
+          "Zhou, Viviani Polytopes and Fermat Points, arXiv:1008.1236",
+          "De Villiers, 3D Generalisations of Viviani's theorem, DOI:10.1017/S0025557200000188",
+          "Resultary query: regular simplex facet distance coordinates Euclidean isometry barycentric tight frame"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact existing mathematical reference records the distance-preserving regular-simplex barycentric model."
+        ],
+        "reasoning": "The result is implication-covered rather than absent from tables only.",
+        "searches": [
+          "Wolfram Function Repository CenteredSimplex",
+          "Resultary query: regular simplex facet distance coordinates Euclidean isometry barycentric tight frame"
+        ]
+      },
+      "rationale": "Originality fails because the central theorem is implication-covered by standard regular-simplex barycentric geometry. Existing regular-simplex barycentric-coordinate documentation explicitly states that a regular simplex at its canonical scale preserves Euclidean distance in barycentric coordinates. The audited proof itself uses the standard relation d_i=(n+1)r lambda_i. Combining those facts gives the claimed facet-distance scaled isometry by one rescaling; its second-moment and inverse formulas are immediate corollaries.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_EQUIVALENT_FORMULATION",
+          "evidence": "Together with the standard facet-distance/barycentric proportionality it gives the audited identity immediately.",
+          "identifier_or_url": "Wolfram Function Repository",
+          "material_read": "Documentation statement that a regular simplex with edge length sqrt(2), used for barycentric coordinates, preserves Euclidean distance.",
+          "method": "public mathematical reference/documentation",
+          "title": "CenteredSimplex",
+          "trigger": "Direct regular-simplex barycentric metric formulation."
+        },
+        {
+          "assessment": "FIRST_MOMENT_BACKGROUND_ONLY",
+          "evidence": "It does not itself state the metric identity, but does not rescue originality against barycentric coverage.",
+          "identifier_or_url": "arXiv:1008.1236",
+          "material_read": "Primary theorem/proof material on constant signed-distance sums.",
+          "method": "lawful open primary source",
+          "title": "Viviani Polytopes and Fermat Points",
+          "trigger": "Closest primary literature under facet-distance terminology."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Wolfram Function Repository, CenteredSimplex documentation",
+        "Zhou, Viviani Polytopes and Fermat Points, arXiv:1008.1236",
+        "De Villiers, 3D Generalisations of Viviani's theorem, DOI:10.1017/S0025557200000188",
+        "Resultary query: regular simplex facet distance coordinates Euclidean isometry barycentric tight frame"
+      ],
+      "rationale": "The result is a clean reformulation, but under the required value bar it is a routine consequence of standard barycentric coordinates for a regular simplex and their known Euclidean metric normalization. The inverse and variance identities are immediate algebraic corollaries. It therefore does not fill a sufficiently distinct unknown mathematical gap.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Publication preparation was incomplete in the original submission; this is an administrative limitation, not a mathematical verdict."
+  ],
+  "schema_version": 1
+}
