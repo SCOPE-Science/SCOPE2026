@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,27 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The unrestricted theorem is proved symbolically in `RESULT.md`.
+# Independent mathematical audit
 
-The packaged checker performs finite corroboration only. It enumerates odd composite
-integers through a fixed bound, computes
-\[
-k=\frac{n-1}{\sigma(n)-n-1}
-\]
-when the denominator is positive and divides \(n-1\), selects odd integral
-\(k>1\), and verifies:
-\[
-\nu_2(\sigma(n))=1,
-\]
-exactly one prime exponent is odd, and the corresponding prime and exponent are
-both congruent to \(1\pmod4\).
+## correctness
 
-It also verifies the defining equation and the same structural conclusions for
-the known odd-index examples \(325\), \(10693\), \(51301\), \(214273\), and
-\(306181\).
+PASS
 
-The finite sweep is not used to infer the infinite theorem. No assertion is made
-that every odd-index hyperperfect number is odd or that every such number has
-only two distinct prime factors.
+From the defining equation, \(k\sigma(n)=(k+1)(n+1)-2\). With \(k,n\) odd, the right side is \(2\pmod4\), so \(v_2(\sigma(n))=1\). Multiplicativity of \(\sigma\) and the parity of \(1+p+\cdots+p^a\) for odd \(p\) show that exactly one prime exponent is odd. If that exponent is \(\alpha\), LTE gives \(v_2(\sigma(q^\alpha))=v_2(q+1)+v_2(\alpha+1)-1=1\), forcing both valuations on the right to equal one and hence \(q,\alpha\equiv1\pmod4\). The inspected package verifier only enumerates small examples and is correctly treated as regression evidence, not the proof.
+
+## originality
+
+PASS
+
+McCranie's full primary paper gives an odd-index sufficient family \(p^2q\) and explicitly labels its converse as Conjecture 1. It does not state the unrestricted two-adic valuation or Euler-form restriction. Fresh semantic searches for odd-index hyperperfect valuations, unique odd exponents, and modulo-four conditions returned no equivalent or stronger theorem. The audited result therefore supplies a genuine necessary condition strictly weaker than, but not implied by, the open converse conjecture.
+
+## value
+
+PASS
+
+The theorem gives an Euler-style structural restriction for a longstanding odd-index hyperperfect problem, excludes all odd squarefree composites, and narrows any odd candidate toward the stronger published converse conjecture. The proof is short but the restriction is natural and applies uniformly to the unresolved family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
