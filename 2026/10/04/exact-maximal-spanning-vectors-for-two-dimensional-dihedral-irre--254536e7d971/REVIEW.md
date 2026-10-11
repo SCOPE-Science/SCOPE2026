@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the orbit projectors explicitly for every two-dimensional irreducible. For \(m>2\), root-of-unity averages recover both diagonal matrix units when \(|a|\ne|b|\), and Fourier-weighted sums recover both off-diagonal matrix units when \(ab\ne0\). For \(m=2\), the off-diagonal span has determinant proportional to \(c^2-\overline c^2\), giving the stated resonance condition. One-dimensional irreducibles are immediate.
+## correctness
 
-## Originality
-PASS. The closest inspected dihedral work concerns Haar/full-spark vector orbits in a different \(n\)-dimensional representation. The closest inspected phase-retrieval paper focuses on nilpotent groups and finite \(p\)-groups. Targeted literature-record searches found no matching all-dihedral irreducible classification or the exact order-\(2\) criterion. A later 2025 paper with a broad finite-group title was not materially available in full text and remains the main priority risk.
+PASS
 
-## Value
-PASS. This gives an exact maximal-spanning classification for a canonical nonabelian group family and identifies a genuine resonance boundary. It strengthens mere phase-retrieval existence to matrix recovery and supplies explicit working generators.
+For a two-dimensional dihedral irreducible, the rotation projectors have off-diagonal phase \(cq^j\), with \(q=\zeta^{2k}\) and \(m=\operatorname{ord}(q)\). When \(m>2\), cycle averages of the rotation and reflection orbits span both diagonal directions exactly when \(|a|\ne|b|\), and the first Fourier coefficients isolate \(E_{12}\) and \(E_{21}\) exactly when \(a\overline b\ne0\); the unwanted coefficient vanishes because \(\sum q^{2j}=0\). When \(m=2\), the two off-diagonal Hermitian directions are independent exactly when \((a\overline b)^2-(\overline a b)^2\ne0\), equivalently \(\operatorname{Im}((a\overline b)^2)\ne0\). No two-dimensional irrep has \(m=1\). Hence the two stated criteria are necessary and sufficient, and the explicit vectors work. The one-dimensional irreducibles are immediate. The finite replay through \(n=80\) was inspected only as corroboration; the universal conclusion is discharged by the root-of-unity calculation.
 
-## Closest literature and limitations
-Oussa–Sheehan (2017) is the closest object-specific source but proves full spark for an \(n\)-dimensional induced representation. Führ–Oussa (2022/2023) is the closest phase-retrieval source but does not cover all finite dihedral groups. Cheng (2025) is a residual access risk because only metadata and indexing were materially available. The theorem here is restricted to ordinary complex irreducible dihedral representations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Fresh comparison found general maximal-spanning criteria, affine-group matrix-recovery results, nilpotent/p-group phase-retrieval results, and dihedral full-spark/Haar results, but no materially inspected theorem stating that every finite-dihedral irreducible does matrix recovery or giving the exact \(m>2\) versus \(m=2\) generator criterion. The 2025 Cheng article is the strongest priority risk: its title and indexing directly concern irreducible finite-group phase retrieval and maximal spanning vectors. Open and public full-text routes did not provide the paper, and the authorized institutional retrieval returned a different 2023 article despite the requested DOI, so that route was not retried or bypassed. Under the owner rule this inaccessible plausible source is recorded as a substantial residual risk rather than converted into a scientific failure.
+
+## value
+
+PASS
+
+Finite dihedral groups are a canonical nonabelian family, and the result classifies the full irreducible family at the stronger matrix-recovery level, including an exact exceptional order-two resonance condition. This is a structural all-parameter theorem rather than a one-off example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
