@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T05:46:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Wang, Fu and Solomon, Thermal entanglement in three-qubit Heisenberg models, arXiv:quant-ph/0105075v2 / Journal of Physics A 34 (2001), DOI 10.1088/0305-4470/34/50/312; complete primary PDF inspected, especially the uniform-field concurrence condition and zero-temperature limits.",
+        "Yang and Zhou, Thermal Entanglement of a Three-Qubit Heisenberg Chain with a Nonuniform Magnetic Field, Communications in Theoretical Physics 49 (2008), DOI 10.1088/0253-6102/49/6/62; primary open full text/abstract scope checked for near-zero-temperature nonuniform-field analysis.",
+        "Jafari and Langari, Three-Qubit Ground State and Thermal Entanglement of XXZ Model With Dzyaloshinskii-Moriya Interaction, arXiv:0903.2556; primary abstract inspected for related quantum-critical entanglement behavior.",
+        "Resultary query for the three-qubit XXX saturation field, finite-temperature boundary layer and profile \\(2/[3(2+e^{2s})]\\); no independent matching result was returned.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_three_qubit_xxx_boundary_layers.py from exact tree f1cb445199919541f7db9583e0e8dea3bc21b8c4.",
+        "Fresh inspection of the verifier plus independent dominant-Boltzmann-weight asymptotics of the exact source formula."
+      ],
+      "rationale": "Starting from the source's closed reduced-density-matrix formula, the package expression agrees with an independent density-matrix/Wootters calculation in the inspected verifier. For the activation threshold, writing \\(q=e^{3J/T}\\) makes the arcosh argument one plus \\(12/q+O(q^{-2})\\), giving \\(\\sqrt6\\,Tq^{-1/2}\\). In the critical scaling \\(B=3J/2+sT\\), the partition function and concurrence numerator share the factor \\(e^{(9J/2T)+s}\\), leaving the finite ratio \\(2/[3(2+e^{2s})]\\), which reproduces one-third, two-ninths and zero in the three limiting directions. For fixed supercritical field the next Boltzmann sector yields the stated Arrhenius exponent and coefficient.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact 2001 formula is the essential input but the inspected paper reports pointwise limits and threshold behavior, not a double-scaling law.",
+          "The later related models change the Hamiltonian and do not dominate the uniform XXX scaling claim."
+        ],
+        "reasoning": "No broader inspected theorem supplies the specific universal profile or both endpoint scales.",
+        "searches": [
+          "Wang–Fu–Solomon exact finite-temperature concurrence",
+          "Jafari–Langari XXZ/DM quantum-critical entanglement",
+          "Yang–Zhou nonuniform-field three-qubit chain"
+        ]
+      },
+      "checked_sources": [
+        "Wang, Fu and Solomon, Thermal entanglement in three-qubit Heisenberg models, arXiv:quant-ph/0105075v2 / Journal of Physics A 34 (2001), DOI 10.1088/0305-4470/34/50/312; complete primary PDF inspected, especially the uniform-field concurrence condition and zero-temperature limits.",
+        "Yang and Zhou, Thermal Entanglement of a Three-Qubit Heisenberg Chain with a Nonuniform Magnetic Field, Communications in Theoretical Physics 49 (2008), DOI 10.1088/0253-6102/49/6/62; primary open full text/abstract scope checked for near-zero-temperature nonuniform-field analysis.",
+        "Jafari and Langari, Three-Qubit Ground State and Thermal Entanglement of XXZ Model With Dzyaloshinskii-Moriya Interaction, arXiv:0903.2556; primary abstract inspected for related quantum-critical entanglement behavior.",
+        "Resultary query for the three-qubit XXX saturation field, finite-temperature boundary layer and profile \\(2/[3(2+e^{2s})]\\); no independent matching result was returned.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_three_qubit_xxx_boundary_layers.py from exact tree f1cb445199919541f7db9583e0e8dea3bc21b8c4.",
+        "Fresh inspection of the verifier plus independent dominant-Boltzmann-weight asymptotics of the exact source formula."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact formula must be reorganized by competing exponential weights at \\(B=3J/2+sT\\); direct fixed-field limits erase this information.",
+          "The threshold equation requires a separate large-q arcosh expansion, while the supercritical tail requires retaining the first thermally excited contribution."
+        ],
+        "reasoning": "The source formula enables the analysis but does not directly state the singular scaling theorem or its activation/Arrhenius asymptotics.",
+        "searches": [
+          "Wang–Fu–Solomon exact concurrence and activation condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's pointwise zero-temperature limits jump from one-third to two-ninths to zero at the critical field.",
+          "The audited scaling profile interpolates these values on the shrinking \\(B-B_c=O(T)\\) layer."
+        ],
+        "reasoning": "The scaling-profile statement is a different asymptotic mode from taking \\(T\\to0\\) at fixed field; the two limits do not commute.",
+        "searches": [
+          "Resultary: three qubit XXX thermal entanglement saturation field 3J/2 low temperature boundary layer concurrence",
+          "Wang–Fu–Solomon Section V",
+          "Yang–Zhou nonuniform-field near-zero-temperature scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact table/formula for the profile \\(2/[3(2+e^{2s})]\\) was located.",
+          "The 2001 source plots several fixed fields but does not tabulate the scaled crossover."
+        ],
+        "reasoning": "The theorem is an analytic asymptotic profile, not an interpolation of the figure.",
+        "searches": [
+          "Resultary exact profile/activation search",
+          "primary source plots and zero-temperature formula"
+        ]
+      },
+      "rationale": "The 2001 source gives the exact concurrence formula, the finite-temperature activation inequality and the three pointwise zero-temperature phases, including the values one-third, two-ninths and zero. It does not give the temperature-width scaling function around the saturation field, the exponentially small low-temperature activation field, or the fixed-supercritical Arrhenius tail. Those results resolve the singular crossover between the source's discontinuous pointwise limits and are not stated in the related inspected literature.",
+      "residual_risks": [
+        "The exact finite-temperature formula is old and heavily studied, so an unindexed statistical-mechanics paper may have extracted the same boundary-layer profile under quantum-critical scaling terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT FORMULA AND POINTWISE PHASE LIMITS COVERED; DOUBLE-SCALING CROSSOVER NOT STATED",
+          "evidence": "The source gives the one-third/two-ninths/zero fixed-field limits at the critical boundary but no \\(B=B_c+sT\\) scaling function.",
+          "identifier_or_url": "arXiv:quant-ph/0105075v2; DOI:10.1088/0305-4470/34/50/312",
+          "material_read": "Complete primary PDF, focused on Section V, the magnetic-field entanglement condition, Fig. 6 and the displayed zero-temperature phase-transition limits; the critical-field page was visually inspected.",
+          "method": "Open primary PDF text and page-image inspection.",
+          "title": "Thermal entanglement in three-qubit Heisenberg models",
+          "trigger": "Exact source model and closed concurrence formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang, Fu and Solomon, Thermal entanglement in three-qubit Heisenberg models, arXiv:quant-ph/0105075v2 / Journal of Physics A 34 (2001), DOI 10.1088/0305-4470/34/50/312; complete primary PDF inspected, especially the uniform-field concurrence condition and zero-temperature limits.",
+        "Yang and Zhou, Thermal Entanglement of a Three-Qubit Heisenberg Chain with a Nonuniform Magnetic Field, Communications in Theoretical Physics 49 (2008), DOI 10.1088/0253-6102/49/6/62; primary open full text/abstract scope checked for near-zero-temperature nonuniform-field analysis.",
+        "Jafari and Langari, Three-Qubit Ground State and Thermal Entanglement of XXZ Model With Dzyaloshinskii-Moriya Interaction, arXiv:0903.2556; primary abstract inspected for related quantum-critical entanglement behavior.",
+        "Resultary query for the three-qubit XXX saturation field, finite-temperature boundary layer and profile \\(2/[3(2+e^{2s})]\\); no independent matching result was returned.",
+        "Assigned RESULT.md, VERIFICATION.md and verify_three_qubit_xxx_boundary_layers.py from exact tree f1cb445199919541f7db9583e0e8dea3bc21b8c4.",
+        "Fresh inspection of the verifier plus independent dominant-Boltzmann-weight asymptotics of the exact source formula."
+      ],
+      "rationale": "The theorem resolves a genuine noncommuting-limit phenomenon at the quantum saturation transition: a pointwise zero-temperature jump becomes a universal width-O(T) crossover, while field activation near zero field occurs on an exponentially smaller scale. The distinction is physically and mathematically motivated rather than an arbitrary asymptotic slice.",
+      "residual_risks": [
+        "The exact finite-temperature formula is old and heavily studied, so an unindexed statistical-mechanics paper may have extracted the same boundary-layer profile under quantum-critical scaling terminology."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the antiferromagnetic three-qubit XXX ring, the field-induced entanglement has two distinct low-temperature scales: the activation threshold obeys \\(B_*(T)\\sim\\sqrt6\\,T e^{-3J/(2T)}\\), while at the saturation field \\(B_c=3J/2\\) the crossover \\(B=B_c+sT\\) has limiting concurrence \\(2/[3(2+e^{2s})]\\); for fixed \\(B>B_c\\), concurrence has the Arrhenius tail \\((2/3)e^{-2(B-B_c)/T}\\).",
+  "limitations": [
+    "Specific to pairwise concurrence in the three-site periodic antiferromagnetic XXX model.",
+    "No thermodynamic-limit universality is claimed.",
+    "The exact finite-temperature formula is old and heavily studied, so an unindexed statistical-mechanics paper may have extracted the same boundary-layer profile under quantum-critical scaling terminology."
+  ],
+  "schema_version": 1
+}

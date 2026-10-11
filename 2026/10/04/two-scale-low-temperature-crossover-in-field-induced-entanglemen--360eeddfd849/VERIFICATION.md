@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-`verify_three_qubit_xxx_boundary_layers.py` reconstructs the periodic three-spin \(XXX\) Hamiltonian, forms the Gibbs state, traces out one spin, and computes Wootters concurrence.
+# Independent mathematical audit
 
-The direct matrix result is compared with the analytic reduced-state formula over a deterministic grid.
+## correctness
 
-The script also checks the unique activation threshold, convergence of
-\[
-\frac{B_*(T)}
-{\sqrt6\,T e^{-3J/(2T)}}
-\]
-to \(1\), the five-point saturation scaling profile
-\[
-C\!\left(T,\frac{3J}{2}+sT\right)
-\to
-\frac{2}{3(2+e^{2s})},
-\]
-and the fixed-high-field Arrhenius law.
+PASS
 
-The numerical replay is supplementary. The all-parameter asymptotic statements are proved analytically in `RESULT.md`.
+Starting from the source's closed reduced-density-matrix formula, the package expression agrees with an independent density-matrix/Wootters calculation in the inspected verifier. For the activation threshold, writing \(q=e^{3J/T}\) makes the arcosh argument one plus \(12/q+O(q^{-2})\), giving \(\sqrt6\,Tq^{-1/2}\). In the critical scaling \(B=3J/2+sT\), the partition function and concurrence numerator share the factor \(e^{(9J/2T)+s}\), leaving the finite ratio \(2/[3(2+e^{2s})]\), which reproduces one-third, two-ninths and zero in the three limiting directions. For fixed supercritical field the next Boltzmann sector yields the stated Arrhenius exponent and coefficient.
 
-No independent audit has been performed.
+## originality
+
+PASS
+
+The 2001 source gives the exact concurrence formula, the finite-temperature activation inequality and the three pointwise zero-temperature phases, including the values one-third, two-ninths and zero. It does not give the temperature-width scaling function around the saturation field, the exponentially small low-temperature activation field, or the fixed-supercritical Arrhenius tail. Those results resolve the singular crossover between the source's discontinuous pointwise limits and are not stated in the related inspected literature.
+
+## value
+
+PASS
+
+The theorem resolves a genuine noncommuting-limit phenomenon at the quantum saturation transition: a pointwise zero-temperature jump becomes a universal width-O(T) crossover, while field activation near zero field occurs on an exponentially smaller scale. The distinction is physically and mathematically motivated rather than an arbitrary asymptotic slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

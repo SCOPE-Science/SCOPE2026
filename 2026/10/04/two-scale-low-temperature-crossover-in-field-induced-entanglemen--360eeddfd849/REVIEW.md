@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof starts from the published reduced-state formula and independently reconstructs it from the full three-spin Hamiltonian. Inverting the published sign condition gives the unique activation field. Its low-temperature expansion uses \(q=e^{3J/T}\) and \(\operatorname{arcosh}(1+\epsilon)\sim\sqrt{2\epsilon}\). At the saturation field, direct dominant-balance analysis of \(u\), \(v\), \(y\), and \(Z\) yields the scaling function \(2/[3(2+e^{2s})]\). A standalone density-matrix checker reproduces the concurrence and all asymptotic limits.
+PASS
 
-## Originality
+Starting from the source's closed reduced-density-matrix formula, the package expression agrees with an independent density-matrix/Wootters calculation in the inspected verifier. For the activation threshold, writing \(q=e^{3J/T}\) makes the arcosh argument one plus \(12/q+O(q^{-2})\), giving \(\sqrt6\,Tq^{-1/2}\). In the critical scaling \(B=3J/2+sT\), the partition function and concurrence numerator share the factor \(e^{(9J/2T)+s}\), leaving the finite ratio \(2/[3(2+e^{2s})]\), which reproduces one-third, two-ninths and zero in the three limiting directions. For fixed supercritical field the next Boltzmann sector yields the stated Arrhenius exponent and coefficient.
 
-**PASS, narrowly scoped.** The exact finite-temperature field inequality and the three separate zero-temperature values are explicitly prior work and are not claimed as new. The inspected anchor text does not analyze the singular approach to zero temperature, identify the exponentially small activation scale, introduce the saturation scaling variable \((B-3J/2)/T\), or give its limiting concurrence profile. Targeted searches and two closely related later three-qubit papers did not locate an equivalent two-scale theorem.
+## originality
 
-The principal residual risk is an algebraically equivalent crossover result in later finite-cluster literature under a different Hamiltonian normalization.
+PASS
 
-## Value
+The 2001 source gives the exact concurrence formula, the finite-temperature activation inequality and the three pointwise zero-temperature phases, including the values one-third, two-ninths and zero. It does not give the temperature-width scaling function around the saturation field, the exponentially small low-temperature activation field, or the fixed-supercritical Arrhenius tail. Those results resolve the singular crossover between the source's discontinuous pointwise limits and are not stated in the related inspected literature.
 
-**PASS.** The result resolves a nonuniform zero-temperature limit in a canonical exactly solvable three-spin model. It quantifies two physically distinct mechanisms that are hidden by ordinary parameter plots: exponentially weak field activation near zero field and thermal rounding of the saturation transition on a linear-\(T\) scale. The explicit crossover also explains how the source values \(1/3\), \(2/9\), and \(0\) fit into one asymptotic profile.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The theorem resolves a genuine noncommuting-limit phenomenon at the quantum saturation transition: a pointwise zero-temperature jump becomes a universal width-O(T) crossover, while field activation near zero field occurs on an exponentially smaller scale. The distinction is physically and mathematically motivated rather than an arbitrary asymptotic slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
