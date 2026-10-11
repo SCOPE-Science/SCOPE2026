@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The harmonious equation reduces exactly to \(q(A+B-1)=(A-1)(2B-1)\). The divisor \(D=A+B-1\) is coprime to \(A-1\), so it divides \(2B-1\), and therefore also \(2A-1\). The resulting two inequalities force \(A=B\), and then \(q=A-1\). The converse is immediate. The packaged checker is only a regression test.
+## correctness
 
-## Originality
-PASS. The 2015 source gives the example \((4,12)\) and a global density theorem; targeted full-text search found no Mersenne formulation. The 2021 source defines the synonymous feebly amicable notion, tabulates examples, and poses structural questions, but no located theorem covers \((2^a,2^bq)\). OEIS tables the small examples without the all-parameter characterization. Targeted published-finding corpus and web searches found no dominating statement. Residual risk remains for unindexed or unpublished observations.
+PASS
 
-## Value
-PASS. This is a complete structural classification of a natural two-prime-support family and exposes an exact equivalence with Mersenne primality, explaining an infinite conditional pattern of tabulated harmonious pairs rather than extending a finite census.
+After clearing denominators the equation is q(A+B-1)=(A-1)(2B-1) for A=2^a and B=2^b. Since gcd(A+B-1,A-1)=1, the common divisor A+B-1 divides both 2B-1 and 2A-1. Positivity forces A<=B and B<=A, hence A=B and q=A-1. The converse is direct. The finite exact-rational checker is corroborative only.
 
-## Closest literature and limitations
-The closest sources are Kozek–Luca–Pollack–Pomerance, “Harmonious Pairs,” and Bishop–Bozarth–Kuss–Peet, “The Abundancy Index and Feebly Amicable Numbers.” The theorem does not classify arbitrary friends of powers of two or cases with odd-prime exponent greater than one.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected harmonious/feebly-amicable literature studies the invariant globally, lists examples such as (4,12), and develops abundancy criteria, but targeted searches for Mersenne terminology and the structural slice (2^a,2^b q) found no implication-equivalent classification. Resultary returned the assigned theorem as the exact hit and no broader predecessor. The proof is elementary, but it supplies a complete infinite slice rather than recomputing a known table.
+
+## value
+
+PASS
+
+Powers of two are a canonical support restriction in divisor-sum problems, and the observed Mersenne examples motivate the slice. The theorem completely explains that infinite pattern with an exact converse, rather than reporting isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
