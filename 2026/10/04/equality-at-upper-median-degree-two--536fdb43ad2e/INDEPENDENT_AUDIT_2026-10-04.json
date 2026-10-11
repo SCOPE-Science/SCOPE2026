@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:47:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and artifacts/verify.py at frozen tree",
+        "fresh exact connected-graph check through order 5"
+      ],
+      "rationale": "For two omitted vertices \\(x,y\\), the complement of \\(\\{x,y\\}\\) is 2-dominating exactly when either they are nonadjacent and both have degree at least two, or they are adjacent and both have degree at least three. Since any 2-dominating set of size at most \\(n-2\\) can be enlarged to size \\(n-2\\), this proves \\(\\gamma_2=n-1\\) iff \\(H=\\{d\\ge2\\}\\) is a clique and at most one member of \\(H\\) has degree at least three. Under \\(m=2\\), \\(|H|\\ge\\lceil n/2\\rceil\\), while the clique condition forces \\(|H|\\le3\\), hence \\(n\\le6\\). The cases \\(|H|=1,2,3\\) then give exactly the listed graphs. A fresh independent exhaustive check through order five reproduced the structural lemma; the universal order bound is analytic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 paper resolves the inequality only. The 2010 full text proves general 2-domination upper bounds and records the median conjecture, not the audited equality layer."
+        ],
+        "reasoning": "Neither broader source mechanically implies the exact five isomorphism types; equality requires a separate near-full 2-domination structural lemma.",
+        "searches": [
+          "Jun Qing, arXiv:2607.27246v1",
+          "DeLaViña--Larson--Pepper--Waller, Congressus Numerantium 203 (2010), 15--32",
+          "Bonomo et al., DOI:10.1016/j.dam.2017.08.017"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.27246v1",
+        "Congressus Numerantium 203 (2010), 15--32",
+        "DOI:10.1016/j.dam.2017.08.017",
+        "Resultary upper-median equality query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equality in Qing's global inequality alone does not characterize the graph. The audited lemma shows \\(\\gamma_2=n-1\\) iff the degree-at-least-two vertices form a clique with at most one degree-at-least-three vertex; combining this with \\(m=2\\) forces \\(|H|\\le3\\) and \\(n\\le6\\)."
+        ],
+        "reasoning": "The equality classification is additional structural content, not a direct specialization of the prior inequality.",
+        "searches": [
+          "arXiv:2607.27246 bound versus audited equality proof",
+          "2010 Theorem 12 and conjecture section versus audited structural lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qing proves \\(\\gamma_2(G)\\le n-m(G)+1\\) for every nonempty graph; the accessible full 2010 paper gives earlier bounds and leaves the upper-median conjecture open."
+        ],
+        "reasoning": "The audited statement was compared both as equality in the upper-median bound at \\(m=2\\) and as a standalone characterization of graphs with \\(\\gamma_2=n-1\\).",
+        "searches": [
+          "arXiv:2607.27246 equality upper median degree two 2-domination",
+          "Graffiti.pc 2-domination n-1 characterization",
+          "Resultary: 2-domination upper median degree equality gamma_2=n-1 characterization median degree two"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact classification or table match was located."
+        ],
+        "reasoning": "The result is an all-graph classification reduced analytically to order at most six, not a lookup-table claim.",
+        "searches": [
+          "Resultary published-finding corpus for the exact m=2 equality layer",
+          "targeted web search for \\(\\gamma_2(G)=n-1\\) characterization"
+        ]
+      },
+      "rationale": "The 2026 primary theorem proves only the universal upper-median bound and does not classify equality. Full text of the 2010 Graffiti.pc paper was inspected; it gives several 2-domination bounds and presents the upper-median statement as an open conjecture, but no characterization of \\(\\gamma_2=n-1\\) or the five equality types. Targeted searches did not locate an older equivalent characterization.",
+      "residual_risks": [
+        "An older domination paper may state the \\(\\gamma_2=n-1\\) lemma under different terminology.",
+        "The theorem is deliberately restricted to the median-two equality layer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BOUND_PROVED_EQUALITY_LAYER_NOT_CLASSIFIED",
+          "evidence": "The stated main theorem is \\(\\gamma_2(G)\\le n-m(G)+1\\); no inspected theorem provides the m=2 equality classification.",
+          "identifier_or_url": "arXiv:2607.27246v1",
+          "material_read": "Accessible full paper text/author-hosted copy and theorem statement establishing the upper-median inequality.",
+          "method": "Direct theorem/equality-scope comparison.",
+          "title": "The 2-Domination Number and the Upper Median Degree: A Proof of Graffiti.pc Conjecture 387",
+          "trigger": "Primary theorem whose equality layer is being classified."
+        },
+        {
+          "assessment": "EARLIER_BOUNDS_AND_OPEN_CONJECTURE_NOT_EQUALITY_CLASSIFICATION",
+          "evidence": "The article proves several upper bounds and records the upper-median relation as open; the audited near-full structural criterion was not found.",
+          "identifier_or_url": "Congressus Numerantium 203 (2010), 15--32",
+          "material_read": "Full accessible article including definitions, Theorem 12, and the conjectures/partial-results section.",
+          "method": "Full-text theorem and terminology search.",
+          "title": "Graffiti.pc on the 2-domination number of a graph",
+          "trigger": "Original conjecture source and older 2-domination bounds."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2607.27246v1",
+        "Congressus Numerantium 203 (2010), 15--32"
+      ],
+      "rationale": "This gives the first nontrivial equality layer of a newly proved sharp graph bound and turns a global equality question into a clean structural lemma plus five isomorphism types. The classification is natural, finite only because the proof forces an order cutoff, and is not an arbitrary small-graph census.",
+      "residual_risks": [
+        "An older domination paper may state the \\(\\gamma_2=n-1\\) lemma under different terminology.",
+        "The theorem is deliberately restricted to the median-two equality layer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2607.27246v1",
+    "Congressus Numerantium 203 (2010), 15--32",
+    "DOI:10.1016/j.dam.2017.08.017",
+    "Resultary upper-median equality query"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a finite connected simple graph with upper median degree \\(m(G)=2\\), equality \\(\\gamma_2(G)=n-m(G)+1=n-1\\) holds exactly for \\(P_4\\) and for a triangle with \\(k\\in\\{0,1,2,3\\}\\) pendant vertices all attached to one triangle vertex.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An older domination paper may state the \\(\\gamma_2=n-1\\) lemma under different terminology.",
+    "The theorem is deliberately restricted to the median-two equality layer."
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof establishes the theorem for every finite connected simple graph with upper median degree \(2\). The finite computation is an independent stress test, not an extrapolation argument.
+# Independent mathematical audit
 
-`artifacts/verify.py` uses only the Python standard library. It enumerates every labeled simple graph on two through six vertices, filters connected graphs, computes \(\gamma_2\) by testing vertex subsets directly against the definition, and computes the upper median degree from the sorted degree sequence. It also checks the structural lemma \(\gamma_2(G)=n-1\) against its clique/degree criterion on every connected graph in the enumeration.
+## correctness
 
-Replay command:
+PASS
 
-`python3 artifacts/verify.py`
+For two omitted vertices \(x,y\), the complement of \(\{x,y\}\) is 2-dominating exactly when either they are nonadjacent and both have degree at least two, or they are adjacent and both have degree at least three. Since any 2-dominating set of size at most \(n-2\) can be enlarged to size \(n-2\), this proves \(\gamma_2=n-1\) iff \(H=\{d\ge2\}\) is a clique and at most one member of \(H\) has degree at least three. Under \(m=2\), \(|H|\ge\lceil n/2\rceil\), while the clique condition forces \(|H|\le3\), hence \(n\le6\). The cases \(|H|=1,2,3\) then give exactly the listed graphs. A fresh independent exhaustive check through order five reproduced the structural lemma; the universal order bound is analytic.
 
-Observed output:
+## originality
 
-`ALL CHECKS PASSED; graph_masks=33866; connected_graphs=27475; structural_checks=27475; m2_graphs=8595; m2_equalities=115; max_order=6`
+PASS
 
-The analytic proof independently forces every equality graph with \(m(G)=2\) to have order at most six. Therefore the enumeration covers all possible equality orders, but the proof—not the enumeration—establishes that cutoff. The count \(115\) is a labeled count; the theorem concerns five isomorphism types. No claim is made about equality for upper median degrees other than two.
+The 2026 primary theorem proves only the universal upper-median bound and does not classify equality. Full text of the 2010 Graffiti.pc paper was inspected; it gives several 2-domination bounds and presents the upper-median statement as an open conjecture, but no characterization of \(\gamma_2=n-1\) or the five equality types. Targeted searches did not locate an older equivalent characterization.
+
+## value
+
+PASS
+
+This gives the first nontrivial equality layer of a newly proved sharp graph bound and turns a global equality question into a clean structural lemma plus five isomorphism types. The classification is natural, finite only because the proof forces an order cutoff, and is not an arbitrary small-graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

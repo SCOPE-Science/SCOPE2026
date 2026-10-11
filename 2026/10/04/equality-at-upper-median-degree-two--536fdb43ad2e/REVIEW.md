@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The central omission-of-two-vertices criterion was reconstructed from the definition, including the adjacency boundary: if the omitted vertices are adjacent, each needs degree at least three; if they are nonadjacent, degree at least two suffices. Its negation gives the structural characterization of \(\gamma_2(G)=n-1\). Combining \(|H|\le3\) with the upper-median consequence \(|H|\ge\lceil n/2\rceil\) forces \(n\le6\), after which the connected structures are completely determined. The standalone exhaustive checker independently recomputes \(\gamma_2\) from subsets on all connected labeled graphs through order six.
+## correctness
 
-## Originality
-PASS. The initiating 2026 paper proves \(\gamma_2(G)\le n-m(G)+1\) and gives \(K_n\) as a sharpness family, but does not classify equality or discuss \(m(G)=2\). The 2010 source contains partial upper-median results and older 2-domination bounds; the inspected broad comparison literature likewise does not state the near-full structural lemma or the five equality types. Focused published-finding corpus searches, equivalent-formulation searches, and own-ledger deduplication found no covering claim. Residual risk remains that an older domination paper states an equivalent \(\gamma_2=n-1\) criterion under different terminology.
+PASS
 
-## Value
-PASS. Equality cases are a mathematically natural follow-up to a sharp new inequality. The result gives a complete structural answer for the first nontrivial median layer and shows that equality there is necessarily small for a conceptual reason, rather than by imposing a small-order cutoff in advance.
+For two omitted vertices \(x,y\), the complement of \(\{x,y\}\) is 2-dominating exactly when either they are nonadjacent and both have degree at least two, or they are adjacent and both have degree at least three. Since any 2-dominating set of size at most \(n-2\) can be enlarged to size \(n-2\), this proves \(\gamma_2=n-1\) iff \(H=\{d\ge2\}\) is a clique and at most one member of \(H\) has degree at least three. Under \(m=2\), \(|H|\ge\lceil n/2\rceil\), while the clique condition forces \(|H|\le3\), hence \(n\le6\). The cases \(|H|=1,2,3\) then give exactly the listed graphs. A fresh independent exhaustive check through order five reproduced the structural lemma; the universal order bound is analytic.
 
-## Closest literature and limitations
-The closest source is Jun Qing's 2026 proof of the upper-median bound; its sharpness remark uses complete graphs. The original 2010 Graffiti.pc paper supplies partial bounds, including a bipartite consequence, but no equality classification at median two. The final theorem is restricted to connected graphs with \(m(G)=2\); equality at other median values is not addressed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 primary theorem proves only the universal upper-median bound and does not classify equality. Full text of the 2010 Graffiti.pc paper was inspected; it gives several 2-domination bounds and presents the upper-median statement as an open conjecture, but no characterization of \(\gamma_2=n-1\) or the five equality types. Targeted searches did not locate an older equivalent characterization.
+
+## value
+
+PASS
+
+This gives the first nontrivial equality layer of a newly proved sharp graph bound and turns a global equality question into a clean structural lemma plus five isomorphism types. The classification is natural, finite only because the proof forces an order cutoff, and is not an arbitrary small-graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
