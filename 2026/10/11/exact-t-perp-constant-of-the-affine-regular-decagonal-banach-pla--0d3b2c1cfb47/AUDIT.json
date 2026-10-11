@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The support-functional characterization of Birkhoff orthogonality splits the polygonal unit sphere into exhaustive smooth-edge and vertex cases. For an edge interior, the unique support functional fixes the two possible unit directions of the orthogonal vector. At a vertex, all norming functionals form the convex hull of the two adjacent facet functionals, giving exactly the sign-straddling condition stated in the proof. On every resulting one-dimensional segment, both norm factors are maxima of ten affine forms; partitioning at every crossing makes their product quadratic on each cell, so endpoints and interior stationary points are exhaustive. The bundled exact checker proves the edge product bound \\((63-5\\sqrt5)/16\\), the vertex product maximum \\((2+5\\sqrt5)/4\\), and the explicit equality pair.",
+    "risks": [
+      "The continuum extremization is computer-assisted; correctness depends on the stated affine-envelope partition being exhaustive. The checker implements exactly that finite partition rather than numerical sampling.",
+      "No claim is made for regular polygons other than the affine regular decagon."
+    ],
+    "sources": [
+      "doi:10.28919/afpt/7588, Section 5 for the definition and Birkhoff condition",
+      "arXiv:1809.04760 for polygonal Birkhoff-support geometry",
+      "Bundled RESULT.md and verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahmad--Xie--Li prove only \\(\\sqrt2\\le T_{\\perp}(X)\\le\\sqrt6\\), the square extremum, the Hilbert value, and a one-sided James comparison.",
+        "Mandal--Sain--Paul prove that regular \\((4n+2)\\)-gons are Radon and describe polygonal Birkhoff geometry, but their 2018 work predates \\(T_{\\perp}\\).",
+        "The defining paper explicitly says values on further specific spaces were not obtained there."
+      ],
+      "reasoning": "Neither the universal bounds nor the Radon-plane structural theorem supplies the product maximum \\((2+5\\sqrt5)/4\\). The new exact value needs the decagon-specific edge-versus-vertex optimization.",
+      "searches": [
+        "Some new geometric constants T_perp decagon",
+        "T perpendicular Radon plane Banach",
+        "Birkhoff regular decagon geometric constants Banach",
+        "arXiv:1809.04760"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.28919/afpt/7588",
+      "arXiv:1809.04760",
+      "doi:10.1007/s00010-020-00698-2",
+      "published exact-value research-index searches under the four recorded query formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source gives a one-sided lower estimate of \\(T_{\\perp}\\) in terms of the James constant, not an identity.",
+        "Mizuguchi studies James constants in Radon planes; the publicly accessible material does not state the later-defined geometric-mean invariant.",
+        "Mandal--Sain--Paul characterize polygonal Radon planes and Birkhoff orthogonality but do not optimize the two norm factors used here."
+      ],
+      "reasoning": "A one-sided comparison with the James constant cannot determine \\(T_{\\perp}\\), and the Radon property alone does not fix the product \\(N(x+y)N(2x-y)\\). The decisive information is the exact decagonal support-envelope optimization, so the claim is not a corollary of the inspected prior statements.",
+      "searches": [
+        "doi:10.28919/afpt/7588 Section 5 T perpendicular James constant",
+        "doi:10.1007/s00010-020-00698-2 Birkhoff Radon James constant",
+        "arXiv:1809.04760 regular 4n+2 polygon Birkhoff orthogonality",
+        "T_perpendicular regular decagon Banach Birkhoff geometric mean"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source states \\(T_{\\perp}(X)=\\sup\\sqrt{\\|x+y\\|\\,\\|2x-y\\|}\\) over unit Birkhoff-orthogonal pairs.",
+        "Squaring the invariant gives the exactly equivalent product maximization \\(P(x,y)=N(x+y)N(2x-y)\\), which was also searched under Birkhoff and regular-decagon wording.",
+        "No located source states the radical value or an equivalent regular-decagon product maximum."
+      ],
+      "reasoning": "The novelty check was not limited to the symbol \\(T_{\\perp}\\); it also covered the squared product formulation, the Birkhoff condition, the decagon alias, and the exact radical. No equivalent statement was located.",
+      "searches": [
+        "T_perpendicular regular decagon Banach Birkhoff geometric mean",
+        "T perpendicular regular decagonal Banach plane",
+        "sqrt(2+5 sqrt5) Birkhoff regular decagon T perpendicular",
+        "doi:10.28919/afpt/7588"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest same-invariant indexed result computes \\(T_{\\perp}\\) on \\(\\ell_3^2\\), not on a decagonal norm.",
+        "The closest same-space indexed result computes Banach--Mazur distance from a parallelogram to the affine regular decagon.",
+        "No checked indexed record reports \\(T_{\\perp}(X_{10})=\\frac12\\sqrt{2+5\\sqrt5}\\)."
+      ],
+      "reasoning": "Exact-value and radical searches were performed in addition to semantic searches. Database absence is not treated as a novelty proof; it is combined with primary-source inspection and implication comparison.",
+      "searches": [
+        "T_perpendicular regular decagon Banach Birkhoff geometric mean",
+        "T perpendicular regular decagonal Banach plane",
+        "sqrt(2+5 sqrt5) Birkhoff regular decagon T perpendicular"
+      ]
+    },
+    "rationale": "Targeted searches used the exact invariant name, Birkhoff-orthogonal formulation, regular-decagon aliases, and the candidate radical. The defining 2022 paper was inspected in full around the definition, universal bounds, examples, comparison theorem, and conclusion; it computes only the square and Hilbert cases for \\(T_{\\perp}\\) and explicitly leaves values on further specific spaces open. A full public version of the polygonal-Radon paper was inspected for the same Birkhoff geometry, and a 2020 Radon-plane James source was inspected to the extent publicly accessible. Neither located statement covers the decagonal \\(T_{\\perp}\\) value. The nearest exact same-invariant record is for \\(\\ell_3^2\\), and the nearest same-space record concerns a different invariant.",
+    "residual_risks": [
+      "Bibliographic and semantic-index searches cannot establish absolute novelty.",
+      "An equivalent affine-regular-decagon computation could exist under different notation for \\(T_{\\perp}\\) or as an unstated consequence of a source not retrieved in full.",
+      "The full text of the 2020 Radon-plane James paper was not publicly available through the checked route, although it predates the definition of the invariant used here."
+    ],
+    "risks": [
+      "No independent human literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BUT_NOT_COVERING: it introduces the invariant and gives general bounds and square/Hilbert examples, but no regular-decagon computation; the conclusion explicitly leaves specific-space values for future work.",
+        "evidence": "Advances in Fixed Point Theory 12 (2022), Article ID 9, pp. 10--12; published 25 August 2022; primary AMS classification 46B20.",
+        "identifier_or_url": "doi:10.28919/afpt/7588",
+        "material_read": "Open-access full paper, especially the title/MSC page, Section 5 definition, Theorem 5.1, Examples/Theorem 5.2--5.3, Proposition 5.4, and conclusion.",
+        "method": "Open-access publisher PDF and visual page inspection.",
+        "title": "Some new geometric constants in Banach spaces",
+        "trigger": "Defining primary source for \\(T_{\\perp}\\) and the source that fixes the invariant, normalization, and comparison results."
+      },
+      {
+        "assessment": "STRUCTURAL_NOT_COVERING: it proves regular decagons are Radon and supplies polygonal Birkhoff geometry, but it predates and therefore does not state the later \\(T_{\\perp}\\) invariant.",
+        "evidence": "arXiv:1809.04760, first posted 13 September 2018; primary MSC 46B20.",
+        "identifier_or_url": "arXiv:1809.04760",
+        "material_read": "Public full-text version: abstract, introduction, definitions of supporting geometry, Proposition 2.2, and the regular \\((4n+2)\\)-gon Radon consequence.",
+        "method": "Public full-text arXiv rendering.",
+        "title": "A complete characterization of polygonal Radon planes",
+        "trigger": "Highly relevant primary source for Birkhoff-James orthogonality on regular polygonal unit spheres, including the regular decagon."
+      },
+      {
+        "assessment": "PLAUSIBLE_SOURCE_PARTIAL: it predates the definition of \\(T_{\\perp}\\) and no accessible material states the present invariant or value, but the unavailable remainder is retained as a literature risk rather than called non-covering.",
+        "evidence": "Aequationes Mathematicae 94 (2020), 201--217; published online 16 January 2020; MSC 46B20, 51B20, 52A21.",
+        "identifier_or_url": "doi:10.1007/s00010-020-00698-2",
+        "material_read": "Public bibliographic record, abstract, first-page publisher preview, classification and introductory definition of the James constant; full article text was not publicly retrievable in the checked route.",
+        "method": "Publisher-preview and bibliographic inspection after full-text access was unavailable.",
+        "title": "The James constant in Radon planes",
+        "trigger": "Plausible same-class source studying geometric constants and Birkhoff orthogonality in Radon planes."
+      }
+    ],
+    "sources": [
+      "doi:10.28919/afpt/7588",
+      "arXiv:1809.04760",
+      "doi:10.1007/s00010-020-00698-2"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0d3b2c1c-fb47-45c0-8467-bb4c1c1c2c6a",
+  "value": {
+    "rationale": "The defining paper explicitly leaves specific-space values of the new Birkhoff constant open. The affine regular decagon is the first nonhexagonal regular \\((4n+2)\\)-gonal Radon plane, so it is a canonical test space for a Birkhoff-restricted invariant. The exact value is structurally informative: the global optimizer occurs at a nonsmooth vertex and strictly beats every smooth-edge Birkhoff configuration, quantifying the effect of the vertex normal cone. This is not a renaming or a routine substitution into a known formula; it requires a complete support-functional classification and exact maximization over the resulting cells.",
+    "risks": [
+      "The contribution is an exact canonical benchmark rather than a classification of all polygonal Radon planes."
+    ],
+    "sources": [
+      "doi:10.28919/afpt/7588",
+      "arXiv:1809.04760",
+      "Bundled RESULT.md and verify.py"
+    ],
+    "status": "PASS"
+  }
+}
