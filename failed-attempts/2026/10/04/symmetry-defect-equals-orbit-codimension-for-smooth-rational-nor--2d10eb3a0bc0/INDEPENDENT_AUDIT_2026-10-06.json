@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:01:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 55a0b913257cfbe307e5cfe6d7e48500a5cf62ef",
+        "assigned verify_scroll_aut.py blob 90f9b0f92b47090e6ffa5f51cfe23d543384623d",
+        "Ma arXiv:1302.3367 / Algebraic Geometry 1 (2014)",
+        "Harris 1981 degeneration theorem as restated by Ramkumar, DOI 10.1112/jlms.12821",
+        "Ferapontov--Kruglikov DOI 10.1007/s00220-025-05479-z"
+      ],
+      "rationale": "For \\(S=\\mathbb P(E)\\) with \\(E=\\bigoplus_i\\mathcal O_{\\mathbb P^1}(a_i)\\), the standard projective-bundle automorphism sequence gives dimension \\(h^0(\\operatorname{End}E)-1+3=h^0(\\operatorname{End}E)+2\\). Since \\(\\operatorname{End}E\\) has rank \\(k^2\\) and degree zero, Riemann--Roch yields \\(h^0-h^1=k^2\\), and splitting cohomology gives \\(h^1=\\sum_{i>j}\\max(a_i-a_j-1,0)\\). Harris's degeneration order makes the balanced orbit dense in the fixed-\\((d,k)\\) smooth-scroll locus, so orbit codimension is the difference from the balanced orbit dimension, exactly \\(h^1(\\operatorname{End}E)\\). The elementary inequality in the package correctly maximizes this defect uniquely at \\((1,\\ldots,1,d-k+1)\\). The package checker independently verifies the formulas on 2212 positive splitting types and the published surface specialization.",
+      "residual_risks": [
+        "The codimension is inside the smooth-scroll locus and is set-theoretic; no orbit-closure scheme structure is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The balance degeneration order covers all splitting types at fixed degree and dimension.",
+          "Balanced scrolls occupy the dense orbit and the least-balanced partition is the unique terminal degeneration."
+        ],
+        "reasoning": "These broader geometric results already determine which orbit is open and which has maximal codimension.",
+        "searches": [
+          "Harris degeneration theorem for rational normal scrolls",
+          "Ramkumar DOI 10.1112/jlms.12821 modern statement of balance order",
+          "Ferapontov--Kruglikov surface symmetry formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.3367",
+        "DOI 10.1112/jlms.12821",
+        "DOI 10.1007/s00220-025-05479-z",
+        "Harris 1981",
+        "Resultary current corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orbit dimension is \\(\\dim\\operatorname{PGL}_{d+k}-\\dim\\operatorname{Aut}_{\\mathbb P}(S)\\).",
+          "Subtracting from the dense balanced orbit dimension gives exactly the automorphism excess, and the least-balanced degeneration maximizes that codimension."
+        ],
+        "reasoning": "No new geometric lemma is needed to obtain the final theorem from the prior ingredients.",
+        "searches": [
+          "published automorphism dimension plus orbit-stabilizer",
+          "published balance degeneration order plus dense balanced orbit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published exact sequence has kernel projective bundle automorphisms and quotient \\(\\operatorname{PGL}_2\\).",
+          "For a split bundle on \\(\\mathbb P^1\\), Riemann--Roch converts the published \\(h^0(\\operatorname{End}E)\\) dimension directly to \\(k^2+h^1(\\operatorname{End}E)\\)."
+        ],
+        "reasoning": "The cohomological symmetry-defect formula is an equivalent rewriting of standard automorphism-dimension data.",
+        "searches": [
+          "Resultary query: rational normal scroll automorphism dimension orbit codimension h1 End E",
+          "Ma arXiv:1302.3367 projective-bundle automorphism sequence",
+          "general scroll automorphism-dimension statements in the inspected literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding was the exact hit; no separate title stated the combined equality."
+        ],
+        "reasoning": "Lack of an exact-title match does not restore originality because the combination is a direct consequence of published formulas and degeneration order.",
+        "searches": [
+          "Resultary current scroll-symmetry query"
+        ]
+      },
+      "rationale": "The novelty-bearing package is mechanically implied by standard published ingredients. The projective-bundle automorphism exact sequence is already printed in the scroll literature, and general rational-normal-scroll sources give the same automorphism-dimension formula from the splitting data. Harris's degeneration theorem orders fixed-degree scrolls by balance and identifies the balanced type as dense; modern restatements identify the unique least-balanced degeneration. Once these are combined, the equality between symmetry excess and orbit codimension is the immediate orbit-stabilizer dimension identity, while the claimed extremal type is the terminal element of the same degeneration order. The package's short inequality supplies a clean numerical restatement but does not escape implication-level coverage.",
+      "residual_risks": [
+        "No access limitation affects the decisive implication from the standard automorphism and degeneration results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AUTOMORPHISM_SEQUENCE_PRIOR",
+          "evidence": "The source prints the automorphism exact sequence used verbatim in the package proof.",
+          "identifier_or_url": "arXiv:1302.3367; DOI 10.14231/AG-2014-014",
+          "material_read": "primary PDF at the projective-bundle automorphism sequence; the load-bearing page was visually inspected",
+          "method": "primary full-text PDF plus page-image inspection",
+          "title": "Rationality of some tetragonal loci",
+          "trigger": "explicit projective-bundle automorphism sequence"
+        },
+        {
+          "assessment": "BALANCE_DEGENERATION_PRIOR",
+          "evidence": "The source records the fixed-degree degeneration order that makes the balanced type generic and the least-balanced type extremal.",
+          "identifier_or_url": "DOI 10.1112/jlms.12821",
+          "material_read": "full accessible article passages describing balance-ordered degenerations and the least-balanced partition",
+          "method": "primary full-text web inspection",
+          "title": "On Rees algebras of 2-determinantal ideals",
+          "trigger": "modern source restating Harris's scroll degeneration theorem"
+        },
+        {
+          "assessment": "SURFACE_FORMULA_PRIOR",
+          "evidence": "The published surface formula agrees exactly with the \\(k=2\\) specialization.",
+          "identifier_or_url": "DOI 10.1007/s00220-025-05479-z",
+          "material_read": "open primary full text at the rational-normal-scroll surface automorphism calculation",
+          "method": "primary full-text inspection",
+          "title": "Involutive Scroll Structures on Solutions of 4D Dispersionless Integrable Hierarchies",
+          "trigger": "surface specialization of the symmetry formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Ma 2014",
+        "Harris 1981",
+        "Ramkumar 2024",
+        "Ferapontov--Kruglikov 2025"
+      ],
+      "rationale": "The equality is a clean synthesis, but after the standard automorphism formula and balance degeneration theorem are in hand, orbit codimension follows by the elementary orbit-stabilizer dimension formula and the extremal type follows from the same degeneration order. This is useful exposition rather than an independently substantial structural gap under the common value bar.",
+      "residual_risks": [
+        "The compact cohomological packaging may still be pedagogically useful."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The codimension is inside the smooth-scroll locus and is set-theoretic; no orbit-closure scheme structure is asserted.",
+    "No access limitation affects the decisive implication from the standard automorphism and degeneration results.",
+    "The compact cohomological packaging may still be pedagogically useful."
+  ]
+}
