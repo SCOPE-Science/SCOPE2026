@@ -1,35 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In the published fitting specialization, the source equations give
-\[
-\dot H=\delta I-mH,
-\qquad
-\dot R=\gamma I+mH.
-\]
-Therefore
-\[
-\frac{d}{dt}(H+R)=(\delta+\gamma)I.
-\]
-The same source defines \(I\) as non-confirmed and \(\delta I\) as the transition into the confirmed class, so a cumulative-confirmation counter satisfies
-\[
-\dot C=\delta I.
-\]
-The exact ratio follows by integration. No numerical experiment is used to prove the general claim.
+PASS
 
-## Originality
+From the printed fitting equations, \(d(H+R)/dt=(\delta+\gamma)I\). Under the source compartment semantics, confirmations occur only through \(I\to H\) at rate \(\delta I\), so a cumulative-confirmation counter initialized at the same baseline obeys \(\dot C=\delta I\). Integrating gives the exact increment relation \(X-X_0=((\delta+\gamma)/\delta)(C-C_0)\). With the published parameters, the factor is exactly \(2021/1836\approx1.1007625272\), and \(H_0+R_0=21369\). The source PDF was read at the model-definition and fit pages, so the semantic premise is verified rather than inferred from a log.
 
-PASS. The primary full text contains both the direct natural-recovery flow and the use of \(H+R\) as cumulative confirmed, but it does not separate the corresponding counters. A 2022 stochastic follow-up reproduces the same SIHR transition semantics while studying stochastic thresholds rather than this observation map. Exact-title, DOI, direct-recovery, and cumulative-observable searches did not locate a published correction or an equivalent source-specific identity.
+## originality
 
-## Value
+PASS
 
-PASS. The affected quantity is the target of the source's parameter fit and its principal cumulative-confirmed forecast. With the printed fitted values, the discrepancy is an exact approximately \(10.0763\%\) inflation of every post-start \(H+R\) increment relative to the model-consistent confirmation counter. The result therefore changes how the calibration and forecast can be interpreted.
+Fresh searches found the primary Jiao--Huang paper, the later stochastic SIHR reuse, and a distinct discrete stochastic COVID model, but no publication or published SCOPE result stating the exact observation-map correction \(\dot C=\delta I\) versus \(d(H+R)/dt=(\delta+\gamma)I\) or the resulting increment factor. The primary source itself labels \(H+R\) as cumulative confirmed despite defining direct recovery \(I\to R\) separately, so it supplies the inconsistency rather than a prior correction.
 
-## Closest literature and limitations
+## value
 
-The closest source is Jiao and Huang (2020), DOI 10.3934/math.2020431. Hou et al. (2022), DOI 10.3934/mbe.2022195, inherit the same deterministic SIHR compartment structure but do not provide this correction. He, Tang, and Rong (2020), DOI 10.3934/mbe.2020153, use a different model that fits reported transition flows separately.
+PASS
 
-The result does not refit the Hubei data. In particular, the same-trajectory conversion to \(C\approx63731.45\) is not a corrected empirical forecast.
+The finding corrects the data-to-model observation map used for a published fit and quantifies a structural roughly ten-percent increment contamination at the reported parameters. That directly affects interpretation of fitted cumulative-confirmed output and is a motivated model-accounting correction rather than a cosmetic normalization check.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:57:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the printed fitting equations, \\(d(H+R)/dt=(\\delta+\\gamma)I\\). Under the source compartment semantics, confirmations occur only through \\(I\\to H\\) at rate \\(\\delta I\\), so a cumulative-confirmation counter initialized at the same baseline obeys \\(\\dot C=\\delta I\\). Integrating gives the exact increment relation \\(X-X_0=((\\delta+\\gamma)/\\delta)(C-C_0)\\). With the published parameters, the factor is exactly \\(2021/1836\\approx1.1007625272\\), and \\(H_0+R_0=21369\\). The source PDF was read at the model-definition and fit pages, so the semantic premise is verified rather than inferred from a log.",
+      "risks": [
+        "The converted \\(C\\) endpoint is an internal same-trajectory accounting value, not a refitted epidemiological forecast."
+      ],
+      "sources": [
+        "Jiao--Huang DOI:10.3934/math.2020431 full PDF, pp. 6716 and 6718",
+        "Actual RESULT.md blob c4ca2ee15ba04c08d16220d35f29ee5fee10c290",
+        "Actual verify.py blob 744955b3c74a2afe7f9536ee9aaa4cdfefeb8abb"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 stochastic SIHR retains the same compartment semantics but studies extinction/persistence rather than repairing the 2020 observation map.",
+          "The discrete stochastic model separately tracks reported flows/total confirmed and therefore uses a different observation architecture."
+        ],
+        "reasoning": "Nearby epidemic-model papers do not imply the exact correction for the Jiao--Huang fitting equations.",
+        "searches": [
+          "Jiao--Huang 2020 full text",
+          "Hou--Lan--Yuan--Zhang 2022 stochastic SIHR",
+          "He--Tang--Rong 2020 discrete stochastic COVID model"
+        ]
+      },
+      "checked_sources": [
+        "Jiao--Huang 2020 full PDF and publisher HTML",
+        "Hou et al. 2022 publisher page",
+        "He--Tang--Rong 2020 publisher full text",
+        "Resultary semantic search",
+        "Exact DOI/H+R/cumulative-confirmed web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source equations imply the correction only after distinguishing event semantics from stock accounting; the paper instead reports the inconsistent observable as cumulative confirmed."
+        ],
+        "reasoning": "Because the prior source asserts/uses the conflicting observable rather than the corrected counter, the submitted correction is not a special case of a stronger published result.",
+        "searches": [
+          "Equation/figure comparison in the primary article",
+          "Comparison with later SIHR and discrete stochastic models"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary record matched this observation-map correction.",
+          "The primary article explicitly uses \\(H(t)+R(t)\\) in the cumulative-confirmed fit while defining \\(I\\) as non-confirmed, \\(H\\) as confirmed/hospitalized, \\(\\gamma\\) as natural recovery, and \\(\\delta\\) as confirmation."
+        ],
+        "reasoning": "Equivalent counter/flow formulations were searched; no prior correction was found.",
+        "searches": [
+          "Resultary: SIHR observation model cumulative confirmed recovered direct recovery confirmation counter",
+          "Web: Jiao Huang SIHR H(t)+R(t) cumulative confirmed correction",
+          "Web: DOI 10.3934/math.2020431 cumulative confirmed gamma delta"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No correction, erratum, or exact factor \\((\\delta+\\gamma)/\\delta\\) tied to this fit was located."
+        ],
+        "reasoning": "The search was bounded to the model, DOI, observable, and direct-recovery mechanism; no exact prior statement surfaced.",
+        "searches": [
+          "Resultary SIHR/cumulative-confirmation semantic query",
+          "Exact DOI and H+R/gamma/delta web searches"
+        ]
+      },
+      "rationale": "Fresh searches found the primary Jiao--Huang paper, the later stochastic SIHR reuse, and a distinct discrete stochastic COVID model, but no publication or published SCOPE result stating the exact observation-map correction \\(\\dot C=\\delta I\\) versus \\(d(H+R)/dt=(\\delta+\\gamma)I\\) or the resulting increment factor. The primary source itself labels \\(H+R\\) as cumulative confirmed despite defining direct recovery \\(I\\to R\\) separately, so it supplies the inconsistency rather than a prior correction.",
+      "residual_risks": [
+        "A correction may exist in an unindexed discussion or later paper not surfaced by the bounded searches; no such source was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_CONTAINS_INCONSISTENCY_NOT_CORRECTION",
+          "evidence": [
+            "The model has \\(\\dot H=\\delta I-mH\\) and \\(\\dot R=\\gamma I+mH\\) after the fitting simplification.",
+            "The source defines \\(I\\) as non-confirmed and \\(H\\) as confirmed/hospitalized, yet Figure 2 compares \\(H+R\\) with cumulative confirmed data."
+          ],
+          "identifier_or_url": "DOI:10.3934/math.2020431",
+          "material_read": "Full 12-page PDF; equations/definitions on p. 6716 and fitting data/parameters and Figure 2 context on p. 6718 were visually inspected.",
+          "method": "Primary full-text PDF plus page screenshots and equation/figure comparison.",
+          "title": "An SIHR epidemic model of the COVID-19 with general population-size dependent contact rate",
+          "trigger": "Primary source whose fit is being corrected."
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Focus is stochastic threshold dynamics and sensitivity, not the cumulative-confirmed observation map."
+          ],
+          "identifier_or_url": "DOI:10.3934/mbe.2022195",
+          "material_read": "Current article abstract and model scope.",
+          "method": "Primary publisher page comparison.",
+          "title": "Threshold dynamics of a stochastic SIHR epidemic model of COVID-19 with general population-size dependent contact rate",
+          "trigger": "Direct reuse of the deterministic SIHR structure."
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVATION_ARCHITECTURE",
+          "evidence": [
+            "It explicitly uses newly reported confirmed/recovered/death flows and distinguishes total confirmed from cumulative counts."
+          ],
+          "identifier_or_url": "DOI:10.3934/mbe.2020153",
+          "material_read": "Publisher full-text sections on data and parameter estimation.",
+          "method": "Primary full-text comparison.",
+          "title": "A discrete stochastic model of the COVID-19 outbreak: Forecast and control",
+          "trigger": "Nearby COVID fitting architecture with explicit reported flows."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finding corrects the data-to-model observation map used for a published fit and quantifies a structural roughly ten-percent increment contamination at the reported parameters. That directly affects interpretation of fitted cumulative-confirmed output and is a motivated model-accounting correction rather than a cosmetic normalization check.",
+      "risks": [
+        "A proper empirical consequence requires refitting; the result intentionally does not claim revised parameter estimates or forecasts."
+      ],
+      "sources": [
+        "Primary fit equations and Figure 2 observable",
+        "Exact increment identity"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The result diagnoses the printed fitting specialization only; it does not refit the epidemic model."
+  ],
+  "schema_version": 1
+}
