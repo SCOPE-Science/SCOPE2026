@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,86 +19,24 @@
 }
 ---
 
-Fix
-\[
-\beta>1,
-\qquad
-\alpha=\sqrt{\beta^2-1},
-\qquad
-\phi=\arccos(1/\beta).
-\]
-For
-\[
-a_n
-=
-\frac{(i\alpha)^n-(-i\alpha)^n}{2i},
-\]
-the binomial theorem gives exactly
-\[
-b_n
-=
-\frac{(1+i\alpha)^n-(1-i\alpha)^n}{2i}
-=
-\beta^n\sin(n\phi)
-\]
-and
-\[
-c_n
-=
-\frac{(-1+i\alpha)^n-(-1-i\alpha)^n}{2i}
-=
-(-1)^{n+1}\beta^n\sin(n\phi).
-\]
-Also,
-\[
-\limsup_{n\to\infty}\frac{|a_n|}{\alpha^n}=1.
-\]
-Therefore the witness ratio is exactly
-\[
-\left(
-\limsup_{n\to\infty}|\sin(n\phi)|
-\right)^{-1}.
-\]
+# Independent mathematical audit
 
-If
-\[
-\phi/\pi
-\]
-is irrational, density modulo \(\pi\) makes this limsup equal to \(1\).
+## correctness
 
-If
-\[
-\phi/\pi=p/q
-\]
-in lowest terms, multiplication by \(p\) permutes residues modulo \(q\). Hence
-\[
-\max_n|\sin(n\phi)|
-=
-\begin{cases}
-1,&q\text{ even},\\[3pt]
-\cos(\pi/(2q)),&q\text{ odd}.
-\end{cases}
-\]
-This proves the lower formula.
+PASS
 
-The inspected 2026 theorem supplies
-\[
-\kappa(\beta)\le2/\sqrt3
-\]
-for every \(\beta>1\). At the shortest admissible odd resonance
-\[
-q=3,
-\]
-one has
-\[
-\phi=\pi/3,
-\qquad
-\beta=2,
-\]
-and the lower formula is
-\[
-\sec(\pi/6)=2/\sqrt3.
-\]
-Thus the fixed-parameter constant is exactly known at \(\beta=2\).
+For the stated real two-pole sequence, the binomial theorem gives exactly \(b_n=\beta^n\sin(n\phi)\) and \(c_n=(-1)^{n+1}\beta^n\sin(n\phi)\), while the normalized numerator limsup is one. Thus the witness ratio is \(1/L(\phi)\), where \(L(\phi)=\limsup |\sin(n\phi)|\). Irrational rotation gives \(L=1\); for \(\phi/\pi=p/q\) reduced, multiplication by \(p\) permutes residues modulo \(q\), giving \(L=1\) for even \(q\) and \(L=\cos(\pi/(2q))\) for odd \(q\). Bouthat's full theorem was read and confirms the same normalization and universal upper constant \(2/\sqrt3\).
 
-No finite numerical experiment or asymptotic extrapolation is used.
+## originality
+
+PASS
+
+The full Bouthat paper proves the universal best constant \(2/\sqrt3\) for all \(\beta>1\) and uses the classical \(\beta=2\) witness for universal sharpness, but does not define or determine a fixed-\(\beta\) best constant or analyze the arithmetic orbit profile of that moving two-pole witness. Targeted Resultary and literature searches found no prior odd/even-denominator resonance classification.
+
+## value
+
+PASS
+
+The result isolates the exact arithmetic behavior of the canonical sharpness mechanism behind a newly solved universal-constant problem and explains why the classical \(\beta=2\) witness is the shortest and strongest odd resonance. That is a motivated parameterwise boundary classification even though it does not solve the full fixed-parameter optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
