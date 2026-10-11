@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For the admissible specialization \(f(m)=1\), the recurrence becomes \(\star_f(n)=1-n-\sum_{d=2}^{n-1}\star_f(d)\). The induction is exact: \(\star_f(2)=-1\), and \(n-2\) previous values equal to \(-1\) force \(\star_f(n)=1-n+(n-2)=-1\). Thus the composite \(4\) is a valid counterexample. The verifier independently evaluates the recurrence through \(10000\) as a finite consistency check.
+## correctness
 
-## Originality
-**PASS.** The directly relevant source was read through its recurrence, theorem, divisor reformulation, and reverse proof. The paper states the fixed-form equivalence but the reverse proof changes to nonidentity across all admissible functions. Searches by title, arXiv identifier, recurrence, theorem wording, and constant-one specialization found no published item stating this collapse or quantifier counterexample. Semantic published-finding searches returned only unrelated prime-characterization and Möbius-adjacent results. Residual risk remains that an older or differently indexed note contains the same elementary observation, or that a later correction repairs the source statement.
+PASS
 
-## Value
-**PASS.** This is not a cosmetic wording issue: under the literal statement the proposed generalized recurrence is advertised as a family of primality tests. An admissible function for which every integer \(n\ge2\) returns \(-1\) destroys that interpretation. The all-\(n\) induction shows a structural obstruction, and the proof pinpoints the exact quantifier change responsible for it.
+For the admissible constant function f(m)=1, the recurrence becomes star_f(n)=1-n-sum_{d=2}^{n-1}star_f(d). The base case n=2 is -1, and if all earlier values are -1 then the sum is -(n-2), so star_f(n)=-1. Thus every n>=2, including composite n=4, has value -1. A fresh bounded replay through n=100 independently matched the induction; the infinite conclusion rests on the induction, not the finite check.
 
-## Closest literature and limitations
-The closest literature is the source itself, arXiv:2609.25628v1. The finding does not refute a different theorem universally quantified over all admissible functions, and it does not classify which nonconstant functions may still separate primes from composites.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The current primary abstract still advertises the literal fixed-form equivalence star(p)=-1 iff p is prime. The constant-one specialization directly contradicts that formulation, and current Resultary search returned no earlier correction or same counterexample other than the assigned record. The source PDF route was unavailable in this audit, so a body-level clarification in a later version remains a residual risk, but inaccessible full text alone does not defeat best-of-knowledge originality when the current primary abstract itself retains the contradicted statement.
+
+## value
+
+PASS
+
+An explicit all-n counterexample that exposes a quantifier error in a current published primality characterization is mathematically worthwhile even though the induction is elementary. It identifies the first composite failure and sharply separates the literal theorem from a potentially repairable universal-over-f statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

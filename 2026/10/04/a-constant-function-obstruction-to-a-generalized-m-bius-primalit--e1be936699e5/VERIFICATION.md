@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The mathematical proof is the induction in `RESULT.md`. The standalone `verify.py` is a finite consistency check only.
+# Independent mathematical audit
 
-Running `python3 verify.py` evaluates the recurrence with the admissible constant function \(f(m)=1\) for every \(2\le n\le10000\) and checks that every value equals \(-1\). It also verifies the smallest composite witness \(n=4\).
+## correctness
 
-Expected terminal line:
+PASS
 
-`VERIFY_OK f=constant_one range=2..10000 first_composite=4 all_star=-1`
+For the admissible constant function f(m)=1, the recurrence becomes star_f(n)=1-n-sum_{d=2}^{n-1}star_f(d). The base case n=2 is -1, and if all earlier values are -1 then the sum is -(n-2), so star_f(n)=-1. Thus every n>=2, including composite n=4, has value -1. A fresh bounded replay through n=100 independently matched the induction; the infinite conclusion rests on the induction, not the finite check.
 
-The computation does not certify the infinite range; that range follows from the exact induction. No independent audit has been performed.
+## originality
+
+PASS
+
+The current primary abstract still advertises the literal fixed-form equivalence star(p)=-1 iff p is prime. The constant-one specialization directly contradicts that formulation, and current Resultary search returned no earlier correction or same counterexample other than the assigned record. The source PDF route was unavailable in this audit, so a body-level clarification in a later version remains a residual risk, but inaccessible full text alone does not defeat best-of-knowledge originality when the current primary abstract itself retains the contradicted statement.
+
+## value
+
+PASS
+
+An explicit all-n counterexample that exposes a quantifier error in a current published primality characterization is mathematically worthwhile even though the induction is elementary. It identifies the first composite failure and sharply separates the literal theorem from a potentially repairable universal-over-f statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
