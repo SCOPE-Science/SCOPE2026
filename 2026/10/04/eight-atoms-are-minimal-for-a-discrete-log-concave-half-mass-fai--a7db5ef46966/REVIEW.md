@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the linear lower-tail minimization under an integer-mean constraint to truncated geometric laws using the published half-space extreme-point theorem. For each reduced law the mean is strictly increasing and the lower-tail probability strictly decreasing in the geometric parameter. The remaining finite family for support cardinality at most seven is exhausted by exact rational sign certificates in `verify.py`; the eight-point witness is certified by the same method. Decimal approximations are not used in the proof.
+## correctness
 
-## Originality
-PASS. The lead paper explicitly gives an eight-point log-affine counterexample to the \(1/2\) bound and supplies the localization mechanism, but its inspected introduction and proof do not state that eight points are minimal. Targeted searches for the support-seven/eight cutoff, truncated-geometric integer-mean median bounds, and the lead example did not return an equivalent indexed finding or a published statement of this cutoff. The main residual risk is an unlocated later paper or note containing the same finite-support observation.
+PASS
 
-## Value
-PASS. The lead paper singles out the failure of the natural half-mass-at-the-mean strengthening and gives an eight-point example without locating the first support size where failure is possible. Determining that the displayed support size is minimal gives a natural exact boundary, explains why smaller discrete log-concave models retain the stronger inequality, and converts an illustrative counterexample into a sharp structural cutoff.
+The proof was reconstructed from the published localization premise. For a fixed finite support interval and integer threshold, minimizing the lower-tail mass under \(\mathbb E[X]\le s\) reduces to contiguous log-affine laws. For masses proportional to \(r^j\), the mean is strictly increasing in \(\log r\) because its derivative is the variance, while the lower-tail mass is strictly decreasing because its derivative is the negative-sign covariance between the threshold indicator and \(X\). Hence the extremal parameter has mean exactly \(s\). The remaining question is the sign of \(H_{L,s}(r)\) at the unique positive root of \(M_{L,s}(r)\). Independent exact-rational bisection with derivative bounds certified \(H>0\) for all fifteen nontrivial pairs with support length at most seven and \(H<0\) for \(L=8,s=6\). The latter root is approximately 1.3705441004089685, agreeing with the displayed witness.
 
-The closest literature and scope limitation are described in RESULT.md. The result does not claim a best constant for each support size or classify all eight-point failures.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The lead paper explicitly supplies the motivating eight-point mean-six log-affine counterexample and the discrete localization theorem, but its full text does not state that eight support points are minimal. The words corresponding to a seven-point or minimal-support cutoff do not appear in the inspected source. The localization theorem reduces the question to a finite family of truncated geometric laws but does not determine the required signs for all support lengths through seven. Targeted searches for the seven/eight cutoff and equivalent truncated-geometric formulation found no earlier statement.
+
+## value
+
+PASS
+
+The lead paper itself singles out the natural \(1/2\) strengthening at integer means and gives an eight-point failure without locating the first support size where failure can occur. Proving that every law on at most seven support points still obeys the half-mass bound makes that example sharp in support cardinality and supplies a clean, motivated structural boundary. This is not an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:00:01.937819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 12bb8a4d090da67b46ae97c143797b30464ce92b",
+        "verify.py blob d148585dedab4a19b704a3ea698dea7fa352854f",
+        "Actual source tree 0169912b1c4b0dbfbb8ed8de00ea93065944d996",
+        "arXiv:2208.12702v2 full text",
+        "arXiv:2004.12005 localization source",
+        "Independent exact-rational sign replay in this audit"
+      ],
+      "rationale": "The proof was reconstructed from the published localization premise. For a fixed finite support interval and integer threshold, minimizing the lower-tail mass under \\(\\mathbb E[X]\\le s\\) reduces to contiguous log-affine laws. For masses proportional to \\(r^j\\), the mean is strictly increasing in \\(\\log r\\) because its derivative is the variance, while the lower-tail mass is strictly decreasing because its derivative is the negative-sign covariance between the threshold indicator and \\(X\\). Hence the extremal parameter has mean exactly \\(s\\). The remaining question is the sign of \\(H_{L,s}(r)\\) at the unique positive root of \\(M_{L,s}(r)\\). Independent exact-rational bisection with derivative bounds certified \\(H>0\\) for all fifteen nontrivial pairs with support length at most seven and \\(H<0\\) for \\(L=8,s=6\\). The latter root is approximately 1.3705441004089685, agreeing with the displayed witness.",
+      "residual_risks": [
+        "Correctness uses the published discrete localization theorem as an external premise; all post-localization finite cases were checked independently."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alqasem--Aravinda--Marsiglietti--Melbourne prove the universal \\(e^{-1}\\) lower bound and exhibit a specific eight-point failure of the stronger \\(1/2\\) bound.",
+          "Marsiglietti--Melbourne identify log-affine extreme points in the relevant half-space slice.",
+          "Neither broader theorem supplies positivity of the reduced half-mass polynomial for every support length at most seven."
+        ],
+        "reasoning": "The general localization machinery and weaker universal bound do not dominate the support-sensitive \\(1/2\\) theorem.",
+        "searches": [
+          "arXiv:2208.12702v2; DOI:10.1137/22M1539514",
+          "arXiv:2004.12005; DOI:10.1007/s00454-023-00528-7",
+          "Discrete moment/localization literature for log-concave sequences"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.12702v2",
+        "DOI:10.1137/22M1539514",
+        "arXiv:2004.12005",
+        "DOI:10.1007/s00454-023-00528-7",
+        "Resultary support-threshold search",
+        "Fresh exact web searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lead source proves only the \\(e^{-1}\\) bound and supplies an eight-point counterexample to \\(1/2\\); that shows the minimal support is at most eight, not at least eight.",
+          "Localization says an optimizer is truncated geometric but leaves the exact sign analysis of the fifteen smaller-support cases undone."
+        ],
+        "reasoning": "The final cutoff follows only after a complete reduced finite classification. It is not a substitution into a printed closed-form theorem.",
+        "searches": [
+          "Implication check against Theorem 2.1 and Corollary 1.4 of arXiv:2208.12702v2",
+          "Implication check against the log-affine extreme-point theorem of arXiv:2004.12005"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lead paper gives an eight-point counterexample but has no occurrence asserting seven-point validity or support minimality.",
+          "The targeted published-finding search did not return an earlier exact support-threshold theorem.",
+          "Fresh exact web searches did not locate a published seven-versus-eight cutoff."
+        ],
+        "reasoning": "The same result was sought as a support-size cutoff, a median/mean half-mass statement, and a truncated-geometric extremal statement. No equivalent theorem was located.",
+        "searches": [
+          "Resultary semantic query: discrete log-concave integer mean half mass support seven eight truncated geometric",
+          "Web search: discrete log-concave support seven integer mean probability at or below mean one half",
+          "Web search: eight points minimal log-concave mean six half mass",
+          "Full-text search in arXiv:2208.12702v2 for seven and minimal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior table of the reduced sign cases was retrieved.",
+          "Independent exact-rational root bracketing certified positive half-mass sign for all fifteen nontrivial pairs with \\(3\\le L\\le7\\) and negative sign for \\(L=8,s=6\\)."
+        ],
+        "reasoning": "The finite sign table is generated from the defining polynomials after a theorem-level localization reduction, not copied from a known database.",
+        "searches": [
+          "Resultary query above",
+          "Exact web searches for the support pairs \\(L\\le7\\) and the eight-point mean-six example"
+        ]
+      },
+      "rationale": "The lead paper explicitly supplies the motivating eight-point mean-six log-affine counterexample and the discrete localization theorem, but its full text does not state that eight support points are minimal. The words corresponding to a seven-point or minimal-support cutoff do not appear in the inspected source. The localization theorem reduces the question to a finite family of truncated geometric laws but does not determine the required signs for all support lengths through seven. Targeted searches for the seven/eight cutoff and equivalent truncated-geometric formulation found no earlier statement.",
+      "residual_risks": [
+        "A later or poorly indexed note could contain the same finite-support cutoff.",
+        "The proof depends on the published localization theorem; the audit independently checked its applicability but did not reprove that external theorem from first principles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_MOTIVATING_EXAMPLE_NOT_MINIMALITY",
+          "evidence": "The source states that a log-affine law on \\(\\{1,\\ldots,8\\}\\) with mean six violates the half bound and recalls truncated-geometric localization, but does not prove smaller supports obey \\(1/2\\).",
+          "identifier_or_url": "arXiv:2208.12702v2; DOI:10.1137/22M1539514",
+          "material_read": "Full public arXiv HTML, especially the introduction around Corollary 1.4 and the eight-point example, and Section 2 around Theorem 2.1. Full-text searches for seven and minimal returned no match.",
+          "method": "Lawful public full-text inspection.",
+          "title": "On a Conjecture of Feige for Discrete Log-Concave Distributions",
+          "trigger": "Lead source containing the exact eight-point counterexample and the reduction used by the audited proof."
+        },
+        {
+          "assessment": "LOCALIZATION_TOOL_NOT_THRESHOLD_RESULT",
+          "evidence": "The source supplies the reduction to log-affine laws but no seven-versus-eight half-mass cutoff.",
+          "identifier_or_url": "arXiv:2004.12005; DOI:10.1007/s00454-023-00528-7",
+          "material_read": "Primary abstract and theorem description identifying log-affine extreme points of log-concave probability sequences in a half-space slice; the exact theorem is also quoted in full by the lead source.",
+          "method": "Lawful public primary-source inspection.",
+          "title": "Geometric and Functional Inequalities for Log-Concave Probability Sequences",
+          "trigger": "Origin of the discrete half-space localization theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lead Feige/log-concavity paper",
+        "Discrete localization source",
+        "Independent exact reduced classification"
+      ],
+      "rationale": "The lead paper itself singles out the natural \\(1/2\\) strengthening at integer means and gives an eight-point failure without locating the first support size where failure can occur. Proving that every law on at most seven support points still obeys the half-mass bound makes that example sharp in support cardinality and supplies a clean, motivated structural boundary. This is not an arbitrary finite enumeration.",
+      "residual_risks": [
+        "The result does not classify all eight-point counterexamples or determine the optimal lower-tail constant for every support size."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A later or poorly indexed note could contain the same finite-support cutoff.",
+    "The proof depends on the published localization theorem; the audit independently checked its applicability but did not reprove that external theorem from first principles."
+  ],
+  "schema_version": 1
+}
