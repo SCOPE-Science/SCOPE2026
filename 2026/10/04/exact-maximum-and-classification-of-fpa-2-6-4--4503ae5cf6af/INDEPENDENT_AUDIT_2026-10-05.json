@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T04:18:06.061121Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob d5e9f8a8e0dc8429b9f07aedd738c864e15a70a9",
+        "assigned verify.py blob e08ad15a678a6075606db76852ed026fa4253477",
+        "fresh independent exhaustive clique/factorization/orbit computation",
+        "Chu--Colbourn--Dukes, Tables for Constant Composition Codes, JCMCC 54 (2005)"
+      ],
+      "rationale": "A fresh exhaustive construction generated all 90 words of composition \\((2,2,2)\\), built the Hamming-compatibility graph, and independently enumerated every maximal clique with a deterministic bit-set Bron--Kerbosch search. The exact maximal-clique distribution was reproduced as \\(6:38895,7:20160,8:20520,9:10320,11:720,15:12\\). For each of the 12 maxima, forgetting labels gives exactly five perfect matchings, each occurring three times, and their 15 edges partition \\(K_6\\); exactly six labeled 1-factorizations occur, two maxima each. A separate full \\(S_6\\times S_3\\) action check gave orbit size 12 and stabilizer 360. These fresh computations independently reproduce every finite assertion in the final claim.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2005 tables explicitly cover all nonbinary compositions and distances with \\(n\\le 8\\) and therefore include this parameter within their numeric scope.",
+          "Huczynska--Mullen define FPAs and give general constructions/bounds.",
+          "Gillespie--Praeger classify symmetry-restricted neighbour-transitive/group-generated code families, not all maximum FPA_2(6,4) codes."
+        ],
+        "reasoning": "Prior numeric/bounds coverage does not imply the complete 12-object structural census and orbit classification.",
+        "searches": [
+          "Chu--Colbourn--Dukes, Tables for Constant Composition Codes, JCMCC 54 (2005), Table 1",
+          "Huczynska--Mullen, arXiv:math/0511173",
+          "Gillespie--Praeger, DOI 10.1007/s10801-013-0465-6"
+        ]
+      },
+      "checked_sources": [
+        "JCMCC 54 (2005), 57--65, Tables For Constant Composition Codes",
+        "https://arxiv.org/abs/math/0511173",
+        "DOI:10.1007/s10801-013-0465-6",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A table entry or general upper/lower bound cannot determine how many labeled maximizers exist, their perfect-matching structure, or their full equivalence orbit.",
+          "The fresh exhaustive computation supplies these additional classification data."
+        ],
+        "reasoning": "Even if the exact maximum 15 was previously tabulated, the stronger final classification is not a corollary of the inspected prior statements.",
+        "searches": [
+          "statement-level comparison with the 2005 constant-composition tables",
+          "comparison with Huczynska--Mullen FPA bounds and Gillespie--Praeger symmetry classes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned no equivalent classification.",
+          "The object is exactly a ternary constant-composition code with composition (2,2,2), so both FPA and constant-composition terminology were checked."
+        ],
+        "reasoning": "The classification was compared under both frequency-permutation and constant-composition formulations, not merely by title.",
+        "searches": [
+          "Resultary: FPA_2(6,4) frequency permutation array maximum classification one-factorization K6",
+          "web: M_2(6,4) frequency permutation array",
+          "web: constant composition code length 6 distance 4 composition (2,2,2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2005 article states that Table 1 covers all nonbinary compositions/distances with \\(n\\le 8\\) and mixes lower bounds with known exact values.",
+          "Thus the numerical maximum has a genuine prior-table risk and is not used by itself as the originality basis."
+        ],
+        "reasoning": "Originality rests on the exhaustive classification/1-factorization/orbit theorem, not merely on the number 15.",
+        "searches": [
+          "visual inspection of Chu--Colbourn--Dukes Table 1 and its legend",
+          "searches for exact M_2(6,4) and A((2,2,2),4)"
+        ]
+      },
+      "rationale": "The 2005 constant-composition-code tables are an important prior numeric source: their Table 1 explicitly covers every nonbinary composition and distance with length at most 8, so this exact parameter lies inside their tabulated scope. That source is therefore not ignored as a potential source for the numerical maximum. However, the audited final claim is substantially stronger: it exhaustively classifies all 12 labeled maxima, identifies the five-matching/1-factorization structure, counts the six labeled factorizations with two maxima each, and proves the single \\(S_6\\times S_3\\) orbit with stabilizer 360. No inspected prior source or Resultary record states or implies this classification. The foundational FPA and diagonally-neighbour-transitive literature gives definitions, bounds and restricted symmetry classifications rather than the complete maximum-code census.",
+      "residual_risks": [
+        "An older coding-theory table may already record the numerical optimum 15; the accepted originality is specifically the complete maximizer classification and structural/orbit theorem.",
+        "An obscure computational appendix or thesis could contain the same 12-code census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NUMERIC_SCOPE_OVERLAP_NOT_CLASSIFICATION",
+          "evidence": "The paper tabulates bounds/exact values for the parameter range but does not provide the 12-maxima census, \\(K_6\\) 1-factorization structure, or \\(S_6\\times S_3\\) orbit classification.",
+          "identifier_or_url": "JCMCC 54 (2005), 57--65",
+          "material_read": "Full nine-page primary PDF, including methodology, table legend, and the page containing Table 1 for all nonbinary compositions/distances with \\(n\\le 8\\).",
+          "method": "Lawful open PDF inspection with rendered-page visual checks.",
+          "title": "Tables For Constant Composition Codes",
+          "trigger": "Direct exact-parameter table risk."
+        },
+        {
+          "assessment": "FOUNDATIONAL_NOT_CLASSIFICATION",
+          "evidence": "It defines the same object and gives general bounds/constructions but no located complete labeled-maxima census.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0511173",
+          "material_read": "Complete primary PDF, including definitions and general bounds.",
+          "method": "Lawful arXiv full-text inspection with page rendering.",
+          "title": "Frequency permutation arrays",
+          "trigger": "Foundational paper defining the exact FPA object."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2005 constant-composition tables",
+        "FPA foundational literature"
+      ],
+      "rationale": "The result is not just an isolated optimum: it gives the complete extremal classification, exposes a 1-factorization of \\(K_6\\) as the governing structure, and identifies a single symmetry orbit with an exact stabilizer. That structural description makes the small finite parameter set mathematically motivated rather than an arbitrary enumeration.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "JCMCC 54 (2005), 57--65, Tables For Constant Composition Codes",
+    "https://arxiv.org/abs/math/0511173",
+    "DOI:10.1007/s10801-013-0465-6",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A finite exact classification for the single composition (2,2,2), length 6, distance 4.",
+    "No claim is made for neighboring FPA parameters."
+  ],
+  "residual_risks": [
+    "An older coding-theory table may already record the numerical optimum 15; the accepted originality is specifically the complete maximizer classification and structural/orbit theorem.",
+    "An obscure computational appendix or thesis could contain the same 12-code census."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NUMERIC_SCOPE_OVERLAP_NOT_CLASSIFICATION",
+      "evidence": "The paper tabulates bounds/exact values for the parameter range but does not provide the 12-maxima census, \\(K_6\\) 1-factorization structure, or \\(S_6\\times S_3\\) orbit classification.",
+      "identifier_or_url": "JCMCC 54 (2005), 57--65",
+      "material_read": "Full nine-page primary PDF, including methodology, table legend, and the page containing Table 1 for all nonbinary compositions/distances with \\(n\\le 8\\).",
+      "method": "Lawful open PDF inspection with rendered-page visual checks.",
+      "title": "Tables For Constant Composition Codes",
+      "trigger": "Direct exact-parameter table risk."
+    },
+    {
+      "assessment": "FOUNDATIONAL_NOT_CLASSIFICATION",
+      "evidence": "It defines the same object and gives general bounds/constructions but no located complete labeled-maxima census.",
+      "identifier_or_url": "https://arxiv.org/abs/math/0511173",
+      "material_read": "Complete primary PDF, including definitions and general bounds.",
+      "method": "Lawful arXiv full-text inspection with page rendering.",
+      "title": "Frequency permutation arrays",
+      "trigger": "Foundational paper defining the exact FPA object."
+    }
+  ]
+}

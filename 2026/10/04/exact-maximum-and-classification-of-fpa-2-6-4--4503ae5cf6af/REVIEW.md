@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is finite and completely replayable. `verify.py` reconstructs the \(90\) admissible words, uses the definition of Hamming distance to build the compatibility graph, enumerates all \(90,627\) maximal cliques, and obtains maximum size \(15\) with exactly \(12\) maxima. It then checks the five-matching 1-factorization structure, the six-to-two factorization/maxima incidence, and the full \(S_6\times S_3\) orbit and stabilizer. No timeout or partial enumeration is used as an upper-bound argument.
+## correctness
 
-## Originality — PASS
-The closest foundational source is arXiv:math/0511173, whose full text defines the same FPA object and gives general constructions and bounds but does not state the exact \(M_2(6,4)\) value or this extremal census. DOI:10.1007/s10801-013-0465-6 was inspected in full and addresses symmetry-restricted neighbour-transitive/group-generated families, not all maxima. DOI:10.1007/s10623-009-9312-0 is specifically about equidistant FPAs; the maxima here are not equidistant. Its linked full text was inaccessible, so that remains a residual risk. published-finding corpus searches under exact notation, constant-composition aliases, one-factorization language, and the numeric census returned no implication-equivalent result.
+PASS
 
-## Value — PASS
-The parameter set is the smallest frequency-two ternary FPA space, and the result is not just a numerical lookup: it gives the exact extremal size, every labeled extremizer, a canonical 1-factorization skeleton, and the complete symmetry orbit. That structural description is useful for understanding how balanced-symbol constraints interact with Hamming packing at the first genuinely ternary frequency-two case.
+A fresh exhaustive construction generated all 90 words of composition \((2,2,2)\), built the Hamming-compatibility graph, and independently enumerated every maximal clique with a deterministic bit-set Bron--Kerbosch search. The exact maximal-clique distribution was reproduced as \(6:38895,7:20160,8:20520,9:10320,11:720,15:12\). For each of the 12 maxima, forgetting labels gives exactly five perfect matchings, each occurring three times, and their 15 edges partition \(K_6\); exactly six labeled 1-factorizations occur, two maxima each. A separate full \(S_6\times S_3\) action check gave orbit size 12 and stabilizer 360. These fresh computations independently reproduce every finite assertion in the final claim.
 
-## Closest literature and limitations
-The literature comparison is strongest against the 2005 foundational FPA paper and the 2014 symmetry paper. The 2010 equidistant-FPA preprint link could not be fetched, so a hidden finite table there cannot be ruled out; however its advertised scope does not implication-dominate the non-equidistant maxima here. The theorem is finite and makes no statement beyond \(FPA_2(6,4)\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2005 constant-composition-code tables are an important prior numeric source: their Table 1 explicitly covers every nonbinary composition and distance with length at most 8, so this exact parameter lies inside their tabulated scope. That source is therefore not ignored as a potential source for the numerical maximum. However, the audited final claim is substantially stronger: it exhaustively classifies all 12 labeled maxima, identifies the five-matching/1-factorization structure, counts the six labeled factorizations with two maxima each, and proves the single \(S_6\times S_3\) orbit with stabilizer 360. No inspected prior source or Resultary record states or implies this classification. The foundational FPA and diagonally-neighbour-transitive literature gives definitions, bounds and restricted symmetry classifications rather than the complete maximum-code census.
+
+## value
+
+PASS
+
+The result is not just an isolated optimum: it gives the complete extremal classification, exposes a 1-factorization of \(K_6\) as the governing structure, and identifies a single symmetry orbit with an exact stabilizer. That structural description makes the small finite parameter set mathematically motivated rather than an arbitrary enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
