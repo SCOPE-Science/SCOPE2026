@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "PASS: With F=1-cos(beta)+sqrt(3)sin(beta), G=sqrt(3)sin(beta)^2+3(beta-sin(beta)cos(beta)), geometry gives area/w^2=G/F^2 and perimeter/w=6beta/F. Steiner formula gives the asserted objective for all t>=0. Explicit differentiation yields p prime negative, U=-a prime/p prime, U prime=H/(6H0^2). The included SymPy program reconstructs H from displayed definitions, checks its complete degree-20 Maclaurin coefficient list, the Fourier coefficient norms and a global Taylor remainder bound; Q20>(2/5)beta^6 and remainder<beta^6/5000 prove U prime strictly positive for every beta in (0,pi/6]. Derivative endpoint limits give exactly 1/3 and (3+2sqrt(3)-2pi)/(2pi-6). Sign analysis establishes every optimizer and the nonattained boundary. No finite sampling is used as a continuous proof. Mathematical risk: complex exact-algebra certificate relies on standard symbolic algebra that is fully reproducible in verify.py; no external formal proof claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2602.19300v1, Theorem 1.1 proves fixed-r area minimization within ball-convex bodies.",
+        "arXiv:2606.02882v1, public abstract discusses fixed-parameter stability; later full text not available."
+      ],
+      "reasoning": "The broader fixed-radius class theorem is orthogonal to varying r (and area plus t times perimeter). No inference to global minimizers of offset areas for varying radii without a new perimeter comparison; do not infer no-coverage from the inaccessible full text.",
+      "searches": [
+        "Pál isominwidth regular disk triangle parallel perimeter monotonic Steiner area endpoint local stability 2602.19300",
+        "mixed volume perimeter and area of circular arc regular r disk triangle width fixed",
+        "Steiner parallel area fixed thickness convex disc polygon regular disk triangle radius optimization",
+        "2602.19300 Bezdek 0903.5361 r-disk triangle affine area perimeter stationary parallel body"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.19300v1 full HTML (Theorem 1.1, Lemma 3.4, Sections 1-4)",
+      "arXiv:0903.5361v1 primary PDF, including Remark 1.4 and Problems 1.7/1.14",
+      "arXiv:2606.02882v1 abstract and available excerpt only",
+      "Published published-finding corpus geometry nearest record summaries and supplied source comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0903.5361v1, Remark 1.4, contains exact scalar functions but no global ratio-slope convexity theorem.",
+        "arXiv:2602.19300v1, Theorem 1.1, fixes disk radius.",
+        "Published published-finding corpus 2026/9/20/SCOPE-sharp-steiner-disk-hausdorff-stability-constant-width--49cee8c667fb treats constant width, not varying disk radius."
+      ],
+      "reasoning": "Our complete sharp Steiner-offset objective follows from prior area/perimeter inputs only after proving U strictly increasing, which requires the all-beta analytic certificate. That nontrivial derivative sign establishes optimizer uniqueness and boundaries not stated in inspected work; no stronger covering prior implication was found.",
+      "searches": [
+        "sharp area perimeter and inradius for equal width r-ball convex bodies in plane",
+        "parallel body Steiner polynomial area-minimizing r-ball convex regular triangle perimeter inradius interpolation Reuleaux equilateral",
+        "Pál isominwidth regular disk triangle parallel perimeter monotonic Steiner area endpoint local stability 2602.19300",
+        "mixed volume perimeter and area of circular arc regular r disk triangle width fixed",
+        "2602.19300 Bezdek 0903.5361 r-disk triangle affine area perimeter stationary parallel body"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0903.5361v1, Remark 1.4, has area/perimeter formulas for regular disk triangles, reparameterized rather than independently rediscovered.",
+        "arXiv:2602.19300v1, Theorem 1.1 and Lemma 3.4, define equivalent width-angle geometry."
+      ],
+      "reasoning": "Translated alternate coordinates (center separation, corner-angle beta, disk radius) and Minkowski Steiner equivalence to weighted area-plus-perimeter. Exact scalar formulas are prior; the strict monotonicity of the slope ratio and optimizer phases are not consequences of a stated covering theorem.",
+      "searches": [
+        "sharp area perimeter and inradius for equal width r-ball convex bodies in plane",
+        "parallel body Steiner polynomial area-minimizing r-ball convex regular triangle perimeter inradius interpolation Reuleaux equilateral",
+        "r-disk triangle minimizing outer parallel area phase transition offset t in (width over three and 0.63886 width)",
+        "regular r disk triangle outer parallel set area minimizer offset radius phase transition critical 1/3",
+        "equilateral Reuleaux regular disk triangle area plus offset t perimeter unique interior optimal r fixed minimal width"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus record 2026/10/4/SCOPE-exact-centered-disk-area-profile-of-the-reuleaux-triangle--9c2a3f200b56 concerns a fixed Reuleaux triangle radial area distribution.",
+        "Published published-finding corpus record 2026/10/4/SCOPE-exact-area-and-perimeter-of-regular-hyperbolic-reuleaux-polygons--570abe9eafa4 concerns hyperbolic polygon quantities."
+      ],
+      "reasoning": "Closest semantic matches have different objects or invariants; no checked exact phase threshold or optimizer table for this variable-radius Euclidean family. Results list is not exhaustive proof of novelty.",
+      "searches": [
+        "r-disk triangle minimizing outer parallel area phase transition offset t in (width over three and 0.63886 width)",
+        "regular r disk triangle outer parallel set area minimizer offset radius phase transition critical 1/3",
+        "equilateral Reuleaux regular disk triangle area plus offset t perimeter unique interior optimal r fixed minimal width",
+        "Steiner parallel area fixed thickness convex disc polygon regular disk triangle radius optimization"
+      ]
+    },
+    "rationale": "PASS (same-model, literature-limited): The initiating 2026 paper optimizes area at each fixed disk radius, not the outer-parallel area as radius varies. Bezdek 2009 Remark 1.4 *already gives* the area and perimeter functions in another parameter: neither the scalar identities nor Steiner's formula alone establish the strict nontrivial curvature bound U prime positive needed to prove a unique interior phase and exact transition constants. Primary relevant results and available published records were compared at the level of parameter domains and implication; no inspected work establishes the statement. Risks include mathematically equivalent but unindexed optimization and incomplete full text of arXiv:2606.02882.",
+    "residual_risks": [
+      "An algebraically equivalent radius-versus-offset minimization may exist in unindexed historical literature; cannot certify uniqueness from nonmatching searches.",
+      "The complete primary text of arXiv:2606.02882 was not accessible, so its theorem/appendix cannot be excluded from available snippets.",
+      "The exact Fourier/Taylor sign certificate is computationally complex; third-party proof inspection and independent auditing have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-radius isominwidth area theorem and inradius data do not optimize the perimeter-area Steiner combination across radius r.",
+        "evidence": [
+          "arXiv:2602.19300v1 (2026-02-22), Theorem 1.1 and Lemma 3.4; original HTML text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.19300",
+        "material_read": "Full lawfully available HTML: abstract, definitions, Theorem 1.1, Lemma 3.4, and area proof through Section 4.",
+        "method": "Read original HTML full text and compared theorem quantifiers and geometry formulas.",
+        "title": "Pál's isominwidth inequality for ball convex bodies in planes of constant curvature",
+        "trigger": "Initiating 2026 theorem identifying regular disk triangles as fixed-radius area minimizers."
+      },
+      {
+        "assessment": "Already supplies scalar area and perimeter formulas in a different normalization; does not state or imply without further nontrivial proof the strict global curvature inequality U prime positive and resulting unique intermediate minimum for variable r and outer offsets.",
+        "evidence": [
+          "arXiv:0903.5361v1 (2009-03-31), Remark 1.4, Problems 1.7, 1.14."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0903.5361",
+        "material_read": "Primary PDF: introductory statements, explicit Remark 1.4 area/perimeter formula, Problems 1.7 and 1.14, and relevant definitions.",
+        "method": "Read lawful primary PDF text and page image, comparing parameters and exact implications.",
+        "title": "On a generalization of the Blaschke-Lebesgue theorem for disk-polygons",
+        "trigger": "Potential direct antecedent with the same regular disk triangle object."
+      },
+      {
+        "assessment": "Available thesis concerns fixed-radius isominwidth stability, not the present offset optimization, but uninspected text is a residual risk.",
+        "evidence": [
+          "arXiv:2606.02882v1 (2026-06-01), abstract and available excerpts only."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.02882",
+        "material_read": "Title, abstract and partially accessible research excerpts only; full text retrieval attempts were unsuccessful.",
+        "method": "Read accessible arXiv metadata and author-hosted/secondary excerpt; did not claim full-document exclusion.",
+        "title": "Optimal stability of Pál's isominwidth inequality for ball convex bodies in planes of constant curvature",
+        "trigger": "Recent adjacent fixed-radius stability work could conceal a variable-radius corollary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d6ed11c-0577-47fe-9729-929c4ad1a22c",
+  "value": {
+    "rationale": "PASS: The boundary between the classical equilateral area-optimal shape and the Reuleaux perimeter-optimal shape is a naturally motivated geometric tradeoff for outer parallel area. The classification produces two sharp analytic transition constants, a unique genuinely curved interior optimizer on a nonempty parameter interval, global uniqueness/nonattainment distinctions, and a fully verifiable nontrivial analytic curvature inequality. It is not a fixed-radius version of Steiner formula and does not assert optimization over all convex sets.",
+    "status": "PASS"
+  }
+}
