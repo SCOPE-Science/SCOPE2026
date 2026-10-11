@@ -1,25 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The \(\Box\)-p condition is equivalent on a finite chain to nondecreasing row minima with the empty-row sentinel \(n\): a lower row's minimum is the universal witness required below every successor of an upper row. Dually, \(\Diamond\)-p is equivalent to nondecreasing row maxima with sentinel \(-1\). If both conditions hold, any one nonempty row forces all lower rows nonempty by \(\Box\)-p and all upper rows nonempty by \(\Diamond\)-p, so either every row is nonempty or the relation is empty.
+PASS
 
-For fixed nondecreasing finite endpoint sequences, no additional cross-row condition remains. Each row contains its two endpoints and independently chooses its strictly intermediate points, giving the stated power-of-two weight. Direct exhaustive checks through four worlds agree exactly with the endpoint criterion and with the independent weighted dynamic program.
+For a row \(R(i)\) on the finite chain, downward confluence is equivalent to monotonicity of the row minimum, with the sentinel \(n\) for an empty row: the minimum itself witnesses the required lower match, and any violation at the minima violates confluence. Forward confluence is dually equivalent to monotonicity of the row maximum, with sentinel \(-1\). Imposing both conditions forces either every row empty or every row nonempty. For fixed nonempty endpoint sequences, each row may independently contain any subset of its endpoint interval that contains both endpoints, giving the stated factor \(2^{\sum_i\max(M_i-m_i-1,0)}\). A fresh independent exhaustive replay over every relation for chain orders one through three reproduced the equivalences and counts \(2,7,80\), agreeing with the package's larger dynamic-programming census.
 
-## Originality
+## originality
 
-PASS. Sato's 2026 paper introduces \(\mathbf{KI}\), gives the two confluence conditions, and proves completeness over their intersection, but does not specialize the frame class to finite chains or enumerate it. The 2024 LIK paper uses the same two confluence conditions and studies proof systems and countermodel extraction, but the checked full text contains no chain endpoint normal form or census.
+PASS
 
-Targeted searches used the aliases downward confluence, forward confluence, local intuitionistic modal frames, stable relations, row minima/maxima, and finite-chain accessibility relations. No equivalent classification or the initial sequence was located. A residual risk remains that the same relation class has been studied combinatorially under terminology detached from intuitionistic modal logic.
+Sato's complete paper defines downward and forward confluence, introduces KI, and proves completeness for frames satisfying both conditions, but a full-text inspection found no finite-chain endpoint classification or census. The two-sided row condition is closely related to the classical Egli-Milner preorder on subsets of a chain; that explains why minima and maxima control the normal form, but the inspected Egli-Milner literature does not state the KI-frame all-relation census, empty-row boundary, or the numerical sequence. Current Resultary search likewise found no earlier exact finite-chain KI enumeration.
 
-## Value
+## value
 
-PASS. The frame class is exactly the semantic class used in the completeness theorem for a new modal logic, and linearly ordered intuitionistic worlds are a canonical finite test bed. The result turns two quantified relational conditions into two monotone integer sequences, isolates the unique empty exception, and gives a complete independent-bit representation of every remaining relation. This directly supports exact finite frame generation and semantic experimentation rather than providing an arbitrary small census.
+PASS
 
-## Closest literature and limitations
+The result gives a complete normal form and exact all-frame census for the canonical finite chains of a newly isolated modal logic. The enumeration is a natural finite-model invariant and directly quantifies the search space used in finite-model reasoning; its value is the complete census, not merely the elementary endpoint observation.
 
-Sato (2026), Definition 3.6 and Theorem C.14, are the direct recent source. Balbiani--Gao--Gencer--Olivetti (2024), Definition 2 and Lemma 1, are the closest earlier source because the same forward/downward confluence pair is used for LIK.
-
-The theorem is chain-specific and does not provide a finite-model theorem or an asymptotic estimate.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

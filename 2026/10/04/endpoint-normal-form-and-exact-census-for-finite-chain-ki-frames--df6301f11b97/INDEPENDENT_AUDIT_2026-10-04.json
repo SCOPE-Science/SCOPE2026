@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T20:08:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 559eccdc178ea42286c5b0ff60c8b225c534f857",
+        "assigned verify.py blob 08257d9a7a6f55dd8f254852fe912af7b0827490",
+        "Sato arXiv:2608.29708 complete primary survey/new-KI paper"
+      ],
+      "rationale": "For a row \\(R(i)\\) on the finite chain, downward confluence is equivalent to monotonicity of the row minimum, with the sentinel \\(n\\) for an empty row: the minimum itself witnesses the required lower match, and any violation at the minima violates confluence. Forward confluence is dually equivalent to monotonicity of the row maximum, with sentinel \\(-1\\). Imposing both conditions forces either every row empty or every row nonempty. For fixed nonempty endpoint sequences, each row may independently contain any subset of its endpoint interval that contains both endpoints, giving the stated factor \\(2^{\\sum_i\\max(M_i-m_i-1,0)}\\). A fresh independent exhaustive replay over every relation for chain orders one through three reproduced the equivalences and counts \\(2,7,80\\), agreeing with the package's larger dynamic-programming census.",
+      "residual_risks": [
+        "The count is a finite-chain census and does not classify arbitrary finite partial orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sato proves semantic completeness of KI for the confluence conditions but does not enumerate finite chains.",
+          "Balbiani et al. study local intuitionistic modal logics with the same confluence conditions and proof systems, not an exact chain census in the material successfully accessed.",
+          "The general Egli-Milner definition supplies the abstract matching relation, not the weighted enumeration over monotone endpoint sequences."
+        ],
+        "reasoning": "No broader inspected theorem directly determines the exact number of KI frames on each finite chain.",
+        "searches": [
+          "Sato full paper through all 76 pages with targeted searches for finite-chain/census terminology",
+          "Balbiani-Gao-Gencer-Olivetti arXiv:2403.06772 primary abstract and Sato's full-text discussion",
+          "Adámek et al. Egli-Milner background"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.29708",
+        "arXiv:2403.06772",
+        "DOI 10.1017/S0960129521000360",
+        "Resultary current published-finding search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Completeness identifies the admissible frames but does not count or canonically parameterize them.",
+          "Egli-Milner terminology makes the endpoint characterization a natural specialization, but obtaining the full census still requires summing all admissible row endpoint choices with their independent interior multiplicities."
+        ],
+        "reasoning": "The final exact census is not stated by the prior modal or order-theoretic sources inspected.",
+        "searches": [
+          "Sato completeness theorem versus finite-chain endpoint classification",
+          "standard Egli-Milner subset order versus weighted all-relation census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sato's two persistence conditions are the two directions of a rowwise order-matching condition.",
+          "On nonempty subsets of a chain their conjunction is the familiar Egli-Milner comparison, whose endpoint reduction makes the proof short.",
+          "No inspected source gives the resulting sequence of all KI relations."
+        ],
+        "reasoning": "The order-theoretic alias was explicitly checked rather than treating the modal terminology as unique.",
+        "searches": [
+          "Resultary: finite chain forward downward confluence endpoint minima maxima exact count intuitionistic modal KI",
+          "Sato arXiv:2608.29708 complete full-text inspection",
+          "Adámek et al. 2022 Egli-Milner order definition, DOI 10.1017/S0960129521000360"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published exact table was retrieved.",
+          "Independent enumeration reproduced the initial counts \\(2,7,80\\)."
+        ],
+        "reasoning": "The fresh table check corroborates the formula while the literature search checks whether those values/formula were already published.",
+        "searches": [
+          "Resultary current corpus search for KI finite-chain counts and endpoint normal forms",
+          "fresh exhaustive counts for orders one through three compared with the assigned sequence"
+        ]
+      },
+      "rationale": "Sato's complete paper defines downward and forward confluence, introduces KI, and proves completeness for frames satisfying both conditions, but a full-text inspection found no finite-chain endpoint classification or census. The two-sided row condition is closely related to the classical Egli-Milner preorder on subsets of a chain; that explains why minima and maxima control the normal form, but the inspected Egli-Milner literature does not state the KI-frame all-relation census, empty-row boundary, or the numerical sequence. Current Resultary search likewise found no earlier exact finite-chain KI enumeration.",
+      "residual_risks": [
+        "The finite-chain endpoint description is a close specialization of standard Egli-Milner order theory and could have appeared as an exercise or lemma under different terminology.",
+        "Full text of Balbiani et al. was not obtained in this run after the retrieval block."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAME_CONDITIONS_AND_COMPLETENESS_NOT_CENSUS",
+          "evidence": "The paper identifies KI with frames satisfying downward and forward confluence but gives no endpoint normal form or finite-chain count.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.29708",
+          "material_read": "complete primary paper in page ranges covering all 76 pages, with targeted searches for finite chains, endpoints and census terminology; Definitions 3.6 and 6.18 and Theorem 6.19 were read in full",
+          "method": "primary full-text inspection",
+          "title": "Intuitionistic and Constructive Modal Logics for Classical Modal Logicians",
+          "trigger": "primary source introducing KI and defining the two confluence conditions"
+        },
+        {
+          "assessment": "ABSTRACT_ORDER_BACKGROUND_NOT_EXACT_KI_ENUMERATION",
+          "evidence": "The paper states the standard two-sided subset matching preorder; it does not enumerate monotone sequences of such rows as KI frames.",
+          "identifier_or_url": "https://doi.org/10.1017/S0960129521000360",
+          "material_read": "full-text portion containing Example 3.32 and the definition of the Egli-Milner order, visually verified on the PDF page",
+          "method": "primary full-text PDF inspection with page-image verification",
+          "title": "Finitary Monads on the Category of Posets",
+          "trigger": "classical order-theoretic equivalent formulation"
+        },
+        {
+          "assessment": "CONFLUENCE_FRAMEWORK_CONTEXT",
+          "evidence": "The accessible material establishes the logic/proof-system context, while Sato's full paper records these conditions as prior terminology.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.06772",
+          "material_read": "primary abstract and bibliographic scope; a further institutional full-text retrieval attempt was blocked and was not retried",
+          "method": "primary-source scope inspection with access limitation",
+          "title": "Local Intuitionistic Modal Logics and Their Calculi",
+          "trigger": "older primary modal source for forward/downward confluence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sato 2026",
+        "Egli-Milner order comparison",
+        "assigned RESULT.md"
+      ],
+      "rationale": "The result gives a complete normal form and exact all-frame census for the canonical finite chains of a newly isolated modal logic. The enumeration is a natural finite-model invariant and directly quantifies the search space used in finite-model reasoning; its value is the complete census, not merely the elementary endpoint observation.",
+      "residual_risks": [
+        "The endpoint proof is elementary on total orders, so the contribution is chiefly the exact classification and enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The count is a finite-chain census and does not classify arbitrary finite partial orders.",
+    "The finite-chain endpoint description is a close specialization of standard Egli-Milner order theory and could have appeared as an exercise or lemma under different terminology.",
+    "Full text of Balbiani et al. was not obtained in this run after the retrieval block.",
+    "The endpoint proof is elementary on total orders, so the contribution is chiefly the exact classification and enumeration."
+  ]
+}
