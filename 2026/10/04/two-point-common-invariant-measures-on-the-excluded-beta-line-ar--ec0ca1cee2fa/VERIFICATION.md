@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The claim is proved symbolically; no numerical experiment is used as evidence.
+# Independent mathematical audit
 
-For a two-point support \(\{x,y\}\), invariance forces each transformation to act as either the identity or the transposition. If \(T_\beta\) transposes, then \((\beta+1)(x-y)\) is a nonzero integer. If \(T_\gamma\) transposes, then \((\gamma+1)(x-y)\) is a nonzero integer. If either map fixes both points, its corresponding factor \((b-1)(x-y)\) is a nonzero integer. Therefore every case containing a transposition forces one of
-\[
-\frac{\gamma+1}{\beta+1},\qquad
-\frac{\gamma-1}{\beta+1},\qquad
-\frac{\gamma+1}{\beta-1}
-\]
-to be rational.
+## correctness
 
-Substituting \(\gamma-1=(m/n)(\beta-1)\) and using irrationality of \(\beta\) gives, respectively: \(m=n\), a contradiction \(m/n=-m/n\), or the contradiction \(0=2\). The first would make the bases equal, which is excluded. Thus both maps act identically on the two-point support, so every support point is a common fixed point.
+PASS
 
-The final fixed-point set is independently matched to Proposition 5.1 of arXiv:2609.31156v1. The proof does not enumerate or infer anything about supports of size at least three.
+For a finite invariant support, each deterministic map permutes that support. On two points the only possibilities are the identity and the transposition. If \(T_\beta\) transposes \(x,y\), then \((\beta+1)(x-y)\) is a nonzero integer. If \(T_\gamma\) also transposes, then \((\gamma+1)/(\beta+1)\) is rational; substituting \(\gamma+1=(m/n)\beta+2-m/n\) and comparing coefficients of the irrational number \(\beta\) forces \(m=n\), contrary to \(\gamma\ne\beta\). If one map transposes and the other fixes the support pointwise, the same integer-difference argument forces either \((\gamma-1)/(\beta+1)\) or \((\gamma+1)/(\beta-1)\) to be rational, and coefficient comparison gives a contradiction. Hence both maps fix both atoms. A point \(z\in[0,1)\) is fixed by \(T_b\) exactly when \((b-1)z\in\mathbb Z_{\ge0}\); with \(\gamma-1=(m/n)(\beta-1)\) in lowest terms this gives exactly \(z=n\ell/(\beta-1)\) with \(n\ell<\beta-1\). Thus every common invariant measure with support at most two is supported on the stated common fixed-point set.
+
+## originality
+
+PASS
+
+Zhao's current primary paper gives the exact common fixed-point set on the excluded rational-affine line, then explicitly observes that the fixed-point calculation does not rule out finite supports carrying nontrivial permutations and asks which finite sets can support a common invariant probability. The audited theorem resolves the first nontrivial support size by proving that all transposition patterns are impossible. Current Resultary searches returned the assigned theorem as the exact hit and no independent two-atom theorem.
+
+## value
+
+PASS
+
+The theorem answers the first nontrivial cardinality of an explicit finite-support question in a current beta-transformation classification. It identifies a genuine rigidity boundary: two atoms cannot realize the permutation mechanism that prevents the fixed-point proposition from being a complete atomic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

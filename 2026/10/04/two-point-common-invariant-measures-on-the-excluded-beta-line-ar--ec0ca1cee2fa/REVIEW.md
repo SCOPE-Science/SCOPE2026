@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A positive invariant measure on a finite support forces the map to permute that support. For two points, the identity/transposition dichotomy is exhaustive. In each of the three cases containing a transposition, the orbit equations give two nonzero integer multiples of the same point difference; their ratio would make a specific affine function of the irrational base rational. Coefficient comparison contradicts either positivity of the rational ratio or distinctness of the bases. The remaining identity/identity case is exactly the common fixed-point set from Proposition 5.1 of arXiv:2609.31156v1.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2609.31156v1, explicitly says its common-fixed-point proposition does not classify all common atomic measures because the maps could act by nontrivial permutations on a finite support, and it asks which finite sets can carry a common invariant probability. The present result excludes that mechanism completely for support size two. Targeted searches for two-point, two-atom, common two-cycle, and finite-support formulations found no statement implying this classification. The related papers arXiv:2501.08116 and arXiv:2603.12877v1 concern absolutely continuous invariant measures and do not cover the claim.
+PASS
 
-## Value
-PASS. Cardinality two is the first nontrivial finite carrier after the fixed-point case explicitly treated in the source. The theorem gives a complete answer at that cutoff and shows that any genuinely new finite atomic common-invariance phenomenon on the excluded relation must use at least three support points. This is a mathematically motivated boundary result rather than an arbitrary parameter slice.
+For a finite invariant support, each deterministic map permutes that support. On two points the only possibilities are the identity and the transposition. If \(T_\beta\) transposes \(x,y\), then \((\beta+1)(x-y)\) is a nonzero integer. If \(T_\gamma\) also transposes, then \((\gamma+1)/(\beta+1)\) is rational; substituting \(\gamma+1=(m/n)\beta+2-m/n\) and comparing coefficients of the irrational number \(\beta\) forces \(m=n\), contrary to \(\gamma\ne\beta\). If one map transposes and the other fixes the support pointwise, the same integer-difference argument forces either \((\gamma-1)/(\beta+1)\) or \((\gamma+1)/(\beta-1)\) to be rational, and coefficient comparison gives a contradiction. Hence both maps fix both atoms. A point \(z\in[0,1)\) is fixed by \(T_b\) exactly when \((b-1)z\in\mathbb Z_{\ge0}\); with \(\gamma-1=(m/n)(\beta-1)\) in lowest terms this gives exactly \(z=n\ell/(\beta-1)\) with \(n\ell<\beta-1\). Thus every common invariant measure with support at most two is supported on the stated common fixed-point set.
 
-## Closest literature and limitations
-The claim is limited to distinct bases with irrational \(\beta\), positive rational \((\gamma-1)/(\beta-1)\), and common invariant probabilities supported on at most two points. Supports of size at least three and nonatomic singular measures remain open here. Search noncoverage is not treated as a proof of novelty; the main originality evidence is the explicit gap statement in Section 5 of arXiv:2609.31156v1 combined with statement-level comparison to the related invariant-measure literature.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Zhao's current primary paper gives the exact common fixed-point set on the excluded rational-affine line, then explicitly observes that the fixed-point calculation does not rule out finite supports carrying nontrivial permutations and asks which finite sets can support a common invariant probability. The audited theorem resolves the first nontrivial support size by proving that all transposition patterns are impossible. Current Resultary searches returned the assigned theorem as the exact hit and no independent two-atom theorem.
+
+## value
+
+PASS
+
+The theorem answers the first nontrivial cardinality of an explicit finite-support question in a current beta-transformation classification. It identifies a genuine rigidity boundary: two atoms cannot realize the permutation mechanism that prevents the fixed-point proposition from being a complete atomic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
