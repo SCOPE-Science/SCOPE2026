@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T15:08:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After translating \\(A\\) to contain zero, nonnegativity and the convolution equation imply \\(h(d)=0\\) for every nonzero \\(d\\in A-A\\). Thus every candidate satisfies an exact integer linear system. A fresh independent exhaustive replay generated all \\(46\\) \\(\\mathrm{GL}(4,2)\\)-orbits of the \\(32768\\) normalized subsets; exactly \\(9\\) orbit representatives tile by the difference-set criterion, while each of the other \\(37\\) representatives has augmented rational rank exactly one above coefficient rank in the necessary weak-tiling system. The replay independently recovered normalized counts \\(1,15,455,1395,1\\). This exhaustive finite certificate establishes the finite theorem; no floating-point feasibility test is involved.",
+      "risk": "The result is dimension-specific and does not address unnormalized weak complements.",
+      "sources": [
+        "Kiss-Matolcsi-Matolcsi-Somlai, arXiv:2212.05513 / DOI:10.1007/s43670-023-00073-7",
+        "Kiss-Londner-Matolcsi-Somlai, arXiv:2410.04948",
+        "frozen RESULT.md and verify.py",
+        "fresh exact orbit/rank replay in this audit"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source's proof of non-pd-flatness in dimension at least four cites only odd-prime spectral non-tiles; it does not produce a binary counterexample.",
+          "The later weak tile is in a different setting and does not imply a normalized weak non-tile in \\(\\mathbb F_2^4\\)."
+        ],
+        "reasoning": "The audited binary finite classification is outside the actual support of the published higher-dimensional proof.",
+        "searches": [
+          "Kiss et al. 2024 Proposition 3.1 and surrounding lines",
+          "A lonely weak tile"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2212.05513",
+        "DOI:10.1007/s43670-023-00073-7",
+        "arXiv:2410.04948",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The literal proposition statement overstates the proof: nearby text and cited counterexamples specify odd primes.",
+          "The submitted theorem at \\(p=2,d=4\\) therefore is not a corollary of the valid prior argument and in fact delineates the missing binary boundary."
+        ],
+        "reasoning": "The new claim requires an exhaustive binary classification unavailable from the source's odd-prime construction.",
+        "searches": [
+          "DOI:10.1007/s43670-023-00073-7 lines defining pd-flatness and Proposition 3.1 proof",
+          "odd-prime spectral non-tile references cited there"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper defines pd-flatness and proves low-dimensional results; its higher-dimensional counterexample input is explicitly odd-prime.",
+          "No distinct F2^4 normalized nonnegative weak-tiling classification was found."
+        ],
+        "reasoning": "Pd-flatness, positive-definite weak complement and the strictly weaker normalized nonnegative convolution formulation were compared.",
+        "searches": [
+          "Resultary query: F_2^4 normalized weak tiling nonnegative complement pd-flat weak tile tiling",
+          "full Springer text DOI:10.1007/s43670-023-00073-7",
+          "arXiv:2410.04948"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier table with the \\(46/9/37\\) orbit split or size counts was located."
+        ],
+        "reasoning": "The exact finite census is itself the proof certificate, not a recomputation of a located published table.",
+        "searches": [
+          "Resultary F2^4 pd-flat/weak-tiling search",
+          "fresh exact \\(\\mathrm{GL}(4,2)\\)-orbit census"
+        ]
+      },
+      "rationale": "The full open primary paper was inspected closely because Proposition 3.1 is printed as saying non-pd-flatness for \\(d\\ge4\\). Its surrounding text explicitly restricts the known non-tiling spectral counterexamples to odd primes, and the proof of the \\(d\\ge4\\) clause uses exactly those odd-prime examples. Thus the printed proposition does not supply a valid \\(p=2,d=4\\) obstruction. The submitted exact census resolves that binary case and is stronger than pd-flatness because it drops Fourier positivity. Later weak-tiling counterexamples concern different ambient settings/notions. Resultary found no prior binary four-dimensional classification.",
+      "residual_risks": [
+        "An unpublished or unindexed binary enumeration could duplicate the finite census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRINTED_OVERBROAD_CLAUSE_DOES_NOT_COVER_BINARY_CASE",
+          "evidence": "The paper's surrounding lines and proof restrict the actual nonflatness input to odd primes; no \\(p=2\\) witness is supplied.",
+          "identifier_or_url": "arXiv:2212.05513; DOI:10.1007/s43670-023-00073-7",
+          "material_read": "Open full Springer text around Definition 1.4 and Proposition 3.1, including surrounding statements that the known \\(d\\ge4\\) spectral non-tiles require odd prime \\(p\\) and the proof citing those examples.",
+          "method": "Lawful open full-text inspection.",
+          "title": "Tiling and weak tiling in \\((\\mathbb Z_p)^d\\)",
+          "trigger": "Defines pd-flatness and contains the potentially conflicting dimension-four statement."
+        },
+        {
+          "assessment": "DIFFERENT_SETTING_NOT_COVERING",
+          "evidence": "It constructs a weak tile that is neither spectral nor a proper tile but does not provide the normalized finite binary complement classified here.",
+          "identifier_or_url": "arXiv:2410.04948; DOI:10.1016/j.exmath.2024.125636",
+          "material_read": "Open repository abstract and available primary-source description.",
+          "method": "Lawful open-source inspection.",
+          "title": "A lonely weak tile",
+          "trigger": "Later weak-tiling counterexample literature."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This settles the first binary dimension left outside the valid odd-prime obstruction and strengthens pd-flatness by removing Fourier positivity from the complement. The exact orbit census also pinpoints every normalized tile in a canonical small group, making this a motivated boundary classification rather than an arbitrary computation.",
+      "risk": "No extrapolation to \\(\\mathbb F_2^d\\) for \\(d\\ge5\\) is established.",
+      "sources": [
+        "DOI:10.1007/s43670-023-00073-7"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In \\(\\mathbb F_2^4\\), every nonempty set admitting a nonnegative weak complement \\(h\\) with \\(h(0)=1\\) and \\(1_A*h=1\\) is a translational tile. Consequently \\(\\mathbb F_2^4\\) is pd-flat; the normalized census has \\(46\\) linear-equivalence classes, exactly \\(9\\) tiling classes, and tiling-set counts \\(1,15,455,1395,1\\) at sizes \\(1,2,4,8,16\\).",
+  "limitations": [
+    "Specific to \\(\\mathbb F_2^4\\).",
+    "The normalization \\(h(0)=1\\) is essential to the statement.",
+    "No conclusion for binary dimensions at least five."
+  ],
+  "schema_version": 1
+}
