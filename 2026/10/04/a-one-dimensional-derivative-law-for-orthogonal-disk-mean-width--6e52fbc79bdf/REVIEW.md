@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The support-function identity is exact, the spherical conditioning uses the uniform distribution of \(|u_2|\), the switching locus is solved algebraically without squaring ambiguity on the stated chamber, and differentiation produces an integrable positive second-derivative kernel. The positivity argument covers both \(0<\delta\le1\) and \(\delta>1\). The asymptotic slope follows by dominated convergence.
+## correctness
 
-## Originality
-PASS. Finch treats distinguished orthogonal-disk configurations and leaves the two-circle roller mean width without an exact expression; Bäsel evaluates the isolated oloid member; Nash–Pir–Sottile–Ying treat the two-circle hull without a mean-width separation profile. Targeted searches for the separation parameter, support-function switching law, strict convexity, and derivative formulas found no statement implying the claim. Generic support-function convexity is background and is not claimed.
+PASS
 
-## Value
-PASS. The calculation turns several isolated classical orthogonal-disk bodies into one intrinsic-volume profile, gives an exact sensitivity law, proves strict convexity globally, and reduces further evaluation questions to one-dimensional integrals. This is a structural result tied directly to the published mean-width gap rather than an arbitrary parameter slice.
+The support functions give the directional-width maximum exactly. For a uniform direction, \(t=|b|\) is uniform on \([0,1]\); conditional angular symmetry converts the switching equation into \(\cos(2\phi)=r_\delta(t)\), with switching exactly for \(t<(1+\delta)^{-1}\). Differentiating the expectation gives the displayed first derivative. At the moving endpoint \(r_\delta=1\), boundary terms cancel; direct algebra yields the stated derivative and factorization for \(1-r_\delta^2\), giving the second derivative. Its numerator is positive on the integration region, the endpoint singularity is integrable, and dominated convergence gives the asymptotic slope \(\mathbb E|b|=1/2\).
 
-## Closest literature and limitations
-The closest sources are Finch’s orthogonal-disk paper, Bäsel’s exact oloid mean width, and Nash–Pir–Sottile–Ying’s broader two-circle convex-hull study. The result does not claim a closed form for every separation or solve the distinguished roller value in closed form. Unindexed or differently phrased prior work on the full separation family remains a residual risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest prior works treat fixed members or different invariants. Bäsel’s full paper proves the mean width of the fixed oloid member and explicitly describes Finch as treating three fixed orthogonal-disk configurations. The full Nash–Pir–Sottile–Ying paper studies algebraic boundaries, face lattices, and spectrahedra; a full-text search found no mean-width result. Resultary searches for the moving-separation profile, derivative formulas, and strict convexity returned no earlier equivalent.
+
+## value
+
+PASS
+
+Mean width is a standard intrinsic volume and this one-parameter family contains classical orthogonal-disk bodies studied only at special configurations. The exact sensitivity law and global convexity are structural information across the family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
