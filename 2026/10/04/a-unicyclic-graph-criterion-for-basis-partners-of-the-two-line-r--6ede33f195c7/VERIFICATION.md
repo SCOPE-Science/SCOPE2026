@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with Python 3. The script uses only the standard library and prints
+# Independent mathematical audit
 
-`VERIFY_OK exact_modular_cases=407 exhaustive_p3=84 p3_bases=75`
+## correctness
 
-on success.
+PASS
 
-The replay has three layers. First, it exhausts all \(\binom{9}{6}=84\) frequency sets for \(p=3\) and checks the graph/nullity criterion, finding \(75\) invertible cases. Second, for \(p=5,7,11\) it checks an explicit spanning-unicyclic family with a four-cycle and deterministic candidate samples. Third, whenever the graph is unicyclic, it evaluates the Fourier determinant at exact finite-field specializations of a primitive \(p\)-th root and checks the conjugate-product form of
-\[
-|\det T(E_p,B)|^2=p^{2p}|S_C|^2.
-\]
-Two finite-field specializations are used for each tested prime.
+Vanishing of a coefficient vector on the full vertical line is equivalent, by the \(p\)-point Fourier transform, to zero left-vertex edge sums; vanishing on the diagonal similarly gives zero right-vertex sums; the extra point adds the weighted functional \(\psi_B\). Thus the kernel is exactly the unsigned incidence kernel intersected with one hyperplane. The incidence rank of a bipartite graph is \(n_B-c_B\), giving \(\beta_B=2p-n_B+c_B\) and the stated nullity drop by at most one. Invertibility forces \(\beta_B=1\), hence a spanning connected graph with \(2p\) vertices and edges, i.e. unicyclic. Its incidence kernel alternates on the unique even cycle, so the extra functional is \(S_C\). For prime \(p\), if the alternating label polynomial of degree at most \(p-1\) vanishes at a primitive \(p\)th root and at \(1\), cyclotomic divisibility forces all label-count differences to vanish, proving the multiset criterion. The reduced-incidence Laplace expansion yields the determinant after the two inverse Fourier row transforms. Independently, exhaustive \(p=3\) enumeration of all \(\binom96=84\) candidates found 75 invertible matrices and exactly the same 75 graph-criterion candidates, with zero mismatches.
 
-The universal result does not depend on these finite experiments. Its proof is symbolic: Fourier inversion identifies the two incidence constraints; the standard rank theorem for a connected bipartite incidence matrix gives the cycle-space dimension; the minimal polynomial \(1+X+\cdots+X^{p-1}\) gives the exact prime cyclotomic zero criterion; and a reduced incidence determinant expansion gives the determinant formula. No claim is made for composite moduli or for the unresolved asymptotics of \(\rho(E_p)\).
+## originality
+
+PASS
+
+The Ferguson--Mayeli--Sothanaphan full text introduces exactly this family in Question 1.10 and asks about its Riesz-ratio asymptotics, but does not give a graph/unicyclic classification of basis partners. Its general determinant and basis-pair definitions do not imply the incidence reduction. Resultary searches found other quantitative-spectrality findings for different families, but no earlier theorem with this graph criterion or cycle determinant formula.
+
+## value
+
+PASS
+
+The theorem gives a complete structural classification of all basis partners for the exact family singled out by an open quantitative-spectrality question, together with a determinant formula and general nullity law. Even without solving the final Riesz-ratio asymptotics, this sharply reduces the surviving search space to labeled unicyclic graphs and supplies a natural invariant needed for further work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

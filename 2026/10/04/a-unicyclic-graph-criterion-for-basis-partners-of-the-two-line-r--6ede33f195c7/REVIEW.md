@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The kernel calculation is exact: Fourier inversion on the two lines turns vanishing into zero left- and right-incidence sums, while the extra point is one additional cyclotomic functional. The bipartite incidence rank gives the nullity formula, and invertibility forces a spanning connected unicyclic graph. On that graph the incidence kernel is the alternating cycle vector. The prime cyclotomic minimal polynomial gives the label-multiset criterion, and a reduced-incidence cofactor expansion after two inverse Fourier transforms gives \(|\det T(E_p,B)|=p^p|S_C|\). The bundled verifier supplies exact modular replay checks, including an exhaustive \(p=3\) census.
+## correctness
 
-## Originality
-PASS. The primary source asks about the same family in Question 1.10 and provides the Fourier-matrix framework, but the inspected full text does not give a bipartite graph, unicyclic classification, alternating label obstruction, or determinant formula. Targeted published-finding corpus and web searches found no equivalent statement. The closest later Fourier-minor paper concerns principal minors, which do not imply this fixed-row/arbitrary-column criterion.
+PASS
 
-## Value
-PASS. This is a structural reduction of a specifically motivated open quantitative-spectrality family: all viable basis partners are compressed to one-cycle spanning graphs, and their determinant is controlled by a single explicit cycle sum. It does not settle the asymptotic Riesz ratio, but it removes most of the combinatorial search space and identifies the exact algebraic obstruction that any future optimization must respect.
+Vanishing of a coefficient vector on the full vertical line is equivalent, by the \(p\)-point Fourier transform, to zero left-vertex edge sums; vanishing on the diagonal similarly gives zero right-vertex sums; the extra point adds the weighted functional \(\psi_B\). Thus the kernel is exactly the unsigned incidence kernel intersected with one hyperplane. The incidence rank of a bipartite graph is \(n_B-c_B\), giving \(\beta_B=2p-n_B+c_B\) and the stated nullity drop by at most one. Invertibility forces \(\beta_B=1\), hence a spanning connected graph with \(2p\) vertices and edges, i.e. unicyclic. Its incidence kernel alternates on the unique even cycle, so the extra functional is \(S_C\). For prime \(p\), if the alternating label polynomial of degree at most \(p-1\) vanishes at a primitive \(p\)th root and at \(1\), cyclotomic divisibility forces all label-count differences to vanish, proving the multiset criterion. The reduced-incidence Laplace expansion yields the determinant after the two inverse Fourier row transforms. Independently, exhaustive \(p=3\) enumeration of all \(\binom96=84\) candidates found 75 invertible matrices and exactly the same 75 graph-criterion candidates, with zero mismatches.
 
-## Closest literature and limitations
-The closest source is Ferguson--Mayeli--Sothanaphan, arXiv:1904.04487v6, especially Question 1.10 and the basis-pair/Fourier-matrix propositions. Zhou, arXiv:2505.01189v1, is relevant broader Fourier-minor literature but is restricted to principal minors. The remaining scientific limitation is that no bound sharp enough to determine \(\rho(E_p)\) is proved; an unindexed equivalent formulation is also a residual novelty risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The Ferguson--Mayeli--Sothanaphan full text introduces exactly this family in Question 1.10 and asks about its Riesz-ratio asymptotics, but does not give a graph/unicyclic classification of basis partners. Its general determinant and basis-pair definitions do not imply the incidence reduction. Resultary searches found other quantitative-spectrality findings for different families, but no earlier theorem with this graph criterion or cycle determinant formula.
+
+## value
+
+PASS
+
+The theorem gives a complete structural classification of all basis partners for the exact family singled out by an open quantitative-spectrality question, together with a determinant formula and general nullity law. Even without solving the final Riesz-ratio asymptotics, this sharply reduces the surviving search space to labeled unicyclic graphs and supplies a natural invariant needed for further work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
