@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:39:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e1616dc1cd0d7088a0b93c75c35ef70123382544",
+        "assigned verify_inellipse_profile.py blob 21bd72b4683d778e9cbcb3b0bfb9ce96db205bb7",
+        "Horwitz, arXiv:math/0312403, Lemma 6",
+        "Chakerian, A Distorted View of Geometry, 1979"
+      ],
+      "rationale": "The classical prescribed-center formula gives \\(\\eta=\\sqrt{27xyz}\\) after setting \\(x=1-2t\\), \\(y=1-2u\\), \\(z=1-2v\\), with \\(x,y,z>0\\) and sum one. The spread constraint is equivalent to \\(xy+yz+zx=(1-r^2)/3\\), \\(r=\\sqrt{2D}\\). Thus fixed spread fixes the first two elementary symmetric polynomials and the area optimization is exactly extremization of \\(xyz\\). Interior extrema have two equal variables by the Lagrange equations; substituting the two branches yields \\((1+r)\\sqrt{1-2r}\\) and \\((1-r)\\sqrt{1+2r}\\), with the first feasible only for \\(r<1/2\\). For larger \\(r\\), approaching the boundary makes the infimum zero. Squaring the upper branch immediately gives \\(\\eta\\le1-r^2=1-2D\\), and expansion at zero proves sharpness of coefficient two. The verifier independently checks the determinant formula, branch values and stability numerically.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior formula determines the area for every center, not merely an extremum at fixed spread.",
+          "The audited envelope is obtained by optimizing this stronger pointwise formula over a one-dimensional symmetric constraint set."
+        ],
+        "reasoning": "The prior result dominates the parameter space needed for the audited claim.",
+        "searches": [
+          "Horwitz primary full text",
+          "Chakerian prescribed-center formula",
+          "standard inellipse references"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0312403",
+        "Chakerian 1979",
+        "standard inellipse references",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source formula immediately reduces the claimed profile to a three-variable product extremum with the first two elementary symmetric polynomials fixed.",
+          "The two-equal-variable condition and boundary phase transition are standard Lagrange/boundary consequences."
+        ],
+        "reasoning": "The final claim is mechanically implied by a stronger classical formula plus routine constrained optimization.",
+        "searches": [
+          "Horwitz Lemma 6 / Chakerian triangle formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horwitz's Lemma 6 generalizes Chakerian's triangle formula and gives the area from the three subtriangle areas.",
+          "Standard references state directly that for barycentric center \\((t,u,v)\\), area equals \\(\\pi\\Delta\\sqrt{(1-2t)(1-2u)(1-2v)}\\)."
+        ],
+        "reasoning": "Barycentric spread is just a symmetric quadratic constraint on the same three coordinates appearing in the classical full area formula.",
+        "searches": [
+          "Resultary query: triangle inellipse fixed center barycentric variance area profile Steiner",
+          "Horwitz arXiv:math/0312403 full text, Lemma 6",
+          "web searches for triangle inellipse barycentric center area formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior source printing the exact two-branch envelope was located, but the stronger centerwise formula is already standard."
+        ],
+        "reasoning": "Absence of the optimized envelope verbatim does not restore originality under implication-level coverage.",
+        "searches": [
+          "Resultary exact fixed-spread profile search",
+          "web searches for the explicit barycentric area formula"
+        ]
+      },
+      "rationale": "The classical source already gives the complete area of the unique inellipse as an explicit function of the center's barycentric coordinates: \\(\\operatorname{Area}(E)=\\pi\\Delta\\sqrt{(1-2t)(1-2u)(1-2v)}\\). That is stronger pointwise information than the audited fixed-spread envelope. Once the spread is fixed, the remaining optimization is the elementary symmetric-polynomial problem of extremizing \\(xyz\\) at fixed \\(x+y+z\\) and \\(xy+yz+zx\\), whose Lagrange equations force two equal variables. Under the required implication-level standard, the printed profile and stability coefficient are therefore routine corollaries of the classical full-center formula rather than independent originality.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_AT_IMPLICATION_LEVEL",
+          "evidence": "For an interior point the lemma specializes to the classical barycentric product formula, from which the audited envelope follows by elementary symmetric optimization.",
+          "identifier_or_url": "arXiv:math/0312403",
+          "material_read": "Complete accessible primary HTML around Lemma 6 and the subsequent area computation; Lemma 6 gives the ellipse area from the subtriangle areas for an arbitrary center.",
+          "method": "Open-access primary full-text inspection.",
+          "title": "The locus of centers of ellipses inscribed in quadrilaterals",
+          "trigger": "Contains the generalized prescribed-center triangle ellipse-area formula used by the record."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "classical prescribed-center inellipse formula",
+        "Steiner inellipse extremal context"
+      ],
+      "rationale": "A sharp area envelope at fixed displacement of the inellipse center and the globally optimal quadratic stability coefficient are natural geometric summaries of the full center formula, including a genuine boundary phase transition. The result is rejected for prior implication, not because the profile is an unmotivated statistic.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For an inellipse of a triangle whose center has barycentric spread \\(D=(t-u)^2+(u-v)^2+(v-t)^2\\), the normalized area relative to the Steiner inellipse has exactly the two-branch fixed-\\(D\\) envelope stated in RESULT.md, with a lower-envelope phase transition at \\(D=1/8\\); in particular \\(1-\\eta\\ge2D\\) with globally sharp coefficient two.",
+  "limitations": [
+    "Planar triangle inellipses only.",
+    "The result is mathematically correct, but the full prescribed-center area function is classical; the fixed-spread profile is a direct constrained optimization of that stronger formula."
+  ],
+  "schema_version": 1
+}
