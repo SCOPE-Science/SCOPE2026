@@ -1,12 +1,21 @@
-# Review of Outer multiset dimension and all bases of broom trees
+# Independent mathematical audit
 
-## Correctness
-PASS. The \(q\) brush leaves form a false-twin class, forcing at least \(q-1\) into every outer multiset resolving set. At size \(q-1\), the omitted brush leaf and \(p_1\) have identical all-two distance multisets, proving the lower bound \(q\). The full brush resolves because handle distance from the brush is exactly the handle index plus one. For a candidate basis omitting one brush leaf, adding \(p_0\) recreates a collision with \(p_1\), while adding any \(p_j\) with \(j\ge1\) yields representations with a repeated value of multiplicity at least two; this repeated value identifies the handle index, and the remaining possible brush/\(p_1\) collision would require \(j+1=|j-1|\), which is impossible. Exhaustive checks agree on all tested parameters.
+## correctness
 
-## Originality
-PASS. The defining 2019 paper gives the twin lower bound and treats full regular rooted trees, explicitly positioning that section as a step toward more general trees; targeted full-text searches found no broom, caterpillar, or spider result. The 2022 follow-up treats the maximum possible value, dimension two, lexicographic products, and rectangular grids, and its full text contains no broom formula. Targeted web and semantic searches for broom trees, broom graphs, outer multiset bases, and multiset resolving sets found no equivalent dimension-plus-basis-classification theorem.
+PASS
 
-## Value
-PASS. Brooms are a standard sparse tree family interpolating between a highly symmetric brush and an arbitrarily long asymmetric handle. The result shows exactly how the twin lower bound fails by one landmark, then gives a complete classification and count of all optimal sets. This supplies a transparent non-regular, unbounded-diameter tree case in a literature where general-tree behavior remains substantially less developed than paths, grids, or highly regular rooted trees.
+The false-twin lower bound forces every resolving set to contain at least \(q-1\) of the \(q\) brush leaves. A set of exactly those \(q-1\) leaves fails because the omitted brush leaf and \(p_1\) have the same multiset representation, so the dimension is at least \(q\). All \(q\) brush leaves resolve the handle because \(p_i\) has representation \(\{(i+1)^q\}\). For a size-\(q\) basis containing exactly \(q-1\) brush leaves, the added vertex cannot be \(p_0\), while every \(p_j\), \(1\le j\le\ell\), works: a handle representation contains a value of multiplicity at least \(q-1\ge2\), whereas the omitted leaf has only the repeated value \(2\), and the only possible handle collision at \(p_1\) would require \(j+1=|j-1|\), impossible. This proves both the dimension and the complete basis list. The assigned verifier exhausts the stated small box, and a fresh independent brute-force reconstruction for \(2\le\ell\le4\), \(3\le q\le5\) reproduced dimension \(q\) and exactly \(1+q\ell\) bases.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The defining outer-multiset paper studies general properties and full \(\delta\)-ary trees; its tree section explicitly frames broader tree families as future territory. Current searches also surfaced later work on joined graphs and toroidal grids but no broom-tree formula or all-bases classification. The broom result is not a specialization of the full regular-tree recursion because the broom has one high-degree endpoint, a path of arbitrary length, and a false-twin leaf class. Best-of-knowledge originality therefore survives.
+
+## value
+
+PASS
+
+Brooms are a standard nonregular tree family and provide a natural first test beyond the full regular trees treated in the foundational paper. The result gives not only the minimum value but every minimum basis and their exact number. That complete family classification is a motivated structural benchmark rather than a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
