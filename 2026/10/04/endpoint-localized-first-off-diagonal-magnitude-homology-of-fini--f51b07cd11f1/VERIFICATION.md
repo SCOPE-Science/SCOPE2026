@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof checks the complete localized magnitude chain complex in bidegree \(3,4\) for distinct same-side endpoints. The decisive algebraic checks are: complete generator counts in degrees \(2,3,4\); explicit spanning of every \(C_2\)-basis type by \(\partial_3\); and a pivot argument proving \(\partial_4\) injective over every field.
+# Independent mathematical audit
 
-`verify_projective_plane_mh.py` gives an independent finite replay for the Desarguesian planes \(\mathrm{PG}(2,q)\) with prime \(q=2,3,5\). It constructs the incidence graph from homogeneous coordinates, enumerates all length-four magnitude chains, decomposes by endpoints, computes both boundary ranks over \(\mathbb F_2\), and requires every distance-\(2\) block to have homology dimension \(q^2\). A successful run ends with `VERIFY_OK`.
+## correctness
 
-The replay is finite and therefore does not prove the quantified theorem by enumeration. The all-orders statement is supported by the symbolic proof using only finite-projective-plane incidence axioms. No claim is made about complete integral torsion or about other bidegrees.
+PASS
+
+The projective-plane axioms give the three localized chain-group dimensions claimed in the package. The displayed degree-three chains reach every degree-two generator, and the degree-four images have unique boundary coordinates that make the fourth boundary injective over every field. Subtracting the two boundary ranks from the middle chain dimension gives the claimed local rank. An independent Fano-plane reconstruction produced chain dimensions 9, 24, and 11, boundary ranks 9 and 11, and homology dimension 4, exactly matching the order-two case.
+
+## originality
+
+PASS
+
+The closest full primary theorem gives first-off-diagonal vanishing only when the relevant girth threshold is at least seven. Projective-plane incidence graphs have girth six, so that theorem does not determine this boundary case. Fresh Resultary searches found no other magnitude-homology result giving the projective-plane local rank; a same-object Vietoris--Rips result concerns a different invariant.
+
+## value
+
+PASS
+
+The theorem computes the first unresolved off-diagonal exactly at the sharp girth-six boundary for a canonical infinite family and every coefficient field. The rank has a direct projective-geometric interpretation, so the endpoint localization is natural.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
