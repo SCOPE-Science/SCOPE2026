@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:07:14.923200Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 08708a488cce612adf59e51d239cc9a0284d8dbb",
+        "assigned verify.py blob f5c05f3be1581f1d826c013a0f36b4c308de1af8",
+        "Wang--Ramdas, arXiv:2009.02824v1 / DOI:10.1111/rssb.12489",
+        "Lee--Ren, arXiv:2404.17562"
+      ],
+      "rationale": "With \\(N\\) nonzero e-values, base e-BH rejects under the complete null exactly when \\(Nc\\ge K/\\alpha\\), so FDR is the corresponding binomial tail. For fixed \\(p>0\\) validity makes \\(c=1/p\\) worst, and partitioning \\(p\\) by the integer rejection threshold reduces the exact envelope to \\(\\max_r \\Pr\\{\\mathrm{Bin}(K,r\\alpha/K)\\ge r\\}\\). For \\(r\\ge2\\), the factorial-moment inequality bounds the tail by \\((e\\alpha)^r\\), whereas the \\(r=1\\) term is at least \\(\\alpha-\\alpha^2/2\\); the stated \\(\\alpha_0\\) makes the latter strictly larger. The equality constraints also force the unique law \\(p=\\alpha/K,c=K/\\alpha\\). Independent recomputation for several levels and sample sizes reproduced the envelope and the one-spike optimizer.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General e-BH theory covers arbitrary dependence and broad e-value distributions.",
+          "Conditional calibration work is broader algorithmically but studies a modified method."
+        ],
+        "reasoning": "General validity does not determine the sharp FDR inside this restricted iid family.",
+        "searches": [
+          "Wang--Ramdas DOI:10.1111/rssb.12489",
+          "Lee--Ren arXiv:2404.17562"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.02824v1",
+        "DOI:10.1111/rssb.12489",
+        "arXiv:2404.17562",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General FDR control gives only an upper bound of level alpha.",
+          "Independence/PRDS validity does not identify the exact rejection probability or which valid two-point calibration maximizes it."
+        ],
+        "reasoning": "The threshold partition and factorial-moment comparison supply additional mathematics not present in the inspected source.",
+        "searches": [
+          "direct comparison with the base e-BH rejection rule and PRDS/independence discussion in Wang--Ramdas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source's base e-BH threshold gives the starting event used by the proof.",
+          "Its sharp examples use dependence and do not state the iid binomial optimization."
+        ],
+        "reasoning": "All-or-nothing, two-point e-value, complete-null rejection-probability and binomial-tail formulations were compared.",
+        "searches": [
+          "Resultary: e-BH iid all-or-nothing two-point e-values complete null exact FDR binomial calibration one spike",
+          "Wang--Ramdas arXiv:2009.02824v1 e-BH definition and all-or-nothing examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior formula or table for the same iid family was returned."
+        ],
+        "reasoning": "The formula is an all-K analytic optimization, not a finite simulation table.",
+        "searches": [
+          "Resultary semantic search for the exact finite binomial envelope and one-spike optimizer"
+        ]
+      },
+      "rationale": "Wang--Ramdas define base e-BH, prove its general FDR control, discuss all-or-nothing e-values, and give dependent sharpness constructions; the relevant primary PDF pages were read. No exact iid two-point complete-null binomial envelope or optimization over all valid \\((p,c)\\) was located there. Later calibration work modifies e-BH rather than tabulating this base-procedure iid family. Targeted Resultary search for iid all-or-nothing e-BH and exact binomial calibration returned no equivalent theorem.",
+      "residual_risks": [
+        "A later technical note on exact e-BH size under iid discrete e-values may contain the same binomial reduction under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CONTROL_NOT_IID_EXACT_ENVELOPE",
+          "evidence": "The source supplies the rule and general control but no inspected exact iid two-point complete-null maximization.",
+          "identifier_or_url": "arXiv:2009.02824v1; DOI:10.1111/rssb.12489",
+          "material_read": "Primary full-text pages covering all-or-nothing e-values, the base e-BH threshold, independence/PRDS discussion, and FDR theorem.",
+          "method": "Lawful open primary full-text inspection with rendered-page verification.",
+          "title": "False Discovery Rate Control with E-values",
+          "trigger": "Defining source for base e-BH and canonical all-or-nothing e-values."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang--Ramdas",
+        "Lee--Ren"
+      ],
+      "rationale": "All-or-nothing e-values are a canonical sharpness family in the foundational e-BH paper. The result quantifies exactly how independence changes that sharpness picture and identifies a unique extremizer at standard FDR levels, giving a useful calibration benchmark rather than a routine numerical example.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2009.02824v1",
+    "DOI:10.1111/rssb.12489",
+    "arXiv:2404.17562",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Complete null, iid two-point e-values only.",
+    "The displayed \\(\\alpha_0\\) is a sufficient optimizer range, not claimed to be the largest possible range."
+  ],
+  "residual_risks": [
+    "A later technical note on exact e-BH size under iid discrete e-values may contain the same binomial reduction under different terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_CONTROL_NOT_IID_EXACT_ENVELOPE",
+      "evidence": "The source supplies the rule and general control but no inspected exact iid two-point complete-null maximization.",
+      "identifier_or_url": "arXiv:2009.02824v1; DOI:10.1111/rssb.12489",
+      "material_read": "Primary full-text pages covering all-or-nothing e-values, the base e-BH threshold, independence/PRDS discussion, and FDR theorem.",
+      "method": "Lawful open primary full-text inspection with rendered-page verification.",
+      "title": "False Discovery Rate Control with E-values",
+      "trigger": "Defining source for base e-BH and canonical all-or-nothing e-values."
+    }
+  ]
+}
