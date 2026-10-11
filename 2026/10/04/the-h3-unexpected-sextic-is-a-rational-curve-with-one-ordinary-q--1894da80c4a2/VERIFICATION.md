@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`artifacts/verify.py` reconstructs the exact interpolation problem over \(\mathbb Q(\sqrt5)\) at \(P_0=[3:5:1]\). It checks rank \(27\), all 15 point incidences, all order-\(<5\) jet conditions, the displayed degree-5 and degree-6 translated pieces, coprimality of those pieces, and squarefreeness of the tangent quintic.
+# Independent mathematical audit
 
-The verifier is finite and exact. It does not enumerate all assigned points. The passage from the witness to a general point uses standard Zariski-openness of irreducibility and nonvanishing of the tangent discriminant on the one-dimensional-kernel locus. The genus-zero and no-other-singularity conclusions use the standard plane-curve genus formula and the delta invariant \(\binom52=10\) of an ordinary quintuple point.
+## correctness
+
+PASS
+
+The exact interpolation reconstruction over Q(sqrt(5)) has rank 27 in the 28-dimensional sextic space after imposing the fifteen point conditions and order-five jet conditions at P=[3:5:1], hence a unique witness up to scale. Its local equation has only degree-five and degree-six pieces A5 and B6. Exact polynomial gcds give gcd(A5,B6)=1 and gcd(A5,dA5)=1, so the tangent quintic is squarefree and the witness cannot factor. Thus the marked point is an ordinary quintuple point and the curve is irreducible. An ordinary quintuple point contributes delta ten, equal to the arithmetic genus of a plane sextic, so the normalization has genus zero and there can be no other singularities. Irreducibility and tangent discriminant nonvanishing are open on the one-dimensional-kernel locus, giving the generic statement.
+
+## originality
+
+PASS
+
+The inspected H3 primary material establishes the 15-point root configuration, existence/uniqueness of the degree-six curve with a general quintuple point, and later gives an explicit equation. It does not state that the generic curve is irreducible, rational, ordinary at the imposed point, or smooth elsewhere. Targeted Resultary searches for the H3 sextic with those geometric properties returned the audited result and unrelated singularity records, not a prior covering theorem.
+
+## value
+
+PASS
+
+The H3 curve is a canonical root-system unexpected sextic. Determining that its generic member is an irreducible rational curve with exactly one ordinary quintuple point gives the intrinsic geometry of a named object whose prior literature supplied mainly existence and equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact witness at \\(P_0=[3:5:1]\\) has interpolation rank \\(27\\), hence a one-dimensional sextic kernel. Its translated equation has only degree-5 and degree-6 pieces, whose exact gcd is \\(1\\); this forces irreducibility. The degree-5 tangent form is squarefree, hence the point is ordinary of multiplicity \\(5\\). The arithmetic-genus calculation then forces geometric genus \\(0\\) and excludes all further singularities. Openness transfers irreducibility and squarefreeness to a nonempty Zariski-open set of assigned points.
+## correctness
 
-## Originality
-PASS. The 2018 source records the \\(H_3\\) unexpected sextic numerically. The 2021 companion-varieties paper gives an explicit equation and studies the associated surfaces, but full-text inspection and targeted searches found no statement of irreducibility, ordinary quintuple type, rationality, or smoothness away from the imposed point for this sextic. published-finding corpus searches using the source IDs, root-system alias, degree/multiplicity data, and singularity terminology returned no covering finding.
+PASS
 
-## Value
-PASS. The \\(H_3\\) sextic is one of the canonical root-system examples in the unexpected-hypersurface literature. Determining that its unique member is a rational plane curve whose entire genus defect is concentrated in the prescribed ordinary quintuple point gives a concrete geometric model for the example and sharply describes what the imposed failure of interpolation produces.
+The exact interpolation reconstruction over Q(sqrt(5)) has rank 27 in the 28-dimensional sextic space after imposing the fifteen point conditions and order-five jet conditions at P=[3:5:1], hence a unique witness up to scale. Its local equation has only degree-five and degree-six pieces A5 and B6. Exact polynomial gcds give gcd(A5,B6)=1 and gcd(A5,dA5)=1, so the tangent quintic is squarefree and the witness cannot factor. Thus the marked point is an ordinary quintuple point and the curve is irreducible. An ordinary quintuple point contributes delta ten, equal to the arithmetic genus of a plane sextic, so the normalization has genus zero and there can be no other singularities. Irreducibility and tangent discriminant nonvanishing are open on the one-dimensional-kernel locus, giving the generic statement.
 
-## Closest literature and limitations
-The closest sources are arXiv:1805.10626, which introduces the \\(H_3\\) numerical example, and arXiv:2101.07346, which writes the sextic explicitly while focusing on associated and companion surfaces. A residual risk remains that the same curve geometry appears in an unindexed note or under an icosahedral-arrangement alias. The claim is only for general assigned points and does not classify special-point degenerations.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected H3 primary material establishes the 15-point root configuration, existence/uniqueness of the degree-six curve with a general quintuple point, and later gives an explicit equation. It does not state that the generic curve is irreducible, rational, ordinary at the imposed point, or smooth elsewhere. Targeted Resultary searches for the H3 sextic with those geometric properties returned the audited result and unrelated singularity records, not a prior covering theorem.
+
+## value
+
+PASS
+
+The H3 curve is a canonical root-system unexpected sextic. Determining that its generic member is an irreducible rational curve with exactly one ordinary quintuple point gives the intrinsic geometry of a named object whose prior literature supplied mainly existence and equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
