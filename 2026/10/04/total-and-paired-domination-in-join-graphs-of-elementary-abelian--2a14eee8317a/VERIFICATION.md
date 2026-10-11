@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-The standalone `verify.py` file was read from its packaged path before execution.
+# Independent mathematical audit
 
-It constructs all subspaces of \(\mathbb F_p^d\) from canonical row-reduced bases and joins two vertices exactly when their combined bases have rank \(d\). It exhaustively enumerates minimum total dominating sets for \((p,d)\) equal to \((2,2)\), \((3,2)\), \((5,2)\), \((2,3)\), \((3,3)\), and \((2,4)\), and verifies that every minimum set consists of \(d\) hyperplanes with trivial intersection. It independently matches the count \(|\operatorname{GL}(d,p)|/((p-1)^d d!)\).
+## correctness
 
-For ranks through \(3\), it exhaustively checks the paired-domination minimum. For rank \(4\), it verifies an explicit minimum paired set.
+PASS
 
-Exact output:
+A line can be adjacent only to a hyperplane, so any total dominating set must contain hyperplanes whose intersection has no nonzero vector; codimension subadditivity forces at least \(d\) of them. A dual basis gives \(d\) hyperplanes with trivial intersection, and they form a clique that dominates every nonzero proper subspace. Equality forces exactly such a hyperplane set. Passing from ordered dual bases to unordered projective lines gives the stated count. The clique has a perfect matching in even rank; in odd rank one extra hyperplane gives the sharp even-size paired witness. Independent \(\mathbb F_2\) enumeration reproduced the rank-two and rank-three minima and counts.
 
-```text
-p=2 d=2 vertices=3 hyperplanes=3 gamma_t=2 min_total_count=3 gamma_pr=2
-p=3 d=2 vertices=4 hyperplanes=4 gamma_t=2 min_total_count=6 gamma_pr=2
-p=5 d=2 vertices=6 hyperplanes=6 gamma_t=2 min_total_count=15 gamma_pr=2
-p=2 d=3 vertices=14 hyperplanes=7 gamma_t=3 min_total_count=28 gamma_pr=4
-p=3 d=3 vertices=26 hyperplanes=13 gamma_t=3 min_total_count=234 gamma_pr=4
-p=2 d=4 vertices=65 hyperplanes=15 gamma_t=4 min_total_count=840 gamma_pr=4
-VERIFY_OK
-```
+## originality
 
-The finite calculations do not constitute the infinite proof. The general argument is the dimension-theoretic forcing and matching proof in `RESULT.md`.
+PASS
+
+The defining join-graph paper treats connectivity, clique/chromatic number, ordinary domination number one and related global properties; the later paper handles ordinary domination at most two. Neither inspected source gives the all-rank total-domination theorem, the characterization of every minimum set by trivial-intersection hyperplanes, its projective-basis enumerator, or the paired parity law. These require a new codimension argument in the elementary-abelian geometry.
+
+## value
+
+PASS
+
+This is a natural complete classification on the canonical linear family of join graphs. It recovers rank from total domination, characterizes and enumerates all minima as projective dual bases, and isolates the exact parity surcharge for paired domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For an elementary abelian group, the join graph is the graph on nonzero proper subspaces with adjacency given by spanning the full vector space. A one-dimensional vertex can only be dominated by a hyperplane. Nontrivial common intersection of all selected hyperplanes leaves an undominated line, while codimension forces at least \(d\) hyperplanes. Conversely, any \(d\) hyperplanes with trivial intersection form a clique and dominate every nonzero proper subspace. The projective-basis count and paired parity correction follow exactly.
+PASS
 
-Risk: the join-graph definition excludes subgroups contained in the Frattini subgroup. For elementary abelian groups the Frattini subgroup is trivial, so the model is exact.
+A line can be adjacent only to a hyperplane, so any total dominating set must contain hyperplanes whose intersection has no nonzero vector; codimension subadditivity forces at least \(d\) of them. A dual basis gives \(d\) hyperplanes with trivial intersection, and they form a clique that dominates every nonzero proper subspace. Equality forces exactly such a hyperplane set. Passing from ordered dual bases to unordered projective lines gives the stated count. The clique has a perfect matching in even rank; in odd rank one extra hyperplane gives the sharp even-size paired witness. Independent \(\mathbb F_2\) enumeration reproduced the rank-two and rank-three minima and counts.
 
-## Originality
+## originality
 
-PASS. The foundational full text treats ordinary domination number \(1\), clique/chromatic structure, connectivity, diameter, girth, independence, and regularity, and contains no occurrence of “total domination” or “paired”. The closest follow-up publisher abstract treats ordinary domination number at most \(2\) and independence. Searches using subgroup-join terminology and equivalent hyperplane/projective-basis language did not locate the total/paired formulas or the minimum-set enumerator.
+PASS
 
-Risk: the direct PDF endpoint of the 2019 follow-up rejected automated retrieval, so that paper was compared through its publisher abstract. An unindexed source could state the same finite-geometry result without using “join graph”.
+The defining join-graph paper treats connectivity, clique/chromatic number, ordinary domination number one and related global properties; the later paper handles ordinary domination at most two. Neither inspected source gives the all-rank total-domination theorem, the characterization of every minimum set by trivial-intersection hyperplanes, its projective-basis enumerator, or the paired parity law. These require a new codimension argument in the elementary-abelian geometry.
 
-## Value
+## value
 
-PASS. This is a complete strengthened-domination classification for a canonical infinite group family. It identifies every minimum total dominating set as a dual projective basis, gives a closed exact enumerator, and shows that the paired invariant detects rank parity; total domination itself recovers the elementary-abelian rank.
+PASS
 
-Risk: the lower bound is short once the one-dimensional witnesses are recognized; the value is in the rigid minimum-set classification and projective-basis interpretation.
+This is a natural complete classification on the canonical linear family of join graphs. It recovers rank from total domination, characterizes and enumerates all minima as projective dual bases, and isolates the exact parity surcharge for paired domination.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
