@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify_desargues_matching.py` reconstructs the Desargues graph from the generalized-Petersen definition, checks \(30\) edges, enumerates every matching, and forms every mod-2 boundary map.
+# Independent mathematical audit
 
-Expected matching counts for cardinalities \(0\) through \(10\):
-\[
-(1,30,375,2540,10155,24486,34945,27840,11040,1720,60).
-\]
-Expected boundary ranks for cardinalities \(1\) through \(10\):
-\[
-(1,29,346,2194,7961,16525,18415,9380,1660,60).
-\]
-The reduced Betti numbers are \(5\) in degree \(5\), \(45\) in degree \(6\), and zero otherwise. The Euler check is \(\chi=41\) and \(\widetilde\chi=40=-5+45\).
+## correctness
 
-The script uses exact bitwise Gaussian elimination over \(\mathbb F_2\) and prints `DESARGUES_MATCHING_VERIFY_OK` only after all assertions pass. This verifies only the finite mod-2 homology calculation; it does not determine integral torsion or the complete homotopy type.
+PASS
+
+Fresh exact reconstruction reproduced the matching counts \((1,30,375,2540,10155,24486,34945,27840,11040,1720,60)\) and augmented boundary ranks \((1,29,346,2194,7961,16525,18415,9380,1660,60)\), hence Betti ranks \(5,45\). The inspected verifier builds the same graph and all chain maps exactly.
+
+## originality
+
+PASS
+
+The exact-family matching-complex literature and broad manifold classification inspected do not give the Desargues graph. Searches under the named graph, generalized Petersen G(10,3), and the line-graph independence-complex formulation found no prior exact Betti vector.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical cubic symmetric graph; its exact mixed-degree matching-complex homology is a natural topological benchmark and already excludes equidimensional sphere-wedge behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
