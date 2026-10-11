@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact differentiation gives Ldot=2x²(1-y)²-a z². For a<0 the largest invariant subset of its zero set consists of the three equilibria; for a=0 it is the harmonic symmetry plane plus the two nonzero equilibria. Bounded forward orbits admit compact connected omega-limit sets. For nonzero x, convergence to the plane forces Cesaro mean y=0, hence exponential growth of |x|, a contradiction. Sign preservation then selects E±. On x=0 the damped/anti-damped oscillator is solved exactly. Invariant compact probabilities integrate the nonnegative Ldot to zero and hence lie on the specified invariant zero set; uniform harmonic circle measures follow from the unique invariant angular distribution. The standalone exact checker verifies the identities, equilibria and harmonic family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sprott (2014), Eq. (8), reports local stable equilibria for a>2 and positive-a bifurcation/attractor behavior; the text does not assert global omega-limit convergence for a<=0.",
+        "Li et al. (2023), Section 2.2, place the same flow in a symmetry and attractor-coexistence survey, not a global damping-sign theorem.",
+        "Published Rucklidge and hyperbolic-sine jerk findings use distinct nonlinearities/vector fields and impose conditions on different observables."
+      ],
+      "reasoning": "Neither local Hopf analysis nor positive-parameter coexistence implies global bounded-future convergence at a<=0; and analogous results for different ODEs are not logically dominating statements. All compact stationary measures and critical harmonic circles here require the specific x(1-y) coupling and z feedback.",
+      "searches": [
+        "Sprott 2014 reflection invariant chaotic flow x'=x(1-y) y'=z z'=-y-a z+x² Lyapunov LaSalle monotonic polynomial all bounded forward trajectories when a<=0 harmonic boundary",
+        "\"Simplest Chaotic Flows with Involutional Symmetries\" Sprott equation 8 exact global omega limit x(1-y) y'=z z'=x²-y-a z Lyapunov polynomial",
+        "published-finding corpus: 2026/9/20/SCOPE-rucklidge-balance-law-and-recurrence-barrier--c0b25a458f15",
+        "published-finding corpus: 2026/10/4/SCOPE-a-sharp-compact-recurrence-threshold-for-a-hyperbolic-sine-jerk--e3c8f2764332",
+        "web: \"simplest chaotic flows with involutional symmetries\" stability analysis Eq (8) a<=0"
+      ]
+    },
+    "checked_sources": [
+      "Sprott, IJBC 24 (2014) 1450009, DOI 10.1142/S0218127414500096, author-hosted full PDF Eq. (8).",
+      "Li et al., Symmetry 15 (2023) 1564, DOI 10.3390/sym15081564; lawful preprint 202307.0510 Section 2.2.",
+      "Published mathematical research hit 2026/9/20/SCOPE-rucklidge-balance-law-and-recurrence-barrier--c0b25a458f15, distinct ODE.",
+      "Published mathematical research hit 2026/10/4/SCOPE-a-sharp-compact-recurrence-threshold-for-a-hyperbolic-sine-jerk--e3c8f2764332, distinct ODE."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original positive-a Hopf parameter a=2 yields local stability/bifurcation only, not a theorem about all forward-bounded initial data at a<=0.",
+        "The later survey reuses Eq. (8) but treats sign symmetry, not the largest invariant zero set of the displayed monotone polynomial.",
+        "The Rucklidge result has similar logical conclusions for a distinct differential equation; no algebraic/time conjugacy was identified between the two systems."
+      ],
+      "reasoning": "A local stability statement, an observed chaotic orbit at a=0.3, or a theorem on another jerk flow cannot imply convergence of every bounded forward orbit and an exact classification of invariant measures for a<=0. The new statement does not claim priority over general LaSalle theory; its model-specific certificate and maximal invariant-zero-set analysis supply the novel scope.",
+      "searches": [
+        "Sprott 2014 reflection invariant chaotic flow x'=x(1-y) y'=z z'=-y-a z+x² Lyapunov LaSalle monotonic polynomial all bounded forward trajectories when a<=0 harmonic boundary",
+        "Sprott Eq (8) simplest chaotic flows involutional symmetries zero damping a=0 global omega limit harmonic plane equilibrium",
+        "third order exponential jerk d3u + a d2u + du + exp(2u) - 1 = 0, reflection invariant Sprott flow, nonpositive damping harmonic plane complete bounded orbit convergence Lyapunov",
+        "Sprott (2014) Eq. (8), pp. 8–9; Li et al. (2023) Section 2.2",
+        "published-finding corpus: 2026/9/20/SCOPE-rucklidge-balance-law-and-recurrence-barrier--c0b25a458f15"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact conjugacy on each open half-space via u=log|x| gives u'''+a u''+u'+exp(2u)-1=0, which retains the same monotonic-energy identity.",
+        "2014 Sprott Eq. (8) and 2023 Li et al. Eq. (3) print precisely the same polynomial flow; those two manifestations were compared as one prior model, not separate discoveries.",
+        "The located exponential-jerk searches returned no same-equation result; this is a search limitation, not evidence of uniqueness."
+      ],
+      "reasoning": "The logarithmic variable is an equivalent formulation only for x nonzero. Its third-order equation neither covers nor removes the invariant plane x=0; the claimed harmonic zero-damping foliation requires the full polynomial system. No located source gives the combined closed-half-line bounded-future/measure classification in either formulation.",
+      "searches": [
+        "Sprott 2014 reflection invariant chaotic flow x'=x(1-y) y'=z z'=-y-a z+x² Lyapunov LaSalle monotonic polynomial all bounded forward trajectories when a<=0 harmonic boundary",
+        "Sprott Eq (8) simplest chaotic flows involutional symmetries zero damping a=0 global omega limit harmonic plane equilibrium",
+        "third order exponential jerk d3u + a d2u + du + exp(2u) - 1 = 0, reflection invariant Sprott flow, nonpositive damping harmonic plane complete bounded orbit convergence Lyapunov",
+        "web: \"u'''+a u''+u'+exp(2u)-1\" periodic orbits chaos",
+        "web: \"x−xy\" \"−y−az\" exact first integral monotone Lyapunov dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sprott (2014) exhibits numerical bifurcation figures and equilibria, but no exhaustive parameter table of bounded forward limits or compact invariant measures for the negative-damping line and critical plane.",
+        "Li et al. (2023) identify the same model and depict symmetric paired attractors but do not tabulate measures or zero-damping harmonic foliation."
+      ],
+      "reasoning": "The result is not a recomputation of an exact database entry, numerical orbit table or previously tabulated periodic-orbit count. The entire continuum of critical harmonic circles and all stationary probability measures follow from a new exact identity.",
+      "searches": [
+        "positive polynomial identity dL/dt=-a z²+2x²(1-y)² reflection-invariant flow no recurrent chaos a<=0",
+        "\"Simplest Chaotic Flows with Involutional Symmetries\" Sprott equation 8 exact global omega limit x(1-y) y'=z z'=x²-y-a z Lyapunov polynomial",
+        "web: \"x - xy\" \"y' = z\" \"z' = -y\" global dynamics",
+        "Sprott (2014) Section 4, Eq. (8) Fig. 8",
+        "Li et al. (2023) Section 2.2 Eq. (3), symmetry illustration"
+      ]
+    },
+    "rationale": "Direct full-text comparison with Sprott 2014 Eq. (8) and Li et al. 2023 Section 2.2 finds source-specific symmetry, local Hopf and numerical attractor results but no global closed-half-line bounded-future and stationary-measure classification. Alternate logarithmic jerk formulation and topically close published research were searched and checked for stronger implication. No decisive covering source found; unindexed equivalence remains a stated residual risk.",
+    "residual_risks": [
+      "Unindexed older papers or alternate names for the exponential-jerk conjugate might already derive an equivalent global monotonicity theorem.",
+      "The peer-reviewed 2023 final version was found through its lawful preprint; the material read supports the comparison but cannot absolutely eliminate any uninspected later revision or supplementary proof.",
+      "The first documented public-access date 2014-02-19 is a dated PDF watermark, not necessarily the true first online posting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_SYSTEM_NOT_COVERING",
+        "evidence": [
+          "Eq. (8) prints xdot=x-xy, ydot=z, zdot=-y-a z+x².",
+          "p. 9 states equilibria (0,0,0), (±1,1,0), stability for a>2, Hopf at a=2, and numerically traced symmetry breaking for positive a; no a<=0 Lyapunov/omega-limit/measure theorem.",
+          "PDF has dated public-access watermark 02/19/14."
+        ],
+        "identifier_or_url": "https://sprott.physics.wisc.edu/pubs/paper407.pdf",
+        "material_read": "Author-hosted 9-page primary PDF, Sections 1–5; especially Section 4 and Eq. (8) on p. 9 and its local equilibria/Hopf assertions; page image inspected.",
+        "method": "Lawful open full PDF; inspect parsed text across pages and visual page 9.",
+        "title": "Simplest Chaotic Flows with Involutional Symmetries",
+        "trigger": "Exact source equation and closest conceivable prior proof"
+      },
+      {
+        "assessment": "SAME_SYSTEM_NOT_COVERING_IN_MATERIAL_READ",
+        "evidence": [
+          "Section 2.2 Eq. (3) repeats xdot=x-xy, ydot=z, zdot=-y-a z+x².",
+          "Material describes a symmetric pair of attractors and sign symmetry, not a nonpositive-damping global Lyapunov identity or invariant measure classification.",
+          "Posted 2023-07-07; later than motivating primary source."
+        ],
+        "identifier_or_url": "https://www.preprints.org/manuscript/202307.0510",
+        "material_read": "Lawful complete HTML manuscript available; relevant Section 2.2 Eqs. (2)–(3) and text around symmetry figures, Section 2.3 stability discussion, abstract and conclusions inspected.",
+        "method": "Open-access preprint HTML full text; locate exact equation and surrounding mathematical discussion.",
+        "title": "Symmetric Strange Attractors: A Review of Symmetry and Conditional Symmetry",
+        "trigger": "Later full-text work repeating the same flow with plausible global symmetry dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46e01b1d-64d7-47d6-9951-aa57953ebc17",
+  "value": {
+    "rationale": "The original work investigated symmetric chaotic attractors at positive damping, making the behavior at zero and negative damping an intrinsic model boundary rather than an arbitrary parameter slice. A globally polynomial Lyapunov certificate determines the entire omega-limit selection of all bounded forward trajectories on a whole parameter half-line, identifies the exact harmonic foliation on the critical plane, and exhausts compact stationary measures. The result is global qualitative dynamics not obtainable from local equilibrium linearization or mere numerical replication; it does not claim global boundedness or positive-parameter chaos.",
+    "status": "PASS"
+  }
+}
