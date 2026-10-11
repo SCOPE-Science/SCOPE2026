@@ -1,0 +1,15 @@
+# Scientific review — numerical-index-one rigidity for weighted cycles
+
+## Correctness — PASS
+The finite-dimensional McGregor extreme-point criterion is verified in McGregor (1971) as restated and reproved in Pal–Roy–Sain (2026, Theorem 1.1 / Corollary 2.12). An elementary isometry sends edge Lipschitz slopes to the positive-normal cube hyperplane; finite-dimensional transposition preserves numerical indices. For dominant edge weight, projection gives an exact \(\ell_\infty\)-isometry. For every genuine cycle, the unit-ball vertices are precisely the cube-section intersections with at least all but one saturated coordinates, and every signed coordinate functional is exposed by an explicit vector. An alternating-sum lemma produces a missing saturated coordinate for all nonuniform weights, including repeated maxima. Equal weights give the parity dichotomy. The full argument applies to all positive real weights and all integer dimensions at least four. The exact rational checker confirmed 1,053 vectors in dimensions four through six, testing 42,302 vertices; this is supporting finite evidence, not the infinite proof.
+
+## Originality — PASS
+The motivating 2023 complete three-point calculation covers weighted triangles but not these higher-dimensional cycle spaces. The publicly available unit-edge parity theorem and unit-length graph-bipartiteness theorem establish cases at one fixed weighting, not a positive-weight classification. Full texts of these results were compared by scope and statement. The 2018 general polyhedral numerical-index paper gives a finite-extreme-point method and specific example families, not the positive-normal hyperplane dichotomy; its full arXiv HTML was inspected. A 2024 graph-metric isometry paper does not compute numerical indices. No matching general weighted classification appeared in targeted published-result searches, but this cannot certify uniqueness across all literature.
+
+## Value — PASS
+The weighted family is the canonical parameterization of positive-normal central cube sections and of Lipschitz-free spaces over metric cycles. The statement classifies the maximal numerical-index locus for an entire continuous parameter family and identifies an unexpected rigid isolated isometry type within the genuine even-cycle region. It distinguishes graph combinatorics from metric weights in an operator-theoretic invariant, going strictly beyond a single numerical example or a routine relabeling.
+
+## Limitations and remaining originality risk
+The theorem does not compute numerical indices strictly below one, treats real spaces only, and covers cycles on at least four vertices. Literature outside the inspected articles and publicly available special cases may contain an equivalent characterization under different terminology. The original 1971 article was available through a bibliographic abstract; the required theorem was independently read in its full modern proof. Numerical-index values for previously known unweighted cycles are not presented as novel.
+
+Same-model review: passed. Independent audit: not yet performed.
