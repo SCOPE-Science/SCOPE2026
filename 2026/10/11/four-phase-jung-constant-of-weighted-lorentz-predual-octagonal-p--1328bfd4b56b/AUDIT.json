@@ -1,0 +1,159 @@
+{
+  "claim": "For every \\(0<w<1\\), equip the real vector plane with the Lorentz-predual norm\n\\[\nN_w(s,t)=\\max\\left\\{|s|,|t|,\\frac{|s|+|t|}{1+w}\\right\\}.\n\\]\nFor every nonempty bounded set \\(S\\) let \\(r_w(S)=\\inf_{c\\in\\mathbb R^2}\\sup_{x\\in S}N_w(x-c)\\) and \\(d_w(S)=\\sup_{x,y\\in S}N_w(x-y)\\). Its Jung constant, with radius-to-diameter normalization \\(J(X_w)=\\sup_{d_w(S)>0}2r_w(S)/d_w(S)\\), is exactly\n\\[\nJ(X_w)=\n\\begin{cases}\n\\dfrac{3(1+w)}{3+w},&0<w\\le\\dfrac13,\\\\[2mm]\n\\dfrac4{3+w},&\\dfrac13\\le w\\le\\sqrt2-1,\\\\[2mm]\n\\dfrac{2(1+w)}{2+w},&\\sqrt2-1\\le w\\le\\dfrac12,\\\\[2mm]\n\\dfrac3{2+w},&\\dfrac12\\le w<1.\n\\end{cases}\n\\]\nConsequently, the maximum of \\(J(X_w)\\) throughout this family is \\(6/5\\), attained at exactly two parameters \\(w=1/3\\) and \\(w=1/2\\). At the intermediate regular-octagon parameter \\(w=\\sqrt2-1\\), the profile has a strict local minimum with \\(J(X_w)=4-2\\sqrt2\\). Every branch is witnessed by an explicit three-point set of diameter one, and all upper bounds hold for arbitrary bounded sets, not only triangles.",
+  "correctness": {
+    "rationale": "For the norm represented by eight signed coordinate/diagonal forms, linear-programming duality expresses every Chebyshev radius as a maximum over balanced probability measures on these forms. Three affine constraints restrict extreme measures to opposite pairs or minimal triples. Up to the full coordinate symmetry, every triple has one of two relations: \\(f_1+f_2=k f_3\\) or \\(2f_1=k(f_3+f_4)\\). Three explicit facet inequalities give the Type I numerator at most \\(\\min\\{2,3k/2\\}\\), and two independent inequalities give the Type II numerator at most \\(\\min\\{2k,3\\}\\). Every bound is attained on an explicit diameter-one triple, including all interval endpoints. Pair circuits yield no larger value. Comparing the two sharp rational functions proves the four branches and all stated extrema, without any finite-enumeration inference.",
+    "risks": [
+      "The theorem is real and two-dimensional; it makes no assertion for infinite-dimensional or complex Lorentz spaces.",
+      "A numerical LP check of sample parameters is only a cross-check; all parameter quantifiers are established by the analytic proof."
+    ],
+    "sources": [
+      "Full geometric definitions of Jung radius and normalization: doi:10.1007/s12215-026-01436-4",
+      "Two-dimensional Lorentz-dual norm geometry: doi:10.2306/scienceasia1513-1874.2018.44.340",
+      "Self-contained finite-dimensional linear programming duality and explicit witness inequalities in RESULT.md"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete 2026 Jung study proves the universal relation with minimal equilateral perimeter and the maximal 4/3 characterization, but no Lorentz octagonal parameter determination.",
+        "The complete 2025 perimeter paper determines L3=M3 for the regular octagon only; it does not analyze asymmetric edge lengths of the other members of the weighted family.",
+        "General Jung inequalities 1<=J<=4/3 are nonsharp for the family-wide sharp bound 6/5."
+      ],
+      "reasoning": "Universal Jung identities reduce one invariant to another but do not supply the weighted octagon equilateral perimeter. An exact four-phase formula must still solve the family-specific simultaneous facet constraints, done here through radius LP duality.",
+      "searches": [
+        "doi:10.1007/s12215-026-01436-4",
+        "doi:10.1007/s00009-025-02805-6",
+        "Jung constant centrally symmetric octagon parameter norm 1+w",
+        "Jung constant normed plane intersection of balls equilateral triangle minimax centre"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00009-025-02805-6",
+      "doi:10.1007/s12215-026-01436-4",
+      "doi:10.2306/scienceasia1513-1874.2018.44.340",
+      "doi:10.1016/j.na.2009.04.007 (abstract only)",
+      "doi:10.4064/sm144-3-5 (publisher abstract and metadata)",
+      "Published Euclidean Banach-Mazur profile for weighted Lorentz-predual octagons",
+      "Targeted exact-value and alias searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The checked earlier exact Euclidean Banach-Mazur profile of the same octagonal family measures optimal Hilbert ellipses rather than circumradius/diameter.",
+        "The complete paper doi:10.2306/scienceasia1513-1874.2018.44.340 calculates Ptolemy ratios in q=1 Lorentz duals and does not state Jung constants.",
+        "Prior exact polygonal and octagonal entries treat James, Jordan, Ptolemy, or rectangular constants, all distinct from the Chebyshev radius functional.",
+        "A published Euclidean distortion calculation for the same norm and the inspected same-family Ptolemy paper address different extremal functionals."
+      ],
+      "reasoning": "Constants with the same threshold at the regular octagon do not determine the new Jung curve: for instance the Jung curve has two off-regular peaks, a shape not encoded by the Hilbert distortion or Ptolemy formulas. Generic inequalities between constants cannot provide the exact sharp four-part equality profile.",
+      "searches": [
+        "Jung constant of two dimensional Lorentz predual X_w octagonal norm exact phase diagram",
+        "Jung constant regular octagon 4 minus 2 square root 2",
+        "Jung constant weighted Lorentz sequence predual equilateral triangle minimum perimeter",
+        "doi:10.2306/scienceasia1513-1874.2018.44.340"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact regular-octagon Jung value 4-2 sqrt(2) is implied by the known equilateral triangle calculation in doi:10.1007/s00009-025-02805-6, Proposition 15.",
+        "The complete 2026 article doi:10.1007/s12215-026-01436-4 gives general Jung/equilateral equivalence but does not treat the weighted octagonal Lorentz-predual family.",
+        "Dedicated searches under Jung, Chebyshev radius, weighted octagonal norm, and both peak parameters located no matching phase diagram."
+      ],
+      "reasoning": "The isolated regular-octagon value is already covered, but a formula valid at every weight together with two off-regular peaks is not an equivalent restatement of that known special value or of the general Jung/equilateral identity.",
+      "searches": [
+        "Jung constant of two dimensional Lorentz predual X_w octagonal norm exact phase diagram",
+        "two dimensional Jung constant of weighted octagons 6/5 at omega 1/3 and 1/2",
+        "Chebyshev radius diameter ratio cut corner square symmetric octagon four branches",
+        "Jung constant regular octagon 4 minus 2 square root 2",
+        "\"d_*(1,w)\" \"Jung\"",
+        "\"Lorentz predual\" \"Jung constant\" octagonal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known exact regular-octagon entry follows from the published 2025 perimeter result and coincides with the middle crossover of the new theorem.",
+        "The 2026 Jung paper tables concern classical ell_p planes rather than a weighted octagon family.",
+        "No checked exact table gave four ranges or two distinct parameter maxima both equal to 6/5."
+      ],
+      "reasoning": "The new output is not a recomputation of the regular entry. Its two peaks at nonspecial weights and intervening trough are additional exact data not determined by the known table.",
+      "searches": [
+        "Jung constant weighted Lorentz sequence predual equilateral triangle minimum perimeter",
+        "Jung constant regular octagon 4 minus 2 square root 2",
+        "Jung constant of two dimensional Lorentz predual X_w octagonal norm exact phase diagram",
+        "Chebyshev radius diameter ratio cut corner square symmetric octagon four branches"
+      ]
+    },
+    "rationale": "The 2025 full article calculates the regular-octagon equilateral side length, which already implies the value at the unique regular member w=sqrt(2)-1; this covered special case is explicitly acknowledged. The 2026 full Jung article gives universal Jung/triangle identities and qualitative characterizations but not the weighted octagon profile. A complete same-family q=1 Lorentz-dual article from 2018 computes the Ptolemy constant rather than radius/diameter and contains no Jung evaluation. Searches for weighted octagon Jung constants, four-phase formulas, and the two 6/5 peaks found no equivalent or stronger exact parameter theorem. Nearby exact Euclidean distortion, modified Jordan, Ptolemy, and rectangular results do not imply the four regime Jung formula. The 2009 foundational dual-norm paper was not completely accessible and is explicitly retained as a residual risk.",
+    "residual_risks": [
+      "The complete original 2009 Lorentz-dual paper remained unavailable; only abstract-based comparison is possible, and hidden same-family discussion cannot be excluded.",
+      "A differently named historical weighted-octagon circumradius computation outside the queried indexes and inspected primary texts might exist.",
+      "The already-published regular-octagon Jung value is not new; the four-branch weighted profile and off-regular peaks are the substantive claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_REGULAR_OCTAGON_ONLY_NOT_FULL_PARAMETER_PROFILE",
+        "evidence": "Proposition 15 gives the inscribed-equilateral side length 1+1/sqrt(2) for H8, implying J=4-2sqrt(2) at k=sqrt(2). No weighted octagonal Jung phase diagram is stated.",
+        "identifier_or_url": "doi:10.1007/s00009-025-02805-6",
+        "material_read": "Full open HTML article, including the Jung definition, Proposition 15 on regular octagonal equilateral triangles, associated proof and conclusions, and checks for Lorentz/weighted variants.",
+        "method": "Direct lawful full-text reading and in-document search.",
+        "title": "Perimeter of triangles inscribed in the unit ball of normed planes",
+        "trigger": "Strong known special case at the regular octagon and general Jung-perimeter framework"
+      },
+      {
+        "assessment": "GENERAL_JUNG_IDENTITY_AND_SHARP_ENDPOINT_NOT_WEIGHTED_PROFILE",
+        "evidence": "The source proves general relationships and sharp characterizations but treats neither Lorentz nor the weighted octagonal family; its finite tables concern ell_p planes.",
+        "identifier_or_url": "doi:10.1007/s12215-026-01436-4",
+        "material_read": "Complete open HTML, including Chebyshev-center setup, Proposition 18 J=2/L, Tables 1-5, Theorem 19 extremal hexagon, Theorem 20 rotation symmetry, and examples.",
+        "method": "Direct full-text inspection plus in-document Lorentz/octagon search.",
+        "title": "Wheeling around Chebyshev centers and Jung constant in normed planes",
+        "trigger": "Broadest closely relevant recent exact Jung theory for normed planes"
+      },
+      {
+        "assessment": "SAME_NORM_DIFFERENT_CONSTANT",
+        "evidence": "The q=1 dual is explicitly identified and its Ptolemy constant has a phase transition, but no Jung/radius-to-diameter calculation is present.",
+        "identifier_or_url": "doi:10.2306/scienceasia1513-1874.2018.44.340",
+        "material_read": "Complete six-page lawful open PDF, including the q=1 dual norm in Theorem 1, its Ptolemy value in the principal theorem, and the concluding remarks and references.",
+        "method": "Full PDF text with rendered first and theorem pages and whole-document search for Jung.",
+        "title": "On the Ptolemy constant of Lorentz sequence spaces and their duals",
+        "trigger": "Most directly overlapping same-object theorem including the q=1 Lorentz dual"
+      },
+      {
+        "assessment": "FULL_TEXT_UNAVAILABLE_RESIDUAL_RISK",
+        "evidence": "The public abstract says it determines the dual norm and James constant, but the unread full body cannot be certified not to contain Jung calculations.",
+        "identifier_or_url": "doi:10.1016/j.na.2009.04.007",
+        "material_read": "Publisher/secondary bibliographic abstract and bibliographic data only; full original article not obtained.",
+        "method": "Lawful preprint and open full-text searches found no reliable complete copy of the original article.",
+        "title": "Dual of two dimensional Lorentz sequence spaces",
+        "trigger": "Foundational same-norm source for dual descriptions and potential hidden auxiliary geometric calculations"
+      },
+      {
+        "assessment": "BACKGROUND_GEOMETRIC_CONSTANTS_NOT_EXACT_JUNG_CLAIM",
+        "evidence": "The abstract treats James, Jordan--von Neumann, and normal structure constants; bibliography verifies day-level publication date 2001-06-17 and primary MSC 46B20.",
+        "identifier_or_url": "doi:10.4064/sm144-3-5",
+        "material_read": "Publisher title, abstract, MSC and bibliographic metadata; public date independently checked against bibliographic date entry.",
+        "method": "Scholarly publisher abstract and bibliographic database reading.",
+        "title": "On James and Jordan–von Neumann constants and the normal structure coefficient of Banach spaces",
+        "trigger": "Earliest verified day-level archival primary MSC 46B20 source for geometric constants and normal structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1328bfd4-b56b-4d62-aa2c-beecd0315505",
+  "value": {
+    "rationale": "The Jung constant is a natural intrinsic covering invariant, the sharp smallest enclosing-ball radius relative to diameter. The weighted Lorentz-predual octagons form a classical continuous Banach-plane family interpolating between the square and a rotated square and containing the regular octagon. Its exact Jung constant was previously available only at isolated special shapes in the checked literature. The complete phase diagram reveals two genuinely distinct off-regular worst shapes with equal value 6/5 and a regular-octagon local trough: this nonmonotone shape dependence is structural information relevant to Chebyshev centers, equilateral configurations, and comparisons of normed-plane geometric constants. The result also supplies explicit sharp witness triples and universal diameter-one upper bounds rather than numerical approximations.",
+    "risks": [
+      "The result is a complete classification of one natural one-parameter family, not a formula for arbitrary centrally symmetric octagons.",
+      "The universal definition and finite-dimensional duality are classical; the family-specific sharp parameter stratification and two peaks supply the nonroutine value."
+    ],
+    "sources": [
+      "doi:10.1007/s00009-025-02805-6 for the geometric significance of Jung constants and the regular-octagon comparison",
+      "doi:10.1007/s12215-026-01436-4 for Chebyshev-center geometry and sharp planar Jung theory",
+      "doi:10.2306/scienceasia1513-1874.2018.44.340 for the status of the Lorentz dual family as a natural setting for exact geometric constants"
+    ],
+    "status": "PASS"
+  }
+}
