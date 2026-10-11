@@ -1,0 +1,23 @@
+# Scientific review — even-kinetic skew-flow periodic cylinders
+
+## Correctness — PASS
+
+The proof treats every even integer \(p\ge4\) and every regular oval energy \(0<h<4/3\). Direct symbolic differentiation proves the polynomial first integral. The two halves of each oval supply an exact original-time quadrature for the period and the axial drift. The zero-drift condition is necessary and sufficient for three-dimensional periodicity; the projected equilibria have nonzero axial velocity and cannot create exceptional cycles. The exact time-average identity \(I_2=2I_1\), scaled near-center integrals, and the exact saddle factorization produce the four stated leading constants. In particular, the saddle coefficient is a beta integral, while the drift correction is a *finite*, separately evaluated numerator divided by a diverging denominator. Analytic dependence, definite endpoint signs and positivity of the weighted integrals prove that there are finitely many, but at least one, periodic cylinders. The extracted checker exercises independent polynomial and quadrature implementations and prints `CHECK_OK`.
+
+**Boundary and evidence risks:** The proof establishes no uniqueness of the zero-drift energy or of the period minimum. Numerical root searches are illustrative only. The argument uses no unproved exhaustive computer search. The saddle-end passage relies on integrable endpoint majorants for \(1/2<\alpha<1\), explicitly described in the proof. Arbitrary trajectories outside the compact planar annulus are not classified.
+
+## Originality — PASS, with residual access risk
+
+The motivating Castañeda–Rebollo-Perdomo preprint (arXiv:2209.06986, Section 4.1 and Proposition 1.3) contains the **quadratic** kinetic case \(p=2\), identifies its unique periodic cylinder and outlines its qualitative global phase portrait; it does not assert the even-power family \(p\ge4\) or its two different beta-function physical-time endpoint constants. The later open-access Fonda–Garrione–Sfecci article develops a general period-map framework for globally centered separable Hamiltonians; the present potential instead has an outer saddle separatrix, and its planar period formula does not by itself imply the full skew-product periodic-cylinder statement. Searches of published mathematical records using the source, polynomial system, higher odd velocity powers, energy intervals, parameter aliases and asymptotic exponents returned adjacent dynamical topics but no stronger overlapping theorem. Current-week and preceding-week claim ledgers were checked for deduplication.
+
+**Residual risk:** Villadelprat–Zhang's 2019 separable-Hamiltonian paper studies general period functions and limits at period-annulus boundaries; its publisher abstract was read, but its complete article remained inaccessible. It could subsume a planar asymptotic estimate under further reductions. It supplies no observed claim in the inspected material about the particular axial-drift zero set or the two exact asymptotic constants together; originality is assessed for the complete theorem, not for the generic quadrature method or the earlier periodic-cylinder phenomenon. Unindexed or equivalent presentations could exist.
+
+## Value — PASS
+
+The example is a naturally motivated degeneration of the quadratic-kinetic normal form studied in a named dynamical-systems classification. Replacing the kinetic energy by an even higher power changes the center from an ordinary finite-period center to a flat center with divergent periods; simultaneously the outer saddle remains the relevant global boundary. The exact beta coefficients distinguish the two endpoint mechanisms, while the axial average turns their contrast into a mathematically sharp finite, nonempty collection of invariant periodic cylinders. The theorem identifies robust facts *within each polynomial exponent* without claiming an unjustified unique cylinder. This is a nontrivial physical-time classification and not a computed table entry or a mere relabeling of the \(p=2\) result.
+
+## Closest literature and limitations
+
+The full arXiv PDF of Castañeda–Rebollo-Perdomo and the accessible relevant sections of Fonda–Garrione–Sfecci were compared by systems, hypotheses and implications. The complete 2019 Villadelprat–Zhang article could not be inspected (abstract available; institutionally gated full text). The work is restricted to even integer exponents \(p\ge4\); it proves no uniqueness, nonlinear robustness, exhaustive bibliographic priority or independent validation.
+
+Same-model review: passed. Independent audit: not yet performed.
