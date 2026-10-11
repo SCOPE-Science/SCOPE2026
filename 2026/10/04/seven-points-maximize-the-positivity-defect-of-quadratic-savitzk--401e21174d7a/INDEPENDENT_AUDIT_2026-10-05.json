@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:53:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ebf3d85e6890624526d89aa3ab81a9716d09eb81",
+        "verify.py blob 5d8027b1ee5afd1e4c4166782e8ef37bd24fe749",
+        "fresh exact negative-mass recomputation"
+      ],
+      "rationale": "The normal equations give the displayed weights exactly. Box minimization selects M precisely on the negative coefficients, giving V_m as their total negative mass and the closed sum. Exact rational replay confirms the formula and V_m<4/21 through m=27; the proof's integral majorant then decreases in both factors for m>=28 and its exact radical comparison lies below 4/21. The Riemann-sum limit gives the asymptotic. A fresh independent calculation also reproduced V_3=4/21 and strict inequality for all m<=99 other than m=3.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1983 abstract discusses transmission zeros, phase reversals and overshoots for long least-squares polynomial sequences.",
+          "The 2022 open critique treats ringing/negative excursions qualitatively and cites Marchand–Marmet."
+        ],
+        "reasoning": "No inspected broader SG analysis supplies the exact finite-window maximum or the limiting negative mass.",
+        "searches": [
+          "Savitzky–Golay 1964 publisher record",
+          "Marchand–Marmet 1983 abstract/bibliographic record",
+          "Schmid–Rath–Diebold 2022 SG critique"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1021/ac60214a047",
+        "DOI:10.1063/1.1137498",
+        "DOI:10.1021/acsmeasuresciau.1c00054",
+        "Resultary SG positivity-defect search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known negative coefficients imply possible undershoot but do not determine which window globally maximizes total negative mass or its asymptotic value.",
+          "The audited proof derives the closed negative-mass sum and supplies a finite exact cutoff plus analytic monotone tail bound."
+        ],
+        "reasoning": "The final sharp global statement is not mechanically implied by the qualitative artifact literature inspected.",
+        "searches": [
+          "classical SG least-squares coefficient formula/table",
+          "qualitative overshoot literature",
+          "audited exact negative-mass/tail proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a normalized smoothing kernel, the sharp undershoot over [0,M] data is exactly M times its total negative coefficient mass; equivalently the kernel l1 norm is 1+2V_m.",
+          "Classical sources discuss SG coefficients and overshoot artifacts but the retrieved material does not give the stated all-window extremum."
+        ],
+        "reasoning": "The positivity-defect formulation is a deterministic l_infinity-to-center gain/negative-mass invariant of the standard kernel, not a new filter definition.",
+        "searches": [
+          "Savitzky–Golay, DOI:10.1021/ac60214a047",
+          "Marchand–Marmet, DOI:10.1063/1.1137498",
+          "Resultary query: quadratic Savitzky Golay positivity defect negative coefficient mass seven point maximum l1 kernel norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching Resultary finding was returned among the leading results.",
+          "The classical tables contain particular kernels such as the five- and seven-point rules, not the all-m formula or maximization theorem."
+        ],
+        "reasoning": "The exact invariant is derived from the general least-squares weights; table entries are only boundary checks.",
+        "searches": [
+          "Resultary semantic search above",
+          "Savitzky–Golay classical coefficient tables"
+        ]
+      },
+      "rationale": "Savitzky–Golay supply the least-squares smoothing construction and classical coefficient tables, while Marchand–Marmet and later signal-processing critiques establish qualitative overshoot/ringing and negative-coefficient concerns. No inspected source states the all-window negative-mass formula, the unique global maximum at seven points, or the nonzero long-window limit. The closest 1983 paper remained unavailable in verified full text after lawful open and institutional attempts, so hidden overlap is retained explicitly as a residual risk rather than treated as negative evidence.",
+      "residual_risks": [
+        "The inaccessible 1983 paper could contain an equivalent negative-mass or deterministic-gain computation.",
+        "Older signal-processing literature may formulate the same invariant as the l1 norm of the smoothing kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_COEFFICIENT_SOURCE_FULL_TEXT_ACCESS_LIMITED",
+          "evidence": "The source establishes the classical least-squares smoothing construction and tabulated kernels; no accessible material stated the submitted negative-mass optimization.",
+          "identifier_or_url": "DOI:10.1021/ac60214a047",
+          "material_read": "Publisher article record and accessible first-page/metadata material; full article text was access-restricted in this run.",
+          "method": "Same-filter scope comparison.",
+          "title": "Smoothing and Differentiation of Data by Simplified Least Squares Procedures",
+          "trigger": "Foundational source for the exact filter family and tabulated coefficients."
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_SOURCE",
+          "evidence": "The abstract explicitly discusses overshoots, transmission zeros and phase reversals, but does not expose an all-window total-negative-mass computation.",
+          "identifier_or_url": "DOI:10.1063/1.1137498",
+          "material_read": "Abstract and bibliographic record only; open routes did not yield verified full text and the authorized institutional attempt returned no verified PDF.",
+          "method": "Access-limited same-invariant risk check.",
+          "title": "Binomial smoothing filter: A way to avoid some pitfalls of least-squares polynomial smoothing",
+          "trigger": "Most plausible prior source for exact overshoot/positivity calculations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1021/ac60214a047",
+        "DOI:10.1063/1.1137498",
+        "DOI:10.1021/acsmeasuresciau.1c00054",
+        "Resultary SG positivity-defect search"
+      ],
+      "rationale": "Worst-case positivity loss is a natural robustness invariant of a ubiquitous linear smoother. The unique worst window, exact all-window formula and persistent nonzero asymptotic quantify a practically meaningful artifact beyond the known qualitative fact that SG kernels can overshoot.",
+      "residual_risks": [
+        "The inaccessible 1983 paper could contain an equivalent negative-mass or deterministic-gain computation.",
+        "Older signal-processing literature may formulate the same invariant as the l1 norm of the smoothing kernel."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.1021/ac60214a047",
+    "DOI:10.1063/1.1137498",
+    "DOI:10.1021/acsmeasuresciau.1c00054",
+    "Resultary SG positivity-defect search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the classical symmetric unweighted quadratic, equivalently center cubic, Savitzky–Golay smoother on 2m+1 points, the sharp undershoot on data in [0,M] is -M V_m with the stated exact formula; V_m is uniquely maximized at m=3 with value 4/21 and tends to (3/2)sqrt(3/5)-1, so the kernel l1 norm tends to 3sqrt(3/5)-1.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The inaccessible 1983 paper could contain an equivalent negative-mass or deterministic-gain computation.",
+    "Older signal-processing literature may formulate the same invariant as the l1 norm of the smoothing kernel.",
+    "Only symmetric center degree-two/three smoothing is classified; endpoint rules and higher degrees are outside scope."
+  ]
+}

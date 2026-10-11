@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The center coefficients follow exactly from the two-by-two even-moment normal equations. Minimization over the bounded nonnegative data cube is a linear-program vertex calculation, so the defect is exactly the total negative coefficient mass. The sign cutoff is determined by one quadratic inequality, giving the closed formula. Exact rational evaluation handles \(m\le27\); an analytic integral bound with monotone auxiliary factors proves the uniform tail for \(m\ge28\). The asymptotic follows from the explicit cutoff and a Riemann-sum limit. The packaged checker independently replays all rational identities and the positive witness.
+## correctness
 
-## Originality
-PASS with explicit residual risk. The original paper already tabulates the signed smoothing coefficients, and later literature explicitly warns of overshoot, phase reversal, ringing, and negative excursions. Those qualitative facts are treated as prior work. Searches under positivity preservation, negative coefficient mass, kernel \(\ell_1\) norm, least-squares smoothing, and exact overshoot did not locate the all-window minimax formula, the unique seven-point global maximum, or the nonzero infinite-window limit. The closest 1983 pitfalls paper could not be inspected in full text after lawful open and institutional attempts, so an equivalent calculation there remains a named risk.
+PASS
 
-## Value
-PASS. Positivity of bounded measurements is a basic shape constraint, and quadratic/cubic Savitzky--Golay smoothing is one of the canonical least-squares filters. The result converts a familiar qualitative warning about negative weights into an exact deterministic robustness profile over every odd window. The seven-point global maximum, explicit strictly positive counterexample, and persistent large-window defect are directly useful as regression tests and as quantitative guidance when positivity preservation matters.
+The normal equations give the displayed weights exactly. Box minimization selects M precisely on the negative coefficients, giving V_m as their total negative mass and the closed sum. Exact rational replay confirms the formula and V_m<4/21 through m=27; the proof's integral majorant then decreases in both factors for m>=28 and its exact radical comparison lies below 4/21. The Riemann-sum limit gives the asymptotic. A fresh independent calculation also reproduced V_3=4/21 and strict inequality for all m<=99 other than m=3.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Savitzky–Golay supply the least-squares smoothing construction and classical coefficient tables, while Marchand–Marmet and later signal-processing critiques establish qualitative overshoot/ringing and negative-coefficient concerns. No inspected source states the all-window negative-mass formula, the unique global maximum at seven points, or the nonzero long-window limit. The closest 1983 paper remained unavailable in verified full text after lawful open and institutional attempts, so hidden overlap is retained explicitly as a residual risk rather than treated as negative evidence.
+
+## value
+
+PASS
+
+Worst-case positivity loss is a natural robustness invariant of a ubiquitous linear smoother. The unique worst window, exact all-window formula and persistent nonzero asymptotic quantify a practically meaningful artifact beyond the known qualitative fact that SG kernels can overshoot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
