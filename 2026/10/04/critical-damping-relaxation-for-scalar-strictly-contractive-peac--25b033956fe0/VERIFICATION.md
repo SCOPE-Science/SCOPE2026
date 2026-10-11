@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is exact algebra. Starting from the published two-block strictly contractive Peaceman–Rachford iteration, solve the scalar quadratic subproblems explicitly and use the state \(v^k=(y^k,\lambda^k)^T\). Direct elimination yields
-\[
-\det M_\alpha=\frac{\beta^2(1-\alpha)^2}{(a+\beta)(b+\beta)}
-\]
-and
-\[
-\operatorname{tr}M_\alpha
-=\frac{\beta^2\alpha^2-2\beta(a+b+\beta)\alpha+ab+a\beta+b\beta+2\beta^2}{(a+\beta)(b+\beta)}.
-\]
-Substitution of \(u=\beta/\sqrt{(a+\beta)(b+\beta)}\) and \(w=\beta(a+b+\beta)/((a+\beta)(b+\beta))\) gives the formulas used in the proof.
+# Independent mathematical audit
 
-The repeated-root equation is
-\[
-T(\alpha)+2u(1-\alpha)=0.
-\]
-Under the stated penalty ordering it has exactly one root in \((0,1)\), because its value is positive at zero, negative at one, and its derivative is strictly negative on the interval. At that root the discriminant vanishes and the repeated eigenvalue is negative.
+## correctness
 
-`verify.py` uses only the Python standard library. It reconstructs the recurrence coefficients directly from the four scalar updates using rational arithmetic, compares its trace and determinant against the closed forms on several rational parameter tuples, then checks the repeated-root and spectral-radius inequalities numerically on representative instances.
+PASS
 
-Limits: the script is not an exhaustive proof over all positive real parameters. The quantified theorem rests on the symbolic derivation and inequalities above; the executable checks are reproducibility support. No independent audit has been performed.
+Independent elimination gives determinant \(u^2(1-\alpha)^2\) and trace \(u^2\alpha^2-2w\alpha+1+u^2\). Under the penalty-between-curvatures assumption, \(F(\alpha)=T(\alpha)+2u(1-\alpha)\) decreases strictly from positive to negative, so it has exactly one root. At that root the discriminant vanishes with a negative repeated eigenvalue. For smaller alpha, the root-product lower bound exceeds the critical radius; for larger alpha, the trace-magnitude lower bound does. The independent witness \((a,b,\beta)=(1,4,2)\) reproduces \(\alpha_*=0.9462158829301036\) and \(\rho_*=0.0253540759335033\).
+
+## originality
+
+PASS
+
+The primary SC-PRSM literature supplies the common relaxation and convergence domains, and the 2016 full text explicitly frames large values near one as empirical acceleration guidance. It does not state the exact problem-dependent scalar minimizer found here. Resultary returned no implication-equivalent finding.
+
+## value
+
+PASS
+
+The result replaces empirical 'close to one' relaxation guidance by an exact problem-dependent calibration and explains the optimum through critical damping on the smallest nontrivial strongly convex equality model. It provides a sharp benchmark for symmetric-ADMM/PRSM parameter-selection theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

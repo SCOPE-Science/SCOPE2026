@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T17:45:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "B. He, H. Liu, Z. Wang, X. Yuan, A Strictly Contractive Peaceman--Rachford Splitting Method for Convex Programming, SIAM J. Optim. 24 (2014), DOI 10.1137/13090849X; open PMC primary article inspected for the common relaxation scheme and convergence role.",
+        "B. He, F. Ma, X. Yuan, Convergence Study on the Symmetric Version of ADMM with Larger Step Sizes, SIAM J. Imaging Sci. 9 (2016), DOI 10.1137/15M1044448; after open-access search, authorized institutional full text was obtained and pages 1--12 were read, including scheme (1.8), the common \\(\\alpha\\in(0,1)\\), and the recommendation of values close to one.",
+        "Resultary semantic search for scalar SC-PRSM/symmetric ADMM optimal common relaxation and critical damping.",
+        "Fresh independent elimination of the two-state recurrence, trace/determinant identities, and the \\(a=1,b=4,\\beta=2\\) critical point."
+      ],
+      "rationale": "Independent elimination gives determinant \\(u^2(1-\\alpha)^2\\) and trace \\(u^2\\alpha^2-2w\\alpha+1+u^2\\). Under the penalty-between-curvatures assumption, \\(F(\\alpha)=T(\\alpha)+2u(1-\\alpha)\\) decreases strictly from positive to negative, so it has exactly one root. At that root the discriminant vanishes with a negative repeated eigenvalue. For smaller alpha, the root-product lower bound exceeds the critical radius; for larger alpha, the trace-magnitude lower bound does. The independent witness \\((a,b,\\beta)=(1,4,2)\\) reproduces \\(\\alpha_*=0.9462158829301036\\) and \\(\\rho_*=0.0253540759335033\\).",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2016 paper establishes a broad admissible two-step-size domain and explains empirical acceleration by larger steps.",
+          "Its inspected theory is convergence-domain analysis, not exact scalar spectral optimization."
+        ],
+        "reasoning": "A broader convergence region does not determine the unique rate-minimizing common relaxation for fixed scalar curvatures and penalty.",
+        "searches": [
+          "He--Ma--Yuan 2016 full text",
+          "general Douglas--Rachford/PR splitting rate literature"
+        ]
+      },
+      "checked_sources": [
+        "B. He, H. Liu, Z. Wang, X. Yuan, A Strictly Contractive Peaceman--Rachford Splitting Method for Convex Programming, SIAM J. Optim. 24 (2014), DOI 10.1137/13090849X; open PMC primary article inspected for the common relaxation scheme and convergence role.",
+        "B. He, F. Ma, X. Yuan, Convergence Study on the Symmetric Version of ADMM with Larger Step Sizes, SIAM J. Imaging Sci. 9 (2016), DOI 10.1137/15M1044448; after open-access search, authorized institutional full text was obtained and pages 1--12 were read, including scheme (1.8), the common \\(\\alpha\\in(0,1)\\), and the recommendation of values close to one.",
+        "Resultary semantic search for scalar SC-PRSM/symmetric ADMM optimal common relaxation and critical damping.",
+        "Fresh independent elimination of the two-state recurrence, trace/determinant identities, and the \\(a=1,b=4,\\beta=2\\) critical point."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2014 source proves strict contraction for underrelaxation.",
+          "The 2016 source says values close to one were recommended for better numerical performance and generalizes admissible step sizes."
+        ],
+        "reasoning": "Neither inspected source mechanically yields the closed curvature/penalty-dependent minimizer or its repeated-negative-root characterization; that requires the exact scalar recurrence.",
+        "searches": [
+          "2014 SC-PRSM source",
+          "2016 symmetric-ADMM full text pages 1--12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected papers use the same two multiplier updates and common relaxation.",
+          "No exact indexed critical-damping law was found."
+        ],
+        "reasoning": "Symmetric ADMM and strictly contractive PRSM are algorithmically equivalent under the stated notation; this equivalence was accounted for rather than treated as novelty.",
+        "searches": [
+          "He--Liu--Wang--Yuan 2014 common-factor scheme",
+          "He--Ma--Yuan 2016 scheme (1.8)",
+          "Resultary: SC-PRSM scalar optimal relaxation critical damping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact parameter table or formula was located."
+        ],
+        "reasoning": "The claimed number is a specialization of a symbolic law, not a table lookup.",
+        "searches": [
+          "Resultary exact-topic search",
+          "searches for the numerical witness \\(0.9462158829301036\\) and the closed form"
+        ]
+      },
+      "rationale": "The primary SC-PRSM literature supplies the common relaxation and convergence domains, and the 2016 full text explicitly frames large values near one as empirical acceleration guidance. It does not state the exact problem-dependent scalar minimizer found here. Resultary returned no implication-equivalent finding.",
+      "residual_risks": [
+        "An unindexed scalar convergence-rate calculation under symmetric-ADMM notation could duplicate the same two-by-two optimization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONVERGENCE-DOMAIN COVERAGE, NOT EXACT SCALAR RATE OPTIMIZATION",
+          "evidence": "The paper recalls \\(\\alpha\\in(0,1)\\) for SC-PRSM and says larger values close to one were recommended empirically, then studies larger admissible step-size domains.",
+          "identifier_or_url": "DOI:10.1137/15M1044448",
+          "material_read": "Authorized full text pages 1--12 after open-access search, including introduction, schemes (1.7)--(1.9), parameter domain, and early convergence framework",
+          "method": "Authorized institutional primary full-text inspection",
+          "title": "Convergence Study on the Symmetric Version of ADMM with Larger Step Sizes",
+          "trigger": "Closest follow-up on the same two multiplier updates and relaxation parameters"
+        },
+        {
+          "assessment": "METHOD AND CONVERGENCE SOURCE, NOT THE AUDITED OPTIMALITY LAW",
+          "evidence": "The source establishes strict contraction for the relaxed method rather than a closed scalar spectral-radius minimizer.",
+          "identifier_or_url": "DOI:10.1137/13090849X; PMCID:PMC4302964",
+          "material_read": "Open primary article material on the method, contraction theory, and relaxation role",
+          "method": "Open-access primary full-text inspection",
+          "title": "A Strictly Contractive Peaceman--Rachford Splitting Method for Convex Programming",
+          "trigger": "Primary source defining the common-relaxation method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "B. He, H. Liu, Z. Wang, X. Yuan, A Strictly Contractive Peaceman--Rachford Splitting Method for Convex Programming, SIAM J. Optim. 24 (2014), DOI 10.1137/13090849X; open PMC primary article inspected for the common relaxation scheme and convergence role.",
+        "B. He, F. Ma, X. Yuan, Convergence Study on the Symmetric Version of ADMM with Larger Step Sizes, SIAM J. Imaging Sci. 9 (2016), DOI 10.1137/15M1044448; after open-access search, authorized institutional full text was obtained and pages 1--12 were read, including scheme (1.8), the common \\(\\alpha\\in(0,1)\\), and the recommendation of values close to one.",
+        "Resultary semantic search for scalar SC-PRSM/symmetric ADMM optimal common relaxation and critical damping.",
+        "Fresh independent elimination of the two-state recurrence, trace/determinant identities, and the \\(a=1,b=4,\\beta=2\\) critical point."
+      ],
+      "rationale": "The result replaces empirical 'close to one' relaxation guidance by an exact problem-dependent calibration and explains the optimum through critical damping on the smallest nontrivial strongly convex equality model. It provides a sharp benchmark for symmetric-ADMM/PRSM parameter-selection theory.",
+      "residual_risks": [
+        "An unindexed scalar convergence-rate calculation under symmetric-ADMM notation could duplicate the same two-by-two optimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the scalar strongly convex two-block equality problem with penalty strictly between the two curvatures, common-relaxation SC-PRSM has a unique spectral-radius minimizer at the stated closed-form \\(\\alpha_*\\), where the eigenvalues coalesce at the negative root \\(-u(1-\\alpha_*)\\); this strict underrelaxation is faster than \\(\\alpha=1\\).",
+  "limitations": [
+    "The theorem assumes scalar blocks, one common relaxation, and a penalty strictly between the curvatures.",
+    "An unindexed scalar convergence-rate calculation under symmetric-ADMM notation could duplicate the same two-by-two optimization."
+  ],
+  "schema_version": 1
+}
