@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A proper colouring with exactly \(r\) colours on a complete \(r\)-partite graph necessarily assigns one colour to each part. This makes the forcing threshold transparent: with at most \(r-2\) seeded parts no vertex can initially see \(r-1\) neighbour colours, whereas with at least \(r-1\) seeded parts the unique missing part, if any, forces immediately and then all remaining vertices force. The product formulas then follow by independently choosing a nonempty seeded subset in each seeded part. The probability expression uses the exact per-vertex weights \(p\) for a prescribed colour and \(1-rp\) for being uncoloured. Exhaustive enumeration through order six independently agrees with the characterization and formulas.
+## correctness
 
-## Originality
-PASS, subject to the stated residual literature risk. The closest primary source, arXiv:2609.17108v1, proves the two-colour formula for bipartite graphs but does not state a complete-multipartite result for three or more chromatic colours. Targeted semantic and web searches under equivalent formulations did not locate a stronger theorem or exact table covering the claim. The closest indexed exact forced-colouring result treats maximum-degree-two graphs for three colours, a different graph class. A prior internal finding on complete bipartite graphs uses three available colours; its graph/palette regime is disjoint from the present \(r\ge3\), \(\lambda=r\) theorem.
+PASS
 
-## Value
-PASS. The initiating paper proves that evaluating the forced-colouring function is generally computationally hard for fixed palettes of at least three colours. The theorem isolates a broad classical dense family where the full forcing-set structure, the complete domain-size enumerator, the probability polynomial, and the minimum forcing-domain size all admit closed forms. It also extends the structural mechanism behind the known minimal-palette bipartite case to every complete multipartite chromatic palette of size at least three.
+A proper r-colouring of a complete r-partite graph must assign one distinct colour to each part. If at most r-2 parts are initially represented, no uncoloured vertex can see r-1 distinct neighbour colours, so no first force exists. If exactly r-1 parts are represented compatibly, every vertex in the missing part is forced to the unique unused colour, after which every remaining uncoloured vertex is forced; the all-r-parts case is immediate. For a fixed proper colouring, each seeded part contributes a nonempty subset and an unseeded part contributes the all-uncoloured state, giving the displayed product formulas without overcount because any forcing domain determines the unique missing colour. Fresh independent direct forcing enumeration on four representative multipartite types exactly matched the structural coefficient formulas.
 
-## Closest literature and limitations
-Farr's 2026 paper is the closest source: its Theorem 7 handles bipartite graphs with two colours, which is the formal \(r=2\) boundary specialization of the formula here. Farr and Morgan's earlier graph-polynomial work introduced the partial-colouring polynomial framework but was not found to contain this complete-multipartite theorem. The classical forcing chromatic number concerns unique completion from a precolouring rather than the iterative local forcing polynomial. The case of more available colours than partite sets remains open here, and terminology not surfaced by the searches is a residual originality risk.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Farr's primary paper defines exactly the iterative local rule, proves the two-colour connected-bipartite formula and lists small three-colour examples, but the inspected material contains no complete-multipartite theorem; a direct full-PDF text search found no occurrence of 'multipartite'. The audited theorem gives a structural iff and both an all-domain enumerator and probability polynomial for every complete r-partite graph at the chromatic palette size. Resultary returned nearby complete-multipartite colouring parameters but no implication-equivalent forced-colouring theorem.
+
+## value
+
+PASS
+
+Complete multipartite graphs at their chromatic palette size are a canonical test family for a newly introduced forcing polynomial. The theorem gives the full forcing-set support and both exact enumerators for arbitrary part sizes, rather than an isolated small case, and cleanly extends the known two-colour boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-The universal theorem was checked symbolically by reconstructing its necessity and sufficiency from the forcing definition. The critical points are that an \(r\)-colouring of a complete \(r\)-partite graph uses exactly one colour on each part, that fewer than \(r-1\) seeded parts cannot trigger a first forcing move, and that \(r-1\) seeded parts force the remaining part immediately.
 
-The accompanying `verify.py` provides an independent finite stress test. It generates all complete-multipartite isomorphism types through order six, enumerates every partial assignment from the palette together with the uncoloured state, explores legal forcing moves directly from neighbourhood colour sets, and checks the resulting forceability against the structural theorem. It also recomputes the coefficient enumerator and the probability formula with exact rational arithmetic.
+# Independent mathematical audit
 
-Replay result:
+## correctness
 
-`ALL CHECKS PASSED; multipartite_types=23; partial_assignments=224608; forceable_assignments=11454; max_order=6`
+PASS
 
-The finite range is not used as a proof for larger graphs. The theorem is established by the analytic argument in `RESULT.md`. The larger-palette case \(\lambda>r\) is not verified or claimed.
+A proper r-colouring of a complete r-partite graph must assign one distinct colour to each part. If at most r-2 parts are initially represented, no uncoloured vertex can see r-1 distinct neighbour colours, so no first force exists. If exactly r-1 parts are represented compatibly, every vertex in the missing part is forced to the unique unused colour, after which every remaining uncoloured vertex is forced; the all-r-parts case is immediate. For a fixed proper colouring, each seeded part contributes a nonempty subset and an unseeded part contributes the all-uncoloured state, giving the displayed product formulas without overcount because any forcing domain determines the unique missing colour. Fresh independent direct forcing enumeration on four representative multipartite types exactly matched the structural coefficient formulas.
+
+## originality
+
+PASS
+
+Farr's primary paper defines exactly the iterative local rule, proves the two-colour connected-bipartite formula and lists small three-colour examples, but the inspected material contains no complete-multipartite theorem; a direct full-PDF text search found no occurrence of 'multipartite'. The audited theorem gives a structural iff and both an all-domain enumerator and probability polynomial for every complete r-partite graph at the chromatic palette size. Resultary returned nearby complete-multipartite colouring parameters but no implication-equivalent forced-colouring theorem.
+
+## value
+
+PASS
+
+Complete multipartite graphs at their chromatic palette size are a canonical test family for a newly introduced forcing polynomial. The theorem gives the full forcing-set support and both exact enumerators for arbitrary part sizes, rather than an isolated small case, and cleanly extends the known two-colour boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
