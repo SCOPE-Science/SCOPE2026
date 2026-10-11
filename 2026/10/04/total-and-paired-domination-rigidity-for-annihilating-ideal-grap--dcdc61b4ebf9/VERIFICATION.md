@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-The proof was replayed from the standalone `verify.py` artifact.
+# Independent mathematical audit
 
-For each rank
-\[
-2\le r\le5,
-\]
-the checker constructs every nonempty proper support subset and joins two vertices exactly when the supports are disjoint. It verifies that every co-singleton has a unique singleton neighbor, then exhaustively enumerates all total dominating sets of size \(r\) and all paired dominating sets at the claimed minimum size.
+## correctness
 
-Exact output:
+PASS
 
-```text
-r=2 vertices=2 total_min_count=1 gamma_t=2 paired_min_count=1 gamma_pr=2
-r=3 vertices=6 total_min_count=1 gamma_t=3 paired_min_count=3 gamma_pr=4
-r=4 vertices=14 total_min_count=1 gamma_t=4 paired_min_count=1 gamma_pr=4
-r=5 vertices=30 total_min_count=1 gamma_t=5 paired_min_count=25 gamma_pr=6
-VERIFY_OK
-```
+Nonzero proper ideals correspond to nonempty proper supports and adjacency is disjointness. Each co-singleton support has exactly one neighbor, its complementary singleton, forcing all r singleton supports into every total dominating set. Those singletons form a dominating clique, giving uniqueness. Paired domination follows from parity; in odd rank any one extra support of size at least two can be paired to a missing-coordinate singleton, and every minimum paired set has exactly one such extra. Fresh enumeration for r=2 through 5 reproduced unique total minima and paired minimum-set counts 1,3,1,25.
 
-The exhaustive checks corroborate the symbolic proof. The arbitrary-rank conclusion rests on the unique-neighbor forcing argument and explicit perfect-matching construction.
+## originality
+
+PASS
+
+The numerical values are prior: Chelvam–Selvakumar's 2014 primary paper proves total domination equals the number of maximal ideals and paired domination has the same even/odd parity formula for every Artinian ring; the 2015 reduced-ring paper gives the total value from minimal primes, and a later published SCOPE theorem extends the paired formula to reduced rings with finite minimal spectrum. None of the inspected sources classifies the minimum sets for products of fields. The submitted claim survives through its stronger rigidity: the unique minimum total set and the complete odd-rank minimum paired-set classification/count.
+
+## value
+
+PASS
+
+Although the minimum values are prior, the complete extremizer layer is a natural rigidity classification: it identifies a forced algebraic core, proves uniqueness, and enumerates every odd-rank minimum paired set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

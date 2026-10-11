@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T06:51:19Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 8adecdd668d65792026b12db28545b0f2c7fd3a4",
+        "verify.py blob 57cae0b663030616da2698e3c89594cdfd8dc1c1",
+        "fresh disjoint-support enumeration"
+      ],
+      "rationale": "Nonzero proper ideals correspond to nonempty proper supports and adjacency is disjointness. Each co-singleton support has exactly one neighbor, its complementary singleton, forcing all r singleton supports into every total dominating set. Those singletons form a dominating clique, giving uniqueness. Paired domination follows from parity; in odd rank any one extra support of size at least two can be paired to a missing-coordinate singleton, and every minimum paired set has exactly one such extra. Fresh enumeration for r=2 through 5 reproduced unique total minima and paired minimum-set counts 1,3,1,25.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 Corollary 3.6 explicitly gives \\(\\gamma_t=n\\) and the parity formula for \\(\\gamma_{pr}\\).",
+          "The 2015 source proves total domination equals the number of minimal primes for reduced rings.",
+          "The later SCOPE theorem gives the paired parity formula for all reduced rings with finite minimal spectrum."
+        ],
+        "reasoning": "These broader results dominate the values but not uniqueness or all-extremizer classification.",
+        "searches": [
+          "Chelvam–Selvakumar 2014 full PDF",
+          "Nikandish–Maimani–Kiani 2015 full text",
+          "Resultary d157856a348c"
+        ]
+      },
+      "checked_sources": [
+        "JCMCC 88 (2014) Chelvam–Selvakumar",
+        "DOI:10.2298/PIM140222001N",
+        "Resultary d157856a348c",
+        "DOI:10.4134/JKMS.j160283"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known minimum values do not imply uniqueness or classify all minimizers.",
+          "In the strong Boolean graph each co-singleton has a unique singleton neighbor, forcing every singleton support; this yields the exact odd-rank extras."
+        ],
+        "reasoning": "The extremizer statements require additional support structure and are not implied by the known values.",
+        "searches": [
+          "Chelvam–Selvakumar Corollary 3.6",
+          "Resultary d157856a348c",
+          "audited co-singleton unique-neighbor argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Products of fields give the strong Boolean graph on nonempty proper supports with disjointness adjacency.",
+          "The 2014 source already states the same total and paired numerical values for all Artinian rings."
+        ],
+        "reasoning": "Originality is assessed only on the stronger minimum-set rigidity, not on the known numerical values.",
+        "searches": [
+          "Chelvam–Selvakumar JCMCC 88 (2014), Corollary 3.6",
+          "DOI:10.2298/PIM140222001N",
+          "Resultary d157856a348c",
+          "Resultary strong Boolean graph extremizer search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct source was found with the unique total minimum or count \\(2^r-r-2\\) of odd-rank minimum paired sets."
+        ],
+        "reasoning": "The surviving result is an extremizer classification.",
+        "searches": [
+          "Resultary exact strong-Boolean minimum-set search",
+          "Boolean-graph invariant searches"
+        ]
+      },
+      "rationale": "The numerical values are prior: Chelvam–Selvakumar's 2014 primary paper proves total domination equals the number of maximal ideals and paired domination has the same even/odd parity formula for every Artinian ring; the 2015 reduced-ring paper gives the total value from minimal primes, and a later published SCOPE theorem extends the paired formula to reduced rings with finite minimal spectrum. None of the inspected sources classifies the minimum sets for products of fields. The submitted claim survives through its stronger rigidity: the unique minimum total set and the complete odd-rank minimum paired-set classification/count.",
+      "residual_risks": [
+        "An unindexed strong-Boolean domination note could contain the same extremizer classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NUMERICAL_VALUES_PRIOR_EXTREMIZER_RIGIDITY_NOT_STATED",
+          "evidence": "Corollary 3.6 gives total domination n and paired domination n for even n or n+1 for odd n.",
+          "identifier_or_url": "JCMCC 88 (2014), 277–288",
+          "material_read": "Open full PDF with page 285 visually inspected; Theorem 3.5 and Corollary 3.6 were read.",
+          "method": "Primary page-level theorem comparison.",
+          "title": "Central Sets in the Annihilating-Ideal Graph of Commutative Rings",
+          "trigger": "Decisive older same-invariant Artinian theorem."
+        },
+        {
+          "assessment": "TOTAL_VALUE_PRIOR_MINIMUM_SET_CLASSIFICATION_NOT_STATED",
+          "evidence": "The paper proves the reduced finite-minimal-prime total value.",
+          "identifier_or_url": "DOI:10.2298/PIM140222001N",
+          "material_read": "Accessible full text through the total-domination definitions and reduced-ring theorem discussion.",
+          "method": "Broader-domain implication comparison.",
+          "title": "Domination number in the annihilating-ideal graphs of commutative rings",
+          "trigger": "Primary reduced-ring total-domination theorem."
+        },
+        {
+          "assessment": "BROADER_PAIRED_VALUE_PRIOR_NO_BOOLEAN_EXTREMIZER_CLASSIFICATION",
+          "evidence": "The theorem gives the parity formula for all reduced rings with finite minimal spectrum without classifying minimizers for products of fields.",
+          "identifier_or_url": "Resultary/2026 d157856a348c",
+          "material_read": "Complete public RESULT.md and SOURCE.json.",
+          "method": "Statement and implication comparison.",
+          "title": "Paired domination of annihilating-ideal graphs of reduced rings with finite minimal spectrum",
+          "trigger": "Broader published theorem for the paired value."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "JCMCC 88 (2014) Chelvam–Selvakumar",
+        "DOI:10.2298/PIM140222001N",
+        "Resultary d157856a348c",
+        "DOI:10.4134/JKMS.j160283"
+      ],
+      "rationale": "Although the minimum values are prior, the complete extremizer layer is a natural rigidity classification: it identifies a forced algebraic core, proves uniqueness, and enumerates every odd-rank minimum paired set.",
+      "residual_risks": [
+        "An unindexed strong-Boolean domination note could contain the same extremizer classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "JCMCC 88 (2014) Chelvam–Selvakumar",
+    "DOI:10.2298/PIM140222001N",
+    "Resultary d157856a348c",
+    "DOI:10.4134/JKMS.j160283"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a direct product of r at least two fields, the annihilating-ideal graph has a unique minimum total dominating set, the coordinate minimal ideals; the paired minimum is r for even r and r+1 for odd r, with the same unique set in even rank and exactly \\(2^r-r-2\\) minimum paired sets in odd rank.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed strong-Boolean domination note could contain the same extremizer classification.",
+    "The numerical total and paired domination formulas themselves are prior literature; only the minimizer rigidity/classification is originality-bearing."
+  ]
+}
