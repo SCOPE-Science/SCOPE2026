@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The recovery criterion is exact in the large-multiplicity process: a target is recovered if its sampled edge component contains a direct mark, a simple cycle, or a repeated pair support, and is not recovered when its component is an unmarked simple tree. The converse for a tree is witnessed by an explicit nonzero dual vector constructed recursively along the tree. Independent Poisson processes then give the exact finite-\(k\) tree-component survival formula. Fixed-size terms converge to the rooted-tree series, large component sizes are suppressed by the no-mark factor, and the whole survival curve is dominated by the target's no-direct-mark probability \(e^{-ar}\). The rooted-tree equation and integration by parts give the claimed integral. The packaged verifier checks the integrated finite-\(k\) expression and the KKT optimum from actual package paths.
+PASS
 
-Risks checked: repeated sampling of the same physical edge column is excluded only after the stated inner \(x\to\infty\) limit; repeated pair supports with distinct columns remain in the model and are correctly treated as recoverable. Finite experiments are not used as an all-\(k\) proof.
+The proof reconstructs. After the stated inner multiplicity limit, total-rate-k Poissonization gives independent direct marks of rate a per vertex and edge-support arrivals of rate 2(1-a)/(k-1). Recovery completeness implies that a target is unrecovered exactly when its support component is a simple tree with no direct mark: a mark or cycle recovers and propagates, while an unmarked tree has an explicit nonzero dual witness. Cayley's formula then gives the finite-k survival sum. For fixed component size the terms converge to the rooted-tree series; components larger than J while unmarked are bounded by exp(-ar(J+1)), and U_k(r) is bounded by exp(-ar), yielding both pointwise and dominated convergence. The tree equation gives u=exp(-ar-2(1-a)r(1-u)); setting t=1-u and integrating by parts yields the claimed integral. A fresh independent numerical integration at the stated optimum gives 0.793933444596334, consistent with the source optimum but not used as proof.
 
-## Originality
+## originality
 
-PASS. The closest 2026 source explicitly states the claimed equality of ideal and degree-\(2\) peeling ratios/expectations as a conjecture rather than a theorem. The recovery-complete source supplies the finite graph construction and leaves unequal vertex/edge probability optimization as future work. Exact-phrase, numerical-constant, support-distribution, random-graph, and implication searches found no intervening source proving the conjecture. A separate 2026 random-access paper provides finite-parameter algorithms and small-\(k\) bounds but not this asymptotic recovery-complete limit.
+PASS
 
-Residual risk: an equivalent marked-random-graph argument may occur under different terminology in a source not surfaced by the searches.
+Originality passes. The full Hofmeister--Bitar--Yaakobi primary PDF gives the degree-two LT/peeling optimum p1 approximately 0.15547, p2 approximately 0.84453 with objective approximately 0.7939, and explicitly conjectures that the ideal weight-one/weight-two ratios in the Boruchovsky et al. construction and the corresponding normalized expectation converge to those values. The full Boruchovsky et al. PDF defines recovery completeness and G_k(x,y), supplies the cycle/repeated-support recovery mechanism, but does not prove this large-k asymmetric limit. The audited marked-random-graph argument proves precisely the conjectured missing implication.
 
-## Value
+## value
 
-PASS. This closes an explicit recent conjecture connecting two active random-access constructions and identifies the exact asymptotic performance of the best weight-\(1\)/weight-\(2\) tuning under ideal decoding. The result is structurally informative: it explains why cycle recovery, although strictly stronger than peeling at finite size, does not change the first-order limit once a positive density of direct marks is present. It also converts the earlier finite-\(k\) optimization problem into the same one-dimensional strictly convex objective already solved on the LT side.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The theorem resolves an explicit recent conjecture linking an ideal-decoding construction to the degree-two LT peeling optimum. It also explains structurally why the ideal decoder's finite-size cycle advantage disappears at first order when direct marks have positive density. This is a motivated probabilistic/coding-theoretic gap, not merely recomputation of the numerical optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

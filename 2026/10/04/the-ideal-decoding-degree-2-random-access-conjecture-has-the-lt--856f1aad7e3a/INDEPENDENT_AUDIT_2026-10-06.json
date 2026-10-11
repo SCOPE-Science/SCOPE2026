@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:51:17.531261Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 5f5a4e175879a4f5ca42944ba74736a9da809080",
+        "artifacts/verify.py blob bbfd918c23542789b0ff3fe33a9194d82bd284b7",
+        "Hofmeister--Bitar--Yaakobi, Random Access Expectation in DNA Storage and Fountain Codes, arXiv:2605.10919v2",
+        "Boruchovsky--Elishco--Gabrys--Gruica--Tamo--Yaakobi, Making it to First: The Random Access Problem in DNA Storage, arXiv:2501.12274v2",
+        "fresh independent numerical integral check"
+      ],
+      "rationale": "The proof reconstructs. After the stated inner multiplicity limit, total-rate-k Poissonization gives independent direct marks of rate a per vertex and edge-support arrivals of rate 2(1-a)/(k-1). Recovery completeness implies that a target is unrecovered exactly when its support component is a simple tree with no direct mark: a mark or cycle recovers and propagates, while an unmarked tree has an explicit nonzero dual witness. Cayley's formula then gives the finite-k survival sum. For fixed component size the terms converge to the rooted-tree series; components larger than J while unmarked are bounded by exp(-ar(J+1)), and U_k(r) is bounded by exp(-ar), yielding both pointwise and dominated convergence. The tree equation gives u=exp(-ar-2(1-a)r(1-u)); setting t=1-u and integrating by parts yields the claimed integral. A fresh independent numerical integration at the stated optimum gives 0.793933444596334, consistent with the source optimum but not used as proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hofmeister--Bitar--Yaakobi prove the peeling-side optimization but mark the ideal-decoder equality as a conjecture.",
+          "Boruchovsky et al. give the recovery-complete construction and finite/asymptotic graph framework, not the claimed iterated large-dimension identity."
+        ],
+        "reasoning": "Neither prior source alone or together states the missing ideal-decoder limit as a theorem.",
+        "searches": [
+          "Hofmeister--Bitar--Yaakobi, Random Access Expectation in DNA Storage and Fountain Codes, arXiv:2605.10919v2",
+          "Boruchovsky--Elishco--Gabrys--Gruica--Tamo--Yaakobi, Making it to First: The Random Access Problem in DNA Storage, arXiv:2501.12274v2"
+        ]
+      },
+      "checked_sources": [
+        "Hofmeister--Bitar--Yaakobi, Random Access Expectation in DNA Storage and Fountain Codes, arXiv:2605.10919v2",
+        "Boruchovsky--Elishco--Gabrys--Gruica--Tamo--Yaakobi, Making it to First: The Random Access Problem in DNA Storage, arXiv:2501.12274v2",
+        "Resultary query: The ideal-decoding degree-2 random-access conjecture has the LT limit recovery-complete weight-1 weight-2",
+        "targeted web search for ideal G_k(x,y), 0.15547, 0.7939, and degree-2 LT peeling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Recovery completeness makes an unmarked simple tree the exact obstruction after the large-multiplicity limit.",
+          "Cayley tree enumeration, a no-mark tail bound, and dominated convergence produce the fixed-point law and integral absent from the source papers."
+        ],
+        "reasoning": "The audited proof supplies a substantive missing probabilistic limit theorem, not a numerical restatement.",
+        "searches": [
+          "Hofmeister--Bitar--Yaakobi, Random Access Expectation in DNA Storage and Fountain Codes, arXiv:2605.10919v2",
+          "Boruchovsky--Elishco--Gabrys--Gruica--Tamo--Yaakobi, Making it to First: The Random Access Problem in DNA Storage, arXiv:2501.12274v2",
+          "independent marked-random-graph reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source conjecture explicitly identifies the ideal G_k(x,y) ratios and normalized expectation with the degree-two peeling optimum.",
+          "The audited integral is exactly the degree-two LT objective because p'(t)=a+2(1-a)t."
+        ],
+        "reasoning": "Ideal linear decoding, peeling/LT, recovery-complete graph, and weight-support-distribution formulations were aligned explicitly.",
+        "searches": [
+          "Hofmeister--Bitar--Yaakobi, Random Access Expectation in DNA Storage and Fountain Codes, arXiv:2605.10919v2",
+          "Boruchovsky--Elishco--Gabrys--Gruica--Tamo--Yaakobi, Making it to First: The Random Access Problem in DNA Storage, arXiv:2501.12274v2",
+          "Resultary query: The ideal-decoding degree-2 random-access conjecture has the LT limit recovery-complete weight-1 weight-2",
+          "targeted web search for ideal G_k(x,y), 0.15547, 0.7939, and degree-2 LT peeling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numerical constants occur in the primary 2026 source on the peeling side and immediately precede an explicit conjecture about the ideal construction.",
+          "No checked independent database/source supplied a proof of that conjecture."
+        ],
+        "reasoning": "The presence of the same constants in a conjecture is prior motivation, not prior theorem coverage.",
+        "searches": [
+          "Resultary query: The ideal-decoding degree-2 random-access conjecture has the LT limit recovery-complete weight-1 weight-2",
+          "targeted web search for ideal G_k(x,y), 0.15547, 0.7939, and degree-2 LT peeling"
+        ]
+      },
+      "rationale": "Originality passes. The full Hofmeister--Bitar--Yaakobi primary PDF gives the degree-two LT/peeling optimum p1 approximately 0.15547, p2 approximately 0.84453 with objective approximately 0.7939, and explicitly conjectures that the ideal weight-one/weight-two ratios in the Boruchovsky et al. construction and the corresponding normalized expectation converge to those values. The full Boruchovsky et al. PDF defines recovery completeness and G_k(x,y), supplies the cycle/repeated-support recovery mechanism, but does not prove this large-k asymmetric limit. The audited marked-random-graph argument proves precisely the conjectured missing implication.",
+      "residual_risks": [
+        "An equivalent marked-random-graph proof could exist under terminology not surfaced by the coding-theory and Resultary searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TARGET_STATED_AS_CONJECTURE",
+          "evidence": "The paper gives p1 approximately 0.15547 and objective approximately 0.7939, then explicitly conjectures the ideal G construction tends to the same ratios and expectation.",
+          "identifier_or_url": "arXiv:2605.10919v2",
+          "material_read": "Complete open primary PDF, especially the worked d=2 example, KKT equations, numerical optimum, and explicit ideal-ratio conjecture.",
+          "method": "Lawful open primary PDF with page-image inspection.",
+          "title": "Random Access Expectation in DNA Storage and Fountain Codes",
+          "trigger": "Exact source containing the degree-two optimum and the conjecture."
+        },
+        {
+          "assessment": "SUPPLIES_CONSTRUCTION_AND_RECOVERY_RULES_NOT_LARGE_K_CONJECTURE_PROOF",
+          "evidence": "The paper proves cycle and repeated-support recovery and defines G_k(x,y), but does not prove the assigned marked-tree limit.",
+          "identifier_or_url": "arXiv:2501.12274v2",
+          "material_read": "Complete open primary PDF around Definition 1, Construction 1, recovery-completeness proof, repetition to G_k(x,y), and graph interpretation.",
+          "method": "Lawful open primary PDF with page-image inspection.",
+          "title": "Making it to First: The Random Access Problem in DNA Storage",
+          "trigger": "Defining source for recovery-complete matrices G_k(x,y)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hofmeister--Bitar--Yaakobi, Random Access Expectation in DNA Storage and Fountain Codes, arXiv:2605.10919v2",
+        "Boruchovsky--Elishco--Gabrys--Gruica--Tamo--Yaakobi, Making it to First: The Random Access Problem in DNA Storage, arXiv:2501.12274v2",
+        "Resultary query: The ideal-decoding degree-2 random-access conjecture has the LT limit recovery-complete weight-1 weight-2",
+        "targeted web search for ideal G_k(x,y), 0.15547, 0.7939, and degree-2 LT peeling"
+      ],
+      "rationale": "The theorem resolves an explicit recent conjecture linking an ideal-decoding construction to the degree-two LT peeling optimum. It also explains structurally why the ideal decoder's finite-size cycle advantage disappears at first order when direct marks have positive density. This is a motivated probabilistic/coding-theoretic gap, not merely recomputation of the numerical optimum.",
+      "residual_risks": [
+        "The theorem uses the iterated large-multiplicity then large-dimension limit with a in (0,1), and does not cover the boundary a=0 or higher support weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent marked-random-graph proof could exist under terminology not surfaced by the coding-theory and Resultary searches.",
+    "Publication is withheld because every frozen package contains operational workflow material in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files, including audit-status and workflow-state fields. The complete 37-file recursive inventory was read; RESULT.md, SLOGAN.txt, certificates, and verifier sources were semantically inspected and were clear of the checked platform/workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}
