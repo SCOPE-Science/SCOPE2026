@@ -1,18 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The proof is analytic for every prime \(p\ge5\). At each Fourier zero, the four normalized Fourier summands are unit complex numbers with zero sum. Their monic root polynomial has vanishing first and third elementary symmetric sums and is therefore even, forcing an antipodal pairing. A fixed pairing cannot recur at two distinct frequencies in a prime cyclic group. Three zeros would require all three perfect matchings and then force \(-1\) to be a \(p\)-th root of unity. Two zeros force the support identity \(x_1+x_4=x_2+x_3\), and explicit unimodular coefficients realize two zeros whenever that identity holds. Separate explicit constructions realize zero and one zero.
+## correctness
 
-The standalone checker is finite corroboration only. It replays all four-element supports for every prime from \(5\) through \(31\), including the constructed two-zero witness on every centrally symmetric support.
+PASS
 
-## Originality
-Tao's prime-cyclic uncertainty theorem is the closest broad result. For a four-sparse signal it allows as many as three Fourier zeros and, conversely, guarantees unrestricted coefficient vectors with prescribed support pairs at the sharp cardinality threshold. It does not impose equal coefficient magnitudes, and therefore does not imply the phase-only two-zero ceiling or the central-symmetry criterion.
+The proof reconstructs completely. At any Fourier zero four unit complex summands have zero sum; the monic polynomial with those roots has vanishing odd elementary coefficients, hence is even and the roots split into two antipodal pairs. A fixed matching cannot recur at two distinct frequencies because every nonzero support difference is invertible modulo the prime. Three zeros would require all three matchings and force minus one to be a p-th root of unity, impossible for odd p. Two distinct zeros force the additive relation \(x_1+x_4=x_2+x_3\). Conversely that relation gives an explicit two-zero phase choice. The all-one vector has no zero, and the one-parameter pairwise-antipodal phase family realizes exactly one zero after avoiding finitely many forbidden phases. Thus the stated attainable sets hold for every prime \(p\ge5\); finite verification is corroborative only.
 
-Krahmer, Pfander, and Rashkov survey finite-Abelian support uncertainty and develop short-time Fourier analogues. Their finite-Fourier discussion uses arbitrary coefficient vectors; searches of the inspected full text found no constant-modulus or unimodular-coefficient restriction matching the present claim.
+## originality
 
-Targeted database and web searches covered phase-only, constant-modulus, unimodular-null-vector, four-sparse, roots-of-unity, and additive-parallelogram formulations. No inspected source supplied this fixed-support classification. A residual risk remains for older sequence-design or phase-code literature indexed under different terminology.
+PASS
 
-## Value
-The theorem isolates the first sharp difference between unrestricted and phase-only four-sparse uncertainty on prime cyclic groups: Tao's three-zero extremal becomes impossible, while the survival of two zeros is governed exactly by additive geometry of the support. This is a complete all-prime classification for a natural constrained uncertainty problem, not a finite table or a numerical increment.
+Originality passes. Tao gives the sharp unrestricted prime-cyclic support uncertainty theorem, and finite-Abelian uncertainty papers treat arbitrary coefficient vectors. Those results allow a four-sparse vector to have three Fourier zeros but do not classify the equal-magnitude fixed-support phase-only problem. The nearby published SCOPE consecutive-quadrinomial result concerns one prescribed consecutive support over general cyclic order and does not dominate the arbitrary four-point support classification on prime groups. Fresh Resultary comparison returned the audited theorem as the exact same-object hit and no earlier implication-equivalent phase-only result.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Equal-magnitude phase-only design is a natural constrained Fourier problem, and the result identifies exactly how the sharp unrestricted four-sparse uncertainty frontier changes: the three-zero extremal disappears, while two zeros survive precisely on centrally symmetric supports. This is a structural rigidity theorem for every fixed four-point support rather than an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
