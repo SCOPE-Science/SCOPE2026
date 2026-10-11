@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact published matrix was reconstructed over \(\mathbb F_3\). Every subspace of the message space was enumerated once in reduced row-echelon form, giving \(121,1210,1210,121,1\) subcodes in dimensions \(1\) through \(5\). Direct support unions give
-\[
-(12,17,19,21,23).
-\]
-The unique proportional generator-column pair is at coordinates \(7\) and \(22\), and MacWilliams transformation independently confirms exactly two dual weight-\(2\) words.
+PASS
 
-## Originality
+A fresh independent RREF enumeration exhausts all 121, 1210, 1210, 121 and 1 subspaces in dimensions one through five and exactly reproduces every support histogram and the hierarchy (12,17,19,21,23). The projective column multiset has one repeated point at coordinates 7 and 22, proving dual distance two and a one-dimensional relation space with two nonzero ternary relations. The transparent package verifier independently agrees and its MacWilliams check reproduces the first dual coefficients.
 
-PASS. The source gives the matrix and minimum distance but not generalized weights. The associated dataset was specifically inspected and contains ordinary and dual weight signatures, not dimension-by-dimension support spectra. Exact and alias searches found no prior same-object higher-support statement.
+## originality
 
-## Value
+PASS
 
-PASS. Because the source reports many inequivalent codes with these parameters, the exact higher-support hierarchy and full subcode-support census are natural structural data for comparing the new constructions. They refine minimum distance and ordinary weight enumerators and expose the project's unique repeated-column feature.
+The source paper introduces the displayed distance-improved code and publishes its generator matrix/parameters, while no inspected source or Resultary finding gives its generalized Hamming hierarchy or dimension-by-dimension support census. Generalized-weight theory supplies definitions but not these matrix-specific values. The full finite computation was independently reconstructed rather than accepted from stored output.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a newly displayed distance-improved LCD code for which higher support geometry is a standard, natural structural invariant. The complete subcode census refines minimum distance and ordinary weights and can distinguish or compare inequivalent representatives with the same [23,5,12] parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
