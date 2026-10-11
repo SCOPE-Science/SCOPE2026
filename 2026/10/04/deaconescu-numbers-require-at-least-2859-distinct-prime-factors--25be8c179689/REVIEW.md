@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Starting from the published odd-squarefree reduction and multiplier equation, reduction modulo \(3\) gives exactly three possible prime-residue patterns. Mixed nonzero residue classes are impossible. In the two patterns containing only primes congruent to \(1\pmod3\), the multiplier congruence forces \(M\ge5\); in the all-\(2\pmod3\) pattern, \(M\ge3\). Because \((p-1)/(p-2)\) strictly decreases with \(p\), the first admissible primes maximize the ratio for each fixed factor count. Exact integer cross-multiplication verifies the three required upper bounds through \(2858\) factors and the next-step crossing at \(2859\).
+## correctness
 
-## Originality
-PASS. Hasanalizade's 2022 paper proves only \(\omega(n)\ge7\). Mandal's 2025 full text is the closest later comparison and proves \(\omega(n)\ge17\) generally and \(\omega(n)\ge48\) for multiplier \(3\), with the same all-\(2\pmod3\) residue pattern in that special case. It does not state or imply the exact \(2859\) threshold without the new extremal-product calculation and the remaining multiplier cases. Exact-number and semantic searches found no covering result. The residual risk is an unindexed independent computation.
+PASS
 
-## Value
-PASS. Prime-factor lower bounds are the explicit progression studied by both dedicated papers on this conjecture. The jump from \(17\) to \(2859\) is substantial, and \(2859\) is the exact cutoff of a natural residue-constrained product inequality rather than a discretionary computational endpoint. The result materially narrows the shape of any hypothetical counterexample.
+Starting from M∏(p−2)=∏(p−1)−1 for an odd squarefree Deaconescu number, one has M odd, M≥3 and M<∏(p−1)/(p−2). The modulo-3 classification is exhaustive: if 3 divides n, every other prime must be 1 mod 3; if 3 does not divide n, residue classes 1 and 2 mod 3 cannot mix. The resulting congruences force M≥5 or 7 in the 1-mod-3 patterns and M≥3 in the all-2-mod-3 pattern. Because each factor (p−1)/(p−2) decreases with p, the extremal products over the smallest admissible primes control every configuration with at most 2858 factors. I independently recomputed the exact integer cross-products: the two 1-mod-3 bounds are below 5, the first 2858 2-mod-3 factors are below 3, and the 2859th crosses above 3; the terminal primes are exactly 56569, 56599, 56081, 56087. Thus all r≤2858 cases are excluded and the claimed cutoff follows. The finite sieve certifies only the explicit prime/product thresholds; the universal exclusion uses the monotonicity and residue proof.
 
-## Closest literature and limitations
-The closest sources are Elchin Hasanalizade, “On a conjecture of Deaconescu,” *Integers* 22 (2022), A99, and Sagar Mandal, “A Note on Deaconescu's Conjecture,” *Annals of West University of Timisoara - Mathematics and Computer Science* 61 (2025), 55–60. The result remains only a necessary condition and does not prove Deaconescu's conjecture.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Hasanalizade's full 2022 paper proves oddness, squarefreeness and ω(n)≥7 and already uses M<φ/S2 as a small-support exclusion. Mandal's 2025 primary article raises the general bound to 17 and states that multiplier-3 solutions have all prime factors 2 mod 3 with ω(n)≥48. The audited result strengthens these by an exhaustive modulo-3 pattern split and exact prime-class extremal products to 2859 for every multiplier. Resultary and targeted literature searches found no stronger or equal published bound or the 56087 crossing. This is not a simple restatement of the prior ratio inequality because the decisive new content is the residue-class partition plus a much deeper exact product threshold.
+
+## value
+
+PASS
+
+Improving a seven/17-factor obstruction to 2859 factors materially changes the known quantitative landscape of Deaconescu's conjecture, and the exact threshold exposes the current modulo-3 method's natural limit. The result combines a structural residue sieve with an exact finite cutoff rather than merely increasing a search bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

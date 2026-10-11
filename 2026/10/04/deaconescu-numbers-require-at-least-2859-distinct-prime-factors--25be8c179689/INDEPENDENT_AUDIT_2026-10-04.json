@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T19:17:18.241629Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from M∏(p−2)=∏(p−1)−1 for an odd squarefree Deaconescu number, one has M odd, M≥3 and M<∏(p−1)/(p−2). The modulo-3 classification is exhaustive: if 3 divides n, every other prime must be 1 mod 3; if 3 does not divide n, residue classes 1 and 2 mod 3 cannot mix. The resulting congruences force M≥5 or 7 in the 1-mod-3 patterns and M≥3 in the all-2-mod-3 pattern. Because each factor (p−1)/(p−2) decreases with p, the extremal products over the smallest admissible primes control every configuration with at most 2858 factors. I independently recomputed the exact integer cross-products: the two 1-mod-3 bounds are below 5, the first 2858 2-mod-3 factors are below 3, and the 2859th crosses above 3; the terminal primes are exactly 56569, 56599, 56081, 56087. Thus all r≤2858 cases are excluded and the claimed cutoff follows. The finite sieve certifies only the explicit prime/product thresholds; the universal exclusion uses the monotonicity and residue proof.",
+      "risks": [
+        "The theorem is a lower bound conditional on the Deaconescu property and does not prove existence or nonexistence.",
+        "The number 2859 is sharp only for this modulo-3 extremal-product strategy."
+      ],
+      "sources": [
+        "assigned RESULT.md, thresholds.json and verify.py",
+        "Hasanalizade, Integers 22 (2022), A99",
+        "Mandal, DOI 10.2478/awutm-2025-0005"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older ratio method uses the smallest unrestricted odd primes only for small ω and does not imply the residue-filtered 2859 cutoff.",
+          "Mandal's strongest cited special case stops at 48."
+        ],
+        "reasoning": "No broader published Deaconescu theorem inspected dominates the new lower bound.",
+        "searches": [
+          "Hasanalizade proof of Theorem 1",
+          "Mandal 2025 primary abstract/article page",
+          "current Resultary number-theory search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.10355",
+        "DOI 10.2478/awutm-2025-0005",
+        "arXiv:2507.02930",
+        "current Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inequality M<∏(p−1)/(p−2) alone does not yield 2859 without the admissible-residue classification and exact prime-class products.",
+          "Mandal's multiplier-3 residue theorem covers one multiplier class and yields only 48, while the audited proof treats every possible odd multiplier."
+        ],
+        "reasoning": "The final 2859 theorem is a genuine strengthening rather than a corollary at the stated numerical threshold.",
+        "searches": [
+          "claim-versus-prior implication comparison with Hasanalizade and Mandal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hasanalizade Theorem 1 gives ω(n)≥7.",
+          "Mandal's abstract gives general ω(n)≥17 and multiplier-3 ω(n)≥48 with all prime divisors 2 mod 3.",
+          "No inspected prior statement reaches the 2859 general bound."
+        ],
+        "reasoning": "Equivalent formulations through multiplier classes, congruence restrictions, and extremal Euler-type products over primes in arithmetic progressions were compared.",
+        "searches": [
+          "Resultary: Deaconescu number Schemmel S2 prime factors 2859 multiplier 3 modulo 3",
+          "Hasanalizade 2022 full paper",
+          "Mandal 2025 exact-title/DOI search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table/database containing the exact crossing or bound was located."
+        ],
+        "reasoning": "The exact product computation is a finite certificate embedded in a universal arithmetic proof, not a known-table recomputation.",
+        "searches": [
+          "exact searches for 2859, 56087, and the multiplier-3 crossing",
+          "current Resultary search"
+        ]
+      },
+      "rationale": "Hasanalizade's full 2022 paper proves oddness, squarefreeness and ω(n)≥7 and already uses M<φ/S2 as a small-support exclusion. Mandal's 2025 primary article raises the general bound to 17 and states that multiplier-3 solutions have all prime factors 2 mod 3 with ω(n)≥48. The audited result strengthens these by an exhaustive modulo-3 pattern split and exact prime-class extremal products to 2859 for every multiplier. Resultary and targeted literature searches found no stronger or equal published bound or the 56087 crossing. This is not a simple restatement of the prior ratio inequality because the decisive new content is the residue-class partition plus a much deeper exact product threshold.",
+      "residual_risks": [
+        "An unindexed computation could have noticed the same prime-product crossing, though no such theorem was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE only.",
+          "evidence": "Theorem 1 proves odd, squarefree and ω(n)≥7; its proof uses the basic ratio only to exclude up through six factors.",
+          "identifier_or_url": "arXiv:2206.10355; Integers 22 (2022), A99",
+          "material_read": "Full six-page open-access PDF text, with page image inspected; abstract, Theorem 1, preliminary multiplier facts, and proof of the seven-factor bound.",
+          "method": "Primary full-text theorem/proof comparison.",
+          "title": "On a conjecture of Deaconescu",
+          "trigger": "Primary earlier lower bound and foundational squarefree/ratio lemmas."
+        },
+        {
+          "assessment": "STRICTLY WEAKER BOUNDS.",
+          "evidence": "The published abstract states ω(n)≥17 generally and ω(n)≥48 for n in D3 with all prime divisors 2 mod 3.",
+          "identifier_or_url": "DOI 10.2478/awutm-2025-0005; arXiv:2507.02930",
+          "material_read": "Primary journal article page and arXiv abstract, including the stated general 17-factor and D3 48-factor results.",
+          "method": "Primary statement-level comparison.",
+          "title": "A note on Deaconescu's conjecture",
+          "trigger": "Closest later published lower bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Improving a seven/17-factor obstruction to 2859 factors materially changes the known quantitative landscape of Deaconescu's conjecture, and the exact threshold exposes the current modulo-3 method's natural limit. The result combines a structural residue sieve with an exact finite cutoff rather than merely increasing a search bound.",
+      "risks": [
+        "It remains far from resolving the existence conjecture and may be superseded by stronger congruence information."
+      ],
+      "sources": [
+        "Hasanalizade 7-factor bound",
+        "Mandal 17/48-factor bounds",
+        "exact prime-class product threshold"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No existence/nonexistence resolution.",
+    "2859 is method-sharp only for the displayed modulo-3 extremal strategy.",
+    "Best-of-knowledge originality."
+  ],
+  "schema_version": 1
+}
