@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T11:53:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For an injective ordered tuple, meet closure has n+k points with 0<=k<=n-1. Marking tuple entries black and additional meet points white gives exactly a rooted Greg tree: every white generated point is a meet of black descendants in at least two child cones, and conversely every white Greg vertex is generated as a meet of black descendants from distinct children. In the generic graph/meet-tree Fraisse age, an arbitrary simple graph relation may be placed on the same n+k-element meet-tree carrier. A tuple-preserving isomorphism fixes every black generator and hence every meet term, so there is no further automorphism quotient: each closure shape contributes exactly 2^{binom(n+k,2)} orbits. The species root decomposition gives G=x exp(G)+u(exp(G)-1-G). The k=n-1 term gives the lower exponential scale and the labeled-tree bound gives the stated O(n log n) upper correction, so log2(a_n)/n^2 -> 2. The bundled exact recurrence/species agreement is a finite arithmetic check, not the proof.",
+      "risks": [
+        "The proof depends on the generic mix being genuinely free in the graph language over the finite meet-tree carrier; it does not apply to constrained graph expansions.",
+        "The count is for injective ordered tuples, not unordered finite substructures."
+      ],
+      "sources": [
+        "RESULT.md blob 8e2795decb146b0ab0ed8833cfe21cd5b21634e8",
+        "verify.py blob 175d98ea2f7f8ed8778c7fec5ddd4389c6089980",
+        "OEIS:A048160",
+        "Kaplan--Riahi--Rodriguez Fanlo arXiv:2310.07614 / DOI:10.1016/j.jalgebra.2025.03.020"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper supplies the free generic structure; OEIS supplies the closure-shape counts.",
+          "Other Resultary orbit-profile results concern random posets, bipartite reducts and distributive lattices, not meet-trees."
+        ],
+        "reasoning": "Neither ingredient alone is broader than the final weighted theorem; the crucial combination requires free graph decoration on the generated meet-closure and pointwise fixation of all meet terms.",
+        "searches": [
+          "Kaplan--Riahi--Rodriguez Fanlo arXiv:2310.07614 and DOI",
+          "OEIS:A048160/A005264",
+          "Resultary related ordered-tuple orbit-profile records"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.07614",
+        "DOI:10.1016/j.jalgebra.2025.03.020",
+        "OEIS:A048160",
+        "OEIS:A005264",
+        "Resultary semantic index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed n+k meet closure can carry any of 2^{binom(n+k,2)} simple graphs.",
+          "Because every closure point is a meet term in labeled tuple entries, a tuple-fixing isomorphism cannot quotient distinct edge sets."
+        ],
+        "reasoning": "These two facts justify the exact multiplicative weight; no inspected prior source states their summed orbit-count consequence.",
+        "searches": [
+          "Direct comparison of generic-mix Fraisse age with A048160"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A048160 is exactly the unweighted (n,k) rooted Greg-tree triangle.",
+          "The Rado meet-tree primary abstract identifies the generic meet-tree expansion/Fraisse limit but states a simplicity theorem, not an orbit profile.",
+          "Exact-value searches did not recover the weighted sequence in literature."
+        ],
+        "reasoning": "Aliases cover Rado meet-tree, generic meet-tree expansion, oligomorphic/tuple orbit profile, Greg trees, and the distinctive initial values.",
+        "searches": [
+          "Resultary: Rado meet-tree injective tuple orbit profile rooted Greg trees graph decoration",
+          "web exact-value searches: 33870848 Rado meet-tree; 1,12,3784 Rado meet-tree",
+          "OEIS:A048160",
+          "arXiv:2310.07614"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A048160 gives g_{n,k} and row sums A005264 but not the graph-weighted totals 1,12,3784,33870848,... ."
+        ],
+        "reasoning": "The exact classical database is explicitly prior and was checked; it does not contain the final weighted orbit profile under the inspected descriptions.",
+        "searches": [
+          "OEIS:A048160",
+          "OEIS:A005264",
+          "exact-number web searches"
+        ]
+      },
+      "rationale": "PASS with an explicit access residual. The Rado meet-tree paper defines the structure as the Fraisse limit of finite graphs that are also meet-trees and is about automorphism-group simplicity; its accessible primary abstract does not state a tuple-orbit enumeration. OEIS A048160 exactly covers the refined Greg-tree counts g_{n,k}, including the same white-vertex condition and recurrence, so that enumeration is prior art. The submitted contribution is the implication-level bridge that each meet-closure shape carries every graph decoration and that tuple labels freeze all meet terms, yielding the factor 2^{binom(n+k,2)} and the weighted profile. Exact-value web searches and a Resultary orbit-profile query found no prior weighted sequence/profile. The complete same-paper text could not be reliably retrieved after lawful public-access attempts; that access gap is retained as a residual risk rather than treated as evidence of novelty.",
+      "residual_risks": [
+        "Full reliable text of the 2025 Rado meet-tree paper was not available in this run; an orbit-profile observation hidden in that text remains a specific residual risk.",
+        "An unindexed model-theory note could combine the generic mix with Greg-tree counts under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ACCESS_SUPPORTING_NOT_COVERING",
+          "evidence": "The accessible statement concerns simplicity of the automorphism group and does not state finite tuple-orbit counts.",
+          "identifier_or_url": "arXiv:2310.07614; DOI:10.1016/j.jalgebra.2025.03.020",
+          "material_read": "Accessible primary abstract/bibliographic material identifying the Rado meet-tree as the Fraisse limit of finite graphs also carrying meet-tree structure; full text was not reliably obtainable in this run after public-access attempts.",
+          "method": "Statement-level comparison with explicit access limitation.",
+          "title": "Automorphisms of the Rado meet-tree",
+          "trigger": "Primary source for the exact homogeneous structure and generic-mix setup."
+        },
+        {
+          "assessment": "COVERS_COMPONENT_ENUMERATION_ONLY",
+          "evidence": "It counts (n,k) labeled rooted Greg trees but has no Rado meet-tree graph-decoration interpretation or weighted orbit totals.",
+          "identifier_or_url": "OEIS:A048160",
+          "material_read": "Definition, initial triangle, recurrence, generating-function information, and cross-reference to A005264.",
+          "method": "Direct exact-database inspection.",
+          "title": "OEIS A048160",
+          "trigger": "Exact database match for the refined rooted Greg-tree triangle used in the formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The oligomorphic profile of a named homogeneous expansion is a natural invariant, and the theorem gives an exact all-n formula plus a sharp quadratic logarithmic growth constant. It cleanly separates known Greg-tree combinatorics from the new graph-decoration step. This is a structurally motivated classification, not an arbitrary numerical slice.",
+      "risks": [
+        "No asymptotic beyond the leading quadratic logarithmic term is claimed."
+      ],
+      "sources": [
+        "Rado meet-tree automorphism literature",
+        "OEIS:A048160",
+        "exact orbit formula"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality is best-of-knowledge with a concrete full-text access residual for the closest primary paper."
+  ],
+  "schema_version": 1
+}
