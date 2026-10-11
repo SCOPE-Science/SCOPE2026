@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Every closed-neighborhood facet is F_v together with one same-color vertex in each neighboring fiber. Girth >=5 guarantees that two different off-fiber vertices identify their unique generator. Pair each such face not containing pivot (v,a) with its extension by that pivot, descending in face size; all pairs are disjoint and all lower faces are free when removed. Exactly m 2^(m-1) sum_v(2^deg(v)-deg(v)-1) pairs are removed. The residual is the union of blocks P_uv=Delta(F_u)*D_v union D_u*Delta(F_v); each is a suspension of K_m,m, hence a wedge of (m-1)^2 two-spheres. The block assembly has contractible fiber intersections with incidence graph H, proving H wedge e(m-1)^2 two-spheres integrally. A fixed-color H subgraph is a section of the simplicial projection, so first-homology surjectivity and free-kernel rank follow from exact graph Euler characteristic. The embedded standard-library code exhaustively validates removals, residual faces, and independent F2 chain ranks for paths, stars, cycles and Petersen, widths 2,3,4. Only widths m>=3 are new; computations supplement, not replace, the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Matsushita Example 3.5 computes N[K_m square K_n] using canonical double coverings, and in particular includes the H=K_2 special case (one base edge), but bases with two or more edges of girth at least five are not products of two complete graphs.",
+        "The prior high-girth prism theorem (own ID e4f536ce-ab68-405c-85b4-1b3495e2e719) assumes a width-two K_2 fiber, and therefore does not cover any claimed m>=3 value."
+      ],
+      "reasoning": "The strongest inspected Cartesian-product closed-neighborhood comparison has two complete factors, covering the H=K_2 case but not arbitrary high-girth bases. The earlier all-base prism theorem covers only m=2. Neither covers the new infinite width parameter.",
+      "searches": [
+        "Generalized circular ladder clique cylinder Čech scale two elementary collapse cycle bundle",
+        "\"Čech complexes\" \"Cartesian product\" \"cycles\" \"complete graphs\" homotopy",
+        "https://arxiv.org/pdf/2511.12608#page=11",
+        "published-result title: The icosahedral neighborhood complex is a wedge of twenty-three two-spheres"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.05871 Lemmas 2.2 and 2.6 and Sections 3-6",
+      "arXiv:2511.12608 Theorem 1.2 and Example 3.5",
+      "arXiv:2512.09674 Definition 2.4 and Section 4",
+      "own row e4f536ce-ab68-405c-85b4-1b3495e2e719 (width-two high-girth prism)",
+      "own row 484602c5-4489-4a2e-a5d1-960414d6aca7 (circular ladder)",
+      "own row d12ebec0-0d43-4857-8bd9-e589077739e3 (Rips of cyclic clique strips)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adams–Shukla–Singh give the underlying even-scale neighborhood lemma and a general homotopy-pushout lemma, but the published hypercube results have different products and do not provide this edge-block collapse.",
+        "Matsushita Example 3.5 has G=K_m square K_n and covers H=K_2 as a special case, but not noncomplete connected high-girth bases with at least three vertices; the theorem now covers those bases uniformly.",
+        "Shen–Song–Yu–Zhou–Zhuang, arXiv:2512.09674, Definition 2.4 explicitly uses the ordinary OPEN neighborhood complex; its prism and circular-ladder examples are not the closed-neighborhood Čech functor.",
+        "Own prior width-two prism and circular-ladder theorems imply the m=2 specialization only; the new claim restricts m>=3."
+      ],
+      "reasoning": "Comparing definitions, quantifiers, family inclusions, and homotopy conclusions rules out implication from the inspected primary statements and own prior rows. This does not exclude unindexed independent results, recorded as a residual risk.",
+      "searches": [
+        "Homotopy type intrinsic graph Čech complex Cartesian product cycle complete graph C_n box K_m",
+        "Generalized circular ladder clique cylinder Čech scale two elementary collapse cycle bundle",
+        "https://arxiv.org/pdf/2212.05871#page=4",
+        "https://arxiv.org/pdf/2511.12608#page=11",
+        "https://arxiv.org/pdf/2512.09674"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adams–Shukla–Singh Lemma 2.2 identifies scale-two intrinsic Čech with the closed-neighborhood complex. Matsushita Definition 1.1 describes the identical closed-neighborhood functor, but Example 3.5 treats K_m square K_n, not a high-girth base H square K_m.",
+        "The claimed (m-1)^2 two-spheres per base edge are obtained by a distinct off-fiber-vertex matching, not merely by changing notation."
+      ],
+      "reasoning": "All equivalent formulations were compared as complexes of closed radius-one vertex balls, closed-neighborhood complexes, and nerves of neighborhood generators. A related theorem for two complete factors or the width-two case does not imply the m>=3 classification for arbitrary high-girth base graphs.",
+      "searches": [
+        "Čech complex radius one closed neighborhood nerve cyclic strip Cartesian product C_n square K_m wedge n(m-1)^2 two spheres circle",
+        "Homotopy type intrinsic graph Čech complex Cartesian product cycle complete graph C_n box K_m",
+        "neighborhood complex closed C_n cartesian K_m two dimensional Betti wedge spheres",
+        "\"Čech\" \"C_n\" \"K_m\" \"Cartesian\" graph homotopy",
+        "\"closed neighborhood complex\" \"cycle\" \"complete graph\" \"cartesian product\"",
+        "https://arxiv.org/pdf/2212.05871#page=4",
+        "https://arxiv.org/pdf/2511.12608#page=11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own current and prior ledgers were searched by claim and source subject; exact n(m-1)^2 wedge ranks were not found for Čech scale two of H square K_m at m>=3.",
+        "A previous result about C_n square K_m (own ID d12ebec0-0d43-4857-8bd9-e589077739e3) computes a Vietoris–Rips, rather than a Čech, filtration."
+      ],
+      "reasoning": "The desired table entries are full integral homotopy types and integral first-homology inclusion ranks. Available finite tests reproduce new entries but are not external tables or prior coverage; the other graph filtration has a different simplex rule and cannot imply the claim.",
+      "searches": [
+        "Čech complex radius one closed neighborhood nerve cyclic strip Cartesian product C_n square K_m wedge n(m-1)^2 two spheres circle",
+        "neighborhood complex closed C_n cartesian K_m two dimensional Betti wedge spheres",
+        "\"Čech\" \"C_n\" \"K_m\" \"Cartesian\" graph homotopy",
+        "published-finding corpus query: Homotopy type intrinsic graph Čech complex Cartesian product cycle complete graph C_n box K_m"
+      ]
+    },
+    "rationale": "Full-text primary comparisons distinguish graph Čech closed-neighborhood nerves from Vietoris–Rips and Lovász open-neighborhood complexes. The strongest directly relevant published Cartesian product example uses two complete factors and therefore includes the single-edge base special case, but not arbitrary high-girth bases. Prior own prism/circular-ladder classifications cover only m=2, expressly excluded. Actual published-result searches did not locate an equivalent m>=3 girth>=5 edge-block collapse or integral kernel. Novelty is qualified by residual risk of unindexed equivalent work.",
+    "residual_risks": [
+      "An equivalent classification may appear in unindexed or inaccessible graph-complex literature.",
+      "The later Shen et al. paper is an open-neighborhood construction; its complete section was not a covering source for closed-neighborhood claims, and full bibliography coverage remains incomplete."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the closed-neighborhood model and generic homotopy tools; no graph product with arbitrary high-girth base and clique fiber, nor the claimed exact collapse and integral kernel.",
+        "evidence": [
+          "Lemma 2.2: for even integer scale, simplices lie in a vertex neighborhood.",
+          "Theorem 4.1 and Theorem 5.9: topology for hypercube graphs, a distinct Cartesian product of K_2 factors."
+        ],
+        "identifier_or_url": "arXiv:2212.05871 | https://arxiv.org/pdf/2212.05871",
+        "material_read": "Abstract, introduction, Lemmas 2.2, 2.5, 2.6, and hypercube classification/results of Sections 3–6 in the accessible 17-page PDF.",
+        "method": "Opened arXiv full-text PDF, searched lemma statements, and viewed rendered PDF pages.",
+        "title": "Čech complexes of hypercube graphs",
+        "trigger": "Same intrinsic scale-two graph Čech construction and possible general lemmas covering new claim."
+      },
+      {
+        "assessment": "Example 3.5 classifies K_m square K_n, while the present base has girth at least five. The stable canonical-double-cover theorem does not identify the claimed all-parameter edge blocks.",
+        "evidence": [
+          "Example 3.5 derives N[K_m square K_n] as a wedge of f(m,n) two-spheres from a product-of-complete-graphs calculation.",
+          "Theorem 1.2 concerns the suspension of a closed-neighborhood complex and an independence complex of a double cover."
+        ],
+        "identifier_or_url": "arXiv:2511.12608 | https://arxiv.org/pdf/2511.12608",
+        "material_read": "Definitions, Theorem 1.2, Section 3 proof and Example 3.5, plus introductory section and references in the accessible 24-page PDF.",
+        "method": "Opened and read arXiv PDF text and rendered first page; followed exact Example 3.5 formula.",
+        "title": "Closed neighborhood complexes of graphs",
+        "trigger": "Identical closed-neighborhood complex; potential broader Cartesian-product classification."
+      },
+      {
+        "assessment": "The paper defines the Lovász OPEN-neighborhood complex, not the closed radius-one metric Čech nerve. Its named prisms/circular ladders cannot be assumed to cover this result.",
+        "evidence": [
+          "Definition 2.4: simplex iff its vertices have a common neighbor (no closed-center requirement).",
+          "Introduction describes prisms/circular ladders within its open-neighborhood framework."
+        ],
+        "identifier_or_url": "arXiv:2512.09674 | https://arxiv.org/pdf/2512.09674",
+        "material_read": "Abstract, Section 1 subject families, Definition 2.4 and beginning of Section 4 in the accessible PDF.",
+        "method": "Opened arXiv PDF and rendered Definition 2.4 page to distinguish open from closed neighborhood complexes.",
+        "title": "Neighborhood complexes of induced k-independent graphs",
+        "trigger": "Highly similar circular-ladder and prism vocabulary; possible equivalent neighbor complex calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bcf5b8b9-6c75-438e-8d50-a37a56396102",
+  "value": {
+    "rationale": "The theorem supplies a complete all-parameter integral homotopy classification over arbitrary finite high-girth base graphs and nontrivial clique fiber widths, with explicit elementary simplicial collapse count and the exact first Čech persistence kernel. Local second-homology contribution scales quadratically with fiber width, distinguishing this construction from width-two prisms and from the previously classified Rips filtration. Branching trees, multiple-cycle bases, and cyclic strips are covered by one structural proof, so the result is not an arbitrary finite table or small numerical gain.",
+    "status": "PASS"
+  }
+}
