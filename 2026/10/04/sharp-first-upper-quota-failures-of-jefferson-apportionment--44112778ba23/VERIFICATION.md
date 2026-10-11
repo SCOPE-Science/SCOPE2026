@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_jefferson_quota_boundary.py` is an exact-rational replay of the finite checks supporting the analytic theorem.
 
-It implements Jefferson/D'Hondt by direct highest-averages selection. For every strict allocation it independently verifies the equivalent divisor interval: there is a divisor \(d\) such that every allocation equals the floor of population divided by \(d\).
+# Independent mathematical audit
 
-The replay checks:
-- two-entity positive integer profiles through total population \(30\) and house sizes through \(10\), finding no upper-quota violation;
-- three-entity, two-seat profiles through total population \(30\), again finding no violation;
-- all three-entity, three-seat profiles through total \(30\), requiring exact agreement between actual violations and the chamber \(3/5<p_A\le2/3\) with both rivals below \(p_A/3\);
-- all four-entity, two-seat profiles through total \(30\), requiring exact agreement with the chamber \(2/5<p_A\le1/2\) with all rivals below \(p_A/2\);
-- unique least-total sorted integer witnesses \((4,1,1)\) and \((3,1,1,1)\);
-- exact simplex probabilities \(1/45\) and \(1/40\) using `Fraction` arithmetic.
+## correctness
 
-Run:
+PASS
 
-`python3 verify_jefferson_quota_boundary.py`
+For two entities, the selected \(a\)-th quotient exceeding the rival's next unselected quotient gives \(a<hp_A+1\), so upper quota cannot fail. One seat is trivial, and the three-entity/two-seat cell is excluded because two seats for \(A\) with \(p_A\le1/2\) would require \(p_A/2>\max(p_B,p_C)\ge(1-p_A)/2\). At \((3,3)\), a violation must allocate all three seats to one entity, giving exactly the displayed chamber; at \((4,2)\), both seats to one entity gives the second chamber. These facts establish coordinatewise minimality. The exact-rational verifier independently checks integer grids, divisor certificates, witness minimality and the two exact integrals, and the simplex integrations were independently recomputed as \(1/45\) and \(1/40\).
 
-The first output line must be:
+## originality
 
-`VERIFY_OK`
+PASS
 
-The finite sweeps are consistency checks. The continuum minimality and chamber statements are proved analytically in `RESULT.md`; no infinite claim is inferred from bounded enumeration.
+Balinski and Young's primary quota work defines upper quota, documents quota failures of classical divisor methods, and proves that Jefferson is characterized by lower rather than upper quota. The inspected full 1975 article gives large upper-quota counterexamples but not the smallest numbers of entities and seats. Fresh exact-number and witness searches found no source stating the two coordinatewise-minimal cells, their complete strict-cutoff chambers, the simplex probabilities, or the least positive-integer witnesses.
+
+## value
+
+PASS
+
+Upper-quota failure of Jefferson is classical, but its sharp onset is a natural structural boundary of a foundational apportionment method. The complete chambers, exact geometric incidence probabilities and minimal integer witnesses resolve the first two admissible cells rather than merely supplying another counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
