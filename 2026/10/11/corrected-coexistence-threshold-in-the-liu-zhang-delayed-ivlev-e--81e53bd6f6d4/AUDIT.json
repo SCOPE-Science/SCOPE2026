@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "At equilibrium, the predator equation gives 1-e^{-beta x*}=s e^{s tau}/(alpha Y), and the prey equation gives y*=(rYx*/(s e^{s tau}))(1-x*/K). Hence y*>0 iff x*<K, yielding tau<(1/s)log(alpha Y(1-e^{-beta K})/s). At the printed parameters this equals 132.923341652608..., while the weaker condition that x* merely remain real lasts to 250.531764704813.... At tau=250 the printed formulas give x*=45.4889011125... and y*=-409.077854460..., so no positive coexistence equilibrium exists there. The analytic sign argument, not the floating-point checker, proves the claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 Beddington–DeAngelis paper uses a predator-interference response and a nonlinear survival expression; its full text analyzes local stability and Hopf branches and numerically labels predator extinction, not the Liu–Zhang Ivlev threshold.",
+        "The 2020 stage-structured Ivlev paper has immature/mature prey structure and two delays; its accessible abstract concerns stability and Hopf bifurcation in that different system."
+      ],
+      "reasoning": "Related delay-predator literature does not dominate a source-specific algebraic correction for the Liu–Zhang parameter vector.",
+      "searches": [
+        "Chaos detection Ivlev delayed predator prey coexistence threshold numerical error",
+        "Stability and Hopf bifurcation delayed predator-prey stage structure Ivlev global stability extinction",
+        "Dynamical behaviors delayed prey predator Beddington-DeAngelis survival delay extinction threshold"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20241196",
+      "doi:10.1142/S0218127420502442",
+      "doi:10.1007/s11071-020-05467-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current-week ledger through its latest prior generation contains no Liu–Zhang 2024 Ivlev claim, DOI, tau_c, or 132.9233 entry.",
+        "The immediately preceding weekly ledger was searched for the DOI, Ivlev, 132.9233, tau_c, and the source title; no matching prior claim was found.",
+        "Closest published-finding corpus records concern unrelated equilibrium corrections, threshold theorems, or other dynamical systems and do not imply this source-specific parameter correction."
+      ],
+      "reasoning": "The finding is not a corollary or restatement of an owned prior claim. It concerns a fresh source and a distinct equilibrium-positivity inconsistency.",
+      "searches": [
+        "10.3934/math.20241196 tau_c 250 132.9233 coexistence equilibrium",
+        "survival-factor delay predator prey sharp global extinction threshold carrying capacity",
+        "Liu Zhang delayed Ivlev predator prey global attraction predator-free equilibrium"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full AIMS article states Proposition 3.1 with the positivity threshold involving 1-e^{-beta K}, then Section 4.1 states coexistence for tau<250 and separately reports tau_3=132.9233.",
+        "Direct substitution into Proposition 3.1 gives 132.923341652608..., matching tau_3 rather than 250."
+      ],
+      "reasoning": "The correction is an implication comparison inside the same source: the general criterion and the numerical coexistence statement cannot both be true for the printed parameters. No equivalent published correction was located.",
+      "searches": [
+        "10.3934/math.20241196 tau_c 250 132.9233 coexistence equilibrium",
+        "Liu Zhang Ivlev tau_c 250 transcritical 132.9233 correction",
+        "\"tau_c = 250\" \"132.9233\" predator prey",
+        "\"132.9233\" predator prey Ivlev"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher page still presents the 2024 article without a located corrigendum in the searched results.",
+        "published-finding corpus exact DOI/parameter queries returned no record asserting this threshold correction."
+      ],
+      "reasoning": "The claim is not a recomputation of a known table entry; it is a consistency correction derived from the source equations and compared against published numerical statements.",
+      "searches": [
+        "10.3934/math.20241196 correction",
+        "10.3934/math.20241196 corrigendum",
+        "10.3934/math.20241196 tau_c 250"
+      ]
+    },
+    "rationale": "The motivating full text contains the ingredients but not the correction: Proposition 3.1 has the correct general positivity threshold, while Section 4.1 prints tau_c=250 and separately tau_3=132.9233. Targeted published-finding corpus searches, exact DOI/parameter searches, and web searches for a correction or corrigendum found no statement resolving this inconsistency. Related delayed Beddington–DeAngelis and stage-structured Ivlev papers use different systems and do not imply the source-specific correction.",
+    "residual_risks": [
+      "A search failure is not a proof that no unindexed corrigendum or informal author correction exists.",
+      "The 2020 stage-structured Ivlev article was compared from its detailed abstract/summary rather than complete full text, but its different state structure makes it nondecisive for the source-specific algebraic inconsistency."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTAINS_INCONSISTENCY_NOT_CORRECTION",
+        "evidence": "Proposition 3.1 requires tau<(1/s)log(alpha Y(1-e^{-beta K})/s); Section 4.1 states coexistence for tau<250 and reports tau_3=132.9233.",
+        "identifier_or_url": "doi:10.3934/math.20241196",
+        "material_read": "Publisher full-text HTML: model (1.6), positivity/boundedness section, Proposition 3.1, boundary-equilibrium stability discussion, Section 4.1 parameter system and bifurcation narrative, conclusion.",
+        "method": "Equation-by-equation and statement-level comparison with direct parameter substitution.",
+        "title": "Chaos detection in predator-prey dynamics with delayed interactions and Ivlev-type functional response",
+        "trigger": "Exact motivating article and printed parameter inconsistency."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The model uses Beddington–DeAngelis predator interference and a different survival expression. Its numerical extinction discussion does not state the Liu–Zhang Ivlev parameter correction.",
+        "identifier_or_url": "doi:10.1142/S0218127420502442",
+        "material_read": "Accessible author full text, including model construction, local/global Hopf analysis, numerical Section 4, and conclusion.",
+        "method": "Full-text equation and implication comparison.",
+        "title": "Dynamical Behaviors of a Delayed Prey–Predator Model with Beddington–DeAngelis Functional Response: Stability and Periodicity",
+        "trigger": "Closest same-author predecessor using a survival-through-delay construction and predator extinction narrative."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_MODEL",
+        "evidence": "The paper has immature and mature prey stages and two delays; it does not contain the Section 4.1 Liu–Zhang equations or numerical threshold.",
+        "identifier_or_url": "doi:10.1007/s11071-020-05467-z",
+        "material_read": "Bibliographic record and detailed abstract/summary describing the state structure, two delays, equilibrium stability, and Hopf calculations.",
+        "method": "Statement-level abstract comparison.",
+        "title": "Stability and Hopf bifurcation for a delayed predator–prey model with stage structure for prey and Ivlev-type functional response",
+        "trigger": "Closest cited delayed Ivlev predecessor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "81e53bd6-f6d4-47c2-ad42-1ce0df54df88",
+  "value": {
+    "rationale": "The correction removes a large spurious interval of purported positive-equilibrium dynamics from the article's principal numerical example. The issue changes the interpretation of the bifurcation branch: the reported transcritical point 132.9233 is not merely an intermediate stability switch but the actual endpoint of positivity. This is mathematically and biologically substantive because coexistence requires positive densities; the correction aligns the example with the article's own general theorem rather than merely adjusting a rounded decimal.",
+    "status": "PASS"
+  }
+}
