@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The argument reduces every non-tight real four-vector equiangular frame in three dimensions to the unique mixed switching class. For an arbitrary dual, its Gram matrix \(H\) necessarily satisfies \(GHG=G\) and \(\operatorname{rank}H\le3\). The symmetric generalized inverses are parameterized as \(G^\dagger+za^{\mathsf T}+az^{\mathsf T}\). The one-angle condition then becomes exactly thirty-two finite sign systems. Exact arithmetic shows twenty are inconsistent and all twelve survivors have nonzero determinant, so none can be a dual Gram matrix. The canonical-dual profile follows directly from the displayed exact pseudoinverse.
+## correctness
 
-## Originality
-The closest inspected source is Christensen--Datta--Kim, which poses the equiangular-dual question and develops canonical-dual few-angle criteria. Its four-eigenvalue theorem has hypotheses not met by the spectrum \(\{-\sqrt5,-1,1,\sqrt5\}\), and it does not give an all-duals obstruction for this class. Datta's later chapter is closely related but only its abstract and metadata were available; this is retained as a residual risk. Semantic searches under equiangular-dual, one-angle-dual, signature-matrix, and \((4,3)\) formulations found no statement implying the theorem.
+PASS
 
-## Value
-This is the first non-tight redundancy-one real equiangular case: with three vectors in two dimensions, the spanning equiangular case is the tight simplex, whereas four vectors in three dimensions already admit the non-tight mixed signature class. The result closes the source's dual-existence question for that entire smallest non-tight class and is stronger than a calculation of the canonical dual because it excludes every one-angle dual.
+Switching the first row of a real \(4\times4\) signature matrix positive leaves three signs. The all-positive and all-negative patterns give the tight/impossible spectral cases, while all six mixed patterns have characteristic polynomial \((t^2-1)(t^2-5)\), form one switching-permutation class, and force coherence \(1/\sqrt5\). For a representative Gram matrix \(G\), the displayed kernel vector spans \(\ker G\), and the canonical dual Gram is \(K=G^\dagger\), giving the stated raw off-diagonal moduli and two norm classes. Every symmetric generalized inverse satisfying \(GHG=G\) has form \(H=K+za^{\mathsf T}+az^{\mathsf T}\). Imposing one common off-diagonal modulus leaves \(32\) relative sign patterns. An independent exact symbolic reconstruction over \(\mathbb Q(\sqrt5)\) confirmed that \(20\) systems are inconsistent and all \(12\) consistent systems have nonzero determinant, so none can be a Gram matrix of four vectors in \(\mathbb R^3\). This independently reproduces the load-bearing package computation.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The literature comparison materially narrows the novelty claim. Datta's 2021 chapter already exhibits the same non-tight real \((4,3)\) equiangular switching class with coherence \(1/\sqrt5\) and computes a canonical dual with two normalized angles; the 2020 Christensen--Datta--Kim article develops canonical-dual few-angle criteria. Those prior results therefore cover the frame classification and substantial canonical-dual geometry. However, neither complete inspected source proves that no arbitrary dual can have one common off-diagonal Gram modulus. The audited generalized-inverse classification and complete \(32\)-sign-pattern rank obstruction answer the broader all-duals existence question posed by this literature. Resultary returned no prior all-duals obstruction.
+
+## value
+
+PASS
+
+The prior literature explicitly asks when a non-tight equiangular frame can have an equiangular or few-angle dual. For the smallest real non-tight four-vector class, the audited theorem completely eliminates one-angle duals across the entire affine family of duals, not merely for the canonical choice. That is a motivated finite-dimensional classification with an exact algebraic certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

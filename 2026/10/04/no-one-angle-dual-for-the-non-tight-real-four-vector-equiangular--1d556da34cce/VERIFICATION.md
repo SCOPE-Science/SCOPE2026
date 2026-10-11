@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,39 +19,24 @@
 }
 ---
 
-The exact checker `verify.py` uses a two-component rational representation of \(\mathbb Q(\sqrt5)\). It checks the normalized order-four signature matrices, obtaining one all-positive class, one all-negative class, and six mixed sign triples. It verifies the canonical matrices by \(G G^\dagger G=G\) and \(Gz=0\).
+# Independent mathematical audit
 
-For the arbitrary-dual obstruction, the proof reduces a one-angle Gram matrix to
-\[
-H=G^\dagger+za^{\mathsf T}+az^{\mathsf T},
-\qquad
-H_{ij}=\beta\varepsilon_{ij}\quad(i<j).
-\]
-Fixing \(\varepsilon_{12}=1\) leaves thirty-two complete sign patterns. Exact row reduction finds twenty inconsistent systems. The twelve consistent patterns and their exact determinants are:
+## correctness
 
-| signs | \(\det H\) |
-|---|---|
-| `++++++` | \(-175/16-(25/8)\sqrt5\) |
-| `++++--` | \(175/144\) |
-| `+++-++` | \(-35/16-(5/8)\sqrt5\) |
-| `+++---` | \(-225/16-(25/4)\sqrt5\) |
-| `++-+++` | \(-35/16-(5/8)\sqrt5\) |
-| `++-+--` | \(-225/16+(25/4)\sqrt5\) |
-| `++--++` | \(-175/16-(25/8)\sqrt5\) |
-| `++----` | \(-225/16\) |
-| `+-++-+` | \(-175/16+(25/8)\sqrt5\) |
-| `+-+--+` | \(-35/16+(5/8)\sqrt5\) |
-| `+--+-+` | \(-35/16+(5/8)\sqrt5\) |
-| `+----+` | \(-175/16+(25/8)\sqrt5\) |
+PASS
 
-Every determinant is nonzero in \(\mathbb Q(\sqrt5)\), so every consistent one-angle generalized inverse has rank four and cannot be the Gram matrix of four vectors in \(\mathbb R^3\).
+Switching the first row of a real \(4\times4\) signature matrix positive leaves three signs. The all-positive and all-negative patterns give the tight/impossible spectral cases, while all six mixed patterns have characteristic polynomial \((t^2-1)(t^2-5)\), form one switching-permutation class, and force coherence \(1/\sqrt5\). For a representative Gram matrix \(G\), the displayed kernel vector spans \(\ker G\), and the canonical dual Gram is \(K=G^\dagger\), giving the stated raw off-diagonal moduli and two norm classes. Every symmetric generalized inverse satisfying \(GHG=G\) has form \(H=K+za^{\mathsf T}+az^{\mathsf T}\). Imposing one common off-diagonal modulus leaves \(32\) relative sign patterns. An independent exact symbolic reconstruction over \(\mathbb Q(\sqrt5)\) confirmed that \(20\) systems are inconsistent and all \(12\) consistent systems have nonzero determinant, so none can be a Gram matrix of four vectors in \(\mathbb R^3\). This independently reproduces the load-bearing package computation.
 
-Replay with:
+## originality
 
-`python3 verify.py`
+PASS
 
-Expected terminal success line:
+The literature comparison materially narrows the novelty claim. Datta's 2021 chapter already exhibits the same non-tight real \((4,3)\) equiangular switching class with coherence \(1/\sqrt5\) and computes a canonical dual with two normalized angles; the 2020 Christensen--Datta--Kim article develops canonical-dual few-angle criteria. Those prior results therefore cover the frame classification and substantial canonical-dual geometry. However, neither complete inspected source proves that no arbitrary dual can have one common off-diagonal Gram modulus. The audited generalized-inverse classification and complete \(32\)-sign-pattern rank obstruction answer the broader all-duals existence question posed by this literature. Resultary returned no prior all-duals obstruction.
 
-`VERIFY_OK signature_classes=1,1,6 one_angle_patterns=32 inconsistent=20 full_rank_candidates=12`
+## value
 
-The checker certifies only the finite algebraic reduction used in the proof. The literature comparison and significance assessment are not computational claims.
+PASS
+
+The prior literature explicitly asks when a non-tight equiangular frame can have an equiangular or few-angle dual. For the smallest real non-tight four-vector class, the audited theorem completely eliminates one-angle duals across the entire affine family of duals, not merely for the canonical choice. That is a motivated finite-dimensional classification with an exact algebraic certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
