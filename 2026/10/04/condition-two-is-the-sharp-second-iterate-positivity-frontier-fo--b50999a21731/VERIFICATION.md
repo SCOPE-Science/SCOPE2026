@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,24 +18,25 @@
   "schema_version": 1
 }
 ---
-The verification artifact uses exact rational arithmetic.
 
-It solves the \(2\times2\) normal equations defining the second residual-minimizing Krylov approximation
-\[
-x^{(2)}=c_0b+c_1Ab
-\]
-and checks the closed formulas for \(c_0\) and \(c_1\).
+# Independent mathematical audit
 
-For rational diagonal spectra it independently evaluates both moment expressions and the pairwise sums
-\[
-m_1m_3-m_2^2
-\]
-and
-\[
-m_1m_4-m_2m_3
-\]
-to verify the spectral-barycenter identity exactly.
+## correctness
 
-It checks the sharp three-mode family on both sides of its analytic threshold and reconstructs the complete \(\kappa=4\) witness.
+PASS
 
-The universal condition-number theorem and the two-dimensional exact-termination argument are analytic proofs in RESULT.md, not finite enumeration claims.
+The second MINRES iterate has x^(2)=c_0 b+c_1 Ab. Solving its normal equations and expanding spectral moments pairwise gives c_1<0 and theta=c_0/(-c_1) as an exact positive-weight average of pairwise eigenvalue sums, hence theta>=2mu. Therefore x^(2)=beta(theta I-A)b is entrywise nonnegative on a Stieltjes matrix when L<=2mu. The diagonal three-mode family yields the exact threshold formula for theta<kappa and the displayed kappa=4 negative coordinate. In dimension two the Krylov space reaches the exact solution by the second step. Independent exact arithmetic reproduced c_0=243/200, c_1=-67/200 and x_3^(2)=-1/80.
+
+## originality
+
+PASS
+
+MINRES primary literature establishes residual minimization and norm/error monotonicity properties, including on positive-definite systems, but the inspected sources do not state coordinatewise positivity on Stieltjes systems or the sharp kappa=2 second-iterate threshold. The pairwise-spectral-sum barycenter identity used here is not an implication of the norm monotonicity results, and Resultary searches found no equivalent orthant theorem.
+
+## value
+
+PASS
+
+The second MINRES polynomial is a natural first nontrivial residual-minimizing Krylov approximation. Identifying an exact spectral-barycenter structure, the sharp Stieltjes conditioning threshold, and the minimal dimension for sign loss gives a motivated coordinatewise invariant distinct from standard norm convergence theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

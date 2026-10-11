@@ -1,12 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The second MINRES iterate is reconstructed directly from residual orthogonality in \(\mathcal K_2(A,b)\). Its affine solution polynomial factors as \(\beta(\theta-\lambda)\), where \(\beta>0\) and \(\theta\) is proved exactly to be a positive weighted average of pairwise spectral sums. This gives \(\theta\ge2\lambda_{\min}\). The Stieltjes sign pattern then makes \(\theta I-A\) entrywise nonnegative whenever \(\kappa\le2\). The matching diagonal family proves sharpness for every \(\kappa>2\), and exact termination proves two-dimensional immunity. The embedded rational checker returns `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with residual literature risk. Full MINRES and MINRES-monotonicity sources were inspected. They cover Krylov residual minimization, Lanczos implementation, norm monotonicity, backward error, and negative-curvature properties, but no inspected statement gives positive-orthant preservation on Stieltjes matrices or the condition-number-\(2\) second-iterate frontier. Published-record semantic searches under MINRES, conjugate residual, Stieltjes, \(M\)-matrix, positive-orthant, negative-coordinate, and second-iterate aliases produced no implication-equivalent result. The strongest nearby published finding concerns Euclidean error amplification of restarted GMRES(1), a different quantity and iteration. Older monotone-iteration literature remains a residual risk.
+PASS
 
-## Value
-PASS. Fong and Saunders specifically motivate early MINRES termination on positive definite systems through favorable norm monotonicity, so coordinatewise behavior of early iterates is a natural complementary structural question. Stieltjes systems have nonnegative exact solutions, making a negative transient coordinate a meaningful failure. The result gives a sharp robust conditioning frontier, an exact spectral formula explaining it, and the minimal dimension of failure rather than a routine numerical example.
+The second MINRES iterate has x^(2)=c_0 b+c_1 Ab. Solving its normal equations and expanding spectral moments pairwise gives c_1<0 and theta=c_0/(-c_1) as an exact positive-weight average of pairwise eigenvalue sums, hence theta>=2mu. Therefore x^(2)=beta(theta I-A)b is entrywise nonnegative on a Stieltjes matrix when L<=2mu. The diagonal three-mode family yields the exact threshold formula for theta<kappa and the displayed kappa=4 negative coordinate. In dimension two the Krylov space reaches the exact solution by the second step. Independent exact arithmetic reproduced c_0=243/200, c_1=-67/200 and x_3^(2)=-1/80.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+MINRES primary literature establishes residual minimization and norm/error monotonicity properties, including on positive-definite systems, but the inspected sources do not state coordinatewise positivity on Stieltjes systems or the sharp kappa=2 second-iterate threshold. The pairwise-spectral-sum barycenter identity used here is not an implication of the norm monotonicity results, and Resultary searches found no equivalent orthant theorem.
+
+## value
+
+PASS
+
+The second MINRES polynomial is a natural first nontrivial residual-minimizing Krylov approximation. Identifying an exact spectral-barycenter structure, the sharp Stieltjes conditioning threshold, and the minimal dimension for sign loss gives a motivated coordinatewise invariant distinct from standard norm convergence theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

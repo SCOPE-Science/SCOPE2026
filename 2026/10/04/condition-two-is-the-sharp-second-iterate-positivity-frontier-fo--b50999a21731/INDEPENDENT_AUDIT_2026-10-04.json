@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T16:50:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree c3e556d29fe5453732be0f8150683dfd5ee5b66f",
+        "Optimization Online:2569"
+      ],
+      "rationale": "The second MINRES iterate has x^(2)=c_0 b+c_1 Ab. Solving its normal equations and expanding spectral moments pairwise gives c_1<0 and theta=c_0/(-c_1) as an exact positive-weight average of pairwise eigenvalue sums, hence theta>=2mu. Therefore x^(2)=beta(theta I-A)b is entrywise nonnegative on a Stieltjes matrix when L<=2mu. The diagonal three-mode family yields the exact threshold formula for theta<kappa and the displayed kappa=4 negative coordinate. In dimension two the Krylov space reaches the exact solution by the second step. Independent exact arithmetic reproduced c_0=243/200, c_1=-67/200 and x_3^(2)=-1/80.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fong--Saunders establish monotonicity of several scalar norms/errors for SPD MINRES.",
+          "Liu--Roosta develop further MINRES monotonicity and negative-curvature properties."
+        ],
+        "reasoning": "Scalar norm monotonicity does not imply coordinatewise nonnegativity; no broader inspected result dominates the orthant statement.",
+        "searches": [
+          "Fong--Saunders, CG Versus MINRES: An Empirical Comparison, DOI:10.24200/squjs.vol17iss1pp44-62",
+          "Liu--Roosta, DOI:10.1137/21M143666X"
+        ]
+      },
+      "checked_sources": [
+        "Optimization Online:2569",
+        "DOI:10.24200/squjs.vol17iss1pp44-62",
+        "arXiv:2206.05732",
+        "DOI:10.1137/21M143666X",
+        "DOI:10.1137/110851006",
+        "Resultary MINRES/Stieltjes positivity searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard MINRES formulas yield the normal equations, but the new weighted-average identity for the zero of the second-step polynomial and its Stieltjes sign consequence are not stated by the inspected prior work."
+        ],
+        "reasoning": "The prior method definition and norm monotonicity results do not mechanically imply the audited sharp coordinatewise frontier.",
+        "searches": [
+          "MINRES residual-minimization normal equations",
+          "audited pairwise spectral-moment expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "These sources define/analyze the same residual-minimizing Krylov method but focus on residual/error/norm behavior, not coordinate signs."
+        ],
+        "reasoning": "Equivalent searches under minimal residual, GMRES for symmetric systems, M-matrix, Stieltjes, and positive orthant produced no matching theorem.",
+        "searches": [
+          "Choi--Paige--Saunders, MINRES-QLP, Optimization Online:2569",
+          "Liu--Roosta, arXiv:2206.05732",
+          "Resultary query: MINRES Stieltjes M-matrix nonnegative iterates positivity second iterate condition number 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/theorem entry with the second-iterate threshold, spectral-barycenter formula, or three-dimensional obstruction was located."
+        ],
+        "reasoning": "This is a structural parametric theorem, so theorem-corpus comparison is the relevant exact check.",
+        "searches": [
+          "Resultary theorem-corpus search for MINRES positivity/Stieltjes/kappa=2"
+        ]
+      },
+      "rationale": "MINRES primary literature establishes residual minimization and norm/error monotonicity properties, including on positive-definite systems, but the inspected sources do not state coordinatewise positivity on Stieltjes systems or the sharp kappa=2 second-iterate threshold. The pairwise-spectral-sum barycenter identity used here is not an implication of the norm monotonicity results, and Resultary searches found no equivalent orthant theorem.",
+      "residual_risks": [
+        "Older conjugate-residual or M-matrix literature may contain an equivalent low-degree sign criterion under different terminology.",
+        "The theorem is unpreconditioned and finite-horizon in dimension at least three."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NORM_MONOTONICITY_NOT_COORDINATE_POSITIVITY",
+          "evidence": "The paper's monotonicity properties are scalar norm/curvature statements and do not supply the kappa=2 orthant frontier.",
+          "identifier_or_url": "arXiv:2206.05732; DOI:10.1137/21M143666X",
+          "material_read": "Accessible full arXiv text around MINRES recurrences, monotonicity results, and positive-definite specialization; searches found no Stieltjes/nonnegative-coordinate theorem.",
+          "method": "Full-text statement/implication comparison.",
+          "title": "MINRES: From Negative Curvature Detection to Monotonicity Properties",
+          "trigger": "Highly relevant modern primary source on MINRES monotonicity."
+        },
+        {
+          "assessment": "SPD_MONOTONICITY_NOT_ENTRYWISE_SIGN",
+          "evidence": "Monotonicity of scalar norms does not determine signs of individual coordinates.",
+          "identifier_or_url": "DOI:10.24200/squjs.vol17iss1pp44-62",
+          "material_read": "Accessible article material describing monotonic solution norms, solution errors, residual norms, and backward errors for SPD MINRES.",
+          "method": "Scope/implication comparison.",
+          "title": "CG Versus MINRES: An Empirical Comparison",
+          "trigger": "Primary positive-definite MINRES comparison emphasizing monotonic solution/error/residual quantities."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Optimization Online:2569",
+        "DOI:10.24200/squjs.vol17iss1pp44-62",
+        "arXiv:2206.05732",
+        "DOI:10.1137/21M143666X",
+        "DOI:10.1137/110851006",
+        "Resultary MINRES/Stieltjes positivity searches"
+      ],
+      "rationale": "The second MINRES polynomial is a natural first nontrivial residual-minimizing Krylov approximation. Identifying an exact spectral-barycenter structure, the sharp Stieltjes conditioning threshold, and the minimal dimension for sign loss gives a motivated coordinatewise invariant distinct from standard norm convergence theory.",
+      "residual_risks": [
+        "Older conjugate-residual or M-matrix literature may contain an equivalent low-degree sign criterion under different terminology.",
+        "The theorem is unpreconditioned and finite-horizon in dimension at least three."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Optimization Online:2569",
+    "DOI:10.24200/squjs.vol17iss1pp44-62",
+    "arXiv:2206.05732",
+    "DOI:10.1137/21M143666X",
+    "DOI:10.1137/110851006",
+    "Resultary MINRES/Stieltjes positivity searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For unpreconditioned MINRES from zero on SPD Stieltjes systems, kappa<=2 guarantees nonnegative first and second iterates for every b>=0; every kappa>2 has a three-dimensional diagonal second-iterate sign failure, and dimensions one and two are positivity-safe because MINRES terminates by step two.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older conjugate-residual or M-matrix literature may contain an equivalent low-degree sign criterion under different terminology.",
+    "The theorem is unpreconditioned and finite-horizon in dimension at least three."
+  ]
+}
