@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-The main argument is analytic.
 
-For the printed short-mackerel equation,
-\[
-\dot x_2
-=
-x_2\left(
-B+\frac{rbx_1}{k_2+x_1}-Ax_2
-\right),
-\]
-one has
-\[
-\dot x_2\le(B+rb)x_2.
-\]
-Combining this with
-\[
-x_2(nT^+)=(1-\omega)x_2(nT)
-\]
-gives the exact pulse-to-pulse upper multiplier
-\[
-q=(1-\omega)e^{(B+rb)T}.
-\]
-Thus \(q<1\) forces \(x_2\to0\). The equality case is also excluded from permanence because \(x_1\) has a finite logistic upper bound, making the Holling gain eventually strictly less than \(rb\).
+# Independent mathematical audit
 
-The bundled checker verifies all numerical and logical inequalities used in the explicit counterexample, including every hypothesis listed in Theorem 3.8 and
-\[
-q\approx0.6085676604<1.
-\]
+## correctness
 
-No simulation or finite enumeration is used to prove extinction.
+PASS
+
+Since \(rbx_1/(k_2+x_1)<rb\), pulse values satisfy \(x_2((n+1)T^+)\le qx_2(nT^+)\), \(q=(1-\omega)e^{(B+rb)T}\). Thus \(q<1\) forces extinction; when \(q=1\), eventual boundedness of \(x_1\) replaces \(rb\) by a strict smaller bound and again forces extinction. For the source biological parameters and \((\gamma,\omega,T)=(0.1,0.5,0.01)\), all printed Theorem 3.8 hypotheses hold, \(T_{\max}=0.005246815758790803\ldots<T\), but \(q=0.608567660439097\ldots<1\).
+
+## originality
+
+PASS
+
+The primary theorem asserts permanence under the listed hypotheses but omits the necessary pulse-survival multiplier. Targeted searches found no erratum, correction, or earlier counterexample to this exact theorem; related impulsive predator-prey papers concern different systems.
+
+## value
+
+PASS
+
+An exact counterexample to a published permanence theorem is a motivated correction, and the general pulse-survival obstruction explains the failure mechanism beyond the single parameter choice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

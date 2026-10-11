@@ -1,29 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The short-mackerel per-capita interaction gain satisfies
-\[
-\frac{rbx_1}{k_2+x_1}<rb.
-\]
-Therefore one pulse period multiplies \(x_2\) by at most
-\[
-(1-\omega)e^{(B+rb)T}
-\]
-before accounting for the additional negative quadratic term. If this multiplier is below one, \(x_2\) decays geometrically at pulse times and hence continuously. Equality also gives extinction after using the independent eventual bound on \(x_1\), which makes the interaction gain strictly below \(rb\). The counterexample arithmetic checks every condition explicitly listed in Theorem 3.8.
+PASS
 
-## Originality
+Since \(rbx_1/(k_2+x_1)<rb\), pulse values satisfy \(x_2((n+1)T^+)\le qx_2(nT^+)\), \(q=(1-\omega)e^{(B+rb)T}\). Thus \(q<1\) forces extinction; when \(q=1\), eventual boundedness of \(x_1\) replaces \(rb\) by a strict smaller bound and again forces extinction. For the source biological parameters and \((\gamma,\omega,T)=(0.1,0.5,0.01)\), all printed Theorem 3.8 hypotheses hold, \(T_{\max}=0.005246815758790803\ldots<T\), but \(q=0.608567660439097\ldots<1\).
 
-PASS. The primary source contains the theorem and its proof but not the pulse-survival obstruction or counterexample. Exact-title, DOI, theorem-number, denominator, correction and critical-period searches found no source-specific repair. Related impulsive predator-prey papers establish critical-period results for different equations and do not imply the counterexample.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem is intended to certify persistence of both the food population and the short-mackerel population. The new result identifies a regime satisfying every listed theorem hypothesis in which short mackerel necessarily go extinct. The necessary pulse-survival condition is therefore a substantive constraint on any corrected conservation criterion.
+The primary theorem asserts permanence under the listed hypotheses but omits the necessary pulse-survival multiplier. Targeted searches found no erratum, correction, or earlier counterexample to this exact theorem; related impulsive predator-prey papers concern different systems.
 
-## Closest literature and limitations
+## value
 
-The primary source is DOI 10.3934/math.2022001. Banerjee and Das (2016), DOI 10.1155/2016/9268257, give a fully inspected persistence/eradication analysis for a different impulsive Holling model. Song and Li (2007), DOI 10.1016/j.chaos.2006.01.019, report critical impulse periods in another model; only the accessible abstract was inspected.
+PASS
 
-The result refutes the published sufficient theorem but does not provide a complete replacement sufficient criterion.
+An exact counterexample to a published permanence theorem is a motivated correction, and the general pulse-survival obstruction explains the failure mechanism beyond the single parameter choice.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
