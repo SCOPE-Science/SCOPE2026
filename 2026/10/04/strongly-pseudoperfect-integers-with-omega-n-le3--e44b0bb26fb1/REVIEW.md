@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Strong pseudoperfectness implies \(\sigma(n)\ge2n\). This reduces all factorization shapes with \(\Omega(n)\le3\) to one semiprime, four \(p^2q\) candidates, and the squarefree \(pqr\) case. The \(p^2q\) candidates are decided by exact complementary-pair subset sums. For \(pqr\), the pair \(1+pqr\) is forced and every possible subset of the remaining three pair sums is eliminated by explicit Diophantine equations. The positive cases \(6\) and \(28\), and the sharp non-perfect witness \(36\), have direct representations.
+## correctness
 
-## Originality
-PASS. OEIS A334405 supplies the canonical data but not an all-integer low-\(\Omega\) theorem. The 2023 source proves congruence and large-prime obstructions without such a classification. The current 2026 dedicated paper was inspected through its new restrictions: its strongest nearby theorems concern narrower forms such as Mersenne \(2^k p\) and \(3\cdot2^a p\). Targeted searches for semiprime, three-factor, and \(\Omega\)-bounded formulations found no covering statement. A residual risk remains from unindexed elementary notes.
+PASS
 
-## Value
-PASS. This is the exact multiplicative-complexity threshold for the first non-perfect member of a recently developed perfect-number analogue: every non-perfect strongly pseudoperfect integer needs at least four prime factors counted with multiplicity, and \(36\) attains the bound. The classification explains a structural feature visible in the canonical sequence rather than merely extending a finite table.
+The proof is exhaustive. Strong pseudoperfectness implies abundance or perfection, immediately eliminating prime powers and forcing the only semiprime to be six. For a squared prime times a distinct prime, the abundance inequality leaves exactly 12, 18, 20, and 28; complementary divisor-pair subset sums retain only 28. For squarefree pqr, the sum of the three non-unit complementary-pair sums is below twice n, so the pair 1+n is forced. Each of the seven nonempty choices among the remaining three pair sums is then eliminated by the displayed elementary Diophantine equations. Thus only 6 and 28 remain. The explicit complementary-pair representation of 36 proves sharpness at Omega four. The package enumeration is a regression check only.
 
-## Closest literature and limitations
-The closest literature is McCormack--Zelinsky's introduction of the named class and Wang--Zelinsky's 2026 dedicated structural study. The result is deliberately limited to \(\Omega(n)\le3\); no classification at \(\Omega(n)\ge4\) is claimed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Originality passes. The newest dedicated full text gives constructions and several congruence/family-specific restrictions, but no all-shape classification by total prime-factor multiplicity. Its table visibly begins with 6, 28, and 36, which motivates but does not prove the unbounded boundary. The earlier source introduces/studies the class without an Omega classification. Targeted and Resultary searches found no theorem covering all prime, prime-power, semiprime, squared-prime-times-prime, and squarefree three-prime shapes.
+
+## value
+
+PASS
+
+The total number of prime factors is a natural multiplicative-complexity measure for a recently developed perfect-number analogue. Determining the exact first nonperfect layer gives a complete structural boundary, and 36 shows the bound is sharp. The result explains an observed sequence feature with an all-integer proof rather than a finite search.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
