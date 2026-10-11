@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,39 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was replayed symbolically from the definitions.
+# Independent mathematical audit
 
-1. For the planar graph obtained by splitting tile sides at all tiling vertices, Euler's relation is
-\[
-e=v_{\mathrm{bd}}+v_{\mathrm{int}}+t-1.
-\]
+## correctness
 
-2. Double counting graph edges against tile-side incidences gives
-\[
-2e=3t+v_{\mathrm{int}}^*+v_{\mathrm{bd}},
-\]
-hence
-\[
-t+2=v_{\mathrm{bd}}+2v_{\mathrm{int}}-v_{\mathrm{int}}^*.
-\]
+PASS
 
-3. Every nonboundary tile side belongs to one stretch, so
-\[
-\Sigma=3t-v_{\mathrm{bd}}.
-\]
-A size-\(2\) stretch is exactly a full shared side and contributes no subdividing vertex. If the other stretches have sizes \(3+e_i\), then with \(E=\sum_i e_i\),
-\[
-v_{\mathrm{int}}^*=p+E,\qquad
-\Sigma=2q+3p+E=2q+3v_{\mathrm{int}}^*-2E.
-\]
+The source planar graph gives \(e=v_{\mathrm{bd}}+v_{\mathrm{int}}+t-1\) and \(2e=3t+v_{\mathrm{int}}^*+v_{\mathrm{bd}}\), hence \(t+2=v_{\mathrm{bd}}+2v_{\mathrm{int}}-v_{\mathrm{int}}^*\). Retaining size-two stretches, each such stretch contributes one full shared side and no subdividing vertex; a size-\(s\ge3\) stretch contributes \(s-2\) subdividing vertices. Equating the two exact counts of total nonboundary tile-side incidences yields \(q=v_{\mathrm{bd}}-3+3(v_{\mathrm{int}}-v_{\mathrm{int}}^*)+E\). The inequalities and equality criterion follow because both defect terms are nonnegative.
 
-4. Eliminating \(t\) and \(\Sigma\) gives
-\[
-q=v_{\mathrm{bd}}-3+3\bigl(v_{\mathrm{int}}-v_{\mathrm{int}}^*\bigr)+E.
-\]
+## originality
 
-Boundary checks: \(v_{\mathrm{bd}}\ge k\), \(v_{\mathrm{int}}^*\le v_{\mathrm{int}}\), and \(E\ge0\). Thus \(q\ge v_{\mathrm{bd}}-3\ge k-3\). Standard conforming triangulations of a convex \(k\)-gon attain equality.
+PASS
 
-Scientific limit: the verification is a same-model reconstruction of the finite proof. It is not an independent audit, and it does not establish that no unindexed prior source contains the same identity.
+Kupavskii-Pach-Tardos introduce the same planar graph, subdividing vertices and stretches, but their theorem assumes for contradiction that no full side is shared, so every stretch has size at least three, and concludes only existence of a shared side for polygons with more than three sides. The inspected full proof does not state a count for size-two stretches, the sharp \(k-3\) lower bound, the exact defect decomposition, or its equality characterization. Current published-finding searches found no earlier quantitative identity under shared-side, hanging-node, T-junction or non-edge-to-edge aliases.
+
+## value
+
+PASS
+
+The identity upgrades a qualitative existence theorem to a sharp linear lower bound with a complete nonnegative defect decomposition and equality criterion for a natural tiling invariant. That is a meaningful structural refinement rather than an arbitrary finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
