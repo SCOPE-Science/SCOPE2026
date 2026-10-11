@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_rankmax_sexequal_stable_marriage.py` performs an exact finite replay using only the Python standard library.
 
-It covers complete strict Stable Marriage markets with one, two, and three agents per side.
+# Independent mathematical audit
 
-Stability is checked independently by:
-1. precomputed rank maps;
-2. direct preference-list positions.
+## correctness
 
-Rank-maximality is checked independently by:
-1. exact lexicographic comparison of the two-sided rank profile;
-2. a steep-base integer objective with base \(2n+1\).
+PASS
 
-Sex equality is checked independently by:
-1. absolute difference of the aggregate partner-rank sums of men and women;
-2. absolute difference of the numbers of opposite-side agents preferred to the assigned partners, using \(r-1\) for an assigned rank \(r\).
+Fresh exhaustive enumeration over all 46656 three-by-three preference profiles reproduced exactly the package histogram 39084 equality, 6204 disjoint, 864 sex-equal strict subset of rank-maximal and 504 rank-maximal strict subset of sex-equal, as well as the stable-count marginal 34080, 11484 and 1092. The independent formulations of stability, lexicographic profile and sex-equality score in the package are consistent with the direct replay.
 
-The verifier confirms:
-- equality of the two optimum sets for the one-agent market;
-- equality on all \(16\) two-by-two profiles;
-- stable-count marginal \(34080,11484,1092\) for the three-by-three domain;
-- \(39084\) equality profiles;
-- \(6204\) profiles with disjoint optimum sets;
-- \(864\) profiles with \(X(I)\subsetneq R(I)\);
-- \(504\) profiles with \(R(I)\subsetneq X(I)\);
-- no nonempty nonnested overlap;
-- total disagreement incidence \(631/3888\);
-- disjoint incidence \(517/3888\);
-- the displayed disjoint witness.
+## originality
 
-Run:
+PASS
 
-`python3 verify_rankmax_sexequal_stable_marriage.py`
+The criteria and their algorithmic/complexity background are established, and Cooper–Manlove explicitly compare profile-based matchings by sex-equality scores. The inspected primary full text does not provide the exact first conflict boundary, relation histogram or reduced incidences for complete three-by-three markets. No equivalent Resultary record was located.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The computation proves only the stated first conflict layer through three agents per side.
+Sex equality and rank maximality represent sharply different standard fairness goals. The exact first conflict layer distinguishes disjoint disagreement from both containment directions and reveals a nontrivial asymmetry already at the smallest possible market.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

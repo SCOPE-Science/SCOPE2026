@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete domains for one, two, and three agents per side are covered. All \(46656\) three-by-three profiles and all \(6\) perfect matchings per profile are checked. Stability, rank-maximality, and sex equality are each replayed in two exact formulations. The full relation histogram and the disjoint witness are reproduced from the packaged verifier.
+## correctness
 
-Risk: the claim is finite and does not extrapolate beyond three agents per side.
+PASS
 
-## Originality
-**PASS.** The literature already defines both fairness criteria, gives algorithms and complexity results, and directly compares rank-maximal stable matchings using sex-equality scores. Those facts are treated as prior. The accepted claim is narrower: equality through two-by-two and the exact complete three-by-three relation census. Searches using both criterion names, the market size, exact counts, exact reduced probabilities, and set-relation language did not locate an equivalent published theorem or table.
+Fresh exhaustive enumeration over all 46656 three-by-three preference profiles reproduced exactly the package histogram 39084 equality, 6204 disjoint, 864 sex-equal strict subset of rank-maximal and 504 rank-maximal strict subset of sex-equal, as well as the stable-count marginal 34080, 11484 and 1092. The independent formulations of stability, lexicographic profile and sex-equality score in the package are consistent with the direct replay.
 
-Risk: failed search is not proof of bibliographic uniqueness. An unindexed small-instance enumeration may contain the same census.
+## originality
 
-## Value
-**PASS.** Rank-maximality lexicographically rewards highly ranked assignments, while sex equality balances aggregate rank burdens between the two sides. Their first exact conflict is therefore a natural fairness boundary. The complete relation census is informative beyond an isolated witness because it distinguishes disjoint conflict from both possible one-sided containments and proves that nonnested overlap does not occur at the first layer.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The criteria and their algorithmic/complexity background are established, and Cooper–Manlove explicitly compare profile-based matchings by sex-equality scores. The inspected primary full text does not provide the exact first conflict boundary, relation histogram or reduced incidences for complete three-by-three markets. No equivalent Resultary record was located.
+
+## value
+
+PASS
+
+Sex equality and rank maximality represent sharply different standard fairness goals. The exact first conflict layer distinguishes disjoint disagreement from both containment directions and reveals a nontrivial asymmetry already at the smallest possible market.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
