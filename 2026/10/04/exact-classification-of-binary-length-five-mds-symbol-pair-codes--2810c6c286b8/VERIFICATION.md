@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` with a standard Python 3 interpreter. The script has no third-party dependencies. It rebuilds the entire finite instance instead of trusting `maxima.json`.
+# Independent mathematical audit
 
-The verification steps are:
+## correctness
 
-1. Generate all \(32\) binary words of length \(5\).
-2. Recompute cyclic symbol-pair distance directly from adjacent ordered pairs.
-3. Build the compatibility graph for threshold \(d_{\mathrm p}\ge4\).
-4. Exhaustively enumerate all maximal cliques by Bron–Kerbosch recursion with an exact size bound; obtain \(118\) maximal cliques, largest size \(8\), and exactly \(20\) maxima.
-5. Translate every maximum inside \(\mathbb F_2^5\) and test additive closure; obtain \(20\) affine maxima, five direction subspaces, and four cosets per direction.
-6. Verify that the five directions are exactly the five cyclic shifts of the displayed base direction.
-7. Exhaust the stated \(320\)-element pair-metric isometry subgroup; its orbit on one maximum is the complete set of \(20\) maxima, and the directly counted stabilizer has order \(16\).
-8. Recheck every pair of words in every maximum directly against the distance definition.
+PASS
 
-Expected final output:
+A fresh compatibility graph on all 32 binary words joined pairs at cyclic pair distance at least four. Independent Bron–Kerbosch enumeration found 118 maximal cliques, maximum size eight, and exactly 20 size-eight cliques. Translating each maximum by one of its words produced an eight-element set containing zero and closed under XOR, so every maximum is an affine three-dimensional subspace. Exactly five direction subspaces occur, each with four cosets. These checks reconstruct the finite classification from the metric definition; the known Singleton bound independently confirms the maximum-size ceiling.
 
-`VERIFY_OK maximum=8 labeled_maxima=20 maximal_cliques=118 affine_maxima=20 direction_subspaces=5 cosets_per_direction=4 orbit_size=20 stabilizer=16 group_size=320`
+## originality
 
-The proof is a complete finite search over the specified domain. It does not establish corresponding classifications for other lengths, alphabets, or distance thresholds.
+PASS
+
+The classical symbol-pair literature already gives the Singleton upper bound and explicit binary MDS \((n,4)\) constructions for every \(n\ge4\), so neither existence nor the numerical maximum 8 is novel by itself. The inspected sources do not classify all nonlinear length-five binary maximizers. The audited census adds exactly that missing finite structure: all 20 labeled maxima are affine 3-flats, arranged as four cosets of five direction subspaces and one orbit under the stated pair-metric symmetry subgroup.
+
+## value
+
+PASS
+
+The smallest binary distance-four MDS symbol-pair instance is a canonical boundary case where existence was known but nonlinear extremizers were not classified. Determining every optimum, its affine rigidity, and its symmetry orbit gives a natural complete finite classification useful as a benchmark for structural conjectures and enumeration methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
