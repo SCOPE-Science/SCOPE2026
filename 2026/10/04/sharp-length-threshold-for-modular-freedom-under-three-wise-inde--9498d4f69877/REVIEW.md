@@ -1,43 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Three-wise independence is reduced exactly to the first three factorial
-moments of the Hamming weight. For a fixed residue class, scaling by the modulus
-reduces the construction to an integer-valued variable with prescribed mean,
-variance, and zero third centered moment. The lower lattice variance is proved
-by a nonnegative cubic polynomial on the integer support and is attained by an
-explicit three-point law. A separate four-point law has the same mean and zero
-third centered moment with variance at least \(2/3\); convex interpolation
-therefore hits the required variance at \(n=q^2+2\). The lower-bound argument
-uses a nearest-lattice variance obstruction below \(q^2-1\) and explicit
-cubic obstructions at the three remaining lengths.
+PASS
 
-The decoded standalone checker replayed the package with:
-`VERIFY_OK construction_cases=20094 support_points=100075 pairwise_obstruction_checks=173558 third_moment_boundary_checks=591`.
+The factorial-moment equivalence is correct: exchangeable conditioning on K converts the first three factorial moments exactly into three-wise-independent fair bits. After writing K=r+qJ, the prescribed moments become a mean, variance n/(4q^2), and zero centered third moment. The cubic-polynomial lattice inequalities in the package give the exact low-variance obstruction for a given fractional mean; the explicit high-variance zero-skew four-point law brackets the target at n=q^2+2 and convex interpolation uses at most five J-values. Below q^2-1, nearest-integer variance already blocks one residue; at q^2-1,q^2,q^2+1 the displayed residues violate the sharper zero-third-moment minimum. The fetched exact-rational verifier independently checks constructions through q=200 and the boundary formulas, but the proof is analytic.
 
-## Originality
+## originality
 
-PASS, with a stated residual coding-literature risk. The inspected 2012
-limited-independence paper establishes the general Boolean-function/moment
-framework and treats functions such as majority, but does not state modular
-Hamming-weight freedom or a quadratic-plus-two coordinate threshold. The
-inspected 2012 discrete three-moment paper gives exact bounds for tail events,
-not support on arithmetic progressions. The inspected orthogonal-array work
-studies minimum row counts and simplicity, a different extremal parameter.
+PASS
 
-Targeted semantic and web searches over three-wise independence, binary
-orthogonal arrays, Hamming-weight congruences, fixed residue support, and
-modular Bernoulli sums did not locate the statement or an implication that
-dominates it.
+Best-of-knowledge originality passes. Benjamini--Gurel-Gurevich--Peled connect k-wise independence with moment problems but do not state modular Hamming-weight freedom. Di Cecco solves sharp threshold-event optimization under three moments, not support on one residue class. Orthogonal-array work minimizes sample-space rows rather than coordinate length. No checked source gives the q^2+2 threshold or the residue-vertex construction.
 
-## Value
+## value
 
-PASS. The result gives a natural exact cutoff for when third-order independence
-ceases to constrain an entire nonmonotone statistic: above the sharp first
-feasible length, the full probability simplex on Hamming-weight residues is
-available. The proof also identifies the precise role of the third centered
-moment in delaying the modular-freedom threshold beyond the second-moment
-lattice barrier.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+This determines a sharp transition for how much modular information can be prescribed under exact three-wise independence, separating coordinate length from orthogonal-array sample-space size. The q^2+2 cutoff and sparse residue-vertex construction are natural moment/design-theoretic boundary data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

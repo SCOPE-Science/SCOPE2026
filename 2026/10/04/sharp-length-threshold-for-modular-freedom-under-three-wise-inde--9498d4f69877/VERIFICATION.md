@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The universal statement is proved analytically. The accompanying
-`verify_threewise_modular_threshold.py` uses only Python standard-library exact
-rational arithmetic.
+# Independent mathematical audit
 
-For each replayed residue vertex it:
+## correctness
 
-1. constructs the sharp low-variance zero-skew lattice law;
-2. constructs the four-point higher-variance zero-skew law;
-3. interpolates exactly to variance \(n/(4q^2)\);
-4. maps the lattice variable back to a Hamming-weight law in one residue class;
-5. checks support, nonnegative masses, total mass one, and all first three
-   factorial moments;
-6. checks that at most five Hamming weights are used.
+PASS
 
-It separately replays the nearest-lattice second-moment obstruction below the
-pairwise barrier and the explicit cubic third-moment obstruction at
-\(q^2-1\), \(q^2\), and \(q^2+1\).
+The factorial-moment equivalence is correct: exchangeable conditioning on K converts the first three factorial moments exactly into three-wise-independent fair bits. After writing K=r+qJ, the prescribed moments become a mean, variance n/(4q^2), and zero centered third moment. The cubic-polynomial lattice inequalities in the package give the exact low-variance obstruction for a given fractional mean; the explicit high-variance zero-skew four-point law brackets the target at n=q^2+2 and convex interpolation uses at most five J-values. Below q^2-1, nearest-integer variance already blocks one residue; at q^2-1,q^2,q^2+1 the displayed residues violate the sharper zero-third-moment minimum. The fetched exact-rational verifier independently checks constructions through q=200 and the boundary formulas, but the proof is analytic.
 
-Replay result:
+## originality
 
-`VERIFY_OK construction_cases=20094 support_points=100075 pairwise_obstruction_checks=173558 third_moment_boundary_checks=591`
+PASS
 
-Finite replay is not used as a proof for untested moduli. The proof in
-`RESULT.md` supplies the universal inequalities.
+Best-of-knowledge originality passes. Benjamini--Gurel-Gurevich--Peled connect k-wise independence with moment problems but do not state modular Hamming-weight freedom. Di Cecco solves sharp threshold-event optimization under three moments, not support on one residue class. Orthogonal-array work minimizes sample-space rows rather than coordinate length. No checked source gives the q^2+2 threshold or the residue-vertex construction.
 
-Originality was assessed by statement-level comparison with the cited
-limited-independence, discrete-moment, and orthogonal-array literature.
-Independent audit has not been performed.
+## value
+
+PASS
+
+This determines a sharp transition for how much modular information can be prescribed under exact three-wise independence, separating coordinate length from orthogonal-array sample-space size. The q^2+2 cutoff and sparse residue-vertex construction are natural moment/design-theoretic boundary data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
