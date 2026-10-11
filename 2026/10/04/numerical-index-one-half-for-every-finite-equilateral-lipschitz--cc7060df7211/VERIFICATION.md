@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked directly against the definitions of the real numerical radius and numerical index.
+# Independent mathematical audit
 
-1. **Norm model.** For every zero-sum vector \(\mu\), direct transport from positive to negative coordinates has cost \(\tfrac12\sum_k|\mu_k|\), and an indicator Lipschitz function gives the matching lower bound.
-2. **Unit-ball generators.** A unit vector has positive mass exactly \(1\) and negative mass exactly \(-1\), so a transport matrix decomposes it as a convex combination of molecules \(u_{ij}=e_i-e_j\).
-3. **Universal lower bound.** A norm-one operator attains its norm on at least one molecule because the molecular convex hull is finite. For its image, the four sign patterns of the selected two coordinates produce an admissible norming indicator with absolute value at least \(1/2\).
-4. **Sharp operator.** The stated cyclic operator on three coordinates sends a molecule to a vector of norm \(1\), \(1/2\), or \(0\) according to how many endpoints lie in the distinguished triple, so its operator norm is exactly \(1\).
-5. **Numerical-radius bound.** A dual functional norming a molecule can be normalized to take values \(1\) and \(0\) at its endpoints, forcing all coordinates into \([0,1]\). Direct evaluation of the cyclic operator is then at most \(1/2\). For a general norming pair, convex decomposition shows every positive-weight molecule is normed by the same functional, so the bound persists.
-6. **Boundary.** With two metric points the free space is one-dimensional and has numerical index \(1\); the theorem therefore begins at exactly three points.
+## correctness
 
-No finite enumeration, numerical optimization, or external certificate is needed for correctness. Independent audit has not been performed.
+PASS
+
+After unit-distance normalization, \(\mathcal F(M)\) is the zero-sum hyperplane with norm \(\|\mu\|=\frac12\sum|\mu_i|\), and its unit ball is the convex hull of the molecules \(u_{ij}=e_i-e_j\). For any norm-one operator, finite norm attainment gives a molecule whose image has positive and negative mass one; the four sign configurations of its two selected coordinates yield an indicator functional norming the molecule and evaluating the image with modulus at least one half. Thus every norm-one operator has numerical radius at least one half. The explicit three-coordinate cyclic operator in the package has norm one and numerical radius at most one half; for a general norming pair, convex decomposition forces every positive-weight molecule to be normed by the same functional, extending the molecule estimate. The two-point boundary is one-dimensional.
+
+## originality
+
+PASS
+
+The full Cobollo-Guirao-Montesinos paper was inspected: Corollary 5.3 gives the equilateral triangle value \(1/2\), but the paper is explicitly about two-dimensional free spaces and contains no all-cardinality equilateral theorem. The polyhedral numerical-index paper supplies a generic finite method and an unrelated three-dimensional example; the extreme-point paper characterizes molecules under strict metric segments but does not compute this numerical index. Searches using the isometric aliases zero-sum \(\ell_1\) hyperplane, root polytope and complete/equilateral metric found no stronger theorem. Resultary likewise returned only the audited all-cardinality result.
+
+## value
+
+PASS
+
+Finite equilateral metrics form the canonical homogeneous family, and the numerical index is a natural operator-geometric invariant. The theorem gives an exact dimension-independent value in every dimension above one, with a sharp two-point threshold and an explicit extremal operator. This is a reusable family theorem rather than a tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
