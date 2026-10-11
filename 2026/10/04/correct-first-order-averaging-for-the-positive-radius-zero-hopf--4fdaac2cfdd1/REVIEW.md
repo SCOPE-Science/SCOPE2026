@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Starting from the printed rescaled ODE and the paper's own linear change, differentiation of the inverse change gives the first-order perturbations of \((X,Y,Z,U)\). Exact trigonometric averaging then yields the three displayed corrected averaged functions. Solving them on the regular chart \(r>0\) gives the stated branch and determinant. The remaining two eigenvalues satisfy a real quadratic whose Hurwitz conditions reduce exactly to \(c_1>0\) and \(a_1\omega^2+j_1<0\); the third eigenvalue is negative exactly when \(a_1+d_1>0\). The two rational parameter witnesses were replayed independently.
+## correctness
 
-## Originality
-PASS. The 2020 source contains the printed ODE, the same linear change, and a different averaged system; it does not contain the corrected positive-radius branch. The 2021 Llibre--Tian paper is the strongest checked same-system follow-up: it calls the 2020 result partial and gives a broader zero-Hopf classification, but its main origin theorem perturbs \(b,c,d,j\) while keeping \(a\) fixed, whereas the present claim treats the source's distinct perturbation with fixed \(b\) and varying \(a,c,d,j\). Exact-title, DOI, corrected-formula, alias, and implication searches located no publication stating the present corrected average or branch criterion. A close indexed result about polar-boundary zeros is for a different Rössler system and is not covering.
+PASS
 
-## Value
-PASS. The correction changes the actual first-order bifurcation region and the stability test for the only simple positive-radius branch of a published zero-Hopf theorem. It is not a cosmetic replacement of \((b-1)^2\) by \(b-1\): the sign combination and nondegeneracy factor change from the published \(a_1\omega^2-j_1\) and \(a_1-d_1\) to \(a_1\omega^2+j_1\) and \(a_1+d_1\). The explicit \(b=2\) witnesses show both a stable branch omitted by the printed criterion and a parameter point accepted by the printed criterion where the correct first-order average has no real positive-radius zero.
+The first-order average was independently reconstructed from the printed ODE and the source's own inverse linear change rather than from the source's averaged formulas. With \(X=r\cos\theta\), \(Y=r\sin\theta\), symbolic angular integration gives \(\bar f_r=r(eU-j_1-a_1\omega^2)/(2\omega^3)\), \(\bar f_Z=Z(j_1-eU-d_1\omega^2)/\omega^3\), and \(\bar f_U=(-2c_1U+2Z^2/\omega^4+r^2/(1+\omega^2))/(2\omega)\). These disagree in sign with the two printed source averages. A simple positive-radius zero therefore has \(U_*=(a_1\omega^2+j_1)/e\), \(Z_*=0\), and \(r_*^2=2c_1(1+\omega^2)(a_1\omega^2+j_1)/e\), with nondegeneracy requiring \(a_1+d_1\ne0\). The averaged Jacobian splits into one eigenvalue \(-(a_1+d_1)/\omega\) and a quadratic whose Hurwitz conditions are exactly \(c_1>0\) and \(a_1\omega^2+j_1<0\). The stated stable and sign-reversal witnesses follow.
 
-## Closest literature and limitations
-The closest literature is the 2020 introducing calculation and the 2021 full same-system zero-Hopf study. The latter is broader in the space of zero-Hopf equilibria but uses a different perturbation direction and does not state the corrected formulas here. The result is local and first order; it neither excludes periodic orbits from other mechanisms nor evaluates the two zero-radius labels or any global attractor.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact 2020 source remains publicly available with the sign pattern that conflicts with direct averaging, and targeted correction/erratum searches found no published fix. The complete Llibre-Tian 2021 paper explicitly calls Yang et al.'s origin analysis partial and studies a broader/differently parameterized zero-Hopf family, but does not state this corrected average or the audited positive-radius criterion. Resultary returned the assigned correction as the exact hit and no prior equivalent.
+
+## value
+
+PASS
+
+The result changes both existence and stability certification for the paper's positive-radius zero-Hopf branch and supplies explicit parameter choices demonstrating the practical sign reversal. Correcting a first-order averaging theorem for a canonical local bifurcation is a substantive mathematical correction, not a typographical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

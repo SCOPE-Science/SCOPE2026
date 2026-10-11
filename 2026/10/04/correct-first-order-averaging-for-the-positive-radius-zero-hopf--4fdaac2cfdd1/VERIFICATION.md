@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The bundled `verification/verify.py` uses only the Python standard library and exact rational arithmetic. It checks two source-specific witnesses at \(b=2\), so \(\omega=1\) and no floating-point or radical approximation is involved.
+# Independent mathematical audit
 
-For \((a_1,d_1,c_1,j_1,e)=(1,2,1,-2,-1)\), it verifies
-\[
-U_*=1,\qquad r_*^2=4,\qquad
-\det D\bar f=-3,
-\]
-and the nontrivial quadratic factor \(\lambda^2+\lambda+1\), whose roots have real part \(-1/2\). It also verifies that the existence expression printed in the source has the opposite sign and therefore excludes this stable corrected branch.
+## correctness
 
-With only \(e\) changed to \(+1\), the checker verifies that the source's printed positive-radius existence expression is positive while the corrected value is \(r_*^2=-4\). Thus the correct first-order average has no real positive-radius zero at that witness, although no claim is made about periodic orbits arising by a different or higher-order mechanism.
+PASS
 
-The general symbolic derivation is given in `RESULT.md`; the finite exact witnesses are supplementary checks, not a substitute for that proof. The recorded replay output is `VERIFY_OK`.
+The first-order average was independently reconstructed from the printed ODE and the source's own inverse linear change rather than from the source's averaged formulas. With \(X=r\cos\theta\), \(Y=r\sin\theta\), symbolic angular integration gives \(\bar f_r=r(eU-j_1-a_1\omega^2)/(2\omega^3)\), \(\bar f_Z=Z(j_1-eU-d_1\omega^2)/\omega^3\), and \(\bar f_U=(-2c_1U+2Z^2/\omega^4+r^2/(1+\omega^2))/(2\omega)\). These disagree in sign with the two printed source averages. A simple positive-radius zero therefore has \(U_*=(a_1\omega^2+j_1)/e\), \(Z_*=0\), and \(r_*^2=2c_1(1+\omega^2)(a_1\omega^2+j_1)/e\), with nondegeneracy requiring \(a_1+d_1\ne0\). The averaged Jacobian splits into one eigenvalue \(-(a_1+d_1)/\omega\) and a quadratic whose Hurwitz conditions are exactly \(c_1>0\) and \(a_1\omega^2+j_1<0\). The stated stable and sign-reversal witnesses follow.
+
+## originality
+
+PASS
+
+The exact 2020 source remains publicly available with the sign pattern that conflicts with direct averaging, and targeted correction/erratum searches found no published fix. The complete Llibre-Tian 2021 paper explicitly calls Yang et al.'s origin analysis partial and studies a broader/differently parameterized zero-Hopf family, but does not state this corrected average or the audited positive-radius criterion. Resultary returned the assigned correction as the exact hit and no prior equivalent.
+
+## value
+
+PASS
+
+The result changes both existence and stability certification for the paper's positive-radius zero-Hopf branch and supplies explicit parameter choices demonstrating the practical sign reversal. Correcting a first-order averaging theorem for a canonical local bifurcation is a substantive mathematical correction, not a typographical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

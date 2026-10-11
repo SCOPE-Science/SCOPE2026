@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T18:13:48.149325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Yang-Wei-Moroz, Periodic solutions for a four-dimensional hyperchaotic system, DOI 10.1186/s13662-020-02647-4, open full text",
+        "Llibre-Tian, The zero-Hopf bifurcations of a four-dimensional hyperchaotic system, DOI 10.1063/5.0023155, complete 10-page PDF",
+        "independent symbolic angular averaging from the printed transformed system",
+        "assigned RESULT.md at Git tree 52f313a8e52fc6b797235b227ee64c93bd6ce3d0"
+      ],
+      "rationale": "The first-order average was independently reconstructed from the printed ODE and the source's own inverse linear change rather than from the source's averaged formulas. With \\(X=r\\cos\\theta\\), \\(Y=r\\sin\\theta\\), symbolic angular integration gives \\(\\bar f_r=r(eU-j_1-a_1\\omega^2)/(2\\omega^3)\\), \\(\\bar f_Z=Z(j_1-eU-d_1\\omega^2)/\\omega^3\\), and \\(\\bar f_U=(-2c_1U+2Z^2/\\omega^4+r^2/(1+\\omega^2))/(2\\omega)\\). These disagree in sign with the two printed source averages. A simple positive-radius zero therefore has \\(U_*=(a_1\\omega^2+j_1)/e\\), \\(Z_*=0\\), and \\(r_*^2=2c_1(1+\\omega^2)(a_1\\omega^2+j_1)/e\\), with nondegeneracy requiring \\(a_1+d_1\\ne0\\). The averaged Jacobian splits into one eigenvalue \\(-(a_1+d_1)/\\omega\\) and a quadratic whose Hurwitz conditions are exactly \\(c_1>0\\) and \\(a_1\\omega^2+j_1<0\\). The stated stable and sign-reversal witnesses follow.",
+      "residual_risks": [
+        "First-order averaging certifies only the small-periodic-orbit branch associated with a simple positive-radius averaged zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 article is the exact source being corrected.",
+          "The 2021 paper characterizes broader zero-Hopf parameter families and first-order periodic orbits, using a different perturbation of the origin family; it does not provide the audited transformed average."
+        ],
+        "reasoning": "The broader later paper does not logically imply the specific corrected first-order vector field for the printed 2020 perturbation without a new reparameterization and calculation.",
+        "searches": [
+          "Yang-Wei-Moroz 2020 complete open article",
+          "Llibre-Tian 2021 complete primary PDF"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1186/s13662-020-02647-4",
+        "https://doi.org/10.1063/5.0023155",
+        "Resultary published-result search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent angular integration changes the sign of the \\(eU\\) and/or \\(a_1\\omega^2\\) contributions in the first two averaged equations.",
+          "The audited stable witness is admitted by the corrected formula but excluded by the source's printed positive-radius expression; reversing only \\(e\\) produces the opposite mismatch."
+        ],
+        "reasoning": "The result corrects an algebraic step in the source; it is not a corollary already present in the later general study.",
+        "searches": [
+          "Direct coefficient-by-coefficient comparison between the printed transformed ODE and printed source average; comparison with Llibre-Tian parameterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record; neighboring hyperchaos corrections concern different systems.",
+          "The current Yang-Wei-Moroz article still prints the inconsistent averaged functions.",
+          "Llibre-Tian describes the 2020 result as partial but does not publish this sign correction."
+        ],
+        "reasoning": "No equivalent correction was located under the source title, zero-Hopf, averaging, or corrected-sign formulations.",
+        "searches": [
+          "Resultary query: four dimensional hyperchaotic zero Hopf first order averaging Yang Wei Moroz corrected signs",
+          "DOI 10.1186/s13662-020-02647-4 correction/erratum search",
+          "DOI 10.1063/5.0023155 comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No erratum, corrected formula table, or prior exact parameter witness was found."
+        ],
+        "reasoning": "This is an analytic rederivation, not a database/table result.",
+        "searches": [
+          "current DOI/correction search; Resultary semantic search"
+        ]
+      },
+      "rationale": "The exact 2020 source remains publicly available with the sign pattern that conflicts with direct averaging, and targeted correction/erratum searches found no published fix. The complete Llibre-Tian 2021 paper explicitly calls Yang et al.'s origin analysis partial and studies a broader/differently parameterized zero-Hopf family, but does not state this corrected average or the audited positive-radius criterion. Resultary returned the assigned correction as the exact hit and no prior equivalent.",
+      "residual_risks": [
+        "A non-indexed corrigendum or author note could later surface; no current correction was located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CHALLENGED_PRIMARY_SOURCE",
+          "evidence": "The printed first two averaged functions have sign contributions inconsistent with direct averaging of the paper's preceding transformed equations.",
+          "identifier_or_url": "https://doi.org/10.1186/s13662-020-02647-4",
+          "material_read": "Open full publisher article, including the ODE, zero-Hopf setup, rescaling/linear change, printed averaged functions, positive-radius branch and stability calculation.",
+          "method": "Lawful publisher open-access full-text inspection.",
+          "title": "Periodic solutions for a four-dimensional hyperchaotic system",
+          "trigger": "Exact source whose first-order average and Theorem 2 branch are corrected."
+        },
+        {
+          "assessment": "BROADER_LATER_NOT_COVERING",
+          "evidence": "It broadens the zero-Hopf analysis under a different perturbation but does not state the corrected 2020 averaged vector field or positive-radius condition.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0023155",
+          "material_read": "Complete 10-page PDF, including the classification theorem, statement that Yang et al. gave partial origin results, parameterization of the later origin family, and averaging framework.",
+          "method": "Lawful institutional/open-repository full-PDF inspection with rendered-page verification.",
+          "title": "The zero-Hopf bifurcations of a four-dimensional hyperchaotic system",
+          "trigger": "Closest later primary paper on the identical four-dimensional system and zero-Hopf mechanism."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yang-Wei-Moroz 2020 theorem/proof",
+        "Llibre-Tian 2021 later system analysis"
+      ],
+      "rationale": "The result changes both existence and stability certification for the paper's positive-radius zero-Hopf branch and supplies explicit parameter choices demonstrating the practical sign reversal. Correcting a first-order averaging theorem for a canonical local bifurcation is a substantive mathematical correction, not a typographical observation.",
+      "residual_risks": [
+        "The absence of the corrected averaged zero does not exclude periodic orbits from higher-order or different mechanisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1186/s13662-020-02647-4",
+    "https://doi.org/10.1063/5.0023155",
+    "Resultary published-result search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Local first-order averaging for the stated perturbative family only.",
+    "Zero-radius labels and global hyperchaotic dynamics are outside scope."
+  ],
+  "residual_risks": [
+    "A non-indexed corrigendum or author note could later surface; no current correction was located."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "CHALLENGED_PRIMARY_SOURCE",
+      "evidence": "The printed first two averaged functions have sign contributions inconsistent with direct averaging of the paper's preceding transformed equations.",
+      "identifier_or_url": "https://doi.org/10.1186/s13662-020-02647-4",
+      "material_read": "Open full publisher article, including the ODE, zero-Hopf setup, rescaling/linear change, printed averaged functions, positive-radius branch and stability calculation.",
+      "method": "Lawful publisher open-access full-text inspection.",
+      "title": "Periodic solutions for a four-dimensional hyperchaotic system",
+      "trigger": "Exact source whose first-order average and Theorem 2 branch are corrected."
+    },
+    {
+      "assessment": "BROADER_LATER_NOT_COVERING",
+      "evidence": "It broadens the zero-Hopf analysis under a different perturbation but does not state the corrected 2020 averaged vector field or positive-radius condition.",
+      "identifier_or_url": "https://doi.org/10.1063/5.0023155",
+      "material_read": "Complete 10-page PDF, including the classification theorem, statement that Yang et al. gave partial origin results, parameterization of the later origin family, and averaging framework.",
+      "method": "Lawful institutional/open-repository full-PDF inspection with rendered-page verification.",
+      "title": "The zero-Hopf bifurcations of a four-dimensional hyperchaotic system",
+      "trigger": "Closest later primary paper on the identical four-dimensional system and zero-Hopf mechanism."
+    }
+  ]
+}
