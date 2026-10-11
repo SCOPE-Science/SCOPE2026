@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T01:51:17.530604Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob ca870da8cea8272c31c0523b97e1ecc1059e37f9",
+        "verify.py blob 01f27346419004acf488a6483d7fcf56b7eb3f94",
+        "fresh independent full face-poset replay"
+      ],
+      "rationale": "A fresh independent replay reconstructed the Fano incidence graph, enumerated all 458 independent sets with cardinality counts 1,14,70,154,147,56,14,2, and rebuilt the stated sequential matching. It leaves exactly six critical simplices, all of dimension three, and a complete orientation of all 1,582 Hasse covers is acyclic. In reduced discrete-Morse form this gives a basepoint and six three-cells with no lower positive-dimensional cells, hence a wedge of six three-spheres. The package's separate mod-two homology computation is consistent but is not used by itself to infer homotopy type.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nilakantan--Shukla cover a different explicit graph family.",
+          "Tsukuda's theorem reduces incidence-graph independence complexes to combinatorial Alexander duals but does not, in the inspected statement, evaluate the Fano plane to six three-spheres."
+        ],
+        "reasoning": "No inspected broader theorem yields the numerical sphere dimension and multiplicity for the Heawood graph.",
+        "searches": [
+          "Nilakantan--Shukla, Homotopy type of the independence complexes of a family of regular bipartite graphs, arXiv:1709.04789",
+          "Tsukuda, Independence complexes and incidence graphs, DOI:10.55016/ojs/cdm.v12i1.62277"
+        ]
+      },
+      "checked_sources": [
+        "Perarnau--Perkins, Counting independent sets in cubic graphs of given girth, arXiv:1611.01474v1",
+        "Nilakantan--Shukla, Homotopy type of the independence complexes of a family of regular bipartite graphs, arXiv:1709.04789",
+        "Tsukuda, Independence complexes and incidence graphs, DOI:10.55016/ojs/cdm.v12i1.62277",
+        "Resultary query: The Heawood graph independence complex homotopy type wedge spheres Fano incidence graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published polynomial does not imply the Morse matching.",
+          "The two family/general topology sources require an additional graph-specific evaluation that is supplied by the audited exhaustive matching."
+        ],
+        "reasoning": "None of the checked statements contains the final wedge claim as a corollary without a nontrivial finite computation.",
+        "searches": [
+          "Perarnau--Perkins, Counting independent sets in cubic graphs of given girth, arXiv:1611.01474v1",
+          "Nilakantan--Shukla, Homotopy type of the independence complexes of a family of regular bipartite graphs, arXiv:1709.04789",
+          "Tsukuda, Independence complexes and incidence graphs, DOI:10.55016/ojs/cdm.v12i1.62277",
+          "fresh complete face-poset replay"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Fano-plane incidence graph is the Heawood graph, so both graph and incidence aliases were searched.",
+          "The Nilakantan--Shukla family has cyclic consecutive neighborhoods; at order fourteen and degree three it contains a four-cycle, unlike the girth-six Heawood graph."
+        ],
+        "reasoning": "Exact graph, Fano-incidence, regular-bipartite, and Alexander-dual formulations were compared.",
+        "searches": [
+          "Nilakantan--Shukla, Homotopy type of the independence complexes of a family of regular bipartite graphs, arXiv:1709.04789",
+          "Tsukuda, Independence complexes and incidence graphs, DOI:10.55016/ojs/cdm.v12i1.62277",
+          "Resultary query: The Heawood graph independence complex homotopy type wedge spheres Fano incidence graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Perarnau--Perkins explicitly give coefficients 1,14,70,154,147,56,14,2 for the Heawood independence polynomial.",
+          "An f-vector is insufficient to determine homotopy type; Resultary has no prior stronger exact Heawood-independence record."
+        ],
+        "reasoning": "The strongest exact table supplies enumerative data only.",
+        "searches": [
+          "Perarnau--Perkins, Counting independent sets in cubic graphs of given girth, arXiv:1611.01474v1",
+          "Resultary query: The Heawood graph independence complex homotopy type wedge spheres Fano incidence graph"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes. The exact Heawood/Fano-incidence aliases were checked. Perarnau--Perkins give the complete Heawood independence polynomial, which fixes the face vector but not the homotopy type. Nilakantan--Shukla prove an exact homotopy theorem for a cyclic-neighborhood regular-bipartite family, but their 14-vertex cubic graph is not the Heawood graph. Tsukuda gives a general incidence-graph Alexander-duality reduction rather than an evaluated Fano-plane wedge. Resultary returned the assigned record as the exact hit and no stronger published SCOPE implication.",
+      "residual_risks": [
+        "An obscure or differently phrased explicit Fano-plane Alexander-dual computation may exist outside the searched literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ENUMERATION_NOT_HOMOTOPY_CLASSIFICATION",
+          "evidence": "The paper prints the full Heawood independence polynomial but does not state the audited wedge type.",
+          "identifier_or_url": "arXiv:1611.01474v1",
+          "material_read": "Complete primary PDF relevant Heawood section, including the explicit independence polynomial and extremal theorem.",
+          "method": "Lawful open primary PDF with page-image inspection.",
+          "title": "Counting independent sets in cubic graphs of given girth",
+          "trigger": "Exact same Heawood graph and complete independent-set enumerator."
+        },
+        {
+          "assessment": "DIFFERENT_CYCLIC_NEIGHBORHOOD_FAMILY",
+          "evidence": "The theorem applies to G_m^d with consecutive cyclic neighborhoods; its 14-vertex cubic case is not the girth-six Heawood graph.",
+          "identifier_or_url": "arXiv:1709.04789",
+          "material_read": "Complete open primary PDF, especially the graph-family definition and Theorem 1.2.",
+          "method": "Lawful open primary PDF with page-image inspection.",
+          "title": "Homotopy type of the independence complexes of a family of regular bipartite graphs",
+          "trigger": "Closest full primary theorem giving exact wedges for regular bipartite independence complexes."
+        },
+        {
+          "assessment": "GENERAL_REDUCTION_NOT_EXPLICIT_FANO_EVALUATION",
+          "evidence": "It identifies an incidence-graph independence complex with an Alexander-dual construction, not the explicit Heawood wedge in the inspected statement.",
+          "identifier_or_url": "DOI:10.55016/ojs/cdm.v12i1.62277",
+          "material_read": "Publisher abstract and theorem description.",
+          "method": "Lawful publisher inspection.",
+          "title": "Independence complexes and incidence graphs",
+          "trigger": "General primary theorem specifically for incidence graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Perarnau--Perkins, Counting independent sets in cubic graphs of given girth, arXiv:1611.01474v1",
+        "Nilakantan--Shukla, Homotopy type of the independence complexes of a family of regular bipartite graphs, arXiv:1709.04789",
+        "Tsukuda, Independence complexes and incidence graphs, DOI:10.55016/ojs/cdm.v12i1.62277",
+        "Resultary query: The Heawood graph independence complex homotopy type wedge spheres Fano incidence graph"
+      ],
+      "rationale": "The Heawood graph is a canonical highly symmetric cubic girth-six incidence graph, and its independence complex is a natural topological invariant already motivated by an exact independent-set extremal literature. The result determines homotopy, not just counts or homology, and contrasts with nearby regular-bipartite families whose homotopy types differ.",
+      "residual_risks": [
+        "The theorem is graph-specific and supplies no projective-plane family formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An obscure or differently phrased explicit Fano-plane Alexander-dual computation may exist outside the searched literature.",
+    "Publication is withheld because every frozen package contains operational workflow material in existing public AUDIT.json, METADATA.json, REVIEW.md, and VERIFICATION.md files, including audit-status and workflow-state fields. The complete 37-file recursive inventory was read; RESULT.md, SLOGAN.txt, certificates, and verifier sources were semantically inspected and were clear of the checked platform/workflow disclosures. Exact guarded sanitizing replacement bytes were not prepared in this run."
+  ],
+  "schema_version": 1
+}
