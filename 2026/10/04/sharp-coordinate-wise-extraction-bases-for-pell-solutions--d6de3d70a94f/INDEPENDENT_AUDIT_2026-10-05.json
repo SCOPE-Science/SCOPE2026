@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T20:13:42.721864Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob ff83de646a5282c2f9a13fab321e643b6429119a",
+        "assigned verify.py blob 7f2b7a9a409405b5ca26ea51ff8add6c46c763c8",
+        "Dumitru--Prunescu, arXiv:2609.28649, Section 9 and Theorem 19",
+        "Prunescu--Sauras-Altuzarra, arXiv:2405.04083 / DOI:10.1080/10236198.2025.2530478, Section 7.1"
+      ],
+      "rationale": "The rational generating functions split each extraction fraction into the integer prefix ending in X_n or Y_n plus a positive tail T_n or U_n. At b_X=2a(a+1)-1 and b_Y=2a(y+1), the recurrence bounds in the package make the corresponding tails less than one for every n and keep each coordinate below the modulus. For a smaller positive-denominator base, if the n=1 tail does not already change the residue, it must hide a positive multiple of b; the resulting bounds on s=b-2a force the n=2 tail strictly between one and b^2, so it cannot disappear modulo b^2. This proves exact coordinate-wise minimality rather than only sufficiency. An independent replay on nonsquare d in {2,3,5,6,7,10,11} exhausted every smaller manageable base and verified both thresholds through n=6, reproducing for d=7 the pair 143 and 64. The inspected package verifier independently performs a much larger finite corroboration while the all-d theorem rests on the symbolic tail proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two prior papers cover broad arithmetic-term representations and common-base extraction.",
+          "Their broader computational framework does not state the lower Y-coordinate threshold for all Pell equations."
+        ],
+        "reasoning": "The new theorem refines a broad representation framework by a sharp source-specific parameter.",
+        "searches": [
+          "arXiv:2609.28649",
+          "arXiv:2405.04083"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.28649",
+        "arXiv:2405.04083",
+        "DOI:10.1080/10236198.2025.2530478",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A least common base does not determine the least base for each formula separately; the Y coordinate can tolerate much smaller bases.",
+          "One worked example with Y-base 64 does not imply the general formula 2X1(Y1+1)."
+        ],
+        "reasoning": "The submitted separate tail analysis is necessary to obtain the new general Y threshold.",
+        "searches": [
+          "comparison with Dumitru--Prunescu Theorem 19",
+          "comparison with Prunescu--Sauras-Altuzarra Corollary 37 and Example 38"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 source proves only the least common admissible base.",
+          "The 2025 source gives sufficiently-large-base formulas and the isolated d=7 separate values, not a general coordinate-wise optimum."
+        ],
+        "reasoning": "Common-base optimality and separate-coordinate optimality were compared explicitly; only the former is previously proved in general.",
+        "searches": [
+          "Resultary query: coordinate-wise least bases Pell generating-function extraction X_n Y_n sharp minimal base",
+          "Dumitru--Prunescu arXiv:2609.28649 Section 9",
+          "Prunescu--Sauras-Altuzarra arXiv:2405.04083 Section 7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned finding was the direct exact hit; no earlier exact general coordinate-wise threshold record was located."
+        ],
+        "reasoning": "The d=7 values are prior table/example data, but the audited claim is the all-Pell closed formula and proof of minimality.",
+        "searches": [
+          "Resultary exact semantic search for b_X=2X1(X1+1)-1 and b_Y=2X1(Y1+1)"
+        ]
+      },
+      "rationale": "Dumitru--Prunescu prove that 2X1(X1+1)-1 is the least common base for the two formulas, explicitly using the two coordinates together. Prunescu--Sauras-Altuzarra give the formulas for sufficiently large bases and, in Example 38, the d=7 choices 143 for X and 64 for Y. The relevant primary pages of both papers were read: neither states a general least Y-coordinate base 2X1(Y1+1), nor a general coordinate-wise minimality theorem. The X-coordinate optimum agrees with the already-known common optimum; the accepted originality is the separation of the optimization problems and especially the exact general Y threshold, together with the n=2 obstruction that proves sharpness.",
+      "residual_risks": [
+        "An older number-theory note could have optimized the Y extraction formula under different notation, although both closest primary sources were inspected without a general statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COMMON_BASE_ONLY",
+          "evidence": "The source proves the least common base and notes the d=7 separate values, but does not state a general coordinate-wise Y minimum.",
+          "identifier_or_url": "arXiv:2609.28649",
+          "material_read": "Primary pages 23-26, especially the generating-function formulas, Section 9.1, Theorem 19 and its proof, and the d=7 note on separate bases.",
+          "method": "Authorized institutional full-text inspection after ordinary open full-text routes did not yield usable complete text.",
+          "title": "Straight-line programs for the solutions of Pell's equation",
+          "trigger": "Closest source proving a least base for the same pair of formulas."
+        },
+        {
+          "assessment": "SUFFICIENT_BASES_AND_ONE_EXAMPLE_NOT_GENERAL_MINIMALITY",
+          "evidence": "Corollary 37 asserts sufficiently large bases and Example 38 gives 143/64 only for d=7.",
+          "identifier_or_url": "arXiv:2405.04083; DOI:10.1080/10236198.2025.2530478",
+          "material_read": "Primary pages 18-20, including Pell recurrence, Corollary 37 and Example 38; surrounding method pages were also inspected.",
+          "method": "Authorized institutional full-text inspection after ordinary open full-text retrieval was unavailable.",
+          "title": "On the representation of C-recursive integer sequences by arithmetic terms",
+          "trigger": "Original source of the two Pell extraction formulas and the d=7 separate-base example."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dumitru--Prunescu 2026",
+        "Prunescu--Sauras-Altuzarra 2025"
+      ],
+      "rationale": "The exact base is the natural resource parameter of the published coefficient-extraction formulas. Separating the two coordinates reveals that the Y formula can have a substantially smaller sharp base than the common threshold, while the X formula already forces the common optimum; this is an exact reusable refinement of a current arithmetic-representation construction.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2609.28649",
+    "arXiv:2405.04083",
+    "DOI:10.1080/10236198.2025.2530478",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Optimizes only the integer base in the two fixed generating-function formulas.",
+    "Does not optimize operation count, expression length, or bit complexity over all possible Pell representations."
+  ],
+  "residual_risks": [
+    "An older number-theory note could have optimized the Y extraction formula under different notation, although both closest primary sources were inspected without a general statement."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COMMON_BASE_ONLY",
+      "evidence": "The source proves the least common base and notes the d=7 separate values, but does not state a general coordinate-wise Y minimum.",
+      "identifier_or_url": "arXiv:2609.28649",
+      "material_read": "Primary pages 23-26, especially the generating-function formulas, Section 9.1, Theorem 19 and its proof, and the d=7 note on separate bases.",
+      "method": "Authorized institutional full-text inspection after ordinary open full-text routes did not yield usable complete text.",
+      "title": "Straight-line programs for the solutions of Pell's equation",
+      "trigger": "Closest source proving a least base for the same pair of formulas."
+    },
+    {
+      "assessment": "SUFFICIENT_BASES_AND_ONE_EXAMPLE_NOT_GENERAL_MINIMALITY",
+      "evidence": "Corollary 37 asserts sufficiently large bases and Example 38 gives 143/64 only for d=7.",
+      "identifier_or_url": "arXiv:2405.04083; DOI:10.1080/10236198.2025.2530478",
+      "material_read": "Primary pages 18-20, including Pell recurrence, Corollary 37 and Example 38; surrounding method pages were also inspected.",
+      "method": "Authorized institutional full-text inspection after ordinary open full-text retrieval was unavailable.",
+      "title": "On the representation of C-recursive integer sequences by arithmetic terms",
+      "trigger": "Original source of the two Pell extraction formulas and the d=7 separate-base example."
+    }
+  ]
+}
