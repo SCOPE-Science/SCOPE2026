@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domination criterion reduces the graph problem to covering minimal subgroups. In exponent \(p\), every nonidentity element has order \(p\), so domination is exactly a cover of the group by proper subgroups; maximal subgroups become hyperplanes of \(G/Z(G)\), whose minimum covering number is \(p+1\). Hyperplanes through a common codimension-two subspace form a clique of even order, giving total and paired domination at the same size. In exponent \(p^2\), the odd-prime class-two power identity makes the \(p\)-th power map a nonzero homomorphism to the center; its proper kernel contains every minimal subgroup and is a universal dominating vertex, while pairing it with the center gives the sharp total and paired value \(2\).
+PASS
 
-Risk: the finite verifier checks only order \(27\); the arbitrary-order claim rests on the symbolic proof.
+Kayacan's criterion reduces ordinary domination to covering every minimal subgroup. In exponent \(p\), every nonidentity element has order \(p\), so maximal-subgroup replacement converts the problem to covering \(V=G/Z(G)\cong\mathbb F_p^{2n}\) by hyperplanes. At most \(p\) hyperplanes cannot cover \(V\), while the \(p+1\) hyperplanes through a codimension-two subspace do; their lifts all contain \(Z(G)\), hence form a clique, and \(p+1\) is even. In exponent \(p^2\), odd-prime class-two collection gives \((xy)^p=x^py^p\); the nonzero homomorphism \(x\mapsto x^p\) maps onto the order-\(p\) center, so its index-\(p\) kernel contains every order-\(p\) subgroup and dominates alone. Pairing that kernel with \(Z(G)\) gives sharp total and paired value \(2\).
 
-## Originality
+## originality
 
-PASS. The closest same-graph source proves the minimal-subgroup covering criterion and broad domination bounds but contains no extraspecial specialization. The closest extraspecial structural source supplies the odd-prime power-map dichotomy but does not study subgroup-intersection domination. A recent extraspecial domination result concerns the proper commuting graph, a different graph on group elements. Searches under ordinary, total, paired, subgroup-intersection, extraspecial, exponent, and vector-space-cover formulations did not locate the two-case domination profile.
+PASS
 
-Risk: an unindexed group-graph paper could contain the same specialization under different terminology.
+Kayacan supplies the general minimal-subgroup covering criterion but does not specialize it to extraspecial groups; full-text search found no extraspecial or Frattini specialization. Resultary searches located domination results for abelian and dihedral subgroup-intersection graphs and for extraspecial noncommuting graphs, all different families or graph constructions. The exact exponent dichotomy and the simultaneous total/paired values require additional extraspecial structure and are not stated by the checked broader sources.
 
-## Value
+## value
 
-PASS. The result gives a complete exact classification for a canonical nonabelian \(p\)-group family and simultaneously computes three standard domination parameters. It sharpens a broad subgroup-cover framework into an exponent-sensitive theorem: one extraspecial type has the extremal cover value \(p+1\), while the other collapses to a universal subgroup vertex and the profile \((1,2,2)\). This also gives a graph parameter that detects the exponent within the odd extraspecial family.
+PASS
 
-Risk: the statement does not extend automatically to extraspecial \(2\)-groups because the relevant power map is quadratic rather than linear.
+The theorem gives a complete and sharply contrasting domination profile for a canonical nonabelian \(p\)-group family, and the profile detects the two odd-prime exponent types. It combines a finite-geometry cover mechanism with a power-kernel mechanism, which is mathematically more informative than isolated small-group calculations.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

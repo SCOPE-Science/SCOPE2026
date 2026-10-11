@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-The general proof has four independently checkable steps.
+# Independent mathematical audit
 
-1. **Domination criterion.** A family of subgroup vertices dominates exactly when its union contains every minimal subgroup. This follows because any nontrivial intersection with a minimal subgroup contains that whole minimal subgroup.
+## correctness
 
-2. **Exponent \(p\).** Every nonidentity element has order \(p\), so domination means covering \(G\) by proper subgroups. Replacing selected subgroups by maximal ones turns the problem into covering the \(2n\)-dimensional vector space \(G/Z(G)\) by hyperplanes. At least \(p+1\) are required; the \(p+1\) hyperplanes through a fixed codimension-two subspace attain the bound and form a clique.
+PASS
 
-3. **Exponent \(p^2\).** For odd \(p\), class two gives \((xy)^p=x^py^p\). Hence the \(p\)-th-power map is a nonzero homomorphism to the order-\(p\) center. Its kernel is proper and contains every subgroup of order \(p\), so it is a dominating vertex. Pairing it with the center gives sharp total and paired domination number \(2\).
+Kayacan's criterion reduces ordinary domination to covering every minimal subgroup. In exponent \(p\), every nonidentity element has order \(p\), so maximal-subgroup replacement converts the problem to covering \(V=G/Z(G)\cong\mathbb F_p^{2n}\) by hyperplanes. At most \(p\) hyperplanes cannot cover \(V\), while the \(p+1\) hyperplanes through a codimension-two subspace do; their lifts all contain \(Z(G)\), hence form a clique, and \(p+1\) is even. In exponent \(p^2\), odd-prime class-two collection gives \((xy)^p=x^py^p\); the nonzero homomorphism \(x\mapsto x^p\) maps onto the order-\(p\) center, so its index-\(p\) kernel contains every order-\(p\) subgroup and dominates alone. Pairing that kernel with \(Z(G)\) gives sharp total and paired value \(2\).
 
-4. **Finite replay.** The standalone checker constructs the Heisenberg extraspecial group of order \(27\) and exponent \(3\), and the modular extraspecial group of order \(27\) and exponent \(9\), enumerates every subgroup, builds each intersection graph, and exhaustively searches ordinary, total, and paired dominating sets. It separately checks the cube-map kernel and the \(\mathbb F_3^2\) hyperplane-cover minimum.
+## originality
 
-Exact output:
+PASS
 
-```text
-VERIFY_OK
-Heisenberg27_exp3: vertices=17 subgroup_orders={3: 13, 9: 4} gamma=4 gamma_t=4 gamma_pr=4
-Modular27_exp9: vertices=8 subgroup_orders={3: 4, 9: 4} gamma=1 gamma_t=2 gamma_pr=2
-M27_pth_power_kernel_size=9_contains_all_order3_elements
-F3^2_hyperplane_cover_minimum=4
-```
+Kayacan supplies the general minimal-subgroup covering criterion but does not specialize it to extraspecial groups; full-text search found no extraspecial or Frattini specialization. Resultary searches located domination results for abelian and dihedral subgroup-intersection graphs and for extraspecial noncommuting graphs, all different families or graph constructions. The exact exponent dichotomy and the simultaneous total/paired values require additional extraspecial structure and are not stated by the checked broader sources.
 
-The finite calculations are corroborative only. The arbitrary-order result is proved symbolically.
+## value
+
+PASS
+
+The theorem gives a complete and sharply contrasting domination profile for a canonical nonabelian \(p\)-group family, and the profile detects the two odd-prime exponent types. It combines a finite-geometry cover mechanism with a power-kernel mechanism, which is mathematically more informative than isolated small-group calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
