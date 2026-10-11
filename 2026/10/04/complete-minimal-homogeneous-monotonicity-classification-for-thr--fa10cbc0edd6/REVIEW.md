@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The lower bound \(n\ge17\) is proved directly from first-choice inequalities, without extrapolating from a finite search. Equality forces first-choice totals \(6,5,6\) and changed-group size \(2\). The remaining ballot-transfer inequalities then force exactly two normal-form families. An exhaustive verifier independently checks every anonymous profile and every homogeneous winner-raising change through \(17\) voters and matches the symbolic \(42\)-class family exactly.
+## correctness
 
-Risk: the exhaustive code is ordinary finite software and therefore carries ordinary implementation risk. This is mitigated by the independent symbolic derivation, exact set equality between enumeration and generated normal forms, and exact orbit/count identities.
+PASS
 
-## Originality
-**PASS.** Ornstein--Norman and Miller give broad three-candidate conditions for upward monotonicity failure. Brandt--Matthäus--Saile give a tie-independent \(17\)-voter minimal witness. The inspected sources do not state the complete minimal homogeneous boundary: \(252\) labeled-candidate anonymous profiles, \(42\) candidate-relabeling classes, the two exact normal-form families, or the fact that every harmful homogeneous move at the boundary is uniquely determined and uses exactly two voters.
+The symbolic lower-bound argument was reconstructed: a harmful homogeneous raise must move the old winner to first place and switch the eliminated candidate; the first-choice inequalities force at least 17 voters, and equality forces totals 6,5,6 with exactly two changed voters. Resolving the two possible donor rankings gives exactly the two stated families. An independent exhaustive enumeration of all anonymous 17-voter profiles and homogeneous winner-raising moves reproduced 252 harmful events on 252 profiles, 42 candidate-relabeling classes all of orbit size 6, and no event below 17.
 
-Risk: failed search is not a proof of novelty. An unindexed thesis, lecture note, software table, or supplementary enumeration may contain the same boundary classification.
+## originality
 
-## Value
-**PASS.** The result classifies the sharp first size of a canonical pathology of a widely studied voting rule. It converts an isolated minimal witness and general vulnerability inequalities into a complete structural boundary theorem with a short symbolic proof, exact incidence, and symmetry quotient. The boundary is mathematically natural because \(17\) is the minimal tie-independent size and the classification explains why all minimal failures share first-choice totals \(6,5,6\).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality survives the broader prior characterizations. Miller proves a general necessary-and-sufficient criterion for vulnerability to upward monotonicity failure, and Brandt--Matthäus--Saile establish minimal voting-paradox instances, but neither inspected source gives the homogeneous same-ballot boundary classification at 17 voters, the forced first-choice vector, the two normal-form families, or the exact 252/42 census. The audited theorem requires an equality-case analysis under the stronger homogeneous-change constraint rather than merely restating vulnerability.
+
+## value
+
+PASS
+
+This is a natural complete classification at the known sharp boundary of a canonical voting paradox. It determines all equality cases, orbit counts, and the exact homogeneous move structure rather than merely recomputing a single witness or probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

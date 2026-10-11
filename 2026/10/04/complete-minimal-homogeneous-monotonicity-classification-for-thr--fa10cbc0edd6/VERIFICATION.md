@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_irv17_homogeneous_monotonicity.py` is an exact finite replay.
 
-Route A enumerates every anonymous three-candidate profile for electorate sizes \(1\) through \(17\). At each uniquely resolved profile it tests every nonempty group of voters sharing one ballot and every identical ranking change that raises the current winner while preserving the relative order of the other two candidates. It verifies zero harmful events through \(16\) voters and exactly \(252\) at \(17\).
+# Independent mathematical audit
 
-Route B independently generates the two symbolic normal-form families
-\[
-(x,6-x,y,5-y,2,4)
-\]
-and
-\[
-(x,6-x,y,5-y,0,6),
-\]
-with \(0\le x\le6\) and \(3\le y\le5\), and requires exact set equality with the candidate-normalized exhaustive output.
+## correctness
 
-The replay additionally verifies:
-- every minimal harmful group has size \(2\);
-- every bad profile has exactly one harmful homogeneous change;
-- exactly \(126\) profiles raise the winner by one position and \(126\) by two positions;
-- there are exactly \(42\) candidate-relabeling classes, each with orbit size \(6\);
-- all six ordered old-winner/new-winner transitions occur \(42\) times;
-- the all-profile incidence is exactly \(2/209\).
+PASS
 
-Run:
+The symbolic lower-bound argument was reconstructed: a harmful homogeneous raise must move the old winner to first place and switch the eliminated candidate; the first-choice inequalities force at least 17 voters, and equality forces totals 6,5,6 with exactly two changed voters. Resolving the two possible donor rankings gives exactly the two stated families. An independent exhaustive enumeration of all anonymous 17-voter profiles and homogeneous winner-raising moves reproduced 252 harmful events on 252 profiles, 42 candidate-relabeling classes all of orbit size 6, and no event below 17.
 
-`python3 verify_irv17_homogeneous_monotonicity.py`
+## originality
 
-The first output line must be:
+PASS
 
-`VERIFY_OK`
+Best-of-knowledge originality survives the broader prior characterizations. Miller proves a general necessary-and-sufficient criterion for vulnerability to upward monotonicity failure, and Brandt--Matthäus--Saile establish minimal voting-paradox instances, but neither inspected source gives the homogeneous same-ballot boundary classification at 17 voters, the forced first-choice vector, the two normal-form families, or the exact 252/42 census. The audited theorem requires an equality-case analysis under the stronger homogeneous-change constraint rather than merely restating vulnerability.
 
-The exhaustive checks are finite. The lower bound \(n\ge17\) and the equality-case normal forms are also proved symbolically in `RESULT.md`.
+## value
+
+PASS
+
+This is a natural complete classification at the known sharp boundary of a canonical voting paradox. It determines all equality cases, orbit counts, and the exact homogeneous move structure rather than merely recomputing a single witness or probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
