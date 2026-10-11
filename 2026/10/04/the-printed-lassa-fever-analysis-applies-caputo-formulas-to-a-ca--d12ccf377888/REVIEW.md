@@ -1,21 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source explicitly declares a Caputo-Fabrizio model and writes the Losada-Nieto local-plus-integral relation in its existence section. Applying that exact relation to the source's total-rat scalar equation gives the compatibility condition and the exponential positive-time transient derived in the result. The source's Mittag-Leffler transient is instead the classical Caputo solution. Independently, the cited Diethelm-Ford-Freed paper defines the classical Caputo operator and derives its predictor-corrector from a power-law Volterra equation, matching the structure of the source's Section 3 formulas.
+PASS
 
-## Originality
+The source declares a Caputo-Fabrizio model and its existence section explicitly uses the associated Losada--Nieto integral with a local term plus an ordinary time integral. For the exact scalar rodent-total equation, that integral implies initial compatibility at equilibrium for a continuous solution and otherwise a right jump followed by an ordinary exponential transient. The source's displayed Mittag-Leffler boundedness transient is instead the classical Caputo solution. Likewise, the printed Adams--Bashforth--Moulton method uses the power-law Volterra weights of the Diethelm--Ford--Freed Caputo scheme. An independent algebra replay with positive generic coefficients verifies the CF right-limit and exponential rate, so the operator mismatch is mathematical rather than terminological.
 
-PASS. The mathematical distinction between Caputo and Caputo-Fabrizio operators is prior theory. The accepted contribution is the source-specific comparison showing that the Lassa-fever paper uses one operator in its declaration and existence analysis but another operator in its boundedness and simulation calculations. Exact DOI/title searches, operator aliases, numerical-method searches, and correction searches did not locate a published repair of this mismatch.
+## originality
 
-## Value
+PASS
 
-PASS. The source interprets changes across fractional orders as a memory effect in Lassa-fever dynamics. Because the printed simulations use a power-law Caputo history while the stated CF model has a nonsingular exponential-kernel calculus, the mismatch changes the memory model itself. The finding also sharply limits its impact: the integer-order next-generation calculation is unaffected, and the figures may still be valid for a classical Caputo variant.
+The open primary article itself exposes both sides of the inconsistency: it says the model uses Caputo-Fabrizio, writes the CF local-plus-integral relation in the existence section, and reports Adams--Bashforth--Moulton simulations. Diethelm--Ford--Freed explicitly derive their predictor-corrector for the classical Caputo derivative and its power-law Volterra equation. Targeted correction and Resultary searches found no published source-specific operator correction.
 
-## Closest literature and limitations
+## value
 
-Diethelm, Ford, and Freed provide the classical Caputo predictor-corrector used by the source. Losada and Nieto provide the CF integral that the same source uses in its existence analysis. Later CF theory confirms the initial-time compatibility and ordinary-differential-equation structure behind the scalar derivation.
+PASS
 
-No simulation code is available for a separate implementation-level check. The result does not claim that all boundedness conclusions fail; it establishes that their printed Mittag-Leffler derivation and the numerical method belong to a different fractional operator.
+The mismatch affects both analytical boundedness formulas and the entire fractional-order simulation method, while leaving the integer-order endpoint unchanged. It therefore determines which differential operator the published numerical figures actually validate and is a substantive reproducibility issue rather than a minor convention difference.
 
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

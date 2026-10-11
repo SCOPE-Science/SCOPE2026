@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,60 +18,25 @@
   "schema_version": 1
 }
 ---
-The central comparison is analytic.
 
-For positive constants \(A\), \(B\), \(\Pi\), and \(\varphi\), define
-\[
-y_+
-=
-\frac{y_0+A\Pi}
-{1+A\varphi}
-\]
-and
-\[
-\lambda
-=
-\frac{B\varphi}
-{1+A\varphi}.
-\]
-The candidate positive-time CF integral solution is
-\[
-y(t)
-=
-\frac{\Pi}{\varphi}
-+
-\left(
-y_+-\frac{\Pi}{\varphi}
-\right)e^{-\lambda t}.
-\]
+# Independent mathematical audit
 
-The bundled checker verifies directly that this satisfies
-\[
-y(t)-y_0
-=
-A(\Pi-\varphi y(t))
-+
-B\int_0^t(\Pi-\varphi y(s))\,ds.
-\]
-It also verifies
-\[
-y_+=y_0
-\]
-if and only if
-\[
-y_0=\frac{\Pi}{\varphi}
-\]
-when \(A>0\).
+## correctness
 
-As an illustration only, the checker compares this exponential transient with the order-\(1/2\) classical Caputo solution
-\[
-\frac{\Pi}{\varphi}
-+
-\left(
-y_0-\frac{\Pi}{\varphi}
-\right)
-e^{\varphi^2t}\operatorname{erfc}(\varphi\sqrt t).
-\]
-The two values differ away from the equilibrium case.
+PASS
 
-The numerical illustration is not used to prove the source-specific operator mismatch; that follows from the printed integral equations and the cited method's operator definition.
+The source declares a Caputo-Fabrizio model and its existence section explicitly uses the associated Losada--Nieto integral with a local term plus an ordinary time integral. For the exact scalar rodent-total equation, that integral implies initial compatibility at equilibrium for a continuous solution and otherwise a right jump followed by an ordinary exponential transient. The source's displayed Mittag-Leffler boundedness transient is instead the classical Caputo solution. Likewise, the printed Adams--Bashforth--Moulton method uses the power-law Volterra weights of the Diethelm--Ford--Freed Caputo scheme. An independent algebra replay with positive generic coefficients verifies the CF right-limit and exponential rate, so the operator mismatch is mathematical rather than terminological.
+
+## originality
+
+PASS
+
+The open primary article itself exposes both sides of the inconsistency: it says the model uses Caputo-Fabrizio, writes the CF local-plus-integral relation in the existence section, and reports Adams--Bashforth--Moulton simulations. Diethelm--Ford--Freed explicitly derive their predictor-corrector for the classical Caputo derivative and its power-law Volterra equation. Targeted correction and Resultary searches found no published source-specific operator correction.
+
+## value
+
+PASS
+
+The mismatch affects both analytical boundedness formulas and the entire fractional-order simulation method, while leaving the integer-order endpoint unchanged. It therefore determines which differential operator the published numerical figures actually validate and is a substantive reproducibility issue rather than a minor convention difference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

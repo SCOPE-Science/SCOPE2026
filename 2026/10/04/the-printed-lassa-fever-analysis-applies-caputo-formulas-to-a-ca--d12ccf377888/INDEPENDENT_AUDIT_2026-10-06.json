@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:04:21.654390Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob e1481fa0abb7630bd7dbd07bd8432c1dfdcc1504",
+        "assigned verify.py blob c6750dfedde3f4fd4a032fc39ee0618ef1fece14",
+        "Ndenda--Njagarah--Shaw, DOI:10.3934/math.2022500",
+        "Diethelm--Ford--Freed, DOI:10.1023/A:1016592219341",
+        "Losada--Nieto, DOI:10.12785/PFDA/010202"
+      ],
+      "rationale": "The source declares a Caputo-Fabrizio model and its existence section explicitly uses the associated Losada--Nieto integral with a local term plus an ordinary time integral. For the exact scalar rodent-total equation, that integral implies initial compatibility at equilibrium for a continuous solution and otherwise a right jump followed by an ordinary exponential transient. The source's displayed Mittag-Leffler boundedness transient is instead the classical Caputo solution. Likewise, the printed Adams--Bashforth--Moulton method uses the power-law Volterra weights of the Diethelm--Ford--Freed Caputo scheme. An independent algebra replay with positive generic coefficients verifies the CF right-limit and exponential rate, so the operator mismatch is mathematical rather than terminological.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diethelm--Ford--Freed cover the classical Caputo predictor-corrector.",
+          "Losada--Nieto define the CF-associated integral, and later CF theory discusses its initial-time structure."
+        ],
+        "reasoning": "Together these sources distinguish the operators but do not themselves diagnose the later Lassa-fever article.",
+        "searches": [
+          "Diethelm--Ford--Freed DOI:10.1023/A:1016592219341",
+          "Losada--Nieto DOI:10.12785/PFDA/010202",
+          "Jornet--Nieto DOI:10.11948/20240079"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2022500",
+        "DOI:10.1023/A:1016592219341",
+        "DOI:10.12785/PFDA/010202",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The CF integral has a local term plus ordinary integral.",
+          "The classical Caputo method uses a power-law Volterra convolution and Mittag-Leffler scalar transients."
+        ],
+        "reasoning": "The source-specific conclusion follows from putting these published formulas side by side; no inspected paper had already made that correction.",
+        "searches": [
+          "Statement comparison between the source's Eq. (2.15)-type CF integral and the Diethelm--Ford--Freed Caputo method"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source declares CF while using the Losada--Nieto CF integral in one section and Caputo-style Mittag-Leffler/power-law formulas later.",
+          "No prior correction of this exact operator switch was located."
+        ],
+        "reasoning": "CF-versus-Caputo operator mismatch, wrong Mittag-Leffler transient, and wrong ABM memory kernel are equivalent manifestations of the same inconsistency.",
+        "searches": [
+          "Resultary: Lassa fever Caputo Fabrizio Adams Bashforth Moulton Caputo mismatch Ndenda Njagarah Shaw",
+          "DOI:10.3934/math.2022500 Caputo-Fabrizio Mittag-Leffler Adams correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published Resultary record with the same source-specific correction was returned."
+        ],
+        "reasoning": "This is an operator-consistency theorem, not a database number.",
+        "searches": [
+          "Resultary semantic search for the exact Lassa-fever paper plus CF/ABM mismatch"
+        ]
+      },
+      "rationale": "The open primary article itself exposes both sides of the inconsistency: it says the model uses Caputo-Fabrizio, writes the CF local-plus-integral relation in the existence section, and reports Adams--Bashforth--Moulton simulations. Diethelm--Ford--Freed explicitly derive their predictor-corrector for the classical Caputo derivative and its power-law Volterra equation. Targeted correction and Resultary searches found no published source-specific operator correction.",
+      "residual_risks": [
+        "A non-indexed author correction may exist.",
+        "Alternative CF normalizations do not remove the structural local-term-versus-power-law-memory mismatch, but could change coefficient notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INTERNAL_OPERATOR_SWITCH",
+          "evidence": "The primary text itself juxtaposes CF structure with a classical-Caputo numerical framework.",
+          "identifier_or_url": "DOI:10.3934/math.2022500",
+          "material_read": "Open primary full-text HTML covering the CF declaration, existence/uniqueness section and displayed local-plus-ordinary-integral relation, plus the stated Adams--Bashforth--Moulton numerical solution and simulation conclusions.",
+          "method": "Lawful open primary full-text inspection.",
+          "title": "Influence of environmental viral load, interpersonal contact and infected rodents on Lassa fever transmission dynamics: Perspectives from fractional-order dynamic modelling",
+          "trigger": "Exact source declaring CF and using the numerical method under audit."
+        },
+        {
+          "assessment": "CLASSICAL_CAPUTO_METHOD",
+          "evidence": "The cited numerical construction is not operator-neutral and does not discretize the CF local-plus-integral relation.",
+          "identifier_or_url": "DOI:10.1023/A:1016592219341",
+          "material_read": "Primary operator definition, power-law Volterra equivalence and predictor-corrector derivation.",
+          "method": "Primary literature comparison.",
+          "title": "A Predictor-Corrector Approach for the Numerical Solution of Fractional Differential Equations",
+          "trigger": "Cited source for the ABM predictor-corrector."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ndenda--Njagarah--Shaw",
+        "Diethelm--Ford--Freed",
+        "Losada--Nieto"
+      ],
+      "rationale": "The mismatch affects both analytical boundedness formulas and the entire fractional-order simulation method, while leaving the integer-order endpoint unchanged. It therefore determines which differential operator the published numerical figures actually validate and is a substantive reproducibility issue rather than a minor convention difference.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/math.2022500",
+    "DOI:10.1023/A:1016592219341",
+    "DOI:10.12785/PFDA/010202",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The integer-order epidemiological model and next-generation calculation are not challenged.",
+    "Some qualitative bounds may admit different valid CF proofs even though the printed derivation uses Caputo formulas."
+  ],
+  "residual_risks": [
+    "A non-indexed author correction may exist.",
+    "Alternative CF normalizations do not remove the structural local-term-versus-power-law-memory mismatch, but could change coefficient notation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "INTERNAL_OPERATOR_SWITCH",
+      "evidence": "The primary text itself juxtaposes CF structure with a classical-Caputo numerical framework.",
+      "identifier_or_url": "DOI:10.3934/math.2022500",
+      "material_read": "Open primary full-text HTML covering the CF declaration, existence/uniqueness section and displayed local-plus-ordinary-integral relation, plus the stated Adams--Bashforth--Moulton numerical solution and simulation conclusions.",
+      "method": "Lawful open primary full-text inspection.",
+      "title": "Influence of environmental viral load, interpersonal contact and infected rodents on Lassa fever transmission dynamics: Perspectives from fractional-order dynamic modelling",
+      "trigger": "Exact source declaring CF and using the numerical method under audit."
+    },
+    {
+      "assessment": "CLASSICAL_CAPUTO_METHOD",
+      "evidence": "The cited numerical construction is not operator-neutral and does not discretize the CF local-plus-integral relation.",
+      "identifier_or_url": "DOI:10.1023/A:1016592219341",
+      "material_read": "Primary operator definition, power-law Volterra equivalence and predictor-corrector derivation.",
+      "method": "Primary literature comparison.",
+      "title": "A Predictor-Corrector Approach for the Numerical Solution of Fractional Differential Equations",
+      "trigger": "Cited source for the ABM predictor-corrector."
+    }
+  ]
+}
