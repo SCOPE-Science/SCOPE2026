@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-06",
+  "audited_at_utc": "2026-10-06T03:54:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 7234dc99577d2a97fe39be969fc1fd2d0616b9b5",
+        "verify.py blob 3625cd5cdb87c9784e62dbc1109b38475d047242",
+        "candidates.tsv blob ad87a86ee8191f6e37bc63be1c5ce8d664b26325",
+        "fresh independent exact polynomial-remainder replay"
+      ],
+      "rationale": "Multiplicativity gives the exact equation \\(p^a+1=qR_a(p)\\). Reducing \\(X^a+1\\) modulo the monic integer polynomial \\(R_a(X)\\) gives an integer remainder \\(B_a\\). For a solution, \\(R_a(p)\\) divides \\(B_a(p)\\). The verifier excludes positive integer roots of every nonzero remainder, bounds \\(p\\) from the degree gap using the coefficient \\(\\ell_1\\)-norm, and then enumerates every prime within the resulting finite bounds. A fresh independent exact replay reproduced 34 divisibility pairs, the maximal coefficient bound \\(1082\\) at \\(a=35\\), and exactly the four prime quotients claimed; candidates.tsv supplies explicit factors for all 30 composite quotients.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper gives global analytic bounds for both divisor-sum functions and examples of equality, not a two-prime exponent-layer classification.",
+          "Nearby Resultary findings concern other unitary/exponential divisor problems, including density and e-unitary perfectness, rather than this equality slice."
+        ],
+        "reasoning": "No checked broader theorem dominates the finite \\(2\\le a\\le49\\), singleton-cofactor classification.",
+        "searches": [
+          "Trudgian arXiv:1312.4615v3 full PDF",
+          "Resultary searches for two-prime support and unitary/exponential divisor equality"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.4615v3",
+        "DOI:10.2298/PIM140617001T",
+        "OEIS:A236474",
+        "Resultary unitary/exponential equality search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A reported example at exponent 49 does not imply that exponents 7 through 48 contain no other \\(p^a q\\) solutions.",
+          "The submitted remainder calculation gives a finite prime bound in every layer and supplies compositeness witnesses for every nonsurviving quotient."
+        ],
+        "reasoning": "The completeness and 'first new layer after 6' conclusions require the additional finite but rigorous Diophantine closure.",
+        "searches": [
+          "Trudgian full PDF, conclusion and application to exponential divisors",
+          "audited exact polynomial-remainder argument and candidates.tsv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For distinct primes in the submitted slice, multiplicativity reduces equality to \\(p^a+1=qR_a(p)\\), where \\(R_a\\) is the sum of the proper exponent-divisor monomials minus one.",
+          "Trudgian records the exponent-49 example and several smaller equality values, but frames the general equality question as open."
+        ],
+        "reasoning": "The layer theorem is an exhaustive Diophantine form of the same equality problem rather than a title-level variant of a known classification.",
+        "searches": [
+          "Trudgian, arXiv:1312.4615v3, full PDF §4",
+          "OEIS A236474",
+          "Resultary semantic query: unitary exponential divisor sum equality p^a q exponent 49"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A236474 contains \\(20,45,320\\) and the remote exponent-49 example among its data, but it is a list of equality values rather than a proof that no other \\(p^a q\\) examples occur in any exponent layer through 49."
+        ],
+        "reasoning": "The database corroborates survivors but does not establish layer-by-layer exhaustiveness.",
+        "searches": [
+          "OEIS A236474 current entry",
+          "Trudgian conclusion page containing the example list"
+        ]
+      },
+      "rationale": "The motivating Trudgian paper materially inspected in full asks whether equality between the unitary and exponential divisor sums occurs infinitely often, reports the five values through one billion, and records the remote example \\(2^{49}\\cdot4363953127297\\). The current OEIS A236474 similarly tabulates examples. Neither source states that the four displayed \\(p^a q\\) triples exhaust every singleton-cofactor layer through exponent 49. Resultary searches returned the audited finding as the exact hit but no distinct earlier finding that implies its finite-layer completeness.",
+      "residual_risks": [
+        "An unindexed computation could conceivably contain the same finite exponent-layer observation.",
+        "The result deliberately stops at the literature-motivated exponent 49 and says nothing about later layers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXAMPLES_AND_OPEN_QUESTION_PRIOR_FINITE_LAYER_EXHAUSTIVENESS_NOT_STATED",
+          "evidence": "The conclusion asks whether equality occurs infinitely often, lists the five values through \\(10^9\\), and records \\(2^{49}\\cdot4363953127297\\) without an exhaustive \\(p^a q\\) theorem.",
+          "identifier_or_url": "arXiv:1312.4615v3; DOI:10.2298/PIM140617001T",
+          "material_read": "Complete seven-page arXiv PDF, especially the exponential-divisor application and conclusion; the conclusion page was visually inspected.",
+          "method": "Full-text theorem/example and implication comparison.",
+          "title": "The sum of the unitary divisor function",
+          "trigger": "Defining primary source for the comparison \\(\\sigma^*\\) versus \\(\\sigma^{(e)}\\) and the exponent-49 example."
+        },
+        {
+          "assessment": "CORROBORATING_VALUE_LIST_NOT_LAYER_CLASSIFICATION",
+          "evidence": "The entry includes the known small values and cites Trudgian but does not state absence of other \\(p^a q\\) solutions for \\(2\\le a\\le49\\).",
+          "identifier_or_url": "OEIS:A236474",
+          "material_read": "Definition, current terms, comments, links and examples.",
+          "method": "Exact database/table comparison.",
+          "title": "OEIS A236474",
+          "trigger": "Exact current database of equality values."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1312.4615v3",
+        "DOI:10.2298/PIM140617001T",
+        "OEIS:A236474",
+        "Resultary unitary/exponential equality search"
+      ],
+      "rationale": "The exponent-49 example is specifically highlighted in the primary literature as a remote equality instance. Proving that every singleton-cofactor two-prime layer up to that example is exhausted, and that there is no new layer between 6 and 49, is a meaningful literature-anchored finite cutoff rather than an arbitrary search horizon.",
+      "residual_risks": [
+        "An unindexed computation could conceivably contain the same finite exponent-layer observation.",
+        "The result deliberately stops at the literature-motivated exponent 49 and says nothing about later layers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1312.4615v3",
+    "DOI:10.2298/PIM140617001T",
+    "OEIS:A236474",
+    "Resultary unitary/exponential equality search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For distinct primes \\(p,q\\) and \\(2\\le a\\le49\\), the equality \\(\\sigma^*(p^a q)=\\sigma^{(e)}(p^a q)\\) occurs exactly for \\((a,p,q)=(2,2,5),(2,3,5),(6,2,5),(49,2,4363953127297)\\); thus exponent 49 is the first new singleton-cofactor layer after exponent 6.",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed computation could conceivably contain the same finite exponent-layer observation.",
+    "The result deliberately stops at the literature-motivated exponent 49 and says nothing about later layers.",
+    "No classification is claimed for \\(a>49\\) or when both prime exponents are nontrivial."
+  ]
+}

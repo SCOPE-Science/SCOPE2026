@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` in the package directory. It uses only the Python standard library.
+## correctness
 
-The script rebuilds \(R_a(X)=\sum_{d\mid a,d<a}X^d-1\) and the exact remainder \(B_a(X)\) of \(X^a+1\) modulo \(R_a(X)\) for every \(2\le a\le49\). It checks with the rational-root theorem that no \(B_a\) has an integer root \(p\ge2\), proves \(p\le C_a+1\), verifies \(\max C_a=1082\), and exhausts every prime inside the resulting exact bounds.
+PASS
 
-The 34 divisibility pairs are recorded in `candidates.tsv`. Every rejected quotient has a proper factor witness; the four surviving quotients are proven prime by direct trial division through their square roots. Finally both divisor-sum formulas are evaluated on each surviving triple.
+Multiplicativity gives the exact equation \(p^a+1=qR_a(p)\). Reducing \(X^a+1\) modulo the monic integer polynomial \(R_a(X)\) gives an integer remainder \(B_a\). For a solution, \(R_a(p)\) divides \(B_a(p)\). The verifier excludes positive integer roots of every nonzero remainder, bounds \(p\) from the degree gap using the coefficient \(\ell_1\)-norm, and then enumerates every prime within the resulting finite bounds. A fresh independent exact replay reproduced 34 divisibility pairs, the maximal coefficient bound \(1082\) at \(a=35\), and exactly the four prime quotients claimed; candidates.tsv supplies explicit factors for all 30 composite quotients.
 
-Expected output:
+## originality
 
-`VERIFY_OK exponents=2..49 max_C=1082 divisibility_pairs=34 solutions=[(2, 2, 5), (2, 3, 5), (6, 2, 5), (49, 2, 4363953127297)]`
+PASS
 
-The verification is complete only for the stated exponent range and singleton-cofactor family.
+The motivating Trudgian paper materially inspected in full asks whether equality between the unitary and exponential divisor sums occurs infinitely often, reports the five values through one billion, and records the remote example \(2^{49}\cdot4363953127297\). The current OEIS A236474 similarly tabulates examples. Neither source states that the four displayed \(p^a q\) triples exhaust every singleton-cofactor layer through exponent 49. Resultary searches returned the audited finding as the exact hit but no distinct earlier finding that implies its finite-layer completeness.
+
+## value
+
+PASS
+
+The exponent-49 example is specifically highlighted in the primary literature as a remote equality instance. Proving that every singleton-cofactor two-prime layer up to that example is exhausted, and that there is no new layer between 6 and 49, is a meaningful literature-anchored finite cutoff rather than an arbitrary search horizon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

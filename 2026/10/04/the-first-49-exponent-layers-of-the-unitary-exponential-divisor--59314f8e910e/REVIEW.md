@@ -1,14 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim reduces exactly to \(p^a+1=qR_a(p)\). Polynomial Euclidean division gives a rigorous finite bound on \(p\) in each exponent layer, and the bundled verifier independently reconstructs the remainders, root exclusions, bounds, divisibility pairs, quotient factor witnesses, and final equalities.
+## correctness
 
-## Originality
-PASS. The closest primary source asks the global equality question and lists examples, including the exponent-\(49\) number, while OEIS A236474 records known values. Neither inspected source states the exhaustive \(2\le a\le49\) classification for \(p^a q\). Targeted published-findings-index and web searches found no broader theorem implying it.
+PASS
 
-## Value
-PASS. The endpoint \(a=49\) is literature-motivated by the conspicuous remote two-prime example highlighted in the primary source. The theorem proves that this example is the first new singleton-cofactor exponent layer after \(a=6\).
+Multiplicativity gives the exact equation \(p^a+1=qR_a(p)\). Reducing \(X^a+1\) modulo the monic integer polynomial \(R_a(X)\) gives an integer remainder \(B_a\). For a solution, \(R_a(p)\) divides \(B_a(p)\). The verifier excludes positive integer roots of every nonzero remainder, bounds \(p\) from the degree gap using the coefficient \(\ell_1\)-norm, and then enumerates every prime within the resulting finite bounds. A fresh independent exact replay reproduced 34 divisibility pairs, the maximal coefficient bound \(1082\) at \(a=35\), and exactly the four prime quotients claimed; candidates.tsv supplies explicit factors for all 30 composite quotients.
 
-Closest literature: Trudgian, arXiv:1312.4615 / DOI 10.2298/PIM140617001T; OEIS A236474. Limitation: no assertion is made for \(a\ge50\) or for \(p^a q^b\) with \(b>1\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The motivating Trudgian paper materially inspected in full asks whether equality between the unitary and exponential divisor sums occurs infinitely often, reports the five values through one billion, and records the remote example \(2^{49}\cdot4363953127297\). The current OEIS A236474 similarly tabulates examples. Neither source states that the four displayed \(p^a q\) triples exhaust every singleton-cofactor layer through exponent 49. Resultary searches returned the audited finding as the exact hit but no distinct earlier finding that implies its finite-layer completeness.
+
+## value
+
+PASS
+
+The exponent-49 example is specifically highlighted in the primary literature as a remote equality instance. Proving that every singleton-cofactor two-prime layer up to that example is exhausted, and that there is no new layer between 6 and 49, is a meaningful literature-anchored finite cutoff rather than an arbitrary search horizon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
