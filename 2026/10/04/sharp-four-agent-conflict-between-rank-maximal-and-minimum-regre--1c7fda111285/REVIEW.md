@@ -1,16 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete \(6^4=1296\) profile domain and all three perfect matchings per profile are exhausted. Stability is checked independently from rank maps and direct list positions. Rank-maximality is checked both by exact profile lexicography and by an independent steep-base objective. Minimum regret is checked both by direct maximum rank and by a threshold formulation. The unique disjoint orbit is replayed explicitly, including both stable matchings and their rank vectors.
+## correctness
 
-Risk: the universal statement stops at four agents. No extrapolation to larger markets is made.
+PASS
 
-## Originality
-**PASS.** The inspected literature already defines and algorithmically studies both criteria, and examples in later work show that different optimality notions can select different stable matchings. The new claim is narrower and finite: the exact smallest-market boundary, full four-agent relation census, and relabeling-orbit classification. Targeted searches by both criterion names, four-agent aliases, exact counts, and the witness signatures did not locate an equivalent statement.
+Independent exhaustive reconstruction in this audit reproduced the stable-matching count histogram \(1098\) profiles with one stable matching, \(150\) with two, and \(48\) with none, and reproduced the objective relation histogram \(1176\) equal, \(48\) rank-maximal proper subset of minimum-regret, \(24\) disjoint, \(48\) unsolvable. The actual verifier independently computes stability two ways, rank-maximality both lexicographically and by a steep exact scalar score, minimum regret both directly and by threshold, and then canonically quotients all disagreements under \(S_4\). For the canonical disjoint profile, the two stable matchings have rank vectors \((1,3,2,1)\) and \((2,2,1,2)\), so one uniquely maximizes the rank profile while the other uniquely minimizes regret.
 
-Risk: failed search is not a proof of bibliographic uniqueness. An unindexed note, exercise, thesis, or software enumeration could contain the same small-market classification.
+## originality
 
-## Value
-**PASS.** Rank-maximality and minimum regret encode two standard but opposed fairness priorities: creating as many very highly satisfied agents as possible versus protecting the worst-off agent. The first market where those priorities can force incompatible stable choices is a natural structural boundary. The canonical disjoint witness is especially informative because both choices have identical total rank cost, isolating the normative trade-off rather than mixing it with aggregate welfare.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Simola--Manlove's full primary preprint defines exactly the rank-maximal and minimum-regret objectives and studies their algorithms/complexity, but it does not enumerate all four-agent profiles or identify the sharp first conflict, relation frequencies, or relabeling orbits. Targeted Resultary and web searches for the four-agent census and disjoint conflict found no prior equivalent statement.
+
+## value
+
+PASS
+
+The result isolates the first possible disagreement between two standard fairness/quality objectives in Stable Roommates and gives the complete geometry of that boundary, including exact frequencies and symmetry orbits. This is a meaningful finite cutoff rather than a disconnected computational statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

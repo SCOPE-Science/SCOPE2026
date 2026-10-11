@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T21:39:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 2e33bce6fcd743651e538c4881651a9dbfd626a7",
+        "assigned verify_rankmax_minreg_stable_roommates.py blob 7c3cc1b1be3ad6033f7b5d859a09db0ea0e313e6",
+        "Simola--Manlove, arXiv:2110.02555",
+        "Gusfield--Irving stable-roommates theory"
+      ],
+      "rationale": "Independent exhaustive reconstruction in this audit reproduced the stable-matching count histogram \\(1098\\) profiles with one stable matching, \\(150\\) with two, and \\(48\\) with none, and reproduced the objective relation histogram \\(1176\\) equal, \\(48\\) rank-maximal proper subset of minimum-regret, \\(24\\) disjoint, \\(48\\) unsolvable. The actual verifier independently computes stability two ways, rank-maximality both lexicographically and by a steep exact scalar score, minimum regret both directly and by threshold, and then canonically quotients all disagreements under \\(S_4\\). For the canonical disjoint profile, the two stable matchings have rank vectors \\((1,3,2,1)\\) and \\((2,2,1,2)\\), so one uniquely maximizes the rank profile while the other uniquely minimizes regret.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complexity and approximation theorems do not determine the exact smallest-market coexistence geometry of the two objectives."
+        ],
+        "reasoning": "No broader checked theorem mechanically yields the census.",
+        "searches": [
+          "Simola--Manlove full preprint",
+          "Gusfield--Irving minimum-regret algorithmic literature"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.02555",
+        "Gusfield--Irving stable-roommates literature",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The definitions alone do not imply whether the optima agree or conflict at four agents.",
+          "The source's NP-hardness and approximation results concern general instances and do not settle this smallest complete case."
+        ],
+        "reasoning": "The audited exhaustive classification adds new finite implication content.",
+        "searches": [
+          "arXiv:2110.02555 Definitions 7 and 13 and background section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source definitions match the audited objectives exactly.",
+          "No checked source gives the \\(1296\\)-profile census or the three disagreement orbits."
+        ],
+        "reasoning": "Rank-profile lexicographic optimality and minimum worst partner rank were compared using the standard Stable Roommates definitions.",
+        "searches": [
+          "Resultary: stable roommates rank-maximal minimum regret four agents smallest conflict census",
+          "arXiv:2110.02555 full text",
+          "web searches for four-agent rank-maximal minimum-regret Stable Roommates examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table with the stated relation counts was returned."
+        ],
+        "reasoning": "The current result is itself an exact complete finite table up to relabeling.",
+        "searches": [
+          "Resultary exact four-agent Stable Roommates query"
+        ]
+      },
+      "rationale": "Simola--Manlove's full primary preprint defines exactly the rank-maximal and minimum-regret objectives and studies their algorithms/complexity, but it does not enumerate all four-agent profiles or identify the sharp first conflict, relation frequencies, or relabeling orbits. Targeted Resultary and web searches for the four-agent census and disjoint conflict found no prior equivalent statement.",
+      "residual_risks": [
+        "Small Stable Roommates examples can circulate outside indexed literature; none found supplied the complete census or orbit classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OBJECTIVES_AND_COMPLEXITY_NOT_FOUR_AGENT_CENSUS",
+          "evidence": "The paper defines and studies both objectives but does not contain the audited complete four-agent classification.",
+          "identifier_or_url": "arXiv:2110.02555",
+          "material_read": "Full accessible primary PDF through the background and formal optimality definitions, including rank-maximal profiles and minimum-regret stable matchings; the definitions page was visually inspected.",
+          "method": "Open-access full-PDF text and page-image inspection.",
+          "title": "Profile-based optimal stable matchings in the Roommates problem",
+          "trigger": "Primary source treating exactly rank-maximal and minimum-regret Stable Roommates."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Simola--Manlove 2021",
+        "classical Stable Roommates literature"
+      ],
+      "rationale": "The result isolates the first possible disagreement between two standard fairness/quality objectives in Stable Roommates and gives the complete geometry of that boundary, including exact frequencies and symmetry orbits. This is a meaningful finite cutoff rather than a disconnected computational statistic.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For complete strict Stable Roommates, four agents are the first nontrivial size at which rank-maximal and minimum-regret stable matchings can conflict: among all \\(6^4=1296\\) labeled four-agent profiles the relation counts are exactly 1176 equal, 48 rank-maximal-proper-subset-of-minimum-regret, 24 disjoint, and 48 unsolvable; the 72 solvable disagreements form exactly three full relabeling orbits, including the displayed unique disjoint orbit.",
+  "limitations": [
+    "Complete strict Stable Roommates only.",
+    "The result is a complete four-agent boundary/census, not a large-market complexity or probability theorem."
+  ],
+  "schema_version": 1
+}

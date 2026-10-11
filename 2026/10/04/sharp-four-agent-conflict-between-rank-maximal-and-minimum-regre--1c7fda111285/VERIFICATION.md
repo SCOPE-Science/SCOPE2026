@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,41 +18,25 @@
   "schema_version": 1
 }
 ---
-The embedded `verify_rankmax_minreg_stable_roommates.py` performs an exact finite replay with the Python standard library.
 
-For every complete strict four-agent profile it enumerates all three perfect matchings.
+# Independent mathematical audit
 
-Stability is computed independently in two ways:
-1. precomputed rank maps;
-2. direct preference-list position comparisons.
+## correctness
 
-Rank-maximality is computed independently in two ways:
-1. exact lexicographic comparison of rank profiles;
-2. a steep-base integer objective with base \(5\).
+PASS
 
-Minimum regret is computed independently in two ways:
-1. minimizing the maximum assigned rank;
-2. increasing an admissible-rank threshold until a stable matching exists.
+Independent exhaustive reconstruction in this audit reproduced the stable-matching count histogram \(1098\) profiles with one stable matching, \(150\) with two, and \(48\) with none, and reproduced the objective relation histogram \(1176\) equal, \(48\) rank-maximal proper subset of minimum-regret, \(24\) disjoint, \(48\) unsolvable. The actual verifier independently computes stability two ways, rank-maximality both lexicographically and by a steep exact scalar score, minimum regret both directly and by threshold, and then canonically quotients all disagreements under \(S_4\). For the canonical disjoint profile, the two stable matchings have rank vectors \((1,3,2,1)\) and \((2,2,1,2)\), so one uniquely maximizes the rank profile while the other uniquely minimizes regret.
 
-The verifier confirms:
-- the two-agent equality base case;
-- \(1296\) four-agent profiles;
-- stable-matching count marginal \(1098,150,48\);
-- relation histogram \(1176\) equality, \(48\) strict \(R(I)\subsetneq M(I)\), \(24\) disjoint, \(48\) unsolvable;
-- no other optimum-set relation;
-- exactly three disagreement orbits, each of size \(24\);
-- one disjoint orbit;
-- the canonical witness with stable rank vectors \((1,3,2,1)\) and \((2,2,1,2)\);
-- rank profiles \((2,1,1)\) and \((1,3,0)\);
-- regrets \(3\) and \(2\);
-- equal total rank cost \(7\).
+## originality
 
-Run:
+PASS
 
-`python3 verify_rankmax_minreg_stable_roommates.py`
+Simola--Manlove's full primary preprint defines exactly the rank-maximal and minimum-regret objectives and studies their algorithms/complexity, but it does not enumerate all four-agent profiles or identify the sharp first conflict, relation frequencies, or relabeling orbits. Targeted Resultary and web searches for the four-agent census and disjoint conflict found no prior equivalent statement.
 
-The first output line must be:
+## value
 
-`VERIFY_OK`
+PASS
 
-The computation proves only the stated two- and four-agent boundary.
+The result isolates the first possible disagreement between two standard fairness/quality objectives in Stable Roommates and gives the complete geometry of that boundary, including exact frequencies and symmetry orbits. This is a meaningful finite cutoff rather than a disconnected computational statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
