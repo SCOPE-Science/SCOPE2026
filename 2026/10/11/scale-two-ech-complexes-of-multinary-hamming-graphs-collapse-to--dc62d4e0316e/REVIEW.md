@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The radius-one graph Čech facets are the closed neighborhoods. Intersections of two distinct such facets have at most two vertices unless the centers are adjacent, in which case the intersection is a single coordinate line. Hence the two specified descending-cardinality deletion rules use genuine free faces, leaving the predicted two-complex. Corner triangles remove length-two edge generators, line fans fill every single-coordinate triangle, and corner pairs fill cross-coordinate squares; the contractible product of simplices then proves simple connectivity. Euler characteristic and the homological Whitehead theorem identify an integral wedge of two-spheres. Full finite face-by-face checks confirm the prescriptions for the seven documented pairs but are not used as an infinite proof.
+
+**Originality — PASS, subject to literature risk.** Adams–Shukla–Singh (arXiv:2212.05871, Theorem 4.1) classify the binary subfamily. Matsushita (arXiv:2511.12608, Example 3.5) and Antolín Camarena–Carnero Bravo (arXiv:2307.12401, Proposition 25) cover two-factor rook graphs or their dual independence-complex description. A separate earlier computation covers only the finite \((3,3)\) instance, which is excluded from the novelty claim. None of these implies the all-parameter theorem for \(n,q\ge3\); no matching general theorem surfaced in targeted searches. The possibility of an unindexed or differently named equivalent remains.
+
+**Value — PASS.** This is an exact natural classification of a two-parameter unbounded family of high-dimensional nerves: the original maximal simplices have dimension \(n(q-1)\), but an explicit collapse always yields a two-dimensional model. The rank formula gives genuinely new natural examples, including \(783\) spheres for \((3,4)\) and \(836\) for \((4,3)\). It extends both binary many-factor and multinary two-factor literature, rather than reparameterizing either.
+
+**Scientific limitations.** The result is about intrinsic Čech scale two only; it does not identify persistence maps, canonical sphere bases, or group actions. Its finite verification does not replace the parameter-uniform argument. Bibliographic searches cannot exclude every unavailable or unindexed equivalent.
+
+Same-model review: passed. Independent audit: not yet performed.
