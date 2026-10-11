@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The symbolic proof reduces the theorem to the exact inequality \(F(m)\le2\phi(m)-1\) for even \(m\). That inequality is proved by induction in `RESULT.md`; no finite search is needed for the infinite claim.
+# Independent mathematical audit
 
-The bundled `verify.py` reimplements Euler's totient and the complete totient-orbit sum from integer arithmetic. It checks the orbit inequality for every even \(m\le20000\), then checks every prime \(p\le200000\) and every exponent \(2\le k\le8\). Whenever \(3^k p\) is a perfect totient in that finite domain, it checks the exact cross-multiplied form of the support inequality and the three stated congruence exclusions.
+## correctness
 
-Replay output:
+PASS
 
-`VERIFY_OK limit=200000 kmax=8 even_checked=10000 target_hits=[(2, 619, 5571, 103), (3, 1733, 46791, 433), (2, 1747, 15723, 97), (3, 5189, 140103, 1297), (2, 49003, 441027, 8167)] sieve_violations=0`
+For even \(m\ge2\), induction gives \(F(m)\le2\phi(m)-1\). If \(3^kp\) is perfect totient and \(p-1=2^a3^bu\) with \((u,6)=1\), then \(F(\phi(3^kp))=3^{k-1}(p+2)\) and \(\phi(\phi(3^kp))=2\cdot3^{k-2}(p-1)\phi(u)/u\). Substitution yields \(\phi(u)/u>3(p+2)/(4(p-1))>3/4\); the support exclusions follow from the Euler product. The finite checker is corroborative only.
 
-The computation is finite corroboration only. It does not establish the theorem outside its tested bounds, and it does not resolve existence of perfect totients \(3^k p\) for \(k\ge4\).
+## originality
+
+PASS
+
+The directly relevant full papers treat \(3^kp\) under special nested-prime factorizations and do not state a uniform Euler-product restriction on the arbitrary \(6\)-coprime part of \(p-1\). Targeted Resultary and statement searches found no earlier covering theorem.
+
+## value
+
+PASS
+
+The theorem gives a uniform necessary sieve across every \(k\ge2\), including the unresolved \(k\ge4\) range, and excludes infinite congruence classes of candidates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of A prime-support sieve for perfect totients of the form \(3^k p\)
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof was reconstructed from the definition of the iterated-totient sum. The only auxiliary estimate, \(F(m)\le2\phi(m)-1\) for even \(m\), follows by induction from \(F(m)=\phi(m)+F(\phi(m))\) and \(2\phi(m)\le m\). Substituting the exact first iterate of \(3^k p\) yields the claimed strict Euler-product bound without an asymptotic or computational step. The bundled checker directly verifies the definitions on a finite domain and is corroborative only.
+## correctness
 
-## Originality
-PASS. Full-text comparison against the 2003 paper on the exact family, the 2006 paper on global sums of totient iterates, and the 2009 follow-up on deeper nested prime chains found no theorem equivalent to or stronger than the support-density inequality. The natural OEIS table was also checked. The older 1939 and 1982 foundational papers were not directly readable in this run, leaving a disclosed access risk; later inspected literature summarizes their relevant results in narrower forms. Targeted semantic searches found no equivalent statement, but search failure was not used by itself as novelty proof.
+PASS
 
-## Value
-PASS. The condition applies uniformly to the literature's unresolved family \(3^k p\) and excludes infinite arithmetic classes of possible primes through a simple support criterion. It therefore supplies a reusable structural sieve rather than a one-off numerical observation.
+For even \(m\ge2\), induction gives \(F(m)\le2\phi(m)-1\). If \(3^kp\) is perfect totient and \(p-1=2^a3^bu\) with \((u,6)=1\), then \(F(\phi(3^kp))=3^{k-1}(p+2)\) and \(\phi(\phi(3^kp))=2\cdot3^{k-2}(p-1)\phi(u)/u\). Substitution yields \(\phi(u)/u>3(p+2)/(4(p-1))>3/4\); the support exclusions follow from the Euler product. The finite checker is corroborative only.
 
-## Closest literature and limitations
-The closest work is Iannucci–Moujie–Cohen (2003), which studies \(3^k p\) directly but under explicit nested-prime structures, and Deng (2009), which eliminates a deeper prescribed chain. Shparlinski (2006) gives global distribution and congruence results for the same iterated function. The present condition is necessary only and does not settle existence for \(k\ge4\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The directly relevant full papers treat \(3^kp\) under special nested-prime factorizations and do not state a uniform Euler-product restriction on the arbitrary \(6\)-coprime part of \(p-1\). Targeted Resultary and statement searches found no earlier covering theorem.
+
+## value
+
+PASS
+
+The theorem gives a uniform necessary sieve across every \(k\ge2\), including the unresolved \(k\ge4\) range, and excludes infinite congruence classes of candidates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
