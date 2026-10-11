@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Active-degree constraint rank characterizes all vertices as matching edges plus disjoint half-valued odd cycles. Uniform near-perfect cycle matching rounding yields an exact positive weighted gain for any nonnegative center. Nonnegative Chebyshev minimizer follows from coordinate clamping; strict squared-distance midpoint identity gives uniqueness. Repeating farthest-point reduction proves weighted diameter and all integral diametral endpoints. A deterministic exact-rational finite verification independently checks 1,184 graph instances; proof, not cases, covers arbitrary graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanchard–De Loera–Louveaux arXiv:2001.09575v1 Theorems 1.6/1.9 address graph monotone heights and pivot paths",
+        "Sanità arXiv:1806.03397v1 Theorems 1–3 address combinatorial diameter and complexity"
+      ],
+      "reasoning": "These general-looking matching polytope results optimize paths on one-skeletons, not Euclidean distances. Earlier maximum-inscribed-ellipsoid formulas for complete or edge-transitive graphs do not dominate the new all-graphs minimum-enclosing-ball claim; inner vs outer metric optimization differs.",
+      "searches": [
+        "fractional matching polytope Euclidean diameter equal matching polytope diameter half integral cycles squared distance",
+        "weighted Euclidean smallest enclosing spheres and diameters equal for matching and fractional matching polytopes",
+        "matching polytope same smallest enclosing ball as degree inequality fractional relaxation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2001.09575v1 (arXiv full text, MSC confirmed via SIAM DOI 10.1137/20M1315646)",
+      "arxiv:1806.03397v1 (arXiv full text)",
+      "arxiv:1301.7356 (arXiv full text)",
+      "J. Edmonds (1965), matching polytope theorem, via cited primary references",
+      "Published semantic mathematical result search for circumball/Euclidean diameter/matching relaxation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Half-integral odd-cycle vertex descriptions in arXiv:1806.03397 and arXiv:1301.7356 require a separate signed-objective gap calculation to imply the new theorem",
+        "Sanità pp.1–3 defines one-skeleton diameter, not weighted Euclidean diameter",
+        "Known maximum-volume inscribed John ellipsoid optimizes a different objective from minimum Euclidean enclosing ball"
+      ],
+      "reasoning": "No inspected prior main result logically implies the exact gap w_e[(ell-2)/(4ell)+c_e/ell], the no-new-contacts phenomenon, or equality of weighted diameters for all graphs. The necessary combinatorial classification is prior; the strict objective inequality and both metric consequences are new deductions being assessed.",
+      "searches": [
+        "\"fractional matching polytope\" separable convex maximizing fractional integral",
+        "\"matching polytope\" \"circumradius\" matching",
+        "\"matching polytope\" \"circumball\" OR \"circumsphere\" OR \"Chebyshev center\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1806.03397v1 distinguishes graph-of-polytope shortest path metric from Euclidean chord",
+        "Exact graph result is matching symmetric-difference maximum over positive weights; this is not the same as the classical cardinality-maximizing matching LP"
+      ],
+      "reasoning": "Compared odd-cycle randomized rounding, squared-distance maximization, Chebyshev center and relaxed matching polyhedron formulations. None of the inspected works equates both weighted Euclidean extrema. An unindexed general convex-separable matching theorem is a genuine remaining priority risk.",
+      "searches": [
+        "Euclidean minimum enclosing ball invariant when adding half-integral odd-cycle vertices from fractional matching polytope to matching polytope; strict internality of fractional vertices",
+        "maximum weighted squared distance on fractional matching polytope attained by integral matching for nonnegative center; near-perfect matching odd cycle averaging",
+        "Chebyshev center radius same for matching polytope and its linear programming degree relaxation; exact squared radial clearance odd cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2001.09575v1 has no all-graphs Euclidean diameter table or equal-circumball classification in the inspected sections",
+        "arXiv:1301.7356 Proposition 9 is an incidence-rank structural theorem, not an extremal-distance table"
+      ],
+      "reasoning": "The claim is quantified over every finite simple graph and positive diagonal metric. Existing local tables of graph diameters or fractional extreme vertices cannot directly certify these universal equalities. Search found no indexed exact table that implies them.",
+      "searches": [
+        "Euclidean radii exact circumradius and diameter of matching and fractional matching polytope half-integral odd cycle extrema",
+        "\"fractional matching polytope\" \"Euclidean diameter\"",
+        "\"fractional matching polytope\" \"minimum enclosing\" sphere"
+      ]
+    },
+    "rationale": "Full-text comparison with primary matching-geometry literature finds combinatorial one-skeleton diameters, monotone paths and half-integral vertex structure rather than the diagonal-weight squared-distance rounding inequality, equal weighted Euclidean circumballs and equal Euclidean diameters. Similarity search found no direct covering entry. General convex-separable matching optimization could potentially encompass the result under another name; this residual risk is expressly retained.",
+    "residual_risks": [
+      "An earlier broad theorem on separable convex quadratic optimization over fractional matching polyhedra might imply the metric extremum equality without matching terminology.",
+      "Full global literature priority and expert independent review are not certified; only primary sources and searchable published records described here were examined.",
+      "Diagonal metric and nonnegative farthest-point center conditions are essential; matrix-coupled quadratic objectives may behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING on the claims compared: methods bound combinatorial and monotone pivot paths; no diagonal metric-ball or Euclidean-distance extrema statement identified in the read portions",
+        "evidence": [
+          "arXiv:2001.09575v1 pp.1–4 states monotone path and pivot complexity targets; p.10 matching-polytope section constructs long monotone paths",
+          "Journal version DOI 10.1137/20M1315646 lists primary MSC 52B12"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2001.09575",
+        "material_read": "abstract and introduction pp.1–4, matching polytope monotone-path construction pp.8–10, proof and structural material pp.17–19",
+        "method": "lawful open arXiv full-text reading, including figure/page image for p.10",
+        "title": "On the Length of Monotone Paths in Polyhedra",
+        "trigger": "same matching/fractional matching polytopes, MSC 52B12"
+      },
+      {
+        "assessment": "NOT_COVERING the weighted Euclidean metric: its diameter is minimum edge-step path distance on the polytope one-skeleton, which need not be Euclidean chord distance",
+        "evidence": [
+          "arXiv:1806.03397v1 Theorems 1–3 explicitly define diameter through one-skeleton path distances",
+          "§2 gives the half-integral odd-cycle extreme point structure"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.03397",
+        "material_read": "abstract/introduction pp.1–3, preliminaries and extreme-point characterization pp.3–5, appendix topic and associated results",
+        "method": "lawful arXiv full-text inspection including graphical original p.3",
+        "title": "The diameter of the fractional matching polytope and its hardness implications",
+        "trigger": "title contains exactly fractional matching diameter, decisive possible terminology collision"
+      },
+      {
+        "assessment": "SUPPORTING_COMBINATORIAL_STRUCTURE only; equality-degree polytopes and graph-incidence ranks do not directly imply the all-graphs weighted farthest-point and circumball claims",
+        "evidence": [
+          "arXiv:1301.7356 p.16 Proposition 9 characterizes support incidence independence by odd unicyclic and acyclic components"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.7356",
+        "material_read": "introduction/definitions and incidence-matrix rank propositions including Proposition 9 on p.16",
+        "method": "lawful open arXiv PDF full-text inspection with p.16 page image",
+        "title": "Fractional Perfect b-Matching Polytopes I: General Theory",
+        "trigger": "standard complete treatment of fractional perfect matching vertices and incidence rank"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e2404da-a627-4bfb-aca6-a9b7822a175b",
+  "value": {
+    "rationale": "An exact universal preservation of both weighted Euclidean diameter and unique smallest enclosing ball across a generally strict fractional relaxation, with quantitative per-odd-cycle clearance and matching-pair graph formula, explains a structural geometric phenomenon not captured by half-integral vertex lists or one-skeleton diameters. It is not an arbitrary slice, tiny improvement, or recomputed known table.",
+    "status": "PASS"
+  }
+}
