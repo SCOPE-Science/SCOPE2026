@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T22:01:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Before the first rejection, the published SAFFRON recursion keeps only the initial-wealth term. The index equals one plus the number of prior noncandidates. At stage \\(j\\), a rejection has probability \\(a_j\\), a nonrejecting candidate has probability \\(\\lambda-a_j\\) and repeats the stage, and a noncandidate has probability \\(1-\\lambda\\) and advances. Summing the geometric loop gives rejection-before-advance probability \\(a_j/(1-\\lambda+a_j)\\), and multiplying stage survivals gives the exact product. In the uncapped case, elementary product and logarithm inequalities give the two-sided envelope. A fresh exact-rational finite-state replay independently matched the stage factorization on a finite schedule.",
+      "risk": "The exact law is only for the first rejection under independent uniform nulls; after a rejection the reward terms enter, exactly as the result states.",
+      "sources": [
+        "PMLR 80 (2018), Ramdas-Zrnic-Wainwright-Jordan, Section 2.3 constant-lambda SAFFRON recursion",
+        "independent exact-rational stage replay performed in this audit",
+        "online multiple-testing review for contextual cross-check"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ramdas et al. prove FDR control under independence and define the exact recursion.",
+          "The later review and dependence literature extend or summarize validity but do not give the attained complete-null first-rejection product in the inspected material."
+        ],
+        "reasoning": "Generic FDR-control theorems bound the expectation and do not determine the exact eventual rejection probability.",
+        "searches": [
+          "PMLR 80 Ramdas et al. SAFFRON FDR control",
+          "Online multiple hypothesis testing review, 2023",
+          "later SAFFRON dependence extensions located in targeted search"
+        ]
+      },
+      "checked_sources": [
+        "PMLR 80:ramdas18a / arXiv:1802.09098",
+        "PMC7615519 online multiple-testing review",
+        "Resultary semantic corpus",
+        "targeted web searches over global-null/first-rejection/any-rejection aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior source supplies the recursion and FDR guarantee.",
+          "The exact product requires eliminating repeated candidate loops stage by stage and then analyzing the resulting infinite product over the allocation."
+        ],
+        "reasoning": "The final law is a natural but non-stated consequence of the procedure definition, not a special case of a stronger exact prior theorem located in this run.",
+        "searches": [
+          "PMLR 80 Section 2.3",
+          "online multiple-testing review SAFFRON section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published recurrence is equivalent before the first rejection to a renewal process indexed by noncandidate arrivals.",
+          "Neither the foundational paper nor the online multiple-testing review inspected here states the resulting infinite survival product."
+        ],
+        "reasoning": "The search covered first-rejection, any-rejection, global-null, renewal and alpha-investing aliases.",
+        "searches": [
+          "Resultary: SAFFRON complete null first rejection probability exact FDR gamma product",
+          "web: SAFFRON global null first rejection exact FDR",
+          "web: SAFFRON probability of any rejection gamma"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct Resultary record with the same product or gamma envelope appeared among the leading hits."
+        ],
+        "reasoning": "This is an analytic law rather than a finite data-table claim; database absence is supporting evidence only.",
+        "searches": [
+          "Resultary semantic query for the SAFFRON complete-null product"
+        ]
+      },
+      "rationale": "The SAFFRON source defines the candidate clock, initial-wealth recursion and FDR guarantee but does not state the attained complete-null first-rejection product or the gamma-allocation envelope. A current online-testing review likewise summarizes control and power rather than this exact law. Targeted searches for global-null, any-rejection, first-rejection and renewal formulations did not locate an equivalent source. The residual possibility of an older alpha-investing renewal derivation is retained explicitly.",
+      "residual_risks": [
+        "An older alpha-investing or renewal-process paper may contain an equivalent first-rejection product under different notation.",
+        "The foundational SAFFRON algorithm is usually presented with a positive non-increasing gamma sequence; the algebraic product itself remains valid for the deterministic nonnegative allocations stated in the audited recurrence, but the wider algorithmic convention should not be read as a new FDR-control theorem beyond the complete-null setting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_INPUT_NOT_EXACT_LAW",
+          "evidence": "The paper gives the recurrence and control theorem but no complete-null first-rejection distribution or infinite product in the inspected sections.",
+          "identifier_or_url": "PMLR 80:ramdas18a / arXiv:1802.09098",
+          "material_read": "Full open PMLR PDF around Theorem 1 and Section 2.3, including the candidate indicators, initial wealth, gamma sequence, pre-first-rejection term and FDR-control statement.",
+          "method": "Lawful open full-text inspection with page-level visual check.",
+          "title": "SAFFRON: an Adaptive Algorithm for Online Control of the False Discovery Rate",
+          "trigger": "Foundational source defining the constant-lambda SAFFRON recursion."
+        },
+        {
+          "assessment": "BROADER_REVIEW_NOT_COVERING",
+          "evidence": "The review summarizes FDR control and power behavior but does not state the submitted complete-null survival product.",
+          "identifier_or_url": "PMC7615519",
+          "material_read": "SAFFRON review subsection describing wealth, candidate indicators, control and comparison with LORD++/ADDIS.",
+          "method": "Lawful open full-text web inspection.",
+          "title": "Online multiple hypothesis testing",
+          "trigger": "Broad review likely to record standard exact calibrations if known."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact law separates the candidate-filtering clock from gamma allocation and quantifies the attained complete-null conservatism of a standard adaptive online FDR procedure. The sharp concentration/diffusion envelope is a motivated calibration boundary and provides exact implementation benchmarks, not merely a restatement of validity.",
+      "risk": "The result concerns first rejection/global-null calibration only and does not claim a full rejection-count law.",
+      "sources": [
+        "PMLR 80:ramdas18a / arXiv:1802.09098",
+        "PMC7615519"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For constant-\\(\\lambda\\) SAFFRON on an independent infinite complete-null stream, the first-rejection stage has the stated exact geometric-stage law, so the eventual complete-null FDR is \\(1-\\prod_j(1-\\lambda)/(1-\\lambda+a_j)\\); in the uncapped regime this yields the stated sharp concentration/diffusion envelope.",
+  "limitations": [
+    "The exact law assumes independent exactly uniform null p-values and the constant-lambda SAFFRON recursion.",
+    "It does not describe post-first-rejection counts, alternatives, dependence or time-varying candidate thresholds."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. Before the first rejection, the published SAFFRON formula contains only the initial-wealth term, and the gamma index is exactly one plus the number of prior noncandidates. This yields a three-outcome renewal at each stage. Summing the self-loop gives the stated rejection and advance hazards, and multiplying stage-survival probabilities gives the exact infinite product. The uncapped envelope follows from elementary product and logarithm inequalities. An exact-rational verifier independently matches exhaustive short-horizon enumeration, dynamic programming, and the stage factorization.
+## correctness
 
-## Originality
-PASS with a recorded residual risk. The full SAFFRON algorithm/proof/simulation sections inspected state the threshold recursion, FDR control, and power dependence on \(\lambda\) and \(\gamma\), but not the complete-null first-rejection distribution, attained-FDR product, or gamma concentration/diffusion envelope. Fisher's later SAFFRON paper extends dependence conditions rather than evaluating this global-null law. The closest conceptual source, the exhaustive ADDIS FWER paper, explicitly performs exact global-null calculations to construct an FWER-exhausting ADDIS procedure; it does not state the original-SAFFRON product or its gamma envelope. Targeted repository and web searches for complete-null, first-rejection, product, and no-rejection formulations did not locate an equivalent statement. A residual risk remains that older alpha-investing or renewal-process literature contains the same specialization under different notation.
+PASS
 
-## Value
-PASS. The result converts a qualitative notion of online-testing conservatism into an exact calibration law. It separates the roles of candidate filtering and initial-wealth allocation, shows how the gamma shape alone controls the uncapped complete-null attained FDR, and gives a tight closure envelope. This provides a finite-parameter benchmark for implementations and makes explicit that, under the standard initial-wealth constraint, complete-null SAFFRON cannot exhaust its nominal FDR level.
+Before the first rejection, the published SAFFRON recursion keeps only the initial-wealth term. The index equals one plus the number of prior noncandidates. At stage \(j\), a rejection has probability \(a_j\), a nonrejecting candidate has probability \(\lambda-a_j\) and repeats the stage, and a noncandidate has probability \(1-\lambda\) and advances. Summing the geometric loop gives rejection-before-advance probability \(a_j/(1-\lambda+a_j)\), and multiplying stage survivals gives the exact product. In the uncapped case, elementary product and logarithm inequalities give the two-sided envelope. A fresh exact-rational finite-state replay independently matched the stage factorization on a finite schedule.
 
-## Closest literature and limitations
-The foundational source is Ramdas et al. (2018), whose constant-\(\lambda\) formula is the exact starting point. Fischer et al. (2024) is closest in using exact global-null online-error probabilities, but for an exhaustive ADDIS FWER construction. Fisher (2024) is closest on later SAFFRON FDR theory, focusing on dependence and stopping. The finding is deliberately limited to independent uniform p-values and the first-rejection event under the complete null.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The SAFFRON source defines the candidate clock, initial-wealth recursion and FDR guarantee but does not state the attained complete-null first-rejection product or the gamma-allocation envelope. A current online-testing review likewise summarizes control and power rather than this exact law. Targeted searches for global-null, any-rejection, first-rejection and renewal formulations did not locate an equivalent source. The residual possibility of an older alpha-investing renewal derivation is retained explicitly.
+
+## value
+
+PASS
+
+The exact law separates the candidate-filtering clock from gamma allocation and quantifies the attained complete-null conservatism of a standard adaptive online FDR procedure. The sharp concentration/diffusion envelope is a motivated calibration boundary and provides exact implementation benchmarks, not merely a restatement of validity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
