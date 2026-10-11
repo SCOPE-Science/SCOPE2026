@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "audited_at_utc": "2026-10-04T14:55:50.898777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and verify.py at tree 59671147af635697f855a3829c9bf5fb325c80e7",
+        "independent exhaustive replay through n=14",
+        "Fici--Shallit--Simpson characterization of palindromic periodicities"
+      ],
+      "rationale": "The asymptotic proof is correct. A word that is a product of two palindromes is exactly a cyclic reflection-symmetric word. Reflection fixed sets have size on the order of \\(2^{m/2}\\), and primitive symmetric words have a unique reflection, yielding \\(\\Theta(m2^{m/2})\\) symmetric words. Every symmetric word is a palindromic periodicity, while every length-\\(n\\) palindromic periodicity has a symmetric period of some length \\(m\\le n\\), so \\(S_n\\le a_n\\le\\sum_{m\\le n}S_m\\), which gives \\(a_n=\\Theta(n2^{n/2})\\) and exponential growth rate \\(\\sqrt2\\). I independently enumerated all binary words through \\(n=14\\), reproducing both the package palindromic-periodicity counts and symmetric-word counts.",
+      "residual_risks": [
+        "The proof gives order of growth, not a sharp leading constant or full asymptotic expansion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kemp gives exact counts for products of two palindromes; Fici--Shallit--Simpson give the symmetric-period characterization of palindromic periodicities."
+        ],
+        "reasoning": "Together these sources dominate the audited order-of-growth statement via a one-line sandwich.",
+        "searches": [
+          "Kemp, Discrete Math. 40 (1982), 225-234, as cited by A007055/A284873",
+          "Fici--Shallit--Simpson, arXiv:2407.10564 / CPM 2025"
+        ]
+      },
+      "checked_sources": [
+        "Fici--Shallit--Simpson arXiv:2407.10564 / CPM 2025",
+        "Kemp 1982 via OEIS A007055/A284873",
+        "Guo--Shallit--Shur arXiv:1503.09112",
+        "OEIS A374495",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exact \\(S_m\\) asymptotics plus prior \\(S_n\\le a_n\\le\\sum_{m\\le n}S_m\\) characterization framework imply \\(a_n=\\Theta(n2^{n/2})\\)."
+        ],
+        "reasoning": "No new structural lemma beyond these ingredients is required for the final audited claim.",
+        "searches": [
+          "statement-level combination of Kemp 1982 with Fici--Shallit--Simpson characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A007055 identifies the symmetric-word class exactly; A284873 records Kemp's explicit formulas for double palindromes."
+        ],
+        "reasoning": "The lower comparison class used by the audited proof is already exactly enumerated in prior literature.",
+        "searches": [
+          "OEIS A007055: products of two palindromes / rotations of reversals",
+          "Guo--Shallit--Shur, arXiv:1503.09112",
+          "Resultary: binary palindromic periodicities asymptotic Theta n times 2^(n/2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007055 is the symmetric-word count used in the proof; A284873 records Kemp's closed formulas; A374495 tabulates the target palindromic-periodicity counts."
+        ],
+        "reasoning": "The critical asymptotic input is already an exact database-supported/classical enumeration, not new finite evidence.",
+        "searches": [
+          "OEIS A007055",
+          "OEIS A284873",
+          "OEIS A374495"
+        ]
+      },
+      "rationale": "The final asymptotic is implication-covered by prior results. The exact enumeration of binary products of two palindromes/symmetric words is classical: Kemp's formula, as recorded in OEIS A007055/A284873 and revisited by Guo--Shallit--Shur, gives \\(S_n=\\Theta(n2^{n/2})\\). Fici--Shallit--Simpson already characterize a palindromic periodicity as a word having a symmetric word-period and note that every symmetric word is one. Combining these two published facts immediately gives \\(S_n\\le a_n\\le\\sum_{m\\le n}S_m\\), hence the audited \\(\\Theta(n2^{n/2})\\) statement. The fact that their paper asks the asymptotic question does not erase this direct prior implication under the audit bar.",
+      "residual_risks": [
+        "The exact leading behavior of \\(a_n\\) itself may still be open; only the audited order-of-growth claim is judged covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIMARY_PLUS_PRIOR_INGREDIENTS_COVER",
+          "evidence": "The paper gives the symmetric-period characterization and asks for the asymptotic count.",
+          "identifier_or_url": "arXiv:2407.10564; LIPIcs CPM 2025",
+          "material_read": "Primary paper characterization material and concluding open-problem discussion.",
+          "method": "lawful open-access full text",
+          "title": "Some Remarks on Palindromic Periodicities",
+          "trigger": "Primary source defining and characterizing the target objects and posing their enumeration problem."
+        },
+        {
+          "assessment": "DECISIVE_PRIOR_INGREDIENT",
+          "evidence": "A284873 records Kemp's formulas \\(r(2d,k)=d(k+1)k^d\\) and \\(r(2d+1,k)=(2d+1)k^{d+1}\\), which give the needed binary \\(\\Theta(n2^{n/2})\\) growth.",
+          "identifier_or_url": "R. Kemp, Discrete Mathematics 40 (1982), 225-234; summarized in OEIS A007055/A284873",
+          "material_read": "Exact formulas and bibliographic record as preserved in OEIS A007055/A284873, plus later Guo--Shallit--Shur primary record.",
+          "method": "database and lawful open-access bibliographic/primary material",
+          "title": "On the number of words in the language of products of two palindromes",
+          "trigger": "Exact enumeration of the symmetric-word subclass used in the proof."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Fici--Shallit--Simpson open question",
+        "Kemp exact double-palindrome enumeration"
+      ],
+      "rationale": "The problem is motivated by an explicit question in the 2025 paper, but the audited order-of-growth answer is obtained by a routine sandwich once the already-known exact double-palindrome enumeration is combined with that paper's own symmetric-period characterization. Under the value bar this is a textbook-level deduction from published ingredients rather than a new structural or computational gap.",
+      "residual_risks": [
+        "A sharper asymptotic constant or distribution by minimal symmetric period could still be valuable and is not rejected here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The proof gives order of growth, not a sharp leading constant or full asymptotic expansion.",
+    "The exact leading behavior of \\(a_n\\) itself may still be open; only the audited order-of-growth claim is judged covered.",
+    "A sharper asymptotic constant or distribution by minimal symmetric period could still be valuable and is not rejected here."
+  ],
+  "schema_version": 1
+}
