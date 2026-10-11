@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier implements the channel directly on strings and, separately, the closed zero-gap formula. For every \(2\le n\le10\), it constructs all binary length-\(n\) source words, permits exactly one deletion of \(0\) and zero or one unequal adjacent transposition in either order, collects all received words, and compares each inverse-ball size with the formula. It also checks the exact worst-case value and the full extremizer classification.
+# Independent mathematical audit
 
-A second arithmetic check optimizes the support-form expression over every feasible \((m,p,e)\) pattern through \(n=200\) and compares it with \(\lfloor n^2/2\rfloor-n+2\). These finite checks are corroborative. The universal theorem rests on the combinatorial proof in RESULT.md.
+## correctness
 
-No claim is made about multiple deletions, multiple adjacent transpositions, or nonbinary alphabets.
+PASS
+
+In zero-gap coordinates, reversing the channel restores one zero in a gap and optionally transfers one zero between adjacent gaps. A positive donor gap contributes \((m-1)\deg(a)\) transfer constructions after removing the insertion-at-donor cases already counted by deletion-only parents; different donors cannot collide, and the two transfer directions of one interior donor have exactly one collision. This gives \(m+(2m-3)p-(m-2)e\). Optimizing support size and endpoint occupancy gives \(\lfloor n^2/2\rfloor-n+2\) and the stated even/odd extremizers. Fresh direct string-channel enumeration for every \(2\le n\le8\) reproduced the pointwise formula and maxima \(2,3,6,9,14,19,26\).
+
+## originality
+
+PASS
+
+The complete Wang--Vu--Tan treatment uses the same zero-gap representation and identifies zero deletion with a coordinate decrement and adjacent transposition with a unit transfer, but focuses on code construction, decoding/list decoding and redundancy. It does not state the uncoded inverse received-word degree, its exact worst-case law, or extremizers. Ye--Ge treat forward error balls and code-size bounds. Resultary searches found no equivalent inverse-degree theorem.
+
+## value
+
+PASS
+
+Worst inverse degree is a natural list-decoding/ambiguity invariant of this asymmetric channel. The theorem gives every received word's parent count, the exact global maximum, and all extremizers for every length, so it is a motivated complete classification rather than a finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
