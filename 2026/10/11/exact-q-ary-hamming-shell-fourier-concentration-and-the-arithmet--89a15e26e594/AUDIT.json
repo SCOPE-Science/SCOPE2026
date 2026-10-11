@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The full Fourier-band decomposition has dimensions 1+n+n(q-2). Conditional hypergeometric covariance on the uniform k-subset of active coordinates gives the radial contrast eigenvalue U, symbol-balanced transverse covariance gives T, and the constant-plus-radial-sum Gram is a rank-one 2x2 block with eigenvalues R and 0. Multiplication by the exact shell density w gives the concentration spectrum and the shell-equation kernel. Direct symbolic subtraction yields \\(R-T=z(z-1)/[n(q-1)]\\), \\(R-U=(z-1)(z+q-1)/[(n-1)(q-1)]\\), \\(T-U=qk(z-1)/[n(n-1)(q-1)]\\), with \\(z=qk-(q-1)n\\), so positive-eigenvalue equality iff z=1. Actual character matrices are computationally checked for 18 finite parameter triples and exact Fraction arithmetic tests the resonance across \\(3\\le q\\le15\\), \\(2\\le n\\le79\\), and interior \\(k\\); finite experiments are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diaconis–Griffiths arXiv:1309.0112: theory of multivariate Krawtchouk systems and multinomial occupancy models.",
+        "Bannai–Bannai–Bannai arXiv:1304.5760: relative 2-designs on binary Hamming association schemes, predominantly two shells."
+      ],
+      "reasoning": "General Krawtchouk or association-scheme decompositions might supply methodology but do not themselves state the complete conditional Gram eigenvalues and infinite tightness congruence for this particular unsymmetrized q-ary Fourier restriction. Binary relative-design bounds do not cover q≥3, and composition-space polynomial kernels do not imply these eigenvalues without a separate unsymmetrized calculation.",
+      "searches": [
+        "q-ary fixed Hamming weight Krawtchouk Fourier Slepian concentration spectrum eigenvalue collisions tight sampling frame",
+        "Hamming scheme primitive idempotent E1 shell pointwise multiplication eigenvalues",
+        "Hamming scheme primitive idempotent E1 shell pointwise multiplication eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1304.5760",
+      "https://arxiv.org/abs/1309.0112",
+      "https://arxiv.org/abs/1309.7526"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu arXiv:1309.7526, Theorems 5.6–5.7: polynomial frames associated with Hahn and Krawtchouk multivariate spaces, not q-ary shell Fourier concentration.",
+        "Bannai et al. arXiv:1304.5760: Fisher-bound relative designs, not quotient singular-value equality.",
+        "Diaconis–Griffiths arXiv:1309.0112: occupancy-polynomial methods, not full shell restriction of coordinate characters."
+      ],
+      "reasoning": "The new theorem fixes both the input Fourier subspace and the spatial restriction set, includes a precise unavoidable kernel, and asserts the full spectral multiplicity profile and necessary-sufficient arithmetic equality of all surviving singular values. None of the compared results has a premise/conclusion that yields that statement directly. Their overlapping general terminology does not amount to logical coverage.",
+      "searches": [
+        "Hamming shell Fourier restriction concentration frame, q-ary first-degree characters",
+        "tightness of q-ary constant weight shell harmonic Fourier frame iff n equals 1 modulo q",
+        "Tight Frame with Hahn and Krawtchouk Polynomials of Several Variables",
+        "On the existence of tight relative 2-designs on binary Hamming association schemes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xu arXiv:1309.7526 §§4–5: tight frames for multivariate polynomial spaces on multinomial compositions; the operator and indexing differ.",
+        "Published result on minimum tight exponential-frame size on cyclic prime-power groups: frequency minimization on subsets of a cyclic group, rather than fixed-weight q-ary shell restriction."
+      ],
+      "reasoning": "A character-frequency band sampled on fixed Hamming-weight vectors is different from the polynomial tight-frame constructions and cyclic subset exponential frames. No matching reparameterization of the spectral operator, normalized eigenvalues, or the arithmetic condition appeared in the inspected material.",
+      "searches": [
+        "q-ary Hamming shell harmonic sampling tight frame first Fourier level projective rank defect spectrum",
+        "constant weight q-ary words equiangular tight frames Fourier degree 1 first-order characters Gram",
+        "q-ary Hamming sphere first order character restricted tight frames harmonic analysis binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result on even-dilate Shapiro constants for Boolean Hamming balls: a Shapiro doubling invariant, not a Fourier restriction Gram spectrum.",
+        "Related Boolean first-band Hamming-ball, degree-two Hamming-shell, and Boolean weight-two Turán problems involve different domains, bands, or invariants."
+      ],
+      "reasoning": "The claim is an all-q theorem, not a table recomputation. Related published formulas for Boolean cubes concern distinct spatial regions, harmonic bands, or norms; none implies this theorem. The inspected literature offers no directly matching numerical table of the same Gram operator.",
+      "searches": [
+        "Complete Fourier concentration spectrum for the degree zero plus one character space on a q-ary constant-weight Hamming sphere, with transverse symbol modes and three eigenvalues; tight sampling exactly when q divides n-1 and k=(q-1)(n-1)/q+1",
+        "degree-one q-ary Fourier frequency basis restricted to words of given Hamming weight k",
+        "q-ary fixed Hamming weight Krawtchouk Fourier Slepian concentration spectrum eigenvalue collisions tight sampling frame"
+      ]
+    },
+    "rationale": "The compared published papers treat multinomial-composition Krawtchouk polynomials, prescribed tight polynomial frames, and relative combinatorial designs; none of their inspected statements provides the full unsymmetrized degree-one q-ary shell concentration spectrum with a one-dimensional kernel and the congruence if-and-only-if quotient-tightness result. Queries for direct formulas, aliased frame formulations, and potentially dominating Hamming-scheme frameworks returned no decisive covering implication. Residual risk is older association-scheme or frame literature deriving this covariance operator implicitly; the assessment is not a priority certificate.",
+    "residual_risks": [
+      "A classical Terwilliger-algebra block or association-scheme formula might contain the normalized Gram eigenvalues implicitly.",
+      "Unindexed finite-frame constructions or coding-theoretic texts may call the quotient-tightness condition by another name.",
+      "Search does not certify global novelty; cited material alone is not an exhaustive literature census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_DIRECTLY_COVERING",
+        "evidence": "The paper studies Fisher-type cardinality equality for relative designs on binary shells, rather than the Gram operator of all first-order complex characters on a q-ary shell.",
+        "identifier_or_url": "https://arxiv.org/abs/1304.5760",
+        "material_read": "Accessible primary text: introduction, relative-design definitions and discussion of tight relative 2-design results on binary shells, including the two-shell case",
+        "method": "Inspected public arXiv full-text material and compared object, tightness meaning, and binary restriction",
+        "title": "On the existence of tight relative 2-designs on binary Hamming association schemes",
+        "trigger": "Primary historical work on Hamming shells and tight designs"
+      },
+      {
+        "assessment": "NOT_DIRECTLY_COVERING",
+        "evidence": "Its polynomial spaces are associated with multinomial occupancy compositions; no stated all-coordinate q-ary fixed-weight spatial Fourier restriction Gram spectrum or quotient-tightness congruence.",
+        "identifier_or_url": "https://arxiv.org/abs/1309.0112",
+        "material_read": "Primary 31-page PDF: introduction, multinomial-polynomial setup and the polynomial/application discussion relevant to occupancy-indexed harmonic analysis",
+        "method": "Inspected arXiv full-text PDF pages and checked parameters and nature of the operator",
+        "title": "An introduction to multivariate Krawtchouk polynomials and their applications",
+        "trigger": "Primary polynomial-harmonic machinery possibly containing stronger Krawtchouk statements"
+      },
+      {
+        "assessment": "NOT_DIRECTLY_COVERING",
+        "evidence": "It constructs tight multivariate polynomial frames on composition spaces, not restriction of the complete unsymmetrized first Fourier band to a q-ary Hamming shell.",
+        "identifier_or_url": "https://arxiv.org/abs/1309.7526",
+        "material_read": "Public primary full text introduction and sections 4–5 including Theorems 5.6 and 5.7 and their construction contexts",
+        "method": "Read arXiv accessible full-text HTML and compared frame indexing/operator and spaces",
+        "title": "Tight Frame with Hahn and Krawtchouk Polynomials of Several Variables",
+        "trigger": "Closest title and possibility that tight frames dominate the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "89a15e26-e594-48df-81c1-23e4fa45d388",
+  "value": {
+    "rationale": "A full fixed-weight Hamming sphere is a canonical sampling set in finite Fourier analysis. The theorem completely determines the nonzero singular values, dimension-one unavoidable kernel, sharp stable interpolation after quotient, and an infinite precisely congruence-classified family of optimally conditioned frames. The q-ary transverse symbol modes and arithmetic equalization are a meaningful structural distinction from Boolean ball or degree-two shell examples. The natural entire-infinite-family classification, not the elementary covariance identity alone, supplies value.",
+    "status": "PASS"
+  }
+}
