@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The exterior derivative at \\(x=ru\\), for \\(r>1\\), is \\(r^{-1}(I-uu^{\\mathsf T})\\); inside the ball it is \\(I\\). Segment integration proves the exact global derivative-supremum identity and the exterior limit \\(r\\downarrow1\\) proves sharpness. The weighted maximum-norm operator norm is the maximum weighted absolute row sum. Cauchy--Schwarz reaches equality when \\(|u_j|\\) is proportional to \\(w_j\\) off the chosen row. The unique scalar optimizer of \\(1-t+(W_i/w_i)\\sqrt{t(1-t)}\\) yields \\((1+\\|w\\|_2/w_i)/2\\); maximizing the row chooses minimal \\(w_i\\) and classifies all normal directions. The dual norm argument and matrix symmetry give the same constant for weighted sum error. The case \\(n=1\\) is checked separately. The 13,200 finite numerical checks corroborate but do not prove the universally quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goebel 2003 section 2 only supplies a universal bound of 2 for a map measured in the same norm as its target unit ball. The sharp cross-norm constant exceeds 2 already for equal weights in dimension ten.",
+        "Related public material on Banach--Mazur and linear projection constants has different objects, and its stated conclusions do not dominate a nonlinear weighted Lipschitz identity."
+      ],
+      "reasoning": "A same-norm radial bound cannot dominate the mixed-norm claim. Matrix estimates can be weaker or involve other projections; no inspected theorem covers all positive weights, all dimensions and equality normals.",
+      "searches": [
+        "Maximum operator norm of Euclidean orthogonal hyperplane projections from weighted ℓ∞ to weighted ℓ∞ for rank-one normal vectors",
+        "norm of orthogonal projection rank n-1 from ℓ infinity to itself maximum half one plus sqrt dimension",
+        "Lipschitz radial clipping Euclidean ball infinity norm sensitivity projection"
+      ]
+    },
+    "checked_sources": [
+      "Goebel 2003, DOI 10.1155/S1085337503204103 (primary PDF and publisher metadata)",
+      "Su--Yu--Fei-Fei 2012, arXiv:1206.4638 (original full preprint)",
+      "MathOverflow 2022, question 420571 (different generic hyperplane-projection problem)",
+      "Related previously published radial retraction result for the planar Lorentz-predual octagon (different target ball and measurement norm)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goebel equation (2.2) is the radial clipping map defined by the very norm in which Lipschitzness is measured; equation (2.3) uses bound 2.",
+        "Su--Yu--Fei-Fei section 2 states Euclidean-ball projection rescales a vector, while its main theorems derive algorithms for projections onto intersections of norm balls, not cross-norm sharp constants.",
+        "The related public mathematical note on radial retraction in a planar Lorentz-predual norm studies another norm ball measured in its own norm; it does not imply the Euclidean-ball mixed weighted-coordinate theorem."
+      ],
+      "reasoning": "The closest radial-map theorem supplies no sharp constant when the target ball is Euclidean but perturbation errors are measured in weighted ℓ∞ or its dual weighted ℓ1; a two-dimensional non-Euclidean same-norm retraction does not cover the all-n formula. Therefore the new statement is neither a direct quoted corollary nor known to be dominated by the inspected claims.",
+      "searches": [
+        "2003 Goebel full PDF DOI:10.1155/S1085337503204103",
+        "2012 Su Yu Fei-Fei full preprint arxiv:1206.4638",
+        "Exact Lipschitz constant of Euclidean radial projection onto Euclidean ball measured in weighted supremum norm, equal to half of one plus Euclidean norm of weights divided by minimum weight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goebel 2003, DOI:10.1155/S1085337503204103, section 2, states a universal 2-Lipschitz bound for a radial map in its generating norm, not in an independent weighted coordinate norm.",
+        "A 2022 MathOverflow thread on maximum-norm projection constants discusses a specific linear hyperplane and varying projections, not the nonlinear Euclidean-ball clipping map."
+      ],
+      "reasoning": "The nonlinear formula is equivalent to maximizing the weighted infinity norm of \\(I-uu^{\\mathsf T}\\) over Euclidean unit normals; none of the inspected material states this exact all-positive-weight profile. The maximum-norm linear projection problem is different: arbitrary linear projections need not have a Euclidean-normal kernel, and conversely a family of such matrices requires maximization over the normals. Search absence is not a proof of novelty.",
+      "searches": [
+        "Exact Lipschitz constant of Euclidean radial projection onto Euclidean ball measured in weighted supremum norm, equal to half of one plus Euclidean norm of weights divided by minimum weight",
+        "Euclidean unit ball projection Lipschitz ℓ infinity sharp constant (sqrt n + 1)/2",
+        "sharp Lipschitz constant of projection onto Euclidean ball in max norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected historical radial-map and Euclidean-projection primary sources do not tabulate or state the new sensitivity constants.",
+        "No directly matching numerical or algebraic sharp-constant table surfaced in the actual literature and bibliographic searches."
+      ],
+      "reasoning": "This is a whole-parameter identity, not a finite numerical table or a mere recomputation of previously published constants. A prior equivalent closed-form result remains a residual risk.",
+      "searches": [
+        "Sharp n-dimensional coordinatewise perturbation sensitivity of Euclidean metric projection onto unit ball and dual weighted ℓ1 stability",
+        "(1+sqrt(n))/2 projection infinity norm",
+        "maximum ℓ infinity operator norm of Euclidean orthogonal projections I-uu^T rank n-1"
+      ]
+    },
+    "rationale": "Searches and inspected primary articles did not identify the exact weighted cross-norm Lipschitz formula and maximizing outward normal classification. Goebel treats radial projection measured in its own ambient Banach norm, whereas the claim changes the measurement norm while retaining Euclidean projection. Su--Yu--Fei-Fei derive different constrained projection algorithms. General linear projection estimates could imply partial reductions but not an identified complete theorem; historical equivalence is an explicitly recorded risk.",
+    "residual_risks": [
+      "Historical linear orthogonal-projection norm literature may contain the extremum in an equivalent matrix formulation.",
+      "No literature search can rule out unseen unpublished or unindexed work.",
+      "The theorem has not received an independent mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper examines retractions from a Banach unit ball to its boundary and uses \\(P:X\\to B\\) defined by the ambient norm, with universal bound 2 in that same norm; there is no independent weighted error norm or all-weight sharp formula.",
+        "identifier_or_url": "https://doi.org/10.1155/S1085337503204103",
+        "material_read": "Publisher open-access PDF, introduction pages 101--103 and Section 2 pages 104--106 including equations (2.1)--(2.11), with later section headings inspected.",
+        "method": "Opened the actual primary PDF text, inspected the page image showing equations (2.1)--(2.2), and matched its definition of the ambient norm.",
+        "title": "On the problem of retracting balls onto their boundary",
+        "trigger": "Same named radial projection and Lipschitz constants"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Section 2 acknowledges that projection onto the Euclidean ball is radial rescaling; principal results concern fast numerical projection onto intersections of ℓ1 and grouped norm balls. No cross-norm optimal Lipschitz modulus or equality normals are given.",
+        "identifier_or_url": "https://arxiv.org/pdf/1206.4638",
+        "material_read": "Original eight-page preprint: title, abstract, sections 1--4 with formulae, section 5 experiments and last pages; full-document text searches for Lipschitz and stability.",
+        "method": "Opened full primary PDF text, inspected page image of methods introduction, followed analytical projection formulas and experiments.",
+        "title": "Efficient Euclidean Projections onto the Intersection of Norm Balls",
+        "trigger": "Explicit Euclidean-ball rescaling and ℓ∞ constrained projection algorithms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "78696bf1-57c3-4586-9a23-4086cae727b5",
+  "value": {
+    "rationale": "For coordinatewise bounded measurement noise, Euclidean feasibility projection is globally worse-conditioned than its Hilbert-space bound suggests; the exact law quantifies all positive anisotropic weights in every finite dimension. The equality normals classify maximal amplification, and optimal equal weights show the unavoidable \\((1+\\sqrt n)/2\\) growth. This is a complete natural quantitative stability classification, not an isolated numerical case or a relabeling of the native-norm bound. No claims are made for arbitrary convex bodies or higher-order conditioning.",
+    "status": "PASS"
+  }
+}
