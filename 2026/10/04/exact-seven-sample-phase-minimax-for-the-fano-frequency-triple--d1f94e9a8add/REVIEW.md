@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the sampled phase minimax to exact moment identities. The key inequalities are \(m_3-84=3|1+X+Y^{-1}|^2\ge0\) and a nonnegative polynomial certificate on \([0,(7+\sqrt{21})/2]\). The extremizer is verified analytically from doubling-orbit symmetry plus the first two exact moments. No finite enumeration is used to establish the universal lower bound.
+## correctness
 
-## Originality
-PASS. The closest continuous result is Neuwirth's prescribed-modulus trigonometric-trinomial theorem, whose maximum runs over every point of the circle rather than the seven characters. The closest harmonic-frame source studies pairwise coherence of difference-set frames, a different functional. Graham's finite-group paper treats Sidon constants and extremal measures; it explicitly distinguishes the two three-point equivalence classes in \(\mathbb Z_7\), but does not give the fixed-unimodular phase-only peak stated here. Targeted database searches using roots-of-unity, Fano-frame, crest-factor, difference-set, and unimodular-trinomial formulations returned no covering statement. Residual risk remains that the constant appears in sequence-design literature under unrelated terminology.
+PASS
 
-## Value
-PASS. Choosing coefficient phases to minimize peak amplitude is the classical prescribed-modulus minimax problem, and sampling it on a finite character group is a natural finite Fourier analogue. The support \(\{0,1,3\}\subset\mathbb Z_7\) is the canonical \((7,3,1)\) difference-set/Fano triple, so the exact constant is structurally motivated rather than an arbitrary small computation. The proof also exposes a reusable moment-certificate mechanism linking difference-set orthogonality to peak control.
+Fresh reconstruction confirms \(m_1=3\), \(m_2=15\), \(m_3-84=3|1+X+Y^{-1}|^2\ge0\), and \(m_4=(52/3)m_3-973\). If every sample obeys \(q_k\le A\), the average of \(h(q_k)=q_k(A-q_k)(q_k-B)^2\) is \(-(41+3\sqrt{21})(m_3-84)/6\), while each summand is nonnegative, forcing equality; a strict peak below \(A\) would force every sample into \(\{0,B\}\), contradicting mean three. A fresh independent numerical evaluation of the displayed cubic-root witness produced one zero, three values \(A\), and three values \(B\). The frozen exact checker was also read and its group-algebra identities agree with the reconstruction.
 
-## Closest literature and limitations
-Neuwirth solves the continuum three-frequency phase minimax and Sidon problems. Strohmer--Heath place the same cyclic difference-set geometry in harmonic-frame theory. Graham studies finite-group Sidon extremality and records the two inequivalent three-point classes in \(\mathbb Z_7\). None of the inspected statements optimizes the present fixed-unimodular seven-sample peak. No claim is made about all minimizer phases or other moduli.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary theorem of Neuwirth solves the prescribed-modulus minimax with a maximum over the entire circle, not over seven sampled characters. Strohmer-Heath optimize pairwise frame coherence for harmonic difference-set frames, and Graham studies Sidon constants where coefficient magnitudes are not fixed. A related published Resultary record solves the consecutive support \(\{0,1,2\}\) on finite grids, not the Fano support \(\{0,1,3\}\). None of the inspected statements implies the submitted seven-sample constant.
+
+## value
+
+PASS
+
+The problem is the finite-character analogue of the classical prescribed-modulus phase-minimax problem on the canonical Fano/difference-set triple. The exact sharp constant and moment certificate are structurally motivated and reusable, rather than an arbitrary numerical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

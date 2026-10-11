@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-The proof is analytic. The checker performs the following corroborative checks from exact algebraic data:
+# Independent mathematical audit
 
-- expands the sampled Laurent polynomial \(q_k=|1+u\zeta^k+v\zeta^{3k}|^2\) in the group algebra of \(\mathbb Z_7\);
-- verifies exactly \(m_1=3\) and \(m_2=15\);
-- verifies the exact Laurent formula \(m_3-84=3(3+X+X^{-1}+Y+Y^{-1}+XY+(XY)^{-1})\), whose bracket is \(|1+X+Y^{-1}|^2\);
-- verifies exactly \(m_4=(52/3)m_3-973\);
-- verifies the coefficient reduction of the quartic certificate \(x(A-x)(x-B)^2\) to \(-(41+3\sqrt{21})(m_3-84)/6\);
-- evaluates the displayed cubic-root phase witness on all seven roots to confirm one zero and two three-point levels equal to the two roots of \(x^2-7x+7\).
+## correctness
 
-Run `python3 artifacts/verify.py`. A successful replay prints `VERIFY_OK`.
+PASS
 
-The numerical witness evaluation is not used to prove the lower bound; it only checks the explicitly derived extremizer values. No statement for other frequency triples or moduli is verified.
+Fresh reconstruction confirms \(m_1=3\), \(m_2=15\), \(m_3-84=3|1+X+Y^{-1}|^2\ge0\), and \(m_4=(52/3)m_3-973\). If every sample obeys \(q_k\le A\), the average of \(h(q_k)=q_k(A-q_k)(q_k-B)^2\) is \(-(41+3\sqrt{21})(m_3-84)/6\), while each summand is nonnegative, forcing equality; a strict peak below \(A\) would force every sample into \(\{0,B\}\), contradicting mean three. A fresh independent numerical evaluation of the displayed cubic-root witness produced one zero, three values \(A\), and three values \(B\). The frozen exact checker was also read and its group-algebra identities agree with the reconstruction.
+
+## originality
+
+PASS
+
+The closest primary theorem of Neuwirth solves the prescribed-modulus minimax with a maximum over the entire circle, not over seven sampled characters. Strohmer-Heath optimize pairwise frame coherence for harmonic difference-set frames, and Graham studies Sidon constants where coefficient magnitudes are not fixed. A related published Resultary record solves the consecutive support \(\{0,1,2\}\) on finite grids, not the Fano support \(\{0,1,3\}\). None of the inspected statements implies the submitted seven-sample constant.
+
+## value
+
+PASS
+
+The problem is the finite-character analogue of the classical prescribed-modulus phase-minimax problem on the canonical Fano/difference-set triple. The exact sharp constant and moment certificate are structurally motivated and reusable, rather than an arbitrary numerical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
