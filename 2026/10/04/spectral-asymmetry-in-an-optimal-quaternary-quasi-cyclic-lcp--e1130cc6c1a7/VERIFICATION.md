@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` is a standalone Python-standard-library replay.
 
-It represents \(\mathbb F_4\) as \(\mathbb F_2[\omega]/(\omega^2+\omega+1)\), expands the two \(R\)-module generators through all seven cyclic shifts in each block, and row-reduces the resulting ordinary length-\(14\) generator matrices.
+# Independent mathematical audit
 
-The replay verifies \(\dim C=9\), \(\dim D=5\), \(\operatorname{rank}(C+D)=14\), constructs the Euclidean dual \(D^\perp\), and verifies its dimension \(9\). It enumerates every one of the \(4^9\) words in both \(C\) and \(D^\perp\), checks their full Hamming distributions and minimum distance, then exhausts all \(2^{14}\) coordinate subsets to recompute all generalized Hamming weights from exact restricted-column ranks.
+## correctness
 
-The finite computations are exhaustive for this row. No sampling, timeout inference, or external algebra package is used.
+PASS
+
+Independent finite-field reconstruction from the six printed quasi-cyclic generator polynomials gives dimensions \(\dim C=9\), \(\dim D=5\), \(\dim D^\perp=9\), and rank \(14\) for \(C+D\). Fresh enumeration of all \(4^9\) words in each security-side code reproduces both displayed weight distributions exactly. Exhausting all \(2^{14}\) coordinate supports via restricted-column ranks reproduces the generalized Hamming-weight hierarchies \((4,6,7,9,10,11,12,13,14)\) and \((4,6,7,8,10,11,12,13,14)\). The different ordinary weight enumerators already rule out monomial equivalence, independently confirmed by the differing fourth generalized weight.
+
+## originality
+
+PASS
+
+The primary paper prints the quasi-cyclic construction and advertises the row for its optimal or almost-optimal minimum-distance security parameter, while earlier LCP work already shows that general quasi-cyclic pairs need not satisfy \(C\cong D^\perp\). Those facts are treated as prior. The inspected primary text does not give the complete weight enumerators or generalized Hamming-weight hierarchies for this exact row. Current Resultary and web searches found no independent source reporting these two invariant fingerprints. The audited novelty is therefore the exact higher-support asymmetry of a named optimal-security example, not abstract non-equivalence or the parameter set itself.
+
+## value
+
+PASS
+
+Complete weight distributions and generalized Hamming weights are canonical coding-theoretic invariants, and the object is a recent published LCP selected for optimal minimum-distance security. Showing that equal minimum-security distances conceal different low-weight multiplicities and different fourth generalized support weight gives a natural exact fingerprint relevant to equivalence and higher-order leakage geometry. Under the narrow-invariant standard, this is a motivated exact fact rather than an arbitrary code census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

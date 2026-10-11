@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The six printed generator polynomials were reconstructed exactly in \(\mathbb F_4[x]/(x^7-1)\). Row reduction gives dimensions \(9\) and \(5\), and the stacked rank is \(14\), independently reproducing the LCP premise. The Euclidean dual of the second code has dimension \(9\). Exhaustive enumeration of all \(4^9\) words on each security side gives minimum distance \(4\) and the stated complete weight distributions. Exhausting all \(2^{14}\) coordinate supports with the restricted-column rank formula gives the stated generalized Hamming-weight hierarchies.
+PASS
 
-## Originality
+Independent finite-field reconstruction from the six printed quasi-cyclic generator polynomials gives dimensions \(\dim C=9\), \(\dim D=5\), \(\dim D^\perp=9\), and rank \(14\) for \(C+D\). Fresh enumeration of all \(4^9\) words in each security-side code reproduces both displayed weight distributions exactly. Exhausting all \(2^{14}\) coordinate supports via restricted-column ranks reproduces the generalized Hamming-weight hierarchies \((4,6,7,9,10,11,12,13,14)\) and \((4,6,7,8,10,11,12,13,14)\). The different ordinary weight enumerators already rule out monomial equivalence, independently confirmed by the differing fourth generalized weight.
 
-PASS. The primary paper states this row's generators and optimal security parameter but not its weight distributions or generalized Hamming weights. Older work already proves that quasi-cyclic LCP security sides can be inequivalent in general, so that broader phenomenon is explicitly excluded from the novelty claim. Focused searches of the exact row, generator tuple, coefficient strings, and generalized-weight sequences found no prior statement of the exact fingerprint reported here.
+## originality
 
-## Value
+PASS
 
-PASS. The source evaluates LCP security using the smaller of two minimum distances. In this row the two sides tie at the optimum, so the published scalar security value hides all asymmetry. The complete spectra and generalized support hierarchy show that the two optimal-distance sides have materially different low-weight populations and different fourth generalized Hamming weight. This is a natural, complete finite sharpening of a highlighted optimal construction and provides exact invariants for later equivalence or higher-support work.
+The primary paper prints the quasi-cyclic construction and advertises the row for its optimal or almost-optimal minimum-distance security parameter, while earlier LCP work already shows that general quasi-cyclic pairs need not satisfy \(C\cong D^\perp\). Those facts are treated as prior. The inspected primary text does not give the complete weight enumerators or generalized Hamming-weight hierarchies for this exact row. Current Resultary and web searches found no independent source reporting these two invariant fingerprints. The audited novelty is therefore the exact higher-support asymmetry of a named optimal-security example, not abstract non-equivalence or the parameter set itself.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Complete weight distributions and generalized Hamming weights are canonical coding-theoretic invariants, and the object is a recent published LCP selected for optimal minimum-distance security. Showing that equal minimum-security distances conceal different low-weight multiplicities and different fourth generalized support weight gives a natural exact fingerprint relevant to equivalence and higher-order leakage geometry. Under the narrow-invariant standard, this is a motivated exact fact rather than an arbitrary code census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
