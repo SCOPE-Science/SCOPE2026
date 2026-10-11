@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:03:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Within each open-neighborhood twin class, omitting two vertices is impossible. For omitted \\(A_i,A_j\\) with \\(i<j\\), the only landmarks that distinguish them are precisely vertices in \\(B_{i+1},\\ldots,B_j\\); the symmetric condition holds for two omitted \\(B\\)-vertices. Any nonempty landmark set distinguishes an omitted cross-side pair by distance parity. These facts prove the criterion. The recurrence's two state bits record exactly whether an earlier omitted vertex is still waiting for a selected opposite-side class in its distinguishing interval; singleton versus nonsingleton class transitions correctly determine whether an omission also leaves a landmark in that class. A fresh independent brute-force replay on five small class-size patterns matched the recurrence coefficient-for-coefficient. The actual frozen exhaustive verifier was read and checks all canonical vectors through order ten.",
+      "risk": "The recurrence is for connected chain graphs in the canonical positive-class decomposition.",
+      "sources": [
+        "DOI:10.1016/j.ipl.2015.04.006",
+        "DOI:10.17777/pjms2021.24.3.309",
+        "frozen RESULT.md and verify_resolving_chain.py",
+        "fresh independent subset/recurrent-polynomial replay"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Optimization of the minimum size does not determine the number or cardinality distribution of all resolving sets.",
+          "The later paper's cell lemmas support some minimum-size reasoning but do not state the submitted interval criterion or recurrence."
+        ],
+        "reasoning": "Neither inspected broader result implies the full resolving-set polynomial.",
+        "searches": [
+          "Fernau et al. 2015 abstract/public record",
+          "Bhat-Hanif-Sudhakara 2021 full paper"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.ipl.2015.04.006",
+        "DOI:10.17777/pjms2021.24.3.309",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work gives necessary cell-resolution facts and minimum bounds but does not determine which nonminimum landmark sets resolve the graph.",
+          "The four-state recurrence requires tracking unresolved omission intervals that are irrelevant to a minimum-value-only output."
+        ],
+        "reasoning": "The all-set theorem is a strict enumerative refinement, not merely a restatement of the known minimum.",
+        "searches": [
+          "2015 public statement of a linear-time metric-dimension algorithm",
+          "2021 Lemma 2.2, Theorem 2.3 and later metric-dimension sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2015 source states a linear-time optimization algorithm for metric dimension.",
+          "The 2021 paper's full visible sections derive bounds and selected minimum values, not an all-cardinality enumerator."
+        ],
+        "reasoning": "Resolving-set enumeration, metric bases, twin-class omissions, chain-graph cells and resolving-polynomial formulations were compared.",
+        "searches": [
+          "Resultary query: resolving sets resolving polynomial chain graphs four-state recurrence twin classes",
+          "DOI:10.1016/j.ipl.2015.04.006 public record",
+          "DOI:10.17777/pjms2021.24.3.309 full open PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited record was the only exact chain-graph resolving-polynomial hit; no independent published coefficient table was located."
+        ],
+        "reasoning": "The result is an all-parameter recurrence, so exact statement coverage rather than finite tables is decisive.",
+        "searches": [
+          "Resultary exact semantic query for chain graph resolving polynomial and all resolving sets",
+          "targeted web searches for resolving polynomial chain graph"
+        ]
+      },
+      "rationale": "The 2015 primary record advertises a linear-time algorithm for the minimum metric dimension, not an all-resolving-set enumerator. Its full text remained inaccessible after lawful open routes and one authorized institutional attempt, so that source remains a named access risk. The later 2021 full paper was visually inspected across its metric-dimension and threshold-dimension sections: it develops lower/upper bounds, special exact metric-dimension cases and an inverse problem, but no resolving polynomial or characterization of every resolving set. Fresh Resultary search returned the audited record as the exact all-set chain-graph result; related same-day records concern different invariants.",
+      "residual_risks": [
+        "The inaccessible 2015 full article could contain a structural lemma equivalent to part of the submitted all-set criterion even though its accessible description advertises only minimum computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGHLY_RELEVANT_ACCESS_LIMITED_RESIDUAL_RISK",
+          "evidence": "The accessible primary record states a linear-time algorithm for the metric-dimension minimum but does not expose whether the body contains an all-set characterization.",
+          "identifier_or_url": "DOI:10.1016/j.ipl.2015.04.006",
+          "material_read": "University repository bibliographic record and abstract. Lawful full-text routes did not expose the article in this run.",
+          "method": "OA/public-record attempts followed by one authorized institutional retrieval attempt; the latter returned an operational error and was not retried.",
+          "title": "Computing the metric dimension for chain graphs",
+          "trigger": "Foundational exact chain-graph metric-dimension algorithm."
+        },
+        {
+          "assessment": "MINIMUM_AND_VARIANTS_NOT_ALL_SET_ENUMERATOR",
+          "evidence": "The paper proves cell-based bounds and exact minimum values in special families and develops the inverse/threshold problems, with no resolving polynomial in the inspected full text.",
+          "identifier_or_url": "DOI:10.17777/pjms2021.24.3.309",
+          "material_read": "Open 13-page PDF visually inspected across the cell-resolution lemmas, metric-dimension bounds/special cases, inverse metric-dimension section, and restricted threshold-dimension section.",
+          "method": "Lawful open full-text PDF inspection.",
+          "title": "Metric dimension and its variations of chain graphs",
+          "trigger": "Later full paper on the same graph class and invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full resolving polynomial is a natural strengthening of the known minimum problem: it characterizes every landmark set, counts metric bases, and exposes precisely how singleton twin classes create nonlocal interval obstructions. The four-state recurrence is a compact reusable enumerative description rather than a one-off computation.",
+      "risk": "The contribution is confined to chain graphs and does not automatically extend to broader bipartite permutation classes.",
+      "sources": [
+        "DOI:10.1016/j.ipl.2015.04.006",
+        "DOI:10.17777/pjms2021.24.3.309"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite connected chain graph, resolving sets are exactly complements that omit at most one vertex per canonical twin class and satisfy the two stated same-side interval conditions; a four-state recurrence consequently counts all resolving sets by size and yields the resolving polynomial, metric dimension, and exact number of metric bases.",
+  "limitations": [
+    "Finite connected chain graphs only.",
+    "The 2015 primary full text remained inaccessible in this run."
+  ],
+  "schema_version": 1
+}

@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces all unresolved pairs to three types. Twin pairs force omission of at most one vertex per class. Two omitted vertices on the \(A\)-side are distinguished exactly by selected vertices in \(B_{i+1}\cup\cdots\cup B_j\), and the symmetric interval holds on the \(B\)-side. Cross-side omitted pairs are automatically distinguished by parity of distances as soon as a landmark exists. The four-state recurrence is an exact finite-state encoding of these interval obligations. Exhaustive replay against the definition through order \(10\) matches both the criterion and every polynomial coefficient.
+## correctness
 
-## Originality
-PASS, with explicit residual access risk. The directly relevant 2015 paper advertises a linear-time algorithm for the metric-dimension minimum on chain graphs. A 2021 chain-graph paper likewise advertises metric-dimension results and related variations. Neither accessible statement gives the all-cardinality resolving-set enumerator or the four-state recurrence. Separate resolving-polynomial literature confirms that counting resolving sets by size is a recognized invariant, but the inspected examples concern other graph families. Targeted semantic and web searches found no statement implying the present full chain-graph enumerator. The unavailable full text of the 2015 paper remains a genuine residual risk rather than evidence of novelty.
+PASS
 
-## Value
-PASS. The result upgrades a natural optimization problem on a classical graph class to a complete structural classification and exact enumerator. It exposes the precise role of singleton twin classes, returns every resolving-set cardinality, and simultaneously yields the metric dimension and number of metric bases. This is substantially more information than recomputing only a known minimum value.
+Within each open-neighborhood twin class, omitting two vertices is impossible. For omitted \(A_i,A_j\) with \(i<j\), the only landmarks that distinguish them are precisely vertices in \(B_{i+1},\ldots,B_j\); the symmetric condition holds for two omitted \(B\)-vertices. Any nonempty landmark set distinguishes an omitted cross-side pair by distance parity. These facts prove the criterion. The recurrence's two state bits record exactly whether an earlier omitted vertex is still waiting for a selected opposite-side class in its distinguishing interval; singleton versus nonsingleton class transitions correctly determine whether an omission also leaves a landmark in that class. A fresh independent brute-force replay on five small class-size patterns matched the recurrence coefficient-for-coefficient. The actual frozen exhaustive verifier was read and checks all canonical vectors through order ten.
 
-The principal limitation is bibliographic rather than mathematical: a poorly indexed or inaccessible source could contain an equivalent all-set characterization. The mathematical theorem itself is proved for every connected chain graph; finite computation is only a replay check.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The 2015 primary record advertises a linear-time algorithm for the minimum metric dimension, not an all-resolving-set enumerator. Its full text remained inaccessible after lawful open routes and one authorized institutional attempt, so that source remains a named access risk. The later 2021 full paper was visually inspected across its metric-dimension and threshold-dimension sections: it develops lower/upper bounds, special exact metric-dimension cases and an inverse problem, but no resolving polynomial or characterization of every resolving set. Fresh Resultary search returned the audited record as the exact all-set chain-graph result; related same-day records concern different invariants.
+
+## value
+
+PASS
+
+A full resolving polynomial is a natural strengthening of the known minimum problem: it characterizes every landmark set, counts metric bases, and exposes precisely how singleton twin classes create nonlocal interval obstructions. The four-state recurrence is a compact reusable enumerative description rather than a one-off computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

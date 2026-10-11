@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The proof is symbolic. The accompanying `verify_resolving_chain.py` independently constructs each tested chain graph, computes graph distances, and compares the literal resolving-set definition with the structural criterion and with the four-state recurrence.
 
-Replay command: `python3 verify_resolving_chain.py`
+# Independent mathematical audit
 
-Expected terminal line: `VERIFY_OK graph_types=298 subset_checks=191508 polynomial_checks=2932 max_order=10`
+## correctness
 
-The finite exhaustive replay covers class-size vectors with \(p\le4\), each twin-class size in \(\{1,2,3\}\), and total graph order at most \(10\). It is not a proof of the unrestricted theorem; the proof in `RESULT.md` is. Independent audit has not been performed.
+PASS
+
+Within each open-neighborhood twin class, omitting two vertices is impossible. For omitted \(A_i,A_j\) with \(i<j\), the only landmarks that distinguish them are precisely vertices in \(B_{i+1},\ldots,B_j\); the symmetric condition holds for two omitted \(B\)-vertices. Any nonempty landmark set distinguishes an omitted cross-side pair by distance parity. These facts prove the criterion. The recurrence's two state bits record exactly whether an earlier omitted vertex is still waiting for a selected opposite-side class in its distinguishing interval; singleton versus nonsingleton class transitions correctly determine whether an omission also leaves a landmark in that class. A fresh independent brute-force replay on five small class-size patterns matched the recurrence coefficient-for-coefficient. The actual frozen exhaustive verifier was read and checks all canonical vectors through order ten.
+
+## originality
+
+PASS
+
+The 2015 primary record advertises a linear-time algorithm for the minimum metric dimension, not an all-resolving-set enumerator. Its full text remained inaccessible after lawful open routes and one authorized institutional attempt, so that source remains a named access risk. The later 2021 full paper was visually inspected across its metric-dimension and threshold-dimension sections: it develops lower/upper bounds, special exact metric-dimension cases and an inverse problem, but no resolving polynomial or characterization of every resolving set. Fresh Resultary search returned the audited record as the exact all-set chain-graph result; related same-day records concern different invariants.
+
+## value
+
+PASS
+
+A full resolving polynomial is a natural strengthening of the known minimum problem: it characterizes every landmark set, counts metric bases, and exposes precisely how singleton twin classes create nonlocal interval obstructions. The four-state recurrence is a compact reusable enumerative description rather than a one-off computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
