@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-05.md",
+      "INDEPENDENT_AUDIT_2026-10-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-The verifier builds \(\mathbb F_{16}\) from \(X^4+X+1\), takes a primitive element \(\alpha\), and identifies
-\[
-\mathbb F_4=\{0,1,\omega,\omega^2\},\qquad \omega=\alpha^5.
-\]
-It reconstructs the \(4\)-cyclotomic defining set from Example 4.16, obtains complement exponents \(\{10,11,14\}\), derives
-\[
-h(x)=x^3+x+\omega,
-\]
-and divides \(x^{15}-1\) exactly to obtain the cyclic generator polynomial.
+# Independent mathematical audit
 
-It checks that the generator vanishes exactly on the twelve defining exponents, forms the \(3\times15\) generator with rows \(g,xg,x^2g\), confirms rank \(3\) and Euclidean self-orthogonality, and enumerates all \(64\) codewords.
+## correctness
 
-The verifier separately enumerates all \(21\) projective points and lines of \(\operatorname{PG}(2,4)\). It confirms that the generator columns are \(15\) distinct projective points and that the six missing points are exactly a line together with one point outside that line. This yields the line-intersection multiplicities \(0,3,4\) with counts \(1,5,15\), respectively.
+PASS
 
-Finally it enumerates all \(21\) two-dimensional subspaces of the \(3\)-dimensional message space and obtains support sizes \(14\) or \(15\), with minimum \(14\). Successful replay prints `VERIFY_OK`.
+The exact package proof and verifier agree. The complement of the defining exponent set is 10,11,14, giving parity-check polynomial x cubed plus x plus omega and a three-row cyclic generator. The verifier reconstructs GF(16), the F4 subfield, the cyclotomic cosets, generator polynomial, rank three, and Euclidean self-orthogonality, then exhausts all 64 codewords and obtains weights 0:1, 11:45, 12:15, 15:3. Independently, the normalized generator columns are 15 distinct points of PG(2,4); the six missing points are exactly one projective line plus one off-line point. The 21 projective lines meet the retained set in 0, 3, or 4 points with multiplicities 1, 5, 15, which proves the weight distribution. Exhaustion of all 21 two-dimensional message subspaces gives support sizes 14 or 15 and proves the second generalized Hamming weight 14; the other generalized weights are 11 and 15.
+
+## originality
+
+PASS
+
+The Li--Cao--Li primary article reports the exact Example 4.16 cyclic code as an optimal self-orthogonal quaternary [15,3,11] code, but the inspected article material does not state its full weight enumerator, generalized Hamming weights, or the line-plus-point projective complement. A targeted Resultary search for the exact parameters, projective description, enumerator, and generalized-weight tuple did not return a prior equivalent published finding. The projective interpretation is not mechanically determined by the parameter row alone: it reconstructs the actual column set and then explains all nonzero weights and the second generalized weight.
+
+## value
+
+PASS
+
+The source code is singled out as an optimal self-orthogonal cyclic code, so its exact projective geometry is a natural invariant rather than an arbitrary small-code computation. The line-plus-point complement simultaneously explains the complete weight distribution and the generalized Hamming weights, making the result structurally useful for recognizing or comparing equivalent representatives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

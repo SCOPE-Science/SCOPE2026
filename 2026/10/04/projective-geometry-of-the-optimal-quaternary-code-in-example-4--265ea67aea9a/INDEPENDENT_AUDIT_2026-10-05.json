@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T18:06:42.281463Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 4ec9066573c7949f083ce8eab483add63319e886",
+        "assigned artifacts/verify.py blob a80898bbebae59b4d7f4b115e8ba5d59e31dd9a5",
+        "Li--Cao--Li, DOI:10.3934/amc.2026041"
+      ],
+      "rationale": "The exact package proof and verifier agree. The complement of the defining exponent set is 10,11,14, giving parity-check polynomial x cubed plus x plus omega and a three-row cyclic generator. The verifier reconstructs GF(16), the F4 subfield, the cyclotomic cosets, generator polynomial, rank three, and Euclidean self-orthogonality, then exhausts all 64 codewords and obtains weights 0:1, 11:45, 12:15, 15:3. Independently, the normalized generator columns are 15 distinct points of PG(2,4); the six missing points are exactly one projective line plus one off-line point. The 21 projective lines meet the retained set in 0, 3, or 4 points with multiplicities 1, 5, 15, which proves the weight distribution. Exhaustion of all 21 two-dimensional message subspaces gives support sizes 14 or 15 and proves the second generalized Hamming weight 14; the other generalized weights are 11 and 15.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source constructs two classes of self-orthogonal cyclic codes and includes the audited code as one example.",
+          "General projective-code theory explains how line intersections encode codeword weights but does not identify this code's deleted six-point configuration."
+        ],
+        "reasoning": "Broader coding theory supplies the method but does not dominate the source-specific exact geometry.",
+        "searches": [
+          "Li--Cao--Li DOI:10.3934/amc.2026041",
+          "standard projective-system interpretation of dimension-three linear codes"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/amc.2026041",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing only length, dimension, minimum distance, self-orthogonality, and cyclic defining set does not state the projective complement or generalized-weight distribution.",
+          "The exact finite reconstruction is needed to identify the six deleted projective points and their incidence type."
+        ],
+        "reasoning": "No inspected stronger theorem was found whose direct corollary is the complete projective description and weight data.",
+        "searches": [
+          "statement comparison with Example 4.16 and Table III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source gives the code construction and [15,3,11] parameters.",
+          "No inspected source gives the equivalent line-plus-off-line-point projective column description or the same full enumerator and generalized-weight tuple."
+        ],
+        "reasoning": "Parameter equivalence, projective-system language, and weight-enumerator language were compared; the source parameter row is weaker than the audited projective classification.",
+        "searches": [
+          "Resultary: optimal quaternary [15,3,11] cyclic code Example 4.16 weight enumerator generalized Hamming weights projective geometry PG(2,4)",
+          "Li--Cao--Li DOI:10.3934/amc.2026041 Example 4.16/Table III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table III records the code parameters and optimality, not the enumerator or generalized Hamming weights.",
+          "No exact database/table hit for the same source-specific invariants was located."
+        ],
+        "reasoning": "The audited values are additional exact invariants beyond the published parameter table.",
+        "searches": [
+          "Li--Cao--Li Table III",
+          "Resultary exact semantic search for 1+45z11+15z12+3z15 and generalized weights 11,14,15"
+        ]
+      },
+      "rationale": "The Li--Cao--Li primary article reports the exact Example 4.16 cyclic code as an optimal self-orthogonal quaternary [15,3,11] code, but the inspected article material does not state its full weight enumerator, generalized Hamming weights, or the line-plus-point projective complement. A targeted Resultary search for the exact parameters, projective description, enumerator, and generalized-weight tuple did not return a prior equivalent published finding. The projective interpretation is not mechanically determined by the parameter row alone: it reconstructs the actual column set and then explains all nonzero weights and the second generalized weight.",
+      "residual_risks": [
+        "A classification of small projective quaternary codes may contain an equivalent representative without identifying it with Li--Cao--Li Example 4.16."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_PARAMETERS_NOT_PROJECTIVE_CLASSIFICATION",
+          "evidence": "The inspected source gives the code and its minimum-distance parameters but not the audited enumerator, generalized Hamming weights, or line-plus-point complement.",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2026041",
+          "material_read": "Accessible article material around Example 4.16 and Table III, including the defining-set construction, reported [15,3,11] parameters, self-orthogonality and optimality.",
+          "method": "Lawful publisher/open article inspection.",
+          "title": "The construction of two classes of self-orthogonal cyclic codes",
+          "trigger": "Exact primary source containing Example 4.16."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li--Cao--Li primary article"
+      ],
+      "rationale": "The source code is singled out as an optimal self-orthogonal cyclic code, so its exact projective geometry is a natural invariant rather than an arbitrary small-code computation. The line-plus-point complement simultaneously explains the complete weight distribution and the generalized Hamming weights, making the result structurally useful for recognizing or comparing equivalent representatives.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "DOI:10.3934/amc.2026041",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The result concerns this exact Example 4.16 code and does not classify all optimal quaternary [15,3,11] codes.",
+    "No full monomial automorphism group is determined."
+  ],
+  "residual_risks": [
+    "A classification of small projective quaternary codes may contain an equivalent representative without identifying it with Li--Cao--Li Example 4.16."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SOURCE_PARAMETERS_NOT_PROJECTIVE_CLASSIFICATION",
+      "evidence": "The inspected source gives the code and its minimum-distance parameters but not the audited enumerator, generalized Hamming weights, or line-plus-point complement.",
+      "identifier_or_url": "https://doi.org/10.3934/amc.2026041",
+      "material_read": "Accessible article material around Example 4.16 and Table III, including the defining-set construction, reported [15,3,11] parameters, self-orthogonality and optimality.",
+      "method": "Lawful publisher/open article inspection.",
+      "title": "The construction of two classes of self-orthogonal cyclic codes",
+      "trigger": "Exact primary source containing Example 4.16."
+    }
+  ]
+}
