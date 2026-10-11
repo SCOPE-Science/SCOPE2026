@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-06.md",
+      "INDEPENDENT_AUDIT_2026-10-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,84 +19,24 @@
 }
 ---
 
-The critical new estimate is
-\[
-\kappa_\alpha(\rho)
-=
-\int_\rho^1(1-u^2)^\alpha\,du
-\ge
-\frac{(1-\rho^2)^{\alpha+1}}{2(\alpha+1)}
-\]
-for
-\[
--1<\alpha<\infty,
-\qquad
-0\le\rho<1.
-\]
+# Independent mathematical audit
 
-Define
-\[
-H_\alpha(\rho)
-=
-\kappa_\alpha(\rho)
--
-\frac{(1-\rho^2)^{\alpha+1}}{2(\alpha+1)}.
-\]
-Then
-\[
-H_\alpha'(\rho)
-=
--(1-\rho)(1-\rho^2)^\alpha<0
-\]
-and
-\[
-\lim_{\rho\uparrow1}H_\alpha(\rho)=0.
-\]
-Therefore
-\[
-H_\alpha(\rho)>0.
-\]
+## correctness
 
-The coefficient is sharp because
-\[
-\lim_{\rho\uparrow1}
-\frac{\kappa_\alpha(\rho)}
-{(1-\rho^2)^{\alpha+1}}
-=
-\frac1{2(\alpha+1)}.
-\]
+PASS
 
-The source Fubini identity uses exactly this \(\kappa_\alpha\). Replacing its weaker lower estimate by the sharp one gives
-\[
-I
-\ge
-\frac1{2(\alpha+1)}
-\sum_{j=0}^1
-\int_{D_j}
-|f(z)|^p(1-|z|^2)^{\alpha+1}\,|dz|.
-\]
+For H equal to the radial kernel minus the proposed comparison term, direct differentiation gives H'(rho)=-(1-rho)(1-rho^2)^alpha<0 and H tends to zero at rho=1, proving the inequality for every alpha>-1; the endpoint ratio gives sharpness of this kernel constant. Substituting it into the source's nonnegative Fubini reduction cancels alpha+1 and leaves the same angular factor. The companion weight-independent Riesz estimate then gives the stated constant. The negative-alpha extension uses only integrability and the sharpened kernel step, not the source's alpha>=0 comparison.
 
-The source's unchanged upper estimate is
-\[
-I
-\le
-\frac{\pi}
-{(\alpha+1)(\sin(\theta/2)+\cos(\theta/2))}
-\int_{\mathbb D}(|h|+|g|)^p\,dA_\alpha.
-\]
-Combining them cancels \(\alpha+1\). The elementary inequality
-\[
-(|h|+|g|)^p
-\le
-2^{p/2}(|h|^2+|g|^2)^{p/2}
-\]
-and the verified weighted harmonic Riesz bound then yield
-\[
-\widetilde A_p(\theta)
-=
-\frac{2^{1+p/2}\pi}
-{(\sin(\theta/2)+\cos(\theta/2))
-(1-|\cos(\pi/p)|)^{p/2}}.
-\]
+## originality
 
-The proof is analytic. No finite experiment, numerical extrapolation, or unproved endpoint interpolation is used.
+PASS
+
+The source two-diameter theorem contains an explicit factor 2^alpha and is restricted at the critical kernel step to nonnegative alpha. The audited sharp kernel inequality replaces exactly that step, removes the factor uniformly and extends the same argument to the natural integrable range alpha>-1. The companion source supplies the needed weight-independent harmonic Riesz estimate. No inspected source or Resultary record states the resulting weight-uniform two-diameter bound.
+
+## value
+
+PASS
+
+The result removes an exponential-in-weight loss from a new weighted Frazer theorem and restores the full natural Bergman weight range. The improvement is quantitatively meaningful and applies uniformly across weights, while making no unsupported claim that the final operator constant is globally sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

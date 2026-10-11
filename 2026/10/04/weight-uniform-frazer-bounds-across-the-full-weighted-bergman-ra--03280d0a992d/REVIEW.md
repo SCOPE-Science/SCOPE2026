@@ -1,39 +1,21 @@
-# Review of Weight-uniform Frazer bounds across the full weighted Bergman range
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The only weight-sensitive loss in the inspected two-diameter proof is the lower estimate for
-\[
-\kappa_\alpha(\rho)
-=
-\int_\rho^1(1-u^2)^\alpha\,du.
-\]
-The replacement
-\[
-\kappa_\alpha(\rho)
-\ge
-\frac{(1-\rho^2)^{\alpha+1}}{2(\alpha+1)}
-\]
-is proved by differentiating the difference, whose derivative is exactly
-\[
--(1-\rho)(1-\rho^2)^\alpha.
-\]
-The endpoint ratio shows that the kernel constant is optimal.
+PASS
 
-Substituting this estimate into the source's Fubini identity cancels the factor \(\alpha+1\) against the normalized weighted-area conversion and removes the factor \(2^\alpha\). The remaining two source ingredients—the angular Frazer reduction and the weighted harmonic Riesz inequality—apply unchanged. The same proof remains integrable for every \(-1<\alpha<0\), so the extension to the full weighted Bergman range is valid.
+For H equal to the radial kernel minus the proposed comparison term, direct differentiation gives H'(rho)=-(1-rho)(1-rho^2)^alpha<0 and H tends to zero at rho=1, proving the inequality for every alpha>-1; the endpoint ratio gives sharpness of this kernel constant. Substituting it into the source's nonnegative Fubini reduction cancels alpha+1 and leaves the same angular factor. The companion weight-independent Riesz estimate then gives the stated constant. The negative-alpha extension uses only integrability and the sharpened kernel step, not the source's alpha>=0 comparison.
 
-## Originality
+## originality
 
-PASS. The full 2026 primary source was inspected at the theorem and proof level. Its stated two-diameter result assumes nonnegative weight parameter and its proof explicitly uses the weaker kernel lower bound with \(2^{\alpha+1}\) in the denominator. The companion weighted Riesz–Fejér source covers the full weight range but only the one-diameter/Riesz setting.
+PASS
 
-Published-finding database searches used the exact source identifier together with weight-uniform Frazer, sharp radial-kernel, full \(-1<\alpha\) range, and removal-of-\(2^\alpha\) formulations. No covering result was found. General web searches likewise returned the 2026 source and its summaries rather than a sharper follow-up.
+The source two-diameter theorem contains an explicit factor 2^alpha and is restricted at the critical kernel step to nonnegative alpha. The audited sharp kernel inequality replaces exactly that step, removes the factor uniformly and extends the same argument to the natural integrable range alpha>-1. The companion source supplies the needed weight-independent harmonic Riesz estimate. No inspected source or Resultary record states the resulting weight-uniform two-diameter bound.
 
-The main residual risk is that the elementary incomplete-beta kernel inequality may be known independently. That would not by itself cover the accepted theorem unless it had already been inserted into the weighted harmonic Frazer reduction.
+## value
 
-## Value
+PASS
 
-PASS. The source's explicit constant deteriorates exponentially as the weight parameter grows and leaves out the negative part of the natural Bergman range. A sharp kernel estimate eliminates both artifacts at once: the new two-diameter constant is weight-uniform and the theorem now holds throughout \(-1<\alpha<\infty\).
+The result removes an exponential-in-weight loss from a new weighted Frazer theorem and restores the full natural Bergman weight range. The improvement is quantitatively meaningful and applies uniformly across weights, while making no unsupported claim that the final operator constant is globally sharp.
 
-This is a structural improvement to the paper's principal Frazer extension, not a cosmetic numerical gain. It isolates the exact radial mechanism responsible for the weight dependence and leaves only the genuinely harmonic and angular constants.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
