@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T06:03:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source's exact error formula is defined on the entire interval \\([0,1]\\). Writing the complementary square-root sum as \\(F\\), direct differentiation gives \\(F''(p)<0\\) everywhere and \\(F'(p)=0\\) exactly when \\(25(4-3p)=9(4+5p)\\), hence \\(p=8/15\\). Endpoint derivative signs establish unique global optimality, and fresh exact/numerical substitution reproduced the minimum and both benchmark gaps. The frozen checker was read and independently verifies the same stationary equation and radical simplifications.",
+      "risk": "The claim optimizes only the already-published one-parameter protocol family, not unrestricted two-way LOCC.",
+      "sources": [
+        "Chitambar-Hsieh, arXiv:1311.1536 / DOI:10.1063/1.4902027, equations (24)-(29) and Figure 1",
+        "Chitambar-Duan-Hsieh, arXiv:1308.1737 / DOI:10.1109/TIT.2013.2295356",
+        "frozen RESULT.md and verify_binary_two_way_optimum.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The direct paper supplies the complete parameterized protocol error, not merely sample points.",
+          "The earlier paper supplies the separable benchmark cited by the source."
+        ],
+        "reasoning": "The direct source is broader than the submitted calibration because it specifies the entire error curve and protocol family.",
+        "searches": [
+          "Chitambar-Hsieh full protocol section and Figure 1",
+          "Chitambar-Duan-Hsieh two-qubit discrimination benchmark paper"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1311.1536",
+        "arXiv:1308.1737",
+        "Resultary scientific-record corpus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source states the exact error for every allowed \\(p\\).",
+          "Strict concavity and one derivative equation determine the unique optimum without any new quantum-information argument."
+        ],
+        "reasoning": "The prior statement logically determines the submitted constants by routine calculus, so the claim is covered as a corollary.",
+        "searches": [
+          "arXiv:1311.1536 equation (29) and discussion of all \\(p\\in[0,1]\\)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (29) is exactly the scalar function optimized by the submitted claim over the same full domain.",
+          "No separate exact-number hit was found, but the function itself is the stronger prior object."
+        ],
+        "reasoning": "The final theorem is mathematically equivalent to minimizing an already-published elementary scalar function.",
+        "searches": [
+          "Chitambar-Hsieh arXiv:1311.1536 equations (24)-(29)",
+          "Resultary: binary two-way LOCC hierarchy exact optimizer 8/15 sqrt15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact optimizer table was located."
+        ],
+        "reasoning": "This negative search cannot rescue originality because direct implication from the published analytic curve is decisive.",
+        "searches": [
+          "Resultary and exact-string searches for \\(8/15\\), \\(3/8-\\sqrt{15}/15\\), and the two square-root terms"
+        ]
+      },
+      "rationale": "The primary source already publishes the entire analytic objective \\(E(p)\\) on \\([0,1]\\), together with its one-way endpoints and strict interior improvement. The submitted optimizer and exact minimum are a direct one-variable calculus consequence of that stronger published family. Under the audit rule that corollaries are covered even when the exact number is not printed, absence of a verbatim \\(8/15\\) in the literature does not establish originality.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_DIRECT_IMPLICATION",
+          "evidence": "Equation (29) publishes exactly \\(E(p)\\) for all \\(p\\in[0,1]\\); the source also states strict interior improvement.",
+          "identifier_or_url": "arXiv:1311.1536; DOI:10.1063/1.4902027",
+          "material_read": "Open full-text section deriving the two-way protocol, branch errors, equations (24)-(29), Figure 1 and the one-way comparison.",
+          "method": "Lawful open arXiv full-text inspection.",
+          "title": "Asymptotic State Discrimination and a Strict Hierarchy in Distinguishability Norms",
+          "trigger": "Direct source of the ensemble, protocol and exact one-parameter error."
+        },
+        {
+          "assessment": "BENCHMARK_CONTEXT",
+          "evidence": "It supplies broader LOCC/separable discrimination context and does not alter the decisive same-source coverage.",
+          "identifier_or_url": "arXiv:1308.1737; DOI:10.1109/TIT.2013.2295356",
+          "material_read": "Primary abstract and bibliographic result description.",
+          "method": "Lawful open primary-source inspection.",
+          "title": "When Do Local Operations and Classical Communication Suffice for Two-Qubit State Discrimination?",
+          "trigger": "Source lineage for the separable benchmark."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The protocol parameter is operationally meaningful, but the submitted mathematics is a textbook one-variable differentiation of a displayed source formula followed by radical simplification. Under the common value bar this is useful calibration, not a new structural lemma, boundary theorem, classification, or independently nontrivial exact invariant.",
+      "risk": "The exact number may be useful for implementation or exposition, but that utility does not overcome the routine-corollary nature.",
+      "sources": [
+        "arXiv:1311.1536"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the Chitambar-Hsieh one-parameter two-way LOCC witness with \\(E(p)=[6-\\sqrt{4-3p}-\\sqrt{4+5p}]/16\\), the unique minimizer is \\(p=8/15\\), with minimum \\(3/8-\\sqrt{15}/15\\), one-way advantage \\((4\\sqrt{15}-15)/60\\), and the stated positive gap above the separable optimum.",
+  "limitations": [
+    "Scientifically correct but rejected because the exact optimizer is a routine corollary of the source's complete analytic error curve.",
+    "No verdict is made on the globally optimal unrestricted two-way LOCC error."
+  ],
+  "schema_version": 1
+}
