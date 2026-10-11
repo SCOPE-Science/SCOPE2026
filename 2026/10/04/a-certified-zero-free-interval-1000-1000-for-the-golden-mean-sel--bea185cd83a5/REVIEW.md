@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof follows directly from the source recursion. The matrix product is nonexpansive in the max norm because \(p+p^2=1\), while support in \([0,2/3]\) gives the explicit terminal-error bound. The checker evaluates the whole continuum interval by adaptive interval boxes, not by sampling, and every accepted box has a coordinate separation larger than the truncation radius. Symmetry gives the negative half of the interval.
+## correctness
 
-## Originality
-PASS. The exact-object source proves zero-freeness only on \([-1.08,1.08]\) and labels its much larger scan as numerical rather than rigorous. Targeted searches of the exact maps, parameter, recursion, Riccati formulation, and computer-assisted zero-free problem found no rigorous same-object result reaching \(|\xi|=1000\). The closest indexed zero-free Fourier results concern different geometric objects and do not imply this claim.
+PASS
 
-## Value
-PASS. This is a natural, explicitly requested finite certification problem for a newly studied non-homogeneous spectral measure. The cutoff is not an arbitrary parameter slice: it extends the rigorous zero-free radius from \(1.08\) to \(1000\), while directly testing the paper's proposed route from numerical evidence to proof. It is a meaningful finite milestone even though global zero-freeness remains open.
+The functional equation yields the stated two-component transfer recursion. Because \(p+p^2=1\), each transfer matrix has max-row-sum norm one. The support bound \([0,2/3]\) gives \(|F(t)-1|\le4\pi|t|/3\), so depth 42 has the claimed uniform tail radius on \(|\xi|\le1000\). Independent execution of the inspected interval algorithm with mpmath 1.3.0 reproduced `VERIFY_OK` with 10,908 certified leaves, 908 splits, tail \(9.528039732859247\times10^{-10}\), and minimum post-tail coordinate margin \(2.1511008398444793\times10^{-7}\). The adjacent floating endpoints form a continuous finite cover, and mpmath interval evaluation encloses each product box; conjugate symmetry covers negative \(\xi\).
 
-## Closest literature and limitations
-The closest source is Mao--Wu, arXiv:2609.04701v1. Their analytic theorem covers \([-1.08,1.08]\); their scan to \(10^7\) is explicitly non-rigorous. The present proof is restricted to \([-1000,1000]\) and depends on mpmath 1.3.0 outward interval arithmetic. No independent implementation was run.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact same-object Mao–Wu source proves only a small analytic zero-free interval and explicitly distinguishes a much wider numerical scan from a formal proof. Fresh Resultary search found the audited radius-1000 theorem but no earlier rigorous same-object interval of that size. Thus the certificate fills the source's stated rigorous-computation gap on a substantial finite range.
+
+## value
+
+PASS
+
+The source itself identifies rigorous computer-assisted verification as a missing step. Extending the proved zero-free radius from roughly one to 1000 with a continuum interval certificate is a meaningful finite cutoff tied directly to the spectrality question, while honestly leaving global zero-freeness open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

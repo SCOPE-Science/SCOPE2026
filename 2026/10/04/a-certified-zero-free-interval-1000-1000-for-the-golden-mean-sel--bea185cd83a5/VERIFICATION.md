@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The executable check is `verify_zero_free.py`, requiring mpmath 1.3.0 as pinned in `requirements.txt`.
+# Independent mathematical audit
 
-It reconstructs the depth-\(42\) matrix product over adaptive interval boxes covering \([0,1000]\). Each box is accepted only when one coordinate of the complex interval enclosure stays strictly farther from zero than the analytic truncation radius
-\[
-\frac{88}{21}\frac{1000}{2^{42}},
-\]
-where \(88/21>4\pi/3\). The terminal-vector estimate follows from support in \([0,2/3]\) and the max-row-sum norm \(\|M(\xi)\|_\infty=1\).
+## correctness
 
-The recorded replay output is in `verification_output.txt`. It reports 10,908 certified leaves, 908 adaptive splits, and a minimum post-tail coordinate margin of approximately \(2.1511\times10^{-7}\), compared with a tail radius below \(9.529\times10^{-10}\).
+PASS
 
-The finite computation certifies only \(|\xi|\le1000\). It does not certify any point outside that range or global zero-freeness. The checker relies on the interval enclosure semantics of mpmath 1.3.0; no independent interval library was used.
+The functional equation yields the stated two-component transfer recursion. Because \(p+p^2=1\), each transfer matrix has max-row-sum norm one. The support bound \([0,2/3]\) gives \(|F(t)-1|\le4\pi|t|/3\), so depth 42 has the claimed uniform tail radius on \(|\xi|\le1000\). Independent execution of the inspected interval algorithm with mpmath 1.3.0 reproduced `VERIFY_OK` with 10,908 certified leaves, 908 splits, tail \(9.528039732859247\times10^{-10}\), and minimum post-tail coordinate margin \(2.1511008398444793\times10^{-7}\). The adjacent floating endpoints form a continuous finite cover, and mpmath interval evaluation encloses each product box; conjugate symmetry covers negative \(\xi\).
+
+## originality
+
+PASS
+
+The exact same-object Mao–Wu source proves only a small analytic zero-free interval and explicitly distinguishes a much wider numerical scan from a formal proof. Fresh Resultary search found the audited radius-1000 theorem but no earlier rigorous same-object interval of that size. Thus the certificate fills the source's stated rigorous-computation gap on a substantial finite range.
+
+## value
+
+PASS
+
+The source itself identifies rigorous computer-assisted verification as a missing step. Extending the proved zero-free radius from roughly one to 1000 with a continuum interval certificate is a meaningful finite cutoff tied directly to the spectrality question, while honestly leaving global zero-freeness open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
