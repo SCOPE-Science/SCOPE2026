@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The source formula gives \(R_e\le\tau\), so every season with \(\tau<1\) has zero infections. In a zero-infection block the population vector shifts deterministically and forgets its initial value after \(r-1\) seasons; the immunity recursion over the same block depends only on new drift marks. This proves a common \(r-1\)-step component of mass \(\beta^{r-1}\) for every initial state. The total-variation contraction and stationary-law conclusions then follow. The included exact-rational checker is a consistency test only; the arbitrary-\(r\) proof is symbolic.
+## correctness
 
-## Originality
-PASS. The full motivating article was inspected. Proposition 2.1 proves qualitative stationary convergence under a continuous-density hypothesis and a positive atom at complete drift, and the following remark explicitly says that removing the atom may be possible while treating only \(r=2\) separately. Exact-title, identifier, regeneration, Doeblin, uniform-ergodicity, geometric-mixing, and atom-removal searches found no arbitrary-\(r\) theorem for this model. Published comparison-database searches likewise found no covering result. Generic Doeblin theory supplies the standard implication from a global minorization to uniform ergodicity but not the model-specific \(r-1\)-season coalescence or the constant \(\beta^{r-1}\).
+PASS
 
-## Value
-PASS. This closes a stated structural gap in the source for all finite immunity-memory lengths and strengthens qualitative convergence to an explicit initialization-uniform total-variation rate. The rate directly quantifies loss of dependence on the unknown incoming immunity state, which is relevant to stationary simulation burn-in and long-run epidemic prediction.
+Since every immunity factor lies in \([0,1]\), the effective reproduction number is at most \(\tau\); therefore \(\tau<1\) forces zero outbreak. Repeating the exact no-outbreak update \(r-1\) times sends every population vector to \((0,\ldots,0,1)\) and makes each retained immunity coordinate a product of only within-block drift factors. Conditional on all \(r-1\) transmissibilities being below one, the terminal law is thus independent of the incoming state. The event has probability \(\beta^{r-1}\), giving the claimed Doeblin decomposition and contraction. The edge case \(\beta=1\) is also valid because the \((r-1)\)-step kernel is then state-independent. The exact verifier independently confirms the finite-memory coalescence for \(2\le r\le12\); the universal proof is algebraic.
 
-## Closest literature and limitations
-The closest primary source is Britton–Pugliese, DOI 10.1007/s00285-025-02308-8 / arXiv:2505.17933. Standard global-minorization theory is background rather than covering prior work; DOI 10.1002/wics.70002 was inspected for that implication. The bound here is sufficient, not claimed optimal, and the theorem retains the source's iid assumption across seasons. It does not address models with serially dependent seasonal marks or statistical estimation of \(\beta\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The source Proposition 2.1 assumes a continuous positive density plus positive mass at complete drift and explicitly says that removing the atom may be possible, with only the one-season-memory case singled out. The audited proof replaces that deterministic-reset event by a random but state-independent no-outbreak block and obtains a quantitative global minorization. Fresh Resultary search returned no same-model covering theorem.
+
+## value
+
+PASS
+
+The source itself flags the complete-drift atom as potentially removable. Eliminating it for every finite immunity memory while obtaining an explicit uniform mixing rate strengthens the model's basic ergodic theorem under a natural epidemiological condition and is useful for stationary simulation and sensitivity analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

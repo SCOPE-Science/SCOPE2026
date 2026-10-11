@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-05",
+  "audited_at_utc": "2026-10-05T14:52:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Britton and Pugliese, A multi-season epidemic model with random genetic drift and transmissibility, Journal of Mathematical Biology 91 (2025), DOI 10.1007/s00285-025-02308-8; complete open publisher text inspected around the model, Proposition 2.1, its proof and the atom-removal remark.",
+        "Resultary semantic search for the same model under Doeblin, regeneration, atom-removal and uniform-ergodicity aliases.",
+        "Assigned RESULT.md and exact rational verifier at source tree a3d4411dcdc4fd4eab0683c15781529dd6fc65dd.",
+        "Standard Doeblin minorization/contraction theorem used only after the model-specific common block is proved."
+      ],
+      "rationale": "Since every immunity factor lies in \\([0,1]\\), the effective reproduction number is at most \\(\\tau\\); therefore \\(\\tau<1\\) forces zero outbreak. Repeating the exact no-outbreak update \\(r-1\\) times sends every population vector to \\((0,\\ldots,0,1)\\) and makes each retained immunity coordinate a product of only within-block drift factors. Conditional on all \\(r-1\\) transmissibilities being below one, the terminal law is thus independent of the incoming state. The event has probability \\(\\beta^{r-1}\\), giving the claimed Doeblin decomposition and contraction. The edge case \\(\\beta=1\\) is also valid because the \\((r-1)\\)-step kernel is then state-independent. The exact verifier independently confirms the finite-memory coalescence for \\(2\\le r\\le12\\); the universal proof is algebraic.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doeblin theory supplies only the abstract consequence once a minorization is known.",
+          "The epidemic paper supplies the full model but obtains recurrence/convergence through a stronger complete-drift reset."
+        ],
+        "reasoning": "Neither broader source identifies the state-independent random terminal law after exactly \\(r-1\\) no-outbreak seasons.",
+        "searches": [
+          "Standard Doeblin uniform-ergodicity theorem",
+          "Britton–Pugliese general multi-season model"
+        ]
+      },
+      "checked_sources": [
+        "Britton and Pugliese, A multi-season epidemic model with random genetic drift and transmissibility, Journal of Mathematical Biology 91 (2025), DOI 10.1007/s00285-025-02308-8; complete open publisher text inspected around the model, Proposition 2.1, its proof and the atom-removal remark.",
+        "Resultary semantic search for the same model under Doeblin, regeneration, atom-removal and uniform-ergodicity aliases.",
+        "Assigned RESULT.md and exact rational verifier at source tree a3d4411dcdc4fd4eab0683c15781529dd6fc65dd.",
+        "Standard Doeblin minorization/contraction theorem used only after the model-specific common block is proved."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published proof uses repeated seasons with \\(\\delta=1\\) and \\(\\tau<1\\).",
+          "The paper explicitly characterizes atom removal for general \\(r\\) as a possible proof-strategy improvement, not as a proved result."
+        ],
+        "reasoning": "Convergence under stronger reset assumptions does not imply convergence or a rate under the weaker sole condition \\(\\mathbb P(\\tau<1)>0\\); the finite-memory coalescence argument is the added implication.",
+        "searches": [
+          "Britton–Pugliese Proposition 2.1",
+          "Britton–Pugliese remark after Proposition 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source proves convergence with a complete-drift atom but not arbitrary-r atom removal or an explicit minorization rate.",
+          "No Resultary finding states the same regeneration law for this model."
+        ],
+        "reasoning": "Global minorization, common regeneration, coupling and uniform geometric ergodicity were treated as equivalent formulations; none is stated for arbitrary finite immunity memory under only positive low-transmissibility mass.",
+        "searches": [
+          "Resultary query: multi-season epidemic random drift transmissibility no-outbreak block atom assumption Doeblin uniform ergodicity",
+          "Britton–Pugliese DOI 10.1007/s00285-025-02308-8, Proposition 2.1 and following remark"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact match was returned; the closest hits concern unrelated epidemic or regeneration models."
+        ],
+        "reasoning": "This is a structural Markov-chain theorem rather than a numerical table; the exact check targeted the same model and conclusion.",
+        "searches": [
+          "Resultary exact-title/model and regeneration searches"
+        ]
+      },
+      "rationale": "The source Proposition 2.1 assumes a continuous positive density plus positive mass at complete drift and explicitly says that removing the atom may be possible, with only the one-season-memory case singled out. The audited proof replaces that deterministic-reset event by a random but state-independent no-outbreak block and obtains a quantitative global minorization. Fresh Resultary search returned no same-model covering theorem.",
+      "residual_risks": [
+        "The stated Doeblin rate is sufficient and not claimed optimal.",
+        "An equivalent coupling observation could exist in unindexed epidemic-model notes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER ASSUMPTIONS; GENERAL ATOM REMOVAL NOT PROVED",
+          "evidence": "Proposition 2.1 assumes continuous positive support plus an atom at \\(\\delta=1\\); the subsequent remark says the atom may possibly be removable and notes \\(r=2\\) separately.",
+          "identifier_or_url": "DOI:10.1007/s00285-025-02308-8; arXiv:2505.17933",
+          "material_read": "Complete open publisher text around the iid seasonal marks, immunity/population transition, Proposition 2.1, its recurrence proof and the following atom-removal remark.",
+          "method": "Open publisher full-text inspection.",
+          "title": "A multi-season epidemic model with random genetic drift and transmissibility",
+          "trigger": "Exact defining source and explicit atom assumption."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Britton and Pugliese, A multi-season epidemic model with random genetic drift and transmissibility, Journal of Mathematical Biology 91 (2025), DOI 10.1007/s00285-025-02308-8; complete open publisher text inspected around the model, Proposition 2.1, its proof and the atom-removal remark.",
+        "Resultary semantic search for the same model under Doeblin, regeneration, atom-removal and uniform-ergodicity aliases.",
+        "Assigned RESULT.md and exact rational verifier at source tree a3d4411dcdc4fd4eab0683c15781529dd6fc65dd.",
+        "Standard Doeblin minorization/contraction theorem used only after the model-specific common block is proved."
+      ],
+      "rationale": "The source itself flags the complete-drift atom as potentially removable. Eliminating it for every finite immunity memory while obtaining an explicit uniform mixing rate strengthens the model's basic ergodic theorem under a natural epidemiological condition and is useful for stationary simulation and sensitivity analysis.",
+      "residual_risks": [
+        "The stated Doeblin rate is sufficient and not claimed optimal.",
+        "An equivalent coupling observation could exist in unindexed epidemic-model notes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the Britton–Pugliese multi-season epidemic chain with \\(r\\ge2\\), iid seasonal pairs and \\(\\beta=\\mathbb P(\\tau<1)>0\\), an \\((r-1)\\)-season no-outbreak block gives a state-independent minorization of mass \\(\\beta^{r-1}\\), hence a unique stationary law and the stated uniform geometric total-variation contraction without any complete-drift atom or density assumption.",
+  "limitations": [
+    "Seasonal pairs remain iid across seasons; within-season drift/transmissibility dependence is allowed.",
+    "The rate is a guaranteed block rate, not an optimal mixing constant.",
+    "The stated Doeblin rate is sufficient and not claimed optimal.",
+    "An equivalent coupling observation could exist in unindexed epidemic-model notes."
+  ],
+  "schema_version": 1
+}
