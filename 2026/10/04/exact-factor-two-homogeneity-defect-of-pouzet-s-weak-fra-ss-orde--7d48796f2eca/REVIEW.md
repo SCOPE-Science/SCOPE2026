@@ -1,15 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The automorphism group is the order-automorphism group because \(<\) is definable from \(R\), so complete tuple types are weak orders. For a fixed equality partition, the atomic \(R\)-diagram records the minimum of each three-block subset. The counts \(\binom{k-i}{2}\) recover every block except the relative order of the top two, and swapping those two changes no atomic relation. This proves the exact factor-two quotient. The arity claim follows because the definable binary order homogenizes the structure, while transitivity makes every parameter-free unary definable relation trivial.
+## correctness
 
-## Originality
-PASS. The 2019 source already gives the top-two transposition as the obstruction to quantifier-free isolation, so that mechanism is not claimed as new. Searches for exact tuple profiles, factor-two quantifier-free splitting, ordered-Bell formulas, and minimal homogenizing arity found no covering statement. The contribution is the exact all-arity quantitative sharpening and arity-minimality consequence. Residual folklore risk remains because the derivation is short once the example is known.
+PASS
 
-## Value
-PASS. The result turns a qualitative weak-homogeneity example into a complete numerical invariant in every tuple arity and pinpoints the least relational arity required to repair homogeneity. The uniform two-to-one defect is a structural statement rather than a finite computation or parameter variation.
+Because the order is definable and every order automorphism preserves R, Aut(M)=Aut(Q,<), so complete tuple orbits are weak orders and number F_n. For k distinct value blocks, atomic R records which block is least in each triple; the counts binom(k-i,2) distinguish all blocks except the top two, whose swap changes no atomic relation. Thus every k>=2 qf class contains exactly two complete orders, while the constant class is singleton, giving (F_n+1)/2. The order relation gives a binary homogeneous expansion; transitivity makes every parameter-free unary relation trivial, so unary additions cannot homogenize the nonhomogeneous reduct. The verifier exhausts all weak orders through n=6 as a consistency check.
 
-## Closest literature and limitations
-The closest source is Krawczyk–Kruckman–Kubiś–Panagiotopoulos, arXiv:1907.09577, which defines the structure, proves weak homogeneity/non-homogeneity, identifies the top-two swap, and observes that adding \(<\) homogenizes it. It does not state the exact profile formulas or minimal homogenizing arity. Ahlman's work supplies the general homogenizability framework.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Krawczyk--Kruckman--Kubiś--Panagiotopoulos introduce the exact Pouzet structure and explain the top-two ambiguity causing failure of homogeneity, while also noting homogenization by the definable order. No inspected source or Resultary hit states the exact all-arity complete/qf type counts, uniform two-to-one splitting for every nonconstant equality pattern, or the minimal added-relation arity.
+
+## value
+
+PASS
+
+The exact orbit/qf-type profile quantifies the homogeneity defect uniformly at every arity and identifies the least definable homogenizing arity for a canonical weak-Fraisse example. This is a natural structural refinement of the qualitative obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
