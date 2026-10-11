@@ -1,19 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces nonobtuseness to exact signs in an inverse Gram matrix, with the row-sum conditions accounting for the facet opposite the chosen origin. Coordinate reflections of the cube justify the origin normalization. The finite census then covers every binary simplex in dimensions \(3,4,5\), uses exact rational arithmetic, and finds no globally obtuse simplex with all tetrahedral faces nonobtuse. The displayed \(6\)-simplex is independently pinned down by an exact Gram matrix of determinant \(64\), its exact inverse, and exact checks of all \(35\) tetrahedral faces.
+## correctness
 
-The unrestricted counts reconstructed from the origin-fixed census are \(34,480,9984\), agreeing with the published global nonobtuse counts in arXiv:1209.3875. This agreement is a cross-check rather than a premise of the proof.
+PASS
 
-## Originality
-**PASS.** The closest source, arXiv:1512.02940, asks generally what nonobtuse lower-dimensional faces force, formulates Conjecture 3.25, and specifically points to \(0/1\)-simplices as having restricted angle behavior. Its global theorem for tetrahedral data assumes the stronger condition of sub-orthocentricity. arXiv:1512.03483 characterizes simplices already known to be globally nonobtuse, and arXiv:1512.03044 treats acute-simplex enumeration. arXiv:1209.3875 publishes global nonobtuse counts but not the local tetrahedral-face class. No inspected statement subsumes the dimension-five cutoff or the explicit dimension-six separation.
+For a simplex with Gram matrix \(G\), nonobtuseness is equivalent to \(G^{-1}\) having nonpositive off-diagonal entries and nonnegative row sums. Cube symmetries reduce the finite check to origin-containing binary simplices. Fresh exhaustive exact-rational enumeration found local-condition counts \(17,150,1872\) in dimensions \(3,4,5\), respectively, with zero globally obtuse cases; orbit double counting gives unrestricted counts \(34,480,9984\). For the displayed dimension-six witness, every one of its \(35\) tetrahedral faces is nonobtuse, while the full inverse Gram matrix has six positive off-diagonal entries and negative row sums in rows \(2,5,6\), so the simplex is not globally nonobtuse. Thus dimension six is the first failure.
 
-Residual originality risk remains because the 2012 paper omits details of its exhaustive global census and because unindexed computational data could contain the same observation.
+## originality
 
-## Value
-**PASS.** The tetrahedral-face condition is a natural \(k=3\) instance of the published local-face program, and binary simplices are explicitly motivated there. The result identifies the exact first dimension where this local condition ceases to characterize global nonobtuseness within that class and supplies a compact exact witness. This is a structural finite cutoff, not a relabeling or arbitrary numerical slice.
+PASS
 
-## Closest literature and limitations
-The result does not prove Brandts--Cihangir Conjecture 3.25. The dimension-six witness has nine obtuse facet pairs, still within the conjectured \(10\)-pair bound for \(n=6\) and \(k=3\). It also does not classify all dimension-six witnesses or address non-binary simplices.
+Best-of-knowledge originality passes for the dimension-five binary local-to-global cutoff. The main inverse-M-matrix paper asks how lower-dimensional nonobtuse faces constrain a simplex and proves global nonobtuseness from the stronger sub-orthocentric tetrahedral condition; its Conjecture 3.25 gives incidence bounds, not this binary converse. The older binary census counts already-global nonobtuse simplices. Resultary returned the assigned cutoff as the only exact hit.
 
-Same-model review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result identifies the exact first dimension where a natural local nonobtuseness condition ceases to control global geometry inside the well-studied class of binary simplices. The exhaustive cutoff and explicit separating witness answer a structural local-to-global question rather than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

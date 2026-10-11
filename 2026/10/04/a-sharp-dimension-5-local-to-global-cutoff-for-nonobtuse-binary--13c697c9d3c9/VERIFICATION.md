@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-04.md",
+      "INDEPENDENT_AUDIT_2026-10-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` in the same directory as this file. The verifier uses only exact integer and rational arithmetic.
+# Independent mathematical audit
 
-It checks the complete origin-normalized search spaces for dimensions \(3\), \(4\), and \(5\). For each candidate it tests every tetrahedral face by the inverse-Gram sign criterion, discards affine degeneracies exactly, and then tests the full simplex. The expected local counts are \(17\), \(150\), and \(1872\), with zero global failures. The corresponding unrestricted counts are \(34\), \(480\), and \(9984\).
+## correctness
 
-For the dimension-six witness it checks the exact Gram matrix, determinant \(64\), exact inverse, failure of the global nonobtuse criterion, and nonobtuseness of all \(35\) tetrahedral faces. It also records the six positive off-diagonal inverse-Gram positions and the three negative row sums that witness obtuse incidences.
+PASS
 
-Successful replay ends with `VERIFY_OK`.
+For a simplex with Gram matrix \(G\), nonobtuseness is equivalent to \(G^{-1}\) having nonpositive off-diagonal entries and nonnegative row sums. Cube symmetries reduce the finite check to origin-containing binary simplices. Fresh exhaustive exact-rational enumeration found local-condition counts \(17,150,1872\) in dimensions \(3,4,5\), respectively, with zero globally obtuse cases; orbit double counting gives unrestricted counts \(34,480,9984\). For the displayed dimension-six witness, every one of its \(35\) tetrahedral faces is nonobtuse, while the full inverse Gram matrix has six positive off-diagonal entries and negative row sums in rows \(2,5,6\), so the simplex is not globally nonobtuse. Thus dimension six is the first failure.
 
-## Limits
-The computation is exhaustive only for binary simplices in dimensions \(3\) through \(5\). Dimension \(6\) is not exhaustively classified; only the displayed counterexample is certified. The computation does not establish any claim in dimensions above \(6\).
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for the dimension-five binary local-to-global cutoff. The main inverse-M-matrix paper asks how lower-dimensional nonobtuse faces constrain a simplex and proves global nonobtuseness from the stronger sub-orthocentric tetrahedral condition; its Conjecture 3.25 gives incidence bounds, not this binary converse. The older binary census counts already-global nonobtuse simplices. Resultary returned the assigned cutoff as the only exact hit.
+
+## value
+
+PASS
+
+The result identifies the exact first dimension where a natural local nonobtuseness condition ceases to control global geometry inside the well-studied class of binary simplices. The exhaustive cutoff and explicit separating witness answer a structural local-to-global question rather than an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
